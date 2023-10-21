@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 更新回复 请求体
-/// <para>更新云文档中的某条回复。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=drive&version=v1&resource=file.comment.reply&method=update)</para>
+/// <para>更新云文档中的某条回复。</para>
 /// <para>接口ID：6955017385137733633</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/CommentAPI/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-comment-reply%2fupdate</para>

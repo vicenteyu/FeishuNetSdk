@@ -3,7 +3,7 @@ namespace FeishuNetSdk.Calendar.Spec;
 /// <summary>
 /// 获取访问控制列表 响应体
 /// <para>该接口用于以当前身份（应用 / 用户）获取日历的控制权限列表。</para>
-/// <para>身份由 Header Authorization 的 Token 类型决定。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=calendar&version=v4&resource=calendar.acl&method=list)</para>
+/// <para>身份由 Header Authorization 的 Token 类型决定。</para>
 /// <para>接口ID：6953067803433009153</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/calendar-acl/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2fcalendar-acl%2flist</para>

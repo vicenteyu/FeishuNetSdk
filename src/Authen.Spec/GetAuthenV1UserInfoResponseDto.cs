@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Authen.Spec;
 /// <summary>
 /// 获取登录用户信息 响应体
-/// <para>通过 `user_access_token` 获取登录用户的信息。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=authen&version=v1&resource=user_info&method=get)</para>
+/// <para>通过 `user_access_token` 获取登录用户的信息。</para>
 /// <para>接口ID：7180265937329537028</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/authentication-management/login-state-management/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fauthen-v1%2fuser_info%2fget</para>

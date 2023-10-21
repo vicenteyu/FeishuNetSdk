@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Auth.Spec;
 /// <summary>
 /// 重新获取 app_ticket 请求体
-/// <para>飞书开放平台每隔 1 小时会给应用推送一次最新的 `app_ticket`，应用也可以主动调用此接口，触发飞书开放平台进行即时推送。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=auth&version=v3&resource=app_ticket&method=resend)</para>
+/// <para>飞书开放平台每隔 1 小时会给应用推送一次最新的 `app_ticket`，应用也可以主动调用此接口，触发飞书开放平台进行即时推送。</para>
 /// <para>接口ID：6995779366223757316</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/authentication-management/access-token/app_ticket_resend</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fukDNz4SO0MjL5QzM%2fauth-v3%2fauth%2fapp_ticket_resend</para>

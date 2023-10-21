@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar.Spec;
 /// <summary>
 /// 查询 Exchange 账户的绑定状态 响应体
-/// <para>本接口获取Exchange账户的绑定状态，包括exchange日历是否同步完成。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=calendar&version=v4&resource=exchange_binding&method=get)</para>
+/// <para>本接口获取Exchange账户的绑定状态，包括exchange日历是否同步完成。</para>
 /// <para>接口ID：6963176044560744450</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/exchange_binding/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2fexchange_binding%2fget</para>

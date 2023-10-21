@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Search.Spec;
 /// <summary>
 /// 查询指定数据项 响应体
-/// <para>获取单个数据记录。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=search&version=v2&resource=data_source.item&method=get)</para>
+/// <para>获取单个数据记录。</para>
 /// <para>接口ID：6953505452630228995</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/search-v2/open-search/data_source-item/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fsearch-v2%2fdata_source-item%2fget</para>

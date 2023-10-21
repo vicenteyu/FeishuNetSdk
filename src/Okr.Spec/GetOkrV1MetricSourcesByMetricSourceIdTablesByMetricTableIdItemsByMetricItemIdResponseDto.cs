@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Okr.Spec;
 /// <summary>
 /// 获取指标项详情 响应体
-/// <para>获取某项指标的具体内容（仅限 OKR 企业版使用）。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=okr&version=v1&resource=metric_source.table.item&method=get)</para>
+/// <para>获取某项指标的具体内容（仅限 OKR 企业版使用）。</para>
 /// <para>接口ID：7153135267980279812</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/okr-v1/metric_source-table-item/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fokr-v1%2fmetric_source-table-item%2fget</para>

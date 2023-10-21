@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Ai.Spec;
 /// <para>"es": 西班牙语；</para>
 /// <para>"pt": 葡萄牙语；</para>
 /// <para>"ko": 朝鲜语；</para>
-/// <para>"vi": 越南语；{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=translation&version=v1&resource=text&method=translate)</para>
+/// <para>"vi": 越南语；</para>
 /// <para>接口ID：6949829039871983617</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/ai/translation-v1/translate</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fai%2ftranslation-v1%2ftext%2ftranslate</para>

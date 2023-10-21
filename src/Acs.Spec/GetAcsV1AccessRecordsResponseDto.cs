@@ -3,7 +3,7 @@ namespace FeishuNetSdk.Acs.Spec;
 /// <summary>
 /// 获取门禁记录列表 响应体
 /// <para>用户在门禁考勤机上成功开门或打卡后，智能门禁应用都会生成一条门禁记录。</para>
-/// <para>该接口返回满足查询参数的识别记录。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=acs&version=v1&resource=access_record&method=list)</para>
+/// <para>该接口返回满足查询参数的识别记录。</para>
 /// <para>接口ID：6979790924691996674</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/acs-v1/access_record/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2facs-v1%2faccess_record%2flist</para>

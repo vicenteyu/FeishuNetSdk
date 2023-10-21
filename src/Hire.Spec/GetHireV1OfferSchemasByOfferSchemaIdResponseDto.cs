@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire.Spec;
 /// <summary>
 /// 获取 Offer 申请表详细信息 响应体
-/// <para>根据 Offer 申请表 ID，获取 Offer 申请表的详细信息{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=hire&version=v1&resource=offer_schema&method=get)</para>
+/// <para>根据 Offer 申请表 ID，获取 Offer 申请表的详细信息</para>
 /// <para>接口ID：6964286393804881948</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version/hire_internal/offer/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2foffer_schema%2fget</para>

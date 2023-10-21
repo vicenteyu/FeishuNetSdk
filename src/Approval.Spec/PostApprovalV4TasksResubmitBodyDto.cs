@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 重新提交审批任务 请求体
-/// <para>对于单个退回到发起人的审批任务进行重新发起操作。发起后审批流程会流转到下一个审批人。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=approval&version=v4&resource=task&method=resubmit)</para>
+/// <para>对于单个退回到发起人的审批任务进行重新发起操作。发起后审批流程会流转到下一个审批人。</para>
 /// <para>接口ID：7127897901158842396</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/task/resubmit</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2ftask%2fresubmit</para>

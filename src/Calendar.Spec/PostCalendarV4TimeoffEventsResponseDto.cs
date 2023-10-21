@@ -3,7 +3,7 @@ namespace FeishuNetSdk.Calendar.Spec;
 /// <summary>
 /// 创建请假日程 响应体
 /// <para>为指定用户创建一个请假日程，可以是一个普通请假日程，也可以是一个全天日程。</para>
-/// <para>创建请假日程后，会在相应时间内，在用户个人签名页展示请假信息。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=calendar&version=v4&resource=timeoff_event&method=create)</para>
+/// <para>创建请假日程后，会在相应时间内，在用户个人签名页展示请假信息。</para>
 /// <para>接口ID：6952888507003142171</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/timeoff_event/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2ftimeoff_event%2fcreate</para>

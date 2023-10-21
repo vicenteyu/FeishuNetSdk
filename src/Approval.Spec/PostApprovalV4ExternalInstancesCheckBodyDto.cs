@@ -3,7 +3,7 @@ namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 校验三方审批实例 请求体
 /// <para>校验三方审批实例数据，用于判断服务端数据是否为最新的。用户提交实例最新更新时间，如果服务端不存在该实例，或者服务端实例更新时间不是最新的，则返回对应实例 id。</para>
-/// <para>例如，用户可以每隔5分钟，将最近5分钟产生的实例使用该接口进行对比。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=approval&version=v4&resource=external_instance&method=check)</para>
+/// <para>例如，用户可以每隔5分钟，将最近5分钟产生的实例使用该接口进行对比。</para>
 /// <para>接口ID：7114621541589909507</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/external_instance/check</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2fexternal_instance%2fcheck</para>

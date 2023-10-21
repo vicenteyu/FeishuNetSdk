@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Search.Spec;
 /// <summary>
 /// 修改数据范式 请求体
-/// <para>修改数据范式。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=search&version=v2&resource=schema&method=patch)</para>
+/// <para>修改数据范式。</para>
 /// <para>接口ID：7100866111462211612</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/search-v2/open-search/schema/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fsearch-v2%2fschema%2fpatch</para>

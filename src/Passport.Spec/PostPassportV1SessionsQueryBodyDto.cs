@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Passport.Spec;
 /// <summary>
 /// 批量获取脱敏的用户登录信息 请求体
-/// <para>该接口用于查询用户的登录信息。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=passport&version=v1&resource=session&method=query)</para>
+/// <para>该接口用于查询用户的登录信息。</para>
 /// <para>接口ID：7096084771490578433</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/authentication-management/login-state-management/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpassport-v1%2fsession%2fquery</para>

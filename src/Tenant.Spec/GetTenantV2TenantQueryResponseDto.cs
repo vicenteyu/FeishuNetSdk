@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Tenant.Spec;
 /// <summary>
 /// 获取企业信息 响应体
-/// <para>获取企业名称、企业编号等企业信息{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=tenant&version=v2&resource=tenant&method=query)</para>
+/// <para>获取企业名称、企业编号等企业信息</para>
 /// <para>接口ID：6954228485356568579</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/tenant-v2/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftenant-v2%2ftenant%2fquery</para>

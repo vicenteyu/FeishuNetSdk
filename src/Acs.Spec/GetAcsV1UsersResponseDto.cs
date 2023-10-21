@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Acs.Spec;
 /// <summary>
 /// 获取用户列表 响应体
-/// <para>使用该接口获取智能门禁中所有用户信息。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=acs&version=v1&resource=user&method=list)</para>
+/// <para>使用该接口获取智能门禁中所有用户信息。</para>
 /// <para>接口ID：6987691292973891585</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/acs-v1/user/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2facs-v1%2fuser%2flist</para>

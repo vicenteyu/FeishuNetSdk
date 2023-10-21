@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取全文评论 响应体
-/// <para>获取云文档中的某条全文评论，暂时不支持局部评论{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=drive&version=v1&resource=file.comment&method=get)</para>
+/// <para>获取云文档中的某条全文评论，暂时不支持局部评论</para>
 /// <para>接口ID：6955017385137782785</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/CommentAPI/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-comment%2fget</para>

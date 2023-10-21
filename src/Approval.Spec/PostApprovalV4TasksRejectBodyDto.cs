@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 拒绝审批任务 请求体
-/// <para>对于单个审批任务进行拒绝操作。拒绝后审批流程结束。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=approval&version=v4&resource=task&method=reject)</para>
+/// <para>对于单个审批任务进行拒绝操作。拒绝后审批流程结束。</para>
 /// <para>接口ID：7114621541589762051</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/task/reject</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2ftask%2freject</para>

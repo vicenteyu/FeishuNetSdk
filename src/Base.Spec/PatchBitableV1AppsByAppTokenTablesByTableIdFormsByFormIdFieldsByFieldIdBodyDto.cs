@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Base.Spec;
 /// <summary>
 /// 更新表单问题 请求体
-/// <para>该接口用于更新表单中的问题项{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=bitable&version=v1&resource=app.table.form.field&method=patch)</para>
+/// <para>该接口用于更新表单中的问题项</para>
 /// <para>接口ID：7112628058154893314</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/form/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-form-field%2fpatch</para>

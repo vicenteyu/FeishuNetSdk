@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Okr.Spec;
 /// <summary>
 /// 获取用户的 OKR 列表 响应体
-/// <para>根据用户的 id 获取 OKR 列表。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=okr&version=v1&resource=user.okr&method=list)</para>
+/// <para>根据用户的 id 获取 OKR 列表。</para>
 /// <para>接口ID：6961663213280739329</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/okr-v1/okr/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fokr-v1%2fuser-okr%2flist</para>

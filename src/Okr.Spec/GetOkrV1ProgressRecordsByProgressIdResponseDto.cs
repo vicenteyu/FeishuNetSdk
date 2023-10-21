@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Okr.Spec;
 /// <summary>
 /// 获取 OKR 进展记录 响应体
-/// <para>根据 ID 获取 OKR 进展记录详情。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=okr&version=v1&resource=progress_record&method=get)</para>
+/// <para>根据 ID 获取 OKR 进展记录详情。</para>
 /// <para>接口ID：7047056455665926145</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/okr-v1/progress_record/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fokr-v1%2fprogress_record%2fget</para>

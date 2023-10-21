@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Ehr.Spec;
 /// <summary>
 /// 批量获取员工花名册信息 响应体
-/// <para>根据员工飞书用户 ID / 员工状态 / 雇员类型等搜索条件 ，批量获取员工花名册字段信息。字段包括「系统标准字段 / system_fields」和「自定义字段 / custom_fields」。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=ehr&version=v1&resource=employee&method=list)</para>
+/// <para>根据员工飞书用户 ID / 员工状态 / 雇员类型等搜索条件 ，批量获取员工花名册字段信息。字段包括「系统标准字段 / system_fields」和「自定义字段 / custom_fields」。</para>
 /// <para>接口ID：6948366696944648195</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/ehr-v1/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fehr%2fehr-v1%2femployee%2flist</para>

@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Application.Spec;
 /// <summary>
 /// 获取用户自定义常用的应用 响应体
-/// <para>获取用户自定义常用的应用。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=application&version=v5&resource=application&method=favourite)</para>
+/// <para>获取用户自定义常用的应用。</para>
 /// <para>接口ID：7218970579747110913</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/workplace-v1/app_recommend_rule/favourite</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v5%2fapplication%2ffavourite</para>

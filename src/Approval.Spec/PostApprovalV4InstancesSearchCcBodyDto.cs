@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 查询抄送列表 请求体
-/// <para>该接口通过不同条件查询审批系统中符合条件的审批抄送列表。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=approval&version=v4&resource=instance&method=search_cc)</para>
+/// <para>该接口通过不同条件查询审批系统中符合条件的审批抄送列表。</para>
 /// <para>接口ID：7117964632137187331</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/approval-search/search_cc</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2finstance%2fsearch_cc</para>

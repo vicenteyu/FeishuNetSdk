@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Task.Spec;
 /// <summary>
 /// 获取关注人列表 响应体
-/// <para>该接口用于查询任务关注人列表，支持分页，最大值为50。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=task&version=v1&resource=task.follower&method=list)</para>
+/// <para>该接口用于查询任务关注人列表，支持分页，最大值为50。</para>
 /// <para>接口ID：6985127383322165250</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/task-v1/task-follower/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2ftask-v1%2ftask-follower%2flist</para>
