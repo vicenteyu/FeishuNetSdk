@@ -1,0 +1,73 @@
+using Newtonsoft.Json;
+namespace FeishuNetSdk.Hire;
+/// <summary>
+/// 更新入职状态 请求体
+/// <para>根据员工 ID 更新员工转正、离职状态。</para>
+/// <para>接口ID：6959374328975900674</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/onboard/patch</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2femployee%2fpatch</para>
+/// </summary>
+public record PatchHireV1EmployeesByEmployeeIdBodyDto
+{
+    /// <summary>
+    /// <para>修改状态操作</para>
+    /// <para>必填：是</para>
+    /// <para>示例值：1</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>1：转正</item>
+    /// <item>2：离职</item>
+    /// </list></para>
+    /// </summary>
+    [JsonProperty("operation")]
+    public int Operation { get; set; }
+
+    /// <summary>
+    /// <para>转正信息，操作员工转正时必填</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonProperty("conversion_info")]
+    public EmployeeConversionInfo? ConversionInfo { get; set; }
+
+    /// <summary>
+    /// <para>转正信息，操作员工转正时必填</para>
+    /// </summary>
+    public record EmployeeConversionInfo
+    {
+        /// <summary>
+        /// <para>实际转正日期</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1637596800000</para>
+        /// </summary>
+        [JsonProperty("actual_conversion_time")]
+        public int? ActualConversionTime { get; set; }
+    }
+
+    /// <summary>
+    /// <para>离职信息，操作员工离职时必填</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonProperty("overboard_info")]
+    public EmployeeOverboardInfo? OverboardInfo { get; set; }
+
+    /// <summary>
+    /// <para>离职信息，操作员工离职时必填</para>
+    /// </summary>
+    public record EmployeeOverboardInfo
+    {
+        /// <summary>
+        /// <para>实际离职日期</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1637596800000</para>
+        /// </summary>
+        [JsonProperty("actual_overboard_time")]
+        public int? ActualOverboardTime { get; set; }
+
+        /// <summary>
+        /// <para>离职原因</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：职业发展考虑</para>
+        /// </summary>
+        [JsonProperty("overboard_note")]
+        public string? OverboardNote { get; set; }
+    }
+}

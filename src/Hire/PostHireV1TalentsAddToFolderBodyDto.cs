@@ -1,0 +1,28 @@
+using Newtonsoft.Json;
+namespace FeishuNetSdk.Hire;
+/// <summary>
+/// 将人才加入指定文件夹 请求体
+/// <para>将人才加入指定文件夹。</para>
+/// <para>接口ID：7044465232156999708</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent/add_to_folder</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent%2fadd_to_folder</para>
+/// </summary>
+public record PostHireV1TalentsAddToFolderBodyDto
+{
+    /// <summary>
+    /// <para>人才 ID 列表</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：6039620186502138151</para>
+    /// <para>最大长度：50</para>
+    /// </summary>
+    [JsonProperty("talent_id_list")]
+    public string[]? TalentIdList { get; set; }
+
+    /// <summary>
+    /// <para>文件夹 ID</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：7039620186502138156</para>
+    /// </summary>
+    [JsonProperty("folder_id")]
+    public string? FolderId { get; set; }
+}

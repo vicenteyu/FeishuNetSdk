@@ -1,0 +1,149 @@
+using Newtonsoft.Json;
+namespace FeishuNetSdk.Attendance;
+/// <summary>
+/// 通过过期时间获取发放记录 响应体
+/// <para>只能获取到对应时间段过期的发放记录</para>
+/// <para>接口ID：7239198678939697156</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/leave_employ_expire_record/get</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fleave_employ_expire_record%2fget</para>
+/// </summary>
+public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
+{
+    /// <summary>
+    /// <para>员工过期日期的发放记录</para>
+    /// <para>必填：是</para>
+    /// </summary>
+    [JsonProperty("records")]
+    public LeaveEmployExpireRecord[] Records { get; set; } = Array.Empty<LeaveEmployExpireRecord>();
+
+    /// <summary>
+    /// <para>员工过期日期的发放记录</para>
+    /// </summary>
+    public record LeaveEmployExpireRecord
+    {
+        /// <summary>
+        /// <para>record id</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：6893014062142064135</para>
+        /// </summary>
+        [JsonProperty("id")]
+        public string Id { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>员工ID</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：6982509313466189342</para>
+        /// </summary>
+        [JsonProperty("employment_id")]
+        public string EmploymentId { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>假期类型ID</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：6893014062142064135</para>
+        /// </summary>
+        [JsonProperty("leave_type_id")]
+        public string LeaveTypeId { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>发放余额数量</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonProperty("granting_quantity")]
+        public string GrantingQuantity { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>发放数量 扣减完后的发放数量</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonProperty("left_granting_quantity")]
+        public string LeftGrantingQuantity { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>发放单位，1表示天，2表示小时</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonProperty("granting_unit")]
+        public int GrantingUnit { get; set; }
+
+        /// <summary>
+        /// <para>生效日期，格式"2020-01-01"</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：2020-01-01</para>
+        /// </summary>
+        [JsonProperty("effective_date")]
+        public string EffectiveDate { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>失效日期，格式"2020-01-01"</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：2020-01-01</para>
+        /// </summary>
+        [JsonProperty("expiration_date")]
+        public string ExpirationDate { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>发放原因</para>
+        /// <para>必填：是</para>
+        /// </summary>
+        [JsonProperty("reason")]
+        public LangText[] Reasons { get; set; } = Array.Empty<LangText>();
+
+        /// <summary>
+        /// <para>发放原因</para>
+        /// </summary>
+        public record LangText
+        {
+            /// <summary>
+            /// <para>语言码</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：zh-CN</para>
+            /// </summary>
+            [JsonProperty("lang")]
+            public string Lang { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>语言码对应的文本</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：test</para>
+            /// </summary>
+            [JsonProperty("value")]
+            public string Value { get; set; } = string.Empty;
+        }
+
+        /// <summary>
+        /// <para>是否已经被外部系统更改过</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonProperty("is_update_by_external")]
+        public bool IsUpdateByExternal { get; set; }
+
+        /// <summary>
+        /// <para>发放来源</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：系统发放</item>
+        /// <item>2：人工发放</item>
+        /// <item>3：外部系统发放</item>
+        /// <item>4：虚拟发放</item>
+        /// <item>5：旧系统导入</item>
+        /// <item>6：加班转入</item>
+        /// </list></para>
+        /// </summary>
+        [JsonProperty("accrual_source")]
+        public int AccrualSource { get; set; }
+
+        /// <summary>
+        /// <para>假期子类型id</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：6893014062142064135</para>
+        /// </summary>
+        [JsonProperty("leave_sub_type_id")]
+        public string LeaveSubTypeId { get; set; } = string.Empty;
+    }
+}

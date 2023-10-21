@@ -1,0 +1,18 @@
+using Newtonsoft.Json;
+namespace FeishuNetSdk.Approval.Spec;
+/// <summary>
+/// 删除评论 响应体
+/// <para>逻辑删除某审批实例下的一条评论或评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。{尝试一下}(url=/api/tools/api_explore/api_explore_config?project=approval&version=v4&resource=instance.comment&method=delete)</para>
+/// <para>接口ID：7117964632137121795</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/instance-comment/delete</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2finstance-comment%2fdelete</para>
+/// </summary>
+public record DeleteApprovalV4InstancesByInstanceIdCommentsByCommentIdResponseDto
+{
+    /// <summary>
+    /// <para>删除的评论ID</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonProperty("comment_id")]
+    public string? CommentId { get; set; }
+}

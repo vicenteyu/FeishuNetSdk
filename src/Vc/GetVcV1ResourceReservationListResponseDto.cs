@@ -1,0 +1,176 @@
+using Newtonsoft.Json;
+namespace FeishuNetSdk.Vc;
+/// <summary>
+/// 查询会议室预定数据 响应体
+/// <para>查询会议室预定数据。</para>
+/// <para>接口ID：7194805625628065795</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/meeting-room-data/get-4</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fresource_reservation_list%2fget</para>
+/// </summary>
+public record GetVcV1ResourceReservationListResponseDto
+{
+    /// <summary>
+    /// <para>会议室预定列表</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonProperty("room_reservation_list")]
+    public RoomMeetingReservation[]? RoomReservationLists { get; set; }
+
+    /// <summary>
+    /// <para>会议室预定列表</para>
+    /// </summary>
+    public record RoomMeetingReservation
+    {
+        /// <summary>
+        /// <para>会议室ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b</para>
+        /// </summary>
+        [JsonProperty("room_id")]
+        public string? RoomId { get; set; }
+
+        /// <summary>
+        /// <para>会议室名称</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：VIPMeetingRoom</para>
+        /// </summary>
+        [JsonProperty("room_name")]
+        public string? RoomName { get; set; }
+
+        /// <summary>
+        /// <para>会议标题</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：飞书邀请的日程</para>
+        /// </summary>
+        [JsonProperty("event_title")]
+        public string? EventTitle { get; set; }
+
+        /// <summary>
+        /// <para>预定人</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：kehan</para>
+        /// </summary>
+        [JsonProperty("reserver")]
+        public string? Reserver { get; set; }
+
+        /// <summary>
+        /// <para>预定人所属部门</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：development</para>
+        /// </summary>
+        [JsonProperty("department_of_reserver")]
+        public string? DepartmentOfReserver { get; set; }
+
+        /// <summary>
+        /// <para>邀约人数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：5</para>
+        /// </summary>
+        [JsonProperty("guests_number")]
+        public string? GuestsNumber { get; set; }
+
+        /// <summary>
+        /// <para>接受人数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2</para>
+        /// </summary>
+        [JsonProperty("accepted_number")]
+        public string? AcceptedNumber { get; set; }
+
+        /// <summary>
+        /// <para>会议开始时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2022.12.1721:00:00(GMT+08:00)</para>
+        /// </summary>
+        [JsonProperty("event_start_time")]
+        public string? EventStartTime { get; set; }
+
+        /// <summary>
+        /// <para>会议结束时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2022.12.1722:00:00(GMT+08:00)</para>
+        /// </summary>
+        [JsonProperty("event_end_time")]
+        public string? EventEndTime { get; set; }
+
+        /// <summary>
+        /// <para>会议时长</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1:00:00</para>
+        /// </summary>
+        [JsonProperty("event_duration")]
+        public string? EventDuration { get; set; }
+
+        /// <summary>
+        /// <para>会议室预定状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：预定成功</para>
+        /// </summary>
+        [JsonProperty("reservation_status")]
+        public string? ReservationStatus { get; set; }
+
+        /// <summary>
+        /// <para>签到设备</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：签到板</para>
+        /// </summary>
+        [JsonProperty("check_in_device")]
+        public string? CheckInDevice { get; set; }
+
+        /// <summary>
+        /// <para>会议室签到状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：已签到</para>
+        /// </summary>
+        [JsonProperty("room_check_in_status")]
+        public string? RoomCheckInStatus { get; set; }
+
+        /// <summary>
+        /// <para>会议室签到时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2022.12.0913:35:30(GMT+08:00)</para>
+        /// </summary>
+        [JsonProperty("check_in_time")]
+        public string? CheckInTime { get; set; }
+
+        /// <summary>
+        /// <para>是否提前释放</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：已释放（手动释放）</para>
+        /// </summary>
+        [JsonProperty("is_release_early")]
+        public string? IsReleaseEarly { get; set; }
+
+        /// <summary>
+        /// <para>释放人</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：kehan</para>
+        /// </summary>
+        [JsonProperty("releasing_person")]
+        public string? ReleasingPerson { get; set; }
+
+        /// <summary>
+        /// <para>释放时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2022.12.2011:25:15(GMT+08:00)</para>
+        /// </summary>
+        [JsonProperty("releasing_time")]
+        public string? ReleasingTime { get; set; }
+    }
+
+    /// <summary>
+    /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：20</para>
+    /// </summary>
+    [JsonProperty("page_token")]
+    public string? PageToken { get; set; }
+
+    /// <summary>
+    /// <para>是否还有更多项</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：true</para>
+    /// </summary>
+    [JsonProperty("has_more")]
+    public bool? HasMore { get; set; }
+}

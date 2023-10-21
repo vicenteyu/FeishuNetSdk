@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{E59B03D4-DFEE-4592-9BE9-DDD1B8D4AEB0}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeishuNetSdk", "src\FeishuNetSdk.csproj", "{E35C4624-A479-49AB-9A93-E2D07B66C455}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E35C4624-A479-49AB-9A93-E2D07B66C455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E35C4624-A479-49AB-9A93-E2D07B66C455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E35C4624-A479-49AB-9A93-E2D07B66C455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E35C4624-A479-49AB-9A93-E2D07B66C455}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {252D5281-E4B8-4705-9EE2-95C10176DCB0}
+	EndGlobalSection
+EndGlobal

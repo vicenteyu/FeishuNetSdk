@@ -1,0 +1,163 @@
+using Newtonsoft.Json;
+namespace FeishuNetSdk.Contact;
+/// <summary>
+/// 获取企业自定义用户字段 响应体
+/// <para>获取企业自定义的用户字段配置信息</para>
+/// <para>接口ID：6986108081861476354</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/custom_attr/list</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fcustom_attr%2flist</para>
+/// </summary>
+public record GetContactV3CustomAttrsResponseDto
+{
+    /// <summary>
+    /// <para>自定义字段定义</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonProperty("items")]
+    public CustomAttr[]? Items { get; set; }
+
+    /// <summary>
+    /// <para>自定义字段定义</para>
+    /// </summary>
+    public record CustomAttr
+    {
+        /// <summary>
+        /// <para>自定义字段id</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：C-6965457429001748507</para>
+        /// </summary>
+        [JsonProperty("id")]
+        public string Id { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>自定义字段类型，可选值有:</para>
+        /// <para>- `TEXT`：纯文本，用于纯文本描述人员，如备注</para>
+        /// <para>- `HREF`：静态 URL，用于人员 Profile 跳转链接</para>
+        /// <para>- `ENUMERATION`：枚举，用于结构化描述人员，如民族</para>
+        /// <para>- `GENERIC_USER`：用户，用于描述人和人关系，如 HRBP</para>
+        /// <para>- `PICTURE_ENUM`：枚举图片，以结构化的图片描述人员，如在人员 Profile 展示荣誉徽章</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：TEXT</para>
+        /// </summary>
+        [JsonProperty("type")]
+        public string Type { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>选项定义，当type为`ENUMERATION`或者`PICTURE_ENUM`时此项有值，列举所有可选项</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：{}</para>
+        /// </summary>
+        [JsonProperty("options")]
+        public CustomAttrOptions? Options { get; set; }
+
+        /// <summary>
+        /// <para>选项定义，当type为`ENUMERATION`或者`PICTURE_ENUM`时此项有值，列举所有可选项</para>
+        /// </summary>
+        public record CustomAttrOptions
+        {
+            /// <summary>
+            /// <para>默认选项id</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：qasdefgr</para>
+            /// </summary>
+            [JsonProperty("default_option_id")]
+            public string? DefaultOptionId { get; set; }
+
+            /// <summary>
+            /// <para>选项类型</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：TEXT</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>TEXT：文本选项</item>
+            /// <item>PICTURE：图片选项</item>
+            /// </list></para>
+            /// </summary>
+            [JsonProperty("option_type")]
+            public string OptionType { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>选项列表</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：[]</para>
+            /// </summary>
+            [JsonProperty("options")]
+            public CustomAttrOption[] Options { get; set; } = Array.Empty<CustomAttrOption>();
+
+            /// <summary>
+            /// <para>选项列表</para>
+            /// </summary>
+            public record CustomAttrOption
+            {
+                /// <summary>
+                /// <para>枚举类型选项id</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：qasdefgr</para>
+                /// </summary>
+                [JsonProperty("id")]
+                public string Id { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>枚举选项值，当option_type为`TEXT`为文本值，当option_type为`PICTURE`时为图片链接</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：Option</para>
+                /// </summary>
+                [JsonProperty("value")]
+                public string Value { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>名称，仅option_type为PICTURE时有效</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：Name</para>
+                /// </summary>
+                [JsonProperty("name")]
+                public string? Name { get; set; }
+            }
+        }
+
+        /// <summary>
+        /// <para>自定义字段的字段名称</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：{}</para>
+        /// </summary>
+        [JsonProperty("i18n_name")]
+        public I18nContent[]? I18nNames { get; set; }
+
+        /// <summary>
+        /// <para>自定义字段的字段名称</para>
+        /// </summary>
+        public record I18nContent
+        {
+            /// <summary>
+            /// <para>语言版本</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：zh_cn</para>
+            /// </summary>
+            [JsonProperty("locale")]
+            public string? Locale { get; set; }
+
+            /// <summary>
+            /// <para>字段名</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：多语言内容</para>
+            /// </summary>
+            [JsonProperty("value")]
+            public string? Value { get; set; }
+        }
+    }
+
+    /// <summary>
+    /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：AQD9/Rn9eij9Pm39ED40/RYU5lvOM4s6zgbeeNNaWd%2BVKwAsoreeRWk0J2noGvJy</para>
+    /// </summary>
+    [JsonProperty("page_token")]
+    public string? PageToken { get; set; }
+
+    /// <summary>
+    /// <para>是否还有更多项</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：true</para>
+    /// </summary>
+    [JsonProperty("has_more")]
+    public bool? HasMore { get; set; }
+}
