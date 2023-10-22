@@ -14,6 +14,7 @@
     <PackageTags>feishu; sdk; dotnet; .net7.0</PackageTags>
     <Copyright>MIT</Copyright>
     <Description>适用于飞书开放平台的.Net开发包</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -50,6 +51,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>

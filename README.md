@@ -16,3 +16,25 @@ builder.Services.AddTokenProvider<IFeishuTenantApi>(async service =>
     return new TokenResult { Access_token = token.TenantAccessToken, Expires_in = token.Expire };
 });
 ```
+
+### 调用
+```csharp
+[Route("api/[controller]")]
+[ApiController]
+public class TestController : ControllerBase
+{
+    private readonly IFeishuTenantApi _feishuApi;
+
+    public TestController(IFeishuTenantApi feishuApi)
+    {
+        _feishuApi = feishuApi;
+    }
+
+    [HttpGet("t2")]
+    public async Task<IResult> GetT2Async()
+    {
+        var result2 = await _feishuApi.GetImV1ChatsAsync();
+        return Results.Json(result2);
+    }
+}
+```
