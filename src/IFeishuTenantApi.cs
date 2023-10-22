@@ -2064,10 +2064,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>**注意事项：**</para>
     /// <para>- 应用需要启用[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)</para>
     /// <para>- 接口权限说明：</para>
-    /// <para>	- 必须拥有**获取与发送单聊、群组消息**权限，或者**以应用的身份发消息**权限</para>
-    /// <para>	- 至少拥有一个批量发送消息权限：</para>
-    /// <para>		- 给用户发送需要拥有 **给多个用户批量发消息** 权限</para>
-    /// <para>		- 给部门成员发送需要拥有 **给一个或多个部门的成员批量发消息** 权限</para>
+    /// <para>  - 必须拥有**获取与发送单聊、群组消息**权限，或者**以应用的身份发消息**权限</para>
+    /// <para>  - 至少拥有一个批量发送消息权限：</para>
+    /// <para>      - 给用户发送需要拥有 **给多个用户批量发消息** 权限</para>
+    /// <para>      - 给部门成员发送需要拥有 **给一个或多个部门的成员批量发消息** 权限</para>
     /// <para>- 应用需要拥有对所发送用户或部门的[可用性](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)</para>
     /// <para>- 通过该接口发送的消息 **不支持更新以及回复等操作**</para>
     /// <para>- 只能发送给用户，无法发送给群组</para>
@@ -3190,8 +3190,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>在用户云空间指定文件夹中创建旧版文档、电子表格或者多维表格。如果目标文件夹是「我的空间」，则新建的文档会在「我的空间」的「归我所有」列表里。</para>
     /// <para>- 云空间中文件夹单层节点上限是 1500 个，超过此限制接口将会返回失败。如有创建大量节点的需求，可以考虑将文档新建到不同文件夹下；</para>
     /// <para>- 我们对创建类接口进行了更细粒度的拆分和升级：</para>
-    /// <para>	- 本接口不支持创建[新版文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)，如需创建新版文档，请调用[创建新版文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create)接口；</para>
-    /// <para>	- 如需创建电子表格，也可以调用[创建表格](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create)接口。</para>
+    /// <para>  - 本接口不支持创建[新版文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)，如需创建新版文档，请调用[创建新版文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create)接口；</para>
+    /// <para>  - 如需创建电子表格，也可以调用[创建表格](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create)接口。</para>
     /// </summary>
     /// <param name="folderToken">
     /// <para>必填：是</para>
@@ -13327,8 +13327,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于查询用户是否为应用管理员。</para>
     /// <para>> 此处应用管理员是指可以进入企业管理后台对应用进行审核和管理的企业管理员，并不是应用的开发者。</para>
     /// </summary>
+    /// <param name="open_id">
+    /// <para>必填：否</para>
+    /// 用户open_id，open_id和employee_id两个参数必须包含其一，若同时传入取open_id
+    /// </param>
+    /// <param name="employee_id">
+    /// <para>必填：否</para>
+    /// 用户employee_id（同通讯录v3版本中的user_id），open_id和employee_id两个参数必须包含其一，若同时传入取open_id
+    /// </param>
     [OAuthToken, HttpGet("/open-apis/application/v3/is_user_admin")]
-    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetApplicationV3IsUserAdminResponseDto>> GetApplicationV3IsUserAdminAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetApplicationV3IsUserAdminResponseDto>> GetApplicationV3IsUserAdminAsync(
+        [PathQuery] string? open_id,
+        [PathQuery] string? employee_id);
 
     /// <summary>
     /// <para>【通讯录】获取应用管理员管理范围</para>
@@ -13337,8 +13347,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口用于获取应用管理员的管理范围，即该应用管理员能够管理哪些部门。  </para>
     /// </summary>
+    /// <param name="employee_id">
+    /// <para>必填：否</para>
+    /// 支持通过open_id或者employee_id查询，不支持混合两种ID进行查询，其中employee_id同通讯录v3版本中的user_id
+    /// </param>
+    /// <param name="open_id">
+    /// <para>必填：否</para>
+    /// 支持通过open_id或者employee_id查询，不支持混合两种ID进行查询，其中employee_id同通讯录v3版本中的user_id
+    /// </param>
     [OAuthToken, HttpGet("/open-apis/contact/v1/user/admin_scope/get")]
-    System.Threading.Tasks.Task<FeishuResponse<Contact.Spec.GetContactV1UserAdminScopeGetResponseDto>> GetContactV1UserAdminScopeGetAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Contact.Spec.GetContactV1UserAdminScopeGetResponseDto>> GetContactV1UserAdminScopeGetAsync(
+        [PathQuery] string? employee_id,
+        [PathQuery] string? open_id);
 
     /// <summary>
     /// <para>【应用信息】获取应用在企业内的可用范围</para>
@@ -13347,8 +13367,23 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口用于查询应用在该企业内可以被使用的范围，只能被企业自建应用调用。</para>
     /// </summary>
+    /// <param name="app_id">
+    /// <para>必填：是</para>
+    /// 目标应用的ID
+    /// </param>
+    /// <param name="user_page_token">
+    /// <para>必填：否</para>
+    /// 分页拉取用户列表起始位置标示，不填表示从头开始
+    /// </param>
+    /// <param name="user_page_size">
+    /// <para>必填：否</para>
+    /// 本次拉取用户列表最大个数(最大值1000，0自动最大个数)
+    /// </param>
     [OAuthToken, HttpGet("/open-apis/application/v2/app/visibility")]
-    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetApplicationV2AppVisibilityResponseDto>> GetApplicationV2AppVisibilityAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetApplicationV2AppVisibilityResponseDto>> GetApplicationV2AppVisibilityAsync(
+        [PathQuery] string app_id,
+        [PathQuery] string? user_page_token,
+        [PathQuery] int? user_page_size);
 
     /// <summary>
     /// <para>【应用信息】获取应用通讯录权限范围配置</para>
@@ -13489,8 +13524,30 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口用于查询企业安装的应用列表，只能被企业自建应用调用。</para>
     /// </summary>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// 分页起始位置标示，不填表示从头开始（不保证page_token一定为数字，请填入上一次请求返回的page_token）
+    /// <para>默认值：null<para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// 单页需求最大个数（最大100），0自动最大个数
+    /// <para>默认值：10<para>
+    /// </param>
+    /// <param name="lang">
+    /// <para>必填：否</para>
+    /// 优先展示的应用信息的语言版本（zh_cn：中文，en_us：英文，ja_jp：日文）
+    /// </param>
+    /// <param name="status">
+    /// <para>必填：否</para>
+    /// 要返回的应用的状态，0:停用；1:启用；-1:全部，默认为-1
+    /// </param>
     [OAuthToken, HttpGet("/open-apis/application/v3/app/list")]
-    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetApplicationV3AppListResponseDto>> GetApplicationV3AppListAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetApplicationV3AppListResponseDto>> GetApplicationV3AppListAsync(
+        [PathQuery] string? lang,
+        [PathQuery] int? status,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 10);
 
     /// <summary>
     /// <para>【应用信息】更新应用可用范围</para>
@@ -13546,8 +13603,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>当付费套餐是按人数收费 或者 限制最大使用人数时，开放平台会引导企业管理员设置“付费功能开通范围”。  但是受开通范围限制，部分用户就无法使用对应的付费功能。  可以通过此接口，在付费功能点入口判断是否允许某个用户进入使用。</para>
     /// </summary>
+    /// <param name="open_id">
+    /// <para>必填：否</para>
+    /// 用户open_id，open_id和user_id两个参数必须包含其一，若同时传入取open_id
+    /// </param>
+    /// <param name="user_id">
+    /// <para>必填：否</para>
+    /// 用户user_id，user_id和open_id两个参数必须包含其一，若同时传入取open_id
+    /// </param>
     [OAuthToken, HttpGet("/open-apis/pay/v1/paid_scope/check_user")]
-    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetPayV1PaidScopeCheckUserResponseDto>> GetPayV1PaidScopeCheckUserAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetPayV1PaidScopeCheckUserResponseDto>> GetPayV1PaidScopeCheckUserAsync(
+        [PathQuery] string? open_id,
+        [PathQuery] string? user_id);
 
     /// <summary>
     /// <para>【应用信息】查询租户购买的付费方案</para>
@@ -13557,8 +13624,30 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于分页查询应用租户下的已付费订单，每次购买对应一个唯一的订单，订单会记录购买的套餐的相关信息，业务方需要自行处理套餐的有效期和付费方案的升级。</para>
     /// <para>>  备注：免费模式的应用不会产生订单，仅收费应用会产生订单 (含免费版)。</para>
     /// </summary>
+    /// <param name="status">
+    /// <para>必填：否</para>
+    /// 获取用户购买套餐信息设置的过滤条件，normal为正常状态，refunded为已退款，该字段为空或者all表示所有，未支付的订单无法查到
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// 每页显示的订单数量
+    /// <para>默认值：10<para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// 翻页标识，可以从上次请求的响应中获取，不填或者为空时表示从开头获取
+    /// <para>默认值：null<para>
+    /// </param>
+    /// <param name="tenant_key">
+    /// <para>必填：否</para>
+    /// 购买应用的租户唯一标识，为空表示获取应用下所有订单，有值表示获取应用下该租户购买的订单
+    /// </param>
     [OAuthToken, HttpGet("/open-apis/pay/v1/order/list")]
-    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetPayV1OrderListResponseDto>> GetPayV1OrderListAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetPayV1OrderListResponseDto>> GetPayV1OrderListAsync(
+        [PathQuery] string? status,
+        [PathQuery] string? tenant_key,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
 
     /// <summary>
     /// <para>【应用信息】查询订单详情</para>
@@ -13567,8 +13656,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口用于查询某个订单的具体信息</para>
     /// </summary>
+    /// <param name="order_id">
+    /// <para>必填：是</para>
+    /// 订单ID
+    /// </param>
     [OAuthToken, HttpGet("/open-apis/pay/v1/order/get")]
-    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetPayV1OrderGetResponseDto>> GetPayV1OrderGetAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetPayV1OrderGetResponseDto>> GetPayV1OrderGetAsync(
+        [PathQuery] string order_id);
 
     /// <summary>
     /// <para>【应用信息】查看待审核的应用列表</para>
@@ -21016,8 +21110,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>应用商店应用无权限调用此接口。<br></para>
     /// <para>调用该接口需要申请 `更新通讯录` 以及 `以应用身份读取通讯录` 权限。</para>
     /// </summary>
+    /// <param name="task_id">
+    /// <para>必填：是</para>
+    /// 批量任务接口返回的异步任务ID。
+    /// </param>
     [OAuthToken, HttpGet("/open-apis/contact/v2/task/get?task_id=0123456789abcdef0123456789abcdef")]
-    System.Threading.Tasks.Task<FeishuResponse<Contact.Spec.GetContactV2TaskGetResponseDto>> GetContactV2TaskGetAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Contact.Spec.GetContactV2TaskGetResponseDto>> GetContactV2TaskGetAsync(
+        [PathQuery] string task_id);
 
     /// <summary>
     /// <para>【云文档】获取元数据</para>

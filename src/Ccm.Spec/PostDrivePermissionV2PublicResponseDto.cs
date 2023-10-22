@@ -24,7 +24,7 @@ public record PostDrivePermissionV2PublicResponseDto
     public string? CommentEntity { get; set; }
 
     /// <summary>
-    /// <para>请求 body</para>
+    /// <para>谁可以添加和管理协作者：<br>"anyone"-所有可阅读或编辑此文档的用户<br>"same_tenant"-组织内所有可阅读或编辑此文档的用户<br>"only_me"-只有我可以</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("share_entity")]

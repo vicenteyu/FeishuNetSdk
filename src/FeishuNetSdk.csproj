@@ -1,70 +1,71 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>FeishuNetSdk</Title>
-    <Authors>Vicente Yu</Authors>
-    <PackageProjectUrl>https://github.com/vicenteyu/FeishuNetSdk</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/vicenteyu/FeishuNetSdk</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags>feishu; sdk; dotnet; .net7.0</PackageTags>
-    <Copyright>MIT</Copyright>
-    <Description>适用于飞书开放平台的.Net开发包</Description>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <Title>FeishuNetSdk</Title>
+        <Authors>Vicente Yu</Authors>
+        <PackageProjectUrl>https://github.com/vicenteyu/FeishuNetSdk</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryUrl>https://github.com/vicenteyu/FeishuNetSdk</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>feishu; sdk; dotnet; .net6.0</PackageTags>
+        <Copyright>MIT</Copyright>
+        <Description>适用于飞书开放平台的.Net开发包</Description>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <Version>1.0.1</Version>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Acs\**" />
-    <Compile Remove="Ai\**" />
-    <Compile Remove="Auth\**" />
-    <Compile Remove="Ehr\**" />
-    <Compile Remove="Event\**" />
-    <Compile Remove="Human_Authentication\**" />
-    <Compile Remove="Meeting_Room\**" />
-    <Compile Remove="Passport\**" />
-    <Compile Remove="Search\**" />
-    <Compile Remove="Verification_Information\**" />
-    <EmbeddedResource Remove="Acs\**" />
-    <EmbeddedResource Remove="Ai\**" />
-    <EmbeddedResource Remove="Auth\**" />
-    <EmbeddedResource Remove="Ehr\**" />
-    <EmbeddedResource Remove="Event\**" />
-    <EmbeddedResource Remove="Human_Authentication\**" />
-    <EmbeddedResource Remove="Meeting_Room\**" />
-    <EmbeddedResource Remove="Passport\**" />
-    <EmbeddedResource Remove="Search\**" />
-    <EmbeddedResource Remove="Verification_Information\**" />
-    <None Remove="Acs\**" />
-    <None Remove="Ai\**" />
-    <None Remove="Auth\**" />
-    <None Remove="Ehr\**" />
-    <None Remove="Event\**" />
-    <None Remove="Human_Authentication\**" />
-    <None Remove="Meeting_Room\**" />
-    <None Remove="Passport\**" />
-    <None Remove="Search\**" />
-    <None Remove="Verification_Information\**" />
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="Acs\**" />
+        <Compile Remove="Ai\**" />
+        <Compile Remove="Auth\**" />
+        <Compile Remove="Ehr\**" />
+        <Compile Remove="Event\**" />
+        <Compile Remove="Human_Authentication\**" />
+        <Compile Remove="Meeting_Room\**" />
+        <Compile Remove="Passport\**" />
+        <Compile Remove="Search\**" />
+        <Compile Remove="Verification_Information\**" />
+        <EmbeddedResource Remove="Acs\**" />
+        <EmbeddedResource Remove="Ai\**" />
+        <EmbeddedResource Remove="Auth\**" />
+        <EmbeddedResource Remove="Ehr\**" />
+        <EmbeddedResource Remove="Event\**" />
+        <EmbeddedResource Remove="Human_Authentication\**" />
+        <EmbeddedResource Remove="Meeting_Room\**" />
+        <EmbeddedResource Remove="Passport\**" />
+        <EmbeddedResource Remove="Search\**" />
+        <EmbeddedResource Remove="Verification_Information\**" />
+        <None Remove="Acs\**" />
+        <None Remove="Ai\**" />
+        <None Remove="Auth\**" />
+        <None Remove="Ehr\**" />
+        <None Remove="Event\**" />
+        <None Remove="Human_Authentication\**" />
+        <None Remove="Meeting_Room\**" />
+        <None Remove="Passport\**" />
+        <None Remove="Search\**" />
+        <None Remove="Verification_Information\**" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+    <ItemGroup>
+        <None Include="..\LICENSE">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="WebApiClientCore.Extensions.NewtonsoftJson" Version="2.0.4" />
-    <PackageReference Include="WebApiClientCore.Extensions.OAuths" Version="2.0.4" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="WebApiClientCore.Extensions.NewtonsoftJson" Version="2.0.4" />
+        <PackageReference Include="WebApiClientCore.Extensions.OAuths" Version="2.0.4" />
+    </ItemGroup>
 
 </Project>
