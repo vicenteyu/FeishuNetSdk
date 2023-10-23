@@ -2,8 +2,8 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 查询批量任务执行状态 响应体
-/// <para>该接口用于查询通讯录异步任务当前的执行状态以及执行结果。<br></para>
-/// <para>应用商店应用无权限调用此接口。<br></para>
+/// <para>该接口用于查询通讯录异步任务当前的执行状态以及执行结果。</para>
+/// <para>应用商店应用无权限调用此接口。</para>
 /// <para>调用该接口需要申请 `更新通讯录` 以及 `以应用身份读取通讯录` 权限。</para>
 /// <para>接口ID：6907569745299816450</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version//import-api/query-the-execution-status-of-a-batch-task</para>
@@ -75,7 +75,8 @@ public record GetContactV2TaskGetResponseDto
     public int? FinishTime { get; set; }
 
     /// <summary>
-    /// <para>任务执行结果列表，当任务非正常执行完成时不返回此字段。<br>列表中的执行结果顺序和创建任务时请求体中的子任务顺序一致。</para>
+    /// <para>任务执行结果列表，当任务非正常执行完成时不返回此字段。</para>
+    /// <para>列表中的执行结果顺序和创建任务时请求体中的子任务顺序一致。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("task_info")]
@@ -131,7 +132,8 @@ public record GetContactV2TaskGetResponseDto
         public string? Mobile { get; set; }
 
         /// <summary>
-        /// <para>请求时的用户企业内唯一标识。<br>当请求时没有填写 user_id 字段并且子任务执行成功时，字段值为系统生成的唯一标识。</para>
+        /// <para>请求时的用户企业内唯一标识。</para>
+        /// <para>当请求时没有填写 user_id 字段并且子任务执行成功时，字段值为系统生成的唯一标识。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("user_id")]
@@ -157,7 +159,8 @@ public record GetContactV2TaskGetResponseDto
         /// </summary>
 
         /// <summary>
-        /// <para>请求时的自定义部门 ID。<br>当请求时没有填写自定义 ID 字段并且子任务执行成功时，字段值为系统生成的部门 ID。</para>
+        /// <para>请求时的自定义部门 ID。</para>
+        /// <para>当请求时没有填写自定义 ID 字段并且子任务执行成功时，字段值为系统生成的部门 ID。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("department_id")]

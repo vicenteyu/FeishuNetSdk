@@ -176,7 +176,7 @@ public record PutBaikeV1DraftsByDraftIdBodyDto
         }
 
         /// <summary>
-        /// <para>当前词条所属分类<br></para>
+        /// <para>当前词条所属分类</para>
         /// <para>词条只能属于二级分类，且每个一级分类下只能选择一个二级分类。</para>
         /// <para>必填：否</para>
         /// </summary>

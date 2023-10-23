@@ -47,7 +47,12 @@ public record PostApprovalV4InstancesPreviewResponseDto
         public string NodeName { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>节点类型：<br>AND：会签<br>OR: 或签<br>AUTO_PASS:自动通过<br>AUTO_REJECT:自动拒绝<br>SEQUENTIAL:按顺序</para>
+        /// <para>节点类型：</para>
+        /// <para>AND：会签</para>
+        /// <para>OR: 或签</para>
+        /// <para>AUTO_PASS:自动通过</para>
+        /// <para>AUTO_REJECT:自动拒绝</para>
+        /// <para>SEQUENTIAL:按顺序</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonProperty("node_type")]

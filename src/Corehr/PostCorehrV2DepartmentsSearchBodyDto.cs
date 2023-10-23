@@ -27,8 +27,8 @@ public record PostCorehrV2DepartmentsSearchBodyDto
 
     /// <summary>
     /// <para>manager ID 列表，按部门直接负责人搜索</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>按照部门负责人搜索 (corehr:department.manager.search:read)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>按照部门负责人搜索 (corehr:department.manager.search:read)</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -51,8 +51,8 @@ public record PostCorehrV2DepartmentsSearchBodyDto
 
     /// <summary>
     /// <para>上级部门 ID ，可查询直接下级部门</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>按照上级部门搜索(corehr:department.organize.search:read)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>按照上级部门搜索(corehr:department.organize.search:read)</para>
     /// <para>必填：否</para>
     /// <para>示例值：7094136522860922222</para>
     /// </summary>

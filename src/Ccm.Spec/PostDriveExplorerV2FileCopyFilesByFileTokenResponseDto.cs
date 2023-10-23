@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 复制文档 响应体
-/// <para>:::html为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至  [新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy)将文件复制到用户云空间的其他文件夹中。不支持复制文件夹。</para>
+/// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至  [新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy)将文件复制到用户云空间的其他文件夹中。不支持复制文件夹。</para>
 /// <para>如果目标文件夹是我的空间，则复制的文件会在「我的空间」的「归我所有」列表里。</para>
 /// <para>该接口不支持并发创建，且调用频率上限为 5QPS 且 10000次/天</para>
 /// <para>接口ID：6907569523177127937</para>

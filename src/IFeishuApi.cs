@@ -1,11 +1,10 @@
-using Newtonsoft.Json;
+using FeishuNetSdk.Attributes;
 using WebApiClientCore;
 using WebApiClientCore.Attributes;
-using WebApiClientCore.Parameters;
 
 namespace FeishuNetSdk;
-
-[HttpHost("https://open.feishu.cn/"), LoggingFilter, JsonNetReturn]
+[IgnoreStatusExceptionFilter, LoggingFilter]
+[HttpHost("https://open.feishu.cn/"), JsonNetReturn]
 public interface IFeishuApi : IHttpApi
 {
     /// <summary>
@@ -71,15 +70,17 @@ public interface IFeishuApi : IHttpApi
     /// </summary>
     /// <param name="redirect_uri">
     /// <para>必填：是</para>
-    /// 重定向URL，需要经过Encode处理<br>1.重定向URL使用于网页应用。可以在开发者后台，**应用功能>网页**页面启用网页功能，并配置桌面端主页和移动端主页<br>2.调用本接口前，需要在开发者后台的**安全设置**页面，配置重定向URL，支持配置多个。只有在重定向URL列表中的URL才会通过开放平台的安全校验
+    /// <para>重定向 URL，需要经过 Encode 处理</para>
+    /// <para>1. 重定向 URL 使用于网页应用。可以在开发者后台，**应用功能 > 网页** 页面启用网页功能，并配置桌面端主页和移动端主页</para>
+    /// <para>2. 调用本接口前，需要在开发者后台的 **安全设置** 页面，配置重定向 URL，支持配置多个。只有在重定向 URL 列表中的 URL 才会通过开放平台的安全校验</para>
     /// </param>
     /// <param name="app_id">
     /// <para>必填：是</para>
-    /// 应用ID，可以在开发者后台的**凭证与基础信息**页面查看`app_id`。有关`app_id`的详细介绍，请参考[通用参数](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology)
+    /// <para>应用 ID，可以在开发者后台的 **凭证与基础信息** 页面查看 `app_id`。有关 `app_id` 的详细介绍，请参考[通用参数](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology)</para>
     /// </param>
     /// <param name="state">
     /// <para>必填：否</para>
-    /// 用来维护请求和回调状态的附加字符串，在授权完成回调时会附加此参数，应用可以根据此字符串来判断上下文关系
+    /// <para>用来维护请求和回调状态的附加字符串， 在授权完成回调时会附加此参数，应用可以根据此字符串来判断上下文关系</para>
     /// </param>
     [HttpGet("/open-apis/authen/v1/index?redirect_uri={REDIRECT_URI}&amp;app_id={APPID}&amp;state={STATE}")]
     System.Threading.Tasks.Task<FeishuResponse<Authen.Spec.GetAuthenV1IndexResponseDto>> GetAuthenV1IndexAsync(

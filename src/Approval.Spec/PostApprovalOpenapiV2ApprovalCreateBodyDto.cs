@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 创建审批定义 请求体
-/// <para>:::html为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)用于通过接口创建简单的审批定义，可以灵活指定定义的基础信息、表单和流程等。创建成功后，不支持从审批管理后台删除该定义。不推荐企业自建应用使用，如有需要尽量联系管理员在审批管理后台创建定义。</para>
+/// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)用于通过接口创建简单的审批定义，可以灵活指定定义的基础信息、表单和流程等。创建成功后，不支持从审批管理后台删除该定义。不推荐企业自建应用使用，如有需要尽量联系管理员在审批管理后台创建定义。</para>
 /// <para>接口谨慎调用，创建后的审批定义无法停用/删除</para>
 /// <para>接口ID：6907569743420686338</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version/approval/v2/feishu-store-app-integration/create-an-approval-definition</para>
@@ -91,7 +91,11 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>审批类型枚举<br>- AND 会签<br>- OR 或签<br>- SEQUENTIAL 依次审批<br>当 node_type 为依次审批时，审批人必须为『发起人自选』</para>
+        /// <para>审批类型枚举</para>
+        /// <para>- AND 会签</para>
+        /// <para>- OR 或签</para>
+        /// <para>- SEQUENTIAL 依次审批</para>
+        /// <para>当 node_type 为依次审批时，审批人必须为『发起人自选』</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonProperty("node_type")]
@@ -198,7 +202,10 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     public record I18nResource
     {
         /// <summary>
-        /// <para>语言：<br>zh-CN - 中文<br>en-US - 英文<br>ja-JP   - 日文</para>
+        /// <para>语言：</para>
+        /// <para>zh-CN - 中文</para>
+        /// <para>en-US - 英文</para>
+        /// <para>ja-JP   - 日文</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonProperty("locale")]

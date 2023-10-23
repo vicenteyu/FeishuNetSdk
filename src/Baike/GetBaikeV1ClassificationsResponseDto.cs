@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Baike;
 /// <summary>
 /// 获取词典分类 响应体
-/// <para>获取飞书词典当前分类。<br></para>
+/// <para>获取飞书词典当前分类。</para>
 /// <para>飞书词典目前为二级分类体系，每个词条可添加多个二级分类，但选择的二级分类必须从属于不同的一级分类。</para>
 /// <para>接口ID：7085379347152076802</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/baike-v1/classification/list</para>

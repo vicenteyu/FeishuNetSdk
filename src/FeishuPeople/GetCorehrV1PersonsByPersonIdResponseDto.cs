@@ -383,8 +383,8 @@ public record GetCorehrV1PersonsByPersonIdResponseDto
         /// <para>婚姻状况，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
         /// <para>- object_api_name = "person"</para>
         /// <para>- custom_api_name = "marital_status"</para>
-        /// <para><br><b>字段权限要求：</b></para>
-        /// <para><br>读写婚姻状况信息(corehr:person.marital_status:write)</para>
+        /// <para>字段权限要求：</para>
+        /// <para>读写婚姻状况信息(corehr:person.marital_status:write)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("marital_status")]

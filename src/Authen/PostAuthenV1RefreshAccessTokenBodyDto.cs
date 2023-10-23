@@ -18,7 +18,8 @@ public record PostAuthenV1RefreshAccessTokenBodyDto
     public string GrantType { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>刷新 `user_access_token` 需要的凭证<br>获取user_access_token接口和本接口均返回 `refresh_token`，**每次请求，请注意使用最新获取到的`refresh_token`**</para>
+    /// <para>刷新 `user_access_token` 需要的凭证</para>
+    /// <para>获取user_access_token接口和本接口均返回 `refresh_token`，**每次请求，请注意使用最新获取到的`refresh_token`**</para>
     /// <para>必填：是</para>
     /// <para>示例值：ur-oQ0mMq6MCcueAv0pwx2fQQhxqv__CbLu6G8ySFwafeKww2Def2BJdOkW3.9gCFM.LBQgFri901QaqeuL</para>
     /// </summary>

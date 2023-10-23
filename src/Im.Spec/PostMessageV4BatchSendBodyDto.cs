@@ -36,35 +36,41 @@ public record PostMessageV4BatchSendBodyDto
     public object? Content { get; set; }
 
     /// <summary>
-    /// <para>卡片消息内容 <br><br>**注意**：card和content字段必须二选一</para>
+    /// <para>卡片消息内容</para>
+    /// <para>**注意**：card和content字段必须二选一</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("card")]
     public object? Card { get; set; }
 
     /// <summary>
-    /// <para>支持[自定义部门ID](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology#3c3e6267)和open_department_id，列表长度小于等于 200  <br><br>**注意**：部门下的所有子部门包含的成员也会收到消息<br><br>**示例值：**["3dceba33a33226","d502aaa9514059", "od-5b91c9affb665451a16b90b4be367efa"]</para>
+    /// <para>支持[自定义部门ID](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology#3c3e6267)和open_department_id，列表长度小于等于 200</para>
+    /// <para>**注意**：部门下的所有子部门包含的成员也会收到消息</para>
+    /// <para>**示例值：**["3dceba33a33226","d502aaa9514059", "od-5b91c9affb665451a16b90b4be367efa"]</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("department_ids")]
     public string[]? DepartmentIds { get; set; }
 
     /// <summary>
-    /// <para>用户 open_id 列表，长度小于等于 200；ID获取方式可参考文档：[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid) <br><br>**示例值：**["ou_18eac85d35a26f989317ad4f02e8bbbb","ou_461cf042d9eedaa60d445f26dc747d5e"]</para>
+    /// <para>用户 open_id 列表，长度小于等于 200；ID获取方式可参考文档：[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
+    /// <para>**示例值：**["ou_18eac85d35a26f989317ad4f02e8bbbb","ou_461cf042d9eedaa60d445f26dc747d5e"]</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("open_ids")]
     public string[]? OpenIds { get; set; }
 
     /// <summary>
-    /// <para>用户 user_id 列表，长度小于等于 200；ID获取方式可参考文档：[如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)  （对应 V3 接口的 employee_ids ）<br><br>**示例值：**["7cdcc7c2","ca51d83b"]</para>
+    /// <para>用户 user_id 列表，长度小于等于 200；ID获取方式可参考文档：[如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)  （对应 V3 接口的 employee_ids ）</para>
+    /// <para>**示例值：**["7cdcc7c2","ca51d83b"]</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("user_ids")]
     public string[]? UserIds { get; set; }
 
     /// <summary>
-    /// <para>用户 union_ids 列表，长度小于等于 200；ID获取方式可参考文档：[如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)  <br><br>**示例值：**["on_cad4860e7af114fb4ff6c5d496d1dd76","on_gdcq860e7af114fb4ff6c5d496dabcet"]</para>
+    /// <para>用户 union_ids 列表，长度小于等于 200；ID获取方式可参考文档：[如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
+    /// <para>**示例值：**["on_cad4860e7af114fb4ff6c5d496d1dd76","on_gdcq860e7af114fb4ff6c5d496dabcet"]</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("union_ids")]

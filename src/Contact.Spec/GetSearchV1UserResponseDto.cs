@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 搜索用户 响应体
-/// <para>以用户身份搜索其他用户的信息，无法搜索到外部企业或已离职的用户。<br></para>
+/// <para>以用户身份搜索其他用户的信息，无法搜索到外部企业或已离职的用户。</para>
 /// <para>调用该接口需要申请 `搜索用户` 权限。</para>
 /// <para>接口ID：6907569524100349953</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/user/search-users</para>

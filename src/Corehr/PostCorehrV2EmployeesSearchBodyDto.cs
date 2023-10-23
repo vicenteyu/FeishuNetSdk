@@ -41,8 +41,8 @@ public record PostCorehrV2EmployeesSearchBodyDto
 
     /// <summary>
     /// <para>个人电话，精确匹配查询</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>按照手机号搜索：(corehr:person.phone.search:read)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>按照手机号搜索：(corehr:person.phone.search:read)</para>
     /// <para>必填：否</para>
     /// <para>示例值：16760342300</para>
     /// </summary>

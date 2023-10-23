@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 创建审批实例 请求体
-/// <para>:::html为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)创建一个审批实例，调用方需对审批定义的表单有详细了解，将按照定义的表单结构，将表单 Value 通过接口传入。</para>
+/// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)创建一个审批实例，调用方需对审批定义的表单有详细了解，将按照定义的表单结构，将表单 Value 通过接口传入。</para>
 /// <para>接口ID：6907569524100874241</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version/approval/v2/feishu-native-approval/create-approval-instance</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuIDNyUjLyQjM14iM0ITN</para>
@@ -69,7 +69,9 @@ public record PostApprovalOpenapiV2InstanceCreateBodyDto
     }
 
     /// <summary>
-    /// <para>如果有发起人自选节点，则需要填写对应节点的审批人<br>key:  node id 或 custom node id , 通过 [查看审批定义](https://open.feishu.cn/document/ukTMukTMukTM/uADNyUjLwQjM14CM0ITN) 获取<br> value: 审批人列表</para>
+    /// <para>如果有发起人自选节点，则需要填写对应节点的审批人</para>
+    /// <para>key:  node id 或 custom node id , 通过 [查看审批定义](https://open.feishu.cn/document/ukTMukTMukTM/uADNyUjLwQjM14CM0ITN) 获取</para>
+    /// <para>value: 审批人列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("node_approver_user_id_list")]
@@ -83,14 +85,18 @@ public record PostApprovalOpenapiV2InstanceCreateBodyDto
     public object? NodeApproverOpenIdList { get; set; }
 
     /// <summary>
-    /// <para>如果有发起人自选节点，则可填写对应节点的抄送人<br>key:  node id 或 custom node id , 通过 [查看审批定义](https://open.feishu.cn/document/ukTMukTMukTM/uADNyUjLwQjM14CM0ITN) 获取<br> value: 审批人列表<br>单个节点最多选择20位抄送人</para>
+    /// <para>如果有发起人自选节点，则可填写对应节点的抄送人</para>
+    /// <para>key:  node id 或 custom node id , 通过 [查看审批定义](https://open.feishu.cn/document/ukTMukTMukTM/uADNyUjLwQjM14CM0ITN) 获取</para>
+    /// <para>value: 审批人列表</para>
+    /// <para>单个节点最多选择20位抄送人</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("node_cc_user_id_list")]
     public object? NodeCcUserIdList { get; set; }
 
     /// <summary>
-    /// <para>抄送人发起人自选 open id<br>单个节点最多选择20位抄送人</para>
+    /// <para>抄送人发起人自选 open id</para>
+    /// <para>单个节点最多选择20位抄送人</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("node_cc_open_id_list")]

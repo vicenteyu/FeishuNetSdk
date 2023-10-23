@@ -10,7 +10,7 @@ namespace FeishuNetSdk.Calendar;
 public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
 {
     /// <summary>
-    /// <para>新增参与人列表；<br></para>
+    /// <para>新增参与人列表；</para>
     /// <para>- 单次请求参与人数量（含会议室）限制为1000。</para>
     /// <para>- 单次请求会议室的数量限制为100。</para>
     /// <para>必填：否</para>

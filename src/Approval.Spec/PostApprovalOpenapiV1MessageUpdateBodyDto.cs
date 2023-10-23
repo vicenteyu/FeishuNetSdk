@@ -18,7 +18,16 @@ public record PostApprovalOpenapiV1MessageUpdateBodyDto
     public string MessageId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>状态类型，用于更新第一个action文字内容，枚举：<br> APPROVED:已同意<br>REJECTED:已拒绝<br>CANCELLED:已撤回<br>FORWARDED:已转交<br>ROLLBACK:已回退<br>ADD:已加签<br>DELETED:已删除<br>PROCESSED:已处理<br>CUSTOM:自定义按钮状态</para>
+    /// <para>状态类型，用于更新第一个action文字内容，枚举：</para>
+    /// <para>APPROVED:已同意</para>
+    /// <para>REJECTED:已拒绝</para>
+    /// <para>CANCELLED:已撤回</para>
+    /// <para>FORWARDED:已转交</para>
+    /// <para>ROLLBACK:已回退</para>
+    /// <para>ADD:已加签</para>
+    /// <para>DELETED:已删除</para>
+    /// <para>PROCESSED:已处理</para>
+    /// <para>CUSTOM:自定义按钮状态</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonProperty("status")]

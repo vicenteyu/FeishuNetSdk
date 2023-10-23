@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 删除Doc 响应体
-/// <para>:::html为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至  [新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)</para>
+/// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至  [新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)</para>
 /// <para>该接口用于根据 docToken 删除对应的 Docs 文档。</para>
 /// <para>文档只能被文档所有者删除，文档被删除后将会放到回收站里</para>
 /// <para>该接口不支持并发调用，且调用频率上限为5QPS</para>

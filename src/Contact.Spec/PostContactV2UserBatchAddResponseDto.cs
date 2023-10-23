@@ -2,9 +2,9 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 批量新增用户 响应体
-/// <para>该接口用于向通讯录中批量新增多个用户。<br></para>
-/// <para>调用该接口需要具有待添加用户所在部门的通讯录授权范围。<br></para>
-/// <para>应用商店应用无权限调用此接口。<br></para>
+/// <para>该接口用于向通讯录中批量新增多个用户。</para>
+/// <para>调用该接口需要具有待添加用户所在部门的通讯录授权范围。</para>
+/// <para>应用商店应用无权限调用此接口。</para>
 /// <para>调用该接口需要申请 `更新通讯录` 以及 `以应用身份访问通讯录` 权限。</para>
 /// <para>接口ID：6907569743420997634</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version//import-api/batch-add-users</para>

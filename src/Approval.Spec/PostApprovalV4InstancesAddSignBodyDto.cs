@@ -31,7 +31,8 @@ public record PostApprovalV4InstancesAddSignBodyDto
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>任务 ID<br>审批实例详情task_list中id，详情请参考[](https://open.feishu.cn/document/ukTMukTMukTM/uEDNyUjLxQjM14SM0ITN)</para>
+    /// <para>任务 ID</para>
+    /// <para>审批实例详情task_list中id，详情请参考[](https://open.feishu.cn/document/ukTMukTMukTM/uEDNyUjLxQjM14SM0ITN)</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonProperty("task_id")]

@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Im.Spec;
 /// <summary>
 /// 删除仅特定人可见的消息卡片 请求体
-/// <para>在群会话中删除仅指定用户可见的临时消息卡片。<br></para>
+/// <para>在群会话中删除仅指定用户可见的临时消息卡片。</para>
 /// <para>临时卡片消息可以通过该接口进行显式删除，临时卡片消息删除后将不会在该设备上留下任何痕迹。</para>
 /// <para>**权限说明** ：需要启用[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)；需要机器人在会话群里。</para>
 /// <para>接口ID：6907569742384316418</para>

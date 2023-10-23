@@ -74,8 +74,8 @@ public record PostCorehrV1OffboardingsSearchBodyDto
 
     /// <summary>
     /// <para>离职原因列表 , 可以通过【查询员工离职原因列表】接口获取 ，查询时不返回下级原因相关的离职信息</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br> 按照离职原因搜索(corehr:employment.offboarding_reason.search:read)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>按照离职原因搜索(corehr:employment.offboarding_reason.search:read)</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("reasons")]
@@ -83,8 +83,8 @@ public record PostCorehrV1OffboardingsSearchBodyDto
 
     /// <summary>
     /// <para>离职原因（员工）列表 , 可以通过【查询员工离职原因列表】接口获取，查询时不返回下级原因相关的离职信息</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>按照离职原因搜索(corehr:employment.offboarding_reason.search:read)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>按照离职原因搜索(corehr:employment.offboarding_reason.search:read)</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("employee_reasons")]

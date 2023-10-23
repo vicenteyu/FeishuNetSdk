@@ -27,7 +27,13 @@ public record PostSuiteDocsApiMetaBodyDto
         public string DocsToken { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>文件类型  <br>1) "doc": 飞书文档<br>2) "sheet": 飞书电子表格 <br>3) "bitable": 飞书多维表格<br>4) "mindnote": 飞书思维笔记 <br>5) "file": 飞书文件 <br>6) "docx": 飞书新版文档</para>
+        /// <para>文件类型</para>
+        /// <para>1) "doc": 飞书文档</para>
+        /// <para>2) "sheet": 飞书电子表格</para>
+        /// <para>3) "bitable": 飞书多维表格</para>
+        /// <para>4) "mindnote": 飞书思维笔记</para>
+        /// <para>5) "file": 飞书文件</para>
+        /// <para>6) "docx": 飞书新版文档</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonProperty("docs_type")]

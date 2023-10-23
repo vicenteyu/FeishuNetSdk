@@ -119,8 +119,8 @@ public record PostCorehrV2ProbationSearchBodyDto
     /// <para>试用期最终考核等级，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
     /// <para>- object_api_name：probation_management</para>
     /// <para>- custom_api_name：final_assessment_grade</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>按照试用期考核等级搜索 (corehr:probation.grade.search:read)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>按照试用期考核等级搜索 (corehr:probation.grade.search:read)</para>
     /// <para>必填：否</para>
     /// <para>示例值：grade_a</para>
     /// </summary>

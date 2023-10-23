@@ -49,14 +49,24 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
         public record VchatSuffix
         {
             /// <summary>
-            /// <para>视屏会议类型 <br> **可选值有：**<br> - `vc`：飞书视频会议，取该类型时，其他字段无效。<br> - `third_party`：第三方链接视频会议，取该类型时，icon_type、description、meeting_url字段生效。<br> - `no_meeting`：无视频会议，取该类型时，其他字段无效。<br>- `lark_live`：飞书直播，内部类型，飞书客户端使用，API不支持创建，只读。<br>- `unknown`：未知类型，做兼容使用，飞书客户端使用，API不支持创建，只读。</para>
+            /// <para>视屏会议类型</para>
+            /// <para> **可选值有：**</para>
+            /// <para>- `vc`：飞书视频会议，取该类型时，其他字段无效。</para>
+            /// <para>- `third_party`：第三方链接视频会议，取该类型时，icon_type、description、meeting_url字段生效。</para>
+            /// <para>- `no_meeting`：无视频会议，取该类型时，其他字段无效。</para>
+            /// <para>- `lark_live`：飞书直播，内部类型，飞书客户端使用，API不支持创建，只读。</para>
+            /// <para>- `unknown`：未知类型，做兼容使用，飞书客户端使用，API不支持创建，只读。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonProperty("vc_type")]
             public string? VcType { get; set; }
 
             /// <summary>
-            /// <para>第三方视频会议icon类型；可以为空，为空展示默认icon。<br> **可选值有：** <br>- `vc`：飞书视频会议icon<br>- `live`：直播视频会议icon <br>-  `default`：默认icon</para>
+            /// <para>第三方视频会议icon类型；可以为空，为空展示默认icon。</para>
+            /// <para>**可选值有：**</para>
+            /// <para>- `vc`：飞书视频会议icon</para>
+            /// <para>- `live`：直播视频会议icon</para>
+            /// <para>-  `default`：默认icon</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonProperty("icon_type")]
