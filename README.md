@@ -1,8 +1,10 @@
 # FeishuNetSdk
 
-
 ## 自建应用用法
-### 配置
+
+### [安装Nuget包](https://www.nuget.org/packages/FeishuNetSdk/)
+
+### 依赖注入
 ```csharp
 builder.Services.AddHttpApi<IFeishuApi>();
 builder.Services.AddHttpApi<IFeishuTenantApi>();
@@ -19,7 +21,7 @@ builder.Services.AddTokenProvider<IFeishuTenantApi>(async service =>
 });
 ```
 
-### 调用
+### 方法调用
 ```csharp
 [Route("api/[controller]")]
 [ApiController]
