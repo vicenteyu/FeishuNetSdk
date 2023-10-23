@@ -48,6 +48,7 @@ public record GetDriveV1FilesResponseDto
         /// <para>- `file`：文件</para>
         /// <para>- `docx`：新版文档</para>
         /// <para>- `folder`：文件夹</para>
+        /// <para>- `shortcut`: 快捷方式</para>
         /// <para>必填：是</para>
         /// <para>示例值：docx</para>
         /// </summary>
