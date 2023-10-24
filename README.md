@@ -2,6 +2,8 @@
 
 飞书开放平台网址：[https://open.feishu.cn/](https://open.feishu.cn/)
 
+接口清单详见：[TenantAccessToken适用接口清单-947个](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
+
 ## 自建应用用法
 
 ### [安装Nuget包](https://www.nuget.org/packages/FeishuNetSdk/)
@@ -41,6 +43,26 @@ public class TestController : ControllerBase
         var result2 = await _feishuApi.GetImV1ChatsAsync();
         return Results.Json(result2);
     }
+}
+```
+
+### 文件上传示例
+参数 `FormDataFile` 支持 `filePath`、`FileInfo`、`byte[]`、`Stream`。
+
+**需要注意部分接口注释上有关于文件格式限制的说明**
+```csharp
+[HttpGet("t3")]
+public async Task<IResult> GetT3Async()
+{
+    var filePath = @"D:\Users\Downloads\e9bd937f1d7a4c4f992724f5de44bb14.jpg";
+    var result = await _feishuApi.PostImV1ImagesAsync(
+        new FeishuNetSdk.Im.PostImV1ImagesBodyDto
+        {
+            ImageType = "message"
+        },
+        new FormDataFile(filePath));
+
+    return Results.Json(result);
 }
 ```
 
