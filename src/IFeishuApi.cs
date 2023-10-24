@@ -3,6 +3,9 @@ using WebApiClientCore;
 using WebApiClientCore.Attributes;
 
 namespace FeishuNetSdk;
+/// <summary>
+/// 获取应用凭证（AccessToken）的接口
+/// </summary>
 [IgnoreStatusExceptionFilter, LoggingFilter]
 [HttpHost("https://open.feishu.cn/"), JsonNetReturn]
 public interface IFeishuApi : IHttpApi
