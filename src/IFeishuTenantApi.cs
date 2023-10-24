@@ -5,6 +5,9 @@ using WebApiClientCore.Attributes;
 using WebApiClientCore.Parameters;
 
 namespace FeishuNetSdk;
+/// <summary>
+/// 适用于自建应用租户凭证（TenantAccessToken）的接口
+/// </summary>
 [IgnoreStatusExceptionFilter, LoggingFilter]
 [OAuthToken, HttpHost("https://open.feishu.cn/"), JsonNetReturn]
 public interface IFeishuTenantApi : IHttpApi
