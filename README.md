@@ -54,7 +54,7 @@ public class TestController : ControllerBase
 ```csharp
 public interface INewApi : IFeishuTenantApi
 {
-    [OAuthToken, HttpGet("/open-apis/event/v1/outbound_ip1")]
+    [HttpGet("/open-apis/event/v1/outbound_ip1")]
     new System.Threading.Tasks.Task<HttpResponseMessage> GetEventV1OutboundIpAsync();
 }
 ```
@@ -88,10 +88,10 @@ public class TestController : ControllerBase
 ### 启用`状态异常错误`
 默认：关闭
 
-飞书接口在返回结果异常时，同时会返回状态异常。状态异常通常无法实质判断原因，具体原因会在返回结果中提示。所以接口默认忽略状态异常，开启方法如下：
+飞书接口在返回结果异常时，同时会返回状态异常，状态异常通常无法实质判断异常原因，具体原因会在返回结果中提示。所以接口默认忽略状态异常，开启方法如下：
 
 1. 新建API，继承于IFeishuTenantApi。
-1. 使用属性 `IgnoreStatusExceptionFilter` 并设置属性 `Enable` 为 `false` ，意为停用忽略，即启用异常提示。
+1. 使用属性 `IgnoreStatusExceptionFilter` 并将属性 `Enable` 设置为 `false` ，意为停用忽略，即启用异常提示。
 1. 参照上述使用新接口进行方法调用。
 ```csharp
 [IgnoreStatusExceptionFilter(Enable = false)]
@@ -113,7 +113,7 @@ catch (HttpRequestException ex) when (ex.InnerException is ApiResponseStatusExce
 ```
 
 ### 关闭`接口日志`
-默认：开启。
+默认：开启
 
 1. 新建API，继承于IFeishuTenantApi。
 1. 使用属性 `LoggingFilter` 并设置属性 `Enable` 为 `false` ，即可停用日志。
@@ -124,4 +124,4 @@ public interface INewApi : IFeishuTenantApi
 { }
 ```
 
-**`IFeishuApi` 和 `IFeishuTenantApi` 均有独立的 `LoggingFilter` 与 `IgnoreStatusExceptionFilter` 属性，如果都要关闭，需分别继承并设置 `Enable` 为 `false`**
+**需要注意： `IFeishuApi` 和 `IFeishuTenantApi` 各有独立的 `LoggingFilter` 与 `IgnoreStatusExceptionFilter` 属性，若想全部关闭，需要分别继承接口并将属性 `Enable` 设置为 `false` 。**

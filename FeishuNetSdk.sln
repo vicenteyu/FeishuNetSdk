@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决�
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeishuNetSdk", "src\FeishuNetSdk.csproj", "{E35C4624-A479-49AB-9A93-E2D07B66C455}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeishuNetSdk.Tests", "test\FeishuNetSdk.Tests\FeishuNetSdk.Tests.csproj", "{7E13C5A3-AFF5-4B9E-A746-54531FF161D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E35C4624-A479-49AB-9A93-E2D07B66C455}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E35C4624-A479-49AB-9A93-E2D07B66C455}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E35C4624-A479-49AB-9A93-E2D07B66C455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E13C5A3-AFF5-4B9E-A746-54531FF161D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E13C5A3-AFF5-4B9E-A746-54531FF161D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E13C5A3-AFF5-4B9E-A746-54531FF161D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E13C5A3-AFF5-4B9E-A746-54531FF161D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

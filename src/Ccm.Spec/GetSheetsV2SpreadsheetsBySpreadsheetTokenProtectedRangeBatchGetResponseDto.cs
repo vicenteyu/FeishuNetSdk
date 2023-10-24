@@ -13,7 +13,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetRes
     /// <para>保护范围</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("protectedRange")]
+    [JsonProperty("protectedRanges")]
     public ProtectedRange[]? ProtectedRanges { get; set; }
 
     public record ProtectedRange

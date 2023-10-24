@@ -18,7 +18,8 @@ public record PostVcV1ReservesApplyBodyDto
     public string? EndTime { get; set; }
 
     /// <summary>
-    /// <para>指定会议归属人，使用tenant_access_token时生效且必传，使用user_access_token时不生效，必须指定为同租户下的合法飞书用户</para>
+    /// <para>指定会议归属人，使用 tenant_access_token 时生效且必传，指定对象必须为同租户下的合法飞书用户（包含机器人）</para>
+    /// <para>使用 user_access_token 时，该参数不生效，设置归属人无意义</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
     /// </summary>

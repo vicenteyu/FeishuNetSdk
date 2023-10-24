@@ -2106,10 +2106,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>**注意事项：**</para>
     /// <para>- 应用需要启用[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)</para>
     /// <para>- 接口权限说明：</para>
-    /// <para>  - 必须拥有**获取与发送单聊、群组消息**权限，或者**以应用的身份发消息**权限</para>
-    /// <para>  - 至少拥有一个批量发送消息权限：</para>
-    /// <para>      - 给用户发送需要拥有 **给多个用户批量发消息** 权限</para>
-    /// <para>      - 给部门成员发送需要拥有 **给一个或多个部门的成员批量发消息** 权限</para>
+    /// <para>- 必须拥有**获取与发送单聊、群组消息**权限，或者**以应用的身份发消息**权限</para>
+    /// <para>- 至少拥有一个批量发送消息权限：</para>
+    /// <para>- 给用户发送需要拥有 **给多个用户批量发消息** 权限</para>
+    /// <para>- 给部门成员发送需要拥有 **给一个或多个部门的成员批量发消息** 权限</para>
     /// <para>- 应用需要拥有对所发送用户或部门的[可用性](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)</para>
     /// <para>- 通过该接口发送的消息 **不支持更新以及回复等操作**</para>
     /// <para>- 只能发送给用户，无法发送给群组</para>
@@ -2144,7 +2144,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="batch_message_id">
     /// <para>必填：是</para>
-    /// <para>待查询的批量消息任务 ID，通过调用[批量发送消息接口](  https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值`message_id`中得到</para>
+    /// <para>待查询的批量消息任务 ID，通过调用[批量发送消息接口](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值`message_id`中得到</para>
     /// </param>
     [HttpGet("/open-apis/im/v1/batch_messages/{batch_message_id}/read_user")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1BatchMessagesByBatchMessageIdReadUserResponseDto>> GetImV1BatchMessagesByBatchMessageIdReadUserAsync(
@@ -2159,7 +2159,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="batch_message_id">
     /// <para>必填：是</para>
-    /// <para>待查询的批量消息任务ID，通过调用[批量发送消息接口](   https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值`message_id`中得到</para>
+    /// <para>待查询的批量消息任务ID，通过调用[批量发送消息接口](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值`message_id`中得到</para>
     /// </param>
     [HttpGet("/open-apis/im/v1/batch_messages/{batch_message_id}/get_progress")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1BatchMessagesByBatchMessageIdGetProgressResponseDto>> GetImV1BatchMessagesByBatchMessageIdGetProgressAsync(
@@ -2191,7 +2191,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="image_key">
     /// <para>必填：是</para>
-    /// <para>图片的key，通过[上传图片](    https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得</para>
+    /// <para>图片的key，通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得</para>
     /// </param>
     [HttpGet("/open-apis/im/v1/images/{image_key}")]
     System.Threading.Tasks.Task GetImV1ImagesByImageKeyAsync(
@@ -2222,7 +2222,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="file_key">
     /// <para>必填：是</para>
-    /// <para>文件的key，通过[上传文件](    https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口上传图片后获得</para>
+    /// <para>文件的key，通过[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口上传图片后获得</para>
     /// </param>
     [HttpGet("/open-apis/im/v1/files/{file_key}")]
     System.Threading.Tasks.Task GetImV1FilesByFileKeyAsync(
@@ -3146,7 +3146,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】获取我的空间（root folder）元信息</para>
     /// <para>接口ID：6979502797244170243</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/get-root-folder-meta</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于获取 "我的空间" 的元信息</para>
     /// </summary>
     [HttpGet("/open-apis/drive/explorer/v2/root_folder/meta")]
@@ -3214,7 +3214,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】获取文件夹元信息</para>
     /// <para>接口ID：6907569524099989505</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uAjNzUjLwYzM14CM2MTN</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于根据 folderToken 获取该文件夹的元信息。</para>
     /// </summary>
     /// <param name="folderToken">
@@ -3262,12 +3262,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】新建在线文档</para>
     /// <para>接口ID：6907569743419932674</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQTNzUjL0UzM14CN1MTN</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>在用户云空间指定文件夹中创建旧版文档、电子表格或者多维表格。如果目标文件夹是「我的空间」，则新建的文档会在「我的空间」的「归我所有」列表里。</para>
     /// <para>- 云空间中文件夹单层节点上限是 1500 个，超过此限制接口将会返回失败。如有创建大量节点的需求，可以考虑将文档新建到不同文件夹下；</para>
     /// <para>- 我们对创建类接口进行了更细粒度的拆分和升级：</para>
-    /// <para>  - 本接口不支持创建[新版文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)，如需创建新版文档，请调用[创建新版文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create)接口；</para>
-    /// <para>  - 如需创建电子表格，也可以调用[创建表格](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create)接口。</para>
+    /// <para>- 本接口不支持创建[新版文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)，如需创建新版文档，请调用[创建新版文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create)接口；</para>
+    /// <para>- 如需创建电子表格，也可以调用[创建表格](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create)接口。</para>
     /// </summary>
     /// <param name="folderToken">
     /// <para>必填：是</para>
@@ -3416,7 +3416,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】下载素材</para>
     /// <para>接口ID：6979562676003913756</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>下载各种类型文档中的素材，比如电子表格中的图片，支持通过在请求头通过指定`Range`进行分片下载。</para>
     /// </summary>
     /// <param name="file_token">
@@ -3470,7 +3470,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】分片上传素材（上传分片）</para>
     /// <para>接口ID：6979562676003979292</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>上传对应的文件块。</para>
     /// </summary>
     /// <param name="file">
@@ -3487,7 +3487,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】分片上传素材（完成上传）</para>
     /// <para>接口ID：6979562676003880988</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>触发完成上传。</para>
     /// </summary>
     [HttpPost("/open-apis/drive/v1/medias/upload_finish")]
@@ -3498,7 +3498,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】订阅云文档事件</para>
     /// <para>接口ID：7094878915034464284</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口仅支持**文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
     /// </summary>
     /// <param name="file_token">
@@ -3568,7 +3568,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】上传文件</para>
     /// <para>接口ID：6979562676003864604</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>向云空间指定目录下上传一个小文件。</para>
     /// </summary>
     /// <param name="file">
@@ -3585,46 +3585,45 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】分片上传文件（预上传）</para>
     /// <para>接口ID：6979562676003815452</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。</para>
     /// </summary>
     [HttpPost("/open-apis/drive/v1/files/upload_prepare")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveV1FilesUploadPrepareResponseDto>> PostDriveV1FilesUploadPrepareAsync(
-        [JsonNetContent] Ccm.Spec.PostDriveV1FilesUploadPrepareBodyDto dto);
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesUploadPrepareResponseDto>> PostDriveV1FilesUploadPrepareAsync(
+        [JsonNetContent] Ccm.PostDriveV1FilesUploadPrepareBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】分片上传文件（上传分片）</para>
     /// <para>接口ID：6979562676003930140</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>上传对应的文件块。</para>
     /// </summary>
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>文件分片二进制内容。</para>
-    /// <para>**示例值**：file binary</para>
     /// </param>
     [HttpPost("/open-apis/drive/v1/files/upload_part")]
     System.Threading.Tasks.Task PostDriveV1FilesUploadPartAsync(
-        [FormDataContent] Ccm.Spec.PostDriveV1FilesUploadPartBodyDto dto,
+        [FormDataContent] Ccm.PostDriveV1FilesUploadPartBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【云文档】分片上传文件（完成上传）</para>
     /// <para>接口ID：6979562676003766300</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>触发完成上传。</para>
     /// </summary>
     [HttpPost("/open-apis/drive/v1/files/upload_finish")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveV1FilesUploadFinishResponseDto>> PostDriveV1FilesUploadFinishAsync(
-        [JsonNetContent] Ccm.Spec.PostDriveV1FilesUploadFinishBodyDto dto);
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesUploadFinishResponseDto>> PostDriveV1FilesUploadFinishAsync(
+        [JsonNetContent] Ccm.PostDriveV1FilesUploadFinishBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】下载文件</para>
     /// <para>接口ID：6979562676003946524</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>下载云空间下的文件，不含飞书文档、电子表格以及多维表格等在线文档，支持指定文件`Range`进行下载。</para>
     /// </summary>
     /// <param name="file_token">
@@ -4052,6 +4051,19 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? fields);
 
     /// <summary>
+    /// <para>【云文档】获取协作者列表</para>
+    /// <para>接口ID：6907569523177324545</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATN3UjLwUzN14CM1cTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 filetoken 查询协作者，目前包括人("user")和群("chat") 。</para>
+    /// <para>- 该接口为旧版接口。推荐你使用新版接口接入业务，详情参见[获取协作者列表（新版本）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/list)。</para>
+    /// <para>- 你能获取到协作者列表的前提是你对该文档有分享权限。</para>
+    /// </summary>
+    [HttpPost("/open-apis/drive/permission/member/list")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionMemberListResponseDto>> PostDrivePermissionMemberListAsync(
+        [JsonNetContent] Ccm.Spec.PostDrivePermissionMemberListBodyDto dto);
+
+    /// <summary>
     /// <para>【云文档】增加协作者权限</para>
     /// <para>接口ID：6987581166854635521</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create</para>
@@ -4397,7 +4409,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】分页获取文档全文评论</para>
     /// <para>接口ID：6955017385137799169</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于根据文档 token 分页获取文档全文评论，暂时不支持局部评论</para>
     /// </summary>
     /// <param name="file_token">
@@ -4449,7 +4461,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】获取全文评论</para>
     /// <para>接口ID：6955017385137782785</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取云文档中的某条全文评论，暂时不支持局部评论</para>
     /// </summary>
     /// <param name="file_token">
@@ -4471,7 +4483,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】批量获取全文评论</para>
     /// <para>接口ID：7123144042921590786</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/batch_query</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于根据评论 ID 列表批量获取全文评论，暂时不支持局部评论</para>
     /// </summary>
     /// <param name="file_token">
@@ -4542,7 +4554,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】更新回复</para>
     /// <para>接口ID：6955017385137733633</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>更新云文档中的某条回复。</para>
     /// </summary>
     /// <param name="file_token">
@@ -4571,7 +4583,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】删除回复</para>
     /// <para>接口ID：6955017385137717249</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/delete</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>删除云文档中的某条回复。</para>
     /// </summary>
     /// <param name="file_token">
@@ -4599,7 +4611,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】解决/恢复 评论</para>
     /// <para>接口ID：6955017385137766401</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>解决或恢复云文档中的评论。</para>
     /// </summary>
     /// <param name="file_token">
@@ -4622,7 +4634,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】修改电子表格属性</para>
     /// <para>接口ID：7120425077330903068</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/patch</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于修改电子表格的属性</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -4639,7 +4651,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】获取电子表格信息</para>
     /// <para>接口ID：7120425077330919452</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于获取电子表格的基础信息。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -4655,7 +4667,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】创建表格</para>
     /// <para>接口ID：6969763153149476865</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>在指定目录下创建表格</para>
     /// </summary>
     [HttpPost("/open-apis/sheets/v3/spreadsheets")]
@@ -4666,7 +4678,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】查询工作表</para>
     /// <para>接口ID：7120425077330935836</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于通过工作表ID查询工作表属性信息。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -4700,10 +4712,86 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string spreadsheet_token);
 
     /// <summary>
+    /// <para>【云文档】操作工作表</para>
+    /// <para>接口ID：6907569745299439618</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYTMzUjL2EzM14iNxMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 操作表格，如增加工作表，复制工作表、删除工作表。</para>
+    /// <para>该接口和 [更新工作表属性](https://open.feishu.cn/document/ukTMukTMukTM/ugjMzUjL4IzM14COyMTN) 的请求地址相同，但参数不同，调用前请仔细阅读文档。</para>
+    /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/sheets_batch_update")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateAsync(
+        [PathQuery] string spreadsheetToken,
+        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】更新工作表属性</para>
+    /// <para>接口ID：6907569743419473922</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugjMzUjL4IzM14COyMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口和 [操作工作表](https://open.feishu.cn/document/ukTMukTMukTM/uYTMzUjL2EzM14iNxMTN) 的请求地址相同，但参数不同，调用前请仔细阅读文档。</para>
+    /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/sheets_batch_update")]
+    System.Threading.Tasks.Task PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateAsync(
+        [PathQuery] string spreadsheetToken);
+
+    /// <summary>
+    /// <para>【云文档】增加行列</para>
+    /// <para>接口ID：6907569744333864961</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUjMzUjL1IzM14SNyMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 和长度，在末尾增加空行/列；单次操作不超过5000行或列。</para>
+    /// </summary>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dimension_range")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeAsync(
+        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】插入行列</para>
+    /// <para>接口ID：6907569743420194818</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQjMzUjL0IzM14CNyMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 和维度信息 插入空行/列。</para>
+    /// <para>如 startIndex=3， endIndex=7，则从第 4 行开始开始插入行列，一直到第 7 行，共插入 4 行；单次操作不超过5000行或列。</para>
+    /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/insert_dimension_range")]
+    System.Threading.Tasks.Task PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRangeAsync(
+        [PathQuery] string spreadsheetToken,
+        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRangeBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】更新行列</para>
+    /// <para>接口ID：6907569742383562754</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYjMzUjL2IzM14iNyMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 和维度信息更新隐藏行列、单元格大小；单次操作不超过5000行或列。</para>
+    /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
+    [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dimension_range")]
+    System.Threading.Tasks.Task PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeAsync(
+        [PathQuery] string spreadsheetToken,
+        [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
+
+    /// <summary>
     /// <para>【云文档】移动行列</para>
     /// <para>接口ID：6969403095454416924</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于移动行列，行列被移动到目标位置后，原本在目标位置的行列会对应右移或下移。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -4723,10 +4811,151 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonNetContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimensionBodyDto dto);
 
     /// <summary>
+    /// <para>【云文档】删除行列</para>
+    /// <para>接口ID：6907569524100382721</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ucjMzUjL3IzM14yNyMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 和维度信息删除行/列 。单次删除最大5000行/列。</para>
+    /// </summary>
+    [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dimension_range")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeAsync(
+        [JsonNetContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】插入数据</para>
+    /// <para>接口ID：6907569742384398338</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uIjMzUjLyIzM14iMyMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>根据 [SpreadsheetToken](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview#6d80ef81) 在其**特定工作表的指定范围**的开始位置上方增加若干行，并填充相应的数据。这里的工作表和范围是通过接口请求体中的`range`属性来确定的，例如：</para>
+    /// <para>"range": "8fe9d6!A2:B2"</para>
+    /// </summary>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_prepend")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependAsync(
+        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】追加数据</para>
+    /// <para>接口ID：6907569524100857857</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMjMzUjLzIzM14yMyMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于在已有数据的末尾追加写入给定的数据。该接口会从给定的range中的起始行列开始向下寻找（如range为"sheet1!A1:B2",将会依次寻找A1、A2、A3...），找到第一个空白位置后将数据写入到该区域。单次写入不得超过5000行，100列，每个格子不得超过5万字符。</para>
+    /// </summary>
+    /// <param name="insertDataOption">
+    /// <para>必填：否</para>
+    /// <para>遇到空行追加，默认 OVERWRITE，若空行的数量小于追加数据的行数，则会覆盖已有数据；可选 INSERT_ROWS ，会在插入足够数量的行后再进行数据追加</para>
+    /// </param>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_append")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendAsync(
+        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendBodyDto dto,
+        [PathQuery] string? insertDataOption);
+
+    /// <summary>
+    /// <para>【云文档】读取单个范围</para>
+    /// <para>接口ID：6907569742384529410</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugTMzUjL4EzM14COxMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 和 range 读取表格单个范围的值，返回数据限制为10M。</para>
+    /// </summary>
+    [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values/{range}")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRangeResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRangeAsync();
+
+    /// <summary>
+    /// <para>【云文档】向单个范围写入数据</para>
+    /// <para>接口ID：6907569745298980866</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uAjMzUjLwIzM14CMyMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 和 range 向单个范围写入数据，若范围内有数据，将被更新覆盖；单次写入不超过5000行，100列，每个格子不超过5万字符。</para>
+    /// </summary>
+    [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesAsync(
+        [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】读取多个范围</para>
+    /// <para>接口ID：6907569743420325890</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukTMzUjL5EzM14SOxMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 和 ranges 读取表格多个范围的值，返回数据限制为10M。</para>
+    /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
+    [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_batch_get")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchGetResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchGetAsync(
+        [PathQuery] string spreadsheetToken);
+
+    /// <summary>
+    /// <para>【云文档】向多个范围写入数据</para>
+    /// <para>接口ID：6907569742384381954</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uEjMzUjLxIzM14SMyMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 和 range 向多个范围写入数据，若范围内有数据，将被更新覆盖；单次写入不超过5000行，100列，每个格子不超过5万字符。</para>
+    /// </summary>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_batch_update")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateAsync(
+        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】设置单元格样式 </para>
+    /// <para>接口ID：6907569523176783873</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukjMzUjL5IzM14SOyMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 、range 和样式信息更新单元格样式；单次写入不超过5000行，100列。建议在设置边框样式时，每次更新的单元格数量不要超过30000个。</para>
+    /// </summary>
+    [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/style")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleAsync(
+        [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】批量设置单元格样式 </para>
+    /// <para>接口ID：6907569742383923202</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uAzMzUjLwMzM14CMzMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 、range和样式信息 批量更新单元格样式；单次写入不超过5000行，100列。建议在设置边框样式时，每次更新的单元格数量不要超过30000个。</para>
+    /// </summary>
+    [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/styles_batch_update")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateAsync(
+        [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】写入图片</para>
+    /// <para>接口ID：6907568073252585474</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDNxYjL1QTM24SN0EjN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 和 range 向单个格子写入图片。</para>
+    /// </summary>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_image")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageAsync(
+        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】合并单元格</para>
+    /// <para>接口ID：6907569742387707906</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukDNzUjL5QzM14SO0MTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 和维度信息合并单元格；单次操作不超过5000行，100列。</para>
+    /// </summary>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/merge_cells")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsAsync(
+        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】拆分单元格</para>
+    /// <para>接口ID：6907569524100055041</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATNzUjLwUzM14CM1MTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 和维度信息拆分单元格；单次操作不超过5000行，100列。</para>
+    /// </summary>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/unmerge_cells")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsAsync(
+        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsBodyDto dto);
+
+    /// <summary>
     /// <para>【云文档】查找单元格</para>
     /// <para>接口ID：6982374372208590850</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/find</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>在指定范围内查找符合查找条件的单元格。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -4770,7 +4999,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】获取筛选</para>
     /// <para>接口ID：6966945328390651906</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/get</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取子表的详细筛选信息</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -4792,7 +5021,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】创建筛选</para>
     /// <para>接口ID：6966945328390668290</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>在子表内创建筛选。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -4815,7 +5044,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】更新筛选</para>
     /// <para>接口ID：6966945328390684674</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>更新子表筛选范围中的列筛选条件。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -4838,7 +5067,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】删除筛选</para>
     /// <para>接口ID：6966945328390701058</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>删除子表的筛选</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -4860,7 +5089,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】获取筛选视图</para>
     /// <para>接口ID：6970504825797558275</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/get</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取指定筛选视图 id 的名字和筛选范围。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -4888,7 +5117,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】查询筛选视图</para>
     /// <para>接口ID：6970504825797574659</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>查询子表内所有的筛选视图基本信息，包括 id、name 和 range</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -4910,7 +5139,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】创建筛选视图</para>
     /// <para>接口ID：6970504825797672963</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据传入的参数创建一个筛选视图。Id 和 名字可选，不填的话会默认生成；range 必填。Id 长度为10，由 0-9、a-z、A-Z 组合生成。名字长度不超过100。单个子表内的筛选视图个数不超过 150。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -4933,7 +5162,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】更新筛选视图</para>
     /// <para>接口ID：6970504825797591043</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>更新筛选视图的名字或者筛选范围。名字长度不超过100，不能重复即子表内唯一；筛选范围不超过子表的最大范围。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -4962,7 +5191,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】删除筛选视图</para>
     /// <para>接口ID：6970504825797689347</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/delete</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>删除指定 id 对应的筛选视图。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -4990,7 +5219,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】获取筛选条件</para>
     /// <para>接口ID：6970504825797623811</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取筛选视图某列的筛选条件信息。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -5024,7 +5253,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】查询筛选条件</para>
     /// <para>接口ID：6970504825797607427</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>查询一个筛选视图的所有筛选条件，返回筛选视图的筛选范围内的筛选条件。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -5052,7 +5281,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】创建筛选条件</para>
     /// <para>接口ID：6970504825797705731</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>在筛选视图的筛选范围的某一列创建筛选条件。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -5081,7 +5310,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】更新筛选条件</para>
     /// <para>接口ID：6970504825797541891</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>更新筛选视图范围的某列的筛选条件，condition id 即为列的字母号。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -5116,7 +5345,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】删除筛选条件</para>
     /// <para>接口ID：6970504825797640195</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>删除筛选视图的筛选范围某一列的筛选条件。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -5147,10 +5376,168 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string condition_id);
 
     /// <summary>
+    /// <para>【云文档】增加保护范围</para>
+    /// <para>接口ID：6907569742383988738</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugDNzUjL4QzM14CO0MTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 和维度信息增加多个保护范围；单次操作不超过5000行或列。</para>
+    /// </summary>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_dimension")]
+    System.Threading.Tasks.Task PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimensionAsync();
+
+    /// <summary>
+    /// <para>【云文档】获取保护范围</para>
+    /// <para>接口ID：6923123667871596572</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQTM5YjL0ETO24CNxkjN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据保护范围ID查询详细的保护行列信息，最多支持同时查询5个ID。</para>
+    /// </summary>
+    /// <param name="protectIds">
+    /// <para>必填：是</para>
+    /// <para>保护范围ID，可以通过[获取表格元数据](https://open.feishu.cn/document/ukTMukTMukTM/uETMzUjLxEzM14SMxMTN)接口获取，多个ID用逗号分隔，如xxxID1,xxxID2</para>
+    /// </param>
+    /// <param name="memberType">
+    /// <para>必填：否</para>
+    /// <para>返回的用户类型，可选userId,openId,unionId,默认使用userId</para>
+    /// </param>
+    [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_range_batch_get")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetAsync(
+        [PathQuery] string protectIds,
+        [PathQuery] string? memberType);
+
+    /// <summary>
+    /// <para>【云文档】修改保护范围</para>
+    /// <para>接口ID：6923123667871612956</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUTM5YjL1ETO24SNxkjN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据保护范围ID修改保护范围，单次最多支持同时修改10个ID。</para>
+    /// </summary>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_range_batch_update")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdateAsync(
+        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdateBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】删除保护范围</para>
+    /// <para>接口ID：6923123667871629340</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYTM5YjL2ETO24iNxkjN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据保护范围ID删除保护范围，最多支持同时删除10个ID。</para>
+    /// </summary>
+    [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_range_batch_del")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelAsync(
+        [JsonNetContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】查询下拉列表设置</para>
+    /// <para>接口ID：6943917246700306434</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/datavalidation/query-datavalidation</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口根据 spreadsheetToken 、range 查询range内的下拉列表设置信息；单次查询范围不超过5000行，100列。</para>
+    /// </summary>
+    /// <param name="range">
+    /// <para>必填：是</para>
+    /// <para>查询范围，包含 sheetId 与单元格范围两部分，目前支持四种索引方式，详见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
+    /// <param name="dataValidationType">
+    /// <para>必填：是</para>
+    /// <para>固定为"list"，表示下拉列表</para>
+    /// </param>
+    [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
+    System.Threading.Tasks.Task GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
+        [PathQuery] string range,
+        [PathQuery] string dataValidationType);
+
+    /// <summary>
+    /// <para>【云文档】设置下拉列表</para>
+    /// <para>接口ID：6943917246700290050</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/datavalidation/set-dropdown</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口根据 spreadsheetToken 、range 和下拉列表属性给单元格设置下拉列表规则；单次设置范围不超过5000行，100列。当一个数据区域中已有数据，支持将有效数据直接转为选项。</para>
+    /// </summary>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
+    System.Threading.Tasks.Task PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
+        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】更新下拉列表设置</para>
+    /// <para>接口ID：6943917246700322818</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/datavalidation/update-datavalidation</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口根据 spreadsheetToken 、sheetId、dataValidationId 更新下拉列表的属性。</para>
+    /// </summary>
+    [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation/{sheetId}/{dataValidationId}")]
+    System.Threading.Tasks.Task PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdAsync(
+        [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】删除下拉列表设置</para>
+    /// <para>接口ID：6943917246700257282</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/datavalidation/delete-datavalidation</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口根据 spreadsheetToken 、range 移除选定数据范围单元格的下拉列表设置，但保留选项文本。单个删除范围不超过5000单元格。单次请求range最大数量100个。</para>
+    /// </summary>
+    [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
+    System.Threading.Tasks.Task DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
+        [JsonNetContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】获取条件格式</para>
+    /// <para>接口ID：6939784115499909148</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/conditionformat/condition-format-get</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据sheetId查询详细的条件格式信息，最多支持同时查询10个sheetId。</para>
+    /// </summary>
+    /// <param name="sheet_ids">
+    /// <para>必填：是</para>
+    /// <para>工作表ID，可以通过[获取表格元数据](https://open.feishu.cn/document/ukTMukTMukTM/uETMzUjLxEzM14SMxMTN)接口获取，多个ID用逗号分隔，如xxxID1,xxxID2</para>
+    /// </param>
+    [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsAsync(
+        [PathQuery] string[] sheet_ids);
+
+    /// <summary>
+    /// <para>【云文档】创建条件格式</para>
+    /// <para>接口ID：6939784115499892764</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/conditionformat/condition-format-set</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于创建新的条件格式，单次最多支持增加10个条件格式，每个条件格式的设置会返回成功或者失败，失败的情况包括各种参数的校验。</para>
+    /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats/batch_create")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateAsync(
+        [PathQuery] string spreadsheetToken,
+        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】更新条件格式</para>
+    /// <para>接口ID：6939784115499925532</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/conditionformat/condition-format-update</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于更新已有的条件格式，单次最多支持更新10个条件格式，每个条件格式的更新会返回成功或者失败，失败的情况包括各种参数的校验。</para>
+    /// </summary>
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats/batch_update")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateAsync(
+        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】删除条件格式</para>
+    /// <para>接口ID：6939784115499859996</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/conditionformat/condition-format-delete</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于删除已有的条件格式，单次最多支持删除10个条件格式，每个条件格式的删除会返回成功或者失败，失败的情况包括各种参数的校验。</para>
+    /// </summary>
+    [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats/batch_delete")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteAsync(
+        [JsonNetContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteBodyDto dto);
+
+    /// <summary>
     /// <para>【云文档】获取浮动图片</para>
     /// <para>接口ID：6976178542817247235</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 float_image_id 获取对应浮动图片的信息。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -5178,7 +5565,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】查询浮动图片</para>
     /// <para>接口ID：6976178542817263619</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>返回子表内所有的浮动图片信息。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -5200,7 +5587,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】创建浮动图片</para>
     /// <para>接口ID：6976178542817230851</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据传入的参数创建一张浮动图片。Float_image_token （[上传图片至表格后得到](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)）和range（只支持一个单元格） 必填。Float_image_id 可选，不填的话会默认生成，长度为10，由 0-9、a-z、A-Z 组合生成。表格内不重复的图片（浮动图片+单元格图片）总数不超过4000。width 和 height 为图片展示的宽高，可选，不填的话会使用图片的真实宽高。offset_x 和 offset_y 为图片左上角距离所在单元格左上角的偏移，可选，默认为 0。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -5223,7 +5610,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】更新浮动图片</para>
     /// <para>接口ID：6976178542817280003</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>更新已有的浮动图片位置和宽高，包括 range、width、height、offset_x 和 offset_y，不包括 float_image_id 和 float_image_token。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -5252,7 +5639,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】删除浮动图片</para>
     /// <para>接口ID：6976178542817296387</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/delete</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>删除 float_image_id 对应的浮动图片。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -5704,7 +6091,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【多维表格】更新表单问题</para>
     /// <para>接口ID：7112628058154893314</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-form-field/patch</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于更新表单中的问题项</para>
     /// </summary>
     /// <param name="app_token">
@@ -6940,7 +7327,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【日历】创建访问控制</para>
     /// <para>接口ID：6952888507002814491</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/create</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于以当前身份（应用 / 用户）给日历添加访问控制权限，即日历成员。</para>
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
@@ -6958,7 +7345,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【日历】删除访问控制</para>
     /// <para>接口ID：6952888507002945563</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/delete</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于以当前身份（应用 / 用户）删除日历的控制权限，即日历成员。</para>
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
@@ -6981,7 +7368,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【日历】获取访问控制列表</para>
     /// <para>接口ID：6953067803433009153</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于以当前身份（应用 / 用户）获取日历的控制权限列表。</para>
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
@@ -7032,7 +7419,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【日历】删除日程</para>
     /// <para>接口ID：6952888507002961947</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/delete</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于以当前身份（应用 / 用户）删除日历上的一个日程。</para>
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
@@ -9918,7 +10305,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【审批】查询用户的任务列表</para>
     /// <para>接口ID：6986936689592549378</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/query</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据用户和任务分组查询任务列表。</para>
     /// </summary>
     [HttpGet("/open-apis/approval/v4/tasks/query")]
@@ -9988,7 +10375,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="agent_id">
     /// <para>必填：是</para>
-    /// <para>  客服 id</para>
+    /// <para>客服 id</para>
     /// </param>
     [HttpGet("/open-apis/helpdesk/v1/agents/{agent_id}/schedules")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto>> GetHelpdeskV1AgentsByAgentIdSchedulesAsync(
@@ -10352,11 +10739,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="status">
     /// <para>必填：否</para>
-    /// <para>搜索条件: 知识库状态 1:在线 0:删除，可恢复 2：删除，不可恢复  </para>
+    /// <para>搜索条件: 知识库状态 1:在线 0:删除，可恢复 2：删除，不可恢复</para>
     /// </param>
     /// <param name="search">
     /// <para>必填：否</para>
-    /// <para>搜索条件: 关键词，匹配问题标题，问题关键字，用户姓名  </para>
+    /// <para>搜索条件: 关键词，匹配问题标题，问题关键字，用户姓名</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -10982,7 +11369,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【任务】获取关注人列表</para>
     /// <para>接口ID：6985127383322165250</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于查询任务关注人列表，支持分页，最大值为50。</para>
     /// </summary>
     /// <param name="task_id">
@@ -19593,7 +19980,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【OKR】获取用户的 OKR 列表</para>
     /// <para>接口ID：6961663213280739329</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/user-okr/list</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据用户的 id 获取 OKR 列表。</para>
     /// </summary>
     /// <param name="user_id">
@@ -19609,7 +19996,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【OKR】批量获取 OKR</para>
     /// <para>接口ID：6961663213280722945</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/okr/batch_get</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 OKR id 批量获取 OKR。</para>
     /// </summary>
     [HttpGet("/open-apis/okr/v1/okrs/batch_get")]
@@ -19641,7 +20028,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【OKR】删除 OKR 进展记录</para>
     /// <para>接口ID：7047056455665532929</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/progress_record/delete</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 ID 删除 OKR 进展记录。</para>
     /// </summary>
     /// <param name="progress_id">
@@ -19684,7 +20071,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【OKR】获取 OKR 进展记录</para>
     /// <para>接口ID：7047056455665926145</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/progress_record/get</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 ID 获取 OKR 进展记录详情。</para>
     /// </summary>
     /// <param name="progress_id">
@@ -19716,7 +20103,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【OKR】获取指标库</para>
     /// <para>接口ID：7153135267980328964</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/metric_source/list</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取租户下全部 OKR 指标库（仅限 OKR 企业版使用）。</para>
     /// </summary>
     [HttpGet("/open-apis/okr/v1/metric_sources")]
@@ -19726,7 +20113,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【OKR】获取指标表</para>
     /// <para>接口ID：7153135267980312580</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/metric_source-table/list</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取指定指标库下有哪些指标表（仅限 OKR 企业版使用）。</para>
     /// </summary>
     /// <param name="metric_source_id">
@@ -19742,7 +20129,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【OKR】更新指标项</para>
     /// <para>接口ID：7153135267980263428</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/metric_source-table-item/patch</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>- 该接口用于更新某项指标，接口仅限 OKR 企业版使用。</para>
     /// <para>更新成功后 OKR 系统会给以下人员发送消息通知：</para>
     /// <para>- 首次更新目标值的人员</para>
@@ -19774,7 +20161,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【OKR】批量更新指标项</para>
     /// <para>接口ID：7153135267980345348</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/metric_source-table-item/batch_update</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>- 该接口用于批量更新多项指标，单次调用最多更新 100 条记录。接口仅限 OKR 企业版使用。</para>
     /// <para>更新成功后 OKR 系统会给以下人员发送消息通知：</para>
     /// <para>- 首次更新目标值的人员</para>
@@ -19800,7 +20187,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【OKR】获取指标项</para>
     /// <para>接口ID：7153135267980296196</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/metric_source-table-item/list</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取指定指标表下的所有指标项（仅限 OKR 企业版使用）。</para>
     /// </summary>
     /// <param name="metric_source_id">
@@ -19822,7 +20209,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【OKR】获取指标项详情</para>
     /// <para>接口ID：7153135267980279812</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/metric_source-table-item/get</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取某项指标的具体内容（仅限 OKR 企业版使用）。</para>
     /// </summary>
     /// <param name="metric_source_id">
@@ -21019,7 +21406,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>当应用不希望再收到审批事件时，可以使用取消订阅接口进行取消，取消后将不再给应用推送消息。</para>
     /// <para>订阅和取消订阅都是应用维度的，多个应用可以同时订阅同一个 approval_code，每个应用都能收到审批事件。</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/subscription/subscribe")]
     System.Threading.Tasks.Task PostApprovalOpenapiV2SubscriptionSubscribeAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2SubscriptionSubscribeBodyDto dto);
@@ -21031,7 +21418,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe)取消订阅 approval_code 后，无法再收到该审批定义对应实例的事件通知。</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/subscription/unsubscribe")]
     System.Threading.Tasks.Task PostApprovalOpenapiV2SubscriptionUnsubscribeAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2SubscriptionUnsubscribeBodyDto dto);
@@ -21043,7 +21430,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)根据 Approval Code 获取某个审批定义的详情，用于构造创建审批实例的请求。</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/approval/get")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2ApprovalGetResponseDto>> PostApprovalOpenapiV2ApprovalGetAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2ApprovalGetBodyDto dto);
@@ -21055,7 +21442,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)创建一个审批实例，调用方需对审批定义的表单有详细了解，将按照定义的表单结构，将表单 Value 通过接口传入。</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/create")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2InstanceCreateResponseDto>> PostApprovalOpenapiV2InstanceCreateAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceCreateBodyDto dto);
@@ -21067,7 +21454,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)通过审批实例 Instance Code  获取审批实例详情。Instance Code 由 [批量获取审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list) 接口获取。</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/get")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2InstanceGetResponseDto>> PostApprovalOpenapiV2InstanceGetAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceGetBodyDto dto);
@@ -21080,7 +21467,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)根据 approval_code 批量获取审批实例的 instance_code，用于拉取租户下某个审批定义的全部审批实例。</para>
     /// <para>默认以审批创建时间排序。</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/list")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2InstanceListResponseDto>> PostApprovalOpenapiV2InstanceListAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceListBodyDto dto);
@@ -21092,7 +21479,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cc)通过接口可以将当前审批实例抄送给其他人。</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cc")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cc")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/cc")]
     System.Threading.Tasks.Task PostApprovalOpenapiV2InstanceCcAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceCcBodyDto dto);
@@ -21104,7 +21491,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cancel)对于状态为“审批中”的单个审批实例进行撤销操作，撤销后审批流程结束</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cancel")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cancel")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/cancel")]
     System.Threading.Tasks.Task PostApprovalOpenapiV2InstanceCancelAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceCancelBodyDto dto);
@@ -21116,7 +21503,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/approve)对于单个审批任务进行同意操作。同意后审批流程会流转到下一个审批人。</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/approve")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/approve")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/approve")]
     System.Threading.Tasks.Task PostApprovalOpenapiV2InstanceApproveAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceApproveBodyDto dto);
@@ -21128,7 +21515,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/reject)对于单个审批任务进行拒绝操作。拒绝后审批流程结束。</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/reject")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/reject")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/reject")]
     System.Threading.Tasks.Task PostApprovalOpenapiV2InstanceRejectAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceRejectBodyDto dto);
@@ -21140,7 +21527,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/transfer)对于单个审批任务进行转交操作。转交后审批流程流转给被转交人。</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/transfer")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/transfer")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/transfer")]
     System.Threading.Tasks.Task PostApprovalOpenapiV2InstanceTransferAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceTransferBodyDto dto);
@@ -21154,7 +21541,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>另外，审批定义还配置了审批操作时的回调地址：审批人在待审批列表中进行【同意】【拒绝】操作时，审批中心会调用回调地址通知三方系统。</para>
     /// <para>注意，审批中心不负责审批流程的流转，只负责展示、操作、消息通知。因此审批定义创建时没有审批流程的信息。</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v3/external/approval/create")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV3ExternalApprovalCreateResponseDto>> PostApprovalOpenapiV3ExternalApprovalCreateAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV3ExternalApprovalCreateBodyDto dto);
@@ -21171,7 +21558,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para><img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/ca6e0e984a7a6d64e1b16a0bac4bf868_tfqjCiaJQM.png" alt="" style="zoom:17%;" /></para>
     /// <para><img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/529377e238df78d391bbd22e962ad195_T7eefLI1GA.png" alt="" style="zoom:17%;" /></para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/external/instance/create")]
     System.Threading.Tasks.Task PostApprovalOpenapiV2ExternalInstanceCreateAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2ExternalInstanceCreateBodyDto dto);
@@ -21184,7 +21571,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check)校验三方审批实例数据，用于判断服务端数据是否为最新的。用户提交实例最新更新时间，如果服务端不存在该实例，或者服务端实例更新时间不是最新的，则返回对应实例 id。</para>
     /// <para>例如，用户可以每隔5分钟，将最近5分钟产生的实例使用该接口进行对比。</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v3/external/instance/check")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV3ExternalInstanceCheckResponseDto>> PostApprovalOpenapiV3ExternalInstanceCheckAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV3ExternalInstanceCheckBodyDto dto);
@@ -21201,7 +21588,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>3. 通过 status 获取指定状态的所有任务</para>
     /// <para>4. 获取下一批数据</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/external/list")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2ExternalListResponseDto>> PostApprovalOpenapiV2ExternalListAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2ExternalListBodyDto dto);
@@ -21214,7 +21601,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)用于通过接口创建简单的审批定义，可以灵活指定定义的基础信息、表单和流程等。创建成功后，不支持从审批管理后台删除该定义。不推荐企业自建应用使用，如有需要尽量联系管理员在审批管理后台创建定义。</para>
     /// <para>接口谨慎调用，创建后的审批定义无法停用/删除</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/approval/create")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2ApprovalCreateResponseDto>> PostApprovalOpenapiV2ApprovalCreateAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2ApprovalCreateBodyDto dto);
@@ -21226,7 +21613,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)该接口通过不同条件查询审批系统中符合条件的审批实例列表。</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/search")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2InstanceSearchResponseDto>> PostApprovalOpenapiV2InstanceSearchAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceSearchBodyDto dto);
@@ -21238,7 +21625,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc)该接口通过不同条件查询审批系统中符合条件的审批抄送列表。</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/cc/search")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2CcSearchResponseDto>> PostApprovalOpenapiV2CcSearchAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2CcSearchBodyDto dto);
@@ -21250,7 +21637,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/search)该接口通过不同条件查询审批系统中符合条件的审批任务列表</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/search")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/search")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/task/search")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2TaskSearchResponseDto>> PostApprovalOpenapiV2TaskSearchAsync(
         [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2TaskSearchBodyDto dto);
@@ -21352,7 +21739,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【通讯录】获取部门信息列表</para>
     /// <para>接口ID：6943913881476972571</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/list</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于获取当前部门子部门列表。[常见问题答疑](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN)。</para>
     /// </summary>
     [HttpGet("/open-apis/contact/v3/departments")]
@@ -21404,10 +21791,134 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string task_id);
 
     /// <summary>
+    /// <para>【云文档】创建旧版文档</para>
+    /// <para>接口ID：6908984614439829506</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugDM2YjL4AjN24COwYjN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>在使用此接口前，请仔细阅读[文档概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs-doc-overview)和[准备接入文档 API](https://open.feishu.cn/document/ukTMukTMukTM/ugzNzUjL4czM14CO3MTN/guide/getting-start)了解文档调用的规则和约束，确保你的文档数据不会丢失或出错。</para>
+    /// <para>文档数据结构定义可参考：[文档数据结构概述](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)</para>
+    /// </summary>
+    [HttpPost("/open-apis/doc/v2/create")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDocV2CreateResponseDto>> PostDocV2CreateAsync(
+        [JsonNetContent] Ccm.Spec.PostDocV2CreateBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】获取旧版文档元信息</para>
+    /// <para>接口ID：6907569524100448257</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uczN3UjL3czN14yN3cTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>此接口只支持查询旧版文档元信息，如果需要查询新版文档元信息，请使用[获取元数据](https://open.feishu.cn/document/ukTMukTMukTM/uMjN3UjLzYzN14yM2cTN)接口。</para>
+    /// </summary>
+    [HttpGet("/open-apis/doc/v2/meta/{docToken}")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2MetaByDocTokenResponseDto>> GetDocV2MetaByDocTokenAsync();
+
+    /// <summary>
+    /// <para>【云文档】获取旧版文档中的电子表格元数据</para>
+    /// <para>接口ID：6907569744330833921</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uADOzUjLwgzM14CM4MTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 docToken 获取文档中的电子表格的元数据。 </para>
+    /// </summary>
+    [HttpGet("/open-apis/doc/v2/{docToken}/sheet_meta")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2ByDocTokenSheetMetaResponseDto>> GetDocV2ByDocTokenSheetMetaAsync();
+
+    /// <summary>
+    /// <para>【云文档】获取旧版文档纯文本内容</para>
+    /// <para>接口ID：6907569742384857090</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukzNzUjL5czM14SO3MTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>此接口只支持查询旧版文档纯文本内容，如果需要查询新版文档的纯文本内容，请使用[获取新版文档纯文本内容</para>
+    /// <para>](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/raw_content)接口。</para>
+    /// </summary>
+    [HttpGet("/open-apis/doc/v2/{docToken}/raw_content")]
+    System.Threading.Tasks.Task GetDocV2ByDocTokenRawContentAsync();
+
+    /// <summary>
+    /// <para>【云文档】获取旧版文档富文本内容</para>
+    /// <para>接口ID：6908984614439845890</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDM2YjL1AjN24SNwYjN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>在使用此接口前，请仔细阅读[文档概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs-doc-overview)和[准备接入文档 API](https://open.feishu.cn/document/ukTMukTMukTM/ugzNzUjL4czM14CO3MTN/guide/getting-start)了解文档调用的规则和约束，确保你的文档数据不会丢失或出错。</para>
+    /// <para>文档数据结构定义可参考：[文档数据结构概述](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)</para>
+    /// </summary>
+    [HttpGet("/open-apis/doc/v2/{docToken}/content")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2ByDocTokenContentResponseDto>> GetDocV2ByDocTokenContentAsync();
+
+    /// <summary>
+    /// <para>【云文档】编辑旧版文档内容</para>
+    /// <para>接口ID：6908984614439813122</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYDM2YjL2AjN24iNwYjN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>在使用此接口前，请仔细阅读[文档概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs-doc-overview)和[准备接入文档 API](https://open.feishu.cn/document/ukTMukTMukTM/ugzNzUjL4czM14CO3MTN/guide/getting-start)了解文档调用的规则和约束，确保你的文档数据不会丢失或出错。</para>
+    /// <para>文档数据结构定义可参考：[文档数据结构概述](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)</para>
+    /// </summary>
+    [HttpPost("/open-apis/doc/v2/{docToken}/batch_update")]
+    System.Threading.Tasks.Task PostDocV2ByDocTokenBatchUpdateAsync(
+        [JsonNetContent] Ccm.Spec.PostDocV2ByDocTokenBatchUpdateBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】获取表格元数据</para>
+    /// <para>接口ID：6907569744330227713</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uETMzUjLxEzM14SMxMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 获取表格元数据。</para>
+    /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token；获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
+    [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/metainfo")]
+    System.Threading.Tasks.Task GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoAsync(
+        [PathQuery] string spreadsheetToken);
+
+    /// <summary>
+    /// <para>【云文档】更新表格属性</para>
+    /// <para>接口ID：6907569742384201730</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ucTMzUjL3EzM14yNxMTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 spreadsheetToken 更新表格属性，如更新表格标题。</para>
+    /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
+    [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/properties")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesAsync(
+        [PathQuery] string spreadsheetToken,
+        [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】导入表格</para>
+    /// <para>接口ID：6907568031544229890</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATO2YjLwkjN24CM5YjN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>>  为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至[新版本](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)</para>
+    /// <para>该接口用于将本地表格导入到云空间上。</para>
+    /// </summary>
+    [HttpPost("/open-apis/sheets/v2/import")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2ImportResponseDto>> PostSheetsV2ImportAsync(
+        [JsonNetContent] Ccm.Spec.PostSheetsV2ImportBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】查询导入结果</para>
+    /// <para>接口ID：6907568073252683778</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uETO2YjLxkjN24SM5YjN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于查询文件导入结果。查询30分钟无结果为导入失败。</para>
+    /// </summary>
+    /// <param name="ticket">
+    /// <para>必填：是</para>
+    /// <para>导入时获取的凭证</para>
+    /// </param>
+    [HttpGet("/open-apis/sheets/v2/import/result")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2ImportResultResponseDto>> GetSheetsV2ImportResultAsync(
+        [PathQuery] string ticket);
+
+    /// <summary>
     /// <para>【云文档】获取元数据</para>
     /// <para>接口ID：6907569743420637186</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMjN3UjLzYzN14yM2cTN</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于根据 token 获取各类文件的元数据。</para>
     /// <para>请求用户需要拥有该文件的访问（读）权限</para>
     /// </summary>
@@ -21419,7 +21930,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】删除Sheet</para>
     /// <para>接口ID：6979502797244153859</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUTNzUjL1UzM14SN1MTN/delete-sheet</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至  [新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)</para>
     /// <para>该接口用于根据 spreadsheetToken 删除对应的 sheet 文档。</para>
     /// <para>文档只能被文档所有者删除，文档被删除后将会放到回收站里</para>
@@ -21429,7 +21940,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
     /// </param>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete")]
     [HttpDelete("/open-apis/drive/explorer/v2/file/spreadsheets/{spreadsheetToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteDriveExplorerV2FileSpreadsheetsBySpreadsheetTokenResponseDto>> DeleteDriveExplorerV2FileSpreadsheetsBySpreadsheetTokenAsync(
         [PathQuery] string spreadsheetToken);
@@ -21438,7 +21949,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】复制文档</para>
     /// <para>接口ID：6907569523177127937</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYTNzUjL2UzM14iN1MTN</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至  [新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy)将文件复制到用户云空间的其他文件夹中。不支持复制文件夹。</para>
     /// <para>如果目标文件夹是我的空间，则复制的文件会在「我的空间」的「归我所有」列表里。</para>
     /// <para>该接口不支持并发创建，且调用频率上限为 5QPS 且 10000次/天</para>
@@ -21447,7 +21958,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>被复制文件的 token, 获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
     /// </param>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy")]
     [HttpPost("/open-apis/drive/explorer/v2/file/copy/files/{fileToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveExplorerV2FileCopyFilesByFileTokenResponseDto>> PostDriveExplorerV2FileCopyFilesByFileTokenAsync(
         [PathQuery] string fileToken,
@@ -21457,7 +21968,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】删除Doc</para>
     /// <para>接口ID：6907569742383661058</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATM2UjLwEjN14CMxYTN</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至  [新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)</para>
     /// <para>该接口用于根据 docToken 删除对应的 Docs 文档。</para>
     /// <para>文档只能被文档所有者删除，文档被删除后将会放到回收站里</para>
@@ -21467,7 +21978,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>doc 的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
     /// </param>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete")]
     [HttpDelete("/open-apis/drive/explorer/v2/file/docs/{docToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteDriveExplorerV2FileDocsByDocTokenResponseDto>> DeleteDriveExplorerV2FileDocsByDocTokenAsync(
         [PathQuery] string docToken);
@@ -21476,14 +21987,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】获取文件夹下的文档清单</para>
     /// <para>接口ID：6907569524100890625</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uEjNzUjLxYzM14SM2MTN</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至  [新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)获取用户云空间中指定文件夹下的文件清单。清单类型包括文件、各种在线文档（文档、电子表格、多维表格、思维笔记）、文件夹和快捷方式。该接口不支持分页，并且不会递归的获取子文件夹的清单。</para>
     /// </summary>
     /// <param name="types">
     /// <para>必填：否</para>
     /// <para>需要查询的文件类型，默认返回所有 children；types 可多选，可选类型有 doc、sheet、file、bitable、docx、folder、mindnote 。如 url?types=folder&types=sheet</para>
     /// </param>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list")]
     [HttpGet("/open-apis/drive/explorer/v2/folder/{folderToken}/children")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDriveExplorerV2FolderByFolderTokenChildrenResponseDto>> GetDriveExplorerV2FolderByFolderTokenChildrenAsync(
         [PathQuery] string[]? types);
@@ -21492,15 +22003,48 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】新建文件夹</para>
     /// <para>接口ID：6907569745299750914</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukTNzUjL5UzM14SO1MTN</para>
-    /// <para>Authorization：tenant_access_token、 user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至  [新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder)</para>
     /// <para>该接口用于根据 folderToken 在该 folder 下创建文件夹。</para>
     /// <para>该接口不支持并发创建，且调用频率上限为 5QPS 以及 10000次/天</para>
     /// </summary>
-    [Obsolete("迁移至新版本：https://open.feishu.cn/document//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder")]
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder")]
     [HttpPost("/open-apis/drive/explorer/v2/folder/{folderToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveExplorerV2FolderByFolderTokenResponseDto>> PostDriveExplorerV2FolderByFolderTokenAsync(
         [JsonNetContent] Ccm.Spec.PostDriveExplorerV2FolderByFolderTokenBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】判断协作者是否有某权限</para>
+    /// <para>接口ID：6907569524101087233</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYzN3UjL2czN14iN3cTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 filetoken 判断当前登录用户是否具有某权限。</para>
+    /// </summary>
+    [HttpPost("/open-apis/drive/permission/member/permitted")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionMemberPermittedResponseDto>> PostDrivePermissionMemberPermittedAsync(
+        [JsonNetContent] Ccm.Spec.PostDrivePermissionMemberPermittedBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】转移拥有者</para>
+    /// <para>接口ID：6907569744329719809</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQzNzUjL0czM14CN3MTN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据文档信息和用户信息转移文档的所有者。</para>
+    /// </summary>
+    [HttpPost("/open-apis/drive/permission/member/transfer")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionMemberTransferResponseDto>> PostDrivePermissionMemberTransferAsync(
+        [JsonNetContent] Ccm.Spec.PostDrivePermissionMemberTransferBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】获取云文档权限设置V2</para>
+    /// <para>接口ID：6907569524099940353</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uITM3YjLyEzN24iMxcjN</para>
+    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>该接口用于根据 filetoken 获取云文档的权限设置。</para>
+    /// </summary>
+    [HttpPost("/open-apis/drive/permission/v2/public/")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionV2PublicResponseDto>> PostDrivePermissionV2PublicAsync(
+        [JsonNetContent] Ccm.Spec.PostDrivePermissionV2PublicBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】获取面试记录列表</para>
