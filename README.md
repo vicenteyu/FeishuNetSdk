@@ -44,8 +44,9 @@ public class TestController : ControllerBase
 }
 ```
 
+## 以下是仅在特殊情况下使用的特殊方法。
 ### 接口重载/覆盖
-1. 新建API，继承于IFeishuTenantApi。
+1. 新建API，继承于 `IFeishuTenantApi`。
 1. 使用重载/覆盖方法
 
 **如果要覆盖方法，比如是在保持参数完全一致的情况下，修改http地址，需要在方法前加 `new` （参数不一致是重载，重载不用加`new` ），然后将新地址更换到属性上。更换http方法、返回参数及其他属性也是同理。**
@@ -90,8 +91,8 @@ public class TestController : ControllerBase
 
 飞书接口在返回结果异常时，同时会返回状态异常，状态异常通常无法实质判断异常原因，具体原因会在返回结果中提示。所以接口默认忽略状态异常，开启方法如下：
 
-1. 新建API，继承于IFeishuTenantApi。
-1. 使用属性 `IgnoreStatusExceptionFilter` 并将属性 `Enable` 设置为 `false` ，意为停用忽略，即启用异常提示。
+1. 新建API，继承于 `IFeishuTenantApi`。
+1. 添加接口属性 `IgnoreStatusExceptionFilter` 并将属性 `Enable` 设置为 `false` ，意为停用忽略，即启用异常提示。
 1. 参照上述使用新接口进行方法调用。
 ```csharp
 [IgnoreStatusExceptionFilter(Enable = false)]
@@ -115,9 +116,10 @@ catch (HttpRequestException ex) when (ex.InnerException is ApiResponseStatusExce
 ### 关闭`接口日志`
 默认：开启
 
-1. 新建API，继承于IFeishuTenantApi。
-1. 使用属性 `LoggingFilter` 并设置属性 `Enable` 为 `false` ，即可停用日志。
+1. 新建API，继承于 `IFeishuTenantApi`。
+1. 添加接口属性 `LoggingFilter` 并设置属性 `Enable` 为 `false` ，即可停用日志。
 1. 参照上述使用新接口进行方法调用。
+1. `LoggingFilter` 和 `IgnoreStatusExceptionFilter` 可以同时存在。
 ```csharp
 [LoggingFilter(Enable = false), IgnoreStatusExceptionFilter(Enable = false)]
 public interface INewApi : IFeishuTenantApi
