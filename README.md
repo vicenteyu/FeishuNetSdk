@@ -49,6 +49,7 @@ public class TestController : ControllerBase
 1. 使用重载/覆盖方法
 
 **如果要覆盖方法，比如是在保持参数完全一致的情况下，修改http地址，需要在方法前加 `new` （参数不一致是重载，重载不用加`new` ），然后将新地址更换到属性上。更换http方法、返回参数及其他属性也是同理。**
+
 #### 新建API
 ```csharp
 public interface INewApi : IFeishuTenantApi
