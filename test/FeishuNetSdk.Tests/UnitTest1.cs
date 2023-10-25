@@ -21,7 +21,7 @@ namespace FeishuNetSdk.Tests
         {
             var m1 = HttpApi.FindApiMethods(typeof(IFeishuTenantApi));
 
-            Assert.IsTrue(m1.Length == 947);
+            Assert.IsTrue(m1.Length == 969);
         }
 
         [TestMethod]

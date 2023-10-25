@@ -20053,6 +20053,256 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
+    /// <para>【招聘】创建账号自定义字段</para>
+    /// <para>接口ID：7195815979079581697</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>定制用户在服务商处的身份标示字段（如用户在服务商处的租户 ID）。用户在飞书招聘后台添加帐号后，系统会推送「帐号绑定」事件给开发者，事件将携带用户填写的自定义字段信息，开发者可根据此信息识别飞书招聘用户在服务商处的身份信息，完成飞书招聘用户和服务商帐号的绑定，并以此来推送对应的套餐或试卷列表等。 可多次推送，多次推送为覆盖逻辑。</para>
+    /// </summary>
+    [HttpPost("/open-apis/hire/v1/eco_account_custom_fields")]
+    System.Threading.Tasks.Task PostHireV1EcoAccountCustomFieldsAsync(
+        [JsonNetContent] Hire.PostHireV1EcoAccountCustomFieldsBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】更新账号自定义字段</para>
+    /// <para>接口ID：7195815979079434241</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/batch_update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新用户在服务商处的身份标示字段（如用户在服务商处的租户 ID），此方法只会更新同一 scope 内 key 一致的自定义字段。</para>
+    /// </summary>
+    [HttpPatch("/open-apis/hire/v1/eco_account_custom_fields/batch_update")]
+    System.Threading.Tasks.Task PatchHireV1EcoAccountCustomFieldsBatchUpdateAsync(
+        [JsonNetContent] Hire.PatchHireV1EcoAccountCustomFieldsBatchUpdateBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】删除账号自定义字段</para>
+    /// <para>接口ID：7195815976042545154</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/batch_delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除用户在服务商处的身份标示字段（如用户在服务商处的租户 ID）。删除后，不影响已添加帐号对应的自定义字段的值。但在添加新帐号时，将不能再使用此自定义字段。删除不支持撤销，对应的 key 将无法再次复用。</para>
+    /// </summary>
+    [HttpPost("/open-apis/hire/v1/eco_account_custom_fields/batch_delete")]
+    System.Threading.Tasks.Task PostHireV1EcoAccountCustomFieldsBatchDeleteAsync(
+        [JsonNetContent] Hire.PostHireV1EcoAccountCustomFieldsBatchDeleteBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】推送背调自定义字段</para>
+    /// <para>接口ID：7195815979079450625</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>定制用户在发起背调时的自定义字段， 此接口为覆盖更新，多次调用时最后一次调用推送的自定义字段生效。</para>
+    /// </summary>
+    [HttpPost("/open-apis/hire/v1/eco_background_check_custom_fields")]
+    System.Threading.Tasks.Task PostHireV1EcoBackgroundCheckCustomFieldsAsync(
+        [JsonNetContent] Hire.PostHireV1EcoBackgroundCheckCustomFieldsBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】更新背调自定义字段</para>
+    /// <para>接口ID：7195815976042594306</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新用户在发起背调时的自定义字段。更新操作不支持更新自定义字段类型，只允许更新字段名称，且将影响已发起的背调表单展示。</para>
+    /// </summary>
+    [HttpPatch("/open-apis/hire/v1/eco_background_check_custom_fields/batch_update")]
+    System.Threading.Tasks.Task PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateAsync(
+        [JsonNetContent] Hire.PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】删除背调自定义字段</para>
+    /// <para>接口ID：7195815979079565313</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除用户在发起背调时的自定义字段，删除不影响已创建的背调，删除后对应的自定义字段的 key 不能再复用。</para>
+    /// </summary>
+    [HttpPost("/open-apis/hire/v1/eco_background_check_custom_fields/batch_delete")]
+    System.Threading.Tasks.Task PostHireV1EcoBackgroundCheckCustomFieldsBatchDeleteAsync(
+        [JsonNetContent] Hire.PostHireV1EcoBackgroundCheckCustomFieldsBatchDeleteBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】创建背调套餐和附加调查项</para>
+    /// <para>接口ID：7195815976042512386</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>定制指定帐号可用的背调套餐和附加调查项信息。</para>
+    /// </summary>
+    [HttpPost("/open-apis/hire/v1/eco_background_check_packages")]
+    System.Threading.Tasks.Task PostHireV1EcoBackgroundCheckPackagesAsync(
+        [JsonNetContent] Hire.PostHireV1EcoBackgroundCheckPackagesBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】更新背调套餐和附加调查项</para>
+    /// <para>接口ID：7195815979079548929</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新帐号下指定背调套餐和附加调查项信息，更新将影响已发起背调的表单项展示。如需新增背调套餐、附加项需使用创建接口进行添加</para>
+    /// </summary>
+    [HttpPatch("/open-apis/hire/v1/eco_background_check_packages/batch_update")]
+    System.Threading.Tasks.Task PatchHireV1EcoBackgroundCheckPackagesBatchUpdateAsync(
+        [JsonNetContent] Hire.PatchHireV1EcoBackgroundCheckPackagesBatchUpdateBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】删除背调套餐和附加调查项</para>
+    /// <para>接口ID：7195815976042528770</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除指定帐号的指定背调套餐和附加调查项信息，删除不会影响已创建的背调。</para>
+    /// </summary>
+    [HttpPost("/open-apis/hire/v1/eco_background_check_packages/batch_delete")]
+    System.Threading.Tasks.Task PostHireV1EcoBackgroundCheckPackagesBatchDeleteAsync(
+        [JsonNetContent] Hire.PostHireV1EcoBackgroundCheckPackagesBatchDeleteBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】更新背调订单进度</para>
+    /// <para>接口ID：7195815979079483393</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新指定背调的进展信息和阶段报告， 进度信息将会被展示在背调卡片上，用以推送背调进度、阶段报告。用以告知用户目前系统订单的流转状态。 当订单状态已完成时，将无法通过此接口更新阶段报告、更新进度事件信息。</para>
+    /// </summary>
+    [HttpPost("/open-apis/hire/v1/eco_background_checks/update_progress")]
+    System.Threading.Tasks.Task PostHireV1EcoBackgroundChecksUpdateProgressAsync(
+        [JsonNetContent] Hire.PostHireV1EcoBackgroundChecksUpdateProgressBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】回传背调订单的最终结果</para>
+    /// <para>接口ID：7195815979079499777</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_result</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>回传背调的最终结果，终版报告。 回传背调结果后，若租户未启用报告审批功能，则背调订单状态将会变成已完成。 若启用报告审批功能，则在管理员审批通过终版报告后，订单状态流转为已完成。</para>
+    /// </summary>
+    [HttpPost("/open-apis/hire/v1/eco_background_checks/update_result")]
+    System.Threading.Tasks.Task PostHireV1EcoBackgroundChecksUpdateResultAsync(
+        [JsonNetContent] Hire.PostHireV1EcoBackgroundChecksUpdateResultBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】终止背调订单</para>
+    /// <para>接口ID：7195815979079598081</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/cancel</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>调用此接口将会将系统订单状态变成已终止， 已终止订单将不会响应[「更新背调进度」](https://open.feishu.cn/document/server-docs/hire-v1/ecological-docking/eco_background_check/update_progress)和[「回传背调订单的最终结果」](https://open.feishu.cn/document/server-docs/hire-v1/ecological-docking/eco_background_check/update_result)。 建议在回调终止背调订单之前，推送账号进度为「已终止」</para>
+    /// </summary>
+    [HttpPost("/open-apis/hire/v1/eco_background_checks/cancel")]
+    System.Threading.Tasks.Task PostHireV1EcoBackgroundChecksCancelAsync(
+        [JsonNetContent] Hire.PostHireV1EcoBackgroundChecksCancelBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】推送试卷列表</para>
+    /// <para>接口ID：7195815976042561538</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>定制指定帐号可用的试卷列表</para>
+    /// </summary>
+    [HttpPost("/open-apis/hire/v1/eco_exam_papers")]
+    System.Threading.Tasks.Task PostHireV1EcoExamPapersAsync(
+        [JsonNetContent] Hire.PostHireV1EcoExamPapersBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】更新试卷</para>
+    /// <para>接口ID：7195815979079532545</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/batch_update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新指定帐号可用的试卷列表</para>
+    /// </summary>
+    [HttpPatch("/open-apis/hire/v1/eco_exam_papers/batch_update")]
+    System.Threading.Tasks.Task PatchHireV1EcoExamPapersBatchUpdateAsync(
+        [JsonNetContent] Hire.PatchHireV1EcoExamPapersBatchUpdateBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】删除试卷</para>
+    /// <para>接口ID：7195815976042577922</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/batch_delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除指定帐号的指定试卷列表，删除不影响已创建的笔试，删除不存在的试卷时不会报错</para>
+    /// </summary>
+    [HttpPost("/open-apis/hire/v1/eco_exam_papers/batch_delete")]
+    System.Threading.Tasks.Task PostHireV1EcoExamPapersBatchDeleteAsync(
+        [JsonNetContent] Hire.PostHireV1EcoExamPapersBatchDeleteBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】回传笔试安排结果</para>
+    /// <para>接口ID：7195815979079401473</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam/login_info</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>回传笔试安排结果，如果安排成功需返回笔试链接和登录凭证</para>
+    /// </summary>
+    /// <param name="exam_id">
+    /// <para>必填：是</para>
+    /// <para>exam id</para>
+    /// </param>
+    [HttpPost("/open-apis/hire/v1/eco_exams/{exam_id}/login_info")]
+    System.Threading.Tasks.Task PostHireV1EcoExamsByExamIdLoginInfoAsync(
+        [PathQuery] string exam_id,
+        [JsonNetContent] Hire.PostHireV1EcoExamsByExamIdLoginInfoBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】回传笔试结果</para>
+    /// <para>接口ID：7195815979079467009</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam/update_result</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>回传笔试结果</para>
+    /// </summary>
+    /// <param name="exam_id">
+    /// <para>必填：是</para>
+    /// <para>exam id</para>
+    /// </param>
+    [HttpPost("/open-apis/hire/v1/eco_exams/{exam_id}/update_result")]
+    System.Threading.Tasks.Task PostHireV1EcoExamsByExamIdUpdateResultAsync(
+        [PathQuery] string exam_id,
+        [JsonNetContent] Hire.PostHireV1EcoExamsByExamIdUpdateResultBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】注册外部系统内推账户</para>
+    /// <para>接口ID：7252281835550932994</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>支持通过内推人的手机号或邮箱注册「内推奖励账号」。注册后，可获取对应内推人的账号 ID，并查询、操作对应内推人的积分和奖励余额，配合接口：[「内推账户余额变更事件」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/events/assets_update)、[「全额提取内推账号余额」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/withdraw)。如需停用账户，可调用[「停用外部系统内推账户」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/deactivate)</para>
+    /// </summary>
+    [HttpPost("/open-apis/hire/v1/referral_account")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1ReferralAccountResponseDto>> PostHireV1ReferralAccountAsync(
+        [JsonNetContent] Hire.PostHireV1ReferralAccountBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】停用外部系统内推账户</para>
+    /// <para>接口ID：7252281835550867458</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/deactivate</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>停用后，对应的内推账号信息将无法通过接口[「内推账户余额变更事件」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/events/assets_update)、[「提取内推账号余额」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/withdraw)获取、修改</para>
+    /// </summary>
+    /// <param name="referral_account_id">
+    /// <para>必填：是</para>
+    /// <para>账户ID</para>
+    /// </param>
+    [HttpPost("/open-apis/hire/v1/referral_account/{referral_account_id}/deactivate")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1ReferralAccountByReferralAccountIdDeactivateResponseDto>> PostHireV1ReferralAccountByReferralAccountIdDeactivateAsync(
+        [PathQuery] string referral_account_id);
+
+    /// <summary>
+    /// <para>【招聘】全额提取内推账号余额</para>
+    /// <para>接口ID：7252281835550883842</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/withdraw</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>支持通过账号 ID 全额提取内推账号下的积分或现金奖励。调用前，请确认已完成[「注册外部系统内推账户」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create)并获取到账号 ID。提现后，内推人的对应积分或现金余额将变为 0，扣减后对应奖励将在招聘系统同步标记为「已发放」</para>
+    /// </summary>
+    /// <param name="referral_account_id">
+    /// <para>必填：是</para>
+    /// <para>账户ID</para>
+    /// </param>
+    [HttpPost("/open-apis/hire/v1/referral_account/{referral_account_id}/withdraw")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1ReferralAccountByReferralAccountIdWithdrawResponseDto>> PostHireV1ReferralAccountByReferralAccountIdWithdrawAsync(
+        [PathQuery] string referral_account_id,
+        [JsonNetContent] Hire.PostHireV1ReferralAccountByReferralAccountIdWithdrawBodyDto dto);
+
+    /// <summary>
+    /// <para>【招聘】内推账号提现对账接口</para>
+    /// <para>接口ID：7252281835550900226</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/reconciliation</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>定时将时间段内的账户充值信息同步到招聘，与招聘实际提取金额做对比，保证系统异常或其他意外情况发生时，双方系统可及时监控到充值异常等错误</para>
+    /// </summary>
+    [HttpPost("/open-apis/hire/v1/referral_account/reconciliation")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1ReferralAccountReconciliationResponseDto>> PostHireV1ReferralAccountReconciliationAsync(
+        [JsonNetContent] Hire.PostHireV1ReferralAccountReconciliationBodyDto dto);
+
+    /// <summary>
     /// <para>【招聘】获取附件信息</para>
     /// <para>接口ID：6964286393804898332</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get</para>
@@ -20934,6 +21184,17 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/lingo/v1/entities/extract")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesExtractResponseDto>> PostLingoV1EntitiesExtractAsync(
         [JsonNetContent] Baike.PostLingoV1EntitiesExtractBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书词典】批量高亮</para>
+    /// <para>接口ID：7293809202833342492</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/batch_highlight</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过这个接口，可以传入一段文本，获取这段文本中所有词条的 ID</para>
+    /// </summary>
+    [HttpPost("/open-apis/lingo/v1/entities/batch_highlight")]
+    System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesBatchHighlightResponseDto>> PostLingoV1EntitiesBatchHighlightAsync(
+        [JsonNetContent] Baike.PostLingoV1EntitiesBatchHighlightBodyDto dto);
 
     /// <summary>
     /// <para>【飞书词典】获取词典分类</para>
