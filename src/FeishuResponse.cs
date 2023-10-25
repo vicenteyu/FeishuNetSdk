@@ -2,6 +2,9 @@ using Newtonsoft.Json;
 
 namespace FeishuNetSdk;
 
+/// <summary>
+/// 响应体
+/// </summary>
 public record FeishuResponse<T>
 {
     /// <summary>
@@ -16,6 +19,14 @@ public record FeishuResponse<T>
     [JsonProperty("msg")]
     public string Msg { get; set; } = string.Empty;
 
+    /// <summary>
+    /// 业务数据
+    /// </summary>
     [JsonProperty("data")]
     public T? Data { get; set; }
 }
+
+/// <summary>
+/// 响应体
+/// </summary>
+public record FeishuResponse : FeishuResponse<object?> { }

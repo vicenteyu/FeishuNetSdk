@@ -6,7 +6,8 @@
 
 ## 自建应用用法
 
-### 安装Nuget包：[![FeishuNetSdk](https://buildstats.info/nuget/FeishuNetSdk "FeishuNetSdk")](https://buildstats.info/nuget/FeishuNetSdk "FeishuNetSdk")
+### 安装Nuget包
+[![FeishuNetSdk](https://buildstats.info/nuget/FeishuNetSdk "FeishuNetSdk")](https://buildstats.info/nuget/FeishuNetSdk "FeishuNetSdk")
 
 ### 依赖注册
 ```csharp
