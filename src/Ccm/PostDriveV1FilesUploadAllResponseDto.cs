@@ -1,5 +1,5 @@
 using Newtonsoft.Json;
-namespace FeishuNetSdk.Ccm.Spec;
+namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 上传文件 响应体
 /// <para>向云空间指定目录下上传一个小文件。</para>
@@ -12,6 +12,7 @@ public record PostDriveV1FilesUploadAllResponseDto
     /// <summary>
     /// <para>新创建文件的 token</para>
     /// <para>必填：否</para>
+    /// <para>示例值：boxcnrHpsg1QDqXAAAyachabcef</para>
     /// </summary>
     [JsonProperty("file_token")]
     public string? FileToken { get; set; }

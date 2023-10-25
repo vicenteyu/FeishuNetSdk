@@ -1,5 +1,5 @@
 using Newtonsoft.Json;
-namespace FeishuNetSdk.Ccm.Spec;
+namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 查找单元格 响应体
 /// <para>在指定范围内查找符合查找条件的单元格。</para>
@@ -16,17 +16,20 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindRespo
     [JsonProperty("find_result")]
     public FindReplaceResult? FindResult { get; set; }
 
+    /// <summary>
+    /// <para>符合条件的信息</para>
+    /// </summary>
     public record FindReplaceResult
     {
         /// <summary>
-        /// <para>符合查找条件的单元格数组，不包含公式，例如["A1", "A2"...]</para>
+        /// <para>符合查找条件的单元格数组，不包含公式</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("matched_cells")]
         public string[]? MatchedCells { get; set; }
 
         /// <summary>
-        /// <para>符合查找条件的含有公式的单元格数组，例如["B3", "H7"...]</para>
+        /// <para>符合查找条件的含有公式的单元格数组</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("matched_formula_cells")]
@@ -35,6 +38,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindRespo
         /// <summary>
         /// <para>符合查找条件的总行数</para>
         /// <para>必填：否</para>
+        /// <para>示例值：2</para>
         /// </summary>
         [JsonProperty("rows_count")]
         public int? RowsCount { get; set; }

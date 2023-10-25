@@ -4,7 +4,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
         <Title>FeishuNetSdk</Title>
         <Authors>Vicente Yu</Authors>
         <PackageProjectUrl>https://github.com/vicenteyu/FeishuNetSdk</PackageProjectUrl>

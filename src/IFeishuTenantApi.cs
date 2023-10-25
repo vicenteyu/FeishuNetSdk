@@ -45,9 +45,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -88,9 +88,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -131,9 +131,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -158,9 +158,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -195,9 +195,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -234,9 +234,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -278,9 +278,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -310,9 +310,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -361,9 +361,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -387,9 +387,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -410,9 +410,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -461,9 +461,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -498,9 +498,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -695,9 +695,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -707,7 +707,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>不同 ID 的说明参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
     /// <list type="bullet">
     /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门在不同应用中的open_department_id不相同。</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -739,7 +739,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门ID的类型</para>
     /// <list type="bullet">
     /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门在不同应用中的open_department_id不相同。</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -764,9 +764,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -775,7 +775,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门ID的类型</para>
     /// <list type="bullet">
     /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门在不同应用中的open_department_id不相同。</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -802,9 +802,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -813,7 +813,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门ID的类型</para>
     /// <list type="bullet">
     /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门在不同应用中的open_department_id不相同。</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -836,7 +836,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门ID的类型，默认为"open_department_id"</para>
     /// <list type="bullet">
     /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门在不同应用中的open_department_id不相同。</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -861,9 +861,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -873,7 +873,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
     /// <list type="bullet">
     /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门在不同应用中的open_department_id相同。</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -905,7 +905,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>说明请求中department_ids参数所使用的部门ID类型</para>
     /// <para>不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
     /// <list type="bullet">
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门在不同应用中的open_department_id相同。</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
     /// <item>department_id：用来标识租户内一个唯一的部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
@@ -914,9 +914,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -942,9 +942,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -954,7 +954,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>不同 ID 的说明与department_id的获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
     /// <list type="bullet">
     /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门在不同应用中的open_department_id不相同。</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -992,9 +992,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -1003,7 +1003,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门ID的类型</para>
     /// <list type="bullet">
     /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门在不同应用中的open_department_id不相同。</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -1259,9 +1259,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>当member_type=user时候，member_id_type表示user_id_type，枚举值open_id, union_id和user_id。</para>
     /// <para>当member_type=department时候，member_id_type表示department_id_type，枚举值open_id和department_id。</para>
     /// <list type="bullet">
-    /// <item>open_id：member_type=user时候，表示用户的open_id</item>
-    /// <item>union_id：member_type=user时候，表示用户的union_id</item>
-    /// <item>user_id：member_type=user时候，表示用户的user_id</item>
+    /// <item>open_id：member_type =user时候，表示用户的open_id</item>
+    /// <item>union_id：member_type =user时候，表示用户的union_id</item>
+    /// <item>user_id：member_type =user时候，表示用户的user_id</item>
     /// <item>department_id：member_type=department时候，表示部门的department_id</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -1340,9 +1340,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -1367,9 +1367,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -1394,9 +1394,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -1435,9 +1435,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -1482,9 +1482,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -1758,11 +1758,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>消息接收者id类型 open_id/user_id/union_id/email/chat_id</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>email：以用户的真实邮箱来标识用户。</item>
-    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</md-enum-item>**当值为`user_id`，字段权限要求**：<md-permname="contact:user.employee_id:readonly"desc="获取用户userID"support_app_types="custom"tags="">获取用户userID</md-perm></item>
+    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</md-enum-item>**当值为 `user_id`，字段权限要求**：<md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags="">获取用户 user ID</md-perm></item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/im/v1/messages")]
@@ -1832,11 +1832,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>消息接收者id类型 open_id/user_id/union_id/email/chat_id</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>email：以用户的真实邮箱来标识用户。</item>
-    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</md-enum-item>**当值为`user_id`，字段权限要求**：<md-permname="contact:user.employee_id:readonly"desc="获取用户userID"support_app_types="custom"tags="">获取用户userID</md-perm></item>
+    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</md-enum-item>**当值为 `user_id`，字段权限要求**：<md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags="">获取用户 user ID</md-perm></item>
     /// </list>
     /// </param>
     /// <param name="uuid">
@@ -1861,11 +1861,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>消息接收者id类型 open_id/user_id/union_id/email/chat_id</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>email：以用户的真实邮箱来标识用户。</item>
-    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</md-enum-item>**当值为`user_id`，字段权限要求**：<md-permname="contact:user.employee_id:readonly"desc="获取用户userID"support_app_types="custom"tags="">获取用户userID</md-perm></item>
+    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</md-enum-item>**当值为 `user_id`，字段权限要求**：<md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags="">获取用户 user ID</md-perm></item>
     /// </list>
     /// </param>
     /// <param name="uuid">
@@ -1894,9 +1894,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -1992,8 +1992,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- `image`: 对应消息中的图片或富文本消息中的图片。</para>
     /// <para>- `file`: 对应消息中的 文件、音频、视频（表情包除外）。</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/im/v1/messages/{message_id}/resources/{file_key}")]
-    System.Threading.Tasks.Task GetImV1MessagesByMessageIdResourcesByFileKeyAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetImV1MessagesByMessageIdResourcesByFileKeyAsync(
         [PathQuery] string message_id,
         [PathQuery] string file_key,
         [PathQuery] string type);
@@ -2029,9 +2030,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -2057,9 +2058,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -2085,9 +2086,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -2193,8 +2194,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>图片的key，通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/im/v1/images/{image_key}")]
-    System.Threading.Tasks.Task GetImV1ImagesByImageKeyAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetImV1ImagesByImageKeyAsync(
         [PathQuery] string image_key);
 
     /// <summary>
@@ -2224,8 +2226,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>文件的key，通过[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口上传图片后获得</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/im/v1/files/{file_key}")]
-    System.Threading.Tasks.Task GetImV1FilesByFileKeyAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetImV1FilesByFileKeyAsync(
         [PathQuery] string file_key);
 
     /// <summary>
@@ -2346,9 +2349,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -2435,9 +2438,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -2489,9 +2492,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -2516,9 +2519,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -2543,9 +2546,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -2596,9 +2599,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -2640,9 +2643,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -2687,9 +2690,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -2744,10 +2747,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>群成员 ID 类型 open_id/user_id/union_id/app_id</para>
     /// <para>**注意**： 指定机器人类型的管理员请使用 ==app_id==</para>
     /// <list type="bullet">
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>app_id：飞书开放平台应用的唯一标识。在创建应用时，由系统自动生成，用户不能自行修改。[了解更多：如何获取应用的AppID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>app_id：飞书开放平台应用的唯一标识。在创建应用时，由系统自动生成，用户不能自行修改。[了解更多：如何获取应用的 App ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/managers/add_managers")]
@@ -2773,10 +2776,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>群成员 id 类型 open_id/user_id/union_id/app_id</para>
     /// <para>**注意**：删除机器人类型的管理员请使用 ==app_id==</para>
     /// <list type="bullet">
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>app_id：飞书开放平台应用的唯一标识。在创建应用时，由系统自动生成，用户不能自行修改。[了解更多：如何获取应用的AppID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>app_id：飞书开放平台应用的唯一标识。在创建应用时，由系统自动生成，用户不能自行修改。[了解更多：如何获取应用的 App ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/managers/delete_managers")]
@@ -2802,10 +2805,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>进群成员 ID 类型 open_id/user_id/union_id/app_id</para>
     /// <para>**注意**：拉机器人入群请使用 ==app_id==</para>
     /// <list type="bullet">
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>app_id：飞书开放平台应用的唯一标识。在创建应用时，由系统自动生成，用户不能自行修改。[了解更多：如何获取应用的AppID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>app_id：飞书开放平台应用的唯一标识。在创建应用时，由系统自动生成，用户不能自行修改。[了解更多：如何获取应用的 App ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -2813,9 +2816,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>出现不可用ID后的处理方式 0/1/2</para>
     /// <list type="bullet">
-    /// <item>0：兼容之前的策略，不存在/不可见的ID会拉群失败，并返回错误响应。存在已离职ID时，会将其他可用ID拉入群聊，返回拉群成功的响应。</item>
-    /// <item>1：将参数中可用的ID全部拉入群聊，返回拉群成功的响应，并展示剩余不可用的ID及原因。</item>
-    /// <item>2：参数中只要存在任一不可用的ID，就会拉群失败，返回错误响应，并展示出不可用的ID。</item>
+    /// <item>0：兼容之前的策略，不存在/不可见的 ID 会拉群失败，并返回错误响应。存在已离职 ID 时，会将其他可用 ID 拉入群聊，返回拉群成功的响应。</item>
+    /// <item>1：将参数中可用的 ID 全部拉入群聊，返回拉群成功的响应，并展示剩余不可用的 ID 及原因。</item>
+    /// <item>2：参数中只要存在任一不可用的 ID ，就会拉群失败，返回错误响应，并展示出不可用的 ID。</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/members")]
@@ -2860,10 +2863,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>出群成员ID类型</para>
     /// <para>**注意**：移除机器人请使用 ==app_id==</para>
     /// <list type="bullet">
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>app_id：飞书开放平台应用的唯一标识。在创建应用时，由系统自动生成，用户不能自行修改。[了解更多：如何获取应用的AppID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>app_id：飞书开放平台应用的唯一标识。在创建应用时，由系统自动生成，用户不能自行修改。[了解更多：如何获取应用的 App ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -2888,9 +2891,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
     /// <list type="bullet">
-    /// <item>user_id：以user_id来识别成员</item>
-    /// <item>union_id：以union_id来识别成员</item>
-    /// <item>open_id：以open_id来识别成员</md-enum-item>**当值为`user_id`，字段权限要求**：<md-permname="contact:user.employee_id:readonly"desc="获取用户userID"support_app_types="custom"tags="">获取用户userID</md-perm></md-td></md-tr></item>
+    /// <item>user_id：以 user_id 来识别成员</item>
+    /// <item>union_id：以 union_id 来识别成员</item>
+    /// <item>open_id：以 open_id 来识别成员</md-enum-item>**当值为 `user_id`，字段权限要求**：<md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags="">获取用户 user ID</md-perm></md-td></md-tr></item>
     /// </list>
     /// </param>
     /// <param name="page_size">
@@ -2958,9 +2961,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -3195,9 +3198,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -3247,9 +3250,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -3424,8 +3427,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>素材文件的`Token`，比如对于新版文档中的附件，可以通过[获取块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get)接口获取指定 File Block 的 Token。</para>
     /// <para>**示例值**："boxcnrHpsg1QDqXAAAyachabcef"</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/drive/v1/medias/{file_token}/download")]
-    System.Threading.Tasks.Task GetDriveV1MediasByFileTokenDownloadAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetDriveV1MediasByFileTokenDownloadAsync(
         [PathQuery] string file_token);
 
     /// <summary>
@@ -3574,11 +3578,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>文件二进制内容。</para>
-    /// <para>**示例值**：file binary</para>
     /// </param>
     [HttpPost("/open-apis/drive/v1/files/upload_all")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveV1FilesUploadAllResponseDto>> PostDriveV1FilesUploadAllAsync(
-        [FormDataContent] Ccm.Spec.PostDriveV1FilesUploadAllBodyDto dto,
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesUploadAllResponseDto>> PostDriveV1FilesUploadAllAsync(
+        [FormDataContent] Ccm.PostDriveV1FilesUploadAllBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
@@ -3631,8 +3634,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
     /// <para>**示例值**："boxcnabCdefg12345"</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/download")]
-    System.Threading.Tasks.Task GetDriveV1FilesByFileTokenDownloadAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetDriveV1FilesByFileTokenDownloadAsync(
         [PathQuery] string file_token);
 
     /// <summary>
@@ -3704,8 +3708,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>导出文档 token</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/drive/v1/export_tasks/file/{file_token}/download")]
-    System.Threading.Tasks.Task GetDriveV1ExportTasksFileByFileTokenDownloadAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetDriveV1ExportTasksFileByFileTokenDownloadAsync(
         [PathQuery] string file_token);
 
     /// <summary>
@@ -3748,9 +3753,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>**当值为`user_id`时，字段权限要求**：</para>
     /// <para><md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags="">获取用户 user ID</md-perm></para>
     /// <list type="bullet">
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -3777,9 +3782,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -3815,9 +3820,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -3854,9 +3859,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -3899,9 +3904,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -4444,9 +4449,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -4535,9 +4540,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -4961,18 +4966,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="spreadsheet_token">
     /// <para>必填：是</para>
     /// <para>表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>必填：是</para>
     /// <para>工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)</para>
-    /// <para>**示例值**："0b**12"</para>
     /// </param>
     [HttpPost("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/find")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindAsync(
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonNetContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyDto dto);
+        [JsonNetContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】替换单元格</para>
@@ -5752,9 +5755,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -5976,9 +5979,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -6186,9 +6189,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -6267,9 +6270,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -6325,9 +6328,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -6367,9 +6370,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -6425,9 +6428,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -6463,9 +6466,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -7175,9 +7178,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -7196,9 +7199,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -7402,9 +7405,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -7458,9 +7461,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -7497,9 +7500,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -7638,7 +7641,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6922096654371831836</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uIjM5UjLyITO14iMykTN/</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过日程的Uid和Original time，查询会议室日程主题。 </para>
+    /// <para>通过日程的Uid和Original time，查询会议室日程主题。</para>
     /// </summary>
     [HttpPost("/open-apis/meeting_room/summary/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<MeetingRoom.Spec.PostMeetingRoomSummaryBatchGetResponseDto>> PostMeetingRoomSummaryBatchGetAsync(
@@ -7699,9 +7702,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -7731,9 +7734,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -7763,9 +7766,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -7825,9 +7828,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -7851,9 +7854,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -7892,9 +7895,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -7919,9 +7922,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -7949,9 +7952,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -7976,9 +7979,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8003,9 +8006,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8038,9 +8041,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8154,9 +8157,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8179,9 +8182,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8201,9 +8204,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8224,9 +8227,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8272,8 +8275,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>文档token</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/vc/v1/exports/download")]
-    System.Threading.Tasks.Task GetVcV1ExportsDownloadAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetVcV1ExportsDownloadAsync(
         [PathQuery] string file_token);
 
     /// <summary>
@@ -8393,9 +8397,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8434,9 +8438,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8461,9 +8465,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8483,9 +8487,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8519,9 +8523,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8555,9 +8559,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8578,9 +8582,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8608,9 +8612,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8635,9 +8639,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8666,9 +8670,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8693,9 +8697,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8724,9 +8728,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8751,9 +8755,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8782,9 +8786,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8809,9 +8813,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8862,9 +8866,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8920,9 +8924,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -8982,9 +8986,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -9188,15 +9192,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>用户 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser)>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser)>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     /// <param name="dept_type">
     /// <para>必填：是</para>
     /// <para>部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_id：暂时只支持部门的openid</item>
+    /// <item>open_id：暂时只支持部门的 openid</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/attendance/v1/groups")]
@@ -9235,7 +9239,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>用户 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeId</item>
+    /// <item>employee_id：员工 employeeId</item>
     /// <item>employee_no：员工工号</item>
     /// </list>
     /// </param>
@@ -9243,7 +9247,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_id：暂时只支持部门的openid</item>
+    /// <item>open_id：暂时只支持部门的 openid</item>
     /// </list>
     /// </param>
     [HttpGet("/open-apis/attendance/v1/groups/{group_id}")]
@@ -9296,8 +9300,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>请求体和响应体中的 user_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser)>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser)>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/attendance/v1/user_daily_shifts/batch_create")]
@@ -9316,8 +9320,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即飞书管理后台>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即飞书管理后台>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/attendance/v1/user_daily_shifts/query")]
@@ -9340,8 +9344,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即飞书管理后台>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即飞书管理后台>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpPut("/open-apis/attendance/v1/user_stats_views/{user_stats_view_id}")]
@@ -9361,8 +9365,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>响应体中的 user_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即飞书管理后台>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即飞书管理后台>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/attendance/v1/user_stats_fields/query")]
@@ -9381,8 +9385,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>响应体中的 user_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即飞书管理后台>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即飞书管理后台>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/attendance/v1/user_stats_views/query")]
@@ -9401,8 +9405,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser)>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser)>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/attendance/v1/user_stats_datas/query")]
@@ -9421,8 +9425,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即[飞书管理后台](https://bytedance.feishu.cn/admin/index)>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/index)>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://bytedance.feishu.cn/admin/index) > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/index) > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/attendance/v1/user_approvals/query")]
@@ -9442,8 +9446,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>请求体和响应体中的 user_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser)>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser)>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/attendance/v1/user_approvals")]
@@ -9473,8 +9477,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>请求体和响应体中的 user_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即飞书管理后台>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即飞书管理后台>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/attendance/v1/user_task_remedys")]
@@ -9493,8 +9497,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>请求体和响应体中的 user_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即飞书管理后台>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即飞书管理后台>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/attendance/v1/user_task_remedys/query_user_allowed_remedys")]
@@ -9513,8 +9517,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即飞书管理后台>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即飞书管理后台>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/attendance/v1/user_task_remedys/query")]
@@ -9533,8 +9537,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>请求体和响应体中的 user_id 和 creator_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser)>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser)>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/attendance/v1/user_flows/batch_create")]
@@ -9557,9 +9561,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>响应体中的 user_id 和 creator_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>open_id：开放openID</item>
-    /// <item>employee_id：员工employeeID，即飞书管理后台>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即飞书管理后台>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>open_id：开放 openID</item>
+    /// <item>employee_id：员工 employee ID，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpGet("/open-apis/attendance/v1/user_flows/{user_flow_id}")]
@@ -9578,8 +9582,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即飞书管理后台>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即飞书管理后台>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     /// <param name="include_terminated_user">
@@ -9603,8 +9607,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser)>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser)>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     /// <param name="ignore_invalid_users">
@@ -9633,8 +9637,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>请求体和响应体中的 user_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即飞书管理后台>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即飞书管理后台>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/attendance/v1/user_settings/modify")]
@@ -9653,8 +9657,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工工号类型</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工employeeID，即飞书管理后台>组织架构>成员与部门>成员详情中的用户ID</item>
-    /// <item>employee_no：员工工号，即飞书管理后台>组织架构>成员与部门>成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即飞书管理后台 > 组织架构 > 成员与部门 > 成员详情中的工号</item>
     /// </list>
     /// </param>
     [HttpGet("/open-apis/attendance/v1/user_settings/query")]
@@ -9694,8 +9698,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>文件 ID</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/attendance/v1/files/{file_id}/download")]
-    System.Threading.Tasks.Task GetAttendanceV1FilesByFileIdDownloadAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetAttendanceV1FilesByFileIdDownloadAsync(
         [PathQuery] string file_id);
 
     /// <summary>
@@ -9713,9 +9718,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -9741,10 +9746,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -9793,9 +9798,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -9828,9 +9833,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -9889,9 +9894,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -9923,9 +9928,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -9967,9 +9972,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -10108,9 +10113,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -10135,9 +10140,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -10153,9 +10158,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>审批中心不负责审批的流转，审批的流转在三方系统，三方系统在审批流转后生成的审批实例、审批任务、审批抄送数据同步到审批中心。</para>
     /// <para>用户可以在审批中心中浏览三方系统同步过来的实例、任务、抄送信息，并且可以跳转回三方系统进行更详细的查看和操作，其中实例信息在【已发起】列表，任务信息在【待审批】和【已审批】列表，抄送信息在【抄送我】列表。</para>
-    /// <para><img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/9dff4434afbeb0ef69de7f36b9a6e995_z5iwmTzEgg.png" alt="" style="zoom:17%;" /></para>
-    /// <para><img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/ca6e0e984a7a6d64e1b16a0bac4bf868_tfqjCiaJQM.png" alt="" style="zoom:17%;" /></para>
-    /// <para><img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/529377e238df78d391bbd22e962ad195_T7eefLI1GA.png" alt="" style="zoom:17%;" /></para>
+    /// <para>对于审批任务，三方系统也可以配置审批任务的回调接口，这样审批人可以在审批中心中直接进行审批操作，审批中心会回调三方系统，三方系统收到回调后更新任务信息，并将新的任务信息同步回审批中心，形成闭环。</para>
     /// </summary>
     [HttpPost("/open-apis/approval/v4/external_instances")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalV4ExternalInstancesResponseDto>> PostApprovalV4ExternalInstancesAsync(
@@ -10243,9 +10246,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -10288,9 +10291,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -10573,8 +10576,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>index，当消息类型为post时，需指定图片index，index从0开始。当消息类型为img时，无需index</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/helpdesk/v1/ticket_images")]
-    System.Threading.Tasks.Task GetHelpdeskV1TicketImagesAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetHelpdeskV1TicketImagesAsync(
         [PathQuery] string ticket_id,
         [PathQuery] string msg_id,
         [PathQuery] int? index);
@@ -10673,9 +10677,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -10735,7 +10739,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="category_id">
     /// <para>必填：否</para>
-    /// <para> 知识库分类ID</para>
+    /// <para>知识库分类ID</para>
     /// </param>
     /// <param name="status">
     /// <para>必填：否</para>
@@ -10777,8 +10781,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>图像key</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/helpdesk/v1/faqs/{id}/image/{image_key}")]
-    System.Threading.Tasks.Task GetHelpdeskV1FaqsByIdImageByImageKeyAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetHelpdeskV1FaqsByIdImageByImageKeyAsync(
         [PathQuery] string id,
         [PathQuery] string image_key);
 
@@ -10854,9 +10859,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -10900,9 +10905,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -10941,9 +10946,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -10999,9 +11004,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -11044,9 +11049,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -11137,9 +11142,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -11188,9 +11193,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -11220,9 +11225,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -11266,9 +11271,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -11295,9 +11300,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -11326,9 +11331,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -11353,9 +11358,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -11397,9 +11402,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -11428,9 +11433,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -11455,9 +11460,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -11492,9 +11497,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -12089,9 +12094,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -12120,9 +12125,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -12152,9 +12157,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -12188,9 +12193,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -12569,9 +12574,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -12595,9 +12600,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -12719,9 +12724,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -12754,9 +12759,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -12943,9 +12948,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -12981,9 +12986,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13008,9 +13013,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13045,9 +13050,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13073,9 +13078,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13134,9 +13139,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13171,9 +13176,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13219,9 +13224,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13323,9 +13328,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13384,9 +13389,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13421,9 +13426,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13469,9 +13474,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13617,9 +13622,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13683,9 +13688,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13710,9 +13715,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13748,9 +13753,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -13927,7 +13932,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uITN1EjLyUTNx4iM1UTM</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口用于查询用户是否为应用管理员。</para>
-    /// <para>> 此处应用管理员是指可以进入企业管理后台对应用进行审核和管理的企业管理员，并不是应用的开发者。</para>
+    /// <para>此处应用管理员是指可以进入企业管理后台对应用进行审核和管理的企业管理员，并不是应用的开发者。</para>
     /// </summary>
     /// <param name="open_id">
     /// <para>必填：否</para>
@@ -13947,7 +13952,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569742384971778</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzN3QjLzczN04yM3cDN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于获取应用管理员的管理范围，即该应用管理员能够管理哪些部门。  </para>
+    /// <para>该接口用于获取应用管理员的管理范围，即该应用管理员能够管理哪些部门。</para>
     /// </summary>
     /// <param name="employee_id">
     /// <para>必填：是</para>
@@ -14021,9 +14026,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -14050,9 +14055,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -14099,9 +14104,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -14177,9 +14182,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -14226,7 +14231,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uETNwUjLxUDM14SM1ATN</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口用于分页查询应用租户下的已付费订单，每次购买对应一个唯一的订单，订单会记录购买的套餐的相关信息，业务方需要自行处理套餐的有效期和付费方案的升级。</para>
-    /// <para>>  备注：免费模式的应用不会产生订单，仅收费应用会产生订单 (含免费版)。</para>
+    /// <para>备注：免费模式的应用不会产生订单，仅收费应用会产生订单 (含免费版)。</para>
     /// </summary>
     /// <param name="status">
     /// <para>必填：否</para>
@@ -14298,9 +14303,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -14335,9 +14340,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -14375,9 +14380,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -14427,9 +14432,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -14472,9 +14477,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -14504,9 +14509,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -14624,9 +14629,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -14679,9 +14684,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -14802,9 +14807,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -14830,9 +14835,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -15136,8 +15141,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>部门ID类型</para>
     /// <list type="bullet">
-    /// <item>department_id：部门的ID</item>
-    /// <item>open_department_id：部门的OpenID</item>
+    /// <item>department_id：部门的 ID</item>
+    /// <item>open_department_id：部门的 Open ID</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -15188,9 +15193,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -15198,8 +15203,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>部门ID类型</para>
     /// <list type="bullet">
-    /// <item>department_id：部门的ID</item>
-    /// <item>open_department_id：部门的OpenID</item>
+    /// <item>department_id：部门的 ID</item>
+    /// <item>open_department_id：部门的 Open ID</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -15340,9 +15345,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -15401,9 +15406,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -15449,9 +15454,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -15496,9 +15501,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -16060,10 +16065,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -16071,9 +16076,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -16104,10 +16109,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -16115,9 +16120,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -16166,10 +16171,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -16177,9 +16182,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -16206,10 +16211,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -16299,8 +16304,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>上传文件ID</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/corehr/v1/files/{id}")]
-    System.Threading.Tasks.Task GetCorehrV1FilesByIdAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetCorehrV1FilesByIdAsync(
         [PathQuery] string id);
 
     /// <summary>
@@ -16319,10 +16325,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -16330,9 +16336,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -16378,10 +16384,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -16389,9 +16395,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -16418,10 +16424,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -16429,9 +16435,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -16462,10 +16468,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -16473,9 +16479,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -16498,10 +16504,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -16509,9 +16515,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -16562,10 +16568,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -16573,9 +16579,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -16602,9 +16608,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -16634,10 +16640,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -16645,9 +16651,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -16675,10 +16681,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -16686,9 +16692,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -16719,10 +16725,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -16730,9 +16736,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -16774,10 +16780,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -16785,9 +16791,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -16826,10 +16832,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -16837,9 +16843,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -17475,10 +17481,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -17601,10 +17607,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -17612,9 +17618,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -17653,10 +17659,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -17754,9 +17760,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
     /// </list>
@@ -17766,9 +17772,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -17799,10 +17805,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -17810,9 +17816,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -17846,10 +17852,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -17879,10 +17885,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -17904,9 +17910,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -17959,10 +17965,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -18002,10 +18008,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -18088,10 +18094,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -18132,10 +18138,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -18155,10 +18161,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -18166,9 +18172,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -18199,10 +18205,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -18210,9 +18216,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -18234,9 +18240,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -18256,10 +18262,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
@@ -18316,9 +18322,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -18327,9 +18333,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_corehr_department_id：以people_corehr_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -18428,9 +18434,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -18438,8 +18444,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -18464,9 +18470,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -18501,9 +18507,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -18528,9 +18534,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -18538,8 +18544,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -18565,9 +18571,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -18610,9 +18616,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -18620,8 +18626,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -18642,9 +18648,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -18652,8 +18658,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -18704,9 +18710,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -18714,8 +18720,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -18746,9 +18752,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -18756,8 +18762,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -18888,9 +18894,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -18898,8 +18904,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -18926,9 +18932,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -18936,8 +18942,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -18962,9 +18968,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -19086,9 +19092,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -19135,10 +19141,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以 people_admin_id 来识别用户</item>
     /// </list>
     /// <para>默认值：people_admin_id</para>
     /// </param>
@@ -19279,9 +19285,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -19374,9 +19380,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -19401,9 +19407,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -19412,8 +19418,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -19439,9 +19445,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -19450,8 +19456,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -19477,9 +19483,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -19487,8 +19493,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -19513,10 +19519,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以 people_admin_id 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -19524,8 +19530,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -19560,9 +19566,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -19639,9 +19645,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -19649,9 +19655,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_admin_department_id：以people_admin_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_admin_department_id：以 people_admin_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_admin_department_id</para>
     /// </param>
@@ -19677,9 +19683,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -19687,9 +19693,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_admin_department_id：以people_admin_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_admin_department_id：以 people_admin_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_admin_department_id</para>
     /// </param>
@@ -19715,9 +19721,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -19725,9 +19731,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_admin_department_id：以people_admin_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_admin_department_id：以 people_admin_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_admin_department_id</para>
     /// </param>
@@ -19752,9 +19758,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -19762,9 +19768,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 的类型</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以department_id来标识部门</item>
-    /// <item>people_admin_department_id：以people_admin_department_id来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_admin_department_id：以 people_admin_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_admin_department_id</para>
     /// </param>
@@ -19785,9 +19791,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -19812,9 +19818,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -19840,9 +19846,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -19877,9 +19883,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -20013,9 +20019,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -20055,9 +20061,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -20133,7 +20139,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 该接口用于更新某项指标，接口仅限 OKR 企业版使用。</para>
     /// <para>更新成功后 OKR 系统会给以下人员发送消息通知：</para>
     /// <para>- 首次更新目标值的人员</para>
-    /// <para>    - 已经将指标添加为 KR、且本次目标值/起始值/支撑的上级有变更的人员，不包含仅更新了进度值的人员</para>
+    /// <para>- 已经将指标添加为 KR、且本次目标值/起始值/支撑的上级有变更的人员，不包含仅更新了进度值的人员</para>
     /// </summary>
     /// <param name="metric_source_id">
     /// <para>必填：是</para>
@@ -20165,7 +20171,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 该接口用于批量更新多项指标，单次调用最多更新 100 条记录。接口仅限 OKR 企业版使用。</para>
     /// <para>更新成功后 OKR 系统会给以下人员发送消息通知：</para>
     /// <para>- 首次更新目标值的人员</para>
-    /// <para>    - 已经将指标添加为 KR、且本次目标值/起始值/支撑的上级有变更的人员，不包含仅更新了进度值的人员</para>
+    /// <para>- 已经将指标添加为 KR、且本次目标值/起始值/支撑的上级有变更的人员，不包含仅更新了进度值的人员</para>
     /// </summary>
     /// <param name="metric_source_id">
     /// <para>必填：是</para>
@@ -20466,9 +20472,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -20489,9 +20495,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -20512,10 +20518,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以 people_admin_id 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -20541,9 +20547,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -20568,9 +20574,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -20596,9 +20602,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -20623,9 +20629,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -20658,9 +20664,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -20701,9 +20707,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -20758,9 +20764,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -20861,8 +20867,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>需要下载的文件 token</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/lingo/v1/files/{file_token}/download")]
-    System.Threading.Tasks.Task GetLingoV1FilesByFileTokenDownloadAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetLingoV1FilesByFileTokenDownloadAsync(
         [PathQuery] string file_token);
 
     /// <summary>
@@ -20891,9 +20898,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -20917,9 +20924,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -21057,9 +21064,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -21079,9 +21086,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -21102,9 +21109,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -21128,9 +21135,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -21151,9 +21158,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -21178,9 +21185,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -21213,9 +21220,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -21251,9 +21258,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -21296,9 +21303,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -21381,8 +21388,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>需要下载的文件 token</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/baike/v1/files/{file_token}/download")]
-    System.Threading.Tasks.Task GetBaikeV1FilesByFileTokenDownloadAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetBaikeV1FilesByFileTokenDownloadAsync(
         [PathQuery] string file_token);
 
     /// <summary>
@@ -21402,7 +21410,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569742384922626</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ucDOyUjL3gjM14yN4ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe)应用订阅 approval_code 后，该应用就可以收到该审批定义对应实例的事件通知。同一应用只需要订阅一次，无需重复订阅。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe)</para>
+    /// <para>应用订阅 approval_code 后，该应用就可以收到该审批定义对应实例的事件通知。同一应用只需要订阅一次，无需重复订阅。</para>
     /// <para>当应用不希望再收到审批事件时，可以使用取消订阅接口进行取消，取消后将不再给应用推送消息。</para>
     /// <para>订阅和取消订阅都是应用维度的，多个应用可以同时订阅同一个 approval_code，每个应用都能收到审批事件。</para>
     /// </summary>
@@ -21416,7 +21425,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569524100546561</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugDOyUjL4gjM14CO4ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe)取消订阅 approval_code 后，无法再收到该审批定义对应实例的事件通知。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe)</para>
+    /// <para>取消订阅 approval_code 后，无法再收到该审批定义对应实例的事件通知。</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/subscription/unsubscribe")]
@@ -21428,7 +21438,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569744330358785</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uADNyUjLwQjM14CM0ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)根据 Approval Code 获取某个审批定义的详情，用于构造创建审批实例的请求。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)</para>
+    /// <para>根据 Approval Code 获取某个审批定义的详情，用于构造创建审批实例的请求。</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/approval/get")]
@@ -21440,7 +21451,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569524100874241</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uIDNyUjLyQjM14iM0ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)创建一个审批实例，调用方需对审批定义的表单有详细了解，将按照定义的表单结构，将表单 Value 通过接口传入。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)</para>
+    /// <para>创建一个审批实例，调用方需对审批定义的表单有详细了解，将按照定义的表单结构，将表单 Value 通过接口传入。</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/create")]
@@ -21452,7 +21464,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569524100497409</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uEDNyUjLxQjM14SM0ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)通过审批实例 Instance Code  获取审批实例详情。Instance Code 由 [批量获取审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list) 接口获取。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)</para>
+    /// <para>通过审批实例 Instance Code  获取审批实例详情。Instance Code 由 [批量获取审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list) 接口获取。</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/get")]
@@ -21464,7 +21477,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569745299046402</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQDOyUjL0gjM14CN4ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)根据 approval_code 批量获取审批实例的 instance_code，用于拉取租户下某个审批定义的全部审批实例。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)</para>
+    /// <para>根据 approval_code 批量获取审批实例的 instance_code，用于拉取租户下某个审批定义的全部审批实例。</para>
     /// <para>默认以审批创建时间排序。</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list")]
@@ -21477,7 +21491,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569743419523074</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uADOzYjLwgzM24CM4MjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cc)通过接口可以将当前审批实例抄送给其他人。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cc)</para>
+    /// <para>通过接口可以将当前审批实例抄送给其他人。</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cc")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/cc")]
@@ -21489,7 +21504,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569743419670530</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYDNyUjL2QjM14iN0ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cancel)对于状态为“审批中”的单个审批实例进行撤销操作，撤销后审批流程结束</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cancel)</para>
+    /// <para>对于状态为“审批中”的单个审批实例进行撤销操作，撤销后审批流程结束</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cancel")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/cancel")]
@@ -21501,7 +21517,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569743419981826</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMDNyUjLzQjM14yM0ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/approve)对于单个审批任务进行同意操作。同意后审批流程会流转到下一个审批人。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/approve)</para>
+    /// <para>对于单个审批任务进行同意操作。同意后审批流程会流转到下一个审批人。</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/approve")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/approve")]
@@ -21513,7 +21530,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569742384283650</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQDNyUjL0QjM14CN0ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/reject)对于单个审批任务进行拒绝操作。拒绝后审批流程结束。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/reject)</para>
+    /// <para>对于单个审批任务进行拒绝操作。拒绝后审批流程结束。</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/reject")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/reject")]
@@ -21525,7 +21543,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569524099842049</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDNyUjL1QjM14SN0ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/transfer)对于单个审批任务进行转交操作。转交后审批流程流转给被转交人。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/transfer)</para>
+    /// <para>对于单个审批任务进行转交操作。转交后审批流程流转给被转交人。</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/transfer")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/transfer")]
@@ -21537,7 +21556,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569744329883649</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uIDNyYjLyQjM24iM0IjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create)审批定义是审批的描述，包括审批名称、图标、描述等基础信息。创建好审批定义，用户就可以在审批应用的发起页中看到审批，如果用户点击发起，则会跳转到配置的发起三方系统地址去发起审批。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create)</para>
+    /// <para>审批定义是审批的描述，包括审批名称、图标、描述等基础信息。创建好审批定义，用户就可以在审批应用的发起页中看到审批，如果用户点击发起，则会跳转到配置的发起三方系统地址去发起审批。</para>
     /// <para>另外，审批定义还配置了审批操作时的回调地址：审批人在待审批列表中进行【同意】【拒绝】操作时，审批中心会调用回调地址通知三方系统。</para>
     /// <para>注意，审批中心不负责审批流程的流转，只负责展示、操作、消息通知。因此审批定义创建时没有审批流程的信息。</para>
     /// </summary>
@@ -21554,9 +21574,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)</para>
     /// <para>审批中心不负责审批的流转，审批的流转在三方系统，三方系统在审批流转后生成的审批实例、审批任务、审批抄送数据同步到审批中心。</para>
     /// <para>用户可以在审批中心中浏览三方系统同步过来的实例、任务、抄送信息，并且可以跳转回三方系统进行更详细的查看和操作，其中实例信息在【已发起】列表，任务信息在【待审批】和【已审批】列表，抄送信息在【抄送我】列表</para>
-    /// <para><img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/9dff4434afbeb0ef69de7f36b9a6e995_z5iwmTzEgg.png" alt="" style="zoom:17%;" /></para>
-    /// <para><img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/ca6e0e984a7a6d64e1b16a0bac4bf868_tfqjCiaJQM.png" alt="" style="zoom:17%;" /></para>
-    /// <para><img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/529377e238df78d391bbd22e962ad195_T7eefLI1GA.png" alt="" style="zoom:17%;" /></para>
+    /// <para>对于审批任务，三方系统也可以配置审批任务的回调接口，这样审批人可以在审批中心中直接进行审批操作，审批中心会回调三方系统，三方系统收到回调后更新任务信息，并将新的任务信息同步回审批中心，形成闭环。</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/external/instance/create")]
@@ -21568,7 +21586,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569745298604034</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDNyYjL1QjM24SN0IjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check)校验三方审批实例数据，用于判断服务端数据是否为最新的。用户提交实例最新更新时间，如果服务端不存在该实例，或者服务端实例更新时间不是最新的，则返回对应实例 id。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check)</para>
+    /// <para>校验三方审批实例数据，用于判断服务端数据是否为最新的。用户提交实例最新更新时间，如果服务端不存在该实例，或者服务端实例更新时间不是最新的，则返回对应实例 id。</para>
     /// <para>例如，用户可以每隔5分钟，将最近5分钟产生的实例使用该接口进行对比。</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check")]
@@ -21581,7 +21600,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6915007875422568450</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukjNyYjL5YjM24SO2IjN/external_status</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list)该接口用于获取三方审批的状态。用户传入查询条件，接口返回满足条件的审批实例的状态。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list)</para>
+    /// <para>该接口用于获取三方审批的状态。用户传入查询条件，接口返回满足条件的审批实例的状态。</para>
     /// <para>该接口支持多种参数的组合， 包括如下组合：</para>
     /// <para>1. 通过 instance_ids 获取指定实例的任务状态</para>
     /// <para>2. 通过 user_ids 获取指定用户的任务状态</para>
@@ -21598,7 +21618,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569743420686338</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUzNyYjL1cjM24SN3IjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)用于通过接口创建简单的审批定义，可以灵活指定定义的基础信息、表单和流程等。创建成功后，不支持从审批管理后台删除该定义。不推荐企业自建应用使用，如有需要尽量联系管理员在审批管理后台创建定义。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)</para>
+    /// <para>用于通过接口创建简单的审批定义，可以灵活指定定义的基础信息、表单和流程等。创建成功后，不支持从审批管理后台删除该定义。不推荐企业自建应用使用，如有需要尽量联系管理员在审批管理后台创建定义。</para>
     /// <para>接口谨慎调用，创建后的审批定义无法停用/删除</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create")]
@@ -21611,7 +21632,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907568073251946498</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQjMxYjL0ITM24CNyEjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)该接口通过不同条件查询审批系统中符合条件的审批实例列表。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)</para>
+    /// <para>该接口通过不同条件查询审批系统中符合条件的审批实例列表。</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/search")]
@@ -21623,7 +21645,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907568073252700162</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUjMxYjL1ITM24SNyEjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc)该接口通过不同条件查询审批系统中符合条件的审批抄送列表。</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc)</para>
+    /// <para>该接口通过不同条件查询审批系统中符合条件的审批抄送列表。</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/cc/search")]
@@ -21635,7 +21658,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907568073252241410</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYjMxYjL2ITM24iNyEjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/search)该接口通过不同条件查询审批系统中符合条件的审批任务列表</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/search)</para>
+    /// <para>该接口通过不同条件查询审批系统中符合条件的审批任务列表</para>
     /// </summary>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/search")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/task/search")]
@@ -21654,9 +21678,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的用户ID的类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -21713,9 +21737,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -21817,7 +21841,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569744330833921</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uADOzUjLwgzM14CM4MTN</para>
     /// <para>Authorization：user_access_token、tenant_access_token</para>
-    /// <para>该接口用于根据 docToken 获取文档中的电子表格的元数据。 </para>
+    /// <para>该接口用于根据 docToken 获取文档中的电子表格的元数据。</para>
     /// </summary>
     [HttpGet("/open-apis/doc/v2/{docToken}/sheet_meta")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2ByDocTokenSheetMetaResponseDto>> GetDocV2ByDocTokenSheetMetaAsync();
@@ -21950,7 +21974,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569523177127937</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYTNzUjL2UzM14iN1MTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至  [新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy)将文件复制到用户云空间的其他文件夹中。不支持复制文件夹。</para>
+    /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至  [新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy)</para>
+    /// <para>将文件复制到用户云空间的其他文件夹中。不支持复制文件夹。</para>
     /// <para>如果目标文件夹是我的空间，则复制的文件会在「我的空间」的「归我所有」列表里。</para>
     /// <para>该接口不支持并发创建，且调用频率上限为 5QPS 且 10000次/天</para>
     /// </summary>
@@ -21988,7 +22013,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569524100890625</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uEjNzUjLxYzM14SM2MTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至  [新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)获取用户云空间中指定文件夹下的文件清单。清单类型包括文件、各种在线文档（文档、电子表格、多维表格、思维笔记）、文件夹和快捷方式。该接口不支持分页，并且不会递归的获取子文件夹的清单。</para>
+    /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至  [新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>获取用户云空间中指定文件夹下的文件清单。清单类型包括文件、各种在线文档（文档、电子表格、多维表格、思维笔记）、文件夹和快捷方式。该接口不支持分页，并且不会递归的获取子文件夹的清单。</para>
     /// </summary>
     /// <param name="types">
     /// <para>必填：否</para>
@@ -22081,10 +22107,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以 people_admin_id 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -22429,9 +22455,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的用户ID的类型，默认使用open_id可不填</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -22456,9 +22482,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>此次调用中使用的用户ID的类型，默认使用open_id可不填</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的OpenID不同。[了解更多：如何获取OpenID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的UnionID是相同的，在不同开发商下的应用中的UnionID是不同的。通过UnionID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取UnionID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户A和租户B内的UserID是不同的。在同一个租户内，一个用户的UserID在所有应用（包括商店应用）中都保持一致。UserID主要用于在不同的应用间打通用户数据。[了解更多：如何获取UserID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
