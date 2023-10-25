@@ -6,7 +6,7 @@
 
 ## 自建应用用法
 
-### [安装Nuget包](https://www.nuget.org/packages/FeishuNetSdk/)
+### 安装Nuget包：[![FeishuNetSdk](https://buildstats.info/nuget/FeishuNetSdk "FeishuNetSdk")](https://buildstats.info/nuget/FeishuNetSdk "FeishuNetSdk")
 
 ### 依赖注册
 ```csharp
@@ -65,39 +65,49 @@ public async Task<IResult> GetT3Async()
     return Results.Json(result);
 }
 ```
+
 ### 文件下载示例
+下载操作默认返回`HttpResponseMessage`，由于没有`返回码（code）`可以判断操作是否成功，所以建议配合 `EnsureSuccessStatusCode()` 方法使用。
+
 ```csharp
 [HttpGet("t4")]
 public async Task<IResult> GetT4Async()
 {
     var filePath = @"D:\Users\Downloads\e9bd937f----1.jpg";
-    var result = await _feishuApi.GetImV1ImagesByImageKeyAsync("img_xxxx-fbdc-4c36-b17c-ac8aa1aee7dg");
+    var result = (await _feishuApi.GetImV1ImagesByImageKeyAsync(
+    	"img_xxxx-fbdc-4c36-b17c-ac8aa1aee7dg"))
+    	.EnsureSuccessStatusCode();
     await result.SaveAsAsync(filePath);
     return Results.Json(result);
 }
 ```
 
-**个别接口支持部分下载，可以按需设置参数`Range`，字符串格式为`bytes=0-100`表示下载第0字节到第100字节的数据，默认不填或者`null`表示下载整个文件。**
+**个别接口支持部分下载，可以按需设置参数`Range`，字符串格式为`bytes=0-100`表示下载第`0`字节到第`100`字节的数据，默认`不填`或者`null`表示下载整个文件。**
+
 ```csharp
 [HttpGet("t5")]
 public async Task<IResult> GetT5Async()
 {
     var filePath = @"D:\Users\Downloads\e9bd937f----2.jpg";
-    var result = await _feishuApi.GetDriveV1MediasByFileTokenDownloadAsync(
+    var result = (await _feishuApi.GetDriveV1MediasByFileTokenDownloadAsync(
         "OQBpbF8AEoZ0gqxpCMwcRPWFn8c",
-        "bytes=0-100");
+        "bytes=0-100"))
+        .EnsureSuccessStatusCode();
     await result.SaveAsAsync(filePath);
     return Results.Json(result);
 }
 ```
 
+
 ### 云文档操作
-**几乎都需要先有用户授权，操作如下：**
+**文档操作前需要用户授权，操作步骤如下：**
 1. 将应用机器人加入或创建一个新群组。
 1. 将该群组设置为文档协作者。
 1. 继续调用接口方法。
 
 
+
+------------
 ## 以下是仅在特殊情况下使用的特殊方法。
 ### 接口重载/覆盖
 1. 新建API，继承于 `IFeishuTenantApi`。
@@ -181,3 +191,18 @@ public interface INewApi : IFeishuTenantApi
 ```
 
 **需要注意： `IFeishuApi` 和 `IFeishuTenantApi` 各有独立的 `LoggingFilter` 与 `IgnoreStatusExceptionFilter` 属性，若想全部关闭，需要分别继承接口并将属性 `Enable` 设置为 `false` 。**
+
+
+### 启用`缓存`
+默认：关闭
+
+缓存属性`Cache`，在接口上使用表示对接口内所有方法启用，建议仅针对具体方法使用，在单个方法上增加属性即可。数值单位是`毫秒`。
+
+```csharp
+public interface INewApi : IFeishuTenantApi
+{
+    [Cache(10 * 1000)]
+    [HttpGet("/open-apis/event/v1/outbound_ip1")]
+    new System.Threading.Tasks.Task<HttpResponseMessage> GetEventV1OutboundIpAsync();
+}
+```
