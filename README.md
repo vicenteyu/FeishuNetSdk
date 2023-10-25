@@ -65,6 +65,38 @@ public async Task<IResult> GetT3Async()
     return Results.Json(result);
 }
 ```
+### 文件下载示例
+```csharp
+[HttpGet("t4")]
+public async Task<IResult> GetT4Async()
+{
+    var filePath = @"D:\Users\Downloads\e9bd937f----1.jpg";
+    var result = await _feishuApi.GetImV1ImagesByImageKeyAsync("img_xxxx-fbdc-4c36-b17c-ac8aa1aee7dg");
+    await result.SaveAsAsync(filePath);
+    return Results.Json(result);
+}
+```
+
+**个别接口支持部分下载，可以按需设置参数`Range`，字符串格式为`bytes=0-100`表示下载第0字节到第100字节的数据，默认不填或者`null`表示下载整个文件。**
+```csharp
+[HttpGet("t5")]
+public async Task<IResult> GetT5Async()
+{
+    var filePath = @"D:\Users\Downloads\e9bd937f----2.jpg";
+    var result = await _feishuApi.GetDriveV1MediasByFileTokenDownloadAsync(
+        "OQBpbF8AEoZ0gqxpCMwcRPWFn8c",
+        "bytes=0-100");
+    await result.SaveAsAsync(filePath);
+    return Results.Json(result);
+}
+```
+
+### 云文档操作
+**几乎都需要先有用户授权，操作如下：**
+1. 将应用机器人加入或创建一个新群组。
+1. 将该群组设置为文档协作者。
+1. 继续调用接口方法。
+
 
 ## 以下是仅在特殊情况下使用的特殊方法。
 ### 接口重载/覆盖

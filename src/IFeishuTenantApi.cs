@@ -19,8 +19,20 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>飞书开放平台向应用配置的回调地址推送事件时，是通过特定的 IP 发送出去的，应用可以通过本接口获取所有相关的 IP 地址。</para>
     /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，默认10，取值范围 10-50</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>默认值：null</para>
+    /// </param>
     [HttpGet("/open-apis/event/v1/outbound_ip")]
-    System.Threading.Tasks.Task<FeishuResponse<Event.Spec.GetEventV1OutboundIpResponseDto>> GetEventV1OutboundIpAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Event.GetEventV1OutboundIpResponseDto>> GetEventV1OutboundIpAsync(
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null);
 
     /// <summary>
     /// <para>【帐号】批量获取脱敏的用户登录信息</para>
@@ -3422,6 +3434,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>下载各种类型文档中的素材，比如电子表格中的图片，支持通过在请求头通过指定`Range`进行分片下载。</para>
     /// </summary>
+    /// <param name="range">
+    /// <para>通过指定 HTTP 请求头的Range来下载素材的部分内容，单位是byte，即字节。</para>
+    /// <para>Range格式为Range: bytes=start-end，例如Range: bytes=0-1024，表示下载第 0 个字节到第 1024 个字节之间的数据。</para>
+    /// </param>
     /// <param name="file_token">
     /// <para>必填：是</para>
     /// <para>素材文件的`Token`，比如对于新版文档中的附件，可以通过[获取块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get)接口获取指定 File Block 的 Token。</para>
@@ -3430,7 +3446,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/drive/v1/medias/{file_token}/download")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetDriveV1MediasByFileTokenDownloadAsync(
-        [PathQuery] string file_token);
+        [PathQuery] string file_token,
+        [Header][AliasAs("Range")] string? range = null);
 
     /// <summary>
     /// <para>【云文档】获取素材临时下载链接</para>
@@ -3564,7 +3581,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// </param>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/get_subscribe")]
-    System.Threading.Tasks.Task GetDriveV1FilesByFileTokenGetSubscribeAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesByFileTokenGetSubscribeResponseDto>> GetDriveV1FilesByFileTokenGetSubscribeAsync(
         [PathQuery] string file_token,
         [PathQuery] string file_type);
 
@@ -3629,6 +3646,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>下载云空间下的文件，不含飞书文档、电子表格以及多维表格等在线文档，支持指定文件`Range`进行下载。</para>
     /// </summary>
+    /// <param name="range">
+    /// <para>通过指定 HTTP 请求头的Range来下载素材的部分内容，单位是byte，即字节。</para>
+    /// <para>Range格式为Range: bytes=start-end，例如Range: bytes=0-1024，表示下载第 0 个字节到第 1024 个字节之间的数据。</para>
+    /// </param>
     /// <param name="file_token">
     /// <para>必填：是</para>
     /// <para>文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
@@ -3637,7 +3658,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/download")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetDriveV1FilesByFileTokenDownloadAsync(
-        [PathQuery] string file_token);
+        [PathQuery] string file_token,
+        [Header][AliasAs("Range")] string? range = null);
 
     /// <summary>
     /// <para>【云文档】创建导入任务</para>
@@ -4755,8 +4777,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据 spreadsheetToken 和长度，在末尾增加空行/列；单次操作不超过5000行或列。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，详见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dimension_range")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
 
     /// <summary>
@@ -4822,8 +4849,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据 spreadsheetToken 和维度信息删除行/列 。单次删除最大5000行/列。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet的token，详见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dimension_range")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
 
     /// <summary>
@@ -4834,8 +4866,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 [SpreadsheetToken](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview#6d80ef81) 在其**特定工作表的指定范围**的开始位置上方增加若干行，并填充相应的数据。这里的工作表和范围是通过接口请求体中的`range`属性来确定的，例如：</para>
     /// <para>"range": "8fe9d6!A2:B2"</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>sheet的token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_prepend")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependBodyDto dto);
 
     /// <summary>
@@ -4861,8 +4898,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据 spreadsheetToken 和 range 读取表格单个范围的值，返回数据限制为10M。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，详见电子表格[概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
+    /// <param name="range">
+    /// <para>必填：是</para>
+    /// <para>查询范围，包含 sheetId 与单元格范围两部分，详见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。若查询范围中使用形如<sheetId>!<开始单元格>:<结束列>的范围时，仅支持获取100列数据</para>
+    /// </param>
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values/{range}")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRangeResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRangeAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRangeResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRangeAsync(
+        [PathQuery] string spreadsheetToken,
+        [PathQuery] string range);
 
     /// <summary>
     /// <para>【云文档】向单个范围写入数据</para>
@@ -4871,8 +4918,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据 spreadsheetToken 和 range 向单个范围写入数据，若范围内有数据，将被更新覆盖；单次写入不超过5000行，100列，每个格子不超过5万字符。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet的token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesBodyDto dto);
 
     /// <summary>
@@ -4897,8 +4949,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据 spreadsheetToken 和 range 向多个范围写入数据，若范围内有数据，将被更新覆盖；单次写入不超过5000行，100列，每个格子不超过5万字符。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateBodyDto dto);
 
     /// <summary>
@@ -4908,8 +4965,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据 spreadsheetToken 、range 和样式信息更新单元格样式；单次写入不超过5000行，100列。建议在设置边框样式时，每次更新的单元格数量不要超过30000个。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，详见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/style")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleBodyDto dto);
 
     /// <summary>
@@ -4919,8 +4981,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据 spreadsheetToken 、range和样式信息 批量更新单元格样式；单次写入不超过5000行，100列。建议在设置边框样式时，每次更新的单元格数量不要超过30000个。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/styles_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateBodyDto dto);
 
     /// <summary>
@@ -4930,8 +4997,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据 spreadsheetToken 和 range 向单个格子写入图片。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet的token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_image")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageBodyDto dto);
 
     /// <summary>
@@ -4941,8 +5013,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据 spreadsheetToken 和维度信息合并单元格；单次操作不超过5000行，100列。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/merge_cells")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsBodyDto dto);
 
     /// <summary>
@@ -4952,8 +5029,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据 spreadsheetToken 和维度信息拆分单元格；单次操作不超过5000行，100列。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/unmerge_cells")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsBodyDto dto);
 
     /// <summary>
@@ -5385,8 +5467,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据 spreadsheetToken 和维度信息增加多个保护范围；单次操作不超过5000行或列。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_dimension")]
-    System.Threading.Tasks.Task PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimensionAsync();
+    System.Threading.Tasks.Task PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimensionAsync(
+        [PathQuery] string spreadsheetToken);
 
     /// <summary>
     /// <para>【云文档】获取保护范围</para>
@@ -5415,8 +5502,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据保护范围ID修改保护范围，单次最多支持同时修改10个ID。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>sheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_range_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdateAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdateBodyDto dto);
 
     /// <summary>
@@ -5426,8 +5518,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据保护范围ID删除保护范围，最多支持同时删除10个ID。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>sheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_range_batch_del")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelBodyDto dto);
 
     /// <summary>
@@ -5446,7 +5543,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>固定为"list"，表示下拉列表</para>
     /// </param>
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
-    System.Threading.Tasks.Task GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
         [PathQuery] string range,
         [PathQuery] string dataValidationType);
 
@@ -5457,8 +5554,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口根据 spreadsheetToken 、range 和下拉列表属性给单元格设置下拉列表规则；单次设置范围不超过5000行，100列。当一个数据区域中已有数据，支持将有效数据直接转为选项。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
-    System.Threading.Tasks.Task PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto dto);
 
     /// <summary>
@@ -5468,8 +5570,23 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口根据 spreadsheetToken 、sheetId、dataValidationId 更新下拉列表的属性。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
+    /// <param name="sheetId">
+    /// <para>必填：是</para>
+    /// <para>子sheet唯一识别参数</para>
+    /// </param>
+    /// <param name="dataValidationId">
+    /// <para>必填：是</para>
+    /// <para>sheet中下拉列表的唯一标示id</para>
+    /// </param>
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation/{sheetId}/{dataValidationId}")]
-    System.Threading.Tasks.Task PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdAsync(
+        [PathQuery] string spreadsheetToken,
+        [PathQuery] string sheetId,
+        [PathQuery] int dataValidationId,
         [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdBodyDto dto);
 
     /// <summary>
@@ -5479,8 +5596,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口根据 spreadsheetToken 、range 移除选定数据范围单元格的下拉列表设置，但保留选项文本。单个删除范围不超过5000单元格。单次请求range最大数量100个。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
-    System.Threading.Tasks.Task DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto dto);
 
     /// <summary>
@@ -5521,8 +5643,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于更新已有的条件格式，单次最多支持更新10个条件格式，每个条件格式的更新会返回成功或者失败，失败的情况包括各种参数的校验。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>sheet 的 token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateBodyDto dto);
 
     /// <summary>
@@ -5532,8 +5659,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于删除已有的条件格式，单次最多支持删除10个条件格式，每个条件格式的删除会返回成功或者失败，失败的情况包括各种参数的校验。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>必填：是</para>
+    /// <para>sheet 的 token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteAsync(
+        [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteBodyDto dto);
 
     /// <summary>
@@ -15546,8 +15678,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>文件 token</para>
     /// <para>**示例值**："09bf7b924f9a4a69875788891b5970d8"</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/ehr/v1/attachments/{token}")]
-    System.Threading.Tasks.Task GetEhrV1AttachmentsByTokenAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetEhrV1AttachmentsByTokenAsync(
         [PathQuery] string token);
 
     /// <summary>
@@ -20399,8 +20532,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>用户 ID</para>
     /// <para>**示例值**："ou_7dab8a3d3cdcc9da365777c7ad535d62"</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/acs/v1/users/{user_id}/face")]
-    System.Threading.Tasks.Task GetAcsV1UsersByUserIdFaceAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetAcsV1UsersByUserIdFaceAsync(
         [PathQuery] string user_id);
 
     /// <summary>
@@ -20437,8 +20571,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>门禁访问记录 ID</para>
     /// <para>**示例值**："6939433228970082591"</para>
     /// </param>
+    /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/acs/v1/access_records/{access_record_id}/access_photo")]
-    System.Threading.Tasks.Task GetAcsV1AccessRecordsByAccessRecordIdAccessPhotoAsync(
+    System.Threading.Tasks.Task<HttpResponseMessage> GetAcsV1AccessRecordsByAccessRecordIdAccessPhotoAsync(
         [PathQuery] string access_record_id);
 
     /// <summary>
@@ -21718,6 +21853,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569744330391553</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYzMwUjL2MDM14iNzATN</para>
     /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口用于获取企业的用户角色列表。</para>
     /// </summary>
     [HttpGet("/open-apis/contact/v2/role/list")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.Spec.GetContactV2RoleListResponseDto>> GetContactV2RoleListAsync();
@@ -21833,8 +21969,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>此接口只支持查询旧版文档元信息，如果需要查询新版文档元信息，请使用[获取元数据](https://open.feishu.cn/document/ukTMukTMukTM/uMjN3UjLzYzN14yM2cTN)接口。</para>
     /// </summary>
+    /// <param name="docToken">
+    /// <para>必填：是</para>
+    /// <para>doc 的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
+    /// </param>
     [HttpGet("/open-apis/doc/v2/meta/{docToken}")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2MetaByDocTokenResponseDto>> GetDocV2MetaByDocTokenAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2MetaByDocTokenResponseDto>> GetDocV2MetaByDocTokenAsync(
+        [PathQuery] string docToken);
 
     /// <summary>
     /// <para>【云文档】获取旧版文档中的电子表格元数据</para>
@@ -21843,8 +21984,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据 docToken 获取文档中的电子表格的元数据。</para>
     /// </summary>
+    /// <param name="docToken">
+    /// <para>必填：是</para>
+    /// <para>doc 的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
+    /// </param>
     [HttpGet("/open-apis/doc/v2/{docToken}/sheet_meta")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2ByDocTokenSheetMetaResponseDto>> GetDocV2ByDocTokenSheetMetaAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2ByDocTokenSheetMetaResponseDto>> GetDocV2ByDocTokenSheetMetaAsync(
+        [PathQuery] string docToken);
 
     /// <summary>
     /// <para>【云文档】获取旧版文档纯文本内容</para>
@@ -21854,8 +22000,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此接口只支持查询旧版文档纯文本内容，如果需要查询新版文档的纯文本内容，请使用[获取新版文档纯文本内容</para>
     /// <para>](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/raw_content)接口。</para>
     /// </summary>
+    /// <param name="docToken">
+    /// <para>必填：是</para>
+    /// <para>获取方式详见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
+    /// </param>
     [HttpGet("/open-apis/doc/v2/{docToken}/raw_content")]
-    System.Threading.Tasks.Task GetDocV2ByDocTokenRawContentAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2ByDocTokenRawContentResponseDto>> GetDocV2ByDocTokenRawContentAsync(
+        [PathQuery] string docToken);
 
     /// <summary>
     /// <para>【云文档】获取旧版文档富文本内容</para>
@@ -21865,8 +22016,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>在使用此接口前，请仔细阅读[文档概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs-doc-overview)和[准备接入文档 API](https://open.feishu.cn/document/ukTMukTMukTM/ugzNzUjL4czM14CO3MTN/guide/getting-start)了解文档调用的规则和约束，确保你的文档数据不会丢失或出错。</para>
     /// <para>文档数据结构定义可参考：[文档数据结构概述](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)</para>
     /// </summary>
+    /// <param name="docToken">
+    /// <para>必填：是</para>
+    /// <para>获取方式详见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
+    /// </param>
     [HttpGet("/open-apis/doc/v2/{docToken}/content")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2ByDocTokenContentResponseDto>> GetDocV2ByDocTokenContentAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2ByDocTokenContentResponseDto>> GetDocV2ByDocTokenContentAsync(
+        [PathQuery] string docToken);
 
     /// <summary>
     /// <para>【云文档】编辑旧版文档内容</para>
@@ -21892,7 +22048,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>spreadsheet 的 token；获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/metainfo")]
-    System.Threading.Tasks.Task GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoAsync(
         [PathQuery] string spreadsheetToken);
 
     /// <summary>
@@ -22034,9 +22190,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 folderToken 在该 folder 下创建文件夹。</para>
     /// <para>该接口不支持并发创建，且调用频率上限为 5QPS 以及 10000次/天</para>
     /// </summary>
+    /// <param name="folderToken">
+    /// <para>必填：是</para>
+    /// <para>文件夹的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
+    /// </param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder")]
     [HttpPost("/open-apis/drive/explorer/v2/folder/{folderToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveExplorerV2FolderByFolderTokenResponseDto>> PostDriveExplorerV2FolderByFolderTokenAsync(
+        [PathQuery] string folderToken,
         [JsonNetContent] Ccm.Spec.PostDriveExplorerV2FolderByFolderTokenBodyDto dto);
 
     /// <summary>

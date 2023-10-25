@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 获取角色列表 响应体
+/// <para>该接口用于获取企业的用户角色列表。</para>
 /// <para>接口ID：6907569744330391553</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version//user/obtain-a-role-list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuYzMwUjL2MDM14iNzATN</para>

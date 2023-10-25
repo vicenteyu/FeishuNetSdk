@@ -1,5 +1,5 @@
 using Newtonsoft.Json;
-namespace FeishuNetSdk.Event.Spec;
+namespace FeishuNetSdk.Event;
 /// <summary>
 /// 获取事件出口 IP 响应体
 /// <para>飞书开放平台向应用配置的回调地址推送事件时，是通过特定的 IP 发送出去的，应用可以通过本接口获取所有相关的 IP 地址。</para>
@@ -12,20 +12,23 @@ public record GetEventV1OutboundIpResponseDto
     /// <summary>
     /// <para>outbound ip</para>
     /// <para>必填：否</para>
+    /// <para>示例值：1.1.1.1</para>
     /// </summary>
     [JsonProperty("ip_list")]
     public string[]? IpList { get; set; }
 
     /// <summary>
-    /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
+    /// <para>分页下次调用的page_token值</para>
     /// <para>必填：否</para>
+    /// <para>示例值：xxx</para>
     /// </summary>
     [JsonProperty("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
-    /// <para>是否还有更多项</para>
+    /// <para>是否还有分页数据</para>
     /// <para>必填：否</para>
+    /// <para>示例值：false</para>
     /// </summary>
     [JsonProperty("has_more")]
     public bool? HasMore { get; set; }
