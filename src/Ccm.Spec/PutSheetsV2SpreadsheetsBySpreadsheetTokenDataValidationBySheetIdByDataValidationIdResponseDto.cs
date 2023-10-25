@@ -10,20 +10,6 @@ namespace FeishuNetSdk.Ccm.Spec;
 public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdResponseDto
 {
     /// <summary>
-    /// <para>状态码，0代表成功</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonProperty("code")]
-    public int Code { get; set; }
-
-    /// <summary>
-    /// <para>状态信息</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonProperty("msg")]
-    public string? Msg { get; set; }
-
-    /// <summary>
     /// <para>spreadsheet的token</para>
     /// <para>必填：是</para>
     /// </summary>
@@ -37,52 +23,61 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdBy
     [JsonProperty("sheetId")]
     public string SheetId { get; set; } = string.Empty;
 
-    /// <summary>
-    /// <para>唯一标示id</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonProperty("dataValidationId")]
-    public int DataValidationId { get; set; }
+    [JsonProperty("dataValidation")]
+    public DataValidationSuffix? DataValidation { get; set; }
 
-    /// <summary>
-    /// <para>下拉列表为"list"</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonProperty("dataValidationType")]
-    public string DataValidationType { get; set; } = string.Empty;
+    public record DataValidationSuffix
+    {
+        /// <summary>
+        /// <para>唯一标示id</para>
+        /// <para>必填：是</para>
+        /// </summary>
+        [JsonProperty("dataValidationId")]
+        public int DataValidationId { get; set; }
 
-    /// <summary>
-    /// <para>下拉列表选项值</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonProperty("conditionValues")]
-    public string[] ConditionValues { get; set; } = Array.Empty<string>();
+        /// <summary>
+        /// <para>下拉列表为"list"</para>
+        /// <para>必填：是</para>
+        /// </summary>
+        [JsonProperty("dataValidationType")]
+        public string DataValidationType { get; set; } = string.Empty;
 
-    /// <summary>
-    /// <para>可选属性</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonProperty("options")]
-    public string? Options { get; set; }
+        /// <summary>
+        /// <para>下拉列表选项值</para>
+        /// <para>必填：是</para>
+        /// </summary>
+        [JsonProperty("conditionValues")]
+        public string[] ConditionValues { get; set; } = Array.Empty<string>();
 
-    /// <summary>
-    /// <para>单选填false, 多选填true</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonProperty("multipleValues")]
-    public bool? MultipleValues { get; set; }
+        /// <summary>
+        /// <para>可选属性</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonProperty("options")]
+        public Option? Options { get; set; }
 
-    /// <summary>
-    /// <para>是否设置颜色和胶囊样式</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonProperty("highlightValidData")]
-    public bool? HighlightValidData { get; set; }
+        public record Option
+        {
+            /// <summary>
+            /// <para>单选填false, 多选填true</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonProperty("multipleValues")]
+            public bool? MultipleValues { get; set; }
 
-    /// <summary>
-    /// <para>当highlightValidData为true时，colorValueMap的key与conditionValues中的值一一对应，value为对应的颜色参数。</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonProperty("colorValueMap")]
-    public map<string,string>? ColorValueMap { get; set; }
+            /// <summary>
+            /// <para>是否设置颜色和胶囊样式</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonProperty("highlightValidData")]
+            public bool? HighlightValidData { get; set; }
+
+            /// <summary>
+            /// <para>当highlightValidData为true时，colorValueMap的key与conditionValues中的值一一对应，value为对应的颜色参数。</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonProperty("colorValueMap")]
+            public object? ColorValueMap { get; set; }
+        }
+    }
 }

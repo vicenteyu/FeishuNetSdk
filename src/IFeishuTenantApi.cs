@@ -5559,7 +5559,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
+    System.Threading.Tasks.Task PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
         [PathQuery] string spreadsheetToken,
         [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto dto);
 

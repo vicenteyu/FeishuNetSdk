@@ -10,51 +10,40 @@ namespace FeishuNetSdk.Ccm.Spec;
 public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto
 {
     /// <summary>
-    /// <para>状态码，0代表成功</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonProperty("code")]
-    public int Code { get; set; }
-
-    /// <summary>
-    /// <para>状态信息</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonProperty("msg")]
-    public string? Msg { get; set; }
-
-    /// <summary>
     /// <para>array</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("rangeResults")]
-    public string? RangeResults { get; set; }
+    public RangeResult[]? RangeResults { get; set; }
 
-    /// <summary>
-    /// <para>执行的range,与请求入参中的range 对应</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonProperty("range")]
-    public string Range { get; set; } = string.Empty;
+    public record RangeResult
+    {
+        /// <summary>
+        /// <para>执行的range,与请求入参中的range 对应</para>
+        /// <para>必填：是</para>
+        /// </summary>
+        [JsonProperty("range")]
+        public string Range { get; set; } = string.Empty;
 
-    /// <summary>
-    /// <para>结果信息</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonProperty("msg")]
-    public string? Msg { get; set; }
+        /// <summary>
+        /// <para>结果信息</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonProperty("msg")]
+        public string? Msg { get; set; }
 
-    /// <summary>
-    /// <para>执行结果</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonProperty("success")]
-    public bool Success { get; set; }
+        /// <summary>
+        /// <para>执行结果</para>
+        /// <para>必填：是</para>
+        /// </summary>
+        [JsonProperty("success")]
+        public bool Success { get; set; }
 
-    /// <summary>
-    /// <para>影响的单元格数量</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonProperty("updatedCells")]
-    public int UpdatedCells { get; set; }
+        /// <summary>
+        /// <para>影响的单元格数量</para>
+        /// <para>必填：是</para>
+        /// </summary>
+        [JsonProperty("updatedCells")]
+        public int UpdatedCells { get; set; }
+    }
 }
