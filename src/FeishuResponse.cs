@@ -11,7 +11,7 @@ public record FeishuResponse<T>
     /// 错误码，非 0 表示失败
     /// </summary>
     [JsonProperty("code")]
-    public int Code { get; set; }
+    public int? Code { get; set; }
 
     /// <summary>
     /// 错误描述
@@ -24,6 +24,11 @@ public record FeishuResponse<T>
     /// </summary>
     [JsonProperty("data")]
     public T? Data { get; set; }
+
+    /// <summary>
+    /// 响应结果
+    /// </summary>
+    public bool IsSuccess => Code == 0;
 }
 
 /// <summary>

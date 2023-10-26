@@ -19,16 +19,18 @@ builder.Services.AddTokenProvider<IFeishuTenantApi>(async service =>
 {
     var token = await service.GetService<IFeishuApi>()!
         .PostAuthV3TenantAccessTokenInternalAsync(
-            new FeishuNetSdk.Auth.Spec.PostAuthV3TenantAccessTokenInternalBodyDto
-            {
-                AppId = "cli_a5bf8739dab8d00c",
-                AppSecret = "vn7MjifCNm04dUlWBg6yWbijHvEpel6G"
-            });
+            new FeishuNetSdk.Auth.Spec
+            	.PostAuthV3TenantAccessTokenInternalBodyDto
+	            {
+	            	//此处修改为自建的应用凭证
+	                AppId = "cli_a5bf8739dab8d00c",
+	                AppSecret = "vn7MjifCNm04dUlWBg6yWbijHvEpel6G"
+	            });
     return new TokenResult { Access_token = token.TenantAccessToken, Expires_in = token.Expire };
 });
 ```
 
-### 方法调用
+### 依赖注入
 ```csharp
 [Route("api/[controller]")]
 [ApiController]
@@ -57,7 +59,9 @@ public class TestController : ControllerBase
 [HttpGet("t3")]
 public async Task<IResult> GetT3Async()
 {
+	//定义文件存储路径
     var filePath = @"D:\Users\Downloads\e9bd937f1d7a4c4f992724f5de44bb14.jpg";
+    //调用接口
     var result = await _feishuApi.PostImV1ImagesAsync(
         new FeishuNetSdk.Im.PostImV1ImagesBodyDto
         {
@@ -65,6 +69,9 @@ public async Task<IResult> GetT3Async()
         },
         new FormDataFile(filePath));
 
+    //当返回码不成功时，返回错误消息
+    if (!result.IsSuccess)
+        return Results.Problem(result.Msg);
     return Results.Json(result);
 }
 ```
@@ -76,26 +83,36 @@ public async Task<IResult> GetT3Async()
 [HttpGet("t4")]
 public async Task<IResult> GetT4Async()
 {
+	//定义文件存储路径
     var filePath = @"D:\Users\Downloads\e9bd937f----1.jpg";
+    //调用接口
     var result = (await _feishuApi.GetImV1ImagesByImageKeyAsync(
     	"img_xxxx-fbdc-4c36-b17c-ac8aa1aee7dg"))
+    	//响应状态码异常时，抛出异常，需要自行捕获处理
     	.EnsureSuccessStatusCode();
+
+    //保存文件到指定路径
     await result.SaveAsAsync(filePath);
     return Results.Json(result);
 }
 ```
 
-**个别接口支持部分下载，可以按需设置参数`Range`，字符串格式为`bytes=0-100`表示下载第`0`字节到第`100`字节的数据，默认`不填`或者`null`表示下载整个文件。**
+**个别接口支持部分下载，可以按需设置参数`Range`，字符串格式为`bytes=0-100`表示下载第`0`字节到第`100`字节的数据，默认`不填`或者`null`表示下载整个文件。示例如下：**
 
 ```csharp
 [HttpGet("t5")]
 public async Task<IResult> GetT5Async()
 {
+	//定义文件存储路径
     var filePath = @"D:\Users\Downloads\e9bd937f----2.jpg";
+    //调用接口
     var result = (await _feishuApi.GetDriveV1MediasByFileTokenDownloadAsync(
         "OQBpbF8AEoZ0gqxpCMwcRPWFn8c",
         "bytes=0-100"))
+    	//响应状态码异常时，抛出异常，需要自行捕获处理
         .EnsureSuccessStatusCode();
+
+    //保存到指定路径，可能只是文件的一部分，并非完整。
     await result.SaveAsAsync(filePath);
     return Results.Json(result);
 }
@@ -103,10 +120,10 @@ public async Task<IResult> GetT5Async()
 
 
 ### 云文档操作
-**文档操作前需要用户授权，操作步骤如下：**
-1. 将应用机器人加入或创建一个新群组。
-1. 将该群组设置为文档协作者。
-1. 继续调用接口方法。
+**文档操作前提需要有编辑权限，步骤如下：**
+1. 将`应用机器人`加入或创建一个新`群组`。
+1. 将该`群组`设置为`文档协作者`。
+1. 调用接口方法。
 
 
 
@@ -132,13 +149,14 @@ public interface INewApi : IFeishuTenantApi
 builder.Services.AddHttpApi<INewApi>();
 ```
 
-#### 修改方法调用
+#### 修改依赖注入
 ```csharp
 [Route("api/[controller]")]
 [ApiController]
 public class TestController : ControllerBase
 {
-    private readonly INewApi _feishuApi; //此处更改为新的API：INewApi
+	//此处更改为新的API：INewApi
+    private readonly INewApi _feishuApi;
     public TestController(INewApi feishuApi)
     {
         _feishuApi = feishuApi;
