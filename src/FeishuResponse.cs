@@ -28,6 +28,7 @@ public record FeishuResponse<T>
     /// <summary>
     /// 响应结果
     /// </summary>
+    [JsonIgnore]
     public bool IsSuccess => Code == 0;
 }
 

@@ -4,7 +4,7 @@
 
 飞书开放平台网址：[https://open.feishu.cn/](https://open.feishu.cn/)
 
-接口清单详见：[TenantAccessToken适用接口清单-967个](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
+接口清单详见：[TenantAccessToken适用接口清单-977个](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
 
 ## 用法：
 
@@ -100,8 +100,8 @@ public class TestController : ControllerBase
 [HttpGet("t2")]
 public async Task<IResult> GetT2Async()
 {
-    var result2 = await _feishuApi.GetImV1ChatsAsync();
-    return Results.Json(result2);
+    var result = await _feishuApi.GetImV1ChatsAsync();
+    return Results.Json(result);
 }
 ```
 
@@ -143,7 +143,7 @@ public async Task<IResult> GetT4Async()
     var filePath = @"D:\Users\Downloads\e9bd937f----1.jpg";
     //调用接口
     var result = (await _feishuApi.GetImV1ImagesByImageKeyAsync(
-        "img_xxxx-fbdc-4c36-b17c-ac8aa1aee7dg"))
+        image_key: "img_xxxx-fbdc-4c36-b17c-ac8aa1aee7dg"))
         //当响应状态码异常时，会抛出异常，需要自行捕获处理
         .EnsureSuccessStatusCode();
 
@@ -153,7 +153,7 @@ public async Task<IResult> GetT4Async()
 }
 ```
 
-**个别接口支持部分下载，可以按需设置参数`Range`，字符串格式为`bytes=0-100`表示下载第`0`字节到第`100`字节的数据，默认`不填`或者`null`表示下载整个文件。示例如下：**
+**个别接口支持部分下载，可以按需设置参数`range`，字符串格式为`bytes=0-100`表示下载第`0`字节到第`100`字节的数据，默认`不填`或者`null`表示下载整个文件。示例如下：**
 
 ```csharp
 [HttpGet("t5")]
@@ -163,8 +163,8 @@ public async Task<IResult> GetT5Async()
     var filePath = @"D:\Users\Downloads\e9bd937f----2.jpg";
     //调用接口
     var result = (await _feishuApi.GetDriveV1MediasByFileTokenDownloadAsync(
-        "OQBpbF8AEoZ0gqxpCMwcRPWFn8c",
-        "bytes=0-100"))
+        file_token: "OQBpbF8AEoZ0gqxpCMwcRPWFn8c",
+        range: "bytes=0-100"))
         //当响应状态码异常时，会抛出异常，需要自行捕获处理
         .EnsureSuccessStatusCode();
 

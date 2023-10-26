@@ -2378,7 +2378,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uETOyYjLxkjM24SM5IjN</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>用于机器人在群会话中发送仅指定用户可见的消息卡片。卡片上将展示"仅对你可见"标识。</para>
-    /// <para>![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/b0ec0ce45942463381457edc7b62e144_RXYCFtfUtb.png?lazyload=true&amp;amp;width=1592&amp;amp;height=486)</para>
+    /// <para>![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/b0ec0ce45942463381457edc7b62e144_RXYCFtfUtb.png?lazyload=true&amp;width=1592&amp;height=486)</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/ephemeral/v1/send")]
@@ -4891,6 +4891,367 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string file_token,
         [PathQuery] string comment_id,
         [JsonNetContent] Ccm.Spec.PatchDriveV1FilesByFileTokenCommentsByCommentIdBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】获取文档基本信息</para>
+    /// <para>接口ID：7068199542315302940</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取文档最新版本号、标题等</para>
+    /// </summary>
+    /// <param name="document_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>文档的唯一标识。对应新版文档 Token，[点击了解如何获取云文档 Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// </param>
+    [HttpGet("/open-apis/docx/v1/documents/{document_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1DocumentsByDocumentIdResponseDto>> GetDocxV1DocumentsByDocumentIdAsync(
+        [PathQuery] string document_id);
+
+    /// <summary>
+    /// <para>【云文档】获取文档纯文本内容</para>
+    /// <para>接口ID：7079983676051013634</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1/raw_content</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取文档的纯文本内容。</para>
+    /// </summary>
+    /// <param name="document_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>文档的唯一标识。对应新版文档 Token，[点击了解如何获取云文档 Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// </param>
+    /// <param name="lang">
+    /// <para>必填：否</para>
+    /// <para>语言（用于 MentionUser 语言的选取）</para>
+    /// <list type="bullet">
+    /// <item>0：中文</item>
+    /// <item>1：英文</item>
+    /// <item>2：日文</item>
+    /// </list>
+    /// <para>默认值：0</para>
+    /// </param>
+    [HttpGet("/open-apis/docx/v1/documents/{document_id}/raw_content")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1DocumentsByDocumentIdRawContentResponseDto>> GetDocxV1DocumentsByDocumentIdRawContentAsync(
+        [PathQuery] string document_id,
+        [PathQuery] int? lang = 0);
+
+    /// <summary>
+    /// <para>【云文档】获取文档所有块</para>
+    /// <para>接口ID：7068199542315352092</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1-block/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取文档所有块的富文本内容并分页返回。</para>
+    /// </summary>
+    /// <param name="document_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>文档的唯一标识。对应新版文档 Token，[点击了解如何获取云文档 Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>默认值：500</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="document_revision_id">
+    /// <para>必填：否</para>
+    /// <para>查询的文档版本，-1表示文档最新版本。若此时查询的版本为文档最新版本，则需要持有文档的阅读权限；若此时查询的版本为文档的历史版本，则需要持有文档的编辑权限。</para>
+    /// <para>默认值：-1</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的用户ID的类型</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/docx/v1/documents/{document_id}/blocks")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1DocumentsByDocumentIdBlocksResponseDto>> GetDocxV1DocumentsByDocumentIdBlocksAsync(
+        [PathQuery] string document_id,
+        [PathQuery] int? page_size = 500,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? document_revision_id = -1,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【云文档】创建文档</para>
+    /// <para>接口ID：7068199542315204636</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>创建新版文档，文档标题和目录可选。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/docx/v1/documents")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDocxV1DocumentsResponseDto>> PostDocxV1DocumentsAsync(
+        [JsonNetContent] Ccm.PostDocxV1DocumentsBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】获取块</para>
+    /// <para>接口ID：7068199542315368476</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1-block/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定块的富文本内容。</para>
+    /// </summary>
+    /// <param name="document_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>文档唯一标识。对应新版文档 Token，[点击了解如何获取云文档 Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// </param>
+    /// <param name="block_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>Block 的唯一标识</para>
+    /// </param>
+    /// <param name="document_revision_id">
+    /// <para>必填：否</para>
+    /// <para>查询的文档版本，-1 表示文档最新版本。若此时查询的版本为文档最新版本，则需要持有文档的阅读权限；若此时查询的版本为文档的历史版本，则需要持有文档的编辑权限。</para>
+    /// <para>默认值：-1</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的用户ID的类型</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/docx/v1/documents/{document_id}/blocks/{block_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1DocumentsByDocumentIdBlocksByBlockIdResponseDto>> GetDocxV1DocumentsByDocumentIdBlocksByBlockIdAsync(
+        [PathQuery] string document_id,
+        [PathQuery] string block_id,
+        [PathQuery] int? document_revision_id = -1,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【云文档】创建块</para>
+    /// <para>接口ID：7068199542315270172</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1-block-children/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>指定需要操作的块，为其创建一批子块，并插入到指定位置。如果操作成功，接口将返回新创建子块的富文本内容。</para>
+    /// </summary>
+    /// <param name="document_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>文档唯一标识。对应新版文档 Token，[点击了解如何获取云文档 Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// </param>
+    /// <param name="block_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>Block 的唯一标识</para>
+    /// </param>
+    /// <param name="document_revision_id">
+    /// <para>必填：否</para>
+    /// <para>操作的文档版本，-1 表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。</para>
+    /// <para>默认值：-1</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的用户ID的类型</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/docx/v1/documents/{document_id}/blocks/{block_id}/children")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenResponseDto>> PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenAsync(
+        [PathQuery] string document_id,
+        [PathQuery] string block_id,
+        [JsonNetContent] Ccm.PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto dto,
+        [PathQuery] int? document_revision_id = -1,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【云文档】更新块</para>
+    /// <para>接口ID：7068199542315286556</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1-block/patch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>更新指定的块。</para>
+    /// </summary>
+    /// <param name="document_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>文档唯一标识。对应新版文档 Token，[点击了解如何获取云文档 Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// </param>
+    /// <param name="block_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>Block 的唯一标识</para>
+    /// </param>
+    /// <param name="document_revision_id">
+    /// <para>必填：否</para>
+    /// <para>操作的文档版本，-1 表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。</para>
+    /// <para>默认值：-1</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的用户ID的类型</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/docx/v1/documents/{document_id}/blocks/{block_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchDocxV1DocumentsByDocumentIdBlocksByBlockIdResponseDto>> PatchDocxV1DocumentsByDocumentIdBlocksByBlockIdAsync(
+        [PathQuery] string document_id,
+        [PathQuery] string block_id,
+        [JsonNetContent] Ccm.PatchDocxV1DocumentsByDocumentIdBlocksByBlockIdBodyDto dto,
+        [PathQuery] int? document_revision_id = -1,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【云文档】批量更新块</para>
+    /// <para>接口ID：7100866542866530308</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1-block/batch_update</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>批量更新块的富文本内容。</para>
+    /// </summary>
+    /// <param name="document_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>文档唯一标识。对应新版文档 Token，[点击了解如何获取云文档 Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// </param>
+    /// <param name="document_revision_id">
+    /// <para>必填：否</para>
+    /// <para>操作的文档版本，-1 表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。</para>
+    /// <para>默认值：-1</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的用户ID的类型</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/docx/v1/documents/{document_id}/blocks/batch_update")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateResponseDto>> PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateAsync(
+        [PathQuery] string document_id,
+        [JsonNetContent] Ccm.PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateBodyDto dto,
+        [PathQuery] int? document_revision_id = -1,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【云文档】删除块</para>
+    /// <para>接口ID：7068199542315335708</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1-block-children/batch_delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>指定需要操作的块，删除其指定范围的子块。如果操作成功，接口将返回应用删除操作后的文档版本号。</para>
+    /// </summary>
+    /// <param name="document_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>文档唯一标识。对应新版文档 Token，[点击了解如何获取云文档 Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// </param>
+    /// <param name="block_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>父 Block 的唯一标识</para>
+    /// </param>
+    /// <param name="document_revision_id">
+    /// <para>必填：否</para>
+    /// <para>操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。</para>
+    /// <para>默认值：-1</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpDelete("/open-apis/docx/v1/documents/{document_id}/blocks/{block_id}/children/batch_delete")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDeleteResponseDto>> DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDeleteAsync(
+        [PathQuery] string document_id,
+        [PathQuery] string block_id,
+        [JsonNetContent] Ccm.DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDeleteBodyDto dto,
+        [PathQuery] int? document_revision_id = -1,
+        [PathQuery] string? client_token = null);
+
+    /// <summary>
+    /// <para>【云文档】获取所有子块</para>
+    /// <para>接口ID：7068199542315253788</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1-block-children/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>给定一个指定版本的文档，并指定需要操作的块，分页遍历其所有子块富文本内容 。如果不指定版本，则会默认查询最新版本。</para>
+    /// </summary>
+    /// <param name="document_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>文档唯一标识。对应新版文档 Token，[点击了解如何获取云文档 Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// </param>
+    /// <param name="block_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>Block 的唯一标识</para>
+    /// </param>
+    /// <param name="document_revision_id">
+    /// <para>必填：否</para>
+    /// <para>操作的文档版本，-1表示文档最新版本。若此时操作的版本为文档最新版本，则需要持有文档的阅读权限；若此时操作的版本为文档的历史版本，则需要持有文档的编辑权限。</para>
+    /// <para>默认值：-1</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>默认值：500</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的用户ID的类型</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/docx/v1/documents/{document_id}/blocks/{block_id}/children")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenResponseDto>> GetDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenAsync(
+        [PathQuery] string document_id,
+        [PathQuery] string block_id,
+        [PathQuery] int? document_revision_id = -1,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 500,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【云文档】修改电子表格属性</para>
@@ -14900,7 +15261,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uITN1EjLyUTNx4iM1UTM</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口用于查询用户是否为应用管理员。</para>
-    /// <para>&amp;gt; 此处应用管理员是指可以进入企业管理后台对应用进行审核和管理的企业管理员，并不是应用的开发者。</para>
+    /// <para>&gt; 此处应用管理员是指可以进入企业管理后台对应用进行审核和管理的企业管理员，并不是应用的开发者。</para>
     /// </summary>
     /// <param name="open_id">
     /// <para>必填：否</para>
@@ -15206,7 +15567,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uETNwUjLxUDM14SM1ATN</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口用于分页查询应用租户下的已付费订单，每次购买对应一个唯一的订单，订单会记录购买的套餐的相关信息，业务方需要自行处理套餐的有效期和付费方案的升级。</para>
-    /// <para>&amp;gt; 备注：免费模式的应用不会产生订单，仅收费应用会产生订单 (含免费版)。</para>
+    /// <para>&gt; 备注：免费模式的应用不会产生订单，仅收费应用会产生订单 (含免费版)。</para>
     /// </summary>
     /// <param name="status">
     /// <para>必填：否</para>
@@ -22929,7 +23290,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569742384922626</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ucDOyUjL3gjM14yN4ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe)</para>
     /// <para>应用订阅 approval_code 后，该应用就可以收到该审批定义对应实例的事件通知。同一应用只需要订阅一次，无需重复订阅。</para>
     /// <para>当应用不希望再收到审批事件时，可以使用取消订阅接口进行取消，取消后将不再给应用推送消息。</para>
     /// <para>订阅和取消订阅都是应用维度的，多个应用可以同时订阅同一个 approval_code，每个应用都能收到审批事件。</para>
@@ -22945,7 +23306,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569524100546561</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugDOyUjL4gjM14CO4ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe)</para>
     /// <para>取消订阅 approval_code 后，无法再收到该审批定义对应实例的事件通知。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -22959,7 +23320,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569744330358785</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uADNyUjLwQjM14CM0ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)</para>
     /// <para>根据 Approval Code 获取某个审批定义的详情，用于构造创建审批实例的请求。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -22973,7 +23334,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569524100874241</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uIDNyUjLyQjM14iM0ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)</para>
     /// <para>创建一个审批实例，调用方需对审批定义的表单有详细了解，将按照定义的表单结构，将表单 Value 通过接口传入。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -22987,7 +23348,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569524100497409</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uEDNyUjLxQjM14SM0ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)</para>
     /// <para>通过审批实例 Instance Code 获取审批实例详情。Instance Code 由 [批量获取审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list) 接口获取。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -23001,7 +23362,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569745299046402</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQDOyUjL0gjM14CN4ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)</para>
     /// <para>根据 approval_code 批量获取审批实例的 instance_code，用于拉取租户下某个审批定义的全部审批实例。</para>
     /// <para>默认以审批创建时间排序。</para>
     /// </summary>
@@ -23016,7 +23377,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569743419523074</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uADOzYjLwgzM24CM4MjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cc)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cc)</para>
     /// <para>通过接口可以将当前审批实例抄送给其他人。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -23030,7 +23391,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569743419670530</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYDNyUjL2QjM14iN0ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cancel)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cancel)</para>
     /// <para>对于状态为“审批中”的单个审批实例进行撤销操作，撤销后审批流程结束</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -23044,7 +23405,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569743419981826</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMDNyUjLzQjM14yM0ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/approve)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/approve)</para>
     /// <para>对于单个审批任务进行同意操作。同意后审批流程会流转到下一个审批人。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -23058,7 +23419,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569742384283650</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQDNyUjL0QjM14CN0ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/reject)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/reject)</para>
     /// <para>对于单个审批任务进行拒绝操作。拒绝后审批流程结束。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -23072,7 +23433,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569524099842049</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDNyUjL1QjM14SN0ITN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/transfer)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/transfer)</para>
     /// <para>对于单个审批任务进行转交操作。转交后审批流程流转给被转交人。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -23086,7 +23447,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569744329883649</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uIDNyYjLyQjM24iM0IjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create)</para>
     /// <para>审批定义是审批的描述，包括审批名称、图标、描述等基础信息。创建好审批定义，用户就可以在审批应用的发起页中看到审批，如果用户点击发起，则会跳转到配置的发起三方系统地址去发起审批。</para>
     /// <para>另外，审批定义还配置了审批操作时的回调地址：审批人在待审批列表中进行【同意】【拒绝】操作时，审批中心会调用回调地址通知三方系统。</para>
     /// <para>注意，审批中心不负责审批流程的流转，只负责展示、操作、消息通知。因此审批定义创建时没有审批流程的信息。</para>
@@ -23102,7 +23463,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569523177013249</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uczM3UjL3MzN14yNzcTN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)</para>
     /// <para>审批中心不负责审批的流转，审批的流转在三方系统，三方系统在审批流转后生成的审批实例、审批任务、审批抄送数据同步到审批中心。</para>
     /// <para>用户可以在审批中心中浏览三方系统同步过来的实例、任务、抄送信息，并且可以跳转回三方系统进行更详细的查看和操作，其中实例信息在【已发起】列表，任务信息在【待审批】和【已审批】列表，抄送信息在【抄送我】列表</para>
     /// <para>对于审批任务，三方系统也可以配置审批任务的回调接口，这样审批人可以在审批中心中直接进行审批操作，审批中心会回调三方系统，三方系统收到回调后更新任务信息，并将新的任务信息同步回审批中心，形成闭环。</para>
@@ -23118,7 +23479,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569745298604034</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDNyYjL1QjM24SN0IjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check)</para>
     /// <para>校验三方审批实例数据，用于判断服务端数据是否为最新的。用户提交实例最新更新时间，如果服务端不存在该实例，或者服务端实例更新时间不是最新的，则返回对应实例 id。</para>
     /// <para>例如，用户可以每隔5分钟，将最近5分钟产生的实例使用该接口进行对比。</para>
     /// </summary>
@@ -23133,7 +23494,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6915007875422568450</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukjNyYjL5YjM24SO2IjN/external_status</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list)</para>
     /// <para>该接口用于获取三方审批的状态。用户传入查询条件，接口返回满足条件的审批实例的状态。</para>
     /// <para>该接口支持多种参数的组合， 包括如下组合：</para>
     /// <para>1. 通过 instance_ids 获取指定实例的任务状态</para>
@@ -23152,7 +23513,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569743420686338</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUzNyYjL1cjM24SN3IjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)</para>
     /// <para>用于通过接口创建简单的审批定义，可以灵活指定定义的基础信息、表单和流程等。创建成功后，不支持从审批管理后台删除该定义。不推荐企业自建应用使用，如有需要尽量联系管理员在审批管理后台创建定义。</para>
     /// <para>接口谨慎调用，创建后的审批定义无法停用/删除</para>
     /// </summary>
@@ -23167,7 +23528,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907568073251946498</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQjMxYjL0ITM24CNyEjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)</para>
     /// <para>该接口通过不同条件查询审批系统中符合条件的审批实例列表。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -23181,7 +23542,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907568073252700162</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUjMxYjL1ITM24SNyEjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc)</para>
     /// <para>该接口通过不同条件查询审批系统中符合条件的审批抄送列表。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -23195,7 +23556,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907568073252241410</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYjMxYjL2ITM24iNyEjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/search)</para>
+    /// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/search)</para>
     /// <para>该接口通过不同条件查询审批系统中符合条件的审批任务列表</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -23488,7 +23849,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907568031544229890</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATO2YjLwkjN24CM5YjN</para>
     /// <para>Authorization：user_access_token、tenant_access_token</para>
-    /// <para>&amp;gt; 为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至[新版本](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)</para>
+    /// <para>&gt; 为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至[新版本](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)</para>
     /// <para>该接口用于将本地表格导入到云空间上。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -23529,7 +23890,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6979502797244153859</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUTNzUjL1UzM14SN1MTN/delete-sheet</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至 [新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)</para>
+    /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至 [新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)</para>
     /// <para>该接口用于根据 spreadsheetToken 删除对应的 sheet 文档。</para>
     /// <para>文档只能被文档所有者删除，文档被删除后将会放到回收站里</para>
     /// <para>该接口不支持并发调用，且调用频率上限为5QPS</para>
@@ -23549,7 +23910,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569523177127937</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYTNzUjL2UzM14iN1MTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至 [新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy)</para>
+    /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至 [新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy)</para>
     /// <para>将文件复制到用户云空间的其他文件夹中。不支持复制文件夹。</para>
     /// <para>如果目标文件夹是我的空间，则复制的文件会在「我的空间」的「归我所有」列表里。</para>
     /// <para>该接口不支持并发创建，且调用频率上限为 5QPS 且 10000次/天</para>
@@ -23571,7 +23932,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569742383661058</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATM2UjLwEjN14CMxYTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至 [新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)</para>
+    /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至 [新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)</para>
     /// <para>该接口用于根据 docToken 删除对应的 Docs 文档。</para>
     /// <para>文档只能被文档所有者删除，文档被删除后将会放到回收站里</para>
     /// <para>该接口不支持并发调用，且调用频率上限为5QPS</para>
@@ -23591,7 +23952,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569524100890625</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uEjNzUjLxYzM14SM2MTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至 [新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至 [新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// <para>获取用户云空间中指定文件夹下的文件清单。清单类型包括文件、各种在线文档（文档、电子表格、多维表格、思维笔记）、文件夹和快捷方式。该接口不支持分页，并且不会递归的获取子文件夹的清单。</para>
     /// </summary>
     /// <param name="types">
@@ -23608,7 +23969,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569745299750914</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukTNzUjL5UzM14SO1MTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至 [新版本&amp;gt;&amp;gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder)</para>
+    /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至 [新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder)</para>
     /// <para>该接口用于根据 folderToken 在该 folder 下创建文件夹。</para>
     /// <para>该接口不支持并发创建，且调用频率上限为 5QPS 以及 10000次/天</para>
     /// </summary>
