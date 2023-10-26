@@ -11,6 +11,20 @@ namespace FeishuNetSdk.Auth.Spec;
 public record PostAuthV3TenantAccessTokenInternalResponseDto
 {
     /// <summary>
+    /// <para>错误码，非 0 取值表示失败</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonProperty("code")]
+    public int? Code { get; set; }
+
+    /// <summary>
+    /// <para>错误描述</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonProperty("msg")]
+    public string? Msg { get; set; }
+
+    /// <summary>
     /// <para>租户访问凭证</para>
     /// <para>必填：否</para>
     /// </summary>

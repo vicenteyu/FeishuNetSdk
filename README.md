@@ -6,34 +6,85 @@
 
 接口清单详见：[TenantAccessToken适用接口清单-969个](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
 
-## 自建应用用法
+## 用法：
 
-### 安装Nuget包
+### 1. 安装Nuget包
 [![FeishuNetSdk](https://buildstats.info/nuget/FeishuNetSdk "FeishuNetSdk")](https://www.nuget.org/packages/FeishuNetSdk/ "FeishuNetSdk")
 
-### 依赖注册
+### 2. 依赖注册（直接输入`应用凭证`的方式，二选一）
 ```csharp
 builder.Services.AddHttpApi<IFeishuApi>();
 builder.Services.AddHttpApi<IFeishuTenantApi>();
 builder.Services.AddTokenProvider<IFeishuTenantApi>(async service =>
 {
-    var token = await service.GetService<IFeishuApi>()!
-        .PostAuthV3TenantAccessTokenInternalAsync(
+    //获取凭证接口
+    var feishuApi = service.GetRequiredService<IFeishuApi>();
+	//获取tenant_access_token
+    var response = await feishuApi.PostAuthV3TenantAccessTokenInternalAsync(
             new FeishuNetSdk.Auth.Spec
             	.PostAuthV3TenantAccessTokenInternalBodyDto
 	            {
-	            	//此处修改为自建的应用凭证
-	                AppId = "cli_a5bf8739dab8d00c",
+	            	//此处修改为自建的应用凭证Id和密钥
+	                AppId = "cli_a5bf8739dab8d0c",
 	                AppSecret = "vn7MjifCNm04dUlWBg6yWbijHvEpel6G"
 	            });
-    return new TokenResult { Access_token = token.TenantAccessToken, Expires_in = token.Expire };
+	//返回一个能自动缓存和过期重取的Token实例
+    return new TokenResult
+    {
+        Access_token = response.TenantAccessToken,
+        Expires_in = response.Expire
+    };
+});
+```
+### 2. 依赖注册（配置文件的方式，二选一）
+1. 创建`FeishuOption`类：
+```csharp
+public record FeishuOption
+{
+    public string app_id { get; set; } = string.Empty;
+    public string app_secret { get; set; } = string.Empty;
+}
+```
+1. 在`appsettings.json`文件中添加配置：
+```csharp
+"Feishu": {
+    "app_id": "cli_a5bf8739dab8d0c",
+    "app_secret": "vn7MjifCNm04dUlWBg6yWbijHvEpel6G",
+}
+```
+1. 添加绑定配置
+```csharp
+builder.Services.Configure<FeishuOption>(builder.Configuration.GetSection("Feishu"));
+```
+1. 接口注册
+```csharp
+builder.Services.AddHttpApi<IFeishuApi>();
+builder.Services.AddHttpApi<IFeishuTenantApi>();
+builder.Services.AddTokenProvider<IFeishuTenantApi>(async service =>
+{
+    //获取配置
+    var option = service.GetRequiredService<IOptionsMonitor<FeishuOption>>();
+    //获取凭证接口
+    var feishuApi = service.GetRequiredService<IFeishuApi>();
+	//获取tenant_access_token
+    var response = await feishuApi.PostAuthV3TenantAccessTokenInternalAsync(
+            new FeishuNetSdk.Auth.Spec
+                .PostAuthV3TenantAccessTokenInternalBodyDto
+	            {
+	                AppId = option.CurrentValue.app_id,
+	                AppSecret = option.CurrentValue.app_secret
+	            });
+	//返回一个能自动缓存和过期重取的Token实例
+    return new TokenResult
+    {
+        Access_token = response.TenantAccessToken,
+        Expires_in = response.Expire
+    };
 });
 ```
 
-### 依赖注入
+### 3. 依赖注入
 ```csharp
-[Route("api/[controller]")]
-[ApiController]
 public class TestController : ControllerBase
 {
     private readonly IFeishuTenantApi _feishuApi;
@@ -41,15 +92,20 @@ public class TestController : ControllerBase
     {
         _feishuApi = feishuApi;
     }
-
-    [HttpGet("t2")]
-    public async Task<IResult> GetT2Async()
-    {
-        var result2 = await _feishuApi.GetImV1ChatsAsync();
-        return Results.Json(result2);
-    }
 }
 ```
+
+### 4. 方法调用
+```csharp
+[HttpGet("t2")]
+public async Task<IResult> GetT2Async()
+{
+    var result2 = await _feishuApi.GetImV1ChatsAsync();
+    return Results.Json(result2);
+}
+```
+
+## 示例：
 
 ### 文件上传示例
 参数 `FormDataFile` 支持 `filePath`、`FileInfo`、`byte[]`、`Stream`。
@@ -118,11 +174,15 @@ public async Task<IResult> GetT5Async()
 }
 ```
 
+## 注意事项
 
 ### 云文档操作
+
 **文档操作前提需要有编辑权限，步骤如下：**
+
+1. 为`自建应用`添加`机器人`能力。
 1. 将`应用机器人`加入或创建一个新`群组`。
-1. 将该`群组`设置为`文档协作者`。
+1. 进入目标文档，将该`群组`设置为`文档协作者`。
 1. 调用接口方法。
 
 
@@ -151,8 +211,6 @@ builder.Services.AddHttpApi<INewApi>();
 
 #### 修改依赖注入
 ```csharp
-[Route("api/[controller]")]
-[ApiController]
 public class TestController : ControllerBase
 {
 	//此处更改为新的API：INewApi
@@ -160,13 +218,6 @@ public class TestController : ControllerBase
     public TestController(INewApi feishuApi)
     {
         _feishuApi = feishuApi;
-    }
-
-    [HttpGet("t2")]
-    public async Task<IResult> GetT2Async()
-    {
-        var result2 = await _feishuApi.GetEventV1OutboundIpAsync();
-        return Results.Json(result2);
     }
 }
 ```

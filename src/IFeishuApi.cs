@@ -63,7 +63,7 @@ public interface IFeishuApi : IHttpApi
     /// <para>飞书开放平台每隔 1 小时会给应用推送一次最新的 `app_ticket`，应用也可以主动调用此接口，触发飞书开放平台进行即时推送。</para>
     /// </summary>
     [HttpPost("/open-apis/auth/v3/app_ticket/resend")]
-    System.Threading.Tasks.Task PostAuthV3AppTicketResendAsync(
+    System.Threading.Tasks.Task<FeishuResponse> PostAuthV3AppTicketResendAsync(
         [JsonNetContent] Auth.Spec.PostAuthV3AppTicketResendBodyDto dto);
 
     /// <summary>

@@ -136,6 +136,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于从通讯录删除一个用户信息，可以理解为员工离职。</para>
     /// </summary>
     /// <param name="user_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户ID，需要与查询参数中的user_id_type类型保持一致。</para>
     /// </param>
@@ -163,6 +164,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于恢复已删除用户（已离职的成员），仅自建应用可申请，应用商店应用无权调用接口。</para>
     /// </summary>
     /// <param name="user_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户ID，需要与查询参数中的user_id_type类型保持一致。</para>
     /// </param>
@@ -200,6 +202,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新通讯录中用户的字段，未传递的参数不会更新。</para>
     /// </summary>
     /// <param name="user_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户ID，需要与查询参数中的user_id_type类型保持一致。</para>
     /// </param>
@@ -237,6 +240,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取通讯录中单个用户的信息。</para>
     /// </summary>
     /// <param name="user_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户ID，类型需要与查询参数中的user_id_type保持一致。</para>
     /// <para>例如user_id_type=open_id，user_id的类型需为open_id</para>
@@ -392,6 +396,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此接口可用于更新用户ID(user_id)。新的用户ID(user_id)需要保证企业内未被占用。</para>
     /// </summary>
     /// <param name="user_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户ID，ID类型与user_id_type一致</para>
     /// </param>
@@ -451,6 +456,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过该接口可删除企业中的用户组，请注意删除用户组时应用的通讯录权限范围需为“全部员工”，否则会删除失败，[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// </summary>
     /// <param name="group_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需删除的用户组ID</para>
     /// </param>
@@ -466,6 +472,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>使用该接口更新用户组信息，请注意更新用户组时应用的通讯录权限范围需为“全部员工”，否则会更新失败。[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// </summary>
     /// <param name="group_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户组ID</para>
     /// </param>
@@ -503,6 +510,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据用户组 ID 查询某个用户组的基本信息，支持查询普通用户组和动态用户组。请确保应用的通讯录权限范围里包括该用户组或者是“全部员工”，[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// </summary>
     /// <param name="group_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户组ID</para>
     /// </param>
@@ -651,6 +659,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除自定义人员类型。</para>
     /// </summary>
     /// <param name="enum_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>枚举值id</para>
     /// </param>
@@ -666,6 +675,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新自定义人员类型。</para>
     /// </summary>
     /// <param name="enum_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>枚举值id</para>
     /// </param>
@@ -743,6 +753,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于从通讯录中删除部门。</para>
     /// </summary>
     /// <param name="department_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>部门ID，需要与查询参数中传入的department_id_type类型保持一致。</para>
     /// </param>
@@ -768,6 +779,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新通讯录中部门的信息。</para>
     /// </summary>
     /// <param name="department_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>部门ID，需要与查询参数中传入的department_id_type类型保持一致。</para>
     /// <para>注意：除需要满足正则规则外，同时不能以od-开头</para>
@@ -806,6 +818,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新当前部门所有信息。</para>
     /// </summary>
     /// <param name="department_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>部门ID，需要与查询参数中传入的department_id_type类型保持一致。</para>
     /// <para>注意：除需要满足正则规则外，同时不能以od-开头</para>
@@ -865,6 +878,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于向通讯录获取单个部门信息。</para>
     /// </summary>
     /// <param name="department_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要获取的部门ID</para>
     /// <para>不同 ID 的说明及获取方式 参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
@@ -946,6 +960,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过部门ID获取部门的子部门列表。</para>
     /// </summary>
     /// <param name="department_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>部门ID，根部门的部门ID 为0</para>
     /// <para>department_id的获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
@@ -1060,6 +1075,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>使用该接口删除单位，需要有更新单位的权限。注意：如果单位的单位类型被其它的业务使用，不允许删除。</para>
     /// </summary>
     /// <param name="unit_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>单位ID</para>
     /// </param>
@@ -1076,6 +1092,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>调用该接口，需要有更新单位的权限。注意：单位功能属于旗舰版付费功能，企业需开通对应版本才可以修改单位。</para>
     /// </summary>
     /// <param name="unit_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>单位ID</para>
     /// </param>
@@ -1151,6 +1168,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取单位信息。</para>
     /// </summary>
     /// <param name="unit_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>单位ID</para>
     /// </param>
@@ -1188,6 +1206,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>向用户组中添加成员(目前成员仅支持用户，未来会支持部门)，如果应用的通讯录权限范围是“全部员工”，则可将任何成员添加到任何用户组。如果应用的通讯录权限范围不是“全部员工”，则仅可将通讯录权限范围中的成员添加到通讯录权限范围的用户组中，[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// </summary>
     /// <param name="group_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户组ID</para>
     /// </param>
@@ -1204,6 +1223,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>向普通用户组中批量添加成员(目前仅支持添加用户，暂不支持添加部门），如果应用的通讯录权限范围是“全部员工”，则可将任何成员添加到任何用户组。如果应用的通讯录权限范围不是“全部员工”，则仅可将通讯录权限范围中的成员添加到通讯录权限范围的用户组中，[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// </summary>
     /// <param name="group_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户组ID</para>
     /// </param>
@@ -1220,6 +1240,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>从用户组中移除成员 (目前成员仅支持用户，未来会支持部门)，如果应用的通讯录权限范围是“全部员工”，则可将任何成员移出任何用户组。如果应用的通讯录权限范围不是“全部员工”，则仅可将通讯录权限范围中的成员从通讯录权限范围的用户组中移除， [点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// </summary>
     /// <param name="group_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户组ID</para>
     /// </param>
@@ -1236,6 +1257,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>从普通用户组中批量移除成员 (目前仅支持移除用户，暂不支持移除部门）。如果应用的通讯录权限范围是“全部员工”，则可将任何成员移出任何用户组。如果应用的通讯录权限范围不是“全部员工”，则仅可将通讯录权限范围中的成员从通讯录权限范围的用户组中移除， [点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// </summary>
     /// <param name="group_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户组ID</para>
     /// </param>
@@ -1252,6 +1274,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过该接口可查询某个用户组的成员列表（支持查询成员中的用户和部门）, 本接口支持普通用户组和动态用户组。如果应用的通讯录权限范围是“全部员工”，则可查询企业内任何用户组的成员列表。如果应用的通讯录权限范围不是“全部员工”，则仅可查询通讯录权限范围中的用户组的成员列表，[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// </summary>
     /// <param name="group_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户组ID</para>
     /// </param>
@@ -1314,6 +1337,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过本接口可以删除某个角色</para>
     /// </summary>
     /// <param name="role_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>角色的唯一标识，单租户下唯一</para>
     /// </param>
@@ -1329,6 +1353,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过本接口可以修改角色名称</para>
     /// </summary>
     /// <param name="role_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>角色的唯一标识，单租户下唯一</para>
     /// </param>
@@ -1345,6 +1370,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过”批量添加角色成员“接口可批量添加成员，成员信息同步展示至租户的管理后台-角色管理模块。</para>
     /// </summary>
     /// <param name="role_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>角色的唯一标识，单租户下唯一</para>
     /// </param>
@@ -1372,6 +1398,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过本接口可以删除角色下的某个/些成员</para>
     /// </summary>
     /// <param name="role_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>角色的唯一标识，单租户下唯一</para>
     /// </param>
@@ -1399,6 +1426,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过该接口可设置本租户下角色成员的管理范围，以便在审批等场景中应用。</para>
     /// </summary>
     /// <param name="role_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>角色的唯一标识，单租户下唯一</para>
     /// </param>
@@ -1436,10 +1464,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过本接口可以查询某个成员的管理范围</para>
     /// </summary>
     /// <param name="role_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>角色的唯一标识，单租户下唯一</para>
     /// </param>
     /// <param name="member_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要查询的角色内成员ID</para>
     /// </param>
@@ -1477,6 +1507,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过本接口可以查询角色ID下的成员信息（含成员ID及其管理范围）</para>
     /// </summary>
     /// <param name="role_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>角色的唯一标识，单租户下唯一</para>
     /// </param>
@@ -1536,6 +1567,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于删除职级。</para>
     /// </summary>
     /// <param name="job_level_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>职级ID</para>
     /// </param>
@@ -1551,6 +1583,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新职级信息。</para>
     /// </summary>
     /// <param name="job_level_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>职级ID</para>
     /// </param>
@@ -1567,6 +1600,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口可以获取单个职级的信息。</para>
     /// </summary>
     /// <param name="job_level_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>职级ID</para>
     /// </param>
@@ -1620,6 +1654,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于删除租户内的序列。</para>
     /// </summary>
     /// <param name="job_family_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>序列ID</para>
     /// </param>
@@ -1635,6 +1670,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新租户序列的信息。</para>
     /// </summary>
     /// <param name="job_family_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>序列ID</para>
     /// </param>
@@ -1651,6 +1687,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取单个序列信息。</para>
     /// </summary>
     /// <param name="job_family_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>序列ID</para>
     /// </param>
@@ -1693,6 +1730,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口可以获取单个职务的信息。</para>
     /// </summary>
     /// <param name="job_title_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>职务ID</para>
     /// </param>
@@ -1730,6 +1768,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此接口可用于获取单个工作城市信息。</para>
     /// </summary>
     /// <param name="work_city_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>工作城市ID</para>
     /// </param>
@@ -1790,6 +1829,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>回复指定消息，支持文本、富文本、卡片、群名片、个人名片、图片、视频、文件等多种消息类型。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待回复的消息的ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// </param>
@@ -1806,6 +1846,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>编辑已发送的消息内容，当前支持编辑文本、富文本消息。如需更新消息卡片，请参考[更新应用发送的消息卡片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch)。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待编辑的消息的ID，仅支持文本（text）或富文本（post）消息，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// </param>
@@ -1822,6 +1863,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>机器人撤回机器人自己发送的消息或群主撤回群内消息。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待撤回的消息的ID</para>
     /// </param>
@@ -1837,6 +1879,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>向一个用户或群聊转发一条指定消息。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要转发的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// </param>
@@ -1898,6 +1941,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查询消息的已读信息。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待查询的消息的ID，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// <para>**注意**：不支持查询批量消息</para>
@@ -1989,10 +2033,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取消息中的资源文件，包括音频，视频，图片和文件，**暂不支持表情包资源下载**。当前仅支持 100M 以内的资源文件的下载。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待查询资源对应的消息ID。</para>
     /// </param>
     /// <param name="file_key">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待查询资源的key。可以调用[获取指定消息的内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get)接口，通过消息ID查询消息内容中的资源Key。</para>
     /// <para>**注意**：请求的 file_key 和 message_id 需要匹配</para>
@@ -2019,6 +2065,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过 message_id 查询消息内容。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待获取消息内容的消息的ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// </param>
@@ -2034,6 +2081,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>对指定消息进行应用内加急。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待加急的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// <para>**注意**：不支持批量消息ID（bm_xxx）</para>
@@ -2062,6 +2110,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>对指定消息进行应用内加急与短信加急。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待加急的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// <para>**注意**：不支持批量消息ID（bm_xxx）</para>
@@ -2090,6 +2139,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>对指定消息进行应用内加急与电话加急。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待加急的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// <para>**注意**：不支持批量消息ID（bm_xxx）</para>
@@ -2141,6 +2191,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>批量撤回通过[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口发送的消息。</para>
     /// </summary>
     /// <param name="batch_message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待撤回的批量消息任务 ID，为[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口返回值中的`message_id`字段，用于标识一次批量发送消息请求。</para>
     /// </param>
@@ -2156,6 +2207,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>发送批量消息请求后，可以通过该接口查询批量消息推送的总人数和阅读人数。</para>
     /// </summary>
     /// <param name="batch_message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待查询的批量消息任务 ID，通过调用[批量发送消息接口](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值`message_id`中得到</para>
     /// </param>
@@ -2171,6 +2223,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口在[查询批量消息推送和阅读人数](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/read_user)查询结果的基础上，增加了批量请求中有效的user id数量以及消息撤回进度数据。</para>
     /// </summary>
     /// <param name="batch_message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待查询的批量消息任务ID，通过调用[批量发送消息接口](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值`message_id`中得到</para>
     /// </param>
@@ -2203,6 +2256,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>下载图片资源，只能下载当前应用所上传且图片类型为message的图片。</para>
     /// </summary>
     /// <param name="image_key">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>图片的key，通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得</para>
     /// </param>
@@ -2235,6 +2289,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>下载文件接口，只能下载应用自己上传的文件。</para>
     /// </summary>
     /// <param name="file_key">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的key，通过[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口上传图片后获得</para>
     /// </param>
@@ -2251,6 +2306,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新应用已发送的消息卡片内容。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待更新的消息的ID，仅支持更新消息卡片(`interactive`类型)，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// </param>
@@ -2303,6 +2359,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>给指定消息添加指定类型的表情回复（reaction即表情回复，本文档统一用“reaction”代称）。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待添加reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// </param>
@@ -2319,10 +2376,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除指定消息的表情回复（reaction即表情回复，本文档统一用“reaction”代称）。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待删除reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// </param>
     /// <param name="reaction_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待删除reaction的资源id，可通过调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口或[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)获得</para>
     /// </param>
@@ -2339,6 +2398,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取指定消息的特定类型表情回复列表（reaction即表情回复，本文档统一用“reaction”代称）。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待获取reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// </param>
@@ -2394,6 +2454,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>移除一条指定消息的 Pin。</para>
     /// </summary>
     /// <param name="message_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待移除Pin的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// </param>
@@ -2480,6 +2541,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>解散群组。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：仅支持群模式为`group`的群组ID</para>
@@ -2496,6 +2558,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新群头像、群名称、群描述、群配置、转让群主等。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：仅支持群模式为`group`的群组ID</para>
@@ -2524,6 +2587,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新群组的发言权限设置，可设置为全员可发言、仅管理员可发言  或 指定用户可发言。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// </param>
@@ -2551,6 +2615,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取群名称、群描述、群头像、群主 ID 等群基本信息。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// </param>
@@ -2577,6 +2642,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新会话中的群置顶信息，可以将群中的某一条消息，或者群公告置顶显示。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待修改置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// </param>
@@ -2593,6 +2659,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>撤销会话中的置顶。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待撤销置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// </param>
@@ -2695,6 +2762,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取群发言模式、可发言用户名单等。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// </param>
@@ -2733,6 +2801,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取指定群的分享链接。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待获取分享链接的群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：单聊、密聊、团队群不支持分享群链接</para>
@@ -2750,6 +2819,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>将用户或机器人指定为群管理员。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：仅支持群模式为`group`、`topic`的群组ID</para>
@@ -2779,6 +2849,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除指定的群管理员（用户或机器人）。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：仅支持群模式为`group`、`topic`的群组ID</para>
@@ -2808,6 +2879,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>将用户或机器人拉入群聊。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：仅支持群模式为`group`、`topic`的群组ID</para>
@@ -2848,6 +2920,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>用户或机器人主动加入群聊。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：</para>
@@ -2866,6 +2939,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>将用户或机器人移出群聊。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：仅支持群模式为`group`、`topic`的群组ID</para>
@@ -2896,6 +2970,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取用户/机器人所在群的群成员列表。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// </param>
@@ -2933,6 +3008,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据使用的access_token判断对应的用户或者机器人是否在群里。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// </param>
@@ -2948,6 +3024,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新会话中的群公告信息，更新公告信息的格式和更新[旧版云文档](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同，不支持新版文档格式。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待修改公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：不支持P2P单聊</para>
@@ -2965,6 +3042,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取会话中的群公告信息，公告信息格式与[旧版云文档](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待获取公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：不支持P2P单聊</para>
@@ -2992,6 +3070,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>添加自定义会话标签页。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：支持群模式为`p2p`与`group`的群ID</para>
@@ -3009,6 +3088,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除会话标签页。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：支持群模式为`p2p`与`group`的群ID</para>
@@ -3026,6 +3106,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新会话标签页。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：支持群模式为`p2p`与`group`的群ID</para>
@@ -3043,6 +3124,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>会话标签页排序。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：支持群模式为`p2p`与`group`的群ID</para>
@@ -3060,6 +3142,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>拉取会话标签页。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：支持群模式为`p2p`与`group`的群ID</para>
@@ -3076,6 +3159,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于向群组中添加群菜单。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：仅支持群模式为`group`的群ID</para>
@@ -3093,6 +3177,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于删除群内已经添加的群菜单。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：仅支持群模式为`group`的群ID</para>
@@ -3110,11 +3195,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>修改某个一级菜单或者二级菜单的元信息，包括群菜单的图标、名称、国际化名称和跳转链接。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：仅支持群模式为`group`的群ID</para>
     /// </param>
     /// <param name="menu_item_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>一级或二级菜单ID，通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口通过群ID获取菜单ID。</para>
     /// </param>
@@ -3132,6 +3219,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>给一个群内的一级菜单排序。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：仅支持群模式为`group`的群ID</para>
@@ -3149,6 +3237,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过群 ID 获取群内菜单。</para>
     /// </summary>
     /// <param name="chat_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
     /// <para>**注意**：仅支持群模式为`group`的群ID</para>
@@ -3233,6 +3322,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 folderToken 获取该文件夹的元信息。</para>
     /// </summary>
     /// <param name="folderToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件夹 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -3285,6 +3375,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 如需创建电子表格，也可以调用[创建表格](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create)接口。</para>
     /// </summary>
     /// <param name="folderToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件夹 token，用于在此文件夹下新建文档，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -3302,6 +3393,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如果目标文件夹是我的空间，则复制的文件会在「**我的空间**」的「**归我所有**」列表里。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>被复制的文件token</para>
     /// </param>
@@ -3318,6 +3410,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>将文件或者文件夹移动到用户云空间的其他位置。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要移动的文件token</para>
     /// </param>
@@ -3334,6 +3427,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除用户在云空间内的文件或者文件夹。文件或者文件夹被删除后，会进入用户回收站里。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的文件token</para>
     /// </param>
@@ -3364,6 +3458,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此接口用于获取文档统计信息，包括文档阅读人数、次数和点赞数。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档 token</para>
     /// </param>
@@ -3439,6 +3534,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Range格式为Range: bytes=start-end，例如Range: bytes=0-1024，表示下载第 0 个字节到第 1024 个字节之间的数据。</para>
     /// </param>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>素材文件的`Token`，比如对于新版文档中的附件，可以通过[获取块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get)接口获取指定 File Block 的 Token。</para>
     /// <para>**示例值**："boxcnrHpsg1QDqXAAAyachabcef"</para>
@@ -3523,6 +3619,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口仅支持**文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档token</para>
     /// <para>**示例值**："doccnxxxxxxxxxxxxxxxxxxxxxx"</para>
@@ -3539,6 +3636,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口**仅支持文档拥有者**取消订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。暂时无法指定取消的具体事件类型，事件类型以开发者后台为准。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档token</para>
     /// </param>
@@ -3566,6 +3664,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口**仅支持文档拥有者**查询自己文档的订阅状态，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档token</para>
     /// </param>
@@ -3651,6 +3750,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Range格式为Range: bytes=start-end，例如Range: bytes=0-1024，表示下载第 0 个字节到第 1024 个字节之间的数据。</para>
     /// </param>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
     /// <para>**示例值**："boxcnabCdefg12345"</para>
@@ -3680,6 +3780,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据创建导入任务返回的`ticket`轮询导入结果，调用方式可参考[导入使用指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)。</para>
     /// </summary>
     /// <param name="ticket">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>导入任务ID</para>
     /// </param>
@@ -3706,6 +3807,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据[创建导出任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create)返回的`ticket`轮询导出任务的结果，通过本接口获取到导出产物的文件`token`之后，可调用[下载导出文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download)接口将导出产物下载到本地。</para>
     /// </summary>
     /// <param name="ticket">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>导出任务ID，[创建导出任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create) 响应中的 ticket 字段</para>
     /// </param>
@@ -3727,6 +3829,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据[查询导出任务结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get)返回的导出产物`token`，下载导出产物文件到本地。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>导出文档 token</para>
     /// </param>
@@ -3743,6 +3846,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取文档的历史访问记录</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档 token</para>
     /// </param>
@@ -3797,6 +3901,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>创建文档版本。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>源文档token，如何获取文档Token可以参考[如何获取云文档相关token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -3824,10 +3929,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除文档版本。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>版本文档token，如何获取文档Token可以参考[如何获取云文档相关token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
     /// <param name="version_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>版本文档版本号</para>
     /// </param>
@@ -3863,10 +3970,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取文档版本。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>源文档token</para>
     /// </param>
     /// <param name="version_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>版本文档版本号</para>
     /// </param>
@@ -3902,6 +4011,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取文档所有版本。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>源文档token，如何获取文档Token可以参考[如何获取云文档相关token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -3948,6 +4058,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 filetoken 和用户信息转移文件的所有者。</para>
     /// </summary>
     /// <param name="token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token</para>
     /// </param>
@@ -3997,6 +4108,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 filetoken 判断当前登录用户是否具有某权限。</para>
     /// </summary>
     /// <param name="token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token</para>
     /// </param>
@@ -4041,6 +4153,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 filetoken 查询协作者</para>
     /// </summary>
     /// <param name="token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -4098,6 +4211,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 filetoken 给用户增加文档的权限。</para>
     /// </summary>
     /// <param name="token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -4137,10 +4251,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 filetoken 更新文档协作者的权限。</para>
     /// </summary>
     /// <param name="token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
     /// <param name="member_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>协作者 ID，与协作者 ID 类型需要对应</para>
     /// </param>
@@ -4180,10 +4296,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 filetoken 移除文档协作者的权限。</para>
     /// </summary>
     /// <param name="token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
     /// <param name="member_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>协作者 ID，与协作者 ID 类型需要对应</para>
     /// </param>
@@ -4228,6 +4346,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 filetoken 开启云文档的密码。</para>
     /// </summary>
     /// <param name="token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -4258,6 +4377,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 filetoken 刷新云文档的密码。</para>
     /// </summary>
     /// <param name="token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -4288,6 +4408,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 filetoken 关闭云文档的密码。</para>
     /// </summary>
     /// <param name="token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -4318,6 +4439,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 filetoken 获取云文档的权限设置。</para>
     /// </summary>
     /// <param name="token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -4348,6 +4470,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 filetoken 更新云文档的权限设置。</para>
     /// </summary>
     /// <param name="token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -4379,6 +4502,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 filetoken 获取云文档的权限设置。</para>
     /// </summary>
     /// <param name="token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -4409,6 +4533,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 filetoken 更新云文档的权限设置。</para>
     /// </summary>
     /// <param name="token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -4440,6 +4565,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据文档 token 分页获取文档全文评论，暂时不支持局部评论</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档token</para>
     /// <para>**示例值**："XIHSdYSI7oMEU1xrsnxc8fabcef"</para>
@@ -4456,6 +4582,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>往云文档添加一条全局评论。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档token</para>
     /// </param>
@@ -4492,11 +4619,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取云文档中的某条全文评论，暂时不支持局部评论</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档token</para>
     /// <para>**示例值**："doccnHh7U87HOFpii5u5G*****"</para>
     /// </param>
     /// <param name="comment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>评论ID</para>
     /// <para>**示例值**："6916106822734578184"</para>
@@ -4514,6 +4643,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据评论 ID 列表批量获取全文评论，暂时不支持局部评论</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档Token</para>
     /// <para>**示例值**："doxbcdl03Vsxhm7Qmnj110abcef"</para>
@@ -4531,10 +4661,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据评论 ID 以及分页参数，获取回复。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档Token</para>
     /// </param>
     /// <param name="comment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>评论ID</para>
     /// </param>
@@ -4585,16 +4717,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新云文档中的某条回复。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档token</para>
     /// <para>**示例值**："doccnHh7U87HOFpii5u5G*****"</para>
     /// </param>
     /// <param name="comment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>评论ID</para>
     /// <para>**示例值**："6916106822734578184"</para>
     /// </param>
     /// <param name="reply_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>回复ID</para>
     /// <para>**示例值**："6916106822734594568"</para>
@@ -4614,16 +4749,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除云文档中的某条回复。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档token</para>
     /// <para>**示例值**："doccnHh7U87HOFpii5u5G*****"</para>
     /// </param>
     /// <param name="comment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>评论ID</para>
     /// <para>**示例值**："6916106822734578184"</para>
     /// </param>
     /// <param name="reply_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>回复ID</para>
     /// <para>**示例值**："6916106822734594568"</para>
@@ -4642,11 +4780,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>解决或恢复云文档中的评论。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档token</para>
     /// <para>**示例值**："doccnGp4UK1UskrOEJwBXd3****"</para>
     /// </param>
     /// <param name="comment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>评论ID</para>
     /// <para>**示例值**："6916106822734578184"</para>
@@ -4665,6 +4805,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于修改电子表格的属性</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格的token</para>
     /// <para>**示例值**："shtxxxxxxxxxxxxxxx"</para>
@@ -4682,6 +4823,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取电子表格的基础信息。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格的token</para>
     /// <para>**示例值**："shtxxxxxxxxxxxxxxx"</para>
@@ -4709,11 +4851,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于通过工作表ID查询工作表属性信息。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)</para>
     /// <para>**示例值**："shtxxxxxxxxxxxxxxx"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)</para>
     /// <para>**示例值**："giDk9k"</para>
@@ -4731,6 +4875,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取电子表格下所有工作表及其属性。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>电子表格的token</para>
     /// </param>
@@ -4747,6 +4892,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口和 [更新工作表属性](https://open.feishu.cn/document/ukTMukTMukTM/ugjMzUjL4IzM14COyMTN) 的请求地址相同，但参数不同，调用前请仔细阅读文档。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -4763,6 +4909,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口和 [操作工作表](https://open.feishu.cn/document/ukTMukTMukTM/uYTMzUjL2EzM14iNxMTN) 的请求地址相同，但参数不同，调用前请仔细阅读文档。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -4778,6 +4925,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 和长度，在末尾增加空行/列；单次操作不超过5000行或列。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，详见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -4795,6 +4943,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如 startIndex=3， endIndex=7，则从第 4 行开始开始插入行列，一直到第 7 行，共插入 4 行；单次操作不超过5000行或列。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -4811,6 +4960,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 和维度信息更新隐藏行列、单元格大小；单次操作不超过5000行或列。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -4827,11 +4977,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于移动行列，行列被移动到目标位置后，原本在目标位置的行列会对应右移或下移。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA\*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b\**12"</para>
@@ -4850,6 +5002,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 和维度信息删除行/列 。单次删除最大5000行/列。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet的token，详见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -4867,6 +5020,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>"range": "8fe9d6!A2:B2"</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>sheet的token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -4899,10 +5053,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 和 range 读取表格单个范围的值，返回数据限制为10M。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，详见电子表格[概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
     /// <param name="range">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>查询范围，包含 sheetId 与单元格范围两部分，详见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。若查询范围中使用形如<sheetId>!<开始单元格>:<结束列>的范围时，仅支持获取100列数据</para>
     /// </param>
@@ -4919,6 +5075,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 和 range 向单个范围写入数据，若范围内有数据，将被更新覆盖；单次写入不超过5000行，100列，每个格子不超过5万字符。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet的token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -4935,6 +5092,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 和 ranges 读取表格多个范围的值，返回数据限制为10M。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -4950,6 +5108,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 和 range 向多个范围写入数据，若范围内有数据，将被更新覆盖；单次写入不超过5000行，100列，每个格子不超过5万字符。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -4966,6 +5125,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 、range 和样式信息更新单元格样式；单次写入不超过5000行，100列。建议在设置边框样式时，每次更新的单元格数量不要超过30000个。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，详见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -4982,6 +5142,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 、range和样式信息 批量更新单元格样式；单次写入不超过5000行，100列。建议在设置边框样式时，每次更新的单元格数量不要超过30000个。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -4998,6 +5159,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 和 range 向单个格子写入图片。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet的token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -5014,6 +5176,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 和维度信息合并单元格；单次操作不超过5000行，100列。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -5030,6 +5193,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 和维度信息拆分单元格；单次操作不超过5000行，100列。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -5046,10 +5210,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>在指定范围内查找符合查找条件的单元格。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)</para>
     /// </param>
@@ -5067,10 +5233,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>按照指定的条件查找子表的某个范围内的数据符合条件的单元格并替换值，返回替换成功的单元格位置。一次请求最多允许替换5000个单元格，如果超过请将range缩小范围再操作。请求体中的 range、find、replacement 字段必填。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>Spreadsheet token</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>Sheet id</para>
     /// </param>
@@ -5088,11 +5256,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取子表的详细筛选信息</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA\*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b\**12"</para>
@@ -5110,11 +5280,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>在子表内创建筛选。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA\*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b\**12"</para>
@@ -5133,11 +5305,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新子表筛选范围中的列筛选条件。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA\*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b\**12"</para>
@@ -5156,11 +5330,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除子表的筛选</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA\*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b\**12"</para>
@@ -5178,16 +5354,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取指定筛选视图 id 的名字和筛选范围。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
     /// </param>
     /// <param name="filter_view_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>筛选视图 id</para>
     /// <para>**示例值**："pH9hbVcCXA"</para>
@@ -5206,11 +5385,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查询子表内所有的筛选视图基本信息，包括 id、name 和 range</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
@@ -5228,11 +5409,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据传入的参数创建一个筛选视图。Id 和 名字可选，不填的话会默认生成；range 必填。Id 长度为10，由 0-9、a-z、A-Z 组合生成。名字长度不超过100。单个子表内的筛选视图个数不超过 150。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
@@ -5251,16 +5434,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新筛选视图的名字或者筛选范围。名字长度不超过100，不能重复即子表内唯一；筛选范围不超过子表的最大范围。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
     /// </param>
     /// <param name="filter_view_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>筛选视图 id</para>
     /// <para>**示例值**："pH9hbVcCXA"</para>
@@ -5280,16 +5466,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除指定 id 对应的筛选视图。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
     /// </param>
     /// <param name="filter_view_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>筛选视图 id</para>
     /// <para>**示例值**："pH9hbVcCXA"</para>
@@ -5308,21 +5497,25 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取筛选视图某列的筛选条件信息。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
     /// </param>
     /// <param name="filter_view_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>筛选视图 id</para>
     /// <para>**示例值**："pH9hbVcCXA"</para>
     /// </param>
     /// <param name="condition_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要查询筛选条件的列字母号</para>
     /// <para>**示例值**："E"</para>
@@ -5342,16 +5535,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查询一个筛选视图的所有筛选条件，返回筛选视图的筛选范围内的筛选条件。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
     /// </param>
     /// <param name="filter_view_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>筛选视图 id</para>
     /// <para>**示例值**："pH9hbVcCXA"</para>
@@ -5370,16 +5566,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>在筛选视图的筛选范围的某一列创建筛选条件。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
     /// </param>
     /// <param name="filter_view_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>筛选视图 id</para>
     /// <para>**示例值**："pH9hbVcCXA"</para>
@@ -5399,21 +5598,25 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新筛选视图范围的某列的筛选条件，condition id 即为列的字母号。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
     /// </param>
     /// <param name="filter_view_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>筛选视图 id</para>
     /// <para>**示例值**："pH9hbVcCXA"</para>
     /// </param>
     /// <param name="condition_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>列字母号</para>
     /// <para>**示例值**："E"</para>
@@ -5434,21 +5637,25 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除筛选视图的筛选范围某一列的筛选条件。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
     /// </param>
     /// <param name="filter_view_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>筛选视图 id</para>
     /// <para>**示例值**："pH9hbVcCXA"</para>
     /// </param>
     /// <param name="condition_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>筛选范围内的某列字母号</para>
     /// <para>**示例值**："E"</para>
@@ -5468,6 +5675,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 和维度信息增加多个保护范围；单次操作不超过5000行或列。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -5503,6 +5711,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据保护范围ID修改保护范围，单次最多支持同时修改10个ID。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>sheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -5519,6 +5728,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据保护范围ID删除保护范围，最多支持同时删除10个ID。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>sheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -5555,6 +5765,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口根据 spreadsheetToken 、range 和下拉列表属性给单元格设置下拉列表规则；单次设置范围不超过5000行，100列。当一个数据区域中已有数据，支持将有效数据直接转为选项。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -5571,14 +5782,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口根据 spreadsheetToken 、sheetId、dataValidationId 更新下拉列表的属性。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
     /// <param name="sheetId">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子sheet唯一识别参数</para>
     /// </param>
     /// <param name="dataValidationId">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>sheet中下拉列表的唯一标示id</para>
     /// </param>
@@ -5597,6 +5811,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口根据 spreadsheetToken 、range 移除选定数据范围单元格的下拉列表设置，但保留选项文本。单个删除范围不超过5000单元格。单次请求range最大数量100个。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -5628,6 +5843,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于创建新的条件格式，单次最多支持增加10个条件格式，每个条件格式的设置会返回成功或者失败，失败的情况包括各种参数的校验。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -5644,6 +5860,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新已有的条件格式，单次最多支持更新10个条件格式，每个条件格式的更新会返回成功或者失败，失败的情况包括各种参数的校验。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>sheet 的 token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -5660,6 +5877,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于删除已有的条件格式，单次最多支持删除10个条件格式，每个条件格式的删除会返回成功或者失败，失败的情况包括各种参数的校验。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>sheet 的 token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -5676,16 +5894,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 float_image_id 获取对应浮动图片的信息。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
     /// </param>
     /// <param name="float_image_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>浮动图片 id</para>
     /// <para>**示例值**："ye06SS14ph"</para>
@@ -5704,11 +5925,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>返回子表内所有的浮动图片信息。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
@@ -5726,11 +5949,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据传入的参数创建一张浮动图片。Float_image_token （[上传图片至表格后得到](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)）和range（只支持一个单元格） 必填。Float_image_id 可选，不填的话会默认生成，长度为10，由 0-9、a-z、A-Z 组合生成。表格内不重复的图片（浮动图片+单元格图片）总数不超过4000。width 和 height 为图片展示的宽高，可选，不填的话会使用图片的真实宽高。offset_x 和 offset_y 为图片左上角距离所在单元格左上角的偏移，可选，默认为 0。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
@@ -5749,16 +5974,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新已有的浮动图片位置和宽高，包括 range、width、height、offset_x 和 offset_y，不包括 float_image_id 和 float_image_token。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
     /// </param>
     /// <param name="float_image_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>浮动图片 id</para>
     /// <para>**示例值**："ye06SS14ph"</para>
@@ -5778,16 +6006,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除 float_image_id 对应的浮动图片。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
     /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
     /// </param>
     /// <param name="sheet_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
     /// <para>**示例值**："0b**12"</para>
     /// </param>
     /// <param name="float_image_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>浮动图片 id</para>
     /// <para>**示例值**："ye06SS14ph"</para>
@@ -5806,6 +6037,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>复制一个多维表格，可以指定复制到某个有权限的文件夹下</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>[多维表格 App token](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
@@ -5833,6 +6065,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取指定多维表格的元数据信息，包括多维表格名称，多维表格版本号，多维表格是否开启高级权限等。</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
@@ -5848,6 +6081,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过 app_token 更新多维表格元数据</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>Base app token</para>
     /// </param>
@@ -5864,6 +6098,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过该接口，可以新增一个仅包含索引列的空数据表，也可以指定一部分初始字段。</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
@@ -5880,6 +6115,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>新增多个数据表。</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
@@ -5907,10 +6143,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除一个数据表，最后一张数据表不允许被删除。</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)</para>
     /// </param>
@@ -5927,6 +6165,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除多个数据表。</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
@@ -5943,10 +6182,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新数据表的基本信息，包括数据表的名称等。</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)</para>
     /// </param>
@@ -5964,6 +6205,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据  app_token，获取多维表格下的所有数据表。</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
@@ -5991,10 +6233,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据现有仪表盘复制出新的仪表盘</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格 token</para>
     /// </param>
     /// <param name="block_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格 block_id</para>
     /// </param>
@@ -6012,6 +6256,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 app_token，获取多维表格下的所有仪表盘</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格文档 Token</para>
     /// </param>
@@ -6039,14 +6284,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于增量修改视图信息</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>base app token</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>table id</para>
     /// </param>
     /// <param name="view_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>视图 ID</para>
     /// </param>
@@ -6065,14 +6313,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口根据 view_id 检索现有视图</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>base app token</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>table id</para>
     /// </param>
     /// <param name="view_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>视图 ID</para>
     /// </param>
@@ -6090,10 +6341,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 app_token 和 table_id，获取数据表的所有视图</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>base app token</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>table id</para>
     /// </param>
@@ -6133,10 +6386,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>在数据表中新增一个视图</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>base app token</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>table id</para>
     /// </param>
@@ -6154,14 +6409,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除数据表中的视图</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>base app token</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>table id</para>
     /// </param>
     /// <param name="view_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>视图Id</para>
     /// </param>
@@ -6179,14 +6437,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新表单中的元数据项</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格文档 Token</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 ID</para>
     /// </param>
     /// <param name="form_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表单 ID</para>
     /// </param>
@@ -6205,14 +6466,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取表单的所有元数据项</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格文档 Token</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 ID</para>
     /// </param>
     /// <param name="form_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表单 ID</para>
     /// </param>
@@ -6230,21 +6494,25 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新表单中的问题项</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格文档 Token</para>
     /// <para>**示例值**："bascnCMII2ORej2RItqpZZUNMIe"</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 ID</para>
     /// <para>**示例值**："tblsRc9GRRXKqhvW"</para>
     /// </param>
     /// <param name="form_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表单 ID</para>
     /// <para>**示例值**："vewTpR1urY"</para>
     /// </param>
     /// <param name="field_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表单问题 ID</para>
     /// <para>**示例值**："fldjX7dUj5"</para>
@@ -6265,14 +6533,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>列出表单的所有问题项</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格文档 Token</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 ID</para>
     /// </param>
     /// <param name="form_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表单 ID</para>
     /// </param>
@@ -6302,14 +6573,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 record_id 的值检索现有记录</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>base app token</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>table id</para>
     /// </param>
     /// <param name="record_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>单条记录的 id</para>
     /// </param>
@@ -6358,10 +6632,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于列出数据表中的现有记录，单次最多列出 500 行记录，支持分页获取。</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)</para>
     /// </param>
@@ -6449,10 +6725,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于在数据表中新增一条记录</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)</para>
     /// </param>
@@ -6487,14 +6765,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新数据表中的一条记录</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)</para>
     /// </param>
     /// <param name="record_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)</para>
     /// </param>
@@ -6524,14 +6805,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于删除数据表中的一条记录</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>base app token</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>table id</para>
     /// </param>
     /// <param name="record_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>单条记录的Id</para>
     /// </param>
@@ -6549,10 +6833,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于在数据表中新增多条记录，单次调用最多新增 500 条记录。</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)</para>
     /// </param>
@@ -6587,10 +6873,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新数据表中的多条记录，单次调用最多更新 500 条记录。</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>base app token</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>table id</para>
     /// </param>
@@ -6619,10 +6907,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于删除数据表中现有的多条记录，单次调用中最多删除 500 条记录。</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>base app token</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>table id</para>
     /// </param>
@@ -6640,10 +6930,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 app_token 和 table_id，获取数据表的所有字段</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>Base app token</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>table id</para>
     /// </param>
@@ -6682,10 +6974,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于在数据表中新增一个字段</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)</para>
     /// </param>
@@ -6709,14 +7003,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于在数据表中更新一个字段</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>base app token</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>table id</para>
     /// </param>
     /// <param name="field_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>field id</para>
     /// </param>
@@ -6735,14 +7032,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于在数据表中删除一个字段</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
     /// <param name="table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>table id</para>
     /// </param>
     /// <param name="field_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>field id</para>
     /// </param>
@@ -6760,6 +7060,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>列出自定义角色</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
@@ -6787,6 +7088,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>新增自定义角色</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
@@ -6803,10 +7105,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除自定义角色</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
     /// <param name="role_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>自定义角色的id</para>
     /// </param>
@@ -6823,10 +7127,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新自定义角色</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
     /// <param name="role_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>自定义角色的id</para>
     /// </param>
@@ -6844,10 +7150,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>批量删除自定义角色的协作者</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格文档 Token</para>
     /// </param>
     /// <param name="role_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>自定义角色 ID</para>
     /// </param>
@@ -6865,10 +7173,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>批量新增自定义角色的协作者</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
     /// <param name="role_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>自定义角色 ID</para>
     /// </param>
@@ -6886,10 +7196,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>列出自定义角色的协作者</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
     /// <param name="role_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>自定义角色的id</para>
     /// </param>
@@ -6918,10 +7230,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>新增自定义角色的协作者</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
     /// <param name="role_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>自定义角色的id</para>
     /// </param>
@@ -6953,14 +7267,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除自定义角色的协作者</para>
     /// </summary>
     /// <param name="app_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
     /// </param>
     /// <param name="role_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>自定义角色的id</para>
     /// </param>
     /// <param name="member_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>协作者id</para>
     /// </param>
@@ -7022,6 +7339,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 私有空间：仅对知识空间管理员、成员可见，需要手动添加管理员、成员。</para>
     /// </summary>
     /// <param name="space_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>知识空间id</para>
     /// </param>
@@ -7037,6 +7355,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>添加知识空间成员或管理员。</para>
     /// </summary>
     /// <param name="space_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>知识空间id</para>
     /// </param>
@@ -7058,10 +7377,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此接口用于删除知识空间成员或管理员。</para>
     /// </summary>
     /// <param name="space_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>知识空间id</para>
     /// </param>
     /// <param name="member_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>成员id，值的类型由请求体的 member_type 参数决定</para>
     /// </param>
@@ -7079,6 +7400,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据space_id更新知识空间公共设置</para>
     /// </summary>
     /// <param name="space_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>知识空间id</para>
     /// </param>
@@ -7095,6 +7417,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此接口用于在知识节点里创建[节点](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)到指定位置。</para>
     /// </summary>
     /// <param name="space_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>知识空间id</para>
     /// <para>[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)</para>
@@ -7145,6 +7468,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此接口为分页接口。由于权限过滤，可能返回列表为空，但分页标记（has_more）为true，可以继续分页请求。</para>
     /// </summary>
     /// <param name="space_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>知识空间id</para>
     /// </param>
@@ -7177,10 +7501,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此方法用于在Wiki内移动节点，支持跨知识空间移动。如果有子节点，会携带子节点一起移动。</para>
     /// </summary>
     /// <param name="space_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>知识空间id</para>
     /// </param>
     /// <param name="node_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要迁移的节点token</para>
     /// </param>
@@ -7198,10 +7524,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此接口用于更新节点标题</para>
     /// </summary>
     /// <param name="space_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>知识空间ID</para>
     /// </param>
     /// <param name="node_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>节点token</para>
     /// </param>
@@ -7219,10 +7547,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此接口用于在知识空间创建节点副本到指定位置。</para>
     /// </summary>
     /// <param name="space_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>知识空间id</para>
     /// </param>
     /// <param name="node_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>节点token</para>
     /// </param>
@@ -7240,6 +7570,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口允许移动云空间文档至知识空间，并挂载在指定位置</para>
     /// </summary>
     /// <param name="space_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>知识库id</para>
     /// </param>
@@ -7256,6 +7587,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该方法用于获取wiki异步任务的结果</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务id</para>
     /// </param>
@@ -7292,6 +7624,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// </param>
@@ -7351,6 +7684,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// </param>
@@ -7395,6 +7729,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// </param>
@@ -7435,6 +7770,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// </param>
@@ -7451,6 +7787,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// </param>
@@ -7467,6 +7804,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// <para>**示例值**："feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn"</para>
@@ -7485,11 +7823,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// <para>**示例值**："feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn"</para>
     /// </param>
     /// <param name="acl_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)</para>
     /// <para>**示例值**："user_xxxxxx"</para>
@@ -7508,6 +7848,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// <para>**示例值**："feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn"</para>
@@ -7525,6 +7866,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// </param>
@@ -7559,11 +7901,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// <para>**示例值**："feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn"</para>
     /// </param>
     /// <param name="event_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)</para>
     /// <para>**示例值**："xxxxxxxxx_0"</para>
@@ -7582,10 +7926,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// </param>
     /// <param name="event_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)</para>
     /// </param>
@@ -7615,10 +7961,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// </param>
     /// <param name="event_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)</para>
     /// </param>
@@ -7654,6 +8002,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// </param>
@@ -7701,10 +8050,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于以当前身份（应用/用户）解绑已创建的会议群。身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID</para>
     /// </param>
     /// <param name="event_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日程ID</para>
     /// </param>
@@ -7727,10 +8078,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID</para>
     /// </param>
     /// <param name="event_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日程ID</para>
     /// </param>
@@ -7760,6 +8113,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>一个应用只能删除自己创建的请假日程。</para>
     /// </summary>
     /// <param name="timeoff_event_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>休假申请的唯一标识id。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)</para>
     /// <para>**示例值**："timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39"</para>
@@ -7823,10 +8177,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>批量给日程添加参与人。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// </param>
     /// <param name="event_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)</para>
     /// </param>
@@ -7855,10 +8211,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>批量删除日程的参与人。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// </param>
     /// <param name="event_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)</para>
     /// </param>
@@ -7887,10 +8245,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取日程的参与人列表，若参与者列表中有群组，请使用 [获取参与人群成员列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list) 。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// </param>
     /// <param name="event_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)</para>
     /// </param>
@@ -7935,14 +8295,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取日程的群参与人的群成员列表。</para>
     /// </summary>
     /// <param name="calendar_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
     /// </param>
     /// <param name="event_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)</para>
     /// </param>
     /// <param name="attendee_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>群参与人 ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)</para>
     /// </param>
@@ -8005,6 +8368,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除一个预约。</para>
     /// </summary>
     /// <param name="reserve_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>预约ID（预约的唯一标识）</para>
     /// </param>
@@ -8020,6 +8384,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新一个预约。</para>
     /// </summary>
     /// <param name="reserve_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>预约ID（预约的唯一标识）</para>
     /// </param>
@@ -8047,6 +8412,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取一个预约的详情。</para>
     /// </summary>
     /// <param name="reserve_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>预约ID（预约的唯一标识）</para>
     /// </param>
@@ -8073,6 +8439,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取一个预约的当前活跃会议。</para>
     /// </summary>
     /// <param name="reserve_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>预约ID（预约的唯一标识）</para>
     /// </param>
@@ -8104,6 +8471,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>将参会人从会议中移除。</para>
     /// </summary>
     /// <param name="meeting_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>会议ID</para>
     /// </param>
@@ -8131,6 +8499,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>设置会议的主持人。</para>
     /// </summary>
     /// <param name="meeting_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>会议ID（视频会议的唯一标识，视频会议开始后才会产生）</para>
     /// </param>
@@ -8158,6 +8527,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取一个会议的详细数据。</para>
     /// </summary>
     /// <param name="meeting_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>会议ID（视频会议的唯一标识，视频会议开始后才会产生）</para>
     /// </param>
@@ -8231,6 +8601,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取一个会议的录制文件。</para>
     /// </summary>
     /// <param name="meeting_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>会议ID（视频会议的唯一标识，视频会议开始后才会产生）</para>
     /// </param>
@@ -8389,6 +8760,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查看异步导出的进度。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务id</para>
     /// </param>
@@ -8442,6 +8814,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口可以用来更新某个会议室层级的信息。</para>
     /// </summary>
     /// <param name="room_level_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>层级ID</para>
     /// </param>
@@ -8458,6 +8831,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口可以使用会议室层级 ID 查询会议室层级详情。</para>
     /// </summary>
     /// <param name="room_level_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>层级ID，查询租户层级可传0</para>
     /// </param>
@@ -8548,6 +8922,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口可以用来删除某个会议室。</para>
     /// </summary>
     /// <param name="room_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>会议室ID</para>
     /// </param>
@@ -8563,6 +8938,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口可以用来更新某个会议室的信息。</para>
     /// </summary>
     /// <param name="room_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>会议室ID</para>
     /// </param>
@@ -8590,6 +8966,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口可以使用会议室 ID 查询会议室详情。</para>
     /// </summary>
     /// <param name="room_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>会议室ID</para>
     /// </param>
@@ -8764,6 +9141,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新会议室预定限制。</para>
     /// </summary>
     /// <param name="reserve_config_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>会议室或层级id</para>
     /// </param>
@@ -8791,6 +9169,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查询会议室预定表单。</para>
     /// </summary>
     /// <param name="reserve_config_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>会议室或层级id</para>
     /// </param>
@@ -8822,6 +9201,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新会议室预定表单。</para>
     /// </summary>
     /// <param name="reserve_config_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>会议室或层级ID</para>
     /// </param>
@@ -8849,6 +9229,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查询会议室预定管理员。</para>
     /// </summary>
     /// <param name="reserve_config_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>会议室或层级id</para>
     /// </param>
@@ -8880,6 +9261,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新会议室预定管理员。</para>
     /// </summary>
     /// <param name="reserve_config_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>会议室或层级id</para>
     /// </param>
@@ -8907,6 +9289,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查询禁用状态变更通知</para>
     /// </summary>
     /// <param name="reserve_config_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>会议室或层级ID，可通过会议室或层级相关查询接口获取</para>
     /// </param>
@@ -8938,6 +9321,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新禁用状态变更通知</para>
     /// </summary>
     /// <param name="reserve_config_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>会议室或层级ID，可通过会议室或层级相关查询接口获取</para>
     /// </param>
@@ -9253,6 +9637,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过班次 ID 删除班次。</para>
     /// </summary>
     /// <param name="shift_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>班次 ID，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)</para>
     /// </param>
@@ -9268,6 +9653,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过班次 ID 获取班次详情。</para>
     /// </summary>
     /// <param name="shift_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>班次 ID，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)</para>
     /// </param>
@@ -9349,6 +9735,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过班次 ID 删除班次。</para>
     /// </summary>
     /// <param name="group_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>考勤组 ID，获取方式：1）[创建或修改考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create) 2）[按名称查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search) 3）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)</para>
     /// </param>
@@ -9364,6 +9751,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过考勤组 ID 获取考勤组详情。</para>
     /// </summary>
     /// <param name="group_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>考勤组 ID，获取方式：1）[创建或修改考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create) 2）[按名称查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search) 3）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)</para>
     /// </param>
@@ -9469,6 +9857,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新开发者定制的日度统计或月度统计的统计报表表头设置信息。</para>
     /// </summary>
     /// <param name="user_stats_view_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户视图 ID，获取方式：1）[查询统计设置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)</para>
     /// </param>
@@ -9686,6 +10075,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过打卡记录 ID 获取用户的打卡流水记录。</para>
     /// </summary>
     /// <param name="user_flow_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query) 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query) 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)</para>
     /// </param>
@@ -9827,6 +10217,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过文件 ID 下载指定的文件。</para>
     /// </summary>
     /// <param name="file_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件 ID</para>
     /// </param>
@@ -9843,6 +10234,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>只能获取到对应时间段过期的发放记录</para>
     /// </summary>
     /// <param name="leave_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>假期类型ID</para>
     /// </param>
@@ -9871,6 +10263,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>仅可更新「发放数量」和「失效日期」</para>
     /// </summary>
     /// <param name="leave_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>假期类型ID</para>
     /// </param>
@@ -9910,6 +10303,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 Approval Code 获取某个审批定义的详情，用于构造创建审批实例的请求。</para>
     /// </summary>
     /// <param name="approval_code">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>审批定义 Code</para>
     /// </param>
@@ -10006,6 +10400,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过审批实例 Instance Code  获取审批实例详情。Instance Code 由 [批量获取审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list) 接口获取。</para>
     /// </summary>
     /// <param name="instance_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>审批实例 Code，若在创建的时候传了 uuid，也可以通过传 uuid 获取。</para>
     /// </param>
@@ -10161,6 +10556,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>在某审批实例下创建、修改评论或评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。</para>
     /// </summary>
     /// <param name="instance_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>审批实例code（或租户自定义审批实例ID）</para>
     /// <para>**示例值**："6A123516-FB88-470D-A428-9AF58B71B3C0"</para>
@@ -10178,11 +10574,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>逻辑删除某审批实例下的一条评论或评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。</para>
     /// </summary>
     /// <param name="instance_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>审批实例code（或者租户自定义审批实例ID）</para>
     /// <para>**示例值**："6A123516-FB88-470D-A428-9AF58B71B3C0"</para>
     /// </param>
     /// <param name="comment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>评论ID</para>
     /// <para>**示例值**："7081516627711606803"</para>
@@ -10200,6 +10598,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除某审批实例下的全部评论与评论回复。</para>
     /// </summary>
     /// <param name="instance_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>审批实例code（或者租户自定义审批实例ID）</para>
     /// <para>**示例值**："6A123516-FB88-470D-A428-9AF58B71B3C0"</para>
@@ -10216,6 +10615,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 Instance Code 获取某个审批实例下的全部评论与评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。</para>
     /// </summary>
     /// <param name="instance_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>审批实例code（或者租户自定义审批实例ID）</para>
     /// <para>**示例值**："6A123516-FB88-470D-A428-9AF58B71B3C0"</para>
@@ -10265,6 +10665,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 Approval Code 获取之前同步的某个三方审批定义的详情数据</para>
     /// </summary>
     /// <param name="approval_code">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>调用[创建三方审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create)时返回的审批定义code</para>
     /// </param>
@@ -10467,6 +10868,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>订阅和取消订阅都是应用维度的，多个应用可以同时订阅同一个 approval_code，每个应用都能收到审批事件。</para>
     /// </summary>
     /// <param name="approval_code">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>审批定义唯一标识</para>
     /// <para>**示例值**："7C468A54-8745-2245-9675-08B7C63E7A85"</para>
@@ -10483,6 +10885,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>取消订阅 approval_code 后，无法再收到该审批定义对应实例的事件通知</para>
     /// </summary>
     /// <param name="approval_code">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>审批定义唯一标识</para>
     /// <para>**示例值**："7C468A54-8745-2245-9675-08B7C63E7A85"</para>
@@ -10509,6 +10912,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取客服信息。</para>
     /// </summary>
     /// <param name="agent_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>客服 id</para>
     /// </param>
@@ -10539,6 +10943,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取客服技能。</para>
     /// </summary>
     /// <param name="agent_skill_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>agent skill id</para>
     /// </param>
@@ -10585,6 +10990,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取单个服务台工单详情。仅支持自建应用。</para>
     /// </summary>
     /// <param name="ticket_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>ticket id</para>
     /// </param>
@@ -10723,6 +11129,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于回复用户提问结果至工单，需要工单仍处于进行中且未接入人工状态。仅支持自建应用。</para>
     /// </summary>
     /// <param name="ticket_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>工单ID</para>
     /// </param>
@@ -10754,6 +11161,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于发送工单消息。</para>
     /// </summary>
     /// <param name="ticket_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>工单ID</para>
     /// </param>
@@ -10770,6 +11178,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取服务台工单消息详情。</para>
     /// </summary>
     /// <param name="ticket_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>工单ID</para>
     /// </param>
@@ -10828,6 +11237,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取工单自定义字段详情。</para>
     /// </summary>
     /// <param name="ticket_customized_field_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>工单自定义字段ID</para>
     /// <para>**示例值**："6948728206392295444"</para>
@@ -10855,6 +11265,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取服务台知识库详情。</para>
     /// </summary>
     /// <param name="id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>知识库ID</para>
     /// </param>
@@ -10906,10 +11317,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取知识库图像。</para>
     /// </summary>
     /// <param name="id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>知识库ID</para>
     /// </param>
     /// <param name="image_key">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>图像key</para>
     /// </param>
@@ -10959,6 +11372,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取知识库分类。</para>
     /// </summary>
     /// <param name="id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>知识库分类ID</para>
     /// </param>
@@ -10984,6 +11398,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查询推送详情。</para>
     /// </summary>
     /// <param name="notification_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>唯一ID</para>
     /// </param>
@@ -11056,6 +11471,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于删除任务。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID</para>
     /// </param>
@@ -11071,6 +11487,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于修改任务的标题、描述、时间、来源等相关信息。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID</para>
     /// </param>
@@ -11099,6 +11516,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>完成任务是指整个任务全部完成，而不支持执行者分别完成任务，执行成功后，任务对所有关联用户都变为完成状态。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID，可通过[创建任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create)时响应体中的id字段获取</para>
     /// </param>
@@ -11114,6 +11532,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于取消任务的已完成状态。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID</para>
     /// </param>
@@ -11129,6 +11548,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取任务详情，包括任务标题、描述、时间、来源等信息。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID</para>
     /// </param>
@@ -11204,6 +11624,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于创建任务的提醒时间。提醒时间在截止时间基础上做偏移，但是偏移后的结果不能早于当前时间。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID</para>
     /// </param>
@@ -11220,10 +11641,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除提醒时间，返回结果状态。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID</para>
     /// </param>
     /// <param name="reminder_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务提醒时间设置的 ID（即 reminder.id）</para>
     /// </param>
@@ -11240,6 +11663,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>返回提醒时间列表，支持分页，最大值为50。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID</para>
     /// </param>
@@ -11267,6 +11691,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于创建和回复任务的评论。当parent_id字段为0时，为创建评论；当parent_id不为0时，为回复某条评论。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID</para>
     /// </param>
@@ -11294,10 +11719,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于通过评论ID删除评论。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务ID</para>
     /// </param>
     /// <param name="comment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>评论ID</para>
     /// </param>
@@ -11314,10 +11741,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新评论内容。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务ID</para>
     /// </param>
     /// <param name="comment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>评论 ID</para>
     /// </param>
@@ -11346,10 +11775,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于通过评论ID获取评论详情。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务ID</para>
     /// </param>
     /// <param name="comment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>评论ID</para>
     /// </param>
@@ -11377,6 +11808,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于查询任务评论列表，支持分页，最大值为100。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务id</para>
     /// </param>
@@ -11425,6 +11857,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于新增任务关注人。可以一次性添加多位关注人。关注人ID要使用表示用户的ID。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID</para>
     /// </param>
@@ -11452,10 +11885,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于删除任务关注人。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID</para>
     /// </param>
     /// <param name="follower_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务关注人 ID（Open ID或User ID，由user_id_type指定）</para>
     /// </param>
@@ -11483,6 +11918,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于批量删除关注人。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务ID</para>
     /// </param>
@@ -11510,6 +11946,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于查询任务关注人列表，支持分页，最大值为50。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID</para>
     /// <para>**示例值**："0d38e26e-190a-49e9-93a2-35067763ed1f"</para>
@@ -11527,6 +11964,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>只有任务的创建者和执行者才能添加执行者，关注人无权限添加。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID，可通过[创建任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create)时响应体中的id字段获取</para>
     /// </param>
@@ -11554,10 +11992,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于删除任务执行者。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID</para>
     /// </param>
     /// <param name="collaborator_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务执行者 ID（Open ID或User ID，由user_id_type指定）</para>
     /// </param>
@@ -11585,6 +12025,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于批量删除执行者。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务ID</para>
     /// </param>
@@ -11612,6 +12053,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于查询任务执行者列表，支持分页，最大值为50。</para>
     /// </summary>
     /// <param name="task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务 ID</para>
     /// </param>
@@ -11673,6 +12115,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取任务详情，包括任务标题、描述、时间、成员等信息。</para>
     /// </summary>
     /// <param name="task_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要获取的任务guid</para>
     /// </param>
@@ -11714,6 +12157,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>* 如要变更任务所在的清单，需要使用[任务加入清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/add_tasklist)和[任务移出清单]( https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/remove_tasklist)接口。</para>
     /// </summary>
     /// <param name="task_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要更新的任务全局唯一ID</para>
     /// </param>
@@ -11737,6 +12181,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除后任务无法再被获取到。</para>
     /// </summary>
     /// <param name="task_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要删除的任务guid</para>
     /// </param>
@@ -11756,6 +12201,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>* 如果要添加的成员已经在任务中，则自动被忽略。</para>
     /// </summary>
     /// <param name="task_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要添加负责人的任务全局唯一ID</para>
     /// </param>
@@ -11778,6 +12224,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>移除任务成员。一次性可以移除多个成员。可以移除任务的负责人或者关注人。移除时，如果要移除的成员不是任务成员，会被自动忽略。本接口返回移除成员后的任务数据，包含移除后的任务成员列表。</para>
     /// </summary>
     /// <param name="task_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要移除成员的任务全局唯一ID</para>
     /// </param>
@@ -11801,6 +12248,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>只有调用身份有权限访问的清单信息会被返回。</para>
     /// </summary>
     /// <param name="task_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要获取清单列表的任务的全局唯一ID</para>
     /// </param>
@@ -11817,6 +12265,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如果任务已经在该清单，接口将返回成功。</para>
     /// </summary>
     /// <param name="task_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要添加到清单的任务的全局唯一ID</para>
     /// </param>
@@ -11840,6 +12289,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如果任务不在清单中，接口将返回成功。</para>
     /// </summary>
     /// <param name="task_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要从清单移除的任务的全局唯一ID</para>
     /// </param>
@@ -11864,6 +12314,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如果当前任务已经有提醒了，要更新提醒的设置，需要先调用[移除任务提醒](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/remove_reminders)接口移除原有提醒。再调用本接口添加提醒。</para>
     /// </summary>
     /// <param name="task_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要添加负责人的任务全局唯一ID</para>
     /// </param>
@@ -11887,6 +12338,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如果要移除的提醒本来就不存在，本接口将直接返回成功。</para>
     /// </summary>
     /// <param name="task_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要移除提醒的任务全局唯一ID</para>
     /// </param>
@@ -11911,6 +12363,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>注意：添加的依赖的`task_guid`不能重复，也不能添加当前任务为自己的依赖。尝试添加一个已经存在的依赖会被自动忽略。</para>
     /// </summary>
     /// <param name="task_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任务GUID</para>
     /// </param>
@@ -11928,6 +12381,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>注意，如果要移除的依赖非当前任务的依赖，会被自动忽略。接口会返回成功。</para>
     /// </summary>
     /// <param name="task_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要移除依赖的任务GUID</para>
     /// </param>
@@ -11945,6 +12399,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口功能除了额外需要输入父任务的GUID之外，和[创建任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/create)接口功能完全一致。</para>
     /// </summary>
     /// <param name="task_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>父任务GUID</para>
     /// </param>
@@ -11968,6 +12423,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>支持分页，数据按照子任务在界面上的顺序返回。</para>
     /// </summary>
     /// <param name="task_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>父任务的全局唯一ID</para>
     /// </param>
@@ -12020,6 +12476,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取一个清单的详细信息，包括清单名，所有者，清单成员等。</para>
     /// </summary>
     /// <param name="tasklist_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>清单全局唯一GUID</para>
     /// </param>
@@ -12049,6 +12506,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>* 如要增删清单中的任务，可以使用[任务加入清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/add_tasklist)和[任务移出清单]( https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/remove_tasklist)接口。</para>
     /// </summary>
     /// <param name="tasklist_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要更新的清单的全局唯一GUID</para>
     /// </param>
@@ -12072,6 +12530,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除清单后，不可对该清单做任何操作，也无法再访问到清单。清单被删除后不可恢复。</para>
     /// </summary>
     /// <param name="tasklist_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要删除的清单GUID</para>
     /// </param>
@@ -12092,6 +12551,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>本接口不能用来设置清单所有者，如要设置，可以使用[更新清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/patch)接口。</para>
     /// </summary>
     /// <param name="tasklist_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要添加成员的清单的全局唯一ID</para>
     /// </param>
@@ -12117,6 +12577,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口不能用于移除清单所有者。如果要移除的成员是清单所有者，则会被自动忽略。如要设置清单所有者，需要调用[更新清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/patch)接口。</para>
     /// </summary>
     /// <param name="tasklist_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要移除协作人的清单全局唯一ID</para>
     /// </param>
@@ -12141,6 +12602,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>本接口支持简单的按照任务的完成状态或者任务的创建时间范围过滤。</para>
     /// </summary>
     /// <param name="tasklist_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要获取任务的清单全局唯一ID</para>
     /// </param>
@@ -12219,6 +12681,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如有需要，创建时也可以直接将`disabled`设为true，创建一个禁止发送订阅通知的订阅。</para>
     /// </summary>
     /// <param name="tasklist_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>清单GUID</para>
     /// </param>
@@ -12246,10 +12709,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>提供一个清单的GUID和一个订阅的GUID，获取该订阅的详细信息，包括名称，订阅者，可通知的event key列表等。</para>
     /// </summary>
     /// <param name="tasklist_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。</para>
     /// </param>
     /// <param name="activity_subscription_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>订阅GUID。可以通过[创建动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/create)接口创建，或者通过[列取动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/list)查询得到。</para>
     /// </param>
@@ -12277,6 +12742,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>给定一个清单的GUID，获取其所有的订阅信息。结果按照订阅的创建时间排序。</para>
     /// </summary>
     /// <param name="tasklist_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。</para>
     /// </param>
@@ -12314,10 +12780,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>* disabled：修改订阅的开启/禁用状态。</para>
     /// </summary>
     /// <param name="tasklist_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。</para>
     /// </param>
     /// <param name="activity_subscription_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要更新的动态订阅GUID。可以通过[创建动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/create)接口创建，或者通过[列取动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/list)查询得到。</para>
     /// </param>
@@ -12346,10 +12814,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>给定一个清单的GUID和一个订阅的GUID，将其删除。删除后的数据不可恢复。</para>
     /// </summary>
     /// <param name="tasklist_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。</para>
     /// </param>
     /// <param name="activity_subscription_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要删除的订阅GUID。可以通过[创建动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/create)接口创建，或者通过[列取动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/list)查询得到。</para>
     /// </param>
@@ -12384,6 +12854,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>给定一个评论的ID，返回评论的详情，包括内容，创建人，创建时间和更新时间等信息。</para>
     /// </summary>
     /// <param name="comment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要获取评论详情的评论ID</para>
     /// </param>
@@ -12407,6 +12878,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>目前只支持更新评论的"conent"字段。</para>
     /// </summary>
     /// <param name="comment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要更新的评论ID</para>
     /// </param>
@@ -12430,6 +12902,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>评论被删除后，将无法进行任何操作，也无法恢复。</para>
     /// </summary>
     /// <param name="comment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要删除的评论id</para>
     /// </param>
@@ -12514,6 +12987,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取一个自定义分组详情，包括名称，创建人等信息。如果该自定义分组归属于一个清单，还会返回清单的摘要信息。</para>
     /// </summary>
     /// <param name="section_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要获取的自定义分组GUID</para>
     /// </param>
@@ -12541,6 +13015,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>`insert_before`和`insert_after`如果填写，必须是同一个资源的合法section_guid。注意不能同时设置`insert_before`和`insert_after`。</para>
     /// </summary>
     /// <param name="section_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要更新的自定义分组GUID</para>
     /// </param>
@@ -12564,6 +13039,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>不能删除默认的自定义分组。</para>
     /// </summary>
     /// <param name="section_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要删除的自定义分组全局唯一ID</para>
     /// </param>
@@ -12617,6 +13093,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>列取一个自定义分组里的所有任务。支持分页。任务按照自定义排序的顺序返回。本接口支持简单的过滤。</para>
     /// </summary>
     /// <param name="section_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要获取任务的自定义分组全局唯一ID</para>
     /// </param>
@@ -12725,6 +13202,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据一个自定义字段的GUID，获取其详细的设置信息。</para>
     /// </summary>
     /// <param name="custom_field_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>自定义字段GUID。可以通过[创建自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/create)接口创建, 或者通过[列取自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/list)接口查询得到。</para>
     /// </param>
@@ -12849,6 +13327,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如希望只更新单个选项，或者希望单独设置某个选项的is_hidden，本接口无法支持，但可以使用[更新自定义字段选项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field-option/patch)接口实现。</para>
     /// </summary>
     /// <param name="custom_field_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>自定义字段GUID。自定义字段GUID。可以通过[创建自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/create)接口创建, 或者通过[列取自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/list)接口查询得到。</para>
     /// </param>
@@ -12922,6 +13401,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如果自定义字段的设置被更新，字段加入的所有字段都能收到这个更新，并进行相应的展示。</para>
     /// </summary>
     /// <param name="custom_field_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>自定义字段GUID</para>
     /// </param>
@@ -12940,6 +13420,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>注意自定义字段是通过清单来实现授权的，如果将自定义字段从所有关联的清单中移除，就意味着任何调用身份都无法再访问改自定义字段。</para>
     /// </summary>
     /// <param name="custom_field_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>自定义字段GUID</para>
     /// </param>
@@ -12957,6 +13438,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>新添加的选项如果不隐藏，其名字不能和已存在的不隐藏选项的名字重复。</para>
     /// </summary>
     /// <param name="custom_field_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要添加选项的自定义字段GUID，该字段必须是</para>
     /// </param>
@@ -12979,10 +13461,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>* `insert_after`: 将当前option放到同字段某个option之后的那个option_guid。</para>
     /// </summary>
     /// <param name="custom_field_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要更新的选项的自定义字段GUID</para>
     /// </param>
     /// <param name="option_guid">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要更新的选项的GUID</para>
     /// </param>
@@ -13011,6 +13495,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除一个邮件组</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组ID或者邮件组地址</para>
     /// </param>
@@ -13026,6 +13511,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新邮件组部分字段，没有填写的字段不会被更新。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组ID或者邮件组地址</para>
     /// </param>
@@ -13042,6 +13528,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新邮件组所有信息。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组ID或者邮件组地址</para>
     /// </param>
@@ -13058,6 +13545,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取特定邮件组信息。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组ID或者邮件组地址</para>
     /// </param>
@@ -13111,6 +13599,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>批量创建邮件组管理员。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组ID或邮箱地址</para>
     /// </param>
@@ -13138,6 +13627,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>批量删除邮件组管理员。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组ID或者邮件组地址</para>
     /// </param>
@@ -13165,6 +13655,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>批量获取邮件组管理员。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组ID或邮箱地址</para>
     /// </param>
@@ -13203,6 +13694,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>向邮件组添加单个成员。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组ID或者邮件组地址</para>
     /// </param>
@@ -13240,10 +13732,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除邮件组单个成员。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>The unique ID or email address of a mail group</para>
     /// </param>
     /// <param name="member_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>The unique ID of a member in this mail group</para>
     /// </param>
@@ -13260,10 +13754,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取邮件组单个成员信息。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组ID或者邮件组地址</para>
     /// </param>
     /// <param name="member_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组内成员唯一标识</para>
     /// </param>
@@ -13301,6 +13797,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>分页批量获取邮件组成员列表。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>The unique ID or email address of a mail group</para>
     /// </param>
@@ -13349,6 +13846,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>一次请求可以给一个邮件组添加多个成员。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>The unique ID or email address of a mail group</para>
     /// </param>
@@ -13386,6 +13884,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>一次请求可以删除一个邮件组中的多个成员。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>The unique ID or email address of a mail group</para>
     /// </param>
@@ -13402,6 +13901,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>创建邮件组别名。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组id或邮件组邮箱地址</para>
     /// </param>
@@ -13418,10 +13918,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除邮件组别名。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组id或邮件组邮箱地址</para>
     /// </param>
     /// <param name="alias_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组别名邮箱地址</para>
     /// </param>
@@ -13438,6 +13940,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取邮件组所有别名。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组id或邮件组邮箱地址</para>
     /// </param>
@@ -13453,6 +13956,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>向邮件组添加单个自定义权限成员，添加后该成员可发送邮件到该邮件组。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组ID或者邮件组地址</para>
     /// </param>
@@ -13490,10 +13994,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>从自定义成员中删除单个成员，删除后该成员无法发送邮件到该邮件组。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>The unique ID or email address of a mail group</para>
     /// </param>
     /// <param name="permission_member_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>The unique ID of a member in this permission group</para>
     /// </param>
@@ -13510,10 +14016,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取邮件组单个权限成员信息。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组ID或者邮件组地址</para>
     /// </param>
     /// <param name="permission_member_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>权限组内成员唯一标识</para>
     /// </param>
@@ -13551,6 +14059,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>分页批量获取邮件组权限成员列表。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>邮件组ID或者邮件组地址</para>
     /// </param>
@@ -13599,6 +14108,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>一次请求可以给一个邮件组添加多个权限成员。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>The unique ID or email address of a mail group</para>
     /// </param>
@@ -13636,6 +14146,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>一次请求可以删除一个邮件组中的多个权限成员。</para>
     /// </summary>
     /// <param name="mailgroup_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>The unique ID or email address of a mail group</para>
     /// </param>
@@ -13663,6 +14174,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口会永久删除公共邮箱地址。可用于释放邮箱回收站的公共邮箱地址，一旦删除，该邮箱地址将无法恢复。</para>
     /// </summary>
     /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要释放的公共邮箱地址</para>
     /// </param>
@@ -13678,6 +14190,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新公共邮箱部分字段，没有填写的字段不会被更新。</para>
     /// </summary>
     /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>公共邮箱唯一标识或公共邮箱地址</para>
     /// </param>
@@ -13694,6 +14207,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新公共邮箱所有信息。</para>
     /// </summary>
     /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>公共邮箱唯一标识或公共邮箱地址</para>
     /// </param>
@@ -13710,6 +14224,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取公共邮箱信息。</para>
     /// </summary>
     /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>公共邮箱唯一标识或公共邮箱地址</para>
     /// </param>
@@ -13747,6 +14262,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>向公共邮箱添加单个成员。</para>
     /// </summary>
     /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>公共邮箱唯一标识或公共邮箱地址</para>
     /// </param>
@@ -13774,10 +14290,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除公共邮箱单个成员。</para>
     /// </summary>
     /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>公共邮箱唯一标识或公共邮箱地址</para>
     /// </param>
     /// <param name="member_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>公共邮箱内成员唯一标识</para>
     /// </param>
@@ -13794,6 +14312,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除公共邮箱所有成员。</para>
     /// </summary>
     /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>公共邮箱唯一标识或公共邮箱地址</para>
     /// </param>
@@ -13809,10 +14328,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取公共邮箱单个成员信息。</para>
     /// </summary>
     /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>公共邮箱唯一标识或公共邮箱地址</para>
     /// </param>
     /// <param name="member_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>公共邮箱内成员唯一标识</para>
     /// </param>
@@ -13840,6 +14361,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>分页批量获取公共邮箱成员列表。</para>
     /// </summary>
     /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>The unique ID or email address of a public mailbox</para>
     /// </param>
@@ -13878,6 +14400,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>一次请求可以给一个公共邮箱添加多个成员。</para>
     /// </summary>
     /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>The unique ID or email address of a public mailbox</para>
     /// </param>
@@ -13905,6 +14428,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>一次请求可以删除一个公共邮箱中的多个成员。</para>
     /// </summary>
     /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>The unique ID or email address of a public mailbox</para>
     /// </param>
@@ -13921,6 +14445,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>创建公共邮箱别名。</para>
     /// </summary>
     /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>公共邮箱id或公共邮箱地址</para>
     /// </param>
@@ -13937,10 +14462,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除公共邮箱别名。</para>
     /// </summary>
     /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>公共邮箱id或公共邮箱地址</para>
     /// </param>
     /// <param name="alias_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>公共邮箱别名</para>
     /// </param>
@@ -13957,6 +14484,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取所有公共邮箱别名。</para>
     /// </summary>
     /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>公共邮箱id或公共邮箱邮件地址</para>
     /// </param>
@@ -13972,6 +14500,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口会永久删除用户邮箱地址。可用于删除位于邮箱回收站中的用户邮箱地址，一旦删除，将无法恢复。该接口支持邮件的转移，可以将被释放邮箱的邮件转移到另外一个可以使用的邮箱中。</para>
     /// </summary>
     /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要释放的邮箱地址</para>
     /// </param>
@@ -13992,6 +14521,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>创建用户邮箱别名。</para>
     /// </summary>
     /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户邮箱地址</para>
     /// </param>
@@ -14008,10 +14538,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除用户邮箱别名。</para>
     /// </summary>
     /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户邮箱地址</para>
     /// </param>
     /// <param name="alias_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>别名邮箱地址</para>
     /// </param>
@@ -14028,6 +14560,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取用户邮箱所有别名。</para>
     /// </summary>
     /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户邮箱地址</para>
     /// </param>
@@ -14132,6 +14665,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取当前企业内某个自建应用线上实际生效的通讯录权限范围配置。</para>
     /// </summary>
     /// <param name="app_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>应用的 app_id，可以在[开发者后台](https://open.feishu.cn/app) > 凭证与基础信息页查看。</para>
     /// </param>
@@ -14180,6 +14714,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新当前企业内自建应用或已安装的商店应用的通讯录权限范围配置。更新后线上立即生效。</para>
     /// </summary>
     /// <param name="app_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>应用id</para>
     /// </param>
@@ -14227,6 +14762,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于查询用户、部门、用户组是否在应用的可用或禁用名单中</para>
     /// </summary>
     /// <param name="app_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>应用的 AppID，可以在[开发者后台](https://open.feishu.cn/app) > **凭证与基础信息**页查看。</para>
     /// <para>* 仅查询本应用信息时，可填应用自身AppID。</para>
@@ -14298,6 +14834,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新当前企业内自建应用或已安装的商店应用的可见范围，包括可用人员与禁用人员。更新后对线上立即生效。</para>
     /// </summary>
     /// <param name="app_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>应用id</para>
     /// </param>
@@ -14456,6 +14993,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据app_id获取应用的基础信息</para>
     /// </summary>
     /// <param name="app_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>应用的 app_id，需要查询其他应用信息时，必须申请[获取应用信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用信息时，可填入 "me" 或者应用自身 app_id</para>
     /// </param>
@@ -14492,10 +15030,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据应用 ID 和应用版本 ID 来获取同租户下的应用版本的信息</para>
     /// </summary>
     /// <param name="app_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入 "me" 或者应用自身 app_id</para>
     /// </param>
     /// <param name="version_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>唯一标识应用版本的 ID</para>
     /// </param>
@@ -14533,6 +15073,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 app_id 获取对应应用版本列表。</para>
     /// </summary>
     /// <param name="app_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入 "me" 或者应用自身 app_id</para>
     /// </param>
@@ -14587,12 +15128,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据应用的 App ID 和版本 ID 获取企业自建应用某个版本的通讯录权限范围。</para>
     /// </summary>
     /// <param name="app_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>应用的 AppID，可以在[开发者后台](https://open.feishu.cn/app) > **凭证与基础信息**页查看。</para>
     /// <para>* 仅查询本应用信息时，可填应用自身App ID 或 `me`。</para>
     /// <para>* 当值为其他应用的App ID时，必须申请以下权限：<md-perm name="admin:app.info:readonly" desc="获取应用信息" support_app_types="custom" tags="">获取应用信息</md-perm></para>
     /// </param>
     /// <param name="version_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>唯一标识应用版本的 ID，可以调用[获取应用版本列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/list)接口获取。</para>
     /// </param>
@@ -14630,10 +15173,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过接口来更新应用版本的审核结果：通过后应用可以直接上架；拒绝后则开发者可以看到拒绝理由，并在修改后再次申请发布。</para>
     /// </summary>
     /// <param name="app_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>应用 id</para>
     /// </param>
     /// <param name="version_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>唯一标识应用版本的 ID</para>
     /// </param>
@@ -14672,6 +15217,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新应用的分组信息（分组会影响应用在工作台中的分类情况，请谨慎更新）</para>
     /// </summary>
     /// <param name="app_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>应用的 id</para>
     /// </param>
@@ -14698,6 +15244,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查看应用在某一天/某一周/某一个月的使用数据，可以根据部门做多层子部门的筛选</para>
     /// </summary>
     /// <param name="app_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>目标应用 ID</para>
     /// </param>
@@ -14724,6 +15271,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查看应用在某一天/某一周/某一个月的使用数据，可以查看租户整体对应用的使用情况，也可以分部门查看。</para>
     /// </summary>
     /// <param name="app_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>目标应用 ID</para>
     /// </param>
@@ -14750,10 +15298,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新应用的反馈数据</para>
     /// </summary>
     /// <param name="app_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>目标应用 ID（本租户创建的所有应用）</para>
     /// </param>
     /// <param name="feedback_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>应用反馈记录id</para>
     /// </param>
@@ -14797,6 +15347,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查询应用的反馈数据</para>
     /// </summary>
     /// <param name="app_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>目标应用 ID（本租户创建的所有应用）</para>
     /// <para>**示例值**："cli_9f115af860f7901b"</para>
@@ -14876,6 +15427,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除租户维度的系统状态。</para>
     /// </summary>
     /// <param name="system_status_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>系统状态ID</para>
     /// <para>[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)</para>
@@ -14892,6 +15444,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>修改租户维度系统状态。</para>
     /// </summary>
     /// <param name="system_status_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>系统状态ID</para>
     /// <para>[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)</para>
@@ -14931,6 +15484,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>批量开启用户系统状态可用。</para>
     /// </summary>
     /// <param name="system_status_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>系统状态ID</para>
     /// <para>[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)</para>
@@ -14959,6 +15513,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>批量关闭用户系统状态可用。</para>
     /// </summary>
     /// <param name="system_status_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>系统状态ID</para>
     /// <para>[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)</para>
@@ -14998,6 +15553,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除一个已存在的数据源。</para>
     /// </summary>
     /// <param name="data_source_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>数据源的唯一标识</para>
     /// <para>**示例值**："6953903108179099667"</para>
@@ -15014,6 +15570,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新一个已经存在的数据源。</para>
     /// </summary>
     /// <param name="data_source_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>数据源的唯一标识</para>
     /// <para>**示例值**："6953903108179099667"</para>
@@ -15031,6 +15588,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取已经创建的数据源。</para>
     /// </summary>
     /// <param name="data_source_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>数据源的唯一标识</para>
     /// <para>**示例值**："6953903108179099667"</para>
@@ -15057,6 +15615,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>索引一条数据记录。</para>
     /// </summary>
     /// <param name="data_source_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>数据源的ID</para>
     /// <para>**示例值**："6953903108179099667"</para>
@@ -15074,11 +15633,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除数据项。</para>
     /// </summary>
     /// <param name="data_source_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>数据源的ID</para>
     /// <para>**示例值**："service_ticket"</para>
     /// </param>
     /// <param name="item_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>数据记录的ID</para>
     /// <para>**示例值**："01010111"</para>
@@ -15096,11 +15657,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取单个数据记录。</para>
     /// </summary>
     /// <param name="data_source_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>数据源的id</para>
     /// <para>**示例值**："service_ticket"</para>
     /// </param>
     /// <param name="item_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>数据记录的唯一标识</para>
     /// <para>**示例值**："01010111"</para>
@@ -15129,6 +15692,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除已存在的数据范式。</para>
     /// </summary>
     /// <param name="schema_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户自定义数据范式的唯一标识</para>
     /// <para>**示例值**："custom_schema_id"</para>
@@ -15148,6 +15712,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>修改数据范式。</para>
     /// </summary>
     /// <param name="schema_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户自定义数据范式的唯一标识</para>
     /// <para>**示例值**："custom_schema_id"</para>
@@ -15168,6 +15733,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取单个数据范式。</para>
     /// </summary>
     /// <param name="schema_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户自定义数据范式的唯一标识</para>
     /// <para>**示例值**："custom_schema_id"</para>
@@ -15396,6 +15962,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过该接口可以修改勋章的信息。</para>
     /// </summary>
     /// <param name="badge_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>勋章ID</para>
     /// </param>
@@ -15455,6 +16022,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>可以通过该接口查询勋章的详情。</para>
     /// </summary>
     /// <param name="badge_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>勋章id</para>
     /// </param>
@@ -15470,6 +16038,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过该接口可以为特定勋章创建一份授予名单，一枚勋章下最多可创建1000份授予名单。</para>
     /// </summary>
     /// <param name="badge_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>勋章ID</para>
     /// </param>
@@ -15507,10 +16076,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过该接口可以删除特定授予名单的信息。</para>
     /// </summary>
     /// <param name="badge_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>企业勋章的唯一ID</para>
     /// </param>
     /// <param name="grant_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>租户内授予名单的唯一标识，该值由系统随机生成。</para>
     /// </param>
@@ -15527,10 +16098,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过该接口可以修改特定授予名单的相关信息。</para>
     /// </summary>
     /// <param name="badge_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>勋章ID</para>
     /// </param>
     /// <param name="grant_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>授予名单ID</para>
     /// </param>
@@ -15569,6 +16142,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过该接口可以获取特定勋章下的授予名单列表，授予名单的排列顺序按照创建时间倒序排列。</para>
     /// </summary>
     /// <param name="badge_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>企业勋章的唯一ID</para>
     /// </param>
@@ -15622,10 +16196,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过该接口可以获取特定授予名单的信息。</para>
     /// </summary>
     /// <param name="badge_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>租户内勋章的唯一标识，该值由系统随机生成。</para>
     /// </param>
     /// <param name="grant_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>租户内授予名单的唯一标识，该值由系统随机生成。</para>
     /// </param>
@@ -15674,6 +16250,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>调用 「批量获取员工花名册信息」接口的返回值中，「文件」类型的字段 id，即是文件 token</para>
     /// </summary>
     /// <param name="token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件 token</para>
     /// <para>**示例值**："09bf7b924f9a4a69875788891b5970d8"</para>
@@ -15749,6 +16326,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查询单条国家/地区信息。</para>
     /// </summary>
     /// <param name="country_region_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>国家/地区 ID</para>
     /// </param>
@@ -15786,6 +16364,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查询单条省份/行政区信息。</para>
     /// </summary>
     /// <param name="subdivision_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>省份/行政区 ID</para>
     /// </param>
@@ -15828,6 +16407,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查询单条城市/区域信息。</para>
     /// </summary>
     /// <param name="subregion_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>城市/区域 ID</para>
     /// </param>
@@ -15887,6 +16467,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除人员类型。</para>
     /// </summary>
     /// <param name="employee_type_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的人员类型ID</para>
     /// </param>
@@ -15902,6 +16483,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新人员类型。</para>
     /// </summary>
     /// <param name="employee_type_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>雇员类型 ID</para>
     /// </param>
@@ -15924,6 +16506,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 查询单个人员类型。</para>
     /// </summary>
     /// <param name="employee_type_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>雇员类型ID</para>
     /// </param>
@@ -15978,6 +16561,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除国家证件类型。</para>
     /// </summary>
     /// <param name="national_id_type_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的国家证件类型 ID</para>
     /// </param>
@@ -15993,6 +16577,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新国家证件类型。</para>
     /// </summary>
     /// <param name="national_id_type_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>证件类型ID</para>
     /// </param>
@@ -16015,6 +16600,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 查询单个国家证件类型。</para>
     /// </summary>
     /// <param name="national_id_type_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>证件类型 ID</para>
     /// </param>
@@ -16084,6 +16670,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除工时制度。</para>
     /// </summary>
     /// <param name="working_hours_type_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的工时制度 ID</para>
     /// </param>
@@ -16099,6 +16686,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新工时制度。</para>
     /// </summary>
     /// <param name="working_hours_type_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>工时制度ID</para>
     /// </param>
@@ -16121,6 +16709,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 查询单个工时制度。</para>
     /// </summary>
     /// <param name="working_hours_type_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>工时制度 ID</para>
     /// </param>
@@ -16158,6 +16747,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>查询单个货币信息。</para>
     /// </summary>
     /// <param name="currency_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>货币 ID</para>
     /// </param>
@@ -16292,6 +16882,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新雇佣信息。</para>
     /// </summary>
     /// <param name="employment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>雇员ID</para>
     /// </param>
@@ -16337,6 +16928,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除人员的雇佣信息。</para>
     /// </summary>
     /// <param name="employment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的雇佣信息对应的ID</para>
     /// </param>
@@ -16381,6 +16973,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新个人信息</para>
     /// </summary>
     /// <param name="person_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>person的ID</para>
     /// </param>
@@ -16403,6 +16996,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除人员的个人信息。</para>
     /// </summary>
     /// <param name="person_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的Person ID</para>
     /// </param>
@@ -16434,6 +17028,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据ID下载文件</para>
     /// </summary>
     /// <param name="id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>上传文件ID</para>
     /// </param>
@@ -16490,6 +17085,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除人员的任职信息。</para>
     /// </summary>
     /// <param name="job_data_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的任职信息 ID</para>
     /// </param>
@@ -16505,6 +17101,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新任职信息</para>
     /// </summary>
     /// <param name="job_data_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任职信息ID</para>
     /// </param>
@@ -16550,6 +17147,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 查询单任职信息。</para>
     /// </summary>
     /// <param name="job_data_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>任职信息 ID</para>
     /// </param>
@@ -16846,6 +17444,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新部门。</para>
     /// </summary>
     /// <param name="department_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要更新的部门ID，同部门实体在CoreHR内部的唯一键</para>
     /// </param>
@@ -16891,6 +17490,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除部门</para>
     /// </summary>
     /// <param name="department_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的部门 ID</para>
     /// </param>
@@ -16906,6 +17506,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 查询单个部门。</para>
     /// </summary>
     /// <param name="department_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>部门 ID</para>
     /// </param>
@@ -17027,6 +17628,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除地点。</para>
     /// </summary>
     /// <param name="location_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的地点 ID</para>
     /// </param>
@@ -17042,6 +17644,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 查询单个地点。</para>
     /// </summary>
     /// <param name="location_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>地点 ID</para>
     /// </param>
@@ -17107,6 +17710,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除公司。</para>
     /// </summary>
     /// <param name="company_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的公司ID</para>
     /// </param>
@@ -17122,6 +17726,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 查询单个公司。</para>
     /// </summary>
     /// <param name="company_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>公司 ID</para>
     /// </param>
@@ -17187,6 +17792,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除职级</para>
     /// </summary>
     /// <param name="job_level_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的职级 ID</para>
     /// </param>
@@ -17202,6 +17808,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新职级。</para>
     /// </summary>
     /// <param name="job_level_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>级别ID</para>
     /// </param>
@@ -17224,6 +17831,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 查询单个职级</para>
     /// </summary>
     /// <param name="job_level_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>职级 ID</para>
     /// </param>
@@ -17289,6 +17897,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除序列。</para>
     /// </summary>
     /// <param name="job_family_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的序列 ID</para>
     /// </param>
@@ -17304,6 +17913,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新序列。</para>
     /// </summary>
     /// <param name="job_family_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>序列ID</para>
     /// </param>
@@ -17326,6 +17936,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 查询单个序列。</para>
     /// </summary>
     /// <param name="job_family_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>序列 ID</para>
     /// </param>
@@ -17380,6 +17991,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除职务。</para>
     /// </summary>
     /// <param name="job_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的职务 ID</para>
     /// </param>
@@ -17395,6 +18007,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新职务。</para>
     /// </summary>
     /// <param name="job_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>职务ID</para>
     /// </param>
@@ -17417,6 +18030,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 查询单个职务。</para>
     /// </summary>
     /// <param name="job_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>职务 ID</para>
     /// </param>
@@ -17464,6 +18078,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 查询单个职务。</para>
     /// </summary>
     /// <param name="job_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>职务 ID</para>
     /// </param>
@@ -17522,6 +18137,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新待入职信息。</para>
     /// </summary>
     /// <param name="pre_hire_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待入职ID</para>
     /// </param>
@@ -17544,6 +18160,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除待入职人员。</para>
     /// </summary>
     /// <param name="pre_hire_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的待入职人员信息ID</para>
     /// </param>
@@ -17559,6 +18176,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 查询单个待入职人员。</para>
     /// </summary>
     /// <param name="pre_hire_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待入职ID</para>
     /// </param>
@@ -17653,6 +18271,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除合同。</para>
     /// </summary>
     /// <param name="contract_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的合同 ID</para>
     /// </param>
@@ -17668,6 +18287,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新合同。</para>
     /// </summary>
     /// <param name="contract_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>合同ID</para>
     /// </param>
@@ -17690,6 +18310,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 查询单个合同。</para>
     /// </summary>
     /// <param name="contract_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>合同ID</para>
     /// </param>
@@ -17813,6 +18434,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新试用期的考核结果</para>
     /// </summary>
     /// <param name="assessment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>考核结果 ID</para>
     /// </param>
@@ -17835,6 +18457,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除试用期的考核结果</para>
     /// </summary>
     /// <param name="assessment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>考核结果 ID</para>
     /// </param>
@@ -18063,6 +18686,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除飞书人事休假系统中的假期发放记录（仅支持删除发放来源是「手动发放」或「外部系统发放」的记录）。</para>
     /// </summary>
     /// <param name="leave_granting_record_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>假期发放记录 ID</para>
     /// </param>
@@ -18437,6 +19061,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取流程表单数据。</para>
     /// </summary>
     /// <param name="process_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>流程ID</para>
     /// </param>
@@ -18596,6 +19221,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据职位 ID 获取职位信息。</para>
     /// </summary>
     /// <param name="job_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>职位 ID，请求Path中</para>
     /// </param>
@@ -18633,6 +19259,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取职位设置。</para>
     /// </summary>
     /// <param name="job_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>职位 ID</para>
     /// </param>
@@ -18660,6 +19287,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新职位信息，该接口为全量更新，若字段没有返回值，则原有值将会被清空。字段的是否必填，将以系统中的「职位字段管理」中的设置为准。</para>
     /// </summary>
     /// <param name="job_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>职位 ID</para>
     /// </param>
@@ -18697,6 +19325,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新职位设置，包括面试评价表、Offer 申请表等。接口将按照所选择的「更新选项」进行设置参数校验和更新。若设置的必填字段更新时未填写内容，接口将报错无法完成更新</para>
     /// </summary>
     /// <param name="job_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>职位 ID</para>
     /// </param>
@@ -18878,6 +19507,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新招聘需求</para>
     /// </summary>
     /// <param name="job_requirement_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>招聘需求ID</para>
     /// </param>
@@ -18915,6 +19545,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除招聘需求。</para>
     /// </summary>
     /// <param name="job_requirement_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>招聘需求 ID</para>
     /// </param>
@@ -19058,6 +19689,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据广告 ID 获取内推官网下的职位广告详情。</para>
     /// </summary>
     /// <param name="job_post_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>职位广告 ID</para>
     /// </param>
@@ -19132,6 +19764,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新外部投递，对外部投递的字段进行覆盖更新。</para>
     /// </summary>
     /// <param name="external_application_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>外部投递 id</para>
     /// </param>
@@ -19148,6 +19781,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>将外部投递删除</para>
     /// </summary>
     /// <param name="external_application_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>外部投递 id</para>
     /// </param>
@@ -19267,6 +19901,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据人才 ID 获取人才信息。</para>
     /// </summary>
     /// <param name="talent_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>人才ID</para>
     /// </param>
@@ -19305,6 +19940,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据投递 ID 修改投递状态为「已终止」。</para>
     /// </summary>
     /// <param name="application_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>投递ID</para>
     /// </param>
@@ -19321,6 +19957,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据投递 ID 获取单个投递信息。</para>
     /// </summary>
     /// <param name="application_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>投递 ID</para>
     /// </param>
@@ -19571,6 +20208,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>2. 对系统中已存在的 offer 进行更新的，若更新 offer 中含有「修改需审批」的字段，更新后原 Offer 的审批会自动撤回，需要重新发起审批。</para>
     /// </summary>
     /// <param name="offer_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>Offer ID</para>
     /// </param>
@@ -19609,6 +20247,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据投递 ID 获取 Offer 信息。</para>
     /// </summary>
     /// <param name="application_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>投递ID</para>
     /// </param>
@@ -19645,6 +20284,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 Offer ID 获取 Offer 详细信息。</para>
     /// </summary>
     /// <param name="offer_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>Offer ID</para>
     /// </param>
@@ -19723,6 +20363,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 更新 Offer 发送和接受状态，需要在系统内「设置 - Offer 设置 - Offer 规则设置」开启「通过 OA 系统发送 Offer」；仅支持投递阶段在「待入职」之前更新；如当前 Offer 已通过飞书招聘发给过候选人，则不可通过此接口更新 Offer 发送和接收状态</para>
     /// </summary>
     /// <param name="offer_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>offer ID</para>
     /// </param>
@@ -19739,6 +20380,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>对「实习待入职」状态的实习 Offer 确认入职、放弃入职，或对「实习已入职」状态的实习 Offer 操作离职。</para>
     /// </summary>
     /// <param name="offer_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>Offer ID</para>
     /// </param>
@@ -19755,6 +20397,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>在处理完导入 e-HR 事件后，可调用该接口，更新  e-HR 导入任务结果。</para>
     /// </summary>
     /// <param name="ehr_import_task_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>导入任务 ID</para>
     /// </param>
@@ -19771,6 +20414,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据投递 ID 操作候选人入职并创建员工。投递须处于「待入职」阶段，可通过「转移阶段」接口变更投递状态。</para>
     /// </summary>
     /// <param name="application_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>投递ID</para>
     /// </param>
@@ -19809,6 +20453,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据员工 ID 更新员工转正、离职状态。</para>
     /// </summary>
     /// <param name="employee_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>员工ID</para>
     /// </param>
@@ -19884,6 +20529,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过员工 ID 获取入职信息。</para>
     /// </summary>
     /// <param name="employee_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>员工ID</para>
     /// </param>
@@ -19944,6 +20590,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据备注 ID 更新备注信息。</para>
     /// </summary>
     /// <param name="note_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>备注 ID</para>
     /// </param>
@@ -19972,6 +20619,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据备注 ID 获取备注信息。</para>
     /// </summary>
     /// <param name="note_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>备注ID</para>
     /// </param>
@@ -20225,6 +20873,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>回传笔试安排结果，如果安排成功需返回笔试链接和登录凭证</para>
     /// </summary>
     /// <param name="exam_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>exam id</para>
     /// </param>
@@ -20241,6 +20890,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>回传笔试结果</para>
     /// </summary>
     /// <param name="exam_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>exam id</para>
     /// </param>
@@ -20268,6 +20918,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>停用后，对应的内推账号信息将无法通过接口[「内推账户余额变更事件」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/events/assets_update)、[「提取内推账号余额」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/withdraw)获取、修改</para>
     /// </summary>
     /// <param name="referral_account_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>账户ID</para>
     /// </param>
@@ -20283,6 +20934,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>支持通过账号 ID 全额提取内推账号下的积分或现金奖励。调用前，请确认已完成[「注册外部系统内推账户」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create)并获取到账号 ID。提现后，内推人的对应积分或现金余额将变为 0，扣减后对应奖励将在招聘系统同步标记为「已发放」</para>
     /// </summary>
     /// <param name="referral_account_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>账户ID</para>
     /// </param>
@@ -20310,6 +20962,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据人才简历附件 ID 获取招聘系统中附件的元信息，比如文件名、创建时间、文件 URL 等。,可通过[获取人才信息接口](https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent/get)获取人才的简历附件</para>
     /// </summary>
     /// <param name="attachment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>附件id</para>
     /// </param>
@@ -20336,6 +20989,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据人才简历附件 ID 获取附件预览信息,可通过[获取人才信息](https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent/get-2)接口获取人才的简历附件</para>
     /// </summary>
     /// <param name="attachment_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>附件id</para>
     /// </param>
@@ -20373,6 +21027,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据用户的 id 获取 OKR 列表。</para>
     /// </summary>
     /// <param name="user_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>目标用户id</para>
     /// <para>**示例值**："ou-asdasdasdasdasd"</para>
@@ -20421,6 +21076,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 删除 OKR 进展记录。</para>
     /// </summary>
     /// <param name="progress_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待删除的 OKR进展记录 ID</para>
     /// <para>**示例值**："7041857032248410131"</para>
@@ -20437,6 +21093,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 OKR 进展记录 ID 更新进展详情。</para>
     /// </summary>
     /// <param name="progress_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待更新的 OKR进展记录 ID</para>
     /// </param>
@@ -20464,6 +21121,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 获取 OKR 进展记录详情。</para>
     /// </summary>
     /// <param name="progress_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待查询的 OKR进展记录 ID</para>
     /// <para>**示例值**："7041857032248410131"</para>
@@ -20506,6 +21164,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取指定指标库下有哪些指标表（仅限 OKR 企业版使用）。</para>
     /// </summary>
     /// <param name="metric_source_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>okr指标库id</para>
     /// <para>**示例值**："7041857032248410131"</para>
@@ -20525,16 +21184,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 已经将指标添加为 KR、且本次目标值/起始值/支撑的上级有变更的人员，不包含仅更新了进度值的人员</para>
     /// </summary>
     /// <param name="metric_source_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>okr指标库id</para>
     /// <para>**示例值**："7041857032248410131"</para>
     /// </param>
     /// <param name="metric_table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>okr指标表id</para>
     /// <para>**示例值**："7041857032248410131"</para>
     /// </param>
     /// <param name="metric_item_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>okr指标项id</para>
     /// <para>**示例值**："7041857032248410131"</para>
@@ -20557,11 +21219,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 已经将指标添加为 KR、且本次目标值/起始值/支撑的上级有变更的人员，不包含仅更新了进度值的人员</para>
     /// </summary>
     /// <param name="metric_source_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>okr指标库id</para>
     /// <para>**示例值**："7041857032248410131"</para>
     /// </param>
     /// <param name="metric_table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>okr指标表id</para>
     /// <para>**示例值**："7041857032248410131"</para>
@@ -20580,11 +21244,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取指定指标表下的所有指标项（仅限 OKR 企业版使用）。</para>
     /// </summary>
     /// <param name="metric_source_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>okr指标库id</para>
     /// <para>**示例值**："7041857032248410131"</para>
     /// </param>
     /// <param name="metric_table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>okr指标表id</para>
     /// <para>**示例值**："7041857032248410131"</para>
@@ -20602,16 +21268,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取某项指标的具体内容（仅限 OKR 企业版使用）。</para>
     /// </summary>
     /// <param name="metric_source_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>okr指标库id</para>
     /// <para>**示例值**："7041857032248410131"</para>
     /// </param>
     /// <param name="metric_table_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>okr指标表id</para>
     /// <para>**示例值**："7041857032248410131"</para>
     /// </param>
     /// <param name="metric_item_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>okr指标项id</para>
     /// <para>**示例值**："7041857032248410131"</para>
@@ -20712,6 +21381,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>对于使用韦根协议的门禁系统，企业可使用该接口录入用户卡号。</para>
     /// </summary>
     /// <param name="user_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户 ID</para>
     /// <para>**示例值**："ou_7dab8a3d3cdcc9da365777c7ad535d62"</para>
@@ -20729,6 +21399,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于获取智能门禁中单个用户的信息。</para>
     /// </summary>
     /// <param name="user_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户 ID</para>
     /// <para>**示例值**："ou_7dab8a3d3cdcc9da365777c7ad535d62"</para>
@@ -20755,6 +21426,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>用户需要录入人脸图片才可以使用门禁考勤机。使用该 API 上传门禁用户的人脸图片。</para>
     /// </summary>
     /// <param name="user_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户 ID</para>
     /// <para>**示例值**："ou_7dab8a3d3cdcc9da365777c7ad535d62"</para>
@@ -20778,6 +21450,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>对于已经录入人脸图片的用户，可以使用该接口下载用户人脸图片。</para>
     /// </summary>
     /// <param name="user_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户 ID</para>
     /// <para>**示例值**："ou_7dab8a3d3cdcc9da365777c7ad535d62"</para>
@@ -20817,6 +21490,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>可以用该接口下载开门时的人脸识别照片。</para>
     /// </summary>
     /// <param name="access_record_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>门禁访问记录 ID</para>
     /// <para>**示例值**："6939433228970082591"</para>
@@ -20916,7 +21590,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】创建草稿</para>
+    /// <para>【词典】创建草稿</para>
     /// <para>接口ID：7249689905697046556</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/draft/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -20945,13 +21619,14 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】更新草稿</para>
+    /// <para>【词典】更新草稿</para>
     /// <para>接口ID：7249689905697062940</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/draft/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 draft_id 更新草稿内容，已审批的草稿无法编辑。</para>
     /// </summary>
     /// <param name="draft_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>草稿ID</para>
     /// </param>
@@ -20972,7 +21647,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】创建免审词条</para>
+    /// <para>【词典】创建免审词条</para>
     /// <para>接口ID：7249689905697194012</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21000,13 +21675,14 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】更新免审词条</para>
+    /// <para>【词典】更新免审词条</para>
     /// <para>接口ID：7249689905697128476</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>通过此接口更新已有的词条，无需经过词典管理员审核，直接写入词库。因此，调用该接口时应当慎重操作。</para>
     /// </summary>
     /// <param name="entity_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>词条 ID</para>
     /// </param>
@@ -21027,13 +21703,14 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】获取词条详情</para>
+    /// <para>【词典】获取词条详情</para>
     /// <para>接口ID：7249689905696981020</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>通过词条 id 拉取对应的词条详情信息。</para>
     /// </summary>
     /// <param name="entity_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>词条 ID</para>
     /// </param>
@@ -21063,7 +21740,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】获取词条列表</para>
+    /// <para>【词典】获取词条列表</para>
     /// <para>接口ID：7249689905696997404</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21107,7 +21784,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】精准搜索词条</para>
+    /// <para>【词典】精准搜索词条</para>
     /// <para>接口ID：7249689905697079324</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/match</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21124,7 +21801,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? repo_id);
 
     /// <summary>
-    /// <para>【飞书词典】模糊搜索词条</para>
+    /// <para>【词典】模糊搜索词条</para>
     /// <para>接口ID：7249689905697095708</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/search</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21164,7 +21841,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】词条高亮</para>
+    /// <para>【词典】词条高亮</para>
     /// <para>接口ID：7249689905697210396</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/highlight</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21175,29 +21852,7 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonNetContent] Baike.PostLingoV1EntitiesHighlightBodyDto dto);
 
     /// <summary>
-    /// <para>【飞书词典】提取潜在词条</para>
-    /// <para>接口ID：7249689905697144860</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/extract</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>提取文本中可能成为词条的词语，且不会过滤已经成为词条的词语。同时返回推荐的别名。</para>
-    /// </summary>
-    [HttpPost("/open-apis/lingo/v1/entities/extract")]
-    System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesExtractResponseDto>> PostLingoV1EntitiesExtractAsync(
-        [JsonNetContent] Baike.PostLingoV1EntitiesExtractBodyDto dto);
-
-    /// <summary>
-    /// <para>【飞书词典】批量高亮</para>
-    /// <para>接口ID：7293809202833342492</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/batch_highlight</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>通过这个接口，可以传入一段文本，获取这段文本中所有词条的 ID</para>
-    /// </summary>
-    [HttpPost("/open-apis/lingo/v1/entities/batch_highlight")]
-    System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesBatchHighlightResponseDto>> PostLingoV1EntitiesBatchHighlightAsync(
-        [JsonNetContent] Baike.PostLingoV1EntitiesBatchHighlightBodyDto dto);
-
-    /// <summary>
-    /// <para>【飞书词典】获取词典分类</para>
+    /// <para>【词典】获取词典分类</para>
     /// <para>接口ID：7249689905697161244</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/classification/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21226,7 +21881,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
-    /// <para>【飞书词典】获取词库列表</para>
+    /// <para>【词典】获取词库列表</para>
     /// <para>接口ID：7249689905697177628</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/repo/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21237,7 +21892,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetLingoV1ReposResponseDto>> GetLingoV1ReposAsync();
 
     /// <summary>
-    /// <para>【飞书词典】上传图片</para>
+    /// <para>【词典】上传图片</para>
     /// <para>接口ID：7249689905697013788</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/file/upload</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21253,13 +21908,14 @@ public interface IFeishuTenantApi : IHttpApi
         [FormDataContent] FormDataFile file);
 
     /// <summary>
-    /// <para>【飞书词典】下载图片</para>
+    /// <para>【词典】下载图片</para>
     /// <para>接口ID：7249689905697030172</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/file/download</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>通过 file_token 下载原图片。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要下载的文件 token</para>
     /// </param>
@@ -21287,6 +21943,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过这个接口，可以获得妙记的访问情况统计，包含PV、UV、访问过的 user id、访问过的 user timestamp。</para>
     /// </summary>
     /// <param name="minute_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>妙记唯一标识。可从妙记链接中获取，一般为链接中最后一串字符</para>
     /// </param>
@@ -21313,6 +21970,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过这个接口，可以得到一篇妙记的基础概述信息，包含 `owner_id`、`create_time`、标题、封面、时长和 URL。</para>
     /// </summary>
     /// <param name="minute_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>妙记唯一标识。可从妙记链接中获取，一般为链接中最后一串字符</para>
     /// </param>
@@ -21494,7 +22152,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】创建草稿</para>
+    /// <para>【词典】创建草稿</para>
     /// <para>接口ID：7016992864837271580</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/draft/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21517,13 +22175,14 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】更新草稿</para>
+    /// <para>【词典】更新草稿</para>
     /// <para>接口ID：7016992864837287964</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/draft/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 draft_id 更新草稿内容，已审批的草稿无法编辑。</para>
     /// </summary>
     /// <param name="draft_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>草稿 ID</para>
     /// </param>
@@ -21544,7 +22203,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】创建免审词条</para>
+    /// <para>【词典】创建免审词条</para>
     /// <para>接口ID：7085379347152044034</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/entity/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21566,7 +22225,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】更新免审词条</para>
+    /// <para>【词典】更新免审词条</para>
     /// <para>接口ID：7085379347152060418</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/entity/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21574,6 +22233,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>因此，调用该接口时应当慎重操作。</para>
     /// </summary>
     /// <param name="entity_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>实体词 ID</para>
     /// </param>
@@ -21594,13 +22254,14 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】获取词条详情</para>
+    /// <para>【词典】获取词条详情</para>
     /// <para>接口ID：7016992864837304348</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/entity/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>通过词条 id 拉取对应的词条详情信息。</para>
     /// </summary>
     /// <param name="entity_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>词条 ID</para>
     /// </param>
@@ -21630,7 +22291,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】获取词条列表</para>
+    /// <para>【词典】获取词条列表</para>
     /// <para>接口ID：7016992864837320732</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/entity/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21668,7 +22329,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】精准搜索词条</para>
+    /// <para>【词典】精准搜索词条</para>
     /// <para>接口ID：7016992864837337116</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/entity/match</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21679,7 +22340,7 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonNetContent] Baike.PostBaikeV1EntitiesMatchBodyDto dto);
 
     /// <summary>
-    /// <para>【飞书词典】模糊搜索词条</para>
+    /// <para>【词典】模糊搜索词条</para>
     /// <para>接口ID：7016992864837353500</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/entity/search</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21713,7 +22374,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书词典】词条高亮</para>
+    /// <para>【词典】词条高亮</para>
     /// <para>接口ID：7016992864837369884</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/entity/highlight</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21724,7 +22385,7 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonNetContent] Baike.PostBaikeV1EntitiesHighlightBodyDto dto);
 
     /// <summary>
-    /// <para>【飞书词典】提取潜在的词条</para>
+    /// <para>【词典】提取潜在的词条</para>
     /// <para>接口ID：7158733167621242883</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/entity/extract</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21735,7 +22396,7 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonNetContent] Baike.PostBaikeV1EntitiesExtractBodyDto dto);
 
     /// <summary>
-    /// <para>【飞书词典】获取词典分类</para>
+    /// <para>【词典】获取词典分类</para>
     /// <para>接口ID：7085379347152076802</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/classification/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21758,7 +22419,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
-    /// <para>【飞书词典】上传图片</para>
+    /// <para>【词典】上传图片</para>
     /// <para>接口ID：7138031713099317252</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/file/upload</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21774,13 +22435,14 @@ public interface IFeishuTenantApi : IHttpApi
         [FormDataContent] FormDataFile file);
 
     /// <summary>
-    /// <para>【飞书词典】下载图片</para>
+    /// <para>【词典】下载图片</para>
     /// <para>接口ID：7138031713099333636</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/file/download</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>通过 file_token 下载原图片。</para>
     /// </summary>
     /// <param name="file_token">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要下载的文件 token</para>
     /// </param>
@@ -22127,6 +22789,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于更新通讯录中用户的字段。</para>
     /// </summary>
     /// <param name="user_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>用户ID，需要与查询参数中的user_id_type类型保持一致。</para>
     /// </param>
@@ -22231,6 +22894,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此接口只支持查询旧版文档元信息，如果需要查询新版文档元信息，请使用[获取元数据](https://open.feishu.cn/document/ukTMukTMukTM/uMjN3UjLzYzN14yM2cTN)接口。</para>
     /// </summary>
     /// <param name="docToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>doc 的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -22246,6 +22910,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 docToken 获取文档中的电子表格的元数据。</para>
     /// </summary>
     /// <param name="docToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>doc 的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -22262,6 +22927,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/raw_content)接口。</para>
     /// </summary>
     /// <param name="docToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>获取方式详见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -22278,6 +22944,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>文档数据结构定义可参考：[文档数据结构概述](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)</para>
     /// </summary>
     /// <param name="docToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>获取方式详见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
@@ -22305,6 +22972,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 获取表格元数据。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token；获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -22320,6 +22988,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于根据 spreadsheetToken 更新表格属性，如更新表格标题。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
@@ -22378,6 +23047,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口不支持并发调用，且调用频率上限为5QPS</para>
     /// </summary>
     /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
     /// </param>
@@ -22397,6 +23067,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口不支持并发创建，且调用频率上限为 5QPS 且 10000次/天</para>
     /// </summary>
     /// <param name="fileToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>被复制文件的 token, 获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
     /// </param>
@@ -22417,6 +23088,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口不支持并发调用，且调用频率上限为5QPS</para>
     /// </summary>
     /// <param name="docToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>doc 的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
     /// </param>
@@ -22452,6 +23124,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口不支持并发创建，且调用频率上限为 5QPS 以及 10000次/天</para>
     /// </summary>
     /// <param name="folderToken">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件夹的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
     /// </param>
@@ -22502,6 +23175,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据投递 ID 获取面试记录列表</para>
     /// </summary>
     /// <param name="application_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>投递ID</para>
     /// <para>**示例值**："6949805467799537964"</para>
@@ -22518,10 +23192,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据职位 ID 获取职位上的招聘人员信息，如招聘负责人、用人经理。</para>
     /// </summary>
     /// <param name="job_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>职位 ID</para>
     /// </param>
     /// <param name="manager_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>此处传入职位 ID</para>
     /// </param>
@@ -22550,6 +23226,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 Offer 申请表 ID，获取 Offer 申请表的详细信息</para>
     /// </summary>
     /// <param name="offer_schema_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>offer申请表的ID *必需属性</para>
     /// <para>**示例值**："1231231231231"</para>
@@ -22566,6 +23243,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据 ID 查询单个人员的个人信息。</para>
     /// </summary>
     /// <param name="person_id">
+    /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>Person ID</para>
     /// </param>

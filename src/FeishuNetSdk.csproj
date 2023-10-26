@@ -5,6 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <Title>FeishuNetSdk</Title>
         <Authors>Vicente Yu</Authors>
         <PackageProjectUrl>https://github.com/vicenteyu/FeishuNetSdk</PackageProjectUrl>
@@ -15,7 +16,7 @@
         <Copyright>MIT</Copyright>
         <Description>适用于飞书开放平台的.Net开发包</Description>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <Version>1.0.5</Version>
+        <Version>1.0.6</Version>
     </PropertyGroup>
 
     <ItemGroup>
