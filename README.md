@@ -1,5 +1,7 @@
 # FeishuNetSdk
 
+[![Build status](https://github.com/vicenteyu/FeishuNetSdk/workflows/.NET/badge.svg)](https://github.com/vicenteyu/FeishuNetSdk/actions)
+
 飞书开放平台网址：[https://open.feishu.cn/](https://open.feishu.cn/)
 
 接口清单详见：[TenantAccessToken适用接口清单-969个](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
@@ -7,7 +9,7 @@
 ## 自建应用用法
 
 ### 安装Nuget包
-[![FeishuNetSdk](https://buildstats.info/nuget/FeishuNetSdk "FeishuNetSdk")](https://buildstats.info/nuget/FeishuNetSdk "FeishuNetSdk")
+[![FeishuNetSdk](https://buildstats.info/nuget/FeishuNetSdk "FeishuNetSdk")](https://www.nuget.org/packages/FeishuNetSdk/ "FeishuNetSdk")
 
 ### 依赖注册
 ```csharp
