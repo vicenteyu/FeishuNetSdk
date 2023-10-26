@@ -4,14 +4,14 @@
 
 飞书开放平台网址：[https://open.feishu.cn/](https://open.feishu.cn/)
 
-接口清单详见：[TenantAccessToken适用接口清单-969个](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
+接口清单详见：[TenantAccessToken适用接口清单-967个](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
 
 ## 用法：
 
-### 1. 安装Nuget包
+### 1、安装Nuget包
 [![FeishuNetSdk](https://buildstats.info/nuget/FeishuNetSdk "FeishuNetSdk")](https://www.nuget.org/packages/FeishuNetSdk/ "FeishuNetSdk")
 
-### 2. 依赖注册（直接输入`应用凭证`的方式，二选一）
+### 2、依赖注册（直接输入`应用凭证`的方式，二选一）
 ```csharp
 builder.Services.AddHttpApi<IFeishuApi>();
 builder.Services.AddHttpApi<IFeishuTenantApi>();
@@ -19,16 +19,16 @@ builder.Services.AddTokenProvider<IFeishuTenantApi>(async service =>
 {
     //获取凭证接口
     var feishuApi = service.GetRequiredService<IFeishuApi>();
-	//获取tenant_access_token
+    //获取tenant_access_token
     var response = await feishuApi.PostAuthV3TenantAccessTokenInternalAsync(
             new FeishuNetSdk.Auth.Spec
-            	.PostAuthV3TenantAccessTokenInternalBodyDto
-	            {
-	            	//此处修改为自建的应用凭证Id和密钥
-	                AppId = "cli_a5bf8739dab8d0c",
-	                AppSecret = "vn7MjifCNm04dUlWBg6yWbijHvEpel6G"
-	            });
-	//返回一个能自动缓存和过期重取的Token实例
+                .PostAuthV3TenantAccessTokenInternalBodyDto
+                {
+                    //此处修改为自建的应用凭证Id和密钥
+                    AppId = "cli_a5bf8739dab8d0c",
+                    AppSecret = "vn7MjifCNm04dUlWBg6yWbijHvEpel6G"
+                });
+    //返回一个能自动缓存和过期重取的Token实例
     return new TokenResult
     {
         Access_token = response.TenantAccessToken,
@@ -36,7 +36,7 @@ builder.Services.AddTokenProvider<IFeishuTenantApi>(async service =>
     };
 });
 ```
-### 2. 依赖注册（配置文件的方式，二选一）
+### 2、依赖注册（配置文件的方式，二选一）
 1. 创建`FeishuOption`类：
 ```csharp
 public record FeishuOption
@@ -52,11 +52,11 @@ public record FeishuOption
     "app_secret": "vn7MjifCNm04dUlWBg6yWbijHvEpel6G",
 }
 ```
-1. 添加绑定配置
+1. 添加绑定配置：
 ```csharp
 builder.Services.Configure<FeishuOption>(builder.Configuration.GetSection("Feishu"));
 ```
-1. 接口注册
+1. 接口注册：
 ```csharp
 builder.Services.AddHttpApi<IFeishuApi>();
 builder.Services.AddHttpApi<IFeishuTenantApi>();
@@ -66,15 +66,15 @@ builder.Services.AddTokenProvider<IFeishuTenantApi>(async service =>
     var option = service.GetRequiredService<IOptionsMonitor<FeishuOption>>();
     //获取凭证接口
     var feishuApi = service.GetRequiredService<IFeishuApi>();
-	//获取tenant_access_token
+    //获取tenant_access_token
     var response = await feishuApi.PostAuthV3TenantAccessTokenInternalAsync(
             new FeishuNetSdk.Auth.Spec
                 .PostAuthV3TenantAccessTokenInternalBodyDto
-	            {
-	                AppId = option.CurrentValue.app_id,
-	                AppSecret = option.CurrentValue.app_secret
-	            });
-	//返回一个能自动缓存和过期重取的Token实例
+                {
+                    AppId = option.CurrentValue.app_id,
+                    AppSecret = option.CurrentValue.app_secret
+                });
+    //返回一个能自动缓存和过期重取的Token实例
     return new TokenResult
     {
         Access_token = response.TenantAccessToken,
@@ -83,7 +83,7 @@ builder.Services.AddTokenProvider<IFeishuTenantApi>(async service =>
 });
 ```
 
-### 3. 依赖注入
+### 3、依赖注入
 ```csharp
 public class TestController : ControllerBase
 {
@@ -95,7 +95,7 @@ public class TestController : ControllerBase
 }
 ```
 
-### 4. 方法调用
+### 4、方法调用
 ```csharp
 [HttpGet("t2")]
 public async Task<IResult> GetT2Async()
@@ -110,12 +110,12 @@ public async Task<IResult> GetT2Async()
 ### 文件上传示例
 参数 `FormDataFile` 支持 `filePath`、`FileInfo`、`byte[]`、`Stream`。
 
-**需要注意部分接口注释上有关于文件格式限制的说明**
+**需要注意部分接口注释上有关于文件格式限制的说明。**
 ```csharp
 [HttpGet("t3")]
 public async Task<IResult> GetT3Async()
 {
-	//定义文件存储路径
+    //定义文件存储路径
     var filePath = @"D:\Users\Downloads\e9bd937f1d7a4c4f992724f5de44bb14.jpg";
     //调用接口
     var result = await _feishuApi.PostImV1ImagesAsync(
@@ -133,19 +133,19 @@ public async Task<IResult> GetT3Async()
 ```
 
 ### 文件下载示例
-下载操作默认返回`HttpResponseMessage`，由于没有`返回码（code）`可以判断操作是否成功，所以建议配合 `EnsureSuccessStatusCode()` 方法使用。
+下载操作默认返回`HttpResponseMessage`，由于没有`返回码（code）`可以判断操作是否成功，所以建议配合 `EnsureSuccessStatusCode()` 方法使用，当响应状态码异常时，会抛出异常，需要自行捕获处理。
 
 ```csharp
 [HttpGet("t4")]
 public async Task<IResult> GetT4Async()
 {
-	//定义文件存储路径
+    //定义文件存储路径
     var filePath = @"D:\Users\Downloads\e9bd937f----1.jpg";
     //调用接口
     var result = (await _feishuApi.GetImV1ImagesByImageKeyAsync(
-    	"img_xxxx-fbdc-4c36-b17c-ac8aa1aee7dg"))
-    	//响应状态码异常时，抛出异常，需要自行捕获处理
-    	.EnsureSuccessStatusCode();
+        "img_xxxx-fbdc-4c36-b17c-ac8aa1aee7dg"))
+        //当响应状态码异常时，会抛出异常，需要自行捕获处理
+        .EnsureSuccessStatusCode();
 
     //保存文件到指定路径
     await result.SaveAsAsync(filePath);
@@ -159,13 +159,13 @@ public async Task<IResult> GetT4Async()
 [HttpGet("t5")]
 public async Task<IResult> GetT5Async()
 {
-	//定义文件存储路径
+    //定义文件存储路径
     var filePath = @"D:\Users\Downloads\e9bd937f----2.jpg";
     //调用接口
     var result = (await _feishuApi.GetDriveV1MediasByFileTokenDownloadAsync(
         "OQBpbF8AEoZ0gqxpCMwcRPWFn8c",
         "bytes=0-100"))
-    	//响应状态码异常时，抛出异常，需要自行捕获处理
+        //当响应状态码异常时，会抛出异常，需要自行捕获处理
         .EnsureSuccessStatusCode();
 
     //保存到指定路径，可能只是文件的一部分，并非完整。
@@ -174,7 +174,7 @@ public async Task<IResult> GetT5Async()
 }
 ```
 
-## 注意事项
+## 注意事项：
 
 ### 云文档操作
 
@@ -195,7 +195,7 @@ public async Task<IResult> GetT5Async()
 
 **如果要覆盖方法，比如是在保持参数完全一致的情况下，修改http地址，需要在方法前加 `new` （参数不一致是重载，重载不用加`new` ），然后将新地址更换到属性上。更换http方法、返回参数及其他属性也是同理。**
 
-#### 新建API
+#### 1、新建API
 ```csharp
 public interface INewApi : IFeishuTenantApi
 {
@@ -204,16 +204,16 @@ public interface INewApi : IFeishuTenantApi
 }
 ```
 
-#### 新增依赖注册
+#### 2、新增依赖注册
 ```csharp
 builder.Services.AddHttpApi<INewApi>();
 ```
 
-#### 修改依赖注入
+#### 3、修改依赖注入
 ```csharp
 public class TestController : ControllerBase
 {
-	//此处更改为新的API：INewApi
+    //此处更改为新的API：INewApi
     private readonly INewApi _feishuApi;
     public TestController(INewApi feishuApi)
     {
