@@ -16,6 +16,7 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchD
     [JsonProperty("sheet_cf_ids")]
     public SheetCfId[]? SheetCfIds { get; set; }
 
+    /// <summary></summary>
     public record SheetCfId
     {
         /// <summary>

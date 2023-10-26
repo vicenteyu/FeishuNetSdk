@@ -18,6 +18,7 @@ public record PostAdminV1PasswordResetBodyDto
     [JsonProperty("password")]
     public PasswordSuffix Password { get; set; } = new();
 
+    /// <summary></summary>
     public record PasswordSuffix
     {
         /// <summary>

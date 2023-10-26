@@ -16,6 +16,7 @@ public record PostPassportV1SessionsQueryResponseDto
     [JsonProperty("mask_sessions")]
     public MaskSession[]? MaskSessions { get; set; }
 
+    /// <summary></summary>
     public record MaskSession
     {
         /// <summary>

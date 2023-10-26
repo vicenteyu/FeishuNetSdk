@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 抄送列表查询 请求体
-/// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc)该接口通过不同条件查询审批系统中符合条件的审批抄送列表。</para>
+/// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc)该接口通过不同条件查询审批系统中符合条件的审批抄送列表。</para>
 /// <para>接口ID：6907568073252700162</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version/approval/v2/approval-search/cc-list-query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUjMxYjL1ITM24SNyEjN</para>
@@ -55,7 +55,7 @@ public record PostApprovalOpenapiV2CcSearchBodyDto
 
     /// <summary>
     /// <para>审批抄送状态</para>
-    /// <para>READ:  已读</para>
+    /// <para>READ: 已读</para>
     /// <para>UNREAD: 未读</para>
     /// <para>注：若不设置，查询全部状态</para>
     /// <para>若不在集合中，报错</para>

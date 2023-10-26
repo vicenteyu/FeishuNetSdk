@@ -92,6 +92,7 @@ public record PostHelpdeskV1TicketCustomizedFieldsBodyDto
     [JsonProperty("dropdown_options")]
     public DropdownOptionSuffix? DropdownOptions { get; set; }
 
+    /// <summary></summary>
     public record DropdownOptionSuffix
     {
         /// <summary>
@@ -101,6 +102,7 @@ public record PostHelpdeskV1TicketCustomizedFieldsBodyDto
         [JsonProperty("children")]
         public DropdownOption[]? Children { get; set; }
 
+        /// <summary></summary>
         public record DropdownOption
         {
             /// <summary>

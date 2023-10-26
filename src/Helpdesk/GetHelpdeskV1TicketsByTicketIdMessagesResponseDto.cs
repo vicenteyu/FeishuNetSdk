@@ -72,7 +72,7 @@ public record GetHelpdeskV1TicketsByTicketIdMessagesResponseDto
         /// <summary>
         /// <para>用户图片url</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/3e73cdce-54b0-4c6a-8226-b131fb2825dj~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp</para>
+        /// <para>示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/3e73cdce-54b0-4c6a-8226-b131fb2825dj~?image_size=72x72&amp;cut_type=&amp;quality=&amp;format=image&amp;sticker_format=.webp</para>
         /// </summary>
         [JsonProperty("avatar_url")]
         public string? AvatarUrl { get; set; }

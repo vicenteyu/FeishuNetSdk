@@ -52,11 +52,11 @@ public record PostTaskV2TasklistsBodyDto
 
         /// <summary>
         /// <para>成员的类型，支持:</para>
-        /// <para><md-enum></para>
-        /// <para><md-enum-item key="user">普通用户，此时member的id是一个表示用户的ID，比如open_id。具体格式取决于user_id_type参数</md-enum-item></para>
-        /// <para><md-enum-item key="chat">群组，此时member的id是一个Open Chat ID</md-enum-item></para>
-        /// <para><md-enum-item key="app">应用，此时member的id是一个应用的ID</md-enum-item></para>
-        /// <para></md-enum></para>
+        /// <para>&lt;md-enum&gt;</para>
+        /// <para>&lt;md-enum-item key="user"&gt;普通用户，此时member的id是一个表示用户的ID，比如open_id。具体格式取决于user_id_type参数&lt;/md-enum-item&gt;</para>
+        /// <para>&lt;md-enum-item key="chat"&gt;群组，此时member的id是一个Open Chat ID&lt;/md-enum-item&gt;</para>
+        /// <para>&lt;md-enum-item key="app"&gt;应用，此时member的id是一个应用的ID&lt;/md-enum-item&gt;</para>
+        /// <para>&lt;/md-enum&gt;</para>
         /// <para>必填：否</para>
         /// <para>示例值：user</para>
         /// <para>默认值：user</para>

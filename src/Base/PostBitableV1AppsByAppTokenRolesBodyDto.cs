@@ -191,7 +191,7 @@ public record PostBitableV1AppsByAppTokenRolesBodyDto
     public record AppRoleBlockRole
     {
         /// <summary>
-        /// <para>Block 的 ID，例如列出仪表盘接口中的仪表盘 block  id</para>
+        /// <para>Block 的 ID，例如列出仪表盘接口中的仪表盘 block id</para>
         /// <para>必填：是</para>
         /// <para>示例值：blknkqrP3RqUkcAW</para>
         /// </summary>

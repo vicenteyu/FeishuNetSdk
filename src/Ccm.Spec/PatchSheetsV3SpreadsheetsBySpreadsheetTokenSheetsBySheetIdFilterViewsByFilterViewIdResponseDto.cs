@@ -16,6 +16,7 @@ public record PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterVi
     [JsonProperty("filter_view")]
     public FilterViewSuffix? FilterView { get; set; }
 
+    /// <summary></summary>
     public record FilterViewSuffix
     {
         /// <summary>

@@ -18,7 +18,7 @@ public record PostDocV2ByDocTokenBatchUpdateBodyDto
     public string DocToken { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>文档的指定版本，文档新创建后版本号是0，[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDM2YjL1AjN24SNwYjN)，要求>=0，post body json 字段</para>
+    /// <para>文档的指定版本，文档新创建后版本号是0，[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDM2YjL1AjN24SNwYjN)，要求&gt;=0，post body json 字段</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonProperty("revision")]

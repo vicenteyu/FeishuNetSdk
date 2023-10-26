@@ -23,6 +23,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdBy
     [JsonProperty("dataValidation")]
     public DataValidationSuffix? DataValidation { get; set; }
 
+    /// <summary></summary>
     public record DataValidationSuffix
     {
         /// <summary>
@@ -39,6 +40,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdBy
         [JsonProperty("options")]
         public Option? Options { get; set; }
 
+        /// <summary></summary>
         public record Option
         {
             /// <summary>

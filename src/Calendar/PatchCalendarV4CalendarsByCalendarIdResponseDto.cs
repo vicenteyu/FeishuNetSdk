@@ -11,14 +11,14 @@ namespace FeishuNetSdk.Calendar;
 public record PatchCalendarV4CalendarsByCalendarIdResponseDto
 {
     /// <summary>
-    /// <para>更新后的日历实体	</para>
+    /// <para>更新后的日历实体</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("calendar")]
     public PatchCalendarV4CalendarsByCalendarIdResponseDtoCalendar? Calendar { get; set; }
 
     /// <summary>
-    /// <para>更新后的日历实体	</para>
+    /// <para>更新后的日历实体</para>
     /// </summary>
     public record PatchCalendarV4CalendarsByCalendarIdResponseDtoCalendar
     {

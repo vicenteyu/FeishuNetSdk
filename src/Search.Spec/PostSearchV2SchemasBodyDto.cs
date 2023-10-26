@@ -16,6 +16,7 @@ public record PostSearchV2SchemasBodyDto
     [JsonProperty("properties")]
     public SchemaProperty[] Properties { get; set; } = Array.Empty<SchemaProperty>();
 
+    /// <summary></summary>
     public record SchemaProperty
     {
         /// <summary>
@@ -79,6 +80,7 @@ public record PostSearchV2SchemasBodyDto
         [JsonProperty("sort_options")]
         public SchemaSortOptions? SortOptions { get; set; }
 
+        /// <summary></summary>
         public record SchemaSortOptions
         {
             /// <summary>
@@ -124,6 +126,7 @@ public record PostSearchV2SchemasBodyDto
         [JsonProperty("type_definitions")]
         public SchemaTypeDefinitions? TypeDefinitions { get; set; }
 
+        /// <summary></summary>
         public record SchemaTypeDefinitions
         {
             /// <summary>
@@ -135,6 +138,7 @@ public record PostSearchV2SchemasBodyDto
             [JsonProperty("tag")]
             public SchemaTagOptions[]? Tag { get; set; }
 
+            /// <summary></summary>
             public record SchemaTagOptions
             {
                 /// <summary>
@@ -183,6 +187,7 @@ public record PostSearchV2SchemasBodyDto
         [JsonProperty("search_options")]
         public SchemaSearchOptions? SearchOptions { get; set; }
 
+        /// <summary></summary>
         public record SchemaSearchOptions
         {
             /// <summary>
@@ -234,11 +239,12 @@ public record PostSearchV2SchemasBodyDto
     [JsonProperty("display")]
     public SchemaDisplay Display { get; set; } = new();
 
+    /// <summary></summary>
     public record SchemaDisplay
     {
         /// <summary>
         /// <para>搜索数据的展示卡片</para>
-        /// <para>卡片详细信息请参考 [通用模块接入指南](/document/uAjLw4CM/ukTMukTMukTM/search-v2/common-template-intergration-handbook)  "请求创建数据范式"部分</para>
+        /// <para>卡片详细信息请参考 [通用模块接入指南](/document/uAjLw4CM/ukTMukTMukTM/search-v2/common-template-intergration-handbook) "请求创建数据范式"部分</para>
         /// <para>**示例值**："search_common_card"</para>
         /// <para>**可选值有**：</para>
         /// <para>search_common_card:普通 common 卡片</para>
@@ -257,6 +263,7 @@ public record PostSearchV2SchemasBodyDto
         [JsonProperty("fields_mapping")]
         public SchemaDisplayFieldMapping[]? FieldsMapping { get; set; }
 
+        /// <summary></summary>
         public record SchemaDisplayFieldMapping
         {
             /// <summary>

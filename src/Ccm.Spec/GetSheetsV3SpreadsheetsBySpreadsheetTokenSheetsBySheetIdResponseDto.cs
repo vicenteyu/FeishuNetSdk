@@ -16,6 +16,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
     [JsonProperty("sheet")]
     public SheetSuffix? Sheet { get; set; }
 
+    /// <summary></summary>
     public record SheetSuffix
     {
         /// <summary>
@@ -55,6 +56,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
         [JsonProperty("grid_properties")]
         public GridProperty? GridProperties { get; set; }
 
+        /// <summary></summary>
         public record GridProperty
         {
             /// <summary>
@@ -103,6 +105,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
         [JsonProperty("merges")]
         public MergeRange[]? Merges { get; set; }
 
+        /// <summary></summary>
         public record MergeRange
         {
             /// <summary>

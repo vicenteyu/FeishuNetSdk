@@ -56,6 +56,7 @@ public record PostTranslationV1TextTranslateBodyDto
     [JsonProperty("glossary")]
     public Term[]? Glossary { get; set; }
 
+    /// <summary></summary>
     public record Term
     {
         /// <summary>

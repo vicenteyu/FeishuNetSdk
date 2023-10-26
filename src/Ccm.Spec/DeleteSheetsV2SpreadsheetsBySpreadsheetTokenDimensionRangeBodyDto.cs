@@ -16,6 +16,7 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
     [JsonProperty("dimension")]
     public DimensionSuffix Dimension { get; set; } = new();
 
+    /// <summary></summary>
     public record DimensionSuffix
     {
         /// <summary>

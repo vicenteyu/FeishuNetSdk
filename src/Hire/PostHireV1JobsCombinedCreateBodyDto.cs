@@ -251,7 +251,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
 
     /// <summary>
     /// <para>雇佣类型</para>
-    /// <para>社招：101-全职  102-外包 103-劳务 105-顾问 301-实习</para>
+    /// <para>社招：101-全职 102-外包 103-劳务 105-顾问 301-实习</para>
     /// <para>校招：201-正式 202-实习</para>
     /// <para>必填：是</para>
     /// <para>示例值：102</para>

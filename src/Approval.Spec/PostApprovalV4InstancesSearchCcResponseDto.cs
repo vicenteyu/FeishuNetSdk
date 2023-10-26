@@ -23,6 +23,7 @@ public record PostApprovalV4InstancesSearchCcResponseDto
     [JsonProperty("cc_list")]
     public CcSearchItem[]? CcList { get; set; }
 
+    /// <summary></summary>
     public record CcSearchItem
     {
         /// <summary>
@@ -32,6 +33,7 @@ public record PostApprovalV4InstancesSearchCcResponseDto
         [JsonProperty("approval")]
         public InstanceSearchApproval? Approval { get; set; }
 
+        /// <summary></summary>
         public record InstanceSearchApproval
         {
             /// <summary>
@@ -62,6 +64,7 @@ public record PostApprovalV4InstancesSearchCcResponseDto
             [JsonProperty("external")]
             public InstanceSearchApprovalExternal? External { get; set; }
 
+            /// <summary></summary>
             public record InstanceSearchApprovalExternal
             {
                 /// <summary>
@@ -80,6 +83,7 @@ public record PostApprovalV4InstancesSearchCcResponseDto
         [JsonProperty("group")]
         public InstanceSearchGroup? Group { get; set; }
 
+        /// <summary></summary>
         public record InstanceSearchGroup
         {
             /// <summary>
@@ -104,6 +108,7 @@ public record PostApprovalV4InstancesSearchCcResponseDto
         [JsonProperty("instance")]
         public InstanceSearchNode? Instance { get; set; }
 
+        /// <summary></summary>
         public record InstanceSearchNode
         {
             /// <summary>
@@ -193,6 +198,7 @@ public record PostApprovalV4InstancesSearchCcResponseDto
         [JsonProperty("cc")]
         public CcSearchNode? Cc { get; set; }
 
+        /// <summary></summary>
         public record CcSearchNode
         {
             /// <summary>
@@ -244,6 +250,7 @@ public record PostApprovalV4InstancesSearchCcResponseDto
             public InstanceSearchLink? Link { get; set; }
         }
 
+        /// <summary></summary>
         public record InstanceSearchLink
         {
             /// <summary>

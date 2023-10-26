@@ -23,6 +23,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
     [JsonProperty("okr_list")]
     public OkrBatch[]? OkrList { get; set; }
 
+    /// <summary></summary>
     public record OkrBatch
     {
         /// <summary>
@@ -66,6 +67,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
         [JsonProperty("objective_list")]
         public OkrObjective[]? ObjectiveList { get; set; }
 
+        /// <summary></summary>
         public record OkrObjective
         {
             /// <summary>
@@ -123,6 +125,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
             [JsonProperty("progress_rate")]
             public OkrObjectiveProgressRate? ProgressRate { get; set; }
 
+            /// <summary></summary>
             public record OkrObjectiveProgressRate
             {
                 /// <summary>
@@ -151,6 +154,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
             [JsonProperty("kr_list")]
             public OkrObjectiveKr[]? KrList { get; set; }
 
+            /// <summary></summary>
             public record OkrObjectiveKr
             {
                 /// <summary>
@@ -266,6 +270,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
             [JsonProperty("aligning_objective_list")]
             public OkrObjectiveAlignedObjective[]? AligningObjectiveList { get; set; }
 
+            /// <summary></summary>
             public record OkrObjectiveAlignedObjective
             {
                 /// <summary>
@@ -297,6 +302,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
             [JsonProperty("progress_record_list")]
             public ProgressRecordSimplify[]? ProgressRecordList { get; set; }
 
+            /// <summary></summary>
             public record ProgressRecordSimplify
             {
                 /// <summary>
@@ -356,6 +362,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
             [JsonProperty("mentioned_user_list")]
             public OkrObjectiveAlignedObjectiveOwner[]? MentionedUserList { get; set; }
 
+            /// <summary></summary>
             public record OkrObjectiveAlignedObjectiveOwner
             {
                 /// <summary>

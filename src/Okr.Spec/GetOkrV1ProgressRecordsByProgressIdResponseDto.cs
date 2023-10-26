@@ -30,6 +30,7 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
     [JsonProperty("content")]
     public ContentBlock? Content { get; set; }
 
+    /// <summary></summary>
     public record ContentBlock
     {
         /// <summary>
@@ -39,6 +40,7 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
         [JsonProperty("blocks")]
         public ContentBlockElement[]? Blocks { get; set; }
 
+        /// <summary></summary>
         public record ContentBlockElement
         {
             /// <summary>
@@ -61,6 +63,7 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
             [JsonProperty("paragraph")]
             public ContentParagraph? Paragraph { get; set; }
 
+            /// <summary></summary>
             public record ContentParagraph
             {
                 /// <summary>
@@ -70,6 +73,7 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
                 [JsonProperty("style")]
                 public ContentParagraphStyle? Style { get; set; }
 
+                /// <summary></summary>
                 public record ContentParagraphStyle
                 {
                     /// <summary>
@@ -79,6 +83,7 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
                     [JsonProperty("list")]
                     public ContentList? List { get; set; }
 
+                    /// <summary></summary>
                     public record ContentList
                     {
                         /// <summary>
@@ -121,6 +126,7 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
                 [JsonProperty("elements")]
                 public ContentParagraphElement[]? Elements { get; set; }
 
+                /// <summary></summary>
                 public record ContentParagraphElement
                 {
                     /// <summary>
@@ -144,6 +150,7 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
                     [JsonProperty("textRun")]
                     public ContentTextRun? Textrun { get; set; }
 
+                    /// <summary></summary>
                     public record ContentTextRun
                     {
                         /// <summary>
@@ -160,6 +167,7 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
                         [JsonProperty("style")]
                         public ContentTextStyle? Style { get; set; }
 
+                        /// <summary></summary>
                         public record ContentTextStyle
                         {
                             /// <summary>
@@ -190,6 +198,7 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
                             [JsonProperty("textColor")]
                             public ContentColor? Textcolor { get; set; }
 
+                            /// <summary></summary>
                             public record ContentColor
                             {
                                 /// <summary>
@@ -229,6 +238,7 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
                             [JsonProperty("link")]
                             public ContentLink? Link { get; set; }
 
+                            /// <summary></summary>
                             public record ContentLink
                             {
                                 /// <summary>
@@ -248,6 +258,7 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
                     [JsonProperty("docsLink")]
                     public ContentDocsLink? Docslink { get; set; }
 
+                    /// <summary></summary>
                     public record ContentDocsLink
                     {
                         /// <summary>
@@ -272,6 +283,7 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
                     [JsonProperty("person")]
                     public ContentPerson? Person { get; set; }
 
+                    /// <summary></summary>
                     public record ContentPerson
                     {
                         /// <summary>
@@ -291,6 +303,7 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
             [JsonProperty("gallery")]
             public ContentGallery? Gallery { get; set; }
 
+            /// <summary></summary>
             public record ContentGallery
             {
                 /// <summary>
@@ -300,6 +313,7 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
                 [JsonProperty("imageList")]
                 public ContentImageItem[]? Imagelist { get; set; }
 
+                /// <summary></summary>
                 public record ContentImageItem
                 {
                     /// <summary>

@@ -16,6 +16,7 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
     [JsonProperty("content")]
     public ReplyContent Content { get; set; } = new();
 
+    /// <summary></summary>
     public record ReplyContent
     {
         /// <summary>
@@ -25,6 +26,7 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
         [JsonProperty("elements")]
         public ReplyElement[] Elements { get; set; } = Array.Empty<ReplyElement>();
 
+        /// <summary></summary>
         public record ReplyElement
         {
             /// <summary>
@@ -49,6 +51,7 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
             [JsonProperty("text_run")]
             public TextRunSuffix? TextRun { get; set; }
 
+            /// <summary></summary>
             public record TextRunSuffix
             {
                 /// <summary>
@@ -67,6 +70,7 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
             [JsonProperty("docs_link")]
             public DocsLinkSuffix? DocsLink { get; set; }
 
+            /// <summary></summary>
             public record DocsLinkSuffix
             {
                 /// <summary>
@@ -85,6 +89,7 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
             [JsonProperty("person")]
             public PersonSuffix? Person { get; set; }
 
+            /// <summary></summary>
             public record PersonSuffix
             {
                 /// <summary>

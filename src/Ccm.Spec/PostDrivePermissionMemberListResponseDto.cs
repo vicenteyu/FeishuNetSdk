@@ -18,6 +18,7 @@ public record PostDrivePermissionMemberListResponseDto
     [JsonProperty("members")]
     public Member[]? Members { get; set; }
 
+    /// <summary></summary>
     public record Member
     {
         /// <summary>

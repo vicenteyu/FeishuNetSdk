@@ -34,7 +34,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataBodyDto
     public int? EndTime { get; set; }
 
     /// <summary>
-    /// <para>调用OpenAPI的应用唯一标识，可以前往 [开发者后台](https://open.feishu.cn/app) > 应用详情页 > 凭证与基础信息中获取 app_id</para>
+    /// <para>调用OpenAPI的应用唯一标识，可以前往 [开发者后台](https://open.feishu.cn/app) &gt; 应用详情页 &gt; 凭证与基础信息中获取 app_id</para>
     /// <para>必填：否</para>
     /// <para>示例值：cli_xxx</para>
     /// </summary>

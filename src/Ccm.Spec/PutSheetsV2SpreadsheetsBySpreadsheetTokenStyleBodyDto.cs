@@ -16,6 +16,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleBodyDto
     [JsonProperty("appendStyle")]
     public AppendStyleSuffix AppendStyle { get; set; } = new();
 
+    /// <summary></summary>
     public record AppendStyleSuffix
     {
         /// <summary>
@@ -32,6 +33,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleBodyDto
         [JsonProperty("style")]
         public string Style { get; set; } = string.Empty;
 
+        /// <summary></summary>
         public record StyleSuffix
         {
             /// <summary>
@@ -41,6 +43,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleBodyDto
             [JsonProperty("font")]
             public string? Font { get; set; }
 
+            /// <summary></summary>
             public record FontSuffix
             {
                 /// <summary>

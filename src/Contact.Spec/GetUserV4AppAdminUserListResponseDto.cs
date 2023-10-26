@@ -16,6 +16,7 @@ public record GetUserV4AppAdminUserListResponseDto
     [JsonProperty("user_list")]
     public User[]? UserList { get; set; }
 
+    /// <summary></summary>
     public record User
     {
         /// <summary>

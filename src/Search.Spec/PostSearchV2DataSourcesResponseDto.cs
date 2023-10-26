@@ -16,6 +16,7 @@ public record PostSearchV2DataSourcesResponseDto
     [JsonProperty("data_source")]
     public DataSourceSuffix? DataSource { get; set; }
 
+    /// <summary></summary>
     public record DataSourceSuffix
     {
         /// <summary>
@@ -108,6 +109,7 @@ public record PostSearchV2DataSourcesResponseDto
         [JsonProperty("i18n_description")]
         public I18nMeta? I18nDescription { get; set; }
 
+        /// <summary></summary>
         public record I18nMeta
         {
             /// <summary>

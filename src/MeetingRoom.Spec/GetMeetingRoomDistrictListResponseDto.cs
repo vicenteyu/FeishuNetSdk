@@ -16,6 +16,7 @@ public record GetMeetingRoomDistrictListResponseDto
     [JsonProperty("districts")]
     public District[]? Districts { get; set; }
 
+    /// <summary></summary>
     public record District
     {
         /// <summary>

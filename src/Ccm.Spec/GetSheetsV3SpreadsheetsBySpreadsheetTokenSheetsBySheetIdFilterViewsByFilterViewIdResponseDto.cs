@@ -16,6 +16,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterView
     [JsonProperty("filter_view")]
     public FilterViewSuffix? FilterView { get; set; }
 
+    /// <summary></summary>
     public record FilterViewSuffix
     {
         /// <summary>

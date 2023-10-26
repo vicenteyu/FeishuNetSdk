@@ -6,10 +6,10 @@ namespace FeishuNetSdk.Im.Spec;
 /// <para>**注意事项：**</para>
 /// <para>- 应用需要启用[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)</para>
 /// <para>- 接口权限说明：</para>
-/// <para>  - 必须拥有**获取与发送单聊、群组消息**权限，或者**以应用的身份发消息**权限</para>
-/// <para>  - 至少拥有一个批量发送消息权限：</para>
-/// <para>      - 给用户发送需要拥有 **给多个用户批量发消息** 权限</para>
-/// <para>      - 给部门成员发送需要拥有 **给一个或多个部门的成员批量发消息** 权限</para>
+/// <para> - 必须拥有**获取与发送单聊、群组消息**权限，或者**以应用的身份发消息**权限</para>
+/// <para> - 至少拥有一个批量发送消息权限：</para>
+/// <para> - 给用户发送需要拥有 **给多个用户批量发消息** 权限</para>
+/// <para> - 给部门成员发送需要拥有 **给一个或多个部门的成员批量发消息** 权限</para>
 /// <para>- 应用需要拥有对所发送用户或部门的[可用性](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)</para>
 /// <para>- 通过该接口发送的消息 **不支持更新以及回复等操作**</para>
 /// <para>- 只能发送给用户，无法发送给群组</para>

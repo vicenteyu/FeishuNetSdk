@@ -16,6 +16,7 @@ public record PostSheetsV3SpreadsheetsResponseDto
     [JsonProperty("spreadsheet")]
     public SpreadsheetSuffix? Spreadsheet { get; set; }
 
+    /// <summary></summary>
     public record SpreadsheetSuffix
     {
         /// <summary>

@@ -17,6 +17,7 @@ public record GetAcsV1AccessRecordsResponseDto
     [JsonProperty("items")]
     public AccessRecord[]? Items { get; set; }
 
+    /// <summary></summary>
     public record AccessRecord
     {
         /// <summary>

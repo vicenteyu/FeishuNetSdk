@@ -16,6 +16,7 @@ public record GetApprovalV4TasksQueryResponseDto
     [JsonProperty("tasks")]
     public Task[]? Tasks { get; set; }
 
+    /// <summary></summary>
     public record Task
     {
         /// <summary>
@@ -55,6 +56,7 @@ public record GetApprovalV4TasksQueryResponseDto
         [JsonProperty("urls")]
         public TaskUrls? Urls { get; set; }
 
+        /// <summary></summary>
         public record TaskUrls
         {
             /// <summary>
@@ -219,6 +221,7 @@ public record GetApprovalV4TasksQueryResponseDto
     [JsonProperty("count")]
     public CountSuffix? Count { get; set; }
 
+    /// <summary></summary>
     public record CountSuffix
     {
         /// <summary>

@@ -16,6 +16,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetRes
     [JsonProperty("protectedRanges")]
     public ProtectedRange[]? ProtectedRanges { get; set; }
 
+    /// <summary></summary>
     public record ProtectedRange
     {
         /// <summary>
@@ -32,6 +33,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetRes
         [JsonProperty("dimension")]
         public DimensionSuffix? Dimension { get; set; }
 
+        /// <summary></summary>
         public record DimensionSuffix
         {
             /// <summary>
@@ -84,6 +86,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetRes
         [JsonProperty("editors")]
         public Editor? Editors { get; set; }
 
+        /// <summary></summary>
         public record Editor
         {
             /// <summary>
@@ -93,6 +96,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetRes
             [JsonProperty("users")]
             public User[]? Users { get; set; }
 
+            /// <summary></summary>
             public record User
             {
                 /// <summary>

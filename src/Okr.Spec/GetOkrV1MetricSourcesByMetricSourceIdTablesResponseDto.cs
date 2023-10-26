@@ -37,6 +37,7 @@ public record GetOkrV1MetricSourcesByMetricSourceIdTablesResponseDto
     [JsonProperty("items")]
     public MetricTable[]? Items { get; set; }
 
+    /// <summary></summary>
     public record MetricTable
     {
         /// <summary>

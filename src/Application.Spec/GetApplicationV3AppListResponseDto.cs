@@ -51,6 +51,7 @@ public record GetApplicationV3AppListResponseDto
     [JsonProperty("app_list")]
     public string? AppList { get; set; }
 
+    /// <summary></summary>
     public record App
     {
         /// <summary>

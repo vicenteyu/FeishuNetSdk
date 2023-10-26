@@ -16,6 +16,7 @@ public record GetPayV1OrderGetResponseDto
     [JsonProperty("order")]
     public string? Order { get; set; }
 
+    /// <summary></summary>
     public record OrderSuffix
     {
         /// <summary>

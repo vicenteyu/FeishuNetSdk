@@ -16,6 +16,7 @@ public record PatchDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdResponseD
     [JsonProperty("subscription")]
     public FileSubscription? Subscription { get; set; }
 
+    /// <summary></summary>
     public record FileSubscription
     {
         /// <summary>

@@ -16,6 +16,7 @@ public record GetVerificationV1VerificationResponseDto
     [JsonProperty("verification")]
     public VerificationSuffix? Verification { get; set; }
 
+    /// <summary></summary>
     public record VerificationSuffix
     {
         /// <summary>

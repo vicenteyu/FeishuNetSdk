@@ -12,7 +12,7 @@ public record GetCalendarV4ExchangeBindingsByExchangeBindingIdResponseDto
     /// <summary>
     /// <para>admin账户</para>
     /// <para>**字段权限要求**：</para>
-    /// <para><md-perm name="contact:user.email:readonly" desc="获取用户邮箱信息" support_app_types="custom" tags="">获取用户邮箱信息</md-perm></para>
+    /// <para>&lt;md-perm name="contact:user.email:readonly" desc="获取用户邮箱信息" support_app_types="custom" tags=""&gt;获取用户邮箱信息&lt;/md-perm&gt;</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("admin_account")]
@@ -21,7 +21,7 @@ public record GetCalendarV4ExchangeBindingsByExchangeBindingIdResponseDto
     /// <summary>
     /// <para>用户绑定的exchange账户</para>
     /// <para>**字段权限要求**：</para>
-    /// <para><md-perm name="contact:user.email:readonly" desc="获取用户邮箱信息" support_app_types="custom" tags="">获取用户邮箱信息</md-perm></para>
+    /// <para>&lt;md-perm name="contact:user.email:readonly" desc="获取用户邮箱信息" support_app_types="custom" tags=""&gt;获取用户邮箱信息&lt;/md-perm&gt;</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("exchange_account")]

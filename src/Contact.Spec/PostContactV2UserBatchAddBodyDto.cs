@@ -19,6 +19,7 @@ public record PostContactV2UserBatchAddBodyDto
     [JsonProperty("users")]
     public User[] Users { get; set; } = Array.Empty<User>();
 
+    /// <summary></summary>
     public record User
     {
         /// <summary>
@@ -104,14 +105,14 @@ public record PostContactV2UserBatchAddBodyDto
         public int? JoinTime { get; set; }
 
         /// <summary>
-        /// <para>直属上级用户 ID，支持通过 user_id 或 open_id 进行设置。<br>请求同时传递两个字段时只使用 leader_user_id，忽略 leader_open_id。</para>
+        /// <para>直属上级用户 ID，支持通过 user_id 或 open_id 进行设置。请求同时传递两个字段时只使用 leader_user_id，忽略 leader_open_id。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("leader_user_id")]
         public string? LeaderUserId { get; set; }
 
         /// <summary>
-        /// <para>直属上级用户 ID，支持通过 user_id 或 open_id 进行设置。<br>请求同时传递两个字段时只使用 leader_user_id，忽略 leader_open_id。</para>
+        /// <para>直属上级用户 ID，支持通过 user_id 或 open_id 进行设置。请求同时传递两个字段时只使用 leader_user_id，忽略 leader_open_id。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("leader_open_id")]
@@ -134,6 +135,7 @@ public record PostContactV2UserBatchAddBodyDto
         [JsonProperty("custom_attrs")]
         public CustomAttr[]? CustomAttrs { get; set; }
 
+        /// <summary></summary>
         public record CustomAttr
         {
             /// <summary>
@@ -150,6 +152,7 @@ public record PostContactV2UserBatchAddBodyDto
             [JsonProperty("value")]
             public ValueSuffix Value { get; set; } = new();
 
+            /// <summary></summary>
             public record ValueSuffix
             {
                 /// <summary>

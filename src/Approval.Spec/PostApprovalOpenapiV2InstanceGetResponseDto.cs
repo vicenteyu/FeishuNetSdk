@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 获取单个审批实例详情 响应体
-/// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)通过审批实例 Instance Code  获取审批实例详情。Instance Code 由 [批量获取审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list) 接口获取。</para>
+/// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)通过审批实例 Instance Code 获取审批实例详情。Instance Code 由 [批量获取审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list) 接口获取。</para>
 /// <para>接口ID：6907569524100497409</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version/approval/v2/feishu-native-approval/obtain-single-approval-instance-details</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuEDNyUjLxQjM14SM0ITN</para>
@@ -67,11 +67,11 @@ public record PostApprovalOpenapiV2InstanceGetResponseDto
 
     /// <summary>
     /// <para>审批实例状态</para>
-    /// <para>PENDING    - 审批中</para>
+    /// <para>PENDING - 审批中</para>
     /// <para>APPROVED - 通过</para>
-    /// <para>REJECTED  - 拒绝</para>
-    /// <para>CANCELED -  撤回</para>
-    /// <para>DELETED    -  删除</para>
+    /// <para>REJECTED - 拒绝</para>
+    /// <para>CANCELED - 撤回</para>
+    /// <para>DELETED - 删除</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonProperty("status")]
@@ -91,6 +91,7 @@ public record PostApprovalOpenapiV2InstanceGetResponseDto
     [JsonProperty("form")]
     public string Form { get; set; } = string.Empty;
 
+    /// <summary></summary>
     public record FormSuffix
     {
         /// <summary>
@@ -143,6 +144,7 @@ public record PostApprovalOpenapiV2InstanceGetResponseDto
     [JsonProperty("task_list")]
     public Task[] TaskList { get; set; } = Array.Empty<Task>();
 
+    /// <summary></summary>
     public record Task
     {
         /// <summary>
@@ -171,9 +173,9 @@ public record PostApprovalOpenapiV2InstanceGetResponseDto
         /// <para>任务状态</para>
         /// <para>PENDING - 审批中</para>
         /// <para>APPROVED - 同意</para>
-        /// <para>REJECTED  - 拒绝</para>
+        /// <para>REJECTED - 拒绝</para>
         /// <para>TRANSFERRED - 已转交</para>
-        /// <para>DONE -  完成</para>
+        /// <para>DONE - 完成</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonProperty("status")]
@@ -234,6 +236,7 @@ public record PostApprovalOpenapiV2InstanceGetResponseDto
     [JsonProperty("comment_list")]
     public CommentSuffix[] CommentList { get; set; } = Array.Empty<CommentSuffix>();
 
+    /// <summary></summary>
     public record CommentSuffix
     {
         /// <summary>
@@ -279,24 +282,25 @@ public record PostApprovalOpenapiV2InstanceGetResponseDto
     [JsonProperty("timeline")]
     public TimelineSuffix[] Timeline { get; set; } = Array.Empty<TimelineSuffix>();
 
+    /// <summary></summary>
     public record TimelineSuffix
     {
         /// <summary>
         /// <para>动态类型，不同类型 ext 内的 user_id_list 含义不一样</para>
         /// <para>START - 审批开始</para>
         /// <para>PASS - 通过</para>
-        /// <para>REJECT  - 拒绝</para>
-        /// <para>AUTO_PASS -  自动通过</para>
+        /// <para>REJECT - 拒绝</para>
+        /// <para>AUTO_PASS - 自动通过</para>
         /// <para>AUTO_REJECT - 自动拒绝</para>
         /// <para>REMOVE_REPEAT - 去重</para>
         /// <para>TRANSFER - 转交</para>
-        /// <para>ADD_APPROVER_BEFORE  - 前加签</para>
-        /// <para>ADD_APPROVER -  并加签</para>
-        /// <para>ADD_APPROVER_AFTER -  后加签</para>
-        /// <para>DELETE_APPROVER  - 减签</para>
-        /// <para>ROLLBACK_SELECTED -  指定回退</para>
+        /// <para>ADD_APPROVER_BEFORE - 前加签</para>
+        /// <para>ADD_APPROVER - 并加签</para>
+        /// <para>ADD_APPROVER_AFTER - 后加签</para>
+        /// <para>DELETE_APPROVER - 减签</para>
+        /// <para>ROLLBACK_SELECTED - 指定回退</para>
         /// <para>ROLLBACK - 全部回退</para>
-        /// <para>CANCEL -  撤回</para>
+        /// <para>CANCEL - 撤回</para>
         /// <para>DELETE - 删除</para>
         /// <para>CC - 抄送</para>
         /// <para>必填：是</para>
@@ -360,6 +364,7 @@ public record PostApprovalOpenapiV2InstanceGetResponseDto
         [JsonProperty("cc_user_list")]
         public CcUser[]? CcUserList { get; set; }
 
+        /// <summary></summary>
         public record CcUser
         {
             /// <summary>
@@ -391,15 +396,16 @@ public record PostApprovalOpenapiV2InstanceGetResponseDto
         [JsonProperty("ext")]
         public string Ext { get; set; } = string.Empty;
 
+        /// <summary></summary>
         public record ExtSuffix
         {
             /// <summary>
             /// <para>**type类型** - **user_id_list 含义**</para>
             /// <para>TRANSFER - 被转交人</para>
-            /// <para>ADD_APPROVER_BEFORE  -  被加签人</para>
-            /// <para>ADD_APPROVER -   被加签人</para>
-            /// <para>ADD_APPROVER_AFTER -   被加签人</para>
-            /// <para>DELETE_APPROVER  - 被减签人</para>
+            /// <para>ADD_APPROVER_BEFORE - 被加签人</para>
+            /// <para>ADD_APPROVER - 被加签人</para>
+            /// <para>ADD_APPROVER_AFTER - 被加签人</para>
+            /// <para>DELETE_APPROVER - 被减签人</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonProperty("user_id_list")]

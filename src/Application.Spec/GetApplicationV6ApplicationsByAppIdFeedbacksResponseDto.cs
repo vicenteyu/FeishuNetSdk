@@ -16,6 +16,7 @@ public record GetApplicationV6ApplicationsByAppIdFeedbacksResponseDto
     [JsonProperty("feedback_list")]
     public ApplicationFeedback[]? FeedbackList { get; set; }
 
+    /// <summary></summary>
     public record ApplicationFeedback
     {
         /// <summary>
@@ -75,7 +76,7 @@ public record GetApplicationV6ApplicationsByAppIdFeedbacksResponseDto
         public int? Status { get; set; }
 
         /// <summary>
-        /// <para>故障类型列表：1: 黑屏 2: 白屏 3: 无法打开小程序  4: 卡顿 5: 小程序闪退 6: 页面加载慢 7: 死机 8: 其他异常</para>
+        /// <para>故障类型列表：1: 黑屏 2: 白屏 3: 无法打开小程序 4: 卡顿 5: 小程序闪退 6: 页面加载慢 7: 死机 8: 其他异常</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("fault_type")]
@@ -106,8 +107,8 @@ public record GetApplicationV6ApplicationsByAppIdFeedbacksResponseDto
         /// <summary>
         /// <para>用户联系方式，只有用户填写联系方式后返回</para>
         /// <para>**字段权限要求（满足任一）**：</para>
-        /// <para><md-perm name="contact:user.email:readonly" desc="获取用户邮箱信息" support_app_types="custom" tags="">获取用户邮箱信息</md-perm></para>
-        /// <para><md-perm name="contact:user.phone:readonly" desc="获取用户手机号" support_app_types="custom" tags="">获取用户手机号</md-perm></para>
+        /// <para>&lt;md-perm name="contact:user.email:readonly" desc="获取用户邮箱信息" support_app_types="custom" tags=""&gt;获取用户邮箱信息&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:user.phone:readonly" desc="获取用户手机号" support_app_types="custom" tags=""&gt;获取用户手机号&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("contact")]

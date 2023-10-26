@@ -16,6 +16,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenResponseDto
     [JsonProperty("spreadsheet")]
     public GetSpreadsheet? Spreadsheet { get; set; }
 
+    /// <summary></summary>
     public record GetSpreadsheet
     {
         /// <summary>

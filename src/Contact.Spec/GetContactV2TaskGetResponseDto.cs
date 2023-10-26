@@ -82,6 +82,7 @@ public record GetContactV2TaskGetResponseDto
     [JsonProperty("task_info")]
     public Task[]? TaskInfo { get; set; }
 
+    /// <summary></summary>
     public record Task
     {
         /// <summary>

@@ -16,6 +16,7 @@ public record GetApplicationV6AppRecommendRulesResponseDto
     [JsonProperty("rules")]
     public AppRecommendRule[]? Rules { get; set; }
 
+    /// <summary></summary>
     public record AppRecommendRule
     {
         /// <summary>
@@ -52,6 +53,7 @@ public record GetApplicationV6AppRecommendRulesResponseDto
         [JsonProperty("visibility_info")]
         public VisibilityInfoSuffix? VisibilityInfo { get; set; }
 
+        /// <summary></summary>
         public record VisibilityInfoSuffix
         {
             /// <summary>
@@ -83,6 +85,7 @@ public record GetApplicationV6AppRecommendRulesResponseDto
             public string[]? GroupIds { get; set; }
         }
 
+        /// <summary></summary>
         public record ItemInfo
         {
             /// <summary>
@@ -163,6 +166,7 @@ public record GetApplicationV6AppRecommendRulesResponseDto
             [JsonProperty("i18n_name")]
             public I18nNameSuffix? I18nName { get; set; }
 
+            /// <summary></summary>
             public record I18nNameSuffix
             {
                 /// <summary>

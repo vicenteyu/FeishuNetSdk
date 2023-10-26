@@ -30,6 +30,7 @@ public record GetSearchV2DataSourcesResponseDto
     [JsonProperty("items")]
     public DataSource[]? Items { get; set; }
 
+    /// <summary></summary>
     public record DataSource
     {
         /// <summary>
@@ -122,6 +123,7 @@ public record GetSearchV2DataSourcesResponseDto
         [JsonProperty("i18n_description")]
         public I18nMeta? I18nDescription { get; set; }
 
+        /// <summary></summary>
         public record I18nMeta
         {
             /// <summary>

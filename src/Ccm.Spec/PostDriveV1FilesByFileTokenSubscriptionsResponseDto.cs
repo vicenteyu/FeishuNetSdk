@@ -16,6 +16,7 @@ public record PostDriveV1FilesByFileTokenSubscriptionsResponseDto
     [JsonProperty("subscription")]
     public FileSubscription? Subscription { get; set; }
 
+    /// <summary></summary>
     public record FileSubscription
     {
         /// <summary>

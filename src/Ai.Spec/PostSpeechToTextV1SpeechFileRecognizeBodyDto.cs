@@ -16,6 +16,7 @@ public record PostSpeechToTextV1SpeechFileRecognizeBodyDto
     [JsonProperty("speech")]
     public SpeechSuffix Speech { get; set; } = new();
 
+    /// <summary></summary>
     public record SpeechSuffix
     {
         /// <summary>
@@ -34,6 +35,7 @@ public record PostSpeechToTextV1SpeechFileRecognizeBodyDto
     [JsonProperty("config")]
     public FileConfig Config { get; set; } = new();
 
+    /// <summary></summary>
     public record FileConfig
     {
         /// <summary>

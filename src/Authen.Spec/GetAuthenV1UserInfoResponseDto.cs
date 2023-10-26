@@ -68,7 +68,7 @@ public record GetAuthenV1UserInfoResponseDto
     /// <summary>
     /// <para>用户邮箱</para>
     /// <para>**字段权限要求**：</para>
-    /// <para><md-perm name="contact:user.email:readonly" desc="获取用户邮箱信息" support_app_types="custom" tags="">获取用户邮箱信息</md-perm></para>
+    /// <para>&lt;md-perm name="contact:user.email:readonly" desc="获取用户邮箱信息" support_app_types="custom" tags=""&gt;获取用户邮箱信息&lt;/md-perm&gt;</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("email")]
@@ -77,7 +77,7 @@ public record GetAuthenV1UserInfoResponseDto
     /// <summary>
     /// <para>企业邮箱，请先确保已在管理后台启用飞书邮箱服务</para>
     /// <para>**字段权限要求**：</para>
-    /// <para><md-perm name="contact:user.employee:readonly" desc="获取用户受雇信息" support_app_types="custom,isv" tags="">获取用户受雇信息</md-perm></para>
+    /// <para>&lt;md-perm name="contact:user.employee:readonly" desc="获取用户受雇信息" support_app_types="custom,isv" tags=""&gt;获取用户受雇信息&lt;/md-perm&gt;</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("enterprise_email")]
@@ -86,7 +86,7 @@ public record GetAuthenV1UserInfoResponseDto
     /// <summary>
     /// <para>用户 user_id</para>
     /// <para>**字段权限要求**：</para>
-    /// <para><md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags="">获取用户 user ID</md-perm></para>
+    /// <para>&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("user_id")]
@@ -95,7 +95,7 @@ public record GetAuthenV1UserInfoResponseDto
     /// <summary>
     /// <para>用户手机号</para>
     /// <para>**字段权限要求**：</para>
-    /// <para><md-perm name="contact:user.phone:readonly" desc="获取用户手机号" support_app_types="custom" tags="">获取用户手机号</md-perm></para>
+    /// <para>&lt;md-perm name="contact:user.phone:readonly" desc="获取用户手机号" support_app_types="custom" tags=""&gt;获取用户手机号&lt;/md-perm&gt;</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("mobile")]
@@ -111,7 +111,7 @@ public record GetAuthenV1UserInfoResponseDto
     /// <summary>
     /// <para>用户工号</para>
     /// <para>**字段权限要求**：</para>
-    /// <para><md-perm name="contact:user.employee:readonly" desc="获取用户受雇信息" support_app_types="custom,isv" tags="">获取用户受雇信息</md-perm></para>
+    /// <para>&lt;md-perm name="contact:user.employee:readonly" desc="获取用户受雇信息" support_app_types="custom,isv" tags=""&gt;获取用户受雇信息&lt;/md-perm&gt;</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("employee_no")]

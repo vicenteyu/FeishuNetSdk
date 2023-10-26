@@ -20,7 +20,7 @@ public record PostCorehrV2ProbationEnableDisableAssessmentBodyDto
     /// <summary>
     /// <para>试用期考核系统入口链接，当启用功能时该字段必填。</para>
     /// <para>必填：否</para>
-    /// <para>示例值：https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&key=ffm41o1&dataGrid%41wmv98t29vif3kj=%1B%7D</para>
+    /// <para>示例值：https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&amp;key=ffm41o1&amp;dataGrid%41wmv98t29vif3kj=%1B%7D</para>
     /// </summary>
     [JsonProperty("app_url")]
     public string? AppUrl { get; set; }

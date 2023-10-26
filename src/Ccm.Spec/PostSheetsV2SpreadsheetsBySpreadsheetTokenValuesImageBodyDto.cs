@@ -10,14 +10,14 @@ namespace FeishuNetSdk.Ccm.Spec;
 public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageBodyDto
 {
     /// <summary>
-    /// <para>查询范围  range=<sheetId>!<开始格子>:<结束格子> 如：xxxx!A1:D5，详见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。此处限定为一个格子，如: xxxx!A1:A1</para>
+    /// <para>查询范围 range=&lt;sheetId&gt;!&lt;开始格子&gt;:&lt;结束格子&gt; 如：xxxx!A1:D5，详见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。此处限定为一个格子，如: xxxx!A1:A1</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonProperty("range")]
     public string Range { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>需要写入的图片二进制流，支持  "PNG", "JPEG", "JPG", "GIF", "BMP", "JFIF", "EXIF", "TIFF", "BPG", "WEBP", "HEIC" 等图片格式</para>
+    /// <para>需要写入的图片二进制流，支持 "PNG", "JPEG", "JPG", "GIF", "BMP", "JFIF", "EXIF", "TIFF", "BPG", "WEBP", "HEIC" 等图片格式</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonProperty("image")]

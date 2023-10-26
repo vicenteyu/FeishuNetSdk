@@ -35,9 +35,9 @@ public record PatchTaskV2CommentsByCommentIdBodyDto
 
     /// <summary>
     /// <para>要更新的字段，支持</para>
-    /// <para><md-enum></para>
-    /// <para><md-enum-item key="content" >评论内容</md-enum-item></para>
-    /// <para></md-enum></para>
+    /// <para>&lt;md-enum&gt;</para>
+    /// <para>&lt;md-enum-item key="content" &gt;评论内容&lt;/md-enum-item&gt;</para>
+    /// <para>&lt;/md-enum&gt;</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonProperty("update_fields")]

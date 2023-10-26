@@ -32,6 +32,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBod
     [JsonProperty("condition")]
     public ConditionSuffix Condition { get; set; } = new();
 
+    /// <summary></summary>
     public record ConditionSuffix
     {
         /// <summary>

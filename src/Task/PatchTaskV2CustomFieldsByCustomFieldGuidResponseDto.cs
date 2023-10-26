@@ -48,11 +48,11 @@ namespace FeishuNetSdk.Task;
 /// <para>"color_index": 25</para>
 /// <para>},</para>
 /// <para>{</para>
-/// <para>"guid": "<option_guid of A>"</para>
+/// <para>"guid": "&lt;option_guid of A&gt;"</para>
 /// <para>"name": "A2"</para>
 /// <para>},</para>
 /// <para>{</para>
-/// <para>"guid": "<option_guid of C>",</para>
+/// <para>"guid": "&lt;option_guid of C&gt;",</para>
 /// <para>},</para>
 /// <para>]</para>
 /// <para>}</para>
@@ -73,13 +73,13 @@ namespace FeishuNetSdk.Task;
 /// <para>"single_select_setting": {</para>
 /// <para>"optoins": [</para>
 /// <para>{</para>
-/// <para>"guid": "<option_guid_of_C>"</para>
+/// <para>"guid": "&lt;option_guid_of_C&gt;"</para>
 /// <para>},</para>
 /// <para>{</para>
-/// <para>"guid": "<option_guid of B>"</para>
+/// <para>"guid": "&lt;option_guid of B&gt;"</para>
 /// <para>},</para>
 /// <para>{</para>
-/// <para>"guid": "<option_guid of A>",</para>
+/// <para>"guid": "&lt;option_guid of A&gt;",</para>
 /// <para>},</para>
 /// <para>]</para>
 /// <para>}</para>
@@ -251,12 +251,12 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto
         {
             /// <summary>
             /// <para>日期显示格式。支持</para>
-            /// <para><md-enum></para>
-            /// <para><md-enum-item key="yyyy-mm-dd" >以短横分隔的年月日，例如2023-08-24</md-enum-item></para>
-            /// <para><md-enum-item key="yyyy/mm/dd" >以斜杠分隔的年月日，例如2023/08/04</md-enum-item></para>
-            /// <para><md-enum-item key="mm/dd/yyyy" >以斜杠分隔的月日年，例如08/24/2023</md-enum-item></para>
-            /// <para><md-enum-item key="dd/mm/yyyy" >以斜杠分隔的日月年，例如24/08/2023</md-enum-item></para>
-            /// <para></md-enum></para>
+            /// <para>&lt;md-enum&gt;</para>
+            /// <para>&lt;md-enum-item key="yyyy-mm-dd" &gt;以短横分隔的年月日，例如2023-08-24&lt;/md-enum-item&gt;</para>
+            /// <para>&lt;md-enum-item key="yyyy/mm/dd" &gt;以斜杠分隔的年月日，例如2023/08/04&lt;/md-enum-item&gt;</para>
+            /// <para>&lt;md-enum-item key="mm/dd/yyyy" &gt;以斜杠分隔的月日年，例如08/24/2023&lt;/md-enum-item&gt;</para>
+            /// <para>&lt;md-enum-item key="dd/mm/yyyy" &gt;以斜杠分隔的日月年，例如24/08/2023&lt;/md-enum-item&gt;</para>
+            /// <para>&lt;/md-enum&gt;</para>
             /// <para>必填：否</para>
             /// <para>示例值：yyyy/mm/dd</para>
             /// </summary>

@@ -16,6 +16,7 @@ public record GetTenantV2TenantQueryResponseDto
     [JsonProperty("tenant")]
     public TenantSuffix? Tenant { get; set; }
 
+    /// <summary></summary>
     public record TenantSuffix
     {
         /// <summary>
@@ -59,6 +60,7 @@ public record GetTenantV2TenantQueryResponseDto
         [JsonProperty("avatar")]
         public AvatarSuffix? Avatar { get; set; }
 
+        /// <summary></summary>
         public record AvatarSuffix
         {
             /// <summary>

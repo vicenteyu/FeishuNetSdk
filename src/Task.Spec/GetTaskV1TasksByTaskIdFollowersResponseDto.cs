@@ -16,6 +16,7 @@ public record GetTaskV1TasksByTaskIdFollowersResponseDto
     [JsonProperty("items")]
     public Follower[]? Items { get; set; }
 
+    /// <summary></summary>
     public record Follower
     {
         /// <summary>

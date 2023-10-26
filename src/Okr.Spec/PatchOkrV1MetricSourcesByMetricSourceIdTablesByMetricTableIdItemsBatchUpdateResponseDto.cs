@@ -5,7 +5,7 @@ namespace FeishuNetSdk.Okr.Spec;
 /// <para>- 该接口用于批量更新多项指标，单次调用最多更新 100 条记录。接口仅限 OKR 企业版使用。</para>
 /// <para>更新成功后 OKR 系统会给以下人员发送消息通知：</para>
 /// <para>- 首次更新目标值的人员</para>
-/// <para>    - 已经将指标添加为 KR、且本次目标值/起始值/支撑的上级有变更的人员，不包含仅更新了进度值的人员</para>
+/// <para> - 已经将指标添加为 KR、且本次目标值/起始值/支撑的上级有变更的人员，不包含仅更新了进度值的人员</para>
 /// <para>接口ID：7153135267980345348</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/okr-v1/metric_source-table-item/batch_update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fokr-v1%2fmetric_source-table-item%2fbatch_update</para>
@@ -19,6 +19,7 @@ public record PatchOkrV1MetricSourcesByMetricSourceIdTablesByMetricTableIdItemsB
     [JsonProperty("items")]
     public MetricItem[]? Items { get; set; }
 
+    /// <summary></summary>
     public record MetricItem
     {
         /// <summary>
@@ -49,6 +50,7 @@ public record PatchOkrV1MetricSourcesByMetricSourceIdTablesByMetricTableIdItemsB
         [JsonProperty("metric_unit")]
         public MetricUnitSuffix? MetricUnit { get; set; }
 
+        /// <summary></summary>
         public record MetricUnitSuffix
         {
             /// <summary>
@@ -130,6 +132,7 @@ public record PatchOkrV1MetricSourcesByMetricSourceIdTablesByMetricTableIdItemsB
     [JsonProperty("failed_items")]
     public FailedMetricItem[]? FailedItems { get; set; }
 
+    /// <summary></summary>
     public record FailedMetricItem
     {
         /// <summary>

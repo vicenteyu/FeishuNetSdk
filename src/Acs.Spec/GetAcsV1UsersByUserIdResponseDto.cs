@@ -16,6 +16,7 @@ public record GetAcsV1UsersByUserIdResponseDto
     [JsonProperty("user")]
     public UserSuffix? User { get; set; }
 
+    /// <summary></summary>
     public record UserSuffix
     {
         /// <summary>
@@ -25,6 +26,7 @@ public record GetAcsV1UsersByUserIdResponseDto
         [JsonProperty("feature")]
         public FeatureSuffix? Feature { get; set; }
 
+        /// <summary></summary>
         public record FeatureSuffix
         {
             /// <summary>

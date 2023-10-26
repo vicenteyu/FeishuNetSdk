@@ -61,6 +61,7 @@ public record PatchSearchV2DataSourcesByDataSourceIdBodyDto
     [JsonProperty("i18n_description")]
     public I18nMeta? I18nDescription { get; set; }
 
+    /// <summary></summary>
     public record I18nMeta
     {
         /// <summary>

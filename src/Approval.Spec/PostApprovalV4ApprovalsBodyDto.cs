@@ -43,6 +43,7 @@ public record PostApprovalV4ApprovalsBodyDto
     [JsonProperty("viewers")]
     public ApprovalCreateViewers[] Viewers { get; set; } = Array.Empty<ApprovalCreateViewers>();
 
+    /// <summary></summary>
     public record ApprovalCreateViewers
     {
         /// <summary>
@@ -85,6 +86,7 @@ public record PostApprovalV4ApprovalsBodyDto
     [JsonProperty("form")]
     public ApprovalForm Form { get; set; } = new();
 
+    /// <summary></summary>
     public record ApprovalForm
     {
         /// <summary>
@@ -103,6 +105,7 @@ public record PostApprovalV4ApprovalsBodyDto
     [JsonProperty("node_list")]
     public ApprovalNode[] NodeList { get; set; } = Array.Empty<ApprovalNode>();
 
+    /// <summary></summary>
     public record ApprovalNode
     {
         /// <summary>
@@ -143,6 +146,7 @@ public record PostApprovalV4ApprovalsBodyDto
         [JsonProperty("approver")]
         public ApprovalApproverCcer[]? Approver { get; set; }
 
+        /// <summary></summary>
         public record ApprovalApproverCcer
         {
             /// <summary>
@@ -198,6 +202,7 @@ public record PostApprovalV4ApprovalsBodyDto
         [JsonProperty("privilege_field")]
         public FieldGroup? PrivilegeField { get; set; }
 
+        /// <summary></summary>
         public record FieldGroup
         {
             /// <summary>
@@ -232,6 +237,7 @@ public record PostApprovalV4ApprovalsBodyDto
         [JsonProperty("approver_chosen_range")]
         public ApproverRange[]? ApproverChosenRange { get; set; }
 
+        /// <summary></summary>
         public record ApproverRange
         {
             /// <summary>
@@ -282,6 +288,7 @@ public record PostApprovalV4ApprovalsBodyDto
     [JsonProperty("settings")]
     public ApprovalSetting? Settings { get; set; }
 
+    /// <summary></summary>
     public record ApprovalSetting
     {
         /// <summary>
@@ -308,6 +315,7 @@ public record PostApprovalV4ApprovalsBodyDto
     [JsonProperty("config")]
     public ApprovalConfig? Config { get; set; }
 
+    /// <summary></summary>
     public record ApprovalConfig
     {
         /// <summary>
@@ -367,6 +375,7 @@ public record PostApprovalV4ApprovalsBodyDto
     [JsonProperty("i18n_resources")]
     public I18nResource[] I18nResources { get; set; } = Array.Empty<I18nResource>();
 
+    /// <summary></summary>
     public record I18nResource
     {
         /// <summary>
@@ -391,6 +400,7 @@ public record PostApprovalV4ApprovalsBodyDto
         [JsonProperty("texts")]
         public I18nResourceText[] Texts { get; set; } = Array.Empty<I18nResourceText>();
 
+        /// <summary></summary>
         public record I18nResourceText
         {
             /// <summary>

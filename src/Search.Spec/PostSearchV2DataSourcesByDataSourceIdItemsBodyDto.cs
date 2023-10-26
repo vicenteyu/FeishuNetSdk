@@ -26,6 +26,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
     [JsonProperty("acl")]
     public AclSuffix[] Acl { get; set; } = Array.Empty<AclSuffix>();
 
+    /// <summary></summary>
     public record AclSuffix
     {
         /// <summary>
@@ -75,6 +76,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
     [JsonProperty("metadata")]
     public ItemMetadata Metadata { get; set; } = new();
 
+    /// <summary></summary>
     public record ItemMetadata
     {
         /// <summary>
@@ -133,6 +135,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
     [JsonProperty("content")]
     public ItemContent? Content { get; set; }
 
+    /// <summary></summary>
     public record ItemContent
     {
         /// <summary>

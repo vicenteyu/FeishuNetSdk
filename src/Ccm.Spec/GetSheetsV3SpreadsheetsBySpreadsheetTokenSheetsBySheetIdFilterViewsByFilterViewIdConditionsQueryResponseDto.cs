@@ -16,6 +16,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterView
     [JsonProperty("items")]
     public FilterViewCondition[]? Items { get; set; }
 
+    /// <summary></summary>
     public record FilterViewCondition
     {
         /// <summary>

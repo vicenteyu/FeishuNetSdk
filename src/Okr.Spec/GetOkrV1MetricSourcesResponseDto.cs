@@ -37,6 +37,7 @@ public record GetOkrV1MetricSourcesResponseDto
     [JsonProperty("items")]
     public MetricSource[]? Items { get; set; }
 
+    /// <summary></summary>
     public record MetricSource
     {
         /// <summary>
@@ -67,6 +68,7 @@ public record GetOkrV1MetricSourcesResponseDto
         [JsonProperty("metric_unit")]
         public MetricUnitSuffix? MetricUnit { get; set; }
 
+        /// <summary></summary>
         public record MetricUnitSuffix
         {
             /// <summary>

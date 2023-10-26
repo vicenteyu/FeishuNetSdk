@@ -16,6 +16,7 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchD
     [JsonProperty("responses")]
     public Response[]? Responses { get; set; }
 
+    /// <summary></summary>
     public record Response
     {
         /// <summary>

@@ -48,7 +48,7 @@ public record PostVcV1ReservesApplyResponseDto
         /// <summary>
         /// <para>APPLink用于唤起飞书APP入会。"{?}"为占位符，用于配置入会参数，使用时需替换具体值：0表示关闭，1表示打开。preview为入会前的设置页，mic为麦克风，speaker为扬声器，camera为摄像头</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://applink.feishu.cn/client/videochat/open?source=openplatform&action=join&idtype=reservationid&id={?}&preview={?}&mic={?}&speaker={?}&camera={?}</para>
+        /// <para>示例值：https://applink.feishu.cn/client/videochat/open?source=openplatform&amp;action=join&amp;idtype=reservationid&amp;id={?}&amp;preview={?}&amp;mic={?}&amp;speaker={?}&amp;camera={?}</para>
         /// </summary>
         [JsonProperty("app_link")]
         public string? AppLink { get; set; }

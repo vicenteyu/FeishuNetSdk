@@ -16,6 +16,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImage
     [JsonProperty("items")]
     public FloatImage[]? Items { get; set; }
 
+    /// <summary></summary>
     public record FloatImage
     {
         /// <summary>

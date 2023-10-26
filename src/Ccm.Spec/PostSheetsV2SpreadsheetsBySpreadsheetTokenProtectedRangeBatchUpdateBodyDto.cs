@@ -16,6 +16,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
     [JsonProperty("requests")]
     public Request[] Requests { get; set; } = Array.Empty<Request>();
 
+    /// <summary></summary>
     public record Request
     {
         /// <summary>
@@ -32,6 +33,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
         [JsonProperty("dimension")]
         public DimensionSuffix? Dimension { get; set; }
 
+        /// <summary></summary>
         public record DimensionSuffix
         {
             /// <summary>
@@ -70,6 +72,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
         [JsonProperty("editors")]
         public EditorsSuffix? Editors { get; set; }
 
+        /// <summary></summary>
         public record EditorsSuffix
         {
             /// <summary>
@@ -86,6 +89,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
             [JsonProperty("delEditors")]
             public Editor[]? DelEditors { get; set; }
 
+            /// <summary></summary>
             public record Editor
             {
                 /// <summary>

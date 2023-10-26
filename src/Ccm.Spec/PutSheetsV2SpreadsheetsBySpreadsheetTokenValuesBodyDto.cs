@@ -16,6 +16,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesBodyDto
     [JsonProperty("valueRange")]
     public ValueRangeSuffix ValueRange { get; set; } = new();
 
+    /// <summary></summary>
     public record ValueRangeSuffix
     {
         /// <summary>

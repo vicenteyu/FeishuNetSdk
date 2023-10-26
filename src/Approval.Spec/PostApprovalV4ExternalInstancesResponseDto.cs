@@ -4,9 +4,6 @@ namespace FeishuNetSdk.Approval.Spec;
 /// 同步三方审批实例 响应体
 /// <para>审批中心不负责审批的流转，审批的流转在三方系统，三方系统在审批流转后生成的审批实例、审批任务、审批抄送数据同步到审批中心。</para>
 /// <para>用户可以在审批中心中浏览三方系统同步过来的实例、任务、抄送信息，并且可以跳转回三方系统进行更详细的查看和操作，其中实例信息在【已发起】列表，任务信息在【待审批】和【已审批】列表，抄送信息在【抄送我】列表。</para>
-/// <para><img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/9dff4434afbeb0ef69de7f36b9a6e995_z5iwmTzEgg.png" alt="" style="zoom:17%;" /></para>
-/// <para><img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/ca6e0e984a7a6d64e1b16a0bac4bf868_tfqjCiaJQM.png" alt="" style="zoom:17%;" /></para>
-/// <para><img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/529377e238df78d391bbd22e962ad195_T7eefLI1GA.png" alt="" style="zoom:17%;" /></para>
 /// <para>接口ID：7114621541589811203</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/external_instance/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2fexternal_instance%2fcreate</para>
@@ -20,6 +17,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
     [JsonProperty("data")]
     public ExternalInstance? Data { get; set; }
 
+    /// <summary></summary>
     public record ExternalInstance
     {
         /// <summary>
@@ -82,6 +80,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         [JsonProperty("form")]
         public ExternalInstanceForm[]? Form { get; set; }
 
+        /// <summary></summary>
         public record ExternalInstanceForm
         {
             /// <summary>
@@ -190,6 +189,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         [JsonProperty("task_list")]
         public ExternalInstanceTaskNode[]? TaskList { get; set; }
 
+        /// <summary></summary>
         public record ExternalInstanceTaskNode
         {
             /// <summary>
@@ -303,6 +303,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             [JsonProperty("action_configs")]
             public ActionConfig[]? ActionConfigs { get; set; }
 
+            /// <summary></summary>
             public record ActionConfig
             {
                 /// <summary>
@@ -396,6 +397,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         [JsonProperty("cc_list")]
         public CcNode[]? CcList { get; set; }
 
+        /// <summary></summary>
         public record CcNode
         {
             /// <summary>
@@ -482,6 +484,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             [JsonProperty("display_method")]
             public string? DisplayMethod { get; set; }
         }
+        /// <summary></summary>
         public record ExternalInstanceLink
         {
             /// <summary>
@@ -506,6 +509,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         [JsonProperty("i18n_resources")]
         public I18nResource[]? I18nResources { get; set; }
 
+        /// <summary></summary>
         public record I18nResource
         {
             /// <summary>
@@ -529,6 +533,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             [JsonProperty("texts")]
             public I18nResourceText[]? Texts { get; set; }
 
+            /// <summary></summary>
             public record I18nResourceText
             {
                 /// <summary>
@@ -575,6 +580,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         [JsonProperty("trusteeship_urls")]
         public TrusteeshipUrl? TrusteeshipUrls { get; set; }
 
+        /// <summary></summary>
         public record TrusteeshipUrl
         {
             /// <summary>

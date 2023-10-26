@@ -23,6 +23,7 @@ public record GetDocV2ByDocTokenSheetMetaResponseDto
     [JsonProperty("sheets")]
     public Sheet[]? Sheets { get; set; }
 
+    /// <summary></summary>
     public record Sheet
     {
         /// <summary>

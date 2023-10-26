@@ -16,6 +16,7 @@ public record PostMeetingRoomSummaryBatchGetBodyDto
     [JsonProperty("eventUids")]
     public EventUid[] EventUids { get; set; } = Array.Empty<EventUid>();
 
+    /// <summary></summary>
     public record EventUid
     {
         /// <summary>

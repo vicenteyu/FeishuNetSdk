@@ -30,7 +30,7 @@ public record PostWorkplaceV1WorkplaceBlockAccessDataSearchResponseDto
         public string? Date { get; set; }
 
         /// <summary>
-        /// <para>小组件id（BlockID）。可前往 飞书管理后台 > 工作台 > 定制工作台，选择指定的工作台并进入工作台编辑器，点击某个小组件，即可查看页面右侧面板中该小组件名称下方的“BlockID”</para>
+        /// <para>小组件id（BlockID）。可前往 飞书管理后台 &gt; 工作台 &gt; 定制工作台，选择指定的工作台并进入工作台编辑器，点击某个小组件，即可查看页面右侧面板中该小组件名称下方的“BlockID”</para>
         /// <para>必填：否</para>
         /// <para>示例值：283438293839422334</para>
         /// </summary>

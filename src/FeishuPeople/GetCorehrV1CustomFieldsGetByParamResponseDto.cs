@@ -395,7 +395,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>时间类型枚举</para>
                 /// <para>**可选值有：**</para>
                 /// <para>- `1`：Date 日期，如 2020-01-01</para>
-                /// <para>- `2`：Time  时间，如 11:52:00</para>
+                /// <para>- `2`：Time 时间，如 11:52:00</para>
                 /// <para>- `3`：Datetime 日期时间，如 2020-01-01 11:52:00</para>
                 /// <para>- `4`：CusDatetime // timestamp 时间戳</para>
                 /// <para>必填：否</para>
@@ -479,7 +479,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>显示样式枚举</para>
                 /// <para>**可选值有：**</para>
                 /// <para>- `1`：SquareImage 方形</para>
-                /// <para>- `2`：RoundImage  圆形</para>
+                /// <para>- `2`：RoundImage 圆形</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>

@@ -17,6 +17,7 @@ public record PostApprovalV4ExternalInstancesCheckBodyDto
     [JsonProperty("instances")]
     public ExteranlInstanceCheck[] Instances { get; set; } = Array.Empty<ExteranlInstanceCheck>();
 
+    /// <summary></summary>
     public record ExteranlInstanceCheck
     {
         /// <summary>
@@ -42,6 +43,7 @@ public record PostApprovalV4ExternalInstancesCheckBodyDto
         [JsonProperty("tasks")]
         public ExternalInstanceTask[] Tasks { get; set; } = Array.Empty<ExternalInstanceTask>();
 
+        /// <summary></summary>
         public record ExternalInstanceTask
         {
             /// <summary>

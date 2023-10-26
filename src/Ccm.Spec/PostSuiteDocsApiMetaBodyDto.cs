@@ -17,6 +17,7 @@ public record PostSuiteDocsApiMetaBodyDto
     [JsonProperty("request_docs")]
     public RequestDoc[] RequestDocs { get; set; } = Array.Empty<RequestDoc>();
 
+    /// <summary></summary>
     public record RequestDoc
     {
         /// <summary>

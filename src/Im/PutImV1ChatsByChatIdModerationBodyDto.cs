@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 更新群发言权限 请求体
-/// <para>更新群组的发言权限设置，可设置为全员可发言、仅管理员可发言  或 指定用户可发言。</para>
+/// <para>更新群组的发言权限设置，可设置为全员可发言、仅管理员可发言 或 指定用户可发言。</para>
 /// <para>接口ID：6951292665602899970</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/group/chat/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fchat-moderation%2fupdate</para>

@@ -17,7 +17,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsBodyDto
     public string Range { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>可选三个类型，"MERGE_ALL"  将所选区域直接合并、"MERGE_ROWS"  将所选区域按行合并、"MERGE_COLUMNS"  将所选区域按列合并响应</para>
+    /// <para>可选三个类型，"MERGE_ALL" 将所选区域直接合并、"MERGE_ROWS" 将所选区域按行合并、"MERGE_COLUMNS" 将所选区域按列合并响应</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonProperty("mergeType")]

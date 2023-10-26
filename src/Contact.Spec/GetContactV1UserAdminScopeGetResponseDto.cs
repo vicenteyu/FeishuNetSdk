@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 获取应用管理员管理范围 响应体
-/// <para>该接口用于获取应用管理员的管理范围，即该应用管理员能够管理哪些部门。  </para>
+/// <para>该接口用于获取应用管理员的管理范围，即该应用管理员能够管理哪些部门。 </para>
 /// <para>接口ID：6907569742384971778</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/application-v6/admin/obtain-an-app-admin’s-management-permissions</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzN3QjLzczN04yM3cDN</para>

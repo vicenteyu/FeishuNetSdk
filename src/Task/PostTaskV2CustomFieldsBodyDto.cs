@@ -27,7 +27,7 @@ namespace FeishuNetSdk.Task;
 /// <para>"name": "优先级",</para>
 /// <para>"type": "single_select",</para>
 /// <para>"resource_type": "tasklist",</para>
-/// <para>"resource_id":  "ec5ed63d-a4a9-44de-a935-7ba243471c0a",</para>
+/// <para>"resource_id": "ec5ed63d-a4a9-44de-a935-7ba243471c0a",</para>
 /// <para>"single_select_setting": {</para>
 /// <para>"options": [</para>
 /// <para>{</para>
@@ -209,12 +209,12 @@ public record PostTaskV2CustomFieldsBodyDto
     {
         /// <summary>
         /// <para>日期时间格式，支持</para>
-        /// <para><md-enum></para>
-        /// <para><md-enum-item key="yyyy-mm-dd" >以短横分隔的年月日，例如2023-08-24</md-enum-item></para>
-        /// <para><md-enum-item key="yyyy/mm/dd" >以斜杠分隔的年月日，例如2023/08/04</md-enum-item></para>
-        /// <para><md-enum-item key="mm/dd/yyyy" >以斜杠分隔的月日年，例如08/24/2023</md-enum-item></para>
-        /// <para><md-enum-item key="dd/mm/yyyy" >以斜杠分隔的日月年，例如24/08/2023</md-enum-item></para>
-        /// <para></md-enum></para>
+        /// <para>&lt;md-enum&gt;</para>
+        /// <para>&lt;md-enum-item key="yyyy-mm-dd" &gt;以短横分隔的年月日，例如2023-08-24&lt;/md-enum-item&gt;</para>
+        /// <para>&lt;md-enum-item key="yyyy/mm/dd" &gt;以斜杠分隔的年月日，例如2023/08/04&lt;/md-enum-item&gt;</para>
+        /// <para>&lt;md-enum-item key="mm/dd/yyyy" &gt;以斜杠分隔的月日年，例如08/24/2023&lt;/md-enum-item&gt;</para>
+        /// <para>&lt;md-enum-item key="dd/mm/yyyy" &gt;以斜杠分隔的日月年，例如24/08/2023&lt;/md-enum-item&gt;</para>
+        /// <para>&lt;/md-enum&gt;</para>
         /// <para>默认为"yyyy-mm-dd"。</para>
         /// <para>注意本设置仅影响App中的时间日期类型字段的字段值的显示格式，并不会影响openapi输入/输出的字段值的格式。</para>
         /// <para>必填：否</para>

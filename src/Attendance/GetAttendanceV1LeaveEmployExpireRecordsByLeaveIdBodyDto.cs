@@ -26,7 +26,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto
     public string LeaveTypeId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>失效最早日期  2023-04-10 格式</para>
+    /// <para>失效最早日期 2023-04-10 格式</para>
     /// <para>必填：是</para>
     /// <para>示例值：2023-04-10</para>
     /// </summary>
@@ -42,7 +42,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto
     public string EndExpirationDate { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>时间偏移，东八区：480    8*60， 如果没有这个参数，默认东八区</para>
+    /// <para>时间偏移，东八区：480 8*60， 如果没有这个参数，默认东八区</para>
     /// <para>必填：否</para>
     /// <para>示例值：480</para>
     /// </summary>

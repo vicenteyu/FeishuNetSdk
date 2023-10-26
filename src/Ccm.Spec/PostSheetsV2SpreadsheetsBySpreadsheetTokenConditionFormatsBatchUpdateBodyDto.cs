@@ -16,6 +16,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpd
     [JsonProperty("sheet_condition_formats")]
     public SheetConditionFormat[] SheetConditionFormats { get; set; } = Array.Empty<SheetConditionFormat>();
 
+    /// <summary></summary>
     public record SheetConditionFormat
     {
         /// <summary>
@@ -32,6 +33,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpd
         [JsonProperty("condition_format")]
         public ConditionFormatSuffix ConditionFormat { get; set; } = new();
 
+        /// <summary></summary>
         public record ConditionFormatSuffix
         {
             /// <summary>
@@ -62,6 +64,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpd
             [JsonProperty("attrs")]
             public Attr[] Attrs { get; set; } = Array.Empty<Attr>();
 
+            /// <summary></summary>
             public record Attr
             {
                 /// <summary>
@@ -100,6 +103,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpd
             [JsonProperty("style")]
             public StyleSuffix? Style { get; set; }
 
+            /// <summary></summary>
             public record StyleSuffix
             {
                 /// <summary>
@@ -109,6 +113,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpd
                 [JsonProperty("font")]
                 public FontSuffix? Font { get; set; }
 
+                /// <summary></summary>
                 public record FontSuffix
                 {
                     /// <summary>

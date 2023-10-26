@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 获取三方审批任务状态 响应体
-/// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list)该接口用于获取三方审批的状态。用户传入查询条件，接口返回满足条件的审批实例的状态。</para>
+/// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list)该接口用于获取三方审批的状态。用户传入查询条件，接口返回满足条件的审批实例的状态。</para>
 /// <para>该接口支持多种参数的组合， 包括如下组合：</para>
 /// <para>1. 通过 instance_ids 获取指定实例的任务状态</para>
 /// <para>2. 通过 user_ids 获取指定用户的任务状态</para>
@@ -21,6 +21,7 @@ public record PostApprovalOpenapiV2ExternalListResponseDto
     [JsonProperty("data")]
     public DataSuffix[]? Data { get; set; }
 
+    /// <summary></summary>
     public record DataSuffix
     {
         /// <summary>
@@ -65,6 +66,7 @@ public record PostApprovalOpenapiV2ExternalListResponseDto
         [JsonProperty("tasks")]
         public Task[]? Tasks { get; set; }
 
+        /// <summary></summary>
         public record Task
         {
             /// <summary>

@@ -16,6 +16,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
     [JsonProperty("replies")]
     public Reply[]? Replies { get; set; }
 
+    /// <summary></summary>
     public record Reply
     {
         /// <summary>
@@ -32,6 +33,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
         [JsonProperty("dimension")]
         public DimensionSuffix? Dimension { get; set; }
 
+        /// <summary></summary>
         public record DimensionSuffix
         {
             /// <summary>
@@ -70,6 +72,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
         [JsonProperty("editors")]
         public EditorsSuffix? Editors { get; set; }
 
+        /// <summary></summary>
         public record EditorsSuffix
         {
             /// <summary>
@@ -87,6 +90,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
             [JsonProperty("delEditors")]
             public Editor[]? DelEditors { get; set; }
 
+            /// <summary></summary>
             public record Editor
             {
                 /// <summary>

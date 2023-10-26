@@ -27,7 +27,7 @@ namespace FeishuNetSdk.Task;
 /// <para>"name": "优先级",</para>
 /// <para>"type": "single_select",</para>
 /// <para>"resource_type": "tasklist",</para>
-/// <para>"resource_id":  "ec5ed63d-a4a9-44de-a935-7ba243471c0a",</para>
+/// <para>"resource_id": "ec5ed63d-a4a9-44de-a935-7ba243471c0a",</para>
 /// <para>"single_select_setting": {</para>
 /// <para>"options": [</para>
 /// <para>{</para>

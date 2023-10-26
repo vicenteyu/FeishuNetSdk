@@ -253,7 +253,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesRespons
         /// <summary>
         /// <para>申请预定审批会议室的原因。</para>
         /// <para>- 仅user_access_token预定审批会议室时，approval_reason字段生效。</para>
-        /// <para>-  tenant_access_token预定审批会议室时，会直接失败。</para>
+        /// <para>- tenant_access_token预定审批会议室时，会直接失败。</para>
         /// <para>- 对于审批会议室，不传approval_reason会直接预约失败。</para>
         /// <para>必填：否</para>
         /// <para>示例值：申请审批原因</para>

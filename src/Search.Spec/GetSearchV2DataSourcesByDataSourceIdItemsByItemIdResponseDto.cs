@@ -16,6 +16,7 @@ public record GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto
     [JsonProperty("item")]
     public ItemSuffix? Item { get; set; }
 
+    /// <summary></summary>
     public record ItemSuffix
     {
         /// <summary>
@@ -32,6 +33,7 @@ public record GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto
         [JsonProperty("acl")]
         public AclSuffix[]? Acl { get; set; }
 
+        /// <summary></summary>
         public record AclSuffix
         {
             /// <summary>
@@ -77,6 +79,7 @@ public record GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto
         [JsonProperty("metadata")]
         public ItemMetadata? Metadata { get; set; }
 
+        /// <summary></summary>
         public record ItemMetadata
         {
             /// <summary>
@@ -129,6 +132,7 @@ public record GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto
         [JsonProperty("content")]
         public ItemContent? Content { get; set; }
 
+        /// <summary></summary>
         public record ItemContent
         {
             /// <summary>

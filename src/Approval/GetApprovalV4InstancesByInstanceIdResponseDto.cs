@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 获取单个审批实例详情 响应体
-/// <para>通过审批实例 Instance Code  获取审批实例详情。Instance Code 由 [批量获取审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list) 接口获取。</para>
+/// <para>通过审批实例 Instance Code 获取审批实例详情。Instance Code 由 [批量获取审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list) 接口获取。</para>
 /// <para>接口ID：7114621541589729283</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/instance/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2finstance%2fget</para>
@@ -270,7 +270,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             /// <summary>
             /// <para>附件路径</para>
             /// <para>必填：否</para>
-            /// <para>示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20220714/1/332f3596-0845-4746-a4bc-818d54ad435b.png~tplv-ottatrvjsm-image.image?x-expires=1659033558&x-signature=6edF3k%2BaHeAuvfcBRGOkbckoUl4%3D#.png</para>
+            /// <para>示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20220714/1/332f3596-0845-4746-a4bc-818d54ad435b.png~tplv-ottatrvjsm-image.image?x-expires=1659033558&amp;x-signature=6edF3k%2BaHeAuvfcBRGOkbckoUl4%3D#.png</para>
             /// </summary>
             [JsonProperty("url")]
             public string? Url { get; set; }
@@ -461,7 +461,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             /// <summary>
             /// <para>附件路径</para>
             /// <para>必填：否</para>
-            /// <para>示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20220714/1/332f3596-0845-4746-a4bc-818d54ad435b.png~tplv-ottatrvjsm-image.image?x-expires=1659033558&x-signature=6edF3k%2BaHeAuvfcBRGOkbckoUl4%3D#.png</para>
+            /// <para>示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20220714/1/332f3596-0845-4746-a4bc-818d54ad435b.png~tplv-ottatrvjsm-image.image?x-expires=1659033558&amp;x-signature=6edF3k%2BaHeAuvfcBRGOkbckoUl4%3D#.png</para>
             /// </summary>
             [JsonProperty("url")]
             public string? Url { get; set; }

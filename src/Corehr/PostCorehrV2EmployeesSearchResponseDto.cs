@@ -3872,7 +3872,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
         /// <summary>
         /// <para>员工头像</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/v2_a550d36b-28ef-48ad-9e50-58004beb386j~?image_size=noop&cut_type=&quality=&format=png&sticker_format=.webp</para>
+        /// <para>示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/v2_a550d36b-28ef-48ad-9e50-58004beb386j~?image_size=noop&amp;cut_type=&amp;quality=&amp;format=png&amp;sticker_format=.webp</para>
         /// </summary>
         [JsonProperty("avatar_url")]
         public string? AvatarUrl { get; set; }

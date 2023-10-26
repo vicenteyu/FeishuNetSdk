@@ -16,6 +16,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
     [JsonProperty("dimension")]
     public DimensionSuffix Dimension { get; set; } = new();
 
+    /// <summary></summary>
     public record DimensionSuffix
     {
         /// <summary>
@@ -33,7 +34,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
         public string MajorDimension { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>要增加的行/列数,0<length<5000</para>
+        /// <para>要增加的行/列数,0&lt;length&lt;5000</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonProperty("length")]

@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新 e-HR 导入任务结果 请求体
-/// <para>在处理完导入 e-HR 事件后，可调用该接口，更新  e-HR 导入任务结果。</para>
+/// <para>在处理完导入 e-HR 事件后，可调用该接口，更新 e-HR 导入任务结果。</para>
 /// <para>接口ID：6992933256561426436</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/onboard/patch-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fehr_import_task%2fpatch</para>

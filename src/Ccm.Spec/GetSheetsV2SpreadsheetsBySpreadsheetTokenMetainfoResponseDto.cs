@@ -25,6 +25,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoResponseDto
     [JsonProperty("properties")]
     public Property? Properties { get; set; }
 
+    /// <summary></summary>
     public record Property
     {
         /// <summary>
@@ -70,6 +71,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoResponseDto
     [JsonProperty("sheets")]
     public Sheet[]? Sheets { get; set; }
 
+    /// <summary></summary>
     public record Sheet
     {
         /// <summary>
@@ -128,6 +130,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoResponseDto
         [JsonProperty("merges")]
         public Merge[]? Merges { get; set; }
 
+        /// <summary></summary>
         public record Merge
         {
             /// <summary>
@@ -166,6 +169,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoResponseDto
         [JsonProperty("protectedRange")]
         public ProtectedRangeSuffix[]? ProtectedRange { get; set; }
 
+        /// <summary></summary>
         public record ProtectedRangeSuffix
         {
             /// <summary>
@@ -175,6 +179,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoResponseDto
             [JsonProperty("dimension")]
             public DimensionSuffix? Dimension { get; set; }
 
+            /// <summary></summary>
             public record DimensionSuffix
             {
                 /// <summary>
@@ -235,6 +240,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoResponseDto
         [JsonProperty("blockInfo")]
         public string? BlockInfo { get; set; }
 
+        /// <summary></summary>
         public record BlockInfoSuffix
         {
             /// <summary>

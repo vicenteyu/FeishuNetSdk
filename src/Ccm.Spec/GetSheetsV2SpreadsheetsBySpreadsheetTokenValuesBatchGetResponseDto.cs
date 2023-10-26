@@ -37,6 +37,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchGetResponseDto
     [JsonProperty("valueRanges")]
     public ValueRange[]? ValueRanges { get; set; }
 
+    /// <summary></summary>
     public record ValueRange
     {
         /// <summary>

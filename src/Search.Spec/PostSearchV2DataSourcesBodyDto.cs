@@ -78,6 +78,7 @@ public record PostSearchV2DataSourcesBodyDto
     [JsonProperty("i18n_description")]
     public I18nMeta? I18nDescription { get; set; }
 
+    /// <summary></summary>
     public record I18nMeta
     {
         /// <summary>

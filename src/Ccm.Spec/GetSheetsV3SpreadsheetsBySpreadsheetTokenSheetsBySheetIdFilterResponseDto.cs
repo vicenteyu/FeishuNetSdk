@@ -16,6 +16,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterResp
     [JsonProperty("sheet_filter_info")]
     public SheetFilterInfoSuffix? SheetFilterInfo { get; set; }
 
+    /// <summary></summary>
     public record SheetFilterInfoSuffix
     {
         /// <summary>
@@ -39,6 +40,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterResp
         [JsonProperty("filter_infos")]
         public FilterInfo[]? FilterInfos { get; set; }
 
+        /// <summary></summary>
         public record FilterInfo
         {
             /// <summary>
@@ -55,6 +57,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterResp
             [JsonProperty("conditions")]
             public Condition[]? Conditions { get; set; }
 
+            /// <summary></summary>
             public record Condition
             {
                 /// <summary>

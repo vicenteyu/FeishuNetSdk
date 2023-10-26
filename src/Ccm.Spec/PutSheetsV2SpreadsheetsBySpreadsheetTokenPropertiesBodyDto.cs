@@ -16,6 +16,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesBodyDto
     [JsonProperty("properties")]
     public Property Properties { get; set; } = new();
 
+    /// <summary></summary>
     public record Property
     {
         /// <summary>

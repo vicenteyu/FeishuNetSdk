@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 创建审批定义 请求体
-/// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)用于通过接口创建简单的审批定义，可以灵活指定定义的基础信息、表单和流程等。创建成功后，不支持从审批管理后台删除该定义。不推荐企业自建应用使用，如有需要尽量联系管理员在审批管理后台创建定义。</para>
+/// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)用于通过接口创建简单的审批定义，可以灵活指定定义的基础信息、表单和流程等。创建成功后，不支持从审批管理后台删除该定义。不推荐企业自建应用使用，如有需要尽量联系管理员在审批管理后台创建定义。</para>
 /// <para>接口谨慎调用，创建后的审批定义无法停用/删除</para>
 /// <para>接口ID：6907569743420686338</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version/approval/v2/feishu-store-app-integration/create-an-approval-definition</para>
@@ -38,14 +38,18 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     [JsonProperty("viewers")]
     public Viewer[] Viewers { get; set; } = Array.Empty<Viewer>();
 
-    public class Viewer
+    /// <summary></summary>
+    public record Viewer
     {
+        /// <summary></summary>
         [JsonProperty("type")]
         public string Type { get; set; } = string.Empty;
 
+        /// <summary></summary>
         [JsonProperty("open_id")]
         public string OpenId { get; set; } = string.Empty;
 
+        /// <summary></summary>
         [JsonProperty("user_id")]
         public string UserId { get; set; } = string.Empty;
     }
@@ -57,6 +61,7 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     [JsonProperty("form")]
     public FormSuffix Form { get; set; } = new();
 
+    /// <summary></summary>
     public record FormSuffix
     {
         /// <summary>
@@ -74,6 +79,7 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     [JsonProperty("node_list")]
     public Node[] NodeList { get; set; } = Array.Empty<Node>();
 
+    /// <summary></summary>
     public record Node
     {
         /// <summary>
@@ -123,6 +129,7 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     [JsonProperty("settings")]
     public Setting? Settings { get; set; }
 
+    /// <summary></summary>
     public record Setting
     {
         /// <summary>
@@ -147,6 +154,7 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     [JsonProperty("config")]
     public ConfigSuffix? Config { get; set; }
 
+    /// <summary></summary>
     public record ConfigSuffix
     {
         /// <summary>
@@ -199,13 +207,14 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     [JsonProperty("i18n_resources")]
     public I18nResource[] I18nResources { get; set; } = Array.Empty<I18nResource>();
 
+    /// <summary></summary>
     public record I18nResource
     {
         /// <summary>
         /// <para>语言：</para>
         /// <para>zh-CN - 中文</para>
         /// <para>en-US - 英文</para>
-        /// <para>ja-JP   - 日文</para>
+        /// <para>ja-JP - 日文</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonProperty("locale")]
@@ -219,12 +228,13 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
         public bool IsDefault { get; set; }
 
         /// <summary>
-        /// <para>文案 key, value,  i18n key 以 @i18n@ 开头</para>
+        /// <para>文案 key, value, i18n key 以 @i18n@ 开头</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonProperty("texts")]
         public object Texts { get; set; } = new();
 
+        /// <summary></summary>
         public record Text
         {
             /// <summary>

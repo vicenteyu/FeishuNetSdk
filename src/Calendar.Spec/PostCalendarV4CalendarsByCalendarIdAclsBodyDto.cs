@@ -34,6 +34,7 @@ public record PostCalendarV4CalendarsByCalendarIdAclsBodyDto
     [JsonProperty("scope")]
     public AclScope Scope { get; set; } = new();
 
+    /// <summary></summary>
     public record AclScope
     {
         /// <summary>

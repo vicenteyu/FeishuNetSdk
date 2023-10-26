@@ -16,6 +16,7 @@ public record GetEhrV1EmployeesResponseDto
     [JsonProperty("items")]
     public Employee[]? Items { get; set; }
 
+    /// <summary></summary>
     public record Employee
     {
         /// <summary>
@@ -36,6 +37,7 @@ public record GetEhrV1EmployeesResponseDto
         [JsonProperty("system_fields")]
         public SystemField? SystemFields { get; set; }
 
+        /// <summary></summary>
         public record SystemField
         {
             /// <summary>
@@ -80,6 +82,7 @@ public record GetEhrV1EmployeesResponseDto
             [JsonProperty("manager")]
             public ManagerSuffix? Manager { get; set; }
 
+            /// <summary></summary>
             public record ManagerSuffix
             {
                 /// <summary>
@@ -111,6 +114,7 @@ public record GetEhrV1EmployeesResponseDto
             [JsonProperty("job")]
             public JobSuffix? Job { get; set; }
 
+            /// <summary></summary>
             public record JobSuffix
             {
                 /// <summary>
@@ -135,6 +139,7 @@ public record GetEhrV1EmployeesResponseDto
             [JsonProperty("job_level")]
             public JobLevelSuffix? JobLevel { get; set; }
 
+            /// <summary></summary>
             public record JobLevelSuffix
             {
                 /// <summary>
@@ -159,6 +164,7 @@ public record GetEhrV1EmployeesResponseDto
             [JsonProperty("work_location")]
             public WorkLocationSuffix? WorkLocation { get; set; }
 
+            /// <summary></summary>
             public record WorkLocationSuffix
             {
                 /// <summary>
@@ -203,6 +209,7 @@ public record GetEhrV1EmployeesResponseDto
             [JsonProperty("native_region")]
             public NativeRegionSuffix? NativeRegion { get; set; }
 
+            /// <summary></summary>
             public record NativeRegionSuffix
             {
                 /// <summary>
@@ -569,6 +576,7 @@ public record GetEhrV1EmployeesResponseDto
             [JsonProperty("contract_company")]
             public ContractCompanySuffix? ContractCompany { get; set; }
 
+            /// <summary></summary>
             public record ContractCompanySuffix
             {
                 /// <summary>
@@ -653,6 +661,7 @@ public record GetEhrV1EmployeesResponseDto
             [JsonProperty("emergency_contact")]
             public EmergencyContact[]? EmergencyContacts { get; set; }
 
+            /// <summary></summary>
             public record EmergencyContact
             {
                 /// <summary>
@@ -701,6 +710,7 @@ public record GetEhrV1EmployeesResponseDto
             [JsonProperty("education")]
             public Education[]? Educations { get; set; }
 
+            /// <summary></summary>
             public record Education
             {
                 /// <summary>
@@ -780,6 +790,7 @@ public record GetEhrV1EmployeesResponseDto
             [JsonProperty("work_exp")]
             public WorkExperience[]? WorkExp { get; set; }
 
+            /// <summary></summary>
             public record WorkExperience
             {
                 /// <summary>
@@ -924,6 +935,7 @@ public record GetEhrV1EmployeesResponseDto
             [JsonProperty("update_time")]
             public int? UpdateTime { get; set; }
 
+            /// <summary></summary>
             public record Attachment
             {
                 /// <summary>
@@ -964,6 +976,7 @@ public record GetEhrV1EmployeesResponseDto
         [JsonProperty("custom_fields")]
         public CustomField[]? CustomFields { get; set; }
 
+        /// <summary></summary>
         public record CustomField
         {
             /// <summary>

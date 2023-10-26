@@ -736,7 +736,7 @@ public record PostTaskV2TasksResponseDto
         /// <summary>
         /// <para>任务的分享链接。飞书中点击该链接可以直接打开任务详情。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&suite_entity_num=t192012</para>
+        /// <para>示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&amp;suite_entity_num=t192012</para>
         /// </summary>
         [JsonProperty("url")]
         public string? Url { get; set; }

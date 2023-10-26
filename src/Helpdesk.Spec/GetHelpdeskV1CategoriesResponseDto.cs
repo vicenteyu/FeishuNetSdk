@@ -16,6 +16,7 @@ public record GetHelpdeskV1CategoriesResponseDto
     [JsonProperty("categories")]
     public Category[]? Categories { get; set; }
 
+    /// <summary></summary>
     public record Category
     {
         /// <summary>

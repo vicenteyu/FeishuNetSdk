@@ -37,6 +37,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto
     [JsonProperty("dataValidations")]
     public DataValidation[]? DataValidations { get; set; }
 
+    /// <summary></summary>
     public record DataValidation
     {
         /// <summary>
@@ -67,6 +68,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto
         [JsonProperty("options")]
         public Option? Options { get; set; }
 
+        /// <summary></summary>
         public record Option
         {
             /// <summary>

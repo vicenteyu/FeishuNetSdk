@@ -16,6 +16,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
     [JsonProperty("dimension")]
     public DimensionSuffix Dimension { get; set; } = new();
 
+    /// <summary></summary>
     public record DimensionSuffix
     {
         /// <summary>
@@ -54,6 +55,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
     [JsonProperty("dimensionProperties")]
     public DimensionProperty DimensionProperties { get; set; } = new();
 
+    /// <summary></summary>
     public record DimensionProperty
     {
         /// <summary>

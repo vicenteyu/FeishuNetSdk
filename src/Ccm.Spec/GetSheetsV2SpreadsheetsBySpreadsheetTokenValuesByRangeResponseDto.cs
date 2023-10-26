@@ -30,6 +30,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRangeResponseDto
     [JsonProperty("valueRange")]
     public string? ValueRange { get; set; }
 
+    /// <summary></summary>
     public record ValueRangeSuffix
     {
         /// <summary>

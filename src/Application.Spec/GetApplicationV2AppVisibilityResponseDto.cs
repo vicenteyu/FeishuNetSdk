@@ -16,6 +16,7 @@ public record GetApplicationV2AppVisibilityResponseDto
     [JsonProperty("departments")]
     public Department[]? Departments { get; set; }
 
+    /// <summary></summary>
     public record Department
     {
         /// <summary>
@@ -40,6 +41,7 @@ public record GetApplicationV2AppVisibilityResponseDto
     [JsonProperty("users")]
     public User[]? Users { get; set; }
 
+    /// <summary></summary>
     public record User
     {
         /// <summary>
@@ -71,6 +73,7 @@ public record GetApplicationV2AppVisibilityResponseDto
     [JsonProperty("groups")]
     public Group[]? Groups { get; set; }
 
+    /// <summary></summary>
     public record Group
     {
         /// <summary>

@@ -391,7 +391,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsResponseDto
             /// <summary>
             /// <para>按钮点击后跳转的链接; **该字段暂不支持传入。**</para>
             /// <para>必填：否</para>
-            /// <para>示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx</para>
+            /// <para>示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&amp;key=xxxxxx&amp;originalTime=xxxxxx&amp;startTime=xxxxxx</para>
             /// <para>最大长度：2000</para>
             /// </summary>
             [JsonProperty("app_link")]

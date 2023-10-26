@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 列出数据表 响应体
-/// <para>根据  app_token，获取多维表格下的所有数据表。</para>
+/// <para>根据 app_token，获取多维表格下的所有数据表。</para>
 /// <para>接口ID：6960166873968476163</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table%2flist</para>

@@ -17,6 +17,7 @@ public record PostApprovalV4ExternalInstancesCheckResponseDto
     [JsonProperty("diff_instances")]
     public ExteranlInstanceCheckResponse[]? DiffInstances { get; set; }
 
+    /// <summary></summary>
     public record ExteranlInstanceCheckResponse
     {
         /// <summary>
@@ -40,6 +41,7 @@ public record PostApprovalV4ExternalInstancesCheckResponseDto
         [JsonProperty("tasks")]
         public ExternalInstanceTask[]? Tasks { get; set; }
 
+        /// <summary></summary>
         public record ExternalInstanceTask
         {
             /// <summary>

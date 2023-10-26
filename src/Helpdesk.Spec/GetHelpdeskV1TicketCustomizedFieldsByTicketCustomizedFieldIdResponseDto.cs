@@ -107,6 +107,7 @@ public record GetHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdRespon
     [JsonProperty("updated_by")]
     public TicketUser? UpdatedBy { get; set; }
 
+    /// <summary></summary>
     public record TicketUser
     {
         /// <summary>
@@ -145,6 +146,7 @@ public record GetHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdRespon
     [JsonProperty("dropdown_options")]
     public DropdownOptionSuffix? DropdownOptions { get; set; }
 
+    /// <summary></summary>
     public record DropdownOptionSuffix
     {
         /// <summary>
@@ -154,6 +156,7 @@ public record GetHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdRespon
         [JsonProperty("children")]
         public DropdownOption[]? Children { get; set; }
 
+        /// <summary></summary>
         public record DropdownOption
         {
             /// <summary>

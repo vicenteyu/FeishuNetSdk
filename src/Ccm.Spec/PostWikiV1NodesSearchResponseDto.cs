@@ -17,6 +17,7 @@ public record PostWikiV1NodesSearchResponseDto
     [JsonProperty("items")]
     public Item[]? Items { get; set; }
 
+    /// <summary></summary>
     public record Item
     {
         /// <summary>

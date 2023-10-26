@@ -32,9 +32,9 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdBodyDto
         /// <summary>
         /// <para>预定审批开关：0 代表关闭，1 代表打开。</para>
         /// <para>说明：</para>
-        /// <para>1.  未设置值时不更新原开关的值，但此时必填  approval_condition</para>
-        /// <para>2.  设置值为 1 时，必填  approval_condition</para>
-        /// <para>3.  设置值为 0 时整个</para>
+        /// <para>1. 未设置值时不更新原开关的值，但此时必填 approval_condition</para>
+        /// <para>2. 设置值为 1 时，必填 approval_condition</para>
+        /// <para>3. 设置值为 0 时整个</para>
         /// <para>approval_config 其他字段均可省略。</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
@@ -55,9 +55,9 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdBodyDto
         /// <para>超过 meeting_duration</para>
         /// <para>的预定需要审批（单位：小时，取值范围[0.1-99]）</para>
         /// <para>说明：</para>
-        /// <para>1.  当 approval_condition</para>
+        /// <para>1. 当 approval_condition</para>
         /// <para> 为 0 ，更新时如果未设置值，默认更新为 99 .</para>
-        /// <para>2.  传入的值小数点后超过 2 位，自动四舍五入保留两位。</para>
+        /// <para>2. 传入的值小数点后超过 2 位，自动四舍五入保留两位。</para>
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
@@ -129,9 +129,9 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdBodyDto
         /// <para>开放当天可于</para>
         /// <para> opening_hour 开始预定（单位：秒，取值范围[0,86400]）</para>
         /// <para>说明：</para>
-        /// <para>1.  不填写时默认更新为</para>
+        /// <para>1. 不填写时默认更新为</para>
         /// <para> 28800</para>
-        /// <para>2.  如果填写的值不是 60</para>
+        /// <para>2. 如果填写的值不是 60</para>
         /// <para> 的倍数，则自动会更新为离其最近的 60 整数倍的值。</para>
         /// <para>必填：否</para>
         /// <para>示例值：27900</para>
@@ -142,12 +142,12 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdBodyDto
         /// <summary>
         /// <para>每日可预定时间范围的开始时间（单位：秒，取值范围[0,86400]）</para>
         /// <para>说明：</para>
-        /// <para>1.  不填写时，默认更新为 0 ，此时填写的  end_time 不得小于 30。</para>
-        /// <para>2.  当 start_time 与</para>
+        /// <para>1. 不填写时，默认更新为 0 ，此时填写的 end_time 不得小于 30。</para>
+        /// <para>2. 当 start_time 与</para>
         /// <para>end_time 均填写时，</para>
         /// <para>end_time 至少超过</para>
         /// <para> start_time 30 。</para>
-        /// <para>3.  如果填写的值不是 60 的倍数，则自动会更新为离其最近的 60 整数倍的值。</para>
+        /// <para>3. 如果填写的值不是 60 的倍数，则自动会更新为离其最近的 60 整数倍的值。</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -157,13 +157,13 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdBodyDto
         /// <summary>
         /// <para>每日可预定时间范围结束时间（单位：秒，取值范围[0,86400]）</para>
         /// <para>说明：</para>
-        /// <para>1.  不填写时，默认更新为 86400 ，此时填写的</para>
+        /// <para>1. 不填写时，默认更新为 86400 ，此时填写的</para>
         /// <para>start_time 不得大于等于 86370 。</para>
-        /// <para>2.  当 start_time 与</para>
+        /// <para>2. 当 start_time 与</para>
         /// <para>end_time 均填写时，</para>
         /// <para>end_time 至少要超过</para>
         /// <para>start_time 30。</para>
-        /// <para>3.  如果填写的值不是  60 的倍数，则自动会更新为离其最近的 60 整数倍的值。</para>
+        /// <para>3. 如果填写的值不是 60 的倍数，则自动会更新为离其最近的 60 整数倍的值。</para>
         /// <para>必填：否</para>
         /// <para>示例值：86400</para>
         /// </summary>
@@ -203,8 +203,8 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdBodyDto
         /// <summary>
         /// <para>可预定成员范围：0 代表部分成员，1 代表全部成员。</para>
         /// <para>说明：</para>
-        /// <para>1.  此值必填。</para>
-        /// <para>2.  当设置为 0 时，至少需要 1 个预定部门或预定人</para>
+        /// <para>1. 此值必填。</para>
+        /// <para>2. 当设置为 0 时，至少需要 1 个预定部门或预定人</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>

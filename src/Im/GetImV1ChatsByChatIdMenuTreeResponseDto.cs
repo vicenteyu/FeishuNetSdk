@@ -104,7 +104,7 @@ public record GetImV1ChatsByChatIdMenuTreeResponseDto
                     public string? AndroidUrl { get; set; }
 
                     /// <summary>
-                    /// <para>PC端跳转链接，当该字段不设置时，PC端会使用common_url。必须以http开头。在PC端点击群菜单后，如果需要url对应的页面在飞书侧边栏展开，可以在url前加上https://applink.feishu.cn/client/web_url/open?mode=sidebar-semi&url=，比如https://applink.feishu.cn/client/web_url/open?mode=sidebar-semi&url=https://open.feishu.cn/</para>
+                    /// <para>PC端跳转链接，当该字段不设置时，PC端会使用common_url。必须以http开头。在PC端点击群菜单后，如果需要url对应的页面在飞书侧边栏展开，可以在url前加上https://applink.feishu.cn/client/web_url/open?mode=sidebar-semi&amp;url=，比如https://applink.feishu.cn/client/web_url/open?mode=sidebar-semi&amp;url=https://open.feishu.cn/</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：https://open.feishu.cn/</para>
                     /// </summary>
@@ -265,7 +265,7 @@ public record GetImV1ChatsByChatIdMenuTreeResponseDto
                         public string? AndroidUrl { get; set; }
 
                         /// <summary>
-                        /// <para>PC端跳转链接，当该字段不设置时，PC端会使用common_url。必须以http开头。在PC端点击群菜单后，如果需要url对应的页面在飞书侧边栏展开，可以在url前加上https://applink.feishu.cn/client/web_url/open?mode=sidebar-semi&url=，比如https://applink.feishu.cn/client/web_url/open?mode=sidebar-semi&url=https://open.feishu.cn/</para>
+                        /// <para>PC端跳转链接，当该字段不设置时，PC端会使用common_url。必须以http开头。在PC端点击群菜单后，如果需要url对应的页面在飞书侧边栏展开，可以在url前加上https://applink.feishu.cn/client/web_url/open?mode=sidebar-semi&amp;url=，比如https://applink.feishu.cn/client/web_url/open?mode=sidebar-semi&amp;url=https://open.feishu.cn/</para>
                         /// <para>必填：否</para>
                         /// <para>示例值：https://open.feishu.cn/</para>
                         /// </summary>

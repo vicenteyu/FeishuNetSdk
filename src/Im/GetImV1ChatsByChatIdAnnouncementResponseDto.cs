@@ -44,7 +44,7 @@ public record GetImV1ChatsByChatIdAnnouncementResponseDto
     /// <summary>
     /// <para>文档所有者的 ID 类型</para>
     /// <para>- 如果所有者是用户，则与查询参数中的user_id_type 相同；取值为`open_id` `user_id` `union_id` 其中之一，不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
-    /// <para>- 如果所有者是机器人，为机器人应用的 `app_id`，详情参见  [获取应用身份访问凭证](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)</para>
+    /// <para>- 如果所有者是机器人，为机器人应用的 `app_id`，详情参见 [获取应用身份访问凭证](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)</para>
     /// <para>必填：否</para>
     /// <para>示例值：open_id</para>
     /// <para>可选值：<list type="bullet">
@@ -68,7 +68,7 @@ public record GetImV1ChatsByChatIdAnnouncementResponseDto
     /// <summary>
     /// <para>文档最新修改者 id 类型</para>
     /// <para>- 如果修改者是用户，则与查询参数中的user_id_type 相同；取值为`open_id` `user_id` `union_id` 其中之一，不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
-    /// <para>- 如果修改者是机器人，为机器人应用的 `app_id`，详情参见  [获取应用身份访问凭证](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)</para>
+    /// <para>- 如果修改者是机器人，为机器人应用的 `app_id`，详情参见 [获取应用身份访问凭证](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)</para>
     /// <para>必填：否</para>
     /// <para>示例值：open_id</para>
     /// <para>可选值：<list type="bullet">

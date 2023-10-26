@@ -17,6 +17,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
     [JsonProperty("requests")]
     public Request[] Requests { get; set; } = Array.Empty<Request>();
 
+    /// <summary></summary>
     public record Request
     {
         /// <summary>
@@ -26,6 +27,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
         [JsonProperty("addSheet")]
         public AddsheetSuffix? Addsheet { get; set; }
 
+        /// <summary></summary>
         public record AddsheetSuffix
         {
             /// <summary>
@@ -35,6 +37,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
             [JsonProperty("properties")]
             public Property Properties { get; set; } = new();
 
+            /// <summary></summary>
             public record Property
             {
                 /// <summary>
@@ -60,6 +63,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
         [JsonProperty("copySheet")]
         public CopysheetSuffix? Copysheet { get; set; }
 
+        /// <summary></summary>
         public record CopysheetSuffix
         {
             /// <summary>
@@ -76,6 +80,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
             [JsonProperty("destination")]
             public DestinationSuffix Destination { get; set; } = new();
 
+            /// <summary></summary>
             public record DestinationSuffix
             {
                 /// <summary>
@@ -95,6 +100,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
         [JsonProperty("deleteSheet")]
         public Sheet? DeleteSheet { get; set; }
 
+        /// <summary></summary>
         public record Sheet
         {
             /// <summary>

@@ -16,6 +16,7 @@ public record GetApprovalV4InstancesByInstanceIdCommentsResponseDto
     [JsonProperty("comments")]
     public Comment[]? Comments { get; set; }
 
+    /// <summary></summary>
     public record Comment
     {
         /// <summary>
@@ -60,6 +61,7 @@ public record GetApprovalV4InstancesByInstanceIdCommentsResponseDto
         [JsonProperty("replies")]
         public CommentReply[]? Replies { get; set; }
 
+        /// <summary></summary>
         public record CommentReply
         {
             /// <summary>
@@ -119,6 +121,7 @@ public record GetApprovalV4InstancesByInstanceIdCommentsResponseDto
             public string? Extra { get; set; }
         }
 
+        /// <summary></summary>
         public record CommentAtInfo
         {
             /// <summary>

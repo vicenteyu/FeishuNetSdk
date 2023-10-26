@@ -16,6 +16,7 @@ public record GetMeetingRoomCountryListResponseDto
     [JsonProperty("countries")]
     public Country[]? Countries { get; set; }
 
+    /// <summary></summary>
     public record Country
     {
         /// <summary>

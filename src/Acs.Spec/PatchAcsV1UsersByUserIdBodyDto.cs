@@ -17,6 +17,7 @@ public record PatchAcsV1UsersByUserIdBodyDto
     [JsonProperty("feature")]
     public FeatureSuffix? Feature { get; set; }
 
+    /// <summary></summary>
     public record FeatureSuffix
     {
         /// <summary>

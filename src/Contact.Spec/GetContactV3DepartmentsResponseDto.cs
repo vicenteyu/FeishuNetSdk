@@ -29,16 +29,17 @@ public record GetContactV3DepartmentsResponseDto
     [JsonProperty("items")]
     public Department[]? Items { get; set; }
 
+    /// <summary></summary>
     public record Department
     {
         /// <summary>
         /// <para>部门名称</para>
         /// <para>注意：不可包含斜杠</para>
         /// <para>**字段权限要求（满足任一）**：</para>
-        /// <para><md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags="">以应用身份读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:department.base:readonly" desc="获取部门基础信息" support_app_types="custom,isv" tags="">获取部门基础信息</md-perm></para>
-        /// <para><md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline">读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline">以应用身份访问通讯录</md-perm></para>
+        /// <para>&lt;md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags=""&gt;以应用身份读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:department.base:readonly" desc="获取部门基础信息" support_app_types="custom,isv" tags=""&gt;获取部门基础信息&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline"&gt;读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("name")]
@@ -48,15 +49,16 @@ public record GetContactV3DepartmentsResponseDto
         /// <para>国际化的部门名称</para>
         /// <para>注意：不可包含斜杠</para>
         /// <para>**字段权限要求（满足任一）**：</para>
-        /// <para><md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags="">以应用身份读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:department.base:readonly" desc="获取部门基础信息" support_app_types="custom,isv" tags="">获取部门基础信息</md-perm></para>
-        /// <para><md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline">读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline">以应用身份访问通讯录</md-perm></para>
+        /// <para>&lt;md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags=""&gt;以应用身份读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:department.base:readonly" desc="获取部门基础信息" support_app_types="custom,isv" tags=""&gt;获取部门基础信息&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline"&gt;读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("i18n_name")]
         public DepartmentI18nName? I18nName { get; set; }
 
+        /// <summary></summary>
         public record DepartmentI18nName
         {
             /// <summary>
@@ -85,10 +87,10 @@ public record GetContactV3DepartmentsResponseDto
         /// <para>父部门的ID</para>
         /// <para>* 在根部门下创建新部门，该参数值为 “0”</para>
         /// <para>**字段权限要求（满足任一）**：</para>
-        /// <para><md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags="">以应用身份读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:department.organize:readonly" desc="获取部门组织架构信息" support_app_types="custom,isv" tags="">获取部门组织架构信息</md-perm></para>
-        /// <para><md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline">读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline">以应用身份访问通讯录</md-perm></para>
+        /// <para>&lt;md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags=""&gt;以应用身份读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:department.organize:readonly" desc="获取部门组织架构信息" support_app_types="custom,isv" tags=""&gt;获取部门组织架构信息&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline"&gt;读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("parent_department_id")]
@@ -98,10 +100,10 @@ public record GetContactV3DepartmentsResponseDto
         /// <para>本部门的自定义部门ID</para>
         /// <para>注意：除需要满足正则规则外，同时不能以`od-`开头</para>
         /// <para>**字段权限要求（满足任一）**：</para>
-        /// <para><md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags="">以应用身份读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:department.base:readonly" desc="获取部门基础信息" support_app_types="custom,isv" tags="">获取部门基础信息</md-perm></para>
-        /// <para><md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline">读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline">以应用身份访问通讯录</md-perm></para>
+        /// <para>&lt;md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags=""&gt;以应用身份读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:department.base:readonly" desc="获取部门基础信息" support_app_types="custom,isv" tags=""&gt;获取部门基础信息&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline"&gt;读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("department_id")]
@@ -117,10 +119,10 @@ public record GetContactV3DepartmentsResponseDto
         /// <summary>
         /// <para>部门主管用户ID</para>
         /// <para>**字段权限要求（满足任一）**：</para>
-        /// <para><md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags="">以应用身份读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:department.organize:readonly" desc="获取部门组织架构信息" support_app_types="custom,isv" tags="">获取部门组织架构信息</md-perm></para>
-        /// <para><md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline">读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline">以应用身份访问通讯录</md-perm></para>
+        /// <para>&lt;md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags=""&gt;以应用身份读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:department.organize:readonly" desc="获取部门组织架构信息" support_app_types="custom,isv" tags=""&gt;获取部门组织架构信息&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline"&gt;读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("leader_user_id")]
@@ -129,10 +131,10 @@ public record GetContactV3DepartmentsResponseDto
         /// <summary>
         /// <para>部门群ID</para>
         /// <para>**字段权限要求（满足任一）**：</para>
-        /// <para><md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags="">以应用身份读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:department.base:readonly" desc="获取部门基础信息" support_app_types="custom,isv" tags="">获取部门基础信息</md-perm></para>
-        /// <para><md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline">读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline">以应用身份访问通讯录</md-perm></para>
+        /// <para>&lt;md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags=""&gt;以应用身份读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:department.base:readonly" desc="获取部门基础信息" support_app_types="custom,isv" tags=""&gt;获取部门基础信息&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline"&gt;读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("chat_id")]
@@ -141,10 +143,10 @@ public record GetContactV3DepartmentsResponseDto
         /// <summary>
         /// <para>部门的排序，即部门在其同级部门的展示顺序</para>
         /// <para>**字段权限要求（满足任一）**：</para>
-        /// <para><md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags="">以应用身份读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:department.organize:readonly" desc="获取部门组织架构信息" support_app_types="custom,isv" tags="">获取部门组织架构信息</md-perm></para>
-        /// <para><md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline">读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline">以应用身份访问通讯录</md-perm></para>
+        /// <para>&lt;md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags=""&gt;以应用身份读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:department.organize:readonly" desc="获取部门组织架构信息" support_app_types="custom,isv" tags=""&gt;获取部门组织架构信息&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline"&gt;读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("order")]
@@ -153,10 +155,10 @@ public record GetContactV3DepartmentsResponseDto
         /// <summary>
         /// <para>部门单位自定义ID列表，当前只支持一个</para>
         /// <para>**字段权限要求（满足任一）**：</para>
-        /// <para><md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags="">以应用身份读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:department.organize:readonly" desc="获取部门组织架构信息" support_app_types="custom,isv" tags="">获取部门组织架构信息</md-perm></para>
-        /// <para><md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline">读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline">以应用身份访问通讯录</md-perm></para>
+        /// <para>&lt;md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags=""&gt;以应用身份读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:department.organize:readonly" desc="获取部门组织架构信息" support_app_types="custom,isv" tags=""&gt;获取部门组织架构信息&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline"&gt;读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("unit_ids")]
@@ -165,10 +167,10 @@ public record GetContactV3DepartmentsResponseDto
         /// <summary>
         /// <para>部门下用户的个数</para>
         /// <para>**字段权限要求（满足任一）**：</para>
-        /// <para><md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags="">以应用身份读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:department.organize:readonly" desc="获取部门组织架构信息" support_app_types="custom,isv" tags="">获取部门组织架构信息</md-perm></para>
-        /// <para><md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline">读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline">以应用身份访问通讯录</md-perm></para>
+        /// <para>&lt;md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags=""&gt;以应用身份读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:department.organize:readonly" desc="获取部门组织架构信息" support_app_types="custom,isv" tags=""&gt;获取部门组织架构信息&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline"&gt;读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("member_count")]
@@ -177,15 +179,16 @@ public record GetContactV3DepartmentsResponseDto
         /// <summary>
         /// <para>部门状态</para>
         /// <para>**字段权限要求（满足任一）**：</para>
-        /// <para><md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags="">以应用身份读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:department.base:readonly" desc="获取部门基础信息" support_app_types="custom,isv" tags="">获取部门基础信息</md-perm></para>
-        /// <para><md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline">读取通讯录</md-perm></para>
-        /// <para><md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline">以应用身份访问通讯录</md-perm></para>
+        /// <para>&lt;md-perm name="contact:contact:readonly_as_app" desc="以应用身份读取通讯录" support_app_types="custom,isv" tags=""&gt;以应用身份读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:department.base:readonly" desc="获取部门基础信息" support_app_types="custom,isv" tags=""&gt;获取部门基础信息&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:readonly" desc="读取通讯录" support_app_types="custom,isv" tags="history,offline"&gt;读取通讯录&lt;/md-perm&gt;</para>
+        /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("status")]
         public DepartmentStatus? Status { get; set; }
 
+        /// <summary></summary>
         public record DepartmentStatus
         {
             /// <summary>

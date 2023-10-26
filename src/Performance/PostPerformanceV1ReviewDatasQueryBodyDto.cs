@@ -43,31 +43,31 @@ public record PostPerformanceV1ReviewDatasQueryBodyDto
     /// <para>- `3`：已确认，绩效结果已开通，被评估人已确认结果</para>
     /// <para>- `4`：已复议，绩效结果已开通，且被评估人已发起复议</para>
     /// <para>终评环节/结果沟通环节状态（不传默认包含所有的状态）</para>
-    /// <para><!--</para>
+    /// <para>&lt;!--</para>
     /// <para>必填：否</para>
-    /// <para>示例值：[0,1,2,3]--></para>
+    /// <para>示例值：[0,1,2,3]--&gt;</para>
     /// <para>最大长度：50</para>
     /// </summary>
     [JsonProperty("stage_progress")]
     public int[]? StageProgress { get; set; }
 
     /// <summary>
-    /// <para>--></para>
+    /// <para>--&gt;</para>
     /// <para>**数据校验规则**：</para>
     /// <para>- 最大长度：`50`</para>
-    /// <para>	</md-dt-td></para>
-    /// <para></md-dt-tr></para>
-    /// <para><md-dt-tr level="0"></para>
-    /// <para>	<md-dt-td></para>
-    /// <para>	<md-text type="field-name" >semester_id_list</md-text></para>
-    /// <para>	</md-dt-td></para>
-    /// <para>	<md-dt-td></para>
-    /// <para>	<md-text type="field-type" >string\[\]</md-text></para>
-    /// <para>	</md-dt-td></para>
-    /// <para>	<md-dt-td></para>
-    /// <para>	否</para>
-    /// <para>	</md-dt-td></para>
-    /// <para>	<md-dt-td></para>
+    /// <para>&lt;/md-dt-td&gt;</para>
+    /// <para>&lt;/md-dt-tr&gt;</para>
+    /// <para>&lt;md-dt-tr level="0"&gt;</para>
+    /// <para>&lt;md-dt-td&gt;</para>
+    /// <para>&lt;md-text type="field-name" &gt;semester_id_list&lt;/md-text&gt;</para>
+    /// <para>&lt;/md-dt-td&gt;</para>
+    /// <para>&lt;md-dt-td&gt;</para>
+    /// <para>&lt;md-text type="field-type" &gt;string\[\]&lt;/md-text&gt;</para>
+    /// <para>&lt;/md-dt-td&gt;</para>
+    /// <para>&lt;md-dt-td&gt;</para>
+    /// <para>否</para>
+    /// <para>&lt;/md-dt-td&gt;</para>
+    /// <para>&lt;md-dt-td&gt;</para>
     /// <para>评估周期 ID 列表，semester_id 是一个评估周期的唯一标识，可以通过「我的评估」页面 url 获取，也可通过本接口的返回值获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：["6992035450862224940"]</para>

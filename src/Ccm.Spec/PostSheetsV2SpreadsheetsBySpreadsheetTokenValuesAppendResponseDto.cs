@@ -37,6 +37,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendResponseDto
     [JsonProperty("updates")]
     public Update? Updates { get; set; }
 
+    /// <summary></summary>
     public record Update
     {
         /// <summary>

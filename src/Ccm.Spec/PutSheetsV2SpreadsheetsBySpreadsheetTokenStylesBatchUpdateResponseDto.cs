@@ -51,6 +51,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateResponse
     [JsonProperty("responses")]
     public Response[]? Responses { get; set; }
 
+    /// <summary></summary>
     public record Response
     {
         /// <summary>

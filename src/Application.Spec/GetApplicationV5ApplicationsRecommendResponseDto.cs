@@ -44,6 +44,7 @@ public record GetApplicationV5ApplicationsRecommendResponseDto
     [JsonProperty("app_list")]
     public Application[]? AppList { get; set; }
 
+    /// <summary></summary>
     public record Application
     {
         /// <summary>
@@ -94,6 +95,7 @@ public record GetApplicationV5ApplicationsRecommendResponseDto
         [JsonProperty("open_methods")]
         public OpenMethod[]? OpenMethods { get; set; }
 
+        /// <summary></summary>
         public record OpenMethod
         {
             /// <summary>

@@ -19,7 +19,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
     public CalendarEventAttendee[]? Attendees { get; set; }
 
     /// <summary>
-    /// <para>新增参与人列表；<br></para>
+    /// <para>新增参与人列表；</para>
     /// <para>- 单次请求参与人数量（含会议室）限制为1000。</para>
     /// <para>- 单次请求会议室的数量限制为100。</para>
     /// </summary>
@@ -149,7 +149,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
         /// <summary>
         /// <para>申请预定审批会议室的原因。</para>
         /// <para>- 仅user_access_token预定审批会议室时，approval_reason字段生效。</para>
-        /// <para>-  tenant_access_token预定审批会议室时，会直接失败。</para>
+        /// <para>- tenant_access_token预定审批会议室时，会直接失败。</para>
         /// <para>- 对于审批会议室，不传approval_reason会直接预约失败。</para>
         /// <para>必填：否</para>
         /// <para>示例值：申请审批原因</para>

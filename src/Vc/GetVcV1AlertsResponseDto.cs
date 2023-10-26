@@ -73,7 +73,7 @@ public record GetVcV1AlertsResponseDto
         /// <summary>
         /// <para>告警规则的规则描述</para>
         /// <para>必填：否</para>
-        /// <para>示例值：连续1个周期（共1分钟），控制器电量<50%，则告警</para>
+        /// <para>示例值：连续1个周期（共1分钟），控制器电量&lt;50%，则告警</para>
         /// </summary>
         [JsonProperty("alert_strategy")]
         public string? AlertStrategy { get; set; }

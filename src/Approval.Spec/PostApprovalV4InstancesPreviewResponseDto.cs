@@ -16,6 +16,7 @@ public record PostApprovalV4InstancesPreviewResponseDto
     [JsonProperty("preview_nodes")]
     public PreviewNode[] PreviewNodes { get; set; } = Array.Empty<PreviewNode>();
 
+    /// <summary></summary>
     public record PreviewNode
     {
         /// <summary>

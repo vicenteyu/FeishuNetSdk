@@ -1,16 +1,19 @@
-ï»¿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using WebApiClientCore.Attributes;
 using WebApiClientCore.Exceptions;
 using WebApiClientCore;
 
 namespace FeishuNetSdk.Attributes;
+/// <summary>ºöÂÔ×´Ì¬Òì³£</summary>
 public class IgnoreStatusExceptionFilterAttribute : ApiFilterAttribute
 {
+    /// <summary></summary>
     public override System.Threading.Tasks.Task OnRequestAsync(ApiRequestContext context)
     {
         return System.Threading.Tasks.Task.CompletedTask;
     }
 
+    /// <summary></summary>
     public override async System.Threading.Tasks.Task OnResponseAsync(ApiResponseContext context)
     {
         if (context.Exception is ApiResponseStatusException statusException && statusException != null)

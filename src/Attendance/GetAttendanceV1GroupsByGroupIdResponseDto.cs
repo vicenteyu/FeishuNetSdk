@@ -492,7 +492,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     }
 
     /// <summary>
-    /// <para>国家日历  ID，0：不根据国家日历排休，1：中国大陆，2：美国，3：日本，4：印度，5：新加坡，默认 1</para>
+    /// <para>国家日历 ID，0：不根据国家日历排休，1：中国大陆，2：美国，3：日本，4：印度，5：新加坡，默认 1</para>
     /// <para>必填：是</para>
     /// <para>示例值：1</para>
     /// </summary>

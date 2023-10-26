@@ -22,7 +22,7 @@ public record PutWikiV2SpacesBySpaceIdSettingResponseDto
     public record PutWikiV2SpacesBySpaceIdSettingResponseDtoSetting
     {
         /// <summary>
-        /// <para>谁可以创建空间的一级页面： "admin_and_member" = 管理员和成员 "admin"  - 仅管理员</para>
+        /// <para>谁可以创建空间的一级页面： "admin_and_member" = 管理员和成员 "admin" - 仅管理员</para>
         /// <para>必填：否</para>
         /// <para>示例值：admin/admin_and_member</para>
         /// </summary>

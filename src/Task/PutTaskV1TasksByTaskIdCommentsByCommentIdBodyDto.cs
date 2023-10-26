@@ -21,7 +21,7 @@ public record PutTaskV1TasksByTaskIdCommentsByCommentIdBodyDto
     /// <summary>
     /// <para>新的富文本评论内容（优先使用）</para>
     /// <para>必填：否</para>
-    /// <para>示例值：飞流直下三千尺，疑是银河落九天<atid=7058204817822318612></at></para>
+    /// <para>示例值：飞流直下三千尺，疑是银河落九天&lt;atid=7058204817822318612&gt;&lt;/at&gt;</para>
     /// <para>最大长度：65536</para>
     /// </summary>
     [JsonProperty("rich_content")]

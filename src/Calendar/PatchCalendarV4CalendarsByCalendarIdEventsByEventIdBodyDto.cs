@@ -156,7 +156,7 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto
         {
             /// <summary>
             /// <para>设置会议 owner。需要满足以下条件(需全部满足)：</para>
-            /// <para>-  tenant_access_token身份请求，且在应用日历上操作日程。</para>
+            /// <para>- tenant_access_token身份请求，且在应用日历上操作日程。</para>
             /// <para>- 首次将日程设置为VC会议，才能设置owner。</para>
             /// <para>- owner不能为非用户身份。</para>
             /// <para>- owner不能为外租户用户身份。</para>
@@ -389,7 +389,7 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto
         /// <summary>
         /// <para>按钮点击后跳转的链接; **该字段暂不支持传入。**</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx</para>
+        /// <para>示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&amp;key=xxxxxx&amp;originalTime=xxxxxx&amp;startTime=xxxxxx</para>
         /// <para>最大长度：2000</para>
         /// </summary>
         [JsonProperty("app_link")]

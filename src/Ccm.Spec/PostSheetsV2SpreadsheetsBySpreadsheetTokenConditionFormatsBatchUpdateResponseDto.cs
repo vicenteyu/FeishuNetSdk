@@ -16,6 +16,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpd
     [JsonProperty("responses")]
     public Response[]? Responses { get; set; }
 
+    /// <summary></summary>
     public record Response
     {
         /// <summary>

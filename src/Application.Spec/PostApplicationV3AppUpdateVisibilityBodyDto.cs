@@ -24,6 +24,7 @@ public record PostApplicationV3AppUpdateVisibilityBodyDto
     [JsonProperty("del_users")]
     public User[]? DelUsers { get; set; }
 
+    /// <summary></summary>
     public record User
     {
         /// <summary>

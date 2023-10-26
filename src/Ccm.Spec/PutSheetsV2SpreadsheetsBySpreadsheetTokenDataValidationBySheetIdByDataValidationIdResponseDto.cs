@@ -23,9 +23,11 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdBy
     [JsonProperty("sheetId")]
     public string SheetId { get; set; } = string.Empty;
 
+    /// <summary></summary>
     [JsonProperty("dataValidation")]
     public DataValidationSuffix? DataValidation { get; set; }
 
+    /// <summary></summary>
     public record DataValidationSuffix
     {
         /// <summary>
@@ -56,6 +58,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdBy
         [JsonProperty("options")]
         public Option? Options { get; set; }
 
+        /// <summary></summary>
         public record Option
         {
             /// <summary>

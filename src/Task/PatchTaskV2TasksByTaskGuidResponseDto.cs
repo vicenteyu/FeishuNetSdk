@@ -12,7 +12,7 @@ namespace FeishuNetSdk.Task;
 /// <para>* `completed_at` - 用于标记任务完成/未完成</para>
 /// <para>* `extra` - 任务附带自定义数据</para>
 /// <para>* `custom_complete` - 任务自定义完成配置。</para>
-/// <para>* `repeat_rule` -  重复任务规则。</para>
+/// <para>* `repeat_rule` - 重复任务规则。</para>
 /// <para>* `mode` - 任务完成模式。</para>
 /// <para>* `is_milestone` - 是否是里程碑任务。</para>
 /// <para>* `custom_fields` - 自定义字段值。</para>
@@ -750,7 +750,7 @@ public record PatchTaskV2TasksByTaskGuidResponseDto
         /// <summary>
         /// <para>任务的分享链接</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&suite_entity_num=t192012</para>
+        /// <para>示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&amp;suite_entity_num=t192012</para>
         /// </summary>
         [JsonProperty("url")]
         public string? Url { get; set; }

@@ -80,10 +80,10 @@ public record PatchTaskV2TasklistsByTasklistGuidBodyDto
 
     /// <summary>
     /// <para>要更新的字段名，支持</para>
-    /// <para><md-enum></para>
-    /// <para><md-enum-item key="name" >更新清单名</md-enum-item></para>
-    /// <para><md-enum-item key="owner" >更新清单所有者</md-enum-item></para>
-    /// <para></md-enum></para>
+    /// <para>&lt;md-enum&gt;</para>
+    /// <para>&lt;md-enum-item key="name" &gt;更新清单名&lt;/md-enum-item&gt;</para>
+    /// <para>&lt;md-enum-item key="owner" &gt;更新清单所有者&lt;/md-enum-item&gt;</para>
+    /// <para>&lt;/md-enum&gt;</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonProperty("update_fields")]

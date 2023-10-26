@@ -37,6 +37,7 @@ public record GetOkrV1MetricSourcesByMetricSourceIdTablesByMetricTableIdItemsByM
     [JsonProperty("metric_unit")]
     public MetricUnitSuffix? MetricUnit { get; set; }
 
+    /// <summary></summary>
     public record MetricUnitSuffix
     {
         /// <summary>

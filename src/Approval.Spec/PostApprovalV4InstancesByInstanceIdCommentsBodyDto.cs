@@ -24,6 +24,7 @@ public record PostApprovalV4InstancesByInstanceIdCommentsBodyDto
     [JsonProperty("at_info_list")]
     public CommentAtInfo[]? AtInfoList { get; set; }
 
+    /// <summary></summary>
     public record CommentAtInfo
     {
         /// <summary>

@@ -16,6 +16,7 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto
     [JsonProperty("dataValidationRanges")]
     public DataValidationRange[]? DataValidationRanges { get; set; }
 
+    /// <summary></summary>
     public record DataValidationRange
     {
         /// <summary>

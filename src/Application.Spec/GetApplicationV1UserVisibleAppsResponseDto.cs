@@ -51,6 +51,7 @@ public record GetApplicationV1UserVisibleAppsResponseDto
     [JsonProperty("app_list")]
     public App[]? AppList { get; set; }
 
+    /// <summary></summary>
     public record App
     {
         /// <summary>

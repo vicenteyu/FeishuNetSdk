@@ -504,7 +504,7 @@ public record PostTaskV2TasksBodyDto
     {
         /// <summary>
         /// <para>开始时间/日期的时间戳，距1970-01-01 00:00:00的毫秒数。如果开始时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true。</para>
-        /// <para>如果同时设置任务的开始时间和截止时间，开始时间必须<=截止时间，并且开始/截止时间的is_all_day设置必须相同。</para>
+        /// <para>如果同时设置任务的开始时间和截止时间，开始时间必须&lt;=截止时间，并且开始/截止时间的is_all_day设置必须相同。</para>
         /// <para>必填：否</para>
         /// <para>示例值：1675454764000</para>
         /// </summary>

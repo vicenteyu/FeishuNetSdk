@@ -16,6 +16,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsResponseD
     [JsonProperty("sheet_condition_formats")]
     public SheetConditionFormat[]? SheetConditionFormats { get; set; }
 
+    /// <summary></summary>
     public record SheetConditionFormat
     {
         /// <summary>
@@ -32,6 +33,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsResponseD
         [JsonProperty("condition_format")]
         public ConditionFormatSuffix? ConditionFormat { get; set; }
 
+        /// <summary></summary>
         public record ConditionFormatSuffix
         {
             /// <summary>
@@ -62,17 +64,22 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsResponseD
             [JsonProperty("attrs")]
             public Attr[]? Attrs { get; set; }
 
+            /// <summary></summary>
             public record Attr
             {
+                /// <summary></summary>
                 [JsonProperty("operator")]
                 public string Operator { get; set; } = string.Empty;
 
+                /// <summary></summary>
                 [JsonProperty("time_period")]
                 public string? TimePeriod { get; set; }
 
+                /// <summary></summary>
                 [JsonProperty("formula")]
                 public string[]? Formula { get; set; }
 
+                /// <summary></summary>
                 [JsonProperty("text")]
                 public string? Text { get; set; }
 
@@ -85,6 +92,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsResponseD
             [JsonProperty("style")]
             public string? Style { get; set; }
 
+            /// <summary></summary>
             public record StyleSuffix
             {
                 /// <summary>
@@ -94,6 +102,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsResponseD
                 [JsonProperty("font")]
                 public string? Font { get; set; }
 
+                /// <summary></summary>
                 public record FontSuffix
                 {
                     /// <summary>

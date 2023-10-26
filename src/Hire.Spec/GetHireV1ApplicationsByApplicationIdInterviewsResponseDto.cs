@@ -30,6 +30,7 @@ public record GetHireV1ApplicationsByApplicationIdInterviewsResponseDto
     [JsonProperty("items")]
     public Interview[]? Items { get; set; }
 
+    /// <summary></summary>
     public record Interview
     {
         /// <summary>
@@ -74,6 +75,7 @@ public record GetHireV1ApplicationsByApplicationIdInterviewsResponseDto
         [JsonProperty("interview_record_list")]
         public InterviewRecord[]? InterviewRecordList { get; set; }
 
+        /// <summary></summary>
         public record InterviewRecord
         {
             /// <summary>
@@ -147,6 +149,7 @@ public record GetHireV1ApplicationsByApplicationIdInterviewsResponseDto
             [JsonProperty("interview_score")]
             public InterviewScoreSuffix? InterviewScore { get; set; }
 
+            /// <summary></summary>
             public record InterviewScoreSuffix
             {
                 /// <summary>

@@ -16,6 +16,7 @@ public record PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatIma
     [JsonProperty("float_image")]
     public FloatImageSuffix? FloatImage { get; set; }
 
+    /// <summary></summary>
     public record FloatImageSuffix
     {
         /// <summary>

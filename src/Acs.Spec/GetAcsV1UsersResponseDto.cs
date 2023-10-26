@@ -16,6 +16,7 @@ public record GetAcsV1UsersResponseDto
     [JsonProperty("items")]
     public User[]? Items { get; set; }
 
+    /// <summary></summary>
     public record User
     {
         /// <summary>
@@ -25,6 +26,7 @@ public record GetAcsV1UsersResponseDto
         [JsonProperty("feature")]
         public FeatureSuffix? Feature { get; set; }
 
+        /// <summary></summary>
         public record FeatureSuffix
         {
             /// <summary>

@@ -16,6 +16,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateBodyDto
     [JsonProperty("valueRanges")]
     public ValueRange[] ValueRanges { get; set; } = Array.Empty<ValueRange>();
 
+    /// <summary></summary>
     public record ValueRange
     {
         /// <summary>

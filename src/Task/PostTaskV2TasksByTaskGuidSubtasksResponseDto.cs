@@ -731,14 +731,14 @@ public record PostTaskV2TasksByTaskGuidSubtasksResponseDto
         /// <summary>
         /// <para>任务的分享链接</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&suite_entity_num=t192012</para>
+        /// <para>示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&amp;suite_entity_num=t192012</para>
         /// </summary>
         [JsonProperty("url")]
         public string? Url { get; set; }
 
         /// <summary>
         /// <para>任务的开始时间。</para>
-        /// <para>如果同时设置任务的开始时间和截止时间，开始时间必须<=截止时间，并且开始/截止时间的is_all_day设置必须相同。</para>
+        /// <para>如果同时设置任务的开始时间和截止时间，开始时间必须&lt;=截止时间，并且开始/截止时间的is_all_day设置必须相同。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("start")]
@@ -746,7 +746,7 @@ public record PostTaskV2TasksByTaskGuidSubtasksResponseDto
 
         /// <summary>
         /// <para>任务的开始时间。</para>
-        /// <para>如果同时设置任务的开始时间和截止时间，开始时间必须<=截止时间，并且开始/截止时间的is_all_day设置必须相同。</para>
+        /// <para>如果同时设置任务的开始时间和截止时间，开始时间必须&lt;=截止时间，并且开始/截止时间的is_all_day设置必须相同。</para>
         /// </summary>
         public record TaskStart
         {

@@ -4,7 +4,7 @@ namespace FeishuNetSdk.Task;
 /// 更新自定义字段选项 响应体
 /// <para>根据一个自定义字段的GUID和其选项的GUID，更新该选项的数据。要更新的字段必须是单选或者多选类型，且要更新的字段必须归属于该字段。</para>
 /// <para>更新时，将`update_fields`字段中填写所有要修改的任务字段名，同时在`option`字段中填写要修改的字段的新值即可。`update_fields`支持的字段包括：</para>
-/// <para>* `name`:  选项名称</para>
+/// <para>* `name`: 选项名称</para>
 /// <para>* `color_index`: 选项的颜色索引值</para>
 /// <para>* `is_hidden`: 是否从界面上隐藏</para>
 /// <para>* `insert_before`: 将当前option放到同字段某个option之前的那个option_guid。</para>

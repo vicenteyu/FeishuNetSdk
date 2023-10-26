@@ -513,7 +513,7 @@ public record PostAttendanceV1GroupsResponseDto
         }
 
         /// <summary>
-        /// <para>国家日历  ID</para>
+        /// <para>国家日历 ID</para>
         /// <para>**可选值有：**</para>
         /// <para>* 0：不根据国家日历排休</para>
         /// <para>* 1：中国大陆</para>

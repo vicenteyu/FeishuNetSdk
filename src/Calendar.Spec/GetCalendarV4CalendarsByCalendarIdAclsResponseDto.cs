@@ -17,6 +17,7 @@ public record GetCalendarV4CalendarsByCalendarIdAclsResponseDto
     [JsonProperty("acls")]
     public CalendarAcl[]? Acls { get; set; }
 
+    /// <summary></summary>
     public record CalendarAcl
     {
         /// <summary>
@@ -49,6 +50,7 @@ public record GetCalendarV4CalendarsByCalendarIdAclsResponseDto
         [JsonProperty("scope")]
         public AclScope? Scope { get; set; }
 
+        /// <summary></summary>
         public record AclScope
         {
             /// <summary>

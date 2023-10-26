@@ -16,6 +16,7 @@ public record GetContactV2RoleListResponseDto
     [JsonProperty("role_list")]
     public Role[]? RoleList { get; set; }
 
+    /// <summary></summary>
     public record Role
     {
         /// <summary>

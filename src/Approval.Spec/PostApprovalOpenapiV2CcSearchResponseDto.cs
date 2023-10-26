@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 抄送列表查询 响应体
-/// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本>>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc)该接口通过不同条件查询审批系统中符合条件的审批抄送列表。</para>
+/// <para>为了更好地提升接口文档的的易理解性，我们对文档进行了升级，请尽快迁移至[新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc)该接口通过不同条件查询审批系统中符合条件的审批抄送列表。</para>
 /// <para>接口ID：6907568073252700162</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version/approval/v2/approval-search/cc-list-query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUjMxYjL1ITM24SNyEjN</para>
@@ -23,6 +23,7 @@ public record PostApprovalOpenapiV2CcSearchResponseDto
     [JsonProperty("cc_list")]
     public CCItem[]? CcList { get; set; }
 
+    /// <summary></summary>
     public record CCItem
     {
         /// <summary>
@@ -32,6 +33,7 @@ public record PostApprovalOpenapiV2CcSearchResponseDto
         [JsonProperty("approval")]
         public object? Approval { get; set; }
 
+        /// <summary></summary>
         public record ApprovalSuffix
         {
             /// <summary>
@@ -62,6 +64,7 @@ public record PostApprovalOpenapiV2CcSearchResponseDto
             [JsonProperty("external")]
             public ExternalSuffix? External { get; set; }
 
+            /// <summary></summary>
             public record ExternalSuffix
             {
                 /// <summary>
@@ -80,6 +83,7 @@ public record PostApprovalOpenapiV2CcSearchResponseDto
         [JsonProperty("group")]
         public GroupSuffix? Group { get; set; }
 
+        /// <summary></summary>
         public record GroupSuffix
         {
             /// <summary>
@@ -104,6 +108,7 @@ public record PostApprovalOpenapiV2CcSearchResponseDto
         [JsonProperty("instance")]
         public InstanceSuffix? Instance { get; set; }
 
+        /// <summary></summary>
         public record InstanceSuffix
         {
             /// <summary>
@@ -184,6 +189,7 @@ public record PostApprovalOpenapiV2CcSearchResponseDto
         [JsonProperty("cc")]
         public CC? Cc { get; set; }
 
+        /// <summary></summary>
         public record CC
         {
             /// <summary>
@@ -228,6 +234,7 @@ public record PostApprovalOpenapiV2CcSearchResponseDto
             [JsonProperty("link")]
             public LinkSuffix? Link { get; set; }
         }
+        /// <summary></summary>
         public record LinkSuffix
         {
             /// <summary>

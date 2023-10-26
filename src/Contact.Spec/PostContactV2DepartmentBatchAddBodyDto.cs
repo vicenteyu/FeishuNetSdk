@@ -19,6 +19,7 @@ public record PostContactV2DepartmentBatchAddBodyDto
     [JsonProperty("departments")]
     public Department[] Departments { get; set; } = Array.Empty<Department>();
 
+    /// <summary></summary>
     public record Department
     {
         /// <summary>
@@ -46,14 +47,14 @@ public record PostContactV2DepartmentBatchAddBodyDto
         public string ParentId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>部门负责人 ID，支持通过 user_id 或 open_id 进行设置。<br>请求同时传递两个字段时只使用 leader_user_id，忽略 leader_open_id。</para>
+        /// <para>部门负责人 ID，支持通过 user_id 或 open_id 进行设置。请求同时传递两个字段时只使用 leader_user_id，忽略 leader_open_id。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("leader_user_id")]
         public string? LeaderUserId { get; set; }
 
         /// <summary>
-        /// <para>部门负责人 ID，支持通过 user_id 或 open_id 进行设置。<br>请求同时传递两个字段时只使用 leader_user_id，忽略 leader_open_id。</para>
+        /// <para>部门负责人 ID，支持通过 user_id 或 open_id 进行设置。请求同时传递两个字段时只使用 leader_user_id，忽略 leader_open_id。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("leader_open_id")]

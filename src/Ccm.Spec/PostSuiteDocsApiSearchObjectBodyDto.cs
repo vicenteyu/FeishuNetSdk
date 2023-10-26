@@ -17,14 +17,14 @@ public record PostSuiteDocsApiSearchObjectBodyDto
     public string SearchKey { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>搜索返回数量，0 <= count <= 50</para>
+    /// <para>搜索返回数量，0 &lt;= count &lt;= 50</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("count")]
     public int? Count { get; set; }
 
     /// <summary>
-    /// <para>搜索偏移位，offset >= 0，offset + count < 200</para>
+    /// <para>搜索偏移位，offset &gt;= 0，offset + count &lt; 200</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("offset")]

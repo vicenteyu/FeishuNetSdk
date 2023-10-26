@@ -17,6 +17,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRangeBody
     [JsonProperty("dimension")]
     public DimensionSuffix Dimension { get; set; } = new();
 
+    /// <summary></summary>
     public record DimensionSuffix
     {
         /// <summary>

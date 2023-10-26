@@ -30,6 +30,7 @@ public record GetHelpdeskV1TicketCustomizedFieldsResponseDto
     [JsonProperty("items")]
     public TicketCustomizedField[]? Items { get; set; }
 
+    /// <summary></summary>
     public record TicketCustomizedField
     {
         /// <summary>
@@ -130,6 +131,7 @@ public record GetHelpdeskV1TicketCustomizedFieldsResponseDto
         [JsonProperty("updated_by")]
         public TicketUser? UpdatedBy { get; set; }
 
+        /// <summary></summary>
         public record TicketUser
         {
             /// <summary>
@@ -168,6 +170,7 @@ public record GetHelpdeskV1TicketCustomizedFieldsResponseDto
         [JsonProperty("dropdown_options")]
         public DropdownOptionSuffix? DropdownOptions { get; set; }
 
+        /// <summary></summary>
         public record DropdownOptionSuffix
         {
             /// <summary>
@@ -177,6 +180,7 @@ public record GetHelpdeskV1TicketCustomizedFieldsResponseDto
             [JsonProperty("children")]
             public DropdownOption[]? Children { get; set; }
 
+            /// <summary></summary>
             public record DropdownOption
             {
                 /// <summary>

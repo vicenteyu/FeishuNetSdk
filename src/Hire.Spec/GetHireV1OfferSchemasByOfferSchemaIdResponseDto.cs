@@ -42,6 +42,7 @@ public record GetHireV1OfferSchemasByOfferSchemaIdResponseDto
     [JsonProperty("object_list")]
     public OfferSchemaDetail[]? ObjectList { get; set; }
 
+    /// <summary></summary>
     public record OfferSchemaDetail
     {
         /// <summary>
@@ -58,6 +59,7 @@ public record GetHireV1OfferSchemasByOfferSchemaIdResponseDto
         [JsonProperty("name")]
         public OfferSchemaName? Name { get; set; }
 
+        /// <summary></summary>
         public record OfferSchemaName
         {
             /// <summary>
@@ -96,6 +98,7 @@ public record GetHireV1OfferSchemasByOfferSchemaIdResponseDto
         [JsonProperty("option_list")]
         public OfferSchemaDetailOption[]? OptionList { get; set; }
 
+        /// <summary></summary>
         public record OfferSchemaDetailOption
         {
             /// <summary>

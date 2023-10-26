@@ -31,6 +31,7 @@ public record GetSearchV1UserResponseDto
     [JsonProperty("users")]
     public User[]? Users { get; set; }
 
+    /// <summary></summary>
     public record User
     {
         /// <summary>
@@ -40,6 +41,7 @@ public record GetSearchV1UserResponseDto
         [JsonProperty("avatar")]
         public AvatarSuffix? Avatar { get; set; }
 
+        /// <summary></summary>
         public record AvatarSuffix
         {
             /// <summary>

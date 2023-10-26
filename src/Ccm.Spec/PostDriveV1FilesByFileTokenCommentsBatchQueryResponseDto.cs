@@ -16,6 +16,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
     [JsonProperty("items")]
     public FileComment[]? Items { get; set; }
 
+    /// <summary></summary>
     public record FileComment
     {
         /// <summary>
@@ -102,6 +103,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
         [JsonProperty("reply_list")]
         public ReplyListSuffix? ReplyList { get; set; }
 
+        /// <summary></summary>
         public record ReplyListSuffix
         {
             /// <summary>
@@ -111,6 +113,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
             [JsonProperty("replies")]
             public FileCommentReply[]? Replies { get; set; }
 
+            /// <summary></summary>
             public record FileCommentReply
             {
                 /// <summary>
@@ -148,6 +151,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                 [JsonProperty("content")]
                 public ReplyContent? Content { get; set; }
 
+                /// <summary></summary>
                 public record ReplyContent
                 {
                     /// <summary>
@@ -157,6 +161,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                     [JsonProperty("elements")]
                     public ReplyElement[]? Elements { get; set; }
 
+                    /// <summary></summary>
                     public record ReplyElement
                     {
                         /// <summary>
@@ -180,6 +185,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                         [JsonProperty("text_run")]
                         public TextRunSuffix? TextRun { get; set; }
 
+                        /// <summary></summary>
                         public record TextRunSuffix
                         {
                             /// <summary>
@@ -197,6 +203,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                         [JsonProperty("docs_link")]
                         public DocsLinkSuffix? DocsLink { get; set; }
 
+                        /// <summary></summary>
                         public record DocsLinkSuffix
                         {
                             /// <summary>
@@ -214,6 +221,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                         [JsonProperty("person")]
                         public PersonSuffix? Person { get; set; }
 
+                        /// <summary></summary>
                         public record PersonSuffix
                         {
                             /// <summary>
@@ -233,6 +241,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                 [JsonProperty("extra")]
                 public ReplyExtra? Extra { get; set; }
 
+                /// <summary></summary>
                 public record ReplyExtra
                 {
                     /// <summary>

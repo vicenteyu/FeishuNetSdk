@@ -56,6 +56,7 @@ public record PatchHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdBody
     [JsonProperty("dropdown_options")]
     public DropdownOptionSuffix? DropdownOptions { get; set; }
 
+    /// <summary></summary>
     public record DropdownOptionSuffix
     {
         /// <summary>
@@ -65,6 +66,7 @@ public record PatchHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdBody
         [JsonProperty("children")]
         public DropdownOption[]? Children { get; set; }
 
+        /// <summary></summary>
         public record DropdownOption
         {
             /// <summary>

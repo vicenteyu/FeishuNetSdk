@@ -1,6 +1,6 @@
 # FeishuNetSdk
 
-[![Build status](https://github.com/vicenteyu/FeishuNetSdk/workflows/.NET/badge.svg)](https://github.com/vicenteyu/FeishuNetSdk/actions)
+[![.NET](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/dotnet.yml/badge.svg?branch=main&event=push)](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/dotnet.yml)
 
 飞书开放平台网址：[https://open.feishu.cn/](https://open.feishu.cn/)
 
@@ -45,18 +45,18 @@ public record FeishuOption
     public string app_secret { get; set; } = string.Empty;
 }
 ```
-1. 在`appsettings.json`文件中添加配置：
+2. 在`appsettings.json`文件中添加配置：
 ```csharp
 "Feishu": {
     "app_id": "cli_a5bf8739dab8d0c",
     "app_secret": "vn7MjifCNm04dUlWBg6yWbijHvEpel6G",
 }
 ```
-1. 添加绑定配置：
+3. 添加绑定配置：
 ```csharp
 builder.Services.Configure<FeishuOption>(builder.Configuration.GetSection("Feishu"));
 ```
-1. 接口注册：
+4. 接口注册：
 ```csharp
 builder.Services.AddHttpApi<IFeishuApi>();
 builder.Services.AddHttpApi<IFeishuTenantApi>();

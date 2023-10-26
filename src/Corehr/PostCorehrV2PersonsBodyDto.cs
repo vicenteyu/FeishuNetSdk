@@ -20,8 +20,8 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>姓名列表，当不为离职重聘员工时，该字段必填</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>读写法定姓名信息(corehr:person.legal_name:write)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>读写法定姓名信息(corehr:person.legal_name:write)</para>
     /// </summary>
     public record PersonName
     {
@@ -213,8 +213,8 @@ public record PostCorehrV2PersonsBodyDto
     /// <para>性别，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
     /// <para>- object_api_name = "person"</para>
     /// <para>- custom_api_name = "gender"</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>读写性别信息(corehr:person.gender:write)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>读写性别信息(corehr:person.gender:write)</para>
     /// </summary>
     public record Enum
     {
@@ -310,8 +310,8 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>地址列表</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>读取个人地址信息(corehr:person.address:write)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>读取个人地址信息(corehr:person.address:write)</para>
     /// </summary>
     public record Address
     {
@@ -497,8 +497,8 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>邮箱列表</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>读写个人邮箱信息(corehr:person.email:write)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>读写个人邮箱信息(corehr:person.email:write)</para>
     /// </summary>
     public record Email
     {
@@ -563,8 +563,8 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>工作经历列表</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>读写工作履历信息(corehr:person.work_experience:write)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>读写工作履历信息(corehr:person.work_experience:write)</para>
     /// </summary>
     public record WorkExperienceInfo
     {
@@ -675,8 +675,8 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>教育经历列表</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>读写教育经历信息(corehr:person.education:write)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>读写教育经历信息(corehr:person.education:write)</para>
     /// </summary>
     public record Education
     {
@@ -831,8 +831,8 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>银行账户</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>读写银行账号列表信息(corehr:person.bank_account:write)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>读写银行账号列表信息(corehr:person.bank_account:write)</para>
     /// </summary>
     public record BankAccount
     {
@@ -953,8 +953,8 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>证件列表</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>读写证件信息(corehr:person.national_id:write)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>读写证件信息(corehr:person.national_id:write)</para>
     /// </summary>
     public record NationalId
     {
@@ -1047,8 +1047,8 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>家庭成员列表</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>读写家庭成员信息(corehr:person.dependent:write)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>读写家庭成员信息(corehr:person.dependent:write)</para>
     /// </summary>
     public record Dependent
     {
@@ -1479,8 +1479,8 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>紧急联系人列表</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>读写紧急联系人信息(corehr:person.emergency_contact:write)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>读写紧急联系人信息(corehr:person.emergency_contact:write)</para>
     /// </summary>
     public record EmergencyContact
     {
@@ -1784,8 +1784,8 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>个人资料附件</para>
-    /// <para><br><b>字段权限要求：</b></para>
-    /// <para><br>读写个人资料信息(corehr:person.personal_profile:write)</para>
+    /// <para>字段权限要求：</para>
+    /// <para>读写个人资料信息(corehr:person.personal_profile:write)</para>
     /// </summary>
     public record PersonalProfile
     {

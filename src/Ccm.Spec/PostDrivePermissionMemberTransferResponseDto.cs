@@ -37,6 +37,7 @@ public record PostDrivePermissionMemberTransferResponseDto
     [JsonProperty("owner")]
     public OwnerSuffix? Owner { get; set; }
 
+    /// <summary></summary>
     public record OwnerSuffix
     {
         /// <summary>

@@ -16,6 +16,7 @@ public record GetAcsV1DevicesResponseDto
     [JsonProperty("items")]
     public Device[]? Items { get; set; }
 
+    /// <summary></summary>
     public record Device
     {
         /// <summary>

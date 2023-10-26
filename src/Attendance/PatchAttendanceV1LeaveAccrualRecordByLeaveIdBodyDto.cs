@@ -63,7 +63,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdBodyDto
     }
 
     /// <summary>
-    /// <para>时间偏移，东八区：480    8*60</para>
+    /// <para>时间偏移，东八区：480 8*60</para>
     /// <para>必填：否</para>
     /// <para>示例值：480</para>
     /// </summary>

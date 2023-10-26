@@ -16,6 +16,7 @@ public record PostSuiteDocsApiSearchObjectResponseDto
     [JsonProperty("docs_entities")]
     public DocsEntitie[]? DocsEntities { get; set; }
 
+    /// <summary></summary>
     public record DocsEntitie
     {
         /// <summary>

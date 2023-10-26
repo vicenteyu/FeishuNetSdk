@@ -16,6 +16,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimen
     [JsonProperty("source")]
     public Dimension? Source { get; set; }
 
+    /// <summary></summary>
     public record Dimension
     {
         /// <summary>

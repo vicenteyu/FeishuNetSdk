@@ -12,7 +12,7 @@ namespace FeishuNetSdk.Task;
 /// <para>* `completed_at` - 用于标记任务完成/未完成</para>
 /// <para>* `extra` - 任务附带自定义数据</para>
 /// <para>* `custom_complete` - 任务自定义完成配置。</para>
-/// <para>* `repeat_rule` -  重复任务规则。</para>
+/// <para>* `repeat_rule` - 重复任务规则。</para>
 /// <para>* `mode` - 任务完成模式。</para>
 /// <para>* `is_milestone` - 是否是里程碑任务。</para>
 /// <para>* `custom_fields` - 自定义字段值。</para>
@@ -434,21 +434,21 @@ public record PatchTaskV2TasksByTaskGuidBodyDto
 
     /// <summary>
     /// <para>设置需要修改的字段</para>
-    /// <para><md-enum></para>
-    /// <para><md-enum-item key="summary" >任务标题</md-enum-item></para>
-    /// <para><md-enum-item key="description" >任务描</md-enum-item></para>
-    /// <para><md-enum-item key="start" >任务开始时间</md-enum-item></para>
-    /// <para><md-enum-item key="due" >任务截止时间</md-enum-item></para>
-    /// <para><md-enum-item key="completed_at" >任务完成时间</md-enum-item></para>
-    /// <para><md-enum-item key="extra" >任务附属自定义数据</md-enum-item></para>
-    /// <para><md-enum-item key="custom_complete" >任务自定义完成规则</md-enum-item></para>
-    /// <para><md-enum-item key="repeat_rule" >任务重复规则</md-enum-item></para>
-    /// <para><md-enum-item key="mode" >任务完成模式</md-enum-item></para>
-    /// <para><md-enum-item key="is_milestone" >是否是里程碑任务</para>
-    /// <para></md-enum-item></para>
-    /// <para><md-enum-item key=custom_fields" >自定义字段值</para>
-    /// <para></md-enum-item></para>
-    /// <para></md-enum></para>
+    /// <para>&lt;md-enum&gt;</para>
+    /// <para>&lt;md-enum-item key="summary" &gt;任务标题&lt;/md-enum-item&gt;</para>
+    /// <para>&lt;md-enum-item key="description" &gt;任务描&lt;/md-enum-item&gt;</para>
+    /// <para>&lt;md-enum-item key="start" &gt;任务开始时间&lt;/md-enum-item&gt;</para>
+    /// <para>&lt;md-enum-item key="due" &gt;任务截止时间&lt;/md-enum-item&gt;</para>
+    /// <para>&lt;md-enum-item key="completed_at" &gt;任务完成时间&lt;/md-enum-item&gt;</para>
+    /// <para>&lt;md-enum-item key="extra" &gt;任务附属自定义数据&lt;/md-enum-item&gt;</para>
+    /// <para>&lt;md-enum-item key="custom_complete" &gt;任务自定义完成规则&lt;/md-enum-item&gt;</para>
+    /// <para>&lt;md-enum-item key="repeat_rule" &gt;任务重复规则&lt;/md-enum-item&gt;</para>
+    /// <para>&lt;md-enum-item key="mode" &gt;任务完成模式&lt;/md-enum-item&gt;</para>
+    /// <para>&lt;md-enum-item key="is_milestone" &gt;是否是里程碑任务</para>
+    /// <para>&lt;/md-enum-item&gt;</para>
+    /// <para>&lt;md-enum-item key=custom_fields" &gt;自定义字段值</para>
+    /// <para>&lt;/md-enum-item&gt;</para>
+    /// <para>&lt;/md-enum&gt;</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonProperty("update_fields")]

@@ -16,6 +16,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFi
     [JsonProperty("field")]
     public AppTableFormPatchedField? Field { get; set; }
 
+    /// <summary></summary>
     public record AppTableFormPatchedField
     {
         /// <summary>

@@ -17,6 +17,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateRespons
     [JsonProperty("replies")]
     public Reply[]? Replies { get; set; }
 
+    /// <summary></summary>
     public record Reply
     {
         /// <summary>
@@ -33,6 +34,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateRespons
         [JsonProperty("copySheet")]
         public Sheet? CopySheet { get; set; }
 
+        /// <summary></summary>
         public record Sheet
         {
             /// <summary>
@@ -41,6 +43,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateRespons
             /// </summary>
             [JsonProperty("properties")]
             public Property? Properties { get; set; }
+            /// <summary></summary>
             public record Property
             {
                 /// <summary>
@@ -73,6 +76,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateRespons
         [JsonProperty("deleteSheet")]
         public DeleteSheetSuffix? DeleteSheet { get; set; }
 
+        /// <summary></summary>
         public record DeleteSheetSuffix
         {
             /// <summary>

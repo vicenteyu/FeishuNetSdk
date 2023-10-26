@@ -10,7 +10,7 @@ namespace FeishuNetSdk.Ccm;
 public record PostDriveV1MetasBatchQueryBodyDto
 {
     /// <summary>
-    /// <para>请求文档,  一次不超过200个</para>
+    /// <para>请求文档, 一次不超过200个</para>
     /// <para>必填：是</para>
     /// <para>最大长度：200</para>
     /// </summary>
@@ -18,7 +18,7 @@ public record PostDriveV1MetasBatchQueryBodyDto
     public RequestDoc[] RequestDocs { get; set; } = Array.Empty<RequestDoc>();
 
     /// <summary>
-    /// <para>请求文档,  一次不超过200个</para>
+    /// <para>请求文档, 一次不超过200个</para>
     /// </summary>
     public record RequestDoc
     {

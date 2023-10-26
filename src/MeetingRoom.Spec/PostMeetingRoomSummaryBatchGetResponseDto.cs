@@ -16,6 +16,7 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
     [JsonProperty("eventInfos")]
     public EventInfo[]? EventInfos { get; set; }
 
+    /// <summary></summary>
     public record EventInfo
     {
         /// <summary>
@@ -46,6 +47,7 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
         [JsonProperty("vchat")]
         public VchatSuffix? Vchat { get; set; }
 
+        /// <summary></summary>
         public record VchatSuffix
         {
             /// <summary>
@@ -66,7 +68,7 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
             /// <para>**可选值有：**</para>
             /// <para>- `vc`：飞书视频会议icon</para>
             /// <para>- `live`：直播视频会议icon</para>
-            /// <para>-  `default`：默认icon</para>
+            /// <para>- `default`：默认icon</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonProperty("icon_type")]
@@ -95,6 +97,7 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
     [JsonProperty("errorEventUids")]
     public ErrorEventUid[]? ErrorEventUids { get; set; }
 
+    /// <summary></summary>
     public record ErrorEventUid
     {
         /// <summary>

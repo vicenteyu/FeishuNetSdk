@@ -24,7 +24,7 @@ public record PostContactV3UsersBatchGetIdBodyDto
     /// <para>要查询的用户手机号，最多 50 条。</para>
     /// <para>注意</para>
     /// <para>1. emails与mobiles相互独立，每条用户手机号返回对应的用户ID。</para>
-    /// <para>2.  非中国大陆地区的手机号需要添加以 “+” 开头的国家 / 地区代码。</para>
+    /// <para>2. 非中国大陆地区的手机号需要添加以 “+” 开头的国家 / 地区代码。</para>
     /// <para>必填：否</para>
     /// <para>示例值：13812345678</para>
     /// <para>最大长度：50</para>

@@ -17,6 +17,7 @@ public record PostSuiteDocsApiMetaResponseDto
     [JsonProperty("docs_metas")]
     public DocsMeta[]? DocsMetas { get; set; }
 
+    /// <summary></summary>
     public record DocsMeta
     {
         /// <summary>

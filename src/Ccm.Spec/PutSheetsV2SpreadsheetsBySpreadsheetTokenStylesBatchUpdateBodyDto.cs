@@ -16,6 +16,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateBodyDto
     [JsonProperty("data")]
     public DataItem[] Data { get; set; } = Array.Empty<DataItem>();
 
+    /// <summary></summary>
     public record DataItem
     {
         /// <summary>
@@ -32,6 +33,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateBodyDto
         [JsonProperty("style")]
         public StyleSuffix Style { get; set; } = new();
 
+        /// <summary></summary>
         public record StyleSuffix
         {
             /// <summary>
@@ -41,6 +43,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateBodyDto
             [JsonProperty("font")]
             public FontSuffix? Font { get; set; }
 
+            /// <summary></summary>
             public record FontSuffix
             {
                 /// <summary>

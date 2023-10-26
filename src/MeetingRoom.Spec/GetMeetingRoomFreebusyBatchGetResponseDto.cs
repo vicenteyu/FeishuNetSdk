@@ -37,6 +37,7 @@ public record GetMeetingRoomFreebusyBatchGetResponseDto
     [JsonProperty("room_id")]
     public string? RoomId { get; set; }
 
+    /// <summary></summary>
     public record Room
     {
         /// <summary>
@@ -74,6 +75,7 @@ public record GetMeetingRoomFreebusyBatchGetResponseDto
         [JsonProperty("organizer_info")]
         public string? OrganizerInfo { get; set; }
 
+        /// <summary></summary>
         public record OrganizerInfoSuffix
         {
             /// <summary>

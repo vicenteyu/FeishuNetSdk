@@ -297,7 +297,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <summary>
         /// <para>最终考核结果页面超链接</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://qwe112233.feishuapp.bytedance.net/ae/ui/apps//122265873393330/recordPages/1/records/1767139312?objectId=17661180522543&recordPageId=173330728118312</para>
+        /// <para>示例值：https://qwe112233.feishuapp.bytedance.net/ae/ui/apps//122265873393330/recordPages/1/records/1767139312?objectId=17661180522543&amp;recordPageId=173330728118312</para>
         /// </summary>
         [JsonProperty("final_assessment_detail")]
         public string? FinalAssessmentDetail { get; set; }
@@ -417,7 +417,7 @@ public record PostCorehrV2ProbationSearchResponseDto
             /// <summary>
             /// <para>考核结果页面超链接</para>
             /// <para>必填：否</para>
-            /// <para>示例值：https://qwe1123433.feishuapp.bytedance.net/ae/ui/apps//122265871113330/recordPages/2/records/17611111112?objectId=17663333322543&recordPageId=171128122312</para>
+            /// <para>示例值：https://qwe1123433.feishuapp.bytedance.net/ae/ui/apps//122265871113330/recordPages/2/records/17611111112?objectId=17663333322543&amp;recordPageId=171128122312</para>
             /// </summary>
             [JsonProperty("assessment_detail")]
             public string? AssessmentDetail { get; set; }

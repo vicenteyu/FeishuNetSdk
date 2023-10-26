@@ -30,6 +30,7 @@ public record GetMeetingRoomBuildingListResponseDto
     [JsonProperty("buildings")]
     public Building[]? Buildings { get; set; }
 
+    /// <summary></summary>
     public record Building
     {
         /// <summary>

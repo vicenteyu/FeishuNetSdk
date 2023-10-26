@@ -37,6 +37,7 @@ public record GetApplicationV5ApplicationsFavouriteResponseDto
     [JsonProperty("app_list")]
     public Application[]? AppList { get; set; }
 
+    /// <summary></summary>
     public record Application
     {
         /// <summary>
@@ -87,6 +88,7 @@ public record GetApplicationV5ApplicationsFavouriteResponseDto
         [JsonProperty("open_methods")]
         public OpenMethod[]? OpenMethods { get; set; }
 
+        /// <summary></summary>
         public record OpenMethod
         {
             /// <summary>

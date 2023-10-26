@@ -30,6 +30,7 @@ public record PostDrivePermissionMemberTransferBodyDto
     [JsonProperty("owner")]
     public OwnerSuffix Owner { get; set; } = new();
 
+    /// <summary></summary>
     public record OwnerSuffix
     {
         /// <summary>

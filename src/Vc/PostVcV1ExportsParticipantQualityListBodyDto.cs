@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 导出参会人会议质量数据 请求体
-/// <para>导出某场会议某个参会人的音视频&共享质量数据</para>
+/// <para>导出某场会议某个参会人的音视频&amp;共享质量数据</para>
 /// <para>，具体权限要求请参考「资源介绍」。</para>
 /// <para>接口ID：7124195547444494364</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/export/participant_quality_list</para>

@@ -16,6 +16,7 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponse
     [JsonProperty("rangeResults")]
     public RangeResult[]? RangeResults { get; set; }
 
+    /// <summary></summary>
     public record RangeResult
     {
         /// <summary>

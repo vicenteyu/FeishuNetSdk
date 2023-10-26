@@ -80,7 +80,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <summary>
         /// <para>移动端发起链接，如果设置了该链接，则会在移动端审批发起页展示该审批，用户点击后会跳转到该链接进行发起； 如果不填，则在mobile端不显示该审批</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/approval-form/index?id=9999</para>
+        /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&amp;path=pages/approval-form/index?id=9999</para>
         /// </summary>
         [JsonProperty("create_link_mobile")]
         public string? CreateLinkMobile { get; set; }
@@ -88,7 +88,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <summary>
         /// <para>PC端发起链接，如果设置了该链接，则会在PC端审批发起页展示该审批，用户点击后会跳转到该链接进行发起； 如果不填，则在PC端不显示该审批</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/create-form/index?id=9999</para>
+        /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&amp;appId=cli_9c90fc38e07a9101&amp;path=pc/pages/create-form/index?id=9999</para>
         /// </summary>
         [JsonProperty("create_link_pc")]
         public string? CreateLinkPc { get; set; }
