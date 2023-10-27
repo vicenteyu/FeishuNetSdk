@@ -8181,7 +8181,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【日历】查询主日历忙闲信息</para>
     /// <para>接口ID：6952888507002912795</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/freebusy/list</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>查询用户主日历或会议室的忙闲信息。</para>
     /// </summary>
     /// <param name="user_id_type">
@@ -8268,7 +8268,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【日历】搜索日历</para>
     /// <para>接口ID：6952888507002863643</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于通过关键字查询公共日历或用户主日历。</para>
     /// </summary>
     /// <param name="page_token">
@@ -8573,6 +8573,48 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
+    /// <para>【日历】搜索日程</para>
+    /// <para>接口ID：6952888507003109403</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于以用户身份搜索某日历下的相关日程。</para>
+    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// </summary>
+    /// <param name="calendar_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>默认值：20</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdEventsSearchResponseDto>> PostCalendarV4CalendarsByCalendarIdEventsSearchAsync(
+        [PathQuery] string calendar_id,
+        [JsonNetContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 20);
+
+    /// <summary>
     /// <para>【日历】解绑会议群</para>
     /// <para>接口ID：7263360328350728196</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-meeting_chat/delete</para>
@@ -8669,7 +8711,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【会议室】查询会议室忙闲</para>
     /// <para>接口ID：6907569524100956161</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uIDOyUjLygjM14iM4ITN</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于获取指定会议室的忙闲日程实例列表。非重复日程只有唯一实例；重复日程可能存在多个实例，依据重复规则和时间范围扩展。建议查询区间为30天内。</para>
     /// </summary>
     /// <param name="room_ids">

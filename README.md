@@ -4,7 +4,7 @@
 
 飞书开放平台网址：[https://open.feishu.cn/](https://open.feishu.cn/)
 
-接口清单详见：[TenantAccessToken适用接口清单-977个](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
+接口清单详见：[TenantAccessToken适用接口清单-978个](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
 
 ## 用法：
 
@@ -28,6 +28,9 @@ builder.Services.AddTokenProvider<IFeishuTenantApi>(async service =>
                     AppId = "cli_a5bf8739dab8d0c",
                     AppSecret = "vn7MjifCNm04dUlWBg6yWbijHvEpel6G"
                 });
+    //当返回码异常时，抛出`TokenException`异常
+    if (response.Code != 0)
+        throw new TokenException(response.Msg);
     //返回一个能自动缓存和过期重取的Token实例
     return new TokenResult
     {
@@ -74,6 +77,9 @@ builder.Services.AddTokenProvider<IFeishuTenantApi>(async service =>
                     AppId = option.CurrentValue.app_id,
                     AppSecret = option.CurrentValue.app_secret
                 });
+    //当返回码异常时，抛出`TokenException`异常
+    if (response.Code != 0)
+        throw new TokenException(response.Msg);
     //返回一个能自动缓存和过期重取的Token实例
     return new TokenResult
     {
@@ -104,6 +110,18 @@ public async Task<IResult> GetT2Async()
     return Results.Json(result);
 }
 ```
+### 5、当`获取凭证`异常时，内部异常类型为`TokenException`（与接口注册时抛出的异常类型有关）。
+```csharp
+try
+{
+    var result = await _feishuApi.GetEventV1OutboundIpAsync();
+    return Results.Json(result);
+}
+catch (HttpRequestException ex) when (ex.InnerException is TokenException tokenException)
+{
+    return Results.Problem(tokenException.Message);
+}
+```
 
 ## 示例：
 
@@ -124,8 +142,7 @@ public async Task<IResult> GetT3Async()
             ImageType = "message"
         },
         new FormDataFile(filePath));
-
-    //当返回码不成功时，返回错误消息
+    //当返回码异常时，返回错误消息
     if (!result.IsSuccess)
         return Results.Problem(result.Msg);
     return Results.Json(result);
@@ -235,12 +252,12 @@ public class TestController : ControllerBase
 public interface INewApi : IFeishuTenantApi
 { }
 ```
-开启状态异常之后的捕获方法：
+开启状态异常之后进行捕获，内部异常为`ApiResponseStatusException`：
 ```csharp
 try
 {
-    var result2 = await _feishuApi.GetEventV1OutboundIpAsync();
-    return Results.Json(result2);
+    var result = await _feishuApi.GetEventV1OutboundIpAsync();
+    return Results.Json(result);
 }
 catch (HttpRequestException ex) when (ex.InnerException is ApiResponseStatusException statusException)
 {
