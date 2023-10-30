@@ -25,7 +25,7 @@ public record PostImV1ChatsByChatIdChatTabsBodyDto
     {
         /// <summary>
         /// <para>Tab名称</para>
-        /// <para>**注意**：会话标签页的名称不能超过30个字符</para>
+        /// <para>**注意**：会话标签页的名称不能超过30个字符（最多 10 个汉字）</para>
         /// <para>必填：否</para>
         /// <para>示例值：文档</para>
         /// </summary>

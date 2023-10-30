@@ -32,7 +32,7 @@ public record PostImV1MessagesBodyDto
     /// <para>- 文本消息请求体最大不能超过150KB</para>
     /// <para>- 卡片及富文本消息请求体最大不能超过30KB</para>
     /// <para>必填：是</para>
-    /// <para>示例值：{\"text\":\"testcontent\"}</para>
+    /// <para>示例值：`{\"text\":\"test content\"}`</para>
     /// </summary>
     [JsonProperty("content")]
     public string Content { get; set; } = string.Empty;

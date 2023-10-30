@@ -46,6 +46,14 @@ public record GetVcV1ParticipantListResponseDto
         public string? UserId { get; set; }
 
         /// <summary>
+        /// <para>会议室ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：omm_8efq90</para>
+        /// </summary>
+        [JsonProperty("meeting_room_id")]
+        public string? MeetingRoomId { get; set; }
+
+        /// <summary>
         /// <para>工号</para>
         /// <para>必填：否</para>
         /// <para>示例值：202205789</para>
@@ -137,8 +145,8 @@ public record GetVcV1ParticipantListResponseDto
         /// <summary>
         /// <para>麦克风</para>
         /// <para>必填：否</para>
-        /// <para>示例值：麦克风阵列(Realtek(R)Audio)</para>
-        /// <para>默认值：麦克风阵列 (Realtek(R) Audio)</para>
+        /// <para>示例值：麦克风阵列 (Realtek(R) Audio)</para>
+        /// <para>默认值：mic</para>
         /// </summary>
         [JsonProperty("microphone")]
         public string? Microphone { get; set; }
@@ -146,7 +154,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <summary>
         /// <para>扬声器</para>
         /// <para>必填：否</para>
-        /// <para>示例值：扬声器(Realtek(R)Audio)</para>
+        /// <para>示例值：扬声器 (Realtek(R) Audio)</para>
         /// </summary>
         [JsonProperty("speaker")]
         public string? Speaker { get; set; }
@@ -154,7 +162,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <summary>
         /// <para>摄像头</para>
         /// <para>必填：否</para>
-        /// <para>示例值：HDCamera</para>
+        /// <para>示例值：HD Camera</para>
         /// </summary>
         [JsonProperty("camera")]
         public string? Camera { get; set; }
@@ -186,7 +194,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <summary>
         /// <para>入会时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2022.12.2311:16:59(GMT+08:00)</para>
+        /// <para>示例值：2022.12.23 11:16:59 (GMT+08:00)</para>
         /// </summary>
         [JsonProperty("join_time")]
         public string? JoinTime { get; set; }
@@ -194,7 +202,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <summary>
         /// <para>离会时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2022.12.2311:18:51(GMT+08:00)</para>
+        /// <para>示例值：2022.12.23 11:18:51 (GMT+08:00)</para>
         /// </summary>
         [JsonProperty("leave_time")]
         public string? LeaveTime { get; set; }

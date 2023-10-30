@@ -12,7 +12,7 @@ public record PostImV1MessagesByMessageIdReplyBodyDto
     /// <summary>
     /// <para>消息内容 json 格式，格式说明参考: [发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)</para>
     /// <para>必填：是</para>
-    /// <para>示例值：{\"text\":\"testcontent\"}</para>
+    /// <para>示例值：`{\"text\":\"test content\"}`</para>
     /// </summary>
     [JsonProperty("content")]
     public string Content { get; set; } = string.Empty;

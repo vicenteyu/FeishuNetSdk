@@ -32,7 +32,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <summary>
         /// <para>会议室名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值：VIPMeetingRoom</para>
+        /// <para>示例值：VIP Meeting Room</para>
         /// </summary>
         [JsonProperty("room_name")]
         public string? RoomName { get; set; }
@@ -52,6 +52,14 @@ public record GetVcV1ResourceReservationListResponseDto
         /// </summary>
         [JsonProperty("reserver")]
         public string? Reserver { get; set; }
+
+        /// <summary>
+        /// <para>预定人ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：ou_1234567(UserID);cli_123123(BotID)</para>
+        /// </summary>
+        [JsonProperty("reserver_user_id")]
+        public string? ReserverUserId { get; set; }
 
         /// <summary>
         /// <para>预定人所属部门</para>
@@ -80,7 +88,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <summary>
         /// <para>会议开始时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2022.12.1721:00:00(GMT+08:00)</para>
+        /// <para>示例值：2022.12.17 21:00:00 (GMT+08:00)</para>
         /// </summary>
         [JsonProperty("event_start_time")]
         public string? EventStartTime { get; set; }
@@ -88,7 +96,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <summary>
         /// <para>会议结束时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2022.12.1722:00:00(GMT+08:00)</para>
+        /// <para>示例值：2022.12.17 22:00:00 (GMT+08:00)</para>
         /// </summary>
         [JsonProperty("event_end_time")]
         public string? EventEndTime { get; set; }
@@ -128,7 +136,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <summary>
         /// <para>会议室签到时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2022.12.0913:35:30(GMT+08:00)</para>
+        /// <para>示例值：2022.12.09 13:35:30 (GMT+08:00)</para>
         /// </summary>
         [JsonProperty("check_in_time")]
         public string? CheckInTime { get; set; }
@@ -152,7 +160,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <summary>
         /// <para>释放时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2022.12.2011:25:15(GMT+08:00)</para>
+        /// <para>示例值：2022.12.20 11:25:15 (GMT+08:00)</para>
         /// </summary>
         [JsonProperty("releasing_time")]
         public string? ReleasingTime { get; set; }
