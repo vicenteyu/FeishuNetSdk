@@ -11,85 +11,32 @@
 ### 1、安装Nuget包
 [![FeishuNetSdk](https://buildstats.info/nuget/FeishuNetSdk "FeishuNetSdk")](https://www.nuget.org/packages/FeishuNetSdk/ "FeishuNetSdk")
 
-### 2、依赖注册（直接输入`应用凭证`的方式，二选一）
+### 2、服务注册
+**输入`应用凭证`的方式**
 ```csharp
-builder.Services.AddHttpApi<IFeishuApi>();
-builder.Services.AddHttpApi<IFeishuTenantApi>();
-builder.Services.AddTokenProvider<IFeishuTenantApi>(async service =>
+builder.Services.AddFeishuNetSdk(options =>
 {
-    //获取凭证接口
-    var feishuApi = service.GetRequiredService<IFeishuApi>();
-    //获取tenant_access_token
-    var response = await feishuApi.PostAuthV3TenantAccessTokenInternalAsync(
-            new FeishuNetSdk.Auth.Spec
-                .PostAuthV3TenantAccessTokenInternalBodyDto
-                {
-                    //此处修改为自建的应用凭证Id和密钥
-                    AppId = "cli_a5bf8739dab8d0c",
-                    AppSecret = "vn7MjifCNm04dUlWBg6yWbijHvEpel6G"
-                });
-    //当返回码异常时，抛出`TokenException`异常
-    if (response.Code != 0)
-        throw new TokenException(response.Msg);
-    //返回一个能自动缓存和过期重取的Token实例
-    return new TokenResult
-    {
-        Access_token = response.TenantAccessToken,
-        Expires_in = response.Expire
-    };
+    options.AppId = "cli_test";
+    options.AppSecret = "secret_test";
+    options.EnableLogging = true; //启用日志 （true = 启用， false = 关闭， 默认 = 启用）
+    options.IgnoreStatusException = true; //忽略状态异常错误（true = 忽略， false = 启用， 默认 = 忽略）
 });
 ```
-### 2、依赖注册（配置文件的方式，二选一）
-1. 创建`FeishuOption`类：
+**使用`配置文件`的方式**
 ```csharp
-public record FeishuOption
-{
-    public string app_id { get; set; } = string.Empty;
-    public string app_secret { get; set; } = string.Empty;
+builder.Services.AddFeishuNetSdk(builder.Configuration.GetSection("FeishuNetSdk"));
+```
+在`appsettings.json`根节点上增加配置：
+```csharp
+"FeishuNetSdk": {
+    "AppId": "cli_test",
+    "AppSecret": "Secret_test",
+    "EnableLogging": true, //启用日志 （true = 启用， false = 关闭， 默认 = 启用）
+    "IgnoreStatusException": true //忽略状态异常错误（true = 忽略， false = 启用， 默认 = 忽略）
 }
-```
-2. 在`appsettings.json`文件中添加配置：
-```csharp
-"Feishu": {
-    "app_id": "cli_a5bf8739dab8d0c",
-    "app_secret": "vn7MjifCNm04dUlWBg6yWbijHvEpel6G",
-}
-```
-3. 添加绑定配置：
-```csharp
-builder.Services.Configure<FeishuOption>(builder.Configuration.GetSection("Feishu"));
-```
-4. 接口注册：
-```csharp
-builder.Services.AddHttpApi<IFeishuApi>();
-builder.Services.AddHttpApi<IFeishuTenantApi>();
-builder.Services.AddTokenProvider<IFeishuTenantApi>(async service =>
-{
-    //获取配置
-    var option = service.GetRequiredService<IOptionsMonitor<FeishuOption>>();
-    //获取凭证接口
-    var feishuApi = service.GetRequiredService<IFeishuApi>();
-    //获取tenant_access_token
-    var response = await feishuApi.PostAuthV3TenantAccessTokenInternalAsync(
-            new FeishuNetSdk.Auth.Spec
-                .PostAuthV3TenantAccessTokenInternalBodyDto
-                {
-                    AppId = option.CurrentValue.app_id,
-                    AppSecret = option.CurrentValue.app_secret
-                });
-    //当返回码异常时，抛出`TokenException`异常
-    if (response.Code != 0)
-        throw new TokenException(response.Msg);
-    //返回一个能自动缓存和过期重取的Token实例
-    return new TokenResult
-    {
-        Access_token = response.TenantAccessToken,
-        Expires_in = response.Expire
-    };
-});
 ```
 
-### 3、依赖注入
+### 3、注入和调用
 ```csharp
 public class TestController : ControllerBase
 {
@@ -98,19 +45,16 @@ public class TestController : ControllerBase
     {
         _feishuApi = feishuApi;
     }
+    
+	[HttpGet("t2")]
+	public async Task<IResult> GetT2Async()
+	{
+	    var result = await _feishuApi.GetImV1ChatsAsync();
+	    return Results.Json(result);
+	}
 }
 ```
-
-### 4、方法调用
-```csharp
-[HttpGet("t2")]
-public async Task<IResult> GetT2Async()
-{
-    var result = await _feishuApi.GetImV1ChatsAsync();
-    return Results.Json(result);
-}
-```
-### 5、当`获取凭证`异常时，内部异常类型为`TokenException`（与接口注册时抛出的异常类型有关）。
+### 4、当`获取凭证`异常时，内部异常类型为`TokenException`。
 ```csharp
 try
 {
@@ -205,54 +149,20 @@ public async Task<IResult> GetT5Async()
 
 
 ------------
-## 以下是仅在特殊情况下使用的特殊方法。
-### 接口重载/覆盖
-1. 新建API，继承于 `IFeishuTenantApi`。
-1. 使用重载/覆盖方法
+## 以下是仅在特殊情况下使用。
 
-**如果要覆盖方法，比如是在保持参数完全一致的情况下，修改http地址，需要在方法前加 `new` （参数不一致是重载，重载不用加`new` ），然后将新地址更换到属性上。更换http方法、返回参数及其他属性也是同理。**
+### 关闭`接口日志`
+true = 启用， false = 关闭， 默认 = 启用
 
-#### 1、新建API
-```csharp
-public interface INewApi : IFeishuTenantApi
-{
-    [HttpGet("/open-apis/event/v1/outbound_ip1")]
-    new System.Threading.Tasks.Task<HttpResponseMessage> GetEventV1OutboundIpAsync();
-}
-```
-
-#### 2、新增依赖注册
-```csharp
-builder.Services.AddHttpApi<INewApi>();
-```
-
-#### 3、修改依赖注入
-```csharp
-public class TestController : ControllerBase
-{
-    //此处更改为新的API：INewApi
-    private readonly INewApi _feishuApi;
-    public TestController(INewApi feishuApi)
-    {
-        _feishuApi = feishuApi;
-    }
-}
-```
+使用配置文件方式可以实时切换。
 
 ### 启用`状态异常错误`
-默认：关闭
+true = 忽略， false = 启用， 默认 = 忽略
 
-飞书接口在返回结果异常时，同时会返回状态异常，状态异常通常无法实质判断异常原因，具体原因会在返回结果中提示。所以接口默认忽略状态异常，开启方法如下：
+飞书接口在返回结果异常时，同时会返回状态异常，状态异常通常无法实质判断异常原因，具体原因会在返回结果中提示。所以接口默认忽略状态异常。开启状态异常之后需要进行捕获，内部异常为`ApiResponseStatusException`。
 
-1. 新建API，继承于 `IFeishuTenantApi`。
-1. 添加接口属性 `IgnoreStatusExceptionFilter` 并将属性 `Enable` 设置为 `false` ，意为停用忽略，即启用异常提示。
-1. 参照上述使用新接口进行方法调用。
-```csharp
-[IgnoreStatusExceptionFilter(Enable = false)]
-public interface INewApi : IFeishuTenantApi
-{ }
-```
-开启状态异常之后进行捕获，内部异常为`ApiResponseStatusException`：
+使用配置文件方式可以实时切换。
+
 ```csharp
 try
 {
@@ -266,24 +176,39 @@ catch (HttpRequestException ex) when (ex.InnerException is ApiResponseStatusExce
 }
 ```
 
-### 关闭`接口日志`
-默认：开启
+### 接口重载/覆盖
 
-1. 新建API，继承于 `IFeishuTenantApi`。
-1. 添加接口属性 `LoggingFilter` 并设置属性 `Enable` 为 `false` ，即可停用日志。
-1. 参照上述使用新接口进行方法调用。
-1. `LoggingFilter` 和 `IgnoreStatusExceptionFilter` 可以同时存在。
+**如果要覆盖方法，比如是在保持参数完全一致的情况下，修改http地址，需要在方法前加 `new` （参数不一致是重载，重载不用加`new` ），然后将新地址更换到属性上。更换http方法、返回参数及其他属性也是同理。**
+
+#### 1、新建API，继承于 `IFeishuTenantApi`
 ```csharp
-[LoggingFilter(Enable = false), IgnoreStatusExceptionFilter(Enable = false)]
 public interface INewApi : IFeishuTenantApi
-{ }
+{
+    [HttpGet("/open-apis/event/v1/outbound_ip1")]
+    new System.Threading.Tasks.Task<HttpResponseMessage> GetEventV1OutboundIpAsync();
+}
 ```
 
-**需要注意： `IFeishuApi` 和 `IFeishuTenantApi` 各有独立的 `LoggingFilter` 与 `IgnoreStatusExceptionFilter` 属性，若想全部关闭，需要分别继承接口并将属性 `Enable` 设置为 `false` 。**
+#### 2、注册API
+```csharp
+builder.Services.AddHttpApi<INewApi>();
+```
 
+#### 3、修改注入
+```csharp
+public class TestController : ControllerBase
+{
+    //此处更改为新的API：INewApi
+    private readonly INewApi _feishuApi;
+    public TestController(INewApi feishuApi)
+    {
+        _feishuApi = feishuApi;
+    }
+}
+```
 
 ### 启用`缓存`
-默认：关闭
+默认：不缓存
 
 缓存属性`Cache`，在接口上使用表示对接口内所有方法启用，建议仅针对具体方法使用，在单个方法上增加属性即可。数值单位是`毫秒`。
 
