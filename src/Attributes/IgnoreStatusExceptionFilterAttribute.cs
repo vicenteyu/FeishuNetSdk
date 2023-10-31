@@ -2,9 +2,13 @@ using Newtonsoft.Json;
 using WebApiClientCore.Attributes;
 using WebApiClientCore.Exceptions;
 using WebApiClientCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace FeishuNetSdk.Attributes;
-/// <summary>ºöÂÔ×´Ì¬Òì³£</summary>
+/// <summary>
+/// ºöÂÔ×´Ì¬Òì³£
+/// </summary>
 public class IgnoreStatusExceptionFilterAttribute : ApiFilterAttribute
 {
     /// <summary></summary>
@@ -16,6 +20,11 @@ public class IgnoreStatusExceptionFilterAttribute : ApiFilterAttribute
     /// <summary></summary>
     public override async System.Threading.Tasks.Task OnResponseAsync(ApiResponseContext context)
     {
+        var sdkOptions = context.HttpContext.ServiceProvider
+            .GetRequiredService<IOptionsMonitor<FeishuNetSdkOptions>>();
+        if (!sdkOptions.CurrentValue.IgnoreStatusException)
+            return;
+
         if (context.Exception is ApiResponseStatusException statusException && statusException != null)
         {
             if (!context.ApiAction.Return.DataType.IsRawType && context.HttpContext.ResponseMessage != null)

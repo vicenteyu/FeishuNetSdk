@@ -8,7 +8,8 @@ namespace FeishuNetSdk;
 /// <summary>
 /// 获取应用访问凭证（AccessToken）的接口
 /// </summary>
-[IgnoreStatusExceptionFilter, LoggingFilter]
+[EnableLoggingFilter]
+[IgnoreStatusExceptionFilter]
 [HttpHost("https://open.feishu.cn/"), JsonNetReturn]
 public interface IFeishuApi : IHttpApi
 {
