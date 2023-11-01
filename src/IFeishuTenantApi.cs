@@ -3836,7 +3836,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
-    /// <para>**示例值**："boxcnabCdefg12345"</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/download")]
@@ -14866,22 +14865,6 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonNetContent] Mail.PostMailV1PublicMailboxesBodyDto dto);
 
     /// <summary>
-    /// <para>【邮箱】删除公共邮箱</para>
-    /// <para>接口ID：7018723423930286082</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/delete</para>
-    /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口会永久删除公共邮箱地址。可用于释放邮箱回收站的公共邮箱地址，一旦删除，该邮箱地址将无法恢复。</para>
-    /// </summary>
-    /// <param name="public_mailbox_id">
-    /// <para>路径参数</para>
-    /// <para>必填：是</para>
-    /// <para>要释放的公共邮箱地址</para>
-    /// </param>
-    [HttpDelete("/open-apis/mail/v1/public_mailboxes/{public_mailbox_id}")]
-    System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1PublicMailboxesByPublicMailboxIdAsync(
-        [PathQuery] string public_mailbox_id);
-
-    /// <summary>
     /// <para>【邮箱】修改公共邮箱部分信息</para>
     /// <para>接口ID：6954915601883136003</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/patch</para>
@@ -14954,6 +14937,22 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1PublicMailboxesResponseDto>> GetMailV1PublicMailboxesAsync(
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 20);
+
+    /// <summary>
+    /// <para>【邮箱】删除公共邮箱</para>
+    /// <para>接口ID：7018723423930286082</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口会永久删除公共邮箱地址。可用于释放邮箱回收站的公共邮箱地址，一旦删除，该邮箱地址将无法恢复。</para>
+    /// </summary>
+    /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>要释放的公共邮箱地址</para>
+    /// </param>
+    [HttpDelete("/open-apis/mail/v1/public_mailboxes/{public_mailbox_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1PublicMailboxesByPublicMailboxIdAsync(
+        [PathQuery] string public_mailbox_id);
 
     /// <summary>
     /// <para>【邮箱】添加公共邮箱成员</para>
@@ -16468,6 +16467,261 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/search/v2/schemas/{schema_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Search.Spec.GetSearchV2SchemasBySchemaIdResponseDto>> GetSearchV2SchemasBySchemaIdAsync(
         [PathQuery] string schema_id);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的港澳居民来往内地通行证</para>
+    /// <para>接口ID：7273083612789620739</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/hkm_mainland_travel_permit/recognize</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>港澳居民来往内地通行证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的港澳居民来往内地通行证源文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/hkm_mainland_travel_permit/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1HkmMainlandTravelPermitRecognizeResponseDto>> PostDocumentAiV1HkmMainlandTravelPermitRecognizeAsync(
+        [FormDataContent] Ai.PostDocumentAiV1HkmMainlandTravelPermitRecognizeBodyDto dto,
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的台湾居民来往大陆通行证</para>
+    /// <para>接口ID：7273083612789571587</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/tw_mainland_travel_permit/recognize</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>台湾居民来往大陆通行证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：否</para>
+    /// <para>识别的台湾居民来往大陆通行证源文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/tw_mainland_travel_permit/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1TwMainlandTravelPermitRecognizeResponseDto>> PostDocumentAiV1TwMainlandTravelPermitRecognizeAsync(
+        [FormDataContent] Ai.PostDocumentAiV1TwMainlandTravelPermitRecognizeBodyDto dto,
+        [FormDataContent] FormDataFile? file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的中国护照</para>
+    /// <para>接口ID：7273083612789587971</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/chinese_passport/recognize</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>中国护照识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的中国护照源文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/chinese_passport/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1ChinesePassportRecognizeResponseDto>> PostDocumentAiV1ChinesePassportRecognizeAsync(
+        [FormDataContent] Ai.PostDocumentAiV1ChinesePassportRecognizeBodyDto dto,
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的银行卡</para>
+    /// <para>接口ID：7273083612789604355</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/bank_card/recognize</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>银行卡识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的银行卡源文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/bank_card/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1BankCardRecognizeResponseDto>> PostDocumentAiV1BankCardRecognizeAsync(
+        [FormDataContent] Ai.PostDocumentAiV1BankCardRecognizeBodyDto dto,
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的行驶证</para>
+    /// <para>接口ID：7249730096956669955</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/vehicle_license/recognize</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>行驶证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的行驶证源文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/vehicle_license/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1VehicleLicenseRecognizeResponseDto>> PostDocumentAiV1VehicleLicenseRecognizeAsync(
+        [FormDataContent] Ai.PostDocumentAiV1VehicleLicenseRecognizeBodyDto dto,
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的火车票</para>
+    /// <para>接口ID：7249730096956686339</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/train_invoice/recognize</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>火车票识别接口，支持JPG/JPEG/PNG/PDF/OFD五种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的火车票源文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/train_invoice/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1TrainInvoiceRecognizeResponseDto>> PostDocumentAiV1TrainInvoiceRecognizeAsync(
+        [FormDataContent] Ai.PostDocumentAiV1TrainInvoiceRecognizeBodyDto dto,
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的出租车发票</para>
+    /// <para>接口ID：7249730096956620803</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/taxi_invoice/recognize</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>出租车发票识别接口，支持JPG/JPEG/PNG/PDF/OFD五种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的出租车票源文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/taxi_invoice/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1TaxiInvoiceRecognizeResponseDto>> PostDocumentAiV1TaxiInvoiceRecognizeAsync(
+        [FormDataContent] Ai.PostDocumentAiV1TaxiInvoiceRecognizeBodyDto dto,
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的身份证</para>
+    /// <para>接口ID：7249730096956637187</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/id_card/recognize</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>身份证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别身份证的源文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/id_card/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1IdCardRecognizeResponseDto>> PostDocumentAiV1IdCardRecognizeAsync(
+        [FormDataContent] Ai.PostDocumentAiV1IdCardRecognizeBodyDto dto,
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的食品生产许可证</para>
+    /// <para>接口ID：7249730096956702723</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/food_produce_license/recognize</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>食品生产许可证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的食品生产许可证源文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/food_produce_license/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1FoodProduceLicenseRecognizeResponseDto>> PostDocumentAiV1FoodProduceLicenseRecognizeAsync(
+        [FormDataContent] Ai.PostDocumentAiV1FoodProduceLicenseRecognizeBodyDto dto,
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的食品经营许可证</para>
+    /// <para>接口ID：7249730096956719107</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/food_manage_license/recognize</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>食品经营许可证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的食品经营许可证源文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/food_manage_license/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1FoodManageLicenseRecognizeResponseDto>> PostDocumentAiV1FoodManageLicenseRecognizeAsync(
+        [FormDataContent] Ai.PostDocumentAiV1FoodManageLicenseRecognizeBodyDto dto,
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的驾驶证</para>
+    /// <para>接口ID：7249730096956653571</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/driving_license/recognize</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>驾驶证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的驾驶证源文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/driving_license/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1DrivingLicenseRecognizeResponseDto>> PostDocumentAiV1DrivingLicenseRecognizeAsync(
+        [FormDataContent] Ai.PostDocumentAiV1DrivingLicenseRecognizeBodyDto dto,
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的增值税发票</para>
+    /// <para>接口ID：7247054875321434114</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/vat_invoice/recognize</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>增值税发票识别接口，支持JPG/JPEG/PNG/PDF/OFD四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的增值税发票文件（支持JPG/JPEG/PNG/BMP）</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/vat_invoice/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1VatInvoiceRecognizeResponseDto>> PostDocumentAiV1VatInvoiceRecognizeAsync(
+        [FormDataContent] Ai.PostDocumentAiV1VatInvoiceRecognizeBodyDto dto,
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的营业执照</para>
+    /// <para>接口ID：7249730096956735491</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/business_license/recognize</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>营业执照识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的营业执照源文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/business_license/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1BusinessLicenseRecognizeResponseDto>> PostDocumentAiV1BusinessLicenseRecognizeAsync(
+        [FormDataContent] Ai.PostDocumentAiV1BusinessLicenseRecognizeBodyDto dto,
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】提取文件中的合同字段</para>
+    /// <para>接口ID：7220312184105664515</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/contract/field_extraction</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>支持从doc、docx和pdf文件类型中提取合同字段</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>合同字段解析的源文件，当前只支持pdf, doc, docx三种类型的文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/contract/field_extraction")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1ContractFieldExtractionResponseDto>> PostDocumentAiV1ContractFieldExtractionAsync(
+        [FormDataContent] Ai.PostDocumentAiV1ContractFieldExtractionBodyDto dto,
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的名片</para>
+    /// <para>接口ID：7205462689421066244</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/business_card/recognize</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>名片识别接口，通过上传 JPG / PNG / PDF 等文件类型进行一次性的名片识别。接口适用于20MB以下的文件，适用于英文、日语的名片。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别名片的源文件（支持 JPG / PNG / PDF）</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/business_card/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1BusinessCardRecognizeResponseDto>> PostDocumentAiV1BusinessCardRecognizeAsync(
+        [FormDataContent] Ai.PostDocumentAiV1BusinessCardRecognizeBodyDto dto,
+        [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【AI 能力】识别图片中的文字</para>

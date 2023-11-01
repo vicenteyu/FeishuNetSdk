@@ -20,36 +20,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Remove="Acs\**" />
-        <Compile Remove="Ai\**" />
-        <Compile Remove="Auth\**" />
-        <Compile Remove="Ehr\**" />
-        <Compile Remove="Human_Authentication\**" />
-        <Compile Remove="Meeting_Room\**" />
-        <Compile Remove="Passport\**" />
-        <Compile Remove="Search\**" />
-        <Compile Remove="Verification_Information\**" />
-        <EmbeddedResource Remove="Acs\**" />
-        <EmbeddedResource Remove="Ai\**" />
-        <EmbeddedResource Remove="Auth\**" />
-        <EmbeddedResource Remove="Ehr\**" />
-        <EmbeddedResource Remove="Human_Authentication\**" />
-        <EmbeddedResource Remove="Meeting_Room\**" />
-        <EmbeddedResource Remove="Passport\**" />
-        <EmbeddedResource Remove="Search\**" />
-        <EmbeddedResource Remove="Verification_Information\**" />
-        <None Remove="Acs\**" />
-        <None Remove="Ai\**" />
-        <None Remove="Auth\**" />
-        <None Remove="Ehr\**" />
-        <None Remove="Human_Authentication\**" />
-        <None Remove="Meeting_Room\**" />
-        <None Remove="Passport\**" />
-        <None Remove="Search\**" />
-        <None Remove="Verification_Information\**" />
-    </ItemGroup>
-
-    <ItemGroup>
         <None Include="..\LICENSE">
             <Pack>True</Pack>
             <PackagePath>\</PackagePath>

@@ -1,10 +1,12 @@
 # FeishuNetSdk
 
+内置自动缓存和过期重取Token机制。
+
 [![.NET](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/dotnet.yml/badge.svg?branch=main&event=push)](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/dotnet.yml)
 
 飞书开放平台网址：[https://open.feishu.cn/](https://open.feishu.cn/)
 
-接口清单详见：[TenantAccessToken适用接口清单-978个](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
+接口清单详见：[TenantAccessToken适用清单-已实现接口993个](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
 
 ## 用法：
 
@@ -46,26 +48,15 @@ public class TestController : ControllerBase
         _feishuApi = feishuApi;
     }
     
-	[HttpGet("t2")]
-	public async Task<IResult> GetT2Async()
-	{
-	    var result = await _feishuApi.GetImV1ChatsAsync();
-	    return Results.Json(result);
-	}
+    [HttpGet("t2")]
+    public async Task<IResult> GetT2Async()
+    {
+        var result = await _feishuApi.GetImV1ChatsAsync();
+        return Results.Json(result);
+    }
 }
 ```
-### 4、当`获取凭证`异常时，内部异常类型为`TokenException`。
-```csharp
-try
-{
-    var result = await _feishuApi.GetEventV1OutboundIpAsync();
-    return Results.Json(result);
-}
-catch (HttpRequestException ex) when (ex.InnerException is TokenException tokenException)
-{
-    return Results.Problem(tokenException.Message);
-}
-```
+
 
 ## 示例：
 
@@ -137,6 +128,19 @@ public async Task<IResult> GetT5Async()
 
 ## 注意事项：
 
+### 当`获取凭证`异常时，内部异常类型为`TokenException`。
+```csharp
+try
+{
+    var result = await _feishuApi.GetEventV1OutboundIpAsync();
+    return Results.Json(result);
+}
+catch (HttpRequestException ex) when (ex.InnerException is TokenException tokenException)
+{
+    return Results.Problem(tokenException.Message);
+}
+```
+
 ### 云文档操作
 
 **文档操作前提需要有编辑权限，步骤如下：**
@@ -145,7 +149,6 @@ public async Task<IResult> GetT5Async()
 1. 将`应用机器人`加入或创建一个新`群组`。
 1. 进入目标文档，将该`群组`设置为`文档协作者`。
 1. 调用接口方法。
-
 
 
 ------------

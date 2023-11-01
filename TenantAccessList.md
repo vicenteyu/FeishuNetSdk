@@ -569,11 +569,11 @@
 |567|邮箱|批量创建邮件组权限成员|PostMailV1MailgroupsByMailgroupIdPermissionMembersBatchCreate|-|
 |568|邮箱|批量删除邮件组权限成员|DeleteMailV1MailgroupsByMailgroupIdPermissionMembersBatchDelete|-|
 |569|邮箱|创建公共邮箱|PostMailV1PublicMailboxes|-|
-|570|邮箱|删除公共邮箱|DeleteMailV1PublicMailboxesByPublicMailboxId|-|
-|571|邮箱|修改公共邮箱部分信息|PatchMailV1PublicMailboxesByPublicMailboxId|-|
-|572|邮箱|修改公共邮箱全部信息|PutMailV1PublicMailboxesByPublicMailboxId|-|
-|573|邮箱|查询指定公共邮箱|GetMailV1PublicMailboxesByPublicMailboxId|-|
-|574|邮箱|查询所有公共邮箱|GetMailV1PublicMailboxes|-|
+|570|邮箱|修改公共邮箱部分信息|PatchMailV1PublicMailboxesByPublicMailboxId|-|
+|571|邮箱|修改公共邮箱全部信息|PutMailV1PublicMailboxesByPublicMailboxId|-|
+|572|邮箱|查询指定公共邮箱|GetMailV1PublicMailboxesByPublicMailboxId|-|
+|573|邮箱|查询所有公共邮箱|GetMailV1PublicMailboxes|-|
+|574|邮箱|删除公共邮箱|DeleteMailV1PublicMailboxesByPublicMailboxId|-|
 |575|邮箱|添加公共邮箱成员|PostMailV1PublicMailboxesByPublicMailboxIdMembers|-|
 |576|邮箱|删除公共邮箱单个成员|DeleteMailV1PublicMailboxesByPublicMailboxIdMembersByMemberId|-|
 |577|邮箱|删除公共邮箱所有成员|PostMailV1PublicMailboxesByPublicMailboxIdMembersClear|-|
@@ -635,346 +635,361 @@
 |633|搜索|删除数据范式|DeleteSearchV2SchemasBySchemaId|-|
 |634|搜索|修改数据范式|PatchSearchV2SchemasBySchemaId|-|
 |635|搜索|获取数据范式|GetSearchV2SchemasBySchemaId|-|
-|636|AI 能力|识别图片中的文字|PostOpticalCharRecognitionV1ImageBasicRecognize|-|
-|637|AI 能力|识别语音文件|PostSpeechToTextV1SpeechFileRecognize|-|
-|638|AI 能力|识别流式语音|PostSpeechToTextV1SpeechStreamRecognize|-|
-|639|AI 能力|识别文本语种|PostTranslationV1TextDetect|-|
-|640|AI 能力|翻译文本|PostTranslationV1TextTranslate|-|
-|641|管理后台|重置用户的企业邮箱密码|PostAdminV1PasswordReset|-|
-|642|管理后台|获取部门维度的用户活跃和功能使用数据|GetAdminV1AdminDeptStats|-|
-|643|管理后台|获取用户维度的用户活跃和功能使用数据|GetAdminV1AdminUserStats|-|
-|644|管理后台|创建勋章|PostAdminV1Badges|-|
-|645|管理后台|修改勋章信息|PutAdminV1BadgesByBadgeId|-|
-|646|管理后台|上传勋章图片|PostAdminV1BadgeImages|-|
-|647|管理后台|获取勋章列表|GetAdminV1Badges|-|
-|648|管理后台|获取勋章详情|GetAdminV1BadgesByBadgeId|-|
-|649|管理后台|创建授予名单|PostAdminV1BadgesByBadgeIdGrants|-|
-|650|管理后台|删除授予名单|DeleteAdminV1BadgesByBadgeIdGrantsByGrantId|-|
-|651|管理后台|修改授予名单|PutAdminV1BadgesByBadgeIdGrantsByGrantId|-|
-|652|管理后台|获取授予名单列表|GetAdminV1BadgesByBadgeIdGrants|-|
-|653|管理后台|获取授予名单详情|GetAdminV1BadgesByBadgeIdGrantsByGrantId|-|
-|654|飞书人事（标准版）|批量获取员工花名册信息|GetEhrV1Employees|-|
-|655|飞书人事（标准版）|下载人员的附件|GetEhrV1AttachmentsByToken|-|
-|656|飞书人事|获取字段详情|GetCorehrV1CustomFieldsGetByParam|-|
-|657|飞书人事|获取自定义字段列表|GetCorehrV1CustomFieldsQuery|-|
-|658|飞书人事|获取飞书人事对象列表|GetCorehrV1CustomFieldsListObjectApiName|-|
-|659|飞书人事|查询单条国家/地区信息|GetCorehrV1CountryRegionsByCountryRegionId|-|
-|660|飞书人事|批量查询国家/地区信息|GetCorehrV1CountryRegions|-|
-|661|飞书人事|查询单条省份/行政区信息|GetCorehrV1SubdivisionsBySubdivisionId|-|
-|662|飞书人事|批量查询省份/行政区信息|GetCorehrV1Subdivisions|-|
-|663|飞书人事|查询单条城市/区域信息|GetCorehrV1SubregionsBySubregionId|-|
-|664|飞书人事|批量查询城市/区域信息|GetCorehrV1Subregions|-|
-|665|飞书人事|创建人员类型|PostCorehrV1EmployeeTypes|-|
-|666|飞书人事|删除人员类型|DeleteCorehrV1EmployeeTypesByEmployeeTypeId|-|
-|667|飞书人事|更新人员类型|PatchCorehrV1EmployeeTypesByEmployeeTypeId|-|
-|668|飞书人事|查询单个人员类型|GetCorehrV1EmployeeTypesByEmployeeTypeId|-|
-|669|飞书人事|批量查询人员类型|GetCorehrV1EmployeeTypes|-|
-|670|飞书人事|创建国家证件类型|PostCorehrV1NationalIdTypes|-|
-|671|飞书人事|删除国家证件类型|DeleteCorehrV1NationalIdTypesByNationalIdTypeId|-|
-|672|飞书人事|更新国家证件类型|PatchCorehrV1NationalIdTypesByNationalIdTypeId|-|
-|673|飞书人事|查询单个国家证件类型|GetCorehrV1NationalIdTypesByNationalIdTypeId|-|
-|674|飞书人事|批量查询国家证件类型|GetCorehrV1NationalIdTypes|-|
-|675|飞书人事|创建工时制度|PostCorehrV1WorkingHoursTypes|-|
-|676|飞书人事|删除工时制度|DeleteCorehrV1WorkingHoursTypesByWorkingHoursTypeId|-|
-|677|飞书人事|更新工时制度|PatchCorehrV1WorkingHoursTypesByWorkingHoursTypeId|-|
-|678|飞书人事|查询单个工时制度|GetCorehrV1WorkingHoursTypesByWorkingHoursTypeId|-|
-|679|飞书人事|批量查询工时制度|GetCorehrV1WorkingHoursTypes|-|
-|680|飞书人事|查询单个货币信息|GetCorehrV1CurrenciesByCurrencyId|-|
-|681|飞书人事|批量查询货币信息|GetCorehrV1Currencies|-|
-|682|飞书人事（企业版）|批量查询员工信息|PostCorehrV2EmployeesBatchGet|-|
-|683|飞书人事（企业版）|搜索员工信息|PostCorehrV2EmployeesSearch|-|
-|684|飞书人事|创建雇佣信息|PostCorehrV1Employments|-|
-|685|飞书人事|更新雇佣信息|PatchCorehrV1EmploymentsByEmploymentId|-|
-|686|飞书人事|删除雇佣信息|DeleteCorehrV1EmploymentsByEmploymentId|-|
-|687|飞书人事（企业版）|创建个人信息（V2）|PostCorehrV2Persons|-|
-|688|飞书人事（企业版）|更新个人信息（V2）|PatchCorehrV2PersonsByPersonId|-|
-|689|飞书人事|删除个人信息|DeleteCorehrV1PersonsByPersonId|-|
-|690|飞书人事|上传文件|PostCorehrV1PersonsUpload|-|
-|691|飞书人事|下载文件|GetCorehrV1FilesById|-|
-|692|飞书人事|创建任职信息|PostCorehrV1JobDatas|-|
-|693|飞书人事|删除任职信息|DeleteCorehrV1JobDatasByJobDataId|-|
-|694|飞书人事|更新任职信息|PatchCorehrV1JobDatasByJobDataId|-|
-|695|飞书人事|查询单个任职信息|GetCorehrV1JobDatasByJobDataId|-|
-|696|飞书人事（企业版）|获取任职信息列表|PostCorehrV2EmployeesJobDatasQuery|-|
-|697|飞书人事（企业版）|批量查询员工任职信息|PostCorehrV2EmployeesJobDatasBatchGet|-|
-|698|飞书人事|批量查询任职信息|GetCorehrV1JobDatas|-|
-|699|飞书人事（企业版）|获取父部门信息|PostCorehrV2DepartmentsParents|-|
-|700|飞书人事（企业版）|搜索部门信息|PostCorehrV2DepartmentsSearch|-|
-|701|飞书人事|创建部门|PostCorehrV1Departments|-|
-|702|飞书人事|更新部门|PatchCorehrV1DepartmentsByDepartmentId|-|
-|703|飞书人事|删除部门|DeleteCorehrV1DepartmentsByDepartmentId|-|
-|704|飞书人事|查询单个部门|GetCorehrV1DepartmentsByDepartmentId|-|
-|705|飞书人事|批量查询部门|GetCorehrV1Departments|-|
-|706|飞书人事（企业版）|通过地点 ID 批量获取地点信息|PostCorehrV2LocationsBatchGet|-|
-|707|飞书人事|创建地点|PostCorehrV1Locations|-|
-|708|飞书人事|删除地点|DeleteCorehrV1LocationsByLocationId|-|
-|709|飞书人事|查询单个地点|GetCorehrV1LocationsByLocationId|-|
-|710|飞书人事|批量查询地点|GetCorehrV1Locations|-|
-|711|飞书人事（企业版）|通过公司 ID 批量获取公司信息|PostCorehrV2CompaniesBatchGet|-|
-|712|飞书人事|创建公司|PostCorehrV1Companies|-|
-|713|飞书人事|删除公司|DeleteCorehrV1CompaniesByCompanyId|-|
-|714|飞书人事|查询单个公司|GetCorehrV1CompaniesByCompanyId|-|
-|715|飞书人事|批量查询公司|GetCorehrV1Companies|-|
-|716|飞书人事（企业版）|通过职级 ID 批量获取职级信息|PostCorehrV2JobLevelsBatchGet|-|
-|717|飞书人事|创建职级|PostCorehrV1JobLevels|-|
-|718|飞书人事|删除职级|DeleteCorehrV1JobLevelsByJobLevelId|-|
-|719|飞书人事|更新职级|PatchCorehrV1JobLevelsByJobLevelId|-|
-|720|飞书人事|查询单个职级|GetCorehrV1JobLevelsByJobLevelId|-|
-|721|飞书人事|批量查询职级|GetCorehrV1JobLevels|-|
-|722|飞书人事（企业版）|通过序列 ID 批量获取序列信息|PostCorehrV2JobFamiliesBatchGet|-|
-|723|飞书人事|创建序列|PostCorehrV1JobFamilies|-|
-|724|飞书人事|删除序列|DeleteCorehrV1JobFamiliesByJobFamilyId|-|
-|725|飞书人事|更新序列|PatchCorehrV1JobFamiliesByJobFamilyId|-|
-|726|飞书人事|查询单个序列|GetCorehrV1JobFamiliesByJobFamilyId|-|
-|727|飞书人事|批量查询序列|GetCorehrV1JobFamilies|-|
-|728|飞书人事|创建职务|PostCorehrV1Jobs|-|
-|729|飞书人事|删除职务|DeleteCorehrV1JobsByJobId|-|
-|730|飞书人事|更新职务|PatchCorehrV1JobsByJobId|-|
-|731|飞书人事（企业版）|查询单个职务（V2）|GetCorehrV2JobsByJobId|-|
-|732|飞书人事（企业版）|批量查询职务（V2)|GetCorehrV2Jobs|-|
-|733|飞书人事|查询单个职务|GetCorehrV1JobsByJobId|-|
-|734|飞书人事|批量查询职务|GetCorehrV1Jobs|-|
-|735|飞书人事（企业版）|创建待入职人员|PostCorehrV2PreHires|-|
-|736|飞书人事|更新待入职信息|PatchCorehrV1PreHiresByPreHireId|-|
-|737|飞书人事|删除待入职人员|DeleteCorehrV1PreHiresByPreHireId|-|
-|738|飞书人事|查询单个待入职人员|GetCorehrV1PreHiresByPreHireId|-|
-|739|飞书人事|批量查询待入职人员|GetCorehrV1PreHires|-|
-|740|飞书人事（企业版）|搜索合同|PostCorehrV2ContractsSearch|-|
-|741|飞书人事|创建合同|PostCorehrV1Contracts|-|
-|742|飞书人事|删除合同|DeleteCorehrV1ContractsByContractId|-|
-|743|飞书人事|更新合同|PatchCorehrV1ContractsByContractId|-|
-|744|飞书人事|查询单个合同|GetCorehrV1ContractsByContractId|-|
-|745|飞书人事|批量查询合同|GetCorehrV1Contracts|-|
-|746|飞书人事（企业版）|搜索试用期信息|PostCorehrV2ProbationSearch|-|
-|747|飞书人事（企业版）|启用/停用试用期考核功能|PostCorehrV2ProbationEnableDisableAssessment|-|
-|748|飞书人事（企业版）|新增试用期考核信息|PostCorehrV2ProbationAssessments|-|
-|749|飞书人事（企业版）|更新试用期考核信息|PatchCorehrV2ProbationAssessmentsByAssessmentId|-|
-|750|飞书人事（企业版）|删除试用期考核信息|DeleteCorehrV2ProbationAssessmentsByAssessmentId|-|
-|751|飞书人事|获取异动原因列表|GetCorehrV1TransferReasonsQuery|-|
-|752|飞书人事|获取异动类型列表|GetCorehrV1TransferTypesQuery|-|
-|753|飞书人事|发起员工异动|PostCorehrV1JobChanges|-|
-|754|飞书人事（企业版）|搜索员工异动信息|PostCorehrV2JobChangesSearch|-|
-|755|飞书人事|查询员工离职原因列表|PostCorehrV1OffboardingsQuery|-|
-|756|飞书人事|操作员工离职|PostCorehrV1OffboardingsSubmit|-|
-|757|飞书人事|搜索离职信息|PostCorehrV1OffboardingsSearch|-|
-|758|飞书人事|创建假期发放记录|PostCorehrV1LeaveGrantingRecords|-|
-|759|飞书人事|删除假期发放记录|DeleteCorehrV1LeaveGrantingRecordsByLeaveGrantingRecordId|-|
-|760|飞书人事|获取假期类型列表|GetCorehrV1LeavesLeaveTypes|-|
-|761|飞书人事|批量查询员工假期余额|GetCorehrV1LeavesLeaveBalances|-|
-|762|飞书人事|批量查询员工请假记录|GetCorehrV1LeavesLeaveRequestHistory|-|
-|763|飞书人事（企业版）|查询员工 HRBP / 属地 BP|PostCorehrV2EmployeesBpsBatchGet|-|
-|764|飞书人事（企业版）|查询部门 HRBP|PostCorehrV2BpsGetByDepartment|-|
-|765|飞书人事（企业版）|获取 HRBP 列表|GetCorehrV2Bps|-|
-|766|飞书人事|查询部门 / 地点的 HRBP / 属地 BP|PostCorehrV1SecurityGroupsQuery|-|
-|767|飞书人事|获取组织类角色授权列表|PostCorehrV1AssignedUsersSearch|-|
-|768|飞书人事|批量获取角色列表|GetCorehrV1SecurityGroups|-|
-|769|飞书人事|获取流程表单数据|GetCorehrV1ProcessesByProcessIdFormVariableData|-|
-|770|飞书人事|获取员工薪资标准|GetCorehrV1CompensationStandardsMatch|-|
-|771|招聘|新建职位|PostHireV1JobsCombinedCreate|-|
-|772|招聘|获取职位信息|GetHireV1JobsByJobId|-|
-|773|招聘|获取职位设置|GetHireV1JobsByJobIdConfig|-|
-|774|招聘|更新职位|PostHireV1JobsByJobIdCombinedUpdate|-|
-|775|招聘|更新职位设置|PostHireV1JobsByJobIdUpdateConfig|-|
-|776|招聘|获取职位类别列表|GetHireV1JobTypes|-|
-|777|招聘|创建招聘需求|PostHireV1JobRequirements|-|
-|778|招聘|获取招聘需求信息|PostHireV1JobRequirementsSearch|-|
-|779|招聘|获取招聘需求列表|GetHireV1JobRequirements|-|
-|780|招聘|更新招聘需求|PutHireV1JobRequirementsByJobRequirementId|-|
-|781|招聘|删除招聘需求|DeleteHireV1JobRequirementsByJobRequirementId|-|
-|782|招聘|获取招聘需求模板|GetHireV1JobRequirementSchemas|-|
-|783|招聘|获取招聘流程信息|GetHireV1JobProcesses|-|
-|784|招聘|获取信息登记表模板列表|GetHireV1RegistrationSchemas|-|
-|785|招聘|获取内推官网下的职位列表|GetHireV1ReferralWebsitesJobPosts|-|
-|786|招聘|获取内推官网下职位广告详情|GetHireV1ReferralWebsitesJobPostsByJobPostId|-|
-|787|招聘|获取内推信息|GetHireV1ReferralsGetByApplication|-|
-|788|招聘|创建外部投递|PostHireV1ExternalApplications|-|
-|789|招聘|更新外部投递|PutHireV1ExternalApplicationsByExternalApplicationId|-|
-|790|招聘|删除外部投递|DeleteHireV1ExternalApplicationsByExternalApplicationId|-|
-|791|招聘|创建外部面试|PostHireV1ExternalInterviews|-|
-|792|招聘|创建外部面评|PostHireV1ExternalInterviewAssessments|-|
-|793|招聘|创建外部背调|PostHireV1ExternalBackgroundChecks|-|
-|794|招聘|将人才加入指定文件夹|PostHireV1TalentsAddToFolder|-|
-|795|招聘|获取人才文件夹信息|GetHireV1TalentFolders|-|
-|796|招聘|通过手机号或邮箱获取人才 ID|PostHireV1TalentsBatchGetId|-|
-|797|招聘|获取人才字段|GetHireV1TalentObjectsQuery|-|
-|798|招聘|获取人才信息 V1|GetHireV1TalentsByTalentId|-|
-|799|招聘|创建投递|PostHireV1Applications|-|
-|800|招聘|终止投递|PostHireV1ApplicationsByApplicationIdTerminate|-|
-|801|招聘|获取投递信息|GetHireV1ApplicationsByApplicationId|-|
-|802|招聘|获取投递列表|GetHireV1Applications|-|
-|803|招聘|获取简历评估信息|GetHireV1Evaluations|-|
-|804|招聘|获取面试满意度问卷列表|GetHireV1Questionnaires|-|
-|805|招聘|获取面试信息|GetHireV1Interviews|-|
-|806|招聘|创建 Offer|PostHireV1Offers|-|
-|807|招聘|更新 Offer 信息|PutHireV1OffersByOfferId|-|
-|808|招聘|获取 Offer 信息|GetHireV1ApplicationsByApplicationIdOffer|-|
-|809|招聘|获取 Offer 详情|GetHireV1OffersByOfferId|-|
-|810|招聘|获取 Offer 列表|GetHireV1Offers|-|
-|811|招聘|更新 Offer 状态|PatchHireV1OffersByOfferIdOfferStatus|-|
-|812|招聘|更新实习 Offer 入/离职状态|PostHireV1OffersByOfferIdInternOfferStatus|-|
-|813|招聘|更新 e-HR 导入任务结果|PatchHireV1EhrImportTasksByEhrImportTaskId|-|
-|814|招聘|操作候选人入职|PostHireV1ApplicationsByApplicationIdTransferOnboard|-|
-|815|招聘|更新入职状态|PatchHireV1EmployeesByEmployeeId|-|
-|816|招聘|通过投递 ID 获取入职信息|GetHireV1EmployeesGetByApplication|-|
-|817|招聘|通过员工 ID 获取入职信息|GetHireV1EmployeesByEmployeeId|-|
-|818|招聘|创建备注|PostHireV1Notes|-|
-|819|招聘|更新备注|PatchHireV1NotesByNoteId|-|
-|820|招聘|获取备注|GetHireV1NotesByNoteId|-|
-|821|招聘|获取备注列表|GetHireV1Notes|-|
-|822|招聘|获取简历来源列表|GetHireV1ResumeSources|-|
-|823|招聘|创建账号自定义字段|PostHireV1EcoAccountCustomFields|-|
-|824|招聘|更新账号自定义字段|PatchHireV1EcoAccountCustomFieldsBatchUpdate|-|
-|825|招聘|删除账号自定义字段|PostHireV1EcoAccountCustomFieldsBatchDelete|-|
-|826|招聘|推送背调自定义字段|PostHireV1EcoBackgroundCheckCustomFields|-|
-|827|招聘|更新背调自定义字段|PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdate|-|
-|828|招聘|删除背调自定义字段|PostHireV1EcoBackgroundCheckCustomFieldsBatchDelete|-|
-|829|招聘|创建背调套餐和附加调查项|PostHireV1EcoBackgroundCheckPackages|-|
-|830|招聘|更新背调套餐和附加调查项|PatchHireV1EcoBackgroundCheckPackagesBatchUpdate|-|
-|831|招聘|删除背调套餐和附加调查项|PostHireV1EcoBackgroundCheckPackagesBatchDelete|-|
-|832|招聘|更新背调订单进度|PostHireV1EcoBackgroundChecksUpdateProgress|-|
-|833|招聘|回传背调订单的最终结果|PostHireV1EcoBackgroundChecksUpdateResult|-|
-|834|招聘|终止背调订单|PostHireV1EcoBackgroundChecksCancel|-|
-|835|招聘|推送试卷列表|PostHireV1EcoExamPapers|-|
-|836|招聘|更新试卷|PatchHireV1EcoExamPapersBatchUpdate|-|
-|837|招聘|删除试卷|PostHireV1EcoExamPapersBatchDelete|-|
-|838|招聘|回传笔试安排结果|PostHireV1EcoExamsByExamIdLoginInfo|-|
-|839|招聘|回传笔试结果|PostHireV1EcoExamsByExamIdUpdateResult|-|
-|840|招聘|注册外部系统内推账户|PostHireV1ReferralAccount|-|
-|841|招聘|停用外部系统内推账户|PostHireV1ReferralAccountByReferralAccountIdDeactivate|-|
-|842|招聘|全额提取内推账号余额|PostHireV1ReferralAccountByReferralAccountIdWithdraw|-|
-|843|招聘|内推账号提现对账接口|PostHireV1ReferralAccountReconciliation|-|
-|844|招聘|获取附件信息|GetHireV1AttachmentsByAttachmentId|-|
-|845|招聘|获取附件预览信息|GetHireV1AttachmentsByAttachmentIdPreview|-|
-|846|OKR|获取 OKR 周期列表|GetOkrV1Periods|-|
-|847|OKR|获取用户的 OKR 列表|GetOkrV1UsersByUserIdOkrs|-|
-|848|OKR|批量获取 OKR|GetOkrV1OkrsBatchGet|-|
-|849|OKR|创建 OKR 进展记录|PostOkrV1ProgressRecords|-|
-|850|OKR|删除 OKR 进展记录|DeleteOkrV1ProgressRecordsByProgressId|-|
-|851|OKR|更新 OKR 进展记录|PutOkrV1ProgressRecordsByProgressId|-|
-|852|OKR|获取 OKR 进展记录|GetOkrV1ProgressRecordsByProgressId|-|
-|853|OKR|上传进展记录图片|PostOkrV1ImagesUpload|-|
-|854|OKR|获取指标库|GetOkrV1MetricSources|-|
-|855|OKR|获取指标表|GetOkrV1MetricSourcesByMetricSourceIdTables|-|
-|856|OKR|更新指标项|PatchOkrV1MetricSourcesByMetricSourceIdTablesByMetricTableIdItemsByMetricItemId|-|
-|857|OKR|批量更新指标项|PatchOkrV1MetricSourcesByMetricSourceIdTablesByMetricTableIdItemsBatchUpdate|-|
-|858|OKR|获取指标项|GetOkrV1MetricSourcesByMetricSourceIdTablesByMetricTableIdItems|-|
-|859|OKR|获取指标项详情|GetOkrV1MetricSourcesByMetricSourceIdTablesByMetricTableIdItemsByMetricItemId|-|
-|860|实名认证|录入身份信息|PostHumanAuthenticationV1Identities|-|
-|861|实名认证|上传人脸基准图片|PostFaceVerifyV1UploadFaceImage|-|
-|862|实名认证|裁剪人脸图片|PostFaceVerifyV1CropFaceImage|-|
-|863|实名认证|查询人脸认证结果|GetFaceVerifyV1QueryAuthResult|-|
-|864|智能门禁|修改用户部分信息|PatchAcsV1UsersByUserId|-|
-|865|智能门禁|获取单个用户信息|GetAcsV1UsersByUserId|-|
-|866|智能门禁|获取用户列表|GetAcsV1Users|-|
-|867|智能门禁|上传人脸图片|PutAcsV1UsersByUserIdFace|-|
-|868|智能门禁|下载人脸图片|GetAcsV1UsersByUserIdFace|-|
-|869|智能门禁|获取门禁设备列表|GetAcsV1Devices|-|
-|870|智能门禁|获取门禁记录列表|GetAcsV1AccessRecords|-|
-|871|智能门禁|下载开门时的人脸识别图片|GetAcsV1AccessRecordsByAccessRecordIdAccessPhoto|-|
-|872|绩效|获取周期|GetPerformanceV1Semesters|-|
-|873|绩效|获取周期任务（指定用户）|PostPerformanceV1StageTasksFindByUserList|-|
-|874|绩效|获取周期任务（全部用户）|PostPerformanceV1StageTasksFindByPage|-|
-|875|绩效|获取绩效结果|PostPerformanceV1ReviewDatasQuery|-|
-|876|词典|创建草稿|PostLingoV1Drafts|-|
-|877|词典|更新草稿|PutLingoV1DraftsByDraftId|-|
-|878|词典|创建免审词条|PostLingoV1Entities|-|
-|879|词典|更新免审词条|PutLingoV1EntitiesByEntityId|-|
-|880|词典|获取词条详情|GetLingoV1EntitiesByEntityId|-|
-|881|词典|获取词条列表|GetLingoV1Entities|-|
-|882|词典|精准搜索词条|PostLingoV1EntitiesMatch|-|
-|883|词典|模糊搜索词条|PostLingoV1EntitiesSearch|-|
-|884|词典|词条高亮|PostLingoV1EntitiesHighlight|-|
-|885|词典|获取词典分类|GetLingoV1Classifications|-|
-|886|词典|获取词库列表|GetLingoV1Repos|-|
-|887|词典|上传图片|PostLingoV1FilesUpload|-|
-|888|词典|下载图片|GetLingoV1FilesByFileTokenDownload|-|
-|889|安全合规|获取OpenAPI审计日志数据|PostSecurityAndComplianceV1OpenapiLogsListData|-|
-|890|妙记|获取妙记统计数据|GetMinutesV1MinutesByMinuteTokenStatistics|-|
-|891|妙记|获取妙记信息|GetMinutesV1MinutesByMinuteToken|-|
-|892|工作台|获取工作台访问数据|PostWorkplaceV1WorkplaceAccessDataSearch|-|
-|893|工作台|获取定制工作台访问数据|PostWorkplaceV1CustomWorkplaceAccessDataSearch|-|
-|894|工作台|获取定制工作台小组件访问数据|PostWorkplaceV1WorkplaceBlockAccessDataSearch|-|
-|895|应用信息|获取当前设置的推荐规则列表|GetApplicationV6AppRecommendRules|-|
-|896|主数据|用户数据维度绑定|PostMdmV1UserAuthDataRelationsBind|-|
-|897|主数据|用户数据维度解绑|PostMdmV1UserAuthDataRelationsUnbind|-|
-|898|词典|创建草稿|PostBaikeV1Drafts|-|
-|899|词典|更新草稿|PutBaikeV1DraftsByDraftId|-|
-|900|词典|创建免审词条|PostBaikeV1Entities|-|
-|901|词典|更新免审词条|PutBaikeV1EntitiesByEntityId|-|
-|902|词典|获取词条详情|GetBaikeV1EntitiesByEntityId|-|
-|903|词典|获取词条列表|GetBaikeV1Entities|-|
-|904|词典|精准搜索词条|PostBaikeV1EntitiesMatch|-|
-|905|词典|模糊搜索词条|PostBaikeV1EntitiesSearch|-|
-|906|词典|词条高亮|PostBaikeV1EntitiesHighlight|-|
-|907|词典|提取潜在的词条|PostBaikeV1EntitiesExtract|-|
-|908|词典|获取词典分类|GetBaikeV1Classifications|-|
-|909|词典|上传图片|PostBaikeV1FilesUpload|-|
-|910|词典|下载图片|GetBaikeV1FilesByFileTokenDownload|-|
-|911|应用信息|更新应用可用范围|PostApplicationV3AppUpdateVisibility|-|
-|912|审批|订阅审批事件|PostApprovalOpenapiV2SubscriptionSubscribe|不推荐|
-|913|审批|取消订阅审批事件|PostApprovalOpenapiV2SubscriptionUnsubscribe|不推荐|
-|914|审批|查看审批定义|PostApprovalOpenapiV2ApprovalGet|不推荐|
-|915|审批|创建审批实例|PostApprovalOpenapiV2InstanceCreate|不推荐|
-|916|审批|获取单个审批实例详情|PostApprovalOpenapiV2InstanceGet|不推荐|
-|917|审批|批量获取审批实例ID|PostApprovalOpenapiV2InstanceList|不推荐|
-|918|审批|审批实例抄送|PostApprovalOpenapiV2InstanceCc|不推荐|
-|919|审批|审批实例撤回|PostApprovalOpenapiV2InstanceCancel|不推荐|
-|920|审批|审批任务同意|PostApprovalOpenapiV2InstanceApprove|不推荐|
-|921|审批|审批任务拒绝|PostApprovalOpenapiV2InstanceReject|不推荐|
-|922|审批|审批任务转交|PostApprovalOpenapiV2InstanceTransfer|不推荐|
-|923|审批|三方审批定义创建|PostApprovalOpenapiV3ExternalApprovalCreate|不推荐|
-|924|审批|三方审批实例同步|PostApprovalOpenapiV2ExternalInstanceCreate|不推荐|
-|925|审批|三方审批实例校验|PostApprovalOpenapiV3ExternalInstanceCheck|不推荐|
-|926|审批|获取三方审批任务状态|PostApprovalOpenapiV2ExternalList|不推荐|
-|927|审批|创建审批定义|PostApprovalOpenapiV2ApprovalCreate|不推荐|
-|928|审批|实例列表查询|PostApprovalOpenapiV2InstanceSearch|不推荐|
-|929|审批|抄送列表查询|PostApprovalOpenapiV2CcSearch|不推荐|
-|930|审批|任务列表查询|PostApprovalOpenapiV2TaskSearch|不推荐|
-|931|通讯录|获取用户列表|GetContactV3Users|-|
-|932|通讯录|获取角色列表|GetContactV2RoleList|-|
-|933|通讯录|更新用户所有信息|PutContactV3UsersByUserId|-|
-|934|通讯录|获取部门信息列表|GetContactV3Departments|-|
-|935|通讯录|批量新增部门|PostContactV2DepartmentBatchAdd|-|
-|936|通讯录|批量新增用户|PostContactV2UserBatchAdd|-|
-|937|通讯录|查询批量任务执行状态|GetContactV2TaskGet|-|
-|938|云文档|创建旧版文档|PostDocV2Create|-|
-|939|云文档|获取旧版文档元信息|GetDocV2MetaByDocToken|-|
-|940|云文档|获取旧版文档中的电子表格元数据|GetDocV2ByDocTokenSheetMeta|-|
-|941|云文档|获取旧版文档纯文本内容|GetDocV2ByDocTokenRawContent|-|
-|942|云文档|获取旧版文档富文本内容|GetDocV2ByDocTokenContent|-|
-|943|云文档|编辑旧版文档内容|PostDocV2ByDocTokenBatchUpdate|-|
-|944|云文档|获取表格元数据|GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfo|-|
-|945|云文档|更新表格属性|PutSheetsV2SpreadsheetsBySpreadsheetTokenProperties|-|
-|946|云文档|导入表格|PostSheetsV2Import|-|
-|947|云文档|查询导入结果|GetSheetsV2ImportResult|-|
-|948|云文档|获取元数据|PostSuiteDocsApiMeta|-|
-|949|云文档|删除Sheet|DeleteDriveExplorerV2FileSpreadsheetsBySpreadsheetToken|不推荐|
-|950|云文档|复制文档|PostDriveExplorerV2FileCopyFilesByFileToken|不推荐|
-|951|云文档|删除Doc|DeleteDriveExplorerV2FileDocsByDocToken|不推荐|
-|952|云文档|获取文件夹下的文档清单|GetDriveExplorerV2FolderByFolderTokenChildren|不推荐|
-|953|云文档|新建文件夹|PostDriveExplorerV2FolderByFolderToken|不推荐|
-|954|云文档|判断协作者是否有某权限|PostDrivePermissionMemberPermitted|-|
-|955|云文档|转移拥有者|PostDrivePermissionMemberTransfer|-|
-|956|云文档|获取云文档权限设置V2|PostDrivePermissionV2Public|-|
-|957|招聘|获取面试记录列表|GetHireV1ApplicationsByApplicationIdInterviews|-|
-|958|招聘|获取职位上的招聘人员信息|GetHireV1JobsByJobIdManagersByManagerId|-|
-|959|招聘|获取 Offer 申请表详细信息|GetHireV1OfferSchemasByOfferSchemaId|-|
-|960|飞书人事|查询单个个人信息|GetCorehrV1PersonsByPersonId|-|
-|961|会议室|获取建筑物列表|GetMeetingRoomBuildingList|-|
-|962|会议室|查询建筑物详情|GetMeetingRoomBuildingBatchGet|-|
-|963|会议室|获取会议室列表|GetMeetingRoomRoomList|-|
-|964|会议室|查询会议室详情|GetMeetingRoomRoomBatchGet|-|
-|965|会议室|创建建筑物|PostMeetingRoomBuildingCreate|-|
-|966|会议室|更新建筑物|PostMeetingRoomBuildingUpdate|-|
-|967|会议室|删除建筑物|PostMeetingRoomBuildingDelete|-|
-|968|会议室|查询建筑物ID|GetMeetingRoomBuildingBatchGetId|-|
-|969|会议室|创建会议室|PostMeetingRoomRoomCreate|-|
-|970|会议室|更新会议室|PostMeetingRoomRoomUpdate|-|
-|971|会议室|删除会议室|PostMeetingRoomRoomDelete|-|
-|972|会议室|查询会议室ID|GetMeetingRoomRoomBatchGetId|-|
-|973|会议室|获取国家地区列表|GetMeetingRoomCountryList|-|
-|974|会议室|获取城市列表|GetMeetingRoomDistrictList|-|
-|975|视频会议|创建签到板部署码|PostVcV1RoomConfigsSetCheckboardAccessCode|-|
-|976|视频会议|创建会议室部署码|PostVcV1RoomConfigsSetRoomAccessCode|-|
-|977|视频会议|查询会议室配置|GetVcV1RoomConfigsQuery|-|
-|978|视频会议|设置会议室配置|PostVcV1RoomConfigsSet|-|
+|636|AI 能力|识别文件中的港澳居民来往内地通行证|PostDocumentAiV1HkmMainlandTravelPermitRecognize|-|
+|637|AI 能力|识别文件中的台湾居民来往大陆通行证|PostDocumentAiV1TwMainlandTravelPermitRecognize|-|
+|638|AI 能力|识别文件中的中国护照|PostDocumentAiV1ChinesePassportRecognize|-|
+|639|AI 能力|识别文件中的银行卡|PostDocumentAiV1BankCardRecognize|-|
+|640|AI 能力|识别文件中的行驶证|PostDocumentAiV1VehicleLicenseRecognize|-|
+|641|AI 能力|识别文件中的火车票|PostDocumentAiV1TrainInvoiceRecognize|-|
+|642|AI 能力|识别文件中的出租车发票|PostDocumentAiV1TaxiInvoiceRecognize|-|
+|643|AI 能力|识别文件中的身份证|PostDocumentAiV1IdCardRecognize|-|
+|644|AI 能力|识别文件中的食品生产许可证|PostDocumentAiV1FoodProduceLicenseRecognize|-|
+|645|AI 能力|识别文件中的食品经营许可证|PostDocumentAiV1FoodManageLicenseRecognize|-|
+|646|AI 能力|识别文件中的驾驶证|PostDocumentAiV1DrivingLicenseRecognize|-|
+|647|AI 能力|识别文件中的增值税发票|PostDocumentAiV1VatInvoiceRecognize|-|
+|648|AI 能力|识别文件中的营业执照|PostDocumentAiV1BusinessLicenseRecognize|-|
+|649|AI 能力|提取文件中的合同字段|PostDocumentAiV1ContractFieldExtraction|-|
+|650|AI 能力|识别文件中的名片|PostDocumentAiV1BusinessCardRecognize|-|
+|651|AI 能力|识别图片中的文字|PostOpticalCharRecognitionV1ImageBasicRecognize|-|
+|652|AI 能力|识别语音文件|PostSpeechToTextV1SpeechFileRecognize|-|
+|653|AI 能力|识别流式语音|PostSpeechToTextV1SpeechStreamRecognize|-|
+|654|AI 能力|识别文本语种|PostTranslationV1TextDetect|-|
+|655|AI 能力|翻译文本|PostTranslationV1TextTranslate|-|
+|656|管理后台|重置用户的企业邮箱密码|PostAdminV1PasswordReset|-|
+|657|管理后台|获取部门维度的用户活跃和功能使用数据|GetAdminV1AdminDeptStats|-|
+|658|管理后台|获取用户维度的用户活跃和功能使用数据|GetAdminV1AdminUserStats|-|
+|659|管理后台|创建勋章|PostAdminV1Badges|-|
+|660|管理后台|修改勋章信息|PutAdminV1BadgesByBadgeId|-|
+|661|管理后台|上传勋章图片|PostAdminV1BadgeImages|-|
+|662|管理后台|获取勋章列表|GetAdminV1Badges|-|
+|663|管理后台|获取勋章详情|GetAdminV1BadgesByBadgeId|-|
+|664|管理后台|创建授予名单|PostAdminV1BadgesByBadgeIdGrants|-|
+|665|管理后台|删除授予名单|DeleteAdminV1BadgesByBadgeIdGrantsByGrantId|-|
+|666|管理后台|修改授予名单|PutAdminV1BadgesByBadgeIdGrantsByGrantId|-|
+|667|管理后台|获取授予名单列表|GetAdminV1BadgesByBadgeIdGrants|-|
+|668|管理后台|获取授予名单详情|GetAdminV1BadgesByBadgeIdGrantsByGrantId|-|
+|669|飞书人事（标准版）|批量获取员工花名册信息|GetEhrV1Employees|-|
+|670|飞书人事（标准版）|下载人员的附件|GetEhrV1AttachmentsByToken|-|
+|671|飞书人事|获取字段详情|GetCorehrV1CustomFieldsGetByParam|-|
+|672|飞书人事|获取自定义字段列表|GetCorehrV1CustomFieldsQuery|-|
+|673|飞书人事|获取飞书人事对象列表|GetCorehrV1CustomFieldsListObjectApiName|-|
+|674|飞书人事|查询单条国家/地区信息|GetCorehrV1CountryRegionsByCountryRegionId|-|
+|675|飞书人事|批量查询国家/地区信息|GetCorehrV1CountryRegions|-|
+|676|飞书人事|查询单条省份/行政区信息|GetCorehrV1SubdivisionsBySubdivisionId|-|
+|677|飞书人事|批量查询省份/行政区信息|GetCorehrV1Subdivisions|-|
+|678|飞书人事|查询单条城市/区域信息|GetCorehrV1SubregionsBySubregionId|-|
+|679|飞书人事|批量查询城市/区域信息|GetCorehrV1Subregions|-|
+|680|飞书人事|创建人员类型|PostCorehrV1EmployeeTypes|-|
+|681|飞书人事|删除人员类型|DeleteCorehrV1EmployeeTypesByEmployeeTypeId|-|
+|682|飞书人事|更新人员类型|PatchCorehrV1EmployeeTypesByEmployeeTypeId|-|
+|683|飞书人事|查询单个人员类型|GetCorehrV1EmployeeTypesByEmployeeTypeId|-|
+|684|飞书人事|批量查询人员类型|GetCorehrV1EmployeeTypes|-|
+|685|飞书人事|创建国家证件类型|PostCorehrV1NationalIdTypes|-|
+|686|飞书人事|删除国家证件类型|DeleteCorehrV1NationalIdTypesByNationalIdTypeId|-|
+|687|飞书人事|更新国家证件类型|PatchCorehrV1NationalIdTypesByNationalIdTypeId|-|
+|688|飞书人事|查询单个国家证件类型|GetCorehrV1NationalIdTypesByNationalIdTypeId|-|
+|689|飞书人事|批量查询国家证件类型|GetCorehrV1NationalIdTypes|-|
+|690|飞书人事|创建工时制度|PostCorehrV1WorkingHoursTypes|-|
+|691|飞书人事|删除工时制度|DeleteCorehrV1WorkingHoursTypesByWorkingHoursTypeId|-|
+|692|飞书人事|更新工时制度|PatchCorehrV1WorkingHoursTypesByWorkingHoursTypeId|-|
+|693|飞书人事|查询单个工时制度|GetCorehrV1WorkingHoursTypesByWorkingHoursTypeId|-|
+|694|飞书人事|批量查询工时制度|GetCorehrV1WorkingHoursTypes|-|
+|695|飞书人事|查询单个货币信息|GetCorehrV1CurrenciesByCurrencyId|-|
+|696|飞书人事|批量查询货币信息|GetCorehrV1Currencies|-|
+|697|飞书人事（企业版）|批量查询员工信息|PostCorehrV2EmployeesBatchGet|-|
+|698|飞书人事（企业版）|搜索员工信息|PostCorehrV2EmployeesSearch|-|
+|699|飞书人事|创建雇佣信息|PostCorehrV1Employments|-|
+|700|飞书人事|更新雇佣信息|PatchCorehrV1EmploymentsByEmploymentId|-|
+|701|飞书人事|删除雇佣信息|DeleteCorehrV1EmploymentsByEmploymentId|-|
+|702|飞书人事（企业版）|创建个人信息（V2）|PostCorehrV2Persons|-|
+|703|飞书人事（企业版）|更新个人信息（V2）|PatchCorehrV2PersonsByPersonId|-|
+|704|飞书人事|删除个人信息|DeleteCorehrV1PersonsByPersonId|-|
+|705|飞书人事|上传文件|PostCorehrV1PersonsUpload|-|
+|706|飞书人事|下载文件|GetCorehrV1FilesById|-|
+|707|飞书人事|创建任职信息|PostCorehrV1JobDatas|-|
+|708|飞书人事|删除任职信息|DeleteCorehrV1JobDatasByJobDataId|-|
+|709|飞书人事|更新任职信息|PatchCorehrV1JobDatasByJobDataId|-|
+|710|飞书人事|查询单个任职信息|GetCorehrV1JobDatasByJobDataId|-|
+|711|飞书人事（企业版）|获取任职信息列表|PostCorehrV2EmployeesJobDatasQuery|-|
+|712|飞书人事（企业版）|批量查询员工任职信息|PostCorehrV2EmployeesJobDatasBatchGet|-|
+|713|飞书人事|批量查询任职信息|GetCorehrV1JobDatas|-|
+|714|飞书人事（企业版）|获取父部门信息|PostCorehrV2DepartmentsParents|-|
+|715|飞书人事（企业版）|搜索部门信息|PostCorehrV2DepartmentsSearch|-|
+|716|飞书人事|创建部门|PostCorehrV1Departments|-|
+|717|飞书人事|更新部门|PatchCorehrV1DepartmentsByDepartmentId|-|
+|718|飞书人事|删除部门|DeleteCorehrV1DepartmentsByDepartmentId|-|
+|719|飞书人事|查询单个部门|GetCorehrV1DepartmentsByDepartmentId|-|
+|720|飞书人事|批量查询部门|GetCorehrV1Departments|-|
+|721|飞书人事（企业版）|通过地点 ID 批量获取地点信息|PostCorehrV2LocationsBatchGet|-|
+|722|飞书人事|创建地点|PostCorehrV1Locations|-|
+|723|飞书人事|删除地点|DeleteCorehrV1LocationsByLocationId|-|
+|724|飞书人事|查询单个地点|GetCorehrV1LocationsByLocationId|-|
+|725|飞书人事|批量查询地点|GetCorehrV1Locations|-|
+|726|飞书人事（企业版）|通过公司 ID 批量获取公司信息|PostCorehrV2CompaniesBatchGet|-|
+|727|飞书人事|创建公司|PostCorehrV1Companies|-|
+|728|飞书人事|删除公司|DeleteCorehrV1CompaniesByCompanyId|-|
+|729|飞书人事|查询单个公司|GetCorehrV1CompaniesByCompanyId|-|
+|730|飞书人事|批量查询公司|GetCorehrV1Companies|-|
+|731|飞书人事（企业版）|通过职级 ID 批量获取职级信息|PostCorehrV2JobLevelsBatchGet|-|
+|732|飞书人事|创建职级|PostCorehrV1JobLevels|-|
+|733|飞书人事|删除职级|DeleteCorehrV1JobLevelsByJobLevelId|-|
+|734|飞书人事|更新职级|PatchCorehrV1JobLevelsByJobLevelId|-|
+|735|飞书人事|查询单个职级|GetCorehrV1JobLevelsByJobLevelId|-|
+|736|飞书人事|批量查询职级|GetCorehrV1JobLevels|-|
+|737|飞书人事（企业版）|通过序列 ID 批量获取序列信息|PostCorehrV2JobFamiliesBatchGet|-|
+|738|飞书人事|创建序列|PostCorehrV1JobFamilies|-|
+|739|飞书人事|删除序列|DeleteCorehrV1JobFamiliesByJobFamilyId|-|
+|740|飞书人事|更新序列|PatchCorehrV1JobFamiliesByJobFamilyId|-|
+|741|飞书人事|查询单个序列|GetCorehrV1JobFamiliesByJobFamilyId|-|
+|742|飞书人事|批量查询序列|GetCorehrV1JobFamilies|-|
+|743|飞书人事|创建职务|PostCorehrV1Jobs|-|
+|744|飞书人事|删除职务|DeleteCorehrV1JobsByJobId|-|
+|745|飞书人事|更新职务|PatchCorehrV1JobsByJobId|-|
+|746|飞书人事（企业版）|查询单个职务（V2）|GetCorehrV2JobsByJobId|-|
+|747|飞书人事（企业版）|批量查询职务（V2)|GetCorehrV2Jobs|-|
+|748|飞书人事|查询单个职务|GetCorehrV1JobsByJobId|-|
+|749|飞书人事|批量查询职务|GetCorehrV1Jobs|-|
+|750|飞书人事（企业版）|创建待入职人员|PostCorehrV2PreHires|-|
+|751|飞书人事|更新待入职信息|PatchCorehrV1PreHiresByPreHireId|-|
+|752|飞书人事|删除待入职人员|DeleteCorehrV1PreHiresByPreHireId|-|
+|753|飞书人事|查询单个待入职人员|GetCorehrV1PreHiresByPreHireId|-|
+|754|飞书人事|批量查询待入职人员|GetCorehrV1PreHires|-|
+|755|飞书人事（企业版）|搜索合同|PostCorehrV2ContractsSearch|-|
+|756|飞书人事|创建合同|PostCorehrV1Contracts|-|
+|757|飞书人事|删除合同|DeleteCorehrV1ContractsByContractId|-|
+|758|飞书人事|更新合同|PatchCorehrV1ContractsByContractId|-|
+|759|飞书人事|查询单个合同|GetCorehrV1ContractsByContractId|-|
+|760|飞书人事|批量查询合同|GetCorehrV1Contracts|-|
+|761|飞书人事（企业版）|搜索试用期信息|PostCorehrV2ProbationSearch|-|
+|762|飞书人事（企业版）|启用/停用试用期考核功能|PostCorehrV2ProbationEnableDisableAssessment|-|
+|763|飞书人事（企业版）|新增试用期考核信息|PostCorehrV2ProbationAssessments|-|
+|764|飞书人事（企业版）|更新试用期考核信息|PatchCorehrV2ProbationAssessmentsByAssessmentId|-|
+|765|飞书人事（企业版）|删除试用期考核信息|DeleteCorehrV2ProbationAssessmentsByAssessmentId|-|
+|766|飞书人事|获取异动原因列表|GetCorehrV1TransferReasonsQuery|-|
+|767|飞书人事|获取异动类型列表|GetCorehrV1TransferTypesQuery|-|
+|768|飞书人事|发起员工异动|PostCorehrV1JobChanges|-|
+|769|飞书人事（企业版）|搜索员工异动信息|PostCorehrV2JobChangesSearch|-|
+|770|飞书人事|查询员工离职原因列表|PostCorehrV1OffboardingsQuery|-|
+|771|飞书人事|操作员工离职|PostCorehrV1OffboardingsSubmit|-|
+|772|飞书人事|搜索离职信息|PostCorehrV1OffboardingsSearch|-|
+|773|飞书人事|创建假期发放记录|PostCorehrV1LeaveGrantingRecords|-|
+|774|飞书人事|删除假期发放记录|DeleteCorehrV1LeaveGrantingRecordsByLeaveGrantingRecordId|-|
+|775|飞书人事|获取假期类型列表|GetCorehrV1LeavesLeaveTypes|-|
+|776|飞书人事|批量查询员工假期余额|GetCorehrV1LeavesLeaveBalances|-|
+|777|飞书人事|批量查询员工请假记录|GetCorehrV1LeavesLeaveRequestHistory|-|
+|778|飞书人事（企业版）|查询员工 HRBP / 属地 BP|PostCorehrV2EmployeesBpsBatchGet|-|
+|779|飞书人事（企业版）|查询部门 HRBP|PostCorehrV2BpsGetByDepartment|-|
+|780|飞书人事（企业版）|获取 HRBP 列表|GetCorehrV2Bps|-|
+|781|飞书人事|查询部门 / 地点的 HRBP / 属地 BP|PostCorehrV1SecurityGroupsQuery|-|
+|782|飞书人事|获取组织类角色授权列表|PostCorehrV1AssignedUsersSearch|-|
+|783|飞书人事|批量获取角色列表|GetCorehrV1SecurityGroups|-|
+|784|飞书人事|获取流程表单数据|GetCorehrV1ProcessesByProcessIdFormVariableData|-|
+|785|飞书人事|获取员工薪资标准|GetCorehrV1CompensationStandardsMatch|-|
+|786|招聘|新建职位|PostHireV1JobsCombinedCreate|-|
+|787|招聘|获取职位信息|GetHireV1JobsByJobId|-|
+|788|招聘|获取职位设置|GetHireV1JobsByJobIdConfig|-|
+|789|招聘|更新职位|PostHireV1JobsByJobIdCombinedUpdate|-|
+|790|招聘|更新职位设置|PostHireV1JobsByJobIdUpdateConfig|-|
+|791|招聘|获取职位类别列表|GetHireV1JobTypes|-|
+|792|招聘|创建招聘需求|PostHireV1JobRequirements|-|
+|793|招聘|获取招聘需求信息|PostHireV1JobRequirementsSearch|-|
+|794|招聘|获取招聘需求列表|GetHireV1JobRequirements|-|
+|795|招聘|更新招聘需求|PutHireV1JobRequirementsByJobRequirementId|-|
+|796|招聘|删除招聘需求|DeleteHireV1JobRequirementsByJobRequirementId|-|
+|797|招聘|获取招聘需求模板|GetHireV1JobRequirementSchemas|-|
+|798|招聘|获取招聘流程信息|GetHireV1JobProcesses|-|
+|799|招聘|获取信息登记表模板列表|GetHireV1RegistrationSchemas|-|
+|800|招聘|获取内推官网下的职位列表|GetHireV1ReferralWebsitesJobPosts|-|
+|801|招聘|获取内推官网下职位广告详情|GetHireV1ReferralWebsitesJobPostsByJobPostId|-|
+|802|招聘|获取内推信息|GetHireV1ReferralsGetByApplication|-|
+|803|招聘|创建外部投递|PostHireV1ExternalApplications|-|
+|804|招聘|更新外部投递|PutHireV1ExternalApplicationsByExternalApplicationId|-|
+|805|招聘|删除外部投递|DeleteHireV1ExternalApplicationsByExternalApplicationId|-|
+|806|招聘|创建外部面试|PostHireV1ExternalInterviews|-|
+|807|招聘|创建外部面评|PostHireV1ExternalInterviewAssessments|-|
+|808|招聘|创建外部背调|PostHireV1ExternalBackgroundChecks|-|
+|809|招聘|将人才加入指定文件夹|PostHireV1TalentsAddToFolder|-|
+|810|招聘|获取人才文件夹信息|GetHireV1TalentFolders|-|
+|811|招聘|通过手机号或邮箱获取人才 ID|PostHireV1TalentsBatchGetId|-|
+|812|招聘|获取人才字段|GetHireV1TalentObjectsQuery|-|
+|813|招聘|获取人才信息 V1|GetHireV1TalentsByTalentId|-|
+|814|招聘|创建投递|PostHireV1Applications|-|
+|815|招聘|终止投递|PostHireV1ApplicationsByApplicationIdTerminate|-|
+|816|招聘|获取投递信息|GetHireV1ApplicationsByApplicationId|-|
+|817|招聘|获取投递列表|GetHireV1Applications|-|
+|818|招聘|获取简历评估信息|GetHireV1Evaluations|-|
+|819|招聘|获取面试满意度问卷列表|GetHireV1Questionnaires|-|
+|820|招聘|获取面试信息|GetHireV1Interviews|-|
+|821|招聘|创建 Offer|PostHireV1Offers|-|
+|822|招聘|更新 Offer 信息|PutHireV1OffersByOfferId|-|
+|823|招聘|获取 Offer 信息|GetHireV1ApplicationsByApplicationIdOffer|-|
+|824|招聘|获取 Offer 详情|GetHireV1OffersByOfferId|-|
+|825|招聘|获取 Offer 列表|GetHireV1Offers|-|
+|826|招聘|更新 Offer 状态|PatchHireV1OffersByOfferIdOfferStatus|-|
+|827|招聘|更新实习 Offer 入/离职状态|PostHireV1OffersByOfferIdInternOfferStatus|-|
+|828|招聘|更新 e-HR 导入任务结果|PatchHireV1EhrImportTasksByEhrImportTaskId|-|
+|829|招聘|操作候选人入职|PostHireV1ApplicationsByApplicationIdTransferOnboard|-|
+|830|招聘|更新入职状态|PatchHireV1EmployeesByEmployeeId|-|
+|831|招聘|通过投递 ID 获取入职信息|GetHireV1EmployeesGetByApplication|-|
+|832|招聘|通过员工 ID 获取入职信息|GetHireV1EmployeesByEmployeeId|-|
+|833|招聘|创建备注|PostHireV1Notes|-|
+|834|招聘|更新备注|PatchHireV1NotesByNoteId|-|
+|835|招聘|获取备注|GetHireV1NotesByNoteId|-|
+|836|招聘|获取备注列表|GetHireV1Notes|-|
+|837|招聘|获取简历来源列表|GetHireV1ResumeSources|-|
+|838|招聘|创建账号自定义字段|PostHireV1EcoAccountCustomFields|-|
+|839|招聘|更新账号自定义字段|PatchHireV1EcoAccountCustomFieldsBatchUpdate|-|
+|840|招聘|删除账号自定义字段|PostHireV1EcoAccountCustomFieldsBatchDelete|-|
+|841|招聘|推送背调自定义字段|PostHireV1EcoBackgroundCheckCustomFields|-|
+|842|招聘|更新背调自定义字段|PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdate|-|
+|843|招聘|删除背调自定义字段|PostHireV1EcoBackgroundCheckCustomFieldsBatchDelete|-|
+|844|招聘|创建背调套餐和附加调查项|PostHireV1EcoBackgroundCheckPackages|-|
+|845|招聘|更新背调套餐和附加调查项|PatchHireV1EcoBackgroundCheckPackagesBatchUpdate|-|
+|846|招聘|删除背调套餐和附加调查项|PostHireV1EcoBackgroundCheckPackagesBatchDelete|-|
+|847|招聘|更新背调订单进度|PostHireV1EcoBackgroundChecksUpdateProgress|-|
+|848|招聘|回传背调订单的最终结果|PostHireV1EcoBackgroundChecksUpdateResult|-|
+|849|招聘|终止背调订单|PostHireV1EcoBackgroundChecksCancel|-|
+|850|招聘|推送试卷列表|PostHireV1EcoExamPapers|-|
+|851|招聘|更新试卷|PatchHireV1EcoExamPapersBatchUpdate|-|
+|852|招聘|删除试卷|PostHireV1EcoExamPapersBatchDelete|-|
+|853|招聘|回传笔试安排结果|PostHireV1EcoExamsByExamIdLoginInfo|-|
+|854|招聘|回传笔试结果|PostHireV1EcoExamsByExamIdUpdateResult|-|
+|855|招聘|注册外部系统内推账户|PostHireV1ReferralAccount|-|
+|856|招聘|停用外部系统内推账户|PostHireV1ReferralAccountByReferralAccountIdDeactivate|-|
+|857|招聘|全额提取内推账号余额|PostHireV1ReferralAccountByReferralAccountIdWithdraw|-|
+|858|招聘|内推账号提现对账接口|PostHireV1ReferralAccountReconciliation|-|
+|859|招聘|获取附件信息|GetHireV1AttachmentsByAttachmentId|-|
+|860|招聘|获取附件预览信息|GetHireV1AttachmentsByAttachmentIdPreview|-|
+|861|OKR|获取 OKR 周期列表|GetOkrV1Periods|-|
+|862|OKR|获取用户的 OKR 列表|GetOkrV1UsersByUserIdOkrs|-|
+|863|OKR|批量获取 OKR|GetOkrV1OkrsBatchGet|-|
+|864|OKR|创建 OKR 进展记录|PostOkrV1ProgressRecords|-|
+|865|OKR|删除 OKR 进展记录|DeleteOkrV1ProgressRecordsByProgressId|-|
+|866|OKR|更新 OKR 进展记录|PutOkrV1ProgressRecordsByProgressId|-|
+|867|OKR|获取 OKR 进展记录|GetOkrV1ProgressRecordsByProgressId|-|
+|868|OKR|上传进展记录图片|PostOkrV1ImagesUpload|-|
+|869|OKR|获取指标库|GetOkrV1MetricSources|-|
+|870|OKR|获取指标表|GetOkrV1MetricSourcesByMetricSourceIdTables|-|
+|871|OKR|更新指标项|PatchOkrV1MetricSourcesByMetricSourceIdTablesByMetricTableIdItemsByMetricItemId|-|
+|872|OKR|批量更新指标项|PatchOkrV1MetricSourcesByMetricSourceIdTablesByMetricTableIdItemsBatchUpdate|-|
+|873|OKR|获取指标项|GetOkrV1MetricSourcesByMetricSourceIdTablesByMetricTableIdItems|-|
+|874|OKR|获取指标项详情|GetOkrV1MetricSourcesByMetricSourceIdTablesByMetricTableIdItemsByMetricItemId|-|
+|875|实名认证|录入身份信息|PostHumanAuthenticationV1Identities|-|
+|876|实名认证|上传人脸基准图片|PostFaceVerifyV1UploadFaceImage|-|
+|877|实名认证|裁剪人脸图片|PostFaceVerifyV1CropFaceImage|-|
+|878|实名认证|查询人脸认证结果|GetFaceVerifyV1QueryAuthResult|-|
+|879|智能门禁|修改用户部分信息|PatchAcsV1UsersByUserId|-|
+|880|智能门禁|获取单个用户信息|GetAcsV1UsersByUserId|-|
+|881|智能门禁|获取用户列表|GetAcsV1Users|-|
+|882|智能门禁|上传人脸图片|PutAcsV1UsersByUserIdFace|-|
+|883|智能门禁|下载人脸图片|GetAcsV1UsersByUserIdFace|-|
+|884|智能门禁|获取门禁设备列表|GetAcsV1Devices|-|
+|885|智能门禁|获取门禁记录列表|GetAcsV1AccessRecords|-|
+|886|智能门禁|下载开门时的人脸识别图片|GetAcsV1AccessRecordsByAccessRecordIdAccessPhoto|-|
+|887|绩效|获取周期|GetPerformanceV1Semesters|-|
+|888|绩效|获取周期任务（指定用户）|PostPerformanceV1StageTasksFindByUserList|-|
+|889|绩效|获取周期任务（全部用户）|PostPerformanceV1StageTasksFindByPage|-|
+|890|绩效|获取绩效结果|PostPerformanceV1ReviewDatasQuery|-|
+|891|词典|创建草稿|PostLingoV1Drafts|-|
+|892|词典|更新草稿|PutLingoV1DraftsByDraftId|-|
+|893|词典|创建免审词条|PostLingoV1Entities|-|
+|894|词典|更新免审词条|PutLingoV1EntitiesByEntityId|-|
+|895|词典|获取词条详情|GetLingoV1EntitiesByEntityId|-|
+|896|词典|获取词条列表|GetLingoV1Entities|-|
+|897|词典|精准搜索词条|PostLingoV1EntitiesMatch|-|
+|898|词典|模糊搜索词条|PostLingoV1EntitiesSearch|-|
+|899|词典|词条高亮|PostLingoV1EntitiesHighlight|-|
+|900|词典|获取词典分类|GetLingoV1Classifications|-|
+|901|词典|获取词库列表|GetLingoV1Repos|-|
+|902|词典|上传图片|PostLingoV1FilesUpload|-|
+|903|词典|下载图片|GetLingoV1FilesByFileTokenDownload|-|
+|904|安全合规|获取OpenAPI审计日志数据|PostSecurityAndComplianceV1OpenapiLogsListData|-|
+|905|妙记|获取妙记统计数据|GetMinutesV1MinutesByMinuteTokenStatistics|-|
+|906|妙记|获取妙记信息|GetMinutesV1MinutesByMinuteToken|-|
+|907|工作台|获取工作台访问数据|PostWorkplaceV1WorkplaceAccessDataSearch|-|
+|908|工作台|获取定制工作台访问数据|PostWorkplaceV1CustomWorkplaceAccessDataSearch|-|
+|909|工作台|获取定制工作台小组件访问数据|PostWorkplaceV1WorkplaceBlockAccessDataSearch|-|
+|910|应用信息|获取当前设置的推荐规则列表|GetApplicationV6AppRecommendRules|-|
+|911|主数据|用户数据维度绑定|PostMdmV1UserAuthDataRelationsBind|-|
+|912|主数据|用户数据维度解绑|PostMdmV1UserAuthDataRelationsUnbind|-|
+|913|词典|创建草稿|PostBaikeV1Drafts|-|
+|914|词典|更新草稿|PutBaikeV1DraftsByDraftId|-|
+|915|词典|创建免审词条|PostBaikeV1Entities|-|
+|916|词典|更新免审词条|PutBaikeV1EntitiesByEntityId|-|
+|917|词典|获取词条详情|GetBaikeV1EntitiesByEntityId|-|
+|918|词典|获取词条列表|GetBaikeV1Entities|-|
+|919|词典|精准搜索词条|PostBaikeV1EntitiesMatch|-|
+|920|词典|模糊搜索词条|PostBaikeV1EntitiesSearch|-|
+|921|词典|词条高亮|PostBaikeV1EntitiesHighlight|-|
+|922|词典|提取潜在的词条|PostBaikeV1EntitiesExtract|-|
+|923|词典|获取词典分类|GetBaikeV1Classifications|-|
+|924|词典|上传图片|PostBaikeV1FilesUpload|-|
+|925|词典|下载图片|GetBaikeV1FilesByFileTokenDownload|-|
+|926|应用信息|更新应用可用范围|PostApplicationV3AppUpdateVisibility|-|
+|927|审批|订阅审批事件|PostApprovalOpenapiV2SubscriptionSubscribe|不推荐|
+|928|审批|取消订阅审批事件|PostApprovalOpenapiV2SubscriptionUnsubscribe|不推荐|
+|929|审批|查看审批定义|PostApprovalOpenapiV2ApprovalGet|不推荐|
+|930|审批|创建审批实例|PostApprovalOpenapiV2InstanceCreate|不推荐|
+|931|审批|获取单个审批实例详情|PostApprovalOpenapiV2InstanceGet|不推荐|
+|932|审批|批量获取审批实例ID|PostApprovalOpenapiV2InstanceList|不推荐|
+|933|审批|审批实例抄送|PostApprovalOpenapiV2InstanceCc|不推荐|
+|934|审批|审批实例撤回|PostApprovalOpenapiV2InstanceCancel|不推荐|
+|935|审批|审批任务同意|PostApprovalOpenapiV2InstanceApprove|不推荐|
+|936|审批|审批任务拒绝|PostApprovalOpenapiV2InstanceReject|不推荐|
+|937|审批|审批任务转交|PostApprovalOpenapiV2InstanceTransfer|不推荐|
+|938|审批|三方审批定义创建|PostApprovalOpenapiV3ExternalApprovalCreate|不推荐|
+|939|审批|三方审批实例同步|PostApprovalOpenapiV2ExternalInstanceCreate|不推荐|
+|940|审批|三方审批实例校验|PostApprovalOpenapiV3ExternalInstanceCheck|不推荐|
+|941|审批|获取三方审批任务状态|PostApprovalOpenapiV2ExternalList|不推荐|
+|942|审批|创建审批定义|PostApprovalOpenapiV2ApprovalCreate|不推荐|
+|943|审批|实例列表查询|PostApprovalOpenapiV2InstanceSearch|不推荐|
+|944|审批|抄送列表查询|PostApprovalOpenapiV2CcSearch|不推荐|
+|945|审批|任务列表查询|PostApprovalOpenapiV2TaskSearch|不推荐|
+|946|通讯录|获取用户列表|GetContactV3Users|-|
+|947|通讯录|获取角色列表|GetContactV2RoleList|-|
+|948|通讯录|更新用户所有信息|PutContactV3UsersByUserId|-|
+|949|通讯录|获取部门信息列表|GetContactV3Departments|-|
+|950|通讯录|批量新增部门|PostContactV2DepartmentBatchAdd|-|
+|951|通讯录|批量新增用户|PostContactV2UserBatchAdd|-|
+|952|通讯录|查询批量任务执行状态|GetContactV2TaskGet|-|
+|953|云文档|创建旧版文档|PostDocV2Create|-|
+|954|云文档|获取旧版文档元信息|GetDocV2MetaByDocToken|-|
+|955|云文档|获取旧版文档中的电子表格元数据|GetDocV2ByDocTokenSheetMeta|-|
+|956|云文档|获取旧版文档纯文本内容|GetDocV2ByDocTokenRawContent|-|
+|957|云文档|获取旧版文档富文本内容|GetDocV2ByDocTokenContent|-|
+|958|云文档|编辑旧版文档内容|PostDocV2ByDocTokenBatchUpdate|-|
+|959|云文档|获取表格元数据|GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfo|-|
+|960|云文档|更新表格属性|PutSheetsV2SpreadsheetsBySpreadsheetTokenProperties|-|
+|961|云文档|导入表格|PostSheetsV2Import|-|
+|962|云文档|查询导入结果|GetSheetsV2ImportResult|-|
+|963|云文档|获取元数据|PostSuiteDocsApiMeta|-|
+|964|云文档|删除Sheet|DeleteDriveExplorerV2FileSpreadsheetsBySpreadsheetToken|不推荐|
+|965|云文档|复制文档|PostDriveExplorerV2FileCopyFilesByFileToken|不推荐|
+|966|云文档|删除Doc|DeleteDriveExplorerV2FileDocsByDocToken|不推荐|
+|967|云文档|获取文件夹下的文档清单|GetDriveExplorerV2FolderByFolderTokenChildren|不推荐|
+|968|云文档|新建文件夹|PostDriveExplorerV2FolderByFolderToken|不推荐|
+|969|云文档|判断协作者是否有某权限|PostDrivePermissionMemberPermitted|-|
+|970|云文档|转移拥有者|PostDrivePermissionMemberTransfer|-|
+|971|云文档|获取云文档权限设置V2|PostDrivePermissionV2Public|-|
+|972|招聘|获取面试记录列表|GetHireV1ApplicationsByApplicationIdInterviews|-|
+|973|招聘|获取职位上的招聘人员信息|GetHireV1JobsByJobIdManagersByManagerId|-|
+|974|招聘|获取 Offer 申请表详细信息|GetHireV1OfferSchemasByOfferSchemaId|-|
+|975|飞书人事|查询单个个人信息|GetCorehrV1PersonsByPersonId|-|
+|976|会议室|获取建筑物列表|GetMeetingRoomBuildingList|-|
+|977|会议室|查询建筑物详情|GetMeetingRoomBuildingBatchGet|-|
+|978|会议室|获取会议室列表|GetMeetingRoomRoomList|-|
+|979|会议室|查询会议室详情|GetMeetingRoomRoomBatchGet|-|
+|980|会议室|创建建筑物|PostMeetingRoomBuildingCreate|-|
+|981|会议室|更新建筑物|PostMeetingRoomBuildingUpdate|-|
+|982|会议室|删除建筑物|PostMeetingRoomBuildingDelete|-|
+|983|会议室|查询建筑物ID|GetMeetingRoomBuildingBatchGetId|-|
+|984|会议室|创建会议室|PostMeetingRoomRoomCreate|-|
+|985|会议室|更新会议室|PostMeetingRoomRoomUpdate|-|
+|986|会议室|删除会议室|PostMeetingRoomRoomDelete|-|
+|987|会议室|查询会议室ID|GetMeetingRoomRoomBatchGetId|-|
+|988|会议室|获取国家地区列表|GetMeetingRoomCountryList|-|
+|989|会议室|获取城市列表|GetMeetingRoomDistrictList|-|
+|990|视频会议|创建签到板部署码|PostVcV1RoomConfigsSetCheckboardAccessCode|-|
+|991|视频会议|创建会议室部署码|PostVcV1RoomConfigsSetRoomAccessCode|-|
+|992|视频会议|查询会议室配置|GetVcV1RoomConfigsQuery|-|
+|993|视频会议|设置会议室配置|PostVcV1RoomConfigsSet|-|

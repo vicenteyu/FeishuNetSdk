@@ -18,7 +18,7 @@ public record PostVcV1ReservesApplyBodyDto
     public string? EndTime { get; set; }
 
     /// <summary>
-    /// <para>指定会议归属人，使用 tenant_access_token 时生效且必传，指定对象必须为同租户下的合法飞书用户（包含机器人）</para>
+    /// <para>指定会议归属人，使用 tenant_access_token 时生效且必传，指定对象必须为同租户下的合法飞书用户</para>
     /// <para>使用 user_access_token 时，该参数不生效，设置归属人无意义</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
@@ -41,7 +41,7 @@ public record PostVcV1ReservesApplyBodyDto
         /// <summary>
         /// <para>会议主题</para>
         /// <para>必填：否</para>
-        /// <para>示例值：mymeeting</para>
+        /// <para>示例值：my meeting</para>
         /// </summary>
         [JsonProperty("topic")]
         public string? Topic { get; set; }
@@ -89,7 +89,7 @@ public record PostVcV1ReservesApplyBodyDto
                 /// <para>示例值：1</para>
                 /// <para>可选值：<list type="bullet">
                 /// <item>1：用户ID（check_list填入用户ID）</item>
-                /// <item>2：用户类型（check_list可选值有"1"：飞书用户、"2"：rooms用户、"6"：pstn用户、"7"：sip用户）</item>
+                /// <item>2：用户类型（check_list可选值有 "1"：飞书用户、"2"：rooms用户、"6"：pstn用户、"7"：sip用户）</item>
                 /// <item>3：租户ID（check_list填入租户tenant_key）</item>
                 /// </list></para>
                 /// </summary>
