@@ -1,21 +1,21 @@
 using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 获取订阅状态 响应体
-/// <para>根据订阅ID获取该订阅的状态</para>
-/// <para>接口ID：7065964758428516380</para>
-/// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/docs-assistant/file-subscription/get</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-subscription%2fget</para>
+/// 更新订阅状态 响应体
+/// <para>根据订阅ID更新订阅状态</para>
+/// <para>接口ID：7065964758428499996</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/docs-assistant/file-subscription/patch</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-subscription%2fpatch</para>
 /// </summary>
-public record GetDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdResponseDto
+public record PatchDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdResponseDto
 {
     /// <summary>
     /// <para>订阅关系ID</para>
-    /// <para>必填：是</para>
+    /// <para>必填：否</para>
     /// <para>示例值：1234567890987654321</para>
     /// </summary>
     [JsonProperty("subscription_id")]
-    public string SubscriptionId { get; set; } = string.Empty;
+    public string? SubscriptionId { get; set; }
 
     /// <summary>
     /// <para>订阅类型</para>

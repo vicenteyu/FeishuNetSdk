@@ -57,7 +57,7 @@ public record PostDriveV1FilesCreateShortcutResponseDto
         /// <summary>
         /// <para>访问链接</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://bytedance.feishu.cn/docx/doxbcGvhSVN0R6octqPwAEYNfFb</para>
+        /// <para>示例值：https://example.feishu.cn/docx/doxbcGvhSVN0R6octqPwAEYNfFb</para>
         /// </summary>
         [JsonProperty("url")]
         public string? Url { get; set; }

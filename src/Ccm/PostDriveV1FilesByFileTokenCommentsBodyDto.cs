@@ -183,8 +183,8 @@ public record PostDriveV1FilesByFileTokenCommentsBodyDto
                     /// <para>示例值：text_run</para>
                     /// <para>可选值：<list type="bullet">
                     /// <item>text_run：普通文本</item>
-                    /// <item>docs_link：at云文档链接</item>
-                    /// <item>person：at联系人</item>
+                    /// <item>docs_link：at 云文档链接</item>
+                    /// <item>person：at 联系人</item>
                     /// </list></para>
                     /// </summary>
                     [JsonProperty("type")]
@@ -205,7 +205,7 @@ public record PostDriveV1FilesByFileTokenCommentsBodyDto
                         /// <summary>
                         /// <para>回复 普通文本</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：commenttext</para>
+                        /// <para>示例值：comment text</para>
                         /// </summary>
                         [JsonProperty("text")]
                         public string Text { get; set; } = string.Empty;
@@ -226,7 +226,7 @@ public record PostDriveV1FilesByFileTokenCommentsBodyDto
                         /// <summary>
                         /// <para>回复 at云文档</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef</para>
+                        /// <para>示例值：https://example.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef</para>
                         /// </summary>
                         [JsonProperty("url")]
                         public string Url { get; set; } = string.Empty;

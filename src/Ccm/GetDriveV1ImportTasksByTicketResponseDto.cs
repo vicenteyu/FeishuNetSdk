@@ -68,9 +68,9 @@ public record GetDriveV1ImportTasksByTicketResponseDto
         /// <item>121：导入文件已过期</item>
         /// <item>122：创建副本中禁止导出</item>
         /// <item>5000：内部错误</item>
-        /// <item>7000：docxblock数量超过系统上限</item>
-        /// <item>7001：docxblock层级超过系统上线</item>
-        /// <item>7002：docxblock大小超过系统上限</item>
+        /// <item>7000：docx block 数量超过系统上限</item>
+        /// <item>7001：docx block 层级超过系统上线</item>
+        /// <item>7002：docx block 大小超过系统上限</item>
         /// </list></para>
         /// </summary>
         [JsonProperty("job_status")]
@@ -95,7 +95,7 @@ public record GetDriveV1ImportTasksByTicketResponseDto
         /// <summary>
         /// <para>导入云文档URL</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://bytedance.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX</para>
+        /// <para>示例值：https://example.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX</para>
         /// </summary>
         [JsonProperty("url")]
         public string? Url { get; set; }

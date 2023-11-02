@@ -1,5 +1,5 @@
 using Newtonsoft.Json;
-namespace FeishuNetSdk.Ccm.Spec;
+namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 更新回复 请求体
 /// <para>更新云文档中的某条回复。</para>
@@ -16,7 +16,9 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
     [JsonProperty("content")]
     public ReplyContent Content { get; set; } = new();
 
-    /// <summary></summary>
+    /// <summary>
+    /// <para>回复内容</para>
+    /// </summary>
     public record ReplyContent
     {
         /// <summary>
@@ -26,19 +28,19 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
         [JsonProperty("elements")]
         public ReplyElement[] Elements { get; set; } = Array.Empty<ReplyElement>();
 
-        /// <summary></summary>
+        /// <summary>
+        /// <para>回复的内容</para>
+        /// </summary>
         public record ReplyElement
         {
             /// <summary>
             /// <para>回复的内容元素</para>
-            /// <para>**示例值**："text_run"</para>
-            /// <para>**可选值有**：</para>
-            /// <para>text_run:普通文本,docs_link:at 云文档链接,person:at 联系人</para>
             /// <para>必填：是</para>
+            /// <para>示例值：text_run</para>
             /// <para>可选值：<list type="bullet">
             /// <item>text_run：普通文本</item>
-            /// <item>docs_link：at云文档链接</item>
-            /// <item>person：at联系人</item>
+            /// <item>docs_link：at 云文档链接</item>
+            /// <item>person：at 联系人</item>
             /// </list></para>
             /// </summary>
             [JsonProperty("type")]
@@ -49,15 +51,17 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
             /// <para>必填：否</para>
             /// </summary>
             [JsonProperty("text_run")]
-            public TextRunSuffix? TextRun { get; set; }
+            public ReplyElementTextRun? TextRun { get; set; }
 
-            /// <summary></summary>
-            public record TextRunSuffix
+            /// <summary>
+            /// <para>文本内容</para>
+            /// </summary>
+            public record ReplyElementTextRun
             {
                 /// <summary>
                 /// <para>回复 普通文本</para>
-                /// <para>**示例值**："comment text"</para>
                 /// <para>必填：是</para>
+                /// <para>示例值：comment text</para>
                 /// </summary>
                 [JsonProperty("text")]
                 public string Text { get; set; } = string.Empty;
@@ -68,15 +72,17 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
             /// <para>必填：否</para>
             /// </summary>
             [JsonProperty("docs_link")]
-            public DocsLinkSuffix? DocsLink { get; set; }
+            public ReplyElementDocsLink? DocsLink { get; set; }
 
-            /// <summary></summary>
-            public record DocsLinkSuffix
+            /// <summary>
+            /// <para>文本内容</para>
+            /// </summary>
+            public record ReplyElementDocsLink
             {
                 /// <summary>
                 /// <para>回复 at云文档</para>
-                /// <para>**示例值**："https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef"</para>
                 /// <para>必填：是</para>
+                /// <para>示例值：https://example.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef</para>
                 /// </summary>
                 [JsonProperty("url")]
                 public string Url { get; set; } = string.Empty;
@@ -87,21 +93,21 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
             /// <para>必填：否</para>
             /// </summary>
             [JsonProperty("person")]
-            public PersonSuffix? Person { get; set; }
+            public ReplyElementPerson? Person { get; set; }
 
-            /// <summary></summary>
-            public record PersonSuffix
+            /// <summary>
+            /// <para>文本内容</para>
+            /// </summary>
+            public record ReplyElementPerson
             {
                 /// <summary>
                 /// <para>回复 at联系人</para>
-                /// <para>**示例值**："ou_cc19b2bfb93f8a44db4b4d6eababcef"</para>
                 /// <para>必填：是</para>
+                /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef</para>
                 /// </summary>
                 [JsonProperty("user_id")]
                 public string UserId { get; set; } = string.Empty;
             }
-
         }
-
     }
 }

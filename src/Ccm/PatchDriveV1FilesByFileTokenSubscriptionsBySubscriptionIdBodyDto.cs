@@ -1,5 +1,5 @@
 using Newtonsoft.Json;
-namespace FeishuNetSdk.Ccm.Spec;
+namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 更新订阅状态 请求体
 /// <para>根据订阅ID更新订阅状态</para>
@@ -11,18 +11,16 @@ public record PatchDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdBodyDto
 {
     /// <summary>
     /// <para>是否订阅</para>
-    /// <para>**示例值**：true</para>
     /// <para>必填：是</para>
+    /// <para>示例值：true</para>
     /// </summary>
     [JsonProperty("is_subscribe")]
     public bool IsSubscribe { get; set; }
 
     /// <summary>
     /// <para>文档类型</para>
-    /// <para>**示例值**："doc"</para>
-    /// <para>**可选值有**：</para>
-    /// <para>doc:文档,docx:新版文档,wiki:知识库wiki</para>
     /// <para>必填：是</para>
+    /// <para>示例值：docx</para>
     /// <para>可选值：<list type="bullet">
     /// <item>doc：文档</item>
     /// <item>docx：新版文档</item>

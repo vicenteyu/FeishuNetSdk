@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取字段详情 响应体
-/// <para>获取「飞书人事」对象下某字段的详细信息,支持系统预置字段和自定义字段。通常可通过该接口获取某个对象中字段的枚举值列表。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+/// <para>获取「飞书人事」对象下某字段的详细信息,支持系统预置字段和自定义字段。通常可通过该接口获取某个对象中字段的枚举值列表。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
 /// <para>接口ID：7112009113388138524</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fcustom_field%2fget_by_param</para>

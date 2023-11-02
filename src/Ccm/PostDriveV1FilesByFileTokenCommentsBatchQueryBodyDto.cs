@@ -1,5 +1,5 @@
 using Newtonsoft.Json;
-namespace FeishuNetSdk.Ccm.Spec;
+namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 批量获取全文评论 请求体
 /// <para>该接口用于根据评论 ID 列表批量获取全文评论，暂时不支持局部评论</para>
@@ -11,8 +11,8 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryBodyDto
 {
     /// <summary>
     /// <para>需要获取数据的评论id</para>
-    /// <para>**示例值**：["1654857036541812356"]</para>
     /// <para>必填：是</para>
+    /// <para>示例值：1654857036541812356</para>
     /// </summary>
     [JsonProperty("comment_ids")]
     public string[] CommentIds { get; set; } = Array.Empty<string>();

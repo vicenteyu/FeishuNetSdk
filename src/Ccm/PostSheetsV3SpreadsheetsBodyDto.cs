@@ -1,5 +1,5 @@
 using Newtonsoft.Json;
-namespace FeishuNetSdk.Ccm.Spec;
+namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建表格 请求体
 /// <para>在指定目录下创建表格</para>
@@ -11,18 +11,18 @@ public record PostSheetsV3SpreadsheetsBodyDto
 {
     /// <summary>
     /// <para>表格标题</para>
-    /// <para>**示例值**："title"</para>
-    /// <para>**数据校验规则**：</para>
-    /// <para>- 长度范围：`0` ～ `255` 字符</para>
     /// <para>必填：否</para>
+    /// <para>示例值：title</para>
+    /// <para>最大长度：255</para>
+    /// <para>最小长度：0</para>
     /// </summary>
     [JsonProperty("title")]
     public string? Title { get; set; }
 
     /// <summary>
     /// <para>文件夹token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)</para>
-    /// <para>**示例值**："fldcnMsNb*****hIW9IjG1LVswg"</para>
     /// <para>必填：否</para>
+    /// <para>示例值：fldcnMsNb*****hIW9IjG1LVswg</para>
     /// </summary>
     [JsonProperty("folder_token")]
     public string? FolderToken { get; set; }
