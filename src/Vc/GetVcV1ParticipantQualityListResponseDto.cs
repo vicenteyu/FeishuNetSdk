@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 查询参会人会议质量数据 响应体
-/// <para>查询参会人会议质量数据。</para>
+/// <para>查询参会人会议质量数据（仅支持已结束会议），具体权限要求请参考「资源介绍」。</para>
 /// <para>接口ID：7194805625628049411</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/meeting-room-data/get-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fparticipant_quality_list%2fget</para>
@@ -36,7 +36,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <summary>
             /// <para>时间</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2022.12.2311:16:00(GMT+08:00)</para>
+            /// <para>示例值：2022.12.23 11:16:00 (GMT+08:00)</para>
             /// </summary>
             [JsonProperty("time")]
             public string? Time { get; set; }
@@ -113,7 +113,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <summary>
             /// <para>时间</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2022.12.2311:16:00(GMT+08:00)</para>
+            /// <para>示例值：2022.12.23 11:16:00 (GMT+08:00)</para>
             /// </summary>
             [JsonProperty("time")]
             public string? Time { get; set; }
@@ -198,7 +198,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <summary>
             /// <para>时间</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2022.12.2311:16:00(GMT+08:00)</para>
+            /// <para>示例值：2022.12.23 11:16:00 (GMT+08:00)</para>
             /// </summary>
             [JsonProperty("time")]
             public string? Time { get; set; }
@@ -306,7 +306,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <summary>
             /// <para>时间</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2022.12.2311:17:00</para>
+            /// <para>示例值：2022.12.23 11:17:00</para>
             /// </summary>
             [JsonProperty("time")]
             public string? Time { get; set; }

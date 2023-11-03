@@ -20,8 +20,16 @@ public record PostMailV1PublicMailboxesBodyDto
     /// <summary>
     /// <para>公共邮箱名称</para>
     /// <para>必填：否</para>
-    /// <para>示例值：testpublicmailbox</para>
+    /// <para>示例值：test public mailbox</para>
     /// </summary>
     [JsonProperty("name")]
     public string? Name { get; set; }
+
+    /// <summary>
+    /// <para>数据驻留地</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：cn</para>
+    /// </summary>
+    [JsonProperty("geo")]
+    public string? Geo { get; set; }
 }

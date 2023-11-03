@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 查询会议明细 响应体
-/// <para>查询会议明细。</para>
+/// <para>查询会议明细（仅支持已结束会议），具体权限要求请参考「资源介绍」。</para>
 /// <para>接口ID：7194805625628033027</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/meeting-room-data/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fmeeting_list%2fget</para>
@@ -88,7 +88,7 @@ public record GetVcV1MeetingListResponseDto
         /// <summary>
         /// <para>会议开始时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2022.12.2311:16:59(GMT+08:00)</para>
+        /// <para>示例值：2022.12.23 11:16:59 (GMT+08:00)</para>
         /// </summary>
         [JsonProperty("meeting_start_time")]
         public string? MeetingStartTime { get; set; }
@@ -96,7 +96,7 @@ public record GetVcV1MeetingListResponseDto
         /// <summary>
         /// <para>会议结束时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2022.12.2311:18:51(GMT+08:00)</para>
+        /// <para>示例值：2022.12.23 11:18:51 (GMT+08:00)</para>
         /// </summary>
         [JsonProperty("meeting_end_time")]
         public string? MeetingEndTime { get; set; }

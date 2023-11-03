@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 查询会议室预定数据 响应体
-/// <para>查询会议室预定数据。</para>
+/// <para>查询会议室预定数据，，具体权限要求请参考「资源介绍」。</para>
 /// <para>接口ID：7194805625628065795</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/meeting-room-data/get-4</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fresource_reservation_list%2fget</para>
