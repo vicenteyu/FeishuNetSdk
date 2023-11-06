@@ -15,23 +15,19 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonProperty("valueRange")]
-    public ValueRangeSuffix ValueRange { get; set; } = new();
+    public string ValueRange { get; set; } = string.Empty;
 
-    /// <summary></summary>
-    public record ValueRangeSuffix
-    {
-        /// <summary>
-        /// <para>⁣插入范围，包含 sheetId 与单元格范围两部分，目前支持三种索引方式，详见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)，range所表示的范围需要大于等于values占用的范围。</para>
-        /// <para>必填：是</para>
-        /// </summary>
-        [JsonProperty("range")]
-        public string Range { get; set; } = string.Empty;
+    /// <summary>
+    /// <para>⁣插入范围，包含 sheetId 与单元格范围两部分，目前支持四种索引方式，详见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)，range所表示的范围需要大于等于values占用的范围。</para>
+    /// <para>必填：是</para>
+    /// </summary>
+    [JsonProperty("range")]
+    public string Range { get; set; } = string.Empty;
 
-        /// <summary>
-        /// <para>需要写入的值，如要写入公式、超链接、email、@人等，可详看附录[sheet 支持写入数据类型](https://open.feishu.cn/document/ukTMukTMukTM/ugjN1UjL4YTN14CO2UTN)</para>
-        /// <para>必填：是</para>
-        /// </summary>
-        [JsonProperty("values")]
-        public object[][] Values { get; set; } = default!;
-    }
+    /// <summary>
+    /// <para>需要写入的值，如要写入公式、超链接、email、@人等，可详看附录[sheet 支持写入数据类型](https://open.feishu.cn/document/ukTMukTMukTM/ugjN1UjL4YTN14CO2UTN)</para>
+    /// <para>必填：是</para>
+    /// </summary>
+    [JsonProperty("values")]
+    public array<array<interface>> Values { get; set; }
 }

@@ -14735,6 +14735,123 @@ file</para>
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
+    /// <para>【任务】上传附件</para>
+    /// <para>接口ID：7297183031634460675</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/upload</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>为特定资源上传附件。本接口可以支持一次上传多个附件，最多5个。每个附件尺寸不超过50MB，格式不限。</para>
+    /// <para>上传请求体的格式为"form-data"。若希望上传多个附件，则提供多个"file"字段即可。返回的附件顺序将会与输入的file顺序保持一致。</para>
+    /// <para>目前资源类型仅支持"task", `resource_id`需要填写任务的GUID。</para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>要上传的文件，单请求支持最多5个文件。上传结果的顺序将和请求中文件的顺序保持一致。</para>
+    /// </param>
+    [HttpPost("/open-apis/task/v2/attachments/upload")]
+    System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2AttachmentsUploadResponseDto>> PostTaskV2AttachmentsUploadAsync(
+        [FormDataContent] Task.PostTaskV2AttachmentsUploadBodyDto dto,
+        [FormDataContent] FormDataFile file,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【任务】列取附件</para>
+    /// <para>接口ID：7297183031634477059</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>列取一个资源的所有附件。返回的附件列表支持分页，按照附件上传时间排序。</para>
+    /// <para>每个附件会返回一个可供下载的临时url，有效期为3分钟，最多可以支持3次下载。如果超过使用限制，需要通过本接口获取新的临时url。</para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：50</para>
+    /// <para>默认值：50</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：aWQ9NzEwMjMzMjMxMDE=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="resource_type">
+    /// <para>必填：否</para>
+    /// <para>附件归属的资源类型。目前只支持"task"。</para>
+    /// <para>示例值：task</para>
+    /// <para>默认值：task</para>
+    /// </param>
+    /// <param name="resource_id">
+    /// <para>必填：是</para>
+    /// <para>附件归属资源的id，配合resource_type使用。例如希望获取任务的附件，需要设置 resource_type为task， resource_id为任务GUID。任务GUID的获取方式可以参考[任务功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/overview)。</para>
+    /// <para>示例值：9842501a-9f47-4ff5-a622-d319eeecb97f</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/task/v2/attachments")]
+    System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2AttachmentsResponseDto>> GetTaskV2AttachmentsAsync(
+        [PathQuery] string resource_id,
+        [PathQuery] int? page_size = 50,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? resource_type = "task",
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【任务】获取附件</para>
+    /// <para>接口ID：7297183031634493443</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>提供一个附件GUID，返回附件的详细信息，包括GUID，名称，大小，上传时间，临时可下载链接等。</para>
+    /// </summary>
+    /// <param name="attachment_guid">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>获取详情的附件GUID。可以通过创建[上传附件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/upload)接口创建, 或者通过[列取附件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/list)接口查询得到。</para>
+    /// <para>示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/task/v2/attachments/{attachment_guid}")]
+    System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2AttachmentsByAttachmentGuidResponseDto>> GetTaskV2AttachmentsByAttachmentGuidAsync(
+        [PathQuery] string attachment_guid,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【任务】删除附件</para>
+    /// <para>接口ID：7297183031634509827</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>提供一个附件GUID，删除该附件。删除后该附件不可再恢复。</para>
+    /// </summary>
+    /// <param name="attachment_guid">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>要删除附件的GUID。可以通过创建[上传附件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/upload)接口创建, 或者通过[列取附件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/list)接口查询得到。</para>
+    /// <para>示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837</para>
+    /// </param>
+    [HttpDelete("/open-apis/task/v2/attachments/{attachment_guid}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteTaskV2AttachmentsByAttachmentGuidAsync(
+        [PathQuery] string attachment_guid);
+
+    /// <summary>
     /// <para>【任务】创建自定义分组</para>
     /// <para>接口ID：7259330038033809436</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/section/create</para>
@@ -15208,7 +15325,7 @@ file</para>
     /// <param name="custom_field_guid">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>自定义字段GUID</para>
+    /// <para>自定义字段GUID。自定义字段GUID。可以通过[创建自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/create)接口创建, 或者通过[列取自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/list)接口查询得到。</para>
     /// <para>示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -15229,7 +15346,7 @@ file</para>
     /// <param name="custom_field_guid">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>自定义字段GUID</para>
+    /// <para>自定义字段GUID。自定义字段GUID。可以通过[创建自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/create)接口创建, 或者通过[列取自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/list)接口查询得到。</para>
     /// <para>示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593</para>
     /// </param>
     /// <param name="dto">请求体</param>
