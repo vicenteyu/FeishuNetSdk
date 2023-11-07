@@ -73,7 +73,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyD
     /// <summary>
     /// <para>查找的字符串，当`search_by_regex`字段为 true 时，该字段为正则表达式</para>
     /// <para>必填：是</para>
-    /// <para>示例值：如下- 普通查找示例: "hello"- 正则查找示例: "[A-Z]\w+"</para>
+    /// <para>示例值：如下 - 普通查找示例: "hello" - 正则查找示例: "[A-Z]\w+"</para>
     /// </summary>
     [JsonProperty("find")]
     public string Find { get; set; } = string.Empty;

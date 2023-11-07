@@ -28,5 +28,5 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonProperty("values")]
-    public array<array<interface>> Values { get; set; }
+    public object[][] Values { get; set; } = Array.Empty<object[][]>();
 }

@@ -104,7 +104,7 @@ public record GetVcV1ReservesByReserveIdResponseDto
             /// <summary>
             /// <para>会议主题</para>
             /// <para>必填：否</para>
-            /// <para>示例值：mymeeting</para>
+            /// <para>示例值：my meeting</para>
             /// </summary>
             [JsonProperty("topic")]
             public string? Topic { get; set; }
@@ -152,7 +152,7 @@ public record GetVcV1ReservesByReserveIdResponseDto
                     /// <para>示例值：1</para>
                     /// <para>可选值：<list type="bullet">
                     /// <item>1：用户ID（check_list填入用户ID）</item>
-                    /// <item>2：用户类型（check_list可选值有"1"：飞书用户、"2"：rooms用户、"6"：pstn用户、"7"：sip用户）</item>
+                    /// <item>2：用户类型（check_list可选值有 "1"：飞书用户、 "2"：rooms用户、 "6"：pstn用户、 "7"：sip用户）</item>
                     /// <item>3：租户ID（check_list填入租户tenant_key）</item>
                     /// </list></para>
                     /// </summary>

@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 获取用户或机器人所在的群列表 响应体
-/// <para>获取用户或者机器人所在群列表。</para>
+/// <para>根据使用的 access_token 获取用户或者机器人所在群列表。</para>
 /// <para>接口ID：6946222931479412737</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/group/chat/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fchat%2flist</para>

@@ -21,7 +21,7 @@ public record PostHelpdeskV1TicketsByTicketIdMessagesBodyDto
     /// <para>- 纯文本，参考[发送文本消息](https://open.feishu.cn/document/ukTMukTMukTM/uUjNz4SN2MjL1YzM)中的content；</para>
     /// <para>- 富文本，参考[发送富文本消息](https://open.feishu.cn/document/ukTMukTMukTM/uMDMxEjLzATMx4yMwETM)中的content</para>
     /// <para>必填：是</para>
-    /// <para>示例值：{"msg_type":"post","content":{"post":{"zh_cn":{"title":"thisistitle","content":[[{"tag":"text","un_escape":true,"text":"第一行 :"},{"tag":"a","text":"超链接","href":"http://www.feishu.cn"}],[{"tag":"text","text":"第二行:"},{"tag":"text","text":"文本测试"}]]}}}}</para>
+    /// <para>示例值：{ "msg_type": "post", "content": { "post": { "zh_cn": { "title": "this is title", "content": [ [ { "tag": "text", "un_escape": true, "text": "第一行 :" }, { "tag": "a", "text": "超链接", "href": "http://www.feishu.cn" } ], [ { "tag": "text", "text": "第二行 :" }, { "tag": "text", "text": "文本测试" } ] ] } } } }</para>
     /// </summary>
     [JsonProperty("content")]
     public string Content { get; set; } = string.Empty;

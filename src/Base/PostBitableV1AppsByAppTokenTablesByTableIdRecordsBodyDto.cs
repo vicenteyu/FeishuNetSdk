@@ -14,7 +14,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBodyDto
     /// <para>当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c)</para>
     /// <para>不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)</para>
     /// <para>必填：是</para>
-    /// <para>示例值：{"多行文本":"HelloWorld"}</para>
+    /// <para>示例值：{ "多行文本":"HelloWorld" }</para>
     /// </summary>
     [JsonProperty("fields")]
     public object Fields { get; set; } = new();

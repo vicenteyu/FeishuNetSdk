@@ -48,7 +48,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdResponseDt
         /// <summary>
         /// <para>分享 URL</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://bytedance.feishu.cn/share/base/shrcnCy1KAlpahNotmhRn1abcde</para>
+        /// <para>示例值：https://example.feishu.cn/share/base/shrcnCy1KAlpahNotmhRn1abcde</para>
         /// </summary>
         [JsonProperty("shared_url")]
         public string? SharedUrl { get; set; }

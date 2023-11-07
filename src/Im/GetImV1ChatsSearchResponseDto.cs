@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 搜索对用户或机器人可见的群列表 响应体
-/// <para>搜索对用户或机器人可见的群列表，包括：用户或机器人所在的群、对用户或机器人公开的群。</para>
+/// <para>根据使用的 access_token 搜索对用户或机器人可见的群列表，包括：用户或机器人所在的群、对用户或机器人公开的群。</para>
 /// <para>搜索可获得的群信息包括：群ID（chat_id）、群名称、群描述等。</para>
 /// <para>接口ID：6946222929790648348</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/group/chat/search</para>

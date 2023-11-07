@@ -14,7 +14,7 @@ public record PostImV1FilesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：mp4</para>
     /// <para>可选值：<list type="bullet">
-    /// <item>opus：上传opus音频文件；其他格式的音频文件，请转为opus格式后上传，转换方式可参考：`ffmpeg-iSourceFile.mp3-acodeclibopus-ac1-ar16000TargetFile.opus`</item>
+    /// <item>opus：上传opus音频文件； 其他格式的音频文件，请转为opus格式后上传，转换方式可参考：`ffmpeg -i SourceFile.mp3 -acodec libopus -ac 1 -ar 16000 TargetFile.opus`</item>
     /// <item>mp4：上传mp4视频文件</item>
     /// <item>pdf：上传pdf格式文件</item>
     /// <item>doc：上传doc格式文件</item>

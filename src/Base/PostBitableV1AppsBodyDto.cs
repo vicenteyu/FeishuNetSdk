@@ -26,7 +26,7 @@ public record PostBitableV1AppsBodyDto
     public string? FolderToken { get; set; }
 
     /// <summary>
-    /// <para>文档时区，[详见](https://bytedance.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf)</para>
+    /// <para>文档时区，[详见](https://feishu.feishu.cn/docx/YKRndTM7VoyDqpxqqeEcd67MnEf)</para>
     /// <para>必填：否</para>
     /// <para>示例值：Asia/Macau</para>
     /// </summary>

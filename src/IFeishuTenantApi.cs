@@ -1983,7 +1983,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>email：以用户的真实邮箱来标识用户。</item>
-    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)&lt;/md-enum-item&gt;**当值为 `user_id`，字段权限要求**：&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
+    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)&lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -2069,7 +2069,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>email：以用户的真实邮箱来标识用户。</item>
-    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)&lt;/md-enum-item&gt;**当值为 `user_id`，字段权限要求**：&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
+    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)&lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
     /// </list>
     /// </param>
     /// <param name="uuid">
@@ -2101,7 +2101,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>email：以用户的真实邮箱来标识用户。</item>
-    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)&lt;/md-enum-item&gt;**当值为 `user_id`，字段权限要求**：&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
+    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)&lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
     /// </list>
     /// </param>
     /// <param name="uuid">
@@ -2924,7 +2924,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222931479412737</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取用户或者机器人所在群列表。</para>
+    /// <para>根据使用的 access_token 获取用户或者机器人所在群列表。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -2971,7 +2971,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222929790648348</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>搜索对用户或机器人可见的群列表，包括：用户或机器人所在的群、对用户或机器人公开的群。</para>
+    /// <para>根据使用的 access_token 搜索对用户或机器人可见的群列表，包括：用户或机器人所在的群、对用户或机器人公开的群。</para>
     /// <para>搜索可获得的群信息包括：群ID（chat_id）、群名称、群描述等。</para>
     /// </summary>
     /// <param name="user_id_type">
@@ -3262,19 +3262,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <list type="bullet">
     /// <item>user_id：以 user_id 来识别成员</item>
     /// <item>union_id：以 union_id 来识别成员</item>
-    /// <item>open_id：以 open_id 来识别成员&lt;/md-enum-item&gt;**当值为 `user_id`，字段权限要求**：&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;&lt;/md-td&gt;&lt;/md-tr&gt;</item>
+    /// <item>open_id：以 open_id 来识别成员&lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt; &lt;/md-td&gt; &lt;/md-tr&gt;</item>
     /// </list>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
     /// <para>分页大小</para>
-    /// <para>示例值：20
-
-**默认值**：`20`
-
-**数据校验规则**：
-
-- 最大值：`100`</para>
+    /// <para>示例值：20 **默认值**：`20` **数据校验规则**： - 最大值：`100`</para>
     /// <para>默认值：10</para>
     /// </param>
     /// <param name="page_token">
@@ -3902,7 +3896,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="extra">
     /// <para>必填：否</para>
     /// <para>拓展信息，比如对于拥有高级权限的 Bitable，在下载素材或者获取素材临时下载链接时，需要添加额外的`extra`作为 URL 查询参数进行鉴权。</para>
-    /// <para>示例值：[请参考-上传点类型及对应Extra说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)</para>
+    /// <para>示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)</para>
     /// </param>
     [HttpGet("/open-apis/drive/v1/medias/batch_get_tmp_download_url")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1MediasBatchGetTmpDownloadUrlResponseDto>> GetDriveV1MediasBatchGetTmpDownloadUrlAsync(
@@ -5158,10 +5152,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="file_type">
     /// <para>必填：是</para>
     /// <para>文档类型</para>
-    /// <para>示例值：doc
-docx
-sheet
-file</para>
+    /// <para>示例值：doc docx sheet file</para>
     /// <list type="bullet">
     /// <item>doc：文档类型</item>
     /// <item>sheet：电子表格类型</item>
@@ -7733,7 +7724,7 @@ file</para>
     /// <para>1.不支持对“人员”以及“关联字段”的属性进行过滤筛选，如人员的 OpenID。</para>
     /// <para>2.指定筛选条件时，参数长度不超过2000个字符。</para>
     /// <para>详细请参考[筛选条件支持的公式](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/filter)</para>
-    /// <para>示例值：AND(CurrentValue.[身高]>180, CurrentValue.[体重]>150)</para>
+    /// <para>示例值：AND(CurrentValue.[身高]&gt;180, CurrentValue.[体重]&gt;150)</para>
     /// </param>
     /// <param name="sort">
     /// <para>必填：否</para>
@@ -12481,7 +12472,7 @@ file</para>
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>客服 id</para>
-    /// <para>示例值：	客服 id</para>
+    /// <para>示例值：客服 id</para>
     /// </param>
     [HttpGet("/open-apis/helpdesk/v1/agents/{agent_id}/schedules")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto>> GetHelpdeskV1AgentsByAgentIdSchedulesAsync(
@@ -12497,7 +12488,7 @@ file</para>
     /// <param name="status">
     /// <para>必填：是</para>
     /// <para>筛选条件, 1 - online客服, 2 - offline(手动)客服, 3 - off duty(下班)客服, 4 - 移除客服</para>
-    /// <para>示例值：status=1&status=2</para>
+    /// <para>示例值：status=1&amp;status=2</para>
     /// </param>
     [HttpGet("/open-apis/helpdesk/v1/agent_schedules")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.GetHelpdeskV1AgentSchedulesResponseDto>> GetHelpdeskV1AgentSchedulesAsync(

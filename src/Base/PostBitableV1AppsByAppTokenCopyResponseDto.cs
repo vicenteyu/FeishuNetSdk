@@ -48,7 +48,7 @@ public record PostBitableV1AppsByAppTokenCopyResponseDto
         /// <summary>
         /// <para>多维表格 App URL</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://by*****ce.feishu.cn/base/S404b*****e9PQsYDWYcNryFn0g</para>
+        /// <para>示例值：https://example.feishu.cn/base/S404b*****e9PQsYDWYcNryFn0g</para>
         /// </summary>
         [JsonProperty("url")]
         public string? Url { get; set; }
@@ -56,7 +56,7 @@ public record PostBitableV1AppsByAppTokenCopyResponseDto
         /// <summary>
         /// <para>默认的表格id</para>
         /// <para>必填：否</para>
-        /// <para>示例值：tblxxxxxxxxoumSQ</para>
+        /// <para>示例值："" //只有创建才返回默认表Id</para>
         /// </summary>
         [JsonProperty("default_table_id")]
         public string? DefaultTableId { get; set; }
