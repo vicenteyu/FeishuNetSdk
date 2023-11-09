@@ -45,37 +45,37 @@ public record PostSpeechToTextV1SpeechStreamRecognizeBodyDto
         /// </summary>
         [JsonProperty("stream_id")]
         public string StreamId { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>数据流分片的序号，序号从 0 开始，每次请求递增 1</para>
+        /// <para>**示例值**：1</para>
+        /// <para>必填：是</para>
+        /// </summary>
+        [JsonProperty("sequence_id")]
+        public int SequenceId { get; set; }
+
+        /// <summary>
+        /// <para>数据流标记：1 首包，2 正常结束，等待结果返回，3 中断数据流不返回最终结果</para>
+        /// <para>**示例值**：1</para>
+        /// <para>必填：是</para>
+        /// </summary>
+        [JsonProperty("action")]
+        public int Action { get; set; }
+
+        /// <summary>
+        /// <para>语音格式，目前仅支持：pcm</para>
+        /// <para>**示例值**："pcm"</para>
+        /// <para>必填：是</para>
+        /// </summary>
+        [JsonProperty("format")]
+        public string Format { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>引擎类型，目前仅支持：16k_auto 中英混合</para>
+        /// <para>**示例值**："16k_auto"</para>
+        /// <para>必填：是</para>
+        /// </summary>
+        [JsonProperty("engine_type")]
+        public string EngineType { get; set; } = string.Empty;
     }
-
-    /// <summary>
-    /// <para>数据流分片的序号，序号从 0 开始，每次请求递增 1</para>
-    /// <para>**示例值**：1</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonProperty("sequence_id")]
-    public int SequenceId { get; set; }
-
-    /// <summary>
-    /// <para>数据流标记：1 首包，2 正常结束，等待结果返回，3 中断数据流不返回最终结果</para>
-    /// <para>**示例值**：1</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonProperty("action")]
-    public int Action { get; set; }
-
-    /// <summary>
-    /// <para>语音格式，目前仅支持：pcm</para>
-    /// <para>**示例值**："pcm"</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonProperty("format")]
-    public string Format { get; set; } = string.Empty;
-
-    /// <summary>
-    /// <para>引擎类型，目前仅支持：16k_auto 中英混合</para>
-    /// <para>**示例值**："16k_auto"</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonProperty("engine_type")]
-    public string EngineType { get; set; } = string.Empty;
 }
