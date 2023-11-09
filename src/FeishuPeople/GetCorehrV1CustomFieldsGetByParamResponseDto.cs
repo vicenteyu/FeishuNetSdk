@@ -339,6 +339,14 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
                     }
+
+                    /// <summary>
+                    /// <para>是否启用</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：true</para>
+                    /// </summary>
+                    [JsonProperty("is_open")]
+                    public bool? IsOpen { get; set; }
                 }
 
                 /// <summary>

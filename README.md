@@ -6,7 +6,7 @@
 
 飞书开放平台网址：[https://open.feishu.cn/](https://open.feishu.cn/)
 
-接口清单详见：[TenantAccessToken适用清单-已实现接口991个](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
+接口清单详见：[TenantAccessToken适用清单-已实现接口992个](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
 
 ## 用法：
 
@@ -32,7 +32,7 @@ builder.Services.AddFeishuNetSdk(builder.Configuration.GetSection("FeishuNetSdk"
 ```csharp
 "FeishuNetSdk": {
     "AppId": "cli_test",
-    "AppSecret": "Secret_test",
+    "AppSecret": "secret_test",
     "EnableLogging": true, //启用日志 （true = 启用， false = 关闭， 默认 = 启用）
     "IgnoreStatusException": true //忽略状态异常错误（true = 忽略， false = 启用， 默认 = 忽略）
 }
@@ -61,7 +61,7 @@ public class TestController : ControllerBase
 ## 示例：
 
 ### 文件上传示例
-参数 `FormDataFile` 支持 `filePath`、`FileInfo`、`byte[]`、`Stream`。
+参数类型 `FormDataFile` 支持 `filePath`、`FileInfo`、`byte[]`、`Stream`。
 
 **需要注意部分接口注释上有关于文件格式限制的说明。**
 ```csharp
@@ -154,10 +154,12 @@ catch (HttpRequestException ex) when (ex.InnerException is TokenException tokenE
 ------------
 ## 以下是仅在特殊情况下使用。
 
+
 ### 关闭`接口日志`
 true = 启用， false = 关闭， 默认 = 启用
 
 使用配置文件方式可以实时切换。
+
 
 ### 启用`状态异常错误`
 true = 忽略， false = 启用， 默认 = 忽略
@@ -178,6 +180,7 @@ catch (HttpRequestException ex) when (ex.InnerException is ApiResponseStatusExce
     return Results.Problem(statusException.Message);
 }
 ```
+
 
 ### 接口重载/覆盖
 
@@ -209,6 +212,7 @@ public class TestController : ControllerBase
     }
 }
 ```
+
 
 ### 启用`缓存`
 默认：不缓存

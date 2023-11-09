@@ -195,14 +195,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     }
 
     /// <summary>
-    /// <para>-| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person</para>
+    /// <para>性别，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("gender")]
     public Enum? Gender { get; set; }
 
     /// <summary>
-    /// <para>-| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person</para>
+    /// <para>性别，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person</para>
     /// </summary>
     public record Enum
     {
@@ -224,14 +224,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     public string? DateOfBirth { get; set; }
 
     /// <summary>
-    /// <para>-| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person</para>
+    /// <para>民族 / 种族，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("race")]
     public Enum? Race { get; set; }
 
     /// <summary>
-    /// <para>-| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person</para>
+    /// <para>婚姻状况，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("marital_status")]
@@ -453,7 +453,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
@@ -477,7 +477,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <summary>
         /// <para>邮箱地址</para>
         /// <para>必填：是</para>
-        /// <para>示例值：1234567@bytedance.com</para>
+        /// <para>示例值：1234567@example.feishu.cn</para>
         /// </summary>
         [JsonProperty("email")]
         public string EmailSuffix { get; set; } = string.Empty;
@@ -499,14 +499,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         public bool? IsPublic { get; set; }
 
         /// <summary>
-        /// <para>邮箱用途，枚举值可通过文档【飞书人事枚举常量】邮箱用途（email_usage）枚举定义获得</para>
+        /// <para>邮箱用途，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("email_usage")]
         public Enum? EmailUsage { get; set; }
 
         /// <summary>
-        /// <para>邮箱用途，枚举值可通过文档【飞书人事枚举常量】邮箱用途（email_usage）枚举定义获得</para>
+        /// <para>邮箱用途，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
         /// </summary>
         public record Enum
         {
@@ -619,7 +619,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
@@ -771,7 +771,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
@@ -889,7 +889,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
@@ -979,7 +979,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
@@ -1117,7 +1117,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
                 public string CustomApiName { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：\"231\"</para>
                 /// </summary>
@@ -1170,7 +1170,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
@@ -1381,7 +1381,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
                 public string CustomApiName { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：\"231\"</para>
                 /// </summary>
@@ -1777,7 +1777,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     public string? NativeRegion { get; set; }
 
     /// <summary>
-    /// <para>户口类型，枚举值可通过文档【飞书人事枚举常量】户口类型（hukou_type）枚举定义部分获得</para>
+    /// <para>户口类型，枚举值可通过文档 [【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)户口类型（hukou_type）枚举定义部分获得</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("hukou_type")]
@@ -1820,7 +1820,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         public string CustomApiName { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+        /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
         /// <para>必填：是</para>
         /// <para>示例值：\"231\"</para>
         /// </summary>
@@ -1898,14 +1898,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         public string YearResidentTax { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>-| 居民身份，枚举值 api_name 可通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
+        /// <para>居民身份，枚举值 api_name 可通过 [【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("resident_status")]
         public Enum? ResidentStatus { get; set; }
 
         /// <summary>
-        /// <para>-| 居民身份，枚举值 api_name 可通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
+        /// <para>居民身份，枚举值 api_name 可通过 [【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
         /// </summary>
         public record Enum
         {

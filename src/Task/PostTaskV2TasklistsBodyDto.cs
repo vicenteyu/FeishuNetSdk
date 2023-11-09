@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 创建清单 请求体
-/// <para>创建一个协作清单。协作清单可以用于组织和管理属于同一个项目的多个任务。</para>
+/// <para>创建一个清单。清单可以用于组织和管理属于同一个项目的多个任务。</para>
 /// <para>创建时，必须填写清单的名字。同时，可以设置通过`members`字段设置清单的协作成员。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 如何表示任务和清单的成员？”章节。</para>
 /// <para>创建清单后，创建人自动成为清单的所有者。如果请求同时将创建人设置为可编辑/可阅读角色，则最终该用户成为清单所有者，并自动从清单成员列表中消失。因为同一个用户在同一个清单只能拥有一个角色。</para>
 /// <para>接口ID：7255580838154469404</para>
@@ -18,15 +18,6 @@ public record PostTaskV2TasklistsBodyDto
     /// </summary>
     [JsonProperty("name")]
     public string Name { get; set; } = string.Empty;
-
-    /// <summary>
-    /// <para>幂等token，如果提供则触发后端的幂等行为</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7</para>
-    /// <para>最大长度：100</para>
-    /// </summary>
-    [JsonProperty("client_token")]
-    public string? ClientToken { get; set; }
 
     /// <summary>
     /// <para>清单的成员列表。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 如何表示任务和清单的成员？”章节。</para>

@@ -24,7 +24,7 @@ public record GetTaskV2TasklistsByTasklistGuidTasksResponseDto
     public record TaskSummary
     {
         /// <summary>
-        /// <para>任务guid，全局唯一</para>
+        /// <para>任务GUID</para>
         /// <para>必填：否</para>
         /// <para>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0</para>
         /// </summary>

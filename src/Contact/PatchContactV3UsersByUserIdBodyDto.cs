@@ -13,6 +13,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>用户名</para>
     /// <para>必填：否</para>
     /// <para>示例值：张三</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonProperty("name")]
     public string? Name { get; set; }
@@ -20,7 +21,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <summary>
     /// <para>英文名</para>
     /// <para>必填：否</para>
-    /// <para>示例值：SanZhang</para>
+    /// <para>示例值：San Zhang</para>
     /// </summary>
     [JsonProperty("en_name")]
     public string? EnName { get; set; }
@@ -28,7 +29,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <summary>
     /// <para>别名</para>
     /// <para>必填：否</para>
-    /// <para>示例值：AlexZhang</para>
+    /// <para>示例值：Alex Zhang</para>
     /// </summary>
     [JsonProperty("nickname")]
     public string? Nickname { get; set; }
@@ -52,7 +53,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>3. 国际电话区号前缀中必须包含加号 +</para>
     /// <para>4. 该 mobile 字段在海外版飞书非必填</para>
     /// <para>必填：否</para>
-    /// <para>示例值：13011111111(其他例子，中国大陆手机号:13011111111或+8613011111111,非中国大陆手机号:+41446681800)</para>
+    /// <para>示例值：13011111111 (其他例子，中国大陆手机号: 13011111111 或 +8613011111111, 非中国大陆手机号: +41446681800)</para>
     /// </summary>
     [JsonProperty("mobile")]
     public string? Mobile { get; set; }
@@ -259,7 +260,7 @@ public record PatchContactV3UsersByUserIdBodyDto
         public record UserCustomAttrValue
         {
             /// <summary>
-            /// <para>字段类型为`TEXT`时该参数定义字段值，必填；字段类型为`HREF`时该参数定义网页标题，必填</para>
+            /// <para>字段类型为`TEXT`时该参数定义字段值，必填，长度限制为100字符；字段类型为`HREF`时该参数定义网页标题，必填</para>
             /// <para>必填：否</para>
             /// <para>示例值：DemoText</para>
             /// </summary>

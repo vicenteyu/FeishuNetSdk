@@ -1,7 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
 using WebApiClientCore;
-using WebApiClientCore.Attributes;
 using WebApiClientCore.Implementations;
 
 namespace FeishuNetSdk.Tests
@@ -27,10 +25,9 @@ namespace FeishuNetSdk.Tests
         [TestMethod]
         public void TestMethod2()
         {
-            var apiAction = new DefaultApiActionDescriptor(typeof(IFeishuTenantApi).GetMethod("GetEventV1OutboundIpAsync")!,
-                typeof(IFeishuTenantApi));
 
-            var context = new TestRequestContext(apiAction, string.Empty);
+            var context = new TestRequestContext(new DefaultApiActionDescriptor(typeof(IFeishuTenantApi).GetMethod("GetEventV1OutboundIpAsync")!,
+                typeof(IFeishuTenantApi)), string.Empty);
 
             Assert.IsNotNull(context);
         }

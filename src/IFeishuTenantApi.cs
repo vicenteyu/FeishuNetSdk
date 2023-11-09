@@ -1154,6 +1154,36 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int? page_size = 20);
 
     /// <summary>
+    /// <para>【通讯录】更新部门ID</para>
+    /// <para>接口ID：7257363132833546242</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/update_department_id</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>此接口可用户更新部门ID(department_id)。新的部门ID(department_id)需要确认在企业内未被占用。</para>
+    /// </summary>
+    /// <param name="department_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>需要更新的部门ID，ID类型与department_id_type中一致</para>
+    /// <para>示例值：od-d6b83d25c129775723a36f52495c4f81</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以自定义department_id来标识部门</item>
+    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/contact/v3/departments/{department_id}/update_department_id")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchContactV3DepartmentsByDepartmentIdUpdateDepartmentIdAsync(
+        [PathQuery] string department_id,
+        [JsonNetContent] Contact.PatchContactV3DepartmentsByDepartmentIdUpdateDepartmentIdBodyDto dto,
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
     /// <para>【通讯录】创建单位</para>
     /// <para>接口ID：7023995901275242499</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/create</para>
@@ -3866,12 +3896,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>素材文件的`Token`，比如对于新版文档中的附件，可以通过[获取块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get)接口获取指定 File Block 的 Token。</para>
-    /// <para>**示例值**："boxcnrHpsg1QDqXAAAyachabcef"</para>
+    /// <para>示例值：boxcnrHpsg1QDqXAAAyachabcef</para>
+    /// </param>
+    /// <param name="extra">
+    /// <para>必填：否</para>
+    /// <para>扩展信息</para>
+    /// <para>示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/drive/v1/medias/{file_token}/download")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetDriveV1MediasByFileTokenDownloadAsync(
         [PathQuery] string file_token,
+        [PathQuery] string? extra,
         [Header][AliasAs("Range")] string? range = null);
 
     /// <summary>
@@ -14166,7 +14202,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7255580838154469404</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>创建一个协作清单。协作清单可以用于组织和管理属于同一个项目的多个任务。</para>
+    /// <para>创建一个清单。清单可以用于组织和管理属于同一个项目的多个任务。</para>
     /// <para>创建时，必须填写清单的名字。同时，可以设置通过`members`字段设置清单的协作成员。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 如何表示任务和清单的成员？”章节。</para>
     /// <para>创建清单后，创建人自动成为清单的所有者。如果请求同时将创建人设置为可编辑/可阅读角色，则最终该用户成为清单所有者，并自动从清单成员列表中消失。因为同一个用户在同一个清单只能拥有一个角色。</para>
     /// </summary>

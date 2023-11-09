@@ -472,7 +472,7 @@ public record PostCorehrV2PersonsResponseDto
             /// <summary>
             /// <para>完整电话号码</para>
             /// <para>必填：否</para>
-            /// <para>示例值：+86010-12345678</para>
+            /// <para>示例值：+86 010-12345678</para>
             /// </summary>
             [JsonProperty("formatted_phone_number")]
             public string? FormattedPhoneNumber { get; set; }
@@ -538,7 +538,7 @@ public record PostCorehrV2PersonsResponseDto
             /// <summary>
             /// <para>完整地址（西方文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Beijing,Beijing,China,</para>
+            /// <para>示例值：Beijing, Beijing, China,</para>
             /// </summary>
             [JsonProperty("full_address_western_script")]
             public string? FullAddressWesternScript { get; set; }
@@ -756,7 +756,7 @@ public record PostCorehrV2PersonsResponseDto
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：CustomName</para>
+                    /// <para>示例值：Custom Name</para>
                     /// </summary>
                     [JsonProperty("en_us")]
                     public string? EnUs { get; set; }
@@ -771,7 +771,7 @@ public record PostCorehrV2PersonsResponseDto
                 public int? Type { get; set; }
 
                 /// <summary>
-                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：\"231\"</para>
                 /// </summary>
@@ -795,7 +795,7 @@ public record PostCorehrV2PersonsResponseDto
             /// <summary>
             /// <para>邮箱地址</para>
             /// <para>必填：是</para>
-            /// <para>示例值：1234567@bytedance.com</para>
+            /// <para>示例值：1234567@ example.feishu.cn</para>
             /// </summary>
             [JsonProperty("email")]
             public string EmailSuffix { get; set; } = string.Empty;
@@ -988,7 +988,7 @@ public record PostCorehrV2PersonsResponseDto
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：CustomName</para>
+                    /// <para>示例值：Custom Name</para>
                     /// </summary>
                     [JsonProperty("en_us")]
                     public string? EnUs { get; set; }
@@ -1003,7 +1003,7 @@ public record PostCorehrV2PersonsResponseDto
                 public int? Type { get; set; }
 
                 /// <summary>
-                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：\"231\"</para>
                 /// </summary>
@@ -1206,7 +1206,7 @@ public record PostCorehrV2PersonsResponseDto
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：CustomName</para>
+                    /// <para>示例值：Custom Name</para>
                     /// </summary>
                     [JsonProperty("en_us")]
                     public string? EnUs { get; set; }
@@ -1221,7 +1221,7 @@ public record PostCorehrV2PersonsResponseDto
                 public int? Type { get; set; }
 
                 /// <summary>
-                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：\"231\"</para>
                 /// </summary>
@@ -1390,7 +1390,7 @@ public record PostCorehrV2PersonsResponseDto
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：CustomName</para>
+                    /// <para>示例值：Custom Name</para>
                     /// </summary>
                     [JsonProperty("en_us")]
                     public string? EnUs { get; set; }
@@ -1405,7 +1405,7 @@ public record PostCorehrV2PersonsResponseDto
                 public int? Type { get; set; }
 
                 /// <summary>
-                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：\"231\"</para>
                 /// </summary>
@@ -1517,7 +1517,7 @@ public record PostCorehrV2PersonsResponseDto
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：CustomName</para>
+                    /// <para>示例值：Custom Name</para>
                     /// </summary>
                     [JsonProperty("en_us")]
                     public string? EnUs { get; set; }
@@ -1532,7 +1532,7 @@ public record PostCorehrV2PersonsResponseDto
                 public int? Type { get; set; }
 
                 /// <summary>
-                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：\"231\"</para>
                 /// </summary>
@@ -1959,7 +1959,7 @@ public record PostCorehrV2PersonsResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -1974,7 +1974,7 @@ public record PostCorehrV2PersonsResponseDto
                     public int? Type { get; set; }
 
                     /// <summary>
-                    /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+                    /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：\"231\"</para>
                     /// </summary>
@@ -2049,7 +2049,7 @@ public record PostCorehrV2PersonsResponseDto
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：CustomName</para>
+                    /// <para>示例值：Custom Name</para>
                     /// </summary>
                     [JsonProperty("en_us")]
                     public string? EnUs { get; set; }
@@ -2064,7 +2064,7 @@ public record PostCorehrV2PersonsResponseDto
                 public int? Type { get; set; }
 
                 /// <summary>
-                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：\"231\"</para>
                 /// </summary>
@@ -2169,7 +2169,7 @@ public record PostCorehrV2PersonsResponseDto
                 /// <summary>
                 /// <para>完整电话号码</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：+86010-12345678</para>
+                /// <para>示例值：+86 010-12345678</para>
                 /// </summary>
                 [JsonProperty("formatted_phone_number")]
                 public string? FormattedPhoneNumber { get; set; }
@@ -2235,7 +2235,7 @@ public record PostCorehrV2PersonsResponseDto
                 /// <summary>
                 /// <para>完整地址（西方文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Beijing,Beijing,China,</para>
+                /// <para>示例值：Beijing, Beijing, China,</para>
                 /// </summary>
                 [JsonProperty("full_address_western_script")]
                 public string? FullAddressWesternScript { get; set; }
@@ -2453,7 +2453,7 @@ public record PostCorehrV2PersonsResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -2468,7 +2468,7 @@ public record PostCorehrV2PersonsResponseDto
                     public int? Type { get; set; }
 
                     /// <summary>
-                    /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+                    /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：\"231\"</para>
                     /// </summary>
@@ -2872,7 +2872,7 @@ public record PostCorehrV2PersonsResponseDto
                 /// <summary>
                 /// <para>完整电话号码</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：+86010-12345678</para>
+                /// <para>示例值：+86 010-12345678</para>
                 /// </summary>
                 [JsonProperty("formatted_phone_number")]
                 public string? FormattedPhoneNumber { get; set; }
@@ -2966,7 +2966,7 @@ public record PostCorehrV2PersonsResponseDto
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：CustomName</para>
+                    /// <para>示例值：Custom Name</para>
                     /// </summary>
                     [JsonProperty("en_us")]
                     public string? EnUs { get; set; }
@@ -2981,7 +2981,7 @@ public record PostCorehrV2PersonsResponseDto
                 public int? Type { get; set; }
 
                 /// <summary>
-                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：\"231\"</para>
                 /// </summary>
@@ -3017,7 +3017,7 @@ public record PostCorehrV2PersonsResponseDto
         /// <summary>
         /// <para>邮箱地址</para>
         /// <para>必填：否</para>
-        /// <para>示例值：test@163.com</para>
+        /// <para>示例值：test@example.feishu.cn</para>
         /// </summary>
         [JsonProperty("email_address")]
         public string? EmailAddress { get; set; }
@@ -3210,7 +3210,7 @@ public record PostCorehrV2PersonsResponseDto
                 /// <summary>
                 /// <para>英文</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：CustomName</para>
+                /// <para>示例值：Custom Name</para>
                 /// </summary>
                 [JsonProperty("en_us")]
                 public string? EnUs { get; set; }
@@ -3225,7 +3225,7 @@ public record PostCorehrV2PersonsResponseDto
             public int? Type { get; set; }
 
             /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://bytedance.feishu.cn/docx/UZYmdBj1ho8RPixJwlKcpkzQn2b)</para>
+            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>

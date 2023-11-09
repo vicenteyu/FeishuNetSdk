@@ -10,7 +10,8 @@ namespace FeishuNetSdk.Ccm;
 public record PostWikiV2SpacesBySpaceIdNodesByNodeTokenCopyBodyDto
 {
     /// <summary>
-    /// <para>目标父节点token</para>
+    /// <para>目标父节点 Token。</para>
+    /// <para>- 目标知识空间 ID 与目标父节点 Token 不可同时为空。</para>
     /// <para>必填：否</para>
     /// <para>示例值：wikcnKQ1k3p******8Vabce</para>
     /// </summary>
@@ -18,7 +19,8 @@ public record PostWikiV2SpacesBySpaceIdNodesByNodeTokenCopyBodyDto
     public string? TargetParentToken { get; set; }
 
     /// <summary>
-    /// <para>目标知识空间id</para>
+    /// <para>目标知识空间 ID。</para>
+    /// <para>- 目标知识空间 ID 与目标父节点 Token 不可同时为空。</para>
     /// <para>必填：否</para>
     /// <para>示例值：6946843325487912356</para>
     /// </summary>
