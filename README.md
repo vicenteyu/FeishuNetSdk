@@ -22,8 +22,8 @@ builder.Services.AddFeishuNetSdk(options =>
 {
     options.AppId = "cli_test";
     options.AppSecret = "secret_test";
-    options.EnableLogging = true; //启用日志 （true = 启用， false = 关闭， 默认 = 启用）
-    options.IgnoreStatusException = true; //忽略状态异常错误（true = 忽略， false = 启用， 默认 = 忽略）
+    //options.EnableLogging = true; //启用日志 （true = 启用， false = 关闭， 默认 = 启用）
+    //options.IgnoreStatusException = true; //忽略状态异常错误（true = 忽略， false = 启用， 默认 = 忽略）
 });
 ```
 **使用`配置文件`的方式**

@@ -16,6 +16,11 @@
         public string AppSecret { get; set; } = string.Empty;
 
         /// <summary>
+        /// 事件订阅 解密密钥
+        /// </summary>
+        public string EncryptKey { get; set; } = string.Empty;
+
+        /// <summary>
         /// 启用日志 （true = 启用， false = 关闭， 默认 = 启用）
         /// </summary>
         public bool EnableLogging { get; set; } = true;
