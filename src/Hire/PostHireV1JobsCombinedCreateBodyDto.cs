@@ -234,7 +234,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     public string[]? HighlightList { get; set; }
 
     /// <summary>
-    /// <para>职位类别</para>
+    /// <para>职位类别，枚举可通过[「获取职位类别列表」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：6960663240925956551</para>
     /// </summary>

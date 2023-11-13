@@ -313,7 +313,7 @@
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdate</td></tr>
 <tr><td rowspan="2">157</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>删除保护范围</td></tr>
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDel</td></tr>
-<tr><td rowspan="2">158</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>删除部门</td></tr>
+<tr><td rowspan="2">158</td><td rowspan="2">2023-11-13</td><td>&#10003;</td><td>通讯录</td><td>删除部门</td></tr>
 <tr><td colspan="3">DeleteContactV3DepartmentsByDepartmentId</td></tr>
 <tr><td rowspan="2">159</td><td rowspan="2">2023-07-13</td><td>&#10003;</td><td>云文档</td><td>查询下拉列表设置</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
@@ -335,7 +335,7 @@
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageId</td></tr>
 <tr><td rowspan="2">168</td><td rowspan="2">2022-09-29</td><td>&#10003;</td><td>云文档</td><td>查询浮动图片</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesQuery</td></tr>
-<tr><td rowspan="2">169</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>修改部门部分信息</td></tr>
+<tr><td rowspan="2">169</td><td rowspan="2">2023-11-13</td><td>&#10003;</td><td>通讯录</td><td>修改部门部分信息</td></tr>
 <tr><td colspan="3">PatchContactV3DepartmentsByDepartmentId</td></tr>
 <tr><td rowspan="2">170</td><td rowspan="2">2022-09-29</td><td>&#10003;</td><td>云文档</td><td>创建浮动图片</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImages</td></tr>
@@ -357,7 +357,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesBatchCreate</td></tr>
 <tr><td rowspan="2">179</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>多维表格</td><td>删除一个数据表</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenTablesByTableId</td></tr>
-<tr><td rowspan="2">180</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>更新部门所有信息</td></tr>
+<tr><td rowspan="2">180</td><td rowspan="2">2023-11-13</td><td>&#10003;</td><td>通讯录</td><td>更新部门所有信息</td></tr>
 <tr><td colspan="3">PutContactV3DepartmentsByDepartmentId</td></tr>
 <tr><td rowspan="2">181</td><td rowspan="2">2023-08-03</td><td>&#10003;</td><td>多维表格</td><td>删除多个数据表</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesBatchDelete</td></tr>
@@ -379,7 +379,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdViews</td></tr>
 <tr><td rowspan="2">190</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>多维表格</td><td>删除视图</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenTablesByTableIdViewsByViewId</td></tr>
-<tr><td rowspan="2">191</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>部门群转为普通群</td></tr>
+<tr><td rowspan="2">191</td><td rowspan="2">2023-11-13</td><td>&#10003;</td><td>通讯录</td><td>部门群转为普通群</td></tr>
 <tr><td colspan="3">PostContactV3DepartmentsUnbindDepartmentChat</td></tr>
 <tr><td rowspan="2">192</td><td rowspan="2">2023-11-07</td><td>&#10003;</td><td>多维表格</td><td>更新表单元数据</td></tr>
 <tr><td colspan="3">PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormId</td></tr>
@@ -447,7 +447,7 @@
 <tr><td colspan="3">PutWikiV2SpacesBySpaceIdSetting</td></tr>
 <tr><td rowspan="2">224</td><td rowspan="2">2023-08-23</td><td>&#10003;</td><td>通讯录</td><td>创建用户</td></tr>
 <tr><td colspan="3">PostContactV3Users</td></tr>
-<tr><td rowspan="2">225</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>获取子部门列表</td></tr>
+<tr><td rowspan="2">225</td><td rowspan="2">2023-11-13</td><td>&#10003;</td><td>通讯录</td><td>获取子部门列表</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsByDepartmentIdChildren</td></tr>
 <tr><td rowspan="2">226</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>创建知识空间节点</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodes</td></tr>
@@ -675,7 +675,7 @@
 <tr><td colspan="3">PostAttendanceV1UserApprovalsQuery</td></tr>
 <tr><td rowspan="2">338</td><td rowspan="2">2023-09-12</td><td>&#10003;</td><td>考勤打卡</td><td>写入审批结果</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserApprovals</td></tr>
-<tr><td rowspan="2">339</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>考勤打卡</td><td>通知审批状态更新</td></tr>
+<tr><td rowspan="2">339</td><td rowspan="2">2023-11-13</td><td>&#10003;</td><td>考勤打卡</td><td>通知审批状态更新</td></tr>
 <tr><td colspan="3">PostAttendanceV1ApprovalInfosProcess</td></tr>
 <tr><td rowspan="2">340</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>考勤打卡</td><td>通知补卡审批发起</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserTaskRemedys</td></tr>
@@ -751,7 +751,7 @@
 <tr><td colspan="3">PostApprovalV4ExternalApprovals</td></tr>
 <tr><td rowspan="2">376</td><td rowspan="2">2023-07-13</td><td>&#10003;</td><td>审批</td><td>查看指定三方审批定义</td></tr>
 <tr><td colspan="3">GetApprovalV4ExternalApprovalsByApprovalCode</td></tr>
-<tr><td rowspan="2">377</td><td rowspan="2">2023-04-04</td><td>&#10003;</td><td>审批</td><td>同步三方审批实例</td></tr>
+<tr><td rowspan="2">377</td><td rowspan="2">2023-11-13</td><td>&#10003;</td><td>审批</td><td>同步三方审批实例</td></tr>
 <tr><td colspan="3">PostApprovalV4ExternalInstances</td></tr>
 <tr><td rowspan="2">378</td><td rowspan="2">2022-12-28</td><td>&#10003;</td><td>审批</td><td>校验三方审批实例</td></tr>
 <tr><td colspan="3">PostApprovalV4ExternalInstancesCheck</td></tr>
@@ -1983,4 +1983,6 @@
 <tr><td colspan="3">GetVcV1RoomConfigsQuery</td></tr>
 <tr><td rowspan="2">992</td><td rowspan="2">2023-07-05</td><td>&#10003;</td><td>视频会议</td><td>设置会议室配置</td></tr>
 <tr><td colspan="3">PostVcV1RoomConfigsSet</td></tr>
+<tr><td rowspan="2">993</td><td rowspan="2">2021-10-22</td><td>新增</td><td>身份验证</td><td>JSAPI 临时授权凭证</td></tr>
+<tr><td colspan="3">PostJssdkTicketGet</td></tr>
 </tbody></table>

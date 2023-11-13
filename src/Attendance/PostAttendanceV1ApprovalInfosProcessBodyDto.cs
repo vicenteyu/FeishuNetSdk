@@ -26,7 +26,13 @@ public record PostAttendanceV1ApprovalInfosProcessBodyDto
     public string ApprovalType { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>审批状态，1：不通过，2：通过，4：撤销</para>
+    /// <para>审批状态</para>
+    /// <para>- `1`：不通过</para>
+    /// <para>- `2`：通过</para>
+    /// <para>- `4`：撤销</para>
+    /// <para>**注意**</para>
+    /// <para>- **请假、外出、加班、出差**只支持传**不通过**</para>
+    /// <para>- **补卡**支持传**不通过、通过和撤销**</para>
     /// <para>必填：是</para>
     /// <para>示例值：4</para>
     /// </summary>

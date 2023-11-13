@@ -844,7 +844,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
     /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -884,7 +884,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
     /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -927,7 +927,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
     /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -952,7 +952,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
     /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -1081,7 +1081,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
     /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -12283,8 +12283,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/external_instances")]
-    System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalV4ExternalInstancesResponseDto>> PostApprovalV4ExternalInstancesAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalV4ExternalInstancesBodyDto dto);
+    System.Threading.Tasks.Task<FeishuResponse<Approval.PostApprovalV4ExternalInstancesResponseDto>> PostApprovalV4ExternalInstancesAsync(
+        [JsonNetContent] Approval.PostApprovalV4ExternalInstancesBodyDto dto);
 
     /// <summary>
     /// <para>【审批】校验三方审批实例</para>

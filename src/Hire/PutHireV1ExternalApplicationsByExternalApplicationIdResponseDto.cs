@@ -86,7 +86,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>1：HR寻访</item>
+        /// <item>1：HR 寻访</item>
         /// <item>2：候选人主动投递</item>
         /// <item>3：人才推荐</item>
         /// <item>4：其他</item>
@@ -96,12 +96,20 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdResponseDto
         public int? DeliveryType { get; set; }
 
         /// <summary>
-        /// <para>更新时间</para>
+        /// <para>更新时间，招聘系统内用作投递在外部系统终止时间</para>
         /// <para>必填：否</para>
         /// <para>示例值：1618500278645</para>
         /// </summary>
         [JsonProperty("modify_time")]
         public int? ModifyTime { get; set; }
+
+        /// <summary>
+        /// <para>投递在外部系统创建时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1618500278644</para>
+        /// </summary>
+        [JsonProperty("create_time")]
+        public int? CreateTime { get; set; }
 
         /// <summary>
         /// <para>终止类型</para>

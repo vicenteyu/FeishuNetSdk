@@ -70,11 +70,23 @@ public record PostHireV1EcoBackgroundChecksUpdateProgressBodyDto
         public string ReportName { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>报告地址</para>
+        /// <para>报告地址；当report_url_type 为空或为 1 时需为可下载 pdf 的链接；为 2 时为预览型链接</para>
         /// <para>必填：是</para>
         /// <para>示例值：https://xxxxx/xxxxxx/xxxx.pdf</para>
         /// </summary>
         [JsonProperty("report_url")]
         public string ReportUrl { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>报告地址类型；枚举值 1 或为空时为可下载的 pdf 链接，2 为预览型链接</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：可下载的链接</item>
+        /// <item>2：外链型链接</item>
+        /// </list></para>
+        /// </summary>
+        [JsonProperty("report_url_type")]
+        public int? ReportUrlType { get; set; }
     }
 }

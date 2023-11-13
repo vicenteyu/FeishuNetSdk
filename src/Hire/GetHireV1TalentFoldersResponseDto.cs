@@ -30,21 +30,13 @@ public record GetHireV1TalentFoldersResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("items")]
-    public TalentFolder[]? Items { get; set; }
+    public TalentFolderForList[]? Items { get; set; }
 
     /// <summary>
     /// <para>文件夹列表</para>
     /// </summary>
-    public record TalentFolder
+    public record TalentFolderForList
     {
-        /// <summary>
-        /// <para>名字</para>
-        /// <para>必填：是</para>
-        /// <para>示例值：人才文件夹A1</para>
-        /// </summary>
-        [JsonProperty("name")]
-        public string Name { get; set; } = string.Empty;
-
         /// <summary>
         /// <para>文件夹ID</para>
         /// <para>必填：否</para>
@@ -52,6 +44,14 @@ public record GetHireV1TalentFoldersResponseDto
         /// </summary>
         [JsonProperty("folder_id")]
         public string? FolderId { get; set; }
+
+        /// <summary>
+        /// <para>名字</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：人才文件夹A1</para>
+        /// </summary>
+        [JsonProperty("folder_name")]
+        public string FolderName { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>所有者ID</para>
