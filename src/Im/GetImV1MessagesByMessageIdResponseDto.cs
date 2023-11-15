@@ -10,14 +10,14 @@ namespace FeishuNetSdk.Im;
 public record GetImV1MessagesByMessageIdResponseDto
 {
     /// <summary>
-    /// <para>- </para>
+    /// <para>-</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("items")]
     public Message[]? Items { get; set; }
 
     /// <summary>
-    /// <para>- </para>
+    /// <para>-</para>
     /// </summary>
     public record Message
     {
@@ -163,7 +163,7 @@ public record GetImV1MessagesByMessageIdResponseDto
             /// <summary>
             /// <para>消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)</para>
             /// <para>必填：是</para>
-            /// <para>示例值：{\"text\":\"testcontent\"}</para>
+            /// <para>示例值：{\"text\":\"test content\"}</para>
             /// </summary>
             [JsonProperty("content")]
             public string Content { get; set; } = string.Empty;
@@ -190,7 +190,10 @@ public record GetImV1MessagesByMessageIdResponseDto
             public string Key { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>被@的用户或者机器人的open_id</para>
+            /// <para>被@的用户或机器人的 ID</para>
+            /// <para>**注意**：</para>
+            /// <para>- 当不填写 `user_id_type`时，该字段将返回被@的用户或机器人的 open_id</para>
+            /// <para>- 当填写 `user_id_type` 时，该字段将返回@的用户对应类型的 ID(open_id, union_id 或 user_id) 或机器人的 app_id</para>
             /// <para>必填：是</para>
             /// <para>示例值：ou_155184d1e73cbfb8973e5a9e698e74f2</para>
             /// </summary>
@@ -198,7 +201,7 @@ public record GetImV1MessagesByMessageIdResponseDto
             public string Id { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>被@的用户或机器人 id 类型，目前仅支持 `open_id` ([什么是 Open ID？](https://open.feishu.cn/document/home/user-identity-introduction/open-id))</para>
+            /// <para>被@的用户或机器人 id 类型</para>
             /// <para>必填：是</para>
             /// <para>示例值：open_id</para>
             /// </summary>

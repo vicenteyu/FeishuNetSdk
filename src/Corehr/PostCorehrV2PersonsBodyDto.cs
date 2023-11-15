@@ -258,14 +258,14 @@ public record PostCorehrV2PersonsBodyDto
     public Enum? MaritalStatus { get; set; }
 
     /// <summary>
-    /// <para>电话列表，只有当满足下面所有条件时，电话在个人信息页才可见</para>
+    /// <para>电话列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonProperty("phone_list")]
     public Phone[]? PhoneLists { get; set; }
 
     /// <summary>
-    /// <para>电话列表，只有当满足下面所有条件时，电话在个人信息页才可见</para>
+    /// <para>电话列表</para>
     /// </summary>
     public record Phone
     {

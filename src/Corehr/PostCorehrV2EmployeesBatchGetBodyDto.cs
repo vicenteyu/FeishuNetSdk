@@ -10,9 +10,18 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2EmployeesBatchGetBodyDto
 {
     /// <summary>
-    /// <para>雇佣 ID 列表</para>
+    /// <para>返回数据的字段列表，填写方式：为空时默认仅返回 ID</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
+    /// </summary>
+    [JsonProperty("fields")]
+    public string[]? Fields { get; set; }
+
+    /// <summary>
+    /// <para>雇佣 ID 列表，以下请求参数中「employment_ids」，「person_ids」，「work_emails」不得均为空；请根据需求选择一种模式进行查询，若单次请求中多个请求参数有值，按照【employment_ids &gt; person_ids &gt; work_emails】的顺序只识别第一个有值的请求参数；</para>
+    /// <para>必填：否</para>
+    /// <para>最大长度：100</para>
+    /// <para>最小长度：0</para>
     /// </summary>
     [JsonProperty("employment_ids")]
     public string[]? EmploymentIds { get; set; }
@@ -21,15 +30,17 @@ public record PostCorehrV2EmployeesBatchGetBodyDto
     /// <para>个人信息 ID 列表，employment_ids参数有值时该参数不生效</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
+    /// <para>最小长度：0</para>
     /// </summary>
     [JsonProperty("person_ids")]
     public string[]? PersonIds { get; set; }
 
     /// <summary>
-    /// <para>返回数据的字段列表，填写方式：为空时默认仅返回 ID</para>
+    /// <para>主工作邮箱列表，「employment_ids」，「person_ids」参数有值时该参数不生效</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
+    /// <para>最小长度：0</para>
     /// </summary>
-    [JsonProperty("fields")]
-    public string[]? Fields { get; set; }
+    [JsonProperty("work_emails")]
+    public string[]? WorkEmails { get; set; }
 }

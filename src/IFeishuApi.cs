@@ -92,11 +92,12 @@ public interface IFeishuApi : IHttpApi
     /// <param name="state">
     /// <para>必填：否</para>
     /// <para>用来维护请求和回调状态的附加字符串， 在授权完成回调时会附加此参数，应用可以根据此字符串来判断上下文关系</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/authen/v1/index?redirect_uri={REDIRECT_URI}&amp;app_id={APPID}&amp;state={STATE}")]
     System.Threading.Tasks.Task<FeishuResponse<Authen.Spec.GetAuthenV1IndexResponseDto>> GetAuthenV1IndexAsync(
         [PathQuery] string redirect_uri,
         [PathQuery] string app_id,
-        [PathQuery] string? state);
+        [PathQuery] string? state = null);
 }
 

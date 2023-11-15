@@ -42,7 +42,8 @@ namespace Microsoft.Extensions.DependencyInjection
             FeishuNetSdkOptions options)
         {
             services.AddHttpApi<IFeishuApi>();
-            services.AddHttpApi<IFeishuTenantApi>();
+            services.AddHttpApi<IFeishuTenantApi>(option
+                => option.KeyValueSerializeOptions.IgnoreNullValues = true);
             services.AddTokenProvider<IFeishuTenantApi>(async provider =>
             {
                 var token = await provider.GetRequiredService<IFeishuApi>()

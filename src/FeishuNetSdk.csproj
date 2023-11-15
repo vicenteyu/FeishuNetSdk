@@ -16,7 +16,7 @@
         <Copyright>MIT</Copyright>
         <Description>适用于飞书开放平台的.Net开发包</Description>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <Version>1.0.13</Version>
+        <Version>1.0.14-preview</Version>
     </PropertyGroup>
 
     <ItemGroup>

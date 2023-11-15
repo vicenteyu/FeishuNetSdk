@@ -31,7 +31,7 @@ public record PostAttendanceV1ApprovalInfosProcessBodyDto
     /// <para>- `2`：通过</para>
     /// <para>- `4`：撤销</para>
     /// <para>**注意**</para>
-    /// <para>- **请假、外出、加班、出差**只支持传**不通过**</para>
+    /// <para>- **请假、外出、加班、出差**只支持传**撤销**</para>
     /// <para>- **补卡**支持传**不通过、通过和撤销**</para>
     /// <para>必填：是</para>
     /// <para>示例值：4</para>

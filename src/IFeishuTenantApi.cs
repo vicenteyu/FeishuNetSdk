@@ -25,6 +25,16 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Auth.Spec.PostJssdkTicketGetResponseDto>> PostJssdkTicketGetAsync();
 
     /// <summary>
+    /// <para>【应用信息】获取机器人信息</para>
+    /// <para>接口ID：6907569745299111938</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uAjMxEjLwITMx4CMyETM</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取机器人的基本信息。</para>
+    /// </summary>
+    [HttpGet("/open-apis/bot/v3/info")]
+    System.Threading.Tasks.Task<Application.Spec.GetBotV3InfoResponseDto> GetBotV3InfoAsync();
+
+    /// <summary>
     /// <para>【事件订阅】获取事件出口 IP</para>
     /// <para>接口ID：7083805115594227714</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list</para>
@@ -665,6 +675,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>1：普通用户组</item>
     /// <item>2：动态用户组</item>
     /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
@@ -681,8 +692,8 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/contact/v3/group/member_belong")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3GroupMemberBelongResponseDto>> GetContactV3GroupMemberBelongAsync(
         [PathQuery] string member_id,
-        [PathQuery] int? group_type,
         [PathQuery] string? member_id_type = "open_id",
+        [PathQuery] int? group_type = null,
         [PathQuery] int? page_size = 500,
         [PathQuery] string? page_token = null);
 
@@ -1089,6 +1100,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>是否递归获取子部门</para>
     /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
@@ -1105,9 +1117,9 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/contact/v3/departments/{department_id}/children")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3DepartmentsByDepartmentIdChildrenResponseDto>> GetContactV3DepartmentsByDepartmentIdChildrenAsync(
         [PathQuery] string department_id,
-        [PathQuery] bool? fetch_child,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] bool? fetch_child = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null);
 
@@ -1824,12 +1836,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>传入该字段时，可查询指定职级名称对应的职级信息。</para>
     /// <para>示例值：高级</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/contact/v3/job_levels")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3JobLevelsResponseDto>> GetContactV3JobLevelsAsync(
-        [PathQuery] string? name,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? name = null);
 
     /// <summary>
     /// <para>【通讯录】创建序列</para>
@@ -1919,12 +1932,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>序列名称，传入该字段时，可查询指定序列名称对应的序列信息</para>
     /// <para>示例值：2-2</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/contact/v3/job_families")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3JobFamiliesResponseDto>> GetContactV3JobFamiliesAsync(
-        [PathQuery] string? name,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? name = null);
 
     /// <summary>
     /// <para>【通讯录】获取单个职务信息</para>
@@ -2117,6 +2131,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>由开发者生成的唯一字符串序列，用于转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的转发只可成功一次。</para>
     /// <para>示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/im/v1/messages/{message_id}/forward")]
@@ -2124,7 +2139,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string message_id,
         [PathQuery] string receive_id_type,
         [JsonNetContent] Im.PostImV1MessagesByMessageIdForwardBodyDto dto,
-        [PathQuery] string? uuid);
+        [PathQuery] string? uuid = null);
 
     /// <summary>
     /// <para>【消息与群组】合并转发消息</para>
@@ -2149,13 +2164,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>由开发者生成的唯一字符串序列，用于合并转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的合并转发只可成功一次。</para>
     /// <para>示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/im/v1/messages/merge_forward")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1MessagesMergeForwardResponseDto>> PostImV1MessagesMergeForwardAsync(
         [PathQuery] string receive_id_type,
         [JsonNetContent] Im.PostImV1MessagesMergeForwardBodyDto dto,
-        [PathQuery] string? uuid);
+        [PathQuery] string? uuid = null);
 
     /// <summary>
     /// <para>【消息与群组】查询消息已读信息</para>
@@ -2222,11 +2238,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>历史信息的起始时间（秒级时间戳）</para>
     /// <para>示例值：1608594809</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：否</para>
     /// <para>历史信息的结束时间（秒级时间戳）</para>
     /// <para>示例值：1609296809</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="sort_type">
     /// <para>必填：否</para>
@@ -2254,8 +2272,8 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1MessagesResponseDto>> GetImV1MessagesAsync(
         [PathQuery] string container_id_type,
         [PathQuery] string container_id,
-        [PathQuery] string? start_time,
-        [PathQuery] string? end_time,
+        [PathQuery] string? start_time = null,
+        [PathQuery] string? end_time = null,
         [PathQuery] string? sort_type = "ByCreateTimeAsc",
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null);
@@ -2308,9 +2326,21 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>待获取消息内容的消息的ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
     [HttpGet("/open-apis/im/v1/messages/{message_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1MessagesByMessageIdResponseDto>> GetImV1MessagesByMessageIdAsync(
-        [PathQuery] string message_id);
+        [PathQuery] string message_id,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【消息与群组】发送应用内加急</para>
@@ -2673,6 +2703,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>待查询消息reaction的类型[emoji类型列举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)</para>
     /// <para>**注意**：不传入该参数，表示拉取所有类型reaction</para>
     /// <para>示例值：LAUGH</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -2700,7 +2731,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/im/v1/messages/{message_id}/reactions")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1MessagesByMessageIdReactionsResponseDto>> GetImV1MessagesByMessageIdReactionsAsync(
         [PathQuery] string message_id,
-        [PathQuery] string? reaction_type,
+        [PathQuery] string? reaction_type = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? user_id_type = "open_id");
@@ -2750,12 +2781,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>Pin信息的起始时间（毫秒级时间戳）。若未填写默认获取到群聊内最早的Pin信息</para>
     /// <para>示例值：1658632251800</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：否</para>
     /// <para>Pin信息的结束时间（毫秒级时间戳）。若未填写默认从群聊内最新的Pin信息开始获取</para>
     /// <para>**注意**：`end_time`值应大于`start_time`值</para>
     /// <para>示例值：1658731646425</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
@@ -2772,8 +2805,8 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/im/v1/pins")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1PinsResponseDto>> GetImV1PinsAsync(
         [PathQuery] string chat_id,
-        [PathQuery] string? start_time,
-        [PathQuery] string? end_time,
+        [PathQuery] string? start_time = null,
+        [PathQuery] string? end_time = null,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null);
 
@@ -2805,14 +2838,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>由开发者生成的唯一字符串序列，用于创建群组请求去重；持有相同uuid的请求10小时内只可成功创建1个群聊</para>
     /// <para>示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/im/v1/chats")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsResponseDto>> PostImV1ChatsAsync(
         [JsonNetContent] Im.PostImV1ChatsBodyDto dto,
-        [PathQuery] string? uuid,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] bool? set_bot_manager = false);
+        [PathQuery] bool? set_bot_manager = false,
+        [PathQuery] string? uuid = null);
 
     /// <summary>
     /// <para>【消息与群组】解散群</para>
@@ -3035,6 +3069,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 支持拼音、前缀等模糊搜索</para>
     /// <para>- 关键词为空值或长度超过`64`个字符时将返回空的结果</para>
     /// <para>示例值：abc</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -3050,8 +3085,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/im/v1/chats/search")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1ChatsSearchResponseDto>> GetImV1ChatsSearchAsync(
-        [PathQuery] string? query,
         [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? query = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 20);
 
@@ -3143,13 +3178,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
     /// <item>app_id：飞书开放平台应用的唯一标识。在创建应用时，由系统自动生成，用户不能自行修改。[了解更多：如何获取应用的 App ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</item>
     /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/managers/add_managers")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdManagersAddManagersResponseDto>> PostImV1ChatsByChatIdManagersAddManagersAsync(
         [PathQuery] string chat_id,
         [JsonNetContent] Im.PostImV1ChatsByChatIdManagersAddManagersBodyDto dto,
-        [PathQuery] string? member_id_type);
+        [PathQuery] string? member_id_type = null);
 
     /// <summary>
     /// <para>【消息与群组】删除群管理员</para>
@@ -3176,13 +3212,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
     /// <item>app_id：飞书开放平台应用的唯一标识。在创建应用时，由系统自动生成，用户不能自行修改。[了解更多：如何获取应用的 App ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</item>
     /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/managers/delete_managers")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdManagersDeleteManagersResponseDto>> PostImV1ChatsByChatIdManagersDeleteManagersAsync(
         [PathQuery] string chat_id,
         [JsonNetContent] Im.PostImV1ChatsByChatIdManagersDeleteManagersBodyDto dto,
-        [PathQuery] string? member_id_type);
+        [PathQuery] string? member_id_type = null);
 
     /// <summary>
     /// <para>【消息与群组】将用户或机器人拉入群聊</para>
@@ -3220,14 +3257,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>1：将参数中可用的 ID 全部拉入群聊，返回拉群成功的响应，并展示剩余不可用的 ID 及原因。</item>
     /// <item>2：参数中只要存在任一不可用的 ID ，就会拉群失败，返回错误响应，并展示出不可用的 ID。</item>
     /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdMembersResponseDto>> PostImV1ChatsByChatIdMembersAsync(
         [PathQuery] string chat_id,
         [JsonNetContent] Im.PostImV1ChatsByChatIdMembersBodyDto dto,
-        [PathQuery] int? succeed_type,
-        [PathQuery] string? member_id_type = "open_id");
+        [PathQuery] string? member_id_type = "open_id",
+        [PathQuery] int? succeed_type = null);
 
     /// <summary>
     /// <para>【消息与群组】用户或机器人主动加入群聊</para>
@@ -3305,6 +3343,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>union_id：以 union_id 来识别成员</item>
     /// <item>open_id：以 open_id 来识别成员&lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt; &lt;/md-td&gt; &lt;/md-tr&gt;</item>
     /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
@@ -3321,7 +3360,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/im/v1/chats/{chat_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1ChatsByChatIdMembersResponseDto>> GetImV1ChatsByChatIdMembersAsync(
         [PathQuery] string chat_id,
-        [PathQuery] string? member_id_type,
+        [PathQuery] string? member_id_type = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null);
 
@@ -3628,6 +3667,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>文件夹的token（若不填写该参数或填写空字符串，则默认获取用户云空间下的清单，且不支持分页）</para>
     /// <para>示例值：fldbcO1UuPz8VwnpPx5a9abcef</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="order_by">
     /// <para>必填：否</para>
@@ -3662,9 +3702,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/drive/v1/files")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesResponseDto>> GetDriveV1FilesAsync(
-        [PathQuery] string? folder_token,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
+        [PathQuery] string? folder_token = null,
         [PathQuery] string? order_by = "EditedTime",
         [PathQuery] string? direction = "DESC",
         [PathQuery] string? user_id_type = "open_id");
@@ -3913,13 +3953,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>扩展信息</para>
     /// <para>示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/drive/v1/medias/{file_token}/download")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetDriveV1MediasByFileTokenDownloadAsync(
         [PathQuery] string file_token,
-        [PathQuery] string? extra,
-        [Header][AliasAs("Range")] string? range = null);
+        [Header][AliasAs("Range")] string? range = null,
+        [PathQuery] string? extra = null);
 
     /// <summary>
     /// <para>【云文档】获取素材临时下载链接</para>
@@ -3944,11 +3985,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>拓展信息，比如对于拥有高级权限的 Bitable，在下载素材或者获取素材临时下载链接时，需要添加额外的`extra`作为 URL 查询参数进行鉴权。</para>
     /// <para>示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/drive/v1/medias/batch_get_tmp_download_url")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1MediasBatchGetTmpDownloadUrlResponseDto>> GetDriveV1MediasBatchGetTmpDownloadUrlAsync(
         [PathQuery] string[] file_tokens,
-        [PathQuery] string? extra);
+        [PathQuery] string? extra = null);
 
     /// <summary>
     /// <para>【云文档】分片上传素材（预上传）</para>
@@ -4623,12 +4665,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 你可以使用`,`分隔若干个你想指定返回的字段，如：`name,avatar`</para>
     /// <para>- 按需指定返回字段接口性能更好</para>
     /// <para>示例值：*</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/drive/v1/permissions/{token}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1PermissionsByTokenMembersResponseDto>> GetDriveV1PermissionsByTokenMembersAsync(
         [PathQuery] string token,
         [PathQuery] string type,
-        [PathQuery] string? fields);
+        [PathQuery] string? fields = null);
 
     /// <summary>
     /// <para>【云文档】获取协作者列表</para>
@@ -5055,11 +5098,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>是否全文评论</para>
     /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="is_solved">
     /// <para>必填：否</para>
     /// <para>是否已解决（可选）</para>
     /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -5088,8 +5133,8 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesByFileTokenCommentsResponseDto>> GetDriveV1FilesByFileTokenCommentsAsync(
         [PathQuery] string file_token,
         [PathQuery] string file_type,
-        [PathQuery] bool? is_whole,
-        [PathQuery] bool? is_solved,
+        [PathQuery] bool? is_whole = null,
+        [PathQuery] bool? is_solved = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? user_id_type = "open_id");
@@ -5405,7 +5450,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <summary>
     /// <para>【云文档】获取文档基本信息</para>
     /// <para>接口ID：7068199542315302940</para>
-    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1/get</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取文档最新版本号、标题等</para>
     /// </summary>
@@ -5422,7 +5467,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <summary>
     /// <para>【云文档】获取文档纯文本内容</para>
     /// <para>接口ID：7079983676051013634</para>
-    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1/raw_content</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/raw_content</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取文档的纯文本内容。</para>
     /// </summary>
@@ -5451,7 +5496,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <summary>
     /// <para>【云文档】获取文档所有块</para>
     /// <para>接口ID：7068199542315352092</para>
-    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1-block/list</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取文档所有块的富文本内容并分页返回。</para>
     /// </summary>
@@ -5500,7 +5545,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <summary>
     /// <para>【云文档】创建文档</para>
     /// <para>接口ID：7068199542315204636</para>
-    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1/create</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>创建新版文档，文档标题和目录可选。</para>
     /// </summary>
@@ -5512,7 +5557,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <summary>
     /// <para>【云文档】获取块</para>
     /// <para>接口ID：7068199542315368476</para>
-    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1-block/get</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取指定块的富文本内容。</para>
     /// </summary>
@@ -5554,7 +5599,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <summary>
     /// <para>【云文档】创建块</para>
     /// <para>接口ID：7068199542315270172</para>
-    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1-block-children/create</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>指定需要操作的块，为其创建一批子块，并插入到指定位置。如果操作成功，接口将返回新创建子块的富文本内容。</para>
     /// </summary>
@@ -5605,7 +5650,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <summary>
     /// <para>【云文档】更新块</para>
     /// <para>接口ID：7068199542315286556</para>
-    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1-block/patch</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>更新指定的块。</para>
     /// </summary>
@@ -5656,7 +5701,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <summary>
     /// <para>【云文档】批量更新块</para>
     /// <para>接口ID：7100866542866530308</para>
-    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1-block/batch_update</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/batch_update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>批量更新块的富文本内容。</para>
     /// </summary>
@@ -5700,7 +5745,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <summary>
     /// <para>【云文档】删除块</para>
     /// <para>接口ID：7068199542315335708</para>
-    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1-block-children/batch_delete</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/batch_delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>指定需要操作的块，删除其指定范围的子块。如果操作成功，接口将返回应用删除操作后的文档版本号。</para>
     /// </summary>
@@ -5740,7 +5785,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <summary>
     /// <para>【云文档】获取所有子块</para>
     /// <para>接口ID：7068199542315253788</para>
-    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN-docx/docx-v1-block-children/get</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>给定一个指定版本的文档，并指定需要操作的块，分页遍历其所有子块富文本内容 。如果不指定版本，则会默认查询最新版本。</para>
     /// </summary>
@@ -6057,12 +6102,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="insertDataOption">
     /// <para>必填：否</para>
     /// <para>遇到空行追加，默认 OVERWRITE，若空行的数量小于追加数据的行数，则会覆盖已有数据；可选 INSERT_ROWS ，会在插入足够数量的行后再进行数据追加</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_append")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendAsync(
         [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendBodyDto dto,
-        [PathQuery] string? insertDataOption);
+        [PathQuery] string? insertDataOption = null);
 
     /// <summary>
     /// <para>【云文档】读取单个范围</para>
@@ -6735,11 +6781,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="memberType">
     /// <para>必填：否</para>
     /// <para>返回的用户类型，可选userId,openId,unionId,默认使用userId</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_range_batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetAsync(
         [PathQuery] string protectIds,
-        [PathQuery] string? memberType);
+        [PathQuery] string? memberType = null);
 
     /// <summary>
     /// <para>【云文档】修改保护范围</para>
@@ -7700,6 +7747,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>控制多行文本字段数据的返回格式, true 表示以数组形式返回</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -7716,27 +7764,30 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>控制公式、查找引用是否显示完整的原样返回结果</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="with_shared_url">
     /// <para>必填：否</para>
     /// <para>控制是否返回该记录的链接</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="automatic_fields">
     /// <para>必填：否</para>
     /// <para>控制是否返回自动计算的字段，例如 `created_by`/`created_time`/`last_modified_by`/`last_modified_time`，true 表示返回</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponseDto>> GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdAsync(
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [PathQuery] string record_id,
-        [PathQuery] bool? text_field_as_array,
-        [PathQuery] bool? display_formula_ref,
-        [PathQuery] bool? with_shared_url,
-        [PathQuery] bool? automatic_fields,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] bool? text_field_as_array = null,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] bool? display_formula_ref = null,
+        [PathQuery] bool? with_shared_url = null,
+        [PathQuery] bool? automatic_fields = null);
 
     /// <summary>
     /// <para>【多维表格】列出记录</para>
@@ -7763,6 +7814,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>注意：</para>
     /// <para>当 filter 参数 或 sort 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的view_id 会被忽略。</para>
     /// <para>示例值：vewqhz51lk</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="filter">
     /// <para>必填：否</para>
@@ -7772,6 +7824,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>2.指定筛选条件时，参数长度不超过2000个字符。</para>
     /// <para>详细请参考[筛选条件支持的公式](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/filter)</para>
     /// <para>示例值：AND(CurrentValue.[身高]&gt;180, CurrentValue.[体重]&gt;150)</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="sort">
     /// <para>必填：否</para>
@@ -7781,11 +7834,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>2.指定排序条件时，参数长度不超过1000字符。</para>
     /// <para>3.当存在多个排序条件时，数据将根据条件顺序逐层排序</para>
     /// <para>示例值：["字段1 DESC","字段2 ASC"]</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="field_names">
     /// <para>必填：否</para>
     /// <para>字段名称，用于指定本次查询返回记录中包含的字段</para>
     /// <para>示例值：["字段1","字段2"]</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="text_field_as_array">
     /// <para>必填：否</para>
@@ -7794,6 +7849,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>1.多行文本中如果有超链接部分，则会返回链接的 URL。</para>
     /// <para>2.目前可以返回多行文本中 URL 类型为多维表格链接、飞书 doc、飞书 sheet的URL类型以及@人员的数据结构。</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -7810,11 +7866,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>默认值为false，返回当前字段的默认类型和结果；当该参数的值为true时，公式 和 查找引用 类型的字段，将会以 被引用字段 的格式返回</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="automatic_fields">
     /// <para>必填：否</para>
     /// <para>控制是否返回自动计算的字段，例如 `created_by`/`created_time`/`last_modified_by`/`last_modified_time`，true 表示返回</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -7832,14 +7890,14 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenTablesByTableIdRecordsResponseDto>> GetBitableV1AppsByAppTokenTablesByTableIdRecordsAsync(
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [PathQuery] string? view_id,
-        [PathQuery] string? filter,
-        [PathQuery] string? sort,
-        [PathQuery] string? field_names,
-        [PathQuery] bool? text_field_as_array,
-        [PathQuery] bool? display_formula_ref,
-        [PathQuery] bool? automatic_fields,
+        [PathQuery] string? view_id = null,
+        [PathQuery] string? filter = null,
+        [PathQuery] string? sort = null,
+        [PathQuery] string? field_names = null,
+        [PathQuery] bool? text_field_as_array = null,
         [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] bool? display_formula_ref = null,
+        [PathQuery] bool? automatic_fields = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 20);
 
@@ -8096,11 +8154,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>视图 ID</para>
     /// <para>示例值：vewOVMEXPF</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="text_field_as_array">
     /// <para>必填：否</para>
     /// <para>控制字段描述（多行文本格式）数据的返回格式, true 表示以数组富文本形式返回</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -8118,8 +8178,8 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto>> GetBitableV1AppsByAppTokenTablesByTableIdFieldsAsync(
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [PathQuery] string? view_id,
-        [PathQuery] bool? text_field_as_array,
+        [PathQuery] string? view_id = null,
+        [PathQuery] bool? text_field_as_array = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 20);
 
@@ -8563,13 +8623,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>添加权限后是否通知对方</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/wiki/v2/spaces/{space_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostWikiV2SpacesBySpaceIdMembersResponseDto>> PostWikiV2SpacesBySpaceIdMembersAsync(
         [PathQuery] string space_id,
         [JsonNetContent] Ccm.PostWikiV2SpacesBySpaceIdMembersBodyDto dto,
-        [PathQuery] bool? need_notification);
+        [PathQuery] bool? need_notification = null);
 
     /// <summary>
     /// <para>【云文档】删除知识空间成员</para>
@@ -8700,13 +8761,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>父节点token</para>
     /// <para>示例值：wikcnKQ1k3p******8Vabce</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/wiki/v2/spaces/{space_id}/nodes")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetWikiV2SpacesBySpaceIdNodesResponseDto>> GetWikiV2SpacesBySpaceIdNodesAsync(
         [PathQuery] string space_id,
-        [PathQuery] string? parent_node_token,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? parent_node_token = null);
 
     /// <summary>
     /// <para>【云文档】移动知识空间节点</para>
@@ -8950,12 +9012,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>上次请求Response返回的增量同步标记，分页请求未结束时为空</para>
     /// <para>示例值：ListCalendarsSyncToken_xxx</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/calendar/v4/calendars")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsResponseDto>> GetCalendarV4CalendarsAsync(
-        [PathQuery] string? sync_token,
         [PathQuery] int? page_size = 500,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? sync_token = null);
 
     /// <summary>
     /// <para>【日历】更新日历信息</para>
@@ -9121,6 +9184,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>创建日程的幂等key。</para>
     /// <para>- 应用和日历维度下唯一。</para>
     /// <para>示例值：25fdf41b-8c80-2ce1-e94c-de8b5e7aa7e6</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -9138,7 +9202,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdEventsResponseDto>> PostCalendarV4CalendarsByCalendarIdEventsAsync(
         [PathQuery] string calendar_id,
         [JsonNetContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsBodyDto dto,
-        [PathQuery] string? idempotency_key,
+        [PathQuery] string? idempotency_key = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -9231,6 +9295,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 日程的会议类型(vc_type)为vc</para>
     /// <para>- 需要有日程的编辑权限。</para>
     /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -9247,7 +9312,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto>> GetCalendarV4CalendarsByCalendarIdEventsByEventIdAsync(
         [PathQuery] string calendar_id,
         [PathQuery] string event_id,
-        [PathQuery] bool? need_meeting_settings,
+        [PathQuery] bool? need_meeting_settings = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -9274,6 +9339,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>拉取anchor_time之后的日程，为timestamp</para>
     /// <para>示例值：1609430400</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -9285,26 +9351,29 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>上次请求Response返回的增量同步标记，分页请求未结束时为空</para>
     /// <para>示例值：ListCalendarsSyncToken_1632452910</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="start_time">
     /// <para>必填：否</para>
     /// <para>日程开始Unix时间戳，单位为秒</para>
     /// <para>示例值：1631777271</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：否</para>
     /// <para>日程结束Unix时间戳，单位为秒</para>
     /// <para>示例值：1631777271</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/calendar/v4/calendars/{calendar_id}/events")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdEventsResponseDto>> GetCalendarV4CalendarsByCalendarIdEventsAsync(
         [PathQuery] string calendar_id,
-        [PathQuery] string? anchor_time,
-        [PathQuery] string? sync_token,
-        [PathQuery] string? start_time,
-        [PathQuery] string? end_time,
         [PathQuery] int? page_size = 500,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? anchor_time = null,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? sync_token = null,
+        [PathQuery] string? start_time = null,
+        [PathQuery] string? end_time = null);
 
     /// <summary>
     /// <para>【日历】搜索日程</para>
@@ -9597,6 +9666,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>是否需要会议室表单信息。当前身份需要有日程的编辑权限，才会返回表单信息。</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -9614,8 +9684,8 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesResponseDto>> GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesAsync(
         [PathQuery] string calendar_id,
         [PathQuery] string event_id,
-        [PathQuery] bool? need_resource_customization,
         [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] bool? need_resource_customization = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 20);
 
@@ -9794,6 +9864,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>是否需要参会人列表，默认为false</para>
     /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -9809,7 +9880,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/vc/v1/reserves/{reserve_id}/get_active_meeting")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1ReservesByReserveIdGetActiveMeetingResponseDto>> GetVcV1ReservesByReserveIdGetActiveMeetingAsync(
         [PathQuery] string reserve_id,
-        [PathQuery] bool? with_participants,
+        [PathQuery] bool? with_participants = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -9891,11 +9962,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>是否需要参会人列表</para>
     /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="with_meeting_ability">
     /// <para>必填：否</para>
     /// <para>是否需要会中使用能力统计（仅限tenant_access_token）</para>
     /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -9911,8 +9984,8 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/vc/v1/meetings/{meeting_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1MeetingsByMeetingIdResponseDto>> GetVcV1MeetingsByMeetingIdAsync(
         [PathQuery] string meeting_id,
-        [PathQuery] bool? with_participants,
-        [PathQuery] bool? with_meeting_ability,
+        [PathQuery] bool? with_participants = null,
+        [PathQuery] bool? with_meeting_ability = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -10248,6 +10321,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>层级ID，当需要获取租户下层级列表时，room_level_id可传空</para>
     /// <para>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
@@ -10262,7 +10336,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/vc/v1/room_levels")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1RoomLevelsResponseDto>> GetVcV1RoomLevelsAsync(
-        [PathQuery] string? room_level_id,
+        [PathQuery] string? room_level_id = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null);
 
@@ -10430,6 +10504,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>层级ID，当需要获取租户下会议室列表时，room_level_id可传空</para>
     /// <para>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -10444,9 +10519,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/vc/v1/rooms")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1RoomsResponseDto>> GetVcV1RoomsAsync(
-        [PathQuery] string? room_level_id,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
+        [PathQuery] string? room_level_id = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -10795,16 +10870,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>按9位会议号筛选（最多一个筛选条件）</para>
     /// <para>示例值：123456789</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id">
     /// <para>必填：否</para>
     /// <para>按参会Lark用户筛选（最多一个筛选条件）</para>
     /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="room_id">
     /// <para>必填：否</para>
     /// <para>按参会Rooms筛选（最多一个筛选条件）</para>
     /// <para>示例值：omm_eada1d61a550955240c28757e7dec3af</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
@@ -10833,9 +10911,9 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1MeetingListResponseDto>> GetVcV1MeetingListAsync(
         [PathQuery] string start_time,
         [PathQuery] string end_time,
-        [PathQuery] string? meeting_no,
-        [PathQuery] string? user_id,
-        [PathQuery] string? room_id,
+        [PathQuery] string? meeting_no = null,
+        [PathQuery] string? user_id = null,
+        [PathQuery] string? room_id = null,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id");
@@ -10866,11 +10944,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>按参会Lark用户筛选（最多一个筛选条件）</para>
     /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="room_id">
     /// <para>必填：否</para>
     /// <para>按参会Rooms筛选（最多一个筛选条件）</para>
     /// <para>示例值：omm_eada1d61a550955240c28757e7dec3af</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
@@ -10900,8 +10980,8 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string meeting_start_time,
         [PathQuery] string meeting_end_time,
         [PathQuery] string meeting_no,
-        [PathQuery] string? user_id,
-        [PathQuery] string? room_id,
+        [PathQuery] string? user_id = null,
+        [PathQuery] string? room_id = null,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id");
@@ -10937,11 +11017,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>参会人为Lark用户时填入</para>
     /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="room_id">
     /// <para>必填：否</para>
     /// <para>参会人为Rooms时填入</para>
     /// <para>示例值：omm_eada1d61a550955240c28757e7dec3af</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
@@ -10972,8 +11054,8 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string meeting_end_time,
         [PathQuery] string meeting_no,
         [PathQuery] string join_time,
-        [PathQuery] string? user_id,
-        [PathQuery] string? room_id,
+        [PathQuery] string? user_id = null,
+        [PathQuery] string? room_id = null,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id");
@@ -10994,6 +11076,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>是否展示会议主题</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="start_time">
     /// <para>必填：是</para>
@@ -11014,6 +11097,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>若为true表示导出room_ids范围外的会议室，默认为false</para>
     /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
@@ -11033,8 +11117,8 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string start_time,
         [PathQuery] string end_time,
         [PathQuery] string[] room_ids,
-        [PathQuery] bool? need_topic,
-        [PathQuery] bool? is_exclude,
+        [PathQuery] bool? need_topic = null,
+        [PathQuery] bool? is_exclude = null,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null);
 
@@ -11063,11 +11147,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>1：会议室</item>
     /// <item>2：企业会议室连接器</item>
     /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="query_value">
     /// <para>必填：否</para>
     /// <para>查询对象ID，会议室ID或企业会议室连接器ID</para>
     /// <para>示例值：6911188411932033028</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
@@ -11085,8 +11171,8 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1AlertsResponseDto>> GetVcV1AlertsAsync(
         [PathQuery] string start_time,
         [PathQuery] string end_time,
-        [PathQuery] int? query_type,
-        [PathQuery] string? query_value,
+        [PathQuery] int? query_type = null,
+        [PathQuery] string? query_value = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null);
 
@@ -11629,13 +11715,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>由于新入职用户可以复用已离职用户的employee_no/employee_id。如果true，返回employee_no/employee_id对应的所有在职+离职用户数据；如果false，只返回employee_no/employee_id对应的在职或最近一个离职用户数据</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/attendance/v1/user_flows/query")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserFlowsQueryResponseDto>> PostAttendanceV1UserFlowsQueryAsync(
         [PathQuery] string employee_type,
         [JsonNetContent] Attendance.PostAttendanceV1UserFlowsQueryBodyDto dto,
-        [PathQuery] bool? include_terminated_user);
+        [PathQuery] bool? include_terminated_user = null);
 
     /// <summary>
     /// <para>【考勤打卡】查询打卡结果</para>
@@ -11657,19 +11744,21 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>是否忽略无效和没有权限的用户。如果 true，则返回有效用户的信息，并告知无效和没有权限的用户信息；如果 false，且 user_ids 中存在无效或没有权限的用户，则返回错误</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="include_terminated_user">
     /// <para>必填：否</para>
     /// <para>由于新入职员工可以复用已离职员工的 employee_no/employee_id，如果 true，则返回 employee_no/employee_id 对应的所有在职 + 离职员工的数据；如果 false，则只返回 employee_no/employee_id 对应的在职或最近一个离职员工的数据</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/attendance/v1/user_tasks/query")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserTasksQueryResponseDto>> PostAttendanceV1UserTasksQueryAsync(
         [PathQuery] string employee_type,
         [JsonNetContent] Attendance.PostAttendanceV1UserTasksQueryBodyDto dto,
-        [PathQuery] bool? ignore_invalid_users,
-        [PathQuery] bool? include_terminated_user);
+        [PathQuery] bool? ignore_invalid_users = null,
+        [PathQuery] bool? include_terminated_user = null);
 
     /// <summary>
     /// <para>【考勤打卡】修改用户人脸识别信息</para>
@@ -11727,16 +11816,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>带后缀的文件名</para>
     /// <para>示例值：人脸照片.jpg</para>
     /// </param>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
     /// <para>文件内容</para>
     /// </param>
     [HttpPost("/open-apis/attendance/v1/files/upload")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1FilesUploadResponseDto>> PostAttendanceV1FilesUploadAsync(
         [PathQuery] string file_name,
-        [FormDataContent] Attendance.PostAttendanceV1FilesUploadBodyDto dto,
-        [FormDataContent] FormDataFile? file);
+        [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【考勤打卡】下载用户人脸识别照片</para>
@@ -11877,11 +11964,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>en-US：英文</item>
     /// <item>ja-JP：日文</item>
     /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="with_admin_id">
     /// <para>必填：否</para>
     /// <para>可选是否返回有数据权限审批流程管理员ID列表</para>
     /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -11897,8 +11986,8 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/approval/v4/approvals/{approval_code}")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.GetApprovalV4ApprovalsByApprovalCodeResponseDto>> GetApprovalV4ApprovalsByApprovalCodeAsync(
         [PathQuery] string approval_code,
-        [PathQuery] string? locale,
-        [PathQuery] bool? with_admin_id,
+        [PathQuery] string? locale = null,
+        [PathQuery] bool? with_admin_id = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -11983,11 +12072,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>en-US：英文</item>
     /// <item>ja-JP：日文</item>
     /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id">
     /// <para>必填：否</para>
     /// <para>发起审批用户 id，仅自建应用可返回。</para>
     /// <para>示例值：f7cb567e</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -12003,8 +12094,8 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/approval/v4/instances/{instance_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.GetApprovalV4InstancesByInstanceIdResponseDto>> GetApprovalV4InstancesByInstanceIdAsync(
         [PathQuery] string instance_id,
-        [PathQuery] string? locale,
-        [PathQuery] string? user_id,
+        [PathQuery] string? locale = null,
+        [PathQuery] string? user_id = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -12618,61 +12709,73 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>搜索条件：工单ID</para>
     /// <para>示例值：123456</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="agent_id">
     /// <para>必填：否</para>
     /// <para>搜索条件: 客服id</para>
     /// <para>示例值：ou_b5de90429xxx</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="closed_by_id">
     /// <para>必填：否</para>
     /// <para>搜索条件: 关单客服id</para>
     /// <para>示例值：ou_b5de90429xxx</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：否</para>
     /// <para>搜索条件: 工单类型 1:bot 2:人工</para>
     /// <para>示例值：1</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="channel">
     /// <para>必填：否</para>
     /// <para>搜索条件: 工单渠道</para>
     /// <para>示例值：0</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="solved">
     /// <para>必填：否</para>
     /// <para>搜索条件: 工单是否解决 1:没解决 2:已解决</para>
     /// <para>示例值：1</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="score">
     /// <para>必填：否</para>
     /// <para>搜索条件: 工单评分</para>
     /// <para>示例值：1</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="status_list">
     /// <para>必填：否</para>
     /// <para>搜索条件: 工单状态列表</para>
     /// <para>示例值：1</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="guest_name">
     /// <para>必填：否</para>
     /// <para>搜索条件: 用户名称</para>
     /// <para>示例值：abc</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="guest_id">
     /// <para>必填：否</para>
     /// <para>搜索条件: 用户id</para>
     /// <para>示例值：ou_b5de90429xxx</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="tags">
     /// <para>必填：否</para>
     /// <para>搜索条件: 用户标签列表</para>
     /// <para>示例值：备注</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page">
     /// <para>必填：否</para>
     /// <para>页数, 从1开始, 默认为1</para>
     /// <para>示例值：1</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
@@ -12684,41 +12787,45 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>搜索条件: 工单创建起始时间 ms (也需要填上create_time_end)，相当于&gt;=create_time_start</para>
     /// <para>示例值：1616920429000</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="create_time_end">
     /// <para>必填：否</para>
     /// <para>搜索条件: 工单创建结束时间 ms (也需要填上create_time_start)，相当于&lt;=create_time_end</para>
     /// <para>示例值：1616920429000</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_time_start">
     /// <para>必填：否</para>
     /// <para>搜索条件: 工单修改起始时间 ms (也需要填上update_time_end)</para>
     /// <para>示例值：1616920429000</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_time_end">
     /// <para>必填：否</para>
     /// <para>搜索条件: 工单修改结束时间 ms(也需要填上update_time_start)</para>
     /// <para>示例值：1616920429000</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/helpdesk/v1/tickets")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.GetHelpdeskV1TicketsResponseDto>> GetHelpdeskV1TicketsAsync(
-        [PathQuery] string? ticket_id,
-        [PathQuery] string? agent_id,
-        [PathQuery] string? closed_by_id,
-        [PathQuery] int? type,
-        [PathQuery] int? channel,
-        [PathQuery] int? solved,
-        [PathQuery] int? score,
-        [PathQuery] int[]? status_list,
-        [PathQuery] string? guest_name,
-        [PathQuery] string? guest_id,
-        [PathQuery] string[]? tags,
-        [PathQuery] int? page,
-        [PathQuery] int? create_time_start,
-        [PathQuery] int? create_time_end,
-        [PathQuery] int? update_time_start,
-        [PathQuery] int? update_time_end,
-        [PathQuery] int? page_size = 10);
+        [PathQuery] string? ticket_id = null,
+        [PathQuery] string? agent_id = null,
+        [PathQuery] string? closed_by_id = null,
+        [PathQuery] int? type = null,
+        [PathQuery] int? channel = null,
+        [PathQuery] int? solved = null,
+        [PathQuery] int? score = null,
+        [PathQuery] int[]? status_list = null,
+        [PathQuery] string? guest_name = null,
+        [PathQuery] string? guest_id = null,
+        [PathQuery] string[]? tags = null,
+        [PathQuery] int? page = null,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] int? create_time_start = null,
+        [PathQuery] int? create_time_end = null,
+        [PathQuery] int? update_time_start = null,
+        [PathQuery] int? update_time_end = null);
 
     /// <summary>
     /// <para>【服务台】获取工单内图像</para>
@@ -12742,13 +12849,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>index，当消息类型为post时，需指定图片index，index从0开始。当消息类型为img时，无需index</para>
     /// <para>示例值：0</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/helpdesk/v1/ticket_images")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetHelpdeskV1TicketImagesAsync(
         [PathQuery] string ticket_id,
         [PathQuery] string msg_id,
-        [PathQuery] int? index);
+        [PathQuery] int? index = null);
 
     /// <summary>
     /// <para>【服务台】回复用户在工单里的提问</para>
@@ -12780,10 +12888,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>visible only</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/helpdesk/v1/customized_fields")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.GetHelpdeskV1CustomizedFieldsResponseDto>> GetHelpdeskV1CustomizedFieldsAsync(
-        [PathQuery] bool? visible_only);
+        [PathQuery] bool? visible_only = null);
 
     /// <summary>
     /// <para>【服务台】发送工单消息</para>
@@ -12821,16 +12930,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>起始时间</para>
     /// <para>示例值：1617960686</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="time_end">
     /// <para>必填：否</para>
     /// <para>结束时间</para>
     /// <para>示例值：1617960687</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page">
     /// <para>必填：否</para>
     /// <para>页数ID</para>
     /// <para>示例值：1</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
@@ -12841,9 +12953,9 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/helpdesk/v1/tickets/{ticket_id}/messages")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.GetHelpdeskV1TicketsByTicketIdMessagesResponseDto>> GetHelpdeskV1TicketsByTicketIdMessagesAsync(
         [PathQuery] string ticket_id,
-        [PathQuery] int? time_start,
-        [PathQuery] int? time_end,
-        [PathQuery] int? page,
+        [PathQuery] int? time_start = null,
+        [PathQuery] int? time_end = null,
+        [PathQuery] int? page = null,
         [PathQuery] int? page_size = 10);
 
     /// <summary>
@@ -12927,16 +13039,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>知识库分类ID</para>
     /// <para>示例值：6856395522433908739</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="status">
     /// <para>必填：否</para>
     /// <para>搜索条件: 知识库状态 1:在线 0:删除，可恢复 2：删除，不可恢复</para>
     /// <para>示例值：1</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="search">
     /// <para>必填：否</para>
     /// <para>搜索条件: 关键词，匹配问题标题，问题关键字，用户姓名</para>
     /// <para>示例值：点餐</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -12951,9 +13066,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/helpdesk/v1/faqs")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.GetHelpdeskV1FaqsResponseDto>> GetHelpdeskV1FaqsAsync(
-        [PathQuery] string? category_id,
-        [PathQuery] string? status,
-        [PathQuery] string? search,
+        [PathQuery] string? category_id = null,
+        [PathQuery] string? status = null,
+        [PathQuery] string? search = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 20);
 
@@ -12999,6 +13114,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>是否转换为base64,输入true表示是，不填写表示否</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -13014,7 +13130,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/helpdesk/v1/faqs/search")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.GetHelpdeskV1FaqsSearchResponseDto>> GetHelpdeskV1FaqsSearchAsync(
         [PathQuery] string query,
-        [PathQuery] string? base64,
+        [PathQuery] string? base64 = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 20);
 
@@ -13260,16 +13376,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>范围查询任务时，查询的起始时间。不填时默认起始时间为第一个任务的创建时间。</para>
     /// <para>示例值：1652323331</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_create_time">
     /// <para>必填：否</para>
     /// <para>范围查询任务时，查询的结束时间。不填时默认结束时间为最后一个任务的创建时间。</para>
     /// <para>示例值：1652323335</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="task_completed">
     /// <para>必填：否</para>
     /// <para>可用于查询时过滤任务完成状态。true表示只返回已完成的任务，false表示只返回未完成的任务。不填时表示同时返回两种完成状态的任务。</para>
     /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -13284,11 +13403,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/task/v1/tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV1TasksResponseDto>> GetTaskV1TasksAsync(
-        [PathQuery] string? start_create_time,
-        [PathQuery] string? end_create_time,
-        [PathQuery] bool? task_completed,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
+        [PathQuery] string? start_create_time = null,
+        [PathQuery] string? end_create_time = null,
+        [PathQuery] bool? task_completed = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14396,16 +14515,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>只查看特定完成状态的任务，填写“true”表示返回已经完成的任务；“false”表示只返回未完成的任务；不填写表示不按完成状态过滤。</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="created_from">
     /// <para>必填：否</para>
     /// <para>任务创建的起始时间戳（ms），闭区间，不填写默认为首个任务的创建时间戳</para>
     /// <para>示例值：1675742789470</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="created_to">
     /// <para>必填：否</para>
     /// <para>任务创建的结束时间戳（ms），闭区间，不填写默认为最后创建任务的创建时间戳</para>
     /// <para>示例值：1675742789470</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -14416,11 +14538,11 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/task/v2/tasklists/{tasklist_guid}/tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2TasklistsByTasklistGuidTasksResponseDto>> GetTaskV2TasklistsByTasklistGuidTasksAsync(
         [PathQuery] string tasklist_guid,
-        [PathQuery] bool? completed,
-        [PathQuery] string? created_from,
-        [PathQuery] string? created_to,
         [PathQuery] int? page_size = 50,
         [PathQuery] string? page_token = null,
+        [PathQuery] bool? completed = null,
+        [PathQuery] string? created_from = null,
+        [PathQuery] string? created_to = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -15012,6 +15134,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>如`resource_type`为"tasklist"，这里需要填写要列取自定义分组的清单的GUID。</para>
     /// <para>示例值：caef228f-2342-23c1-c36d-91186414dc64</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -15022,9 +15145,9 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/task/v2/sections")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2SectionsResponseDto>> GetTaskV2SectionsAsync(
         [PathQuery] string resource_type,
-        [PathQuery] string? resource_id,
         [PathQuery] int? page_size = 50,
         [PathQuery] string? page_token = null,
+        [PathQuery] string? resource_id = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -15056,25 +15179,28 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>按照任务状态过滤，如果不填写则表示不按完成状态过滤</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="created_from">
     /// <para>必填：否</para>
     /// <para>按照创建时间筛选的起始时间戳（ms)，如不填写则为首个任务的创建时刻</para>
     /// <para>示例值：1675742789470</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="created_to">
     /// <para>必填：否</para>
     /// <para>按照创建时间筛选的起始时间戳（ms)，如不填写则为最后任务的创建时刻</para>
     /// <para>示例值：1675742789470</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/task/v2/sections/{section_guid}/tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2SectionsBySectionGuidTasksResponseDto>> GetTaskV2SectionsBySectionGuidTasksAsync(
         [PathQuery] string section_guid,
-        [PathQuery] bool? completed,
-        [PathQuery] string? created_from,
-        [PathQuery] string? created_to,
         [PathQuery] int? page_size = 50,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] bool? completed = null,
+        [PathQuery] string? created_from = null,
+        [PathQuery] string? created_to = null);
 
     /// <summary>
     /// <para>【任务】创建自定义字段</para>
@@ -15338,19 +15464,21 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>资源类型，如提供表示仅查询特定资源下的自定义字段。目前只支持tasklist。</para>
     /// <para>示例值：tasklist</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="resource_id">
     /// <para>必填：否</para>
     /// <para>要查询自定义字段的归属resource_id</para>
     /// <para>示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/task/v2/custom_fields")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2CustomFieldsResponseDto>> GetTaskV2CustomFieldsAsync(
-        [PathQuery] string? resource_type,
-        [PathQuery] string? resource_id,
         [PathQuery] int? page_size = 50,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? resource_type = null,
+        [PathQuery] string? resource_id = null);
 
     /// <summary>
     /// <para>【任务】将自定义字段加入资源</para>
@@ -15540,6 +15668,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>邮件组管理员用户ID，用于获取该用户有管理权限的邮件组</para>
     /// <para>示例值：ou_xxxxxx</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -15566,7 +15695,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/mail/v1/mailgroups")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1MailgroupsResponseDto>> GetMailV1MailgroupsAsync(
-        [PathQuery] string? manager_user_id,
+        [PathQuery] string? manager_user_id = null,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 20);
@@ -16578,11 +16707,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>用于接受转移的邮箱地址</para>
     /// <para>示例值：888888@abc.com</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpDelete("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1UserMailboxesByUserMailboxIdAsync(
         [PathQuery] string user_mailbox_id,
-        [PathQuery] string? transfer_mailbox);
+        [PathQuery] string? transfer_mailbox = null);
 
     /// <summary>
     /// <para>【邮箱】创建用户邮箱别名</para>
@@ -16681,15 +16811,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="open_id">
     /// <para>必填：否</para>
     /// <para>用户 open_id，open_id 和 employee_id 两个参数必须包含其一，若同时传入取 open_id</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="employee_id">
     /// <para>必填：否</para>
     /// <para>用户 employee_id（同通讯录 v3 版本中的 user_id），open_id 和 employee_id 两个参数必须包含其一，若同时传入取 open_id</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/application/v3/is_user_admin")]
     System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetApplicationV3IsUserAdminResponseDto>> GetApplicationV3IsUserAdminAsync(
-        [PathQuery] string? open_id,
-        [PathQuery] string? employee_id);
+        [PathQuery] string? open_id = null,
+        [PathQuery] string? employee_id = null);
 
     /// <summary>
     /// <para>【通讯录】获取应用管理员管理范围</para>
@@ -16725,16 +16857,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="user_page_token">
     /// <para>必填：否</para>
     /// <para>分页拉取用户列表起始位置标示，不填表示从头开始</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_page_size">
     /// <para>必填：否</para>
     /// <para>本次拉取用户列表最大个数(最大值 1000 ，0 自动最大个数 )</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/application/v2/app/visibility")]
     System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetApplicationV2AppVisibilityResponseDto>> GetApplicationV2AppVisibilityAsync(
         [PathQuery] string app_id,
-        [PathQuery] string? user_page_token,
-        [PathQuery] int? user_page_size);
+        [PathQuery] string? user_page_token = null,
+        [PathQuery] int? user_page_size = null);
 
     /// <summary>
     /// <para>【应用信息】获取应用通讯录权限范围配置</para>
@@ -16906,17 +17040,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="lang">
     /// <para>必填：否</para>
     /// <para>优先展示的应用信息的语言版本（zh_cn：中文，en_us：英文，ja_jp：日文）</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="status">
     /// <para>必填：否</para>
     /// <para>要返回的应用的状态，0:停用；1:启用；-1:全部，默认为 -1</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/application/v3/app/list")]
     System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetApplicationV3AppListResponseDto>> GetApplicationV3AppListAsync(
-        [PathQuery] string? lang,
-        [PathQuery] int? status,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 10);
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? lang = null,
+        [PathQuery] int? status = null);
 
     /// <summary>
     /// <para>【应用信息】更新应用可用范围</para>
@@ -16980,15 +17116,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="open_id">
     /// <para>必填：否</para>
     /// <para>用户 open_id，open_id 和 user_id 两个参数必须包含其一，若同时传入取 open_id</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id">
     /// <para>必填：否</para>
     /// <para>用户 user_id，user_id 和 open_id 两个参数必须包含其一，若同时传入取 open_id</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/pay/v1/paid_scope/check_user")]
     System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetPayV1PaidScopeCheckUserResponseDto>> GetPayV1PaidScopeCheckUserAsync(
-        [PathQuery] string? open_id,
-        [PathQuery] string? user_id);
+        [PathQuery] string? open_id = null,
+        [PathQuery] string? user_id = null);
 
     /// <summary>
     /// <para>【应用信息】查询租户购买的付费方案</para>
@@ -17001,6 +17139,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="status">
     /// <para>必填：否</para>
     /// <para>获取用户购买套餐信息设置的过滤条件， normal为正常状态，refunded为已退款，该字段为空或者all表示所有，未支付的订单无法查到</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：是</para>
@@ -17015,13 +17154,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="tenant_key">
     /// <para>必填：否</para>
     /// <para>购买应用的租户唯一标识，为空表示获取应用下所有订单，有值表示获取应用下该租户购买的订单</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/pay/v1/order/list")]
     System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetPayV1OrderListResponseDto>> GetPayV1OrderListAsync(
-        [PathQuery] string? status,
-        [PathQuery] string? tenant_key,
+        [PathQuery] string? status = null,
         [PathQuery] int page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? tenant_key = null);
 
     /// <summary>
     /// <para>【应用信息】查询订单详情</para>
@@ -17321,6 +17461,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>当修改版本状态为被驳回时，这一项必填</para>
     /// <para>示例值：拒绝理由</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPatch("/open-apis/application/v6/applications/{app_id}/app_versions/{version_id}")]
@@ -17329,8 +17470,8 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string version_id,
         [PathQuery] string operator_id,
         [JsonNetContent] Application.PatchApplicationV6ApplicationsByAppIdAppVersionsByVersionIdBodyDto dto,
-        [PathQuery] string? reject_reason,
-        [PathQuery] string user_id_type = "open_id");
+        [PathQuery] string user_id_type = "open_id",
+        [PathQuery] string? reject_reason = null);
 
     /// <summary>
     /// <para>【应用信息】更新应用分组信息</para>
@@ -17904,228 +18045,202 @@ public interface IFeishuTenantApi : IHttpApi
     /// <summary>
     /// <para>【AI 能力】识别文件中的港澳居民来往内地通行证</para>
     /// <para>接口ID：7273083612789620739</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/hkm_mainland_travel_permit/recognize</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/hkm_mainland_travel_permit/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>港澳居民来往内地通行证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>识别的港澳居民来往内地通行证源文件</para>
     /// </param>
     [HttpPost("/open-apis/document_ai/v1/hkm_mainland_travel_permit/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1HkmMainlandTravelPermitRecognizeResponseDto>> PostDocumentAiV1HkmMainlandTravelPermitRecognizeAsync(
-        [FormDataContent] Ai.PostDocumentAiV1HkmMainlandTravelPermitRecognizeBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的台湾居民来往大陆通行证</para>
     /// <para>接口ID：7273083612789571587</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/tw_mainland_travel_permit/recognize</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/tw_mainland_travel_permit/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>台湾居民来往大陆通行证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
     /// <para>识别的台湾居民来往大陆通行证源文件</para>
     /// </param>
     [HttpPost("/open-apis/document_ai/v1/tw_mainland_travel_permit/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1TwMainlandTravelPermitRecognizeResponseDto>> PostDocumentAiV1TwMainlandTravelPermitRecognizeAsync(
-        [FormDataContent] Ai.PostDocumentAiV1TwMainlandTravelPermitRecognizeBodyDto dto,
-        [FormDataContent] FormDataFile? file);
+        [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的中国护照</para>
     /// <para>接口ID：7273083612789587971</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/chinese_passport/recognize</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/chinese_passport/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>中国护照识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>识别的中国护照源文件</para>
     /// </param>
     [HttpPost("/open-apis/document_ai/v1/chinese_passport/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1ChinesePassportRecognizeResponseDto>> PostDocumentAiV1ChinesePassportRecognizeAsync(
-        [FormDataContent] Ai.PostDocumentAiV1ChinesePassportRecognizeBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的银行卡</para>
     /// <para>接口ID：7273083612789604355</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/bank_card/recognize</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/bank_card/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>银行卡识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>识别的银行卡源文件</para>
     /// </param>
     [HttpPost("/open-apis/document_ai/v1/bank_card/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1BankCardRecognizeResponseDto>> PostDocumentAiV1BankCardRecognizeAsync(
-        [FormDataContent] Ai.PostDocumentAiV1BankCardRecognizeBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的行驶证</para>
     /// <para>接口ID：7249730096956669955</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/vehicle_license/recognize</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/vehicle_license/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>行驶证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>识别的行驶证源文件</para>
     /// </param>
     [HttpPost("/open-apis/document_ai/v1/vehicle_license/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1VehicleLicenseRecognizeResponseDto>> PostDocumentAiV1VehicleLicenseRecognizeAsync(
-        [FormDataContent] Ai.PostDocumentAiV1VehicleLicenseRecognizeBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的火车票</para>
     /// <para>接口ID：7249730096956686339</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/train_invoice/recognize</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/train_invoice/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>火车票识别接口，支持JPG/JPEG/PNG/PDF/OFD五种文件类型的一次性的识别。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>识别的火车票源文件</para>
     /// </param>
     [HttpPost("/open-apis/document_ai/v1/train_invoice/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1TrainInvoiceRecognizeResponseDto>> PostDocumentAiV1TrainInvoiceRecognizeAsync(
-        [FormDataContent] Ai.PostDocumentAiV1TrainInvoiceRecognizeBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的出租车发票</para>
     /// <para>接口ID：7249730096956620803</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/taxi_invoice/recognize</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/taxi_invoice/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>出租车发票识别接口，支持JPG/JPEG/PNG/PDF/OFD五种文件类型的一次性的识别。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>识别的出租车票源文件</para>
     /// </param>
     [HttpPost("/open-apis/document_ai/v1/taxi_invoice/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1TaxiInvoiceRecognizeResponseDto>> PostDocumentAiV1TaxiInvoiceRecognizeAsync(
-        [FormDataContent] Ai.PostDocumentAiV1TaxiInvoiceRecognizeBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的身份证</para>
     /// <para>接口ID：7249730096956637187</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/id_card/recognize</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/id_card/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>身份证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>识别身份证的源文件</para>
     /// </param>
     [HttpPost("/open-apis/document_ai/v1/id_card/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1IdCardRecognizeResponseDto>> PostDocumentAiV1IdCardRecognizeAsync(
-        [FormDataContent] Ai.PostDocumentAiV1IdCardRecognizeBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的食品生产许可证</para>
     /// <para>接口ID：7249730096956702723</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/food_produce_license/recognize</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/food_produce_license/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>食品生产许可证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>识别的食品生产许可证源文件</para>
     /// </param>
     [HttpPost("/open-apis/document_ai/v1/food_produce_license/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1FoodProduceLicenseRecognizeResponseDto>> PostDocumentAiV1FoodProduceLicenseRecognizeAsync(
-        [FormDataContent] Ai.PostDocumentAiV1FoodProduceLicenseRecognizeBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的食品经营许可证</para>
     /// <para>接口ID：7249730096956719107</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/food_manage_license/recognize</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/food_manage_license/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>食品经营许可证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>识别的食品经营许可证源文件</para>
     /// </param>
     [HttpPost("/open-apis/document_ai/v1/food_manage_license/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1FoodManageLicenseRecognizeResponseDto>> PostDocumentAiV1FoodManageLicenseRecognizeAsync(
-        [FormDataContent] Ai.PostDocumentAiV1FoodManageLicenseRecognizeBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的驾驶证</para>
     /// <para>接口ID：7249730096956653571</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/driving_license/recognize</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/driving_license/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>驾驶证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>识别的驾驶证源文件</para>
     /// </param>
     [HttpPost("/open-apis/document_ai/v1/driving_license/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1DrivingLicenseRecognizeResponseDto>> PostDocumentAiV1DrivingLicenseRecognizeAsync(
-        [FormDataContent] Ai.PostDocumentAiV1DrivingLicenseRecognizeBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的增值税发票</para>
     /// <para>接口ID：7247054875321434114</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/vat_invoice/recognize</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/vat_invoice/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>增值税发票识别接口，支持JPG/JPEG/PNG/PDF/OFD四种文件类型的一次性的识别。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>识别的增值税发票文件（支持JPG/JPEG/PNG/BMP）</para>
     /// </param>
     [HttpPost("/open-apis/document_ai/v1/vat_invoice/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1VatInvoiceRecognizeResponseDto>> PostDocumentAiV1VatInvoiceRecognizeAsync(
-        [FormDataContent] Ai.PostDocumentAiV1VatInvoiceRecognizeBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的营业执照</para>
     /// <para>接口ID：7249730096956735491</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/business_license/recognize</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/business_license/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>营业执照识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>识别的营业执照源文件</para>
     /// </param>
     [HttpPost("/open-apis/document_ai/v1/business_license/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1BusinessLicenseRecognizeResponseDto>> PostDocumentAiV1BusinessLicenseRecognizeAsync(
-        [FormDataContent] Ai.PostDocumentAiV1BusinessLicenseRecognizeBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【AI 能力】提取文件中的合同字段</para>
     /// <para>接口ID：7220312184105664515</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/contract/field_extraction</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/contract/field_extraction</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>支持从doc、docx和pdf文件类型中提取合同字段</para>
     /// </summary>
@@ -18142,18 +18257,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <summary>
     /// <para>【AI 能力】识别文件中的名片</para>
     /// <para>接口ID：7205462689421066244</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai_ai-v1/business_card/recognize</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/business_card/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>名片识别接口，通过上传 JPG / PNG / PDF 等文件类型进行一次性的名片识别。接口适用于20MB以下的文件，适用于英文、日语的名片。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
     /// <para>识别名片的源文件（支持 JPG / PNG / PDF）</para>
     /// </param>
     [HttpPost("/open-apis/document_ai/v1/business_card/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1BusinessCardRecognizeResponseDto>> PostDocumentAiV1BusinessCardRecognizeAsync(
-        [FormDataContent] Ai.PostDocumentAiV1BusinessCardRecognizeBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
@@ -18346,11 +18459,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>部门的 ID，取决于department_id_type</para>
     /// <para>示例值：od-382e2793cfc9471f892e8a672987654c</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id">
     /// <para>必填：否</para>
     /// <para>用户的open_id，user_id或者union_id，取决于user_id_type</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
@@ -18368,10 +18483,10 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Admin.GetAdminV1AdminUserStatsResponseDto>> GetAdminV1AdminUserStatsAsync(
         [PathQuery] string start_date,
         [PathQuery] string end_date,
-        [PathQuery] string? department_id,
-        [PathQuery] string? user_id,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? department_id = null,
+        [PathQuery] string? user_id = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null);
 
@@ -18446,12 +18561,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>租户内唯一的勋章名称，精确匹配。</para>
     /// <para>示例值：激励勋章</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/admin/v1/badges")]
     System.Threading.Tasks.Task<FeishuResponse<Admin.GetAdminV1BadgesResponseDto>> GetAdminV1BadgesAsync(
-        [PathQuery] string? name,
         [PathQuery] int page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? name = null);
 
     /// <summary>
     /// <para>【管理后台】获取勋章详情</para>
@@ -18635,15 +18751,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>授予名单名称，精确匹配。</para>
     /// <para>示例值：激励勋章的授予名单</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/admin/v1/badges/{badge_id}/grants")]
     System.Threading.Tasks.Task<FeishuResponse<Admin.GetAdminV1BadgesByBadgeIdGrantsResponseDto>> GetAdminV1BadgesByBadgeIdGrantsAsync(
         [PathQuery] string badge_id,
-        [PathQuery] string? name,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? name = null);
 
     /// <summary>
     /// <para>【管理后台】获取授予名单详情</para>
@@ -18865,12 +18982,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>国家/地区id，填写后只查询该国家/地区下的省份/行政区</para>
     /// <para>示例值：100</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/subdivisions")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1SubdivisionsResponseDto>> GetCorehrV1SubdivisionsAsync(
-        [PathQuery] string? country_region_id,
         [PathQuery] string? page_token = null,
-        [PathQuery] int page_size = 10);
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? country_region_id = null);
 
     /// <summary>
     /// <para>【飞书人事】查询单条城市/区域信息</para>
@@ -18912,12 +19030,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>省份/行政区id，填写后只查询该省份/行政区下的城市/区域</para>
     /// <para>示例值：100</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/subregions")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1SubregionsResponseDto>> GetCorehrV1SubregionsAsync(
-        [PathQuery] string? subdivision_id,
         [PathQuery] string? page_token = null,
-        [PathQuery] int page_size = 10);
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? subdivision_id = null);
 
     /// <summary>
     /// <para>【飞书人事】创建人员类型</para>
@@ -19124,24 +19243,27 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>证件类型</para>
     /// <para>示例值：regular_passport</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="code">
     /// <para>必填：否</para>
     /// <para>证件类型编码</para>
     /// <para>示例值：MYS-ID</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="country_region_id">
     /// <para>必填：否</para>
     /// <para>国家地区ID</para>
     /// <para>示例值：6862995749043439111</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/national_id_types")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1NationalIdTypesResponseDto>> GetCorehrV1NationalIdTypesAsync(
-        [PathQuery] string? identification_type,
-        [PathQuery] string? code,
-        [PathQuery] string? country_region_id,
         [PathQuery] string? page_token = null,
-        [PathQuery] int page_size = 10);
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? identification_type = null,
+        [PathQuery] string? code = null,
+        [PathQuery] string? country_region_id = null);
 
     /// <summary>
     /// <para>【飞书人事】创建工时制度</para>
@@ -19837,26 +19959,31 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>雇佣 ID</para>
     /// <para>示例值：7072306364927985196</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="job_data_id_list">
     /// <para>必填：否</para>
     /// <para>任职信息 ID 列表，最大 100 个（不传则默认查询全部任职信息）</para>
     /// <para>示例值：["6919733291281024526", "6919733291281024527"]</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="department_id">
     /// <para>必填：否</para>
     /// <para>部门 ID</para>
     /// <para>示例值：6887868781834536462</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="job_id">
     /// <para>必填：否</para>
     /// <para>职务 ID</para>
     /// <para>示例值：6893014062142064135</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="get_all_version">
     /// <para>必填：否</para>
     /// <para>是否获取所有任职记录，true 为获取员工所有版本的任职记录，false 为仅获取当前生效的任职记录，默认为 false</para>
     /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -19883,13 +20010,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/corehr/v1/job_datas")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1JobDatasResponseDto>> GetCorehrV1JobDatasAsync(
-        [PathQuery] string? employment_id,
-        [PathQuery] string[]? job_data_id_list,
-        [PathQuery] string? department_id,
-        [PathQuery] string? job_id,
-        [PathQuery] bool? get_all_version,
         [PathQuery] string? page_token = null,
         [PathQuery] int page_size = 10,
+        [PathQuery] string? employment_id = null,
+        [PathQuery] string[]? job_data_id_list = null,
+        [PathQuery] string? department_id = null,
+        [PathQuery] string? job_id = null,
+        [PathQuery] bool? get_all_version = null,
         [PathQuery] string? user_id_type = "people_corehr_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id");
 
@@ -20145,11 +20272,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>部门ID列表</para>
     /// <para>示例值：["6966234786251671053"]</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="name_list">
     /// <para>必填：否</para>
     /// <para>部门名称列表，需精确匹配</para>
     /// <para>示例值：["校验部门"]</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -20176,10 +20305,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/corehr/v1/departments")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1DepartmentsResponseDto>> GetCorehrV1DepartmentsAsync(
-        [PathQuery] string[]? department_id_list,
-        [PathQuery] string[]? name_list,
         [PathQuery] string? page_token = null,
         [PathQuery] int page_size = 10,
+        [PathQuery] string[]? department_id_list = null,
+        [PathQuery] string[]? name_list = null,
         [PathQuery] string? user_id_type = "people_corehr_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id");
 
@@ -20693,18 +20822,20 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>名称</para>
     /// <para>示例值：keyword</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="query_language">
     /// <para>必填：否</para>
     /// <para>语言</para>
     /// <para>示例值：zh</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v2/jobs")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2JobsResponseDto>> GetCorehrV2JobsAsync(
-        [PathQuery] string? name,
-        [PathQuery] string? query_language,
         [PathQuery] string? page_token = null,
-        [PathQuery] int page_size = 10);
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? name = null,
+        [PathQuery] string? query_language = null);
 
     /// <summary>
     /// <para>【飞书人事】查询单个职务</para>
@@ -20746,18 +20877,20 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>名称</para>
     /// <para>示例值：keyword</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="query_language">
     /// <para>必填：否</para>
     /// <para>语言</para>
     /// <para>示例值：zh</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/jobs")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1JobsResponseDto>> GetCorehrV1JobsAsync(
-        [PathQuery] string? name,
-        [PathQuery] string? query_language,
         [PathQuery] string? page_token = null,
-        [PathQuery] int page_size = 10);
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? name = null,
+        [PathQuery] string? query_language = null);
 
     /// <summary>
     /// <para>【飞书人事（企业版）】创建待入职人员</para>
@@ -20854,12 +20987,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>待入职ID列表</para>
     /// <para>示例值：7110120266637772332</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/pre_hires")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1PreHiresResponseDto>> GetCorehrV1PreHiresAsync(
-        [PathQuery] string[]? pre_hire_ids,
         [PathQuery] string? page_token = null,
-        [PathQuery] int page_size = 10);
+        [PathQuery] int page_size = 10,
+        [PathQuery] string[]? pre_hire_ids = null);
 
     /// <summary>
     /// <para>【飞书人事（企业版）】搜索合同</para>
@@ -21152,16 +21286,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>异动原因状态</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="transfer_reason_unique_identifier">
     /// <para>必填：否</para>
     /// <para>异动原因唯一标识，多条时最多数量为10</para>
     /// <para>示例值：voluntary_transfer</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/transfer_reasons/query")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1TransferReasonsQueryResponseDto>> GetCorehrV1TransferReasonsQueryAsync(
-        [PathQuery] bool? active,
-        [PathQuery] string[]? transfer_reason_unique_identifier);
+        [PathQuery] bool? active = null,
+        [PathQuery] string[]? transfer_reason_unique_identifier = null);
 
     /// <summary>
     /// <para>【飞书人事】获取异动类型列表</para>
@@ -21174,16 +21310,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>异动类型状态</para>
     /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="transfer_type_unique_identifier">
     /// <para>必填：否</para>
     /// <para>异动类型唯一标识，多条时最多数量为10</para>
     /// <para>示例值：job_status_change</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/transfer_types/query")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1TransferTypesQueryResponseDto>> GetCorehrV1TransferTypesQueryAsync(
-        [PathQuery] bool? active,
-        [PathQuery] string[]? transfer_type_unique_identifier);
+        [PathQuery] bool? active = null,
+        [PathQuery] string[]? transfer_type_unique_identifier = null);
 
     /// <summary>
     /// <para>【飞书人事】发起员工异动</para>
@@ -21418,6 +21556,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 1：已启用</para>
     /// <para>- 2：已停用</para>
     /// <para>示例值：1</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -21433,9 +21572,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/corehr/v1/leaves/leave_types")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1LeavesLeaveTypesResponseDto>> GetCorehrV1LeavesLeaveTypesAsync(
-        [PathQuery] string? status,
         [PathQuery] string? page_token = null,
         [PathQuery] int page_size = 10,
+        [PathQuery] string? status = null,
         [PathQuery] string? user_id_type = "people_corehr_id");
 
     /// <summary>
@@ -21461,11 +21600,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>查询截止日期，即截止到某天余额数据的日期（不传则默认为当天）</para>
     /// <para>示例值：2022-07-29</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="employment_id_list">
     /// <para>必填：否</para>
     /// <para>员工 ID 列表，最大 100 个（不传则默认查询全部员工）</para>
     /// <para>示例值：["6919733291281024526"]</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -21481,10 +21622,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/corehr/v1/leaves/leave_balances")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1LeavesLeaveBalancesResponseDto>> GetCorehrV1LeavesLeaveBalancesAsync(
-        [PathQuery] string? as_of_date,
-        [PathQuery] string[]? employment_id_list,
         [PathQuery] string? page_token = null,
         [PathQuery] int page_size = 10,
+        [PathQuery] string? as_of_date = null,
+        [PathQuery] string[]? employment_id_list = null,
         [PathQuery] string? user_id_type = "people_corehr_id");
 
     /// <summary>
@@ -21510,11 +21651,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>员工 ID 列表，最大 100 个（不传则默认查询全部员工）</para>
     /// <para>示例值：["6919733291281024526"]</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="initiator_id_list">
     /// <para>必填：否</para>
     /// <para>休假发起人 ID 列表，最大 100 个</para>
     /// <para>示例值：["6919733291281024526"]</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_request_status">
     /// <para>必填：否</para>
@@ -21530,41 +21673,49 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 8：已取消</para>
     /// <para>- 9：已撤回</para>
     /// <para>示例值：["1", "2"]</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_type_id_list">
     /// <para>必填：否</para>
     /// <para>假期类型 ID 列表，枚举值可通过【获取假期类型列表】接口获取</para>
     /// <para>示例值：["1"]</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_start_date_min">
     /// <para>必填：否</para>
     /// <para>休假开始时间晚于等于的日期</para>
     /// <para>示例值：2022-07-20 morning</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_start_date_max">
     /// <para>必填：否</para>
     /// <para>休假开始时间早于等于的日期</para>
     /// <para>示例值：2022-07-20 morning</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_end_date_min">
     /// <para>必填：否</para>
     /// <para>休假结束时间晚于等于的日期</para>
     /// <para>示例值：2022-07-20 morning</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_end_date_max">
     /// <para>必填：否</para>
     /// <para>休假结束时间早于等于的日期</para>
     /// <para>示例值：2022-07-20 morning</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_submit_date_min">
     /// <para>必填：否</para>
     /// <para>休假发起时间晚于等于的日期</para>
     /// <para>示例值：2022-07-20 morning</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_submit_date_max">
     /// <para>必填：否</para>
     /// <para>休假发起时间早于等于的日期</para>
     /// <para>示例值：2022-07-20 morning</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -21582,29 +21733,31 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>请假记录更新时间晚于等于的时间</para>
     /// <para>示例值：2022-10-24 10:00:00</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_update_time_max">
     /// <para>必填：否</para>
     /// <para>请假记录更新时间早于等于的时间</para>
     /// <para>示例值：2022-10-24 10:00:00</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/leaves/leave_request_history")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1LeavesLeaveRequestHistoryResponseDto>> GetCorehrV1LeavesLeaveRequestHistoryAsync(
-        [PathQuery] string[]? employment_id_list,
-        [PathQuery] string[]? initiator_id_list,
-        [PathQuery] string[]? leave_request_status,
-        [PathQuery] string[]? leave_type_id_list,
-        [PathQuery] string? leave_start_date_min,
-        [PathQuery] string? leave_start_date_max,
-        [PathQuery] string? leave_end_date_min,
-        [PathQuery] string? leave_end_date_max,
-        [PathQuery] string? leave_submit_date_min,
-        [PathQuery] string? leave_submit_date_max,
-        [PathQuery] string? leave_update_time_min,
-        [PathQuery] string? leave_update_time_max,
         [PathQuery] string? page_token = null,
         [PathQuery] int page_size = 10,
-        [PathQuery] string? user_id_type = "people_corehr_id");
+        [PathQuery] string[]? employment_id_list = null,
+        [PathQuery] string[]? initiator_id_list = null,
+        [PathQuery] string[]? leave_request_status = null,
+        [PathQuery] string[]? leave_type_id_list = null,
+        [PathQuery] string? leave_start_date_min = null,
+        [PathQuery] string? leave_start_date_max = null,
+        [PathQuery] string? leave_end_date_min = null,
+        [PathQuery] string? leave_end_date_max = null,
+        [PathQuery] string? leave_submit_date_min = null,
+        [PathQuery] string? leave_submit_date_max = null,
+        [PathQuery] string? user_id_type = "people_corehr_id",
+        [PathQuery] string? leave_update_time_min = null,
+        [PathQuery] string? leave_update_time_max = null);
 
     /// <summary>
     /// <para>【飞书人事（企业版）】查询员工 HRBP / 属地 BP</para>
@@ -21850,6 +22003,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>cpst_item：薪资项目</item>
     /// <item>cpst_indicator：薪资统计指标</item>
     /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="reference_object_id">
     /// <para>必填：是</para>
@@ -21860,31 +22014,37 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>部门ID，可通过接口[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/list)获取</para>
     /// <para>示例值：od-53899868dd0da32292a2d809f0518c8f</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="work_location_id">
     /// <para>必填：否</para>
     /// <para>工作地点ID，可通过接口[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取</para>
     /// <para>示例值：7094869485965870636</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="company_id">
     /// <para>必填：否</para>
     /// <para>公司ID，可通过接口[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取</para>
     /// <para>示例值：7091599096804394540</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="job_family_id">
     /// <para>必填：否</para>
     /// <para>职务序列ID，可通过接口[【批量查询职务序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取</para>
     /// <para>示例值：7039313681989502508</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="job_level_id">
     /// <para>必填：否</para>
     /// <para>职级ID，可通过接口[【批量查询职务级别】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取</para>
     /// <para>示例值：7086415175263258156</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="employee_type_id">
     /// <para>必填：否</para>
     /// <para>人员类型ID，可通过接口[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取</para>
     /// <para>示例值：7039310401359775276</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="recruitment_type">
     /// <para>必填：否</para>
@@ -21895,45 +22055,50 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>recent_graduates：校招</item>
     /// <item>routine_intern：日常实习</item>
     /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="cpst_change_reason_id">
     /// <para>必填：否</para>
     /// <para>定调薪原因ID</para>
     /// <para>示例值：6967639606963471117</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="cpst_plan_id">
     /// <para>必填：否</para>
     /// <para>薪资方案ID</para>
     /// <para>示例值：6967639606963471118</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="cpst_salary_level_id">
     /// <para>必填：否</para>
     /// <para>薪级薪等ID</para>
     /// <para>示例值：6967639606963471119</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="effective_time">
     /// <para>必填：否</para>
     /// <para>生效时间</para>
     /// <para>示例值：1660924800000</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/compensation_standards/match")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1CompensationStandardsMatchResponseDto>> GetCorehrV1CompensationStandardsMatchAsync(
         [PathQuery] string employment_id,
         [PathQuery] string reference_object_id,
-        [PathQuery] string? reference_object_api,
-        [PathQuery] string? department_id,
-        [PathQuery] string? work_location_id,
-        [PathQuery] string? company_id,
-        [PathQuery] string? job_family_id,
-        [PathQuery] string? job_level_id,
-        [PathQuery] string? employee_type_id,
-        [PathQuery] string? recruitment_type,
-        [PathQuery] string? cpst_change_reason_id,
-        [PathQuery] string? cpst_plan_id,
-        [PathQuery] string? cpst_salary_level_id,
-        [PathQuery] string? effective_time,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "people_corehr_department_id");
+        [PathQuery] string? department_id_type = "people_corehr_department_id",
+        [PathQuery] string? reference_object_api = null,
+        [PathQuery] string? department_id = null,
+        [PathQuery] string? work_location_id = null,
+        [PathQuery] string? company_id = null,
+        [PathQuery] string? job_family_id = null,
+        [PathQuery] string? job_level_id = null,
+        [PathQuery] string? employee_type_id = null,
+        [PathQuery] string? recruitment_type = null,
+        [PathQuery] string? cpst_change_reason_id = null,
+        [PathQuery] string? cpst_plan_id = null,
+        [PathQuery] string? cpst_salary_level_id = null,
+        [PathQuery] string? effective_time = null);
 
     /// <summary>
     /// <para>【招聘】新建职位</para>
@@ -22231,26 +22396,31 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>职位ID</para>
     /// <para>示例值：6001</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="create_time_begin">
     /// <para>必填：否</para>
     /// <para>起始创建时间，传入毫秒级时间戳</para>
     /// <para>示例值：1658980233000</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="create_time_end">
     /// <para>必填：否</para>
     /// <para>截止创建时间，传入毫秒级时间戳</para>
     /// <para>示例值：1658980233000</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_time_begin">
     /// <para>必填：否</para>
     /// <para>起始更新时间，传入毫秒级时间戳</para>
     /// <para>示例值：1658980233000</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_time_end">
     /// <para>必填：否</para>
     /// <para>截止更新时间，传入毫秒级时间戳</para>
     /// <para>示例值：1658980233000</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -22275,13 +22445,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/hire/v1/job_requirements")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1JobRequirementsResponseDto>> GetHireV1JobRequirementsAsync(
-        [PathQuery] string? job_id,
-        [PathQuery] string? create_time_begin,
-        [PathQuery] string? create_time_end,
-        [PathQuery] string? update_time_begin,
-        [PathQuery] string? update_time_end,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 1,
+        [PathQuery] string? job_id = null,
+        [PathQuery] string? create_time_begin = null,
+        [PathQuery] string? create_time_end = null,
+        [PathQuery] string? update_time_begin = null,
+        [PathQuery] string? update_time_end = null,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -22420,12 +22590,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>6：入职登记表</item>
     /// <item>14：信息更新登记表</item>
     /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/hire/v1/registration_schemas")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1RegistrationSchemasResponseDto>> GetHireV1RegistrationSchemasAsync(
-        [PathQuery] int? scenario,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? scenario = null);
 
     /// <summary>
     /// <para>【招聘】获取内推官网下的职位列表</para>
@@ -22442,6 +22613,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>1：社招</item>
     /// <item>2：校招</item>
     /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -22478,7 +22650,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/hire/v1/referral_websites/job_posts")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1ReferralWebsitesJobPostsResponseDto>> GetHireV1ReferralWebsitesJobPostsAsync(
-        [PathQuery] int? process_type,
+        [PathQuery] int? process_type = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? user_id_type = "open_id",
@@ -22601,11 +22773,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>人才ID</para>
     /// <para>示例值：6960663240925956660</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpDelete("/open-apis/hire/v1/external_applications/{external_application_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.DeleteHireV1ExternalApplicationsByExternalApplicationIdResponseDto>> DeleteHireV1ExternalApplicationsByExternalApplicationIdAsync(
         [PathQuery] string external_application_id,
-        [PathQuery] string? talent_id);
+        [PathQuery] string? talent_id = null);
 
     /// <summary>
     /// <para>【招聘】创建外部面试</para>
@@ -22803,26 +22976,31 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>按流程过滤，招聘流程 ID，枚举值通过接口「获取招聘流程信息」接口获取</para>
     /// <para>示例值：6960663240925956554</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="stage_id">
     /// <para>必填：否</para>
     /// <para>按招聘阶段过滤，招聘阶段 ID，枚举值通过「获取招聘流程信息」接口获取</para>
     /// <para>示例值：614218419274131</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="talent_id">
     /// <para>必填：否</para>
     /// <para>按人才过滤</para>
     /// <para>示例值：6891560630172518670</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="active_status">
     /// <para>必填：否</para>
     /// <para>按活跃状态筛选 1=活跃投递, 2=非活跃投递, 3=全部</para>
     /// <para>示例值：1</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="job_id">
     /// <para>必填：否</para>
     /// <para>职位 ID</para>
     /// <para>示例值：7334134355464633</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -22840,23 +23018,25 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>最早更新时间，毫秒级时间戳</para>
     /// <para>示例值：1618500278663</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_end_time">
     /// <para>必填：否</para>
     /// <para>最晚更新时间，毫秒级时间戳</para>
     /// <para>示例值：1618500278663</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/hire/v1/applications")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1ApplicationsResponseDto>> GetHireV1ApplicationsAsync(
-        [PathQuery] string? process_id,
-        [PathQuery] string? stage_id,
-        [PathQuery] string? talent_id,
-        [PathQuery] string? active_status,
-        [PathQuery] string? job_id,
-        [PathQuery] string? update_start_time,
-        [PathQuery] string? update_end_time,
+        [PathQuery] string? process_id = null,
+        [PathQuery] string? stage_id = null,
+        [PathQuery] string? talent_id = null,
+        [PathQuery] string? active_status = null,
+        [PathQuery] string? job_id = null,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 10);
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? update_start_time = null,
+        [PathQuery] string? update_end_time = null);
 
     /// <summary>
     /// <para>【招聘】获取简历评估信息</para>
@@ -22881,16 +23061,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>投递 ID</para>
     /// <para>示例值：6875569957036738823</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_start_time">
     /// <para>必填：否</para>
     /// <para>最早更新时间，毫秒级时间戳</para>
     /// <para>示例值：1600843767338</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_end_time">
     /// <para>必填：否</para>
     /// <para>最晚更新时间，毫秒级时间戳</para>
     /// <para>示例值：1600843938726</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -22906,11 +23089,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/hire/v1/evaluations")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1EvaluationsResponseDto>> GetHireV1EvaluationsAsync(
-        [PathQuery] string? application_id,
-        [PathQuery] string? update_start_time,
-        [PathQuery] string? update_end_time,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 10,
+        [PathQuery] string? application_id = null,
+        [PathQuery] string? update_start_time = null,
+        [PathQuery] string? update_end_time = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -22936,30 +23119,34 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>投递 ID</para>
     /// <para>示例值：6985833807195212076</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="interview_id">
     /// <para>必填：否</para>
     /// <para>面试 ID</para>
     /// <para>示例值：7038435261598763308</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_start_time">
     /// <para>必填：否</para>
     /// <para>最早更新时间</para>
     /// <para>示例值：1638848468868</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_end_time">
     /// <para>必填：否</para>
     /// <para>最晚更新时间</para>
     /// <para>示例值：1638848468869</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/hire/v1/questionnaires")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1QuestionnairesResponseDto>> GetHireV1QuestionnairesAsync(
-        [PathQuery] string? application_id,
-        [PathQuery] string? interview_id,
-        [PathQuery] string? update_start_time,
-        [PathQuery] string? update_end_time,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 1);
+        [PathQuery] int? page_size = 1,
+        [PathQuery] string? application_id = null,
+        [PathQuery] string? interview_id = null,
+        [PathQuery] string? update_start_time = null,
+        [PathQuery] string? update_end_time = null);
 
     /// <summary>
     /// <para>【招聘】获取面试信息</para>
@@ -22984,21 +23171,25 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>投递 ID</para>
     /// <para>示例值：6134134355464633</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="interview_id">
     /// <para>必填：否</para>
     /// <para>面试 ID</para>
     /// <para>示例值：6888217964693309704</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="start_time">
     /// <para>必填：否</para>
     /// <para>最早开始时间，格式为时间戳</para>
     /// <para>示例值：1609489908000</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：否</para>
     /// <para>最晚开始时间，格式为时间戳</para>
     /// <para>示例值：1610489908000</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -23013,12 +23204,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/hire/v1/interviews")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1InterviewsResponseDto>> GetHireV1InterviewsAsync(
-        [PathQuery] string? application_id,
-        [PathQuery] string? interview_id,
-        [PathQuery] string? start_time,
-        [PathQuery] string? end_time,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
+        [PathQuery] string? application_id = null,
+        [PathQuery] string? interview_id = null,
+        [PathQuery] string? start_time = null,
+        [PathQuery] string? end_time = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -24109,22 +24300,22 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="open_id">
     /// <para>必填：否</para>
     /// <para>用户应用标识, 与employee_id二选其一</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="employee_id">
     /// <para>必填：否</para>
     /// <para>用户租户标识, 与open_id二选其一</para>
+    /// <para>默认值：null</para>
     /// </param>
-    /// <param name="dto">请求体</param>
     /// <param name="image">
     /// <para>必填：是</para>
     /// <para>带有头像的人脸照片</para>
     /// </param>
     [HttpPost("/open-apis/face_verify/v1/upload_face_image")]
     System.Threading.Tasks.Task<FeishuResponse<HumanAuthentication.Spec.PostFaceVerifyV1UploadFaceImageResponseDto>> PostFaceVerifyV1UploadFaceImageAsync(
-        [FormDataContent] HumanAuthentication.Spec.PostFaceVerifyV1UploadFaceImageBodyDto dto,
         [FormDataContent] FormDataFile image,
-        [PathQuery] string? open_id,
-        [PathQuery] string? employee_id);
+        [PathQuery] string? open_id = null,
+        [PathQuery] string? employee_id = null);
 
     /// <summary>
     /// <para>【实名认证】裁剪人脸图片</para>
@@ -24134,14 +24325,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>无源人脸比对流程，开发者后台通过调用此接口对基准图片做规范校验及处理。</para>
     /// <para>无源人脸比对接入需申请白名单，接入前请联系飞书开放平台工作人员，邮箱：open-platform@bytedance.com。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="raw_image">
     /// <para>必填：是</para>
     /// <para>带有头像的人脸照片文件名称</para>
     /// </param>
     [HttpPost("/open-apis/face_verify/v1/crop_face_image")]
     System.Threading.Tasks.Task<FeishuResponse<HumanAuthentication.Spec.PostFaceVerifyV1CropFaceImageResponseDto>> PostFaceVerifyV1CropFaceImageAsync(
-        [FormDataContent] HumanAuthentication.Spec.PostFaceVerifyV1CropFaceImageBodyDto dto,
         [FormDataContent] FormDataFile raw_image);
 
     /// <summary>
@@ -24159,16 +24348,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="open_id">
     /// <para>必填：否</para>
     /// <para>用户应用标识, 与employee_id二选其一</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="employee_id">
     /// <para>必填：否</para>
     /// <para>用户租户标识, 与open_id二选其一</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/face_verify/v1/query_auth_result")]
     System.Threading.Tasks.Task<FeishuResponse<HumanAuthentication.Spec.GetFaceVerifyV1QueryAuthResultResponseDto>> GetFaceVerifyV1QueryAuthResultAsync(
         [PathQuery] string req_order_no,
-        [PathQuery] string? open_id,
-        [PathQuery] string? employee_id);
+        [PathQuery] string? open_id = null,
+        [PathQuery] string? employee_id = null);
 
     /// <summary>
     /// <para>【智能门禁】修改用户部分信息</para>
@@ -24311,16 +24502,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>查询范围的开始时间，毫秒级时间戳。开始时间不能晚于结束时间。</para>
     /// <para>示例值：1630425599999</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：否</para>
     /// <para>查询范围的结束时间，毫秒级时间戳。结束时间不能早于开始时间。</para>
     /// <para>示例值：1630425599999</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/performance/v1/semesters")]
     System.Threading.Tasks.Task<FeishuResponse<Performance.GetPerformanceV1SemestersResponseDto>> GetPerformanceV1SemestersAsync(
-        [PathQuery] string? start_time,
-        [PathQuery] string? end_time);
+        [PathQuery] string? start_time = null,
+        [PathQuery] string? end_time = null);
 
     /// <summary>
     /// <para>【绩效】获取周期任务（指定用户）</para>
@@ -24410,6 +24603,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>词库ID（需要在指定词库创建草稿时填写，不填写默认创建至全员词库）</para>
     /// <para>如以应用身份创建草稿到非全员词库，需要在“词库设置”页面添加应用；若以用户身份创建草稿到非全员词库，该用户需要拥有对应词库的可见权限。</para>
     /// <para>示例值：72025****640276</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -24426,7 +24620,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/lingo/v1/drafts")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1DraftsResponseDto>> PostLingoV1DraftsAsync(
         [JsonNetContent] Baike.PostLingoV1DraftsBodyDto dto,
-        [PathQuery] string? repo_id,
+        [PathQuery] string? repo_id = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -24472,6 +24666,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>词库 ID（需要在指定词库创建词条时传入，不传时默认创建至全员词库）</para>
     /// <para>如以应用身份创建词条到非全员词库，需要在“词库设置”页面添加应用；若以用户身份创建词条到非全员词库，该用户需要拥有对应词库的可见权限。</para>
     /// <para>示例值：71527909****274113</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -24488,7 +24683,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/lingo/v1/entities")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesResponseDto>> PostLingoV1EntitiesAsync(
         [JsonNetContent] Baike.PostLingoV1EntitiesBodyDto dto,
-        [PathQuery] string? repo_id,
+        [PathQuery] string? repo_id = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -24539,11 +24734,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>外部系统</para>
     /// <para>示例值：星云</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="outer_id">
     /// <para>必填：否</para>
     /// <para>词条在外部系统中对应的唯一 ID</para>
     /// <para>示例值：123aaa</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -24559,8 +24756,8 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/lingo/v1/entities/{entity_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetLingoV1EntitiesByEntityIdResponseDto>> GetLingoV1EntitiesByEntityIdAsync(
         [PathQuery] string entity_id,
-        [PathQuery] string? provider,
-        [PathQuery] string? outer_id,
+        [PathQuery] string? provider = null,
+        [PathQuery] string? outer_id = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -24586,12 +24783,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>相关外部系统【可用来过滤词条数据】</para>
     /// <para>示例值：星云</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="repo_id">
     /// <para>必填：否</para>
     /// <para>词库 id(不传时默认返回全员词库数据)</para>
     /// <para>如以应用身份拉取非全员词库的词条，需要在“词库设置”页面添加应用；若以用户身份拉取非全员词库的词条，该用户需要拥有对应词库的可见权限。</para>
     /// <para>示例值：7152790921053274113</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -24606,10 +24805,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/lingo/v1/entities")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetLingoV1EntitiesResponseDto>> GetLingoV1EntitiesAsync(
-        [PathQuery] string? provider,
-        [PathQuery] string? repo_id,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
+        [PathQuery] string? provider = null,
+        [PathQuery] string? repo_id = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -24624,12 +24823,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>词库ID(不传时默认在全员词库内搜索)</para>
     /// <para>如以应用身份搜索非全员词库中的词条，需要在“词库设置”页面添加应用；若以用户身份搜索非全员词库中的词条，该用户需要拥有对应词库的可见权限。</para>
     /// <para>示例值：7202510112396640276</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/lingo/v1/entities/match")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesMatchResponseDto>> PostLingoV1EntitiesMatchAsync(
         [JsonNetContent] Baike.PostLingoV1EntitiesMatchBodyDto dto,
-        [PathQuery] string? repo_id);
+        [PathQuery] string? repo_id = null);
 
     /// <summary>
     /// <para>【词典】模糊搜索词条</para>
@@ -24655,6 +24855,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>词库ID(不传时默认在全员词库内搜索)</para>
     /// <para>如以应用身份搜索非全员词库中的词条，需要在“词库设置”页面添加应用；若以用户身份搜索非全员词库中的词条，该用户需要拥有对应词库的可见权限。</para>
     /// <para>示例值：7202510112396640276</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -24671,9 +24872,9 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/lingo/v1/entities/search")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesSearchResponseDto>> PostLingoV1EntitiesSearchAsync(
         [JsonNetContent] Baike.PostLingoV1EntitiesSearchBodyDto dto,
-        [PathQuery] string? repo_id,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
+        [PathQuery] string? repo_id = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -24713,12 +24914,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>词库ID（不传默认范围为全员词库）</para>
     /// <para>如以应用身份获取非全员词库中的分类，需要在“词库设置”页面添加应用；若以用户身份获取非全员词库中的分类，该用户需要拥有对应词库的可见权限。</para>
     /// <para>示例值：7202510112396640276</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/lingo/v1/classifications")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetLingoV1ClassificationsResponseDto>> GetLingoV1ClassificationsAsync(
-        [PathQuery] string? repo_id,
         [PathQuery] int? page_size = 20,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? repo_id = null);
 
     /// <summary>
     /// <para>【词典】获取词库列表</para>
@@ -24906,14 +25108,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>定制工作台id，非必填。不填时，返回所有定制工作台数据。</para>
     /// <para>如何获取定制工作台ID：可前往 飞书管理后台 &gt; 工作台 &gt; 定制工作台，点击指定工作台的 设置 进入设置页面；鼠标连续点击三次顶部的 设置 字样即可出现 ID，复制 ID 即可</para>
     /// <para>示例值：tpl_647184b585400013254c4ea6</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpPost("/open-apis/workplace/v1/custom_workplace_access_data/search")]
     System.Threading.Tasks.Task<FeishuResponse<Workplace.PostWorkplaceV1CustomWorkplaceAccessDataSearchResponseDto>> PostWorkplaceV1CustomWorkplaceAccessDataSearchAsync(
         [PathQuery] string from_date,
         [PathQuery] string to_date,
-        [PathQuery] string? custom_workplace_id,
         [PathQuery] int page_size = 20,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? custom_workplace_id = null);
 
     /// <summary>
     /// <para>【工作台】获取定制工作台小组件访问数据</para>
@@ -24949,14 +25152,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>小组件id（BlockID）。</para>
     /// <para>可前往 飞书管理后台 &gt; 工作台 &gt; 定制工作台，选择指定的工作台并进入工作台编辑器，点击某个小组件，即可查看页面右侧面板中该小组件名称下方的“BlockID”</para>
     /// <para>示例值：283438293839422334</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpPost("/open-apis/workplace/v1/workplace_block_access_data/search")]
     System.Threading.Tasks.Task<FeishuResponse<Workplace.PostWorkplaceV1WorkplaceBlockAccessDataSearchResponseDto>> PostWorkplaceV1WorkplaceBlockAccessDataSearchAsync(
         [PathQuery] string from_date,
         [PathQuery] string to_date,
-        [PathQuery] string? block_id,
         [PathQuery] int page_size = 20,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? block_id = null);
 
     /// <summary>
     /// <para>【应用信息】获取当前设置的推荐规则列表</para>
@@ -25145,11 +25349,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>外部系统</para>
     /// <para>示例值：星云</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="outer_id">
     /// <para>必填：否</para>
     /// <para>词条在外部系统中对应的唯一 ID</para>
     /// <para>示例值：12345</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -25165,8 +25371,8 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/baike/v1/entities/{entity_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetBaikeV1EntitiesByEntityIdResponseDto>> GetBaikeV1EntitiesByEntityIdAsync(
         [PathQuery] string entity_id,
-        [PathQuery] string? provider,
-        [PathQuery] string? outer_id,
+        [PathQuery] string? provider = null,
+        [PathQuery] string? outer_id = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -25192,6 +25398,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>相关外部系统【可用来过滤词条数据】</para>
     /// <para>示例值：星云</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -25206,9 +25413,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/baike/v1/entities")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetBaikeV1EntitiesResponseDto>> GetBaikeV1EntitiesAsync(
-        [PathQuery] string? provider,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
+        [PathQuery] string? provider = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -25670,6 +25877,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>填写该字段表示获取部门下所有用户，选填。</para>
     /// <para>示例值：od-xxxxxxxxxxxxx</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -25683,9 +25891,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/contact/v3/users")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3UsersResponseDto>> GetContactV3UsersAsync(
-        [PathQuery] string? department_id,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? department_id = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 20);
 
@@ -26038,11 +26246,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="types">
     /// <para>必填：否</para>
     /// <para>需要查询的文件类型，默认返回所有 children；types 可多选，可选类型有 doc、sheet、file、bitable、docx、folder、mindnote 。如 url?types=folder&amp;types=sheet</para>
+    /// <para>默认值：null</para>
     /// </param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list")]
     [HttpGet("/open-apis/drive/explorer/v2/folder/{folderToken}/children")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDriveExplorerV2FolderByFolderTokenChildrenResponseDto>> GetDriveExplorerV2FolderByFolderTokenChildrenAsync(
-        [PathQuery] string[]? types);
+        [PathQuery] string[]? types = null);
 
     /// <summary>
     /// <para>【云文档】新建文件夹</para>
@@ -26219,17 +26428,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="order_by">
     /// <para>必填：否</para>
     /// <para>提供用于对名称进行升序/降序排序的方式查询，可选项有："name-asc,name-desc"，传入其他字符串不做处理，默认无序</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="fields">
     /// <para>必填：否</para>
     /// <para>用于指定返回的字段名，每个字段名之间用逗号 "," 分隔，如：“id,name”，"*" 表示返回全部字段，可选字段有："id,name,description,floors"，默认返回所有字段</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/meeting_room/building/list")]
     System.Threading.Tasks.Task<FeishuResponse<MeetingRoom.Spec.GetMeetingRoomBuildingListResponseDto>> GetMeetingRoomBuildingListAsync(
-        [PathQuery] string? order_by,
-        [PathQuery] string? fields,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? order_by = null,
+        [PathQuery] string? fields = null);
 
     /// <summary>
     /// <para>【会议室】查询建筑物详情</para>
@@ -26245,11 +26456,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="fields">
     /// <para>必填：否</para>
     /// <para>用于指定返回的字段名，每个字段名之间用逗号 "," 分隔，如：“id,name”，"*" 表示返回全部字段，可选字段有："id,name,description,floors"，默认返回所有字段</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/meeting_room/building/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<MeetingRoom.Spec.GetMeetingRoomBuildingBatchGetResponseDto>> GetMeetingRoomBuildingBatchGetAsync(
         [PathQuery] string[] building_ids,
-        [PathQuery] string? fields);
+        [PathQuery] string? fields = null);
 
     /// <summary>
     /// <para>【会议室】获取会议室列表</para>
@@ -26275,18 +26487,20 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="order_by">
     /// <para>必填：否</para>
     /// <para>提供用于对名称/楼层进行升序/降序排序的方式查询，可选项有："name-asc,name-desc,floor_name-asc,floor_name-desc"，传入其他字符串不做处理，默认无序</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="fields">
     /// <para>必填：否</para>
     /// <para>用于指定返回的字段名，每个字段名之间用逗号 "," 分隔，如：“id,name”，"*" 表示返回全部字段，可选字段有："id,name,description,capacity,building_id,building_name,floor_name,is_disabled,display_id"，默认返回所有字段</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/meeting_room/room/list")]
     System.Threading.Tasks.Task<FeishuResponse<MeetingRoom.Spec.GetMeetingRoomRoomListResponseDto>> GetMeetingRoomRoomListAsync(
         [PathQuery] string building_id,
-        [PathQuery] string? order_by,
-        [PathQuery] string? fields,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? order_by = null,
+        [PathQuery] string? fields = null);
 
     /// <summary>
     /// <para>【会议室】查询会议室详情</para>
@@ -26302,11 +26516,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="fields">
     /// <para>必填：否</para>
     /// <para>用于指定返回的字段名，每个字段名之间用逗号 "," 分隔，如：“id,name”，"*" 表示返回全部字段，可选字段有："id,name,description,capacity,building_id,building_name,floor_name,is_disabled,display_id"，默认返回所有字段</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/meeting_room/room/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<MeetingRoom.Spec.GetMeetingRoomRoomBatchGetResponseDto>> GetMeetingRoomRoomBatchGetAsync(
         [PathQuery] string[] room_ids,
-        [PathQuery] string? fields);
+        [PathQuery] string? fields = null);
 
     /// <summary>
     /// <para>【会议室】创建建筑物</para>
@@ -26483,26 +26698,31 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>国家/地区ID scope为2，3时需要此参数</para>
     /// <para>示例值：086</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="district_id">
     /// <para>必填：否</para>
     /// <para>城市ID scope为3时需要此参数</para>
     /// <para>示例值：001</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="building_id">
     /// <para>必填：否</para>
     /// <para>建筑ID scope为4，5时需要此参数</para>
     /// <para>示例值：22</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="floor_name">
     /// <para>必填：否</para>
     /// <para>楼层 scope为5时需要此参数</para>
     /// <para>示例值：4</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="room_id">
     /// <para>必填：否</para>
     /// <para>会议室ID scope为6时需要此参数</para>
     /// <para>示例值：6383786266263</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -26517,11 +26737,11 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/vc/v1/room_configs/query")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1RoomConfigsQueryResponseDto>> GetVcV1RoomConfigsQueryAsync(
         [PathQuery] int scope,
-        [PathQuery] string? country_id,
-        [PathQuery] string? district_id,
-        [PathQuery] string? building_id,
-        [PathQuery] string? floor_name,
-        [PathQuery] string? room_id,
+        [PathQuery] string? country_id = null,
+        [PathQuery] string? district_id = null,
+        [PathQuery] string? building_id = null,
+        [PathQuery] string? floor_name = null,
+        [PathQuery] string? room_id = null,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>

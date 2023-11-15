@@ -45,10 +45,10 @@ namespace FeishuNetSdk.Tests
         /// <param name="useDefaultUserAgent">请求头是否包含默认的UserAgent</param>
         public HttpApiRequestMessageImpl(Uri? requestUri, bool useDefaultUserAgent)
         {
-            this.RequestUri = requestUri;
+            RequestUri = requestUri;
             if (useDefaultUserAgent == true)
             {
-                this.Headers.UserAgent.Add(defaultUserAgent);
+                Headers.UserAgent.Add(defaultUserAgent);
             }
         }
 
@@ -59,7 +59,7 @@ namespace FeishuNetSdk.Tests
         /// <returns></returns>
         public override Uri MakeRequestUri(Uri uri)
         {
-            var baseUri = this.RequestUri;
+            var baseUri = RequestUri;
             if (uri.IsAbsoluteUri == false)
             {
                 return CreateUriByRelative(baseUri, uri);
@@ -143,13 +143,13 @@ namespace FeishuNetSdk.Tests
         /// <exception cref="ArgumentNullException"></exception>
         public override void AddUrlQuery(string key, string? value)
         {
-            var uri = this.RequestUri ?? throw new ApiInvalidConfigException(Resx.required_RequestUri);
+            var uri = RequestUri ?? throw new ApiInvalidConfigException(Resx.required_RequestUri);
             if (string.IsNullOrEmpty(key))
             {
                 throw new ArgumentNullException(nameof(key));
             }
 
-            this.RequestUri = new UriValue(uri).AddQuery(key, value).ToUri();
+            RequestUri = new UriValue(uri).AddQuery(key, value).ToUri();
         }
 
 
@@ -162,11 +162,11 @@ namespace FeishuNetSdk.Tests
         /// <returns></returns>
         public override async System.Threading.Tasks.Task AddFormFieldAsync(IEnumerable<KeyValue> keyValues)
         {
-            this.EnsureMediaTypeEqual(FormContent.MediaType);
+            EnsureMediaTypeEqual(FormContent.MediaType);
 
-            var formContent = await FormContent.ParseAsync(this.Content).ConfigureAwait(false);
+            var formContent = await FormContent.ParseAsync(Content).ConfigureAwait(false);
             formContent.AddFormField(keyValues);
-            this.Content = formContent;
+            Content = formContent;
         }
 
         /// <summary>
@@ -178,9 +178,9 @@ namespace FeishuNetSdk.Tests
         /// <exception cref="ArgumentNullException"></exception>
         public override void AddFormDataText(IEnumerable<KeyValue> keyValues)
         {
-            this.EnsureMediaTypeEqual(FormDataContent.MediaType);
+            EnsureMediaTypeEqual(FormDataContent.MediaType);
 
-            if (this.Content is not MultipartContent httpContent)
+            if (Content is not MultipartContent httpContent)
             {
                 httpContent = new FormDataContent();
             }
@@ -189,7 +189,7 @@ namespace FeishuNetSdk.Tests
             {
                 var textContent = new FormDataTextContent(keyValue);
                 httpContent.Add(textContent);
-                this.Content = httpContent;
+                Content = httpContent;
             }
         }
 
@@ -205,16 +205,16 @@ namespace FeishuNetSdk.Tests
         /// <exception cref="NotSupportedException"></exception>
         public override void AddFormDataFile(Stream stream, string name, string? fileName, string? contentType)
         {
-            this.EnsureMediaTypeEqual(FormDataContent.MediaType);
+            EnsureMediaTypeEqual(FormDataContent.MediaType);
 
-            if (this.Content is not MultipartContent httpContent)
+            if (Content is not MultipartContent httpContent)
             {
                 httpContent = new FormDataContent();
             }
 
             var fileContent = new FormDataFileContent(stream, name, fileName, contentType);
             httpContent.Add(fileContent);
-            this.Content = httpContent;
+            Content = httpContent;
         }
 
         /// <summary>
@@ -225,12 +225,12 @@ namespace FeishuNetSdk.Tests
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void EnsureMediaTypeEqual(string newMediaType)
         {
-            if (this.Content == null)
+            if (Content == null)
             {
                 return;
             }
 
-            var contentType = this.Content.Headers.ContentType;
+            var contentType = Content.Headers.ContentType;
             if (contentType == null)
             {
                 return;

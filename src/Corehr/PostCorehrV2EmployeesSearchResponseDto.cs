@@ -78,6 +78,14 @@ public record PostCorehrV2EmployeesSearchResponseDto
         public string? JobLevelId { get; set; }
 
         /// <summary>
+        /// <para>职等 ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6893014062142064135</para>
+        /// </summary>
+        [JsonProperty("job_grade_id")]
+        public string? JobGradeId { get; set; }
+
+        /// <summary>
         /// <para>工作地点 ID，详细信息可通过【查询单个地点】接口获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
@@ -284,7 +292,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
             /// <summary>
             /// <para>邮箱地址</para>
             /// <para>必填：是</para>
-            /// <para>示例值：1234567@bytedance.com</para>
+            /// <para>示例值：1234567@example.feishu.cn</para>
             /// </summary>
             [JsonProperty("email")]
             public string Email { get; set; } = string.Empty;
@@ -755,14 +763,14 @@ public record PostCorehrV2EmployeesSearchResponseDto
             public Enum? MaritalStatus { get; set; }
 
             /// <summary>
-            /// <para>电话列表，只有当满足下面所有条件时，电话在个人信息页才可见</para>
+            /// <para>电话列表</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonProperty("phone_list")]
             public Phone[]? PhoneLists { get; set; }
 
             /// <summary>
-            /// <para>电话列表，只有当满足下面所有条件时，电话在个人信息页才可见</para>
+            /// <para>电话列表</para>
             /// </summary>
             public record Phone
             {
@@ -827,7 +835,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 /// <summary>
                 /// <para>完整电话号码</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：+86010-12345678</para>
+                /// <para>示例值：+86 010-12345678</para>
                 /// </summary>
                 [JsonProperty("formatted_phone_number")]
                 public string? FormattedPhoneNumber { get; set; }
@@ -886,7 +894,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 /// <summary>
                 /// <para>完整地址（西方文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Beijing,Beijing,China,</para>
+                /// <para>示例值：Beijing, Beijing, China,</para>
                 /// </summary>
                 [JsonProperty("full_address_western_script")]
                 public string? FullAddressWesternScript { get; set; }
@@ -1104,7 +1112,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -1143,7 +1151,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 /// <summary>
                 /// <para>邮箱地址</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：1234567@bytedance.com</para>
+                /// <para>示例值：1234567@example.feishu.cn</para>
                 /// </summary>
                 [JsonProperty("email")]
                 public string EmailSuffix { get; set; } = string.Empty;
@@ -1336,7 +1344,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -1554,7 +1562,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -1688,12 +1696,20 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 public Enum? BankAccountType { get; set; }
 
                 /// <summary>
-                /// <para>货币 ID</para>
+                /// <para>货币id</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：12</para>
+                /// <para>示例值：12QueryCountryRegionSubdivisionDataReq</para>
                 /// </summary>
                 [JsonProperty("currency_id")]
                 public string? CurrencyId { get; set; }
+
+                /// <summary>
+                /// <para>国际银行账号</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：CH56 0483 5012 3456 7800 9</para>
+                /// </summary>
+                [JsonProperty(nameof(IBAN))]
+                public string? IBAN { get; set; }
 
                 /// <summary>
                 /// <para>自定义字段</para>
@@ -1738,7 +1754,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -1865,7 +1881,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -2307,7 +2323,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                             /// <summary>
                             /// <para>英文</para>
                             /// <para>必填：否</para>
-                            /// <para>示例值：CustomName</para>
+                            /// <para>示例值：Custom Name</para>
                             /// </summary>
                             [JsonProperty("en_us")]
                             public string? EnUs { get; set; }
@@ -2397,7 +2413,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -2517,7 +2533,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                     /// <summary>
                     /// <para>完整电话号码</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：+86010-12345678</para>
+                    /// <para>示例值：+86 010-12345678</para>
                     /// </summary>
                     [JsonProperty("formatted_phone_number")]
                     public string? FormattedPhoneNumber { get; set; }
@@ -2576,7 +2592,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                     /// <summary>
                     /// <para>完整地址（西方文字）</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：Beijing,Beijing,China,</para>
+                    /// <para>示例值：Beijing, Beijing, China,</para>
                     /// </summary>
                     [JsonProperty("full_address_western_script")]
                     public string? FullAddressWesternScript { get; set; }
@@ -2794,7 +2810,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                             /// <summary>
                             /// <para>英文</para>
                             /// <para>必填：否</para>
-                            /// <para>示例值：CustomName</para>
+                            /// <para>示例值：Custom Name</para>
                             /// </summary>
                             [JsonProperty("en_us")]
                             public string? EnUs { get; set; }
@@ -3213,7 +3229,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                     /// <summary>
                     /// <para>完整电话号码</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：+86010-12345678</para>
+                    /// <para>示例值：+86 010-12345678</para>
                     /// </summary>
                     [JsonProperty("formatted_phone_number")]
                     public string? FormattedPhoneNumber { get; set; }
@@ -3300,7 +3316,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -3544,7 +3560,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：CustomName</para>
+                    /// <para>示例值：Custom Name</para>
                     /// </summary>
                     [JsonProperty("en_us")]
                     public string? EnUs { get; set; }
@@ -3800,7 +3816,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 /// <summary>
                 /// <para>英文</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：CustomName</para>
+                /// <para>示例值：Custom Name</para>
                 /// </summary>
                 [JsonProperty("en_us")]
                 public string? EnUs { get; set; }
@@ -4079,6 +4095,169 @@ public record PostCorehrV2EmployeesSearchResponseDto
         /// </summary>
         [JsonProperty("time_zone")]
         public string? TimeZone { get; set; }
+
+        /// <summary>
+        /// <para>当前生效的外派记录</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonProperty("primary_international_assignment")]
+        public InternationalAssignmentSuffix? PrimaryInternationalAssignment { get; set; }
+
+        /// <summary>
+        /// <para>当前生效的外派记录</para>
+        /// </summary>
+        public record InternationalAssignmentSuffix
+        {
+            /// <summary>
+            /// <para>当前生效的外派记录ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7046599238679447000</para>
+            /// </summary>
+            [JsonProperty("id")]
+            public string? Id { get; set; }
+
+            /// <summary>
+            /// <para>当前生效外派记录的外派城市（派驻地）ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7046599238679447084</para>
+            /// </summary>
+            [JsonProperty("assignment_city_id")]
+            public string? AssignmentCityId { get; set; }
+
+            /// <summary>
+            /// <para>当前生效外派记录的外派公司ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7046599238679447084</para>
+            /// </summary>
+            [JsonProperty("assignment_company_id")]
+            public string? AssignmentCompanyId { get; set; }
+
+            /// <summary>
+            /// <para>当前生效外派记录的外派国家ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7046599238679447084</para>
+            /// </summary>
+            [JsonProperty("assignment_country_id")]
+            public string? AssignmentCountryId { get; set; }
+
+            /// <summary>
+            /// <para>当前生效外派记录的外派原因</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonProperty("assignment_reason")]
+            public I18n? AssignmentReason { get; set; }
+
+            /// <summary>
+            /// <para>当前生效外派记录的外派原因</para>
+            /// </summary>
+            public record I18n
+            {
+                /// <summary>
+                /// <para>语言</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：zh-CN</para>
+                /// </summary>
+                [JsonProperty("lang")]
+                public string Lang { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>内容</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：张三</para>
+                /// </summary>
+                [JsonProperty("value")]
+                public string Value { get; set; } = string.Empty;
+            }
+
+            /// <summary>
+            /// <para>当前生效外派记录的生效时间</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2023-08-29</para>
+            /// </summary>
+            [JsonProperty("effective_time")]
+            public string? EffectiveTime { get; set; }
+
+            /// <summary>
+            /// <para>当前生效外派记录的开始外派流程 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：111111</para>
+            /// </summary>
+            [JsonProperty("start_assignment_process_id")]
+            public string? StartAssignmentProcessId { get; set; }
+
+            /// <summary>
+            /// <para>当前生效外派记录的结束外派流程 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1111111</para>
+            /// </summary>
+            [JsonProperty("end_assignment_process_id")]
+            public string? EndAssignmentProcessId { get; set; }
+
+            /// <summary>
+            /// <para>当前生效外派记录的失效时间</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2023-12-29</para>
+            /// </summary>
+            [JsonProperty("expiration_time")]
+            public string? ExpirationTime { get; set; }
+
+            /// <summary>
+            /// <para>-| 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonProperty("international_assignment_status")]
+            public Enum? InternationalAssignmentStatus { get; set; }
+
+            /// <summary>
+            /// <para>-| 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment</para>
+            /// </summary>
+            public record Enum
+            {
+                /// <summary>
+                /// <para>枚举值</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：phone_type</para>
+                /// </summary>
+                [JsonProperty("enum_name")]
+                public string EnumName { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>枚举多语展示</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonProperty("display")]
+                public I18n[]? Displies { get; set; }
+
+                /// <summary>
+                /// <para>枚举多语展示</para>
+                /// </summary>
+                public record I18n
+                {
+                    /// <summary>
+                    /// <para>语言</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：zh-CN</para>
+                    /// </summary>
+                    [JsonProperty("lang")]
+                    public string Lang { get; set; } = string.Empty;
+
+                    /// <summary>
+                    /// <para>内容</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：张三</para>
+                    /// </summary>
+                    [JsonProperty("value")]
+                    public string Value { get; set; } = string.Empty;
+                }
+            }
+
+            /// <summary>
+            /// <para>-| 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonProperty("international_assignment_type")]
+            public Enum? InternationalAssignmentType { get; set; }
+        }
     }
 
     /// <summary>

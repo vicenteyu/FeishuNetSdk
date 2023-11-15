@@ -78,6 +78,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         public string? JobLevelId { get; set; }
 
         /// <summary>
+        /// <para>职等 ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6893014062142064135</para>
+        /// </summary>
+        [JsonProperty("job_grade_id")]
+        public string? JobGradeId { get; set; }
+
+        /// <summary>
         /// <para>工作地点 ID，详细信息可通过【查询单个地点】接口获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
@@ -270,21 +278,21 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         public string? EmailAddress { get; set; }
 
         /// <summary>
-        /// <para>工作邮箱列表，只有当邮箱满足下面所有条件时，才在个人信息页面可见</para>
+        /// <para>工作邮箱列表</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonProperty("work_email_list")]
         public WorkEmail[]? WorkEmailLists { get; set; }
 
         /// <summary>
-        /// <para>工作邮箱列表，只有当邮箱满足下面所有条件时，才在个人信息页面可见</para>
+        /// <para>工作邮箱列表</para>
         /// </summary>
         public record WorkEmail
         {
             /// <summary>
             /// <para>邮箱地址</para>
             /// <para>必填：是</para>
-            /// <para>示例值：1234567@bytedance.com</para>
+            /// <para>示例值：1234567@example.feishu.cn</para>
             /// </summary>
             [JsonProperty("email")]
             public string Email { get; set; } = string.Empty;
@@ -755,14 +763,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public Enum? MaritalStatus { get; set; }
 
             /// <summary>
-            /// <para>电话列表，只有当满足下面所有条件时，电话在个人信息页才可见</para>
+            /// <para>电话列表</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonProperty("phone_list")]
             public Phone[]? PhoneLists { get; set; }
 
             /// <summary>
-            /// <para>电话列表，只有当满足下面所有条件时，电话在个人信息页才可见</para>
+            /// <para>电话列表</para>
             /// </summary>
             public record Phone
             {
@@ -827,7 +835,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 /// <summary>
                 /// <para>完整电话号码</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：+86010-12345678</para>
+                /// <para>示例值：+86 010-12345678</para>
                 /// </summary>
                 [JsonProperty("formatted_phone_number")]
                 public string? FormattedPhoneNumber { get; set; }
@@ -886,7 +894,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 /// <summary>
                 /// <para>完整地址（西方文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Beijing,Beijing,China,</para>
+                /// <para>示例值：Beijing, Beijing, China,</para>
                 /// </summary>
                 [JsonProperty("full_address_western_script")]
                 public string? FullAddressWesternScript { get; set; }
@@ -1104,7 +1112,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -1143,7 +1151,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 /// <summary>
                 /// <para>邮箱地址</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：1234567@bytedance.com</para>
+                /// <para>示例值：1234567@example.feishu.cn</para>
                 /// </summary>
                 [JsonProperty("email")]
                 public string EmailSuffix { get; set; } = string.Empty;
@@ -1336,7 +1344,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -1554,7 +1562,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -1688,12 +1696,20 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public Enum? BankAccountType { get; set; }
 
                 /// <summary>
-                /// <para>货币 ID</para>
+                /// <para>货币id</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：12</para>
+                /// <para>示例值：12QueryCountryRegionSubdivisionDataReq</para>
                 /// </summary>
                 [JsonProperty("currency_id")]
                 public string? CurrencyId { get; set; }
+
+                /// <summary>
+                /// <para>国际银行账号</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：CH56 0483 5012 3456 7800 9</para>
+                /// </summary>
+                [JsonProperty(nameof(IBAN))]
+                public string? IBAN { get; set; }
 
                 /// <summary>
                 /// <para>自定义字段</para>
@@ -1738,7 +1754,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -1865,7 +1881,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -2307,7 +2323,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                             /// <summary>
                             /// <para>英文</para>
                             /// <para>必填：否</para>
-                            /// <para>示例值：CustomName</para>
+                            /// <para>示例值：Custom Name</para>
                             /// </summary>
                             [JsonProperty("en_us")]
                             public string? EnUs { get; set; }
@@ -2397,7 +2413,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -2517,7 +2533,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     /// <summary>
                     /// <para>完整电话号码</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：+86010-12345678</para>
+                    /// <para>示例值：+86 010-12345678</para>
                     /// </summary>
                     [JsonProperty("formatted_phone_number")]
                     public string? FormattedPhoneNumber { get; set; }
@@ -2576,7 +2592,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     /// <summary>
                     /// <para>完整地址（西方文字）</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：Beijing,Beijing,China,</para>
+                    /// <para>示例值：Beijing, Beijing, China,</para>
                     /// </summary>
                     [JsonProperty("full_address_western_script")]
                     public string? FullAddressWesternScript { get; set; }
@@ -2794,7 +2810,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                             /// <summary>
                             /// <para>英文</para>
                             /// <para>必填：否</para>
-                            /// <para>示例值：CustomName</para>
+                            /// <para>示例值：Custom Name</para>
                             /// </summary>
                             [JsonProperty("en_us")]
                             public string? EnUs { get; set; }
@@ -3213,7 +3229,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     /// <summary>
                     /// <para>完整电话号码</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：+86010-12345678</para>
+                    /// <para>示例值：+86 010-12345678</para>
                     /// </summary>
                     [JsonProperty("formatted_phone_number")]
                     public string? FormattedPhoneNumber { get; set; }
@@ -3300,7 +3316,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：CustomName</para>
+                        /// <para>示例值：Custom Name</para>
                         /// </summary>
                         [JsonProperty("en_us")]
                         public string? EnUs { get; set; }
@@ -3544,7 +3560,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：CustomName</para>
+                    /// <para>示例值：Custom Name</para>
                     /// </summary>
                     [JsonProperty("en_us")]
                     public string? EnUs { get; set; }
@@ -3800,7 +3816,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 /// <summary>
                 /// <para>英文</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：CustomName</para>
+                /// <para>示例值：Custom Name</para>
                 /// </summary>
                 [JsonProperty("en_us")]
                 public string? EnUs { get; set; }

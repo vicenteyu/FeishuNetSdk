@@ -25,9 +25,12 @@ namespace FeishuNetSdk.Tests
         [TestMethod]
         public void TestMethod2()
         {
+            var api = typeof(IFeishuTenantApi);
+            var method = api.GetMethod("GetEventV1OutboundIpAsync");
+            Assert.IsNotNull(method);
 
-            var context = new TestRequestContext(new DefaultApiActionDescriptor(typeof(IFeishuTenantApi).GetMethod("GetEventV1OutboundIpAsync")!,
-                typeof(IFeishuTenantApi)), string.Empty);
+            var action = new DefaultApiActionDescriptor(method, api);
+            var context = new TestRequestContext(action);
 
             Assert.IsNotNull(context);
         }
