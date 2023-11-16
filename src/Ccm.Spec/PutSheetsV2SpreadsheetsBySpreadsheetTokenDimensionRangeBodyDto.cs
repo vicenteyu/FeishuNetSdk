@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 更新行列 请求体
@@ -13,7 +12,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
     /// <para>需要更新行列的维度信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("dimension")]
+    [JsonPropertyName("dimension")]
     public DimensionSuffix Dimension { get; set; } = new();
 
     /// <summary></summary>
@@ -23,28 +22,28 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
         /// <para>sheetId</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("sheetId")]
+        [JsonPropertyName("sheetId")]
         public string SheetId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>默认 ROWS ，可选 ROWS、COLUMNS</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("majorDimension")]
+        [JsonPropertyName("majorDimension")]
         public string? MajorDimension { get; set; }
 
         /// <summary>
         /// <para>开始的位置</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("startIndex")]
+        [JsonPropertyName("startIndex")]
         public int StartIndex { get; set; }
 
         /// <summary>
         /// <para>结束的位置</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("endIndex")]
+        [JsonPropertyName("endIndex")]
         public int EndIndex { get; set; }
     }
 
@@ -52,7 +51,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
     /// <para>需要更新行列的属性</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("dimensionProperties")]
+    [JsonPropertyName("dimensionProperties")]
     public DimensionProperty DimensionProperties { get; set; } = new();
 
     /// <summary></summary>
@@ -62,14 +61,14 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
         /// <para>true 为显示，false 为隐藏行列</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("visible")]
+        [JsonPropertyName("visible")]
         public bool? Visible { get; set; }
 
         /// <summary>
         /// <para>行/列的大小</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("fixedSize")]
+        [JsonPropertyName("fixedSize")]
         public int? FixedSize { get; set; }
     }
 }

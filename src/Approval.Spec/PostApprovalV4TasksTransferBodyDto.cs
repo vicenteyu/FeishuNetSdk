@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 转交审批任务 请求体
@@ -14,7 +13,7 @@ public record PostApprovalV4TasksTransferBodyDto
     /// <para>**示例值**："7C468A54-8745-2245-9675-08B7C63E7A85"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string ApprovalCode { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostApprovalV4TasksTransferBodyDto
     /// <para>**示例值**："81D31358-93AF-92D6-7425-01A5D67C4E71"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("instance_code")]
+    [JsonPropertyName("instance_code")]
     public string InstanceCode { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostApprovalV4TasksTransferBodyDto
     /// <para>**示例值**："f7cb567e"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostApprovalV4TasksTransferBodyDto
     /// <para>**示例值**："OK"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("comment")]
+    [JsonPropertyName("comment")]
     public string? Comment { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostApprovalV4TasksTransferBodyDto
     /// <para>**示例值**："f4ip317q"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("transfer_user_id")]
+    [JsonPropertyName("transfer_user_id")]
     public string TransferUserId { get; set; } = string.Empty;
 
     /// <summary>
@@ -54,6 +53,6 @@ public record PostApprovalV4TasksTransferBodyDto
     /// <para>**示例值**："12345"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("task_id")]
+    [JsonPropertyName("task_id")]
     public string TaskId { get; set; } = string.Empty;
 }

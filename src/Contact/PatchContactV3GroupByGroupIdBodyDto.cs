@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 更新用户组 请求体
@@ -14,7 +13,7 @@ public record PatchContactV3GroupByGroupIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：外包IT用户组</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -23,6 +22,6 @@ public record PatchContactV3GroupByGroupIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：IT外包用户组，需要进行细粒度权限管控</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 }

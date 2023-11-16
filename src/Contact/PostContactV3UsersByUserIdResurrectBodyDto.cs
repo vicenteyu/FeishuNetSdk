@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 恢复已删除用户 请求体
@@ -14,7 +13,7 @@ public record PostContactV3UsersByUserIdResurrectBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("departments")]
+    [JsonPropertyName("departments")]
     public UserDepartmentInfo[]? Departments { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record PostContactV3UsersByUserIdResurrectBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string DepartmentId { get; set; } = string.Empty;
 
         /// <summary>
@@ -35,7 +34,7 @@ public record PostContactV3UsersByUserIdResurrectBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("user_order")]
+        [JsonPropertyName("user_order")]
         public int? UserOrder { get; set; }
 
         /// <summary>
@@ -43,7 +42,7 @@ public record PostContactV3UsersByUserIdResurrectBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("department_order")]
+        [JsonPropertyName("department_order")]
         public int? DepartmentOrder { get; set; }
     }
 
@@ -52,6 +51,6 @@ public record PostContactV3UsersByUserIdResurrectBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：["7179609168571645971"]</para>
     /// </summary>
-    [JsonProperty("subscription_ids")]
+    [JsonPropertyName("subscription_ids")]
     public string[]? SubscriptionIds { get; set; }
 }

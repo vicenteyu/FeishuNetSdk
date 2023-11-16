@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im.Spec;
 /// <summary>
 /// 延时更新消息卡片 请求体
@@ -13,20 +12,20 @@ public record PostInteractiveV1CardUpdateBodyDto
     /// <para>用于更新卡片的token，不是tenant_access_token（可通过[卡片交互返回内容](https://open.feishu.cn/document/ukTMukTMukTM/uEzNwUjLxcDM14SM3ATN)获取）</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("token")]
+    [JsonPropertyName("token")]
     public string Token { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>消息卡片的描述内容，具体参考[卡片结构](https://open.feishu.cn/document/ukTMukTMukTM/uEjNwUjLxYDM14SM2ATN)</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("card")]
+    [JsonPropertyName("card")]
     public object Card { get; set; } = new();
 
     /// <summary>
     /// <para>指定需要更新的用户，共享卡片默认更新所有人卡片，无需填写该字段。推荐使用 OpenID，获取方式可参考文档[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("open_ids")]
+    [JsonPropertyName("open_ids")]
     public string[]? OpenIds { get; set; }
 }

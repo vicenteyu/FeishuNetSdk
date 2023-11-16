@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取单位绑定的部门列表 响应体
@@ -13,7 +12,7 @@ public record GetContactV3UnitListDepartmentResponseDto
     /// <para>单位绑定的部门列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("departmentlist")]
+    [JsonPropertyName("departmentlist")]
     public UnitDepartment[] Departmentlists { get; set; } = Array.Empty<UnitDepartment>();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetContactV3UnitListDepartmentResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：BU121</para>
         /// </summary>
-        [JsonProperty("unit_id")]
+        [JsonPropertyName("unit_id")]
         public string UnitId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetContactV3UnitListDepartmentResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string DepartmentId { get; set; } = string.Empty;
     }
 
@@ -43,7 +42,7 @@ public record GetContactV3UnitListDepartmentResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool HasMore { get; set; }
 
     /// <summary>
@@ -51,6 +50,6 @@ public record GetContactV3UnitListDepartmentResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JdtW=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string PageToken { get; set; } = string.Empty;
 }

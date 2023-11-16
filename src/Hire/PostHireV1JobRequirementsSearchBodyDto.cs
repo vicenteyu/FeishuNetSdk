@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取招聘需求信息 请求体
@@ -13,6 +12,6 @@ public record PostHireV1JobRequirementsSearchBodyDto
     /// <para>招聘需求ID列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("id_list")]
+    [JsonPropertyName("id_list")]
     public string[]? IdList { get; set; }
 }

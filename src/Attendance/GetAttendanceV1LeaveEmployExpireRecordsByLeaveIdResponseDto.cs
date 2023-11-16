@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 通过过期时间获取发放记录 响应体
@@ -13,7 +12,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
     /// <para>员工过期日期的发放记录</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("records")]
+    [JsonPropertyName("records")]
     public LeaveEmployExpireRecord[] Records { get; set; } = Array.Empty<LeaveEmployExpireRecord>();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6982509313466189342</para>
         /// </summary>
-        [JsonProperty("employment_id")]
+        [JsonPropertyName("employment_id")]
         public string EmploymentId { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
-        [JsonProperty("leave_type_id")]
+        [JsonPropertyName("leave_type_id")]
         public string LeaveTypeId { get; set; } = string.Empty;
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("granting_quantity")]
+        [JsonPropertyName("granting_quantity")]
         public string GrantingQuantity { get; set; } = string.Empty;
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("left_granting_quantity")]
+        [JsonPropertyName("left_granting_quantity")]
         public string LeftGrantingQuantity { get; set; } = string.Empty;
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("granting_unit")]
+        [JsonPropertyName("granting_unit")]
         public int GrantingUnit { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：2020-01-01</para>
         /// </summary>
-        [JsonProperty("effective_date")]
+        [JsonPropertyName("effective_date")]
         public string EffectiveDate { get; set; } = string.Empty;
 
         /// <summary>
@@ -82,14 +81,14 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：2020-01-01</para>
         /// </summary>
-        [JsonProperty("expiration_date")]
+        [JsonPropertyName("expiration_date")]
         public string ExpirationDate { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>发放原因</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("reason")]
+        [JsonPropertyName("reason")]
         public LangText[] Reasons { get; set; } = Array.Empty<LangText>();
 
         /// <summary>
@@ -102,7 +101,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -110,7 +109,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：test</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -119,7 +118,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_update_by_external")]
+        [JsonPropertyName("is_update_by_external")]
         public bool IsUpdateByExternal { get; set; }
 
         /// <summary>
@@ -135,7 +134,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         /// <item>6：加班转入</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("accrual_source")]
+        [JsonPropertyName("accrual_source")]
         public int AccrualSource { get; set; }
 
         /// <summary>
@@ -143,7 +142,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
-        [JsonProperty("leave_sub_type_id")]
+        [JsonPropertyName("leave_sub_type_id")]
         public string LeaveSubTypeId { get; set; } = string.Empty;
     }
 }

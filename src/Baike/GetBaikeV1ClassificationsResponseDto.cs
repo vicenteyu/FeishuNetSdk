@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Baike;
 /// <summary>
 /// 获取词典分类 响应体
@@ -14,7 +13,7 @@ public record GetBaikeV1ClassificationsResponseDto
     /// <para>分类</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Classification[]? Items { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record GetBaikeV1ClassificationsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：7049606926****37761</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -35,7 +34,7 @@ public record GetBaikeV1ClassificationsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：行业术语</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -43,7 +42,7 @@ public record GetBaikeV1ClassificationsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7049606926****37777</para>
         /// </summary>
-        [JsonProperty("father_id")]
+        [JsonPropertyName("father_id")]
         public string? FatherId { get; set; }
     }
 
@@ -52,6 +51,6 @@ public record GetBaikeV1ClassificationsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：408ecac018b2e3518db37275e812****bb8ad3e755fc886f322ac6c430ba</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

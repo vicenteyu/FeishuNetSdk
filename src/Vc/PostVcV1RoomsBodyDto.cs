@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 创建会议室 请求体
@@ -14,7 +13,7 @@ public record PostVcV1RoomsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：测试会议室</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostVcV1RoomsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：10</para>
     /// </summary>
-    [JsonProperty("capacity")]
+    [JsonPropertyName("capacity")]
     public int Capacity { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostVcV1RoomsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：测试会议室描述</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostVcV1RoomsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1234</para>
     /// </summary>
-    [JsonProperty("custom_room_id")]
+    [JsonPropertyName("custom_room_id")]
     public string? CustomRoomId { get; set; }
 
     /// <summary>
@@ -46,14 +45,14 @@ public record PostVcV1RoomsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293</para>
     /// </summary>
-    [JsonProperty("room_level_id")]
+    [JsonPropertyName("room_level_id")]
     public string RoomLevelId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>会议室状态</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("room_status")]
+    [JsonPropertyName("room_status")]
     public PostVcV1RoomsBodyDtoRoomStatus? RoomStatus { get; set; }
 
     /// <summary>
@@ -66,7 +65,7 @@ public record PostVcV1RoomsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public bool Status { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record PostVcV1RoomsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("schedule_status")]
+        [JsonPropertyName("schedule_status")]
         public bool? ScheduleStatus { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record PostVcV1RoomsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1652356050</para>
         /// </summary>
-        [JsonProperty("disable_start_time")]
+        [JsonPropertyName("disable_start_time")]
         public string? DisableStartTime { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record PostVcV1RoomsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1652442450</para>
         /// </summary>
-        [JsonProperty("disable_end_time")]
+        [JsonPropertyName("disable_end_time")]
         public string? DisableEndTime { get; set; }
 
         /// <summary>
@@ -98,7 +97,7 @@ public record PostVcV1RoomsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：测试占用</para>
         /// </summary>
-        [JsonProperty("disable_reason")]
+        [JsonPropertyName("disable_reason")]
         public string? DisableReason { get; set; }
 
         /// <summary>
@@ -106,7 +105,7 @@ public record PostVcV1RoomsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：["ou_3ec3f6a28a0d08c45d895276e8e5e19b"]</para>
         /// </summary>
-        [JsonProperty("contact_ids")]
+        [JsonPropertyName("contact_ids")]
         public string[]? ContactIds { get; set; }
 
         /// <summary>
@@ -114,7 +113,7 @@ public record PostVcV1RoomsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("disable_notice")]
+        [JsonPropertyName("disable_notice")]
         public bool? DisableNotice { get; set; }
 
         /// <summary>
@@ -122,7 +121,7 @@ public record PostVcV1RoomsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("resume_notice")]
+        [JsonPropertyName("resume_notice")]
         public bool? ResumeNotice { get; set; }
     }
 
@@ -130,7 +129,7 @@ public record PostVcV1RoomsBodyDto
     /// <para>设施信息列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("device")]
+    [JsonPropertyName("device")]
     public Device[]? Devices { get; set; }
 
     /// <summary>
@@ -143,7 +142,7 @@ public record PostVcV1RoomsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：电话</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
     }
 }

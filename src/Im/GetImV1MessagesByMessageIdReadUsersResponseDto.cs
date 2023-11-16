@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 查询消息已读信息 响应体
@@ -13,7 +12,7 @@ public record GetImV1MessagesByMessageIdReadUsersResponseDto
     /// <para>-</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public ReadUser[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetImV1MessagesByMessageIdReadUsersResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：open_id</para>
         /// </summary>
-        [JsonProperty("user_id_type")]
+        [JsonPropertyName("user_id_type")]
         public string UserIdType { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetImV1MessagesByMessageIdReadUsersResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：ou_9b851f7b51a9d58d109982337c46f3de</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetImV1MessagesByMessageIdReadUsersResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1609484183000</para>
         /// </summary>
-        [JsonProperty("timestamp")]
+        [JsonPropertyName("timestamp")]
         public string Timestamp { get; set; } = string.Empty;
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetImV1MessagesByMessageIdReadUsersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：736588c9260f175e</para>
         /// </summary>
-        [JsonProperty("tenant_key")]
+        [JsonPropertyName("tenant_key")]
         public string? TenantKey { get; set; }
     }
 
@@ -59,7 +58,7 @@ public record GetImV1MessagesByMessageIdReadUsersResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool HasMore { get; set; }
 
     /// <summary>
@@ -67,6 +66,6 @@ public record GetImV1MessagesByMessageIdReadUsersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

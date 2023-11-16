@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询统计数据 响应体
@@ -13,7 +12,7 @@ public record PostAttendanceV1UserStatsDatasQueryResponseDto
     /// <para>用户统计数据（限制1000条，超过1000条会截断）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_datas")]
+    [JsonPropertyName("user_datas")]
     public UserStatsData[]? UserDatas { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostAttendanceV1UserStatsDatasQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：小李</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,14 +33,14 @@ public record PostAttendanceV1UserStatsDatasQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：ec8ddg56</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>用户的统计数据</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("datas")]
+        [JsonPropertyName("datas")]
         public UserStatsDataCell[]? Datas { get; set; }
 
         /// <summary>
@@ -54,7 +53,7 @@ public record PostAttendanceV1UserStatsDatasQueryResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：50102</para>
             /// </summary>
-            [JsonProperty("code")]
+            [JsonPropertyName("code")]
             public string Code { get; set; } = string.Empty;
 
             /// <summary>
@@ -62,14 +61,14 @@ public record PostAttendanceV1UserStatsDatasQueryResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：无需打卡(-),无需打卡(-)</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>数据属性</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("features")]
+            [JsonPropertyName("features")]
             public UserStatsDataFeature[]? Features { get; set; }
 
             /// <summary>
@@ -82,7 +81,7 @@ public record PostAttendanceV1UserStatsDatasQueryResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：Abnormal</para>
                 /// </summary>
-                [JsonProperty("key")]
+                [JsonPropertyName("key")]
                 public string Key { get; set; } = string.Empty;
 
                 /// <summary>
@@ -91,7 +90,7 @@ public record PostAttendanceV1UserStatsDatasQueryResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：false</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
 
@@ -100,7 +99,7 @@ public record PostAttendanceV1UserStatsDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：姓名</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public string? Title { get; set; }
         }
     }
@@ -109,6 +108,6 @@ public record PostAttendanceV1UserStatsDatasQueryResponseDto
     /// <para>无权限获取的用户列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("invalid_user_list")]
+    [JsonPropertyName("invalid_user_list")]
     public string[]? InvalidUserList { get; set; }
 }

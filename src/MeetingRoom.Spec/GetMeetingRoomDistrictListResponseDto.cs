@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 获取城市列表 响应体
@@ -13,7 +12,7 @@ public record GetMeetingRoomDistrictListResponseDto
     /// <para>城市列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("districts")]
+    [JsonPropertyName("districts")]
     public District[]? Districts { get; set; }
 
     /// <summary></summary>
@@ -23,14 +22,14 @@ public record GetMeetingRoomDistrictListResponseDto
         /// <para>城市ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("district_id")]
+        [JsonPropertyName("district_id")]
         public string? DistrictId { get; set; }
 
         /// <summary>
         /// <para>城市名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
     }
 }

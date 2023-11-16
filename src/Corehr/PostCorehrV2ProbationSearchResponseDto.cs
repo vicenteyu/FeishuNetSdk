@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 搜索试用期信息 响应体
@@ -13,7 +12,7 @@ public record PostCorehrV2ProbationSearchResponseDto
     /// <para>查询的试用期信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public ProbationInfo[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
-        [JsonProperty("employment_id")]
+        [JsonPropertyName("employment_id")]
         public string? EmploymentId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064132</para>
         /// </summary>
-        [JsonProperty("probation_id")]
+        [JsonPropertyName("probation_id")]
         public string? ProbationId { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022-05-20</para>
         /// </summary>
-        [JsonProperty("probation_start_date")]
+        [JsonPropertyName("probation_start_date")]
         public string? ProbationStartDate { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022-05-28</para>
         /// </summary>
-        [JsonProperty("probation_expected_end_date")]
+        [JsonPropertyName("probation_expected_end_date")]
         public string? ProbationExpectedEndDate { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022-06-28</para>
         /// </summary>
-        [JsonProperty("actual_probation_end_date")]
+        [JsonPropertyName("actual_probation_end_date")]
         public string? ActualProbationEndDate { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022-07-28</para>
         /// </summary>
-        [JsonProperty("initiating_time")]
+        [JsonPropertyName("initiating_time")]
         public string? InitiatingTime { get; set; }
 
         /// <summary>
@@ -77,7 +76,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：hr_submission</para>
         /// </summary>
-        [JsonProperty("submission_type")]
+        [JsonPropertyName("submission_type")]
         public Enum? SubmissionType { get; set; }
 
         /// <summary>
@@ -93,14 +92,14 @@ public record PostCorehrV2ProbationSearchResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>枚举多语展示</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("display")]
+            [JsonPropertyName("display")]
             public I18n[]? Displies { get; set; }
 
             /// <summary>
@@ -113,7 +112,7 @@ public record PostCorehrV2ProbationSearchResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
-                [JsonProperty("lang")]
+                [JsonPropertyName("lang")]
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
@@ -121,7 +120,7 @@ public record PostCorehrV2ProbationSearchResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：张三</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
         }
@@ -131,7 +130,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142061135</para>
         /// </summary>
-        [JsonProperty("initiator_id")]
+        [JsonPropertyName("initiator_id")]
         public string? InitiatorId { get; set; }
 
         /// <summary>
@@ -145,7 +144,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：converted</para>
         /// </summary>
-        [JsonProperty("probation_status")]
+        [JsonPropertyName("probation_status")]
         public Enum? ProbationStatus { get; set; }
 
         /// <summary>
@@ -153,7 +152,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：符合预期</para>
         /// </summary>
-        [JsonProperty("self_review")]
+        [JsonPropertyName("self_review")]
         public string? SelfReview { get; set; }
 
         /// <summary>
@@ -161,7 +160,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：高潜</para>
         /// </summary>
-        [JsonProperty("notes")]
+        [JsonPropertyName("notes")]
         public string? Notes { get; set; }
 
         /// <summary>
@@ -169,7 +168,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142164135</para>
         /// </summary>
-        [JsonProperty("process_id")]
+        [JsonPropertyName("process_id")]
         public string? ProcessId { get; set; }
 
         /// <summary>
@@ -177,14 +176,14 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("converted_via_bpm")]
+        [JsonPropertyName("converted_via_bpm")]
         public bool? ConvertedViaBpm { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public CustomFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -197,14 +196,14 @@ public record PostCorehrV2ProbationSearchResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("custom_api_name")]
+            [JsonPropertyName("custom_api_name")]
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>自定义字段名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public CustomName? Name { get; set; }
 
             /// <summary>
@@ -217,7 +216,7 @@ public record PostCorehrV2ProbationSearchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：自定义姓名</para>
                 /// </summary>
-                [JsonProperty("zh_cn")]
+                [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
@@ -225,7 +224,7 @@ public record PostCorehrV2ProbationSearchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：CustomName</para>
                 /// </summary>
-                [JsonProperty("en_us")]
+                [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
             }
 
@@ -234,7 +233,7 @@ public record PostCorehrV2ProbationSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public int? Type { get; set; }
 
             /// <summary>
@@ -242,7 +241,7 @@ public record PostCorehrV2ProbationSearchResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -255,7 +254,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：completed</para>
         /// </summary>
-        [JsonProperty("final_assessment_status")]
+        [JsonPropertyName("final_assessment_status")]
         public Enum? FinalAssessmentStatus { get; set; }
 
         /// <summary>
@@ -265,7 +264,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：approved</para>
         /// </summary>
-        [JsonProperty("final_assessment_result")]
+        [JsonPropertyName("final_assessment_result")]
         public Enum? FinalAssessmentResult { get; set; }
 
         /// <summary>
@@ -273,7 +272,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：99.9</para>
         /// </summary>
-        [JsonProperty("final_assessment_score")]
+        [JsonPropertyName("final_assessment_score")]
         public float? FinalAssessmentScore { get; set; }
 
         /// <summary>
@@ -283,7 +282,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：grade_a</para>
         /// </summary>
-        [JsonProperty("final_assessment_grade")]
+        [JsonPropertyName("final_assessment_grade")]
         public Enum? FinalAssessmentGrade { get; set; }
 
         /// <summary>
@@ -291,7 +290,7 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：超出预期</para>
         /// </summary>
-        [JsonProperty("final_assessment_comment")]
+        [JsonPropertyName("final_assessment_comment")]
         public string? FinalAssessmentComment { get; set; }
 
         /// <summary>
@@ -299,14 +298,14 @@ public record PostCorehrV2ProbationSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://qwe112233.feishuapp.bytedance.net/ae/ui/apps//122265873393330/recordPages/1/records/1767139312?objectId=17661180522543&amp;recordPageId=173330728118312</para>
         /// </summary>
-        [JsonProperty("final_assessment_detail")]
+        [JsonPropertyName("final_assessment_detail")]
         public string? FinalAssessmentDetail { get; set; }
 
         /// <summary>
         /// <para>试用期考核结果列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("assessments")]
+        [JsonPropertyName("assessments")]
         public Assessment[]? Assessments { get; set; }
 
         /// <summary>
@@ -319,7 +318,7 @@ public record PostCorehrV2ProbationSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6893014061142064135</para>
             /// </summary>
-            [JsonProperty("assessment_id")]
+            [JsonPropertyName("assessment_id")]
             public string? AssessmentId { get; set; }
 
             /// <summary>
@@ -330,7 +329,7 @@ public record PostCorehrV2ProbationSearchResponseDto
             /// <para>- no_need：无需考核</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("assessment_status")]
+            [JsonPropertyName("assessment_status")]
             public Enum? AssessmentStatus { get; set; }
 
             /// <summary>
@@ -347,14 +346,14 @@ public record PostCorehrV2ProbationSearchResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：phone_type</para>
                 /// </summary>
-                [JsonProperty("enum_name")]
+                [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
 
                 /// <summary>
                 /// <para>枚举多语展示</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("display")]
+                [JsonPropertyName("display")]
                 public I18n[]? Displies { get; set; }
 
                 /// <summary>
@@ -367,7 +366,7 @@ public record PostCorehrV2ProbationSearchResponseDto
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
-                    [JsonProperty("lang")]
+                    [JsonPropertyName("lang")]
                     public string Lang { get; set; } = string.Empty;
 
                     /// <summary>
@@ -375,7 +374,7 @@ public record PostCorehrV2ProbationSearchResponseDto
                     /// <para>必填：是</para>
                     /// <para>示例值：张三</para>
                     /// </summary>
-                    [JsonProperty("value")]
+                    [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
                 }
             }
@@ -386,7 +385,7 @@ public record PostCorehrV2ProbationSearchResponseDto
             /// <para>- rejected：不通过</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("assessment_result")]
+            [JsonPropertyName("assessment_result")]
             public Enum? AssessmentResult { get; set; }
 
             /// <summary>
@@ -394,7 +393,7 @@ public record PostCorehrV2ProbationSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：99.9</para>
             /// </summary>
-            [JsonProperty("assessment_score")]
+            [JsonPropertyName("assessment_score")]
             public float? AssessmentScore { get; set; }
 
             /// <summary>
@@ -403,7 +402,7 @@ public record PostCorehrV2ProbationSearchResponseDto
             /// <para>- custom_api_name = "final_assessment_grade"</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("assessment_grade")]
+            [JsonPropertyName("assessment_grade")]
             public Enum? AssessmentGrade { get; set; }
 
             /// <summary>
@@ -411,7 +410,7 @@ public record PostCorehrV2ProbationSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：超出预期</para>
             /// </summary>
-            [JsonProperty("assessment_comment")]
+            [JsonPropertyName("assessment_comment")]
             public string? AssessmentComment { get; set; }
 
             /// <summary>
@@ -419,7 +418,7 @@ public record PostCorehrV2ProbationSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://qwe1123433.feishuapp.bytedance.net/ae/ui/apps//122265871113330/recordPages/2/records/17611111112?objectId=17663333322543&amp;recordPageId=171128122312</para>
             /// </summary>
-            [JsonProperty("assessment_detail")]
+            [JsonPropertyName("assessment_detail")]
             public string? AssessmentDetail { get; set; }
 
             /// <summary>
@@ -427,7 +426,7 @@ public record PostCorehrV2ProbationSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_final_asssessment")]
+            [JsonPropertyName("is_final_asssessment")]
             public bool? IsFinalAsssessment { get; set; }
         }
     }
@@ -437,7 +436,7 @@ public record PostCorehrV2ProbationSearchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -445,6 +444,6 @@ public record PostCorehrV2ProbationSearchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

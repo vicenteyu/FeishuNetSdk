@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 识别文件中的火车票 响应体
@@ -13,7 +12,7 @@ public record PostDocumentAiV1TrainInvoiceRecognizeResponseDto
     /// <para>火车票信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("train_invoices")]
+    [JsonPropertyName("train_invoices")]
     public TrainInvoice[]? TrainInvoices { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostDocumentAiV1TrainInvoiceRecognizeResponseDto
         /// <para>识别出的实体列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("entities")]
+        [JsonPropertyName("entities")]
         public TrainEntity[]? Entities { get; set; }
 
         /// <summary>
@@ -48,7 +47,7 @@ public record PostDocumentAiV1TrainInvoiceRecognizeResponseDto
             /// <item>time：出发时间</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -56,7 +55,7 @@ public record PostDocumentAiV1TrainInvoiceRecognizeResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：长沙南</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
     }

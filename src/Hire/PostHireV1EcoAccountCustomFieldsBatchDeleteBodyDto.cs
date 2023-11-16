@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 删除账号自定义字段 请求体
@@ -18,7 +17,7 @@ public record PostHireV1EcoAccountCustomFieldsBatchDeleteBodyDto
     /// <item>2：笔试</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("scope")]
+    [JsonPropertyName("scope")]
     public int? Scope { get; set; }
 
     /// <summary>
@@ -26,6 +25,6 @@ public record PostHireV1EcoAccountCustomFieldsBatchDeleteBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：123</para>
     /// </summary>
-    [JsonProperty("custom_field_key_list")]
+    [JsonPropertyName("custom_field_key_list")]
     public string[]? CustomFieldKeyList { get; set; }
 }

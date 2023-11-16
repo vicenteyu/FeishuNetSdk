@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Acs.Spec;
 /// <summary>
 /// 获取门禁设备列表 响应体
@@ -13,7 +12,7 @@ public record GetAcsV1DevicesResponseDto
     /// <para>-</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Device[]? Items { get; set; }
 
     /// <summary></summary>
@@ -23,21 +22,21 @@ public record GetAcsV1DevicesResponseDto
         /// <para>门禁设备 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("device_id")]
+        [JsonPropertyName("device_id")]
         public string? DeviceId { get; set; }
 
         /// <summary>
         /// <para>设备名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("device_name")]
+        [JsonPropertyName("device_name")]
         public string? DeviceName { get; set; }
 
         /// <summary>
         /// <para>设备 SN 码</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("device_sn")]
+        [JsonPropertyName("device_sn")]
         public string? DeviceSn { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取文档统计信息 响应体
@@ -14,7 +13,7 @@ public record GetDriveV1FilesByFileTokenStatisticsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：doccnfYZzTlvXqZIGTdAHKabcef</para>
     /// </summary>
-    [JsonProperty("file_token")]
+    [JsonPropertyName("file_token")]
     public string? FileToken { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record GetDriveV1FilesByFileTokenStatisticsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：doc</para>
     /// </summary>
-    [JsonProperty("file_type")]
+    [JsonPropertyName("file_type")]
     public string? FileType { get; set; }
 
     /// <summary>
     /// <para>文档统计信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("statistics")]
+    [JsonPropertyName("statistics")]
     public FileStatistics? Statistics { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record GetDriveV1FilesByFileTokenStatisticsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// </summary>
-        [JsonProperty("uv")]
+        [JsonPropertyName("uv")]
         public int? Uv { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetDriveV1FilesByFileTokenStatisticsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：15</para>
         /// </summary>
-        [JsonProperty("pv")]
+        [JsonPropertyName("pv")]
         public int? Pv { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetDriveV1FilesByFileTokenStatisticsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("like_count")]
+        [JsonPropertyName("like_count")]
         public int? LikeCount { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetDriveV1FilesByFileTokenStatisticsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1627367349</para>
         /// </summary>
-        [JsonProperty("timestamp")]
+        [JsonPropertyName("timestamp")]
         public int? Timestamp { get; set; }
     }
 }

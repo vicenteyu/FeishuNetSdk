@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 获取应用通讯录权限范围配置 响应体
@@ -13,7 +12,7 @@ public record GetApplicationV6ApplicationsByAppIdContactsRangeConfigurationRespo
     /// <para>获取线上已生效的通讯录权限范围配置</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("contacts_range")]
+    [JsonPropertyName("contacts_range")]
     public ApplicationAppContactsRange? ContactsRange { get; set; }
 
     /// <summary>
@@ -31,14 +30,14 @@ public record GetApplicationV6ApplicationsByAppIdContactsRangeConfigurationRespo
         /// <item>all：全部成员</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("contacts_scope_type")]
+        [JsonPropertyName("contacts_scope_type")]
         public string? ContactsScopeType { get; set; }
 
         /// <summary>
         /// <para>通讯录权限范围的可用名单</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("visible_list")]
+        [JsonPropertyName("visible_list")]
         public AppVisibleList? VisibleList { get; set; }
 
         /// <summary>
@@ -50,21 +49,21 @@ public record GetApplicationV6ApplicationsByAppIdContactsRangeConfigurationRespo
             /// <para>通讯录权限范围的可用成员 id 列表，按照user_id_type返回</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("open_ids")]
+            [JsonPropertyName("open_ids")]
             public string[]? OpenIds { get; set; }
 
             /// <summary>
             /// <para>通讯录权限范围的可用部门的 id 列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("department_ids")]
+            [JsonPropertyName("department_ids")]
             public string[]? DepartmentIds { get; set; }
 
             /// <summary>
             /// <para>通讯录权限范围的可用用户组 id 列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("group_ids")]
+            [JsonPropertyName("group_ids")]
             public string[]? GroupIds { get; set; }
         }
     }
@@ -74,7 +73,7 @@ public record GetApplicationV6ApplicationsByAppIdContactsRangeConfigurationRespo
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -82,6 +81,6 @@ public record GetApplicationV6ApplicationsByAppIdContactsRangeConfigurationRespo
     /// <para>必填：否</para>
     /// <para>示例值：new-e3c5a0627cdf0c2e057da7257b90376a</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

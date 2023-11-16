@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询统计表头 响应体
@@ -13,7 +12,7 @@ public record PostAttendanceV1UserStatsFieldsQueryResponseDto
     /// <para>统计数据表头</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_stats_field")]
+    [JsonPropertyName("user_stats_field")]
     public PostAttendanceV1UserStatsFieldsQueryResponseDtoUserStatsField? UserStatsField { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostAttendanceV1UserStatsFieldsQueryResponseDto
         /// <item>month：月度统计</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("stats_type")]
+        [JsonPropertyName("stats_type")]
         public string StatsType { get; set; } = string.Empty;
 
         /// <summary>
@@ -38,14 +37,14 @@ public record PostAttendanceV1UserStatsFieldsQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值："ec8ddg56"</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>字段列表</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("fields")]
+        [JsonPropertyName("fields")]
         public Field[] Fields { get; set; } = Array.Empty<Field>();
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostAttendanceV1UserStatsFieldsQueryResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：50121</para>
             /// </summary>
-            [JsonProperty("code")]
+            [JsonPropertyName("code")]
             public string Code { get; set; } = string.Empty;
 
             /// <summary>
@@ -66,14 +65,14 @@ public record PostAttendanceV1UserStatsFieldsQueryResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：工号</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public string Title { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>子字段列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("child_fields")]
+            [JsonPropertyName("child_fields")]
             public ChildField[]? ChildFields { get; set; }
 
             /// <summary>
@@ -86,7 +85,7 @@ public record PostAttendanceV1UserStatsFieldsQueryResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：50121</para>
                 /// </summary>
-                [JsonProperty("code")]
+                [JsonPropertyName("code")]
                 public string Code { get; set; } = string.Empty;
 
                 /// <summary>
@@ -94,7 +93,7 @@ public record PostAttendanceV1UserStatsFieldsQueryResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：工号</para>
                 /// </summary>
-                [JsonProperty("title")]
+                [JsonPropertyName("title")]
                 public string Title { get; set; } = string.Empty;
 
                 /// <summary>
@@ -102,7 +101,7 @@ public record PostAttendanceV1UserStatsFieldsQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值："Minute"</para>
                 /// </summary>
-                [JsonProperty("time_unit")]
+                [JsonPropertyName("time_unit")]
                 public string? TimeUnit { get; set; }
             }
         }

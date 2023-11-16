@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 上传文件 响应体
@@ -14,6 +13,6 @@ public record PostCorehrV1PersonsUploadResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：100</para>
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string? Id { get; set; }
 }

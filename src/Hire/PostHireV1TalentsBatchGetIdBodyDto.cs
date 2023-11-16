@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 通过手机号或邮箱获取人才 ID 请求体
@@ -14,7 +13,7 @@ public record PostHireV1TalentsBatchGetIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：86</para>
     /// </summary>
-    [JsonProperty("mobile_code")]
+    [JsonPropertyName("mobile_code")]
     public string? MobileCode { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostHireV1TalentsBatchGetIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：182900291190</para>
     /// </summary>
-    [JsonProperty("mobile_number_list")]
+    [JsonPropertyName("mobile_number_list")]
     public string[]? MobileNumberList { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostHireV1TalentsBatchGetIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：foo@bytedance.com</para>
     /// </summary>
-    [JsonProperty("email_list")]
+    [JsonPropertyName("email_list")]
     public string[]? EmailList { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostHireV1TalentsBatchGetIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("identification_type")]
+    [JsonPropertyName("identification_type")]
     public int? IdentificationType { get; set; }
 
     /// <summary>
@@ -46,6 +45,6 @@ public record PostHireV1TalentsBatchGetIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：130xxxxxxx</para>
     /// </summary>
-    [JsonProperty("identification_number_list")]
+    [JsonPropertyName("identification_number_list")]
     public string[]? IdentificationNumberList { get; set; }
 }

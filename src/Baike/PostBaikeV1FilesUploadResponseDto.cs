@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Baike;
 /// <summary>
 /// 上传图片 响应体
@@ -14,6 +13,6 @@ public record PostBaikeV1FilesUploadResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：boxbcEcmKiD****vgqWTpvdc7jc</para>
     /// </summary>
-    [JsonProperty("file_token")]
+    [JsonPropertyName("file_token")]
     public string? FileToken { get; set; }
 }

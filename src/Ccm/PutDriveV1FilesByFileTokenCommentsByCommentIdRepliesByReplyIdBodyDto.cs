@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 更新回复 请求体
@@ -13,7 +12,7 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
     /// <para>回复内容</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public ReplyContent Content { get; set; } = new();
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
         /// <para>回复的内容</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("elements")]
+        [JsonPropertyName("elements")]
         public ReplyElement[] Elements { get; set; } = Array.Empty<ReplyElement>();
 
         /// <summary>
@@ -43,14 +42,14 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
             /// <item>person：at 联系人</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string Type { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>文本内容</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("text_run")]
+            [JsonPropertyName("text_run")]
             public ReplyElementTextRun? TextRun { get; set; }
 
             /// <summary>
@@ -63,7 +62,7 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
                 /// <para>必填：是</para>
                 /// <para>示例值：comment text</para>
                 /// </summary>
-                [JsonProperty("text")]
+                [JsonPropertyName("text")]
                 public string Text { get; set; } = string.Empty;
             }
 
@@ -71,7 +70,7 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
             /// <para>文本内容</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("docs_link")]
+            [JsonPropertyName("docs_link")]
             public ReplyElementDocsLink? DocsLink { get; set; }
 
             /// <summary>
@@ -84,7 +83,7 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
                 /// <para>必填：是</para>
                 /// <para>示例值：https://example.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef</para>
                 /// </summary>
-                [JsonProperty("url")]
+                [JsonPropertyName("url")]
                 public string Url { get; set; } = string.Empty;
             }
 
@@ -92,7 +91,7 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
             /// <para>文本内容</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("person")]
+            [JsonPropertyName("person")]
             public ReplyElementPerson? Person { get; set; }
 
             /// <summary>
@@ -105,7 +104,7 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
                 /// <para>必填：是</para>
                 /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef</para>
                 /// </summary>
-                [JsonProperty("user_id")]
+                [JsonPropertyName("user_id")]
                 public string UserId { get; set; } = string.Empty;
             }
         }

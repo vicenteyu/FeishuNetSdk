@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 查询会议室日程主题和会议详情 响应体
@@ -13,7 +12,7 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
     /// <para>成功查询到的日程信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("eventInfos")]
+    [JsonPropertyName("eventInfos")]
     public EventInfo[]? EventInfos { get; set; }
 
     /// <summary></summary>
@@ -23,28 +22,28 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
         /// <para>日程的唯一id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("uid")]
+        [JsonPropertyName("uid")]
         public string? Uid { get; set; }
 
         /// <summary>
         /// <para>日程实例原始时间。非重复性日程和重复性日程，此处为0；重复性日程的例外，为对应的original_time</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("original_time")]
+        [JsonPropertyName("original_time")]
         public int? OriginalTime { get; set; }
 
         /// <summary>
         /// <para>日程主题</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("summary")]
+        [JsonPropertyName("summary")]
         public string? Summary { get; set; }
 
         /// <summary>
         /// <para>视频会议信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("vchat")]
+        [JsonPropertyName("vchat")]
         public VchatSuffix? Vchat { get; set; }
 
         /// <summary></summary>
@@ -60,7 +59,7 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
             /// <para>- `unknown`：未知类型，做兼容使用，飞书客户端使用，API不支持创建，只读。</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("vc_type")]
+            [JsonPropertyName("vc_type")]
             public string? VcType { get; set; }
 
             /// <summary>
@@ -71,21 +70,21 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
             /// <para>- `default`：默认icon</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("icon_type")]
+            [JsonPropertyName("icon_type")]
             public string? IconType { get; set; }
 
             /// <summary>
             /// <para>第三方视频会议文案，可以为空，为空展示默认文案</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("description")]
+            [JsonPropertyName("description")]
             public string? Description { get; set; }
 
             /// <summary>
             /// <para>视频会议URL</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("meeting_url")]
+            [JsonPropertyName("meeting_url")]
             public string? MeetingUrl { get; set; }
         }
     }
@@ -94,7 +93,7 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
     /// <para>没有查询到的日程</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("errorEventUids")]
+    [JsonPropertyName("errorEventUids")]
     public ErrorEventUid[]? ErrorEventUids { get; set; }
 
     /// <summary></summary>
@@ -104,21 +103,21 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
         /// <para>日程的唯一id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("uid")]
+        [JsonPropertyName("uid")]
         public string? Uid { get; set; }
 
         /// <summary>
         /// <para>日程实例原始时间。非重复性日程和重复性日程，此处为0；重复性日程的例外，为对应的original_time</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("original_time")]
+        [JsonPropertyName("original_time")]
         public int? OriginalTime { get; set; }
 
         /// <summary>
         /// <para>错误信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("error_msg")]
+        [JsonPropertyName("error_msg")]
         public string? ErrorMsg { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 创建待入职人员 请求体
@@ -13,7 +12,7 @@ public record PostCorehrV2PreHiresBodyDto
     /// <para>个人信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("basic_info")]
+    [JsonPropertyName("basic_info")]
     public PostCorehrV2PreHiresBodyDtoBasicInfo BasicInfo { get; set; } = new();
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>描述</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public PostCorehrV2PreHiresBodyDtoBasicInfoName? Name { get; set; }
 
         /// <summary>
@@ -38,7 +37,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：李一一</para>
             /// </summary>
-            [JsonProperty("full_name")]
+            [JsonPropertyName("full_name")]
             public string? FullName { get; set; }
 
             /// <summary>
@@ -46,7 +45,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：一</para>
             /// </summary>
-            [JsonProperty("first_name")]
+            [JsonPropertyName("first_name")]
             public string? FirstName { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：一</para>
             /// </summary>
-            [JsonProperty("middle_name")]
+            [JsonPropertyName("middle_name")]
             public string? MiddleName { get; set; }
 
             /// <summary>
@@ -62,7 +61,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：李</para>
             /// </summary>
-            [JsonProperty("name_primary")]
+            [JsonPropertyName("name_primary")]
             public string? NamePrimary { get; set; }
 
             /// <summary>
@@ -70,7 +69,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：一</para>
             /// </summary>
-            [JsonProperty("local_first_name")]
+            [JsonPropertyName("local_first_name")]
             public string? LocalFirstName { get; set; }
 
             /// <summary>
@@ -78,7 +77,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：一</para>
             /// </summary>
-            [JsonProperty("local_middle_name")]
+            [JsonPropertyName("local_middle_name")]
             public string? LocalMiddleName { get; set; }
 
             /// <summary>
@@ -86,7 +85,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：李</para>
             /// </summary>
-            [JsonProperty("local_primary")]
+            [JsonPropertyName("local_primary")]
             public string? LocalPrimary { get; set; }
         }
 
@@ -95,7 +94,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：31123127</para>
         /// </summary>
-        [JsonProperty("phone_number")]
+        [JsonPropertyName("phone_number")]
         public string? PhoneNumber { get; set; }
 
         /// <summary>
@@ -103,7 +102,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：86_china</para>
         /// </summary>
-        [JsonProperty("international_area_code")]
+        [JsonPropertyName("international_area_code")]
         public string? InternationalAreaCode { get; set; }
 
         /// <summary>
@@ -111,7 +110,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：xx@xx.com</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string? Email { get; set; }
 
         /// <summary>
@@ -119,7 +118,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2011-99-99</para>
         /// </summary>
-        [JsonProperty("date_of_birth")]
+        [JsonPropertyName("date_of_birth")]
         public string? DateOfBirth { get; set; }
 
         /// <summary>
@@ -127,7 +126,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：31123127</para>
         /// </summary>
-        [JsonProperty("personal_id_number")]
+        [JsonPropertyName("personal_id_number")]
         public string? PersonalIdNumber { get; set; }
 
         /// <summary>
@@ -135,7 +134,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2100-09-09</para>
         /// </summary>
-        [JsonProperty("date_entered_workforce")]
+        [JsonPropertyName("date_entered_workforce")]
         public string? DateEnteredWorkforce { get; set; }
 
         /// <summary>
@@ -143,7 +142,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：male</para>
         /// </summary>
-        [JsonProperty("gender_id")]
+        [JsonPropertyName("gender_id")]
         public string? GenderId { get; set; }
 
         /// <summary>
@@ -151,7 +150,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6862995757234914824</para>
         /// </summary>
-        [JsonProperty("nationality_id")]
+        [JsonPropertyName("nationality_id")]
         public string? NationalityId { get; set; }
 
         /// <summary>
@@ -159,7 +158,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：homeaddr</para>
         /// </summary>
-        [JsonProperty("home_address")]
+        [JsonPropertyName("home_address")]
         public string? HomeAddress { get; set; }
 
         /// <summary>
@@ -167,7 +166,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6862995757234914824</para>
         /// </summary>
-        [JsonProperty("worker_id")]
+        [JsonPropertyName("worker_id")]
         public string? WorkerId { get; set; }
     }
 
@@ -175,7 +174,7 @@ public record PostCorehrV2PreHiresBodyDto
     /// <para>职位信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("offer_info")]
+    [JsonPropertyName("offer_info")]
     public PostCorehrV2PreHiresBodyDtoOfferInfo OfferInfo { get; set; } = new();
 
     /// <summary>
@@ -188,7 +187,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：7032210902531327521</para>
         /// </summary>
-        [JsonProperty("offer_id")]
+        [JsonPropertyName("offer_id")]
         public string? OfferId { get; set; }
 
         /// <summary>
@@ -196,7 +195,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：7032210902531327521</para>
         /// </summary>
-        [JsonProperty("offer_hr_id")]
+        [JsonPropertyName("offer_hr_id")]
         public string? OfferHrId { get; set; }
 
         /// <summary>
@@ -204,7 +203,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：7147562782945478177</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
@@ -212,7 +211,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：7032210902531327521</para>
         /// </summary>
-        [JsonProperty("direct_leader_id")]
+        [JsonPropertyName("direct_leader_id")]
         public string? DirectLeaderId { get; set; }
 
         /// <summary>
@@ -220,7 +219,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6977976735715378724</para>
         /// </summary>
-        [JsonProperty("job_id")]
+        [JsonPropertyName("job_id")]
         public string? JobId { get; set; }
 
         /// <summary>
@@ -228,7 +227,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6977972856625939999</para>
         /// </summary>
-        [JsonProperty("job_family_id")]
+        [JsonPropertyName("job_family_id")]
         public string? JobFamilyId { get; set; }
 
         /// <summary>
@@ -236,7 +235,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6977971894960145950</para>
         /// </summary>
-        [JsonProperty("job_level_id")]
+        [JsonPropertyName("job_level_id")]
         public string? JobLevelId { get; set; }
 
         /// <summary>
@@ -244,7 +243,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：java</para>
         /// </summary>
-        [JsonProperty("job_title")]
+        [JsonPropertyName("job_title")]
         public string? JobTitle { get; set; }
 
         /// <summary>
@@ -252,7 +251,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2022-07-29</para>
         /// </summary>
-        [JsonProperty("probation_start_date")]
+        [JsonPropertyName("probation_start_date")]
         public string? ProbationStartDate { get; set; }
 
         /// <summary>
@@ -260,7 +259,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2023-04-07</para>
         /// </summary>
-        [JsonProperty("probation_end_date")]
+        [JsonPropertyName("probation_end_date")]
         public string? ProbationEndDate { get; set; }
 
         /// <summary>
@@ -268,7 +267,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2022-10-08</para>
         /// </summary>
-        [JsonProperty("contract_start_date")]
+        [JsonPropertyName("contract_start_date")]
         public string? ContractStartDate { get; set; }
 
         /// <summary>
@@ -276,7 +275,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2025-10-07</para>
         /// </summary>
-        [JsonProperty("contract_end_date")]
+        [JsonPropertyName("contract_end_date")]
         public string? ContractEndDate { get; set; }
 
         /// <summary>
@@ -284,7 +283,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2022-10-08</para>
         /// </summary>
-        [JsonProperty("onboarding_date")]
+        [JsonPropertyName("onboarding_date")]
         public string? OnboardingDate { get; set; }
 
         /// <summary>
@@ -292,7 +291,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6977976687350924832</para>
         /// </summary>
-        [JsonProperty("onboarding_location_id")]
+        [JsonPropertyName("onboarding_location_id")]
         public string? OnboardingLocationId { get; set; }
 
         /// <summary>
@@ -300,7 +299,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6977976687350924832</para>
         /// </summary>
-        [JsonProperty("office_location_id")]
+        [JsonPropertyName("office_location_id")]
         public string? OfficeLocationId { get; set; }
 
         /// <summary>
@@ -310,7 +309,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：experienced_professionals</para>
         /// </summary>
-        [JsonProperty("recruitment_type_id")]
+        [JsonPropertyName("recruitment_type_id")]
         public string? RecruitmentTypeId { get; set; }
 
         /// <summary>
@@ -318,7 +317,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6</para>
         /// </summary>
-        [JsonProperty("probation_period")]
+        [JsonPropertyName("probation_period")]
         public string? ProbationPeriod { get; set; }
 
         /// <summary>
@@ -326,7 +325,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6977973225846343171</para>
         /// </summary>
-        [JsonProperty("employee_type_id")]
+        [JsonPropertyName("employee_type_id")]
         public string? EmployeeTypeId { get; set; }
 
         /// <summary>
@@ -336,7 +335,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6977973225846343171</para>
         /// </summary>
-        [JsonProperty("employment_type_id")]
+        [JsonPropertyName("employment_type_id")]
         public string? EmploymentTypeId { get; set; }
 
         /// <summary>
@@ -344,7 +343,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：joshua@bytedance.com</para>
         /// </summary>
-        [JsonProperty("work_email")]
+        [JsonPropertyName("work_email")]
         public string? WorkEmail { get; set; }
 
         /// <summary>
@@ -354,7 +353,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6977973225846343171</para>
         /// </summary>
-        [JsonProperty("duration_type_id")]
+        [JsonPropertyName("duration_type_id")]
         public string? DurationTypeId { get; set; }
 
         /// <summary>
@@ -364,7 +363,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6738317738688661772</para>
         /// </summary>
-        [JsonProperty("signing_type_id")]
+        [JsonPropertyName("signing_type_id")]
         public string? SigningTypeId { get; set; }
 
         /// <summary>
@@ -374,7 +373,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("entry_mode")]
+        [JsonPropertyName("entry_mode")]
         public string? EntryMode { get; set; }
 
         /// <summary>
@@ -382,7 +381,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：xxx</para>
         /// </summary>
-        [JsonProperty("social_security_city_id")]
+        [JsonPropertyName("social_security_city_id")]
         public string? SocialSecurityCityId { get; set; }
 
         /// <summary>
@@ -392,7 +391,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6738317738688661772</para>
         /// </summary>
-        [JsonProperty("contract_type")]
+        [JsonPropertyName("contract_type")]
         public string? ContractType { get; set; }
 
         /// <summary>
@@ -400,14 +399,14 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6738317738688661772</para>
         /// </summary>
-        [JsonProperty("company")]
+        [JsonPropertyName("company")]
         public string? Company { get; set; }
 
         /// <summary>
         /// <para>成本中心分摊信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("cost_center_rate")]
+        [JsonPropertyName("cost_center_rate")]
         public JobDataCostCenter[]? CostCenterRates { get; set; }
 
         /// <summary>
@@ -420,7 +419,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：6950635856373745165</para>
             /// </summary>
-            [JsonProperty("cost_center_id")]
+            [JsonPropertyName("cost_center_id")]
             public string? CostCenterId { get; set; }
 
             /// <summary>
@@ -428,7 +427,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
-            [JsonProperty("rate")]
+            [JsonPropertyName("rate")]
             public int? Rate { get; set; }
         }
 
@@ -436,7 +435,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -449,7 +448,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("field_name")]
+            [JsonPropertyName("field_name")]
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
@@ -457,7 +456,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：[\"Sandy\"]</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }
@@ -466,7 +465,7 @@ public record PostCorehrV2PreHiresBodyDto
     /// <para>教育经历</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("education_info")]
+    [JsonPropertyName("education_info")]
     public EducationInfo[]? EducationInfos { get; set; }
 
     /// <summary>
@@ -479,7 +478,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：长安大学</para>
         /// </summary>
-        [JsonProperty("school_name")]
+        [JsonPropertyName("school_name")]
         public string? SchoolName { get; set; }
 
         /// <summary>
@@ -487,7 +486,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：phd</para>
         /// </summary>
-        [JsonProperty("education")]
+        [JsonPropertyName("education")]
         public string? Education { get; set; }
 
         /// <summary>
@@ -495,7 +494,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2017-04-01</para>
         /// </summary>
-        [JsonProperty("start_time")]
+        [JsonPropertyName("start_time")]
         public string? StartTime { get; set; }
 
         /// <summary>
@@ -503,7 +502,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2018-04-01</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string? EndTime { get; set; }
 
         /// <summary>
@@ -511,7 +510,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：医学影像技术</para>
         /// </summary>
-        [JsonProperty("field_of_study")]
+        [JsonPropertyName("field_of_study")]
         public string? FieldOfStudy { get; set; }
     }
 
@@ -519,7 +518,7 @@ public record PostCorehrV2PreHiresBodyDto
     /// <para>工作经历</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("work_experience")]
+    [JsonPropertyName("work_experience")]
     public WorkExperience[]? WorkExperiences { get; set; }
 
     /// <summary>
@@ -532,7 +531,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：猎豹</para>
         /// </summary>
-        [JsonProperty("company_name")]
+        [JsonPropertyName("company_name")]
         public string? CompanyName { get; set; }
 
         /// <summary>
@@ -540,7 +539,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2015-02-01</para>
         /// </summary>
-        [JsonProperty("start_time")]
+        [JsonPropertyName("start_time")]
         public string? StartTime { get; set; }
 
         /// <summary>
@@ -548,7 +547,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2017-02-01</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string? EndTime { get; set; }
 
         /// <summary>
@@ -556,7 +555,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：产品经理</para>
         /// </summary>
-        [JsonProperty("job_title")]
+        [JsonPropertyName("job_title")]
         public string? JobTitle { get; set; }
 
         /// <summary>
@@ -564,7 +563,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：app</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
     }
 
@@ -573,6 +572,6 @@ public record PostCorehrV2PreHiresBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：7140946969586010376</para>
     /// </summary>
-    [JsonProperty("ats_application_id")]
+    [JsonPropertyName("ats_application_id")]
     public string? AtsApplicationId { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base.Spec;
 /// <summary>
 /// 更新表单问题 请求体
@@ -14,7 +13,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFi
     /// <para>**示例值**："fldjX7dUj5"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("pre_field_id")]
+    [JsonPropertyName("pre_field_id")]
     public string? PreFieldId { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFi
     /// <para>**示例值**："多行文本"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string? Title { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFi
     /// <para>**示例值**："多行文本描述"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFi
     /// <para>**示例值**：true</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("required")]
+    [JsonPropertyName("required")]
     public bool? Required { get; set; }
 
     /// <summary>
@@ -46,6 +45,6 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFi
     /// <para>**示例值**：true</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("visible")]
+    [JsonPropertyName("visible")]
     public bool? Visible { get; set; }
 }

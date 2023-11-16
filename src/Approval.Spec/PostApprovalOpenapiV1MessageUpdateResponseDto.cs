@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 更新审批 Bot 消息 响应体
@@ -14,6 +13,6 @@ public record PostApprovalOpenapiV1MessageUpdateResponseDto
     /// <para>消息 id ，用于卡片更新、撤回</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("message_id")]
+    [JsonPropertyName("message_id")]
     public string MessageId { get; set; } = string.Empty;
 }

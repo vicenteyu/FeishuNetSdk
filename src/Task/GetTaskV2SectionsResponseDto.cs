@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 获取自定义分组列表 响应体
@@ -13,7 +12,7 @@ public record GetTaskV2SectionsResponseDto
     /// <para>自定义分组的摘要列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public SectionSummary[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetTaskV2SectionsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2</para>
         /// </summary>
-        [JsonProperty("guid")]
+        [JsonPropertyName("guid")]
         public string? Guid { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetTaskV2SectionsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：审核过的任务</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetTaskV2SectionsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_default")]
+        [JsonPropertyName("is_default")]
         public bool? IsDefault { get; set; }
     }
 
@@ -51,7 +50,7 @@ public record GetTaskV2SectionsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：aWQ9NzEwMjMzMjMxMDE=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -59,6 +58,6 @@ public record GetTaskV2SectionsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

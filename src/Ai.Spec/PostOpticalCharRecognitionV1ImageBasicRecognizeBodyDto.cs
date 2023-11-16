@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai.Spec;
 /// <summary>
 /// 识别图片中的文字 请求体
@@ -14,6 +13,6 @@ public record PostOpticalCharRecognitionV1ImageBasicRecognizeBodyDto
     /// <para>**示例值**："base64后的图片二进制数据"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("image")]
+    [JsonPropertyName("image")]
     public string? Image { get; set; }
 }

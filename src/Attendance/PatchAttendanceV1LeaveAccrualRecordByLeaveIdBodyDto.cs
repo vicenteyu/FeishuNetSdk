@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 修改发放记录 请求体
@@ -14,7 +13,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6893014062142064135</para>
     /// </summary>
-    [JsonProperty("leave_granting_record_id")]
+    [JsonPropertyName("leave_granting_record_id")]
     public string LeaveGrantingRecordId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6982509313466189342</para>
     /// </summary>
-    [JsonProperty("employment_id")]
+    [JsonPropertyName("employment_id")]
     public string EmploymentId { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,14 +29,14 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：7111688079785723436</para>
     /// </summary>
-    [JsonProperty("leave_type_id")]
+    [JsonPropertyName("leave_type_id")]
     public string LeaveTypeId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>修改发放记录原因</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("reason")]
+    [JsonPropertyName("reason")]
     public LangText[] Reasons { get; set; } = Array.Empty<LangText>();
 
     /// <summary>
@@ -50,7 +49,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：zh-CN</para>
         /// </summary>
-        [JsonProperty("lang")]
+        [JsonPropertyName("lang")]
         public string Lang { get; set; } = string.Empty;
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：test</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
     }
 
@@ -67,7 +66,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：480</para>
     /// </summary>
-    [JsonProperty("time_offset")]
+    [JsonPropertyName("time_offset")]
     public int? TimeOffset { get; set; }
 
     /// <summary>
@@ -75,7 +74,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
-    [JsonProperty("expiration_date")]
+    [JsonPropertyName("expiration_date")]
     public string? ExpirationDate { get; set; }
 
     /// <summary>
@@ -83,6 +82,6 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("quantity")]
+    [JsonPropertyName("quantity")]
     public string? Quantity { get; set; }
 }

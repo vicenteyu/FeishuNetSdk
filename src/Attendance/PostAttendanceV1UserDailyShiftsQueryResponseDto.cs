@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询排班表 响应体
@@ -13,7 +12,7 @@ public record PostAttendanceV1UserDailyShiftsQueryResponseDto
     /// <para>班表信息列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_daily_shifts")]
+    [JsonPropertyName("user_daily_shifts")]
     public UserDailyShift[]? UserDailyShifts { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostAttendanceV1UserDailyShiftsQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6737202939523236110</para>
         /// </summary>
-        [JsonProperty("group_id")]
+        [JsonPropertyName("group_id")]
         public string GroupId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostAttendanceV1UserDailyShiftsQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6753520403404030215</para>
         /// </summary>
-        [JsonProperty("shift_id")]
+        [JsonPropertyName("shift_id")]
         public string ShiftId { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostAttendanceV1UserDailyShiftsQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：202101</para>
         /// </summary>
-        [JsonProperty("month")]
+        [JsonPropertyName("month")]
         public int Month { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostAttendanceV1UserDailyShiftsQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostAttendanceV1UserDailyShiftsQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：21</para>
         /// </summary>
-        [JsonProperty("day_no")]
+        [JsonPropertyName("day_no")]
         public int DayNo { get; set; }
     }
 }

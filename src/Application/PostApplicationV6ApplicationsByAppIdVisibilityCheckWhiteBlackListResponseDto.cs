@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 查询用户或部门是否在应用的可用或禁用名单 响应体
@@ -13,7 +12,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListR
     /// <para>查询的用户可见性结果列表，如果用户在白名单或付费白名单，且不在黑名单中，则可见该应用</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_visibility_list")]
+    [JsonPropertyName("user_visibility_list")]
     public ApplicationVisibilityUserWhiteBlackInfo[]? UserVisibilityLists { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListR
         /// <para>必填：否</para>
         /// <para>示例值：ou_d317f090b7258ad0372aa53963cda70d</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -37,7 +36,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListR
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("in_white_list")]
+        [JsonPropertyName("in_white_list")]
         public bool? InWhiteList { get; set; }
 
         /// <summary>
@@ -48,7 +47,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListR
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("in_black_list")]
+        [JsonPropertyName("in_black_list")]
         public bool? InBlackList { get; set; }
 
         /// <summary>
@@ -59,7 +58,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListR
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("in_paid_list")]
+        [JsonPropertyName("in_paid_list")]
         public bool? InPaidList { get; set; }
     }
 
@@ -67,7 +66,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListR
     /// <para>查询的部门可见性结果列表，如果部门在白名单，且不在黑名单，则该部门下的用户可见该应用</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("department_visibility_list")]
+    [JsonPropertyName("department_visibility_list")]
     public ApplicationVisibilityDepartmentWhiteBlackInfo[]? DepartmentVisibilityLists { get; set; }
 
     /// <summary>
@@ -80,7 +79,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListR
         /// <para>必填：否</para>
         /// <para>示例值：od-aa2c50a04769feefededb7a05b7525a8</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
@@ -91,7 +90,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListR
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("in_white_list")]
+        [JsonPropertyName("in_white_list")]
         public bool? InWhiteList { get; set; }
 
         /// <summary>
@@ -102,7 +101,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListR
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("in_black_list")]
+        [JsonPropertyName("in_black_list")]
         public bool? InBlackList { get; set; }
     }
 
@@ -110,7 +109,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListR
     /// <para>查询的用户组可见性结果列表，如果用户组在白名单，且不在黑名单，则该用户组下的用户可见该应用</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("group_visibility_list")]
+    [JsonPropertyName("group_visibility_list")]
     public ApplicationVisibilityGroupWhiteBlackInfo[]? GroupVisibilityLists { get; set; }
 
     /// <summary>
@@ -123,7 +122,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListR
         /// <para>必填：否</para>
         /// <para>示例值：96815a9cd9beg8g4</para>
         /// </summary>
-        [JsonProperty("group_id")]
+        [JsonPropertyName("group_id")]
         public string? GroupId { get; set; }
 
         /// <summary>
@@ -134,7 +133,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListR
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("in_white_list")]
+        [JsonPropertyName("in_white_list")]
         public bool? InWhiteList { get; set; }
 
         /// <summary>
@@ -145,7 +144,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListR
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("in_black_list")]
+        [JsonPropertyName("in_black_list")]
         public bool? InBlackList { get; set; }
     }
 }

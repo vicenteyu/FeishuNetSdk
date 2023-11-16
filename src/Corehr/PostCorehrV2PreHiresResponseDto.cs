@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 创建待入职人员 响应体
@@ -14,6 +13,6 @@ public record PostCorehrV2PreHiresResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：6966234786251671053</para>
     /// </summary>
-    [JsonProperty("pre_hire_id")]
+    [JsonPropertyName("pre_hire_id")]
     public string? PreHireId { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 三方审批实例同步 请求体
@@ -15,6 +14,6 @@ public record PostApprovalOpenapiV2ExternalInstanceCreateBodyDto
     /// <para>JSON字符串</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
 }

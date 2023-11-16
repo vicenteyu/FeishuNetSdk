@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建知识空间 请求体
@@ -14,7 +13,7 @@ public record PostWikiV2SpacesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：知识空间</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostWikiV2SpacesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：知识空间描述</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 }

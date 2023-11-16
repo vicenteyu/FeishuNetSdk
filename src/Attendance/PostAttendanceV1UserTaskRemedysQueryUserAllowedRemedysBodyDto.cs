@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 获取可补卡时间 请求体
@@ -14,7 +13,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：abd754f7</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：20210104</para>
     /// </summary>
-    [JsonProperty("remedy_date")]
+    [JsonPropertyName("remedy_date")]
     public int RemedyDate { get; set; }
 }

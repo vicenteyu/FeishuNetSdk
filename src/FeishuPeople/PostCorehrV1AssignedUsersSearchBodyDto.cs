@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取组织类角色授权列表 请求体
@@ -14,14 +13,14 @@ public record PostCorehrV1AssignedUsersSearchBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：100</para>
     /// </summary>
-    [JsonProperty("role_id")]
+    [JsonPropertyName("role_id")]
     public string RoleId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>管理范围信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("management_scope_list")]
+    [JsonPropertyName("management_scope_list")]
     public ManagementScope[] ManagementScopeLists { get; set; } = Array.Empty<ManagementScope>();
 
     /// <summary>
@@ -39,7 +38,7 @@ public record PostCorehrV1AssignedUsersSearchBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：department</para>
         /// </summary>
-        [JsonProperty("management_dimension")]
+        [JsonPropertyName("management_dimension")]
         public string ManagementDimension { get; set; } = string.Empty;
 
         /// <summary>
@@ -47,7 +46,7 @@ public record PostCorehrV1AssignedUsersSearchBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：7023318326176777742</para>
         /// </summary>
-        [JsonProperty("obj_id")]
+        [JsonPropertyName("obj_id")]
         public string ObjId { get; set; } = string.Empty;
     }
 
@@ -59,7 +58,7 @@ public record PostCorehrV1AssignedUsersSearchBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("search_method")]
+    [JsonPropertyName("search_method")]
     public string SearchMethod { get; set; } = string.Empty;
 
     /// <summary>
@@ -67,7 +66,7 @@ public record PostCorehrV1AssignedUsersSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -75,6 +74,6 @@ public record PostCorehrV1AssignedUsersSearchBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：100</para>
     /// </summary>
-    [JsonProperty("page_size")]
+    [JsonPropertyName("page_size")]
     public string PageSize { get; set; } = string.Empty;
 }

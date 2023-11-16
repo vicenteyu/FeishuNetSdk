@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 终止投递 请求体
@@ -19,7 +18,7 @@ public record PostHireV1ApplicationsByApplicationIdTerminateBodyDto
     /// <item>27：其他</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("termination_type")]
+    [JsonPropertyName("termination_type")]
     public int TerminationType { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record PostHireV1ApplicationsByApplicationIdTerminateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：["6891560630172518670"]</para>
     /// </summary>
-    [JsonProperty("termination_reason_list")]
+    [JsonPropertyName("termination_reason_list")]
     public string[]? TerminationReasonList { get; set; }
 
     /// <summary>
@@ -35,6 +34,6 @@ public record PostHireV1ApplicationsByApplicationIdTerminateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：不符合期望</para>
     /// </summary>
-    [JsonProperty("termination_reason_note")]
+    [JsonPropertyName("termination_reason_note")]
     public string? TerminationReasonNote { get; set; }
 }

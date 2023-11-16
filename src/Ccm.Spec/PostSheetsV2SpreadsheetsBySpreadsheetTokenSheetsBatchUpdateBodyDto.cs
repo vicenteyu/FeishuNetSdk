@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 操作工作表 请求体
@@ -14,7 +13,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
     /// <para>请求操作，支持增、删、复制工作表 ，三个操作选一个</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("requests")]
+    [JsonPropertyName("requests")]
     public Request[] Requests { get; set; } = Array.Empty<Request>();
 
     /// <summary></summary>
@@ -24,7 +23,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
         /// <para>增加工作表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("addSheet")]
+        [JsonPropertyName("addSheet")]
         public AddsheetSuffix? Addsheet { get; set; }
 
         /// <summary></summary>
@@ -34,7 +33,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
             /// <para>工作表属性</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("properties")]
+            [JsonPropertyName("properties")]
             public Property Properties { get; set; } = new();
 
             /// <summary></summary>
@@ -44,14 +43,14 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
                 /// <para>工作表标题</para>
                 /// <para>必填：是</para>
                 /// </summary>
-                [JsonProperty("title")]
+                [JsonPropertyName("title")]
                 public string Title { get; set; } = string.Empty;
 
                 /// <summary>
                 /// <para>新增工作表的位置，不填默认往前增加工作表</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("index")]
+                [JsonPropertyName("index")]
                 public int? Index { get; set; }
             }
         }
@@ -60,7 +59,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
         /// <para>复制工作表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("copySheet")]
+        [JsonPropertyName("copySheet")]
         public CopysheetSuffix? Copysheet { get; set; }
 
         /// <summary></summary>
@@ -70,14 +69,14 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
             /// <para>需要复制的工作表资源</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("source")]
+            [JsonPropertyName("source")]
             public Sheet Source { get; set; } = new();
 
             /// <summary>
             /// <para>工作表 的属性</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("destination")]
+            [JsonPropertyName("destination")]
             public DestinationSuffix Destination { get; set; } = new();
 
             /// <summary></summary>
@@ -87,7 +86,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
                 /// <para>目标工作表名称。不填为 old_title(副本_0)</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("title")]
+                [JsonPropertyName("title")]
                 public string? Title { get; set; }
             }
         }
@@ -97,7 +96,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
         /// <para>删除 sheet</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("deleteSheet")]
+        [JsonPropertyName("deleteSheet")]
         public Sheet? DeleteSheet { get; set; }
 
         /// <summary></summary>
@@ -107,7 +106,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
             /// <para>sheetId</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("sheetId")]
+            [JsonPropertyName("sheetId")]
             public string SheetId { get; set; } = string.Empty;
         }
     }

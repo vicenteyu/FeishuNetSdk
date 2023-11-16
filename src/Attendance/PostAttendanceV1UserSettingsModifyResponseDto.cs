@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 修改用户人脸识别信息 响应体
@@ -13,7 +12,7 @@ public record PostAttendanceV1UserSettingsModifyResponseDto
     /// <para>用户设置</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_setting")]
+    [JsonPropertyName("user_setting")]
     public PostAttendanceV1UserSettingsModifyResponseDtoUserSetting? UserSetting { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostAttendanceV1UserSettingsModifyResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostAttendanceV1UserSettingsModifyResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：xxxxxb306842b1c189bc5212eefxxxxx</para>
         /// </summary>
-        [JsonProperty("face_key")]
+        [JsonPropertyName("face_key")]
         public string FaceKey { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostAttendanceV1UserSettingsModifyResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1625681917</para>
         /// </summary>
-        [JsonProperty("face_key_update_time")]
+        [JsonPropertyName("face_key_update_time")]
         public string? FaceKeyUpdateTime { get; set; }
     }
 }

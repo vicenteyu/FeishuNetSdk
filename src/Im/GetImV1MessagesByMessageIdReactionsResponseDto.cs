@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 获取消息表情回复 响应体
@@ -13,7 +12,7 @@ public record GetImV1MessagesByMessageIdReactionsResponseDto
     /// <para> 查询指定reaction_type返回的reaction列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public MessageReaction[] Items { get; set; } = Array.Empty<MessageReaction>();
 
     /// <summary>
@@ -26,14 +25,14 @@ public record GetImV1MessagesByMessageIdReactionsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_</para>
         /// </summary>
-        [JsonProperty("reaction_id")]
+        [JsonPropertyName("reaction_id")]
         public string? ReactionId { get; set; }
 
         /// <summary>
         /// <para>添加reaction的操作人</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("operator")]
+        [JsonPropertyName("operator")]
         public MessageReactionOperator? Operator { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record GetImV1MessagesByMessageIdReactionsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：ou_ff0b7ba35fb********67dfc8b885136</para>
             /// </summary>
-            [JsonProperty("operator_id")]
+            [JsonPropertyName("operator_id")]
             public string OperatorId { get; set; } = string.Empty;
 
             /// <summary>
@@ -58,7 +57,7 @@ public record GetImV1MessagesByMessageIdReactionsResponseDto
             /// <item>user："user"</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("operator_type")]
+            [JsonPropertyName("operator_type")]
             public string OperatorType { get; set; } = string.Empty;
         }
 
@@ -67,14 +66,14 @@ public record GetImV1MessagesByMessageIdReactionsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1663054162546</para>
         /// </summary>
-        [JsonProperty("action_time")]
+        [JsonPropertyName("action_time")]
         public string? ActionTime { get; set; }
 
         /// <summary>
         /// <para>reaction资源类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("reaction_type")]
+        [JsonPropertyName("reaction_type")]
         public Emoji? ReactionType { get; set; }
 
         /// <summary>
@@ -87,7 +86,7 @@ public record GetImV1MessagesByMessageIdReactionsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：Actionunavailableasthemessagehasbeendeleted.</para>
             /// </summary>
-            [JsonProperty("emoji_type")]
+            [JsonPropertyName("emoji_type")]
             public string EmojiType { get; set; } = string.Empty;
         }
     }
@@ -97,7 +96,7 @@ public record GetImV1MessagesByMessageIdReactionsResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：SMILE</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool HasMore { get; set; }
 
     /// <summary>
@@ -105,6 +104,6 @@ public record GetImV1MessagesByMessageIdReactionsResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string PageToken { get; set; } = string.Empty;
 }

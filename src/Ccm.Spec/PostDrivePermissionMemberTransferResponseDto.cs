@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 转移拥有者 响应体
@@ -13,28 +12,28 @@ public record PostDrivePermissionMemberTransferResponseDto
     /// <para>请求是否成功</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("is_success")]
+    [JsonPropertyName("is_success")]
     public bool? IsSuccess { get; set; }
 
     /// <summary>
     /// <para>文档类型，可选 **doc、sheet、bitable、file**</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string? Type { get; set; }
 
     /// <summary>
     /// <para>文档的 token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("token")]
+    [JsonPropertyName("token")]
     public string? Token { get; set; }
 
     /// <summary>
     /// <para>文档当前所有者</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("owner")]
+    [JsonPropertyName("owner")]
     public OwnerSuffix? Owner { get; set; }
 
     /// <summary></summary>
@@ -44,14 +43,14 @@ public record PostDrivePermissionMemberTransferResponseDto
         /// <para>用户类型，有 **email、openid、userid、unionid**</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("member_type")]
+        [JsonPropertyName("member_type")]
         public string? MemberType { get; set; }
 
         /// <summary>
         /// <para>用户类型下的值</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("member_id")]
+        [JsonPropertyName("member_id")]
         public string? MemberId { get; set; }
     }
 }

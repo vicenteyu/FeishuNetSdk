@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 通过地点 ID 批量获取地点信息 请求体
@@ -14,6 +13,6 @@ public record PostCorehrV2LocationsBatchGetBodyDto
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("location_ids")]
+    [JsonPropertyName("location_ids")]
     public string[] LocationIds { get; set; } = Array.Empty<string>();
 }

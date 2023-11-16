@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 更新表格属性 请求体
@@ -13,7 +12,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesBodyDto
     /// <para>spreadsheet 的属性</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("properties")]
+    [JsonPropertyName("properties")]
     public Property Properties { get; set; } = new();
 
     /// <summary></summary>
@@ -23,7 +22,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesBodyDto
         /// <para>spreadsheet 的标题，最大长度100个字符</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string Title { get; set; } = string.Empty;
     }
 }

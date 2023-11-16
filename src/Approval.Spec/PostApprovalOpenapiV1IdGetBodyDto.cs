@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 查询审批 ID（专用） 请求体
@@ -13,20 +12,20 @@ public record PostApprovalOpenapiV1IdGetBodyDto
     /// <para>企业标识（user_id_list 不为空时必须）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("tenant_key")]
+    [JsonPropertyName("tenant_key")]
     public string? TenantKey { get; set; }
 
     /// <summary>
     /// <para>Employee ID 数组（最大100个）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_id_list")]
+    [JsonPropertyName("user_id_list")]
     public string[]? UserIdList { get; set; }
 
     /// <summary>
     /// <para>Lark User ID 数组（最大100个）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("lark_id_list")]
+    [JsonPropertyName("lark_id_list")]
     public long[]? LarkIdList { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 删除会话标签页 请求体
@@ -14,6 +13,6 @@ public record DeleteImV1ChatsByChatIdChatTabsDeleteTabsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：["7101214603622940671","7101214603622940672"]</para>
     /// </summary>
-    [JsonProperty("tab_ids")]
+    [JsonPropertyName("tab_ids")]
     public string[] TabIds { get; set; } = Array.Empty<string>();
 }

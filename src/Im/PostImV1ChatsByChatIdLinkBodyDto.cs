@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 获取群分享链接 请求体
@@ -20,6 +19,6 @@ public record PostImV1ChatsByChatIdLinkBodyDto
     /// </list></para>
     /// <para>默认值：week</para>
     /// </summary>
-    [JsonProperty("validity_period")]
+    [JsonPropertyName("validity_period")]
     public string? ValidityPeriod { get; set; }
 }

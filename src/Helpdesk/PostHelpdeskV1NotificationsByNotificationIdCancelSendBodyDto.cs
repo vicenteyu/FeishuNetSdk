@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 取消推送 请求体
@@ -14,6 +13,6 @@ public record PostHelpdeskV1NotificationsByNotificationIdCancelSendBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("is_recall")]
+    [JsonPropertyName("is_recall")]
     public bool IsRecall { get; set; }
 }

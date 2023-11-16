@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 批量新增协作者 请求体
@@ -14,7 +13,7 @@ public record PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchCreateBodyDto
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("member_list")]
+    [JsonPropertyName("member_list")]
     public AppRoleMemberId[] MemberLists { get; set; } = Array.Empty<AppRoleMemberId>();
 
     /// <summary>
@@ -36,7 +35,7 @@ public record PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchCreateBodyDto
         /// </list></para>
         /// <para>默认值：open_id</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
@@ -44,7 +43,7 @@ public record PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchCreateBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：ou_35990a9d9052051a2fae9b2f1afabcef</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
     }
 }

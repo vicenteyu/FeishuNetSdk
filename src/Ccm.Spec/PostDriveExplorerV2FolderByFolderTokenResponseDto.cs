@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 新建文件夹 响应体
@@ -15,20 +14,20 @@ public record PostDriveExplorerV2FolderByFolderTokenResponseDto
     /// <para>新创建文件夹的 url</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("url")]
+    [JsonPropertyName("url")]
     public string? Url { get; set; }
 
     /// <summary>
     /// <para>新创建文件夹的版本号</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("revision")]
+    [JsonPropertyName("revision")]
     public string? Revision { get; set; }
 
     /// <summary>
     /// <para>新创建文件夹的 token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("token")]
+    [JsonPropertyName("token")]
     public string? Token { get; set; }
 }

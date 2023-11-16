@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Admin;
 /// <summary>
 /// 获取用户维度的用户活跃和功能使用数据 响应体
@@ -14,7 +13,7 @@ public record GetAdminV1AdminUserStatsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record GetAdminV1AdminUserStatsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：3</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>数据报表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public AdminUserStat[]? Items { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2020-02-15</para>
         /// </summary>
-        [JsonProperty("date")]
+        [JsonPropertyName("date")]
         public string? Date { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ZhangSan</para>
         /// </summary>
-        [JsonProperty("user_name")]
+        [JsonPropertyName("user_name")]
         public string? UserName { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：testcqlbfaaasdasdasd</para>
         /// </summary>
-        [JsonProperty("department_name")]
+        [JsonPropertyName("department_name")]
         public string? DepartmentName { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：testkkk/testcqlbfaaasdasdasd</para>
         /// </summary>
-        [JsonProperty("department_path")]
+        [JsonPropertyName("department_path")]
         public string? DepartmentPath { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2020-09-0411:17:55</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
@@ -94,7 +93,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <item>1：已激活</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("user_active_flag")]
+        [JsonPropertyName("user_active_flag")]
         public int? UserActiveFlag { get; set; }
 
         /// <summary>
@@ -102,7 +101,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2020-09-0411:18:32</para>
         /// </summary>
-        [JsonProperty("register_time")]
+        [JsonPropertyName("register_time")]
         public string? RegisterTime { get; set; }
 
         /// <summary>
@@ -114,7 +113,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <item>1：活跃</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("suite_active_flag")]
+        [JsonPropertyName("suite_active_flag")]
         public int? SuiteActiveFlag { get; set; }
 
         /// <summary>
@@ -122,7 +121,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2020-12-2122:21:28</para>
         /// </summary>
-        [JsonProperty("last_active_time")]
+        [JsonPropertyName("last_active_time")]
         public string? LastActiveTime { get; set; }
 
         /// <summary>
@@ -135,7 +134,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <item>1：活跃</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("im_active_flag")]
+        [JsonPropertyName("im_active_flag")]
         public int? ImActiveFlag { get; set; }
 
         /// <summary>
@@ -143,7 +142,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("send_messenger_num")]
+        [JsonPropertyName("send_messenger_num")]
         public int? SendMessengerNum { get; set; }
 
         /// <summary>
@@ -157,7 +156,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <item>1：活跃</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("docs_active_flag")]
+        [JsonPropertyName("docs_active_flag")]
         public int? DocsActiveFlag { get; set; }
 
         /// <summary>
@@ -165,7 +164,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("create_docs_num")]
+        [JsonPropertyName("create_docs_num")]
         public int? CreateDocsNum { get; set; }
 
         /// <summary>
@@ -177,7 +176,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <item>1：活跃</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("cal_active_flag")]
+        [JsonPropertyName("cal_active_flag")]
         public int? CalActiveFlag { get; set; }
 
         /// <summary>
@@ -185,7 +184,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("create_cal_num")]
+        [JsonPropertyName("create_cal_num")]
         public int? CreateCalNum { get; set; }
 
         /// <summary>
@@ -197,7 +196,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <item>1：活跃</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("vc_active_flag")]
+        [JsonPropertyName("vc_active_flag")]
         public int? VcActiveFlag { get; set; }
 
         /// <summary>
@@ -205,7 +204,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("vc_duration")]
+        [JsonPropertyName("vc_duration")]
         public int? VcDuration { get; set; }
 
         /// <summary>
@@ -213,7 +212,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：'ios14.2,-','ios14.2,feishu3.40.0-alpha'</para>
         /// </summary>
-        [JsonProperty("active_os")]
+        [JsonPropertyName("active_os")]
         public string? ActiveOs { get; set; }
 
         /// <summary>
@@ -221,7 +220,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("create_task_num")]
+        [JsonPropertyName("create_task_num")]
         public int? CreateTaskNum { get; set; }
 
         /// <summary>
@@ -229,7 +228,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("vc_num")]
+        [JsonPropertyName("vc_num")]
         public int? VcNum { get; set; }
 
         /// <summary>
@@ -237,7 +236,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：Feishu，Lark</para>
         /// </summary>
-        [JsonProperty("app_package_type")]
+        [JsonPropertyName("app_package_type")]
         public string? AppPackageType { get; set; }
 
         /// <summary>
@@ -245,7 +244,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：iOS,Andorid,Windows</para>
         /// </summary>
-        [JsonProperty("os_name")]
+        [JsonPropertyName("os_name")]
         public string? OsName { get; set; }
 
         /// <summary>
@@ -253,7 +252,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("email_send_count")]
+        [JsonPropertyName("email_send_count")]
         public string? EmailSendCount { get; set; }
 
         /// <summary>
@@ -261,7 +260,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
-        [JsonProperty("email_receive_count")]
+        [JsonPropertyName("email_receive_count")]
         public string? EmailReceiveCount { get; set; }
 
         /// <summary>
@@ -269,7 +268,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：4</para>
         /// </summary>
-        [JsonProperty("email_send_ext_count")]
+        [JsonPropertyName("email_send_ext_count")]
         public string? EmailSendExtCount { get; set; }
 
         /// <summary>
@@ -277,7 +276,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：5</para>
         /// </summary>
-        [JsonProperty("email_receive_ext_count")]
+        [JsonPropertyName("email_receive_ext_count")]
         public string? EmailReceiveExtCount { get; set; }
 
         /// <summary>
@@ -285,7 +284,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6</para>
         /// </summary>
-        [JsonProperty("email_send_in_count")]
+        [JsonPropertyName("email_send_in_count")]
         public string? EmailSendInCount { get; set; }
 
         /// <summary>
@@ -293,7 +292,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7</para>
         /// </summary>
-        [JsonProperty("email_receive_in_count")]
+        [JsonPropertyName("email_receive_in_count")]
         public string? EmailReceiveInCount { get; set; }
     }
 }

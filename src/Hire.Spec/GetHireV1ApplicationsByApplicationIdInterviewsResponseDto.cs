@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire.Spec;
 /// <summary>
 /// 获取面试记录列表 响应体
@@ -13,21 +12,21 @@ public record GetHireV1ApplicationsByApplicationIdInterviewsResponseDto
     /// <para>分页标志</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>是否有更多</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>面试列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Interview[]? Items { get; set; }
 
     /// <summary></summary>
@@ -37,42 +36,42 @@ public record GetHireV1ApplicationsByApplicationIdInterviewsResponseDto
         /// <para>面试id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>面试开始时间（ms）</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("begin_time")]
+        [JsonPropertyName("begin_time")]
         public int? BeginTime { get; set; }
 
         /// <summary>
         /// <para>面试结束时间（ms）</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public int? EndTime { get; set; }
 
         /// <summary>
         /// <para>面试轮次（从0开始计数）</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("round")]
+        [JsonPropertyName("round")]
         public int? Round { get; set; }
 
         /// <summary>
         /// <para>面试关联的投递阶段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("stage_id")]
+        [JsonPropertyName("stage_id")]
         public string? StageId { get; set; }
 
         /// <summary>
         /// <para>面试官记录列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("interview_record_list")]
+        [JsonPropertyName("interview_record_list")]
         public InterviewRecord[]? InterviewRecordList { get; set; }
 
         /// <summary></summary>
@@ -82,35 +81,35 @@ public record GetHireV1ApplicationsByApplicationIdInterviewsResponseDto
             /// <para>面试记录 ID</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
             /// <para>面试官用户 ID</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string? UserId { get; set; }
 
             /// <summary>
             /// <para>系统预设「记录」题目内容</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("content")]
+            [JsonPropertyName("content")]
             public string? Content { get; set; }
 
             /// <summary>
             /// <para>建议定级下限的职级 ID</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("min_job_level_id")]
+            [JsonPropertyName("min_job_level_id")]
             public string? MinJobLevelId { get; set; }
 
             /// <summary>
             /// <para>建议定级上限的职级 ID</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("max_job_level_id")]
+            [JsonPropertyName("max_job_level_id")]
             public string? MaxJobLevelId { get; set; }
 
             /// <summary>
@@ -123,7 +122,7 @@ public record GetHireV1ApplicationsByApplicationIdInterviewsResponseDto
             /// <item>- `1`：已提交</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("commit_status")]
+            [JsonPropertyName("commit_status")]
             public int? CommitStatus { get; set; }
 
             /// <summary>
@@ -139,14 +138,14 @@ public record GetHireV1ApplicationsByApplicationIdInterviewsResponseDto
             /// <item>- `1`：通过</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("conclusion")]
+            [JsonPropertyName("conclusion")]
             public int? Conclusion { get; set; }
 
             /// <summary>
             /// <para>面试评分</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("interview_score")]
+            [JsonPropertyName("interview_score")]
             public InterviewScoreSuffix? InterviewScore { get; set; }
 
             /// <summary></summary>
@@ -156,42 +155,42 @@ public record GetHireV1ApplicationsByApplicationIdInterviewsResponseDto
                 /// <para>面试评分 ID</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string? Id { get; set; }
 
                 /// <summary>
                 /// <para>分数级别</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("level")]
+                [JsonPropertyName("level")]
                 public int? Level { get; set; }
 
                 /// <summary>
                 /// <para>中文名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("zh_name")]
+                [JsonPropertyName("zh_name")]
                 public string? ZhName { get; set; }
 
                 /// <summary>
                 /// <para>中文描述</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("zh_description")]
+                [JsonPropertyName("zh_description")]
                 public string? ZhDescription { get; set; }
 
                 /// <summary>
                 /// <para>英文名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("en_name")]
+                [JsonPropertyName("en_name")]
                 public string? EnName { get; set; }
 
                 /// <summary>
                 /// <para>英文描述</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("en_description")]
+                [JsonPropertyName("en_description")]
                 public string? EnDescription { get; set; }
             }
         }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 创建序列 请求体
@@ -15,7 +14,7 @@ public record PostContactV3JobFamiliesBodyDto
     /// <para>示例值：产品</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
@@ -23,7 +22,7 @@ public record PostContactV3JobFamiliesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：负责产品策略制定的相关工作</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
@@ -31,7 +30,7 @@ public record PostContactV3JobFamiliesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：mga5oa8ayjlpzjq</para>
     /// </summary>
-    [JsonProperty("parent_job_family_id")]
+    [JsonPropertyName("parent_job_family_id")]
     public string? ParentJobFamilyId { get; set; }
 
     /// <summary>
@@ -39,14 +38,14 @@ public record PostContactV3JobFamiliesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public bool Status { get; set; }
 
     /// <summary>
     /// <para>多语言序列名称</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("i18n_name")]
+    [JsonPropertyName("i18n_name")]
     public I18nContent[]? I18nNames { get; set; }
 
     /// <summary>
@@ -59,7 +58,7 @@ public record PostContactV3JobFamiliesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：zh_cn</para>
         /// </summary>
-        [JsonProperty("locale")]
+        [JsonPropertyName("locale")]
         public string? Locale { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record PostContactV3JobFamiliesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：多语言内容</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string? Value { get; set; }
     }
 
@@ -75,6 +74,6 @@ public record PostContactV3JobFamiliesBodyDto
     /// <para>多语言描述</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("i18n_description")]
+    [JsonPropertyName("i18n_description")]
     public I18nContent[]? I18nDescriptions { get; set; }
 }

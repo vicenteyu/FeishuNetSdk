@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取文件夹下的文档清单 响应体
@@ -13,14 +12,14 @@ public record GetDriveExplorerV2FolderByFolderTokenChildrenResponseDto
     /// <para>文件夹的 token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("parentToken")]
+    [JsonPropertyName("parentToken")]
     public string? ParentToken { get; set; }
 
     /// <summary>
     /// <para>文件夹的下的文件</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("children")]
+    [JsonPropertyName("children")]
     public object? Children { get; set; }
 
     /// <summary></summary>
@@ -30,28 +29,28 @@ public record GetDriveExplorerV2FolderByFolderTokenChildrenResponseDto
         /// <para>文件的 token</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("token")]
+        [JsonPropertyName("token")]
         public string? Token { get; set; }
 
         /// <summary>
         /// <para>文件的标题</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>文件的类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
         /// <para>该文件是否是快捷方式，如果值为true，代表该文件是一个快捷方式</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("is_shortcut")]
+        [JsonPropertyName("is_shortcut")]
         public bool? IsShortcut { get; set; }
     }
 }

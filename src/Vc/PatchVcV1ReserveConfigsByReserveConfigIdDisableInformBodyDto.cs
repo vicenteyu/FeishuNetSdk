@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 更新禁用状态变更通知 请求体
@@ -14,14 +13,14 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdDisableInformBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：2</para>
     /// </summary>
-    [JsonProperty("scope_type")]
+    [JsonPropertyName("scope_type")]
     public int ScopeType { get; set; }
 
     /// <summary>
     /// <para>禁用通知配置</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("disable_inform")]
+    [JsonPropertyName("disable_inform")]
     public DisableInformConfig DisableInform { get; set; } = new();
 
     /// <summary>
@@ -34,7 +33,7 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdDisableInformBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("if_cover_child_scope")]
+        [JsonPropertyName("if_cover_child_scope")]
         public bool? IfCoverChildScope { get; set; }
 
         /// <summary>
@@ -43,14 +42,14 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdDisableInformBodyDto
         /// <para>示例值：false</para>
         /// <para>默认值：false</para>
         /// </summary>
-        [JsonProperty("if_inform")]
+        [JsonPropertyName("if_inform")]
         public bool IfInform { get; set; }
 
         /// <summary>
         /// <para>通知成员列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("informed_users")]
+        [JsonPropertyName("informed_users")]
         public SubscribeUser[]? InformedUsers { get; set; }
 
         /// <summary>
@@ -63,7 +62,7 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdDisableInformBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：ou_a27b07a9071d90577c0177bcec98f856</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string UserId { get; set; } = string.Empty;
         }
 
@@ -71,7 +70,7 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdDisableInformBodyDto
         /// <para>通知部门列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("informed_depts")]
+        [JsonPropertyName("informed_depts")]
         public SubscribeDepartment[]? InformedDepts { get; set; }
 
         /// <summary>
@@ -84,7 +83,7 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdDisableInformBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：od-47d8b570b0a011e9679a755efcc5f61a</para>
             /// </summary>
-            [JsonProperty("department_id")]
+            [JsonPropertyName("department_id")]
             public string DepartmentId { get; set; } = string.Empty;
         }
     }

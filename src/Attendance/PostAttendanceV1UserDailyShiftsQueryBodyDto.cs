@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询排班表 请求体
@@ -14,7 +13,7 @@ public record PostAttendanceV1UserDailyShiftsQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：["abd754f7"]</para>
     /// </summary>
-    [JsonProperty("user_ids")]
+    [JsonPropertyName("user_ids")]
     public string[] UserIds { get; set; } = Array.Empty<string>();
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostAttendanceV1UserDailyShiftsQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：20190817</para>
     /// </summary>
-    [JsonProperty("check_date_from")]
+    [JsonPropertyName("check_date_from")]
     public int CheckDateFrom { get; set; }
 
     /// <summary>
@@ -30,6 +29,6 @@ public record PostAttendanceV1UserDailyShiftsQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：20190820</para>
     /// </summary>
-    [JsonProperty("check_date_to")]
+    [JsonPropertyName("check_date_to")]
     public int CheckDateTo { get; set; }
 }

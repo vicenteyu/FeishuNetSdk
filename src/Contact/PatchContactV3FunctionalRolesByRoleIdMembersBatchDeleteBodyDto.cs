@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 删除角色下的成员 请求体
@@ -15,6 +14,6 @@ public record PatchContactV3FunctionalRolesByRoleIdMembersBatchDeleteBodyDto
     /// <para>示例值：["qwer"]</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("members")]
+    [JsonPropertyName("members")]
     public string[]? Members { get; set; }
 }

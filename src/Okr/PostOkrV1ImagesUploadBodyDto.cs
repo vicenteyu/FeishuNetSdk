@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Okr;
 /// <summary>
 /// 上传进展记录图片 请求体

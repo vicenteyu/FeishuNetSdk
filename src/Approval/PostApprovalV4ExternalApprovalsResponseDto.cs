@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 创建三方审批定义 响应体
@@ -15,6 +14,6 @@ public record PostApprovalV4ExternalApprovalsResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string ApprovalCode { get; set; } = string.Empty;
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建文档版本 请求体
@@ -14,7 +13,7 @@ public record PostDriveV1FilesByFileTokenVersionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：文档标题</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostDriveV1FilesByFileTokenVersionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：version1</para>
     /// </summary>
-    [JsonProperty("version")]
+    [JsonPropertyName("version")]
     public string? Version { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostDriveV1FilesByFileTokenVersionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb</para>
     /// </summary>
-    [JsonProperty("parent_token")]
+    [JsonPropertyName("parent_token")]
     public string? ParentToken { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostDriveV1FilesByFileTokenVersionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：694699009591869450</para>
     /// </summary>
-    [JsonProperty("owner_id")]
+    [JsonPropertyName("owner_id")]
     public string? OwnerId { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostDriveV1FilesByFileTokenVersionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：694699009591869451</para>
     /// </summary>
-    [JsonProperty("creator_id")]
+    [JsonPropertyName("creator_id")]
     public string? CreatorId { get; set; }
 
     /// <summary>
@@ -54,7 +53,7 @@ public record PostDriveV1FilesByFileTokenVersionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1660708537</para>
     /// </summary>
-    [JsonProperty("create_time")]
+    [JsonPropertyName("create_time")]
     public string? CreateTime { get; set; }
 
     /// <summary>
@@ -62,7 +61,7 @@ public record PostDriveV1FilesByFileTokenVersionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1660708537</para>
     /// </summary>
-    [JsonProperty("update_time")]
+    [JsonPropertyName("update_time")]
     public string? UpdateTime { get; set; }
 
     /// <summary>
@@ -75,7 +74,7 @@ public record PostDriveV1FilesByFileTokenVersionsBodyDto
     /// <item>2：回收站状态</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string? Status { get; set; }
 
     /// <summary>
@@ -86,7 +85,7 @@ public record PostDriveV1FilesByFileTokenVersionsBodyDto
     /// <item>docx：新版文档</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("obj_type")]
+    [JsonPropertyName("obj_type")]
     public string? ObjType { get; set; }
 
     /// <summary>
@@ -97,6 +96,6 @@ public record PostDriveV1FilesByFileTokenVersionsBodyDto
     /// <item>docx：新版文档</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("parent_type")]
+    [JsonPropertyName("parent_type")]
     public string? ParentType { get; set; }
 }

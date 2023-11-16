@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 预约会议 请求体
@@ -14,7 +13,7 @@ public record PostVcV1ReservesApplyBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1608888867</para>
     /// </summary>
-    [JsonProperty("end_time")]
+    [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
 
     /// <summary>
@@ -23,14 +22,14 @@ public record PostVcV1ReservesApplyBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
     /// </summary>
-    [JsonProperty("owner_id")]
+    [JsonPropertyName("owner_id")]
     public string? OwnerId { get; set; }
 
     /// <summary>
     /// <para>会议设置</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("meeting_settings")]
+    [JsonPropertyName("meeting_settings")]
     public ReserveMeetingSetting MeetingSettings { get; set; } = new();
 
     /// <summary>
@@ -43,14 +42,14 @@ public record PostVcV1ReservesApplyBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：my meeting</para>
         /// </summary>
-        [JsonProperty("topic")]
+        [JsonPropertyName("topic")]
         public string? Topic { get; set; }
 
         /// <summary>
         /// <para>会议权限配置列表，如果存在相同的权限配置项则它们之间为"逻辑或"的关系（即 有一个为true则拥有该权限）</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("action_permissions")]
+        [JsonPropertyName("action_permissions")]
         public ReserveActionPermission[]? ActionPermissions { get; set; }
 
         /// <summary>
@@ -68,14 +67,14 @@ public record PostVcV1ReservesApplyBodyDto
             /// <item>3：是否能加入会议</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("permission")]
+            [JsonPropertyName("permission")]
             public int Permission { get; set; }
 
             /// <summary>
             /// <para>权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("permission_checkers")]
+            [JsonPropertyName("permission_checkers")]
             public ReservePermissionChecker[] PermissionCheckers { get; set; } = Array.Empty<ReservePermissionChecker>();
 
             /// <summary>
@@ -93,7 +92,7 @@ public record PostVcV1ReservesApplyBodyDto
                 /// <item>3：租户ID（check_list填入租户tenant_key）</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("check_field")]
+                [JsonPropertyName("check_field")]
                 public int CheckField { get; set; }
 
                 /// <summary>
@@ -105,7 +104,7 @@ public record PostVcV1ReservesApplyBodyDto
                 /// <item>2：不在check_list中为有权限（黑名单）</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("check_mode")]
+                [JsonPropertyName("check_mode")]
                 public int CheckMode { get; set; }
 
                 /// <summary>
@@ -113,7 +112,7 @@ public record PostVcV1ReservesApplyBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值："ou_3ec3f6a28a0d08c45d895276e8e5e19b"</para>
                 /// </summary>
-                [JsonProperty("check_list")]
+                [JsonPropertyName("check_list")]
                 public string[] CheckList { get; set; } = Array.Empty<string>();
             }
         }
@@ -127,14 +126,14 @@ public record PostVcV1ReservesApplyBodyDto
         /// <item>2：1v1呼叫(仅支持预约PSTN用户)</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("meeting_initial_type")]
+        [JsonPropertyName("meeting_initial_type")]
         public int? MeetingInitialType { get; set; }
 
         /// <summary>
         /// <para>1v1呼叫相关参数</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("call_setting")]
+        [JsonPropertyName("call_setting")]
         public ReserveCallSetting? CallSetting { get; set; }
 
         /// <summary>
@@ -146,7 +145,7 @@ public record PostVcV1ReservesApplyBodyDto
             /// <para>被呼叫的用户</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("callee")]
+            [JsonPropertyName("callee")]
             public ReserveCallee Callee { get; set; } = new();
 
             /// <summary>
@@ -159,7 +158,7 @@ public record PostVcV1ReservesApplyBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string? Id { get; set; }
 
                 /// <summary>
@@ -176,14 +175,14 @@ public record PostVcV1ReservesApplyBodyDto
                 /// <item>7：sip用户</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("user_type")]
+                [JsonPropertyName("user_type")]
                 public int UserType { get; set; }
 
                 /// <summary>
                 /// <para>pstn/sip信息</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("pstn_sip_info")]
+                [JsonPropertyName("pstn_sip_info")]
                 public ReserveCalleePstnSipInfo? PstnSipInfo { get; set; }
 
                 /// <summary>
@@ -196,7 +195,7 @@ public record PostVcV1ReservesApplyBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：dodo</para>
                     /// </summary>
-                    [JsonProperty("nickname")]
+                    [JsonPropertyName("nickname")]
                     public string? Nickname { get; set; }
 
                     /// <summary>
@@ -204,7 +203,7 @@ public record PostVcV1ReservesApplyBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：+86-02187654321</para>
                     /// </summary>
-                    [JsonProperty("main_address")]
+                    [JsonPropertyName("main_address")]
                     public string MainAddress { get; set; } = string.Empty;
                 }
             }
@@ -215,14 +214,14 @@ public record PostVcV1ReservesApplyBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("auto_record")]
+        [JsonPropertyName("auto_record")]
         public bool? AutoRecord { get; set; }
 
         /// <summary>
         /// <para>指定主持人列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("assign_host_list")]
+        [JsonPropertyName("assign_host_list")]
         public ReserveAssignHost[]? AssignHostLists { get; set; }
 
         /// <summary>
@@ -238,7 +237,7 @@ public record PostVcV1ReservesApplyBodyDto
             /// <item>1：飞书用户</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("user_type")]
+            [JsonPropertyName("user_type")]
             public int? UserType { get; set; }
 
             /// <summary>
@@ -246,7 +245,7 @@ public record PostVcV1ReservesApplyBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
         }
     }

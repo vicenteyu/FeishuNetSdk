@@ -1,5 +1,4 @@
 using FeishuNetSdk.Attributes;
-using Newtonsoft.Json;
 using WebApiClientCore;
 using WebApiClientCore.Attributes;
 using WebApiClientCore.Parameters;
@@ -10,7 +9,7 @@ namespace FeishuNetSdk;
 /// </summary>
 [EnableLoggingFilter]
 [IgnoreStatusExceptionFilter]
-[HttpHost("https://open.feishu.cn/"), JsonNetReturn, OAuthToken]
+[HttpHost("https://open.feishu.cn/"), JsonReturn, OAuthToken]
 public interface IFeishuTenantApi : IHttpApi
 {
     /// <summary>
@@ -68,7 +67,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/passport/v1/sessions/query")]
     System.Threading.Tasks.Task<FeishuResponse<Passport.Spec.PostPassportV1SessionsQueryResponseDto>> PostPassportV1SessionsQueryAsync(
-        [JsonNetContent] Passport.Spec.PostPassportV1SessionsQueryBodyDto dto);
+        [JsonContent] Passport.Spec.PostPassportV1SessionsQueryBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】获取通讯录授权范围</para>
@@ -156,7 +155,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/users")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PostContactV3UsersResponseDto>> PostContactV3UsersAsync(
-        [JsonNetContent] Contact.PostContactV3UsersBodyDto dto,
+        [JsonContent] Contact.PostContactV3UsersBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
         [PathQuery] string? client_token = null);
@@ -189,7 +188,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpDelete("/open-apis/contact/v3/users/{user_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteContactV3UsersByUserIdAsync(
         [PathQuery] string user_id,
-        [JsonNetContent] Contact.DeleteContactV3UsersByUserIdBodyDto dto,
+        [JsonContent] Contact.DeleteContactV3UsersByUserIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -230,7 +229,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/contact/v3/users/{user_id}/resurrect")]
     System.Threading.Tasks.Task<FeishuResponse> PostContactV3UsersByUserIdResurrectAsync(
         [PathQuery] string user_id,
-        [JsonNetContent] Contact.PostContactV3UsersByUserIdResurrectBodyDto dto,
+        [JsonContent] Contact.PostContactV3UsersByUserIdResurrectBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -272,7 +271,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/contact/v3/users/{user_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PatchContactV3UsersByUserIdResponseDto>> PatchContactV3UsersByUserIdAsync(
         [PathQuery] string user_id,
-        [JsonNetContent] Contact.PatchContactV3UsersByUserIdBodyDto dto,
+        [JsonContent] Contact.PatchContactV3UsersByUserIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -441,7 +440,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/users/batch_get_id")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PostContactV3UsersBatchGetIdResponseDto>> PostContactV3UsersBatchGetIdAsync(
-        [JsonNetContent] Contact.PostContactV3UsersBatchGetIdBodyDto dto,
+        [JsonContent] Contact.PostContactV3UsersBatchGetIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -472,7 +471,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/contact/v3/users/{user_id}/update_user_id")]
     System.Threading.Tasks.Task<FeishuResponse> PatchContactV3UsersByUserIdUpdateUserIdAsync(
         [PathQuery] string user_id,
-        [JsonNetContent] Contact.PatchContactV3UsersByUserIdUpdateUserIdBodyDto dto,
+        [JsonContent] Contact.PatchContactV3UsersByUserIdUpdateUserIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -506,7 +505,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/group")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PostContactV3GroupResponseDto>> PostContactV3GroupAsync(
-        [JsonNetContent] Contact.PostContactV3GroupBodyDto dto,
+        [JsonContent] Contact.PostContactV3GroupBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -565,7 +564,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/contact/v3/group/{group_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchContactV3GroupByGroupIdAsync(
         [PathQuery] string group_id,
-        [JsonNetContent] Contact.PatchContactV3GroupByGroupIdBodyDto dto,
+        [JsonContent] Contact.PatchContactV3GroupByGroupIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -731,7 +730,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/employee_type_enums")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PostContactV3EmployeeTypeEnumsResponseDto>> PostContactV3EmployeeTypeEnumsAsync(
-        [JsonNetContent] Contact.PostContactV3EmployeeTypeEnumsBodyDto dto);
+        [JsonContent] Contact.PostContactV3EmployeeTypeEnumsBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】删除人员类型</para>
@@ -767,7 +766,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/contact/v3/employee_type_enums/{enum_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PutContactV3EmployeeTypeEnumsByEnumIdResponseDto>> PutContactV3EmployeeTypeEnumsByEnumIdAsync(
         [PathQuery] string enum_id,
-        [JsonNetContent] Contact.PutContactV3EmployeeTypeEnumsByEnumIdBodyDto dto);
+        [JsonContent] Contact.PutContactV3EmployeeTypeEnumsByEnumIdBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】查询人员类型</para>
@@ -831,7 +830,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/departments")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PostContactV3DepartmentsResponseDto>> PostContactV3DepartmentsAsync(
-        [JsonNetContent] Contact.PostContactV3DepartmentsBodyDto dto,
+        [JsonContent] Contact.PostContactV3DepartmentsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
         [PathQuery] string? client_token = null);
@@ -903,7 +902,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/contact/v3/departments/{department_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PatchContactV3DepartmentsByDepartmentIdResponseDto>> PatchContactV3DepartmentsByDepartmentIdAsync(
         [PathQuery] string department_id,
-        [JsonNetContent] Contact.PatchContactV3DepartmentsByDepartmentIdBodyDto dto,
+        [JsonContent] Contact.PatchContactV3DepartmentsByDepartmentIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -946,7 +945,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/contact/v3/departments/{department_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PutContactV3DepartmentsByDepartmentIdResponseDto>> PutContactV3DepartmentsByDepartmentIdAsync(
         [PathQuery] string department_id,
-        [JsonNetContent] Contact.PutContactV3DepartmentsByDepartmentIdBodyDto dto,
+        [JsonContent] Contact.PutContactV3DepartmentsByDepartmentIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -970,7 +969,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/departments/unbind_department_chat")]
     System.Threading.Tasks.Task<FeishuResponse> PostContactV3DepartmentsUnbindDepartmentChatAsync(
-        [JsonNetContent] Contact.PostContactV3DepartmentsUnbindDepartmentChatBodyDto dto,
+        [JsonContent] Contact.PostContactV3DepartmentsUnbindDepartmentChatBodyDto dto,
         [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
@@ -1203,7 +1202,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/contact/v3/departments/{department_id}/update_department_id")]
     System.Threading.Tasks.Task<FeishuResponse> PatchContactV3DepartmentsByDepartmentIdUpdateDepartmentIdAsync(
         [PathQuery] string department_id,
-        [JsonNetContent] Contact.PatchContactV3DepartmentsByDepartmentIdUpdateDepartmentIdBodyDto dto,
+        [JsonContent] Contact.PatchContactV3DepartmentsByDepartmentIdUpdateDepartmentIdBodyDto dto,
         [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
@@ -1216,7 +1215,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/unit")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PostContactV3UnitResponseDto>> PostContactV3UnitAsync(
-        [JsonNetContent] Contact.PostContactV3UnitBodyDto dto);
+        [JsonContent] Contact.PostContactV3UnitBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】删除单位</para>
@@ -1235,7 +1234,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpDelete("/open-apis/contact/v3/unit/{unit_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteContactV3UnitByUnitIdAsync(
         [PathQuery] string unit_id,
-        [JsonNetContent] Contact.DeleteContactV3UnitByUnitIdBodyDto dto);
+        [JsonContent] Contact.DeleteContactV3UnitByUnitIdBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】修改单位信息</para>
@@ -1254,7 +1253,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/contact/v3/unit/{unit_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchContactV3UnitByUnitIdAsync(
         [PathQuery] string unit_id,
-        [JsonNetContent] Contact.PatchContactV3UnitByUnitIdBodyDto dto);
+        [JsonContent] Contact.PatchContactV3UnitByUnitIdBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】建立部门与单位的绑定关系</para>
@@ -1266,7 +1265,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/unit/bind_department")]
     System.Threading.Tasks.Task<FeishuResponse> PostContactV3UnitBindDepartmentAsync(
-        [JsonNetContent] Contact.PostContactV3UnitBindDepartmentBodyDto dto);
+        [JsonContent] Contact.PostContactV3UnitBindDepartmentBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】解除部门与单位的绑定关系</para>
@@ -1278,7 +1277,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/unit/unbind_department")]
     System.Threading.Tasks.Task<FeishuResponse> PostContactV3UnitUnbindDepartmentAsync(
-        [JsonNetContent] Contact.PostContactV3UnitUnbindDepartmentBodyDto dto);
+        [JsonContent] Contact.PostContactV3UnitUnbindDepartmentBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】获取单位绑定的部门列表</para>
@@ -1379,7 +1378,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/contact/v3/group/{group_id}/member/add")]
     System.Threading.Tasks.Task<FeishuResponse> PostContactV3GroupByGroupIdMemberAddAsync(
         [PathQuery] string group_id,
-        [JsonNetContent] Contact.PostContactV3GroupByGroupIdMemberAddBodyDto dto);
+        [JsonContent] Contact.PostContactV3GroupByGroupIdMemberAddBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】批量添加用户组成员</para>
@@ -1398,7 +1397,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/contact/v3/group/{group_id}/member/batch_add")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PostContactV3GroupByGroupIdMemberBatchAddResponseDto>> PostContactV3GroupByGroupIdMemberBatchAddAsync(
         [PathQuery] string group_id,
-        [JsonNetContent] Contact.PostContactV3GroupByGroupIdMemberBatchAddBodyDto dto);
+        [JsonContent] Contact.PostContactV3GroupByGroupIdMemberBatchAddBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】移除用户组成员</para>
@@ -1417,7 +1416,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/contact/v3/group/{group_id}/member/remove")]
     System.Threading.Tasks.Task<FeishuResponse> PostContactV3GroupByGroupIdMemberRemoveAsync(
         [PathQuery] string group_id,
-        [JsonNetContent] Contact.PostContactV3GroupByGroupIdMemberRemoveBodyDto dto);
+        [JsonContent] Contact.PostContactV3GroupByGroupIdMemberRemoveBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】批量移除用户组成员</para>
@@ -1436,7 +1435,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/contact/v3/group/{group_id}/member/batch_remove")]
     System.Threading.Tasks.Task<FeishuResponse> PostContactV3GroupByGroupIdMemberBatchRemoveAsync(
         [PathQuery] string group_id,
-        [JsonNetContent] Contact.PostContactV3GroupByGroupIdMemberBatchRemoveBodyDto dto);
+        [JsonContent] Contact.PostContactV3GroupByGroupIdMemberBatchRemoveBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】查询用户组成员列表</para>
@@ -1505,7 +1504,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/functional_roles")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PostContactV3FunctionalRolesResponseDto>> PostContactV3FunctionalRolesAsync(
-        [JsonNetContent] Contact.PostContactV3FunctionalRolesBodyDto dto);
+        [JsonContent] Contact.PostContactV3FunctionalRolesBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】删除角色</para>
@@ -1541,7 +1540,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/contact/v3/functional_roles/{role_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PutContactV3FunctionalRolesByRoleIdAsync(
         [PathQuery] string role_id,
-        [JsonNetContent] Contact.PutContactV3FunctionalRolesByRoleIdBodyDto dto);
+        [JsonContent] Contact.PutContactV3FunctionalRolesByRoleIdBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】批量添加角色成员</para>
@@ -1571,7 +1570,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/contact/v3/functional_roles/{role_id}/members/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PostContactV3FunctionalRolesByRoleIdMembersBatchCreateResponseDto>> PostContactV3FunctionalRolesByRoleIdMembersBatchCreateAsync(
         [PathQuery] string role_id,
-        [JsonNetContent] Contact.PostContactV3FunctionalRolesByRoleIdMembersBatchCreateBodyDto dto,
+        [JsonContent] Contact.PostContactV3FunctionalRolesByRoleIdMembersBatchCreateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -1602,7 +1601,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/contact/v3/functional_roles/{role_id}/members/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PatchContactV3FunctionalRolesByRoleIdMembersBatchDeleteResponseDto>> PatchContactV3FunctionalRolesByRoleIdMembersBatchDeleteAsync(
         [PathQuery] string role_id,
-        [JsonNetContent] Contact.PatchContactV3FunctionalRolesByRoleIdMembersBatchDeleteBodyDto dto,
+        [JsonContent] Contact.PatchContactV3FunctionalRolesByRoleIdMembersBatchDeleteBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -1643,7 +1642,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/contact/v3/functional_roles/{role_id}/members/scopes")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PatchContactV3FunctionalRolesByRoleIdMembersScopesResponseDto>> PatchContactV3FunctionalRolesByRoleIdMembersScopesAsync(
         [PathQuery] string role_id,
-        [JsonNetContent] Contact.PatchContactV3FunctionalRolesByRoleIdMembersScopesBodyDto dto,
+        [JsonContent] Contact.PatchContactV3FunctionalRolesByRoleIdMembersScopesBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -1758,7 +1757,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/job_levels")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PostContactV3JobLevelsResponseDto>> PostContactV3JobLevelsAsync(
-        [JsonNetContent] Contact.PostContactV3JobLevelsBodyDto dto);
+        [JsonContent] Contact.PostContactV3JobLevelsBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】删除职级</para>
@@ -1794,7 +1793,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/contact/v3/job_levels/{job_level_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PutContactV3JobLevelsByJobLevelIdResponseDto>> PutContactV3JobLevelsByJobLevelIdAsync(
         [PathQuery] string job_level_id,
-        [JsonNetContent] Contact.PutContactV3JobLevelsByJobLevelIdBodyDto dto);
+        [JsonContent] Contact.PutContactV3JobLevelsByJobLevelIdBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】获取单个职级信息</para>
@@ -1854,7 +1853,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/job_families")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PostContactV3JobFamiliesResponseDto>> PostContactV3JobFamiliesAsync(
-        [JsonNetContent] Contact.PostContactV3JobFamiliesBodyDto dto);
+        [JsonContent] Contact.PostContactV3JobFamiliesBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】删除序列</para>
@@ -1890,7 +1889,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/contact/v3/job_families/{job_family_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PutContactV3JobFamiliesByJobFamilyIdResponseDto>> PutContactV3JobFamiliesByJobFamilyIdAsync(
         [PathQuery] string job_family_id,
-        [JsonNetContent] Contact.PutContactV3JobFamiliesByJobFamilyIdBodyDto dto);
+        [JsonContent] Contact.PutContactV3JobFamiliesByJobFamilyIdBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】获取单个序列信息</para>
@@ -2045,7 +2044,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v1/messages")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1MessagesResponseDto>> PostImV1MessagesAsync(
         [PathQuery] string receive_id_type,
-        [JsonNetContent] Im.PostImV1MessagesBodyDto dto);
+        [JsonContent] Im.PostImV1MessagesBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】回复消息</para>
@@ -2064,7 +2063,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v1/messages/{message_id}/reply")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1MessagesByMessageIdReplyResponseDto>> PostImV1MessagesByMessageIdReplyAsync(
         [PathQuery] string message_id,
-        [JsonNetContent] Im.PostImV1MessagesByMessageIdReplyBodyDto dto);
+        [JsonContent] Im.PostImV1MessagesByMessageIdReplyBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】编辑消息</para>
@@ -2083,7 +2082,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/im/v1/messages/{message_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PutImV1MessagesByMessageIdResponseDto>> PutImV1MessagesByMessageIdAsync(
         [PathQuery] string message_id,
-        [JsonNetContent] Im.PutImV1MessagesByMessageIdBodyDto dto);
+        [JsonContent] Im.PutImV1MessagesByMessageIdBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】撤回消息</para>
@@ -2138,7 +2137,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1MessagesByMessageIdForwardResponseDto>> PostImV1MessagesByMessageIdForwardAsync(
         [PathQuery] string message_id,
         [PathQuery] string receive_id_type,
-        [JsonNetContent] Im.PostImV1MessagesByMessageIdForwardBodyDto dto,
+        [JsonContent] Im.PostImV1MessagesByMessageIdForwardBodyDto dto,
         [PathQuery] string? uuid = null);
 
     /// <summary>
@@ -2170,7 +2169,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v1/messages/merge_forward")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1MessagesMergeForwardResponseDto>> PostImV1MessagesMergeForwardAsync(
         [PathQuery] string receive_id_type,
-        [JsonNetContent] Im.PostImV1MessagesMergeForwardBodyDto dto,
+        [JsonContent] Im.PostImV1MessagesMergeForwardBodyDto dto,
         [PathQuery] string? uuid = null);
 
     /// <summary>
@@ -2371,7 +2370,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/im/v1/messages/{message_id}/urgent_app")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PatchImV1MessagesByMessageIdUrgentAppResponseDto>> PatchImV1MessagesByMessageIdUrgentAppAsync(
         [PathQuery] string message_id,
-        [JsonNetContent] Im.PatchImV1MessagesByMessageIdUrgentAppBodyDto dto,
+        [JsonContent] Im.PatchImV1MessagesByMessageIdUrgentAppBodyDto dto,
         [PathQuery] string user_id_type = "open_id");
 
     /// <summary>
@@ -2403,7 +2402,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/im/v1/messages/{message_id}/urgent_sms")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PatchImV1MessagesByMessageIdUrgentSmsResponseDto>> PatchImV1MessagesByMessageIdUrgentSmsAsync(
         [PathQuery] string message_id,
-        [JsonNetContent] Im.PatchImV1MessagesByMessageIdUrgentSmsBodyDto dto,
+        [JsonContent] Im.PatchImV1MessagesByMessageIdUrgentSmsBodyDto dto,
         [PathQuery] string user_id_type = "open_id");
 
     /// <summary>
@@ -2435,7 +2434,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/im/v1/messages/{message_id}/urgent_phone")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PatchImV1MessagesByMessageIdUrgentPhoneResponseDto>> PatchImV1MessagesByMessageIdUrgentPhoneAsync(
         [PathQuery] string message_id,
-        [JsonNetContent] Im.PatchImV1MessagesByMessageIdUrgentPhoneBodyDto dto,
+        [JsonContent] Im.PatchImV1MessagesByMessageIdUrgentPhoneBodyDto dto,
         [PathQuery] string user_id_type = "open_id");
 
     /// <summary>
@@ -2460,7 +2459,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/message/v4/batch_send/")]
     System.Threading.Tasks.Task<FeishuResponse<Im.Spec.PostMessageV4BatchSendResponseDto>> PostMessageV4BatchSendAsync(
-        [JsonNetContent] Im.Spec.PostMessageV4BatchSendBodyDto dto);
+        [JsonContent] Im.Spec.PostMessageV4BatchSendBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】批量撤回消息</para>
@@ -2601,7 +2600,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/im/v1/messages/{message_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchImV1MessagesByMessageIdAsync(
         [PathQuery] string message_id,
-        [JsonNetContent] Im.PatchImV1MessagesByMessageIdBodyDto dto);
+        [JsonContent] Im.PatchImV1MessagesByMessageIdBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】延时更新消息卡片</para>
@@ -2613,7 +2612,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/interactive/v1/card/update")]
     System.Threading.Tasks.Task<FeishuResponse> PostInteractiveV1CardUpdateAsync(
-        [JsonNetContent] Im.Spec.PostInteractiveV1CardUpdateBodyDto dto);
+        [JsonContent] Im.Spec.PostInteractiveV1CardUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】发送仅特定人可见的消息卡片</para>
@@ -2626,7 +2625,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/ephemeral/v1/send")]
     System.Threading.Tasks.Task<FeishuResponse<Im.Spec.PostEphemeralV1SendResponseDto>> PostEphemeralV1SendAsync(
-        [JsonNetContent] Im.Spec.PostEphemeralV1SendBodyDto dto);
+        [JsonContent] Im.Spec.PostEphemeralV1SendBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】删除仅特定人可见的消息卡片</para>
@@ -2640,7 +2639,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/ephemeral/v1/delete")]
     System.Threading.Tasks.Task<FeishuResponse> PostEphemeralV1DeleteAsync(
-        [JsonNetContent] Im.Spec.PostEphemeralV1DeleteBodyDto dto);
+        [JsonContent] Im.Spec.PostEphemeralV1DeleteBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】添加消息表情回复</para>
@@ -2659,7 +2658,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v1/messages/{message_id}/reactions")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1MessagesByMessageIdReactionsResponseDto>> PostImV1MessagesByMessageIdReactionsAsync(
         [PathQuery] string message_id,
-        [JsonNetContent] Im.PostImV1MessagesByMessageIdReactionsBodyDto dto);
+        [JsonContent] Im.PostImV1MessagesByMessageIdReactionsBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】删除消息表情回复</para>
@@ -2746,7 +2745,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/im/v1/pins")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1PinsResponseDto>> PostImV1PinsAsync(
-        [JsonNetContent] Im.PostImV1PinsBodyDto dto);
+        [JsonContent] Im.PostImV1PinsBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】移除 Pin 消息</para>
@@ -2843,7 +2842,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/im/v1/chats")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsResponseDto>> PostImV1ChatsAsync(
-        [JsonNetContent] Im.PostImV1ChatsBodyDto dto,
+        [JsonContent] Im.PostImV1ChatsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] bool? set_bot_manager = false,
         [PathQuery] string? uuid = null);
@@ -2895,7 +2894,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/im/v1/chats/{chat_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PutImV1ChatsByChatIdAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.PutImV1ChatsByChatIdBodyDto dto,
+        [JsonContent] Im.PutImV1ChatsByChatIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -2926,7 +2925,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/im/v1/chats/{chat_id}/moderation")]
     System.Threading.Tasks.Task<FeishuResponse> PutImV1ChatsByChatIdModerationAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.PutImV1ChatsByChatIdModerationBodyDto dto,
+        [JsonContent] Im.PutImV1ChatsByChatIdModerationBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -2975,7 +2974,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/top_notice/put_top_notice")]
     System.Threading.Tasks.Task<FeishuResponse> PostImV1ChatsByChatIdTopNoticePutTopNoticeAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.PostImV1ChatsByChatIdTopNoticePutTopNoticeBodyDto dto);
+        [JsonContent] Im.PostImV1ChatsByChatIdTopNoticePutTopNoticeBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】撤销群置顶</para>
@@ -3151,7 +3150,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/link")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdLinkResponseDto>> PostImV1ChatsByChatIdLinkAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.PostImV1ChatsByChatIdLinkBodyDto dto);
+        [JsonContent] Im.PostImV1ChatsByChatIdLinkBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】指定群管理员</para>
@@ -3184,7 +3183,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/managers/add_managers")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdManagersAddManagersResponseDto>> PostImV1ChatsByChatIdManagersAddManagersAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.PostImV1ChatsByChatIdManagersAddManagersBodyDto dto,
+        [JsonContent] Im.PostImV1ChatsByChatIdManagersAddManagersBodyDto dto,
         [PathQuery] string? member_id_type = null);
 
     /// <summary>
@@ -3218,7 +3217,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/managers/delete_managers")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdManagersDeleteManagersResponseDto>> PostImV1ChatsByChatIdManagersDeleteManagersAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.PostImV1ChatsByChatIdManagersDeleteManagersBodyDto dto,
+        [JsonContent] Im.PostImV1ChatsByChatIdManagersDeleteManagersBodyDto dto,
         [PathQuery] string? member_id_type = null);
 
     /// <summary>
@@ -3263,7 +3262,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdMembersResponseDto>> PostImV1ChatsByChatIdMembersAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.PostImV1ChatsByChatIdMembersBodyDto dto,
+        [JsonContent] Im.PostImV1ChatsByChatIdMembersBodyDto dto,
         [PathQuery] string? member_id_type = "open_id",
         [PathQuery] int? succeed_type = null);
 
@@ -3318,7 +3317,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpDelete("/open-apis/im/v1/chats/{chat_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Im.DeleteImV1ChatsByChatIdMembersResponseDto>> DeleteImV1ChatsByChatIdMembersAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.DeleteImV1ChatsByChatIdMembersBodyDto dto,
+        [JsonContent] Im.DeleteImV1ChatsByChatIdMembersBodyDto dto,
         [PathQuery] string? member_id_type = "open_id");
 
     /// <summary>
@@ -3399,7 +3398,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/im/v1/chats/{chat_id}/announcement")]
     System.Threading.Tasks.Task<FeishuResponse> PatchImV1ChatsByChatIdAnnouncementAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.PatchImV1ChatsByChatIdAnnouncementBodyDto dto);
+        [JsonContent] Im.PatchImV1ChatsByChatIdAnnouncementBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】获取群公告信息</para>
@@ -3449,7 +3448,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/chat_tabs")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdChatTabsResponseDto>> PostImV1ChatsByChatIdChatTabsAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.PostImV1ChatsByChatIdChatTabsBodyDto dto);
+        [JsonContent] Im.PostImV1ChatsByChatIdChatTabsBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】删除会话标签页</para>
@@ -3469,7 +3468,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpDelete("/open-apis/im/v1/chats/{chat_id}/chat_tabs/delete_tabs")]
     System.Threading.Tasks.Task<FeishuResponse<Im.DeleteImV1ChatsByChatIdChatTabsDeleteTabsResponseDto>> DeleteImV1ChatsByChatIdChatTabsDeleteTabsAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.DeleteImV1ChatsByChatIdChatTabsDeleteTabsBodyDto dto);
+        [JsonContent] Im.DeleteImV1ChatsByChatIdChatTabsDeleteTabsBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】更新会话标签页</para>
@@ -3489,7 +3488,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/chat_tabs/update_tabs")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdChatTabsUpdateTabsResponseDto>> PostImV1ChatsByChatIdChatTabsUpdateTabsAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.PostImV1ChatsByChatIdChatTabsUpdateTabsBodyDto dto);
+        [JsonContent] Im.PostImV1ChatsByChatIdChatTabsUpdateTabsBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】会话标签页排序</para>
@@ -3509,7 +3508,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/chat_tabs/sort_tabs")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdChatTabsSortTabsResponseDto>> PostImV1ChatsByChatIdChatTabsSortTabsAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.PostImV1ChatsByChatIdChatTabsSortTabsBodyDto dto);
+        [JsonContent] Im.PostImV1ChatsByChatIdChatTabsSortTabsBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】拉取会话标签页</para>
@@ -3547,7 +3546,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/menu_tree")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdMenuTreeResponseDto>> PostImV1ChatsByChatIdMenuTreeAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.PostImV1ChatsByChatIdMenuTreeBodyDto dto);
+        [JsonContent] Im.PostImV1ChatsByChatIdMenuTreeBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】删除群菜单</para>
@@ -3567,7 +3566,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpDelete("/open-apis/im/v1/chats/{chat_id}/menu_tree")]
     System.Threading.Tasks.Task<FeishuResponse<Im.DeleteImV1ChatsByChatIdMenuTreeResponseDto>> DeleteImV1ChatsByChatIdMenuTreeAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.DeleteImV1ChatsByChatIdMenuTreeBodyDto dto);
+        [JsonContent] Im.DeleteImV1ChatsByChatIdMenuTreeBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】修改群菜单元信息</para>
@@ -3594,7 +3593,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Im.PatchImV1ChatsByChatIdMenuItemsByMenuItemIdResponseDto>> PatchImV1ChatsByChatIdMenuItemsByMenuItemIdAsync(
         [PathQuery] string chat_id,
         [PathQuery] string menu_item_id,
-        [JsonNetContent] Im.PatchImV1ChatsByChatIdMenuItemsByMenuItemIdBodyDto dto);
+        [JsonContent] Im.PatchImV1ChatsByChatIdMenuItemsByMenuItemIdBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】排序群菜单</para>
@@ -3614,7 +3613,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/menu_tree/sort")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdMenuTreeSortResponseDto>> PostImV1ChatsByChatIdMenuTreeSortAsync(
         [PathQuery] string chat_id,
-        [JsonNetContent] Im.PostImV1ChatsByChatIdMenuTreeSortBodyDto dto);
+        [JsonContent] Im.PostImV1ChatsByChatIdMenuTreeSortBodyDto dto);
 
     /// <summary>
     /// <para>【消息与群组】获取群菜单</para>
@@ -3735,7 +3734,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/v1/files/create_folder")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesCreateFolderResponseDto>> PostDriveV1FilesCreateFolderAsync(
-        [JsonNetContent] Ccm.PostDriveV1FilesCreateFolderBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1FilesCreateFolderBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取文档元数据</para>
@@ -3758,7 +3757,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/v1/metas/batch_query")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1MetasBatchQueryResponseDto>> PostDriveV1MetasBatchQueryAsync(
-        [JsonNetContent] Ccm.PostDriveV1MetasBatchQueryBodyDto dto,
+        [JsonContent] Ccm.PostDriveV1MetasBatchQueryBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -3781,7 +3780,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/drive/explorer/v2/file/{folderToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveExplorerV2FileByFolderTokenResponseDto>> PostDriveExplorerV2FileByFolderTokenAsync(
         [PathQuery] string folderToken,
-        [JsonNetContent] Ccm.Spec.PostDriveExplorerV2FileByFolderTokenBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDriveExplorerV2FileByFolderTokenBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】复制文件</para>
@@ -3801,7 +3800,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/drive/v1/files/{file_token}/copy")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesByFileTokenCopyResponseDto>> PostDriveV1FilesByFileTokenCopyAsync(
         [PathQuery] string file_token,
-        [JsonNetContent] Ccm.PostDriveV1FilesByFileTokenCopyBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1FilesByFileTokenCopyBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】移动文件/文件夹</para>
@@ -3820,7 +3819,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/drive/v1/files/{file_token}/move")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesByFileTokenMoveResponseDto>> PostDriveV1FilesByFileTokenMoveAsync(
         [PathQuery] string file_token,
-        [JsonNetContent] Ccm.PostDriveV1FilesByFileTokenMoveBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1FilesByFileTokenMoveBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】删除文件/文件夹</para>
@@ -3897,7 +3896,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/v1/files/create_shortcut")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesCreateShortcutResponseDto>> PostDriveV1FilesCreateShortcutAsync(
-        [JsonNetContent] Ccm.PostDriveV1FilesCreateShortcutBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1FilesCreateShortcutBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】查询异步任务状态</para>
@@ -4002,7 +4001,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/v1/medias/upload_prepare")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1MediasUploadPrepareResponseDto>> PostDriveV1MediasUploadPrepareAsync(
-        [JsonNetContent] Ccm.PostDriveV1MediasUploadPrepareBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1MediasUploadPrepareBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】分片上传素材（上传分片）</para>
@@ -4032,7 +4031,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/v1/medias/upload_finish")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveV1MediasUploadFinishResponseDto>> PostDriveV1MediasUploadFinishAsync(
-        [JsonNetContent] Ccm.Spec.PostDriveV1MediasUploadFinishBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDriveV1MediasUploadFinishBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】订阅云文档事件</para>
@@ -4150,7 +4149,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/v1/files/upload_prepare")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesUploadPrepareResponseDto>> PostDriveV1FilesUploadPrepareAsync(
-        [JsonNetContent] Ccm.PostDriveV1FilesUploadPrepareBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1FilesUploadPrepareBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】分片上传文件（上传分片）</para>
@@ -4179,7 +4178,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/v1/files/upload_finish")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesUploadFinishResponseDto>> PostDriveV1FilesUploadFinishAsync(
-        [JsonNetContent] Ccm.PostDriveV1FilesUploadFinishBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1FilesUploadFinishBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】下载文件</para>
@@ -4214,7 +4213,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/v1/import_tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1ImportTasksResponseDto>> PostDriveV1ImportTasksAsync(
-        [JsonNetContent] Ccm.PostDriveV1ImportTasksBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1ImportTasksBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】查询导入任务结果</para>
@@ -4243,7 +4242,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/v1/export_tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1ExportTasksResponseDto>> PostDriveV1ExportTasksAsync(
-        [JsonNetContent] Ccm.PostDriveV1ExportTasksBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1ExportTasksBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】查询导出任务结果</para>
@@ -4375,7 +4374,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/drive/v1/files/{file_token}/versions")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesByFileTokenVersionsResponseDto>> PostDriveV1FilesByFileTokenVersionsAsync(
         [PathQuery] string file_token,
-        [JsonNetContent] Ccm.PostDriveV1FilesByFileTokenVersionsBodyDto dto,
+        [JsonContent] Ccm.PostDriveV1FilesByFileTokenVersionsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -4571,7 +4570,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostDriveV1PermissionsByTokenMembersTransferOwnerAsync(
         [PathQuery] string token,
         [PathQuery] string type,
-        [JsonNetContent] Ccm.PostDriveV1PermissionsByTokenMembersTransferOwnerBodyDto dto,
+        [JsonContent] Ccm.PostDriveV1PermissionsByTokenMembersTransferOwnerBodyDto dto,
         [PathQuery] bool? need_notification = true,
         [PathQuery] bool? remove_old_owner = false,
         [PathQuery] bool? stay_put = false);
@@ -4602,6 +4601,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="action">
@@ -4616,6 +4616,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>export：导出</item>
     /// <item>copy：拷贝</item>
     /// <item>print：打印</item>
+    /// <item>manage_public：管理权限设置</item>
     /// </list>
     /// </param>
     [HttpGet("/open-apis/drive/v1/permissions/{token}/members/auth")]
@@ -4685,7 +4686,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/permission/member/list")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionMemberListResponseDto>> PostDrivePermissionMemberListAsync(
-        [JsonNetContent] Ccm.Spec.PostDrivePermissionMemberListBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDrivePermissionMemberListBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】增加协作者权限</para>
@@ -4728,7 +4729,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1PermissionsByTokenMembersResponseDto>> PostDriveV1PermissionsByTokenMembersAsync(
         [PathQuery] string token,
         [PathQuery] string type,
-        [JsonNetContent] Ccm.PostDriveV1PermissionsByTokenMembersBodyDto dto,
+        [JsonContent] Ccm.PostDriveV1PermissionsByTokenMembersBodyDto dto,
         [PathQuery] bool? need_notification = false);
 
     /// <summary>
@@ -4778,7 +4779,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string token,
         [PathQuery] string member_id,
         [PathQuery] string type,
-        [JsonNetContent] Ccm.PutDriveV1PermissionsByTokenMembersByMemberIdBodyDto dto,
+        [JsonContent] Ccm.PutDriveV1PermissionsByTokenMembersByMemberIdBodyDto dto,
         [PathQuery] bool? need_notification = false);
 
     /// <summary>
@@ -5000,7 +5001,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchDriveV1PermissionsByTokenPublicResponseDto>> PatchDriveV1PermissionsByTokenPublicAsync(
         [PathQuery] string token,
         [PathQuery] string type,
-        [JsonNetContent] Ccm.PatchDriveV1PermissionsByTokenPublicBodyDto dto);
+        [JsonContent] Ccm.PatchDriveV1PermissionsByTokenPublicBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取云文档权限设置</para>
@@ -5068,7 +5069,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchDriveV2PermissionsByTokenPublicResponseDto>> PatchDriveV2PermissionsByTokenPublicAsync(
         [PathQuery] string token,
         [PathQuery] string type,
-        [JsonNetContent] Ccm.PatchDriveV2PermissionsByTokenPublicBodyDto dto);
+        [JsonContent] Ccm.PatchDriveV2PermissionsByTokenPublicBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】分页获取文档全文评论</para>
@@ -5177,7 +5178,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesByFileTokenCommentsResponseDto>> PostDriveV1FilesByFileTokenCommentsAsync(
         [PathQuery] string file_token,
         [PathQuery] string file_type,
-        [JsonNetContent] Ccm.PostDriveV1FilesByFileTokenCommentsBodyDto dto,
+        [JsonContent] Ccm.PostDriveV1FilesByFileTokenCommentsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -5268,7 +5269,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto>> PostDriveV1FilesByFileTokenCommentsBatchQueryAsync(
         [PathQuery] string file_token,
         [PathQuery] string file_type,
-        [JsonNetContent] Ccm.PostDriveV1FilesByFileTokenCommentsBatchQueryBodyDto dto,
+        [JsonContent] Ccm.PostDriveV1FilesByFileTokenCommentsBatchQueryBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -5387,7 +5388,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string comment_id,
         [PathQuery] string reply_id,
         [PathQuery] string file_type,
-        [JsonNetContent] Ccm.PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyDto dto,
+        [JsonContent] Ccm.PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -5445,7 +5446,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PatchDriveV1FilesByFileTokenCommentsByCommentIdAsync(
         [PathQuery] string file_token,
         [PathQuery] string comment_id,
-        [JsonNetContent] Ccm.Spec.PatchDriveV1FilesByFileTokenCommentsByCommentIdBodyDto dto);
+        [JsonContent] Ccm.Spec.PatchDriveV1FilesByFileTokenCommentsByCommentIdBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取文档基本信息</para>
@@ -5552,7 +5553,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/docx/v1/documents")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDocxV1DocumentsResponseDto>> PostDocxV1DocumentsAsync(
-        [JsonNetContent] Ccm.PostDocxV1DocumentsBodyDto dto);
+        [JsonContent] Ccm.PostDocxV1DocumentsBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取块</para>
@@ -5642,7 +5643,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenResponseDto>> PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenAsync(
         [PathQuery] string document_id,
         [PathQuery] string block_id,
-        [JsonNetContent] Ccm.PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto dto,
+        [JsonContent] Ccm.PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto dto,
         [PathQuery] int? document_revision_id = -1,
         [PathQuery] string? client_token = null,
         [PathQuery] string? user_id_type = "open_id");
@@ -5693,7 +5694,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchDocxV1DocumentsByDocumentIdBlocksByBlockIdResponseDto>> PatchDocxV1DocumentsByDocumentIdBlocksByBlockIdAsync(
         [PathQuery] string document_id,
         [PathQuery] string block_id,
-        [JsonNetContent] Ccm.PatchDocxV1DocumentsByDocumentIdBlocksByBlockIdBodyDto dto,
+        [JsonContent] Ccm.PatchDocxV1DocumentsByDocumentIdBlocksByBlockIdBodyDto dto,
         [PathQuery] int? document_revision_id = -1,
         [PathQuery] string? client_token = null,
         [PathQuery] string? user_id_type = "open_id");
@@ -5737,7 +5738,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/docx/v1/documents/{document_id}/blocks/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateResponseDto>> PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateAsync(
         [PathQuery] string document_id,
-        [JsonNetContent] Ccm.PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateBodyDto dto,
+        [JsonContent] Ccm.PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateBodyDto dto,
         [PathQuery] int? document_revision_id = -1,
         [PathQuery] string? client_token = null,
         [PathQuery] string? user_id_type = "open_id");
@@ -5778,7 +5779,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDeleteResponseDto>> DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDeleteAsync(
         [PathQuery] string document_id,
         [PathQuery] string block_id,
-        [JsonNetContent] Ccm.DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDeleteBodyDto dto,
+        [JsonContent] Ccm.DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDeleteBodyDto dto,
         [PathQuery] int? document_revision_id = -1,
         [PathQuery] string? client_token = null);
 
@@ -5855,7 +5856,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchSheetsV3SpreadsheetsBySpreadsheetTokenAsync(
         [PathQuery] string spreadsheet_token,
-        [JsonNetContent] Ccm.Spec.PatchSheetsV3SpreadsheetsBySpreadsheetTokenBodyDto dto);
+        [JsonContent] Ccm.Spec.PatchSheetsV3SpreadsheetsBySpreadsheetTokenBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取电子表格信息</para>
@@ -5896,7 +5897,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/sheets/v3/spreadsheets")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostSheetsV3SpreadsheetsResponseDto>> PostSheetsV3SpreadsheetsAsync(
-        [JsonNetContent] Ccm.PostSheetsV3SpreadsheetsBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】查询工作表</para>
@@ -5956,7 +5957,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/sheets_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】更新工作表属性</para>
@@ -5990,7 +5991,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dimension_range")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】插入行列</para>
@@ -6009,7 +6010,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/insert_dimension_range")]
     System.Threading.Tasks.Task<FeishuResponse> PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRangeAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRangeBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRangeBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】更新行列</para>
@@ -6027,7 +6028,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dimension_range")]
     System.Threading.Tasks.Task<FeishuResponse> PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
+        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】移动行列</para>
@@ -6053,7 +6054,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimensionAsync(
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonNetContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimensionBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimensionBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】删除行列</para>
@@ -6071,7 +6072,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dimension_range")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
+        [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】插入数据</para>
@@ -6090,7 +6091,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_prepend")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】追加数据</para>
@@ -6107,7 +6108,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_append")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendAsync(
-        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendBodyDto dto,
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendBodyDto dto,
         [PathQuery] string? insertDataOption = null);
 
     /// <summary>
@@ -6148,7 +6149,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesBodyDto dto);
+        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】读取多个范围</para>
@@ -6182,7 +6183,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】设置单元格样式 </para>
@@ -6200,7 +6201,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/style")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleBodyDto dto);
+        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】批量设置单元格样式 </para>
@@ -6218,7 +6219,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/styles_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateBodyDto dto);
+        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】写入图片</para>
@@ -6236,7 +6237,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_image")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】合并单元格</para>
@@ -6254,7 +6255,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/merge_cells")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】拆分单元格</para>
@@ -6272,7 +6273,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/unmerge_cells")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】查找单元格</para>
@@ -6298,7 +6299,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindAsync(
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonNetContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】替换单元格</para>
@@ -6324,7 +6325,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdReplaceResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdReplaceAsync(
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonNetContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdReplaceBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdReplaceBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取筛选</para>
@@ -6374,7 +6375,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterAsync(
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonNetContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】更新筛选</para>
@@ -6400,7 +6401,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterAsync(
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonNetContent] Ccm.Spec.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBodyDto dto);
+        [JsonContent] Ccm.Spec.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】删除筛选</para>
@@ -6505,7 +6506,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsAsync(
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonNetContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】更新筛选视图</para>
@@ -6538,7 +6539,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
         [PathQuery] string filter_view_id,
-        [JsonNetContent] Ccm.Spec.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdBodyDto dto);
+        [JsonContent] Ccm.Spec.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】删除筛选视图</para>
@@ -6671,7 +6672,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
         [PathQuery] string filter_view_id,
-        [JsonNetContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】更新筛选条件</para>
@@ -6711,7 +6712,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string sheet_id,
         [PathQuery] string filter_view_id,
         [PathQuery] string condition_id,
-        [JsonNetContent] Ccm.Spec.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdBodyDto dto);
+        [JsonContent] Ccm.Spec.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】删除筛选条件</para>
@@ -6804,7 +6805,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_range_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdateAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdateBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】删除保护范围</para>
@@ -6822,7 +6823,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_range_batch_del")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelBodyDto dto);
+        [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】查询下拉列表设置</para>
@@ -6860,7 +6861,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
     System.Threading.Tasks.Task<FeishuResponse> PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】更新下拉列表设置</para>
@@ -6890,7 +6891,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string spreadsheetToken,
         [PathQuery] string sheetId,
         [PathQuery] int dataValidationId,
-        [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdBodyDto dto);
+        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】删除下拉列表设置</para>
@@ -6908,7 +6909,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto dto);
+        [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取条件格式</para>
@@ -6941,7 +6942,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】更新条件格式</para>
@@ -6959,7 +6960,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】删除条件格式</para>
@@ -6977,7 +6978,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteBodyDto dto);
+        [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取浮动图片</para>
@@ -7058,7 +7059,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesAsync(
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonNetContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】更新浮动图片</para>
@@ -7091,7 +7092,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
         [PathQuery] string float_image_id,
-        [JsonNetContent] Ccm.Spec.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdBodyDto dto);
+        [JsonContent] Ccm.Spec.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】删除浮动图片</para>
@@ -7141,7 +7142,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/copy")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenCopyResponseDto>> PostBitableV1AppsByAppTokenCopyAsync(
         [PathQuery] string app_token,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenCopyBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenCopyBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】创建多维表格</para>
@@ -7153,7 +7154,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/bitable/v1/apps")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsResponseDto>> PostBitableV1AppsAsync(
-        [JsonNetContent] Base.PostBitableV1AppsBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】获取多维表格元数据</para>
@@ -7189,7 +7190,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/bitable/v1/apps/{app_token}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PutBitableV1AppsByAppTokenResponseDto>> PutBitableV1AppsByAppTokenAsync(
         [PathQuery] string app_token,
-        [JsonNetContent] Base.PutBitableV1AppsByAppTokenBodyDto dto);
+        [JsonContent] Base.PutBitableV1AppsByAppTokenBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】新增一个数据表</para>
@@ -7208,7 +7209,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesResponseDto>> PostBitableV1AppsByAppTokenTablesAsync(
         [PathQuery] string app_token,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenTablesBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】新增多个数据表</para>
@@ -7238,7 +7239,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesBatchCreateResponseDto>> PostBitableV1AppsByAppTokenTablesBatchCreateAsync(
         [PathQuery] string app_token,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenTablesBatchCreateBodyDto dto,
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesBatchCreateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -7282,7 +7283,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse> PostBitableV1AppsByAppTokenTablesBatchDeleteAsync(
         [PathQuery] string app_token,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenTablesBatchDeleteBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesBatchDeleteBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】更新数据表</para>
@@ -7308,7 +7309,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Base.PatchBitableV1AppsByAppTokenTablesByTableIdResponseDto>> PatchBitableV1AppsByAppTokenTablesByTableIdAsync(
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [JsonNetContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdBodyDto dto);
+        [JsonContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】列出数据表</para>
@@ -7365,7 +7366,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenDashboardsByBlockIdCopyResponseDto>> PostBitableV1AppsByAppTokenDashboardsByBlockIdCopyAsync(
         [PathQuery] string app_token,
         [PathQuery] string block_id,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenDashboardsByBlockIdCopyBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenDashboardsByBlockIdCopyBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】列出仪表盘</para>
@@ -7429,7 +7430,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [PathQuery] string view_id,
-        [JsonNetContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto dto);
+        [JsonContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】检索视图</para>
@@ -7536,7 +7537,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdViewsAsync(
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdViewsBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdViewsBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】删除视图</para>
@@ -7600,7 +7601,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [PathQuery] string form_id,
-        [JsonNetContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdBodyDto dto);
+        [JsonContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】获取表单元数据</para>
@@ -7671,7 +7672,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string table_id,
         [PathQuery] string form_id,
         [PathQuery] string field_id,
-        [JsonNetContent] Base.Spec.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdBodyDto dto);
+        [JsonContent] Base.Spec.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】列出表单问题</para>
@@ -7942,7 +7943,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdRecordsAsync(
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBodyDto dto,
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? client_token = null);
 
@@ -7988,7 +7989,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [PathQuery] string record_id,
-        [JsonNetContent] Base.PutBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdBodyDto dto,
+        [JsonContent] Base.PutBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -8063,7 +8064,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateAsync(
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateBodyDto dto,
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? client_token = null);
 
@@ -8102,7 +8103,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateAsync(
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateBodyDto dto,
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -8129,7 +8130,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDeleteResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDeleteAsync(
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDeleteBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDeleteBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】列出字段</para>
@@ -8213,7 +8214,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdFieldsAsync(
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdFieldsBodyDto dto,
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdFieldsBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -8247,7 +8248,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [PathQuery] string field_id,
-        [JsonNetContent] Base.PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto dto);
+        [JsonContent] Base.PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】删除字段</para>
@@ -8328,7 +8329,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/roles")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenRolesResponseDto>> PostBitableV1AppsByAppTokenRolesAsync(
         [PathQuery] string app_token,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenRolesBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenRolesBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】删除自定义角色</para>
@@ -8378,7 +8379,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Base.PutBitableV1AppsByAppTokenRolesByRoleIdResponseDto>> PutBitableV1AppsByAppTokenRolesByRoleIdAsync(
         [PathQuery] string app_token,
         [PathQuery] string role_id,
-        [JsonNetContent] Base.PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto dto);
+        [JsonContent] Base.PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】批量删除协作者</para>
@@ -8404,7 +8405,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchDeleteAsync(
         [PathQuery] string app_token,
         [PathQuery] string role_id,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchDeleteBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchDeleteBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】批量新增协作者</para>
@@ -8430,7 +8431,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchCreateAsync(
         [PathQuery] string app_token,
         [PathQuery] string role_id,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchCreateBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchCreateBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】列出协作者</para>
@@ -8508,7 +8509,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostBitableV1AppsByAppTokenRolesByRoleIdMembersAsync(
         [PathQuery] string app_token,
         [PathQuery] string role_id,
-        [JsonNetContent] Base.PostBitableV1AppsByAppTokenRolesByRoleIdMembersBodyDto dto,
+        [JsonContent] Base.PostBitableV1AppsByAppTokenRolesByRoleIdMembersBodyDto dto,
         [PathQuery] string? member_id_type = "open_id");
 
     /// <summary>
@@ -8629,7 +8630,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/wiki/v2/spaces/{space_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostWikiV2SpacesBySpaceIdMembersResponseDto>> PostWikiV2SpacesBySpaceIdMembersAsync(
         [PathQuery] string space_id,
-        [JsonNetContent] Ccm.PostWikiV2SpacesBySpaceIdMembersBodyDto dto,
+        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdMembersBodyDto dto,
         [PathQuery] bool? need_notification = null);
 
     /// <summary>
@@ -8656,7 +8657,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.DeleteWikiV2SpacesBySpaceIdMembersByMemberIdResponseDto>> DeleteWikiV2SpacesBySpaceIdMembersByMemberIdAsync(
         [PathQuery] string space_id,
         [PathQuery] string member_id,
-        [JsonNetContent] Ccm.DeleteWikiV2SpacesBySpaceIdMembersByMemberIdBodyDto dto);
+        [JsonContent] Ccm.DeleteWikiV2SpacesBySpaceIdMembersByMemberIdBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】更新知识空间设置</para>
@@ -8675,7 +8676,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/wiki/v2/spaces/{space_id}/setting")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PutWikiV2SpacesBySpaceIdSettingResponseDto>> PutWikiV2SpacesBySpaceIdSettingAsync(
         [PathQuery] string space_id,
-        [JsonNetContent] Ccm.PutWikiV2SpacesBySpaceIdSettingBodyDto dto);
+        [JsonContent] Ccm.PutWikiV2SpacesBySpaceIdSettingBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】创建知识空间节点</para>
@@ -8695,7 +8696,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/wiki/v2/spaces/{space_id}/nodes")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostWikiV2SpacesBySpaceIdNodesResponseDto>> PostWikiV2SpacesBySpaceIdNodesAsync(
         [PathQuery] string space_id,
-        [JsonNetContent] Ccm.PostWikiV2SpacesBySpaceIdNodesBodyDto dto);
+        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取知识空间节点信息</para>
@@ -8794,7 +8795,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenMoveResponseDto>> PostWikiV2SpacesBySpaceIdNodesByNodeTokenMoveAsync(
         [PathQuery] string space_id,
         [PathQuery] string node_token,
-        [JsonNetContent] Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenMoveBodyDto dto);
+        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenMoveBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】更新知识空间节点标题</para>
@@ -8820,7 +8821,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostWikiV2SpacesBySpaceIdNodesByNodeTokenUpdateTitleAsync(
         [PathQuery] string space_id,
         [PathQuery] string node_token,
-        [JsonNetContent] Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenUpdateTitleBodyDto dto);
+        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenUpdateTitleBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】创建知识空间节点副本</para>
@@ -8846,7 +8847,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenCopyResponseDto>> PostWikiV2SpacesBySpaceIdNodesByNodeTokenCopyAsync(
         [PathQuery] string space_id,
         [PathQuery] string node_token,
-        [JsonNetContent] Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenCopyBodyDto dto);
+        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenCopyBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】移动云空间文档至知识空间</para>
@@ -8865,7 +8866,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/wiki/v2/spaces/{space_id}/nodes/move_docs_to_wiki")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiResponseDto>> PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiAsync(
         [PathQuery] string space_id,
-        [JsonNetContent] Ccm.PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiBodyDto dto);
+        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取任务结果</para>
@@ -8904,7 +8905,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/calendar/v4/calendars")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsResponseDto>> PostCalendarV4CalendarsAsync(
-        [JsonNetContent] Calendar.PostCalendarV4CalendarsBodyDto dto);
+        [JsonContent] Calendar.PostCalendarV4CalendarsBodyDto dto);
 
     /// <summary>
     /// <para>【日历】删除共享日历</para>
@@ -8967,7 +8968,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/calendar/v4/freebusy/list")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4FreebusyListResponseDto>> PostCalendarV4FreebusyListAsync(
-        [JsonNetContent] Calendar.PostCalendarV4FreebusyListBodyDto dto,
+        [JsonContent] Calendar.PostCalendarV4FreebusyListBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -9038,7 +9039,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/calendar/v4/calendars/{calendar_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PatchCalendarV4CalendarsByCalendarIdResponseDto>> PatchCalendarV4CalendarsByCalendarIdAsync(
         [PathQuery] string calendar_id,
-        [JsonNetContent] Calendar.PatchCalendarV4CalendarsByCalendarIdBodyDto dto);
+        [JsonContent] Calendar.PatchCalendarV4CalendarsByCalendarIdBodyDto dto);
 
     /// <summary>
     /// <para>【日历】搜索日历</para>
@@ -9062,7 +9063,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/calendar/v4/calendars/search")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsSearchResponseDto>> PostCalendarV4CalendarsSearchAsync(
-        [JsonNetContent] Calendar.PostCalendarV4CalendarsSearchBodyDto dto,
+        [JsonContent] Calendar.PostCalendarV4CalendarsSearchBodyDto dto,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 20);
 
@@ -9120,7 +9121,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/acls")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.Spec.PostCalendarV4CalendarsByCalendarIdAclsResponseDto>> PostCalendarV4CalendarsByCalendarIdAclsAsync(
         [PathQuery] string calendar_id,
-        [JsonNetContent] Calendar.Spec.PostCalendarV4CalendarsByCalendarIdAclsBodyDto dto);
+        [JsonContent] Calendar.Spec.PostCalendarV4CalendarsByCalendarIdAclsBodyDto dto);
 
     /// <summary>
     /// <para>【日历】删除访问控制</para>
@@ -9201,7 +9202,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdEventsResponseDto>> PostCalendarV4CalendarsByCalendarIdEventsAsync(
         [PathQuery] string calendar_id,
-        [JsonNetContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsBodyDto dto,
+        [JsonContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsBodyDto dto,
         [PathQuery] string? idempotency_key = null,
         [PathQuery] string? user_id_type = "open_id");
 
@@ -9266,7 +9267,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PatchCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto>> PatchCalendarV4CalendarsByCalendarIdEventsByEventIdAsync(
         [PathQuery] string calendar_id,
         [PathQuery] string event_id,
-        [JsonNetContent] Calendar.PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto dto,
+        [JsonContent] Calendar.PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -9416,7 +9417,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/search")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdEventsSearchResponseDto>> PostCalendarV4CalendarsByCalendarIdEventsSearchAsync(
         [PathQuery] string calendar_id,
-        [JsonNetContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto dto,
+        [JsonContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 20);
@@ -9487,7 +9488,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/calendar/v4/timeoff_events")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.Spec.PostCalendarV4TimeoffEventsResponseDto>> PostCalendarV4TimeoffEventsAsync(
-        [JsonNetContent] Calendar.Spec.PostCalendarV4TimeoffEventsBodyDto dto);
+        [JsonContent] Calendar.Spec.PostCalendarV4TimeoffEventsBodyDto dto);
 
     /// <summary>
     /// <para>【日历】删除请假日程</para>
@@ -9517,7 +9518,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/meeting_room/summary/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<MeetingRoom.Spec.PostMeetingRoomSummaryBatchGetResponseDto>> PostMeetingRoomSummaryBatchGetAsync(
-        [JsonNetContent] MeetingRoom.Spec.PostMeetingRoomSummaryBatchGetBodyDto dto);
+        [JsonContent] MeetingRoom.Spec.PostMeetingRoomSummaryBatchGetBodyDto dto);
 
     /// <summary>
     /// <para>【会议室】查询会议室忙闲</para>
@@ -9554,7 +9555,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/meeting_room/instance/reply")]
     System.Threading.Tasks.Task<FeishuResponse> PostMeetingRoomInstanceReplyAsync(
-        [JsonNetContent] MeetingRoom.Spec.PostMeetingRoomInstanceReplyBodyDto dto);
+        [JsonContent] MeetingRoom.Spec.PostMeetingRoomInstanceReplyBodyDto dto);
 
     /// <summary>
     /// <para>【日历】添加日程参与人</para>
@@ -9591,7 +9592,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesResponseDto>> PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesAsync(
         [PathQuery] string calendar_id,
         [PathQuery] string event_id,
-        [JsonNetContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto dto,
+        [JsonContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -9629,7 +9630,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDeleteAsync(
         [PathQuery] string calendar_id,
         [PathQuery] string event_id,
-        [JsonNetContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDeleteBodyDto dto,
+        [JsonContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDeleteBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -9767,7 +9768,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/vc/v1/reserves/apply")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1ReservesApplyResponseDto>> PostVcV1ReservesApplyAsync(
-        [JsonNetContent] Vc.PostVcV1ReservesApplyBodyDto dto,
+        [JsonContent] Vc.PostVcV1ReservesApplyBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -9815,7 +9816,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/vc/v1/reserves/{reserve_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PutVcV1ReservesByReserveIdResponseDto>> PutVcV1ReservesByReserveIdAsync(
         [PathQuery] string reserve_id,
-        [JsonNetContent] Vc.PutVcV1ReservesByReserveIdBodyDto dto,
+        [JsonContent] Vc.PutVcV1ReservesByReserveIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -9911,7 +9912,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/vc/v1/meetings/{meeting_id}/kickout")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1MeetingsByMeetingIdKickoutResponseDto>> PostVcV1MeetingsByMeetingIdKickoutAsync(
         [PathQuery] string meeting_id,
-        [JsonNetContent] Vc.PostVcV1MeetingsByMeetingIdKickoutBodyDto dto,
+        [JsonContent] Vc.PostVcV1MeetingsByMeetingIdKickoutBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -9942,7 +9943,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/vc/v1/meetings/{meeting_id}/set_host")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PatchVcV1MeetingsByMeetingIdSetHostResponseDto>> PatchVcV1MeetingsByMeetingIdSetHostAsync(
         [PathQuery] string meeting_id,
-        [JsonNetContent] Vc.PatchVcV1MeetingsByMeetingIdSetHostBodyDto dto,
+        [JsonContent] Vc.PatchVcV1MeetingsByMeetingIdSetHostBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -10140,7 +10141,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/vc/v1/exports/meeting_list")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1ExportsMeetingListResponseDto>> PostVcV1ExportsMeetingListAsync(
-        [JsonNetContent] Vc.PostVcV1ExportsMeetingListBodyDto dto,
+        [JsonContent] Vc.PostVcV1ExportsMeetingListBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -10164,7 +10165,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/vc/v1/exports/participant_list")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1ExportsParticipantListResponseDto>> PostVcV1ExportsParticipantListAsync(
-        [JsonNetContent] Vc.PostVcV1ExportsParticipantListBodyDto dto,
+        [JsonContent] Vc.PostVcV1ExportsParticipantListBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -10189,7 +10190,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/vc/v1/exports/participant_quality_list")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1ExportsParticipantQualityListResponseDto>> PostVcV1ExportsParticipantQualityListAsync(
-        [JsonNetContent] Vc.PostVcV1ExportsParticipantQualityListBodyDto dto,
+        [JsonContent] Vc.PostVcV1ExportsParticipantQualityListBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -10202,7 +10203,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/vc/v1/exports/resource_reservation_list")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1ExportsResourceReservationListResponseDto>> PostVcV1ExportsResourceReservationListAsync(
-        [JsonNetContent] Vc.PostVcV1ExportsResourceReservationListBodyDto dto);
+        [JsonContent] Vc.PostVcV1ExportsResourceReservationListBodyDto dto);
 
     /// <summary>
     /// <para>【视频会议】查询导出任务结果</para>
@@ -10248,7 +10249,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/vc/v1/room_levels")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1RoomLevelsResponseDto>> PostVcV1RoomLevelsAsync(
-        [JsonNetContent] Vc.PostVcV1RoomLevelsBodyDto dto);
+        [JsonContent] Vc.PostVcV1RoomLevelsBodyDto dto);
 
     /// <summary>
     /// <para>【视频会议】删除会议室层级</para>
@@ -10260,7 +10261,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/vc/v1/room_levels/del")]
     System.Threading.Tasks.Task<FeishuResponse> PostVcV1RoomLevelsDelAsync(
-        [JsonNetContent] Vc.PostVcV1RoomLevelsDelBodyDto dto);
+        [JsonContent] Vc.PostVcV1RoomLevelsDelBodyDto dto);
 
     /// <summary>
     /// <para>【视频会议】更新会议室层级</para>
@@ -10279,7 +10280,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/vc/v1/room_levels/{room_level_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchVcV1RoomLevelsByRoomLevelIdAsync(
         [PathQuery] string room_level_id,
-        [JsonNetContent] Vc.PatchVcV1RoomLevelsByRoomLevelIdBodyDto dto);
+        [JsonContent] Vc.PatchVcV1RoomLevelsByRoomLevelIdBodyDto dto);
 
     /// <summary>
     /// <para>【视频会议】查询会议室层级详情</para>
@@ -10308,7 +10309,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/vc/v1/room_levels/mget")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1RoomLevelsMgetResponseDto>> PostVcV1RoomLevelsMgetAsync(
-        [JsonNetContent] Vc.PostVcV1RoomLevelsMgetBodyDto dto);
+        [JsonContent] Vc.PostVcV1RoomLevelsMgetBodyDto dto);
 
     /// <summary>
     /// <para>【视频会议】查询会议室层级列表</para>
@@ -10377,7 +10378,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/vc/v1/rooms")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1RoomsResponseDto>> PostVcV1RoomsAsync(
-        [JsonNetContent] Vc.PostVcV1RoomsBodyDto dto,
+        [JsonContent] Vc.PostVcV1RoomsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -10425,7 +10426,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/vc/v1/rooms/{room_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchVcV1RoomsByRoomIdAsync(
         [PathQuery] string room_id,
-        [JsonNetContent] Vc.PatchVcV1RoomsByRoomIdBodyDto dto,
+        [JsonContent] Vc.PatchVcV1RoomsByRoomIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -10478,7 +10479,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/vc/v1/rooms/mget")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1RoomsMgetResponseDto>> PostVcV1RoomsMgetAsync(
-        [JsonNetContent] Vc.PostVcV1RoomsMgetBodyDto dto,
+        [JsonContent] Vc.PostVcV1RoomsMgetBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -10583,7 +10584,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/vc/v1/scope_config")]
     System.Threading.Tasks.Task<FeishuResponse> PostVcV1ScopeConfigAsync(
-        [JsonNetContent] Vc.PostVcV1ScopeConfigBodyDto dto,
+        [JsonContent] Vc.PostVcV1ScopeConfigBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -10648,7 +10649,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/vc/v1/reserve_configs/{reserve_config_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchVcV1ReserveConfigsByReserveConfigIdAsync(
         [PathQuery] string reserve_config_id,
-        [JsonNetContent] Vc.PatchVcV1ReserveConfigsByReserveConfigIdBodyDto dto,
+        [JsonContent] Vc.PatchVcV1ReserveConfigsByReserveConfigIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -10714,7 +10715,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/vc/v1/reserve_configs/{reserve_config_id}/form")]
     System.Threading.Tasks.Task<FeishuResponse> PatchVcV1ReserveConfigsByReserveConfigIdFormAsync(
         [PathQuery] string reserve_config_id,
-        [JsonNetContent] Vc.PatchVcV1ReserveConfigsByReserveConfigIdFormBodyDto dto,
+        [JsonContent] Vc.PatchVcV1ReserveConfigsByReserveConfigIdFormBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -10780,7 +10781,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/vc/v1/reserve_configs/{reserve_config_id}/admin")]
     System.Threading.Tasks.Task<FeishuResponse> PatchVcV1ReserveConfigsByReserveConfigIdAdminAsync(
         [PathQuery] string reserve_config_id,
-        [JsonNetContent] Vc.PatchVcV1ReserveConfigsByReserveConfigIdAdminBodyDto dto,
+        [JsonContent] Vc.PatchVcV1ReserveConfigsByReserveConfigIdAdminBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -10846,7 +10847,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/vc/v1/reserve_configs/{reserve_config_id}/disable_inform")]
     System.Threading.Tasks.Task<FeishuResponse> PatchVcV1ReserveConfigsByReserveConfigIdDisableInformAsync(
         [PathQuery] string reserve_config_id,
-        [JsonNetContent] Vc.PatchVcV1ReserveConfigsByReserveConfigIdDisableInformBodyDto dto,
+        [JsonContent] Vc.PatchVcV1ReserveConfigsByReserveConfigIdDisableInformBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -11186,7 +11187,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/attendance/v1/shifts")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1ShiftsResponseDto>> PostAttendanceV1ShiftsAsync(
-        [JsonNetContent] Attendance.PostAttendanceV1ShiftsBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1ShiftsBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】删除班次</para>
@@ -11275,8 +11276,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>用户 ID 的类型</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
-    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
     /// <param name="dept_type">
@@ -11292,7 +11293,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1GroupsResponseDto>> PostAttendanceV1GroupsAsync(
         [PathQuery] string employee_type,
         [PathQuery] string dept_type,
-        [JsonNetContent] Attendance.PostAttendanceV1GroupsBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1GroupsBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】删除考勤组</para>
@@ -11357,7 +11358,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/attendance/v1/groups/search")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1GroupsSearchResponseDto>> PostAttendanceV1GroupsSearchAsync(
-        [JsonNetContent] Attendance.PostAttendanceV1GroupsSearchBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1GroupsSearchBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】查询所有考勤组</para>
@@ -11395,15 +11396,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>请求体和响应体中的 user_id 的员工工号类型</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
-    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/attendance/v1/user_daily_shifts/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserDailyShiftsBatchCreateResponseDto>> PostAttendanceV1UserDailyShiftsBatchCreateAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PostAttendanceV1UserDailyShiftsBatchCreateBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1UserDailyShiftsBatchCreateBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】查询排班表</para>
@@ -11425,7 +11426,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/attendance/v1/user_daily_shifts/query")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserDailyShiftsQueryResponseDto>> PostAttendanceV1UserDailyShiftsQueryAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PostAttendanceV1UserDailyShiftsQueryBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1UserDailyShiftsQueryBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】更新统计设置</para>
@@ -11454,7 +11455,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PutAttendanceV1UserStatsViewsByUserStatsViewIdResponseDto>> PutAttendanceV1UserStatsViewsByUserStatsViewIdAsync(
         [PathQuery] string user_stats_view_id,
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PutAttendanceV1UserStatsViewsByUserStatsViewIdBodyDto dto);
+        [JsonContent] Attendance.PutAttendanceV1UserStatsViewsByUserStatsViewIdBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】查询统计表头</para>
@@ -11476,7 +11477,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/attendance/v1/user_stats_fields/query")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserStatsFieldsQueryResponseDto>> PostAttendanceV1UserStatsFieldsQueryAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PostAttendanceV1UserStatsFieldsQueryBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1UserStatsFieldsQueryBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】查询统计设置</para>
@@ -11498,7 +11499,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/attendance/v1/user_stats_views/query")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserStatsViewsQueryResponseDto>> PostAttendanceV1UserStatsViewsQueryAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PostAttendanceV1UserStatsViewsQueryBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1UserStatsViewsQueryBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】查询统计数据</para>
@@ -11512,15 +11513,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工工号类型</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
-    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/attendance/v1/user_stats_datas/query")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserStatsDatasQueryResponseDto>> PostAttendanceV1UserStatsDatasQueryAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PostAttendanceV1UserStatsDatasQueryBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1UserStatsDatasQueryBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】获取审批通过数据</para>
@@ -11534,15 +11535,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工工号类型</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://bytedance.feishu.cn/admin/index) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
-    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/index) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/index) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/index) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/attendance/v1/user_approvals/query")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserApprovalsQueryResponseDto>> PostAttendanceV1UserApprovalsQueryAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PostAttendanceV1UserApprovalsQueryBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1UserApprovalsQueryBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】写入审批结果</para>
@@ -11557,15 +11558,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>请求体和响应体中的 user_id 的员工工号类型</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
-    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/attendance/v1/user_approvals")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserApprovalsResponseDto>> PostAttendanceV1UserApprovalsAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PostAttendanceV1UserApprovalsBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1UserApprovalsBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】通知审批状态更新</para>
@@ -11577,7 +11578,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/attendance/v1/approval_infos/process")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1ApprovalInfosProcessResponseDto>> PostAttendanceV1ApprovalInfosProcessAsync(
-        [JsonNetContent] Attendance.PostAttendanceV1ApprovalInfosProcessBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1ApprovalInfosProcessBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】通知补卡审批发起</para>
@@ -11599,7 +11600,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/attendance/v1/user_task_remedys")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserTaskRemedysResponseDto>> PostAttendanceV1UserTaskRemedysAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PostAttendanceV1UserTaskRemedysBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1UserTaskRemedysBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】获取可补卡时间</para>
@@ -11621,7 +11622,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/attendance/v1/user_task_remedys/query_user_allowed_remedys")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto>> PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】获取补卡记录</para>
@@ -11643,7 +11644,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/attendance/v1/user_task_remedys/query")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserTaskRemedysQueryResponseDto>> PostAttendanceV1UserTaskRemedysQueryAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PostAttendanceV1UserTaskRemedysQueryBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1UserTaskRemedysQueryBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】导入打卡流水</para>
@@ -11657,15 +11658,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>请求体和响应体中的 user_id 和 creator_id 的员工工号类型</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
-    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/attendance/v1/user_flows/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserFlowsBatchCreateResponseDto>> PostAttendanceV1UserFlowsBatchCreateAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PostAttendanceV1UserFlowsBatchCreateBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1UserFlowsBatchCreateBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】查询打卡流水</para>
@@ -11721,7 +11722,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/attendance/v1/user_flows/query")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserFlowsQueryResponseDto>> PostAttendanceV1UserFlowsQueryAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PostAttendanceV1UserFlowsQueryBodyDto dto,
+        [JsonContent] Attendance.PostAttendanceV1UserFlowsQueryBodyDto dto,
         [PathQuery] bool? include_terminated_user = null);
 
     /// <summary>
@@ -11736,8 +11737,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>员工工号类型</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
-    /// <item>employee_no：员工工号，即[飞书管理后台](https://bytedance.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
     /// <param name="ignore_invalid_users">
@@ -11756,7 +11757,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/attendance/v1/user_tasks/query")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserTasksQueryResponseDto>> PostAttendanceV1UserTasksQueryAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PostAttendanceV1UserTasksQueryBodyDto dto,
+        [JsonContent] Attendance.PostAttendanceV1UserTasksQueryBodyDto dto,
         [PathQuery] bool? ignore_invalid_users = null,
         [PathQuery] bool? include_terminated_user = null);
 
@@ -11780,7 +11781,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/attendance/v1/user_settings/modify")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserSettingsModifyResponseDto>> PostAttendanceV1UserSettingsModifyAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.PostAttendanceV1UserSettingsModifyBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1UserSettingsModifyBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】批量查询用户人脸识别信息</para>
@@ -11802,7 +11803,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/attendance/v1/user_settings/query")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.GetAttendanceV1UserSettingsQueryResponseDto>> GetAttendanceV1UserSettingsQueryAsync(
         [PathQuery] string employee_type,
-        [JsonNetContent] Attendance.GetAttendanceV1UserSettingsQueryBodyDto dto);
+        [JsonContent] Attendance.GetAttendanceV1UserSettingsQueryBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】上传用户人脸识别照片</para>
@@ -11872,7 +11873,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/attendance/v1/leave_employ_expire_records/{leave_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto>> GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdAsync(
         [PathQuery] string leave_id,
-        [JsonNetContent] Attendance.GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto dto,
+        [JsonContent] Attendance.GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -11904,7 +11905,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/attendance/v1/leave_accrual_record/{leave_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PatchAttendanceV1LeaveAccrualRecordByLeaveIdResponseDto>> PatchAttendanceV1LeaveAccrualRecordByLeaveIdAsync(
         [PathQuery] string leave_id,
-        [JsonNetContent] Attendance.PatchAttendanceV1LeaveAccrualRecordByLeaveIdBodyDto dto,
+        [JsonContent] Attendance.PatchAttendanceV1LeaveAccrualRecordByLeaveIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -11938,7 +11939,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/approvals")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.PostApprovalV4ApprovalsResponseDto>> PostApprovalV4ApprovalsAsync(
-        [JsonNetContent] Approval.PostApprovalV4ApprovalsBodyDto dto,
+        [JsonContent] Approval.PostApprovalV4ApprovalsBodyDto dto,
         [PathQuery] string? department_id_type = "open_department_id",
         [PathQuery] string? user_id_type = "open_id");
 
@@ -12000,7 +12001,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/instances")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.PostApprovalV4InstancesResponseDto>> PostApprovalV4InstancesAsync(
-        [JsonNetContent] Approval.PostApprovalV4InstancesBodyDto dto);
+        [JsonContent] Approval.PostApprovalV4InstancesBodyDto dto);
 
     /// <summary>
     /// <para>【审批】撤回审批实例</para>
@@ -12023,7 +12024,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/instances/cancel")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4InstancesCancelAsync(
-        [JsonNetContent] Approval.PostApprovalV4InstancesCancelBodyDto dto,
+        [JsonContent] Approval.PostApprovalV4InstancesCancelBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -12036,7 +12037,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/instances/cc")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4InstancesCcAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalV4InstancesCcBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalV4InstancesCcBodyDto dto);
 
     /// <summary>
     /// <para>【审批】预览审批流程</para>
@@ -12048,7 +12049,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/instances/preview")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalV4InstancesPreviewResponseDto>> PostApprovalV4InstancesPreviewAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalV4InstancesPreviewBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalV4InstancesPreviewBodyDto dto);
 
     /// <summary>
     /// <para>【审批】获取单个审批实例详情</para>
@@ -12129,7 +12130,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/tasks/approve")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4TasksApproveAsync(
-        [JsonNetContent] Approval.PostApprovalV4TasksApproveBodyDto dto,
+        [JsonContent] Approval.PostApprovalV4TasksApproveBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -12142,7 +12143,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/tasks/reject")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4TasksRejectAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalV4TasksRejectBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalV4TasksRejectBodyDto dto);
 
     /// <summary>
     /// <para>【审批】转交审批任务</para>
@@ -12154,7 +12155,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/tasks/transfer")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4TasksTransferAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalV4TasksTransferBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalV4TasksTransferBodyDto dto);
 
     /// <summary>
     /// <para>【审批】退回审批任务</para>
@@ -12177,7 +12178,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/instances/specified_rollback")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4InstancesSpecifiedRollbackAsync(
-        [JsonNetContent] Approval.PostApprovalV4InstancesSpecifiedRollbackBodyDto dto,
+        [JsonContent] Approval.PostApprovalV4InstancesSpecifiedRollbackBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -12190,7 +12191,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/instances/add_sign")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4InstancesAddSignAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalV4InstancesAddSignBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalV4InstancesAddSignBodyDto dto);
 
     /// <summary>
     /// <para>【审批】重新提交审批任务</para>
@@ -12202,7 +12203,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/tasks/resubmit")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4TasksResubmitAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalV4TasksResubmitBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalV4TasksResubmitBodyDto dto);
 
     /// <summary>
     /// <para>【审批】上传文件</para>
@@ -12238,7 +12239,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/approval/v4/instances/{instance_id}/comments")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalV4InstancesByInstanceIdCommentsResponseDto>> PostApprovalV4InstancesByInstanceIdCommentsAsync(
         [PathQuery] string instance_id,
-        [JsonNetContent] Approval.Spec.PostApprovalV4InstancesByInstanceIdCommentsBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalV4InstancesByInstanceIdCommentsBodyDto dto);
 
     /// <summary>
     /// <para>【审批】删除评论</para>
@@ -12330,7 +12331,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/external_approvals")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.PostApprovalV4ExternalApprovalsResponseDto>> PostApprovalV4ExternalApprovalsAsync(
-        [JsonNetContent] Approval.PostApprovalV4ExternalApprovalsBodyDto dto,
+        [JsonContent] Approval.PostApprovalV4ExternalApprovalsBodyDto dto,
         [PathQuery] string? department_id_type = "open_department_id",
         [PathQuery] string? user_id_type = "open_id");
 
@@ -12375,7 +12376,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/external_instances")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.PostApprovalV4ExternalInstancesResponseDto>> PostApprovalV4ExternalInstancesAsync(
-        [JsonNetContent] Approval.PostApprovalV4ExternalInstancesBodyDto dto);
+        [JsonContent] Approval.PostApprovalV4ExternalInstancesBodyDto dto);
 
     /// <summary>
     /// <para>【审批】校验三方审批实例</para>
@@ -12388,7 +12389,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/external_instances/check")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalV4ExternalInstancesCheckResponseDto>> PostApprovalV4ExternalInstancesCheckAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalV4ExternalInstancesCheckBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalV4ExternalInstancesCheckBodyDto dto);
 
     /// <summary>
     /// <para>【审批】获取三方审批任务状态</para>
@@ -12416,7 +12417,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpGet("/open-apis/approval/v4/external_tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.GetApprovalV4ExternalTasksResponseDto>> GetApprovalV4ExternalTasksAsync(
-        [JsonNetContent] Approval.GetApprovalV4ExternalTasksBodyDto dto,
+        [JsonContent] Approval.GetApprovalV4ExternalTasksBodyDto dto,
         [PathQuery] int? page_size = 50,
         [PathQuery] string? page_token = null);
 
@@ -12441,7 +12442,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("https://www.feishu.cn/approval/openapi/v1/message/update")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV1MessageUpdateResponseDto>> PostApprovalOpenapiV1MessageUpdateAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV1MessageUpdateBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV1MessageUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【审批】查询实例列表</para>
@@ -12476,7 +12477,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/instances/query")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.PostApprovalV4InstancesQueryResponseDto>> PostApprovalV4InstancesQueryAsync(
-        [JsonNetContent] Approval.PostApprovalV4InstancesQueryBodyDto dto,
+        [JsonContent] Approval.PostApprovalV4InstancesQueryBodyDto dto,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id");
@@ -12491,7 +12492,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/instances/search_cc")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalV4InstancesSearchCcResponseDto>> PostApprovalV4InstancesSearchCcAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalV4InstancesSearchCcBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalV4InstancesSearchCcBodyDto dto);
 
     /// <summary>
     /// <para>【审批】查询任务列表</para>
@@ -12526,7 +12527,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/tasks/search")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.PostApprovalV4TasksSearchResponseDto>> PostApprovalV4TasksSearchAsync(
-        [JsonNetContent] Approval.PostApprovalV4TasksSearchBodyDto dto,
+        [JsonContent] Approval.PostApprovalV4TasksSearchBodyDto dto,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id");
@@ -12551,7 +12552,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("https://www.feishu.cn/approval/openapi/v1/id/get")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV1IdGetResponseDto>> PostApprovalOpenapiV1IdGetAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV1IdGetBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV1IdGetBodyDto dto);
 
     /// <summary>
     /// <para>【审批】订阅审批事件</para>
@@ -12679,7 +12680,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/helpdesk/v1/start_service")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.PostHelpdeskV1StartServiceResponseDto>> PostHelpdeskV1StartServiceAsync(
-        [JsonNetContent] Helpdesk.PostHelpdeskV1StartServiceBodyDto dto);
+        [JsonContent] Helpdesk.PostHelpdeskV1StartServiceBodyDto dto);
 
     /// <summary>
     /// <para>【服务台】查询指定工单详情</para>
@@ -12875,7 +12876,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/helpdesk/v1/tickets/{ticket_id}/answer_user_query")]
     System.Threading.Tasks.Task<FeishuResponse> PostHelpdeskV1TicketsByTicketIdAnswerUserQueryAsync(
         [PathQuery] string ticket_id,
-        [JsonNetContent] Helpdesk.PostHelpdeskV1TicketsByTicketIdAnswerUserQueryBodyDto dto);
+        [JsonContent] Helpdesk.PostHelpdeskV1TicketsByTicketIdAnswerUserQueryBodyDto dto);
 
     /// <summary>
     /// <para>【服务台】获取服务台自定义字段</para>
@@ -12911,7 +12912,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/helpdesk/v1/tickets/{ticket_id}/messages")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.PostHelpdeskV1TicketsByTicketIdMessagesResponseDto>> PostHelpdeskV1TicketsByTicketIdMessagesAsync(
         [PathQuery] string ticket_id,
-        [JsonNetContent] Helpdesk.PostHelpdeskV1TicketsByTicketIdMessagesBodyDto dto);
+        [JsonContent] Helpdesk.PostHelpdeskV1TicketsByTicketIdMessagesBodyDto dto);
 
     /// <summary>
     /// <para>【服务台】获取工单消息详情</para>
@@ -12979,7 +12980,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/helpdesk/v1/message")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.PostHelpdeskV1MessageResponseDto>> PostHelpdeskV1MessageAsync(
-        [JsonNetContent] Helpdesk.PostHelpdeskV1MessageBodyDto dto,
+        [JsonContent] Helpdesk.PostHelpdeskV1MessageBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -13009,7 +13010,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpGet("/open-apis/helpdesk/v1/ticket_customized_fields")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.Spec.GetHelpdeskV1TicketCustomizedFieldsResponseDto>> GetHelpdeskV1TicketCustomizedFieldsAsync(
-        [JsonNetContent] Helpdesk.Spec.GetHelpdeskV1TicketCustomizedFieldsBodyDto dto);
+        [JsonContent] Helpdesk.Spec.GetHelpdeskV1TicketCustomizedFieldsBodyDto dto);
 
     /// <summary>
     /// <para>【服务台】获取指定知识库详情</para>
@@ -13200,7 +13201,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/helpdesk/v1/events/subscribe")]
     System.Threading.Tasks.Task<FeishuResponse> PostHelpdeskV1EventsSubscribeAsync(
-        [JsonNetContent] Helpdesk.PostHelpdeskV1EventsSubscribeBodyDto dto);
+        [JsonContent] Helpdesk.PostHelpdeskV1EventsSubscribeBodyDto dto);
 
     /// <summary>
     /// <para>【服务台】取消订阅服务台事件</para>
@@ -13212,7 +13213,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/helpdesk/v1/events/unsubscribe")]
     System.Threading.Tasks.Task<FeishuResponse> PostHelpdeskV1EventsUnsubscribeAsync(
-        [JsonNetContent] Helpdesk.PostHelpdeskV1EventsUnsubscribeBodyDto dto);
+        [JsonContent] Helpdesk.PostHelpdeskV1EventsUnsubscribeBodyDto dto);
 
     /// <summary>
     /// <para>【任务】创建任务</para>
@@ -13237,7 +13238,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/task/v1/tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV1TasksResponseDto>> PostTaskV1TasksAsync(
-        [JsonNetContent] Task.PostTaskV1TasksBodyDto dto,
+        [JsonContent] Task.PostTaskV1TasksBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -13285,7 +13286,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/task/v1/tasks/{task_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV1TasksByTaskIdResponseDto>> PatchTaskV1TasksByTaskIdAsync(
         [PathQuery] string task_id,
-        [JsonNetContent] Task.PatchTaskV1TasksByTaskIdBodyDto dto,
+        [JsonContent] Task.PatchTaskV1TasksByTaskIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -13427,7 +13428,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v1/tasks/{task_id}/reminders")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV1TasksByTaskIdRemindersResponseDto>> PostTaskV1TasksByTaskIdRemindersAsync(
         [PathQuery] string task_id,
-        [JsonNetContent] Task.PostTaskV1TasksByTaskIdRemindersBodyDto dto);
+        [JsonContent] Task.PostTaskV1TasksByTaskIdRemindersBodyDto dto);
 
     /// <summary>
     /// <para>【任务】删除提醒时间</para>
@@ -13512,7 +13513,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v1/tasks/{task_id}/comments")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV1TasksByTaskIdCommentsResponseDto>> PostTaskV1TasksByTaskIdCommentsAsync(
         [PathQuery] string task_id,
-        [JsonNetContent] Task.PostTaskV1TasksByTaskIdCommentsBodyDto dto,
+        [JsonContent] Task.PostTaskV1TasksByTaskIdCommentsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -13574,7 +13575,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Task.PutTaskV1TasksByTaskIdCommentsByCommentIdResponseDto>> PutTaskV1TasksByTaskIdCommentsByCommentIdAsync(
         [PathQuery] string task_id,
         [PathQuery] string comment_id,
-        [JsonNetContent] Task.PutTaskV1TasksByTaskIdCommentsByCommentIdBodyDto dto,
+        [JsonContent] Task.PutTaskV1TasksByTaskIdCommentsByCommentIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -13695,7 +13696,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v1/tasks/{task_id}/followers")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV1TasksByTaskIdFollowersResponseDto>> PostTaskV1TasksByTaskIdFollowersAsync(
         [PathQuery] string task_id,
-        [JsonNetContent] Task.PostTaskV1TasksByTaskIdFollowersBodyDto dto,
+        [JsonContent] Task.PostTaskV1TasksByTaskIdFollowersBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -13762,7 +13763,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v1/tasks/{task_id}/batch_delete_follower")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV1TasksByTaskIdBatchDeleteFollowerResponseDto>> PostTaskV1TasksByTaskIdBatchDeleteFollowerAsync(
         [PathQuery] string task_id,
-        [JsonNetContent] Task.PostTaskV1TasksByTaskIdBatchDeleteFollowerBodyDto dto,
+        [JsonContent] Task.PostTaskV1TasksByTaskIdBatchDeleteFollowerBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -13811,7 +13812,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v1/tasks/{task_id}/collaborators")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV1TasksByTaskIdCollaboratorsResponseDto>> PostTaskV1TasksByTaskIdCollaboratorsAsync(
         [PathQuery] string task_id,
-        [JsonNetContent] Task.PostTaskV1TasksByTaskIdCollaboratorsBodyDto dto,
+        [JsonContent] Task.PostTaskV1TasksByTaskIdCollaboratorsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -13878,7 +13879,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v1/tasks/{task_id}/batch_delete_collaborator")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV1TasksByTaskIdBatchDeleteCollaboratorResponseDto>> PostTaskV1TasksByTaskIdBatchDeleteCollaboratorAsync(
         [PathQuery] string task_id,
-        [JsonNetContent] Task.PostTaskV1TasksByTaskIdBatchDeleteCollaboratorBodyDto dto,
+        [JsonContent] Task.PostTaskV1TasksByTaskIdBatchDeleteCollaboratorBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -13946,7 +13947,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/task/v2/tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksResponseDto>> PostTaskV2TasksAsync(
-        [JsonNetContent] Task.PostTaskV2TasksBodyDto dto,
+        [JsonContent] Task.PostTaskV2TasksBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14016,7 +14017,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/task/v2/tasks/{task_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV2TasksByTaskGuidResponseDto>> PatchTaskV2TasksByTaskGuidAsync(
         [PathQuery] string task_guid,
-        [JsonNetContent] Task.PatchTaskV2TasksByTaskGuidBodyDto dto,
+        [JsonContent] Task.PatchTaskV2TasksByTaskGuidBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14064,7 +14065,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/add_members")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidAddMembersResponseDto>> PostTaskV2TasksByTaskGuidAddMembersAsync(
         [PathQuery] string task_guid,
-        [JsonNetContent] Task.PostTaskV2TasksByTaskGuidAddMembersBodyDto dto,
+        [JsonContent] Task.PostTaskV2TasksByTaskGuidAddMembersBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14090,7 +14091,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/remove_members")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidRemoveMembersResponseDto>> PostTaskV2TasksByTaskGuidRemoveMembersAsync(
         [PathQuery] string task_guid,
-        [JsonNetContent] Task.PostTaskV2TasksByTaskGuidRemoveMembersBodyDto dto,
+        [JsonContent] Task.PostTaskV2TasksByTaskGuidRemoveMembersBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14135,7 +14136,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/add_tasklist")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidAddTasklistResponseDto>> PostTaskV2TasksByTaskGuidAddTasklistAsync(
         [PathQuery] string task_guid,
-        [JsonNetContent] Task.PostTaskV2TasksByTaskGuidAddTasklistBodyDto dto,
+        [JsonContent] Task.PostTaskV2TasksByTaskGuidAddTasklistBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14162,7 +14163,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/remove_tasklist")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidRemoveTasklistResponseDto>> PostTaskV2TasksByTaskGuidRemoveTasklistAsync(
         [PathQuery] string task_guid,
-        [JsonNetContent] Task.PostTaskV2TasksByTaskGuidRemoveTasklistBodyDto dto,
+        [JsonContent] Task.PostTaskV2TasksByTaskGuidRemoveTasklistBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14190,7 +14191,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/add_reminders")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidAddRemindersResponseDto>> PostTaskV2TasksByTaskGuidAddRemindersAsync(
         [PathQuery] string task_guid,
-        [JsonNetContent] Task.PostTaskV2TasksByTaskGuidAddRemindersBodyDto dto,
+        [JsonContent] Task.PostTaskV2TasksByTaskGuidAddRemindersBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14217,7 +14218,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/remove_reminders")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidRemoveRemindersResponseDto>> PostTaskV2TasksByTaskGuidRemoveRemindersAsync(
         [PathQuery] string task_guid,
-        [JsonNetContent] Task.PostTaskV2TasksByTaskGuidRemoveRemindersBodyDto dto,
+        [JsonContent] Task.PostTaskV2TasksByTaskGuidRemoveRemindersBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14239,7 +14240,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/add_dependencies")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidAddDependenciesResponseDto>> PostTaskV2TasksByTaskGuidAddDependenciesAsync(
         [PathQuery] string task_guid,
-        [JsonNetContent] Task.PostTaskV2TasksByTaskGuidAddDependenciesBodyDto dto);
+        [JsonContent] Task.PostTaskV2TasksByTaskGuidAddDependenciesBodyDto dto);
 
     /// <summary>
     /// <para>【任务】移除依赖</para>
@@ -14259,7 +14260,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/remove_dependencies")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidRemoveDependenciesResponseDto>> PostTaskV2TasksByTaskGuidRemoveDependenciesAsync(
         [PathQuery] string task_guid,
-        [JsonNetContent] Task.PostTaskV2TasksByTaskGuidRemoveDependenciesBodyDto dto);
+        [JsonContent] Task.PostTaskV2TasksByTaskGuidRemoveDependenciesBodyDto dto);
 
     /// <summary>
     /// <para>【任务】创建子任务</para>
@@ -14285,7 +14286,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/subtasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidSubtasksResponseDto>> PostTaskV2TasksByTaskGuidSubtasksAsync(
         [PathQuery] string task_guid,
-        [JsonNetContent] Task.PostTaskV2TasksByTaskGuidSubtasksBodyDto dto,
+        [JsonContent] Task.PostTaskV2TasksByTaskGuidSubtasksBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14345,7 +14346,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/task/v2/tasklists")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasklistsResponseDto>> PostTaskV2TasklistsAsync(
-        [JsonNetContent] Task.PostTaskV2TasklistsBodyDto dto,
+        [JsonContent] Task.PostTaskV2TasklistsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14403,7 +14404,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/task/v2/tasklists/{tasklist_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV2TasklistsByTasklistGuidResponseDto>> PatchTaskV2TasklistsByTasklistGuidAsync(
         [PathQuery] string tasklist_guid,
-        [JsonNetContent] Task.PatchTaskV2TasklistsByTasklistGuidBodyDto dto,
+        [JsonContent] Task.PatchTaskV2TasklistsByTasklistGuidBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14452,7 +14453,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/tasklists/{tasklist_guid}/add_members")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasklistsByTasklistGuidAddMembersResponseDto>> PostTaskV2TasklistsByTasklistGuidAddMembersAsync(
         [PathQuery] string tasklist_guid,
-        [JsonNetContent] Task.PostTaskV2TasklistsByTasklistGuidAddMembersBodyDto dto,
+        [JsonContent] Task.PostTaskV2TasklistsByTasklistGuidAddMembersBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14481,7 +14482,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/tasklists/{tasklist_guid}/remove_members")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasklistsByTasklistGuidRemoveMembersResponseDto>> PostTaskV2TasklistsByTasklistGuidRemoveMembersAsync(
         [PathQuery] string tasklist_guid,
-        [JsonNetContent] Task.PostTaskV2TasklistsByTasklistGuidRemoveMembersBodyDto dto,
+        [JsonContent] Task.PostTaskV2TasklistsByTasklistGuidRemoveMembersBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14606,7 +14607,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/tasklists/{tasklist_guid}/activity_subscriptions")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsResponseDto>> PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsAsync(
         [PathQuery] string tasklist_guid,
-        [JsonNetContent] Task.PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsBodyDto dto,
+        [JsonContent] Task.PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14721,7 +14722,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuidResponseDto>> PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuidAsync(
         [PathQuery] string tasklist_guid,
         [PathQuery] string activity_subscription_guid,
-        [JsonNetContent] Task.PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuidBodyDto dto,
+        [JsonContent] Task.PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuidBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14765,7 +14766,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/task/v2/comments")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2CommentsResponseDto>> PostTaskV2CommentsAsync(
-        [JsonNetContent] Task.PostTaskV2CommentsBodyDto dto,
+        [JsonContent] Task.PostTaskV2CommentsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -14817,7 +14818,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/task/v2/comments/{comment_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV2CommentsByCommentIdResponseDto>> PatchTaskV2CommentsByCommentIdAsync(
         [PathQuery] string comment_id,
-        [JsonNetContent] Task.PatchTaskV2CommentsByCommentIdBodyDto dto,
+        [JsonContent] Task.PatchTaskV2CommentsByCommentIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -15029,7 +15030,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/task/v2/sections")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2SectionsResponseDto>> PostTaskV2SectionsAsync(
-        [JsonNetContent] Task.PostTaskV2SectionsBodyDto dto,
+        [JsonContent] Task.PostTaskV2SectionsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -15085,7 +15086,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/task/v2/sections/{section_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV2SectionsBySectionGuidResponseDto>> PatchTaskV2SectionsBySectionGuidAsync(
         [PathQuery] string section_guid,
-        [JsonNetContent] Task.PatchTaskV2SectionsBySectionGuidBodyDto dto,
+        [JsonContent] Task.PatchTaskV2SectionsBySectionGuidBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -15267,7 +15268,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/task/v2/custom_fields")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2CustomFieldsResponseDto>> PostTaskV2CustomFieldsAsync(
-        [JsonNetContent] Task.PostTaskV2CustomFieldsBodyDto dto,
+        [JsonContent] Task.PostTaskV2CustomFieldsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -15425,7 +15426,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/task/v2/custom_fields/{custom_field_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto>> PatchTaskV2CustomFieldsByCustomFieldGuidAsync(
         [PathQuery] string custom_field_guid,
-        [JsonNetContent] Task.PatchTaskV2CustomFieldsByCustomFieldGuidBodyDto dto,
+        [JsonContent] Task.PatchTaskV2CustomFieldsByCustomFieldGuidBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -15498,7 +15499,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/custom_fields/{custom_field_guid}/add")]
     System.Threading.Tasks.Task<FeishuResponse> PostTaskV2CustomFieldsByCustomFieldGuidAddAsync(
         [PathQuery] string custom_field_guid,
-        [JsonNetContent] Task.PostTaskV2CustomFieldsByCustomFieldGuidAddBodyDto dto);
+        [JsonContent] Task.PostTaskV2CustomFieldsByCustomFieldGuidAddBodyDto dto);
 
     /// <summary>
     /// <para>【任务】将自定义字段移出资源</para>
@@ -15519,7 +15520,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/custom_fields/{custom_field_guid}/remove")]
     System.Threading.Tasks.Task<FeishuResponse> PostTaskV2CustomFieldsByCustomFieldGuidRemoveAsync(
         [PathQuery] string custom_field_guid,
-        [JsonNetContent] Task.PostTaskV2CustomFieldsByCustomFieldGuidRemoveBodyDto dto);
+        [JsonContent] Task.PostTaskV2CustomFieldsByCustomFieldGuidRemoveBodyDto dto);
 
     /// <summary>
     /// <para>【任务】创建自定义任务选项</para>
@@ -15539,7 +15540,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/task/v2/custom_fields/{custom_field_guid}/options")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2CustomFieldsByCustomFieldGuidOptionsResponseDto>> PostTaskV2CustomFieldsByCustomFieldGuidOptionsAsync(
         [PathQuery] string custom_field_guid,
-        [JsonNetContent] Task.PostTaskV2CustomFieldsByCustomFieldGuidOptionsBodyDto dto);
+        [JsonContent] Task.PostTaskV2CustomFieldsByCustomFieldGuidOptionsBodyDto dto);
 
     /// <summary>
     /// <para>【任务】更新自定义字段选项</para>
@@ -15571,7 +15572,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidResponseDto>> PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidAsync(
         [PathQuery] string custom_field_guid,
         [PathQuery] string option_guid,
-        [JsonNetContent] Task.PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidBodyDto dto);
+        [JsonContent] Task.PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidBodyDto dto);
 
     /// <summary>
     /// <para>【邮箱】创建邮件组</para>
@@ -15583,7 +15584,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/mail/v1/mailgroups")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1MailgroupsResponseDto>> PostMailV1MailgroupsAsync(
-        [JsonNetContent] Mail.PostMailV1MailgroupsBodyDto dto);
+        [JsonContent] Mail.PostMailV1MailgroupsBodyDto dto);
 
     /// <summary>
     /// <para>【邮箱】删除邮件组</para>
@@ -15619,7 +15620,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/mail/v1/mailgroups/{mailgroup_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PatchMailV1MailgroupsByMailgroupIdResponseDto>> PatchMailV1MailgroupsByMailgroupIdAsync(
         [PathQuery] string mailgroup_id,
-        [JsonNetContent] Mail.PatchMailV1MailgroupsByMailgroupIdBodyDto dto);
+        [JsonContent] Mail.PatchMailV1MailgroupsByMailgroupIdBodyDto dto);
 
     /// <summary>
     /// <para>【邮箱】修改邮件组全部信息</para>
@@ -15638,7 +15639,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/mail/v1/mailgroups/{mailgroup_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PutMailV1MailgroupsByMailgroupIdResponseDto>> PutMailV1MailgroupsByMailgroupIdAsync(
         [PathQuery] string mailgroup_id,
-        [JsonNetContent] Mail.PutMailV1MailgroupsByMailgroupIdBodyDto dto);
+        [JsonContent] Mail.PutMailV1MailgroupsByMailgroupIdBodyDto dto);
 
     /// <summary>
     /// <para>【邮箱】查询指定邮件组</para>
@@ -15728,7 +15729,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/mail/v1/mailgroups/{mailgroup_id}/managers/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse> PostMailV1MailgroupsByMailgroupIdManagersBatchCreateAsync(
         [PathQuery] string mailgroup_id,
-        [JsonNetContent] Mail.PostMailV1MailgroupsByMailgroupIdManagersBatchCreateBodyDto dto,
+        [JsonContent] Mail.PostMailV1MailgroupsByMailgroupIdManagersBatchCreateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -15759,7 +15760,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/mail/v1/mailgroups/{mailgroup_id}/managers/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse> PostMailV1MailgroupsByMailgroupIdManagersBatchDeleteAsync(
         [PathQuery] string mailgroup_id,
-        [JsonNetContent] Mail.PostMailV1MailgroupsByMailgroupIdManagersBatchDeleteBodyDto dto,
+        [JsonContent] Mail.PostMailV1MailgroupsByMailgroupIdManagersBatchDeleteBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -15843,7 +15844,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/mail/v1/mailgroups/{mailgroup_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1MailgroupsByMailgroupIdMembersResponseDto>> PostMailV1MailgroupsByMailgroupIdMembersAsync(
         [PathQuery] string mailgroup_id,
-        [JsonNetContent] Mail.PostMailV1MailgroupsByMailgroupIdMembersBodyDto dto,
+        [JsonContent] Mail.PostMailV1MailgroupsByMailgroupIdMembersBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -16010,7 +16011,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/mail/v1/mailgroups/{mailgroup_id}/members/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1MailgroupsByMailgroupIdMembersBatchCreateResponseDto>> PostMailV1MailgroupsByMailgroupIdMembersBatchCreateAsync(
         [PathQuery] string mailgroup_id,
-        [JsonNetContent] Mail.PostMailV1MailgroupsByMailgroupIdMembersBatchCreateBodyDto dto,
+        [JsonContent] Mail.PostMailV1MailgroupsByMailgroupIdMembersBatchCreateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -16031,7 +16032,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpDelete("/open-apis/mail/v1/mailgroups/{mailgroup_id}/members/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1MailgroupsByMailgroupIdMembersBatchDeleteAsync(
         [PathQuery] string mailgroup_id,
-        [JsonNetContent] Mail.DeleteMailV1MailgroupsByMailgroupIdMembersBatchDeleteBodyDto dto);
+        [JsonContent] Mail.DeleteMailV1MailgroupsByMailgroupIdMembersBatchDeleteBodyDto dto);
 
     /// <summary>
     /// <para>【邮箱】创建邮件组别名</para>
@@ -16050,7 +16051,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/mail/v1/mailgroups/{mailgroup_id}/aliases")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1MailgroupsByMailgroupIdAliasesResponseDto>> PostMailV1MailgroupsByMailgroupIdAliasesAsync(
         [PathQuery] string mailgroup_id,
-        [JsonNetContent] Mail.PostMailV1MailgroupsByMailgroupIdAliasesBodyDto dto);
+        [JsonContent] Mail.PostMailV1MailgroupsByMailgroupIdAliasesBodyDto dto);
 
     /// <summary>
     /// <para>【邮箱】删除邮件组别名</para>
@@ -16131,7 +16132,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/mail/v1/mailgroups/{mailgroup_id}/permission_members")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1MailgroupsByMailgroupIdPermissionMembersResponseDto>> PostMailV1MailgroupsByMailgroupIdPermissionMembersAsync(
         [PathQuery] string mailgroup_id,
-        [JsonNetContent] Mail.PostMailV1MailgroupsByMailgroupIdPermissionMembersBodyDto dto,
+        [JsonContent] Mail.PostMailV1MailgroupsByMailgroupIdPermissionMembersBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -16298,7 +16299,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/mail/v1/mailgroups/{mailgroup_id}/permission_members/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1MailgroupsByMailgroupIdPermissionMembersBatchCreateResponseDto>> PostMailV1MailgroupsByMailgroupIdPermissionMembersBatchCreateAsync(
         [PathQuery] string mailgroup_id,
-        [JsonNetContent] Mail.PostMailV1MailgroupsByMailgroupIdPermissionMembersBatchCreateBodyDto dto,
+        [JsonContent] Mail.PostMailV1MailgroupsByMailgroupIdPermissionMembersBatchCreateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -16319,7 +16320,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpDelete("/open-apis/mail/v1/mailgroups/{mailgroup_id}/permission_members/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1MailgroupsByMailgroupIdPermissionMembersBatchDeleteAsync(
         [PathQuery] string mailgroup_id,
-        [JsonNetContent] Mail.DeleteMailV1MailgroupsByMailgroupIdPermissionMembersBatchDeleteBodyDto dto);
+        [JsonContent] Mail.DeleteMailV1MailgroupsByMailgroupIdPermissionMembersBatchDeleteBodyDto dto);
 
     /// <summary>
     /// <para>【邮箱】创建公共邮箱</para>
@@ -16331,7 +16332,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/mail/v1/public_mailboxes")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1PublicMailboxesResponseDto>> PostMailV1PublicMailboxesAsync(
-        [JsonNetContent] Mail.PostMailV1PublicMailboxesBodyDto dto);
+        [JsonContent] Mail.PostMailV1PublicMailboxesBodyDto dto);
 
     /// <summary>
     /// <para>【邮箱】修改公共邮箱部分信息</para>
@@ -16350,7 +16351,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/mail/v1/public_mailboxes/{public_mailbox_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PatchMailV1PublicMailboxesByPublicMailboxIdResponseDto>> PatchMailV1PublicMailboxesByPublicMailboxIdAsync(
         [PathQuery] string public_mailbox_id,
-        [JsonNetContent] Mail.PatchMailV1PublicMailboxesByPublicMailboxIdBodyDto dto);
+        [JsonContent] Mail.PatchMailV1PublicMailboxesByPublicMailboxIdBodyDto dto);
 
     /// <summary>
     /// <para>【邮箱】修改公共邮箱全部信息</para>
@@ -16369,7 +16370,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/mail/v1/public_mailboxes/{public_mailbox_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PutMailV1PublicMailboxesByPublicMailboxIdResponseDto>> PutMailV1PublicMailboxesByPublicMailboxIdAsync(
         [PathQuery] string public_mailbox_id,
-        [JsonNetContent] Mail.PutMailV1PublicMailboxesByPublicMailboxIdBodyDto dto);
+        [JsonContent] Mail.PutMailV1PublicMailboxesByPublicMailboxIdBodyDto dto);
 
     /// <summary>
     /// <para>【邮箱】查询指定公共邮箱</para>
@@ -16457,7 +16458,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/mail/v1/public_mailboxes/{public_mailbox_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1PublicMailboxesByPublicMailboxIdMembersResponseDto>> PostMailV1PublicMailboxesByPublicMailboxIdMembersAsync(
         [PathQuery] string public_mailbox_id,
-        [JsonNetContent] Mail.PostMailV1PublicMailboxesByPublicMailboxIdMembersBodyDto dto,
+        [JsonContent] Mail.PostMailV1PublicMailboxesByPublicMailboxIdMembersBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -16608,7 +16609,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/mail/v1/public_mailboxes/{public_mailbox_id}/members/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1PublicMailboxesByPublicMailboxIdMembersBatchCreateResponseDto>> PostMailV1PublicMailboxesByPublicMailboxIdMembersBatchCreateAsync(
         [PathQuery] string public_mailbox_id,
-        [JsonNetContent] Mail.PostMailV1PublicMailboxesByPublicMailboxIdMembersBatchCreateBodyDto dto,
+        [JsonContent] Mail.PostMailV1PublicMailboxesByPublicMailboxIdMembersBatchCreateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -16628,7 +16629,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpDelete("/open-apis/mail/v1/public_mailboxes/{public_mailbox_id}/members/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1PublicMailboxesByPublicMailboxIdMembersBatchDeleteAsync(
         [PathQuery] string public_mailbox_id,
-        [JsonNetContent] Mail.DeleteMailV1PublicMailboxesByPublicMailboxIdMembersBatchDeleteBodyDto dto);
+        [JsonContent] Mail.DeleteMailV1PublicMailboxesByPublicMailboxIdMembersBatchDeleteBodyDto dto);
 
     /// <summary>
     /// <para>【邮箱】创建公共邮箱别名</para>
@@ -16647,7 +16648,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/mail/v1/public_mailboxes/{public_mailbox_id}/aliases")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1PublicMailboxesByPublicMailboxIdAliasesResponseDto>> PostMailV1PublicMailboxesByPublicMailboxIdAliasesAsync(
         [PathQuery] string public_mailbox_id,
-        [JsonNetContent] Mail.PostMailV1PublicMailboxesByPublicMailboxIdAliasesBodyDto dto);
+        [JsonContent] Mail.PostMailV1PublicMailboxesByPublicMailboxIdAliasesBodyDto dto);
 
     /// <summary>
     /// <para>【邮箱】删除公共邮箱别名</para>
@@ -16731,7 +16732,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/aliases")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdAliasesResponseDto>> PostMailV1UserMailboxesByUserMailboxIdAliasesAsync(
         [PathQuery] string user_mailbox_id,
-        [JsonNetContent] Mail.PostMailV1UserMailboxesByUserMailboxIdAliasesBodyDto dto);
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdAliasesBodyDto dto);
 
     /// <summary>
     /// <para>【邮箱】删除用户邮箱别名</para>
@@ -16798,7 +16799,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/mail/v1/users/query")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UsersQueryResponseDto>> PostMailV1UsersQueryAsync(
-        [JsonNetContent] Mail.PostMailV1UsersQueryBodyDto dto);
+        [JsonContent] Mail.PostMailV1UsersQueryBodyDto dto);
 
     /// <summary>
     /// <para>【应用信息】校验应用管理员</para>
@@ -16962,7 +16963,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/application/v6/applications/{app_id}/contacts_range")]
     System.Threading.Tasks.Task<FeishuResponse> PatchApplicationV6ApplicationsByAppIdContactsRangeAsync(
         [PathQuery] string app_id,
-        [JsonNetContent] Application.PatchApplicationV6ApplicationsByAppIdContactsRangeBodyDto dto,
+        [JsonContent] Application.PatchApplicationV6ApplicationsByAppIdContactsRangeBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -17016,7 +17017,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/application/v6/applications/{app_id}/visibility/check_white_black_list")]
     System.Threading.Tasks.Task<FeishuResponse<Application.PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListResponseDto>> PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListAsync(
         [PathQuery] string app_id,
-        [JsonNetContent] Application.PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListBodyDto dto,
+        [JsonContent] Application.PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "department_id");
 
@@ -17092,7 +17093,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/application/v6/applications/{app_id}/visibility")]
     System.Threading.Tasks.Task<FeishuResponse> PatchApplicationV6ApplicationsByAppIdVisibilityAsync(
         [PathQuery] string app_id,
-        [JsonNetContent] Application.PatchApplicationV6ApplicationsByAppIdVisibilityBodyDto dto,
+        [JsonContent] Application.PatchApplicationV6ApplicationsByAppIdVisibilityBodyDto dto,
         [PathQuery] string? department_id_type = "open_department_id",
         [PathQuery] string? user_id_type = "open_id");
 
@@ -17469,7 +17470,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string app_id,
         [PathQuery] string version_id,
         [PathQuery] string operator_id,
-        [JsonNetContent] Application.PatchApplicationV6ApplicationsByAppIdAppVersionsByVersionIdBodyDto dto,
+        [JsonContent] Application.PatchApplicationV6ApplicationsByAppIdAppVersionsByVersionIdBodyDto dto,
         [PathQuery] string user_id_type = "open_id",
         [PathQuery] string? reject_reason = null);
 
@@ -17501,7 +17502,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PatchApplicationV6ApplicationsByAppIdAsync(
         [PathQuery] string app_id,
         [PathQuery] string lang,
-        [JsonNetContent] Application.PatchApplicationV6ApplicationsByAppIdBodyDto dto);
+        [JsonContent] Application.PatchApplicationV6ApplicationsByAppIdBodyDto dto);
 
     /// <summary>
     /// <para>【应用信息】获取多部门应用使用概览</para>
@@ -17530,7 +17531,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/application/v6/applications/{app_id}/app_usage/department_overview")]
     System.Threading.Tasks.Task<FeishuResponse<Application.PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResponseDto>> PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewAsync(
         [PathQuery] string app_id,
-        [JsonNetContent] Application.PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewBodyDto dto,
+        [JsonContent] Application.PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewBodyDto dto,
         [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
@@ -17560,7 +17561,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/application/v6/applications/{app_id}/app_usage/overview")]
     System.Threading.Tasks.Task<FeishuResponse<Application.PostApplicationV6ApplicationsByAppIdAppUsageOverviewResponseDto>> PostApplicationV6ApplicationsByAppIdAppUsageOverviewAsync(
         [PathQuery] string app_id,
-        [JsonNetContent] Application.PostApplicationV6ApplicationsByAppIdAppUsageOverviewBodyDto dto,
+        [JsonContent] Application.PostApplicationV6ApplicationsByAppIdAppUsageOverviewBodyDto dto,
         [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
@@ -17655,7 +17656,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/application/v6/app_badge/set")]
     System.Threading.Tasks.Task<FeishuResponse> PostApplicationV6AppBadgeSetAsync(
-        [JsonNetContent] Application.PostApplicationV6AppBadgeSetBodyDto dto,
+        [JsonContent] Application.PostApplicationV6AppBadgeSetBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -17698,7 +17699,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/personal_settings/v1/system_statuses")]
     System.Threading.Tasks.Task<FeishuResponse<PersonalSettings.PostPersonalSettingsV1SystemStatusesResponseDto>> PostPersonalSettingsV1SystemStatusesAsync(
-        [JsonNetContent] PersonalSettings.PostPersonalSettingsV1SystemStatusesBodyDto dto);
+        [JsonContent] PersonalSettings.PostPersonalSettingsV1SystemStatusesBodyDto dto);
 
     /// <summary>
     /// <para>【个人设置】删除系统状态</para>
@@ -17736,7 +17737,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/personal_settings/v1/system_statuses/{system_status_id}")]
     System.Threading.Tasks.Task<FeishuResponse<PersonalSettings.PatchPersonalSettingsV1SystemStatusesBySystemStatusIdResponseDto>> PatchPersonalSettingsV1SystemStatusesBySystemStatusIdAsync(
         [PathQuery] string system_status_id,
-        [JsonNetContent] PersonalSettings.PatchPersonalSettingsV1SystemStatusesBySystemStatusIdBodyDto dto);
+        [JsonContent] PersonalSettings.PatchPersonalSettingsV1SystemStatusesBySystemStatusIdBodyDto dto);
 
     /// <summary>
     /// <para>【个人设置】获取系统状态</para>
@@ -17791,7 +17792,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/personal_settings/v1/system_statuses/{system_status_id}/batch_open")]
     System.Threading.Tasks.Task<FeishuResponse<PersonalSettings.PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchOpenResponseDto>> PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchOpenAsync(
         [PathQuery] string system_status_id,
-        [JsonNetContent] PersonalSettings.PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchOpenBodyDto dto,
+        [JsonContent] PersonalSettings.PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchOpenBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -17823,7 +17824,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/personal_settings/v1/system_statuses/{system_status_id}/batch_close")]
     System.Threading.Tasks.Task<FeishuResponse<PersonalSettings.PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchCloseResponseDto>> PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchCloseAsync(
         [PathQuery] string system_status_id,
-        [JsonNetContent] PersonalSettings.PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchCloseBodyDto dto,
+        [JsonContent] PersonalSettings.PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchCloseBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -17836,7 +17837,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/search/v2/data_sources")]
     System.Threading.Tasks.Task<FeishuResponse<Search.Spec.PostSearchV2DataSourcesResponseDto>> PostSearchV2DataSourcesAsync(
-        [JsonNetContent] Search.Spec.PostSearchV2DataSourcesBodyDto dto);
+        [JsonContent] Search.Spec.PostSearchV2DataSourcesBodyDto dto);
 
     /// <summary>
     /// <para>【搜索】删除数据源</para>
@@ -17872,7 +17873,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/search/v2/data_sources/{data_source_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Search.Spec.PatchSearchV2DataSourcesByDataSourceIdResponseDto>> PatchSearchV2DataSourcesByDataSourceIdAsync(
         [PathQuery] string data_source_id,
-        [JsonNetContent] Search.Spec.PatchSearchV2DataSourcesByDataSourceIdBodyDto dto);
+        [JsonContent] Search.Spec.PatchSearchV2DataSourcesByDataSourceIdBodyDto dto);
 
     /// <summary>
     /// <para>【搜索】获取数据源</para>
@@ -17918,7 +17919,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/search/v2/data_sources/{data_source_id}/items")]
     System.Threading.Tasks.Task<FeishuResponse> PostSearchV2DataSourcesByDataSourceIdItemsAsync(
         [PathQuery] string data_source_id,
-        [JsonNetContent] Search.Spec.PostSearchV2DataSourcesByDataSourceIdItemsBodyDto dto);
+        [JsonContent] Search.Spec.PostSearchV2DataSourcesByDataSourceIdItemsBodyDto dto);
 
     /// <summary>
     /// <para>【搜索】删除数据项</para>
@@ -17978,7 +17979,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/search/v2/schemas")]
     System.Threading.Tasks.Task<FeishuResponse<Search.Spec.PostSearchV2SchemasResponseDto>> PostSearchV2SchemasAsync(
-        [JsonNetContent] Search.Spec.PostSearchV2SchemasBodyDto dto);
+        [JsonContent] Search.Spec.PostSearchV2SchemasBodyDto dto);
 
     /// <summary>
     /// <para>【搜索】删除数据范式</para>
@@ -18020,7 +18021,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/search/v2/schemas/{schema_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Search.Spec.PatchSearchV2SchemasBySchemaIdResponseDto>> PatchSearchV2SchemasBySchemaIdAsync(
         [PathQuery] string schema_id,
-        [JsonNetContent] Search.Spec.PatchSearchV2SchemasBySchemaIdBodyDto dto);
+        [JsonContent] Search.Spec.PatchSearchV2SchemasBySchemaIdBodyDto dto);
 
     /// <summary>
     /// <para>【搜索】获取数据范式</para>
@@ -18279,7 +18280,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/optical_char_recognition/v1/image/basic_recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.Spec.PostOpticalCharRecognitionV1ImageBasicRecognizeResponseDto>> PostOpticalCharRecognitionV1ImageBasicRecognizeAsync(
-        [JsonNetContent] Ai.Spec.PostOpticalCharRecognitionV1ImageBasicRecognizeBodyDto dto);
+        [JsonContent] Ai.Spec.PostOpticalCharRecognitionV1ImageBasicRecognizeBodyDto dto);
 
     /// <summary>
     /// <para>【AI 能力】识别语音文件</para>
@@ -18291,7 +18292,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/speech_to_text/v1/speech/file_recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.Spec.PostSpeechToTextV1SpeechFileRecognizeResponseDto>> PostSpeechToTextV1SpeechFileRecognizeAsync(
-        [JsonNetContent] Ai.Spec.PostSpeechToTextV1SpeechFileRecognizeBodyDto dto);
+        [JsonContent] Ai.Spec.PostSpeechToTextV1SpeechFileRecognizeBodyDto dto);
 
     /// <summary>
     /// <para>【AI 能力】识别流式语音</para>
@@ -18303,7 +18304,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/speech_to_text/v1/speech/stream_recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.Spec.PostSpeechToTextV1SpeechStreamRecognizeResponseDto>> PostSpeechToTextV1SpeechStreamRecognizeAsync(
-        [JsonNetContent] Ai.Spec.PostSpeechToTextV1SpeechStreamRecognizeBodyDto dto);
+        [JsonContent] Ai.Spec.PostSpeechToTextV1SpeechStreamRecognizeBodyDto dto);
 
     /// <summary>
     /// <para>【AI 能力】识别文本语种</para>
@@ -18315,7 +18316,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/translation/v1/text/detect")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.Spec.PostTranslationV1TextDetectResponseDto>> PostTranslationV1TextDetectAsync(
-        [JsonNetContent] Ai.Spec.PostTranslationV1TextDetectBodyDto dto);
+        [JsonContent] Ai.Spec.PostTranslationV1TextDetectBodyDto dto);
 
     /// <summary>
     /// <para>【AI 能力】翻译文本</para>
@@ -18343,7 +18344,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/translation/v1/text/translate")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.Spec.PostTranslationV1TextTranslateResponseDto>> PostTranslationV1TextTranslateAsync(
-        [JsonNetContent] Ai.Spec.PostTranslationV1TextTranslateBodyDto dto);
+        [JsonContent] Ai.Spec.PostTranslationV1TextTranslateBodyDto dto);
 
     /// <summary>
     /// <para>【管理后台】重置用户的企业邮箱密码</para>
@@ -18356,7 +18357,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/admin/v1/password/reset")]
     System.Threading.Tasks.Task<FeishuResponse> PostAdminV1PasswordResetAsync(
-        [JsonNetContent] Admin.Spec.PostAdminV1PasswordResetBodyDto dto);
+        [JsonContent] Admin.Spec.PostAdminV1PasswordResetBodyDto dto);
 
     /// <summary>
     /// <para>【管理后台】获取部门维度的用户活跃和功能使用数据</para>
@@ -18500,7 +18501,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/admin/v1/badges")]
     System.Threading.Tasks.Task<FeishuResponse<Admin.PostAdminV1BadgesResponseDto>> PostAdminV1BadgesAsync(
-        [JsonNetContent] Admin.PostAdminV1BadgesBodyDto dto);
+        [JsonContent] Admin.PostAdminV1BadgesBodyDto dto);
 
     /// <summary>
     /// <para>【管理后台】修改勋章信息</para>
@@ -18519,7 +18520,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/admin/v1/badges/{badge_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Admin.PutAdminV1BadgesByBadgeIdResponseDto>> PutAdminV1BadgesByBadgeIdAsync(
         [PathQuery] string badge_id,
-        [JsonNetContent] Admin.PutAdminV1BadgesByBadgeIdBodyDto dto);
+        [JsonContent] Admin.PutAdminV1BadgesByBadgeIdBodyDto dto);
 
     /// <summary>
     /// <para>【管理后台】上传勋章图片</para>
@@ -18624,7 +18625,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/admin/v1/badges/{badge_id}/grants")]
     System.Threading.Tasks.Task<FeishuResponse<Admin.PostAdminV1BadgesByBadgeIdGrantsResponseDto>> PostAdminV1BadgesByBadgeIdGrantsAsync(
         [PathQuery] string badge_id,
-        [JsonNetContent] Admin.PostAdminV1BadgesByBadgeIdGrantsBodyDto dto,
+        [JsonContent] Admin.PostAdminV1BadgesByBadgeIdGrantsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -18697,7 +18698,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Admin.PutAdminV1BadgesByBadgeIdGrantsByGrantIdResponseDto>> PutAdminV1BadgesByBadgeIdGrantsByGrantIdAsync(
         [PathQuery] string badge_id,
         [PathQuery] string grant_id,
-        [JsonNetContent] Admin.PutAdminV1BadgesByBadgeIdGrantsByGrantIdBodyDto dto,
+        [JsonContent] Admin.PutAdminV1BadgesByBadgeIdGrantsByGrantIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -19054,7 +19055,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/employee_types")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1EmployeeTypesResponseDto>> PostCorehrV1EmployeeTypesAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1EmployeeTypesBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1EmployeeTypesBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -19097,7 +19098,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/corehr/v1/employee_types/{employee_type_id}")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PatchCorehrV1EmployeeTypesByEmployeeTypeIdResponseDto>> PatchCorehrV1EmployeeTypesByEmployeeTypeIdAsync(
         [PathQuery] string employee_type_id,
-        [JsonNetContent] FeishuPeople.PatchCorehrV1EmployeeTypesByEmployeeTypeIdBodyDto dto,
+        [JsonContent] FeishuPeople.PatchCorehrV1EmployeeTypesByEmployeeTypeIdBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -19157,7 +19158,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/national_id_types")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1NationalIdTypesResponseDto>> PostCorehrV1NationalIdTypesAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1NationalIdTypesBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1NationalIdTypesBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -19200,7 +19201,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/corehr/v1/national_id_types/{national_id_type_id}")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PatchCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto>> PatchCorehrV1NationalIdTypesByNationalIdTypeIdAsync(
         [PathQuery] string national_id_type_id,
-        [JsonNetContent] FeishuPeople.PatchCorehrV1NationalIdTypesByNationalIdTypeIdBodyDto dto,
+        [JsonContent] FeishuPeople.PatchCorehrV1NationalIdTypesByNationalIdTypeIdBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -19281,7 +19282,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/working_hours_types")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1WorkingHoursTypesResponseDto>> PostCorehrV1WorkingHoursTypesAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1WorkingHoursTypesBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1WorkingHoursTypesBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -19324,7 +19325,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/corehr/v1/working_hours_types/{working_hours_type_id}")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PatchCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDto>> PatchCorehrV1WorkingHoursTypesByWorkingHoursTypeIdAsync(
         [PathQuery] string working_hours_type_id,
-        [JsonNetContent] FeishuPeople.PatchCorehrV1WorkingHoursTypesByWorkingHoursTypeIdBodyDto dto,
+        [JsonContent] FeishuPeople.PatchCorehrV1WorkingHoursTypesByWorkingHoursTypeIdBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -19442,7 +19443,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/employees/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2EmployeesBatchGetResponseDto>> PostCorehrV2EmployeesBatchGetAsync(
-        [JsonNetContent] Corehr.PostCorehrV2EmployeesBatchGetBodyDto dto,
+        [JsonContent] Corehr.PostCorehrV2EmployeesBatchGetBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -19491,7 +19492,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/employees/search")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2EmployeesSearchResponseDto>> PostCorehrV2EmployeesSearchAsync(
-        [JsonNetContent] Corehr.PostCorehrV2EmployeesSearchBodyDto dto,
+        [JsonContent] Corehr.PostCorehrV2EmployeesSearchBodyDto dto,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id",
@@ -19513,7 +19514,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/employments")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1EmploymentsResponseDto>> PostCorehrV1EmploymentsAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1EmploymentsBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1EmploymentsBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -19562,7 +19563,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/corehr/v1/employments/{employment_id}")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PatchCorehrV1EmploymentsByEmploymentIdResponseDto>> PatchCorehrV1EmploymentsByEmploymentIdAsync(
         [PathQuery] string employment_id,
-        [JsonNetContent] FeishuPeople.PatchCorehrV1EmploymentsByEmploymentIdBodyDto dto,
+        [JsonContent] FeishuPeople.PatchCorehrV1EmploymentsByEmploymentIdBodyDto dto,
         [PathQuery] string? client_token = null,
         [PathQuery] string? user_id_type = "people_corehr_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id");
@@ -19613,7 +19614,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/persons")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2PersonsResponseDto>> PostCorehrV2PersonsAsync(
-        [JsonNetContent] Corehr.PostCorehrV2PersonsBodyDto dto,
+        [JsonContent] Corehr.PostCorehrV2PersonsBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -19639,7 +19640,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/corehr/v2/persons/{person_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PatchCorehrV2PersonsByPersonIdResponseDto>> PatchCorehrV2PersonsByPersonIdAsync(
         [PathQuery] string person_id,
-        [JsonNetContent] Corehr.PatchCorehrV2PersonsByPersonIdBodyDto dto,
+        [JsonContent] Corehr.PatchCorehrV2PersonsByPersonIdBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -19733,7 +19734,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/job_datas")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1JobDatasResponseDto>> PostCorehrV1JobDatasAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1JobDatasBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1JobDatasBodyDto dto,
         [PathQuery] string? client_token = null,
         [PathQuery] string? user_id_type = "people_corehr_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id");
@@ -19801,7 +19802,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/corehr/v1/job_datas/{job_data_id}")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PatchCorehrV1JobDatasByJobDataIdResponseDto>> PatchCorehrV1JobDatasByJobDataIdAsync(
         [PathQuery] string job_data_id,
-        [JsonNetContent] FeishuPeople.PatchCorehrV1JobDatasByJobDataIdBodyDto dto,
+        [JsonContent] FeishuPeople.PatchCorehrV1JobDatasByJobDataIdBodyDto dto,
         [PathQuery] string? client_token = null,
         [PathQuery] string? user_id_type = "people_corehr_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id");
@@ -19893,7 +19894,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/employees/job_datas/query")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2EmployeesJobDatasQueryResponseDto>> PostCorehrV2EmployeesJobDatasQueryAsync(
-        [JsonNetContent] Corehr.PostCorehrV2EmployeesJobDatasQueryBodyDto dto,
+        [JsonContent] Corehr.PostCorehrV2EmployeesJobDatasQueryBodyDto dto,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id",
@@ -19932,7 +19933,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/employees/job_datas/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2EmployeesJobDatasBatchGetResponseDto>> PostCorehrV2EmployeesJobDatasBatchGetAsync(
-        [JsonNetContent] Corehr.PostCorehrV2EmployeesJobDatasBatchGetBodyDto dto,
+        [JsonContent] Corehr.PostCorehrV2EmployeesJobDatasBatchGetBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id");
 
@@ -20041,7 +20042,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/departments/parents")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2DepartmentsParentsResponseDto>> PostCorehrV2DepartmentsParentsAsync(
-        [JsonNetContent] Corehr.PostCorehrV2DepartmentsParentsBodyDto dto,
+        [JsonContent] Corehr.PostCorehrV2DepartmentsParentsBodyDto dto,
         [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
@@ -20089,7 +20090,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/departments/search")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2DepartmentsSearchResponseDto>> PostCorehrV2DepartmentsSearchAsync(
-        [JsonNetContent] Corehr.PostCorehrV2DepartmentsSearchBodyDto dto,
+        [JsonContent] Corehr.PostCorehrV2DepartmentsSearchBodyDto dto,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id",
@@ -20134,7 +20135,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/departments")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1DepartmentsResponseDto>> PostCorehrV1DepartmentsAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1DepartmentsBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1DepartmentsBodyDto dto,
         [PathQuery] string? client_token = null,
         [PathQuery] string? user_id_type = "people_corehr_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id");
@@ -20185,7 +20186,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/corehr/v1/departments/{department_id}")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PatchCorehrV1DepartmentsByDepartmentIdResponseDto>> PatchCorehrV1DepartmentsByDepartmentIdAsync(
         [PathQuery] string department_id,
-        [JsonNetContent] FeishuPeople.PatchCorehrV1DepartmentsByDepartmentIdBodyDto dto,
+        [JsonContent] FeishuPeople.PatchCorehrV1DepartmentsByDepartmentIdBodyDto dto,
         [PathQuery] string? client_token = null,
         [PathQuery] string? user_id_type = "people_corehr_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id");
@@ -20322,7 +20323,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/locations/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2LocationsBatchGetResponseDto>> PostCorehrV2LocationsBatchGetAsync(
-        [JsonNetContent] Corehr.PostCorehrV2LocationsBatchGetBodyDto dto);
+        [JsonContent] Corehr.PostCorehrV2LocationsBatchGetBodyDto dto);
 
     /// <summary>
     /// <para>【飞书人事】创建地点</para>
@@ -20340,7 +20341,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/locations")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1LocationsResponseDto>> PostCorehrV1LocationsAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1LocationsBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1LocationsBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -20411,7 +20412,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/companies/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CompaniesBatchGetResponseDto>> PostCorehrV2CompaniesBatchGetAsync(
-        [JsonNetContent] Corehr.PostCorehrV2CompaniesBatchGetBodyDto dto);
+        [JsonContent] Corehr.PostCorehrV2CompaniesBatchGetBodyDto dto);
 
     /// <summary>
     /// <para>【飞书人事】创建公司</para>
@@ -20429,7 +20430,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/companies")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1CompaniesResponseDto>> PostCorehrV1CompaniesAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1CompaniesBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1CompaniesBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -20500,7 +20501,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/job_levels/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2JobLevelsBatchGetResponseDto>> PostCorehrV2JobLevelsBatchGetAsync(
-        [JsonNetContent] Corehr.PostCorehrV2JobLevelsBatchGetBodyDto dto);
+        [JsonContent] Corehr.PostCorehrV2JobLevelsBatchGetBodyDto dto);
 
     /// <summary>
     /// <para>【飞书人事】创建职级</para>
@@ -20518,7 +20519,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/job_levels")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1JobLevelsResponseDto>> PostCorehrV1JobLevelsAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1JobLevelsBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1JobLevelsBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -20561,7 +20562,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/corehr/v1/job_levels/{job_level_id}")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PatchCorehrV1JobLevelsByJobLevelIdResponseDto>> PatchCorehrV1JobLevelsByJobLevelIdAsync(
         [PathQuery] string job_level_id,
-        [JsonNetContent] FeishuPeople.PatchCorehrV1JobLevelsByJobLevelIdBodyDto dto,
+        [JsonContent] FeishuPeople.PatchCorehrV1JobLevelsByJobLevelIdBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -20615,7 +20616,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/job_families/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2JobFamiliesBatchGetResponseDto>> PostCorehrV2JobFamiliesBatchGetAsync(
-        [JsonNetContent] Corehr.PostCorehrV2JobFamiliesBatchGetBodyDto dto);
+        [JsonContent] Corehr.PostCorehrV2JobFamiliesBatchGetBodyDto dto);
 
     /// <summary>
     /// <para>【飞书人事】创建序列</para>
@@ -20633,7 +20634,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/job_families")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1JobFamiliesResponseDto>> PostCorehrV1JobFamiliesAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1JobFamiliesBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1JobFamiliesBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -20676,7 +20677,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/corehr/v1/job_families/{job_family_id}")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PatchCorehrV1JobFamiliesByJobFamilyIdResponseDto>> PatchCorehrV1JobFamiliesByJobFamilyIdAsync(
         [PathQuery] string job_family_id,
-        [JsonNetContent] FeishuPeople.PatchCorehrV1JobFamiliesByJobFamilyIdBodyDto dto,
+        [JsonContent] FeishuPeople.PatchCorehrV1JobFamiliesByJobFamilyIdBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -20736,7 +20737,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/jobs")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1JobsResponseDto>> PostCorehrV1JobsAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1JobsBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1JobsBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -20779,7 +20780,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/corehr/v1/jobs/{job_id}")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PatchCorehrV1JobsByJobIdResponseDto>> PatchCorehrV1JobsByJobIdAsync(
         [PathQuery] string job_id,
-        [JsonNetContent] FeishuPeople.PatchCorehrV1JobsByJobIdBodyDto dto,
+        [JsonContent] FeishuPeople.PatchCorehrV1JobsByJobIdBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -20902,7 +20903,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/pre_hires")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2PreHiresResponseDto>> PostCorehrV2PreHiresAsync(
-        [JsonNetContent] Corehr.PostCorehrV2PreHiresBodyDto dto);
+        [JsonContent] Corehr.PostCorehrV2PreHiresBodyDto dto);
 
     /// <summary>
     /// <para>【飞书人事】更新待入职信息</para>
@@ -20927,7 +20928,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/corehr/v1/pre_hires/{pre_hire_id}")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PatchCorehrV1PreHiresByPreHireIdResponseDto>> PatchCorehrV1PreHiresByPreHireIdAsync(
         [PathQuery] string pre_hire_id,
-        [JsonNetContent] FeishuPeople.PatchCorehrV1PreHiresByPreHireIdBodyDto dto,
+        [JsonContent] FeishuPeople.PatchCorehrV1PreHiresByPreHireIdBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -21029,7 +21030,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/contracts/search")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2ContractsSearchResponseDto>> PostCorehrV2ContractsSearchAsync(
-        [JsonNetContent] Corehr.PostCorehrV2ContractsSearchBodyDto dto,
+        [JsonContent] Corehr.PostCorehrV2ContractsSearchBodyDto dto,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id");
@@ -21050,7 +21051,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/contracts")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1ContractsResponseDto>> PostCorehrV1ContractsAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1ContractsBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1ContractsBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -21093,7 +21094,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/corehr/v1/contracts/{contract_id}")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PatchCorehrV1ContractsByContractIdResponseDto>> PatchCorehrV1ContractsByContractIdAsync(
         [PathQuery] string contract_id,
-        [JsonNetContent] FeishuPeople.PatchCorehrV1ContractsByContractIdBodyDto dto,
+        [JsonContent] FeishuPeople.PatchCorehrV1ContractsByContractIdBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -21182,7 +21183,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/probation/search")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2ProbationSearchResponseDto>> PostCorehrV2ProbationSearchAsync(
-        [JsonNetContent] Corehr.PostCorehrV2ProbationSearchBodyDto dto,
+        [JsonContent] Corehr.PostCorehrV2ProbationSearchBodyDto dto,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id",
@@ -21198,7 +21199,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/probation/enable_disable_assessment")]
     System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2ProbationEnableDisableAssessmentAsync(
-        [JsonNetContent] Corehr.PostCorehrV2ProbationEnableDisableAssessmentBodyDto dto);
+        [JsonContent] Corehr.PostCorehrV2ProbationEnableDisableAssessmentBodyDto dto);
 
     /// <summary>
     /// <para>【飞书人事（企业版）】新增试用期考核信息</para>
@@ -21228,7 +21229,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/probation/assessments")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2ProbationAssessmentsResponseDto>> PostCorehrV2ProbationAssessmentsAsync(
-        [JsonNetContent] Corehr.PostCorehrV2ProbationAssessmentsBodyDto dto,
+        [JsonContent] Corehr.PostCorehrV2ProbationAssessmentsBodyDto dto,
         [PathQuery] string? client_token = null,
         [PathQuery] string? user_id_type = "open_id");
 
@@ -21255,7 +21256,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/corehr/v2/probation/assessments/{assessment_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchCorehrV2ProbationAssessmentsByAssessmentIdAsync(
         [PathQuery] string assessment_id,
-        [JsonNetContent] Corehr.PatchCorehrV2ProbationAssessmentsByAssessmentIdBodyDto dto,
+        [JsonContent] Corehr.PatchCorehrV2ProbationAssessmentsByAssessmentIdBodyDto dto,
         [PathQuery] string? client_token = null);
 
     /// <summary>
@@ -21357,7 +21358,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/job_changes")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1JobChangesResponseDto>> PostCorehrV1JobChangesAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1JobChangesBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1JobChangesBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id");
 
@@ -21406,7 +21407,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/job_changes/search")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2JobChangesSearchResponseDto>> PostCorehrV2JobChangesSearchAsync(
-        [JsonNetContent] Corehr.PostCorehrV2JobChangesSearchBodyDto dto,
+        [JsonContent] Corehr.PostCorehrV2JobChangesSearchBodyDto dto,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id",
@@ -21422,7 +21423,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/offboardings/query")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1OffboardingsQueryResponseDto>> PostCorehrV1OffboardingsQueryAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1OffboardingsQueryBodyDto dto);
+        [JsonContent] FeishuPeople.PostCorehrV1OffboardingsQueryBodyDto dto);
 
     /// <summary>
     /// <para>【飞书人事】操作员工离职</para>
@@ -21446,7 +21447,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/offboardings/submit")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1OffboardingsSubmitResponseDto>> PostCorehrV1OffboardingsSubmitAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1OffboardingsSubmitBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1OffboardingsSubmitBodyDto dto,
         [PathQuery] string? user_id_type = "people_corehr_id");
 
     /// <summary>
@@ -21483,7 +21484,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/offboardings/search")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1OffboardingsSearchResponseDto>> PostCorehrV1OffboardingsSearchAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1OffboardingsSearchBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1OffboardingsSearchBodyDto dto,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id");
@@ -21510,7 +21511,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/leave_granting_records")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1LeaveGrantingRecordsResponseDto>> PostCorehrV1LeaveGrantingRecordsAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1LeaveGrantingRecordsBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1LeaveGrantingRecordsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -21781,7 +21782,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/employees/bps/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2EmployeesBpsBatchGetResponseDto>> PostCorehrV2EmployeesBpsBatchGetAsync(
-        [JsonNetContent] Corehr.PostCorehrV2EmployeesBpsBatchGetBodyDto dto,
+        [JsonContent] Corehr.PostCorehrV2EmployeesBpsBatchGetBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -21817,7 +21818,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/bps/get_by_department")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2BpsGetByDepartmentResponseDto>> PostCorehrV2BpsGetByDepartmentAsync(
-        [JsonNetContent] Corehr.PostCorehrV2BpsGetByDepartmentBodyDto dto,
+        [JsonContent] Corehr.PostCorehrV2BpsGetByDepartmentBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -21891,7 +21892,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/security_groups/query")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1SecurityGroupsQueryResponseDto>> PostCorehrV1SecurityGroupsQueryAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1SecurityGroupsQueryBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1SecurityGroupsQueryBodyDto dto,
         [PathQuery] string? department_id_type = "people_corehr_department_id");
 
     /// <summary>
@@ -21916,7 +21917,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v1/assigned_users/search")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1AssignedUsersSearchResponseDto>> PostCorehrV1AssignedUsersSearchAsync(
-        [JsonNetContent] FeishuPeople.PostCorehrV1AssignedUsersSearchBodyDto dto,
+        [JsonContent] FeishuPeople.PostCorehrV1AssignedUsersSearchBodyDto dto,
         [PathQuery] string? user_id_type = "people_corehr_id");
 
     /// <summary>
@@ -22131,7 +22132,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/jobs/combined_create")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1JobsCombinedCreateResponseDto>> PostHireV1JobsCombinedCreateAsync(
-        [JsonNetContent] Hire.PostHireV1JobsCombinedCreateBodyDto dto,
+        [JsonContent] Hire.PostHireV1JobsCombinedCreateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -22244,7 +22245,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/hire/v1/jobs/{job_id}/combined_update")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1JobsByJobIdCombinedUpdateResponseDto>> PostHireV1JobsByJobIdCombinedUpdateAsync(
         [PathQuery] string job_id,
-        [JsonNetContent] Hire.PostHireV1JobsByJobIdCombinedUpdateBodyDto dto,
+        [JsonContent] Hire.PostHireV1JobsByJobIdCombinedUpdateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -22276,7 +22277,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/hire/v1/jobs/{job_id}/update_config")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1JobsByJobIdUpdateConfigResponseDto>> PostHireV1JobsByJobIdUpdateConfigAsync(
         [PathQuery] string job_id,
-        [JsonNetContent] Hire.PostHireV1JobsByJobIdUpdateConfigBodyDto dto,
+        [JsonContent] Hire.PostHireV1JobsByJobIdUpdateConfigBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -22334,7 +22335,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/job_requirements")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1JobRequirementsResponseDto>> PostHireV1JobRequirementsAsync(
-        [JsonNetContent] Hire.PostHireV1JobRequirementsBodyDto dto,
+        [JsonContent] Hire.PostHireV1JobRequirementsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -22369,7 +22370,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/job_requirements/search")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1JobRequirementsSearchResponseDto>> PostHireV1JobRequirementsSearchAsync(
-        [JsonNetContent] Hire.PostHireV1JobRequirementsSearchBodyDto dto,
+        [JsonContent] Hire.PostHireV1JobRequirementsSearchBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -22493,7 +22494,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/hire/v1/job_requirements/{job_requirement_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PutHireV1JobRequirementsByJobRequirementIdAsync(
         [PathQuery] string job_requirement_id,
-        [JsonNetContent] Hire.PutHireV1JobRequirementsByJobRequirementIdBodyDto dto,
+        [JsonContent] Hire.PutHireV1JobRequirementsByJobRequirementIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -22735,7 +22736,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/external_applications")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1ExternalApplicationsResponseDto>> PostHireV1ExternalApplicationsAsync(
-        [JsonNetContent] Hire.PostHireV1ExternalApplicationsBodyDto dto);
+        [JsonContent] Hire.PostHireV1ExternalApplicationsBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】更新外部投递</para>
@@ -22754,7 +22755,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/hire/v1/external_applications/{external_application_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PutHireV1ExternalApplicationsByExternalApplicationIdResponseDto>> PutHireV1ExternalApplicationsByExternalApplicationIdAsync(
         [PathQuery] string external_application_id,
-        [JsonNetContent] Hire.PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto dto);
+        [JsonContent] Hire.PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】删除外部投递</para>
@@ -22790,7 +22791,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/external_interviews")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1ExternalInterviewsResponseDto>> PostHireV1ExternalInterviewsAsync(
-        [JsonNetContent] Hire.PostHireV1ExternalInterviewsBodyDto dto);
+        [JsonContent] Hire.PostHireV1ExternalInterviewsBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】创建外部面评</para>
@@ -22802,7 +22803,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/external_interview_assessments")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1ExternalInterviewAssessmentsResponseDto>> PostHireV1ExternalInterviewAssessmentsAsync(
-        [JsonNetContent] Hire.PostHireV1ExternalInterviewAssessmentsBodyDto dto);
+        [JsonContent] Hire.PostHireV1ExternalInterviewAssessmentsBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】创建外部背调</para>
@@ -22814,7 +22815,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/external_background_checks")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1ExternalBackgroundChecksResponseDto>> PostHireV1ExternalBackgroundChecksAsync(
-        [JsonNetContent] Hire.PostHireV1ExternalBackgroundChecksBodyDto dto);
+        [JsonContent] Hire.PostHireV1ExternalBackgroundChecksBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】将人才加入指定文件夹</para>
@@ -22826,7 +22827,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/talents/add_to_folder")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1TalentsAddToFolderResponseDto>> PostHireV1TalentsAddToFolderAsync(
-        [JsonNetContent] Hire.PostHireV1TalentsAddToFolderBodyDto dto);
+        [JsonContent] Hire.PostHireV1TalentsAddToFolderBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】获取人才文件夹信息</para>
@@ -22875,7 +22876,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/talents/batch_get_id")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1TalentsBatchGetIdResponseDto>> PostHireV1TalentsBatchGetIdAsync(
-        [JsonNetContent] Hire.PostHireV1TalentsBatchGetIdBodyDto dto);
+        [JsonContent] Hire.PostHireV1TalentsBatchGetIdBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】获取人才字段</para>
@@ -22927,7 +22928,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/applications")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1ApplicationsResponseDto>> PostHireV1ApplicationsAsync(
-        [JsonNetContent] Hire.PostHireV1ApplicationsBodyDto dto);
+        [JsonContent] Hire.PostHireV1ApplicationsBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】终止投递</para>
@@ -22946,7 +22947,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/hire/v1/applications/{application_id}/terminate")]
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1ApplicationsByApplicationIdTerminateAsync(
         [PathQuery] string application_id,
-        [JsonNetContent] Hire.PostHireV1ApplicationsByApplicationIdTerminateBodyDto dto);
+        [JsonContent] Hire.PostHireV1ApplicationsByApplicationIdTerminateBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】获取投递信息</para>
@@ -23244,7 +23245,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/offers")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1OffersResponseDto>> PostHireV1OffersAsync(
-        [JsonNetContent] Hire.PostHireV1OffersBodyDto dto,
+        [JsonContent] Hire.PostHireV1OffersBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -23288,7 +23289,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/hire/v1/offers/{offer_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PutHireV1OffersByOfferIdResponseDto>> PutHireV1OffersByOfferIdAsync(
         [PathQuery] string offer_id,
-        [JsonNetContent] Hire.PutHireV1OffersByOfferIdBodyDto dto,
+        [JsonContent] Hire.PutHireV1OffersByOfferIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -23435,7 +23436,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/hire/v1/offers/{offer_id}/offer_status")]
     System.Threading.Tasks.Task<FeishuResponse> PatchHireV1OffersByOfferIdOfferStatusAsync(
         [PathQuery] string offer_id,
-        [JsonNetContent] Hire.PatchHireV1OffersByOfferIdOfferStatusBodyDto dto);
+        [JsonContent] Hire.PatchHireV1OffersByOfferIdOfferStatusBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】更新实习 Offer 入/离职状态</para>
@@ -23454,7 +23455,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/hire/v1/offers/{offer_id}/intern_offer_status")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1OffersByOfferIdInternOfferStatusResponseDto>> PostHireV1OffersByOfferIdInternOfferStatusAsync(
         [PathQuery] string offer_id,
-        [JsonNetContent] Hire.PostHireV1OffersByOfferIdInternOfferStatusBodyDto dto);
+        [JsonContent] Hire.PostHireV1OffersByOfferIdInternOfferStatusBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】更新 e-HR 导入任务结果</para>
@@ -23473,7 +23474,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/hire/v1/ehr_import_tasks/{ehr_import_task_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchHireV1EhrImportTasksByEhrImportTaskIdAsync(
         [PathQuery] string ehr_import_task_id,
-        [JsonNetContent] Hire.PatchHireV1EhrImportTasksByEhrImportTaskIdBodyDto dto);
+        [JsonContent] Hire.PatchHireV1EhrImportTasksByEhrImportTaskIdBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】操作候选人入职</para>
@@ -23514,7 +23515,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/hire/v1/applications/{application_id}/transfer_onboard")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1ApplicationsByApplicationIdTransferOnboardResponseDto>> PostHireV1ApplicationsByApplicationIdTransferOnboardAsync(
         [PathQuery] string application_id,
-        [JsonNetContent] Hire.PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto dto,
+        [JsonContent] Hire.PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "people_admin_department_id");
 
@@ -23557,7 +23558,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/hire/v1/employees/{employee_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PatchHireV1EmployeesByEmployeeIdResponseDto>> PatchHireV1EmployeesByEmployeeIdAsync(
         [PathQuery] string employee_id,
-        [JsonNetContent] Hire.PatchHireV1EmployeesByEmployeeIdBodyDto dto,
+        [JsonContent] Hire.PatchHireV1EmployeesByEmployeeIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "people_admin_department_id");
 
@@ -23664,7 +23665,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/notes")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1NotesResponseDto>> PostHireV1NotesAsync(
-        [JsonNetContent] Hire.PostHireV1NotesBodyDto dto,
+        [JsonContent] Hire.PostHireV1NotesBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -23696,7 +23697,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/hire/v1/notes/{note_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PatchHireV1NotesByNoteIdResponseDto>> PatchHireV1NotesByNoteIdAsync(
         [PathQuery] string note_id,
-        [JsonNetContent] Hire.PatchHireV1NotesByNoteIdBodyDto dto,
+        [JsonContent] Hire.PatchHireV1NotesByNoteIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -23806,7 +23807,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/eco_account_custom_fields")]
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1EcoAccountCustomFieldsAsync(
-        [JsonNetContent] Hire.PostHireV1EcoAccountCustomFieldsBodyDto dto);
+        [JsonContent] Hire.PostHireV1EcoAccountCustomFieldsBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】更新账号自定义字段</para>
@@ -23818,7 +23819,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPatch("/open-apis/hire/v1/eco_account_custom_fields/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse> PatchHireV1EcoAccountCustomFieldsBatchUpdateAsync(
-        [JsonNetContent] Hire.PatchHireV1EcoAccountCustomFieldsBatchUpdateBodyDto dto);
+        [JsonContent] Hire.PatchHireV1EcoAccountCustomFieldsBatchUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】删除账号自定义字段</para>
@@ -23830,7 +23831,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/eco_account_custom_fields/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1EcoAccountCustomFieldsBatchDeleteAsync(
-        [JsonNetContent] Hire.PostHireV1EcoAccountCustomFieldsBatchDeleteBodyDto dto);
+        [JsonContent] Hire.PostHireV1EcoAccountCustomFieldsBatchDeleteBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】推送背调自定义字段</para>
@@ -23842,7 +23843,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/eco_background_check_custom_fields")]
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1EcoBackgroundCheckCustomFieldsAsync(
-        [JsonNetContent] Hire.PostHireV1EcoBackgroundCheckCustomFieldsBodyDto dto);
+        [JsonContent] Hire.PostHireV1EcoBackgroundCheckCustomFieldsBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】更新背调自定义字段</para>
@@ -23854,7 +23855,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPatch("/open-apis/hire/v1/eco_background_check_custom_fields/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse> PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateAsync(
-        [JsonNetContent] Hire.PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateBodyDto dto);
+        [JsonContent] Hire.PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】删除背调自定义字段</para>
@@ -23866,7 +23867,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/eco_background_check_custom_fields/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1EcoBackgroundCheckCustomFieldsBatchDeleteAsync(
-        [JsonNetContent] Hire.PostHireV1EcoBackgroundCheckCustomFieldsBatchDeleteBodyDto dto);
+        [JsonContent] Hire.PostHireV1EcoBackgroundCheckCustomFieldsBatchDeleteBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】创建背调套餐和附加调查项</para>
@@ -23878,7 +23879,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/eco_background_check_packages")]
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1EcoBackgroundCheckPackagesAsync(
-        [JsonNetContent] Hire.PostHireV1EcoBackgroundCheckPackagesBodyDto dto);
+        [JsonContent] Hire.PostHireV1EcoBackgroundCheckPackagesBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】更新背调套餐和附加调查项</para>
@@ -23890,7 +23891,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPatch("/open-apis/hire/v1/eco_background_check_packages/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse> PatchHireV1EcoBackgroundCheckPackagesBatchUpdateAsync(
-        [JsonNetContent] Hire.PatchHireV1EcoBackgroundCheckPackagesBatchUpdateBodyDto dto);
+        [JsonContent] Hire.PatchHireV1EcoBackgroundCheckPackagesBatchUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】删除背调套餐和附加调查项</para>
@@ -23902,7 +23903,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/eco_background_check_packages/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1EcoBackgroundCheckPackagesBatchDeleteAsync(
-        [JsonNetContent] Hire.PostHireV1EcoBackgroundCheckPackagesBatchDeleteBodyDto dto);
+        [JsonContent] Hire.PostHireV1EcoBackgroundCheckPackagesBatchDeleteBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】更新背调订单进度</para>
@@ -23914,7 +23915,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/eco_background_checks/update_progress")]
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1EcoBackgroundChecksUpdateProgressAsync(
-        [JsonNetContent] Hire.PostHireV1EcoBackgroundChecksUpdateProgressBodyDto dto);
+        [JsonContent] Hire.PostHireV1EcoBackgroundChecksUpdateProgressBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】回传背调订单的最终结果</para>
@@ -23926,7 +23927,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/eco_background_checks/update_result")]
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1EcoBackgroundChecksUpdateResultAsync(
-        [JsonNetContent] Hire.PostHireV1EcoBackgroundChecksUpdateResultBodyDto dto);
+        [JsonContent] Hire.PostHireV1EcoBackgroundChecksUpdateResultBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】终止背调订单</para>
@@ -23938,7 +23939,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/eco_background_checks/cancel")]
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1EcoBackgroundChecksCancelAsync(
-        [JsonNetContent] Hire.PostHireV1EcoBackgroundChecksCancelBodyDto dto);
+        [JsonContent] Hire.PostHireV1EcoBackgroundChecksCancelBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】推送试卷列表</para>
@@ -23950,7 +23951,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/eco_exam_papers")]
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1EcoExamPapersAsync(
-        [JsonNetContent] Hire.PostHireV1EcoExamPapersBodyDto dto);
+        [JsonContent] Hire.PostHireV1EcoExamPapersBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】更新试卷</para>
@@ -23962,7 +23963,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPatch("/open-apis/hire/v1/eco_exam_papers/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse> PatchHireV1EcoExamPapersBatchUpdateAsync(
-        [JsonNetContent] Hire.PatchHireV1EcoExamPapersBatchUpdateBodyDto dto);
+        [JsonContent] Hire.PatchHireV1EcoExamPapersBatchUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】删除试卷</para>
@@ -23974,7 +23975,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/eco_exam_papers/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1EcoExamPapersBatchDeleteAsync(
-        [JsonNetContent] Hire.PostHireV1EcoExamPapersBatchDeleteBodyDto dto);
+        [JsonContent] Hire.PostHireV1EcoExamPapersBatchDeleteBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】回传笔试安排结果</para>
@@ -23993,7 +23994,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/hire/v1/eco_exams/{exam_id}/login_info")]
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1EcoExamsByExamIdLoginInfoAsync(
         [PathQuery] string exam_id,
-        [JsonNetContent] Hire.PostHireV1EcoExamsByExamIdLoginInfoBodyDto dto);
+        [JsonContent] Hire.PostHireV1EcoExamsByExamIdLoginInfoBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】回传笔试结果</para>
@@ -24012,7 +24013,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/hire/v1/eco_exams/{exam_id}/update_result")]
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1EcoExamsByExamIdUpdateResultAsync(
         [PathQuery] string exam_id,
-        [JsonNetContent] Hire.PostHireV1EcoExamsByExamIdUpdateResultBodyDto dto);
+        [JsonContent] Hire.PostHireV1EcoExamsByExamIdUpdateResultBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】注册外部系统内推账户</para>
@@ -24024,7 +24025,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/referral_account")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1ReferralAccountResponseDto>> PostHireV1ReferralAccountAsync(
-        [JsonNetContent] Hire.PostHireV1ReferralAccountBodyDto dto);
+        [JsonContent] Hire.PostHireV1ReferralAccountBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】停用外部系统内推账户</para>
@@ -24060,7 +24061,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/hire/v1/referral_account/{referral_account_id}/withdraw")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1ReferralAccountByReferralAccountIdWithdrawResponseDto>> PostHireV1ReferralAccountByReferralAccountIdWithdrawAsync(
         [PathQuery] string referral_account_id,
-        [JsonNetContent] Hire.PostHireV1ReferralAccountByReferralAccountIdWithdrawBodyDto dto);
+        [JsonContent] Hire.PostHireV1ReferralAccountByReferralAccountIdWithdrawBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】内推账号提现对账接口</para>
@@ -24072,7 +24073,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/referral_account/reconciliation")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1ReferralAccountReconciliationResponseDto>> PostHireV1ReferralAccountReconciliationAsync(
-        [JsonNetContent] Hire.PostHireV1ReferralAccountReconciliationBodyDto dto);
+        [JsonContent] Hire.PostHireV1ReferralAccountReconciliationBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】获取附件信息</para>
@@ -24192,7 +24193,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/okr/v1/progress_records")]
     System.Threading.Tasks.Task<FeishuResponse<Okr.PostOkrV1ProgressRecordsResponseDto>> PostOkrV1ProgressRecordsAsync(
-        [JsonNetContent] Okr.PostOkrV1ProgressRecordsBodyDto dto,
+        [JsonContent] Okr.PostOkrV1ProgressRecordsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -24240,7 +24241,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/okr/v1/progress_records/{progress_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Okr.PutOkrV1ProgressRecordsByProgressIdResponseDto>> PutOkrV1ProgressRecordsByProgressIdAsync(
         [PathQuery] string progress_id,
-        [JsonNetContent] Okr.PutOkrV1ProgressRecordsByProgressIdBodyDto dto,
+        [JsonContent] Okr.PutOkrV1ProgressRecordsByProgressIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -24287,7 +24288,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/human_authentication/v1/identities")]
     System.Threading.Tasks.Task<FeishuResponse<HumanAuthentication.Spec.PostHumanAuthenticationV1IdentitiesResponseDto>> PostHumanAuthenticationV1IdentitiesAsync(
-        [JsonNetContent] HumanAuthentication.Spec.PostHumanAuthenticationV1IdentitiesBodyDto dto);
+        [JsonContent] HumanAuthentication.Spec.PostHumanAuthenticationV1IdentitiesBodyDto dto);
 
     /// <summary>
     /// <para>【实名认证】上传人脸基准图片</para>
@@ -24379,7 +24380,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPatch("/open-apis/acs/v1/users/{user_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchAcsV1UsersByUserIdAsync(
         [PathQuery] string user_id,
-        [JsonNetContent] Acs.Spec.PatchAcsV1UsersByUserIdBodyDto dto);
+        [JsonContent] Acs.Spec.PatchAcsV1UsersByUserIdBodyDto dto);
 
     /// <summary>
     /// <para>【智能门禁】获取单个用户信息</para>
@@ -24537,7 +24538,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/performance/v1/stage_tasks/find_by_user_list")]
     System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV1StageTasksFindByUserListResponseDto>> PostPerformanceV1StageTasksFindByUserListAsync(
-        [JsonNetContent] Performance.PostPerformanceV1StageTasksFindByUserListBodyDto dto,
+        [JsonContent] Performance.PostPerformanceV1StageTasksFindByUserListBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -24562,7 +24563,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/performance/v1/stage_tasks/find_by_page")]
     System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV1StageTasksFindByPageResponseDto>> PostPerformanceV1StageTasksFindByPageAsync(
-        [JsonNetContent] Performance.PostPerformanceV1StageTasksFindByPageBodyDto dto,
+        [JsonContent] Performance.PostPerformanceV1StageTasksFindByPageBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -24587,7 +24588,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/performance/v1/review_datas/query")]
     System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV1ReviewDatasQueryResponseDto>> PostPerformanceV1ReviewDatasQueryAsync(
-        [JsonNetContent] Performance.PostPerformanceV1ReviewDatasQueryBodyDto dto,
+        [JsonContent] Performance.PostPerformanceV1ReviewDatasQueryBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -24619,7 +24620,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/lingo/v1/drafts")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1DraftsResponseDto>> PostLingoV1DraftsAsync(
-        [JsonNetContent] Baike.PostLingoV1DraftsBodyDto dto,
+        [JsonContent] Baike.PostLingoV1DraftsBodyDto dto,
         [PathQuery] string? repo_id = null,
         [PathQuery] string? user_id_type = "open_id");
 
@@ -24651,7 +24652,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/lingo/v1/drafts/{draft_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PutLingoV1DraftsByDraftIdResponseDto>> PutLingoV1DraftsByDraftIdAsync(
         [PathQuery] string draft_id,
-        [JsonNetContent] Baike.PutLingoV1DraftsByDraftIdBodyDto dto,
+        [JsonContent] Baike.PutLingoV1DraftsByDraftIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -24682,7 +24683,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/lingo/v1/entities")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesResponseDto>> PostLingoV1EntitiesAsync(
-        [JsonNetContent] Baike.PostLingoV1EntitiesBodyDto dto,
+        [JsonContent] Baike.PostLingoV1EntitiesBodyDto dto,
         [PathQuery] string? repo_id = null,
         [PathQuery] string? user_id_type = "open_id");
 
@@ -24714,7 +24715,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/lingo/v1/entities/{entity_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PutLingoV1EntitiesByEntityIdResponseDto>> PutLingoV1EntitiesByEntityIdAsync(
         [PathQuery] string entity_id,
-        [JsonNetContent] Baike.PutLingoV1EntitiesByEntityIdBodyDto dto,
+        [JsonContent] Baike.PutLingoV1EntitiesByEntityIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -24828,7 +24829,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/lingo/v1/entities/match")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesMatchResponseDto>> PostLingoV1EntitiesMatchAsync(
-        [JsonNetContent] Baike.PostLingoV1EntitiesMatchBodyDto dto,
+        [JsonContent] Baike.PostLingoV1EntitiesMatchBodyDto dto,
         [PathQuery] string? repo_id = null);
 
     /// <summary>
@@ -24871,7 +24872,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/lingo/v1/entities/search")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesSearchResponseDto>> PostLingoV1EntitiesSearchAsync(
-        [JsonNetContent] Baike.PostLingoV1EntitiesSearchBodyDto dto,
+        [JsonContent] Baike.PostLingoV1EntitiesSearchBodyDto dto,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
         [PathQuery] string? repo_id = null,
@@ -24887,7 +24888,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/lingo/v1/entities/highlight")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesHighlightResponseDto>> PostLingoV1EntitiesHighlightAsync(
-        [JsonNetContent] Baike.PostLingoV1EntitiesHighlightBodyDto dto);
+        [JsonContent] Baike.PostLingoV1EntitiesHighlightBodyDto dto);
 
     /// <summary>
     /// <para>【词典】获取词典分类</para>
@@ -24978,7 +24979,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/security_and_compliance/v1/openapi_logs/list_data")]
     System.Threading.Tasks.Task<FeishuResponse<SecurityAndCompliance.PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto>> PostSecurityAndComplianceV1OpenapiLogsListDataAsync(
-        [JsonNetContent] SecurityAndCompliance.PostSecurityAndComplianceV1OpenapiLogsListDataBodyDto dto);
+        [JsonContent] SecurityAndCompliance.PostSecurityAndComplianceV1OpenapiLogsListDataBodyDto dto);
 
     /// <summary>
     /// <para>【妙记】获取妙记统计数据</para>
@@ -25193,7 +25194,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/mdm/v1/user_auth_data_relations/bind")]
     System.Threading.Tasks.Task<FeishuResponse> PostMdmV1UserAuthDataRelationsBindAsync(
-        [JsonNetContent] Mdm.PostMdmV1UserAuthDataRelationsBindBodyDto dto,
+        [JsonContent] Mdm.PostMdmV1UserAuthDataRelationsBindBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -25217,7 +25218,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/mdm/v1/user_auth_data_relations/unbind")]
     System.Threading.Tasks.Task<FeishuResponse> PostMdmV1UserAuthDataRelationsUnbindAsync(
-        [JsonNetContent] Mdm.PostMdmV1UserAuthDataRelationsUnbindBodyDto dto,
+        [JsonContent] Mdm.PostMdmV1UserAuthDataRelationsUnbindBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -25242,7 +25243,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/baike/v1/drafts")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1DraftsResponseDto>> PostBaikeV1DraftsAsync(
-        [JsonNetContent] Baike.PostBaikeV1DraftsBodyDto dto,
+        [JsonContent] Baike.PostBaikeV1DraftsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -25273,7 +25274,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/baike/v1/drafts/{draft_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PutBaikeV1DraftsByDraftIdResponseDto>> PutBaikeV1DraftsByDraftIdAsync(
         [PathQuery] string draft_id,
-        [JsonNetContent] Baike.PutBaikeV1DraftsByDraftIdBodyDto dto,
+        [JsonContent] Baike.PutBaikeV1DraftsByDraftIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -25297,7 +25298,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/baike/v1/entities")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1EntitiesResponseDto>> PostBaikeV1EntitiesAsync(
-        [JsonNetContent] Baike.PostBaikeV1EntitiesBodyDto dto,
+        [JsonContent] Baike.PostBaikeV1EntitiesBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -25329,7 +25330,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/baike/v1/entities/{entity_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PutBaikeV1EntitiesByEntityIdResponseDto>> PutBaikeV1EntitiesByEntityIdAsync(
         [PathQuery] string entity_id,
-        [JsonNetContent] Baike.PutBaikeV1EntitiesByEntityIdBodyDto dto,
+        [JsonContent] Baike.PutBaikeV1EntitiesByEntityIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -25428,7 +25429,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/baike/v1/entities/match")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1EntitiesMatchResponseDto>> PostBaikeV1EntitiesMatchAsync(
-        [JsonNetContent] Baike.PostBaikeV1EntitiesMatchBodyDto dto);
+        [JsonContent] Baike.PostBaikeV1EntitiesMatchBodyDto dto);
 
     /// <summary>
     /// <para>【词典】模糊搜索词条</para>
@@ -25463,7 +25464,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/baike/v1/entities/search")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1EntitiesSearchResponseDto>> PostBaikeV1EntitiesSearchAsync(
-        [JsonNetContent] Baike.PostBaikeV1EntitiesSearchBodyDto dto,
+        [JsonContent] Baike.PostBaikeV1EntitiesSearchBodyDto dto,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id");
@@ -25478,7 +25479,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/baike/v1/entities/highlight")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1EntitiesHighlightResponseDto>> PostBaikeV1EntitiesHighlightAsync(
-        [JsonNetContent] Baike.PostBaikeV1EntitiesHighlightBodyDto dto);
+        [JsonContent] Baike.PostBaikeV1EntitiesHighlightBodyDto dto);
 
     /// <summary>
     /// <para>【词典】提取潜在的词条</para>
@@ -25490,7 +25491,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/baike/v1/entities/extract")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1EntitiesExtractResponseDto>> PostBaikeV1EntitiesExtractAsync(
-        [JsonNetContent] Baike.PostBaikeV1EntitiesExtractBodyDto dto);
+        [JsonContent] Baike.PostBaikeV1EntitiesExtractBodyDto dto);
 
     /// <summary>
     /// <para>【词典】获取词典分类</para>
@@ -25563,7 +25564,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/application/v3/app/update_visibility")]
     System.Threading.Tasks.Task<FeishuResponse> PostApplicationV3AppUpdateVisibilityAsync(
-        [JsonNetContent] Application.Spec.PostApplicationV3AppUpdateVisibilityBodyDto dto);
+        [JsonContent] Application.Spec.PostApplicationV3AppUpdateVisibilityBodyDto dto);
 
     /// <summary>
     /// <para>【审批】订阅审批事件</para>
@@ -25579,7 +25580,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/subscription/subscribe")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalOpenapiV2SubscriptionSubscribeAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2SubscriptionSubscribeBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2SubscriptionSubscribeBodyDto dto);
 
     /// <summary>
     /// <para>【审批】取消订阅审批事件</para>
@@ -25593,7 +25594,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/subscription/unsubscribe")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalOpenapiV2SubscriptionUnsubscribeAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2SubscriptionUnsubscribeBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2SubscriptionUnsubscribeBodyDto dto);
 
     /// <summary>
     /// <para>【审批】查看审批定义</para>
@@ -25607,7 +25608,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/approval/get")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2ApprovalGetResponseDto>> PostApprovalOpenapiV2ApprovalGetAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2ApprovalGetBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2ApprovalGetBodyDto dto);
 
     /// <summary>
     /// <para>【审批】创建审批实例</para>
@@ -25621,7 +25622,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/create")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2InstanceCreateResponseDto>> PostApprovalOpenapiV2InstanceCreateAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceCreateBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2InstanceCreateBodyDto dto);
 
     /// <summary>
     /// <para>【审批】获取单个审批实例详情</para>
@@ -25635,7 +25636,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/get")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2InstanceGetResponseDto>> PostApprovalOpenapiV2InstanceGetAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceGetBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2InstanceGetBodyDto dto);
 
     /// <summary>
     /// <para>【审批】批量获取审批实例ID</para>
@@ -25650,7 +25651,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/list")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2InstanceListResponseDto>> PostApprovalOpenapiV2InstanceListAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceListBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2InstanceListBodyDto dto);
 
     /// <summary>
     /// <para>【审批】审批实例抄送</para>
@@ -25664,7 +25665,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cc")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/cc")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalOpenapiV2InstanceCcAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceCcBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2InstanceCcBodyDto dto);
 
     /// <summary>
     /// <para>【审批】审批实例撤回</para>
@@ -25678,7 +25679,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cancel")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/cancel")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalOpenapiV2InstanceCancelAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceCancelBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2InstanceCancelBodyDto dto);
 
     /// <summary>
     /// <para>【审批】审批任务同意</para>
@@ -25692,7 +25693,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/approve")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/approve")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalOpenapiV2InstanceApproveAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceApproveBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2InstanceApproveBodyDto dto);
 
     /// <summary>
     /// <para>【审批】审批任务拒绝</para>
@@ -25706,7 +25707,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/reject")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/reject")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalOpenapiV2InstanceRejectAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceRejectBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2InstanceRejectBodyDto dto);
 
     /// <summary>
     /// <para>【审批】审批任务转交</para>
@@ -25720,7 +25721,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/transfer")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/transfer")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalOpenapiV2InstanceTransferAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceTransferBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2InstanceTransferBodyDto dto);
 
     /// <summary>
     /// <para>【审批】三方审批定义创建</para>
@@ -25736,7 +25737,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v3/external/approval/create")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV3ExternalApprovalCreateResponseDto>> PostApprovalOpenapiV3ExternalApprovalCreateAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV3ExternalApprovalCreateBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV3ExternalApprovalCreateBodyDto dto);
 
     /// <summary>
     /// <para>【审批】三方审批实例同步</para>
@@ -25752,7 +25753,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/external/instance/create")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalOpenapiV2ExternalInstanceCreateAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2ExternalInstanceCreateBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2ExternalInstanceCreateBodyDto dto);
 
     /// <summary>
     /// <para>【审批】三方审批实例校验</para>
@@ -25767,7 +25768,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v3/external/instance/check")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV3ExternalInstanceCheckResponseDto>> PostApprovalOpenapiV3ExternalInstanceCheckAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV3ExternalInstanceCheckBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV3ExternalInstanceCheckBodyDto dto);
 
     /// <summary>
     /// <para>【审批】获取三方审批任务状态</para>
@@ -25786,7 +25787,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/external/list")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2ExternalListResponseDto>> PostApprovalOpenapiV2ExternalListAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2ExternalListBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2ExternalListBodyDto dto);
 
     /// <summary>
     /// <para>【审批】创建审批定义</para>
@@ -25801,7 +25802,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/approval/create")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2ApprovalCreateResponseDto>> PostApprovalOpenapiV2ApprovalCreateAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2ApprovalCreateBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2ApprovalCreateBodyDto dto);
 
     /// <summary>
     /// <para>【审批】实例列表查询</para>
@@ -25815,7 +25816,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/instance/search")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2InstanceSearchResponseDto>> PostApprovalOpenapiV2InstanceSearchAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2InstanceSearchBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2InstanceSearchBodyDto dto);
 
     /// <summary>
     /// <para>【审批】抄送列表查询</para>
@@ -25829,7 +25830,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/cc/search")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2CcSearchResponseDto>> PostApprovalOpenapiV2CcSearchAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2CcSearchBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2CcSearchBodyDto dto);
 
     /// <summary>
     /// <para>【审批】任务列表查询</para>
@@ -25843,7 +25844,7 @@ public interface IFeishuTenantApi : IHttpApi
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/search")]
     [HttpPost("https://www.feishu.cn/approval/openapi/v2/task/search")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV2TaskSearchResponseDto>> PostApprovalOpenapiV2TaskSearchAsync(
-        [JsonNetContent] Approval.Spec.PostApprovalOpenapiV2TaskSearchBodyDto dto);
+        [JsonContent] Approval.Spec.PostApprovalOpenapiV2TaskSearchBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】获取用户列表</para>
@@ -25945,7 +25946,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/contact/v3/users/{user_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PutContactV3UsersByUserIdResponseDto>> PutContactV3UsersByUserIdAsync(
         [PathQuery] string user_id,
-        [JsonNetContent] Contact.PutContactV3UsersByUserIdBodyDto dto,
+        [JsonContent] Contact.PutContactV3UsersByUserIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
 
@@ -25972,7 +25973,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v2/department/batch_add")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.Spec.PostContactV2DepartmentBatchAddResponseDto>> PostContactV2DepartmentBatchAddAsync(
-        [JsonNetContent] Contact.Spec.PostContactV2DepartmentBatchAddBodyDto dto);
+        [JsonContent] Contact.Spec.PostContactV2DepartmentBatchAddBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】批量新增用户</para>
@@ -25987,7 +25988,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v2/user/batch_add")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.Spec.PostContactV2UserBatchAddResponseDto>> PostContactV2UserBatchAddAsync(
-        [JsonNetContent] Contact.Spec.PostContactV2UserBatchAddBodyDto dto);
+        [JsonContent] Contact.Spec.PostContactV2UserBatchAddBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】查询批量任务执行状态</para>
@@ -26017,7 +26018,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/doc/v2/create")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDocV2CreateResponseDto>> PostDocV2CreateAsync(
-        [JsonNetContent] Ccm.Spec.PostDocV2CreateBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDocV2CreateBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取旧版文档元信息</para>
@@ -26096,7 +26097,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/doc/v2/{docToken}/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse> PostDocV2ByDocTokenBatchUpdateAsync(
-        [JsonNetContent] Ccm.Spec.PostDocV2ByDocTokenBatchUpdateBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDocV2ByDocTokenBatchUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取表格元数据</para>
@@ -26130,7 +26131,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/properties")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesAsync(
         [PathQuery] string spreadsheetToken,
-        [JsonNetContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesBodyDto dto);
+        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】导入表格</para>
@@ -26143,7 +26144,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/sheets/v2/import")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2ImportResponseDto>> PostSheetsV2ImportAsync(
-        [JsonNetContent] Ccm.Spec.PostSheetsV2ImportBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2ImportBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】查询导入结果</para>
@@ -26171,7 +26172,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/suite/docs-api/meta")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSuiteDocsApiMetaResponseDto>> PostSuiteDocsApiMetaAsync(
-        [JsonNetContent] Ccm.Spec.PostSuiteDocsApiMetaBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSuiteDocsApiMetaBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】删除Sheet</para>
@@ -26213,7 +26214,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/drive/explorer/v2/file/copy/files/{fileToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveExplorerV2FileCopyFilesByFileTokenResponseDto>> PostDriveExplorerV2FileCopyFilesByFileTokenAsync(
         [PathQuery] string fileToken,
-        [JsonNetContent] Ccm.Spec.PostDriveExplorerV2FileCopyFilesByFileTokenBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDriveExplorerV2FileCopyFilesByFileTokenBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】删除Doc</para>
@@ -26272,7 +26273,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/drive/explorer/v2/folder/{folderToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveExplorerV2FolderByFolderTokenResponseDto>> PostDriveExplorerV2FolderByFolderTokenAsync(
         [PathQuery] string folderToken,
-        [JsonNetContent] Ccm.Spec.PostDriveExplorerV2FolderByFolderTokenBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDriveExplorerV2FolderByFolderTokenBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】判断协作者是否有某权限</para>
@@ -26284,7 +26285,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/permission/member/permitted")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionMemberPermittedResponseDto>> PostDrivePermissionMemberPermittedAsync(
-        [JsonNetContent] Ccm.Spec.PostDrivePermissionMemberPermittedBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDrivePermissionMemberPermittedBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】转移拥有者</para>
@@ -26296,7 +26297,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/permission/member/transfer")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionMemberTransferResponseDto>> PostDrivePermissionMemberTransferAsync(
-        [JsonNetContent] Ccm.Spec.PostDrivePermissionMemberTransferBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDrivePermissionMemberTransferBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取云文档权限设置V2</para>
@@ -26308,7 +26309,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/permission/v2/public/")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionV2PublicResponseDto>> PostDrivePermissionV2PublicAsync(
-        [JsonNetContent] Ccm.Spec.PostDrivePermissionV2PublicBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDrivePermissionV2PublicBodyDto dto);
 
     /// <summary>
     /// <para>【招聘】获取面试记录列表</para>
@@ -26533,7 +26534,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/meeting_room/building/create")]
     System.Threading.Tasks.Task<FeishuResponse<MeetingRoom.Spec.PostMeetingRoomBuildingCreateResponseDto>> PostMeetingRoomBuildingCreateAsync(
-        [JsonNetContent] MeetingRoom.Spec.PostMeetingRoomBuildingCreateBodyDto dto);
+        [JsonContent] MeetingRoom.Spec.PostMeetingRoomBuildingCreateBodyDto dto);
 
     /// <summary>
     /// <para>【会议室】更新建筑物</para>
@@ -26545,7 +26546,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/meeting_room/building/update")]
     System.Threading.Tasks.Task<FeishuResponse> PostMeetingRoomBuildingUpdateAsync(
-        [JsonNetContent] MeetingRoom.Spec.PostMeetingRoomBuildingUpdateBodyDto dto);
+        [JsonContent] MeetingRoom.Spec.PostMeetingRoomBuildingUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【会议室】删除建筑物</para>
@@ -26557,7 +26558,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/meeting_room/building/delete")]
     System.Threading.Tasks.Task<FeishuResponse> PostMeetingRoomBuildingDeleteAsync(
-        [JsonNetContent] MeetingRoom.Spec.PostMeetingRoomBuildingDeleteBodyDto dto);
+        [JsonContent] MeetingRoom.Spec.PostMeetingRoomBuildingDeleteBodyDto dto);
 
     /// <summary>
     /// <para>【会议室】查询建筑物ID</para>
@@ -26584,7 +26585,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/meeting_room/room/create")]
     System.Threading.Tasks.Task<FeishuResponse<MeetingRoom.Spec.PostMeetingRoomRoomCreateResponseDto>> PostMeetingRoomRoomCreateAsync(
-        [JsonNetContent] MeetingRoom.Spec.PostMeetingRoomRoomCreateBodyDto dto);
+        [JsonContent] MeetingRoom.Spec.PostMeetingRoomRoomCreateBodyDto dto);
 
     /// <summary>
     /// <para>【会议室】更新会议室</para>
@@ -26596,7 +26597,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/meeting_room/room/update")]
     System.Threading.Tasks.Task<FeishuResponse> PostMeetingRoomRoomUpdateAsync(
-        [JsonNetContent] MeetingRoom.Spec.PostMeetingRoomRoomUpdateBodyDto dto);
+        [JsonContent] MeetingRoom.Spec.PostMeetingRoomRoomUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【会议室】删除会议室</para>
@@ -26608,7 +26609,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/meeting_room/room/delete")]
     System.Threading.Tasks.Task<FeishuResponse> PostMeetingRoomRoomDeleteAsync(
-        [JsonNetContent] MeetingRoom.Spec.PostMeetingRoomRoomDeleteBodyDto dto);
+        [JsonContent] MeetingRoom.Spec.PostMeetingRoomRoomDeleteBodyDto dto);
 
     /// <summary>
     /// <para>【会议室】查询会议室ID</para>
@@ -26660,7 +26661,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/vc/v1/room_configs/set_checkboard_access_code")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1RoomConfigsSetCheckboardAccessCodeResponseDto>> PostVcV1RoomConfigsSetCheckboardAccessCodeAsync(
-        [JsonNetContent] Vc.PostVcV1RoomConfigsSetCheckboardAccessCodeBodyDto dto);
+        [JsonContent] Vc.PostVcV1RoomConfigsSetCheckboardAccessCodeBodyDto dto);
 
     /// <summary>
     /// <para>【视频会议】创建会议室部署码</para>
@@ -26672,7 +26673,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/vc/v1/room_configs/set_room_access_code")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1RoomConfigsSetRoomAccessCodeResponseDto>> PostVcV1RoomConfigsSetRoomAccessCodeAsync(
-        [JsonNetContent] Vc.PostVcV1RoomConfigsSetRoomAccessCodeBodyDto dto);
+        [JsonContent] Vc.PostVcV1RoomConfigsSetRoomAccessCodeBodyDto dto);
 
     /// <summary>
     /// <para>【视频会议】查询会议室配置</para>
@@ -26764,7 +26765,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/vc/v1/room_configs/set")]
     System.Threading.Tasks.Task<FeishuResponse> PostVcV1RoomConfigsSetAsync(
-        [JsonNetContent] Vc.PostVcV1RoomConfigsSetBodyDto dto,
+        [JsonContent] Vc.PostVcV1RoomConfigsSetBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 }
 

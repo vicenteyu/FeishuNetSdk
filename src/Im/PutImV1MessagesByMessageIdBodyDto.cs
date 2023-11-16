@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 编辑消息 请求体
@@ -14,7 +13,7 @@ public record PutImV1MessagesByMessageIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：text</para>
     /// </summary>
-    [JsonProperty("msg_type")]
+    [JsonPropertyName("msg_type")]
     public string MsgType { get; set; } = string.Empty;
 
     /// <summary>
@@ -26,6 +25,6 @@ public record PutImV1MessagesByMessageIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：{\"text\":\"testcontent\"}</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
 }

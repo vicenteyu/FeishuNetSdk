@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 删除字段 响应体
@@ -14,7 +13,7 @@ public record DeleteBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdRespons
     /// <para>必填：否</para>
     /// <para>示例值：fldPTb0U2y</para>
     /// </summary>
-    [JsonProperty("field_id")]
+    [JsonPropertyName("field_id")]
     public string? FieldId { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record DeleteBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdRespons
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("deleted")]
+    [JsonPropertyName("deleted")]
     public bool? Deleted { get; set; }
 }

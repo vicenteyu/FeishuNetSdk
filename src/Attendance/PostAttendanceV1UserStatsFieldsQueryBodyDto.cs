@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询统计表头 请求体
@@ -19,7 +18,7 @@ public record PostAttendanceV1UserStatsFieldsQueryBodyDto
     /// <item>zh：中文</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("locale")]
+    [JsonPropertyName("locale")]
     public string Locale { get; set; } = string.Empty;
 
     /// <summary>
@@ -31,7 +30,7 @@ public record PostAttendanceV1UserStatsFieldsQueryBodyDto
     /// <item>month：月度统计</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("stats_type")]
+    [JsonPropertyName("stats_type")]
     public string StatsType { get; set; } = string.Empty;
 
     /// <summary>
@@ -39,7 +38,7 @@ public record PostAttendanceV1UserStatsFieldsQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：20210316</para>
     /// </summary>
-    [JsonProperty("start_date")]
+    [JsonPropertyName("start_date")]
     public int StartDate { get; set; }
 
     /// <summary>
@@ -47,6 +46,6 @@ public record PostAttendanceV1UserStatsFieldsQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：20210323</para>
     /// </summary>
-    [JsonProperty("end_date")]
+    [JsonPropertyName("end_date")]
     public int EndDate { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 查询全部客服技能 响应体
@@ -13,7 +12,7 @@ public record GetHelpdeskV1AgentSkillsResponseDto
     /// <para>客服技能列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("agent_skills")]
+    [JsonPropertyName("agent_skills")]
     public AgentSkill[]? AgentSkills { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetHelpdeskV1AgentSkillsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：test-skill-id</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,14 +33,14 @@ public record GetHelpdeskV1AgentSkillsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：skill-name</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>具有此技能的客服ids</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("agent_ids")]
+        [JsonPropertyName("agent_ids")]
         public string[]? AgentIds { get; set; }
 
         /// <summary>
@@ -49,7 +48,7 @@ public record GetHelpdeskV1AgentSkillsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("is_default")]
+        [JsonPropertyName("is_default")]
         public bool? IsDefault { get; set; }
     }
 }

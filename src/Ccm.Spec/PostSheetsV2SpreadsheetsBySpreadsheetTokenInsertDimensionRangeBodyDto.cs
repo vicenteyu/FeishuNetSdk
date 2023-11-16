@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 插入行列 请求体
@@ -14,7 +13,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRangeBody
     /// <para>需要插入行列的维度信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("dimension")]
+    [JsonPropertyName("dimension")]
     public DimensionSuffix Dimension { get; set; } = new();
 
     /// <summary></summary>
@@ -24,28 +23,28 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRangeBody
         /// <para>sheet 的 Id</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("sheetId")]
+        [JsonPropertyName("sheetId")]
         public string SheetId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>默认 ROWS ，可选 ROWS、COLUMNS</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("majorDimension")]
+        [JsonPropertyName("majorDimension")]
         public string? MajorDimension { get; set; }
 
         /// <summary>
         /// <para>开始的位置</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("startIndex")]
+        [JsonPropertyName("startIndex")]
         public int StartIndex { get; set; }
 
         /// <summary>
         /// <para>结束的位置</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("endIndex")]
+        [JsonPropertyName("endIndex")]
         public int EndIndex { get; set; }
     }
 
@@ -53,6 +52,6 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRangeBody
     /// <para>BEFORE 或 AFTER，不填为不继承 style</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("inheritStyle")]
+    [JsonPropertyName("inheritStyle")]
     public string? InheritStyle { get; set; }
 }

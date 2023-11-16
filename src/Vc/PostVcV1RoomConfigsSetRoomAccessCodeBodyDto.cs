@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 创建会议室部署码 请求体
@@ -22,7 +21,7 @@ public record PostVcV1RoomConfigsSetRoomAccessCodeBodyDto
     /// <item>6：会议室</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("scope")]
+    [JsonPropertyName("scope")]
     public int Scope { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostVcV1RoomConfigsSetRoomAccessCodeBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("country_id")]
+    [JsonPropertyName("country_id")]
     public string? CountryId { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostVcV1RoomConfigsSetRoomAccessCodeBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2</para>
     /// </summary>
-    [JsonProperty("district_id")]
+    [JsonPropertyName("district_id")]
     public string? DistrictId { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostVcV1RoomConfigsSetRoomAccessCodeBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：3</para>
     /// </summary>
-    [JsonProperty("building_id")]
+    [JsonPropertyName("building_id")]
     public string? BuildingId { get; set; }
 
     /// <summary>
@@ -54,7 +53,7 @@ public record PostVcV1RoomConfigsSetRoomAccessCodeBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：4</para>
     /// </summary>
-    [JsonProperty("floor_name")]
+    [JsonPropertyName("floor_name")]
     public string? FloorName { get; set; }
 
     /// <summary>
@@ -62,7 +61,7 @@ public record PostVcV1RoomConfigsSetRoomAccessCodeBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：67687262867363</para>
     /// </summary>
-    [JsonProperty("room_id")]
+    [JsonPropertyName("room_id")]
     public string? RoomId { get; set; }
 
     /// <summary>
@@ -75,6 +74,6 @@ public record PostVcV1RoomConfigsSetRoomAccessCodeBodyDto
     /// <item>30：30天</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("valid_day")]
+    [JsonPropertyName("valid_day")]
     public int ValidDay { get; set; }
 }

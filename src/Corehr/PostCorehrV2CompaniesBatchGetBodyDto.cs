@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 通过公司 ID 批量获取公司信息 请求体
@@ -14,6 +13,6 @@ public record PostCorehrV2CompaniesBatchGetBodyDto
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("company_ids")]
+    [JsonPropertyName("company_ids")]
     public string[] CompanyIds { get; set; } = Array.Empty<string>();
 }

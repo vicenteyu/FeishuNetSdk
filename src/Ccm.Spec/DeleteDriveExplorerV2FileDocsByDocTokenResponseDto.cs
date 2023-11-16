@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 删除Doc 响应体
@@ -16,13 +15,13 @@ public record DeleteDriveExplorerV2FileDocsByDocTokenResponseDto
     /// <para>doc 的 id「字符串类型」</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>删除结果</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("result")]
+    [JsonPropertyName("result")]
     public bool Result { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 查询指定公共邮箱成员信息 响应体
@@ -14,7 +13,7 @@ public record GetMailV1PublicMailboxesByPublicMailboxIdMembersByMemberIdResponse
     /// <para>必填：否</para>
     /// <para>示例值：xxxxxxxxxxxxxxx</para>
     /// </summary>
-    [JsonProperty("member_id")]
+    [JsonPropertyName("member_id")]
     public string? MemberId { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record GetMailV1PublicMailboxesByPublicMailboxIdMembersByMemberIdResponse
     /// <para>必填：否</para>
     /// <para>示例值：xxxxxxxxxx</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
@@ -33,6 +32,6 @@ public record GetMailV1PublicMailboxesByPublicMailboxIdMembersByMemberIdResponse
     /// <item>USER：内部用户</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string? Type { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增一个数据表 响应体
@@ -14,7 +13,7 @@ public record PostBitableV1AppsByAppTokenTablesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：tbl1AybU4ogJYXKA</para>
     /// </summary>
-    [JsonProperty("table_id")]
+    [JsonPropertyName("table_id")]
     public string? TableId { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostBitableV1AppsByAppTokenTablesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：vew3y6oFgo</para>
     /// </summary>
-    [JsonProperty("default_view_id")]
+    [JsonPropertyName("default_view_id")]
     public string? DefaultViewId { get; set; }
 
     /// <summary>
@@ -30,6 +29,6 @@ public record PostBitableV1AppsByAppTokenTablesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：["fldO1Q5uD2"]</para>
     /// </summary>
-    [JsonProperty("field_id_list")]
+    [JsonPropertyName("field_id_list")]
     public string[]? FieldIdList { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Baike;
 /// <summary>
 /// 获取词库列表 响应体
@@ -14,7 +13,7 @@ public record GetLingoV1ReposResponseDto
     /// <para>词库列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Repo[]? Items { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record GetLingoV1ReposResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：71527909***274113</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -35,7 +34,7 @@ public record GetLingoV1ReposResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：全员词库</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
     }
 }

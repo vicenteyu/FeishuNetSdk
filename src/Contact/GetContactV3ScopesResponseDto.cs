@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取通讯录授权范围 响应体
@@ -15,7 +14,7 @@ public record GetContactV3ScopesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：od-8756c536552a91988b1b64559356c5a4</para>
     /// </summary>
-    [JsonProperty("department_ids")]
+    [JsonPropertyName("department_ids")]
     public string[]? DepartmentIds { get; set; }
 
     /// <summary>
@@ -23,7 +22,7 @@ public record GetContactV3ScopesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_5f3e2df282bf5aaeeaa2ea71ab9f1229</para>
     /// </summary>
-    [JsonProperty("user_ids")]
+    [JsonPropertyName("user_ids")]
     public string[]? UserIds { get; set; }
 
     /// <summary>
@@ -31,7 +30,7 @@ public record GetContactV3ScopesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：["g193821"]</para>
     /// </summary>
-    [JsonProperty("group_ids")]
+    [JsonPropertyName("group_ids")]
     public string[]? GroupIds { get; set; }
 
     /// <summary>
@@ -39,7 +38,7 @@ public record GetContactV3ScopesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -47,6 +46,6 @@ public record GetContactV3ScopesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai.Spec;
 /// <summary>
 /// 识别语音文件 响应体
@@ -13,6 +12,6 @@ public record PostSpeechToTextV1SpeechFileRecognizeResponseDto
     /// <para>语音识别后的文本信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("recognition_text")]
+    [JsonPropertyName("recognition_text")]
     public string? RecognitionText { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar.Spec;
 /// <summary>
 /// 查询 Exchange 账户的绑定状态 响应体
@@ -15,7 +14,7 @@ public record GetCalendarV4ExchangeBindingsByExchangeBindingIdResponseDto
     /// <para>&lt;md-perm name="contact:user.email:readonly" desc="获取用户邮箱信息" support_app_types="custom" tags=""&gt;获取用户邮箱信息&lt;/md-perm&gt;</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("admin_account")]
+    [JsonPropertyName("admin_account")]
     public string? AdminAccount { get; set; }
 
     /// <summary>
@@ -24,14 +23,14 @@ public record GetCalendarV4ExchangeBindingsByExchangeBindingIdResponseDto
     /// <para>&lt;md-perm name="contact:user.email:readonly" desc="获取用户邮箱信息" support_app_types="custom" tags=""&gt;获取用户邮箱信息&lt;/md-perm&gt;</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("exchange_account")]
+    [JsonPropertyName("exchange_account")]
     public string? ExchangeAccount { get; set; }
 
     /// <summary>
     /// <para>exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
@@ -47,13 +46,13 @@ public record GetCalendarV4ExchangeBindingsByExchangeBindingIdResponseDto
     /// <item>err：同步错误</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string? Status { get; set; }
 
     /// <summary>
     /// <para>exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("exchange_binding_id")]
+    [JsonPropertyName("exchange_binding_id")]
     public string? ExchangeBindingId { get; set; }
 }

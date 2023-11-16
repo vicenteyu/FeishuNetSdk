@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取组织类角色授权列表 响应体
@@ -13,7 +12,7 @@ public record PostCorehrV1AssignedUsersSearchResponseDto
     /// <para>用户授权信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public RoleAuthorization[]? Items { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record PostCorehrV1AssignedUsersSearchResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6967639606963471902</para>
         /// </summary>
-        [JsonProperty("employment_id")]
+        [JsonPropertyName("employment_id")]
         public string EmploymentId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>实际授权管理范围</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("management_scope_list")]
+        [JsonPropertyName("management_scope_list")]
         public ManagementScope[]? ManagementScopeLists { get; set; }
 
         /// <summary>
@@ -51,7 +50,7 @@ public record PostCorehrV1AssignedUsersSearchResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：department</para>
             /// </summary>
-            [JsonProperty("management_dimension")]
+            [JsonPropertyName("management_dimension")]
             public string ManagementDimension { get; set; } = string.Empty;
 
             /// <summary>
@@ -59,7 +58,7 @@ public record PostCorehrV1AssignedUsersSearchResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：7023318326176777742</para>
             /// </summary>
-            [JsonProperty("obj_id")]
+            [JsonPropertyName("obj_id")]
             public string ObjId { get; set; } = string.Empty;
         }
     }
@@ -69,7 +68,7 @@ public record PostCorehrV1AssignedUsersSearchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -77,6 +76,6 @@ public record PostCorehrV1AssignedUsersSearchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

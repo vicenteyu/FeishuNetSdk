@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Okr.Spec;
 /// <summary>
 /// 获取用户的 OKR 列表 响应体
@@ -13,14 +12,14 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
     /// <para>OKR周期总数</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("total")]
+    [JsonPropertyName("total")]
     public int? Total { get; set; }
 
     /// <summary>
     /// <para>OKR 列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("okr_list")]
+    [JsonPropertyName("okr_list")]
     public OkrBatch[]? OkrList { get; set; }
 
     /// <summary></summary>
@@ -30,7 +29,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
         /// <para>id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -43,28 +42,28 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
         /// <item>1：返回OKR的其他具体字段</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("permission")]
+        [JsonPropertyName("permission")]
         public int? Permission { get; set; }
 
         /// <summary>
         /// <para>period_id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("period_id")]
+        [JsonPropertyName("period_id")]
         public string? PeriodId { get; set; }
 
         /// <summary>
         /// <para>名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>Objective列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("objective_list")]
+        [JsonPropertyName("objective_list")]
         public OkrObjective[]? ObjectiveList { get; set; }
 
         /// <summary></summary>
@@ -74,7 +73,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
             /// <para>Objective ID</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -87,42 +86,42 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
             /// <item>1：返回OKR的其他具体字段</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("permission")]
+            [JsonPropertyName("permission")]
             public int? Permission { get; set; }
 
             /// <summary>
             /// <para>Objective 内容</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("content")]
+            [JsonPropertyName("content")]
             public string? Content { get; set; }
 
             /// <summary>
             /// <para>Objective 备注内容</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("progress_report")]
+            [JsonPropertyName("progress_report")]
             public string? ProgressReport { get; set; }
 
             /// <summary>
             /// <para>Objective 分数（0 - 100）</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("score")]
+            [JsonPropertyName("score")]
             public int? Score { get; set; }
 
             /// <summary>
             /// <para>Objective的权重（0 - 100）</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("weight")]
+            [JsonPropertyName("weight")]
             public float? Weight { get; set; }
 
             /// <summary>
             /// <para>Objective进度</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("progress_rate")]
+            [JsonPropertyName("progress_rate")]
             public OkrObjectiveProgressRate? ProgressRate { get; set; }
 
             /// <summary></summary>
@@ -132,7 +131,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
                 /// <para>Objective 进度百分比 &gt;= 0</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("percent")]
+                [JsonPropertyName("percent")]
                 public int? Percent { get; set; }
 
                 /// <summary>
@@ -143,7 +142,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
                 /// <para>- "2" 延期</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("status")]
+                [JsonPropertyName("status")]
                 public string? Status { get; set; }
             }
 
@@ -151,7 +150,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
             /// <para>Objective KeyResult 列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("kr_list")]
+            [JsonPropertyName("kr_list")]
             public OkrObjectiveKr[]? KrList { get; set; }
 
             /// <summary></summary>
@@ -161,98 +160,98 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
                 /// <para>Key Result ID</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string? Id { get; set; }
 
                 /// <summary>
                 /// <para>KeyResult 内容</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("content")]
+                [JsonPropertyName("content")]
                 public string? Content { get; set; }
 
                 /// <summary>
                 /// <para>KeyResult打分（0 - 100）</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("score")]
+                [JsonPropertyName("score")]
                 public int? Score { get; set; }
 
                 /// <summary>
                 /// <para>KeyResult权重（0 - 100）（废弃）</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("weight")]
+                [JsonPropertyName("weight")]
                 public int? Weight { get; set; }
 
                 /// <summary>
                 /// <para>KeyResult的权重（0 - 100）</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("kr_weight")]
+                [JsonPropertyName("kr_weight")]
                 public float? KrWeight { get; set; }
 
                 /// <summary>
                 /// <para>KR进度</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("progress_rate")]
+                [JsonPropertyName("progress_rate")]
                 public OkrObjectiveProgressRate? ProgressRate { get; set; }
 
                 /// <summary>
                 /// <para>该KR的进度列表</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("progress_record_list")]
+                [JsonPropertyName("progress_record_list")]
                 public ProgressRecordSimplify[]? ProgressRecordList { get; set; }
 
                 /// <summary>
                 /// <para>最后一次进度百分比更新时间 毫秒</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("progress_rate_percent_last_updated_time")]
+                [JsonPropertyName("progress_rate_percent_last_updated_time")]
                 public string? ProgressRatePercentLastUpdatedTime { get; set; }
 
                 /// <summary>
                 /// <para>最后一次状态更新时间 毫秒</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("progress_rate_status_last_updated_time")]
+                [JsonPropertyName("progress_rate_status_last_updated_time")]
                 public string? ProgressRateStatusLastUpdatedTime { get; set; }
 
                 /// <summary>
                 /// <para>最后一次在侧边栏新增或者编辑进展的时间 毫秒</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("progress_record_last_updated_time")]
+                [JsonPropertyName("progress_record_last_updated_time")]
                 public string? ProgressRecordLastUpdatedTime { get; set; }
 
                 /// <summary>
                 /// <para>最后一次编辑备注的时间 毫秒</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("progress_report_last_updated_time")]
+                [JsonPropertyName("progress_report_last_updated_time")]
                 public string? ProgressReportLastUpdatedTime { get; set; }
 
                 /// <summary>
                 /// <para>最后一次打分更新时间 毫秒</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("score_last_updated_time")]
+                [JsonPropertyName("score_last_updated_time")]
                 public string? ScoreLastUpdatedTime { get; set; }
 
                 /// <summary>
                 /// <para>截止时间 毫秒</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("deadline")]
+                [JsonPropertyName("deadline")]
                 public string? Deadline { get; set; }
 
                 /// <summary>
                 /// <para>该Objective提到的人员列表</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("mentioned_user_list")]
+                [JsonPropertyName("mentioned_user_list")]
                 public OkrObjectiveAlignedObjectiveOwner[]? MentionedUserList { get; set; }
             }
 
@@ -260,14 +259,14 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
             /// <para>对齐到该Objective的Objective列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("aligned_objective_list")]
+            [JsonPropertyName("aligned_objective_list")]
             public OkrObjectiveAlignedObjective[]? AlignedObjectiveList { get; set; }
 
             /// <summary>
             /// <para>该Objective对齐到的Objective列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("aligning_objective_list")]
+            [JsonPropertyName("aligning_objective_list")]
             public OkrObjectiveAlignedObjective[]? AligningObjectiveList { get; set; }
 
             /// <summary></summary>
@@ -277,21 +276,21 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
                 /// <para>Objective的ID</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string? Id { get; set; }
 
                 /// <summary>
                 /// <para>OKR的ID</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("okr_id")]
+                [JsonPropertyName("okr_id")]
                 public string? OkrId { get; set; }
 
                 /// <summary>
                 /// <para>该Objective的Owner</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("owner")]
+                [JsonPropertyName("owner")]
                 public OkrObjectiveAlignedObjectiveOwner? Owner { get; set; }
             }
 
@@ -299,7 +298,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
             /// <para>该Objective的进度列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("progress_record_list")]
+            [JsonPropertyName("progress_record_list")]
             public ProgressRecordSimplify[]? ProgressRecordList { get; set; }
 
             /// <summary></summary>
@@ -309,7 +308,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
                 /// <para>OKR 进展记录ID</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string? Id { get; set; }
             }
 
@@ -317,49 +316,49 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
             /// <para>最后一次进度百分比更新时间 毫秒</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("progress_rate_percent_last_updated_time")]
+            [JsonPropertyName("progress_rate_percent_last_updated_time")]
             public string? ProgressRatePercentLastUpdatedTime { get; set; }
 
             /// <summary>
             /// <para>最后一次状态更新时间 毫秒</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("progress_rate_status_last_updated_time")]
+            [JsonPropertyName("progress_rate_status_last_updated_time")]
             public string? ProgressRateStatusLastUpdatedTime { get; set; }
 
             /// <summary>
             /// <para>最后一次在侧边栏新增或者编辑进展的时间 毫秒</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("progress_record_last_updated_time")]
+            [JsonPropertyName("progress_record_last_updated_time")]
             public string? ProgressRecordLastUpdatedTime { get; set; }
 
             /// <summary>
             /// <para>最后一次编辑备注的时间 毫秒</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("progress_report_last_updated_time")]
+            [JsonPropertyName("progress_report_last_updated_time")]
             public string? ProgressReportLastUpdatedTime { get; set; }
 
             /// <summary>
             /// <para>最后一次打分更新时间 毫秒</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("score_last_updated_time")]
+            [JsonPropertyName("score_last_updated_time")]
             public string? ScoreLastUpdatedTime { get; set; }
 
             /// <summary>
             /// <para>截止时间 毫秒</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("deadline")]
+            [JsonPropertyName("deadline")]
             public string? Deadline { get; set; }
 
             /// <summary>
             /// <para>该Objective提到的人员列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("mentioned_user_list")]
+            [JsonPropertyName("mentioned_user_list")]
             public OkrObjectiveAlignedObjectiveOwner[]? MentionedUserList { get; set; }
 
             /// <summary></summary>
@@ -369,14 +368,14 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
                 /// <para>用户的 open_id</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("open_id")]
+                [JsonPropertyName("open_id")]
                 public string? OpenId { get; set; }
 
                 /// <summary>
                 /// <para>用户的 user_id</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("user_id")]
+                [JsonPropertyName("user_id")]
                 public string? UserId { get; set; }
             }
         }
@@ -394,7 +393,7 @@ public record GetOkrV1UsersByUserIdOkrsResponseDto
         /// <item>4：已通过/已确认</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("confirm_status")]
+        [JsonPropertyName("confirm_status")]
         public int? ConfirmStatus { get; set; }
     }
 }

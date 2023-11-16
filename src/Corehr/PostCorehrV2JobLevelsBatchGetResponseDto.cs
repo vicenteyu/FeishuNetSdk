@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 通过职级 ID 批量获取职级信息 响应体
@@ -13,7 +12,7 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
     /// <para>查询的职级信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public JobLevel[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：4692446793125560154</para>
         /// </summary>
-        [JsonProperty("job_level_id")]
+        [JsonPropertyName("job_level_id")]
         public string? JobLevelId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：9999</para>
         /// </summary>
-        [JsonProperty("level_order")]
+        [JsonPropertyName("level_order")]
         public int LevelOrder { get; set; }
 
         /// <summary>
@@ -42,14 +41,14 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=</para>
         /// </summary>
-        [JsonProperty("code")]
+        [JsonPropertyName("code")]
         public string? Code { get; set; }
 
         /// <summary>
         /// <para>名称</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n[] Names { get; set; } = Array.Empty<I18n>();
 
         /// <summary>
@@ -62,7 +61,7 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -70,7 +69,7 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -78,7 +77,7 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
         /// <para>描述</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public I18n[]? Descriptions { get; set; }
 
         /// <summary>
@@ -86,14 +85,14 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("active")]
+        [JsonPropertyName("active")]
         public bool Active { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public CustomFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -106,14 +105,14 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("custom_api_name")]
+            [JsonPropertyName("custom_api_name")]
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>自定义字段名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public CustomName? Name { get; set; }
 
             /// <summary>
@@ -126,7 +125,7 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：自定义姓名</para>
                 /// </summary>
-                [JsonProperty("zh_cn")]
+                [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
@@ -134,7 +133,7 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：CustomName</para>
                 /// </summary>
-                [JsonProperty("en_us")]
+                [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
             }
 
@@ -143,7 +142,7 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public int? Type { get; set; }
 
             /// <summary>
@@ -151,7 +150,7 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }

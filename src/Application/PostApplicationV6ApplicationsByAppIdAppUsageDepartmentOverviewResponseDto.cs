@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 获取多部门应用使用概览 响应体
@@ -14,7 +13,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResp
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResp
     /// <para>必填：否</para>
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResp
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public ApplicationDepartmentAppUsage[]? Items { get; set; }
 
     /// <summary>
@@ -43,7 +42,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResp
         /// <para>必填：否</para>
         /// <para>示例值：7a59bc779b7c1f19</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
@@ -51,7 +50,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResp
         /// <para>必填：否</para>
         /// <para>最大长度：10</para>
         /// </summary>
-        [JsonProperty("app")]
+        [JsonPropertyName("app")]
         public ApplicationAppUsage[]? Apps { get; set; }
 
         /// <summary>
@@ -64,7 +63,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResp
             /// <para>必填：是</para>
             /// <para>示例值：pv</para>
             /// </summary>
-            [JsonProperty("metric_name")]
+            [JsonPropertyName("metric_name")]
             public string MetricName { get; set; } = string.Empty;
 
             /// <summary>
@@ -72,7 +71,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResp
             /// <para>必填：是</para>
             /// <para>示例值：100</para>
             /// </summary>
-            [JsonProperty("metric_value")]
+            [JsonPropertyName("metric_value")]
             public int MetricValue { get; set; }
         }
 
@@ -81,7 +80,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResp
         /// <para>必填：否</para>
         /// <para>最大长度：10</para>
         /// </summary>
-        [JsonProperty("gadget")]
+        [JsonPropertyName("gadget")]
         public ApplicationAppUsage[]? Gadgets { get; set; }
 
         /// <summary>
@@ -89,7 +88,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResp
         /// <para>必填：否</para>
         /// <para>最大长度：10</para>
         /// </summary>
-        [JsonProperty("webapp")]
+        [JsonPropertyName("webapp")]
         public ApplicationAppUsage[]? Webapps { get; set; }
 
         /// <summary>
@@ -98,7 +97,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResp
         /// <para>必填：否</para>
         /// <para>最大长度：10</para>
         /// </summary>
-        [JsonProperty("bot")]
+        [JsonPropertyName("bot")]
         public ApplicationAppUsage[]? Bots { get; set; }
     }
 }

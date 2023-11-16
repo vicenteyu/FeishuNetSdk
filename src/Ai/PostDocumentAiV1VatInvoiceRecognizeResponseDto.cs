@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 识别文件中的增值税发票 响应体
@@ -13,7 +12,7 @@ public record PostDocumentAiV1VatInvoiceRecognizeResponseDto
     /// <para>增值税发票信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("vat_invoices")]
+    [JsonPropertyName("vat_invoices")]
     public VatInvoice[]? VatInvoices { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostDocumentAiV1VatInvoiceRecognizeResponseDto
         /// <para>识别出的实体列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("entities")]
+        [JsonPropertyName("entities")]
         public VatEntity[]? Entities { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostDocumentAiV1VatInvoiceRecognizeResponseDto
             /// <item>payee：收款人</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -66,7 +65,7 @@ public record PostDocumentAiV1VatInvoiceRecognizeResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：发呆公司</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
     }

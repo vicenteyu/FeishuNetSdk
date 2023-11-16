@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Minutes;
 /// <summary>
 /// 获取妙记信息 响应体
@@ -13,7 +12,7 @@ public record GetMinutesV1MinutesByMinuteTokenResponseDto
     /// <para>妙记基本信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("minute")]
+    [JsonPropertyName("minute")]
     public GetMinutesV1MinutesByMinuteTokenResponseDtoMinute? Minute { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record GetMinutesV1MinutesByMinuteTokenResponseDto
         /// <para>示例值：obcnq3b9jl72l83w4f14xxxx</para>
         /// <para>最大长度：20</para>
         /// </summary>
-        [JsonProperty("token")]
+        [JsonPropertyName("token")]
         public string? Token { get; set; }
 
         /// <summary>
@@ -36,7 +35,7 @@ public record GetMinutesV1MinutesByMinuteTokenResponseDto
         /// <para>示例值：ou_612b787ccd3259fb3c816b3f678dxxxx</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("owner_id")]
+        [JsonPropertyName("owner_id")]
         public string? OwnerId { get; set; }
 
         /// <summary>
@@ -45,7 +44,7 @@ public record GetMinutesV1MinutesByMinuteTokenResponseDto
         /// <para>示例值：1669098360477</para>
         /// <para>最大长度：15</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
@@ -54,7 +53,7 @@ public record GetMinutesV1MinutesByMinuteTokenResponseDto
         /// <para>示例值：xxx的视频会议</para>
         /// <para>最大长度：100000</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
@@ -63,7 +62,7 @@ public record GetMinutesV1MinutesByMinuteTokenResponseDto
         /// <para>示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpxxxx</para>
         /// <para>最大长度：1000</para>
         /// </summary>
-        [JsonProperty("cover")]
+        [JsonPropertyName("cover")]
         public string? Cover { get; set; }
 
         /// <summary>
@@ -72,7 +71,7 @@ public record GetMinutesV1MinutesByMinuteTokenResponseDto
         /// <para>示例值：314000</para>
         /// <para>最大长度：20</para>
         /// </summary>
-        [JsonProperty("duration")]
+        [JsonPropertyName("duration")]
         public string? Duration { get; set; }
 
         /// <summary>
@@ -81,7 +80,7 @@ public record GetMinutesV1MinutesByMinuteTokenResponseDto
         /// <para>示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f14xxxx</para>
         /// <para>最大长度：1000</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
     }
 }

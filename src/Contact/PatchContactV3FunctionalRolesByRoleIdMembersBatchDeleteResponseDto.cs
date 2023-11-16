@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 删除角色下的成员 响应体
@@ -13,7 +12,7 @@ public record PatchContactV3FunctionalRolesByRoleIdMembersBatchDeleteResponseDto
     /// <para>批量新增角色成员结果集</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("result")]
+    [JsonPropertyName("result")]
     public FunctionalRoleMemberResult[]? Results { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PatchContactV3FunctionalRolesByRoleIdMembersBatchDeleteResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -43,7 +42,7 @@ public record PatchContactV3FunctionalRolesByRoleIdMembersBatchDeleteResponseDto
         /// </list></para>
         /// <para>默认值：1</para>
         /// </summary>
-        [JsonProperty("reason")]
+        [JsonPropertyName("reason")]
         public int Reason { get; set; }
     }
 }

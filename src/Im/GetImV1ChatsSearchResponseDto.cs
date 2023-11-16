@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 搜索对用户或机器人可见的群列表 响应体
@@ -14,7 +13,7 @@ public record GetImV1ChatsSearchResponseDto
     /// <para>chat 列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public ListChat[]? Items { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record GetImV1ChatsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
         /// </summary>
-        [JsonProperty("chat_id")]
+        [JsonPropertyName("chat_id")]
         public string? ChatId { get; set; }
 
         /// <summary>
@@ -35,7 +34,7 @@ public record GetImV1ChatsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg</para>
         /// </summary>
-        [JsonProperty("avatar")]
+        [JsonPropertyName("avatar")]
         public string? Avatar { get; set; }
 
         /// <summary>
@@ -43,7 +42,7 @@ public record GetImV1ChatsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：测试群名称</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -51,7 +50,7 @@ public record GetImV1ChatsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：测试群描述</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -59,7 +58,7 @@ public record GetImV1ChatsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：4d7a3c6g</para>
         /// </summary>
-        [JsonProperty("owner_id")]
+        [JsonPropertyName("owner_id")]
         public string? OwnerId { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record GetImV1ChatsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：user_id</para>
         /// </summary>
-        [JsonProperty("owner_id_type")]
+        [JsonPropertyName("owner_id_type")]
         public string? OwnerIdType { get; set; }
 
         /// <summary>
@@ -75,7 +74,7 @@ public record GetImV1ChatsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("external")]
+        [JsonPropertyName("external")]
         public bool? External { get; set; }
 
         /// <summary>
@@ -83,7 +82,7 @@ public record GetImV1ChatsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：736588c9260f175e</para>
         /// </summary>
-        [JsonProperty("tenant_key")]
+        [JsonPropertyName("tenant_key")]
         public string? TenantKey { get; set; }
     }
 
@@ -92,7 +91,7 @@ public record GetImV1ChatsSearchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -100,6 +99,6 @@ public record GetImV1ChatsSearchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

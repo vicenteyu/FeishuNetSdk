@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 判断当前用户是否有某权限 响应体
@@ -14,6 +13,6 @@ public record GetDriveV1PermissionsByTokenMembersAuthResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("auth_result")]
+    [JsonPropertyName("auth_result")]
     public bool AuthResult { get; set; }
 }

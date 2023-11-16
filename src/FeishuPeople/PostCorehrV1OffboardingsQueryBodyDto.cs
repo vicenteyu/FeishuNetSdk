@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 查询员工离职原因列表 请求体
@@ -14,7 +13,7 @@ public record PostCorehrV1OffboardingsQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("active")]
+    [JsonPropertyName("active")]
     public bool? Active { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostCorehrV1OffboardingsQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：["reason_for_offboarding_option"]</para>
     /// </summary>
-    [JsonProperty("offboarding_reason_unique_identifier")]
+    [JsonPropertyName("offboarding_reason_unique_identifier")]
     public string[]? OffboardingReasonUniqueIdentifier { get; set; }
 }

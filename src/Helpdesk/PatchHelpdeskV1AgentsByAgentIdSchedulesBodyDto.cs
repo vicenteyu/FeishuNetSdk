@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 更新客服工作日程 请求体
@@ -13,7 +12,7 @@ public record PatchHelpdeskV1AgentsByAgentIdSchedulesBodyDto
     /// <para>工作日程列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("agent_schedule")]
+    [JsonPropertyName("agent_schedule")]
     public AgentScheduleUpdateInfo? AgentSchedule { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PatchHelpdeskV1AgentsByAgentIdSchedulesBodyDto
         /// <para>工作日程列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("schedule")]
+        [JsonPropertyName("schedule")]
         public WeekdaySchedule[]? Schedules { get; set; }
 
         /// <summary>
@@ -38,7 +37,7 @@ public record PatchHelpdeskV1AgentsByAgentIdSchedulesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：00:00</para>
             /// </summary>
-            [JsonProperty("start_time")]
+            [JsonPropertyName("start_time")]
             public string? StartTime { get; set; }
 
             /// <summary>
@@ -46,7 +45,7 @@ public record PatchHelpdeskV1AgentsByAgentIdSchedulesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：24:00</para>
             /// </summary>
-            [JsonProperty("end_time")]
+            [JsonPropertyName("end_time")]
             public string? EndTime { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record PatchHelpdeskV1AgentsByAgentIdSchedulesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：9</para>
             /// </summary>
-            [JsonProperty("weekday")]
+            [JsonPropertyName("weekday")]
             public int? Weekday { get; set; }
         }
 
@@ -63,7 +62,7 @@ public record PatchHelpdeskV1AgentsByAgentIdSchedulesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：[“test-skill-id”]</para>
         /// </summary>
-        [JsonProperty("agent_skill_ids")]
+        [JsonPropertyName("agent_skill_ids")]
         public string[]? AgentSkillIds { get; set; }
     }
 }

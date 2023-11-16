@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 获取应用使用概览 请求体
@@ -14,7 +13,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageOverviewBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：2021-07-08</para>
     /// </summary>
-    [JsonProperty("date")]
+    [JsonPropertyName("date")]
     public string Date { get; set; } = string.Empty;
 
     /// <summary>
@@ -27,7 +26,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageOverviewBodyDto
     /// <item>3：月活，指自然月，返回当前日期所在月的数据。若不满一个月则返回当月1日到截止日期前的数据。例如在2021/8/15查询7月的数据，则代表2021/7/1~2021/7/31。若在2021/8/15查询8月的数据，则代表2021/8/1~2021/8/14的数据</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("cycle_type")]
+    [JsonPropertyName("cycle_type")]
     public int CycleType { get; set; }
 
     /// <summary>
@@ -37,7 +36,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageOverviewBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
     /// </summary>
-    [JsonProperty("department_id")]
+    [JsonPropertyName("department_id")]
     public string? DepartmentId { get; set; }
 
     /// <summary>
@@ -51,6 +50,6 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageOverviewBodyDto
     /// <item>bot：返回机器人能力的数据，指标值包括：uv（机器人的活跃用户数）</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("ability")]
+    [JsonPropertyName("ability")]
     public string Ability { get; set; } = string.Empty;
 }

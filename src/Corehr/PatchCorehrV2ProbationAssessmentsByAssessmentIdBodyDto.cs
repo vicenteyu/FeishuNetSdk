@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 更新试用期考核信息 请求体
@@ -20,7 +19,7 @@ public record PatchCorehrV2ProbationAssessmentsByAssessmentIdBodyDto
     /// <item>no_need：无需考核</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("assessment_status")]
+    [JsonPropertyName("assessment_status")]
     public string AssessmentStatus { get; set; } = string.Empty;
 
     /// <summary>
@@ -32,7 +31,7 @@ public record PatchCorehrV2ProbationAssessmentsByAssessmentIdBodyDto
     /// <item>rejected：不通过</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("assessment_result")]
+    [JsonPropertyName("assessment_result")]
     public string? AssessmentResult { get; set; }
 
     /// <summary>
@@ -40,7 +39,7 @@ public record PatchCorehrV2ProbationAssessmentsByAssessmentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：99.9</para>
     /// </summary>
-    [JsonProperty("assessment_score")]
+    [JsonPropertyName("assessment_score")]
     public float? AssessmentScore { get; set; }
 
     /// <summary>
@@ -50,7 +49,7 @@ public record PatchCorehrV2ProbationAssessmentsByAssessmentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：grade_a</para>
     /// </summary>
-    [JsonProperty("assessment_grade")]
+    [JsonPropertyName("assessment_grade")]
     public string? AssessmentGrade { get; set; }
 
     /// <summary>
@@ -58,7 +57,7 @@ public record PatchCorehrV2ProbationAssessmentsByAssessmentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：超出预期</para>
     /// </summary>
-    [JsonProperty("assessment_comment")]
+    [JsonPropertyName("assessment_comment")]
     public string? AssessmentComment { get; set; }
 
     /// <summary>
@@ -66,7 +65,7 @@ public record PatchCorehrV2ProbationAssessmentsByAssessmentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：暂无示例</para>
     /// </summary>
-    [JsonProperty("assessment_detail")]
+    [JsonPropertyName("assessment_detail")]
     public string? AssessmentDetail { get; set; }
 
     /// <summary>
@@ -74,6 +73,6 @@ public record PatchCorehrV2ProbationAssessmentsByAssessmentIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("is_final_asssessment")]
+    [JsonPropertyName("is_final_asssessment")]
     public bool IsFinalAsssessment { get; set; }
 }

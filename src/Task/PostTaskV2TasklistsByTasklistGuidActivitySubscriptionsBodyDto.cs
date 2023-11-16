@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 创建动态订阅 请求体
@@ -16,7 +15,7 @@ public record PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：我的订阅</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
@@ -24,7 +23,7 @@ public record PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsBodyDto
     /// <para>必填：是</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("subscribers")]
+    [JsonPropertyName("subscribers")]
     public Member[] Subscribers { get; set; } = Array.Empty<Member>();
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsBodyDto
         /// <para>示例值：oc_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -47,7 +46,7 @@ public record PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsBodyDto
         /// <para>示例值：chat</para>
         /// <para>默认值：user</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
     }
 
@@ -70,7 +69,7 @@ public record PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsBodyDto
     /// <para>该字段可以设置为空数组（即不对任何event进行通知）；输入的`include_keys`的元素不能重复。</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("include_keys")]
+    [JsonPropertyName("include_keys")]
     public int[] IncludeKeys { get; set; } = Array.Empty<int>();
 
     /// <summary>
@@ -78,6 +77,6 @@ public record PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("disabled")]
+    [JsonPropertyName("disabled")]
     public bool? Disabled { get; set; }
 }

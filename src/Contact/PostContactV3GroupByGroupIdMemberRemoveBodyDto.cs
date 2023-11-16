@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 移除用户组成员 请求体
@@ -18,7 +17,7 @@ public record PostContactV3GroupByGroupIdMemberRemoveBodyDto
     /// </list></para>
     /// <para>默认值：user</para>
     /// </summary>
-    [JsonProperty("member_type")]
+    [JsonPropertyName("member_type")]
     public string MemberType { get; set; } = string.Empty;
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostContactV3GroupByGroupIdMemberRemoveBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：xj82871k</para>
     /// </summary>
-    [JsonProperty("member_id")]
+    [JsonPropertyName("member_id")]
     public string MemberId { get; set; } = string.Empty;
 
     /// <summary>
@@ -40,6 +39,6 @@ public record PostContactV3GroupByGroupIdMemberRemoveBodyDto
     /// </list></para>
     /// <para>默认值：open_id</para>
     /// </summary>
-    [JsonProperty("member_id_type")]
+    [JsonPropertyName("member_id_type")]
     public string MemberIdType { get; set; } = string.Empty;
 }

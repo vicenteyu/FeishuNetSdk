@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.HumanAuthentication.Spec;
 /// <summary>
 /// 上传人脸基准图片 响应体
@@ -14,6 +13,6 @@ public record PostFaceVerifyV1UploadFaceImageResponseDto
     /// <para>人脸图片用户Uid，需返回给应用小程序，作为小程序调起人脸识别接口的uid参数</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("face_uid")]
+    [JsonPropertyName("face_uid")]
     public string? FaceUid { get; set; }
 }

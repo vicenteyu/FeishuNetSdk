@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 编辑旧版文档内容 请求体
@@ -14,20 +13,20 @@ public record PostDocV2ByDocTokenBatchUpdateBodyDto
     /// <para>文件的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("docToken")]
+    [JsonPropertyName("docToken")]
     public string DocToken { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>文档的指定版本，文档新创建后版本号是0，[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDM2YjL1AjN24SNwYjN)，要求&gt;=0，post body json 字段</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("revision")]
+    [JsonPropertyName("revision")]
     public int Revision { get; set; }
 
     /// <summary>
     /// <para>post body json， OperationRequest 类型序列化 string 数组</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("requests")]
+    [JsonPropertyName("requests")]
     public string[] Requests { get; set; } = Array.Empty<string>();
 }

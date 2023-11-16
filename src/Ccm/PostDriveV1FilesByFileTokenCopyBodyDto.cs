@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 复制文件 请求体
@@ -15,7 +14,7 @@ public record PostDriveV1FilesByFileTokenCopyBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：test.txt</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
@@ -31,7 +30,7 @@ public record PostDriveV1FilesByFileTokenCopyBodyDto
     /// <item>mindnote：思维笔记类型</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string? Type { get; set; }
 
     /// <summary>
@@ -39,14 +38,14 @@ public record PostDriveV1FilesByFileTokenCopyBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：fldbcO1UuPz8VwnpPx5a92abcef</para>
     /// </summary>
-    [JsonProperty("folder_token")]
+    [JsonPropertyName("folder_token")]
     public string FolderToken { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>用户自定义请求附加参数，用于实现特殊的复制语义</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("extra")]
+    [JsonPropertyName("extra")]
     public Property[]? Extras { get; set; }
 
     /// <summary>
@@ -59,7 +58,7 @@ public record PostDriveV1FilesByFileTokenCopyBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：target_type</para>
         /// </summary>
-        [JsonProperty("key")]
+        [JsonPropertyName("key")]
         public string Key { get; set; } = string.Empty;
 
         /// <summary>
@@ -67,7 +66,7 @@ public record PostDriveV1FilesByFileTokenCopyBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：docx</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
     }
 }

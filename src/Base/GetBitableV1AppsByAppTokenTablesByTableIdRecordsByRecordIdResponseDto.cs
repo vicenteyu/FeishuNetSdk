@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 检索记录 响应体
@@ -13,7 +12,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
     /// <para>记录</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("record")]
+    [JsonPropertyName("record")]
     public AppTableRecord? Record { get; set; }
 
     /// <summary>
@@ -28,7 +27,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
         /// <para>必填：是</para>
         /// <para>示例值：\-</para>
         /// </summary>
-        [JsonProperty("fields")]
+        [JsonPropertyName("fields")]
         public object Fields { get; set; } = new();
 
         /// <summary>
@@ -36,14 +35,14 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
         /// <para>必填：否</para>
         /// <para>示例值：recabcdefg</para>
         /// </summary>
-        [JsonProperty("record_id")]
+        [JsonPropertyName("record_id")]
         public string? RecordId { get; set; }
 
         /// <summary>
         /// <para>该记录的创建人</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("created_by")]
+        [JsonPropertyName("created_by")]
         public Person? CreatedBy { get; set; }
 
         /// <summary>
@@ -56,7 +55,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
             /// <para>必填：否</para>
             /// <para>示例值：ou_9a971ded01b4ca66f4798549878abcef</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -64,7 +63,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
             /// <para>必填：否</para>
             /// <para>示例值：黄小豆</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -72,7 +71,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
             /// <para>必填：否</para>
             /// <para>示例值：XiaodouHuang</para>
             /// </summary>
-            [JsonProperty("en_name")]
+            [JsonPropertyName("en_name")]
             public string? EnName { get; set; }
 
             /// <summary>
@@ -80,7 +79,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
             /// <para>必填：否</para>
             /// <para>示例值：email@example.com</para>
             /// </summary>
-            [JsonProperty("email")]
+            [JsonPropertyName("email")]
             public string? Email { get; set; }
 
             /// <summary>
@@ -88,7 +87,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
             /// <para>必填：否</para>
             /// <para>示例值：https://example.com/avatar</para>
             /// </summary>
-            [JsonProperty("avatar_url")]
+            [JsonPropertyName("avatar_url")]
             public string? AvatarUrl { get; set; }
         }
 
@@ -97,14 +96,14 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
         /// <para>必填：否</para>
         /// <para>示例值：1678799280000</para>
         /// </summary>
-        [JsonProperty("created_time")]
+        [JsonPropertyName("created_time")]
         public int? CreatedTime { get; set; }
 
         /// <summary>
         /// <para>该记录最新一次更新的修改人</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("last_modified_by")]
+        [JsonPropertyName("last_modified_by")]
         public Person? LastModifiedBy { get; set; }
 
         /// <summary>
@@ -112,7 +111,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
         /// <para>必填：否</para>
         /// <para>示例值：1678799280000</para>
         /// </summary>
-        [JsonProperty("last_modified_time")]
+        [JsonPropertyName("last_modified_time")]
         public int? LastModifiedTime { get; set; }
     }
 }

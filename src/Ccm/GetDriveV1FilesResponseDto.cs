@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取文件夹下的清单 响应体
@@ -13,7 +12,7 @@ public record GetDriveV1FilesResponseDto
     /// <para>文件夹清单列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("files")]
+    [JsonPropertyName("files")]
     public File[]? Files { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetDriveV1FilesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：fldbcO1UuPz8VwnpPx5a9abcef</para>
         /// </summary>
-        [JsonProperty("token")]
+        [JsonPropertyName("token")]
         public string Token { get; set; } = string.Empty;
 
         /// <summary>
@@ -35,7 +34,7 @@ public record GetDriveV1FilesResponseDto
         /// <para>示例值：title</para>
         /// <para>最大长度：250</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -52,7 +51,7 @@ public record GetDriveV1FilesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：docx</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
@@ -60,7 +59,7 @@ public record GetDriveV1FilesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：fldbcO1UuPz8VwnpPx5a9abcef</para>
         /// </summary>
-        [JsonProperty("parent_token")]
+        [JsonPropertyName("parent_token")]
         public string? ParentToken { get; set; }
 
         /// <summary>
@@ -68,14 +67,14 @@ public record GetDriveV1FilesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://feishu.cn/folder/fldbcO1UuPz8VwnpPx5a9abcef</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
 
         /// <summary>
         /// <para>快捷方式文件信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("shortcut_info")]
+        [JsonPropertyName("shortcut_info")]
         public FileShortcutInfo? ShortcutInfo { get; set; }
 
         /// <summary>
@@ -95,7 +94,7 @@ public record GetDriveV1FilesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：docx</para>
             /// </summary>
-            [JsonProperty("target_type")]
+            [JsonPropertyName("target_type")]
             public string TargetType { get; set; } = string.Empty;
 
             /// <summary>
@@ -103,7 +102,7 @@ public record GetDriveV1FilesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：docxaO1UuPz8VwnpPx5a9abcef</para>
             /// </summary>
-            [JsonProperty("target_token")]
+            [JsonPropertyName("target_token")]
             public string TargetToken { get; set; } = string.Empty;
         }
 
@@ -112,7 +111,7 @@ public record GetDriveV1FilesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1686125119</para>
         /// </summary>
-        [JsonProperty("created_time")]
+        [JsonPropertyName("created_time")]
         public string? CreatedTime { get; set; }
 
         /// <summary>
@@ -120,7 +119,7 @@ public record GetDriveV1FilesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1686125119</para>
         /// </summary>
-        [JsonProperty("modified_time")]
+        [JsonPropertyName("modified_time")]
         public string? ModifiedTime { get; set; }
 
         /// <summary>
@@ -128,7 +127,7 @@ public record GetDriveV1FilesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef</para>
         /// </summary>
-        [JsonProperty("owner_id")]
+        [JsonPropertyName("owner_id")]
         public string? OwnerId { get; set; }
     }
 
@@ -137,7 +136,7 @@ public record GetDriveV1FilesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：MTY1NTA3MTA1OXw3MTA4NDc2MDc1NzkyOTI0Nabcef</para>
     /// </summary>
-    [JsonProperty("next_page_token")]
+    [JsonPropertyName("next_page_token")]
     public string? NextPageToken { get; set; }
 
     /// <summary>
@@ -145,6 +144,6 @@ public record GetDriveV1FilesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

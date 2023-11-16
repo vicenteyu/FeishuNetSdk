@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 更新会议室 请求体
@@ -13,27 +12,27 @@ public record PostMeetingRoomRoomUpdateBodyDto
     /// <para>要更新的会议室ID</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("room_id")]
+    [JsonPropertyName("room_id")]
     public string RoomId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>会议室名称</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
     /// <para>容量</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("capacity")]
+    [JsonPropertyName("capacity")]
     public int? Capacity { get; set; }
 
     /// <summary>
     /// <para>租户自定义会议室ID</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("custom_room_id")]
+    [JsonPropertyName("custom_room_id")]
     public string? CustomRoomId { get; set; }
 }

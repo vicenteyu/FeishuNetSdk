@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 删除条件格式 请求体
@@ -13,7 +12,7 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchD
     /// <para>表格条件格式id</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("sheet_cf_ids")]
+    [JsonPropertyName("sheet_cf_ids")]
     public SheetCfId[]? SheetCfIds { get; set; }
 
     /// <summary></summary>
@@ -23,14 +22,14 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchD
         /// <para>sheet的id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("sheet_id")]
+        [JsonPropertyName("sheet_id")]
         public string? SheetId { get; set; }
 
         /// <summary>
         /// <para>条件格式id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("cf_id")]
+        [JsonPropertyName("cf_id")]
         public string? CfId { get; set; }
     }
 }

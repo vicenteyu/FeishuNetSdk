@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 新建在线文档 请求体
@@ -17,13 +16,13 @@ public record PostDriveExplorerV2FileByFolderTokenBodyDto
     /// <para>创建文档的标题。注：type 为 "doc" 时不可用（非必填，请求会被过滤），有创建带标题doc文档需求可用 [创建文档](https://open.feishu.cn/document/ukTMukTMukTM/ugDM2YjL4AjN24COwYjN) 接口</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string Title { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>需要创建文档的类型 "doc" 、 "sheet" or "bitable"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string Type { get; set; } = string.Empty;
 }

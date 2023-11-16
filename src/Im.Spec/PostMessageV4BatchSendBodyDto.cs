@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im.Spec;
 /// <summary>
 /// 批量发送消息 请求体
@@ -25,14 +24,14 @@ public record PostMessageV4BatchSendBodyDto
     /// <para>消息类型，支持多种消息类型，详见本文“**消息类型及内容示例**”部分</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("msg_type")]
+    [JsonPropertyName("msg_type")]
     public string MsgType { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>消息内容，支持除卡片消息外的多种消息内容，详见本文“**消息类型及内容示例**”部分</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public object? Content { get; set; }
 
     /// <summary>
@@ -40,7 +39,7 @@ public record PostMessageV4BatchSendBodyDto
     /// <para>**注意**：card和content字段必须二选一</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("card")]
+    [JsonPropertyName("card")]
     public object? Card { get; set; }
 
     /// <summary>
@@ -49,7 +48,7 @@ public record PostMessageV4BatchSendBodyDto
     /// <para>**示例值：**["3dceba33a33226","d502aaa9514059", "od-5b91c9affb665451a16b90b4be367efa"]</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("department_ids")]
+    [JsonPropertyName("department_ids")]
     public string[]? DepartmentIds { get; set; }
 
     /// <summary>
@@ -57,7 +56,7 @@ public record PostMessageV4BatchSendBodyDto
     /// <para>**示例值：**["ou_18eac85d35a26f989317ad4f02e8bbbb","ou_461cf042d9eedaa60d445f26dc747d5e"]</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("open_ids")]
+    [JsonPropertyName("open_ids")]
     public string[]? OpenIds { get; set; }
 
     /// <summary>
@@ -65,7 +64,7 @@ public record PostMessageV4BatchSendBodyDto
     /// <para>**示例值：**["7cdcc7c2","ca51d83b"]</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_ids")]
+    [JsonPropertyName("user_ids")]
     public string[]? UserIds { get; set; }
 
     /// <summary>
@@ -73,6 +72,6 @@ public record PostMessageV4BatchSendBodyDto
     /// <para>**示例值：**["on_cad4860e7af114fb4ff6c5d496d1dd76","on_gdcq860e7af114fb4ff6c5d496dabcet"]</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("union_ids")]
+    [JsonPropertyName("union_ids")]
     public string[]? UnionIds { get; set; }
 }

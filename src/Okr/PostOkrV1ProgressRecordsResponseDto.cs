@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Okr;
 /// <summary>
 /// 创建 OKR 进展记录 响应体
@@ -14,7 +13,7 @@ public record PostOkrV1ProgressRecordsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：7041469619902693396</para>
     /// </summary>
-    [JsonProperty("progress_id")]
+    [JsonPropertyName("progress_id")]
     public string? ProgressId { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record PostOkrV1ProgressRecordsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1618500278663</para>
     /// </summary>
-    [JsonProperty("modify_time")]
+    [JsonPropertyName("modify_time")]
     public string? ModifyTime { get; set; }
 
     /// <summary>
     /// <para>进展 对应的 Content 详细内容</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public ContentBlock? Content { get; set; }
 
     /// <summary>
@@ -41,7 +40,7 @@ public record PostOkrV1ProgressRecordsResponseDto
         /// <para>文档结构是按行排列的，每行内容是一个 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("blocks")]
+        [JsonPropertyName("blocks")]
         public ContentBlockElement[]? Blocks { get; set; }
 
         /// <summary>
@@ -58,14 +57,14 @@ public record PostOkrV1ProgressRecordsResponseDto
             /// <item>gallery：图片</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
             /// <para>文本段落</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("paragraph")]
+            [JsonPropertyName("paragraph")]
             public ContentParagraph? Paragraph { get; set; }
 
             /// <summary>
@@ -77,7 +76,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                 /// <para>段落样式</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("style")]
+                [JsonPropertyName("style")]
                 public ContentParagraphStyle? Style { get; set; }
 
                 /// <summary>
@@ -89,7 +88,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                     /// <para>有序列表/无序列表/任务列表</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("list")]
+                    [JsonPropertyName("list")]
                     public ContentList? List { get; set; }
 
                     /// <summary>
@@ -109,7 +108,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                         /// <item>indent：tab缩进</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("type")]
+                        [JsonPropertyName("type")]
                         public string? Type { get; set; }
 
                         /// <summary>
@@ -117,7 +116,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1</para>
                         /// </summary>
-                        [JsonProperty("indentLevel")]
+                        [JsonPropertyName("indentLevel")]
                         public int? IndentLevel { get; set; }
 
                         /// <summary>
@@ -125,7 +124,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1</para>
                         /// </summary>
-                        [JsonProperty("number")]
+                        [JsonPropertyName("number")]
                         public int? Number { get; set; }
                     }
                 }
@@ -134,7 +133,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                 /// <para>段落元素组成一个段落</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("elements")]
+                [JsonPropertyName("elements")]
                 public ContentParagraphElement[]? Elements { get; set; }
 
                 /// <summary>
@@ -152,14 +151,14 @@ public record PostOkrV1ProgressRecordsResponseDto
                     /// <item>person：艾特用户型元素</item>
                     /// </list></para>
                     /// </summary>
-                    [JsonProperty("type")]
+                    [JsonPropertyName("type")]
                     public string? Type { get; set; }
 
                     /// <summary>
                     /// <para>文本</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("textRun")]
+                    [JsonPropertyName("textRun")]
                     public ContentTextRun? TextRun { get; set; }
 
                     /// <summary>
@@ -172,14 +171,14 @@ public record PostOkrV1ProgressRecordsResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：周报内容</para>
                         /// </summary>
-                        [JsonProperty("text")]
+                        [JsonPropertyName("text")]
                         public string? Text { get; set; }
 
                         /// <summary>
                         /// <para>文本内容的样式，支持 BIUS、颜色等</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("style")]
+                        [JsonPropertyName("style")]
                         public ContentTextStyle? Style { get; set; }
 
                         /// <summary>
@@ -192,7 +191,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：true</para>
                             /// </summary>
-                            [JsonProperty("bold")]
+                            [JsonPropertyName("bold")]
                             public bool? Bold { get; set; }
 
                             /// <summary>
@@ -200,14 +199,14 @@ public record PostOkrV1ProgressRecordsResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：true</para>
                             /// </summary>
-                            [JsonProperty("strikeThrough")]
+                            [JsonPropertyName("strikeThrough")]
                             public bool? StrikeThrough { get; set; }
 
                             /// <summary>
                             /// <para>背景颜色</para>
                             /// <para>必填：否</para>
                             /// </summary>
-                            [JsonProperty("backColor")]
+                            [JsonPropertyName("backColor")]
                             public ContentColor? BackColor { get; set; }
 
                             /// <summary>
@@ -220,7 +219,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                                 /// <para>必填：否</para>
                                 /// <para>示例值：216</para>
                                 /// </summary>
-                                [JsonProperty("red")]
+                                [JsonPropertyName("red")]
                                 public int? Red { get; set; }
 
                                 /// <summary>
@@ -228,7 +227,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                                 /// <para>必填：否</para>
                                 /// <para>示例值：191</para>
                                 /// </summary>
-                                [JsonProperty("green")]
+                                [JsonPropertyName("green")]
                                 public int? Green { get; set; }
 
                                 /// <summary>
@@ -236,7 +235,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                                 /// <para>必填：否</para>
                                 /// <para>示例值：188</para>
                                 /// </summary>
-                                [JsonProperty("blue")]
+                                [JsonPropertyName("blue")]
                                 public int? Blue { get; set; }
 
                                 /// <summary>
@@ -244,7 +243,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                                 /// <para>必填：否</para>
                                 /// <para>示例值：0.1</para>
                                 /// </summary>
-                                [JsonProperty("alpha")]
+                                [JsonPropertyName("alpha")]
                                 public float? Alpha { get; set; }
                             }
 
@@ -252,14 +251,14 @@ public record PostOkrV1ProgressRecordsResponseDto
                             /// <para>字体颜色</para>
                             /// <para>必填：否</para>
                             /// </summary>
-                            [JsonProperty("textColor")]
+                            [JsonPropertyName("textColor")]
                             public ContentColor? TextColor { get; set; }
 
                             /// <summary>
                             /// <para>链接地址</para>
                             /// <para>必填：否</para>
                             /// </summary>
-                            [JsonProperty("link")]
+                            [JsonPropertyName("link")]
                             public ContentLink? Link { get; set; }
 
                             /// <summary>
@@ -272,7 +271,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                                 /// <para>必填：否</para>
                                 /// <para>示例值：https://www.xxxxx.com/</para>
                                 /// </summary>
-                                [JsonProperty("url")]
+                                [JsonPropertyName("url")]
                                 public string? Url { get; set; }
                             }
                         }
@@ -282,7 +281,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                     /// <para>飞书云文档</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("docsLink")]
+                    [JsonPropertyName("docsLink")]
                     public ContentDocsLink? DocsLink { get; set; }
 
                     /// <summary>
@@ -295,7 +294,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：https://xxx.feishu.cn/docx/xxxxxxxx</para>
                         /// </summary>
-                        [JsonProperty("url")]
+                        [JsonPropertyName("url")]
                         public string? Url { get; set; }
 
                         /// <summary>
@@ -303,7 +302,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：项目说明文档</para>
                         /// </summary>
-                        [JsonProperty("title")]
+                        [JsonPropertyName("title")]
                         public string? Title { get; set; }
                     }
 
@@ -311,7 +310,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                     /// <para>艾特用户</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("person")]
+                    [JsonPropertyName("person")]
                     public ContentPerson? Person { get; set; }
 
                     /// <summary>
@@ -324,7 +323,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：ou_3bbe8a09c20e89cce9bff989ed840674</para>
                         /// </summary>
-                        [JsonProperty("openId")]
+                        [JsonPropertyName("openId")]
                         public string? OpenId { get; set; }
                     }
                 }
@@ -334,7 +333,7 @@ public record PostOkrV1ProgressRecordsResponseDto
             /// <para>图片</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("gallery")]
+            [JsonPropertyName("gallery")]
             public ContentGallery? Gallery { get; set; }
 
             /// <summary>
@@ -346,7 +345,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                 /// <para>图片元素</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("imageList")]
+                [JsonPropertyName("imageList")]
                 public ContentImageItem[]? ImageLists { get; set; }
 
                 /// <summary>
@@ -359,7 +358,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：boxcnOj88GDkmWGm2zsTyCBqoLb</para>
                     /// </summary>
-                    [JsonProperty("fileToken")]
+                    [JsonPropertyName("fileToken")]
                     public string? FileToken { get; set; }
 
                     /// <summary>
@@ -367,7 +366,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：https://example.cn/drive/home/</para>
                     /// </summary>
-                    [JsonProperty("src")]
+                    [JsonPropertyName("src")]
                     public string? Src { get; set; }
 
                     /// <summary>
@@ -375,7 +374,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：458</para>
                     /// </summary>
-                    [JsonProperty("width")]
+                    [JsonPropertyName("width")]
                     public float? Width { get; set; }
 
                     /// <summary>
@@ -383,7 +382,7 @@ public record PostOkrV1ProgressRecordsResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：372</para>
                     /// </summary>
-                    [JsonProperty("height")]
+                    [JsonPropertyName("height")]
                     public float? Height { get; set; }
                 }
             }

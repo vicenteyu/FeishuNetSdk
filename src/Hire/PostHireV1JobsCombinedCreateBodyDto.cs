@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 新建职位 请求体
@@ -14,7 +13,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：R18</para>
     /// </summary>
-    [JsonProperty("code")]
+    [JsonPropertyName("code")]
     public string? Code { get; set; }
 
     /// <summary>
@@ -32,7 +31,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <item>8：10年以上</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("experience")]
+    [JsonPropertyName("experience")]
     public int? Experience { get; set; }
 
     /// <summary>
@@ -40,14 +39,14 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1622484739</para>
     /// </summary>
-    [JsonProperty("expiry_time")]
+    [JsonPropertyName("expiry_time")]
     public int? ExpiryTime { get; set; }
 
     /// <summary>
     /// <para>自定义字段</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("customized_data_list")]
+    [JsonPropertyName("customized_data_list")]
     public CombinedJobObjectValueMap[]? CustomizedDataLists { get; set; }
 
     /// <summary>
@@ -60,7 +59,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6960663240925956549</para>
         /// </summary>
-        [JsonProperty("object_id")]
+        [JsonPropertyName("object_id")]
         public string? ObjectId { get; set; }
 
         /// <summary>
@@ -68,7 +67,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：测试</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string? Value { get; set; }
     }
 
@@ -77,7 +76,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956547</para>
     /// </summary>
-    [JsonProperty("min_level_id")]
+    [JsonPropertyName("min_level_id")]
     public string? MinLevelId { get; set; }
 
     /// <summary>
@@ -85,7 +84,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1000</para>
     /// </summary>
-    [JsonProperty("min_salary")]
+    [JsonPropertyName("min_salary")]
     public int? MinSalary { get; set; }
 
     /// <summary>
@@ -93,14 +92,14 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：后端研发</para>
     /// </summary>
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string Title { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>职位的招聘团队</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("job_managers")]
+    [JsonPropertyName("job_managers")]
     public JobManager JobManagers { get; set; } = new();
 
     /// <summary>
@@ -113,7 +112,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1618209327096</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -121,7 +120,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：ou_efk39117c300506837def50545420c6a</para>
         /// </summary>
-        [JsonProperty("recruiter_id")]
+        [JsonPropertyName("recruiter_id")]
         public string RecruiterId { get; set; } = string.Empty;
 
         /// <summary>
@@ -129,7 +128,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：6960663240925956554</para>
         /// </summary>
-        [JsonProperty("hiring_manager_id_list")]
+        [JsonPropertyName("hiring_manager_id_list")]
         public string[] HiringManagerIdList { get; set; } = Array.Empty<string>();
 
         /// <summary>
@@ -137,7 +136,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6960663240925956554</para>
         /// </summary>
-        [JsonProperty("assistant_id_list")]
+        [JsonPropertyName("assistant_id_list")]
         public string[]? AssistantIdList { get; set; }
     }
 
@@ -146,7 +145,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6960663240925956554</para>
     /// </summary>
-    [JsonProperty("job_process_id")]
+    [JsonPropertyName("job_process_id")]
     public string JobProcessId { get; set; } = string.Empty;
 
     /// <summary>
@@ -158,7 +157,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <item>2：校招</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("process_type")]
+    [JsonPropertyName("process_type")]
     public int ProcessType { get; set; }
 
     /// <summary>
@@ -166,7 +165,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956555</para>
     /// </summary>
-    [JsonProperty("subject_id")]
+    [JsonPropertyName("subject_id")]
     public string? SubjectId { get; set; }
 
     /// <summary>
@@ -174,7 +173,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956555</para>
     /// </summary>
-    [JsonProperty("job_function_id")]
+    [JsonPropertyName("job_function_id")]
     public string? JobFunctionId { get; set; }
 
     /// <summary>
@@ -182,7 +181,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：od-b2fafdce6fc5800b574ba5b0e2798b36</para>
     /// </summary>
-    [JsonProperty("department_id")]
+    [JsonPropertyName("department_id")]
     public string DepartmentId { get; set; } = string.Empty;
 
     /// <summary>
@@ -190,7 +189,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：100</para>
     /// </summary>
-    [JsonProperty("head_count")]
+    [JsonPropertyName("head_count")]
     public int? HeadCount { get; set; }
 
     /// <summary>
@@ -198,7 +197,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("is_never_expired")]
+    [JsonPropertyName("is_never_expired")]
     public bool IsNeverExpired { get; set; }
 
     /// <summary>
@@ -206,7 +205,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2000</para>
     /// </summary>
-    [JsonProperty("max_salary")]
+    [JsonPropertyName("max_salary")]
     public int? MaxSalary { get; set; }
 
     /// <summary>
@@ -214,7 +213,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：熟悉后端研发</para>
     /// </summary>
-    [JsonProperty("requirement")]
+    [JsonPropertyName("requirement")]
     public string? Requirement { get; set; }
 
     /// <summary>
@@ -222,7 +221,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：后端研发岗位描述</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
@@ -230,7 +229,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956554</para>
     /// </summary>
-    [JsonProperty("highlight_list")]
+    [JsonPropertyName("highlight_list")]
     public string[]? HighlightList { get; set; }
 
     /// <summary>
@@ -238,7 +237,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6960663240925956551</para>
     /// </summary>
-    [JsonProperty("job_type_id")]
+    [JsonPropertyName("job_type_id")]
     public string JobTypeId { get; set; } = string.Empty;
 
     /// <summary>
@@ -246,7 +245,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956548</para>
     /// </summary>
-    [JsonProperty("max_level_id")]
+    [JsonPropertyName("max_level_id")]
     public string? MaxLevelId { get; set; }
 
     /// <summary>
@@ -256,7 +255,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：102</para>
     /// </summary>
-    [JsonProperty("recruitment_type_id")]
+    [JsonPropertyName("recruitment_type_id")]
     public string RecruitmentTypeId { get; set; } = string.Empty;
 
     /// <summary>
@@ -275,7 +274,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <item>20：不限</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("required_degree")]
+    [JsonPropertyName("required_degree")]
     public int? RequiredDegree { get; set; }
 
     /// <summary>
@@ -283,7 +282,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956550</para>
     /// </summary>
-    [JsonProperty("job_category_id")]
+    [JsonPropertyName("job_category_id")]
     public string? JobCategoryId { get; set; }
 
     /// <summary>
@@ -291,7 +290,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：7035374761602959660</para>
     /// </summary>
-    [JsonProperty("address_id_list")]
+    [JsonPropertyName("address_id_list")]
     public string[]? AddressIdList { get; set; }
 
     /// <summary>
@@ -303,7 +302,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <item>2：虚拟职位</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("job_attribute")]
+    [JsonPropertyName("job_attribute")]
     public int? JobAttribute { get; set; }
 
     /// <summary>
@@ -311,7 +310,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1622484739955</para>
     /// </summary>
-    [JsonProperty("expiry_timestamp")]
+    [JsonPropertyName("expiry_timestamp")]
     public string? ExpiryTimestamp { get; set; }
 
     /// <summary>
@@ -319,7 +318,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6930815272790114324</para>
     /// </summary>
-    [JsonProperty("interview_registration_schema_id")]
+    [JsonPropertyName("interview_registration_schema_id")]
     public string? InterviewRegistrationSchemaId { get; set; }
 
     /// <summary>
@@ -327,13 +326,13 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6930815272790114325</para>
     /// </summary>
-    [JsonProperty("onboard_registration_schema_id")]
+    [JsonPropertyName("onboard_registration_schema_id")]
     public string? OnboardRegistrationSchemaId { get; set; }
 
     /// <summary>
     /// <para>目标专业ID，枚举通过[「分页批量查询专业」](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v3/major/list)接口获取，对应返回值中的 mdm_code，「0」 为不限专业</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("target_major_id_list")]
+    [JsonPropertyName("target_major_id_list")]
     public string[]? TargetMajorIdList { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Baike;
 /// <summary>
 /// 词条高亮 响应体
@@ -13,7 +12,7 @@ public record PostLingoV1EntitiesHighlightResponseDto
     /// <para>识别到的词条信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("phrases")]
+    [JsonPropertyName("phrases")]
     public Phrase[]? Phrases { get; set; }
 
     /// <summary>
@@ -26,21 +25,21 @@ public record PostLingoV1EntitiesHighlightResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：词典</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>对应的词条 ID</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("entity_ids")]
+        [JsonPropertyName("entity_ids")]
         public string[] EntityIds { get; set; } = Array.Empty<string>();
 
         /// <summary>
         /// <para>词条所在位置</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("span")]
+        [JsonPropertyName("span")]
         public PhraseSpan Span { get; set; } = new();
 
         /// <summary>
@@ -53,7 +52,7 @@ public record PostLingoV1EntitiesHighlightResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：0</para>
             /// </summary>
-            [JsonProperty("start")]
+            [JsonPropertyName("start")]
             public int Start { get; set; }
 
             /// <summary>
@@ -61,7 +60,7 @@ public record PostLingoV1EntitiesHighlightResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：2</para>
             /// </summary>
-            [JsonProperty("end")]
+            [JsonPropertyName("end")]
             public int End { get; set; }
         }
     }

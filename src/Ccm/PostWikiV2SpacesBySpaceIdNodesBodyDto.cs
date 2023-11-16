@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建知识空间节点 请求体
@@ -22,7 +21,7 @@ public record PostWikiV2SpacesBySpaceIdNodesBodyDto
     /// <item>docx：新版文档</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("obj_type")]
+    [JsonPropertyName("obj_type")]
     public string ObjType { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostWikiV2SpacesBySpaceIdNodesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：wikcnKQ1k3p******8Vabcef</para>
     /// </summary>
-    [JsonProperty("parent_node_token")]
+    [JsonPropertyName("parent_node_token")]
     public string? ParentNodeToken { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record PostWikiV2SpacesBySpaceIdNodesBodyDto
     /// <item>shortcut：快捷方式</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("node_type")]
+    [JsonPropertyName("node_type")]
     public string NodeType { get; set; } = string.Empty;
 
     /// <summary>
@@ -50,7 +49,7 @@ public record PostWikiV2SpacesBySpaceIdNodesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：wikcnKQ1k3p******8Vabcef</para>
     /// </summary>
-    [JsonProperty("origin_node_token")]
+    [JsonPropertyName("origin_node_token")]
     public string? OriginNodeToken { get; set; }
 
     /// <summary>
@@ -58,6 +57,6 @@ public record PostWikiV2SpacesBySpaceIdNodesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：标题</para>
     /// </summary>
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string? Title { get; set; }
 }

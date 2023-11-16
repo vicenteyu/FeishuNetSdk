@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 分片上传素材（预上传） 请求体
@@ -15,7 +14,7 @@ public record PostDriveV1MediasUploadPrepareBodyDto
     /// <para>示例值：demo.jpeg</para>
     /// <para>最大长度：250</para>
     /// </summary>
-    [JsonProperty("file_name")]
+    [JsonPropertyName("file_name")]
     public string FileName { get; set; } = string.Empty;
 
     /// <summary>
@@ -36,7 +35,7 @@ public record PostDriveV1MediasUploadPrepareBodyDto
     /// <item>ccm_import_open：云文档导入文件。</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("parent_type")]
+    [JsonPropertyName("parent_type")]
     public string ParentType { get; set; } = string.Empty;
 
     /// <summary>
@@ -44,7 +43,7 @@ public record PostDriveV1MediasUploadPrepareBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：doccnFivLCfJfblZjGZtxgabcef</para>
     /// </summary>
-    [JsonProperty("parent_node")]
+    [JsonPropertyName("parent_node")]
     public string ParentNode { get; set; } = string.Empty;
 
     /// <summary>
@@ -52,7 +51,7 @@ public record PostDriveV1MediasUploadPrepareBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1024</para>
     /// </summary>
-    [JsonProperty("size")]
+    [JsonPropertyName("size")]
     public int Size { get; set; }
 
     /// <summary>
@@ -60,6 +59,6 @@ public record PostDriveV1MediasUploadPrepareBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：{\"test\":\"test\"}</para>
     /// </summary>
-    [JsonProperty("extra")]
+    [JsonPropertyName("extra")]
     public string? Extra { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 新增提醒时间 响应体
@@ -13,7 +12,7 @@ public record PostTaskV1TasksByTaskIdRemindersResponseDto
     /// <para>返回创建成功的提醒时间</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("reminder")]
+    [JsonPropertyName("reminder")]
     public PostTaskV1TasksByTaskIdRemindersResponseDtoReminder? Reminder { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostTaskV1TasksByTaskIdRemindersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostTaskV1TasksByTaskIdRemindersResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：30</para>
         /// </summary>
-        [JsonProperty("relative_fire_minute")]
+        [JsonPropertyName("relative_fire_minute")]
         public int RelativeFireMinute { get; set; }
     }
 }

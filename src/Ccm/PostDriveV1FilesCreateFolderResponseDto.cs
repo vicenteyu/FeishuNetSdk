@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 新建文件夹 响应体
@@ -14,7 +13,7 @@ public record PostDriveV1FilesCreateFolderResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：fldbcddUuPz8VwnpPx5oc2abcef</para>
     /// </summary>
-    [JsonProperty("token")]
+    [JsonPropertyName("token")]
     public string? Token { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostDriveV1FilesCreateFolderResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：https://feishu.cn/drive/folder/fldbcddUuPz8VwnpPx5oc2abcef</para>
     /// </summary>
-    [JsonProperty("url")]
+    [JsonPropertyName("url")]
     public string? Url { get; set; }
 }

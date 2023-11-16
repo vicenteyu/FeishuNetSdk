@@ -1,23 +1,27 @@
-using Newtonsoft.Json;
 using WebApiClientCore.Attributes;
 using WebApiClientCore.Exceptions;
 using WebApiClientCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using System.Text.Json;
 
 namespace FeishuNetSdk.Attributes;
 /// <summary>
-/// ����״̬�쳣
+/// 忽略状态异常
 /// </summary>
 public class IgnoreStatusExceptionFilterAttribute : ApiFilterAttribute
 {
-    /// <summary></summary>
+    /// <summary>
+    /// 请求之前
+    /// </summary>
     public override System.Threading.Tasks.Task OnRequestAsync(ApiRequestContext context)
     {
         return System.Threading.Tasks.Task.CompletedTask;
     }
 
-    /// <summary></summary>
+    /// <summary>
+    /// 响应之后
+    /// </summary>
     public override async System.Threading.Tasks.Task OnResponseAsync(ApiResponseContext context)
     {
         var sdkOptions = context.HttpContext.ServiceProvider
@@ -30,9 +34,7 @@ public class IgnoreStatusExceptionFilterAttribute : ApiFilterAttribute
             if (!context.ApiAction.Return.DataType.IsRawType && context.HttpContext.ResponseMessage != null)
             {
                 string content = await context.HttpContext.ResponseMessage.Content.ReadAsStringAsync();
-                JsonTextReader reader = new(new StringReader(content));
-
-                context.Result = new JsonSerializer().Deserialize(reader, context.ApiAction.Return.DataType.Type);
+                context.Result = JsonSerializer.Deserialize(content, context.ApiAction.Return.DataType.Type);
             }
             else
             {

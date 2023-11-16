@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取流程表单数据 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
     /// <para>流程变量</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("field_variable_values")]
+    [JsonPropertyName("field_variable_values")]
     public FormFieldVariable[]? FieldVariableValues { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：reason</para>
         /// </summary>
-        [JsonProperty("variable_api_name")]
+        [JsonPropertyName("variable_api_name")]
         public string? VariableApiName { get; set; }
 
         /// <summary>
         /// <para>变量名称的i18n描述</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("variable_name")]
+        [JsonPropertyName("variable_name")]
         public BpmDataengineI18n? VariableName { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：离职原因</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：Reason</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
 
@@ -62,7 +61,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
         /// <para>变量值的对象</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("variable_value")]
+        [JsonPropertyName("variable_value")]
         public FormVariableValueInfo? VariableValue { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>文本变量对象</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("text_value")]
+            [JsonPropertyName("text_value")]
             public FormFieldVariableTextValue? TextValue { get; set; }
 
             /// <summary>
@@ -87,7 +86,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：文本</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string? Value { get; set; }
             }
 
@@ -95,7 +94,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>数值变量对象</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("number_value")]
+            [JsonPropertyName("number_value")]
             public FormFieldVariableNumberValue? NumberValue { get; set; }
 
             /// <summary>
@@ -108,7 +107,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string? Value { get; set; }
             }
 
@@ -116,7 +115,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>日期变量对象</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("date_value")]
+            [JsonPropertyName("date_value")]
             public FormFieldVariableDateValue? DateValue { get; set; }
 
             /// <summary>
@@ -129,7 +128,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：10000</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public int? Value { get; set; }
             }
 
@@ -137,7 +136,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>员工变量对象</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("employment_value")]
+            [JsonPropertyName("employment_value")]
             public FormFieldVariableEmploymentValue? EmploymentValue { get; set; }
 
             /// <summary>
@@ -150,7 +149,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：6893014062142064134</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string? Value { get; set; }
 
                 /// <summary>
@@ -158,7 +157,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：3158117</para>
                 /// </summary>
-                [JsonProperty("user_id")]
+                [JsonPropertyName("user_id")]
                 public string? UserId { get; set; }
             }
 
@@ -166,7 +165,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>日期时间变量对象</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("date_time_value")]
+            [JsonPropertyName("date_time_value")]
             public FormFieldVariableDatetimeValue? DateTimeValue { get; set; }
 
             /// <summary>
@@ -179,7 +178,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1670227428803</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public int? Value { get; set; }
 
                 /// <summary>
@@ -187,7 +186,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：+08:00</para>
                 /// </summary>
-                [JsonProperty("zone")]
+                [JsonPropertyName("zone")]
                 public string? Zone { get; set; }
             }
 
@@ -195,7 +194,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>枚举变量对象</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("enum_value")]
+            [JsonPropertyName("enum_value")]
             public FormFieldVariableEnumValue? EnumValue { get; set; }
 
             /// <summary>
@@ -208,14 +207,14 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：enum_value</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string? Value { get; set; }
 
                 /// <summary>
                 /// <para>枚举的名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public BpmDataengineI18n? Name { get; set; }
 
                 /// <summary>
@@ -228,7 +227,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：中文</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -236,7 +235,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：English</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
 
@@ -244,7 +243,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>枚举的描述</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("desc")]
+                [JsonPropertyName("desc")]
                 public BpmDataengineI18n? Desc { get; set; }
             }
 
@@ -252,14 +251,14 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>空变量对象</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("null_value")]
+            [JsonPropertyName("null_value")]
             public object? NullValue { get; set; }
 
             /// <summary>
             /// <para>布尔变量对象</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("bool_value")]
+            [JsonPropertyName("bool_value")]
             public FormFieldVariableBoolValue? BoolValue { get; set; }
 
             /// <summary>
@@ -272,7 +271,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public bool? Value { get; set; }
             }
 
@@ -280,7 +279,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>部门变量对象</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("department_value")]
+            [JsonPropertyName("department_value")]
             public FormFieldVariableDepartmentValue? DepartmentValue { get; set; }
 
             /// <summary>
@@ -293,7 +292,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：201933311</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string? Value { get; set; }
             }
 
@@ -301,7 +300,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>文件变量对象</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("file_value")]
+            [JsonPropertyName("file_value")]
             public FormFieldVariableFileValue? FileValue { get; set; }
 
             /// <summary>
@@ -314,7 +313,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
-                [JsonProperty("source_type")]
+                [JsonPropertyName("source_type")]
                 public int? SourceType { get; set; }
 
                 /// <summary>
@@ -322,7 +321,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：abc_file_xyz</para>
                 /// </summary>
-                [JsonProperty("file_id")]
+                [JsonPropertyName("file_id")]
                 public string? FileId { get; set; }
 
                 /// <summary>
@@ -330,7 +329,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：a</para>
                 /// </summary>
-                [JsonProperty("file_name")]
+                [JsonPropertyName("file_name")]
                 public string? FileName { get; set; }
 
                 /// <summary>
@@ -338,7 +337,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1024</para>
                 /// </summary>
-                [JsonProperty("length")]
+                [JsonPropertyName("length")]
                 public int? Length { get; set; }
 
                 /// <summary>
@@ -346,7 +345,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：text/plain</para>
                 /// </summary>
-                [JsonProperty("mime_type")]
+                [JsonPropertyName("mime_type")]
                 public string? MimeType { get; set; }
             }
 
@@ -354,7 +353,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>i18n变量对象</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("i18n_value")]
+            [JsonPropertyName("i18n_value")]
             public FormFieldVariableI18nValue? I18nValue { get; set; }
 
             /// <summary>
@@ -366,7 +365,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>i18n值</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public BpmDataengineI18n? Value { get; set; }
 
                 /// <summary>
@@ -379,7 +378,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：张三</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -387,7 +386,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
             }
@@ -396,7 +395,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>对象变量</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("object_value")]
+            [JsonPropertyName("object_value")]
             public FormFieldVariableObjectValue? ObjectValue { get; set; }
 
             /// <summary>
@@ -409,7 +408,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：203948191</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string? Value { get; set; }
 
                 /// <summary>
@@ -417,7 +416,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：object1</para>
                 /// </summary>
-                [JsonProperty("wk_api_name")]
+                [JsonPropertyName("wk_api_name")]
                 public string? WkApiName { get; set; }
             }
 
@@ -425,7 +424,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>列表对象</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("list_value")]
+            [JsonPropertyName("list_value")]
             public FormFieldVariableListValue? ListValue { get; set; }
 
             /// <summary>
@@ -437,7 +436,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>列表值</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("values")]
+                [JsonPropertyName("values")]
                 public FormFieldVariableListObject[]? Values { get; set; }
 
                 /// <summary>
@@ -449,7 +448,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>文本变量对象</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_value")]
+                    [JsonPropertyName("text_value")]
                     public FormFieldVariableTextValue? TextValue { get; set; }
 
                     /// <summary>
@@ -462,7 +461,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：文本</para>
                         /// </summary>
-                        [JsonProperty("value")]
+                        [JsonPropertyName("value")]
                         public string? Value { get; set; }
                     }
 
@@ -470,7 +469,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>数值变量对象</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("number_value")]
+                    [JsonPropertyName("number_value")]
                     public FormFieldVariableNumberValue? NumberValue { get; set; }
 
                     /// <summary>
@@ -483,7 +482,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1</para>
                         /// </summary>
-                        [JsonProperty("value")]
+                        [JsonPropertyName("value")]
                         public string? Value { get; set; }
                     }
 
@@ -491,7 +490,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>日期变量对象</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("date_value")]
+                    [JsonPropertyName("date_value")]
                     public FormFieldVariableDateValue? DateValue { get; set; }
 
                     /// <summary>
@@ -504,7 +503,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：10000</para>
                         /// </summary>
-                        [JsonProperty("value")]
+                        [JsonPropertyName("value")]
                         public int? Value { get; set; }
                     }
 
@@ -512,7 +511,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>员工变量对象</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("employment_value")]
+                    [JsonPropertyName("employment_value")]
                     public FormFieldVariableEmploymentValue? EmploymentValue { get; set; }
 
                     /// <summary>
@@ -525,7 +524,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：6893014062142064134</para>
                         /// </summary>
-                        [JsonProperty("value")]
+                        [JsonPropertyName("value")]
                         public string? Value { get; set; }
 
                         /// <summary>
@@ -533,7 +532,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：3158117</para>
                         /// </summary>
-                        [JsonProperty("user_id")]
+                        [JsonPropertyName("user_id")]
                         public string? UserId { get; set; }
                     }
 
@@ -541,7 +540,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>日期时间变量对象</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("date_time_value")]
+                    [JsonPropertyName("date_time_value")]
                     public FormFieldVariableDatetimeValue? DateTimeValue { get; set; }
 
                     /// <summary>
@@ -554,7 +553,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1670227428803</para>
                         /// </summary>
-                        [JsonProperty("value")]
+                        [JsonPropertyName("value")]
                         public int? Value { get; set; }
 
                         /// <summary>
@@ -562,7 +561,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：+08:00</para>
                         /// </summary>
-                        [JsonProperty("zone")]
+                        [JsonPropertyName("zone")]
                         public string? Zone { get; set; }
                     }
 
@@ -570,7 +569,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>枚举变量对象</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("enum_value")]
+                    [JsonPropertyName("enum_value")]
                     public FormFieldVariableEnumValue? EnumValue { get; set; }
 
                     /// <summary>
@@ -583,14 +582,14 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：enum_value</para>
                         /// </summary>
-                        [JsonProperty("value")]
+                        [JsonPropertyName("value")]
                         public string? Value { get; set; }
 
                         /// <summary>
                         /// <para>枚举的名称</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("name")]
+                        [JsonPropertyName("name")]
                         public BpmDataengineI18n? Name { get; set; }
 
                         /// <summary>
@@ -603,7 +602,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：张三</para>
                             /// </summary>
-                            [JsonProperty("zh_cn")]
+                            [JsonPropertyName("zh_cn")]
                             public string? ZhCn { get; set; }
 
                             /// <summary>
@@ -611,7 +610,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：zh-CN</para>
                             /// </summary>
-                            [JsonProperty("en_us")]
+                            [JsonPropertyName("en_us")]
                             public string? EnUs { get; set; }
                         }
 
@@ -619,7 +618,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>枚举的描述</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("desc")]
+                        [JsonPropertyName("desc")]
                         public BpmDataengineI18n? Desc { get; set; }
                     }
 
@@ -627,14 +626,14 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>空变量对象</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("null_value")]
+                    [JsonPropertyName("null_value")]
                     public object? NullValue { get; set; }
 
                     /// <summary>
                     /// <para>布尔变量对象</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("bool_value")]
+                    [JsonPropertyName("bool_value")]
                     public FormFieldVariableBoolValue? BoolValue { get; set; }
 
                     /// <summary>
@@ -647,7 +646,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：true</para>
                         /// </summary>
-                        [JsonProperty("value")]
+                        [JsonPropertyName("value")]
                         public bool? Value { get; set; }
                     }
 
@@ -655,7 +654,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>部门变量对象</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("department_value")]
+                    [JsonPropertyName("department_value")]
                     public FormFieldVariableDepartmentValue? DepartmentValue { get; set; }
 
                     /// <summary>
@@ -668,7 +667,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：201933311</para>
                         /// </summary>
-                        [JsonProperty("value")]
+                        [JsonPropertyName("value")]
                         public string? Value { get; set; }
                     }
 
@@ -676,7 +675,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>文件变量对象</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("file_value")]
+                    [JsonPropertyName("file_value")]
                     public FormFieldVariableFileValue? FileValue { get; set; }
 
                     /// <summary>
@@ -689,7 +688,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1</para>
                         /// </summary>
-                        [JsonProperty("source_type")]
+                        [JsonPropertyName("source_type")]
                         public int? SourceType { get; set; }
 
                         /// <summary>
@@ -697,7 +696,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：abc_file_xyz</para>
                         /// </summary>
-                        [JsonProperty("file_id")]
+                        [JsonPropertyName("file_id")]
                         public string? FileId { get; set; }
 
                         /// <summary>
@@ -705,7 +704,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：a</para>
                         /// </summary>
-                        [JsonProperty("file_name")]
+                        [JsonPropertyName("file_name")]
                         public string? FileName { get; set; }
 
                         /// <summary>
@@ -713,7 +712,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1024</para>
                         /// </summary>
-                        [JsonProperty("length")]
+                        [JsonPropertyName("length")]
                         public int? Length { get; set; }
 
                         /// <summary>
@@ -721,7 +720,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：text/plain</para>
                         /// </summary>
-                        [JsonProperty("mime_type")]
+                        [JsonPropertyName("mime_type")]
                         public string? MimeType { get; set; }
                     }
 
@@ -729,7 +728,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>i18n变量对象</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("i18n_value")]
+                    [JsonPropertyName("i18n_value")]
                     public FormFieldVariableI18nValue? I18nValue { get; set; }
 
                     /// <summary>
@@ -741,7 +740,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>i18n值</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("value")]
+                        [JsonPropertyName("value")]
                         public BpmDataengineI18n? Value { get; set; }
 
                         /// <summary>
@@ -754,7 +753,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：中文</para>
                             /// </summary>
-                            [JsonProperty("zh_cn")]
+                            [JsonPropertyName("zh_cn")]
                             public string? ZhCn { get; set; }
 
                             /// <summary>
@@ -762,7 +761,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：English</para>
                             /// </summary>
-                            [JsonProperty("en_us")]
+                            [JsonPropertyName("en_us")]
                             public string? EnUs { get; set; }
                         }
                     }
@@ -771,7 +770,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     /// <para>对象变量</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("object_value")]
+                    [JsonPropertyName("object_value")]
                     public FormFieldVariableObjectValue? ObjectValue { get; set; }
 
                     /// <summary>
@@ -784,7 +783,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：203948191</para>
                         /// </summary>
-                        [JsonProperty("value")]
+                        [JsonPropertyName("value")]
                         public string? Value { get; set; }
 
                         /// <summary>
@@ -792,7 +791,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：object1</para>
                         /// </summary>
-                        [JsonProperty("wk_api_name")]
+                        [JsonPropertyName("wk_api_name")]
                         public string? WkApiName { get; set; }
                     }
                 }

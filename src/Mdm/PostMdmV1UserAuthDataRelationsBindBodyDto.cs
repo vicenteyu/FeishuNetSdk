@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mdm;
 /// <summary>
 /// 用户数据维度绑定 请求体
@@ -15,7 +14,7 @@ public record PostMdmV1UserAuthDataRelationsBindBodyDto
     /// <para>示例值：gongsi</para>
     /// <para>最大长度：200</para>
     /// </summary>
-    [JsonProperty("root_dimension_type")]
+    [JsonPropertyName("root_dimension_type")]
     public string RootDimensionType { get; set; } = string.Empty;
 
     /// <summary>
@@ -24,7 +23,7 @@ public record PostMdmV1UserAuthDataRelationsBindBodyDto
     /// <para>示例值：zijie</para>
     /// <para>最大长度：200</para>
     /// </summary>
-    [JsonProperty("sub_dimension_types")]
+    [JsonPropertyName("sub_dimension_types")]
     public string[] SubDimensionTypes { get; set; } = Array.Empty<string>();
 
     /// <summary>
@@ -33,7 +32,7 @@ public record PostMdmV1UserAuthDataRelationsBindBodyDto
     /// <para>示例值：on_21f2db9bdbafadeb16cd77b76060d41d</para>
     /// <para>最大长度：200</para>
     /// </summary>
-    [JsonProperty("authorized_user_ids")]
+    [JsonPropertyName("authorized_user_ids")]
     public string[] AuthorizedUserIds { get; set; } = Array.Empty<string>();
 
     /// <summary>
@@ -42,6 +41,6 @@ public record PostMdmV1UserAuthDataRelationsBindBodyDto
     /// <para>示例值：uams-tenant-test</para>
     /// <para>最大长度：200</para>
     /// </summary>
-    [JsonProperty("uams_app_id")]
+    [JsonPropertyName("uams_app_id")]
     public string UamsAppId { get; set; } = string.Empty;
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar.Spec;
 /// <summary>
 /// 创建访问控制 响应体
@@ -14,7 +13,7 @@ public record PostCalendarV4CalendarsByCalendarIdAclsResponseDto
     /// <para>acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("acl_id")]
+    [JsonPropertyName("acl_id")]
     public string? AclId { get; set; }
 
     /// <summary>
@@ -30,14 +29,14 @@ public record PostCalendarV4CalendarsByCalendarIdAclsResponseDto
     /// <item>owner：管理员，管理日历及共享设置</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("role")]
+    [JsonPropertyName("role")]
     public string? Role { get; set; }
 
     /// <summary>
     /// <para>权限范围</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("scope")]
+    [JsonPropertyName("scope")]
     public AclScope? Scope { get; set; }
 
     /// <summary></summary>
@@ -52,14 +51,14 @@ public record PostCalendarV4CalendarsByCalendarIdAclsResponseDto
         /// <item>user：用户</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
         /// <para>用户ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
     }
 }

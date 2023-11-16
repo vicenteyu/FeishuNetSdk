@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 获取群内 Pin 消息 响应体
@@ -13,7 +12,7 @@ public record GetImV1PinsResponseDto
     /// <para>Pin的操作信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Pin[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetImV1PinsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
         /// </summary>
-        [JsonProperty("message_id")]
+        [JsonPropertyName("message_id")]
         public string MessageId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetImV1PinsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
         /// </summary>
-        [JsonProperty("chat_id")]
+        [JsonPropertyName("chat_id")]
         public string? ChatId { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetImV1PinsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs</para>
         /// </summary>
-        [JsonProperty("operator_id")]
+        [JsonPropertyName("operator_id")]
         public string? OperatorId { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetImV1PinsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：open_id</para>
         /// </summary>
-        [JsonProperty("operator_id_type")]
+        [JsonPropertyName("operator_id_type")]
         public string? OperatorIdType { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetImV1PinsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1615380573211</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
     }
 
@@ -67,7 +66,7 @@ public record GetImV1PinsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -75,6 +74,6 @@ public record GetImV1PinsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 发送消息 请求体
@@ -14,7 +13,7 @@ public record PostImV1MessagesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs</para>
     /// </summary>
-    [JsonProperty("receive_id")]
+    [JsonPropertyName("receive_id")]
     public string ReceiveId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostImV1MessagesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：text</para>
     /// </summary>
-    [JsonProperty("msg_type")]
+    [JsonPropertyName("msg_type")]
     public string MsgType { get; set; } = string.Empty;
 
     /// <summary>
@@ -34,7 +33,7 @@ public record PostImV1MessagesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：`{\"text\":\"test content\"}`</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
 
     /// <summary>
@@ -43,6 +42,6 @@ public record PostImV1MessagesBodyDto
     /// <para>示例值：选填，若填写每次调用前请更换，如：a0d69e20-1dd1-458b-k525-dfeca4015204</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("uuid")]
+    [JsonPropertyName("uuid")]
     public string? Uuid { get; set; }
 }

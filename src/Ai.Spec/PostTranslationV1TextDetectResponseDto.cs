@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai.Spec;
 /// <summary>
 /// 识别文本语种 响应体
@@ -13,6 +12,6 @@ public record PostTranslationV1TextDetectResponseDto
     /// <para>识别的文本语种，返回符合 ISO 639-1 标准</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("language")]
+    [JsonPropertyName("language")]
     public string? Language { get; set; }
 }

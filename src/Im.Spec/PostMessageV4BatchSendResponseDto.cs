@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im.Spec;
 /// <summary>
 /// 批量发送消息 响应体
@@ -25,34 +24,34 @@ public record PostMessageV4BatchSendResponseDto
     /// <para>批量消息任务 ID，用于唯一标识一个批量发送消息的任务</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("message_id")]
+    [JsonPropertyName("message_id")]
     public string MessageId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>不合法的部门 ID 列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("invalid_department_ids")]
+    [JsonPropertyName("invalid_department_ids")]
     public string[]? InvalidDepartmentIds { get; set; }
 
     /// <summary>
     /// <para>不合法的 open_id 列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("invalid_open_ids")]
+    [JsonPropertyName("invalid_open_ids")]
     public string[]? InvalidOpenIds { get; set; }
 
     /// <summary>
     /// <para>不合法的 user_id 列表（对应V3接口的invalid_employee_ids）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("invalid_user_ids")]
+    [JsonPropertyName("invalid_user_ids")]
     public string[]? InvalidUserIds { get; set; }
 
     /// <summary>
     /// <para>不合法的 union_id 列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("invalid_union_ids")]
+    [JsonPropertyName("invalid_union_ids")]
     public string[]? InvalidUnionIds { get; set; }
 }

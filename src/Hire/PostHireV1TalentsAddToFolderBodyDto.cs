@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 将人才加入指定文件夹 请求体
@@ -15,7 +14,7 @@ public record PostHireV1TalentsAddToFolderBodyDto
     /// <para>示例值：6039620186502138151</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("talent_id_list")]
+    [JsonPropertyName("talent_id_list")]
     public string[]? TalentIdList { get; set; }
 
     /// <summary>
@@ -23,6 +22,6 @@ public record PostHireV1TalentsAddToFolderBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：7039620186502138156</para>
     /// </summary>
-    [JsonProperty("folder_id")]
+    [JsonPropertyName("folder_id")]
     public string? FolderId { get; set; }
 }

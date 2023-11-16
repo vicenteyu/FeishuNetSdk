@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 搜索员工异动信息 响应体
@@ -13,7 +12,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
     /// <para>员工异动列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public JobChange[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6991776076699549697</para>
         /// </summary>
-        [JsonProperty("job_change_id")]
+        [JsonPropertyName("job_change_id")]
         public string? JobChangeId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_a294793e8fa21529f2a60e3e9de45520</para>
         /// </summary>
-        [JsonProperty("employment_id")]
+        [JsonPropertyName("employment_id")]
         public string? EmploymentId { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
         /// <item>NoNeedApproval：无需审批</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string? Status { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：direct_leader_change</para>
         /// </summary>
-        [JsonProperty("transfer_type_unique_identifier")]
+        [JsonPropertyName("transfer_type_unique_identifier")]
         public string? TransferTypeUniqueIdentifier { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：involuntary_transfer</para>
         /// </summary>
-        [JsonProperty("transfer_reason_unique_identifier")]
+        [JsonPropertyName("transfer_reason_unique_identifier")]
         public string? TransferReasonUniqueIdentifier { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6991776078461142564</para>
         /// </summary>
-        [JsonProperty("process_id")]
+        [JsonPropertyName("process_id")]
         public string? ProcessId { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022-03-01</para>
         /// </summary>
-        [JsonProperty("effective_date")]
+        [JsonPropertyName("effective_date")]
         public string? EffectiveDate { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1627899724000</para>
         /// </summary>
-        [JsonProperty("created_time")]
+        [JsonPropertyName("created_time")]
         public string? CreatedTime { get; set; }
 
         /// <summary>
@@ -98,14 +97,14 @@ public record PostCorehrV2JobChangesSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1647434443000</para>
         /// </summary>
-        [JsonProperty("updated_time")]
+        [JsonPropertyName("updated_time")]
         public string? UpdatedTime { get; set; }
 
         /// <summary>
         /// <para>异动详细信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("transfer_info")]
+        [JsonPropertyName("transfer_info")]
         public JobChangeTransferInfo? TransferInfo { get; set; }
 
         /// <summary>
@@ -118,7 +117,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：异动详情</para>
             /// </summary>
-            [JsonProperty("remark")]
+            [JsonPropertyName("remark")]
             public string? Remark { get; set; }
 
             /// <summary>
@@ -126,7 +125,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：优质人才，加急处理</para>
             /// </summary>
-            [JsonProperty("offer_info")]
+            [JsonPropertyName("offer_info")]
             public string? OfferInfo { get; set; }
 
             /// <summary>
@@ -134,7 +133,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("target_dotted_manager_clean")]
+            [JsonPropertyName("target_dotted_manager_clean")]
             public bool? TargetDottedManagerClean { get; set; }
 
             /// <summary>
@@ -142,7 +141,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("probation_exist")]
+            [JsonPropertyName("probation_exist")]
             public bool? ProbationExist { get; set; }
 
             /// <summary>
@@ -150,7 +149,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6966236933198579208</para>
             /// </summary>
-            [JsonProperty("original_department")]
+            [JsonPropertyName("original_department")]
             public string? OriginalDepartment { get; set; }
 
             /// <summary>
@@ -158,7 +157,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6966236933198579208</para>
             /// </summary>
-            [JsonProperty("target_department")]
+            [JsonPropertyName("target_department")]
             public string? TargetDepartment { get; set; }
 
             /// <summary>
@@ -166,7 +165,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6967271100992587295</para>
             /// </summary>
-            [JsonProperty("original_work_location")]
+            [JsonPropertyName("original_work_location")]
             public string? OriginalWorkLocation { get; set; }
 
             /// <summary>
@@ -174,7 +173,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6967271100992587295</para>
             /// </summary>
-            [JsonProperty("target_work_location")]
+            [JsonPropertyName("target_work_location")]
             public string? TargetWorkLocation { get; set; }
 
             /// <summary>
@@ -182,7 +181,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6974641477444060708</para>
             /// </summary>
-            [JsonProperty("original_direct_manager")]
+            [JsonPropertyName("original_direct_manager")]
             public string? OriginalDirectManager { get; set; }
 
             /// <summary>
@@ -190,7 +189,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：7013619729281713671</para>
             /// </summary>
-            [JsonProperty("target_direct_manager")]
+            [JsonPropertyName("target_direct_manager")]
             public string? TargetDirectManager { get; set; }
 
             /// <summary>
@@ -198,7 +197,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6974648866876573198</para>
             /// </summary>
-            [JsonProperty("original_dotted_manager")]
+            [JsonPropertyName("original_dotted_manager")]
             public string? OriginalDottedManager { get; set; }
 
             /// <summary>
@@ -206,7 +205,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：7013328578351842852</para>
             /// </summary>
-            [JsonProperty("target_dotted_manager")]
+            [JsonPropertyName("target_dotted_manager")]
             public string? TargetDottedManager { get; set; }
 
             /// <summary>
@@ -214,7 +213,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6969469398088287751</para>
             /// </summary>
-            [JsonProperty("original_job")]
+            [JsonPropertyName("original_job")]
             public string? OriginalJob { get; set; }
 
             /// <summary>
@@ -222,7 +221,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6969469557836760606</para>
             /// </summary>
-            [JsonProperty("target_job")]
+            [JsonPropertyName("target_job")]
             public string? TargetJob { get; set; }
 
             /// <summary>
@@ -230,7 +229,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6967287547462419975</para>
             /// </summary>
-            [JsonProperty("original_job_family")]
+            [JsonPropertyName("original_job_family")]
             public string? OriginalJobFamily { get; set; }
 
             /// <summary>
@@ -238,7 +237,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6967287547462419975</para>
             /// </summary>
-            [JsonProperty("target_job_family")]
+            [JsonPropertyName("target_job_family")]
             public string? TargetJobFamily { get; set; }
 
             /// <summary>
@@ -246,7 +245,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6972085707674355214</para>
             /// </summary>
-            [JsonProperty("original_job_level")]
+            [JsonPropertyName("original_job_level")]
             public string? OriginalJobLevel { get; set; }
 
             /// <summary>
@@ -254,7 +253,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6972085707674355214</para>
             /// </summary>
-            [JsonProperty("target_job_level")]
+            [JsonPropertyName("target_job_level")]
             public string? TargetJobLevel { get; set; }
 
             /// <summary>
@@ -262,7 +261,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6968386026792289828</para>
             /// </summary>
-            [JsonProperty("original_workforce_type")]
+            [JsonPropertyName("original_workforce_type")]
             public string? OriginalWorkforceType { get; set; }
 
             /// <summary>
@@ -270,7 +269,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：7036268995372303885</para>
             /// </summary>
-            [JsonProperty("target_workforce_type")]
+            [JsonPropertyName("target_workforce_type")]
             public string? TargetWorkforceType { get; set; }
 
             /// <summary>
@@ -278,7 +277,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6974659700705068581</para>
             /// </summary>
-            [JsonProperty("original_company")]
+            [JsonPropertyName("original_company")]
             public string? OriginalCompany { get; set; }
 
             /// <summary>
@@ -286,7 +285,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6974659700705068581</para>
             /// </summary>
-            [JsonProperty("target_company")]
+            [JsonPropertyName("target_company")]
             public string? TargetCompany { get; set; }
 
             /// <summary>
@@ -294,7 +293,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：55332</para>
             /// </summary>
-            [JsonProperty("original_contract_number")]
+            [JsonPropertyName("original_contract_number")]
             public string? OriginalContractNumber { get; set; }
 
             /// <summary>
@@ -302,7 +301,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：55333</para>
             /// </summary>
-            [JsonProperty("target_contract_number")]
+            [JsonPropertyName("target_contract_number")]
             public string? TargetContractNumber { get; set; }
 
             /// <summary>
@@ -310,7 +309,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：labor_contract</para>
             /// </summary>
-            [JsonProperty("original_contract_type")]
+            [JsonPropertyName("original_contract_type")]
             public string? OriginalContractType { get; set; }
 
             /// <summary>
@@ -318,7 +317,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：labor_contract</para>
             /// </summary>
-            [JsonProperty("target_contract_type")]
+            [JsonPropertyName("target_contract_type")]
             public string? TargetContractType { get; set; }
 
             /// <summary>
@@ -326,7 +325,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：fixed_term</para>
             /// </summary>
-            [JsonProperty("original_duration_type")]
+            [JsonPropertyName("original_duration_type")]
             public string? OriginalDurationType { get; set; }
 
             /// <summary>
@@ -334,7 +333,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：fixed_term</para>
             /// </summary>
-            [JsonProperty("target_duration_type")]
+            [JsonPropertyName("target_duration_type")]
             public string? TargetDurationType { get; set; }
 
             /// <summary>
@@ -342,7 +341,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：new</para>
             /// </summary>
-            [JsonProperty("original_signing_type")]
+            [JsonPropertyName("original_signing_type")]
             public string? OriginalSigningType { get; set; }
 
             /// <summary>
@@ -350,7 +349,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：new</para>
             /// </summary>
-            [JsonProperty("target_signing_type")]
+            [JsonPropertyName("target_signing_type")]
             public string? TargetSigningType { get; set; }
 
             /// <summary>
@@ -358,7 +357,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2021-07-01</para>
             /// </summary>
-            [JsonProperty("original_contract_start_date")]
+            [JsonPropertyName("original_contract_start_date")]
             public string? OriginalContractStartDate { get; set; }
 
             /// <summary>
@@ -366,7 +365,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2021-07-01</para>
             /// </summary>
-            [JsonProperty("target_contract_start_date")]
+            [JsonPropertyName("target_contract_start_date")]
             public string? TargetContractStartDate { get; set; }
 
             /// <summary>
@@ -374,7 +373,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2024-07-01</para>
             /// </summary>
-            [JsonProperty("original_contract_end_date")]
+            [JsonPropertyName("original_contract_end_date")]
             public string? OriginalContractEndDate { get; set; }
 
             /// <summary>
@@ -382,7 +381,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2024-07-01</para>
             /// </summary>
-            [JsonProperty("target_contract_end_date")]
+            [JsonPropertyName("target_contract_end_date")]
             public string? TargetContractEndDate { get; set; }
 
             /// <summary>
@@ -390,7 +389,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6969087376740206087</para>
             /// </summary>
-            [JsonProperty("original_working_hours_type")]
+            [JsonPropertyName("original_working_hours_type")]
             public string? OriginalWorkingHoursType { get; set; }
 
             /// <summary>
@@ -398,7 +397,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6969087376740206087</para>
             /// </summary>
-            [JsonProperty("target_working_hours_type")]
+            [JsonPropertyName("target_working_hours_type")]
             public string? TargetWorkingHoursType { get; set; }
 
             /// <summary>
@@ -406,7 +405,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6969087376740236087</para>
             /// </summary>
-            [JsonProperty("original_working_calendar")]
+            [JsonPropertyName("original_working_calendar")]
             public string? OriginalWorkingCalendar { get; set; }
 
             /// <summary>
@@ -414,7 +413,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6969087376740236087</para>
             /// </summary>
-            [JsonProperty("target_working_calendar")]
+            [JsonPropertyName("target_working_calendar")]
             public string? TargetWorkingCalendar { get; set; }
 
             /// <summary>
@@ -422,7 +421,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2021-11-17</para>
             /// </summary>
-            [JsonProperty("original_probation_end_date")]
+            [JsonPropertyName("original_probation_end_date")]
             public string? OriginalProbationEndDate { get; set; }
 
             /// <summary>
@@ -430,7 +429,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2021-11-17</para>
             /// </summary>
-            [JsonProperty("target_probation_end_date")]
+            [JsonPropertyName("target_probation_end_date")]
             public string? TargetProbationEndDate { get; set; }
 
             /// <summary>
@@ -438,7 +437,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：162</para>
             /// </summary>
-            [JsonProperty("original_weekly_working_hours")]
+            [JsonPropertyName("original_weekly_working_hours")]
             public string? OriginalWeeklyWorkingHours { get; set; }
 
             /// <summary>
@@ -446,7 +445,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：160</para>
             /// </summary>
-            [JsonProperty("target_weekly_working_hours")]
+            [JsonPropertyName("target_weekly_working_hours")]
             public string? TargetWeeklyWorkingHours { get; set; }
 
             /// <summary>
@@ -454,7 +453,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：work_shift</para>
             /// </summary>
-            [JsonProperty("original_work_shift")]
+            [JsonPropertyName("original_work_shift")]
             public string? OriginalWorkShift { get; set; }
 
             /// <summary>
@@ -462,14 +461,14 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：non_work_shift</para>
             /// </summary>
-            [JsonProperty("target_work_shift")]
+            [JsonPropertyName("target_work_shift")]
             public string? TargetWorkShift { get; set; }
 
             /// <summary>
             /// <para>原成本中心分摊方式</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("original_cost_center_rate")]
+            [JsonPropertyName("original_cost_center_rate")]
             public JobDataCostCenter[]? OriginalCostCenterRates { get; set; }
 
             /// <summary>
@@ -482,7 +481,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：6950635856373745165</para>
                 /// </summary>
-                [JsonProperty("cost_center_id")]
+                [JsonPropertyName("cost_center_id")]
                 public string? CostCenterId { get; set; }
 
                 /// <summary>
@@ -490,7 +489,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：100</para>
                 /// </summary>
-                [JsonProperty("rate")]
+                [JsonPropertyName("rate")]
                 public int? Rate { get; set; }
             }
 
@@ -498,7 +497,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// <para>新成本中心分摊方式</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("target_cost_center_rate")]
+            [JsonPropertyName("target_cost_center_rate")]
             public JobDataCostCenter[]? TargetCostCenterRates { get; set; }
         }
     }
@@ -508,7 +507,7 @@ public record PostCorehrV2JobChangesSearchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -516,6 +515,6 @@ public record PostCorehrV2JobChangesSearchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：6891251722631890445</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

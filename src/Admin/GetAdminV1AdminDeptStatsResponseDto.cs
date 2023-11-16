@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Admin;
 /// <summary>
 /// 获取部门维度的用户活跃和功能使用数据 响应体
@@ -14,7 +13,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record GetAdminV1AdminDeptStatsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：3</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>数据报表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public AdminDeptStat[]? Items { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2020-02-15</para>
         /// </summary>
-        [JsonProperty("date")]
+        [JsonPropertyName("date")]
         public string? Date { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：od-382e2793cfc9471f892e8a672987654c</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：subtestkkk</para>
         /// </summary>
-        [JsonProperty("department_name")]
+        [JsonPropertyName("department_name")]
         public string? DepartmentName { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：testkkk/subtestkkk</para>
         /// </summary>
-        [JsonProperty("department_path")]
+        [JsonPropertyName("department_path")]
         public string? DepartmentPath { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("total_user_num")]
+        [JsonPropertyName("total_user_num")]
         public int? TotalUserNum { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("active_user_num")]
+        [JsonPropertyName("active_user_num")]
         public int? ActiveUserNum { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1.00</para>
         /// </summary>
-        [JsonProperty("active_user_rate")]
+        [JsonPropertyName("active_user_rate")]
         public string? ActiveUserRate { get; set; }
 
         /// <summary>
@@ -98,7 +97,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("suite_dau")]
+        [JsonPropertyName("suite_dau")]
         public int? SuiteDau { get; set; }
 
         /// <summary>
@@ -106,7 +105,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0.00</para>
         /// </summary>
-        [JsonProperty("suite_active_rate")]
+        [JsonPropertyName("suite_active_rate")]
         public string? SuiteActiveRate { get; set; }
 
         /// <summary>
@@ -114,7 +113,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("new_user_num")]
+        [JsonPropertyName("new_user_num")]
         public int? NewUserNum { get; set; }
 
         /// <summary>
@@ -122,7 +121,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("new_active_num")]
+        [JsonPropertyName("new_active_num")]
         public int? NewActiveNum { get; set; }
 
         /// <summary>
@@ -130,7 +129,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("resign_user_num")]
+        [JsonPropertyName("resign_user_num")]
         public int? ResignUserNum { get; set; }
 
         /// <summary>
@@ -138,7 +137,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("im_dau")]
+        [JsonPropertyName("im_dau")]
         public int? ImDau { get; set; }
 
         /// <summary>
@@ -146,7 +145,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("send_messenger_user_num")]
+        [JsonPropertyName("send_messenger_user_num")]
         public int? SendMessengerUserNum { get; set; }
 
         /// <summary>
@@ -154,7 +153,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("send_messenger_num")]
+        [JsonPropertyName("send_messenger_num")]
         public int? SendMessengerNum { get; set; }
 
         /// <summary>
@@ -162,7 +161,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0.00</para>
         /// </summary>
-        [JsonProperty("avg_send_messenger_num")]
+        [JsonPropertyName("avg_send_messenger_num")]
         public string? AvgSendMessengerNum { get; set; }
 
         /// <summary>
@@ -170,7 +169,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("docs_dau")]
+        [JsonPropertyName("docs_dau")]
         public int? DocsDau { get; set; }
 
         /// <summary>
@@ -178,7 +177,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("create_docs_user_num")]
+        [JsonPropertyName("create_docs_user_num")]
         public int? CreateDocsUserNum { get; set; }
 
         /// <summary>
@@ -186,7 +185,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("create_docs_num")]
+        [JsonPropertyName("create_docs_num")]
         public int? CreateDocsNum { get; set; }
 
         /// <summary>
@@ -194,7 +193,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0.00</para>
         /// </summary>
-        [JsonProperty("avg_create_docs_num")]
+        [JsonPropertyName("avg_create_docs_num")]
         public string? AvgCreateDocsNum { get; set; }
 
         /// <summary>
@@ -202,7 +201,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("cal_dau")]
+        [JsonPropertyName("cal_dau")]
         public int? CalDau { get; set; }
 
         /// <summary>
@@ -210,7 +209,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("create_cal_user_num")]
+        [JsonPropertyName("create_cal_user_num")]
         public int? CreateCalUserNum { get; set; }
 
         /// <summary>
@@ -218,7 +217,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("create_cal_num")]
+        [JsonPropertyName("create_cal_num")]
         public int? CreateCalNum { get; set; }
 
         /// <summary>
@@ -226,7 +225,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0.00</para>
         /// </summary>
-        [JsonProperty("avg_create_cal_num")]
+        [JsonPropertyName("avg_create_cal_num")]
         public string? AvgCreateCalNum { get; set; }
 
         /// <summary>
@@ -234,7 +233,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("vc_dau")]
+        [JsonPropertyName("vc_dau")]
         public int? VcDau { get; set; }
 
         /// <summary>
@@ -242,7 +241,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("vc_duration")]
+        [JsonPropertyName("vc_duration")]
         public int? VcDuration { get; set; }
 
         /// <summary>
@@ -250,7 +249,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0.00</para>
         /// </summary>
-        [JsonProperty("avg_vc_duration")]
+        [JsonPropertyName("avg_vc_duration")]
         public string? AvgVcDuration { get; set; }
 
         /// <summary>
@@ -258,7 +257,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0.00</para>
         /// </summary>
-        [JsonProperty("avg_duration")]
+        [JsonPropertyName("avg_duration")]
         public string? AvgDuration { get; set; }
 
         /// <summary>
@@ -266,7 +265,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("task_dau")]
+        [JsonPropertyName("task_dau")]
         public int? TaskDau { get; set; }
 
         /// <summary>
@@ -274,7 +273,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("create_task_user_num")]
+        [JsonPropertyName("create_task_user_num")]
         public int? CreateTaskUserNum { get; set; }
 
         /// <summary>
@@ -282,7 +281,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("create_task_num")]
+        [JsonPropertyName("create_task_num")]
         public int? CreateTaskNum { get; set; }
 
         /// <summary>
@@ -290,7 +289,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0.00</para>
         /// </summary>
-        [JsonProperty("avg_create_task_num")]
+        [JsonPropertyName("avg_create_task_num")]
         public string? AvgCreateTaskNum { get; set; }
 
         /// <summary>
@@ -298,7 +297,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("email_send_count")]
+        [JsonPropertyName("email_send_count")]
         public string? EmailSendCount { get; set; }
 
         /// <summary>
@@ -306,7 +305,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
-        [JsonProperty("email_receive_count")]
+        [JsonPropertyName("email_receive_count")]
         public string? EmailReceiveCount { get; set; }
 
         /// <summary>
@@ -314,7 +313,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：4</para>
         /// </summary>
-        [JsonProperty("email_send_ext_count")]
+        [JsonPropertyName("email_send_ext_count")]
         public string? EmailSendExtCount { get; set; }
 
         /// <summary>
@@ -322,7 +321,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：5</para>
         /// </summary>
-        [JsonProperty("email_receive_ext_count")]
+        [JsonPropertyName("email_receive_ext_count")]
         public string? EmailReceiveExtCount { get; set; }
 
         /// <summary>
@@ -330,7 +329,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6</para>
         /// </summary>
-        [JsonProperty("email_send_in_count")]
+        [JsonPropertyName("email_send_in_count")]
         public string? EmailSendInCount { get; set; }
 
         /// <summary>
@@ -338,7 +337,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7</para>
         /// </summary>
-        [JsonProperty("email_receive_in_count")]
+        [JsonPropertyName("email_receive_in_count")]
         public string? EmailReceiveInCount { get; set; }
     }
 }

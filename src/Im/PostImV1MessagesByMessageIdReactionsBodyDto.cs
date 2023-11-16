@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 添加消息表情回复 请求体
@@ -13,7 +12,7 @@ public record PostImV1MessagesByMessageIdReactionsBodyDto
     /// <para>reaction资源类型</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("reaction_type")]
+    [JsonPropertyName("reaction_type")]
     public Emoji ReactionType { get; set; } = new();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostImV1MessagesByMessageIdReactionsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：SMILE</para>
         /// </summary>
-        [JsonProperty("emoji_type")]
+        [JsonPropertyName("emoji_type")]
         public string EmojiType { get; set; } = string.Empty;
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 获取 Top 用户列表 响应体
@@ -13,7 +12,7 @@ public record GetVcV1ReportsGetTopUserResponseDto
     /// <para>top用户列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("top_user_report")]
+    [JsonPropertyName("top_user_report")]
     public ReportTopUser[]? TopUserReports { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetVcV1ReportsGetTopUserResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetVcV1ReportsGetTopUserResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：name</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -51,7 +50,7 @@ public record GetVcV1ReportsGetTopUserResponseDto
         /// <item>7：sip用户</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("user_type")]
+        [JsonPropertyName("user_type")]
         public int? UserType { get; set; }
 
         /// <summary>
@@ -59,7 +58,7 @@ public record GetVcV1ReportsGetTopUserResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>
-        [JsonProperty("meeting_count")]
+        [JsonPropertyName("meeting_count")]
         public string? MeetingCount { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record GetVcV1ReportsGetTopUserResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：3000</para>
         /// </summary>
-        [JsonProperty("meeting_duration")]
+        [JsonPropertyName("meeting_duration")]
         public string? MeetingDuration { get; set; }
     }
 }

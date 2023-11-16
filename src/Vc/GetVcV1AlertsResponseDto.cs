@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 获取告警记录 响应体
@@ -14,7 +13,7 @@ public record GetVcV1AlertsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record GetVcV1AlertsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：50</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>告警记录</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Alert[]? Items { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record GetVcV1AlertsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7115030004018184212</para>
         /// </summary>
-        [JsonProperty("alert_id")]
+        [JsonPropertyName("alert_id")]
         public string? AlertId { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetVcV1AlertsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：XX层级</para>
         /// </summary>
-        [JsonProperty("resource_scope")]
+        [JsonPropertyName("resource_scope")]
         public string? ResourceScope { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record GetVcV1AlertsResponseDto
         /// <item>7：飞书传感器</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("monitor_target")]
+        [JsonPropertyName("monitor_target")]
         public int? MonitorTarget { get; set; }
 
         /// <summary>
@@ -75,7 +74,7 @@ public record GetVcV1AlertsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：连续1个周期（共1分钟），控制器电量&lt;50%，则告警</para>
         /// </summary>
-        [JsonProperty("alert_strategy")]
+        [JsonPropertyName("alert_strategy")]
         public string? AlertStrategy { get; set; }
 
         /// <summary>
@@ -83,7 +82,7 @@ public record GetVcV1AlertsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1656914944</para>
         /// </summary>
-        [JsonProperty("alert_time")]
+        [JsonPropertyName("alert_time")]
         public string? AlertTime { get; set; }
 
         /// <summary>
@@ -96,14 +95,14 @@ public record GetVcV1AlertsResponseDto
         /// <item>2：严重</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("alert_level")]
+        [JsonPropertyName("alert_level")]
         public int? AlertLevel { get; set; }
 
         /// <summary>
         /// <para>告警联系人</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("contacts")]
+        [JsonPropertyName("contacts")]
         public Contact[]? Contacts { get; set; }
 
         /// <summary>
@@ -121,7 +120,7 @@ public record GetVcV1AlertsResponseDto
             /// <item>3：部门</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("contact_type")]
+            [JsonPropertyName("contact_type")]
             public int? ContactType { get; set; }
 
             /// <summary>
@@ -129,7 +128,7 @@ public record GetVcV1AlertsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("contact_name")]
+            [JsonPropertyName("contact_name")]
             public string? ContactName { get; set; }
         }
 
@@ -138,7 +137,7 @@ public record GetVcV1AlertsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：[0,1]</para>
         /// </summary>
-        [JsonProperty("notifyMethods")]
+        [JsonPropertyName("notifyMethods")]
         public int[]? NotifyMethods { get; set; }
 
         /// <summary>
@@ -146,7 +145,7 @@ public record GetVcV1AlertsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：签到板断开连接</para>
         /// </summary>
-        [JsonProperty("alertRule")]
+        [JsonPropertyName("alertRule")]
         public string? AlertRule { get; set; }
 
         /// <summary>
@@ -154,7 +153,7 @@ public record GetVcV1AlertsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1656914944</para>
         /// </summary>
-        [JsonProperty("process_time")]
+        [JsonPropertyName("process_time")]
         public string? ProcessTime { get; set; }
 
         /// <summary>
@@ -162,7 +161,7 @@ public record GetVcV1AlertsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1656914944</para>
         /// </summary>
-        [JsonProperty("recover_time")]
+        [JsonPropertyName("recover_time")]
         public string? RecoverTime { get; set; }
 
         /// <summary>
@@ -177,7 +176,7 @@ public record GetVcV1AlertsResponseDto
         /// <item>4：已恢复</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("process_status")]
+        [JsonPropertyName("process_status")]
         public int? ProcessStatus { get; set; }
     }
 }

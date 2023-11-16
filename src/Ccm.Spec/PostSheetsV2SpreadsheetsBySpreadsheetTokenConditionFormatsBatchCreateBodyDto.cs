@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 创建条件格式 请求体
@@ -13,7 +12,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCre
     /// <para>表格的条件格式信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("sheet_condition_formats")]
+    [JsonPropertyName("sheet_condition_formats")]
     public SheetConditionFormat[] SheetConditionFormats { get; set; } = Array.Empty<SheetConditionFormat>();
 
     /// <summary></summary>
@@ -23,14 +22,14 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCre
         /// <para>sheet的id</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("sheet_id")]
+        [JsonPropertyName("sheet_id")]
         public string SheetId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>一个条件格式的详细信息</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("condition_format")]
+        [JsonPropertyName("condition_format")]
         public ConditionFormatSuffix ConditionFormat { get; set; } = new();
 
         /// <summary></summary>
@@ -40,21 +39,21 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCre
             /// <para>条件格式应用的范围，支持：sheetId（整表）；sheetId!1:2（整行）；sheetId!A:B（整列）；sheetId!A1:B2（普通范围）；sheetId!A1:C（应用至最后一行）。应用范围不能超过表格的行总数和列总数，sheetId要与参数的sheetId一致</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("ranges")]
+            [JsonPropertyName("ranges")]
             public string[] Ranges { get; set; } = Array.Empty<string>();
 
             /// <summary>
             /// <para>条件格式规则类型，目前只有7种：***containsBlanks（为空）、notContainsBlanks（不为空）、duplicateValues（重复值）、uniqueValues（唯一值）、cellIs（限定值范围）、containsText（包含内容）、timePeriod（日期）***</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("rule_type")]
+            [JsonPropertyName("rule_type")]
             public string RuleType { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>rule_type对应的具体属性信息，详见 [条件格式指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/conditionformat/condition-format-guide)</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("attrs")]
+            [JsonPropertyName("attrs")]
             public Attr[] Attrs { get; set; } = Array.Empty<Attr>();
 
             /// <summary></summary>
@@ -64,28 +63,28 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCre
                 /// <para>操作方法</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("operator")]
+                [JsonPropertyName("operator")]
                 public string? Operator { get; set; }
 
                 /// <summary>
                 /// <para>时间范围</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("time_period")]
+                [JsonPropertyName("time_period")]
                 public string? TimePeriod { get; set; }
 
                 /// <summary>
                 /// <para>格式</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("formula")]
+                [JsonPropertyName("formula")]
                 public string[]? Formula { get; set; }
 
                 /// <summary>
                 /// <para>文本</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("text")]
+                [JsonPropertyName("text")]
                 public string? Text { get; set; }
             }
 
@@ -93,7 +92,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCre
             /// <para>条件格式样式，只支持以下样式，以下样式每个参数都可选，但是不能设置空的style</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("style")]
+            [JsonPropertyName("style")]
             public StyleSuffix? Style { get; set; }
 
             /// <summary></summary>
@@ -103,7 +102,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCre
                 /// <para>字体样式</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("font")]
+                [JsonPropertyName("font")]
                 public FontSuffix? Font { get; set; }
 
                 /// <summary></summary>
@@ -113,14 +112,14 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCre
                     /// <para>加粗</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("bold")]
+                    [JsonPropertyName("bold")]
                     public bool? Bold { get; set; }
 
                     /// <summary>
                     /// <para>斜体</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("italic")]
+                    [JsonPropertyName("italic")]
                     public bool? Italic { get; set; }
                 }
 
@@ -128,21 +127,21 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCre
                 /// <para>文本装饰 ，0 默认，1 下划线，2 删除线 ，3 下划线和删除线</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("text_decoration")]
+                [JsonPropertyName("text_decoration")]
                 public int? TextDecoration { get; set; }
 
                 /// <summary>
                 /// <para>字体颜色</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("fore_color")]
+                [JsonPropertyName("fore_color")]
                 public string? ForeColor { get; set; }
 
                 /// <summary>
                 /// <para>背景颜色</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("back_color")]
+                [JsonPropertyName("back_color")]
                 public string? BackColor { get; set; }
             }
         }

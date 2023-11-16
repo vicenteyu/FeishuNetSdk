@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 通过手机号或邮箱获取用户 ID 请求体
@@ -17,7 +16,7 @@ public record PostContactV3UsersBatchGetIdBodyDto
     /// <para>示例值：zhangsan@a.com</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("emails")]
+    [JsonPropertyName("emails")]
     public string[]? Emails { get; set; }
 
     /// <summary>
@@ -29,6 +28,6 @@ public record PostContactV3UsersBatchGetIdBodyDto
     /// <para>示例值：13812345678</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("mobiles")]
+    [JsonPropertyName("mobiles")]
     public string[]? Mobiles { get; set; }
 }

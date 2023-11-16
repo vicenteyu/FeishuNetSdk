@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建投递 请求体
@@ -14,7 +13,7 @@ public record PostHireV1ApplicationsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：12312312312</para>
     /// </summary>
-    [JsonProperty("talent_id")]
+    [JsonPropertyName("talent_id")]
     public string TalentId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostHireV1ApplicationsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：12312312312</para>
     /// </summary>
-    [JsonProperty("job_id")]
+    [JsonPropertyName("job_id")]
     public string JobId { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostHireV1ApplicationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：7115289562569591070</para>
     /// </summary>
-    [JsonProperty("resume_source_id")]
+    [JsonPropertyName("resume_source_id")]
     public string? ResumeSourceId { get; set; }
 
     /// <summary>
@@ -38,6 +37,6 @@ public record PostHireV1ApplicationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：["CT_1"]</para>
     /// </summary>
-    [JsonProperty("application_preferred_city_code_list")]
+    [JsonPropertyName("application_preferred_city_code_list")]
     public string[]? ApplicationPreferredCityCodeList { get; set; }
 }

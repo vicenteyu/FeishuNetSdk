@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 列出仪表盘 响应体
@@ -13,7 +12,7 @@ public record GetBitableV1AppsByAppTokenDashboardsResponseDto
     /// <para>仪表盘信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("dashboards")]
+    [JsonPropertyName("dashboards")]
     public AppDashboard[] Dashboards { get; set; } = Array.Empty<AppDashboard>();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetBitableV1AppsByAppTokenDashboardsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：blknkqrP3RqUkcAW</para>
         /// </summary>
-        [JsonProperty("block_id")]
+        [JsonPropertyName("block_id")]
         public string BlockId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetBitableV1AppsByAppTokenDashboardsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：仪表盘1</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
     }
 
@@ -43,7 +42,7 @@ public record GetBitableV1AppsByAppTokenDashboardsResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：blknkqrP3RqUkcAW</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string PageToken { get; set; } = string.Empty;
 
     /// <summary>
@@ -51,6 +50,6 @@ public record GetBitableV1AppsByAppTokenDashboardsResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool HasMore { get; set; }
 }

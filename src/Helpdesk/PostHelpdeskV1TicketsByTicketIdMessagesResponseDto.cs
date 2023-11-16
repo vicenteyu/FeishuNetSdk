@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 发送工单消息 响应体
@@ -14,6 +13,6 @@ public record PostHelpdeskV1TicketsByTicketIdMessagesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：om_8baa3656c7b41900d29bf9104bf5310b</para>
     /// </summary>
-    [JsonProperty("message_id")]
+    [JsonPropertyName("message_id")]
     public string? MessageId { get; set; }
 }

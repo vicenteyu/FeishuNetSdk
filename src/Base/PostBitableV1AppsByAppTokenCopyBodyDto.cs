@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 复制多维表格 请求体
@@ -14,7 +13,7 @@ public record PostBitableV1AppsByAppTokenCopyBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：一篇新的多维表格</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostBitableV1AppsByAppTokenCopyBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：fldbco*****CIMltVc</para>
     /// </summary>
-    [JsonProperty("folder_token")]
+    [JsonPropertyName("folder_token")]
     public string? FolderToken { get; set; }
 
     /// <summary>
@@ -32,7 +31,7 @@ public record PostBitableV1AppsByAppTokenCopyBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("without_content")]
+    [JsonPropertyName("without_content")]
     public bool? WithoutContent { get; set; }
 
     /// <summary>
@@ -40,6 +39,6 @@ public record PostBitableV1AppsByAppTokenCopyBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：Asia/Shanghai</para>
     /// </summary>
-    [JsonProperty("time_zone")]
+    [JsonPropertyName("time_zone")]
     public string? TimeZone { get; set; }
 }

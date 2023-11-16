@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 获取评论详情 响应体
@@ -13,7 +12,7 @@ public record GetTaskV2CommentsByCommentIdResponseDto
     /// <para>评论详情</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("comment")]
+    [JsonPropertyName("comment")]
     public GetTaskV2CommentsByCommentIdResponseDtoComment? Comment { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetTaskV2CommentsByCommentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7197020628442939411</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -35,14 +34,14 @@ public record GetTaskV2CommentsByCommentIdResponseDto
         /// <para>示例值：这是一条评论</para>
         /// <para>最大长度：10000</para>
         /// </summary>
-        [JsonProperty("content")]
+        [JsonPropertyName("content")]
         public string? Content { get; set; }
 
         /// <summary>
         /// <para>评论创建人</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("creator")]
+        [JsonPropertyName("creator")]
         public Member? Creator { get; set; }
 
         /// <summary>
@@ -56,7 +55,7 @@ public record GetTaskV2CommentsByCommentIdResponseDto
             /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
             /// <para>最大长度：100</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -64,7 +63,7 @@ public record GetTaskV2CommentsByCommentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：user</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -73,7 +72,7 @@ public record GetTaskV2CommentsByCommentIdResponseDto
             /// <para>示例值：creator</para>
             /// <para>最大长度：20</para>
             /// </summary>
-            [JsonProperty("role")]
+            [JsonPropertyName("role")]
             public string? Role { get; set; }
         }
 
@@ -83,7 +82,7 @@ public record GetTaskV2CommentsByCommentIdResponseDto
         /// <para>示例值：7166825117308174356</para>
         /// <para>最大长度：30</para>
         /// </summary>
-        [JsonProperty("reply_to_comment_id")]
+        [JsonPropertyName("reply_to_comment_id")]
         public string? ReplyToCommentId { get; set; }
 
         /// <summary>
@@ -91,7 +90,7 @@ public record GetTaskV2CommentsByCommentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1675742789470</para>
         /// </summary>
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public string? CreatedAt { get; set; }
 
         /// <summary>
@@ -99,7 +98,7 @@ public record GetTaskV2CommentsByCommentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1675742789470</para>
         /// </summary>
-        [JsonProperty("updated_at")]
+        [JsonPropertyName("updated_at")]
         public string? UpdatedAt { get; set; }
 
         /// <summary>
@@ -107,7 +106,7 @@ public record GetTaskV2CommentsByCommentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：task</para>
         /// </summary>
-        [JsonProperty("resource_type")]
+        [JsonPropertyName("resource_type")]
         public string? ResourceType { get; set; }
 
         /// <summary>
@@ -115,7 +114,7 @@ public record GetTaskV2CommentsByCommentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ccb55625-95d2-2e80-655f-0e40bf67953f</para>
         /// </summary>
-        [JsonProperty("resource_id")]
+        [JsonPropertyName("resource_id")]
         public string? ResourceId { get; set; }
     }
 }

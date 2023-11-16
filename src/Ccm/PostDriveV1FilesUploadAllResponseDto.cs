@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 上传文件 响应体
@@ -14,6 +13,6 @@ public record PostDriveV1FilesUploadAllResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：boxcnrHpsg1QDqXAAAyachabcef</para>
     /// </summary>
-    [JsonProperty("file_token")]
+    [JsonPropertyName("file_token")]
     public string? FileToken { get; set; }
 }

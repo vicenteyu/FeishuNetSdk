@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 查询提醒时间列表 响应体
@@ -13,7 +12,7 @@ public record GetTaskV1TasksByTaskIdRemindersResponseDto
     /// <para>返回提醒时间设置列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Reminder[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetTaskV1TasksByTaskIdRemindersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetTaskV1TasksByTaskIdRemindersResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：30</para>
         /// </summary>
-        [JsonProperty("relative_fire_minute")]
+        [JsonPropertyName("relative_fire_minute")]
         public int RelativeFireMinute { get; set; }
     }
 
@@ -43,7 +42,7 @@ public record GetTaskV1TasksByTaskIdRemindersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：「填写上次返回的page_token」</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -51,6 +50,6 @@ public record GetTaskV1TasksByTaskIdRemindersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

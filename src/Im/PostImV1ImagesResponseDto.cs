@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 上传图片 响应体
@@ -14,6 +13,6 @@ public record PostImV1ImagesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg</para>
     /// </summary>
-    [JsonProperty("image_key")]
+    [JsonPropertyName("image_key")]
     public string? ImageKey { get; set; }
 }

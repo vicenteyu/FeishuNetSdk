@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 修改单位信息 请求体
@@ -14,6 +13,6 @@ public record PatchContactV3UnitByUnitIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：消费者事业部</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 }

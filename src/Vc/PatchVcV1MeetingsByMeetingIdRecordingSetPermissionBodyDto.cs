@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 授权录制文件 请求体
@@ -13,7 +12,7 @@ public record PatchVcV1MeetingsByMeetingIdRecordingSetPermissionBodyDto
     /// <para>授权对象列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("permission_objects")]
+    [JsonPropertyName("permission_objects")]
     public RecordingPermissionObject[] PermissionObjects { get; set; } = Array.Empty<RecordingPermissionObject>();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PatchVcV1MeetingsByMeetingIdRecordingSetPermissionBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -40,7 +39,7 @@ public record PatchVcV1MeetingsByMeetingIdRecordingSetPermissionBodyDto
         /// <item>4：公网授权（id字段不填）</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public int Type { get; set; }
 
         /// <summary>
@@ -51,7 +50,7 @@ public record PatchVcV1MeetingsByMeetingIdRecordingSetPermissionBodyDto
         /// <item>1：查看</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("permission")]
+        [JsonPropertyName("permission")]
         public int Permission { get; set; }
     }
 
@@ -64,6 +63,6 @@ public record PatchVcV1MeetingsByMeetingIdRecordingSetPermissionBodyDto
     /// <item>1：取消授权</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("action_type")]
+    [JsonPropertyName("action_type")]
     public int? ActionType { get; set; }
 }

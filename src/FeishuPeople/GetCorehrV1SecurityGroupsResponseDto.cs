@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量获取角色列表 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1SecurityGroupsResponseDto
     /// <para>查询的用户角色信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public SecurityGroup[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetCorehrV1SecurityGroupsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：7034393015968122400</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,14 +33,14 @@ public record GetCorehrV1SecurityGroupsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：department_manager</para>
         /// </summary>
-        [JsonProperty("code")]
+        [JsonPropertyName("code")]
         public string Code { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>角色名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public SecurityGroupName? Name { get; set; }
 
         /// <summary>
@@ -54,7 +53,7 @@ public record GetCorehrV1SecurityGroupsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：cn</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -62,7 +61,7 @@ public record GetCorehrV1SecurityGroupsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：en</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
 
@@ -72,14 +71,14 @@ public record GetCorehrV1SecurityGroupsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("active_status")]
+        [JsonPropertyName("active_status")]
         public int ActiveStatus { get; set; }
 
         /// <summary>
         /// <para>角色描述</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public NameSuffix? Description { get; set; }
 
         /// <summary>
@@ -92,7 +91,7 @@ public record GetCorehrV1SecurityGroupsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：cn</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -100,7 +99,7 @@ public record GetCorehrV1SecurityGroupsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：en</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
 
@@ -109,7 +108,7 @@ public record GetCorehrV1SecurityGroupsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public string UpdateTime { get; set; } = string.Empty;
     }
 
@@ -118,7 +117,7 @@ public record GetCorehrV1SecurityGroupsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -126,6 +125,6 @@ public record GetCorehrV1SecurityGroupsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1234452132</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

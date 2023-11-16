@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 移动云空间文档至知识空间 请求体
@@ -15,7 +14,7 @@ public record PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：wikcnKQ1k3p******8Vabce</para>
     /// </summary>
-    [JsonProperty("parent_wiki_token")]
+    [JsonPropertyName("parent_wiki_token")]
     public string? ParentWikiToken { get; set; }
 
     /// <summary>
@@ -31,7 +30,7 @@ public record PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiBodyDto
     /// <item>file：文件</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("obj_type")]
+    [JsonPropertyName("obj_type")]
     public string ObjType { get; set; } = string.Empty;
 
     /// <summary>
@@ -39,7 +38,7 @@ public record PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：doccnzAaOD******Wabcdef</para>
     /// </summary>
-    [JsonProperty("obj_token")]
+    [JsonPropertyName("obj_token")]
     public string ObjToken { get; set; } = string.Empty;
 
     /// <summary>
@@ -48,6 +47,6 @@ public record PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("apply")]
+    [JsonPropertyName("apply")]
     public bool? Apply { get; set; }
 }

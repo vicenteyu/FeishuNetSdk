@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 设置主持人 请求体
@@ -13,7 +12,7 @@ public record PatchVcV1MeetingsByMeetingIdSetHostBodyDto
     /// <para>将要设置的主持人</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("host_user")]
+    [JsonPropertyName("host_user")]
     public MeetingUser HostUser { get; set; } = new();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PatchVcV1MeetingsByMeetingIdSetHostBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -43,7 +42,7 @@ public record PatchVcV1MeetingsByMeetingIdSetHostBodyDto
         /// <item>7：sip用户</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("user_type")]
+        [JsonPropertyName("user_type")]
         public int? UserType { get; set; }
     }
 
@@ -51,6 +50,6 @@ public record PatchVcV1MeetingsByMeetingIdSetHostBodyDto
     /// <para>当前主持人（CAS并发安全：如果和会中当前主持人不符则会设置失败，可使用返回的最新数据重新设置）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("old_host_user")]
+    [JsonPropertyName("old_host_user")]
     public MeetingUser? OldHostUser { get; set; }
 }

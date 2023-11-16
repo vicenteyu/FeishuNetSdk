@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 删除保护范围 请求体
@@ -13,6 +12,6 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDel
     /// <para>需要删除的保护范围ID，可以通过[获取表格元数据](https://open.feishu.cn/document/ukTMukTMukTM/uETMzUjLxEzM14SMxMTN)接口获取</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("protectIds")]
+    [JsonPropertyName("protectIds")]
     public string[] ProtectIds { get; set; } = Array.Empty<string>();
 }

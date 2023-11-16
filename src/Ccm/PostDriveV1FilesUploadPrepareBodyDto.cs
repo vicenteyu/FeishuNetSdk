@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 分片上传文件（预上传） 请求体
@@ -15,7 +14,7 @@ public record PostDriveV1FilesUploadPrepareBodyDto
     /// <para>示例值：test.txt</para>
     /// <para>最大长度：250</para>
     /// </summary>
-    [JsonProperty("file_name")]
+    [JsonPropertyName("file_name")]
     public string FileName { get; set; } = string.Empty;
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostDriveV1FilesUploadPrepareBodyDto
     /// <item>explorer：云空间。</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("parent_type")]
+    [JsonPropertyName("parent_type")]
     public string ParentType { get; set; } = string.Empty;
 
     /// <summary>
@@ -34,7 +33,7 @@ public record PostDriveV1FilesUploadPrepareBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：fldbcO1UuPz8VwnpPx5a92abcef</para>
     /// </summary>
-    [JsonProperty("parent_node")]
+    [JsonPropertyName("parent_node")]
     public string ParentNode { get; set; } = string.Empty;
 
     /// <summary>
@@ -42,6 +41,6 @@ public record PostDriveV1FilesUploadPrepareBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1024</para>
     /// </summary>
-    [JsonProperty("size")]
+    [JsonPropertyName("size")]
     public int Size { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application.Spec;
 /// <summary>
 /// 获取管理员推荐的应用 响应体
@@ -13,35 +12,35 @@ public record GetApplicationV5ApplicationsRecommendResponseDto
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>分页数量</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("page_size")]
+    [JsonPropertyName("page_size")]
     public int? PageSize { get; set; }
 
     /// <summary>
     /// <para>总的数量</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("total_count")]
+    [JsonPropertyName("total_count")]
     public int? TotalCount { get; set; }
 
     /// <summary>
     /// <para>是否还有更多项</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>应用数据列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("app_list")]
+    [JsonPropertyName("app_list")]
     public Application[]? AppList { get; set; }
 
     /// <summary></summary>
@@ -51,21 +50,21 @@ public record GetApplicationV5ApplicationsRecommendResponseDto
         /// <para>应用ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("app_id")]
+        [JsonPropertyName("app_id")]
         public string? AppId { get; set; }
 
         /// <summary>
         /// <para>应用名</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("app_name")]
+        [JsonPropertyName("app_name")]
         public string? AppName { get; set; }
 
         /// <summary>
         /// <para>应用描述</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -78,21 +77,21 @@ public record GetApplicationV5ApplicationsRecommendResponseDto
         /// <item>shortcut：快捷入口</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("app_type")]
+        [JsonPropertyName("app_type")]
         public string? AppType { get; set; }
 
         /// <summary>
         /// <para>应用图标</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("avatar_url")]
+        [JsonPropertyName("avatar_url")]
         public string? AvatarUrl { get; set; }
 
         /// <summary>
         /// <para>可以打开应用的方式, 包含移动端小程序applink、移动端网页applink、PC端小程序applink、移动端小程序applink、PC端网页applink、机器人applink</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("open_methods")]
+        [JsonPropertyName("open_methods")]
         public OpenMethod[]? OpenMethods { get; set; }
 
         /// <summary></summary>
@@ -111,14 +110,14 @@ public record GetApplicationV5ApplicationsRecommendResponseDto
             /// <item>bot：机器人</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
             /// <para>applink链接</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("applink")]
+            [JsonPropertyName("applink")]
             public string? Applink { get; set; }
         }
     }

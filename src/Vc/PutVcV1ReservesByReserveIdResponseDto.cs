@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 更新预约 响应体
@@ -13,7 +12,7 @@ public record PutVcV1ReservesByReserveIdResponseDto
     /// <para>预约数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("reserve")]
+    [JsonPropertyName("reserve")]
     public PutVcV1ReservesByReserveIdResponseDtoReserve? Reserve { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PutVcV1ReservesByReserveIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6911188411934973028</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PutVcV1ReservesByReserveIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：112000358</para>
         /// </summary>
-        [JsonProperty("meeting_no")]
+        [JsonPropertyName("meeting_no")]
         public string? MeetingNo { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PutVcV1ReservesByReserveIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://vc.feishu.cn/j/337736498</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PutVcV1ReservesByReserveIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://meetings.feishu.cn/s/1gub381l4gglv</para>
         /// </summary>
-        [JsonProperty("live_link")]
+        [JsonPropertyName("live_link")]
         public string? LiveLink { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PutVcV1ReservesByReserveIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1608883322</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string? EndTime { get; set; }
 
         /// <summary>
@@ -70,7 +69,7 @@ public record PutVcV1ReservesByReserveIdResponseDto
         /// <item>2：已过期</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("expire_status")]
+        [JsonPropertyName("expire_status")]
         public int? ExpireStatus { get; set; }
     }
 
@@ -78,7 +77,7 @@ public record PutVcV1ReservesByReserveIdResponseDto
     /// <para>预约参数检查信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("reserve_correction_check_info")]
+    [JsonPropertyName("reserve_correction_check_info")]
     public PutVcV1ReservesByReserveIdResponseDtoReserveCorrectionCheckInfo? ReserveCorrectionCheckInfo { get; set; }
 
     /// <summary>
@@ -90,7 +89,7 @@ public record PutVcV1ReservesByReserveIdResponseDto
         /// <para>指定主持人无效id列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("invalid_host_id_list")]
+        [JsonPropertyName("invalid_host_id_list")]
         public string[]? InvalidHostIdList { get; set; }
     }
 }

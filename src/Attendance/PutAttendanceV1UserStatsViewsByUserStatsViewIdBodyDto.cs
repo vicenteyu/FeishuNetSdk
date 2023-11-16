@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 更新统计设置 请求体
@@ -13,7 +12,7 @@ public record PutAttendanceV1UserStatsViewsByUserStatsViewIdBodyDto
     /// <para>统计设置</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("view")]
+    [JsonPropertyName("view")]
     public UserStatsView View { get; set; } = new();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PutAttendanceV1UserStatsViewsByUserStatsViewIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09</para>
         /// </summary>
-        [JsonProperty("view_id")]
+        [JsonPropertyName("view_id")]
         public string ViewId { get; set; } = string.Empty;
 
         /// <summary>
@@ -38,7 +37,7 @@ public record PutAttendanceV1UserStatsViewsByUserStatsViewIdBodyDto
         /// <item>month：月度统计</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("stats_type")]
+        [JsonPropertyName("stats_type")]
         public string StatsType { get; set; } = string.Empty;
 
         /// <summary>
@@ -46,14 +45,14 @@ public record PutAttendanceV1UserStatsViewsByUserStatsViewIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：ec8ddg56</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>用户设置字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("items")]
+        [JsonPropertyName("items")]
         public Item[]? Items { get; set; }
 
         /// <summary>
@@ -66,14 +65,14 @@ public record PutAttendanceV1UserStatsViewsByUserStatsViewIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：522</para>
             /// </summary>
-            [JsonProperty("code")]
+            [JsonPropertyName("code")]
             public string Code { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>子标题</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("child_items")]
+            [JsonPropertyName("child_items")]
             public ChildItem[]? ChildItems { get; set; }
 
             /// <summary>
@@ -86,7 +85,7 @@ public record PutAttendanceV1UserStatsViewsByUserStatsViewIdBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：50101</para>
                 /// </summary>
-                [JsonProperty("code")]
+                [JsonPropertyName("code")]
                 public string Code { get; set; } = string.Empty;
 
                 /// <summary>
@@ -94,7 +93,7 @@ public record PutAttendanceV1UserStatsViewsByUserStatsViewIdBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：0</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
         }

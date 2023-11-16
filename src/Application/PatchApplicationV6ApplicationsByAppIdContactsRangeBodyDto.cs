@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 更新应用通讯录权限范围配置 请求体
@@ -19,7 +18,7 @@ public record PatchApplicationV6ApplicationsByAppIdContactsRangeBodyDto
     /// <item>all：全部成员范围</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("contacts_range_type")]
+    [JsonPropertyName("contacts_range_type")]
     public string ContactsRangeType { get; set; } = string.Empty;
 
     /// <summary>
@@ -27,7 +26,7 @@ public record PatchApplicationV6ApplicationsByAppIdContactsRangeBodyDto
     /// <para>仅contacts_range_type为some 时生效并进行增量更新</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("add_visible_list")]
+    [JsonPropertyName("add_visible_list")]
     public AppContactsRangeIdList? AddVisibleList { get; set; }
 
     /// <summary>
@@ -41,7 +40,7 @@ public record PatchApplicationV6ApplicationsByAppIdContactsRangeBodyDto
         /// <para>必填：否</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("user_ids")]
+        [JsonPropertyName("user_ids")]
         public string[]? UserIds { get; set; }
 
         /// <summary>
@@ -49,7 +48,7 @@ public record PatchApplicationV6ApplicationsByAppIdContactsRangeBodyDto
         /// <para>必填：否</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("department_ids")]
+        [JsonPropertyName("department_ids")]
         public string[]? DepartmentIds { get; set; }
 
         /// <summary>
@@ -57,7 +56,7 @@ public record PatchApplicationV6ApplicationsByAppIdContactsRangeBodyDto
         /// <para>必填：否</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("group_ids")]
+        [JsonPropertyName("group_ids")]
         public string[]? GroupIds { get; set; }
     }
 
@@ -66,6 +65,6 @@ public record PatchApplicationV6ApplicationsByAppIdContactsRangeBodyDto
     /// <para>仅contacts_range_type为some 时生效并进行增量更新</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("del_visible_list")]
+    [JsonPropertyName("del_visible_list")]
     public AppContactsRangeIdList? DelVisibleList { get; set; }
 }

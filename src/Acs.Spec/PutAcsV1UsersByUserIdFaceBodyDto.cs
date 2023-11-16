@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Acs.Spec;
 /// <summary>
 /// 上传人脸图片 请求体

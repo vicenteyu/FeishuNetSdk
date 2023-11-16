@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 回复用户在工单里的提问 请求体
@@ -14,14 +13,14 @@ public record PostHelpdeskV1TicketsByTicketIdAnswerUserQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：abcd</para>
     /// </summary>
-    [JsonProperty("event_id")]
+    [JsonPropertyName("event_id")]
     public string EventId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>faq结果列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("faqs")]
+    [JsonPropertyName("faqs")]
     public UserQueryFaqInfo[]? Faqs { get; set; }
 
     /// <summary>
@@ -34,7 +33,7 @@ public record PostHelpdeskV1TicketsByTicketIdAnswerUserQueryBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：12345</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostHelpdeskV1TicketsByTicketIdAnswerUserQueryBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：0.9</para>
         /// </summary>
-        [JsonProperty("score")]
+        [JsonPropertyName("score")]
         public float? Score { get; set; }
     }
 }

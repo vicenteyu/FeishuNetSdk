@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 创建审批实例 响应体
@@ -13,6 +12,6 @@ public record PostApprovalOpenapiV2InstanceCreateResponseDto
     /// <para>审批实例 Code</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("instance_code")]
+    [JsonPropertyName("instance_code")]
     public string InstanceCode { get; set; } = string.Empty;
 }

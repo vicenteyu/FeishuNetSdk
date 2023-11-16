@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 批量添加角色成员 请求体
@@ -15,6 +14,6 @@ public record PostContactV3FunctionalRolesByRoleIdMembersBatchCreateBodyDto
     /// <para>示例值：["qwer","qweq"]</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("members")]
+    [JsonPropertyName("members")]
     public string[] Members { get; set; } = Array.Empty<string>();
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Search.Spec;
 /// <summary>
 /// 修改数据范式 请求体
@@ -13,7 +12,7 @@ public record PatchSearchV2SchemasBySchemaIdBodyDto
     /// <para>数据展示相关配置</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("display")]
+    [JsonPropertyName("display")]
     public SchemaDisplay? Display { get; set; }
 
     /// <summary></summary>
@@ -30,14 +29,14 @@ public record PatchSearchV2SchemasBySchemaIdBodyDto
         /// <item>search_common_card：普通common卡片</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("card_key")]
+        [JsonPropertyName("card_key")]
         public string CardKey { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>数据字段名称和展示字段名称的映射关系。如果没有设置，则只会展示 与展示字段名称同名的 数据字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("fields_mapping")]
+        [JsonPropertyName("fields_mapping")]
         public SchemaDisplayFieldMapping[]? FieldsMapping { get; set; }
 
         /// <summary></summary>
@@ -48,7 +47,7 @@ public record PatchSearchV2SchemasBySchemaIdBodyDto
             /// <para>**示例值**："summary"</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("display_field")]
+            [JsonPropertyName("display_field")]
             public string DisplayField { get; set; } = string.Empty;
 
             /// <summary>
@@ -56,7 +55,7 @@ public record PatchSearchV2SchemasBySchemaIdBodyDto
             /// <para>**示例值**："${description}"</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("data_field")]
+            [JsonPropertyName("data_field")]
             public string DataField { get; set; } = string.Empty;
         }
     }

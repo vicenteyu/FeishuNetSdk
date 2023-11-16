@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 查询任务列表 请求体
@@ -14,7 +13,7 @@ public record PostApprovalV4TasksSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：lwiu098wj</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostApprovalV4TasksSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string? ApprovalCode { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostApprovalV4TasksSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943</para>
     /// </summary>
-    [JsonProperty("instance_code")]
+    [JsonPropertyName("instance_code")]
     public string? InstanceCode { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostApprovalV4TasksSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976</para>
     /// </summary>
-    [JsonProperty("instance_external_id")]
+    [JsonPropertyName("instance_external_id")]
     public string? InstanceExternalId { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostApprovalV4TasksSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1234567</para>
     /// </summary>
-    [JsonProperty("group_external_id")]
+    [JsonPropertyName("group_external_id")]
     public string? GroupExternalId { get; set; }
 
     /// <summary>
@@ -54,7 +53,7 @@ public record PostApprovalV4TasksSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：test</para>
     /// </summary>
-    [JsonProperty("task_title")]
+    [JsonPropertyName("task_title")]
     public string? TaskTitle { get; set; }
 
     /// <summary>
@@ -72,7 +71,7 @@ public record PostApprovalV4TasksSearchBodyDto
     /// <item>ALL：所有状态</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("task_status")]
+    [JsonPropertyName("task_status")]
     public string? TaskStatus { get; set; }
 
     /// <summary>
@@ -80,7 +79,7 @@ public record PostApprovalV4TasksSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1547654251506</para>
     /// </summary>
-    [JsonProperty("task_start_time_from")]
+    [JsonPropertyName("task_start_time_from")]
     public string? TaskStartTimeFrom { get; set; }
 
     /// <summary>
@@ -88,7 +87,7 @@ public record PostApprovalV4TasksSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1547654251506</para>
     /// </summary>
-    [JsonProperty("task_start_time_to")]
+    [JsonPropertyName("task_start_time_to")]
     public string? TaskStartTimeTo { get; set; }
 
     /// <summary>
@@ -101,7 +100,7 @@ public record PostApprovalV4TasksSearchBodyDto
     /// <item>ja-JP：日文</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("locale")]
+    [JsonPropertyName("locale")]
     public string? Locale { get; set; }
 
     /// <summary>
@@ -109,7 +108,7 @@ public record PostApprovalV4TasksSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：PENDING</para>
     /// </summary>
-    [JsonProperty("task_status_list")]
+    [JsonPropertyName("task_status_list")]
     public string[]? TaskStatusList { get; set; }
 
     /// <summary>
@@ -124,6 +123,6 @@ public record PostApprovalV4TasksSearchBodyDto
     /// </list></para>
     /// <para>默认值：2</para>
     /// </summary>
-    [JsonProperty("order")]
+    [JsonPropertyName("order")]
     public int? Order { get; set; }
 }

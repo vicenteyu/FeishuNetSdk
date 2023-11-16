@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 删除背调自定义字段 请求体
@@ -14,6 +13,6 @@ public record PostHireV1EcoBackgroundCheckCustomFieldsBatchDeleteBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：a001</para>
     /// </summary>
-    [JsonProperty("account_id")]
+    [JsonPropertyName("account_id")]
     public string AccountId { get; set; } = string.Empty;
 }

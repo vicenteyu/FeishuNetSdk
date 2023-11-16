@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 写入审批结果 响应体
@@ -14,7 +13,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
     /// <para>审批信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_approval")]
+    [JsonPropertyName("user_approval")]
     public PostAttendanceV1UserApprovalsResponseDtoUserApproval? UserApproval { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -35,14 +34,14 @@ public record PostAttendanceV1UserApprovalsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：20210104</para>
         /// </summary>
-        [JsonProperty("date")]
+        [JsonPropertyName("date")]
         public string Date { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>外出信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("outs")]
+        [JsonPropertyName("outs")]
         public UserOut[]? Outs { get; set; }
 
         /// <summary>
@@ -55,7 +54,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6737202939523236113</para>
             /// </summary>
-            [JsonProperty("approval_id")]
+            [JsonPropertyName("approval_id")]
             public string? ApprovalId { get; set; }
 
             /// <summary>
@@ -64,7 +63,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：9496E43696967658A512969523E89870</para>
             /// </summary>
-            [JsonProperty("uniq_id")]
+            [JsonPropertyName("uniq_id")]
             public string UniqId { get; set; } = string.Empty;
 
             /// <summary>
@@ -78,7 +77,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <item>4：半小时</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("unit")]
+            [JsonPropertyName("unit")]
             public int Unit { get; set; }
 
             /// <summary>
@@ -86,7 +85,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：28800</para>
             /// </summary>
-            [JsonProperty("interval")]
+            [JsonPropertyName("interval")]
             public int Interval { get; set; }
 
             /// <summary>
@@ -94,7 +93,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：2021-01-0409:00:00</para>
             /// </summary>
-            [JsonProperty("start_time")]
+            [JsonPropertyName("start_time")]
             public string StartTime { get; set; } = string.Empty;
 
             /// <summary>
@@ -102,14 +101,14 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：2021-01-0419:00:00</para>
             /// </summary>
-            [JsonProperty("end_time")]
+            [JsonPropertyName("end_time")]
             public string EndTime { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>外出多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("i18n_names")]
+            [JsonPropertyName("i18n_names")]
             public UserOutI18nNames I18nNames { get; set; } = new();
 
             /// <summary>
@@ -122,7 +121,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：中文描述</para>
                 /// </summary>
-                [JsonProperty("ch")]
+                [JsonPropertyName("ch")]
                 public string? Ch { get; set; }
 
                 /// <summary>
@@ -130,7 +129,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：Englishdescription</para>
                 /// </summary>
-                [JsonProperty("en")]
+                [JsonPropertyName("en")]
                 public string? En { get; set; }
 
                 /// <summary>
@@ -138,7 +137,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：日本語の説明</para>
                 /// </summary>
-                [JsonProperty("ja")]
+                [JsonPropertyName("ja")]
                 public string? Ja { get; set; }
             }
 
@@ -147,7 +146,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：ch</para>
             /// </summary>
-            [JsonProperty("default_locale")]
+            [JsonPropertyName("default_locale")]
             public string DefaultLocale { get; set; } = string.Empty;
 
             /// <summary>
@@ -155,7 +154,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：外出办事</para>
             /// </summary>
-            [JsonProperty("reason")]
+            [JsonPropertyName("reason")]
             public string Reason { get; set; } = string.Empty;
 
             /// <summary>
@@ -163,7 +162,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2021-01-0412:00:00</para>
             /// </summary>
-            [JsonProperty("approve_pass_time")]
+            [JsonPropertyName("approve_pass_time")]
             public string? ApprovePassTime { get; set; }
 
             /// <summary>
@@ -171,7 +170,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2021-01-0411:00:00</para>
             /// </summary>
-            [JsonProperty("approve_apply_time")]
+            [JsonPropertyName("approve_apply_time")]
             public string? ApproveApplyTime { get; set; }
         }
 
@@ -179,7 +178,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
         /// <para>请假信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("leaves")]
+        [JsonPropertyName("leaves")]
         public UserLeave[]? Leaves { get; set; }
 
         /// <summary>
@@ -192,7 +191,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6737202939523236113</para>
             /// </summary>
-            [JsonProperty("approval_id")]
+            [JsonPropertyName("approval_id")]
             public string? ApprovalId { get; set; }
 
             /// <summary>
@@ -201,7 +200,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6852582717813440527</para>
             /// </summary>
-            [JsonProperty("uniq_id")]
+            [JsonPropertyName("uniq_id")]
             public string? UniqId { get; set; }
 
             /// <summary>
@@ -215,7 +214,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <item>4：半小时</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("unit")]
+            [JsonPropertyName("unit")]
             public int Unit { get; set; }
 
             /// <summary>
@@ -223,7 +222,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：28800</para>
             /// </summary>
-            [JsonProperty("interval")]
+            [JsonPropertyName("interval")]
             public int Interval { get; set; }
 
             /// <summary>
@@ -231,7 +230,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：2021-01-0409:00:00</para>
             /// </summary>
-            [JsonProperty("start_time")]
+            [JsonPropertyName("start_time")]
             public string StartTime { get; set; } = string.Empty;
 
             /// <summary>
@@ -239,14 +238,14 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：2021-01-0419:00:00</para>
             /// </summary>
-            [JsonProperty("end_time")]
+            [JsonPropertyName("end_time")]
             public string EndTime { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>假期多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("i18n_names")]
+            [JsonPropertyName("i18n_names")]
             public UserLeaveI18nNames I18nNames { get; set; } = new();
 
             /// <summary>
@@ -259,7 +258,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：中文描述</para>
                 /// </summary>
-                [JsonProperty("ch")]
+                [JsonPropertyName("ch")]
                 public string? Ch { get; set; }
 
                 /// <summary>
@@ -267,7 +266,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：Englishdescription</para>
                 /// </summary>
-                [JsonProperty("en")]
+                [JsonPropertyName("en")]
                 public string? En { get; set; }
 
                 /// <summary>
@@ -275,7 +274,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：日本語の説明</para>
                 /// </summary>
-                [JsonProperty("ja")]
+                [JsonPropertyName("ja")]
                 public string? Ja { get; set; }
             }
 
@@ -289,7 +288,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <item>ja：日文</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("default_locale")]
+            [JsonPropertyName("default_locale")]
             public string DefaultLocale { get; set; } = string.Empty;
 
             /// <summary>
@@ -297,7 +296,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：家里有事</para>
             /// </summary>
-            [JsonProperty("reason")]
+            [JsonPropertyName("reason")]
             public string Reason { get; set; } = string.Empty;
 
             /// <summary>
@@ -305,7 +304,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2021-01-0412:00:00</para>
             /// </summary>
-            [JsonProperty("approve_pass_time")]
+            [JsonPropertyName("approve_pass_time")]
             public string? ApprovePassTime { get; set; }
 
             /// <summary>
@@ -313,7 +312,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2021-01-0411:00:00</para>
             /// </summary>
-            [JsonProperty("approve_apply_time")]
+            [JsonPropertyName("approve_apply_time")]
             public string? ApproveApplyTime { get; set; }
         }
 
@@ -321,7 +320,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
         /// <para>加班信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("overtime_works")]
+        [JsonPropertyName("overtime_works")]
         public UserOvertimeWork[]? OvertimeWorks { get; set; }
 
         /// <summary>
@@ -334,7 +333,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6737202939523236113</para>
             /// </summary>
-            [JsonProperty("approval_id")]
+            [JsonPropertyName("approval_id")]
             public string? ApprovalId { get; set; }
 
             /// <summary>
@@ -342,7 +341,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：1.5</para>
             /// </summary>
-            [JsonProperty("duration")]
+            [JsonPropertyName("duration")]
             public float Duration { get; set; }
 
             /// <summary>
@@ -356,7 +355,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <item>4：半小时</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("unit")]
+            [JsonPropertyName("unit")]
             public int Unit { get; set; }
 
             /// <summary>
@@ -369,7 +368,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <item>3：节假日</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("category")]
+            [JsonPropertyName("category")]
             public int Category { get; set; }
 
             /// <summary>
@@ -383,7 +382,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <item>3：关联加班规则，没有调休或加班费</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public int Type { get; set; }
 
             /// <summary>
@@ -391,7 +390,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：2021-01-0909:00:00</para>
             /// </summary>
-            [JsonProperty("start_time")]
+            [JsonPropertyName("start_time")]
             public string StartTime { get; set; } = string.Empty;
 
             /// <summary>
@@ -399,7 +398,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：2021-01-1013:00:00</para>
             /// </summary>
-            [JsonProperty("end_time")]
+            [JsonPropertyName("end_time")]
             public string EndTime { get; set; } = string.Empty;
         }
 
@@ -407,7 +406,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
         /// <para>出差信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("trips")]
+        [JsonPropertyName("trips")]
         public UserTrip[]? Trips { get; set; }
 
         /// <summary>
@@ -420,7 +419,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6737202939523236113</para>
             /// </summary>
-            [JsonProperty("approval_id")]
+            [JsonPropertyName("approval_id")]
             public string? ApprovalId { get; set; }
 
             /// <summary>
@@ -428,7 +427,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：2021-01-0409:00:00</para>
             /// </summary>
-            [JsonProperty("start_time")]
+            [JsonPropertyName("start_time")]
             public string StartTime { get; set; } = string.Empty;
 
             /// <summary>
@@ -436,7 +435,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：2021-01-0419:00:00</para>
             /// </summary>
-            [JsonProperty("end_time")]
+            [JsonPropertyName("end_time")]
             public string EndTime { get; set; } = string.Empty;
 
             /// <summary>
@@ -444,7 +443,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：培训</para>
             /// </summary>
-            [JsonProperty("reason")]
+            [JsonPropertyName("reason")]
             public string Reason { get; set; } = string.Empty;
 
             /// <summary>
@@ -452,7 +451,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：2021-01-0412:00:00</para>
             /// </summary>
-            [JsonProperty("approve_pass_time")]
+            [JsonPropertyName("approve_pass_time")]
             public string ApprovePassTime { get; set; } = string.Empty;
 
             /// <summary>
@@ -460,7 +459,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：2021-01-0411:00:00</para>
             /// </summary>
-            [JsonProperty("approve_apply_time")]
+            [JsonPropertyName("approve_apply_time")]
             public string ApproveApplyTime { get; set; } = string.Empty;
         }
 
@@ -469,7 +468,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("time_zone")]
+        [JsonPropertyName("time_zone")]
         public string? TimeZone { get; set; }
     }
 }

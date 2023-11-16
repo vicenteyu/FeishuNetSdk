@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 获取群成员发言权限 响应体
@@ -14,7 +13,7 @@ public record GetImV1ChatsByChatIdModerationResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：moderator_list</para>
     /// </summary>
-    [JsonProperty("moderation_setting")]
+    [JsonPropertyName("moderation_setting")]
     public string? ModerationSetting { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record GetImV1ChatsByChatIdModerationResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：0</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -30,14 +29,14 @@ public record GetImV1ChatsByChatIdModerationResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>可发言用户列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public ListModerator[]? Items { get; set; }
 
     /// <summary>
@@ -50,7 +49,7 @@ public record GetImV1ChatsByChatIdModerationResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：user_id</para>
         /// </summary>
-        [JsonProperty("user_id_type")]
+        [JsonPropertyName("user_id_type")]
         public string? UserIdType { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetImV1ChatsByChatIdModerationResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：4d7a3c6g</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetImV1ChatsByChatIdModerationResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2ca1d211f64f6438</para>
         /// </summary>
-        [JsonProperty("tenant_key")]
+        [JsonPropertyName("tenant_key")]
         public string? TenantKey { get; set; }
     }
 }

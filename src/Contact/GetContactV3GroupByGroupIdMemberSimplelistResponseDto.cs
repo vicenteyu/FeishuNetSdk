@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 查询用户组成员列表 响应体
@@ -13,7 +12,7 @@ public record GetContactV3GroupByGroupIdMemberSimplelistResponseDto
     /// <para>成员列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("memberlist")]
+    [JsonPropertyName("memberlist")]
     public Memberlist[] Memberlists { get; set; } = Array.Empty<Memberlist>();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetContactV3GroupByGroupIdMemberSimplelistResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：u287xj12</para>
         /// </summary>
-        [JsonProperty("member_id")]
+        [JsonPropertyName("member_id")]
         public string MemberId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetContactV3GroupByGroupIdMemberSimplelistResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：user</para>
         /// </summary>
-        [JsonProperty("member_type")]
+        [JsonPropertyName("member_type")]
         public string MemberType { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetContactV3GroupByGroupIdMemberSimplelistResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：user_id</para>
         /// </summary>
-        [JsonProperty("member_id_type")]
+        [JsonPropertyName("member_id_type")]
         public string? MemberIdType { get; set; }
     }
 
@@ -51,7 +50,7 @@ public record GetContactV3GroupByGroupIdMemberSimplelistResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：TDRRV9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiJDGexPw=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string PageToken { get; set; } = string.Empty;
 
     /// <summary>
@@ -59,6 +58,6 @@ public record GetContactV3GroupByGroupIdMemberSimplelistResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool HasMore { get; set; }
 }

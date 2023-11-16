@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 复制仪表盘 请求体
@@ -14,6 +13,6 @@ public record PostBitableV1AppsByAppTokenDashboardsByBlockIdCopyBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：Dashboard</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 查询会议室日程主题和会议详情 请求体
@@ -13,7 +12,7 @@ public record PostMeetingRoomSummaryBatchGetBodyDto
     /// <para>需要查询的日程Uid和Original time</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("eventUids")]
+    [JsonPropertyName("eventUids")]
     public EventUid[] EventUids { get; set; } = Array.Empty<EventUid>();
 
     /// <summary></summary>
@@ -23,14 +22,14 @@ public record PostMeetingRoomSummaryBatchGetBodyDto
         /// <para>日程的唯一id</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("uid")]
+        [JsonPropertyName("uid")]
         public string Uid { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>日程实例原始时间。非重复性日程和重复性日程，此处传0；重复性日程的例外，传对应的original_time</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("original_time")]
+        [JsonPropertyName("original_time")]
         public int OriginalTime { get; set; }
     }
 }

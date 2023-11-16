@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 获取会议详情 响应体
@@ -13,7 +12,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
     /// <para>会议数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("meeting")]
+    [JsonPropertyName("meeting")]
     public GetVcV1MeetingsByMeetingIdResponseDtoMeeting? Meeting { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6911188411934433028</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：mymeeting</para>
         /// </summary>
-        [JsonProperty("topic")]
+        [JsonPropertyName("topic")]
         public string? Topic { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://vc.feishu.cn/j/337736498</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：123456789</para>
         /// </summary>
-        [JsonProperty("meeting_no")]
+        [JsonPropertyName("meeting_no")]
         public string? MeetingNo { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1608885566</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1608883322</para>
         /// </summary>
-        [JsonProperty("start_time")]
+        [JsonPropertyName("start_time")]
         public string? StartTime { get; set; }
 
         /// <summary>
@@ -74,14 +73,14 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1608888867</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string? EndTime { get; set; }
 
         /// <summary>
         /// <para>主持人</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("host_user")]
+        [JsonPropertyName("host_user")]
         public MeetingUser? HostUser { get; set; }
 
         /// <summary>
@@ -94,7 +93,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -111,7 +110,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <item>7：sip用户</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("user_type")]
+            [JsonPropertyName("user_type")]
             public int? UserType { get; set; }
         }
 
@@ -125,7 +124,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
         /// <item>3：会议已结束</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public int? Status { get; set; }
 
         /// <summary>
@@ -133,7 +132,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：999</para>
         /// </summary>
-        [JsonProperty("participant_count")]
+        [JsonPropertyName("participant_count")]
         public string? ParticipantCount { get; set; }
 
         /// <summary>
@@ -141,14 +140,14 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// </summary>
-        [JsonProperty("participant_count_accumulated")]
+        [JsonPropertyName("participant_count_accumulated")]
         public string? ParticipantCountAccumulated { get; set; }
 
         /// <summary>
         /// <para>参会人列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("participants")]
+        [JsonPropertyName("participants")]
         public MeetingParticipant[]? Participants { get; set; }
 
         /// <summary>
@@ -161,7 +160,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -169,7 +168,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1624438144</para>
             /// </summary>
-            [JsonProperty("first_join_time")]
+            [JsonPropertyName("first_join_time")]
             public string? FirstJoinTime { get; set; }
 
             /// <summary>
@@ -177,7 +176,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1624438144</para>
             /// </summary>
-            [JsonProperty("final_leave_time")]
+            [JsonPropertyName("final_leave_time")]
             public string? FinalLeaveTime { get; set; }
 
             /// <summary>
@@ -185,7 +184,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：123</para>
             /// </summary>
-            [JsonProperty("in_meeting_duration")]
+            [JsonPropertyName("in_meeting_duration")]
             public string? InMeetingDuration { get; set; }
 
             /// <summary>
@@ -202,7 +201,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <item>7：sip用户</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("user_type")]
+            [JsonPropertyName("user_type")]
             public int? UserType { get; set; }
 
             /// <summary>
@@ -210,7 +209,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("is_host")]
+            [JsonPropertyName("is_host")]
             public bool? IsHost { get; set; }
 
             /// <summary>
@@ -218,7 +217,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_cohost")]
+            [JsonPropertyName("is_cohost")]
             public bool? IsCohost { get; set; }
 
             /// <summary>
@@ -226,7 +225,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_external")]
+            [JsonPropertyName("is_external")]
             public bool? IsExternal { get; set; }
 
             /// <summary>
@@ -240,7 +239,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <item>4：不在会中或已经离开会议</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("status")]
+            [JsonPropertyName("status")]
             public int? Status { get; set; }
         }
 
@@ -248,7 +247,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
         /// <para>会中使用的能力</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("ability")]
+        [JsonPropertyName("ability")]
         public MeetingAbility? Ability { get; set; }
 
         /// <summary>
@@ -261,7 +260,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("use_video")]
+            [JsonPropertyName("use_video")]
             public bool? UseVideo { get; set; }
 
             /// <summary>
@@ -269,7 +268,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("use_audio")]
+            [JsonPropertyName("use_audio")]
             public bool? UseAudio { get; set; }
 
             /// <summary>
@@ -277,7 +276,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("use_share_screen")]
+            [JsonPropertyName("use_share_screen")]
             public bool? UseShareScreen { get; set; }
 
             /// <summary>
@@ -285,7 +284,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("use_follow_screen")]
+            [JsonPropertyName("use_follow_screen")]
             public bool? UseFollowScreen { get; set; }
 
             /// <summary>
@@ -293,7 +292,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("use_recording")]
+            [JsonPropertyName("use_recording")]
             public bool? UseRecording { get; set; }
 
             /// <summary>
@@ -301,7 +300,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("use_pstn")]
+            [JsonPropertyName("use_pstn")]
             public bool? UsePstn { get; set; }
         }
     }

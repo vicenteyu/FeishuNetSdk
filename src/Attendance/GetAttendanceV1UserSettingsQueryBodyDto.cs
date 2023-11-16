@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 批量查询用户人脸识别信息 请求体
@@ -15,6 +14,6 @@ public record GetAttendanceV1UserSettingsQueryBodyDto
     /// <para>示例值：["abd754f7"]</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("user_ids")]
+    [JsonPropertyName("user_ids")]
     public string[] UserIds { get; set; } = Array.Empty<string>();
 }

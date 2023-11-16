@@ -1,5 +1,4 @@
-using Newtonsoft.Json;
-
+global using System.Text.Json.Serialization;
 namespace FeishuNetSdk;
 
 /// <summary>
@@ -10,19 +9,19 @@ public record FeishuResponse<T>
     /// <summary>
     /// 错误码，非 0 表示失败
     /// </summary>
-    [JsonProperty("code")]
+    [JsonPropertyName("code")]
     public int? Code { get; set; }
 
     /// <summary>
     /// 错误描述
     /// </summary>
-    [JsonProperty("msg")]
+    [JsonPropertyName("msg")]
     public string Msg { get; set; } = string.Empty;
 
     /// <summary>
     /// 业务数据
     /// </summary>
-    [JsonProperty("data")]
+    [JsonPropertyName("data")]
     public T? Data { get; set; }
 
     /// <summary>

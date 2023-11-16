@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 获取执行者列表 响应体
@@ -13,7 +12,7 @@ public record GetTaskV1TasksByTaskIdCollaboratorsResponseDto
     /// <para>返回的执行者ID列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Collaborator[]? Items { get; set; }
 
     /// <summary>
@@ -28,7 +27,7 @@ public record GetTaskV1TasksByTaskIdCollaboratorsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_99e1a581b36ecc4862cbfbce473f1234</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -36,7 +35,7 @@ public record GetTaskV1TasksByTaskIdCollaboratorsResponseDto
         /// <para>传入的值为 user_id 或 open_id，由user_id_type 决定。user_id和open_id的获取可见文档[如何获取相关id](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("id_list")]
+        [JsonPropertyName("id_list")]
         public string[]? IdList { get; set; }
     }
 
@@ -45,7 +44,7 @@ public record GetTaskV1TasksByTaskIdCollaboratorsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：「上次返回的page_token」</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -53,6 +52,6 @@ public record GetTaskV1TasksByTaskIdCollaboratorsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

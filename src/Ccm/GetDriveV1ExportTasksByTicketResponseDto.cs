@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 查询导出任务结果 响应体
@@ -13,7 +12,7 @@ public record GetDriveV1ExportTasksByTicketResponseDto
     /// <para>导出任务结果</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("result")]
+    [JsonPropertyName("result")]
     public ExportTask? Result { get; set; }
 
     /// <summary>
@@ -32,7 +31,7 @@ public record GetDriveV1ExportTasksByTicketResponseDto
         /// <item>csv：csv格式</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("file_extension")]
+        [JsonPropertyName("file_extension")]
         public string FileExtension { get; set; } = string.Empty;
 
         /// <summary>
@@ -46,7 +45,7 @@ public record GetDriveV1ExportTasksByTicketResponseDto
         /// <item>docx：新版飞书云文档类型，支持导出为docx、pdf格式</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
@@ -54,7 +53,7 @@ public record GetDriveV1ExportTasksByTicketResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：docName</para>
         /// </summary>
-        [JsonProperty("file_name")]
+        [JsonPropertyName("file_name")]
         public string? FileName { get; set; }
 
         /// <summary>
@@ -62,7 +61,7 @@ public record GetDriveV1ExportTasksByTicketResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：boxcnxe5OxxxxxxxSNdsJviENsk</para>
         /// </summary>
-        [JsonProperty("file_token")]
+        [JsonPropertyName("file_token")]
         public string? FileToken { get; set; }
 
         /// <summary>
@@ -70,7 +69,7 @@ public record GetDriveV1ExportTasksByTicketResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：34356</para>
         /// </summary>
-        [JsonProperty("file_size")]
+        [JsonPropertyName("file_size")]
         public int? FileSize { get; set; }
 
         /// <summary>
@@ -78,7 +77,7 @@ public record GetDriveV1ExportTasksByTicketResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：success</para>
         /// </summary>
-        [JsonProperty("job_error_msg")]
+        [JsonPropertyName("job_error_msg")]
         public string? JobErrorMsg { get; set; }
 
         /// <summary>
@@ -100,7 +99,7 @@ public record GetDriveV1ExportTasksByTicketResponseDto
         /// <item>6000：导出文档图片过多</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("job_status")]
+        [JsonPropertyName("job_status")]
         public int? JobStatus { get; set; }
     }
 }

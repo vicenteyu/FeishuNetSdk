@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk.Spec;
 /// <summary>
 /// 更新工单自定义字段 请求体
@@ -14,7 +13,7 @@ public record PatchHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdBody
     /// <para>**示例值**："test dropdown"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("display_name")]
+    [JsonPropertyName("display_name")]
     public string? DisplayName { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PatchHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdBody
     /// <para>**示例值**："3"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("position")]
+    [JsonPropertyName("position")]
     public string? Position { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PatchHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdBody
     /// <para>**示例值**："下拉示例"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PatchHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdBody
     /// <para>**示例值**：true</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("visible")]
+    [JsonPropertyName("visible")]
     public bool? Visible { get; set; }
 
     /// <summary>
@@ -46,14 +45,14 @@ public record PatchHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdBody
     /// <para>**示例值**：false</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("required")]
+    [JsonPropertyName("required")]
     public bool? Required { get; set; }
 
     /// <summary>
     /// <para>下拉列表选项</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("dropdown_options")]
+    [JsonPropertyName("dropdown_options")]
     public DropdownOptionSuffix? DropdownOptions { get; set; }
 
     /// <summary></summary>
@@ -63,7 +62,7 @@ public record PatchHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdBody
         /// <para>选项列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("children")]
+        [JsonPropertyName("children")]
         public DropdownOption[]? Children { get; set; }
 
         /// <summary></summary>
@@ -73,21 +72,21 @@ public record PatchHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdBody
             /// <para>选项ID</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("tag")]
+            [JsonPropertyName("tag")]
             public string? Tag { get; set; }
 
             /// <summary>
             /// <para>展示名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("display_name")]
+            [JsonPropertyName("display_name")]
             public string? DisplayName { get; set; }
 
             /// <summary>
             /// <para>同上：选项列表，只适用于多层下拉列表（最多可以设置三级下拉列表）</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("children")]
+            [JsonPropertyName("children")]
             public DropdownOption[]? Children { get; set; }
         }
     }

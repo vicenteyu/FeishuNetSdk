@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 更新客服信息 请求体
@@ -14,6 +13,6 @@ public record PatchHelpdeskV1AgentsByAgentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public int? Status { get; set; }
 }

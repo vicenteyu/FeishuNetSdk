@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 推送试卷列表 请求体
@@ -14,14 +13,14 @@ public record PostHireV1EcoExamPapersBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：7147998241542539527</para>
     /// </summary>
-    [JsonProperty("account_id")]
+    [JsonPropertyName("account_id")]
     public string AccountId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>试卷列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("paper_list")]
+    [JsonPropertyName("paper_list")]
     public EcoExamPaperData[] PaperLists { get; set; } = Array.Empty<EcoExamPaperData>();
 
     /// <summary>
@@ -35,7 +34,7 @@ public record PostHireV1EcoExamPapersBodyDto
         /// <para>示例值：7147998241542539527</para>
         /// <para>最小长度：1</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -44,7 +43,7 @@ public record PostHireV1EcoExamPapersBodyDto
         /// <para>示例值：春季测评</para>
         /// <para>最小长度：1</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -52,7 +51,7 @@ public record PostHireV1EcoExamPapersBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：30</para>
         /// </summary>
-        [JsonProperty("duration")]
+        [JsonPropertyName("duration")]
         public int? Duration { get; set; }
 
         /// <summary>
@@ -60,7 +59,7 @@ public record PostHireV1EcoExamPapersBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：30</para>
         /// </summary>
-        [JsonProperty("question_count")]
+        [JsonPropertyName("question_count")]
         public int? QuestionCount { get; set; }
 
         /// <summary>
@@ -68,7 +67,7 @@ public record PostHireV1EcoExamPapersBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1658676234053</para>
         /// </summary>
-        [JsonProperty("start_time")]
+        [JsonPropertyName("start_time")]
         public string? StartTime { get; set; }
 
         /// <summary>
@@ -76,7 +75,7 @@ public record PostHireV1EcoExamPapersBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1672444800000</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string? EndTime { get; set; }
     }
 }

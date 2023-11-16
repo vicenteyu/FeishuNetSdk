@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 删除群菜单 请求体
@@ -14,6 +13,6 @@ public record DeleteImV1ChatsByChatIdMenuTreeBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：7156553273518882844</para>
     /// </summary>
-    [JsonProperty("chat_menu_top_level_ids")]
+    [JsonPropertyName("chat_menu_top_level_ids")]
     public string[] ChatMenuTopLevelIds { get; set; } = Array.Empty<string>();
 }

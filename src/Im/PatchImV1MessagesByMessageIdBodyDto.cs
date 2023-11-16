@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 更新应用发送的消息卡片 请求体
@@ -14,6 +13,6 @@ public record PatchImV1MessagesByMessageIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：参考链接</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
 }

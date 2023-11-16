@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增一个数据表 请求体
@@ -13,7 +12,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
     /// <para>数据表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("table")]
+    [JsonPropertyName("table")]
     public ReqTable? Table { get; set; }
 
     /// <summary>
@@ -29,7 +28,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
         /// <para>示例值：table1</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -40,7 +39,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：表格</para>
         /// </summary>
-        [JsonProperty("default_view_name")]
+        [JsonPropertyName("default_view_name")]
         public string? DefaultViewName { get; set; }
 
         /// <summary>
@@ -51,7 +50,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
         /// <para>必填：否</para>
         /// <para>最大长度：50</para>
         /// </summary>
-        [JsonProperty("fields")]
+        [JsonPropertyName("fields")]
         public AppTableCreateHeader[]? Fields { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：文本</para>
             /// </summary>
-            [JsonProperty("field_name")]
+            [JsonPropertyName("field_name")]
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
@@ -91,14 +90,14 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
             /// <item>1004：修改人</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public int Type { get; set; }
 
             /// <summary>
             /// <para>字段属性</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("property")]
+            [JsonPropertyName("property")]
             public AppTableFieldProperty? Property { get; set; }
 
             /// <summary>
@@ -110,7 +109,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>单选、多选字段的选项信息</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("options")]
+                [JsonPropertyName("options")]
                 public AppTableFieldPropertyOption[]? Options { get; set; }
 
                 /// <summary>
@@ -123,7 +122,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：红色</para>
                     /// </summary>
-                    [JsonProperty("name")]
+                    [JsonPropertyName("name")]
                     public string? Name { get; set; }
 
                     /// <summary>
@@ -131,7 +130,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：optKl35lnG</para>
                     /// </summary>
-                    [JsonProperty("id")]
+                    [JsonPropertyName("id")]
                     public string? Id { get; set; }
 
                     /// <summary>
@@ -139,7 +138,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：0</para>
                     /// </summary>
-                    [JsonProperty("color")]
+                    [JsonPropertyName("color")]
                     public int? Color { get; set; }
                 }
 
@@ -148,7 +147,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：0</para>
                 /// </summary>
-                [JsonProperty("formatter")]
+                [JsonPropertyName("formatter")]
                 public string? Formatter { get; set; }
 
                 /// <summary>
@@ -156,7 +155,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：日期格式</para>
                 /// </summary>
-                [JsonProperty("date_formatter")]
+                [JsonPropertyName("date_formatter")]
                 public string? DateFormatter { get; set; }
 
                 /// <summary>
@@ -164,7 +163,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
-                [JsonProperty("auto_fill")]
+                [JsonPropertyName("auto_fill")]
                 public bool? AutoFill { get; set; }
 
                 /// <summary>
@@ -172,7 +171,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
-                [JsonProperty("multiple")]
+                [JsonPropertyName("multiple")]
                 public bool? Multiple { get; set; }
 
                 /// <summary>
@@ -180,7 +179,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：tblsRc9GRRXKqhvW</para>
                 /// </summary>
-                [JsonProperty("table_id")]
+                [JsonPropertyName("table_id")]
                 public string? TableId { get; set; }
 
                 /// <summary>
@@ -188,7 +187,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值："table2"</para>
                 /// </summary>
-                [JsonProperty("table_name")]
+                [JsonPropertyName("table_name")]
                 public string? TableName { get; set; }
 
                 /// <summary>
@@ -196,14 +195,14 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值："table1-双向关联"</para>
                 /// </summary>
-                [JsonProperty("back_field_name")]
+                [JsonPropertyName("back_field_name")]
                 public string? BackFieldName { get; set; }
 
                 /// <summary>
                 /// <para>自动编号类型</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("auto_serial")]
+                [JsonPropertyName("auto_serial")]
                 public AppFieldPropertyAutoSerial? AutoSerial { get; set; }
 
                 /// <summary>
@@ -220,14 +219,14 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                     /// <item>auto_increment_number：自增数字</item>
                     /// </list></para>
                     /// </summary>
-                    [JsonProperty("type")]
+                    [JsonPropertyName("type")]
                     public string Type { get; set; } = string.Empty;
 
                     /// <summary>
                     /// <para>自动编号规则列表</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("options")]
+                    [JsonPropertyName("options")]
                     public AppFieldPropertyAutoSerialOptions[]? Options { get; set; }
 
                     /// <summary>
@@ -245,7 +244,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                         /// <item>created_time：创建时间，支持格式"yyyyMMdd"、"yyyyMM"、"yyyy"、"MMdd"、"MM"、"dd"</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("type")]
+                        [JsonPropertyName("type")]
                         public string Type { get; set; } = string.Empty;
 
                         /// <summary>
@@ -253,7 +252,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                         /// <para>必填：是</para>
                         /// <para>示例值：yyyyMMdd</para>
                         /// </summary>
-                        [JsonProperty("value")]
+                        [JsonPropertyName("value")]
                         public string Value { get; set; } = string.Empty;
                     }
                 }
@@ -262,7 +261,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>地理位置输入方式</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("location")]
+                [JsonPropertyName("location")]
                 public AppFieldPropertyLocation? Location { get; set; }
 
                 /// <summary>
@@ -279,7 +278,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                     /// <item>not_limit：无限制</item>
                     /// </list></para>
                     /// </summary>
-                    [JsonProperty("input_type")]
+                    [JsonPropertyName("input_type")]
                     public string InputType { get; set; } = string.Empty;
                 }
 
@@ -288,14 +287,14 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：bitable::$table[tblNj92WQBAasdEf].$field[fldMV60rYs]*2</para>
                 /// </summary>
-                [JsonProperty("formula_expression")]
+                [JsonPropertyName("formula_expression")]
                 public string? FormulaExpression { get; set; }
 
                 /// <summary>
                 /// <para>字段支持的编辑模式</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("allowed_edit_modes")]
+                [JsonPropertyName("allowed_edit_modes")]
                 public AppTableFieldPropertyAllowedEditModes? AllowedEditModes { get; set; }
 
                 /// <summary>
@@ -308,7 +307,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：true</para>
                     /// </summary>
-                    [JsonProperty("manual")]
+                    [JsonPropertyName("manual")]
                     public bool? Manual { get; set; }
 
                     /// <summary>
@@ -316,7 +315,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：true</para>
                     /// </summary>
-                    [JsonProperty("scan")]
+                    [JsonPropertyName("scan")]
                     public bool? Scan { get; set; }
                 }
 
@@ -325,7 +324,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：0</para>
                 /// </summary>
-                [JsonProperty("min")]
+                [JsonPropertyName("min")]
                 public float? Min { get; set; }
 
                 /// <summary>
@@ -333,7 +332,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：10</para>
                 /// </summary>
-                [JsonProperty("max")]
+                [JsonPropertyName("max")]
                 public float? Max { get; set; }
 
                 /// <summary>
@@ -341,7 +340,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>
-                [JsonProperty("range_customize")]
+                [JsonPropertyName("range_customize")]
                 public bool? RangeCustomize { get; set; }
 
                 /// <summary>
@@ -349,14 +348,14 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：CNY</para>
                 /// </summary>
-                [JsonProperty("currency_code")]
+                [JsonPropertyName("currency_code")]
                 public string? CurrencyCode { get; set; }
 
                 /// <summary>
                 /// <para>评分字段的相关设置</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("rating")]
+                [JsonPropertyName("rating")]
                 public AppTableFieldPropertyRating? Rating { get; set; }
 
                 /// <summary>
@@ -369,7 +368,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：star</para>
                     /// </summary>
-                    [JsonProperty("symbol")]
+                    [JsonPropertyName("symbol")]
                     public string? Symbol { get; set; }
                 }
             }
@@ -378,7 +377,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
             /// <para>字段的描述</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("description")]
+            [JsonPropertyName("description")]
             public AppTableFieldDescription? Description { get; set; }
 
             /// <summary>
@@ -392,7 +391,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>示例值：true</para>
                 /// <para>默认值：true</para>
                 /// </summary>
-                [JsonProperty("disable_sync")]
+                [JsonPropertyName("disable_sync")]
                 public bool? DisableSync { get; set; }
 
                 /// <summary>
@@ -400,7 +399,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：请按name_id格式填写\n例如：“Alice_20202020”</para>
                 /// </summary>
-                [JsonProperty("text")]
+                [JsonPropertyName("text")]
                 public string? Text { get; set; }
             }
         }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 获取审批通过数据 请求体
@@ -14,7 +13,7 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：["abd754f7"]</para>
     /// </summary>
-    [JsonProperty("user_ids")]
+    [JsonPropertyName("user_ids")]
     public string[] UserIds { get; set; } = Array.Empty<string>();
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：20190817</para>
     /// </summary>
-    [JsonProperty("check_date_from")]
+    [JsonPropertyName("check_date_from")]
     public int CheckDateFrom { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：20190820</para>
     /// </summary>
-    [JsonProperty("check_date_to")]
+    [JsonPropertyName("check_date_to")]
     public int CheckDateTo { get; set; }
 
     /// <summary>
@@ -43,7 +42,7 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
     /// <item>UpdateTime：单据状态更新时间（新增字段，对特定租户生效）</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("check_date_type")]
+    [JsonPropertyName("check_date_type")]
     public string? CheckDateType { get; set; }
 
     /// <summary>
@@ -58,7 +57,7 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
     /// <item>4：已撤回</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public int? Status { get; set; }
 
     /// <summary>
@@ -66,7 +65,7 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1566641088</para>
     /// </summary>
-    [JsonProperty("check_time_from")]
+    [JsonPropertyName("check_time_from")]
     public string? CheckTimeFrom { get; set; }
 
     /// <summary>
@@ -74,6 +73,6 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1592561088</para>
     /// </summary>
-    [JsonProperty("check_time_to")]
+    [JsonPropertyName("check_time_to")]
     public string? CheckTimeTo { get; set; }
 }

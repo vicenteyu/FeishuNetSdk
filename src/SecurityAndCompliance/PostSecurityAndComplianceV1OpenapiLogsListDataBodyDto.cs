@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.SecurityAndCompliance;
 /// <summary>
 /// 获取OpenAPI审计日志数据 请求体
@@ -14,7 +13,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("api_keys")]
+    [JsonPropertyName("api_keys")]
     public string[]? ApiKeys { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1610613336</para>
     /// </summary>
-    [JsonProperty("start_time")]
+    [JsonPropertyName("start_time")]
     public int? StartTime { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1610613336</para>
     /// </summary>
-    [JsonProperty("end_time")]
+    [JsonPropertyName("end_time")]
     public int? EndTime { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：cli_xxx</para>
     /// </summary>
-    [JsonProperty("app_id")]
+    [JsonPropertyName("app_id")]
     public string? AppId { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：20</para>
     /// </summary>
-    [JsonProperty("page_size")]
+    [JsonPropertyName("page_size")]
     public int? PageSize { get; set; }
 
     /// <summary>
@@ -54,6 +53,6 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：xxx</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

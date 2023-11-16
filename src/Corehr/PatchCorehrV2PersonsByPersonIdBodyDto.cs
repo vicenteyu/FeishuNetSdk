@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 更新个人信息（V2） 请求体
@@ -13,7 +12,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>姓名列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("name_list")]
+    [JsonPropertyName("name_list")]
     public PersonName[]? NameLists { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：黄</para>
         /// </summary>
-        [JsonProperty("local_primary")]
+        [JsonPropertyName("local_primary")]
         public string? LocalPrimary { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：四</para>
         /// </summary>
-        [JsonProperty("local_first_name")]
+        [JsonPropertyName("local_first_name")]
         public string? LocalFirstName { get; set; }
 
         /// <summary>
@@ -42,14 +41,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：6862995757234914824</para>
         /// </summary>
-        [JsonProperty("country_region_id")]
+        [JsonPropertyName("country_region_id")]
         public string CountryRegionId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>姓名类型</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name_type")]
+        [JsonPropertyName("name_type")]
         public Enum NameType { get; set; } = new();
 
         /// <summary>
@@ -62,7 +61,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
 
@@ -71,7 +70,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：五</para>
         /// </summary>
-        [JsonProperty("local_first_name_2")]
+        [JsonPropertyName("local_first_name_2")]
         public string? LocalFirstName2 { get; set; }
 
         /// <summary>
@@ -79,14 +78,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：王</para>
         /// </summary>
-        [JsonProperty("local_primary_2")]
+        [JsonPropertyName("local_primary_2")]
         public string? LocalPrimary2 { get; set; }
 
         /// <summary>
         /// <para>补充姓名类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("additional_name_type")]
+        [JsonPropertyName("additional_name_type")]
         public Enum? AdditionalNameType { get; set; }
 
         /// <summary>
@@ -94,7 +93,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：帅</para>
         /// </summary>
-        [JsonProperty("first_name")]
+        [JsonPropertyName("first_name")]
         public string? FirstName { get; set; }
 
         /// <summary>
@@ -102,7 +101,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：王大帅</para>
         /// </summary>
-        [JsonProperty("full_name")]
+        [JsonPropertyName("full_name")]
         public string? FullName { get; set; }
 
         /// <summary>
@@ -110,7 +109,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：王</para>
         /// </summary>
-        [JsonProperty("hereditary")]
+        [JsonPropertyName("hereditary")]
         public string? Hereditary { get; set; }
 
         /// <summary>
@@ -118,7 +117,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：王大帅</para>
         /// </summary>
-        [JsonProperty("custom_name")]
+        [JsonPropertyName("custom_name")]
         public string? CustomName { get; set; }
 
         /// <summary>
@@ -126,7 +125,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：王大帅</para>
         /// </summary>
-        [JsonProperty("custom_local_name")]
+        [JsonPropertyName("custom_local_name")]
         public string? CustomLocalName { get; set; }
 
         /// <summary>
@@ -134,7 +133,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：大</para>
         /// </summary>
-        [JsonProperty("middle_name")]
+        [JsonPropertyName("middle_name")]
         public string? MiddleName { get; set; }
 
         /// <summary>
@@ -142,7 +141,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：王</para>
         /// </summary>
-        [JsonProperty("name_primary")]
+        [JsonPropertyName("name_primary")]
         public string? NamePrimary { get; set; }
 
         /// <summary>
@@ -150,7 +149,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：王</para>
         /// </summary>
-        [JsonProperty("secondary")]
+        [JsonPropertyName("secondary")]
         public string? Secondary { get; set; }
 
         /// <summary>
@@ -158,7 +157,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：王大帅</para>
         /// </summary>
-        [JsonProperty("social")]
+        [JsonPropertyName("social")]
         public Enum? Social { get; set; }
 
         /// <summary>
@@ -166,7 +165,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：王</para>
         /// </summary>
-        [JsonProperty("tertiary")]
+        [JsonPropertyName("tertiary")]
         public string? Tertiary { get; set; }
 
         /// <summary>
@@ -174,7 +173,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：王</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public Enum? Title { get; set; }
 
         /// <summary>
@@ -182,7 +181,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：大</para>
         /// </summary>
-        [JsonProperty("local_middle_name")]
+        [JsonPropertyName("local_middle_name")]
         public string? LocalMiddleName { get; set; }
 
         /// <summary>
@@ -190,7 +189,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：王</para>
         /// </summary>
-        [JsonProperty("local_secondary")]
+        [JsonPropertyName("local_secondary")]
         public string? LocalSecondary { get; set; }
     }
 
@@ -198,7 +197,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>性别，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("gender")]
+    [JsonPropertyName("gender")]
     public Enum? Gender { get; set; }
 
     /// <summary>
@@ -211,7 +210,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：phone_type</para>
         /// </summary>
-        [JsonProperty("enum_name")]
+        [JsonPropertyName("enum_name")]
         public string EnumName { get; set; } = string.Empty;
     }
 
@@ -220,28 +219,28 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
-    [JsonProperty("date_of_birth")]
+    [JsonPropertyName("date_of_birth")]
     public string? DateOfBirth { get; set; }
 
     /// <summary>
     /// <para>民族 / 种族，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("race")]
+    [JsonPropertyName("race")]
     public Enum? Race { get; set; }
 
     /// <summary>
     /// <para>婚姻状况，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("marital_status")]
+    [JsonPropertyName("marital_status")]
     public Enum? MaritalStatus { get; set; }
 
     /// <summary>
     /// <para>电话列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("phone_list")]
+    [JsonPropertyName("phone_list")]
     public Phone[]? PhoneLists { get; set; }
 
     /// <summary>
@@ -253,7 +252,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>国家区号</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("international_area_code")]
+        [JsonPropertyName("international_area_code")]
         public Enum? InternationalAreaCode { get; set; }
 
         /// <summary>
@@ -266,7 +265,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
 
@@ -275,7 +274,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：010-12345678</para>
         /// </summary>
-        [JsonProperty("phone_number")]
+        [JsonPropertyName("phone_number")]
         public string PhoneNumber { get; set; } = string.Empty;
     }
 
@@ -283,7 +282,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>地址列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("address_list")]
+    [JsonPropertyName("address_list")]
     public Address[]? AddressLists { get; set; }
 
     /// <summary>
@@ -296,7 +295,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6989822217869624863</para>
         /// </summary>
-        [JsonProperty("address_id")]
+        [JsonPropertyName("address_id")]
         public string? AddressId { get; set; }
 
         /// <summary>
@@ -304,7 +303,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：6862995757234914824</para>
         /// </summary>
-        [JsonProperty("country_region_id")]
+        [JsonPropertyName("country_region_id")]
         public string CountryRegionId { get; set; } = string.Empty;
 
         /// <summary>
@@ -312,7 +311,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6863326815667095047</para>
         /// </summary>
-        [JsonProperty("region_id")]
+        [JsonPropertyName("region_id")]
         public string? RegionId { get; set; }
 
         /// <summary>
@@ -320,7 +319,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：丹佛测试地址-纽埃时区</para>
         /// </summary>
-        [JsonProperty("local_address_line1")]
+        [JsonPropertyName("local_address_line1")]
         public string? LocalAddressLine1 { get; set; }
 
         /// <summary>
@@ -328,7 +327,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：PoewH</para>
         /// </summary>
-        [JsonProperty("local_address_line2")]
+        [JsonPropertyName("local_address_line2")]
         public string? LocalAddressLine2 { get; set; }
 
         /// <summary>
@@ -336,7 +335,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：PoewH</para>
         /// </summary>
-        [JsonProperty("local_address_line3")]
+        [JsonPropertyName("local_address_line3")]
         public string? LocalAddressLine3 { get; set; }
 
         /// <summary>
@@ -344,7 +343,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：jmwJc</para>
         /// </summary>
-        [JsonProperty("local_address_line4")]
+        [JsonPropertyName("local_address_line4")]
         public string? LocalAddressLine4 { get; set; }
 
         /// <summary>
@@ -352,7 +351,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：jmwJc</para>
         /// </summary>
-        [JsonProperty("local_address_line5")]
+        [JsonPropertyName("local_address_line5")]
         public string? LocalAddressLine5 { get; set; }
 
         /// <summary>
@@ -360,7 +359,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：jmwJc</para>
         /// </summary>
-        [JsonProperty("local_address_line6")]
+        [JsonPropertyName("local_address_line6")]
         public string? LocalAddressLine6 { get; set; }
 
         /// <summary>
@@ -368,7 +367,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：jmwJc</para>
         /// </summary>
-        [JsonProperty("local_address_line7")]
+        [JsonPropertyName("local_address_line7")]
         public string? LocalAddressLine7 { get; set; }
 
         /// <summary>
@@ -376,7 +375,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：rafSu</para>
         /// </summary>
-        [JsonProperty("local_address_line8")]
+        [JsonPropertyName("local_address_line8")]
         public string? LocalAddressLine8 { get; set; }
 
         /// <summary>
@@ -384,7 +383,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：McPRG</para>
         /// </summary>
-        [JsonProperty("local_address_line9")]
+        [JsonPropertyName("local_address_line9")]
         public string? LocalAddressLine9 { get; set; }
 
         /// <summary>
@@ -392,14 +391,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：611530</para>
         /// </summary>
-        [JsonProperty("postal_code")]
+        [JsonPropertyName("postal_code")]
         public string? PostalCode { get; set; }
 
         /// <summary>
         /// <para>地址类型</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("address_type_list")]
+        [JsonPropertyName("address_type_list")]
         public Enum[] AddressTypeLists { get; set; } = Array.Empty<Enum>();
 
         /// <summary>
@@ -412,7 +411,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
 
@@ -421,7 +420,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_primary")]
+        [JsonPropertyName("is_primary")]
         public bool IsPrimary { get; set; }
 
         /// <summary>
@@ -429,14 +428,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_public")]
+        [JsonPropertyName("is_public")]
         public bool IsPublic { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public CustomFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -449,7 +448,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("custom_api_name")]
+            [JsonPropertyName("custom_api_name")]
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
@@ -457,7 +456,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }
@@ -466,7 +465,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>邮箱列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("email_list")]
+    [JsonPropertyName("email_list")]
     public Email[]? EmailLists { get; set; }
 
     /// <summary>
@@ -479,7 +478,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：1234567@example.feishu.cn</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string EmailSuffix { get; set; } = string.Empty;
 
         /// <summary>
@@ -487,7 +486,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_primary")]
+        [JsonPropertyName("is_primary")]
         public bool? IsPrimary { get; set; }
 
         /// <summary>
@@ -495,14 +494,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_public")]
+        [JsonPropertyName("is_public")]
         public bool? IsPublic { get; set; }
 
         /// <summary>
         /// <para>邮箱用途，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("email_usage")]
+        [JsonPropertyName("email_usage")]
         public Enum? EmailUsage { get; set; }
 
         /// <summary>
@@ -515,7 +514,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
     }
@@ -524,7 +523,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>工作经历列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("work_experience_list")]
+    [JsonPropertyName("work_experience_list")]
     public WorkExperienceInfo[]? WorkExperienceLists { get; set; }
 
     /// <summary>
@@ -536,7 +535,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>公司 / 组织</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("company_organization")]
+        [JsonPropertyName("company_organization")]
         public I18n[]? CompanyOrganizations { get; set; }
 
         /// <summary>
@@ -549,7 +548,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -557,7 +556,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -565,21 +564,21 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>部门</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("department")]
+        [JsonPropertyName("department")]
         public I18n[]? Departments { get; set; }
 
         /// <summary>
         /// <para>岗位</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("job")]
+        [JsonPropertyName("job")]
         public I18n[]? Jobs { get; set; }
 
         /// <summary>
         /// <para>工作描述</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public I18n[]? Descriptions { get; set; }
 
         /// <summary>
@@ -587,7 +586,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2020-01-01</para>
         /// </summary>
-        [JsonProperty("start_date")]
+        [JsonPropertyName("start_date")]
         public string? StartDate { get; set; }
 
         /// <summary>
@@ -595,14 +594,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2020-01-01</para>
         /// </summary>
-        [JsonProperty("end_date")]
+        [JsonPropertyName("end_date")]
         public string? EndDate { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public CustomFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -615,7 +614,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("custom_api_name")]
+            [JsonPropertyName("custom_api_name")]
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
@@ -623,7 +622,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }
@@ -632,7 +631,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>教育经历列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("education_list")]
+    [JsonPropertyName("education_list")]
     public Education[]? EducationLists { get; set; }
 
     /// <summary>
@@ -644,7 +643,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>学校</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("school")]
+        [JsonPropertyName("school")]
         public I18n[] Schools { get; set; } = Array.Empty<I18n>();
 
         /// <summary>
@@ -657,7 +656,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -665,7 +664,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -673,7 +672,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>学历</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("level_of_education")]
+        [JsonPropertyName("level_of_education")]
         public Enum? LevelOfEducation { get; set; }
 
         /// <summary>
@@ -686,7 +685,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
 
@@ -695,7 +694,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2011-09-01</para>
         /// </summary>
-        [JsonProperty("start_date")]
+        [JsonPropertyName("start_date")]
         public string? StartDate { get; set; }
 
         /// <summary>
@@ -703,35 +702,35 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2015-06-30</para>
         /// </summary>
-        [JsonProperty("end_date")]
+        [JsonPropertyName("end_date")]
         public string? EndDate { get; set; }
 
         /// <summary>
         /// <para>专业</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("field_of_study")]
+        [JsonPropertyName("field_of_study")]
         public I18n[]? FieldOfStuies { get; set; }
 
         /// <summary>
         /// <para>学位</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("degree")]
+        [JsonPropertyName("degree")]
         public Enum? Degree { get; set; }
 
         /// <summary>
         /// <para>学校名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("school_name")]
+        [JsonPropertyName("school_name")]
         public Enum? SchoolName { get; set; }
 
         /// <summary>
         /// <para>专业名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("field_of_study_name")]
+        [JsonPropertyName("field_of_study_name")]
         public Enum? FieldOfStudyName { get; set; }
 
         /// <summary>
@@ -739,7 +738,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("country_region_id")]
+        [JsonPropertyName("country_region_id")]
         public string? CountryRegionId { get; set; }
 
         /// <summary>
@@ -747,14 +746,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2011-09-01</para>
         /// </summary>
-        [JsonProperty("expected_end_date")]
+        [JsonPropertyName("expected_end_date")]
         public string? ExpectedEndDate { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public CustomFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -767,7 +766,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("custom_api_name")]
+            [JsonPropertyName("custom_api_name")]
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
@@ -775,7 +774,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }
@@ -784,7 +783,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>银行账户</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("bank_account_list")]
+    [JsonPropertyName("bank_account_list")]
     public BankAccount[]? BankAccountLists { get; set; }
 
     /// <summary>
@@ -797,7 +796,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：中国农业银行</para>
         /// </summary>
-        [JsonProperty("bank_name")]
+        [JsonPropertyName("bank_name")]
         public string? BankName { get; set; }
 
         /// <summary>
@@ -805,7 +804,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：6231200000001223</para>
         /// </summary>
-        [JsonProperty("bank_account_number")]
+        [JsonPropertyName("bank_account_number")]
         public string BankAccountNumber { get; set; } = string.Empty;
 
         /// <summary>
@@ -813,7 +812,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：孟十五</para>
         /// </summary>
-        [JsonProperty("account_holder")]
+        [JsonPropertyName("account_holder")]
         public string AccountHolder { get; set; } = string.Empty;
 
         /// <summary>
@@ -821,7 +820,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：中国农业银行支行</para>
         /// </summary>
-        [JsonProperty("branch_name")]
+        [JsonPropertyName("branch_name")]
         public string? BranchName { get; set; }
 
         /// <summary>
@@ -829,14 +828,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
-        [JsonProperty("country_region_id")]
+        [JsonPropertyName("country_region_id")]
         public string? CountryRegionId { get; set; }
 
         /// <summary>
         /// <para>银行卡用途，枚举值可通过文档【飞书人事枚举常量】银行卡用途（Bank Account Usage）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("bank_account_usage")]
+        [JsonPropertyName("bank_account_usage")]
         public Enum[]? BankAccountUsages { get; set; }
 
         /// <summary>
@@ -849,7 +848,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
 
@@ -857,7 +856,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>银行卡类型，枚举值可通过文档【飞书人事枚举常量】银行卡类型（Bank Account Type）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("bank_account_type")]
+        [JsonPropertyName("bank_account_type")]
         public Enum? BankAccountType { get; set; }
 
         /// <summary>
@@ -865,14 +864,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
-        [JsonProperty("currency_id")]
+        [JsonPropertyName("currency_id")]
         public string? CurrencyId { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public CustomFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -885,7 +884,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("custom_api_name")]
+            [JsonPropertyName("custom_api_name")]
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
@@ -893,7 +892,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }
@@ -902,7 +901,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>证件</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("national_id_list")]
+    [JsonPropertyName("national_id_list")]
     public NationalId[]? NationalIdLists { get; set; }
 
     /// <summary>
@@ -915,7 +914,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：6863330041896371725</para>
         /// </summary>
-        [JsonProperty("national_id_type_id")]
+        [JsonPropertyName("national_id_type_id")]
         public string NationalIdTypeId { get; set; } = string.Empty;
 
         /// <summary>
@@ -923,7 +922,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：1231131333</para>
         /// </summary>
-        [JsonProperty("national_id_number")]
+        [JsonPropertyName("national_id_number")]
         public string NationalIdNumber { get; set; } = string.Empty;
 
         /// <summary>
@@ -931,7 +930,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2020-04-01</para>
         /// </summary>
-        [JsonProperty("issue_date")]
+        [JsonPropertyName("issue_date")]
         public string? IssueDate { get; set; }
 
         /// <summary>
@@ -939,7 +938,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2020-05-21</para>
         /// </summary>
-        [JsonProperty("expiration_date")]
+        [JsonPropertyName("expiration_date")]
         public string? ExpirationDate { get; set; }
 
         /// <summary>
@@ -947,7 +946,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：6862995757234914824</para>
         /// </summary>
-        [JsonProperty("country_region_id")]
+        [JsonPropertyName("country_region_id")]
         public string CountryRegionId { get; set; } = string.Empty;
 
         /// <summary>
@@ -955,14 +954,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：北京市公安局</para>
         /// </summary>
-        [JsonProperty("issued_by")]
+        [JsonPropertyName("issued_by")]
         public string? IssuedBy { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public CustomFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -975,7 +974,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("custom_api_name")]
+            [JsonPropertyName("custom_api_name")]
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
@@ -983,7 +982,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }
@@ -992,7 +991,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>家庭成员列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("dependent_list")]
+    [JsonPropertyName("dependent_list")]
     public Dependent[]? DependentLists { get; set; }
 
     /// <summary>
@@ -1004,7 +1003,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>关系</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("relationship")]
+        [JsonPropertyName("relationship")]
         public Enum Relationship { get; set; } = new();
 
         /// <summary>
@@ -1017,7 +1016,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
 
@@ -1025,7 +1024,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>性别</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("gender")]
+        [JsonPropertyName("gender")]
         public Enum? Gender { get; set; }
 
         /// <summary>
@@ -1033,14 +1032,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2020-01-01</para>
         /// </summary>
-        [JsonProperty("date_of_birth")]
+        [JsonPropertyName("date_of_birth")]
         public string? DateOfBirth { get; set; }
 
         /// <summary>
         /// <para>证件号码</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("national_id_list")]
+        [JsonPropertyName("national_id_list")]
         public NationalId[]? NationalIdLists { get; set; }
 
         /// <summary>
@@ -1053,7 +1052,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：6863330041896371725</para>
             /// </summary>
-            [JsonProperty("national_id_type_id")]
+            [JsonPropertyName("national_id_type_id")]
             public string NationalIdTypeId { get; set; } = string.Empty;
 
             /// <summary>
@@ -1061,7 +1060,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：1231131333</para>
             /// </summary>
-            [JsonProperty("national_id_number")]
+            [JsonPropertyName("national_id_number")]
             public string NationalIdNumber { get; set; } = string.Empty;
 
             /// <summary>
@@ -1069,7 +1068,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：2020-04-01</para>
             /// </summary>
-            [JsonProperty("issue_date")]
+            [JsonPropertyName("issue_date")]
             public string? IssueDate { get; set; }
 
             /// <summary>
@@ -1077,7 +1076,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：2020-05-21</para>
             /// </summary>
-            [JsonProperty("expiration_date")]
+            [JsonPropertyName("expiration_date")]
             public string? ExpirationDate { get; set; }
 
             /// <summary>
@@ -1085,7 +1084,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：6862995757234914824</para>
             /// </summary>
-            [JsonProperty("country_region_id")]
+            [JsonPropertyName("country_region_id")]
             public string CountryRegionId { get; set; } = string.Empty;
 
             /// <summary>
@@ -1093,14 +1092,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：北京市公安局</para>
             /// </summary>
-            [JsonProperty("issued_by")]
+            [JsonPropertyName("issued_by")]
             public string? IssuedBy { get; set; }
 
             /// <summary>
             /// <para>自定义字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("custom_fields")]
+            [JsonPropertyName("custom_fields")]
             public CustomFieldData[]? CustomFields { get; set; }
 
             /// <summary>
@@ -1113,7 +1112,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：name</para>
                 /// </summary>
-                [JsonProperty("custom_api_name")]
+                [JsonPropertyName("custom_api_name")]
                 public string CustomApiName { get; set; } = string.Empty;
 
                 /// <summary>
@@ -1121,7 +1120,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：\"231\"</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
         }
@@ -1130,7 +1129,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>配偶工作状态</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("spouses_working_status")]
+        [JsonPropertyName("spouses_working_status")]
         public Enum? SpousesWorkingStatus { get; set; }
 
         /// <summary>
@@ -1138,7 +1137,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_this_person_covered_by_health_insurance")]
+        [JsonPropertyName("is_this_person_covered_by_health_insurance")]
         public bool? IsThisPersonCoveredByHealthInsurance { get; set; }
 
         /// <summary>
@@ -1146,14 +1145,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("is_this_person_allowed_for_tax_deduction")]
+        [JsonPropertyName("is_this_person_allowed_for_tax_deduction")]
         public bool? IsThisPersonAllowedForTaxDeduction { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public CustomFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -1166,7 +1165,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("custom_api_name")]
+            [JsonPropertyName("custom_api_name")]
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
@@ -1174,7 +1173,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -1183,7 +1182,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：张三</para>
         /// </summary>
-        [JsonProperty("dependent_name")]
+        [JsonPropertyName("dependent_name")]
         public string? DependentName { get; set; }
 
         /// <summary>
@@ -1191,7 +1190,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：海淀区交警大队</para>
         /// </summary>
-        [JsonProperty("employer")]
+        [JsonPropertyName("employer")]
         public string? Employer { get; set; }
 
         /// <summary>
@@ -1199,14 +1198,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：保安</para>
         /// </summary>
-        [JsonProperty("job")]
+        [JsonPropertyName("job")]
         public string? Job { get; set; }
 
         /// <summary>
         /// <para>电话</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("phone")]
+        [JsonPropertyName("phone")]
         public DependentPhone? Phone { get; set; }
 
         /// <summary>
@@ -1218,7 +1217,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>国家区号</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("international_area_code")]
+            [JsonPropertyName("international_area_code")]
             public Enum? InternationalAreaCode { get; set; }
 
             /// <summary>
@@ -1231,7 +1230,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：phone_type</para>
                 /// </summary>
-                [JsonProperty("enum_name")]
+                [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
             }
 
@@ -1240,7 +1239,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：010-12345678</para>
             /// </summary>
-            [JsonProperty("phone_number")]
+            [JsonPropertyName("phone_number")]
             public string PhoneNumber { get; set; } = string.Empty;
         }
 
@@ -1248,7 +1247,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>联系地址</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("address")]
+        [JsonPropertyName("address")]
         public DependentAddress? Address { get; set; }
 
         /// <summary>
@@ -1261,7 +1260,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：6989822217869624863</para>
             /// </summary>
-            [JsonProperty("address_id")]
+            [JsonPropertyName("address_id")]
             public string? AddressId { get; set; }
 
             /// <summary>
@@ -1269,7 +1268,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：6862995757234914824</para>
             /// </summary>
-            [JsonProperty("country_region_id")]
+            [JsonPropertyName("country_region_id")]
             public string CountryRegionId { get; set; } = string.Empty;
 
             /// <summary>
@@ -1277,7 +1276,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：6863326815667095047</para>
             /// </summary>
-            [JsonProperty("region_id")]
+            [JsonPropertyName("region_id")]
             public string? RegionId { get; set; }
 
             /// <summary>
@@ -1285,7 +1284,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：丹佛测试地址-纽埃时区</para>
             /// </summary>
-            [JsonProperty("local_address_line1")]
+            [JsonPropertyName("local_address_line1")]
             public string? LocalAddressLine1 { get; set; }
 
             /// <summary>
@@ -1293,7 +1292,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：PoewH</para>
             /// </summary>
-            [JsonProperty("local_address_line2")]
+            [JsonPropertyName("local_address_line2")]
             public string? LocalAddressLine2 { get; set; }
 
             /// <summary>
@@ -1301,7 +1300,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：PoewH</para>
             /// </summary>
-            [JsonProperty("local_address_line3")]
+            [JsonPropertyName("local_address_line3")]
             public string? LocalAddressLine3 { get; set; }
 
             /// <summary>
@@ -1309,7 +1308,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：jmwJc</para>
             /// </summary>
-            [JsonProperty("local_address_line4")]
+            [JsonPropertyName("local_address_line4")]
             public string? LocalAddressLine4 { get; set; }
 
             /// <summary>
@@ -1317,7 +1316,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：jmwJc</para>
             /// </summary>
-            [JsonProperty("local_address_line5")]
+            [JsonPropertyName("local_address_line5")]
             public string? LocalAddressLine5 { get; set; }
 
             /// <summary>
@@ -1325,7 +1324,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：jmwJc</para>
             /// </summary>
-            [JsonProperty("local_address_line6")]
+            [JsonPropertyName("local_address_line6")]
             public string? LocalAddressLine6 { get; set; }
 
             /// <summary>
@@ -1333,7 +1332,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：jmwJc</para>
             /// </summary>
-            [JsonProperty("local_address_line7")]
+            [JsonPropertyName("local_address_line7")]
             public string? LocalAddressLine7 { get; set; }
 
             /// <summary>
@@ -1341,7 +1340,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：rafSu</para>
             /// </summary>
-            [JsonProperty("local_address_line8")]
+            [JsonPropertyName("local_address_line8")]
             public string? LocalAddressLine8 { get; set; }
 
             /// <summary>
@@ -1349,7 +1348,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：McPRG</para>
             /// </summary>
-            [JsonProperty("local_address_line9")]
+            [JsonPropertyName("local_address_line9")]
             public string? LocalAddressLine9 { get; set; }
 
             /// <summary>
@@ -1357,14 +1356,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：611530</para>
             /// </summary>
-            [JsonProperty("postal_code")]
+            [JsonPropertyName("postal_code")]
             public string? PostalCode { get; set; }
 
             /// <summary>
             /// <para>自定义字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("custom_fields")]
+            [JsonPropertyName("custom_fields")]
             public CustomFieldData[]? CustomFields { get; set; }
 
             /// <summary>
@@ -1377,7 +1376,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：name</para>
                 /// </summary>
-                [JsonProperty("custom_api_name")]
+                [JsonPropertyName("custom_api_name")]
                 public string CustomApiName { get; set; } = string.Empty;
 
                 /// <summary>
@@ -1385,7 +1384,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：\"231\"</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
         }
@@ -1394,7 +1393,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>出生证明</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("birth_certificate_of_child")]
+        [JsonPropertyName("birth_certificate_of_child")]
         public File[]? BirthCertificateOfChilds { get; set; }
 
         /// <summary>
@@ -1407,7 +1406,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
         }
     }
@@ -1416,7 +1415,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>紧急联系人列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("emergency_contact_list")]
+    [JsonPropertyName("emergency_contact_list")]
     public EmergencyContact[]? EmergencyContactLists { get; set; }
 
     /// <summary>
@@ -1428,7 +1427,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>姓名</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public PersonName? Name { get; set; }
 
         /// <summary>
@@ -1441,7 +1440,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：黄</para>
             /// </summary>
-            [JsonProperty("local_primary")]
+            [JsonPropertyName("local_primary")]
             public string? LocalPrimary { get; set; }
 
             /// <summary>
@@ -1449,7 +1448,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：四</para>
             /// </summary>
-            [JsonProperty("local_first_name")]
+            [JsonPropertyName("local_first_name")]
             public string? LocalFirstName { get; set; }
 
             /// <summary>
@@ -1457,14 +1456,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：6862995757234914824</para>
             /// </summary>
-            [JsonProperty("country_region_id")]
+            [JsonPropertyName("country_region_id")]
             public string CountryRegionId { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>姓名类型</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("name_type")]
+            [JsonPropertyName("name_type")]
             public Enum NameType { get; set; } = new();
 
             /// <summary>
@@ -1477,7 +1476,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：phone_type</para>
                 /// </summary>
-                [JsonProperty("enum_name")]
+                [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
             }
 
@@ -1486,7 +1485,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：五</para>
             /// </summary>
-            [JsonProperty("local_first_name_2")]
+            [JsonPropertyName("local_first_name_2")]
             public string? LocalFirstName2 { get; set; }
 
             /// <summary>
@@ -1494,14 +1493,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：王</para>
             /// </summary>
-            [JsonProperty("local_primary_2")]
+            [JsonPropertyName("local_primary_2")]
             public string? LocalPrimary2 { get; set; }
 
             /// <summary>
             /// <para>补充姓名类型</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("additional_name_type")]
+            [JsonPropertyName("additional_name_type")]
             public Enum? AdditionalNameType { get; set; }
 
             /// <summary>
@@ -1509,7 +1508,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：帅</para>
             /// </summary>
-            [JsonProperty("first_name")]
+            [JsonPropertyName("first_name")]
             public string? FirstName { get; set; }
 
             /// <summary>
@@ -1517,7 +1516,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：王大帅</para>
             /// </summary>
-            [JsonProperty("full_name")]
+            [JsonPropertyName("full_name")]
             public string? FullName { get; set; }
 
             /// <summary>
@@ -1525,7 +1524,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：王</para>
             /// </summary>
-            [JsonProperty("hereditary")]
+            [JsonPropertyName("hereditary")]
             public string? Hereditary { get; set; }
 
             /// <summary>
@@ -1533,7 +1532,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：王大帅</para>
             /// </summary>
-            [JsonProperty("custom_name")]
+            [JsonPropertyName("custom_name")]
             public string? CustomName { get; set; }
 
             /// <summary>
@@ -1541,7 +1540,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：王大帅</para>
             /// </summary>
-            [JsonProperty("custom_local_name")]
+            [JsonPropertyName("custom_local_name")]
             public string? CustomLocalName { get; set; }
 
             /// <summary>
@@ -1549,7 +1548,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：大</para>
             /// </summary>
-            [JsonProperty("middle_name")]
+            [JsonPropertyName("middle_name")]
             public string? MiddleName { get; set; }
 
             /// <summary>
@@ -1557,7 +1556,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：王</para>
             /// </summary>
-            [JsonProperty("name_primary")]
+            [JsonPropertyName("name_primary")]
             public string? NamePrimary { get; set; }
 
             /// <summary>
@@ -1565,7 +1564,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：王</para>
             /// </summary>
-            [JsonProperty("secondary")]
+            [JsonPropertyName("secondary")]
             public string? Secondary { get; set; }
 
             /// <summary>
@@ -1573,7 +1572,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：王大帅</para>
             /// </summary>
-            [JsonProperty("social")]
+            [JsonPropertyName("social")]
             public Enum? Social { get; set; }
 
             /// <summary>
@@ -1581,7 +1580,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：王</para>
             /// </summary>
-            [JsonProperty("tertiary")]
+            [JsonPropertyName("tertiary")]
             public string? Tertiary { get; set; }
 
             /// <summary>
@@ -1589,7 +1588,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：王</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public Enum? Title { get; set; }
 
             /// <summary>
@@ -1597,7 +1596,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：大</para>
             /// </summary>
-            [JsonProperty("local_middle_name")]
+            [JsonPropertyName("local_middle_name")]
             public string? LocalMiddleName { get; set; }
 
             /// <summary>
@@ -1605,7 +1604,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：王</para>
             /// </summary>
-            [JsonProperty("local_secondary")]
+            [JsonPropertyName("local_secondary")]
             public string? LocalSecondary { get; set; }
         }
 
@@ -1613,7 +1612,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>关系</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("relationship")]
+        [JsonPropertyName("relationship")]
         public Enum? Relationship { get; set; }
 
         /// <summary>
@@ -1626,7 +1625,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
 
@@ -1634,7 +1633,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>电话</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("phone_ist")]
+        [JsonPropertyName("phone_ist")]
         public Phone[]? PhoneIsts { get; set; }
 
         /// <summary>
@@ -1646,7 +1645,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>国家区号</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("international_area_code")]
+            [JsonPropertyName("international_area_code")]
             public Enum? InternationalAreaCode { get; set; }
 
             /// <summary>
@@ -1659,7 +1658,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：phone_type</para>
                 /// </summary>
-                [JsonProperty("enum_name")]
+                [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
             }
 
@@ -1668,7 +1667,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：010-12345678</para>
             /// </summary>
-            [JsonProperty("phone_number")]
+            [JsonPropertyName("phone_number")]
             public string PhoneNumber { get; set; } = string.Empty;
         }
 
@@ -1677,7 +1676,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：张三</para>
         /// </summary>
-        [JsonProperty("legal_name")]
+        [JsonPropertyName("legal_name")]
         public string? LegalName { get; set; }
     }
 
@@ -1686,7 +1685,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2020-10-01</para>
     /// </summary>
-    [JsonProperty("date_entered_workforce")]
+    [JsonPropertyName("date_entered_workforce")]
     public string? DateEnteredWorkforce { get; set; }
 
     /// <summary>
@@ -1694,7 +1693,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：dfysuc8x76dsfsw</para>
     /// </summary>
-    [JsonProperty("profile_image_id")]
+    [JsonPropertyName("profile_image_id")]
     public string? ProfileImageId { get; set; }
 
     /// <summary>
@@ -1702,14 +1701,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：22</para>
     /// </summary>
-    [JsonProperty("age")]
+    [JsonPropertyName("age")]
     public int? Age { get; set; }
 
     /// <summary>
     /// <para>个人资料附件</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("personal_profile")]
+    [JsonPropertyName("personal_profile")]
     public PersonalProfile[]? PersonalProfiles { get; set; }
 
     /// <summary>
@@ -1722,14 +1721,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200</para>
         /// </summary>
-        [JsonProperty("personal_profile_id")]
+        [JsonPropertyName("personal_profile_id")]
         public string? PersonalProfileId { get; set; }
 
         /// <summary>
         /// <para>资料类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("personal_profile_type")]
+        [JsonPropertyName("personal_profile_type")]
         public Enum? PersonalProfileType { get; set; }
 
         /// <summary>
@@ -1742,7 +1741,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
 
@@ -1750,7 +1749,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>上传文件列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("files")]
+        [JsonPropertyName("files")]
         public File[]? Files { get; set; }
 
         /// <summary>
@@ -1763,7 +1762,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
         }
     }
@@ -1773,14 +1772,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6863326262618752111</para>
     /// </summary>
-    [JsonProperty("native_region")]
+    [JsonPropertyName("native_region")]
     public string? NativeRegion { get; set; }
 
     /// <summary>
     /// <para>户口类型，枚举值可通过文档 [【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)户口类型（hukou_type）枚举定义部分获得</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("hukou_type")]
+    [JsonPropertyName("hukou_type")]
     public Enum? HukouType { get; set; }
 
     /// <summary>
@@ -1788,7 +1787,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：山东省平阴县</para>
     /// </summary>
-    [JsonProperty("hukou_location")]
+    [JsonPropertyName("hukou_location")]
     public string? HukouLocation { get; set; }
 
     /// <summary>
@@ -1796,14 +1795,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6863326262618752123</para>
     /// </summary>
-    [JsonProperty("talent_id")]
+    [JsonPropertyName("talent_id")]
     public string? TalentId { get; set; }
 
     /// <summary>
     /// <para>自定义字段</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("custom_fields")]
+    [JsonPropertyName("custom_fields")]
     public CustomFieldData[]? CustomFields { get; set; }
 
     /// <summary>
@@ -1816,7 +1815,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：name</para>
         /// </summary>
-        [JsonProperty("custom_api_name")]
+        [JsonPropertyName("custom_api_name")]
         public string CustomApiName { get; set; } = string.Empty;
 
         /// <summary>
@@ -1824,7 +1823,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：\"231\"</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
     }
 
@@ -1833,7 +1832,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：中国</para>
     /// </summary>
-    [JsonProperty("born_country_region")]
+    [JsonPropertyName("born_country_region")]
     public string? BornCountryRegion { get; set; }
 
     /// <summary>
@@ -1841,7 +1840,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("is_disabled")]
+    [JsonPropertyName("is_disabled")]
     public bool? IsDisabled { get; set; }
 
     /// <summary>
@@ -1849,7 +1848,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1110000</para>
     /// </summary>
-    [JsonProperty("disable_card_number")]
+    [JsonPropertyName("disable_card_number")]
     public string? DisableCardNumber { get; set; }
 
     /// <summary>
@@ -1857,7 +1856,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("is_martyr_family")]
+    [JsonPropertyName("is_martyr_family")]
     public bool? IsMartyrFamily { get; set; }
 
     /// <summary>
@@ -1865,7 +1864,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1110000</para>
     /// </summary>
-    [JsonProperty("martyr_card_number")]
+    [JsonPropertyName("martyr_card_number")]
     public string? MartyrCardNumber { get; set; }
 
     /// <summary>
@@ -1873,7 +1872,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("is_old_alone")]
+    [JsonPropertyName("is_old_alone")]
     public bool? IsOldAlone { get; set; }
 
     /// <summary>
@@ -1881,7 +1880,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6863326262618752123</para>
     /// </summary>
-    [JsonProperty("resident_taxes")]
+    [JsonPropertyName("resident_taxes")]
     public ResidentTax[]? ResidentTaxes { get; set; }
 
     /// <summary>
@@ -1894,14 +1893,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：2023</para>
         /// </summary>
-        [JsonProperty("year_resident_tax")]
+        [JsonPropertyName("year_resident_tax")]
         public string YearResidentTax { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>居民身份，枚举值 api_name 可通过 [【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("resident_status")]
+        [JsonPropertyName("resident_status")]
         public Enum? ResidentStatus { get; set; }
 
         /// <summary>
@@ -1914,7 +1913,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
 
@@ -1923,14 +1922,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：中国</para>
         /// </summary>
-        [JsonProperty("tax_country_region_id")]
+        [JsonPropertyName("tax_country_region_id")]
         public string? TaxCountryRegionId { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -1943,7 +1942,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("field_name")]
+            [JsonPropertyName("field_name")]
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
@@ -1951,7 +1950,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：Sandy</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }
@@ -1961,7 +1960,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2021-01-02</para>
     /// </summary>
-    [JsonProperty("first_entry_time")]
+    [JsonPropertyName("first_entry_time")]
     public string? FirstEntryTime { get; set; }
 
     /// <summary>
@@ -1969,6 +1968,6 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-01-02</para>
     /// </summary>
-    [JsonProperty("leave_time")]
+    [JsonPropertyName("leave_time")]
     public string? LeaveTime { get; set; }
 }

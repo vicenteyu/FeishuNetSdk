@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 搜索会议室层级 响应体
@@ -13,6 +12,6 @@ public record GetVcV1RoomLevelsSearchResponseDto
     /// <para>层级ID列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("level_ids")]
+    [JsonPropertyName("level_ids")]
     public string[]? LevelIds { get; set; }
 }

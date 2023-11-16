@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 审批实例抄送 请求体
@@ -13,48 +12,48 @@ public record PostApprovalOpenapiV2InstanceCcBodyDto
     /// <para>审批定义 code</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string ApprovalCode { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>审批实例 code</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("instance_code")]
+    [JsonPropertyName("instance_code")]
     public string InstanceCode { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>发起抄送的人的 user_id</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
     /// <para>发起抄送的人的 open_id，如果传了 user_id 则优先使用 user_id，二者不能同时为空</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("open_id")]
+    [JsonPropertyName("open_id")]
     public string? OpenId { get; set; }
 
     /// <summary>
     /// <para>被抄送人的 user_id 列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("cc_user_ids")]
+    [JsonPropertyName("cc_user_ids")]
     public string[]? CcUserIds { get; set; }
 
     /// <summary>
     /// <para>被抄送人的 open_id 列表，与 cc_user_ids 不可同时为空</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("cc_open_ids")]
+    [JsonPropertyName("cc_open_ids")]
     public string[]? CcOpenIds { get; set; }
 
     /// <summary>
     /// <para>抄送留言</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("comment")]
+    [JsonPropertyName("comment")]
     public string? Comment { get; set; }
 }

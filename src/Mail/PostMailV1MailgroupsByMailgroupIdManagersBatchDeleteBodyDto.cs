@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 批量删除邮件组管理员 请求体
@@ -14,7 +13,7 @@ public record PostMailV1MailgroupsByMailgroupIdManagersBatchDeleteBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：200</para>
     /// </summary>
-    [JsonProperty("mailgroup_manager_list")]
+    [JsonPropertyName("mailgroup_manager_list")]
     public MailgroupManager[]? MailgroupManagerLists { get; set; }
 
     /// <summary>
@@ -28,7 +27,7 @@ public record PostMailV1MailgroupsByMailgroupIdManagersBatchDeleteBodyDto
         /// <para>示例值：xxxxxx</para>
         /// <para>最大长度：1024</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
     }
 }

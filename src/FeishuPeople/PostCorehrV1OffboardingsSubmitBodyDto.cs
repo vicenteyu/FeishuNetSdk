@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 操作员工离职 请求体
@@ -17,7 +16,7 @@ public record PostCorehrV1OffboardingsSubmitBodyDto
     /// <item>1：直接离职</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("offboarding_mode")]
+    [JsonPropertyName("offboarding_mode")]
     public int OffboardingMode { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostCorehrV1OffboardingsSubmitBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6982509313466189342</para>
     /// </summary>
-    [JsonProperty("employment_id")]
+    [JsonPropertyName("employment_id")]
     public string EmploymentId { get; set; } = string.Empty;
 
     /// <summary>
@@ -33,7 +32,7 @@ public record PostCorehrV1OffboardingsSubmitBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：2022-05-18</para>
     /// </summary>
-    [JsonProperty("offboarding_date")]
+    [JsonPropertyName("offboarding_date")]
     public string OffboardingDate { get; set; } = string.Empty;
 
     /// <summary>
@@ -42,7 +41,7 @@ public record PostCorehrV1OffboardingsSubmitBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：reason_for_offboarding_option8</para>
     /// </summary>
-    [JsonProperty("offboarding_reason_unique_identifier")]
+    [JsonPropertyName("offboarding_reason_unique_identifier")]
     public string OffboardingReasonUniqueIdentifier { get; set; } = string.Empty;
 
     /// <summary>
@@ -50,7 +49,7 @@ public record PostCorehrV1OffboardingsSubmitBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：离职原因说明</para>
     /// </summary>
-    [JsonProperty("offboarding_reason_explanation")]
+    [JsonPropertyName("offboarding_reason_explanation")]
     public string? OffboardingReasonExplanation { get; set; }
 
     /// <summary>
@@ -58,7 +57,7 @@ public record PostCorehrV1OffboardingsSubmitBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6982509313466189341</para>
     /// </summary>
-    [JsonProperty("initiator_id")]
+    [JsonPropertyName("initiator_id")]
     public string? InitiatorId { get; set; }
 
     /// <summary>
@@ -66,7 +65,7 @@ public record PostCorehrV1OffboardingsSubmitBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("add_block_list")]
+    [JsonPropertyName("add_block_list")]
     public bool? AddBlockList { get; set; }
 
     /// <summary>
@@ -74,7 +73,7 @@ public record PostCorehrV1OffboardingsSubmitBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：红线</para>
     /// </summary>
-    [JsonProperty("block_reason")]
+    [JsonPropertyName("block_reason")]
     public string? BlockReason { get; set; }
 
     /// <summary>
@@ -82,14 +81,14 @@ public record PostCorehrV1OffboardingsSubmitBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：xx年xx月xx日因xx原因红线</para>
     /// </summary>
-    [JsonProperty("block_reason_explanation")]
+    [JsonPropertyName("block_reason_explanation")]
     public string? BlockReasonExplanation { get; set; }
 
     /// <summary>
     /// <para>自定义字段</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("custom_fields")]
+    [JsonPropertyName("custom_fields")]
     public ObjectFieldData[]? CustomFields { get; set; }
 
     /// <summary>
@@ -102,7 +101,7 @@ public record PostCorehrV1OffboardingsSubmitBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：name</para>
         /// </summary>
-        [JsonProperty("field_name")]
+        [JsonPropertyName("field_name")]
         public string FieldName { get; set; } = string.Empty;
 
         /// <summary>
@@ -110,7 +109,7 @@ public record PostCorehrV1OffboardingsSubmitBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：\"Sandy\"</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
     }
 }

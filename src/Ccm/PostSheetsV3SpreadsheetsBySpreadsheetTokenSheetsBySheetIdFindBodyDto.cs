@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 查找单元格 请求体
@@ -13,7 +12,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyD
     /// <para>查找条件</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("find_condition")]
+    [JsonPropertyName("find_condition")]
     public PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyDtoFindCondition FindCondition { get; set; } = new();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyD
         /// <para>必填：是</para>
         /// <para>示例值：PNIfrm!A1:C5</para>
         /// </summary>
-        [JsonProperty("range")]
+        [JsonPropertyName("range")]
         public string Range { get; set; } = string.Empty;
 
         /// <summary>
@@ -36,7 +35,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyD
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("match_case")]
+        [JsonPropertyName("match_case")]
         public bool? MatchCase { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyD
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("match_entire_cell")]
+        [JsonPropertyName("match_entire_cell")]
         public bool? MatchEntireCell { get; set; }
 
         /// <summary>
@@ -56,7 +55,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyD
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("search_by_regex")]
+        [JsonPropertyName("search_by_regex")]
         public bool? SearchByRegex { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyD
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("include_formulas")]
+        [JsonPropertyName("include_formulas")]
         public bool? IncludeFormulas { get; set; }
     }
 
@@ -75,6 +74,6 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyD
     /// <para>必填：是</para>
     /// <para>示例值：如下 - 普通查找示例: "hello" - 正则查找示例: "[A-Z]\w+"</para>
     /// </summary>
-    [JsonProperty("find")]
+    [JsonPropertyName("find")]
     public string Find { get; set; } = string.Empty;
 }

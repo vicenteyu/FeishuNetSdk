@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 查询角色下的所有成员信息 响应体
@@ -13,7 +12,7 @@ public record GetContactV3FunctionalRolesByRoleIdMembersResponseDto
     /// <para>角色成员列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("members")]
+    [JsonPropertyName("members")]
     public FunctionalRoleMember[]? Members { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetContactV3FunctionalRolesByRoleIdMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -39,14 +38,14 @@ public record GetContactV3FunctionalRolesByRoleIdMembersResponseDto
         /// <item>None：管理范围为空</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("scope_type")]
+        [JsonPropertyName("scope_type")]
         public string? ScopeType { get; set; }
 
         /// <summary>
         /// <para>表示该角色成员的管理范围，scope_type为“指定范围”时，返回该值</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("department_ids")]
+        [JsonPropertyName("department_ids")]
         public string[]? DepartmentIds { get; set; }
     }
 
@@ -55,7 +54,7 @@ public record GetContactV3FunctionalRolesByRoleIdMembersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：2132323</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -63,6 +62,6 @@ public record GetContactV3FunctionalRolesByRoleIdMembersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建外部面评 响应体
@@ -13,7 +12,7 @@ public record PostHireV1ExternalInterviewAssessmentsResponseDto
     /// <para>外部面评信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("external_interview_assessment")]
+    [JsonPropertyName("external_interview_assessment")]
     public PostHireV1ExternalInterviewAssessmentsResponseDtoExternalInterviewAssessment? ExternalInterviewAssessment { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostHireV1ExternalInterviewAssessmentsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6989181065243969836</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostHireV1ExternalInterviewAssessmentsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：shaojiale</para>
         /// </summary>
-        [JsonProperty("username")]
+        [JsonPropertyName("username")]
         public string? Username { get; set; }
 
         /// <summary>
@@ -47,14 +46,14 @@ public record PostHireV1ExternalInterviewAssessmentsResponseDto
         /// <item>3：待定</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("conclusion")]
+        [JsonPropertyName("conclusion")]
         public int? Conclusion { get; set; }
 
         /// <summary>
         /// <para>评价维度列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("assessment_dimension_list")]
+        [JsonPropertyName("assessment_dimension_list")]
         public ExternalInterviewAssessmentDimension[]? AssessmentDimensionLists { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record PostHireV1ExternalInterviewAssessmentsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：99</para>
             /// </summary>
-            [JsonProperty("score")]
+            [JsonPropertyName("score")]
             public int? Score { get; set; }
 
             /// <summary>
@@ -75,7 +74,7 @@ public record PostHireV1ExternalInterviewAssessmentsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：opt</para>
             /// </summary>
-            [JsonProperty("option")]
+            [JsonPropertyName("option")]
             public string? Option { get; set; }
 
             /// <summary>
@@ -83,7 +82,7 @@ public record PostHireV1ExternalInterviewAssessmentsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6989181065243969836</para>
             /// </summary>
-            [JsonProperty("options")]
+            [JsonPropertyName("options")]
             public string[]? Options { get; set; }
 
             /// <summary>
@@ -91,7 +90,7 @@ public record PostHireV1ExternalInterviewAssessmentsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：content</para>
             /// </summary>
-            [JsonProperty("content")]
+            [JsonPropertyName("content")]
             public string? Content { get; set; }
 
             /// <summary>
@@ -105,7 +104,7 @@ public record PostHireV1ExternalInterviewAssessmentsResponseDto
             /// <item>4：多选题</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("assessment_type")]
+            [JsonPropertyName("assessment_type")]
             public int? AssessmentType { get; set; }
 
             /// <summary>
@@ -113,7 +112,7 @@ public record PostHireV1ExternalInterviewAssessmentsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：title</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public string? Title { get; set; }
 
             /// <summary>
@@ -121,7 +120,7 @@ public record PostHireV1ExternalInterviewAssessmentsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：desc</para>
             /// </summary>
-            [JsonProperty("description")]
+            [JsonPropertyName("description")]
             public string? Description { get; set; }
         }
 
@@ -130,7 +129,7 @@ public record PostHireV1ExternalInterviewAssessmentsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：helloworld</para>
         /// </summary>
-        [JsonProperty("content")]
+        [JsonPropertyName("content")]
         public string? Content { get; set; }
 
         /// <summary>
@@ -138,7 +137,7 @@ public record PostHireV1ExternalInterviewAssessmentsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6986199832494934316</para>
         /// </summary>
-        [JsonProperty("external_interview_id")]
+        [JsonPropertyName("external_interview_id")]
         public string ExternalInterviewId { get; set; } = string.Empty;
     }
 }

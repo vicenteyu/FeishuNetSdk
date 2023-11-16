@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 创建会议室层级 请求体
@@ -14,7 +13,7 @@ public record PostVcV1RoomLevelsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：测试层级</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostVcV1RoomLevelsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293</para>
     /// </summary>
-    [JsonProperty("parent_id")]
+    [JsonPropertyName("parent_id")]
     public string ParentId { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,6 +29,6 @@ public record PostVcV1RoomLevelsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：10000</para>
     /// </summary>
-    [JsonProperty("custom_group_id")]
+    [JsonPropertyName("custom_group_id")]
     public string? CustomGroupId { get; set; }
 }

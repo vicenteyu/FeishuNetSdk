@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 创建假期发放记录 请求体
@@ -14,7 +13,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：7111688079785723436</para>
     /// </summary>
-    [JsonProperty("leave_type_id")]
+    [JsonPropertyName("leave_type_id")]
     public string LeaveTypeId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6982509313466189342</para>
     /// </summary>
-    [JsonProperty("employment_id")]
+    [JsonPropertyName("employment_id")]
     public string EmploymentId { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：0.5</para>
     /// </summary>
-    [JsonProperty("granting_quantity")]
+    [JsonPropertyName("granting_quantity")]
     public string GrantingQuantity { get; set; } = string.Empty;
 
     /// <summary>
@@ -41,7 +40,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("granting_unit")]
+    [JsonPropertyName("granting_unit")]
     public int GrantingUnit { get; set; }
 
     /// <summary>
@@ -49,14 +48,14 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：2022-01-01</para>
     /// </summary>
-    [JsonProperty("effective_date")]
+    [JsonPropertyName("effective_date")]
     public string EffectiveDate { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>发放原因</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("reason")]
+    [JsonPropertyName("reason")]
     public I18n[] Reasons { get; set; } = Array.Empty<I18n>();
 
     /// <summary>
@@ -69,7 +68,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：zh-CN</para>
         /// </summary>
-        [JsonProperty("lang")]
+        [JsonPropertyName("lang")]
         public string Lang { get; set; } = string.Empty;
 
         /// <summary>
@@ -77,7 +76,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：张三</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
     }
 
@@ -86,6 +85,6 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：111</para>
     /// </summary>
-    [JsonProperty("external_id")]
+    [JsonPropertyName("external_id")]
     public string? ExternalId { get; set; }
 }

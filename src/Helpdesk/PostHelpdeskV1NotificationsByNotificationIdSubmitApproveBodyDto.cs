@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 提交审核 请求体
@@ -14,6 +13,6 @@ public record PostHelpdeskV1NotificationsByNotificationIdSubmitApproveBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：测试发送消息</para>
     /// </summary>
-    [JsonProperty("reason")]
+    [JsonPropertyName("reason")]
     public string Reason { get; set; } = string.Empty;
 }

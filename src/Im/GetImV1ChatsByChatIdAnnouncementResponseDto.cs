@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 获取群公告信息 响应体
@@ -14,7 +13,7 @@ public record GetImV1ChatsByChatIdAnnouncementResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：xxx</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string? Content { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record GetImV1ChatsByChatIdAnnouncementResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：12</para>
     /// </summary>
-    [JsonProperty("revision")]
+    [JsonPropertyName("revision")]
     public string? Revision { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record GetImV1ChatsByChatIdAnnouncementResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1609296809</para>
     /// </summary>
-    [JsonProperty("create_time")]
+    [JsonPropertyName("create_time")]
     public string? CreateTime { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record GetImV1ChatsByChatIdAnnouncementResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1609296809</para>
     /// </summary>
-    [JsonProperty("update_time")]
+    [JsonPropertyName("update_time")]
     public string? UpdateTime { get; set; }
 
     /// <summary>
@@ -54,7 +53,7 @@ public record GetImV1ChatsByChatIdAnnouncementResponseDto
     /// <item>app_id：以app_id来识别机器人应用</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("owner_id_type")]
+    [JsonPropertyName("owner_id_type")]
     public string? OwnerIdType { get; set; }
 
     /// <summary>
@@ -62,7 +61,7 @@ public record GetImV1ChatsByChatIdAnnouncementResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs</para>
     /// </summary>
-    [JsonProperty("owner_id")]
+    [JsonPropertyName("owner_id")]
     public string? OwnerId { get; set; }
 
     /// <summary>
@@ -78,7 +77,7 @@ public record GetImV1ChatsByChatIdAnnouncementResponseDto
     /// <item>app_id：以app_id来识别应用</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("modifier_id_type")]
+    [JsonPropertyName("modifier_id_type")]
     public string? ModifierIdType { get; set; }
 
     /// <summary>
@@ -86,6 +85,6 @@ public record GetImV1ChatsByChatIdAnnouncementResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs</para>
     /// </summary>
-    [JsonProperty("modifier_id")]
+    [JsonPropertyName("modifier_id")]
     public string? ModifierId { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Acs.Spec;
 /// <summary>
 /// 获取门禁记录列表 响应体
@@ -14,7 +13,7 @@ public record GetAcsV1AccessRecordsResponseDto
     /// <para>-</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public AccessRecord[]? Items { get; set; }
 
     /// <summary></summary>
@@ -24,35 +23,35 @@ public record GetAcsV1AccessRecordsResponseDto
         /// <para>门禁记录 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("access_record_id")]
+        [JsonPropertyName("access_record_id")]
         public string? AccessRecordId { get; set; }
 
         /// <summary>
         /// <para>门禁记录所属用户 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
         /// <para>门禁设备 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("device_id")]
+        [JsonPropertyName("device_id")]
         public string? DeviceId { get; set; }
 
         /// <summary>
         /// <para>是否是打卡</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("is_clock_in")]
+        [JsonPropertyName("is_clock_in")]
         public bool? IsClockIn { get; set; }
 
         /// <summary>
         /// <para>访问时间，单位秒</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("access_time")]
+        [JsonPropertyName("access_time")]
         public string? AccessTime { get; set; }
 
         /// <summary>
@@ -64,35 +63,35 @@ public record GetAcsV1AccessRecordsResponseDto
         /// <item>FA：人脸识别方式</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("access_type")]
+        [JsonPropertyName("access_type")]
         public string? AccessType { get; set; }
 
         /// <summary>
         /// <para>识别相关数据，根据 access_type 不同，取值不同</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("access_data")]
+        [JsonPropertyName("access_data")]
         public string? AccessData { get; set; }
 
         /// <summary>
         /// <para>是否开门</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("is_door_open")]
+        [JsonPropertyName("is_door_open")]
         public bool? IsDoorOpen { get; set; }
 
         /// <summary>
         /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("page_token")]
+        [JsonPropertyName("page_token")]
         public string? PageToken { get; set; }
 
         /// <summary>
         /// <para>是否还有更多项</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("has_more")]
+        [JsonPropertyName("has_more")]
         public bool? HasMore { get; set; }
     }
 }

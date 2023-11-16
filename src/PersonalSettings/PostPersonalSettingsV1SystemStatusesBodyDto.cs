@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.PersonalSettings;
 /// <summary>
 /// 创建系统状态 请求体
@@ -16,7 +15,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：出差</para>
     /// </summary>
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string Title { get; set; } = string.Empty;
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
     /// <para>- 1中文=2英文=2其他语言字符=2字符</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("i18n_title")]
+    [JsonPropertyName("i18n_title")]
     public SystemStatusI18nName? I18nTitle { get; set; }
 
     /// <summary>
@@ -40,7 +39,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：出差</para>
         /// </summary>
-        [JsonProperty("zh_cn")]
+        [JsonPropertyName("zh_cn")]
         public string? ZhCn { get; set; }
 
         /// <summary>
@@ -48,7 +47,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：Onbusinesstrip</para>
         /// </summary>
-        [JsonProperty("en_us")]
+        [JsonPropertyName("en_us")]
         public string? EnUs { get; set; }
 
         /// <summary>
@@ -56,7 +55,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：出張中</para>
         /// </summary>
-        [JsonProperty("ja_jp")]
+        [JsonPropertyName("ja_jp")]
         public string? JaJp { get; set; }
     }
 
@@ -86,7 +85,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
     /// <item>GeneralVacation：GeneralVacation</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("icon_key")]
+    [JsonPropertyName("icon_key")]
     public string IconKey { get; set; } = string.Empty;
 
     /// <summary>
@@ -110,7 +109,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
     /// </list></para>
     /// <para>默认值：BLUE</para>
     /// </summary>
-    [JsonProperty("color")]
+    [JsonPropertyName("color")]
     public string? Color { get; set; }
 
     /// <summary>
@@ -119,14 +118,14 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
     /// <para>示例值：1</para>
     /// <para>默认值：0</para>
     /// </summary>
-    [JsonProperty("priority")]
+    [JsonPropertyName("priority")]
     public int? Priority { get; set; }
 
     /// <summary>
     /// <para>同步设置</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("sync_setting")]
+    [JsonPropertyName("sync_setting")]
     public SystemStatusSyncSetting? SyncSetting { get; set; }
 
     /// <summary>
@@ -140,7 +139,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
         /// <para>示例值：true</para>
         /// <para>默认值：true</para>
         /// </summary>
-        [JsonProperty("is_open_by_default")]
+        [JsonPropertyName("is_open_by_default")]
         public bool? IsOpenByDefault { get; set; }
 
         /// <summary>
@@ -151,7 +150,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
         /// <para>示例值：出差期间自动开启</para>
         /// <para>默认值：自动开启</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
@@ -160,7 +159,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
         /// <para>- 1中文=2英文=2其他语言字符=2字符</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("i18n_title")]
+        [JsonPropertyName("i18n_title")]
         public SystemStatusSyncI18nName? I18nTitle { get; set; }
 
         /// <summary>
@@ -175,7 +174,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：出差期间自动开启</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -183,7 +182,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：AutodisplayBusinessTrip</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
 
             /// <summary>
@@ -191,7 +190,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：出張中に自動的にオンにする</para>
             /// </summary>
-            [JsonProperty("ja_jp")]
+            [JsonPropertyName("ja_jp")]
             public string? JaJp { get; set; }
         }
 
@@ -203,7 +202,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
         /// <para>示例值：出差审批通过后，将自动开启并优先展示该状态。</para>
         /// <para>默认值：从相关系统进行信息同步，同步后将自动开启并优先展示该状态。</para>
         /// </summary>
-        [JsonProperty("explain")]
+        [JsonPropertyName("explain")]
         public string? Explain { get; set; }
 
         /// <summary>
@@ -212,7 +211,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
         /// <para>- 1中文=2英文=2其他语言字符=2字符</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("i18n_explain")]
+        [JsonPropertyName("i18n_explain")]
         public SystemStatusSyncI18nExplain? I18nExplain { get; set; }
 
         /// <summary>
@@ -227,7 +226,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：出差审批通过后，该状态将自动开启并优先展示</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -235,7 +234,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：Auto-displayaftertravelrequestisapproved.</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
 
             /// <summary>
@@ -243,7 +242,7 @@ public record PostPersonalSettingsV1SystemStatusesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：申請が承認されると、このステータスが優先的に表示されます</para>
             /// </summary>
-            [JsonProperty("ja_jp")]
+            [JsonPropertyName("ja_jp")]
             public string? JaJp { get; set; }
         }
     }

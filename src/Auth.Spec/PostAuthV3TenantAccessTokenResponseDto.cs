@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Auth.Spec;
 /// <summary>
 /// 商店应用获取 tenant_access_token 响应体
@@ -14,27 +13,27 @@ public record PostAuthV3TenantAccessTokenResponseDto
     /// <para>错误码，非 0 取值表示失败</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("code")]
+    [JsonPropertyName("code")]
     public int? Code { get; set; }
 
     /// <summary>
     /// <para>错误描述</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("msg")]
+    [JsonPropertyName("msg")]
     public string? Msg { get; set; }
 
     /// <summary>
     /// <para>租户访问凭证</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("tenant_access_token")]
+    [JsonPropertyName("tenant_access_token")]
     public string TenantAccessToken { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>`tenant_access_token` 的过期时间，单位为秒</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("expire")]
+    [JsonPropertyName("expire")]
     public long Expire { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取员工薪资标准 响应体
@@ -14,14 +13,14 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：7174758593538295340</para>
     /// </summary>
-    [JsonProperty("standard_id")]
+    [JsonPropertyName("standard_id")]
     public string? StandardId { get; set; }
 
     /// <summary>
     /// <para>薪资等级</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("grade")]
+    [JsonPropertyName("grade")]
     public CpstGrade? Grade { get; set; }
 
     /// <summary>
@@ -34,7 +33,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7174758360888215084</para>
         /// </summary>
-        [JsonProperty("grade_id")]
+        [JsonPropertyName("grade_id")]
         public string? GradeId { get; set; }
 
         /// <summary>
@@ -42,14 +41,14 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7174758360888247852</para>
         /// </summary>
-        [JsonProperty("grade_tid")]
+        [JsonPropertyName("grade_tid")]
         public string? GradeTid { get; set; }
 
         /// <summary>
         /// <para>带宽上下限和标准值</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("grade_standard_value")]
+        [JsonPropertyName("grade_standard_value")]
         public CpstGradeStandardValue? GradeStandardValue { get; set; }
 
         /// <summary>
@@ -61,7 +60,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
             /// <para>薪资标准的关联对象，项目或者指标</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("reference_object")]
+            [JsonPropertyName("reference_object")]
             public CpstGradeStandardValueReferenceObject? ReferenceObject { get; set; }
 
             /// <summary>
@@ -78,7 +77,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
                 /// <item>cpst_indicator：指标</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("api_name")]
+                [JsonPropertyName("api_name")]
                 public string? ApiName { get; set; }
 
                 /// <summary>
@@ -86,7 +85,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：7156853394442044972</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string? Id { get; set; }
             }
 
@@ -94,7 +93,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
             /// <para>薪资标准类型</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("standard_type")]
+            [JsonPropertyName("standard_type")]
             public CpstStandardType? StandardType { get; set; }
 
             /// <summary>
@@ -112,7 +111,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
                 /// <item>bandwidth_upper_and_lower_limit：bandwidth_upper_and_lower_limit</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("api_name")]
+                [JsonPropertyName("api_name")]
                 public string? ApiName { get; set; }
             }
 
@@ -120,7 +119,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
             /// <para>上下限</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("band_width")]
+            [JsonPropertyName("band_width")]
             public CpstBandWidth? BandWidth { get; set; }
 
             /// <summary>
@@ -133,7 +132,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：15000</para>
                 /// </summary>
-                [JsonProperty("upper_limit")]
+                [JsonPropertyName("upper_limit")]
                 public string? UpperLimit { get; set; }
 
                 /// <summary>
@@ -141,7 +140,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：10000</para>
                 /// </summary>
-                [JsonProperty("lower_limit")]
+                [JsonPropertyName("lower_limit")]
                 public string? LowerLimit { get; set; }
             }
 
@@ -150,7 +149,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：12000</para>
             /// </summary>
-            [JsonProperty("standard_value")]
+            [JsonPropertyName("standard_value")]
             public string? StandardValue { get; set; }
         }
 
@@ -158,7 +157,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
         /// <para>币种</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("currency")]
+        [JsonPropertyName("currency")]
         public CpstCurrency? Currency { get; set; }
 
         /// <summary>
@@ -171,7 +170,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6863329932261459464</para>
             /// </summary>
-            [JsonProperty("currency_id")]
+            [JsonPropertyName("currency_id")]
             public string? CurrencyId { get; set; }
 
             /// <summary>
@@ -179,14 +178,14 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：CNY</para>
             /// </summary>
-            [JsonProperty("code")]
+            [JsonPropertyName("code")]
             public string? Code { get; set; }
 
             /// <summary>
             /// <para>币种名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public CpstI18n? Name { get; set; }
 
             /// <summary>
@@ -199,7 +198,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：中文名称</para>
                 /// </summary>
-                [JsonProperty("zh_cn")]
+                [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
@@ -207,7 +206,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：englishname</para>
                 /// </summary>
-                [JsonProperty("en_us")]
+                [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
             }
         }
@@ -216,7 +215,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
         /// <para>薪资标准描述</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public CpstI18n? Description { get; set; }
 
         /// <summary>
@@ -229,7 +228,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：中文名称</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -237,7 +236,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：englishname</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
     }
@@ -247,6 +246,6 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1660924800000</para>
     /// </summary>
-    [JsonProperty("effective_time")]
+    [JsonPropertyName("effective_time")]
     public string? EffectiveTime { get; set; }
 }

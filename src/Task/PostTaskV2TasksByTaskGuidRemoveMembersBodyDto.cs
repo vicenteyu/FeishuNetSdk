@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 移除任务成员 请求体
@@ -14,7 +13,7 @@ public record PostTaskV2TasksByTaskGuidRemoveMembersBodyDto
     /// <para>必填：是</para>
     /// <para>最大长度：500</para>
     /// </summary>
-    [JsonProperty("members")]
+    [JsonPropertyName("members")]
     public Member[] Members { get; set; } = Array.Empty<Member>();
 
     /// <summary>
@@ -28,7 +27,7 @@ public record PostTaskV2TasksByTaskGuidRemoveMembersBodyDto
         /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -37,7 +36,7 @@ public record PostTaskV2TasksByTaskGuidRemoveMembersBodyDto
         /// <para>示例值：user</para>
         /// <para>默认值：user</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PostTaskV2TasksByTaskGuidRemoveMembersBodyDto
         /// <para>示例值：assignee</para>
         /// <para>最大长度：20</para>
         /// </summary>
-        [JsonProperty("role")]
+        [JsonPropertyName("role")]
         public string Role { get; set; } = string.Empty;
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 复制仪表盘 响应体
@@ -14,7 +13,7 @@ public record PostBitableV1AppsByAppTokenDashboardsByBlockIdCopyResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：blkEsvEEaNllY2UV</para>
     /// </summary>
-    [JsonProperty("block_id")]
+    [JsonPropertyName("block_id")]
     public string? BlockId { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostBitableV1AppsByAppTokenDashboardsByBlockIdCopyResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：Dashboard</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 }

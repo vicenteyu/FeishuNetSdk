@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 移动文件/文件夹 请求体
@@ -23,7 +22,7 @@ public record PostDriveV1FilesByFileTokenMoveBodyDto
     /// <item>folder：文件夹类型</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string? Type { get; set; }
 
     /// <summary>
@@ -31,6 +30,6 @@ public record PostDriveV1FilesByFileTokenMoveBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：fldbcO1UuPz8VwnpPx5a92abcef</para>
     /// </summary>
-    [JsonProperty("folder_token")]
+    [JsonPropertyName("folder_token")]
     public string? FolderToken { get; set; }
 }

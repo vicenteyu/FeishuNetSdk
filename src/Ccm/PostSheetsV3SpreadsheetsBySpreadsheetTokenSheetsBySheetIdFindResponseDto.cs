@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 查找单元格 响应体
@@ -13,7 +12,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindRespo
     /// <para>符合条件的信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("find_result")]
+    [JsonPropertyName("find_result")]
     public FindReplaceResult? FindResult { get; set; }
 
     /// <summary>
@@ -25,14 +24,14 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindRespo
         /// <para>符合查找条件的单元格数组，不包含公式</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("matched_cells")]
+        [JsonPropertyName("matched_cells")]
         public string[]? MatchedCells { get; set; }
 
         /// <summary>
         /// <para>符合查找条件的含有公式的单元格数组</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("matched_formula_cells")]
+        [JsonPropertyName("matched_formula_cells")]
         public string[]? MatchedFormulaCells { get; set; }
 
         /// <summary>
@@ -40,7 +39,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindRespo
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("rows_count")]
+        [JsonPropertyName("rows_count")]
         public int? RowsCount { get; set; }
     }
 }

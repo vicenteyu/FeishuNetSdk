@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 批量获取用户信息 响应体
@@ -13,7 +12,7 @@ public record GetContactV3UsersBatchResponseDto
     /// <para>查询到的用户信息，其中异常的用户ID不返回结果。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public User[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：on_94a1ee5551019f18cd73d9f111898cf2</para>
         /// </summary>
-        [JsonProperty("union_id")]
+        [JsonPropertyName("union_id")]
         public string? UnionId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：3e3cf96b</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string? OpenId { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：张三</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：SanZhang</para>
         /// </summary>
-        [JsonProperty("en_name")]
+        [JsonPropertyName("en_name")]
         public string? EnName { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：AlexZhang</para>
         /// </summary>
-        [JsonProperty("nickname")]
+        [JsonPropertyName("nickname")]
         public string? Nickname { get; set; }
 
         /// <summary>
@@ -77,7 +76,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：zhangsan@gmail.com</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string? Email { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：13011111111(其他例子，中国大陆手机号:13011111111或+8613011111111,非中国大陆手机号:+41446681800)</para>
         /// </summary>
-        [JsonProperty("mobile")]
+        [JsonPropertyName("mobile")]
         public string Mobile { get; set; } = string.Empty;
 
         /// <summary>
@@ -98,7 +97,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("mobile_visible")]
+        [JsonPropertyName("mobile_visible")]
         public bool? MobileVisible { get; set; }
 
         /// <summary>
@@ -111,7 +110,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <item>2：女</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("gender")]
+        [JsonPropertyName("gender")]
         public int? Gender { get; set; }
 
         /// <summary>
@@ -119,14 +118,14 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g</para>
         /// </summary>
-        [JsonProperty("avatar_key")]
+        [JsonPropertyName("avatar_key")]
         public string? AvatarKey { get; set; }
 
         /// <summary>
         /// <para>用户头像信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("avatar")]
+        [JsonPropertyName("avatar")]
         public AvatarInfo? Avatar { get; set; }
 
         /// <summary>
@@ -139,7 +138,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://foo.icon.com/xxxx</para>
             /// </summary>
-            [JsonProperty("avatar_72")]
+            [JsonPropertyName("avatar_72")]
             public string? Avatar72 { get; set; }
 
             /// <summary>
@@ -147,7 +146,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://foo.icon.com/xxxx</para>
             /// </summary>
-            [JsonProperty("avatar_240")]
+            [JsonPropertyName("avatar_240")]
             public string? Avatar240 { get; set; }
 
             /// <summary>
@@ -155,7 +154,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://foo.icon.com/xxxx</para>
             /// </summary>
-            [JsonProperty("avatar_640")]
+            [JsonPropertyName("avatar_640")]
             public string? Avatar640 { get; set; }
 
             /// <summary>
@@ -163,7 +162,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://foo.icon.com/xxxx</para>
             /// </summary>
-            [JsonProperty("avatar_origin")]
+            [JsonPropertyName("avatar_origin")]
             public string? AvatarOrigin { get; set; }
         }
 
@@ -171,7 +170,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>用户状态</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public UserStatus? Status { get; set; }
 
         /// <summary>
@@ -184,7 +183,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_frozen")]
+            [JsonPropertyName("is_frozen")]
             public bool? IsFrozen { get; set; }
 
             /// <summary>
@@ -192,7 +191,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_resigned")]
+            [JsonPropertyName("is_resigned")]
             public bool? IsResigned { get; set; }
 
             /// <summary>
@@ -200,7 +199,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("is_activated")]
+            [JsonPropertyName("is_activated")]
             public bool? IsActivated { get; set; }
 
             /// <summary>
@@ -208,7 +207,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_exited")]
+            [JsonPropertyName("is_exited")]
             public bool? IsExited { get; set; }
 
             /// <summary>
@@ -216,7 +215,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_unjoin")]
+            [JsonPropertyName("is_unjoin")]
             public bool? IsUnjoin { get; set; }
         }
 
@@ -226,7 +225,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>不同 ID 的说明与department_id的获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("department_ids")]
+        [JsonPropertyName("department_ids")]
         public string[]? DepartmentIds { get; set; }
 
         /// <summary>
@@ -236,7 +235,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
         /// </summary>
-        [JsonProperty("leader_user_id")]
+        [JsonPropertyName("leader_user_id")]
         public string? LeaderUserId { get; set; }
 
         /// <summary>
@@ -244,7 +243,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：杭州</para>
         /// </summary>
-        [JsonProperty("city")]
+        [JsonPropertyName("city")]
         public string? City { get; set; }
 
         /// <summary>
@@ -252,7 +251,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：CN</para>
         /// </summary>
-        [JsonProperty("country")]
+        [JsonPropertyName("country")]
         public string? Country { get; set; }
 
         /// <summary>
@@ -260,7 +259,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：北楼-H34</para>
         /// </summary>
-        [JsonProperty("work_station")]
+        [JsonPropertyName("work_station")]
         public string? WorkStation { get; set; }
 
         /// <summary>
@@ -268,7 +267,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2147483647</para>
         /// </summary>
-        [JsonProperty("join_time")]
+        [JsonPropertyName("join_time")]
         public int? JoinTime { get; set; }
 
         /// <summary>
@@ -276,7 +275,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("is_tenant_manager")]
+        [JsonPropertyName("is_tenant_manager")]
         public bool? IsTenantManager { get; set; }
 
         /// <summary>
@@ -284,7 +283,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("employee_no")]
+        [JsonPropertyName("employee_no")]
         public string? EmployeeNo { get; set; }
 
         /// <summary>
@@ -298,7 +297,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("employee_type")]
+        [JsonPropertyName("employee_type")]
         public int? EmployeeType { get; set; }
 
         /// <summary>
@@ -306,7 +305,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>用于标记通讯录下组织架构的人员顺序，人员可能存在多个部门中，且有不同的排序。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("orders")]
+        [JsonPropertyName("orders")]
         public UserOrder[]? Orders { get; set; }
 
         /// <summary>
@@ -322,7 +321,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
             /// </summary>
-            [JsonProperty("department_id")]
+            [JsonPropertyName("department_id")]
             public string? DepartmentId { get; set; }
 
             /// <summary>
@@ -330,7 +329,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
-            [JsonProperty("user_order")]
+            [JsonPropertyName("user_order")]
             public int? UserOrderSuffix { get; set; }
 
             /// <summary>
@@ -338,7 +337,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
-            [JsonProperty("department_order")]
+            [JsonPropertyName("department_order")]
             public int? DepartmentOrder { get; set; }
 
             /// <summary>
@@ -346,7 +345,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("is_primary_dept")]
+            [JsonPropertyName("is_primary_dept")]
             public bool? IsPrimaryDept { get; set; }
         }
 
@@ -354,7 +353,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>自定义属性</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_attrs")]
+        [JsonPropertyName("custom_attrs")]
         public UserCustomAttr[]? CustomAttrs { get; set; }
 
         /// <summary>
@@ -373,7 +372,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：TEXT</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -381,14 +380,14 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：DemoId</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
             /// <para>自定义属性取值</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public UserCustomAttrValue? Value { get; set; }
 
             /// <summary>
@@ -401,7 +400,7 @@ public record GetContactV3UsersBatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：DemoText</para>
                 /// </summary>
-                [JsonProperty("text")]
+                [JsonPropertyName("text")]
                 public string? Text { get; set; }
 
                 /// <summary>
@@ -409,7 +408,7 @@ public record GetContactV3UsersBatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：http://www.fs.cn</para>
                 /// </summary>
-                [JsonProperty("url")]
+                [JsonPropertyName("url")]
                 public string? Url { get; set; }
 
                 /// <summary>
@@ -417,7 +416,7 @@ public record GetContactV3UsersBatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：http://www.fs.cn</para>
                 /// </summary>
-                [JsonProperty("pc_url")]
+                [JsonPropertyName("pc_url")]
                 public string? PcUrl { get; set; }
 
                 /// <summary>
@@ -426,7 +425,7 @@ public record GetContactV3UsersBatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：option</para>
                 /// </summary>
-                [JsonProperty("option_id")]
+                [JsonPropertyName("option_id")]
                 public string? OptionId { get; set; }
 
                 /// <summary>
@@ -435,7 +434,7 @@ public record GetContactV3UsersBatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：option</para>
                 /// </summary>
-                [JsonProperty("option_value")]
+                [JsonPropertyName("option_value")]
                 public string? OptionValue { get; set; }
 
                 /// <summary>
@@ -443,7 +442,7 @@ public record GetContactV3UsersBatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：name</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public string? Name { get; set; }
 
                 /// <summary>
@@ -451,14 +450,14 @@ public record GetContactV3UsersBatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：https://xxxxxxxxxxxxxxxxxx</para>
                 /// </summary>
-                [JsonProperty("picture_url")]
+                [JsonPropertyName("picture_url")]
                 public string? PictureUrl { get; set; }
 
                 /// <summary>
                 /// <para>字段类型为 GENERIC_USER 时，该参数定义引用人员</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("generic_user")]
+                [JsonPropertyName("generic_user")]
                 public CustomAttrGenericUser? GenericUser { get; set; }
 
                 /// <summary>
@@ -471,7 +470,7 @@ public record GetContactV3UsersBatchResponseDto
                     /// <para>必填：是</para>
                     /// <para>示例值：9b2fabg5</para>
                     /// </summary>
-                    [JsonProperty("id")]
+                    [JsonPropertyName("id")]
                     public string Id { get; set; } = string.Empty;
 
                     /// <summary>
@@ -481,7 +480,7 @@ public record GetContactV3UsersBatchResponseDto
                     /// <para>必填：是</para>
                     /// <para>示例值：1</para>
                     /// </summary>
-                    [JsonProperty("type")]
+                    [JsonPropertyName("type")]
                     public int Type { get; set; }
                 }
             }
@@ -493,7 +492,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：demo@mail.com</para>
         /// </summary>
-        [JsonProperty("enterprise_email")]
+        [JsonPropertyName("enterprise_email")]
         public string? EnterpriseEmail { get; set; }
 
         /// <summary>
@@ -501,7 +500,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：xxxxx</para>
         /// </summary>
-        [JsonProperty("job_title")]
+        [JsonPropertyName("job_title")]
         public string? JobTitle { get; set; }
 
         /// <summary>
@@ -509,7 +508,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("is_frozen")]
+        [JsonPropertyName("is_frozen")]
         public bool? IsFrozen { get; set; }
 
         /// <summary>
@@ -517,7 +516,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：cn</para>
         /// </summary>
-        [JsonProperty("geo")]
+        [JsonPropertyName("geo")]
         public string? Geo { get; set; }
 
         /// <summary>
@@ -525,7 +524,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：mga5oa8ayjlp9rb</para>
         /// </summary>
-        [JsonProperty("job_level_id")]
+        [JsonPropertyName("job_level_id")]
         public string? JobLevelId { get; set; }
 
         /// <summary>
@@ -533,21 +532,21 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：mga5oa8ayjlp9rb</para>
         /// </summary>
-        [JsonProperty("job_family_id")]
+        [JsonPropertyName("job_family_id")]
         public string? JobFamilyId { get; set; }
 
         /// <summary>
         /// <para>分配给用户的席位ID列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("subscription_ids")]
+        [JsonPropertyName("subscription_ids")]
         public string[]? SubscriptionIds { get; set; }
 
         /// <summary>
         /// <para>用户席位列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("assign_info")]
+        [JsonPropertyName("assign_info")]
         public UserAssignInfo[]? AssignInfos { get; set; }
 
         /// <summary>
@@ -560,7 +559,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：7079609167680782300</para>
             /// </summary>
-            [JsonProperty("subscription_id")]
+            [JsonPropertyName("subscription_id")]
             public string? SubscriptionId { get; set; }
 
             /// <summary>
@@ -568,7 +567,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：suite_enterprise_e5</para>
             /// </summary>
-            [JsonProperty("license_plan_key")]
+            [JsonPropertyName("license_plan_key")]
             public string? LicensePlanKey { get; set; }
 
             /// <summary>
@@ -576,14 +575,14 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：旗舰版E5</para>
             /// </summary>
-            [JsonProperty("product_name")]
+            [JsonPropertyName("product_name")]
             public string? ProductName { get; set; }
 
             /// <summary>
             /// <para>国际化名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("i18n_name")]
+            [JsonPropertyName("i18n_name")]
             public ProductI18nName? I18nName { get; set; }
 
             /// <summary>
@@ -596,7 +595,7 @@ public record GetContactV3UsersBatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：zh_cn_name</para>
                 /// </summary>
-                [JsonProperty("zh_cn")]
+                [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
@@ -604,7 +603,7 @@ public record GetContactV3UsersBatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：ja_jp_name</para>
                 /// </summary>
-                [JsonProperty("ja_jp")]
+                [JsonPropertyName("ja_jp")]
                 public string? JaJp { get; set; }
 
                 /// <summary>
@@ -612,7 +611,7 @@ public record GetContactV3UsersBatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：en_name</para>
                 /// </summary>
-                [JsonProperty("en_us")]
+                [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
             }
 
@@ -621,7 +620,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1674981000</para>
             /// </summary>
-            [JsonProperty("start_time")]
+            [JsonPropertyName("start_time")]
             public string? StartTime { get; set; }
 
             /// <summary>
@@ -629,7 +628,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1674991000</para>
             /// </summary>
-            [JsonProperty("end_time")]
+            [JsonPropertyName("end_time")]
             public string? EndTime { get; set; }
         }
 
@@ -637,7 +636,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>部门路径</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("department_path")]
+        [JsonPropertyName("department_path")]
         public DepartmentDetail[]? DepartmentPaths { get; set; }
 
         /// <summary>
@@ -650,14 +649,14 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
             /// </summary>
-            [JsonProperty("department_id")]
+            [JsonPropertyName("department_id")]
             public string? DepartmentId { get; set; }
 
             /// <summary>
             /// <para>部门名</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("department_name")]
+            [JsonPropertyName("department_name")]
             public DepartmentPathName? DepartmentName { get; set; }
 
             /// <summary>
@@ -670,14 +669,14 @@ public record GetContactV3UsersBatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：测试部门名1</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public string? Name { get; set; }
 
                 /// <summary>
                 /// <para>部门国际化名</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("i18n_name")]
+                [JsonPropertyName("i18n_name")]
                 public DepartmentI18nName? I18nName { get; set; }
 
                 /// <summary>
@@ -690,7 +689,7 @@ public record GetContactV3UsersBatchResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：测试部门名1</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -698,7 +697,7 @@ public record GetContactV3UsersBatchResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：試験部署名1</para>
                     /// </summary>
-                    [JsonProperty("ja_jp")]
+                    [JsonPropertyName("ja_jp")]
                     public string? JaJp { get; set; }
 
                     /// <summary>
@@ -706,7 +705,7 @@ public record GetContactV3UsersBatchResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：Testingdepartmentname1</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
             }
@@ -715,7 +714,7 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>部门路径</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("department_path")]
+            [JsonPropertyName("department_path")]
             public DepartmentDetailDepartmentPath? DepartmentPath { get; set; }
 
             /// <summary>
@@ -727,14 +726,14 @@ public record GetContactV3UsersBatchResponseDto
                 /// <para>部门路径IDs</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("department_ids")]
+                [JsonPropertyName("department_ids")]
                 public string[]? DepartmentIds { get; set; }
 
                 /// <summary>
                 /// <para>部门路径名字</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("department_path_name")]
+                [JsonPropertyName("department_path_name")]
                 public DepartmentDetailDepartmentPathDepartmentPathName? DepartmentPathName { get; set; }
 
                 /// <summary>
@@ -747,14 +746,14 @@ public record GetContactV3UsersBatchResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：测试部门名1</para>
                     /// </summary>
-                    [JsonProperty("name")]
+                    [JsonPropertyName("name")]
                     public string? Name { get; set; }
 
                     /// <summary>
                     /// <para>部门国际化名</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("i18n_name")]
+                    [JsonPropertyName("i18n_name")]
                     public DepartmentI18nName? I18nName { get; set; }
 
                     /// <summary>
@@ -767,7 +766,7 @@ public record GetContactV3UsersBatchResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：测试部门名1</para>
                         /// </summary>
-                        [JsonProperty("zh_cn")]
+                        [JsonPropertyName("zh_cn")]
                         public string? ZhCn { get; set; }
 
                         /// <summary>
@@ -775,7 +774,7 @@ public record GetContactV3UsersBatchResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：試験部署名1</para>
                         /// </summary>
-                        [JsonProperty("ja_jp")]
+                        [JsonPropertyName("ja_jp")]
                         public string? JaJp { get; set; }
 
                         /// <summary>
@@ -783,7 +782,7 @@ public record GetContactV3UsersBatchResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：Testingdepartmentname1</para>
                         /// </summary>
-                        [JsonProperty("en_us")]
+                        [JsonPropertyName("en_us")]
                         public string? EnUs { get; set; }
                     }
                 }
@@ -794,7 +793,7 @@ public record GetContactV3UsersBatchResponseDto
         /// <para>虚线上级ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("dotted_line_leader_user_ids")]
+        [JsonPropertyName("dotted_line_leader_user_ids")]
         public string[]? DottedLineLeaderUserIds { get; set; }
     }
 }

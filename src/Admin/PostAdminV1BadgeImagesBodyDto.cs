@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Admin;
 /// <summary>
 /// 上传勋章图片 请求体

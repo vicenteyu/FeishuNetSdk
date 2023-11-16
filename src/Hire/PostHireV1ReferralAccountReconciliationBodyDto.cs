@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 内推账号提现对账接口 请求体
@@ -14,7 +13,7 @@ public record PostHireV1ReferralAccountReconciliationBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1685416831621</para>
     /// </summary>
-    [JsonProperty("start_trans_time")]
+    [JsonPropertyName("start_trans_time")]
     public string? StartTransTime { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record PostHireV1ReferralAccountReconciliationBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1685416831622</para>
     /// </summary>
-    [JsonProperty("end_trans_time")]
+    [JsonPropertyName("end_trans_time")]
     public string? EndTransTime { get; set; }
 
     /// <summary>
     /// <para>交易信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("trade_details")]
+    [JsonPropertyName("trade_details")]
     public TradeDetail[]? TradeDetails { get; set; }
 
     /// <summary>
@@ -42,14 +41,14 @@ public record PostHireV1ReferralAccountReconciliationBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：6930815272790114324</para>
         /// </summary>
-        [JsonProperty("account_id")]
+        [JsonPropertyName("account_id")]
         public string AccountId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>时间段内该账户在积分商城的实际充值金额</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("total_recharge_reward_info")]
+        [JsonPropertyName("total_recharge_reward_info")]
         public BonusAmount? TotalRechargeRewardInfo { get; set; }
 
         /// <summary>
@@ -62,7 +61,7 @@ public record PostHireV1ReferralAccountReconciliationBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
-            [JsonProperty("point_bonus")]
+            [JsonPropertyName("point_bonus")]
             public int? PointBonus { get; set; }
         }
     }

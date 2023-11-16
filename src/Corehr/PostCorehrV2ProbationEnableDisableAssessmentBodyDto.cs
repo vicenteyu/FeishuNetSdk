@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 启用/停用试用期考核功能 请求体
@@ -14,7 +13,7 @@ public record PostCorehrV2ProbationEnableDisableAssessmentBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("active")]
+    [JsonPropertyName("active")]
     public bool Active { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostCorehrV2ProbationEnableDisableAssessmentBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&amp;key=ffm41o1&amp;dataGrid%41wmv98t29vif3kj=%1B%7D</para>
     /// </summary>
-    [JsonProperty("app_url")]
+    [JsonPropertyName("app_url")]
     public string? AppUrl { get; set; }
 }

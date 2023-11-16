@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取子部门列表 响应体
@@ -14,7 +13,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>部门列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Department[]? Items { get; set; }
 
     /// <summary>
@@ -43,7 +42,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：DemoName</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -51,7 +50,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         /// <para>注意：不可包含斜杠</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("i18n_name")]
+        [JsonPropertyName("i18n_name")]
         public DepartmentI18nName? I18nName { get; set; }
 
         /// <summary>
@@ -65,7 +64,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：部门的中文名</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -73,7 +72,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：部门的日文名</para>
             /// </summary>
-            [JsonProperty("ja_jp")]
+            [JsonPropertyName("ja_jp")]
             public string? JaJp { get; set; }
 
             /// <summary>
@@ -81,7 +80,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：部门的英文名</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
 
@@ -91,7 +90,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：D067</para>
         /// </summary>
-        [JsonProperty("parent_department_id")]
+        [JsonPropertyName("parent_department_id")]
         public string ParentDepartmentId { get; set; } = string.Empty;
 
         /// <summary>
@@ -101,7 +100,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         /// <para>示例值：g148e8fca291dc38</para>
         /// <para>最大长度：64</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
@@ -109,7 +108,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：od-g148e8fca291dc38</para>
         /// </summary>
-        [JsonProperty("open_department_id")]
+        [JsonPropertyName("open_department_id")]
         public string? OpenDepartmentId { get; set; }
 
         /// <summary>
@@ -117,7 +116,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
         /// </summary>
-        [JsonProperty("leader_user_id")]
+        [JsonPropertyName("leader_user_id")]
         public string? LeaderUserId { get; set; }
 
         /// <summary>
@@ -125,7 +124,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
         /// </summary>
-        [JsonProperty("chat_id")]
+        [JsonPropertyName("chat_id")]
         public string? ChatId { get; set; }
 
         /// <summary>
@@ -133,14 +132,14 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>
-        [JsonProperty("order")]
+        [JsonPropertyName("order")]
         public string? Order { get; set; }
 
         /// <summary>
         /// <para>部门单位自定义ID列表，当前只支持一个</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("unit_ids")]
+        [JsonPropertyName("unit_ids")]
         public string[]? UnitIds { get; set; }
 
         /// <summary>
@@ -148,14 +147,14 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>
-        [JsonProperty("member_count")]
+        [JsonPropertyName("member_count")]
         public int? MemberCount { get; set; }
 
         /// <summary>
         /// <para>部门状态</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public DepartmentStatus? Status { get; set; }
 
         /// <summary>
@@ -168,7 +167,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_deleted")]
+            [JsonPropertyName("is_deleted")]
             public bool? IsDeleted { get; set; }
         }
 
@@ -178,14 +177,14 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("create_group_chat")]
+        [JsonPropertyName("create_group_chat")]
         public bool? CreateGroupChat { get; set; }
 
         /// <summary>
         /// <para>部门负责人</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("leaders")]
+        [JsonPropertyName("leaders")]
         public DepartmentLeader[]? Leaders { get; set; }
 
         /// <summary>
@@ -202,7 +201,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
             /// <item>2：副负责人</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("leaderType")]
+            [JsonPropertyName("leaderType")]
             public int LeaderType { get; set; }
 
             /// <summary>
@@ -210,7 +209,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：558e1278</para>
             /// </summary>
-            [JsonProperty("leaderID")]
+            [JsonPropertyName("leaderID")]
             public string LeaderID { get; set; } = string.Empty;
         }
 
@@ -224,7 +223,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         /// <para>6、其他自定义类型字段，可通过下方接口获取到该租户的自定义员工类型的名称，参见[获取人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("group_chat_employee_types")]
+        [JsonPropertyName("group_chat_employee_types")]
         public int[]? GroupChatEmployeeTypes { get; set; }
 
         /// <summary>
@@ -232,7 +231,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         /// <para>必填：否</para>
         /// <para>最大长度：500</para>
         /// </summary>
-        [JsonProperty("department_hrbps")]
+        [JsonPropertyName("department_hrbps")]
         public string[]? DepartmentHrbps { get; set; }
 
         /// <summary>
@@ -240,7 +239,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>
-        [JsonProperty("primary_member_count")]
+        [JsonPropertyName("primary_member_count")]
         public int? PrimaryMemberCount { get; set; }
     }
 }

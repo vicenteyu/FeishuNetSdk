@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 查询禁用状态变更通知 响应体
@@ -13,7 +12,7 @@ public record GetVcV1ReserveConfigsByReserveConfigIdDisableInformResponseDto
     /// <para>会议室禁用通知配置</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("disable_inform")]
+    [JsonPropertyName("disable_inform")]
     public DisableInformConfig? DisableInform { get; set; }
 
     /// <summary>
@@ -27,14 +26,14 @@ public record GetVcV1ReserveConfigsByReserveConfigIdDisableInformResponseDto
         /// <para>示例值：false</para>
         /// <para>默认值：false</para>
         /// </summary>
-        [JsonProperty("if_inform")]
+        [JsonPropertyName("if_inform")]
         public bool IfInform { get; set; }
 
         /// <summary>
         /// <para>通知成员列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("informed_users")]
+        [JsonPropertyName("informed_users")]
         public SubscribeUser[]? InformedUsers { get; set; }
 
         /// <summary>
@@ -47,7 +46,7 @@ public record GetVcV1ReserveConfigsByReserveConfigIdDisableInformResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：ou_e8bce6c3935ef1fc1b432992fd9d3db8</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string UserId { get; set; } = string.Empty;
         }
 
@@ -55,7 +54,7 @@ public record GetVcV1ReserveConfigsByReserveConfigIdDisableInformResponseDto
         /// <para>通知部门列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("informed_depts")]
+        [JsonPropertyName("informed_depts")]
         public SubscribeDepartment[]? InformedDepts { get; set; }
 
         /// <summary>
@@ -68,7 +67,7 @@ public record GetVcV1ReserveConfigsByReserveConfigIdDisableInformResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：od-5c07f0c117cf8795f25610a69363ce31</para>
             /// </summary>
-            [JsonProperty("department_id")]
+            [JsonPropertyName("department_id")]
             public string DepartmentId { get; set; } = string.Empty;
         }
     }

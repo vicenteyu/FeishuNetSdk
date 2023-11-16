@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 创建会议室 请求体
@@ -13,41 +12,41 @@ public record PostMeetingRoomRoomCreateBodyDto
     /// <para>会议室所在的建筑ID</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("building_id")]
+    [JsonPropertyName("building_id")]
     public string BuildingId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>会议室所在的建筑楼层</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("floor")]
+    [JsonPropertyName("floor")]
     public string Floor { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>会议室名称</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>容量</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("capacity")]
+    [JsonPropertyName("capacity")]
     public int Capacity { get; set; }
 
     /// <summary>
     /// <para>是否禁用</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("is_disabled")]
+    [JsonPropertyName("is_disabled")]
     public bool IsDisabled { get; set; }
 
     /// <summary>
     /// <para>租户自定义会议室ID</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("custom_room_id")]
+    [JsonPropertyName("custom_room_id")]
     public string? CustomRoomId { get; set; }
 }

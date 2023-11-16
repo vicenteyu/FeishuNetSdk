@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 获取应用管理员管理范围 响应体
@@ -13,13 +12,13 @@ public record GetContactV1UserAdminScopeGetResponseDto
     /// <para>是否管理所有部门</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("is_all")]
+    [JsonPropertyName("is_all")]
     public bool? IsAll { get; set; }
 
     /// <summary>
     /// <para>管理的部门列表，当 is_all 为 true 时，不返回该字段</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("department_list")]
+    [JsonPropertyName("department_list")]
     public string[]? DepartmentList { get; set; }
 }

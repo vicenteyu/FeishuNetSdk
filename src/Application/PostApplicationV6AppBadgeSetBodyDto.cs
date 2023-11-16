@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 更新应用红点 请求体
@@ -14,7 +13,7 @@ public record PostApplicationV6AppBadgeSetBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：ou_d317f090b7258ad0372aa53963cda70d</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostApplicationV6AppBadgeSetBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1664360599355</para>
     /// </summary>
-    [JsonProperty("version")]
+    [JsonPropertyName("version")]
     public string Version { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,14 +29,14 @@ public record PostApplicationV6AppBadgeSetBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：{}</para>
     /// </summary>
-    [JsonProperty("extra")]
+    [JsonPropertyName("extra")]
     public string? Extra { get; set; }
 
     /// <summary>
     /// <para>pc端badge数量</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("pc")]
+    [JsonPropertyName("pc")]
     public ClientBadgeNum? Pc { get; set; }
 
     /// <summary>
@@ -50,7 +49,7 @@ public record PostApplicationV6AppBadgeSetBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("web_app")]
+        [JsonPropertyName("web_app")]
         public int? WebApp { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostApplicationV6AppBadgeSetBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("gadget")]
+        [JsonPropertyName("gadget")]
         public int? Gadget { get; set; }
     }
 
@@ -66,6 +65,6 @@ public record PostApplicationV6AppBadgeSetBodyDto
     /// <para>移动端badge数量</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("mobile")]
+    [JsonPropertyName("mobile")]
     public ClientBadgeNum? Mobile { get; set; }
 }

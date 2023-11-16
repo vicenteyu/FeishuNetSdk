@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 任务加入清单 请求体
@@ -16,7 +15,7 @@ public record PostTaskV2TasksByTaskGuidAddTasklistBodyDto
     /// <para>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("tasklist_guid")]
+    [JsonPropertyName("tasklist_guid")]
     public string TasklistGuid { get; set; } = string.Empty;
 
     /// <summary>
@@ -24,6 +23,6 @@ public record PostTaskV2TasksByTaskGuidAddTasklistBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb</para>
     /// </summary>
-    [JsonProperty("section_guid")]
+    [JsonPropertyName("section_guid")]
     public string? SectionGuid { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 批量获取邮件组管理员 响应体
@@ -14,7 +13,7 @@ public record GetMailV1MailgroupsByMailgroupIdManagersResponseDto
     /// <para>必填：否</para>
     /// <para>最大长度：200</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public MailgroupManager[]? Items { get; set; }
 
     /// <summary>
@@ -28,7 +27,7 @@ public record GetMailV1MailgroupsByMailgroupIdManagersResponseDto
         /// <para>示例值：xxxxxx</para>
         /// <para>最大长度：1024</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
     }
 
@@ -38,7 +37,7 @@ public record GetMailV1MailgroupsByMailgroupIdManagersResponseDto
     /// <para>示例值：xxxxxx</para>
     /// <para>最大长度：1048576</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -46,6 +45,6 @@ public record GetMailV1MailgroupsByMailgroupIdManagersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

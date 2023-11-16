@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 上传文件 响应体
@@ -13,13 +12,13 @@ public record PostApprovalOpenapiV2FileUploadResponseDto
     /// <para>文件标识码（用于创建审批实例）</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("code")]
+    [JsonPropertyName("code")]
     public string Code { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>文件 url</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("url")]
+    [JsonPropertyName("url")]
     public string Url { get; set; } = string.Empty;
 }

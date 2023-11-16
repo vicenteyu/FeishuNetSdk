@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 更新群置顶 请求体
@@ -13,7 +12,7 @@ public record PostImV1ChatsByChatIdTopNoticePutTopNoticeBodyDto
     /// <para>要进行发布的群置顶</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("chat_top_notice")]
+    [JsonPropertyName("chat_top_notice")]
     public ChatTopNotice[] ChatTopNotices { get; set; } = Array.Empty<ChatTopNotice>();
 
     /// <summary>
@@ -34,7 +33,7 @@ public record PostImV1ChatsByChatIdTopNoticePutTopNoticeBodyDto
         /// </list></para>
         /// <para>默认值：2</para>
         /// </summary>
-        [JsonProperty("action_type")]
+        [JsonPropertyName("action_type")]
         public string? ActionType { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostImV1ChatsByChatIdTopNoticePutTopNoticeBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
         /// </summary>
-        [JsonProperty("message_id")]
+        [JsonPropertyName("message_id")]
         public string? MessageId { get; set; }
     }
 }

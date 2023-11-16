@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 设置下拉列表 请求体
@@ -13,21 +12,21 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto
     /// <para>查询范围，包含 sheetId 与单元格范围两部分，目前支持四种索引方式，详见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("range")]
+    [JsonPropertyName("range")]
     public string Range { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>下拉列表填"list"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("dataValidationType")]
+    [JsonPropertyName("dataValidationType")]
     public string DataValidationType { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>下拉列表规则属性</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("dataValidation")]
+    [JsonPropertyName("dataValidation")]
     public DataValidationSuffix? DataValidation { get; set; }
 
     /// <summary></summary>
@@ -37,14 +36,14 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto
         /// <para>下拉列表选项值, 需为字符串,不能包含","，选项值最长100字符,选项个数最多500个</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("conditionValues")]
+        [JsonPropertyName("conditionValues")]
         public string[] ConditionValues { get; set; } = Array.Empty<string>();
 
         /// <summary>
         /// <para>可选属性</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("options")]
+        [JsonPropertyName("options")]
         public Option? Options { get; set; }
 
         /// <summary></summary>
@@ -54,21 +53,21 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto
             /// <para>单选填false, 多选填true，不填默认为false</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("multipleValues")]
+            [JsonPropertyName("multipleValues")]
             public bool? MultipleValues { get; set; }
 
             /// <summary>
             /// <para>是否设置颜色和胶囊样式, 不填默认为false</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("highlightValidData")]
+            [JsonPropertyName("highlightValidData")]
             public bool? HighlightValidData { get; set; }
 
             /// <summary>
             /// <para>当highlightValidData为true时，color需填颜色,与conditionValues中的值一一对应。需是RGB16进制格式,如"#fffd00"</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("colors")]
+            [JsonPropertyName("colors")]
             public string[]? Colors { get; set; }
         }
     }

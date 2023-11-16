@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 操作候选人入职 请求体
@@ -14,7 +13,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1616428800000</para>
     /// </summary>
-    [JsonProperty("actual_onboard_time")]
+    [JsonPropertyName("actual_onboard_time")]
     public int? ActualOnboardTime { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1616428800000</para>
     /// </summary>
-    [JsonProperty("expected_conversion_time")]
+    [JsonPropertyName("expected_conversion_time")]
     public int? ExpectedConversionTime { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956402</para>
     /// </summary>
-    [JsonProperty("job_requirement_id")]
+    [JsonPropertyName("job_requirement_id")]
     public string? JobRequirementId { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou-xxx</para>
     /// </summary>
-    [JsonProperty("operator_id")]
+    [JsonPropertyName("operator_id")]
     public string? OperatorId { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：CT_2</para>
     /// </summary>
-    [JsonProperty("onboard_city_code")]
+    [JsonPropertyName("onboard_city_code")]
     public string? OnboardCityCode { get; set; }
 
     /// <summary>
@@ -54,7 +53,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6966123381141866028</para>
     /// </summary>
-    [JsonProperty("department")]
+    [JsonPropertyName("department")]
     public string? Department { get; set; }
 
     /// <summary>
@@ -62,7 +61,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou-xxx</para>
     /// </summary>
-    [JsonProperty("leader")]
+    [JsonPropertyName("leader")]
     public string? Leader { get; set; }
 
     /// <summary>
@@ -70,7 +69,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：7006234385490345986</para>
     /// </summary>
-    [JsonProperty("sequence")]
+    [JsonPropertyName("sequence")]
     public string? Sequence { get; set; }
 
     /// <summary>
@@ -78,7 +77,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6937934036379650311</para>
     /// </summary>
-    [JsonProperty("level")]
+    [JsonPropertyName("level")]
     public string? Level { get; set; }
 
     /// <summary>
@@ -86,6 +85,6 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("employee_type")]
+    [JsonPropertyName("employee_type")]
     public string? EmployeeType { get; set; }
 }

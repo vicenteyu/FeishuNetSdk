@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 提取文件中的合同字段 请求体

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新实习 Offer 入/离职状态 请求体
@@ -19,14 +18,14 @@ public record PostHireV1OffersByOfferIdInternOfferStatusBodyDto
     /// <item>offboard：操作离职</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("operation")]
+    [JsonPropertyName("operation")]
     public string Operation { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>入职表单信息（当 operation 为 confirm_onboarding 时，该字段必填）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("onboarding_info")]
+    [JsonPropertyName("onboarding_info")]
     public InternOfferOnboardingInfo? OnboardingInfo { get; set; }
 
     /// <summary>
@@ -39,7 +38,7 @@ public record PostHireV1OffersByOfferIdInternOfferStatusBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：2022-01-01</para>
         /// </summary>
-        [JsonProperty("actual_onboarding_date")]
+        [JsonPropertyName("actual_onboarding_date")]
         public string ActualOnboardingDate { get; set; } = string.Empty;
     }
 
@@ -47,7 +46,7 @@ public record PostHireV1OffersByOfferIdInternOfferStatusBodyDto
     /// <para>离职表单信息（当 operation 为 offboard 时，该字段必填）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("offboarding_info")]
+    [JsonPropertyName("offboarding_info")]
     public InternOfferOffboardingInfo? OffboardingInfo { get; set; }
 
     /// <summary>
@@ -60,7 +59,7 @@ public record PostHireV1OffersByOfferIdInternOfferStatusBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：2022-03-02</para>
         /// </summary>
-        [JsonProperty("actual_offboarding_date")]
+        [JsonPropertyName("actual_offboarding_date")]
         public string ActualOffboardingDate { get; set; } = string.Empty;
 
         /// <summary>
@@ -68,7 +67,7 @@ public record PostHireV1OffersByOfferIdInternOfferStatusBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：主动离职</para>
         /// </summary>
-        [JsonProperty("notes")]
+        [JsonPropertyName("notes")]
         public string? Notes { get; set; }
     }
 }

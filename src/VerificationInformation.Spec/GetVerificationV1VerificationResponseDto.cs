@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.VerificationInformation.Spec;
 /// <summary>
 /// 获取认证信息 响应体
@@ -13,7 +12,7 @@ public record GetVerificationV1VerificationResponseDto
     /// <para>认证信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("verification")]
+    [JsonPropertyName("verification")]
     public VerificationSuffix? Verification { get; set; }
 
     /// <summary></summary>
@@ -23,14 +22,14 @@ public record GetVerificationV1VerificationResponseDto
         /// <para>企业主体名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>企业是否完成认证； true 表示已经完成认证，false 表示未认证</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("has_verification")]
+        [JsonPropertyName("has_verification")]
         public bool? HasVerification { get; set; }
     }
 }

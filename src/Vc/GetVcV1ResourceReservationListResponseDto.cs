@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 查询会议室预定数据 响应体
@@ -13,7 +12,7 @@ public record GetVcV1ResourceReservationListResponseDto
     /// <para>会议室预定列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("room_reservation_list")]
+    [JsonPropertyName("room_reservation_list")]
     public RoomMeetingReservation[]? RoomReservationLists { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b</para>
         /// </summary>
-        [JsonProperty("room_id")]
+        [JsonPropertyName("room_id")]
         public string? RoomId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：VIP Meeting Room</para>
         /// </summary>
-        [JsonProperty("room_name")]
+        [JsonPropertyName("room_name")]
         public string? RoomName { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：飞书邀请的日程</para>
         /// </summary>
-        [JsonProperty("event_title")]
+        [JsonPropertyName("event_title")]
         public string? EventTitle { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：kehan</para>
         /// </summary>
-        [JsonProperty("reserver")]
+        [JsonPropertyName("reserver")]
         public string? Reserver { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_1234567(UserID);cli_123123(BotID)</para>
         /// </summary>
-        [JsonProperty("reserver_user_id")]
+        [JsonPropertyName("reserver_user_id")]
         public string? ReserverUserId { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：development</para>
         /// </summary>
-        [JsonProperty("department_of_reserver")]
+        [JsonPropertyName("department_of_reserver")]
         public string? DepartmentOfReserver { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：5</para>
         /// </summary>
-        [JsonProperty("guests_number")]
+        [JsonPropertyName("guests_number")]
         public string? GuestsNumber { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("accepted_number")]
+        [JsonPropertyName("accepted_number")]
         public string? AcceptedNumber { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022.12.17 21:00:00 (GMT+08:00)</para>
         /// </summary>
-        [JsonProperty("event_start_time")]
+        [JsonPropertyName("event_start_time")]
         public string? EventStartTime { get; set; }
 
         /// <summary>
@@ -98,7 +97,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022.12.17 22:00:00 (GMT+08:00)</para>
         /// </summary>
-        [JsonProperty("event_end_time")]
+        [JsonPropertyName("event_end_time")]
         public string? EventEndTime { get; set; }
 
         /// <summary>
@@ -106,7 +105,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1:00:00</para>
         /// </summary>
-        [JsonProperty("event_duration")]
+        [JsonPropertyName("event_duration")]
         public string? EventDuration { get; set; }
 
         /// <summary>
@@ -114,7 +113,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：预定成功</para>
         /// </summary>
-        [JsonProperty("reservation_status")]
+        [JsonPropertyName("reservation_status")]
         public string? ReservationStatus { get; set; }
 
         /// <summary>
@@ -122,7 +121,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：签到板</para>
         /// </summary>
-        [JsonProperty("check_in_device")]
+        [JsonPropertyName("check_in_device")]
         public string? CheckInDevice { get; set; }
 
         /// <summary>
@@ -130,7 +129,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：已签到</para>
         /// </summary>
-        [JsonProperty("room_check_in_status")]
+        [JsonPropertyName("room_check_in_status")]
         public string? RoomCheckInStatus { get; set; }
 
         /// <summary>
@@ -138,7 +137,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022.12.09 13:35:30 (GMT+08:00)</para>
         /// </summary>
-        [JsonProperty("check_in_time")]
+        [JsonPropertyName("check_in_time")]
         public string? CheckInTime { get; set; }
 
         /// <summary>
@@ -146,7 +145,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：已释放（手动释放）</para>
         /// </summary>
-        [JsonProperty("is_release_early")]
+        [JsonPropertyName("is_release_early")]
         public string? IsReleaseEarly { get; set; }
 
         /// <summary>
@@ -154,7 +153,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：kehan</para>
         /// </summary>
-        [JsonProperty("releasing_person")]
+        [JsonPropertyName("releasing_person")]
         public string? ReleasingPerson { get; set; }
 
         /// <summary>
@@ -162,7 +161,7 @@ public record GetVcV1ResourceReservationListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022.12.20 11:25:15 (GMT+08:00)</para>
         /// </summary>
-        [JsonProperty("releasing_time")]
+        [JsonPropertyName("releasing_time")]
         public string? ReleasingTime { get; set; }
     }
 
@@ -171,7 +170,7 @@ public record GetVcV1ResourceReservationListResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：20</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -179,6 +178,6 @@ public record GetVcV1ResourceReservationListResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

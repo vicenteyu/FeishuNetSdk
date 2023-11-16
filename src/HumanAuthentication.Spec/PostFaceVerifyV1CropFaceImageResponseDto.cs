@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.HumanAuthentication.Spec;
 /// <summary>
 /// 裁剪人脸图片 响应体
@@ -14,6 +13,6 @@ public record PostFaceVerifyV1CropFaceImageResponseDto
     /// <para>BASE64(裁剪后的人脸基准图片)，code为0时返回</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("face_image")]
+    [JsonPropertyName("face_image")]
     public string? FaceImage { get; set; }
 }

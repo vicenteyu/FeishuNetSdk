@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增视图 请求体
@@ -14,7 +13,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdViewsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：表格视图1</para>
     /// </summary>
-    [JsonProperty("view_name")]
+    [JsonPropertyName("view_name")]
     public string ViewName { get; set; } = string.Empty;
 
     /// <summary>
@@ -29,6 +28,6 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdViewsBodyDto
     /// <item>form：表单视图</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("view_type")]
+    [JsonPropertyName("view_type")]
     public string? ViewType { get; set; }
 }

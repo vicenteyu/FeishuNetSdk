@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 搜索合同 请求体
@@ -13,13 +12,13 @@ public record PostCorehrV2ContractsSearchBodyDto
     /// <para>雇佣 ID 列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("employment_id_list")]
+    [JsonPropertyName("employment_id_list")]
     public string[]? EmploymentIdList { get; set; }
 
     /// <summary>
     /// <para>合同ID列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("contract_id_list")]
+    [JsonPropertyName("contract_id_list")]
     public string[]? ContractIdList { get; set; }
 }

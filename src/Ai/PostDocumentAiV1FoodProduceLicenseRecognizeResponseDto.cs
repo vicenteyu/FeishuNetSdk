@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 识别文件中的食品生产许可证 响应体
@@ -13,7 +12,7 @@ public record PostDocumentAiV1FoodProduceLicenseRecognizeResponseDto
     /// <para>食品生产许可证信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("food_produce_license")]
+    [JsonPropertyName("food_produce_license")]
     public PostDocumentAiV1FoodProduceLicenseRecognizeResponseDtoFoodProduceLicense? FoodProduceLicense { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostDocumentAiV1FoodProduceLicenseRecognizeResponseDto
         /// <para>识别出的实体列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("entities")]
+        [JsonPropertyName("entities")]
         public FoodProduceEntity[]? Entities { get; set; }
 
         /// <summary>
@@ -53,7 +52,7 @@ public record PostDocumentAiV1FoodProduceLicenseRecognizeResponseDto
             /// <item>daily_supervisor：日常监督管理人员</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -61,7 +60,7 @@ public record PostDocumentAiV1FoodProduceLicenseRecognizeResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
     }

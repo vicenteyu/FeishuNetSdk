@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 更新筛选条件 响应体
@@ -13,7 +12,7 @@ public record PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterView
     /// <para>更新后的筛选条件</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("condition")]
+    [JsonPropertyName("condition")]
     public FilterViewCondition? Condition { get; set; }
 
     /// <summary></summary>
@@ -23,28 +22,28 @@ public record PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterView
         /// <para>设置筛选条件的列，使用字母号</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("condition_id")]
+        [JsonPropertyName("condition_id")]
         public string? ConditionId { get; set; }
 
         /// <summary>
         /// <para>筛选类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("filter_type")]
+        [JsonPropertyName("filter_type")]
         public string? FilterType { get; set; }
 
         /// <summary>
         /// <para>比较类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("compare_type")]
+        [JsonPropertyName("compare_type")]
         public string? CompareType { get; set; }
 
         /// <summary>
         /// <para>筛选参数</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("expected")]
+        [JsonPropertyName("expected")]
         public string[]? Expected { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 创建旧版文档 响应体
@@ -14,13 +13,13 @@ public record PostDocV2CreateResponseDto
     /// <para>新建文档的token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("objToken")]
+    [JsonPropertyName("objToken")]
     public string? ObjToken { get; set; }
 
     /// <summary>
     /// <para>新建文档的访问链接</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("url")]
+    [JsonPropertyName("url")]
     public string? Url { get; set; }
 }

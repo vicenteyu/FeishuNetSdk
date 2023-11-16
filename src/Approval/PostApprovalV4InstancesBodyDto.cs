@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 创建审批实例 请求体
@@ -14,7 +13,7 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A85</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string ApprovalCode { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：f7cb567e</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_3cda9c969f737aaa05e6915dce306cb9</para>
     /// </summary>
-    [JsonProperty("open_id")]
+    [JsonPropertyName("open_id")]
     public string? OpenId { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：9293493ccacbdb9a</para>
     /// </summary>
-    [JsonProperty("department_id")]
+    [JsonPropertyName("department_id")]
     public string? DepartmentId { get; set; }
 
     /// <summary>
@@ -46,14 +45,14 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：[{\"id\":\"111\",\"type\":\"input\",\"value\":\"test\"}]</para>
     /// </summary>
-    [JsonProperty("form")]
+    [JsonPropertyName("form")]
     public string Form { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>如果有发起人自选节点，则需要填写对应节点的审批人</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("node_approver_user_id_list")]
+    [JsonPropertyName("node_approver_user_id_list")]
     public NodeApprover[]? NodeApproverUserIdLists { get; set; }
 
     /// <summary>
@@ -66,7 +65,7 @@ public record PostApprovalV4InstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：46e6d96cfa756980907209209ec03b64</para>
         /// </summary>
-        [JsonProperty("key")]
+        [JsonPropertyName("key")]
         public string? Key { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record PostApprovalV4InstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：["f7cb567e"]</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string[]? Value { get; set; }
     }
 
@@ -82,7 +81,7 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>审批人发起人自选 open id，与上述node_approver_user_id_list字段取并集</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("node_approver_open_id_list")]
+    [JsonPropertyName("node_approver_open_id_list")]
     public NodeApprover[]? NodeApproverOpenIdLists { get; set; }
 
     /// <summary>
@@ -90,7 +89,7 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：20</para>
     /// </summary>
-    [JsonProperty("node_cc_user_id_list")]
+    [JsonPropertyName("node_cc_user_id_list")]
     public NodeCc[]? NodeCcUserIdLists { get; set; }
 
     /// <summary>
@@ -103,7 +102,7 @@ public record PostApprovalV4InstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：46e6d96cfa756980907209209ec03b75</para>
         /// </summary>
-        [JsonProperty("key")]
+        [JsonPropertyName("key")]
         public string? Key { get; set; }
 
         /// <summary>
@@ -111,7 +110,7 @@ public record PostApprovalV4InstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：["f7cb567e"]</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string[]? Value { get; set; }
     }
 
@@ -120,7 +119,7 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：20</para>
     /// </summary>
-    [JsonProperty("node_cc_open_id_list")]
+    [JsonPropertyName("node_cc_open_id_list")]
     public NodeCc[]? NodeCcOpenIdLists { get; set; }
 
     /// <summary>
@@ -129,7 +128,7 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A87</para>
     /// <para>最大长度：64</para>
     /// </summary>
-    [JsonProperty("uuid")]
+    [JsonPropertyName("uuid")]
     public string? Uuid { get; set; }
 
     /// <summary>
@@ -137,7 +136,7 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("allow_resubmit")]
+    [JsonPropertyName("allow_resubmit")]
     public bool? AllowResubmit { get; set; }
 
     /// <summary>
@@ -145,7 +144,7 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("allow_submit_again")]
+    [JsonPropertyName("allow_submit_again")]
     public bool? AllowSubmitAgain { get; set; }
 
     /// <summary>
@@ -157,7 +156,7 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("cancel_bot_notification")]
+    [JsonPropertyName("cancel_bot_notification")]
     public string? CancelBotNotification { get; set; }
 
     /// <summary>
@@ -166,14 +165,14 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
     /// </summary>
-    [JsonProperty("forbid_revoke")]
+    [JsonPropertyName("forbid_revoke")]
     public bool? ForbidRevoke { get; set; }
 
     /// <summary>
     /// <para>国际化文案。目前只支单行、多行文本的值。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("i18n_resources")]
+    [JsonPropertyName("i18n_resources")]
     public I18nResource[]? I18nResources { get; set; }
 
     /// <summary>
@@ -191,7 +190,7 @@ public record PostApprovalV4InstancesBodyDto
         /// <item>ja-JP：日文</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("locale")]
+        [JsonPropertyName("locale")]
         public string Locale { get; set; } = string.Empty;
 
         /// <summary>
@@ -199,7 +198,7 @@ public record PostApprovalV4InstancesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：{"@i18n@1":"权限申请","@i18n@2":"OA审批","@i18n@3":"Permission"}</para>
         /// </summary>
-        [JsonProperty("texts")]
+        [JsonPropertyName("texts")]
         public I18nResourceText[] Texts { get; set; } = Array.Empty<I18nResourceText>();
 
         /// <summary>
@@ -212,7 +211,7 @@ public record PostApprovalV4InstancesBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：@i18n@1</para>
             /// </summary>
-            [JsonProperty("key")]
+            [JsonPropertyName("key")]
             public string Key { get; set; } = string.Empty;
 
             /// <summary>
@@ -220,7 +219,7 @@ public record PostApprovalV4InstancesBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：people</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -229,7 +228,7 @@ public record PostApprovalV4InstancesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_default")]
+        [JsonPropertyName("is_default")]
         public bool IsDefault { get; set; }
     }
 }

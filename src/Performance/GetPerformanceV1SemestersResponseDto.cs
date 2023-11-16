@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Performance;
 /// <summary>
 /// 获取周期 响应体
@@ -13,7 +12,7 @@ public record GetPerformanceV1SemestersResponseDto
     /// <para>周期 meta 信息列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Semester[]? Items { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record GetPerformanceV1SemestersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6992035450862224940</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>绩效评估周期的名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n? Name { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record GetPerformanceV1SemestersResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：体验</para>
             /// </summary>
-            [JsonProperty("zh-CN")]
+            [JsonPropertyName("zh-CN")]
             public string? ZhCN { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record GetPerformanceV1SemestersResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：Interactiveexperience</para>
             /// </summary>
-            [JsonProperty("en-US")]
+            [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
         }
 
@@ -63,7 +62,7 @@ public record GetPerformanceV1SemestersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1625068800000</para>
         /// </summary>
-        [JsonProperty("start_time")]
+        [JsonPropertyName("start_time")]
         public string? StartTime { get; set; }
 
         /// <summary>
@@ -71,7 +70,7 @@ public record GetPerformanceV1SemestersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1640966399999</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string? EndTime { get; set; }
 
         /// <summary>
@@ -79,7 +78,7 @@ public record GetPerformanceV1SemestersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1625068800000</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
     }
 }

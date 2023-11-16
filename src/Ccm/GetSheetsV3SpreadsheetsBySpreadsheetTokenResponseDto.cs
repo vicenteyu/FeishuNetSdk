@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取电子表格信息 响应体
@@ -13,7 +12,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenResponseDto
     /// <para>电子表格属性</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("spreadsheet")]
+    [JsonPropertyName("spreadsheet")]
     public GetSpreadsheet? Spreadsheet { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：title</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_xxxxxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("owner_id")]
+        [JsonPropertyName("owner_id")]
         public string? OwnerId { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：shtxxxxxxxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("token")]
+        [JsonPropertyName("token")]
         public string? Token { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://example.feishu.cn/sheets/shtcnmBA*****yGehy8</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
     }
 }

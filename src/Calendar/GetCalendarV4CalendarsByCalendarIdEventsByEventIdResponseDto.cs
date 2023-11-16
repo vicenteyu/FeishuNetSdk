@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 获取日程 响应体
@@ -14,7 +13,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
     /// <para>日程实体</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("event")]
+    [JsonPropertyName("event")]
     public CalendarEvent? Event { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0</para>
         /// </summary>
-        [JsonProperty("event_id")]
+        [JsonPropertyName("event_id")]
         public string EventId { get; set; } = string.Empty;
 
         /// <summary>
@@ -35,7 +34,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
         /// </summary>
-        [JsonProperty("organizer_calendar_id")]
+        [JsonPropertyName("organizer_calendar_id")]
         public string? OrganizerCalendarId { get; set; }
 
         /// <summary>
@@ -44,7 +43,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <para>示例值：日程标题</para>
         /// <para>最大长度：1000</para>
         /// </summary>
-        [JsonProperty("summary")]
+        [JsonPropertyName("summary")]
         public string? Summary { get; set; }
 
         /// <summary>
@@ -53,14 +52,14 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <para>示例值：日程描述</para>
         /// <para>最大长度：40960</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
         /// <para>日程开始时间</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("start_time")]
+        [JsonPropertyName("start_time")]
         public TimeInfo StartTime { get; set; } = new();
 
         /// <summary>
@@ -73,7 +72,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2018-09-01</para>
             /// </summary>
-            [JsonProperty("date")]
+            [JsonPropertyName("date")]
             public string? Date { get; set; }
 
             /// <summary>
@@ -81,7 +80,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1602504000</para>
             /// </summary>
-            [JsonProperty("timestamp")]
+            [JsonPropertyName("timestamp")]
             public string? Timestamp { get; set; }
 
             /// <summary>
@@ -89,7 +88,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：Asia/Shanghai</para>
             /// </summary>
-            [JsonProperty("timezone")]
+            [JsonPropertyName("timezone")]
             public string? Timezone { get; set; }
         }
 
@@ -97,14 +96,14 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <para>日程结束时间</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public TimeInfo EndTime { get; set; } = new();
 
         /// <summary>
         /// <para>视频会议信息。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("vchat")]
+        [JsonPropertyName("vchat")]
         public CalendarEventVchat? Vchat { get; set; }
 
         /// <summary>
@@ -124,7 +123,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <item>unknown：未知类型，做兼容使用，飞书客户端使用，API不支持创建，只读。</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("vc_type")]
+            [JsonPropertyName("vc_type")]
             public string? VcType { get; set; }
 
             /// <summary>
@@ -137,7 +136,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <item>default：默认icon</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("icon_type")]
+            [JsonPropertyName("icon_type")]
             public string? IconType { get; set; }
 
             /// <summary>
@@ -146,7 +145,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>示例值：发起视频会议</para>
             /// <para>最大长度：500</para>
             /// </summary>
-            [JsonProperty("description")]
+            [JsonPropertyName("description")]
             public string? Description { get; set; }
 
             /// <summary>
@@ -155,7 +154,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>示例值：https://example.com</para>
             /// <para>最大长度：2000</para>
             /// </summary>
-            [JsonProperty("meeting_url")]
+            [JsonPropertyName("meeting_url")]
             public string? MeetingUrl { get; set; }
 
             /// <summary>
@@ -164,7 +163,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>- 需要有日程的编辑权限。</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("meeting_settings")]
+            [JsonPropertyName("meeting_settings")]
             public CalendarEventVchatMeetingSettings? MeetingSettings { get; set; }
 
             /// <summary>
@@ -183,7 +182,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs</para>
                 /// </summary>
-                [JsonProperty("owner_id")]
+                [JsonPropertyName("owner_id")]
                 public string? OwnerId { get; set; }
 
                 /// <summary>
@@ -196,7 +195,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
                 /// <item>only_event_attendees：仅日程参与者可以加入会议</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("join_meeting_permission")]
+                [JsonPropertyName("join_meeting_permission")]
                 public string? JoinMeetingPermission { get; set; }
 
                 /// <summary>
@@ -207,7 +206,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
                 /// <para>- 应用日历上操作日程时，不允许指定主持人。</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("assign_hosts")]
+                [JsonPropertyName("assign_hosts")]
                 public string[]? AssignHosts { get; set; }
 
                 /// <summary>
@@ -215,7 +214,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
-                [JsonProperty("auto_record")]
+                [JsonPropertyName("auto_record")]
                 public bool? AutoRecord { get; set; }
 
                 /// <summary>
@@ -223,7 +222,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>
-                [JsonProperty("open_lobby")]
+                [JsonPropertyName("open_lobby")]
                 public bool? OpenLobby { get; set; }
 
                 /// <summary>
@@ -232,7 +231,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>
-                [JsonProperty("allow_attendees_start")]
+                [JsonPropertyName("allow_attendees_start")]
                 public bool? AllowAttendeesStart { get; set; }
             }
         }
@@ -247,7 +246,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <item>private：私密，仅自己可见详情</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("visibility")]
+        [JsonPropertyName("visibility")]
         public string? Visibility { get; set; }
 
         /// <summary>
@@ -261,7 +260,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <item>can_modify_event：可以编辑日程、可以邀请其它参与人、可以查看参与人列表</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("attendee_ability")]
+        [JsonPropertyName("attendee_ability")]
         public string? AttendeeAbility { get; set; }
 
         /// <summary>
@@ -273,14 +272,14 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <item>free：空闲</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("free_busy_status")]
+        [JsonPropertyName("free_busy_status")]
         public string? FreeBusyStatus { get; set; }
 
         /// <summary>
         /// <para>日程地点</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("location")]
+        [JsonPropertyName("location")]
         public EventLocation? Location { get; set; }
 
         /// <summary>
@@ -294,7 +293,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>示例值：地点名称</para>
             /// <para>最大长度：512</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -303,7 +302,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>示例值：地点地址</para>
             /// <para>最大长度：255</para>
             /// </summary>
-            [JsonProperty("address")]
+            [JsonPropertyName("address")]
             public string? Address { get; set; }
 
             /// <summary>
@@ -311,7 +310,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1.100000023841858</para>
             /// </summary>
-            [JsonProperty("latitude")]
+            [JsonPropertyName("latitude")]
             public float? Latitude { get; set; }
 
             /// <summary>
@@ -319,7 +318,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2.200000047683716</para>
             /// </summary>
-            [JsonProperty("longitude")]
+            [JsonPropertyName("longitude")]
             public float? Longitude { get; set; }
         }
 
@@ -328,14 +327,14 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：-1</para>
         /// </summary>
-        [JsonProperty("color")]
+        [JsonPropertyName("color")]
         public int? Color { get; set; }
 
         /// <summary>
         /// <para>日程提醒列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("reminders")]
+        [JsonPropertyName("reminders")]
         public Reminder[]? Reminders { get; set; }
 
         /// <summary>
@@ -349,7 +348,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：5</para>
             /// </summary>
-            [JsonProperty("minutes")]
+            [JsonPropertyName("minutes")]
             public int? Minutes { get; set; }
         }
 
@@ -361,7 +360,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <para>示例值：FREQ=DAILY;INTERVAL=1</para>
         /// <para>最大长度：2000</para>
         /// </summary>
-        [JsonProperty("recurrence")]
+        [JsonPropertyName("recurrence")]
         public string? Recurrence { get; set; }
 
         /// <summary>
@@ -374,7 +373,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <item>cancelled：日程已取消</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string? Status { get; set; }
 
         /// <summary>
@@ -382,7 +381,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("is_exception")]
+        [JsonPropertyName("is_exception")]
         public bool? IsException { get; set; }
 
         /// <summary>
@@ -390,7 +389,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1cd45aaa-fa70-4195-80b7-c93b2e208f45</para>
         /// </summary>
-        [JsonProperty("recurring_event_id")]
+        [JsonPropertyName("recurring_event_id")]
         public string? RecurringEventId { get; set; }
 
         /// <summary>
@@ -398,14 +397,14 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1602504000</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
         /// <para>日程自定义信息；控制日程详情页的ui展示。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("schemas")]
+        [JsonPropertyName("schemas")]
         public Schema[]? Schemas { get; set; }
 
         /// <summary>
@@ -425,7 +424,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ForwardIcon</para>
             /// </summary>
-            [JsonProperty("ui_name")]
+            [JsonPropertyName("ui_name")]
             public string? UiName { get; set; }
 
             /// <summary>
@@ -439,7 +438,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <item>unknown：未知UI项自定义状态，仅用于读取时兼容</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("ui_status")]
+            [JsonPropertyName("ui_status")]
             public string? UiStatus { get; set; }
 
             /// <summary>
@@ -448,7 +447,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&amp;key=xxxxxx&amp;originalTime=xxxxxx&amp;startTime=xxxxxx</para>
             /// <para>最大长度：2000</para>
             /// </summary>
-            [JsonProperty("app_link")]
+            [JsonPropertyName("app_link")]
             public string? AppLink { get; set; }
         }
     }

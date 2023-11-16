@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 获取群成员列表 响应体
@@ -13,7 +12,7 @@ public record GetImV1ChatsByChatIdMembersResponseDto
     /// <para>成员列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public ListMember[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetImV1ChatsByChatIdMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：user_id</para>
         /// </summary>
-        [JsonProperty("member_id_type")]
+        [JsonPropertyName("member_id_type")]
         public string? MemberIdType { get; set; }
 
         /// <summary>
@@ -35,7 +34,7 @@ public record GetImV1ChatsByChatIdMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：4d7a3c6g</para>
         /// </summary>
-        [JsonProperty("member_id")]
+        [JsonPropertyName("member_id")]
         public string? MemberId { get; set; }
 
         /// <summary>
@@ -43,7 +42,7 @@ public record GetImV1ChatsByChatIdMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：张三</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -51,7 +50,7 @@ public record GetImV1ChatsByChatIdMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：736588c9260f175d</para>
         /// </summary>
-        [JsonProperty("tenant_key")]
+        [JsonPropertyName("tenant_key")]
         public string? TenantKey { get; set; }
     }
 
@@ -60,7 +59,7 @@ public record GetImV1ChatsByChatIdMembersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：0</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -68,7 +67,7 @@ public record GetImV1ChatsByChatIdMembersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -76,6 +75,6 @@ public record GetImV1ChatsByChatIdMembersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：2</para>
     /// </summary>
-    [JsonProperty("member_total")]
+    [JsonPropertyName("member_total")]
     public int? MemberTotal { get; set; }
 }

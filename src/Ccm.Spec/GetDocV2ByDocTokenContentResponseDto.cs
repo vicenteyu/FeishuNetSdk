@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取旧版文档富文本内容 响应体
@@ -14,13 +13,13 @@ public record GetDocV2ByDocTokenContentResponseDto
     /// <para>详情参考[文档数据结构](https://open.feishu.cn/document/ukTMukTMukTM/ukDM2YjL5AjN24SOwYjN)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string? Content { get; set; }
 
     /// <summary>
     /// <para>文档当前版本号</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("revision")]
+    [JsonPropertyName("revision")]
     public string? Revision { get; set; }
 }

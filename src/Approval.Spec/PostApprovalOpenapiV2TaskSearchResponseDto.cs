@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 任务列表查询 响应体
@@ -13,14 +12,14 @@ public record PostApprovalOpenapiV2TaskSearchResponseDto
     /// <para>查询返回条数</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("count")]
+    [JsonPropertyName("count")]
     public int? Count { get; set; }
 
     /// <summary>
     /// <para>审批任务列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("task_list")]
+    [JsonPropertyName("task_list")]
     public TaskItem[]? TaskList { get; set; }
 
     /// <summary></summary>
@@ -30,7 +29,7 @@ public record PostApprovalOpenapiV2TaskSearchResponseDto
         /// <para>审批定义</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("approval")]
+        [JsonPropertyName("approval")]
         public ApprovalSuffix? Approval { get; set; }
 
         /// <summary></summary>
@@ -40,28 +39,28 @@ public record PostApprovalOpenapiV2TaskSearchResponseDto
             /// <para>审批定义 code</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("code")]
+            [JsonPropertyName("code")]
             public string? Code { get; set; }
 
             /// <summary>
             /// <para>审批定义名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
             /// <para>是否为第三方审批</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("is_external")]
+            [JsonPropertyName("is_external")]
             public bool? IsExternal { get; set; }
 
             /// <summary>
             /// <para>第三方审批信息</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("external")]
+            [JsonPropertyName("external")]
             public object? External { get; set; }
 
             /// <summary></summary>
@@ -71,7 +70,7 @@ public record PostApprovalOpenapiV2TaskSearchResponseDto
                 /// <para>是否支持批量读</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("batch_cc_read")]
+                [JsonPropertyName("batch_cc_read")]
                 public bool? BatchCcRead { get; set; }
             }
         }
@@ -80,7 +79,7 @@ public record PostApprovalOpenapiV2TaskSearchResponseDto
         /// <para>审批定义分组</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("group")]
+        [JsonPropertyName("group")]
         public GroupSuffix? Group { get; set; }
 
         /// <summary></summary>
@@ -90,14 +89,14 @@ public record PostApprovalOpenapiV2TaskSearchResponseDto
             /// <para>审批定义分组外部 id</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("external_id")]
+            [JsonPropertyName("external_id")]
             public string? ExternalId { get; set; }
 
             /// <summary>
             /// <para>审批定义分组名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
         }
 
@@ -105,7 +104,7 @@ public record PostApprovalOpenapiV2TaskSearchResponseDto
         /// <para>审批实例信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("instance")]
+        [JsonPropertyName("instance")]
         public InstanceSuffix? Instance { get; set; }
 
         /// <summary></summary>
@@ -115,70 +114,70 @@ public record PostApprovalOpenapiV2TaskSearchResponseDto
             /// <para>审批实例 code</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("code")]
+            [JsonPropertyName("code")]
             public string? Code { get; set; }
 
             /// <summary>
             /// <para>审批实例外部 id</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("external_id")]
+            [JsonPropertyName("external_id")]
             public string? ExternalId { get; set; }
 
             /// <summary>
             /// <para>审批实例发起人 id</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string? UserId { get; set; }
 
             /// <summary>
             /// <para>审批实例开始时间</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("start_time")]
+            [JsonPropertyName("start_time")]
             public long? StartTime { get; set; }
 
             /// <summary>
             /// <para>审批实例结束时间</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("end_time")]
+            [JsonPropertyName("end_time")]
             public long? EndTime { get; set; }
 
             /// <summary>
             /// <para>审批实例状态</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("status")]
+            [JsonPropertyName("status")]
             public string? Status { get; set; }
 
             /// <summary>
             /// <para>审批实例名称（只有第三方审批有）</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public string? Title { get; set; }
 
             /// <summary>
             /// <para>审批实例扩展字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("extra")]
+            [JsonPropertyName("extra")]
             public string? Extra { get; set; }
 
             /// <summary>
             /// <para>审批流水号</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("serial_id")]
+            [JsonPropertyName("serial_id")]
             public string? SerialId { get; set; }
 
             /// <summary>
             /// <para>审批实例链接（只有第三方审批有）</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("link")]
+            [JsonPropertyName("link")]
             public LinkSuffix? Link { get; set; }
 
         }
@@ -190,14 +189,14 @@ public record PostApprovalOpenapiV2TaskSearchResponseDto
             /// <para>审批实例 pc 端链接</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("pc_link")]
+            [JsonPropertyName("pc_link")]
             public string? PcLink { get; set; }
 
             /// <summary>
             /// <para>审批实例移动端链接</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("mobile_link")]
+            [JsonPropertyName("mobile_link")]
             public string? MobileLink { get; set; }
         }
 
@@ -205,7 +204,7 @@ public record PostApprovalOpenapiV2TaskSearchResponseDto
         /// <para>审批任务</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("task")]
+        [JsonPropertyName("task")]
         public TaskSuffix? Task { get; set; }
 
         /// <summary></summary>
@@ -215,49 +214,49 @@ public record PostApprovalOpenapiV2TaskSearchResponseDto
             /// <para>审批任务开始时间</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("start_time")]
+            [JsonPropertyName("start_time")]
             public long? StartTime { get; set; }
 
             /// <summary>
             /// <para>审批任务发起人 id</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string? UserId { get; set; }
 
             /// <summary>
             /// <para>审批任务结束时间</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("end_time")]
+            [JsonPropertyName("end_time")]
             public long? EndTime { get; set; }
 
             /// <summary>
             /// <para>审批任务名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public string? Title { get; set; }
 
             /// <summary>
             /// <para>审批任务状态</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("status")]
+            [JsonPropertyName("status")]
             public string? Status { get; set; }
 
             /// <summary>
             /// <para>审批任务扩展字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("extra")]
+            [JsonPropertyName("extra")]
             public string? Extra { get; set; }
 
             /// <summary>
             /// <para>审批任务链接</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("link")]
+            [JsonPropertyName("link")]
             public LinkSuffix? Link { get; set; }
         }
     }

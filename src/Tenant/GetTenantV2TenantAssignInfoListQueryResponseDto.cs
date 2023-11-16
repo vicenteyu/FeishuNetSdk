@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Tenant;
 /// <summary>
 /// 获取企业席位信息接口 响应体
@@ -13,7 +12,7 @@ public record GetTenantV2TenantAssignInfoListQueryResponseDto
     /// <para>租户待分配席位列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("assign_info_list")]
+    [JsonPropertyName("assign_info_list")]
     public TenantAssignInfo[]? AssignInfoLists { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetTenantV2TenantAssignInfoListQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7079609167680782300</para>
         /// </summary>
-        [JsonProperty("subscription_id")]
+        [JsonPropertyName("subscription_id")]
         public string? SubscriptionId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetTenantV2TenantAssignInfoListQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：suite_enterprise_e5</para>
         /// </summary>
-        [JsonProperty("license_plan_key")]
+        [JsonPropertyName("license_plan_key")]
         public string? LicensePlanKey { get; set; }
 
         /// <summary>
@@ -42,14 +41,14 @@ public record GetTenantV2TenantAssignInfoListQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：旗舰版E5</para>
         /// </summary>
-        [JsonProperty("product_name")]
+        [JsonPropertyName("product_name")]
         public string? ProductName { get; set; }
 
         /// <summary>
         /// <para>国际化名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("i18n_name")]
+        [JsonPropertyName("i18n_name")]
         public ProductI18nName? I18nName { get; set; }
 
         /// <summary>
@@ -62,7 +61,7 @@ public record GetTenantV2TenantAssignInfoListQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：zh_cn_name</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -70,7 +69,7 @@ public record GetTenantV2TenantAssignInfoListQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ja_jp_name</para>
             /// </summary>
-            [JsonProperty("ja_jp")]
+            [JsonPropertyName("ja_jp")]
             public string? JaJp { get; set; }
 
             /// <summary>
@@ -78,7 +77,7 @@ public record GetTenantV2TenantAssignInfoListQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：en_name</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
 
@@ -87,7 +86,7 @@ public record GetTenantV2TenantAssignInfoListQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：500</para>
         /// </summary>
-        [JsonProperty("total_seats")]
+        [JsonPropertyName("total_seats")]
         public string? TotalSeats { get; set; }
 
         /// <summary>
@@ -95,7 +94,7 @@ public record GetTenantV2TenantAssignInfoListQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：20</para>
         /// </summary>
-        [JsonProperty("assigned_seats")]
+        [JsonPropertyName("assigned_seats")]
         public string? AssignedSeats { get; set; }
 
         /// <summary>
@@ -103,7 +102,7 @@ public record GetTenantV2TenantAssignInfoListQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1674981000</para>
         /// </summary>
-        [JsonProperty("start_time")]
+        [JsonPropertyName("start_time")]
         public string? StartTime { get; set; }
 
         /// <summary>
@@ -111,7 +110,7 @@ public record GetTenantV2TenantAssignInfoListQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1674991000</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string? EndTime { get; set; }
     }
 }

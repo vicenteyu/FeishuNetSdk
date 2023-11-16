@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 通过过期时间获取发放记录 请求体
@@ -14,7 +13,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6982509313466189342</para>
     /// </summary>
-    [JsonProperty("employment_id")]
+    [JsonPropertyName("employment_id")]
     public string EmploymentId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：7111688079785723436</para>
     /// </summary>
-    [JsonProperty("leave_type_id")]
+    [JsonPropertyName("leave_type_id")]
     public string LeaveTypeId { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,7 +29,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：2023-04-10</para>
     /// </summary>
-    [JsonProperty("start_expiration_date")]
+    [JsonPropertyName("start_expiration_date")]
     public string StartExpirationDate { get; set; } = string.Empty;
 
     /// <summary>
@@ -38,7 +37,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：2023-05-10</para>
     /// </summary>
-    [JsonProperty("end_expiration_date")]
+    [JsonPropertyName("end_expiration_date")]
     public string EndExpirationDate { get; set; } = string.Empty;
 
     /// <summary>
@@ -46,6 +45,6 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：480</para>
     /// </summary>
-    [JsonProperty("time_offset")]
+    [JsonPropertyName("time_offset")]
     public int? TimeOffset { get; set; }
 }

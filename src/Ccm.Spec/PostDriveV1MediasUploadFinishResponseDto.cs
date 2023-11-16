@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 分片上传素材（完成上传） 响应体
@@ -13,6 +12,6 @@ public record PostDriveV1MediasUploadFinishResponseDto
     /// <para>新创建文件的 token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("file_token")]
+    [JsonPropertyName("file_token")]
     public string? FileToken { get; set; }
 }

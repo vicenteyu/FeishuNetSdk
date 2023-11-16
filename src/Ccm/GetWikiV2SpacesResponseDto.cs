@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取知识空间列表 响应体
@@ -15,7 +14,7 @@ public record GetWikiV2SpacesResponseDto
     /// <para>数据列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Space[]? Items { get; set; }
 
     /// <summary>
@@ -28,7 +27,7 @@ public record GetWikiV2SpacesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：workspacename</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -36,7 +35,7 @@ public record GetWikiV2SpacesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：workspacedescription</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -44,7 +43,7 @@ public record GetWikiV2SpacesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：123456</para>
         /// </summary>
-        [JsonProperty("space_id")]
+        [JsonPropertyName("space_id")]
         public string? SpaceId { get; set; }
 
         /// <summary>
@@ -56,7 +55,7 @@ public record GetWikiV2SpacesResponseDto
         /// <item>person：个人空间</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("space_type")]
+        [JsonPropertyName("space_type")]
         public string? SpaceType { get; set; }
 
         /// <summary>
@@ -68,7 +67,7 @@ public record GetWikiV2SpacesResponseDto
         /// <item>private：私有空间</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("visibility")]
+        [JsonPropertyName("visibility")]
         public string? Visibility { get; set; }
     }
 
@@ -77,7 +76,7 @@ public record GetWikiV2SpacesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -85,6 +84,6 @@ public record GetWikiV2SpacesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

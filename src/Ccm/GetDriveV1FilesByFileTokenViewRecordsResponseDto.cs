@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取文档访问记录 响应体
@@ -13,7 +12,7 @@ public record GetDriveV1FilesByFileTokenViewRecordsResponseDto
     /// <para>访问记录列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public FileViewRecord[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetDriveV1FilesByFileTokenViewRecordsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef</para>
         /// </summary>
-        [JsonProperty("viewer_id")]
+        [JsonPropertyName("viewer_id")]
         public string? ViewerId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetDriveV1FilesByFileTokenViewRecordsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：zhangsan</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetDriveV1FilesByFileTokenViewRecordsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://foo.icon.com/xxxx</para>
         /// </summary>
-        [JsonProperty("avatar_url")]
+        [JsonPropertyName("avatar_url")]
         public string? AvatarUrl { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetDriveV1FilesByFileTokenViewRecordsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1679284285</para>
         /// </summary>
-        [JsonProperty("last_view_time")]
+        [JsonPropertyName("last_view_time")]
         public string? LastViewTime { get; set; }
     }
 
@@ -59,7 +58,7 @@ public record GetDriveV1FilesByFileTokenViewRecordsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1674037112--7189934631754563585</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -67,6 +66,6 @@ public record GetDriveV1FilesByFileTokenViewRecordsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

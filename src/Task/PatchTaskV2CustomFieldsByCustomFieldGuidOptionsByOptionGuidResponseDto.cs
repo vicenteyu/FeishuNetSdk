@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 更新自定义字段选项 响应体
@@ -19,7 +18,7 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidRespons
     /// <para>更新后的option数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("option")]
+    [JsonPropertyName("option")]
     public PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidResponseDtoOption? Option { get; set; }
 
     /// <summary>
@@ -32,7 +31,7 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidRespons
         /// <para>必填：否</para>
         /// <para>示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152</para>
         /// </summary>
-        [JsonProperty("guid")]
+        [JsonPropertyName("guid")]
         public string? Guid { get; set; }
 
         /// <summary>
@@ -40,7 +39,7 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidRespons
         /// <para>必填：否</para>
         /// <para>示例值：高优</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -48,7 +47,7 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidRespons
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("color_index")]
+        [JsonPropertyName("color_index")]
         public int? ColorIndex { get; set; }
 
         /// <summary>
@@ -56,7 +55,7 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidRespons
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("is_hidden")]
+        [JsonPropertyName("is_hidden")]
         public bool? IsHidden { get; set; }
     }
 }

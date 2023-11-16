@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 修改邮件组部分信息 响应体
@@ -14,7 +13,7 @@ public record PatchMailV1MailgroupsByMailgroupIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：xxxxxxxxxxxxxxx</para>
     /// </summary>
-    [JsonProperty("mailgroup_id")]
+    [JsonPropertyName("mailgroup_id")]
     public string? MailgroupId { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PatchMailV1MailgroupsByMailgroupIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：test_mail_group@xxx.xx</para>
     /// </summary>
-    [JsonProperty("email")]
+    [JsonPropertyName("email")]
     public string? Email { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PatchMailV1MailgroupsByMailgroupIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：testmailgroup</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PatchMailV1MailgroupsByMailgroupIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：mailgroupfortesting</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PatchMailV1MailgroupsByMailgroupIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：10</para>
     /// </summary>
-    [JsonProperty("direct_members_count")]
+    [JsonPropertyName("direct_members_count")]
     public string? DirectMembersCount { get; set; }
 
     /// <summary>
@@ -54,7 +53,7 @@ public record PatchMailV1MailgroupsByMailgroupIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("include_external_member")]
+    [JsonPropertyName("include_external_member")]
     public bool? IncludeExternalMember { get; set; }
 
     /// <summary>
@@ -62,7 +61,7 @@ public record PatchMailV1MailgroupsByMailgroupIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("include_all_company_member")]
+    [JsonPropertyName("include_all_company_member")]
     public bool? IncludeAllCompanyMember { get; set; }
 
     /// <summary>
@@ -76,6 +75,6 @@ public record PatchMailV1MailgroupsByMailgroupIdResponseDto
     /// <item>CUSTOM_MEMBERS：自定义成员</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("who_can_send_mail")]
+    [JsonPropertyName("who_can_send_mail")]
     public string? WhoCanSendMail { get; set; }
 }

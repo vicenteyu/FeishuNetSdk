@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取投递列表 响应体
@@ -13,7 +12,7 @@ public record GetHireV1ApplicationsResponseDto
     /// <para>投递数据列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public string[]? Items { get; set; }
 
     /// <summary>
@@ -21,7 +20,7 @@ public record GetHireV1ApplicationsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -29,6 +28,6 @@ public record GetHireV1ApplicationsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

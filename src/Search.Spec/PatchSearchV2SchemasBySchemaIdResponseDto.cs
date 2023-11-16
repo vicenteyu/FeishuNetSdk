@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Search.Spec;
 /// <summary>
 /// 修改数据范式 响应体
@@ -13,7 +12,7 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
     /// <para>数据范式实例</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("schema")]
+    [JsonPropertyName("schema")]
     public SchemaSuffix? Schema { get; set; }
 
     /// <summary></summary>
@@ -23,7 +22,7 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
         /// <para>数据范式的属性定义</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("properties")]
+        [JsonPropertyName("properties")]
         public SchemaProperty[]? Properties { get; set; }
 
         /// <summary></summary>
@@ -33,7 +32,7 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
             /// <para>属性名</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -50,35 +49,35 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
             /// <item>tinytext：短文本类型，（utf8编码）长度小于140的文本。在设置search_options时，与text类型有区别，支持更多召回策略</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
             /// <para>该属性是否可用作搜索，默认为 false</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("is_searchable")]
+            [JsonPropertyName("is_searchable")]
             public bool? IsSearchable { get; set; }
 
             /// <summary>
             /// <para>该属性是否可用作搜索结果排序，默认为 false。如果为 true，需要再配置 sortOptions</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("is_sortable")]
+            [JsonPropertyName("is_sortable")]
             public bool? IsSortable { get; set; }
 
             /// <summary>
             /// <para>该属性是否可用作返回字段，为 false 时，该字段不会被召回和展示。默认为 false</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("is_returnable")]
+            [JsonPropertyName("is_returnable")]
             public bool? IsReturnable { get; set; }
 
             /// <summary>
             /// <para>属性排序的可选配置，当 is_sortable 为 true 时，该字段为必填字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("sort_options")]
+            [JsonPropertyName("sort_options")]
             public SchemaSortOptions? SortOptions { get; set; }
 
             /// <summary></summary>
@@ -97,7 +96,7 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
                 /// <item>4：最低优先级</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("priority")]
+                [JsonPropertyName("priority")]
                 public int? Priority { get; set; }
 
                 /// <summary>
@@ -110,7 +109,7 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
                 /// <item>desc：降序</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("order")]
+                [JsonPropertyName("order")]
                 public string? Order { get; set; }
             }
 
@@ -118,7 +117,7 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
             /// <para>相关类型数据的定义和约束</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("type_definitions")]
+            [JsonPropertyName("type_definitions")]
             public SchemaTypeDefinitions? TypeDefinitions { get; set; }
 
             /// <summary></summary>
@@ -128,7 +127,7 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
                 /// <para>标签类型的定义</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("tag")]
+                [JsonPropertyName("tag")]
                 public SchemaTagOptions[]? Tag { get; set; }
 
                 /// <summary></summary>
@@ -138,7 +137,7 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
                     /// <para>tag 对应的枚举值名称</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("name")]
+                    [JsonPropertyName("name")]
                     public string? Name { get; set; }
 
                     /// <summary>
@@ -154,14 +153,14 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
                     /// <item>yellow：焦点信息、推广性信息</item>
                     /// </list></para>
                     /// </summary>
-                    [JsonProperty("color")]
+                    [JsonPropertyName("color")]
                     public string? Color { get; set; }
 
                     /// <summary>
                     /// <para>标签中展示的文本</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text")]
+                    [JsonPropertyName("text")]
                     public string? Text { get; set; }
                 }
             }
@@ -170,7 +169,7 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
             /// <para>属性搜索的可选配置，当 is_searchable 为 true 时，该字段为必填参数</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("search_options")]
+            [JsonPropertyName("search_options")]
             public SchemaSearchOptions? SearchOptions { get; set; }
 
             /// <summary></summary>
@@ -180,35 +179,35 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
                 /// <para>是否支持语义切词召回。默认不支持（推荐使用在长文本的场景）</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("enable_semantic_match")]
+                [JsonPropertyName("enable_semantic_match")]
                 public bool? EnableSemanticMatch { get; set; }
 
                 /// <summary>
                 /// <para>是否支持精确匹配。默认不支持（推荐使用在短文本、需要精确查找的场景）</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("enable_exact_match")]
+                [JsonPropertyName("enable_exact_match")]
                 public bool? EnableExactMatch { get; set; }
 
                 /// <summary>
                 /// <para>是否支持前缀匹配（短文本的默认的分词/召回策略。前缀长度为 1-12）</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("enable_prefix_match")]
+                [JsonPropertyName("enable_prefix_match")]
                 public bool? EnablePrefixMatch { get; set; }
 
                 /// <summary>
                 /// <para>是否支持数据后缀匹配。默认不支持（推荐使用在短文本、有数字后缀查找的场景。后缀长度为3-12）</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("enable_number_suffix_match")]
+                [JsonPropertyName("enable_number_suffix_match")]
                 public bool? EnableNumberSuffixMatch { get; set; }
 
                 /// <summary>
                 /// <para>是否支持驼峰英文匹配。默认不支持（推荐使用在短文本，且包含驼峰形式英文的查找场景）</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("enable_camel_match")]
+                [JsonPropertyName("enable_camel_match")]
                 public bool? EnableCamelMatch { get; set; }
             }
         }
@@ -217,7 +216,7 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
         /// <para>数据展示相关配置</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("display")]
+        [JsonPropertyName("display")]
         public SchemaDisplay? Display { get; set; }
 
         /// <summary></summary>
@@ -233,14 +232,14 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
             /// <item>search_common_card：普通common卡片</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("card_key")]
+            [JsonPropertyName("card_key")]
             public string? CardKey { get; set; }
 
             /// <summary>
             /// <para>数据字段名称和展示字段名称的映射关系。如果没有设置，则只会展示 与展示字段名称同名的 数据字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("fields_mapping")]
+            [JsonPropertyName("fields_mapping")]
             public SchemaDisplayFieldMapping[]? FieldsMapping { get; set; }
 
             /// <summary></summary>
@@ -250,14 +249,14 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
                 /// <para>展示字段名称，与 card_key 有关，每个模版能展示的字段不同。该字段不能重复</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("display_field")]
+                [JsonPropertyName("display_field")]
                 public string? DisplayField { get; set; }
 
                 /// <summary>
                 /// <para>数据字段的名称。需要确保该字段对应在 schema 属性定义中的 is_returnable 为 true，否则无法展示。需要使用 ${xxx} 的规则来描述</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("data_field")]
+                [JsonPropertyName("data_field")]
                 public string? DataField { get; set; }
             }
         }
@@ -266,7 +265,7 @@ public record PatchSearchV2SchemasBySchemaIdResponseDto
         /// <para>用户自定义数据范式的唯一标识</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("schema_id")]
+        [JsonPropertyName("schema_id")]
         public string? SchemaId { get; set; }
     }
 }

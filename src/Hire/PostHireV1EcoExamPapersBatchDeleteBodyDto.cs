@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 删除试卷 请求体
@@ -14,7 +13,7 @@ public record PostHireV1EcoExamPapersBatchDeleteBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：7147998241542539527</para>
     /// </summary>
-    [JsonProperty("account_id")]
+    [JsonPropertyName("account_id")]
     public string AccountId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostHireV1EcoExamPapersBatchDeleteBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：["7147998241542539512"]</para>
     /// </summary>
-    [JsonProperty("paper_id_list")]
+    [JsonPropertyName("paper_id_list")]
     public string[] PaperIdList { get; set; } = Array.Empty<string>();
 }

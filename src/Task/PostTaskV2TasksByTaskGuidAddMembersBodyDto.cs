@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 添加任务成员 请求体
@@ -17,7 +16,7 @@ public record PostTaskV2TasksByTaskGuidAddMembersBodyDto
     /// <para>要添加的members列表，单请求支持最大50个成员（去重后)。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 如何表示任务和清单的成员？”章节。</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("members")]
+    [JsonPropertyName("members")]
     public Member[] Members { get; set; } = Array.Empty<Member>();
 
     /// <summary>
@@ -31,7 +30,7 @@ public record PostTaskV2TasksByTaskGuidAddMembersBodyDto
         /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -40,7 +39,7 @@ public record PostTaskV2TasksByTaskGuidAddMembersBodyDto
         /// <para>示例值：user</para>
         /// <para>默认值：user</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
@@ -49,7 +48,7 @@ public record PostTaskV2TasksByTaskGuidAddMembersBodyDto
         /// <para>示例值：assignee</para>
         /// <para>最大长度：20</para>
         /// </summary>
-        [JsonProperty("role")]
+        [JsonPropertyName("role")]
         public string Role { get; set; } = string.Empty;
     }
 
@@ -59,6 +58,6 @@ public record PostTaskV2TasksByTaskGuidAddMembersBodyDto
     /// <para>示例值：6d99f59c-4d7d-4452-98d6-3d0556393cf6</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("client_token")]
+    [JsonPropertyName("client_token")]
     public string? ClientToken { get; set; }
 }

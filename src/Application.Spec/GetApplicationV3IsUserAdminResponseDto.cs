@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application.Spec;
 /// <summary>
 /// 校验应用管理员 响应体
@@ -14,6 +13,6 @@ public record GetApplicationV3IsUserAdminResponseDto
     /// <para>用户是否为管理员，true 为是，false 为否</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("is_app_admin")]
+    [JsonPropertyName("is_app_admin")]
     public bool? IsAppAdmin { get; set; }
 }

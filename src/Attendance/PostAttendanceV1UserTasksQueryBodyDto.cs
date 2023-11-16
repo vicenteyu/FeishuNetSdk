@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询打卡结果 请求体
@@ -14,7 +13,7 @@ public record PostAttendanceV1UserTasksQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：abd754f7</para>
     /// </summary>
-    [JsonProperty("user_ids")]
+    [JsonPropertyName("user_ids")]
     public string[] UserIds { get; set; } = Array.Empty<string>();
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostAttendanceV1UserTasksQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：20190817</para>
     /// </summary>
-    [JsonProperty("check_date_from")]
+    [JsonPropertyName("check_date_from")]
     public int CheckDateFrom { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostAttendanceV1UserTasksQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：20190820</para>
     /// </summary>
-    [JsonProperty("check_date_to")]
+    [JsonPropertyName("check_date_to")]
     public int CheckDateTo { get; set; }
 
     /// <summary>
@@ -38,6 +37,6 @@ public record PostAttendanceV1UserTasksQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("need_overtime_result")]
+    [JsonPropertyName("need_overtime_result")]
     public bool? NeedOvertimeResult { get; set; }
 }

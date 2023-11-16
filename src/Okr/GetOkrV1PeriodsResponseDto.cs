@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Okr;
 /// <summary>
 /// 获取 OKR 周期列表 响应体
@@ -14,7 +13,7 @@ public record GetOkrV1PeriodsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：asdasdasd</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record GetOkrV1PeriodsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>数据项</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Period[]? Items { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record GetOkrV1PeriodsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：635782378412311</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetOkrV1PeriodsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：中文周期</para>
         /// </summary>
-        [JsonProperty("zh_name")]
+        [JsonPropertyName("zh_name")]
         public string? ZhName { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetOkrV1PeriodsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：englishperiod</para>
         /// </summary>
-        [JsonProperty("en_name")]
+        [JsonPropertyName("en_name")]
         public string? EnName { get; set; }
 
         /// <summary>
@@ -72,7 +71,7 @@ public record GetOkrV1PeriodsResponseDto
         /// <item>3：隐藏周期</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public int? Status { get; set; }
 
         /// <summary>
@@ -80,7 +79,7 @@ public record GetOkrV1PeriodsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1686740948123</para>
         /// </summary>
-        [JsonProperty("period_start_time")]
+        [JsonPropertyName("period_start_time")]
         public string? PeriodStartTime { get; set; }
 
         /// <summary>
@@ -88,7 +87,7 @@ public record GetOkrV1PeriodsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1686740948123</para>
         /// </summary>
-        [JsonProperty("period_end_time")]
+        [JsonPropertyName("period_end_time")]
         public string? PeriodEndTime { get; set; }
     }
 }

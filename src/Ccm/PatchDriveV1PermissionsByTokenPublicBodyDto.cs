@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 更新云文档权限设置 请求体
@@ -14,7 +13,7 @@ public record PatchDriveV1PermissionsByTokenPublicBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("external_access")]
+    [JsonPropertyName("external_access")]
     public bool? ExternalAccess { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record PatchDriveV1PermissionsByTokenPublicBodyDto
     /// <item>only_full_access：拥有可管理权限（包括我）的用户</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("security_entity")]
+    [JsonPropertyName("security_entity")]
     public string? SecurityEntity { get; set; }
 
     /// <summary>
@@ -39,7 +38,7 @@ public record PatchDriveV1PermissionsByTokenPublicBodyDto
     /// <item>anyone_can_edit：拥有可编辑权限的用户</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("comment_entity")]
+    [JsonPropertyName("comment_entity")]
     public string? CommentEntity { get; set; }
 
     /// <summary>
@@ -52,7 +51,7 @@ public record PatchDriveV1PermissionsByTokenPublicBodyDto
     /// <item>only_full_access：拥有可管理权限（包括我）的用户</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("share_entity")]
+    [JsonPropertyName("share_entity")]
     public string? ShareEntity { get; set; }
 
     /// <summary>
@@ -67,7 +66,7 @@ public record PatchDriveV1PermissionsByTokenPublicBodyDto
     /// <item>closed：关闭链接分享</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("link_share_entity")]
+    [JsonPropertyName("link_share_entity")]
     public string? LinkShareEntity { get; set; }
 
     /// <summary>
@@ -75,6 +74,6 @@ public record PatchDriveV1PermissionsByTokenPublicBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("invite_external")]
+    [JsonPropertyName("invite_external")]
     public bool? InviteExternal { get; set; }
 }

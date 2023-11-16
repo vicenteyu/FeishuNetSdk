@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 获取三方审批任务状态 请求体
@@ -19,7 +18,7 @@ public record GetApprovalV4ExternalTasksBodyDto
     /// <para>示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6</para>
     /// <para>最大长度：20</para>
     /// </summary>
-    [JsonProperty("approval_codes")]
+    [JsonPropertyName("approval_codes")]
     public string[]? ApprovalCodes { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record GetApprovalV4ExternalTasksBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：oa_159160304</para>
     /// </summary>
-    [JsonProperty("instance_ids")]
+    [JsonPropertyName("instance_ids")]
     public string[]? InstanceIds { get; set; }
 
     /// <summary>
@@ -35,7 +34,7 @@ public record GetApprovalV4ExternalTasksBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：112321</para>
     /// </summary>
-    [JsonProperty("user_ids")]
+    [JsonPropertyName("user_ids")]
     public string[]? UserIds { get; set; }
 
     /// <summary>
@@ -50,6 +49,6 @@ public record GetApprovalV4ExternalTasksBodyDto
     /// <item>DONE：任务通过但审批人未操作；审批人看不到这个任务,若想要看到,可以通过抄送该人.</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string? Status { get; set; }
 }

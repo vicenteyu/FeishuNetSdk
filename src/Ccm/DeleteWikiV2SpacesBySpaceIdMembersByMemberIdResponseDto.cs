@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 删除知识空间成员 响应体
@@ -13,7 +12,7 @@ public record DeleteWikiV2SpacesBySpaceIdMembersByMemberIdResponseDto
     /// <para>成员信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("member")]
+    [JsonPropertyName("member")]
     public DeleteWikiV2SpacesBySpaceIdMembersByMemberIdResponseDtoMember Member { get; set; } = new();
 
     /// <summary>
@@ -32,7 +31,7 @@ public record DeleteWikiV2SpacesBySpaceIdMembersByMemberIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：userid</para>
         /// </summary>
-        [JsonProperty("member_type")]
+        [JsonPropertyName("member_type")]
         public string MemberType { get; set; } = string.Empty;
 
         /// <summary>
@@ -40,7 +39,7 @@ public record DeleteWikiV2SpacesBySpaceIdMembersByMemberIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1565676577122621</para>
         /// </summary>
-        [JsonProperty("member_id")]
+        [JsonPropertyName("member_id")]
         public string MemberId { get; set; } = string.Empty;
 
         /// <summary>
@@ -50,7 +49,7 @@ public record DeleteWikiV2SpacesBySpaceIdMembersByMemberIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：admin</para>
         /// </summary>
-        [JsonProperty("member_role")]
+        [JsonPropertyName("member_role")]
         public string MemberRole { get; set; } = string.Empty;
     }
 }

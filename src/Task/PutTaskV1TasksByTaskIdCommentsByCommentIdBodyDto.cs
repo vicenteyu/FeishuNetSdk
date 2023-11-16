@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 更新评论 请求体
@@ -15,7 +14,7 @@ public record PutTaskV1TasksByTaskIdCommentsByCommentIdBodyDto
     /// <para>示例值：飞流直下三千尺，疑是银河落九天</para>
     /// <para>最大长度：65536</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string? Content { get; set; }
 
     /// <summary>
@@ -24,6 +23,6 @@ public record PutTaskV1TasksByTaskIdCommentsByCommentIdBodyDto
     /// <para>示例值：飞流直下三千尺，疑是银河落九天&lt;atid=7058204817822318612&gt;&lt;/at&gt;</para>
     /// <para>最大长度：65536</para>
     /// </summary>
-    [JsonProperty("rich_content")]
+    [JsonPropertyName("rich_content")]
     public string? RichContent { get; set; }
 }

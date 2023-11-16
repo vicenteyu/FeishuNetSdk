@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 识别文件中的港澳居民来往内地通行证 响应体
@@ -13,7 +12,7 @@ public record PostDocumentAiV1HkmMainlandTravelPermitRecognizeResponseDto
     /// <para>港澳居民来往内地通行证信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("hkm_mainland_travel_permit")]
+    [JsonPropertyName("hkm_mainland_travel_permit")]
     public PostDocumentAiV1HkmMainlandTravelPermitRecognizeResponseDtoHkmMainlandTravelPermit? HkmMainlandTravelPermit { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostDocumentAiV1HkmMainlandTravelPermitRecognizeResponseDto
         /// <para>识别出的实体类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("entities")]
+        [JsonPropertyName("entities")]
         public HkmMainlandTravelPermitEntity[]? Entities { get; set; }
 
         /// <summary>
@@ -45,7 +44,7 @@ public record PostDocumentAiV1HkmMainlandTravelPermitRecognizeResponseDto
             /// <item>card_number：证件号码</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -53,7 +52,7 @@ public record PostDocumentAiV1HkmMainlandTravelPermitRecognizeResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
     }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 更新应用可用范围 请求体
@@ -13,7 +12,7 @@ public record PatchApplicationV6ApplicationsByAppIdVisibilityBodyDto
     /// <para>添加可用人员列表，如果参数is_visible_to_all不设置且当前已经是全员可见，或者参数is_visible_to_all设置为true，则该参数不生效</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("add_visible_list")]
+    [JsonPropertyName("add_visible_list")]
     public AppVisibilityIdList? AddVisibleList { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PatchApplicationV6ApplicationsByAppIdVisibilityBodyDto
         /// <para>必填：否</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("user_ids")]
+        [JsonPropertyName("user_ids")]
         public string[]? UserIds { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PatchApplicationV6ApplicationsByAppIdVisibilityBodyDto
         /// <para>必填：否</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("department_ids")]
+        [JsonPropertyName("department_ids")]
         public string[]? DepartmentIds { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PatchApplicationV6ApplicationsByAppIdVisibilityBodyDto
         /// <para>必填：否</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("group_ids")]
+        [JsonPropertyName("group_ids")]
         public string[]? GroupIds { get; set; }
     }
 
@@ -50,21 +49,21 @@ public record PatchApplicationV6ApplicationsByAppIdVisibilityBodyDto
     /// <para>删除可用人员列表，如果参数is_visible_to_all不设置且当前已经是全员可见，或者参数is_visible_to_all设置为true，则该参数不生效</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("del_visible_list")]
+    [JsonPropertyName("del_visible_list")]
     public AppVisibilityIdList? DelVisibleList { get; set; }
 
     /// <summary>
     /// <para>添加禁用人员列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("add_invisible_list")]
+    [JsonPropertyName("add_invisible_list")]
     public AppVisibilityIdList? AddInvisibleList { get; set; }
 
     /// <summary>
     /// <para>删除禁用人员列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("del_invisible_list")]
+    [JsonPropertyName("del_invisible_list")]
     public AppVisibilityIdList? DelInvisibleList { get; set; }
 
     /// <summary>
@@ -76,6 +75,6 @@ public record PatchApplicationV6ApplicationsByAppIdVisibilityBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("is_visible_to_all")]
+    [JsonPropertyName("is_visible_to_all")]
     public bool? IsVisibleToAll { get; set; }
 }

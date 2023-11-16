@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Okr;
 /// <summary>
 /// 上传进展记录图片 响应体
@@ -14,7 +13,7 @@ public record PostOkrV1ImagesUploadResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：boxbcLxEnhUE3REJSAwAbVFZwPf</para>
     /// </summary>
-    [JsonProperty("file_token")]
+    [JsonPropertyName("file_token")]
     public string? FileToken { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostOkrV1ImagesUploadResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：https://bytedance.feishu.cn/drive/home/</para>
     /// </summary>
-    [JsonProperty("url")]
+    [JsonPropertyName("url")]
     public string? Url { get; set; }
 }

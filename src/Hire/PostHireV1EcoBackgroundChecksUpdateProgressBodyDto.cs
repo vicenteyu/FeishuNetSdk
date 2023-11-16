@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新背调订单进度 请求体
@@ -14,7 +13,7 @@ public record PostHireV1EcoBackgroundChecksUpdateProgressBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6931286400470354183</para>
     /// </summary>
-    [JsonProperty("background_check_id")]
+    [JsonPropertyName("background_check_id")]
     public string BackgroundCheckId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostHireV1EcoBackgroundChecksUpdateProgressBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6931286400470354183</para>
     /// </summary>
-    [JsonProperty("stage_id")]
+    [JsonPropertyName("stage_id")]
     public string StageId { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostHireV1EcoBackgroundChecksUpdateProgressBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：stage report</para>
     /// </summary>
-    [JsonProperty("stage_en_name")]
+    [JsonPropertyName("stage_en_name")]
     public string? StageEnName { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostHireV1EcoBackgroundChecksUpdateProgressBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：阶段报告</para>
     /// </summary>
-    [JsonProperty("stage_name")]
+    [JsonPropertyName("stage_name")]
     public string StageName { get; set; } = string.Empty;
 
     /// <summary>
@@ -46,14 +45,14 @@ public record PostHireV1EcoBackgroundChecksUpdateProgressBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1660123456789</para>
     /// </summary>
-    [JsonProperty("stage_time")]
+    [JsonPropertyName("stage_time")]
     public string StageTime { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>报告列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("report_file_list")]
+    [JsonPropertyName("report_file_list")]
     public EcoBackgroundCheckReportFile[]? ReportFileLists { get; set; }
 
     /// <summary>
@@ -66,7 +65,7 @@ public record PostHireV1EcoBackgroundChecksUpdateProgressBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：阶段报告.pdf</para>
         /// </summary>
-        [JsonProperty("report_name")]
+        [JsonPropertyName("report_name")]
         public string ReportName { get; set; } = string.Empty;
 
         /// <summary>
@@ -74,7 +73,7 @@ public record PostHireV1EcoBackgroundChecksUpdateProgressBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：https://xxxxx/xxxxxx/xxxx.pdf</para>
         /// </summary>
-        [JsonProperty("report_url")]
+        [JsonPropertyName("report_url")]
         public string ReportUrl { get; set; } = string.Empty;
 
         /// <summary>
@@ -86,7 +85,7 @@ public record PostHireV1EcoBackgroundChecksUpdateProgressBodyDto
         /// <item>2：外链型链接</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("report_url_type")]
+        [JsonPropertyName("report_url_type")]
         public int? ReportUrlType { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 更新工单详情 请求体
@@ -14,7 +13,7 @@ public record PutHelpdeskV1TicketsByTicketIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public int? Status { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PutHelpdeskV1TicketsByTicketIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：abc</para>
     /// </summary>
-    [JsonProperty("tag_names")]
+    [JsonPropertyName("tag_names")]
     public string[]? TagNames { get; set; }
 
     /// <summary>
@@ -30,14 +29,14 @@ public record PutHelpdeskV1TicketsByTicketIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：good</para>
     /// </summary>
-    [JsonProperty("comment")]
+    [JsonPropertyName("comment")]
     public string? Comment { get; set; }
 
     /// <summary>
     /// <para>自定义字段</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("customized_fields")]
+    [JsonPropertyName("customized_fields")]
     public CustomizedFieldDisplayItem[]? CustomizedFields { get; set; }
 
     /// <summary>
@@ -50,7 +49,7 @@ public record PutHelpdeskV1TicketsByTicketIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：123</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PutHelpdeskV1TicketsByTicketIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：value</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string? Value { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PutHelpdeskV1TicketsByTicketIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：key</para>
         /// </summary>
-        [JsonProperty("key_name")]
+        [JsonPropertyName("key_name")]
         public string? KeyName { get; set; }
     }
 
@@ -75,7 +74,7 @@ public record PutHelpdeskV1TicketsByTicketIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("ticket_type")]
+    [JsonPropertyName("ticket_type")]
     public int? TicketType { get; set; }
 
     /// <summary>
@@ -83,7 +82,7 @@ public record PutHelpdeskV1TicketsByTicketIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("solved")]
+    [JsonPropertyName("solved")]
     public int? Solved { get; set; }
 
     /// <summary>
@@ -91,6 +90,6 @@ public record PutHelpdeskV1TicketsByTicketIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("channel")]
+    [JsonPropertyName("channel")]
     public int? Channel { get; set; }
 }

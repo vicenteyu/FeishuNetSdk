@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 获取附件 响应体
@@ -13,7 +12,7 @@ public record GetTaskV2AttachmentsByAttachmentGuidResponseDto
     /// <para>附件详情</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("attachment")]
+    [JsonPropertyName("attachment")]
     public GetTaskV2AttachmentsByAttachmentGuidResponseDtoAttachment? Attachment { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetTaskV2AttachmentsByAttachmentGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：f860de3e-6881-4ddd-9321-070f36d1af0b</para>
         /// </summary>
-        [JsonProperty("guid")]
+        [JsonPropertyName("guid")]
         public string? Guid { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetTaskV2AttachmentsByAttachmentGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：boxcnTDqPaRA6JbYnzQsZ2doB2b</para>
         /// </summary>
-        [JsonProperty("file_token")]
+        [JsonPropertyName("file_token")]
         public string? FileToken { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetTaskV2AttachmentsByAttachmentGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：foo.jpg</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -50,14 +49,14 @@ public record GetTaskV2AttachmentsByAttachmentGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：62232</para>
         /// </summary>
-        [JsonProperty("size")]
+        [JsonPropertyName("size")]
         public int? Size { get; set; }
 
         /// <summary>
         /// <para>附件归属的资源</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("resource")]
+        [JsonPropertyName("resource")]
         public GetTaskV2AttachmentsByAttachmentGuidResponseDtoAttachmentResource? Resource { get; set; }
 
         /// <summary>
@@ -70,7 +69,7 @@ public record GetTaskV2AttachmentsByAttachmentGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：task</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -78,7 +77,7 @@ public record GetTaskV2AttachmentsByAttachmentGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
         }
 
@@ -86,7 +85,7 @@ public record GetTaskV2AttachmentsByAttachmentGuidResponseDto
         /// <para>附件上传者</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("uploader")]
+        [JsonPropertyName("uploader")]
         public Member? Uploader { get; set; }
 
         /// <summary>
@@ -100,7 +99,7 @@ public record GetTaskV2AttachmentsByAttachmentGuidResponseDto
             /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
             /// <para>最大长度：100</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -109,7 +108,7 @@ public record GetTaskV2AttachmentsByAttachmentGuidResponseDto
             /// <para>示例值：user</para>
             /// <para>默认值：user</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -118,7 +117,7 @@ public record GetTaskV2AttachmentsByAttachmentGuidResponseDto
             /// <para>示例值：editor</para>
             /// <para>最大长度：20</para>
             /// </summary>
-            [JsonProperty("role")]
+            [JsonPropertyName("role")]
             public string? Role { get; set; }
         }
 
@@ -127,7 +126,7 @@ public record GetTaskV2AttachmentsByAttachmentGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("is_cover")]
+        [JsonPropertyName("is_cover")]
         public bool? IsCover { get; set; }
 
         /// <summary>
@@ -135,7 +134,7 @@ public record GetTaskV2AttachmentsByAttachmentGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1675742789470</para>
         /// </summary>
-        [JsonProperty("uploaded_at")]
+        [JsonPropertyName("uploaded_at")]
         public string? UploadedAt { get; set; }
 
         /// <summary>
@@ -143,7 +142,7 @@ public record GetTaskV2AttachmentsByAttachmentGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://example.com/download/authcode/?code=OWMzNDlmMjJmZThkYzZkZGJlMjYwZTI0OTUxZTE2MDJfMDZmZmMwOWVj</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 更新知识库分类详情 请求体
@@ -14,7 +13,7 @@ public record PatchHelpdeskV1CategoriesByIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：创建团队和邀请成员</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PatchHelpdeskV1CategoriesByIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：0</para>
     /// </summary>
-    [JsonProperty("parent_id")]
+    [JsonPropertyName("parent_id")]
     public string? ParentId { get; set; }
 }

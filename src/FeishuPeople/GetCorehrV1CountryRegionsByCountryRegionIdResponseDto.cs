@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 查询单条国家/地区信息 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1CountryRegionsByCountryRegionIdResponseDto
     /// <para>国家/地区信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("country_region")]
+    [JsonPropertyName("country_region")]
     public GetCorehrV1CountryRegionsByCountryRegionIdResponseDtoCountryRegion? CountryRegion { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record GetCorehrV1CountryRegionsByCountryRegionIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>国家/地区名称</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n[] Names { get; set; } = Array.Empty<I18n>();
 
         /// <summary>
@@ -46,7 +45,7 @@ public record GetCorehrV1CountryRegionsByCountryRegionIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -54,7 +53,7 @@ public record GetCorehrV1CountryRegionsByCountryRegionIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -63,7 +62,7 @@ public record GetCorehrV1CountryRegionsByCountryRegionIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：12</para>
         /// </summary>
-        [JsonProperty("alpha_3_code")]
+        [JsonPropertyName("alpha_3_code")]
         public string Alpha3Code { get; set; } = string.Empty;
 
         /// <summary>
@@ -71,7 +70,7 @@ public record GetCorehrV1CountryRegionsByCountryRegionIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：12</para>
         /// </summary>
-        [JsonProperty("alpha_2_code")]
+        [JsonPropertyName("alpha_2_code")]
         public string Alpha2Code { get; set; } = string.Empty;
     }
 }

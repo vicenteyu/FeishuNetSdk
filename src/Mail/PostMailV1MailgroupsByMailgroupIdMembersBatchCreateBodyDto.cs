@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 批量创建邮件组成员 请求体
@@ -14,7 +13,7 @@ public record PostMailV1MailgroupsByMailgroupIdMembersBatchCreateBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：200</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public MailgroupMember[]? Items { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record PostMailV1MailgroupsByMailgroupIdMembersBatchCreateBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：xxxxxxxxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("member_id")]
+        [JsonPropertyName("member_id")]
         public string? MemberId { get; set; }
 
         /// <summary>
@@ -35,7 +34,7 @@ public record PostMailV1MailgroupsByMailgroupIdMembersBatchCreateBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：test_memeber@xxx.xx</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string? Email { get; set; }
 
         /// <summary>
@@ -43,7 +42,7 @@ public record PostMailV1MailgroupsByMailgroupIdMembersBatchCreateBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：xxxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -51,7 +50,7 @@ public record PostMailV1MailgroupsByMailgroupIdMembersBatchCreateBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：xxxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
@@ -68,7 +67,7 @@ public record PostMailV1MailgroupsByMailgroupIdMembersBatchCreateBodyDto
         /// <item>OTHER_MEMBER：内部成员</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
     }
 }

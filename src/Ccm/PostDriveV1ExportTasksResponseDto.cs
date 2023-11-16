@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建导出任务 响应体
@@ -14,6 +13,6 @@ public record PostDriveV1ExportTasksResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：6933093124755423251</para>
     /// </summary>
-    [JsonProperty("ticket")]
+    [JsonPropertyName("ticket")]
     public string? Ticket { get; set; }
 }

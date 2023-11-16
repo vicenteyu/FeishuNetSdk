@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 查询导入任务结果 响应体
@@ -13,7 +12,7 @@ public record GetDriveV1ImportTasksByTicketResponseDto
     /// <para>导入结果</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("result")]
+    [JsonPropertyName("result")]
     public ImportTask? Result { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetDriveV1ImportTasksByTicketResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6990281865xxxxxxxx7843</para>
         /// </summary>
-        [JsonProperty("ticket")]
+        [JsonPropertyName("ticket")]
         public string? Ticket { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetDriveV1ImportTasksByTicketResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：sheet</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
@@ -73,7 +72,7 @@ public record GetDriveV1ImportTasksByTicketResponseDto
         /// <item>7002：docx block 大小超过系统上限</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("job_status")]
+        [JsonPropertyName("job_status")]
         public int? JobStatus { get; set; }
 
         /// <summary>
@@ -81,7 +80,7 @@ public record GetDriveV1ImportTasksByTicketResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：success</para>
         /// </summary>
-        [JsonProperty("job_error_msg")]
+        [JsonPropertyName("job_error_msg")]
         public string? JobErrorMsg { get; set; }
 
         /// <summary>
@@ -89,7 +88,7 @@ public record GetDriveV1ImportTasksByTicketResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：shtcnVBTG6SuxxxxxxxkM2tUX</para>
         /// </summary>
-        [JsonProperty("token")]
+        [JsonPropertyName("token")]
         public string? Token { get; set; }
 
         /// <summary>
@@ -97,14 +96,14 @@ public record GetDriveV1ImportTasksByTicketResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://example.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
 
         /// <summary>
         /// <para>任务成功后的提示信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("extra")]
+        [JsonPropertyName("extra")]
         public string[]? Extra { get; set; }
     }
 }

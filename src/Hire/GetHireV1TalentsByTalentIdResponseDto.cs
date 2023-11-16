@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取人才信息 V1 响应体
@@ -13,7 +12,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
     /// <para>人才信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("talent")]
+    [JsonPropertyName("talent")]
     public GetHireV1TalentsByTalentIdResponseDtoTalent? Talent { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6891560630172518670</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -38,7 +37,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <item>true：在猎头保护期</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("is_in_agency_period")]
+        [JsonPropertyName("is_in_agency_period")]
         public bool? IsInAgencyPeriod { get; set; }
 
         /// <summary>
@@ -50,14 +49,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <item>true：已入职</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("is_onboarded")]
+        [JsonPropertyName("is_onboarded")]
         public bool? IsOnboarded { get; set; }
 
         /// <summary>
         /// <para>基础信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("basic_info")]
+        [JsonPropertyName("basic_info")]
         public TalentBasicInfo? BasicInfo { get; set; }
 
         /// <summary>
@@ -70,7 +69,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：测试</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string Name { get; set; } = string.Empty;
 
             /// <summary>
@@ -78,7 +77,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：182900291190</para>
             /// </summary>
-            [JsonProperty("mobile")]
+            [JsonPropertyName("mobile")]
             public string? Mobile { get; set; }
 
             /// <summary>
@@ -86,7 +85,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：86</para>
             /// </summary>
-            [JsonProperty("mobile_code")]
+            [JsonPropertyName("mobile_code")]
             public string? MobileCode { get; set; }
 
             /// <summary>
@@ -94,7 +93,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：CN_1</para>
             /// </summary>
-            [JsonProperty("mobile_country_code")]
+            [JsonPropertyName("mobile_country_code")]
             public string? MobileCountryCode { get; set; }
 
             /// <summary>
@@ -102,7 +101,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：16xx1@126.com</para>
             /// </summary>
-            [JsonProperty("email")]
+            [JsonPropertyName("email")]
             public string? Email { get; set; }
 
             /// <summary>
@@ -110,7 +109,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：5</para>
             /// </summary>
-            [JsonProperty("experience_years")]
+            [JsonPropertyName("experience_years")]
             public int? ExperienceYears { get; set; }
 
             /// <summary>
@@ -118,14 +117,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：22</para>
             /// </summary>
-            [JsonProperty("age")]
+            [JsonPropertyName("age")]
             public int? Age { get; set; }
 
             /// <summary>
             /// <para>国籍</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("nationality")]
+            [JsonPropertyName("nationality")]
             public TalentNationality? Nationality { get; set; }
 
             /// <summary>
@@ -138,7 +137,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：CN_183</para>
                 /// </summary>
-                [JsonProperty("nationality_code")]
+                [JsonPropertyName("nationality_code")]
                 public string? NationalityCode { get; set; }
 
                 /// <summary>
@@ -146,7 +145,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：测试</para>
                 /// </summary>
-                [JsonProperty("zh_name")]
+                [JsonPropertyName("zh_name")]
                 public string? ZhName { get; set; }
 
                 /// <summary>
@@ -154,7 +153,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：test</para>
                 /// </summary>
-                [JsonProperty("en_name")]
+                [JsonPropertyName("en_name")]
                 public string? EnName { get; set; }
             }
 
@@ -168,14 +167,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <item>3：保密</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("gender")]
+            [JsonPropertyName("gender")]
             public int? Gender { get; set; }
 
             /// <summary>
             /// <para>所在地点</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("current_city")]
+            [JsonPropertyName("current_city")]
             public TalentCityInfo? CurrentCity { get; set; }
 
             /// <summary>
@@ -188,7 +187,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：CN_183</para>
                 /// </summary>
-                [JsonProperty("city_code")]
+                [JsonPropertyName("city_code")]
                 public string? CityCode { get; set; }
 
                 /// <summary>
@@ -196,7 +195,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：测试</para>
                 /// </summary>
-                [JsonProperty("zh_name")]
+                [JsonPropertyName("zh_name")]
                 public string? ZhName { get; set; }
 
                 /// <summary>
@@ -204,7 +203,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：test</para>
                 /// </summary>
-                [JsonProperty("en_name")]
+                [JsonPropertyName("en_name")]
                 public string? EnName { get; set; }
             }
 
@@ -212,14 +211,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>家乡</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("hometown_city")]
+            [JsonPropertyName("hometown_city")]
             public TalentCityInfo? HometownCity { get; set; }
 
             /// <summary>
             /// <para>意向地点</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("preferred_city_list")]
+            [JsonPropertyName("preferred_city_list")]
             public TalentCityInfo[]? PreferredCityLists { get; set; }
 
             /// <summary>
@@ -236,7 +235,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <item>9：中国-台湾居民居住证</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("identification_type")]
+            [JsonPropertyName("identification_type")]
             public int? IdentificationType { get; set; }
 
             /// <summary>
@@ -244,7 +243,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：511699199x1x111234</para>
             /// </summary>
-            [JsonProperty("identification_number")]
+            [JsonPropertyName("identification_number")]
             public string? IdentificationNumber { get; set; }
 
             /// <summary>
@@ -252,7 +251,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1687872017</para>
             /// </summary>
-            [JsonProperty("birthday")]
+            [JsonPropertyName("birthday")]
             public int? Birthday { get; set; }
 
             /// <summary>
@@ -260,7 +259,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ou-xxx</para>
             /// </summary>
-            [JsonProperty("creator_id")]
+            [JsonPropertyName("creator_id")]
             public string? CreatorId { get; set; }
 
             /// <summary>
@@ -272,7 +271,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <item>2：未婚</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("marital_status")]
+            [JsonPropertyName("marital_status")]
             public int? MaritalStatus { get; set; }
 
             /// <summary>
@@ -280,14 +279,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：南京路1号</para>
             /// </summary>
-            [JsonProperty("current_home_address")]
+            [JsonPropertyName("current_home_address")]
             public string? CurrentHomeAddress { get; set; }
 
             /// <summary>
             /// <para>自定义字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("customized_data_list")]
+            [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
 
             /// <summary>
@@ -300,14 +299,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：xxxx</para>
                 /// </summary>
-                [JsonProperty("object_id")]
+                [JsonPropertyName("object_id")]
                 public string? ObjectId { get; set; }
 
                 /// <summary>
                 /// <para>字段名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
@@ -320,7 +319,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：测试</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -328,7 +327,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：test</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
 
@@ -351,14 +350,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <item>13：附件</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("object_type")]
+                [JsonPropertyName("object_type")]
                 public int? ObjectType { get; set; }
 
                 /// <summary>
                 /// <para>自定义字段值</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public TalentCustomizedValue? Value { get; set; }
 
                 /// <summary>
@@ -371,14 +370,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：text</para>
                     /// </summary>
-                    [JsonProperty("content")]
+                    [JsonPropertyName("content")]
                     public string? Content { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为单选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option")]
+                    [JsonPropertyName("option")]
                     public TalentCustomizedOption? Option { get; set; }
 
                     /// <summary>
@@ -391,14 +390,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：AA</para>
                         /// </summary>
-                        [JsonProperty("key")]
+                        [JsonPropertyName("key")]
                         public string? Key { get; set; }
 
                         /// <summary>
                         /// <para>选项名称</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("name")]
+                        [JsonPropertyName("name")]
                         public I18n? Name { get; set; }
 
                         /// <summary>
@@ -411,7 +410,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：测试</para>
                             /// </summary>
-                            [JsonProperty("zh_cn")]
+                            [JsonPropertyName("zh_cn")]
                             public string? ZhCn { get; set; }
 
                             /// <summary>
@@ -419,7 +418,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：test</para>
                             /// </summary>
-                            [JsonProperty("en_us")]
+                            [JsonPropertyName("en_us")]
                             public string? EnUs { get; set; }
                         }
                     }
@@ -428,14 +427,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>当字段类型为多选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option_list")]
+                    [JsonPropertyName("option_list")]
                     public TalentCustomizedOption[]? OptionLists { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为时间段时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("time_range")]
+                    [JsonPropertyName("time_range")]
                     public TalentCustomizedTimeRange? TimeRange { get; set; }
 
                     /// <summary>
@@ -448,7 +447,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625456721</para>
                         /// </summary>
-                        [JsonProperty("start_time")]
+                        [JsonPropertyName("start_time")]
                         public string? StartTime { get; set; }
 
                         /// <summary>
@@ -456,7 +455,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625656721</para>
                         /// </summary>
-                        [JsonProperty("end_time")]
+                        [JsonPropertyName("end_time")]
                         public string? EndTime { get; set; }
                     }
 
@@ -465,7 +464,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：1625456721</para>
                     /// </summary>
-                    [JsonProperty("time")]
+                    [JsonPropertyName("time")]
                     public string? Time { get; set; }
 
                     /// <summary>
@@ -473,14 +472,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：111</para>
                     /// </summary>
-                    [JsonProperty("number")]
+                    [JsonPropertyName("number")]
                     public string? Number { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为附件时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("customized_attachment")]
+                    [JsonPropertyName("customized_attachment")]
                     public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
 
                     /// <summary>
@@ -493,7 +492,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：7140517838785481004</para>
                         /// </summary>
-                        [JsonProperty("file_id")]
+                        [JsonPropertyName("file_id")]
                         public string? FileId { get; set; }
 
                         /// <summary>
@@ -501,7 +500,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1.13测试1的面试记录.pdf</para>
                         /// </summary>
-                        [JsonProperty("file_name")]
+                        [JsonPropertyName("file_name")]
                         public string? FileName { get; set; }
 
                         /// <summary>
@@ -509,7 +508,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：application/pdf</para>
                         /// </summary>
-                        [JsonProperty("content_type")]
+                        [JsonPropertyName("content_type")]
                         public string? ContentType { get; set; }
 
                         /// <summary>
@@ -517,7 +516,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：16615</para>
                         /// </summary>
-                        [JsonProperty("file_size")]
+                        [JsonPropertyName("file_size")]
                         public int? FileSize { get; set; }
                     }
                 }
@@ -528,7 +527,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1634801678103</para>
             /// </summary>
-            [JsonProperty("modify_time")]
+            [JsonPropertyName("modify_time")]
             public string? ModifyTime { get; set; }
 
             /// <summary>
@@ -536,7 +535,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：CN_1</para>
             /// </summary>
-            [JsonProperty("hukou_location_code")]
+            [JsonPropertyName("hukou_location_code")]
             public string? HukouLocationCode { get; set; }
         }
 
@@ -544,7 +543,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <para>教育经历</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("education_list")]
+        [JsonPropertyName("education_list")]
         public TalentEducationInfo[]? EducationLists { get; set; }
 
         /// <summary>
@@ -557,7 +556,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6891560630172518670</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -576,7 +575,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <item>9：其他</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("degree")]
+            [JsonPropertyName("degree")]
             public int? Degree { get; set; }
 
             /// <summary>
@@ -584,7 +583,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：湘港大学</para>
             /// </summary>
-            [JsonProperty("school")]
+            [JsonPropertyName("school")]
             public string? School { get; set; }
 
             /// <summary>
@@ -592,7 +591,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：考古</para>
             /// </summary>
-            [JsonProperty("field_of_study")]
+            [JsonPropertyName("field_of_study")]
             public string? FieldOfStudy { get; set; }
 
             /// <summary>
@@ -600,7 +599,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1990-01</para>
             /// </summary>
-            [JsonProperty("start_time")]
+            [JsonPropertyName("start_time")]
             public string? StartTime { get; set; }
 
             /// <summary>
@@ -608,7 +607,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1994-01</para>
             /// </summary>
-            [JsonProperty("end_time")]
+            [JsonPropertyName("end_time")]
             public string? EndTime { get; set; }
 
             /// <summary>
@@ -623,7 +622,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <item>5：其他</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("education_type")]
+            [JsonPropertyName("education_type")]
             public int? EducationType { get; set; }
 
             /// <summary>
@@ -639,21 +638,21 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <item>-1：其他</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("academic_ranking")]
+            [JsonPropertyName("academic_ranking")]
             public int? AcademicRanking { get; set; }
 
             /// <summary>
             /// <para>教育经历标签</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("tag_list")]
+            [JsonPropertyName("tag_list")]
             public int[]? TagList { get; set; }
 
             /// <summary>
             /// <para>自定义字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("customized_data_list")]
+            [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
 
             /// <summary>
@@ -666,14 +665,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：xxxx</para>
                 /// </summary>
-                [JsonProperty("object_id")]
+                [JsonPropertyName("object_id")]
                 public string? ObjectId { get; set; }
 
                 /// <summary>
                 /// <para>字段名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
@@ -686,7 +685,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：测试</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -694,7 +693,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：test</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
 
@@ -717,14 +716,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <item>13：附件</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("object_type")]
+                [JsonPropertyName("object_type")]
                 public int? ObjectType { get; set; }
 
                 /// <summary>
                 /// <para>自定义字段值</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public TalentCustomizedValue? Value { get; set; }
 
                 /// <summary>
@@ -737,14 +736,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：text</para>
                     /// </summary>
-                    [JsonProperty("content")]
+                    [JsonPropertyName("content")]
                     public string? Content { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为单选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option")]
+                    [JsonPropertyName("option")]
                     public TalentCustomizedOption? Option { get; set; }
 
                     /// <summary>
@@ -757,14 +756,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：AA</para>
                         /// </summary>
-                        [JsonProperty("key")]
+                        [JsonPropertyName("key")]
                         public string? Key { get; set; }
 
                         /// <summary>
                         /// <para>选项名称</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("name")]
+                        [JsonPropertyName("name")]
                         public I18n? Name { get; set; }
 
                         /// <summary>
@@ -777,7 +776,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：测试</para>
                             /// </summary>
-                            [JsonProperty("zh_cn")]
+                            [JsonPropertyName("zh_cn")]
                             public string? ZhCn { get; set; }
 
                             /// <summary>
@@ -785,7 +784,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：test</para>
                             /// </summary>
-                            [JsonProperty("en_us")]
+                            [JsonPropertyName("en_us")]
                             public string? EnUs { get; set; }
                         }
                     }
@@ -794,14 +793,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>当字段类型为多选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option_list")]
+                    [JsonPropertyName("option_list")]
                     public TalentCustomizedOption[]? OptionLists { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为时间段时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("time_range")]
+                    [JsonPropertyName("time_range")]
                     public TalentCustomizedTimeRange? TimeRange { get; set; }
 
                     /// <summary>
@@ -814,7 +813,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625456721</para>
                         /// </summary>
-                        [JsonProperty("start_time")]
+                        [JsonPropertyName("start_time")]
                         public string? StartTime { get; set; }
 
                         /// <summary>
@@ -822,7 +821,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625656721</para>
                         /// </summary>
-                        [JsonProperty("end_time")]
+                        [JsonPropertyName("end_time")]
                         public string? EndTime { get; set; }
                     }
 
@@ -831,7 +830,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：1625456721</para>
                     /// </summary>
-                    [JsonProperty("time")]
+                    [JsonPropertyName("time")]
                     public string? Time { get; set; }
 
                     /// <summary>
@@ -839,14 +838,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：111</para>
                     /// </summary>
-                    [JsonProperty("number")]
+                    [JsonPropertyName("number")]
                     public string? Number { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为附件时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("customized_attachment")]
+                    [JsonPropertyName("customized_attachment")]
                     public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
 
                     /// <summary>
@@ -859,7 +858,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：7140517838785481004</para>
                         /// </summary>
-                        [JsonProperty("file_id")]
+                        [JsonPropertyName("file_id")]
                         public string? FileId { get; set; }
 
                         /// <summary>
@@ -867,7 +866,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1.13测试1的面试记录.pdf</para>
                         /// </summary>
-                        [JsonProperty("file_name")]
+                        [JsonPropertyName("file_name")]
                         public string? FileName { get; set; }
 
                         /// <summary>
@@ -875,7 +874,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：application/pdf</para>
                         /// </summary>
-                        [JsonProperty("content_type")]
+                        [JsonPropertyName("content_type")]
                         public string? ContentType { get; set; }
 
                         /// <summary>
@@ -883,7 +882,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：16615</para>
                         /// </summary>
-                        [JsonProperty("file_size")]
+                        [JsonPropertyName("file_size")]
                         public int? FileSize { get; set; }
                     }
                 }
@@ -894,7 +893,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <para>工作经历</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("career_list")]
+        [JsonPropertyName("career_list")]
         public TalentCareerInfo[]? CareerLists { get; set; }
 
         /// <summary>
@@ -907,7 +906,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6891560630172518670</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -915,7 +914,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：测试公司</para>
             /// </summary>
-            [JsonProperty("company")]
+            [JsonPropertyName("company")]
             public string? Company { get; set; }
 
             /// <summary>
@@ -923,7 +922,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：高级工程师</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public string? Title { get; set; }
 
             /// <summary>
@@ -931,7 +930,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：测试</para>
             /// </summary>
-            [JsonProperty("desc")]
+            [JsonPropertyName("desc")]
             public string? Desc { get; set; }
 
             /// <summary>
@@ -939,7 +938,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1990-01</para>
             /// </summary>
-            [JsonProperty("start_time")]
+            [JsonPropertyName("start_time")]
             public string? StartTime { get; set; }
 
             /// <summary>
@@ -947,7 +946,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1994-01</para>
             /// </summary>
-            [JsonProperty("end_time")]
+            [JsonPropertyName("end_time")]
             public string? EndTime { get; set; }
 
             /// <summary>
@@ -959,21 +958,21 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <item>2：工作经历</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("career_type")]
+            [JsonPropertyName("career_type")]
             public int? CareerType { get; set; }
 
             /// <summary>
             /// <para>工作经历标签</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("tag_list")]
+            [JsonPropertyName("tag_list")]
             public int[]? TagList { get; set; }
 
             /// <summary>
             /// <para>自定义字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("customized_data_list")]
+            [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
 
             /// <summary>
@@ -986,14 +985,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：xxxx</para>
                 /// </summary>
-                [JsonProperty("object_id")]
+                [JsonPropertyName("object_id")]
                 public string? ObjectId { get; set; }
 
                 /// <summary>
                 /// <para>字段名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
@@ -1006,7 +1005,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：测试</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -1014,7 +1013,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：test</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
 
@@ -1037,14 +1036,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <item>13：附件</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("object_type")]
+                [JsonPropertyName("object_type")]
                 public int? ObjectType { get; set; }
 
                 /// <summary>
                 /// <para>自定义字段值</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public TalentCustomizedValue? Value { get; set; }
 
                 /// <summary>
@@ -1057,14 +1056,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：text</para>
                     /// </summary>
-                    [JsonProperty("content")]
+                    [JsonPropertyName("content")]
                     public string? Content { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为单选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option")]
+                    [JsonPropertyName("option")]
                     public TalentCustomizedOption? Option { get; set; }
 
                     /// <summary>
@@ -1077,14 +1076,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：AA</para>
                         /// </summary>
-                        [JsonProperty("key")]
+                        [JsonPropertyName("key")]
                         public string? Key { get; set; }
 
                         /// <summary>
                         /// <para>选项名称</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("name")]
+                        [JsonPropertyName("name")]
                         public I18n? Name { get; set; }
 
                         /// <summary>
@@ -1097,7 +1096,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：测试</para>
                             /// </summary>
-                            [JsonProperty("zh_cn")]
+                            [JsonPropertyName("zh_cn")]
                             public string? ZhCn { get; set; }
 
                             /// <summary>
@@ -1105,7 +1104,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：test</para>
                             /// </summary>
-                            [JsonProperty("en_us")]
+                            [JsonPropertyName("en_us")]
                             public string? EnUs { get; set; }
                         }
                     }
@@ -1114,14 +1113,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>当字段类型为多选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option_list")]
+                    [JsonPropertyName("option_list")]
                     public TalentCustomizedOption[]? OptionLists { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为时间段时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("time_range")]
+                    [JsonPropertyName("time_range")]
                     public TalentCustomizedTimeRange? TimeRange { get; set; }
 
                     /// <summary>
@@ -1134,7 +1133,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625456721</para>
                         /// </summary>
-                        [JsonProperty("start_time")]
+                        [JsonPropertyName("start_time")]
                         public string? StartTime { get; set; }
 
                         /// <summary>
@@ -1142,7 +1141,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625656721</para>
                         /// </summary>
-                        [JsonProperty("end_time")]
+                        [JsonPropertyName("end_time")]
                         public string? EndTime { get; set; }
                     }
 
@@ -1151,7 +1150,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：1625456721</para>
                     /// </summary>
-                    [JsonProperty("time")]
+                    [JsonPropertyName("time")]
                     public string? Time { get; set; }
 
                     /// <summary>
@@ -1159,14 +1158,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：111</para>
                     /// </summary>
-                    [JsonProperty("number")]
+                    [JsonPropertyName("number")]
                     public string? Number { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为附件时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("customized_attachment")]
+                    [JsonPropertyName("customized_attachment")]
                     public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
 
                     /// <summary>
@@ -1179,7 +1178,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：7140517838785481004</para>
                         /// </summary>
-                        [JsonProperty("file_id")]
+                        [JsonPropertyName("file_id")]
                         public string? FileId { get; set; }
 
                         /// <summary>
@@ -1187,7 +1186,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1.13测试1的面试记录.pdf</para>
                         /// </summary>
-                        [JsonProperty("file_name")]
+                        [JsonPropertyName("file_name")]
                         public string? FileName { get; set; }
 
                         /// <summary>
@@ -1195,7 +1194,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：application/pdf</para>
                         /// </summary>
-                        [JsonProperty("content_type")]
+                        [JsonPropertyName("content_type")]
                         public string? ContentType { get; set; }
 
                         /// <summary>
@@ -1203,7 +1202,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：16615</para>
                         /// </summary>
-                        [JsonProperty("file_size")]
+                        [JsonPropertyName("file_size")]
                         public int? FileSize { get; set; }
                     }
                 }
@@ -1214,7 +1213,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <para>项目经历</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("project_list")]
+        [JsonPropertyName("project_list")]
         public TalentProjectInfo[]? ProjectLists { get; set; }
 
         /// <summary>
@@ -1227,7 +1226,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6891560630172518670</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -1235,7 +1234,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：测试</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -1243,7 +1242,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：test</para>
             /// </summary>
-            [JsonProperty("role")]
+            [JsonPropertyName("role")]
             public string? Role { get; set; }
 
             /// <summary>
@@ -1251,7 +1250,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：www.test.com</para>
             /// </summary>
-            [JsonProperty("link")]
+            [JsonPropertyName("link")]
             public string? Link { get; set; }
 
             /// <summary>
@@ -1259,7 +1258,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：test</para>
             /// </summary>
-            [JsonProperty("desc")]
+            [JsonPropertyName("desc")]
             public string? Desc { get; set; }
 
             /// <summary>
@@ -1267,7 +1266,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1990-01</para>
             /// </summary>
-            [JsonProperty("start_time")]
+            [JsonPropertyName("start_time")]
             public string? StartTime { get; set; }
 
             /// <summary>
@@ -1275,14 +1274,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1991-01</para>
             /// </summary>
-            [JsonProperty("end_time")]
+            [JsonPropertyName("end_time")]
             public string? EndTime { get; set; }
 
             /// <summary>
             /// <para>自定义字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("customized_data_list")]
+            [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
 
             /// <summary>
@@ -1295,14 +1294,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：xxxx</para>
                 /// </summary>
-                [JsonProperty("object_id")]
+                [JsonPropertyName("object_id")]
                 public string? ObjectId { get; set; }
 
                 /// <summary>
                 /// <para>字段名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
@@ -1315,7 +1314,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：测试</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -1323,7 +1322,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：test</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
 
@@ -1346,14 +1345,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <item>13：附件</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("object_type")]
+                [JsonPropertyName("object_type")]
                 public int? ObjectType { get; set; }
 
                 /// <summary>
                 /// <para>自定义字段值</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public TalentCustomizedValue? Value { get; set; }
 
                 /// <summary>
@@ -1366,14 +1365,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：text</para>
                     /// </summary>
-                    [JsonProperty("content")]
+                    [JsonPropertyName("content")]
                     public string? Content { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为单选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option")]
+                    [JsonPropertyName("option")]
                     public TalentCustomizedOption? Option { get; set; }
 
                     /// <summary>
@@ -1386,14 +1385,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：AA</para>
                         /// </summary>
-                        [JsonProperty("key")]
+                        [JsonPropertyName("key")]
                         public string? Key { get; set; }
 
                         /// <summary>
                         /// <para>选项名称</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("name")]
+                        [JsonPropertyName("name")]
                         public I18n? Name { get; set; }
 
                         /// <summary>
@@ -1406,7 +1405,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：测试</para>
                             /// </summary>
-                            [JsonProperty("zh_cn")]
+                            [JsonPropertyName("zh_cn")]
                             public string? ZhCn { get; set; }
 
                             /// <summary>
@@ -1414,7 +1413,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：test</para>
                             /// </summary>
-                            [JsonProperty("en_us")]
+                            [JsonPropertyName("en_us")]
                             public string? EnUs { get; set; }
                         }
                     }
@@ -1423,14 +1422,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>当字段类型为多选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option_list")]
+                    [JsonPropertyName("option_list")]
                     public TalentCustomizedOption[]? OptionLists { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为时间段时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("time_range")]
+                    [JsonPropertyName("time_range")]
                     public TalentCustomizedTimeRange? TimeRange { get; set; }
 
                     /// <summary>
@@ -1443,7 +1442,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625456721</para>
                         /// </summary>
-                        [JsonProperty("start_time")]
+                        [JsonPropertyName("start_time")]
                         public string? StartTime { get; set; }
 
                         /// <summary>
@@ -1451,7 +1450,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625656721</para>
                         /// </summary>
-                        [JsonProperty("end_time")]
+                        [JsonPropertyName("end_time")]
                         public string? EndTime { get; set; }
                     }
 
@@ -1460,7 +1459,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：1625456721</para>
                     /// </summary>
-                    [JsonProperty("time")]
+                    [JsonPropertyName("time")]
                     public string? Time { get; set; }
 
                     /// <summary>
@@ -1468,14 +1467,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：111</para>
                     /// </summary>
-                    [JsonProperty("number")]
+                    [JsonPropertyName("number")]
                     public string? Number { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为附件时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("customized_attachment")]
+                    [JsonPropertyName("customized_attachment")]
                     public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
 
                     /// <summary>
@@ -1488,7 +1487,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：7140517838785481004</para>
                         /// </summary>
-                        [JsonProperty("file_id")]
+                        [JsonPropertyName("file_id")]
                         public string? FileId { get; set; }
 
                         /// <summary>
@@ -1496,7 +1495,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1.13测试1的面试记录.pdf</para>
                         /// </summary>
-                        [JsonProperty("file_name")]
+                        [JsonPropertyName("file_name")]
                         public string? FileName { get; set; }
 
                         /// <summary>
@@ -1504,7 +1503,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：application/pdf</para>
                         /// </summary>
-                        [JsonProperty("content_type")]
+                        [JsonPropertyName("content_type")]
                         public string? ContentType { get; set; }
 
                         /// <summary>
@@ -1512,7 +1511,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：16615</para>
                         /// </summary>
-                        [JsonProperty("file_size")]
+                        [JsonPropertyName("file_size")]
                         public int? FileSize { get; set; }
                     }
                 }
@@ -1523,7 +1522,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <para>作品</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("works_list")]
+        [JsonPropertyName("works_list")]
         public TalentWorksInfo[]? WorksLists { get; set; }
 
         /// <summary>
@@ -1536,7 +1535,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6891560630172518670</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -1544,7 +1543,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：www.test.com</para>
             /// </summary>
-            [JsonProperty("link")]
+            [JsonPropertyName("link")]
             public string? Link { get; set; }
 
             /// <summary>
@@ -1552,7 +1551,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：test</para>
             /// </summary>
-            [JsonProperty("desc")]
+            [JsonPropertyName("desc")]
             public string? Desc { get; set; }
 
             /// <summary>
@@ -1560,14 +1559,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：XX项目</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
             /// <para>自定义字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("customized_data_list")]
+            [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
 
             /// <summary>
@@ -1580,14 +1579,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：xxxx</para>
                 /// </summary>
-                [JsonProperty("object_id")]
+                [JsonPropertyName("object_id")]
                 public string? ObjectId { get; set; }
 
                 /// <summary>
                 /// <para>字段名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
@@ -1600,7 +1599,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：测试</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -1608,7 +1607,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：test</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
 
@@ -1631,14 +1630,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <item>13：附件</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("object_type")]
+                [JsonPropertyName("object_type")]
                 public int? ObjectType { get; set; }
 
                 /// <summary>
                 /// <para>自定义字段值</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public TalentCustomizedValue? Value { get; set; }
 
                 /// <summary>
@@ -1651,14 +1650,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：text</para>
                     /// </summary>
-                    [JsonProperty("content")]
+                    [JsonPropertyName("content")]
                     public string? Content { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为单选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option")]
+                    [JsonPropertyName("option")]
                     public TalentCustomizedOption? Option { get; set; }
 
                     /// <summary>
@@ -1671,14 +1670,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：AA</para>
                         /// </summary>
-                        [JsonProperty("key")]
+                        [JsonPropertyName("key")]
                         public string? Key { get; set; }
 
                         /// <summary>
                         /// <para>选项名称</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("name")]
+                        [JsonPropertyName("name")]
                         public I18n? Name { get; set; }
 
                         /// <summary>
@@ -1691,7 +1690,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：测试</para>
                             /// </summary>
-                            [JsonProperty("zh_cn")]
+                            [JsonPropertyName("zh_cn")]
                             public string? ZhCn { get; set; }
 
                             /// <summary>
@@ -1699,7 +1698,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：test</para>
                             /// </summary>
-                            [JsonProperty("en_us")]
+                            [JsonPropertyName("en_us")]
                             public string? EnUs { get; set; }
                         }
                     }
@@ -1708,14 +1707,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>当字段类型为多选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option_list")]
+                    [JsonPropertyName("option_list")]
                     public TalentCustomizedOption[]? OptionLists { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为时间段时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("time_range")]
+                    [JsonPropertyName("time_range")]
                     public TalentCustomizedTimeRange? TimeRange { get; set; }
 
                     /// <summary>
@@ -1728,7 +1727,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625456721</para>
                         /// </summary>
-                        [JsonProperty("start_time")]
+                        [JsonPropertyName("start_time")]
                         public string? StartTime { get; set; }
 
                         /// <summary>
@@ -1736,7 +1735,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625656721</para>
                         /// </summary>
-                        [JsonProperty("end_time")]
+                        [JsonPropertyName("end_time")]
                         public string? EndTime { get; set; }
                     }
 
@@ -1745,7 +1744,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：1625456721</para>
                     /// </summary>
-                    [JsonProperty("time")]
+                    [JsonPropertyName("time")]
                     public string? Time { get; set; }
 
                     /// <summary>
@@ -1753,14 +1752,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：111</para>
                     /// </summary>
-                    [JsonProperty("number")]
+                    [JsonPropertyName("number")]
                     public string? Number { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为附件时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("customized_attachment")]
+                    [JsonPropertyName("customized_attachment")]
                     public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
 
                     /// <summary>
@@ -1773,7 +1772,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：7140517838785481004</para>
                         /// </summary>
-                        [JsonProperty("file_id")]
+                        [JsonPropertyName("file_id")]
                         public string? FileId { get; set; }
 
                         /// <summary>
@@ -1781,7 +1780,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1.13测试1的面试记录.pdf</para>
                         /// </summary>
-                        [JsonProperty("file_name")]
+                        [JsonPropertyName("file_name")]
                         public string? FileName { get; set; }
 
                         /// <summary>
@@ -1789,7 +1788,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：application/pdf</para>
                         /// </summary>
-                        [JsonProperty("content_type")]
+                        [JsonPropertyName("content_type")]
                         public string? ContentType { get; set; }
 
                         /// <summary>
@@ -1797,7 +1796,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：16615</para>
                         /// </summary>
-                        [JsonProperty("file_size")]
+                        [JsonPropertyName("file_size")]
                         public int? FileSize { get; set; }
                     }
                 }
@@ -1808,7 +1807,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <para>获奖</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("award_list")]
+        [JsonPropertyName("award_list")]
         public TalentAwardInfo[]? AwardLists { get; set; }
 
         /// <summary>
@@ -1821,7 +1820,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6891560630172518670</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -1829,7 +1828,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：最佳新人奖</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public string? Title { get; set; }
 
             /// <summary>
@@ -1837,7 +1836,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1991</para>
             /// </summary>
-            [JsonProperty("award_time")]
+            [JsonPropertyName("award_time")]
             public string? AwardTime { get; set; }
 
             /// <summary>
@@ -1845,14 +1844,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：最优秀的新人奖</para>
             /// </summary>
-            [JsonProperty("desc")]
+            [JsonPropertyName("desc")]
             public string? Desc { get; set; }
 
             /// <summary>
             /// <para>自定义字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("customized_data_list")]
+            [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
 
             /// <summary>
@@ -1865,14 +1864,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：xxxx</para>
                 /// </summary>
-                [JsonProperty("object_id")]
+                [JsonPropertyName("object_id")]
                 public string? ObjectId { get; set; }
 
                 /// <summary>
                 /// <para>字段名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
@@ -1885,7 +1884,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：测试</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -1893,7 +1892,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：test</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
 
@@ -1916,14 +1915,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <item>13：附件</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("object_type")]
+                [JsonPropertyName("object_type")]
                 public int? ObjectType { get; set; }
 
                 /// <summary>
                 /// <para>自定义字段值</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public TalentCustomizedValue? Value { get; set; }
 
                 /// <summary>
@@ -1936,14 +1935,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：text</para>
                     /// </summary>
-                    [JsonProperty("content")]
+                    [JsonPropertyName("content")]
                     public string? Content { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为单选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option")]
+                    [JsonPropertyName("option")]
                     public TalentCustomizedOption? Option { get; set; }
 
                     /// <summary>
@@ -1956,14 +1955,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：AA</para>
                         /// </summary>
-                        [JsonProperty("key")]
+                        [JsonPropertyName("key")]
                         public string? Key { get; set; }
 
                         /// <summary>
                         /// <para>选项名称</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("name")]
+                        [JsonPropertyName("name")]
                         public I18n? Name { get; set; }
 
                         /// <summary>
@@ -1976,7 +1975,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：测试</para>
                             /// </summary>
-                            [JsonProperty("zh_cn")]
+                            [JsonPropertyName("zh_cn")]
                             public string? ZhCn { get; set; }
 
                             /// <summary>
@@ -1984,7 +1983,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：test</para>
                             /// </summary>
-                            [JsonProperty("en_us")]
+                            [JsonPropertyName("en_us")]
                             public string? EnUs { get; set; }
                         }
                     }
@@ -1993,14 +1992,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>当字段类型为多选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option_list")]
+                    [JsonPropertyName("option_list")]
                     public TalentCustomizedOption[]? OptionLists { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为时间段时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("time_range")]
+                    [JsonPropertyName("time_range")]
                     public TalentCustomizedTimeRange? TimeRange { get; set; }
 
                     /// <summary>
@@ -2013,7 +2012,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625456721</para>
                         /// </summary>
-                        [JsonProperty("start_time")]
+                        [JsonPropertyName("start_time")]
                         public string? StartTime { get; set; }
 
                         /// <summary>
@@ -2021,7 +2020,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625656721</para>
                         /// </summary>
-                        [JsonProperty("end_time")]
+                        [JsonPropertyName("end_time")]
                         public string? EndTime { get; set; }
                     }
 
@@ -2030,7 +2029,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：1625456721</para>
                     /// </summary>
-                    [JsonProperty("time")]
+                    [JsonPropertyName("time")]
                     public string? Time { get; set; }
 
                     /// <summary>
@@ -2038,14 +2037,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：111</para>
                     /// </summary>
-                    [JsonProperty("number")]
+                    [JsonPropertyName("number")]
                     public string? Number { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为附件时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("customized_attachment")]
+                    [JsonPropertyName("customized_attachment")]
                     public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
 
                     /// <summary>
@@ -2058,7 +2057,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：7140517838785481004</para>
                         /// </summary>
-                        [JsonProperty("file_id")]
+                        [JsonPropertyName("file_id")]
                         public string? FileId { get; set; }
 
                         /// <summary>
@@ -2066,7 +2065,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1.13测试1的面试记录.pdf</para>
                         /// </summary>
-                        [JsonProperty("file_name")]
+                        [JsonPropertyName("file_name")]
                         public string? FileName { get; set; }
 
                         /// <summary>
@@ -2074,7 +2073,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：application/pdf</para>
                         /// </summary>
-                        [JsonProperty("content_type")]
+                        [JsonPropertyName("content_type")]
                         public string? ContentType { get; set; }
 
                         /// <summary>
@@ -2082,7 +2081,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：16615</para>
                         /// </summary>
-                        [JsonProperty("file_size")]
+                        [JsonPropertyName("file_size")]
                         public int? FileSize { get; set; }
                     }
                 }
@@ -2093,7 +2092,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <para>语言能力</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("language_list")]
+        [JsonPropertyName("language_list")]
         public TalentLanguageInfo[]? LanguageLists { get; set; }
 
         /// <summary>
@@ -2106,7 +2105,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6891560630172518670</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -2141,7 +2140,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <item>25：粤语</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("language")]
+            [JsonPropertyName("language")]
             public int? Language { get; set; }
 
             /// <summary>
@@ -2156,14 +2155,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <item>5：母语</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("proficiency")]
+            [JsonPropertyName("proficiency")]
             public int? Proficiency { get; set; }
 
             /// <summary>
             /// <para>自定义字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("customized_data_list")]
+            [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
 
             /// <summary>
@@ -2176,14 +2175,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：xxxx</para>
                 /// </summary>
-                [JsonProperty("object_id")]
+                [JsonPropertyName("object_id")]
                 public string? ObjectId { get; set; }
 
                 /// <summary>
                 /// <para>字段名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
@@ -2196,7 +2195,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：测试</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -2204,7 +2203,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：test</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
 
@@ -2227,14 +2226,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <item>13：附件</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("object_type")]
+                [JsonPropertyName("object_type")]
                 public int? ObjectType { get; set; }
 
                 /// <summary>
                 /// <para>自定义字段值</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public TalentCustomizedValue? Value { get; set; }
 
                 /// <summary>
@@ -2247,14 +2246,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：text</para>
                     /// </summary>
-                    [JsonProperty("content")]
+                    [JsonPropertyName("content")]
                     public string? Content { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为单选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option")]
+                    [JsonPropertyName("option")]
                     public TalentCustomizedOption? Option { get; set; }
 
                     /// <summary>
@@ -2267,14 +2266,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：AA</para>
                         /// </summary>
-                        [JsonProperty("key")]
+                        [JsonPropertyName("key")]
                         public string? Key { get; set; }
 
                         /// <summary>
                         /// <para>选项名称</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("name")]
+                        [JsonPropertyName("name")]
                         public I18n? Name { get; set; }
 
                         /// <summary>
@@ -2287,7 +2286,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：测试</para>
                             /// </summary>
-                            [JsonProperty("zh_cn")]
+                            [JsonPropertyName("zh_cn")]
                             public string? ZhCn { get; set; }
 
                             /// <summary>
@@ -2295,7 +2294,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：test</para>
                             /// </summary>
-                            [JsonProperty("en_us")]
+                            [JsonPropertyName("en_us")]
                             public string? EnUs { get; set; }
                         }
                     }
@@ -2304,14 +2303,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>当字段类型为多选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option_list")]
+                    [JsonPropertyName("option_list")]
                     public TalentCustomizedOption[]? OptionLists { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为时间段时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("time_range")]
+                    [JsonPropertyName("time_range")]
                     public TalentCustomizedTimeRange? TimeRange { get; set; }
 
                     /// <summary>
@@ -2324,7 +2323,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625456721</para>
                         /// </summary>
-                        [JsonProperty("start_time")]
+                        [JsonPropertyName("start_time")]
                         public string? StartTime { get; set; }
 
                         /// <summary>
@@ -2332,7 +2331,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625656721</para>
                         /// </summary>
-                        [JsonProperty("end_time")]
+                        [JsonPropertyName("end_time")]
                         public string? EndTime { get; set; }
                     }
 
@@ -2341,7 +2340,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：1625456721</para>
                     /// </summary>
-                    [JsonProperty("time")]
+                    [JsonPropertyName("time")]
                     public string? Time { get; set; }
 
                     /// <summary>
@@ -2349,14 +2348,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：111</para>
                     /// </summary>
-                    [JsonProperty("number")]
+                    [JsonPropertyName("number")]
                     public string? Number { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为附件时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("customized_attachment")]
+                    [JsonPropertyName("customized_attachment")]
                     public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
 
                     /// <summary>
@@ -2369,7 +2368,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：7140517838785481004</para>
                         /// </summary>
-                        [JsonProperty("file_id")]
+                        [JsonPropertyName("file_id")]
                         public string? FileId { get; set; }
 
                         /// <summary>
@@ -2377,7 +2376,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1.13测试1的面试记录.pdf</para>
                         /// </summary>
-                        [JsonProperty("file_name")]
+                        [JsonPropertyName("file_name")]
                         public string? FileName { get; set; }
 
                         /// <summary>
@@ -2385,7 +2384,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：application/pdf</para>
                         /// </summary>
-                        [JsonProperty("content_type")]
+                        [JsonPropertyName("content_type")]
                         public string? ContentType { get; set; }
 
                         /// <summary>
@@ -2393,7 +2392,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：16615</para>
                         /// </summary>
-                        [JsonProperty("file_size")]
+                        [JsonPropertyName("file_size")]
                         public int? FileSize { get; set; }
                     }
                 }
@@ -2404,7 +2403,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <para>社交账号</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("sns_list")]
+        [JsonPropertyName("sns_list")]
         public TalentSnsInfo[]? SnsLists { get; set; }
 
         /// <summary>
@@ -2417,7 +2416,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6891560630172518670</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -2438,7 +2437,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <item>11：QQ</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("sns_type")]
+            [JsonPropertyName("sns_type")]
             public int? SnsType { get; set; }
 
             /// <summary>
@@ -2446,14 +2445,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：www.test.com</para>
             /// </summary>
-            [JsonProperty("link")]
+            [JsonPropertyName("link")]
             public string? Link { get; set; }
 
             /// <summary>
             /// <para>自定义字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("customized_data_list")]
+            [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
 
             /// <summary>
@@ -2466,14 +2465,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：xxxx</para>
                 /// </summary>
-                [JsonProperty("object_id")]
+                [JsonPropertyName("object_id")]
                 public string? ObjectId { get; set; }
 
                 /// <summary>
                 /// <para>字段名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
@@ -2486,7 +2485,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：测试</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -2494,7 +2493,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：test</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
 
@@ -2517,14 +2516,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <item>13：附件</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("object_type")]
+                [JsonPropertyName("object_type")]
                 public int? ObjectType { get; set; }
 
                 /// <summary>
                 /// <para>自定义字段值</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public TalentCustomizedValue? Value { get; set; }
 
                 /// <summary>
@@ -2537,14 +2536,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：text</para>
                     /// </summary>
-                    [JsonProperty("content")]
+                    [JsonPropertyName("content")]
                     public string? Content { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为单选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option")]
+                    [JsonPropertyName("option")]
                     public TalentCustomizedOption? Option { get; set; }
 
                     /// <summary>
@@ -2557,14 +2556,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：AA</para>
                         /// </summary>
-                        [JsonProperty("key")]
+                        [JsonPropertyName("key")]
                         public string? Key { get; set; }
 
                         /// <summary>
                         /// <para>选项名称</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("name")]
+                        [JsonPropertyName("name")]
                         public I18n? Name { get; set; }
 
                         /// <summary>
@@ -2577,7 +2576,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：测试</para>
                             /// </summary>
-                            [JsonProperty("zh_cn")]
+                            [JsonPropertyName("zh_cn")]
                             public string? ZhCn { get; set; }
 
                             /// <summary>
@@ -2585,7 +2584,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：test</para>
                             /// </summary>
-                            [JsonProperty("en_us")]
+                            [JsonPropertyName("en_us")]
                             public string? EnUs { get; set; }
                         }
                     }
@@ -2594,14 +2593,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>当字段类型为多选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option_list")]
+                    [JsonPropertyName("option_list")]
                     public TalentCustomizedOption[]? OptionLists { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为时间段时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("time_range")]
+                    [JsonPropertyName("time_range")]
                     public TalentCustomizedTimeRange? TimeRange { get; set; }
 
                     /// <summary>
@@ -2614,7 +2613,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625456721</para>
                         /// </summary>
-                        [JsonProperty("start_time")]
+                        [JsonPropertyName("start_time")]
                         public string? StartTime { get; set; }
 
                         /// <summary>
@@ -2622,7 +2621,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625656721</para>
                         /// </summary>
-                        [JsonProperty("end_time")]
+                        [JsonPropertyName("end_time")]
                         public string? EndTime { get; set; }
                     }
 
@@ -2631,7 +2630,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：1625456721</para>
                     /// </summary>
-                    [JsonProperty("time")]
+                    [JsonPropertyName("time")]
                     public string? Time { get; set; }
 
                     /// <summary>
@@ -2639,14 +2638,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：111</para>
                     /// </summary>
-                    [JsonProperty("number")]
+                    [JsonPropertyName("number")]
                     public string? Number { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为附件时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("customized_attachment")]
+                    [JsonPropertyName("customized_attachment")]
                     public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
 
                     /// <summary>
@@ -2659,7 +2658,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：7140517838785481004</para>
                         /// </summary>
-                        [JsonProperty("file_id")]
+                        [JsonPropertyName("file_id")]
                         public string? FileId { get; set; }
 
                         /// <summary>
@@ -2667,7 +2666,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1.13测试1的面试记录.pdf</para>
                         /// </summary>
-                        [JsonProperty("file_name")]
+                        [JsonPropertyName("file_name")]
                         public string? FileName { get; set; }
 
                         /// <summary>
@@ -2675,7 +2674,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：application/pdf</para>
                         /// </summary>
-                        [JsonProperty("content_type")]
+                        [JsonPropertyName("content_type")]
                         public string? ContentType { get; set; }
 
                         /// <summary>
@@ -2683,7 +2682,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：16615</para>
                         /// </summary>
-                        [JsonProperty("file_size")]
+                        [JsonPropertyName("file_size")]
                         public int? FileSize { get; set; }
                     }
                 }
@@ -2694,7 +2693,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <para>简历来源</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("resume_source_list")]
+        [JsonPropertyName("resume_source_list")]
         public TalentResumeSource[]? ResumeSourceLists { get; set; }
 
         /// <summary>
@@ -2707,7 +2706,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6891560630172518670</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -2715,7 +2714,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：猎头</para>
             /// </summary>
-            [JsonProperty("zh_name")]
+            [JsonPropertyName("zh_name")]
             public string? ZhName { get; set; }
 
             /// <summary>
@@ -2723,7 +2722,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：Hunter</para>
             /// </summary>
-            [JsonProperty("en_name")]
+            [JsonPropertyName("en_name")]
             public string? EnName { get; set; }
         }
 
@@ -2732,7 +2731,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <para>推荐使用 registration_list 字段获取完整登记表列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("interview_registration_list")]
+        [JsonPropertyName("interview_registration_list")]
         public TalentInterviewRegistrationSimple[]? InterviewRegistrationLists { get; set; }
 
         /// <summary>
@@ -2746,7 +2745,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6833685612520950030</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -2754,7 +2753,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1618494330932</para>
             /// </summary>
-            [JsonProperty("registration_time")]
+            [JsonPropertyName("registration_time")]
             public int? RegistrationTime { get; set; }
 
             /// <summary>
@@ -2762,7 +2761,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://hire.feishu.cn/hire/file/blob/...token.../</para>
             /// </summary>
-            [JsonProperty("download_url")]
+            [JsonPropertyName("download_url")]
             public string? DownloadUrl { get; set; }
         }
 
@@ -2770,7 +2769,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <para>登记表列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("registration_list")]
+        [JsonPropertyName("registration_list")]
         public RegistrationBasicInfo[]? RegistrationLists { get; set; }
 
         /// <summary>
@@ -2783,7 +2782,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6833685612520950030</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -2791,7 +2790,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1618494330932</para>
             /// </summary>
-            [JsonProperty("registration_time")]
+            [JsonPropertyName("registration_time")]
             public int? RegistrationTime { get; set; }
 
             /// <summary>
@@ -2799,7 +2798,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://hire.feishu.cn/hire/file/blob/...token.../</para>
             /// </summary>
-            [JsonProperty("download_url")]
+            [JsonPropertyName("download_url")]
             public string? DownloadUrl { get; set; }
 
             /// <summary>
@@ -2812,7 +2811,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <item>14：信息更新登记表</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("scenario")]
+            [JsonPropertyName("scenario")]
             public int? Scenario { get; set; }
         }
 
@@ -2820,14 +2819,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <para>简历附件id列表（按照简历创建时间降序）</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("resume_attachment_id_list")]
+        [JsonPropertyName("resume_attachment_id_list")]
         public string[]? ResumeAttachmentIdList { get; set; }
 
         /// <summary>
         /// <para>自定义模块</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("customized_data_list")]
+        [JsonPropertyName("customized_data_list")]
         public TalentCustomizedData[]? CustomizedDataLists { get; set; }
 
         /// <summary>
@@ -2840,14 +2839,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：xxxx</para>
             /// </summary>
-            [JsonProperty("object_id")]
+            [JsonPropertyName("object_id")]
             public string? ObjectId { get; set; }
 
             /// <summary>
             /// <para>模块名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
@@ -2860,7 +2859,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：测试</para>
                 /// </summary>
-                [JsonProperty("zh_cn")]
+                [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
@@ -2868,7 +2867,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：test</para>
                 /// </summary>
-                [JsonProperty("en_us")]
+                [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
             }
 
@@ -2890,14 +2889,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <item>11：模块</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("object_type")]
+            [JsonPropertyName("object_type")]
             public int? ObjectType { get; set; }
 
             /// <summary>
             /// <para>模块下的字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("children")]
+            [JsonPropertyName("children")]
             public TalentCustomizedDataChild[]? Childrens { get; set; }
 
             /// <summary>
@@ -2910,14 +2909,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：xxxx</para>
                 /// </summary>
-                [JsonProperty("object_id")]
+                [JsonPropertyName("object_id")]
                 public string? ObjectId { get; set; }
 
                 /// <summary>
                 /// <para>字段名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
@@ -2930,7 +2929,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：测试</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -2938,7 +2937,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：test</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
 
@@ -2961,14 +2960,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                 /// <item>13：附件</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("object_type")]
+                [JsonPropertyName("object_type")]
                 public int? ObjectType { get; set; }
 
                 /// <summary>
                 /// <para>自定义字段值</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public TalentCustomizedValue? Value { get; set; }
 
                 /// <summary>
@@ -2981,14 +2980,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：text</para>
                     /// </summary>
-                    [JsonProperty("content")]
+                    [JsonPropertyName("content")]
                     public string? Content { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为单选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option")]
+                    [JsonPropertyName("option")]
                     public TalentCustomizedOption? Option { get; set; }
 
                     /// <summary>
@@ -3001,14 +3000,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：AA</para>
                         /// </summary>
-                        [JsonProperty("key")]
+                        [JsonPropertyName("key")]
                         public string? Key { get; set; }
 
                         /// <summary>
                         /// <para>选项名称</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("name")]
+                        [JsonPropertyName("name")]
                         public I18n? Name { get; set; }
 
                         /// <summary>
@@ -3021,7 +3020,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：测试</para>
                             /// </summary>
-                            [JsonProperty("zh_cn")]
+                            [JsonPropertyName("zh_cn")]
                             public string? ZhCn { get; set; }
 
                             /// <summary>
@@ -3029,7 +3028,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：test</para>
                             /// </summary>
-                            [JsonProperty("en_us")]
+                            [JsonPropertyName("en_us")]
                             public string? EnUs { get; set; }
                         }
                     }
@@ -3038,14 +3037,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>当字段类型为多选时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("option_list")]
+                    [JsonPropertyName("option_list")]
                     public TalentCustomizedOption[]? OptionLists { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为时间段时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("time_range")]
+                    [JsonPropertyName("time_range")]
                     public TalentCustomizedTimeRange? TimeRange { get; set; }
 
                     /// <summary>
@@ -3058,7 +3057,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625456721</para>
                         /// </summary>
-                        [JsonProperty("start_time")]
+                        [JsonPropertyName("start_time")]
                         public string? StartTime { get; set; }
 
                         /// <summary>
@@ -3066,7 +3065,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1625656721</para>
                         /// </summary>
-                        [JsonProperty("end_time")]
+                        [JsonPropertyName("end_time")]
                         public string? EndTime { get; set; }
                     }
 
@@ -3075,7 +3074,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：1625456721</para>
                     /// </summary>
-                    [JsonProperty("time")]
+                    [JsonPropertyName("time")]
                     public string? Time { get; set; }
 
                     /// <summary>
@@ -3083,14 +3082,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：111</para>
                     /// </summary>
-                    [JsonProperty("number")]
+                    [JsonPropertyName("number")]
                     public string? Number { get; set; }
 
                     /// <summary>
                     /// <para>当字段类型为附件时，从此字段取值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("customized_attachment")]
+                    [JsonPropertyName("customized_attachment")]
                     public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
 
                     /// <summary>
@@ -3103,7 +3102,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：7140517838785481004</para>
                         /// </summary>
-                        [JsonProperty("file_id")]
+                        [JsonPropertyName("file_id")]
                         public string? FileId { get; set; }
 
                         /// <summary>
@@ -3111,7 +3110,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：1.13测试1的面试记录.pdf</para>
                         /// </summary>
-                        [JsonProperty("file_name")]
+                        [JsonPropertyName("file_name")]
                         public string? FileName { get; set; }
 
                         /// <summary>
@@ -3119,7 +3118,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：application/pdf</para>
                         /// </summary>
-                        [JsonProperty("content_type")]
+                        [JsonPropertyName("content_type")]
                         public string? ContentType { get; set; }
 
                         /// <summary>
@@ -3127,7 +3126,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：16615</para>
                         /// </summary>
-                        [JsonProperty("file_size")]
+                        [JsonPropertyName("file_size")]
                         public int? FileSize { get; set; }
                     }
                 }
@@ -3150,7 +3149,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <item>9：其他</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("top_degree")]
+        [JsonPropertyName("top_degree")]
         public int? TopDegree { get; set; }
 
         /// <summary>
@@ -3167,7 +3166,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
         /// <item>7：无</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("first_degree")]
+        [JsonPropertyName("first_degree")]
         public int? FirstDegree { get; set; }
     }
 }

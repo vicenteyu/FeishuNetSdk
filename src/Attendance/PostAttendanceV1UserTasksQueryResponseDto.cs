@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询打卡结果 响应体
@@ -13,7 +12,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
     /// <para>打卡任务列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_task_results")]
+    [JsonPropertyName("user_task_results")]
     public UserTask[]? UserTaskResults { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6709359313699356941</para>
         /// </summary>
-        [JsonProperty("result_id")]
+        [JsonPropertyName("result_id")]
         public string ResultId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：张三</para>
         /// </summary>
-        [JsonProperty("employee_name")]
+        [JsonPropertyName("employee_name")]
         public string EmployeeName { get; set; } = string.Empty;
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：20190819</para>
         /// </summary>
-        [JsonProperty("day")]
+        [JsonPropertyName("day")]
         public int Day { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6737202939523236110</para>
         /// </summary>
-        [JsonProperty("group_id")]
+        [JsonPropertyName("group_id")]
         public string GroupId { get; set; } = string.Empty;
 
         /// <summary>
@@ -66,14 +65,14 @@ public record PostAttendanceV1UserTasksQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6753520403404030215</para>
         /// </summary>
-        [JsonProperty("shift_id")]
+        [JsonPropertyName("shift_id")]
         public string ShiftId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>用户考勤记录</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("records")]
+        [JsonPropertyName("records")]
         public TaskResult[] Records { get; set; } = Array.Empty<TaskResult>();
 
         /// <summary>
@@ -86,14 +85,14 @@ public record PostAttendanceV1UserTasksQueryResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：6709359313699356941</para>
             /// </summary>
-            [JsonProperty("check_in_record_id")]
+            [JsonPropertyName("check_in_record_id")]
             public string CheckInRecordId { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>上班打卡记录</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("check_in_record")]
+            [JsonPropertyName("check_in_record")]
             public UserFlow? CheckInRecord { get; set; }
 
             /// <summary>
@@ -106,7 +105,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：abd754f7</para>
                 /// </summary>
-                [JsonProperty("user_id")]
+                [JsonPropertyName("user_id")]
                 public string UserId { get; set; } = string.Empty;
 
                 /// <summary>
@@ -114,7 +113,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：abd754f7</para>
                 /// </summary>
-                [JsonProperty("creator_id")]
+                [JsonPropertyName("creator_id")]
                 public string CreatorId { get; set; } = string.Empty;
 
                 /// <summary>
@@ -122,7 +121,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：西溪八方城</para>
                 /// </summary>
-                [JsonProperty("location_name")]
+                [JsonPropertyName("location_name")]
                 public string LocationName { get; set; } = string.Empty;
 
                 /// <summary>
@@ -130,7 +129,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：1611476284</para>
                 /// </summary>
-                [JsonProperty("check_time")]
+                [JsonPropertyName("check_time")]
                 public string CheckTime { get; set; } = string.Empty;
 
                 /// <summary>
@@ -138,7 +137,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：上班打卡</para>
                 /// </summary>
-                [JsonProperty("comment")]
+                [JsonPropertyName("comment")]
                 public string Comment { get; set; } = string.Empty;
 
                 /// <summary>
@@ -146,7 +145,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：6709359313699356941</para>
                 /// </summary>
-                [JsonProperty("record_id")]
+                [JsonPropertyName("record_id")]
                 public string? RecordId { get; set; }
 
                 /// <summary>
@@ -154,7 +153,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：b0:b8:67:5c:1d:72</para>
                 /// </summary>
-                [JsonProperty("ssid")]
+                [JsonPropertyName("ssid")]
                 public string? Ssid { get; set; }
 
                 /// <summary>
@@ -162,7 +161,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：b0:b8:67:5c:1d:72</para>
                 /// </summary>
-                [JsonProperty("bssid")]
+                [JsonPropertyName("bssid")]
                 public string? Bssid { get; set; }
 
                 /// <summary>
@@ -170,7 +169,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>
-                [JsonProperty("is_field")]
+                [JsonPropertyName("is_field")]
                 public bool? IsField { get; set; }
 
                 /// <summary>
@@ -178,7 +177,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>
-                [JsonProperty("is_wifi")]
+                [JsonPropertyName("is_wifi")]
                 public bool? IsWifi { get; set; }
 
                 /// <summary>
@@ -196,14 +195,14 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 /// <item>7：考勤开放平台导入</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("type")]
+                [JsonPropertyName("type")]
                 public int? Type { get; set; }
 
                 /// <summary>
                 /// <para>打卡照片列表</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("photo_urls")]
+                [JsonPropertyName("photo_urls")]
                 public string[]? PhotoUrls { get; set; }
 
                 /// <summary>
@@ -223,7 +222,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 /// <item>Todo：尚未打卡</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("check_result")]
+                [JsonPropertyName("check_result")]
                 public string? CheckResult { get; set; }
             }
 
@@ -232,14 +231,14 @@ public record PostAttendanceV1UserTasksQueryResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：6709359313699356942</para>
             /// </summary>
-            [JsonProperty("check_out_record_id")]
+            [JsonPropertyName("check_out_record_id")]
             public string CheckOutRecordId { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>下班打卡记录</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("check_out_record")]
+            [JsonPropertyName("check_out_record")]
             public UserFlow? CheckOutRecord { get; set; }
 
             /// <summary>
@@ -255,7 +254,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
             /// <item>Lack：缺卡</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("check_in_result")]
+            [JsonPropertyName("check_in_result")]
             public string CheckInResult { get; set; } = string.Empty;
 
             /// <summary>
@@ -271,7 +270,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
             /// <item>Lack：缺卡</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("check_out_result")]
+            [JsonPropertyName("check_out_result")]
             public string CheckOutResult { get; set; } = string.Empty;
 
             /// <summary>
@@ -290,7 +289,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
             /// <item>FieldPunch：外勤打卡</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("check_in_result_supplement")]
+            [JsonPropertyName("check_in_result_supplement")]
             public string CheckInResultSupplement { get; set; } = string.Empty;
 
             /// <summary>
@@ -309,7 +308,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
             /// <item>FieldPunch：外勤打卡</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("check_out_result_supplement")]
+            [JsonPropertyName("check_out_result_supplement")]
             public string CheckOutResultSupplement { get; set; } = string.Empty;
 
             /// <summary>
@@ -317,7 +316,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1609722000</para>
             /// </summary>
-            [JsonProperty("check_in_shift_time")]
+            [JsonPropertyName("check_in_shift_time")]
             public string? CheckInShiftTime { get; set; }
 
             /// <summary>
@@ -325,7 +324,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1609754400</para>
             /// </summary>
-            [JsonProperty("check_out_shift_time")]
+            [JsonPropertyName("check_out_shift_time")]
             public string? CheckOutShiftTime { get; set; }
 
             /// <summary>
@@ -333,7 +332,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
-            [JsonProperty("task_shift_type")]
+            [JsonPropertyName("task_shift_type")]
             public int? TaskShiftType { get; set; }
         }
     }
@@ -342,13 +341,13 @@ public record PostAttendanceV1UserTasksQueryResponseDto
     /// <para>无效用户 ID 列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("invalid_user_ids")]
+    [JsonPropertyName("invalid_user_ids")]
     public string[]? InvalidUserIds { get; set; }
 
     /// <summary>
     /// <para>没有权限用户 ID 列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("unauthorized_user_ids")]
+    [JsonPropertyName("unauthorized_user_ids")]
     public string[]? UnauthorizedUserIds { get; set; }
 }

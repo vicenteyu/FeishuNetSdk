@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 创建公共邮箱别名 响应体
@@ -13,7 +12,7 @@ public record PostMailV1PublicMailboxesByPublicMailboxIdAliasesResponseDto
     /// <para>公共邮箱别名</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("public_mailbox_alias")]
+    [JsonPropertyName("public_mailbox_alias")]
     public EmailAlias? PublicMailboxAlias { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostMailV1PublicMailboxesByPublicMailboxIdAliasesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：xxx@xx.xxx</para>
         /// </summary>
-        [JsonProperty("primary_email")]
+        [JsonPropertyName("primary_email")]
         public string? PrimaryEmail { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostMailV1PublicMailboxesByPublicMailboxIdAliasesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：xxx@xx.xxx</para>
         /// </summary>
-        [JsonProperty("email_alias")]
+        [JsonPropertyName("email_alias")]
         public string? EmailAliasSuffix { get; set; }
     }
 }

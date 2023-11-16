@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 校验三方审批实例 请求体
@@ -14,7 +13,7 @@ public record PostApprovalV4ExternalInstancesCheckBodyDto
     /// <para>校验的实例信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("instances")]
+    [JsonPropertyName("instances")]
     public ExteranlInstanceCheck[] Instances { get; set; } = Array.Empty<ExteranlInstanceCheck>();
 
     /// <summary></summary>
@@ -25,7 +24,7 @@ public record PostApprovalV4ExternalInstancesCheckBodyDto
         /// <para>**示例值**："1234234234242423"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("instance_id")]
+        [JsonPropertyName("instance_id")]
         public string InstanceId { get; set; } = string.Empty;
 
         /// <summary>
@@ -33,14 +32,14 @@ public record PostApprovalV4ExternalInstancesCheckBodyDto
         /// <para>**示例值**："1591603040000"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public string UpdateTime { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>任务信息</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("tasks")]
+        [JsonPropertyName("tasks")]
         public ExternalInstanceTask[] Tasks { get; set; } = Array.Empty<ExternalInstanceTask>();
 
         /// <summary></summary>
@@ -51,7 +50,7 @@ public record PostApprovalV4ExternalInstancesCheckBodyDto
             /// <para>**示例值**："112253"</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("task_id")]
+            [JsonPropertyName("task_id")]
             public string TaskId { get; set; } = string.Empty;
 
             /// <summary>
@@ -59,7 +58,7 @@ public record PostApprovalV4ExternalInstancesCheckBodyDto
             /// <para>**示例值**："1591603040000"</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("update_time")]
+            [JsonPropertyName("update_time")]
             public string UpdateTime { get; set; } = string.Empty;
         }
     }

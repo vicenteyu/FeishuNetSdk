@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Baike;
 /// <summary>
 /// 模糊搜索词条 请求体
@@ -15,14 +14,14 @@ public record PostLingoV1EntitiesSearchBodyDto
     /// <para>示例值：飞书词典</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("query")]
+    [JsonPropertyName("query")]
     public string? Query { get; set; }
 
     /// <summary>
     /// <para>分类筛选</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("classification_filter")]
+    [JsonPropertyName("classification_filter")]
     public PostLingoV1EntitiesSearchBodyDtoClassificationFilter? ClassificationFilter { get; set; }
 
     /// <summary>
@@ -34,14 +33,14 @@ public record PostLingoV1EntitiesSearchBodyDto
         /// <para>需要获取的分类</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("include")]
+        [JsonPropertyName("include")]
         public string[]? Include { get; set; }
 
         /// <summary>
         /// <para>需要排除的分类</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("exclude")]
+        [JsonPropertyName("exclude")]
         public string[]? Exclude { get; set; }
     }
 
@@ -49,7 +48,7 @@ public record PostLingoV1EntitiesSearchBodyDto
     /// <para>词条的创建来源，1：用户主动创建，2：批量导入，3：官方词，4：OpenAPI 创建</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("sources")]
+    [JsonPropertyName("sources")]
     public int[]? Sources { get; set; }
 
     /// <summary>
@@ -57,6 +56,6 @@ public record PostLingoV1EntitiesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_30b07b63089ea46518789914dac63d36</para>
     /// </summary>
-    [JsonProperty("creators")]
+    [JsonPropertyName("creators")]
     public string[]? Creators { get; set; }
 }

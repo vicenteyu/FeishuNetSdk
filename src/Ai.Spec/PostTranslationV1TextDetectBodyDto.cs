@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai.Spec;
 /// <summary>
 /// 识别文本语种 请求体
@@ -14,6 +13,6 @@ public record PostTranslationV1TextDetectBodyDto
     /// <para>**示例值**："你好"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("text")]
+    [JsonPropertyName("text")]
     public string Text { get; set; } = string.Empty;
 }

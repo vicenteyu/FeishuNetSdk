@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 查询应用管理员列表 响应体
@@ -13,7 +12,7 @@ public record GetUserV4AppAdminUserListResponseDto
     /// <para>管理员列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_list")]
+    [JsonPropertyName("user_list")]
     public User[]? UserList { get; set; }
 
     /// <summary></summary>
@@ -23,21 +22,21 @@ public record GetUserV4AppAdminUserListResponseDto
         /// <para>某管理员的open_id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string? OpenId { get; set; }
 
         /// <summary>
         /// <para>某管理员的user_id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
         /// <para>某管理员的union_id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("union_id")]
+        [JsonPropertyName("union_id")]
         public string? UnionId { get; set; }
     }
 }

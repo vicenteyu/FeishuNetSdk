@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 创建服务台对话 响应体
@@ -14,6 +13,6 @@ public record PostHelpdeskV1StartServiceResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：创建的chat-id</para>
     /// </summary>
-    [JsonProperty("chat_id")]
+    [JsonPropertyName("chat_id")]
     public string ChatId { get; set; } = string.Empty;
 }

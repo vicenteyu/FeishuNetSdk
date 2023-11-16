@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 删除群管理员 请求体
@@ -16,6 +15,6 @@ public record PostImV1ChatsByChatIdManagersDeleteManagersBodyDto
     /// <para>示例值：["ou_9204a37300b3700d61effaa439f34295"]</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("manager_ids")]
+    [JsonPropertyName("manager_ids")]
     public string[]? ManagerIds { get; set; }
 }

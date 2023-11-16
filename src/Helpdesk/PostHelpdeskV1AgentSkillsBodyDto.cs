@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 创建客服技能 请求体
@@ -14,14 +13,14 @@ public record PostHelpdeskV1AgentSkillsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：test-skill</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
     /// <para>技能rules</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("rules")]
+    [JsonPropertyName("rules")]
     public AgentSkillRule[]? Rules { get; set; }
 
     /// <summary>
@@ -34,7 +33,7 @@ public record PostHelpdeskV1AgentSkillsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：test-skill-id</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostHelpdeskV1AgentSkillsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：8</para>
         /// </summary>
-        [JsonProperty("selected_operator")]
+        [JsonPropertyName("selected_operator")]
         public int? SelectedOperator { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostHelpdeskV1AgentSkillsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：{\"selected_departments\":[{\"id\":\"部门ID\",\"name\":\"IT\"}]}</para>
         /// </summary>
-        [JsonProperty("operand")]
+        [JsonPropertyName("operand")]
         public string? Operand { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostHelpdeskV1AgentSkillsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
-        [JsonProperty("category")]
+        [JsonPropertyName("category")]
         public int? Category { get; set; }
     }
 
@@ -67,6 +66,6 @@ public record PostHelpdeskV1AgentSkillsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：["客服ID"]</para>
     /// </summary>
-    [JsonProperty("agent_ids")]
+    [JsonPropertyName("agent_ids")]
     public string[]? AgentIds { get; set; }
 }

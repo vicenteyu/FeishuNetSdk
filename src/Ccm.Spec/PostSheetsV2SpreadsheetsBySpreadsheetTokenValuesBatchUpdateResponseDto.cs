@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 向多个范围写入数据 响应体
@@ -13,7 +12,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateRespons
     /// <para>响应</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("responses")]
+    [JsonPropertyName("responses")]
     public Response[]? Responses { get; set; }
 
     /// <summary></summary>
@@ -23,35 +22,35 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateRespons
         /// <para>spreadsheet 的 token</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("spreadsheetToken")]
+        [JsonPropertyName("spreadsheetToken")]
         public string? SpreadsheetToken { get; set; }
 
         /// <summary>
         /// <para>写入的范围</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("updatedRange")]
+        [JsonPropertyName("updatedRange")]
         public string? UpdatedRange { get; set; }
 
         /// <summary>
         /// <para>写入的行数</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("updatedRows")]
+        [JsonPropertyName("updatedRows")]
         public int? UpdatedRows { get; set; }
 
         /// <summary>
         /// <para>写入的列数</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("updatedColumns")]
+        [JsonPropertyName("updatedColumns")]
         public int? UpdatedColumns { get; set; }
 
         /// <summary>
         /// <para>写入的单元格总数</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("updatedCells")]
+        [JsonPropertyName("updatedCells")]
         public int? UpdatedCells { get; set; }
     }
 
@@ -59,13 +58,13 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateRespons
     /// <para>sheet 的版本号</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("revision")]
+    [JsonPropertyName("revision")]
     public int? Revision { get; set; }
 
     /// <summary>
     /// <para>spreadsheet 的 token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("spreadsheetToken")]
+    [JsonPropertyName("spreadsheetToken")]
     public string? SpreadsheetToken { get; set; }
 }

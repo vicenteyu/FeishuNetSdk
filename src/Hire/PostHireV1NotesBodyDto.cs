@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建备注 请求体
@@ -14,7 +13,7 @@ public record PostHireV1NotesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6916472453069883661</para>
     /// </summary>
-    [JsonProperty("talent_id")]
+    [JsonPropertyName("talent_id")]
     public string TalentId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostHireV1NotesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6891565253964859661</para>
     /// </summary>
-    [JsonProperty("application_id")]
+    [JsonPropertyName("application_id")]
     public string? ApplicationId { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostHireV1NotesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_f476cb099ac9227c9bae09ce46112579</para>
     /// </summary>
-    [JsonProperty("creator_id")]
+    [JsonPropertyName("creator_id")]
     public string? CreatorId { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostHireV1NotesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：测试</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
 
     /// <summary>
@@ -50,6 +49,6 @@ public record PostHireV1NotesBodyDto
     /// <item>2：公开</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("privacy")]
+    [JsonPropertyName("privacy")]
     public int? Privacy { get; set; }
 }

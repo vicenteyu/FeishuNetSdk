@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 取消订阅审批事件 请求体
@@ -13,6 +12,6 @@ public record PostApprovalOpenapiV2SubscriptionUnsubscribeBodyDto
     /// <para>审批定义唯一标识</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string ApprovalCode { get; set; } = string.Empty;
 }

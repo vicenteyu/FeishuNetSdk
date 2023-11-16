@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 获取单个审批实例详情 响应体
@@ -14,7 +13,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：Payment</para>
     /// </summary>
-    [JsonProperty("approval_name")]
+    [JsonPropertyName("approval_name")]
     public string ApprovalName { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1564590532967</para>
     /// </summary>
-    [JsonProperty("start_time")]
+    [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：1564590532967</para>
     /// </summary>
-    [JsonProperty("end_time")]
+    [JsonPropertyName("end_time")]
     public string EndTime { get; set; } = string.Empty;
 
     /// <summary>
@@ -38,7 +37,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：f3ta757q</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
@@ -46,7 +45,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：ou_3cda9c969f737aaa05e6915dce306cb9</para>
     /// </summary>
-    [JsonProperty("open_id")]
+    [JsonPropertyName("open_id")]
     public string OpenId { get; set; } = string.Empty;
 
     /// <summary>
@@ -54,7 +53,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：202102060002</para>
     /// </summary>
-    [JsonProperty("serial_number")]
+    [JsonPropertyName("serial_number")]
     public string SerialNumber { get; set; } = string.Empty;
 
     /// <summary>
@@ -62,7 +61,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：od-8ec33ffec336c3a39a278bc25e931676</para>
     /// </summary>
-    [JsonProperty("department_id")]
+    [JsonPropertyName("department_id")]
     public string DepartmentId { get; set; } = string.Empty;
 
     /// <summary>
@@ -77,7 +76,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <item>DELETED：删除</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string Status { get; set; } = string.Empty;
 
     /// <summary>
@@ -85,7 +84,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：1234567</para>
     /// </summary>
-    [JsonProperty("uuid")]
+    [JsonPropertyName("uuid")]
     public string Uuid { get; set; } = string.Empty;
 
     /// <summary>
@@ -93,14 +92,14 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：[{\"id\":\"widget1\",\"custom_id\":\"user_info\",\"name\":\"Itemapplication\",\"type\":\"textarea\"}]</para>
     /// </summary>
-    [JsonProperty("form")]
+    [JsonPropertyName("form")]
     public string Form { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>审批任务列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("task_list")]
+    [JsonPropertyName("task_list")]
     public InstanceTask[] TaskLists { get; set; } = Array.Empty<InstanceTask>();
 
     /// <summary>
@@ -113,7 +112,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1234</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -121,7 +120,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：f7cb567e</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -129,7 +128,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_123457</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string? OpenId { get; set; }
 
         /// <summary>
@@ -144,7 +143,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <item>DONE：完成</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; } = string.Empty;
 
         /// <summary>
@@ -152,7 +151,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：46e6d96cfa756980907209209ec03b64</para>
         /// </summary>
-        [JsonProperty("node_id")]
+        [JsonPropertyName("node_id")]
         public string? NodeId { get; set; }
 
         /// <summary>
@@ -160,7 +159,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：开始</para>
         /// </summary>
-        [JsonProperty("node_name")]
+        [JsonPropertyName("node_name")]
         public string? NodeName { get; set; }
 
         /// <summary>
@@ -168,7 +167,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：manager</para>
         /// </summary>
-        [JsonProperty("custom_node_id")]
+        [JsonPropertyName("custom_node_id")]
         public string? CustomNodeId { get; set; }
 
         /// <summary>
@@ -183,7 +182,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <item>SEQUENTIAL：按顺序</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
@@ -191,7 +190,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1564590532967</para>
         /// </summary>
-        [JsonProperty("start_time")]
+        [JsonPropertyName("start_time")]
         public string StartTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -199,7 +198,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string? EndTime { get; set; }
     }
 
@@ -207,7 +206,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>评论列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("comment_list")]
+    [JsonPropertyName("comment_list")]
     public InstanceComment[] CommentLists { get; set; } = Array.Empty<InstanceComment>();
 
     /// <summary>
@@ -220,7 +219,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1234</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -228,7 +227,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：f7cb567e</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -236,7 +235,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：ou_123456</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string OpenId { get; set; } = string.Empty;
 
         /// <summary>
@@ -244,7 +243,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：ok</para>
         /// </summary>
-        [JsonProperty("comment")]
+        [JsonPropertyName("comment")]
         public string Comment { get; set; } = string.Empty;
 
         /// <summary>
@@ -252,14 +251,14 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：评论时间</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string CreateTime { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>评论附件</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("files")]
+        [JsonPropertyName("files")]
         public File[]? Files { get; set; }
 
         /// <summary>
@@ -272,7 +271,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20220714/1/332f3596-0845-4746-a4bc-818d54ad435b.png~tplv-ottatrvjsm-image.image?x-expires=1659033558&amp;x-signature=6edF3k%2BaHeAuvfcBRGOkbckoUl4%3D#.png</para>
             /// </summary>
-            [JsonProperty("url")]
+            [JsonPropertyName("url")]
             public string? Url { get; set; }
 
             /// <summary>
@@ -280,7 +279,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：186823</para>
             /// </summary>
-            [JsonProperty("file_size")]
+            [JsonPropertyName("file_size")]
             public int? FileSize { get; set; }
 
             /// <summary>
@@ -288,7 +287,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：e018906140ed9388234bd03b0.png</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public string? Title { get; set; }
 
             /// <summary>
@@ -296,7 +295,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：image</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
         }
     }
@@ -305,7 +304,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>审批动态</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("timeline")]
+    [JsonPropertyName("timeline")]
     public InstanceTimeline[] Timelines { get; set; } = Array.Empty<InstanceTimeline>();
 
     /// <summary>
@@ -336,7 +335,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <item>CC：抄送</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
@@ -344,7 +343,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1564590532967</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string CreateTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -352,7 +351,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：f7cb567e</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -360,21 +359,21 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_123456</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string? OpenId { get; set; }
 
         /// <summary>
         /// <para>被抄送人列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id_list")]
+        [JsonPropertyName("user_id_list")]
         public string[]? UserIdList { get; set; }
 
         /// <summary>
         /// <para>被抄送人列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("open_id_list")]
+        [JsonPropertyName("open_id_list")]
         public string[]? OpenIdList { get; set; }
 
         /// <summary>
@@ -382,7 +381,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1234</para>
         /// </summary>
-        [JsonProperty("task_id")]
+        [JsonPropertyName("task_id")]
         public string? TaskId { get; set; }
 
         /// <summary>
@@ -390,14 +389,14 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ok</para>
         /// </summary>
-        [JsonProperty("comment")]
+        [JsonPropertyName("comment")]
         public string? Comment { get; set; }
 
         /// <summary>
         /// <para>抄送人列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("cc_user_list")]
+        [JsonPropertyName("cc_user_list")]
         public InstanceCcUser[]? CcUserLists { get; set; }
 
         /// <summary>
@@ -410,7 +409,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：eea5gefe</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string? UserId { get; set; }
 
             /// <summary>
@@ -418,7 +417,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：123445</para>
             /// </summary>
-            [JsonProperty("cc_id")]
+            [JsonPropertyName("cc_id")]
             public string? CcId { get; set; }
 
             /// <summary>
@@ -426,7 +425,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ou_12345</para>
             /// </summary>
-            [JsonProperty("open_id")]
+            [JsonPropertyName("open_id")]
             public string? OpenId { get; set; }
         }
 
@@ -435,7 +434,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：{\"user_id\":\"62d4a44c\",\"open_id\":\"ou_123456\"}</para>
         /// </summary>
-        [JsonProperty("ext")]
+        [JsonPropertyName("ext")]
         public string Ext { get; set; } = string.Empty;
 
         /// <summary>
@@ -443,14 +442,14 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：APPROVAL_240330_4058663</para>
         /// </summary>
-        [JsonProperty("node_key")]
+        [JsonPropertyName("node_key")]
         public string? NodeKey { get; set; }
 
         /// <summary>
         /// <para>审批附件</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("files")]
+        [JsonPropertyName("files")]
         public File[]? Files { get; set; }
 
         /// <summary>
@@ -463,7 +462,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20220714/1/332f3596-0845-4746-a4bc-818d54ad435b.png~tplv-ottatrvjsm-image.image?x-expires=1659033558&amp;x-signature=6edF3k%2BaHeAuvfcBRGOkbckoUl4%3D#.png</para>
             /// </summary>
-            [JsonProperty("url")]
+            [JsonPropertyName("url")]
             public string? Url { get; set; }
 
             /// <summary>
@@ -471,7 +470,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：186823</para>
             /// </summary>
-            [JsonProperty("file_size")]
+            [JsonPropertyName("file_size")]
             public int? FileSize { get; set; }
 
             /// <summary>
@@ -479,7 +478,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：e018906140ed9388234bd03b0.png</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public string? Title { get; set; }
 
             /// <summary>
@@ -487,7 +486,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：image</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
         }
     }
@@ -497,7 +496,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71</para>
     /// </summary>
-    [JsonProperty("modified_instance_code")]
+    [JsonPropertyName("modified_instance_code")]
     public string? ModifiedInstanceCode { get; set; }
 
     /// <summary>
@@ -505,7 +504,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71</para>
     /// </summary>
-    [JsonProperty("reverted_instance_code")]
+    [JsonPropertyName("reverted_instance_code")]
     public string? RevertedInstanceCode { get; set; }
 
     /// <summary>
@@ -513,7 +512,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A85</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string ApprovalCode { get; set; } = string.Empty;
 
     /// <summary>
@@ -521,7 +520,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("reverted")]
+    [JsonPropertyName("reverted")]
     public bool? Reverted { get; set; }
 
     /// <summary>
@@ -529,6 +528,6 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71</para>
     /// </summary>
-    [JsonProperty("instance_code")]
+    [JsonPropertyName("instance_code")]
     public string InstanceCode { get; set; } = string.Empty;
 }

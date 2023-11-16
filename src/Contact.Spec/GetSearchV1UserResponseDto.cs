@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 搜索用户 响应体
@@ -14,21 +13,21 @@ public record GetSearchV1UserResponseDto
     /// <para>是否还有更多用户，值为 true 表示存在下一页。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>分页标识，存在下一页的时候返回。下次请求带上此标识可以获取下一页的用户。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>搜索到的用户列表。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("users")]
+    [JsonPropertyName("users")]
     public User[]? Users { get; set; }
 
     /// <summary></summary>
@@ -38,7 +37,7 @@ public record GetSearchV1UserResponseDto
         /// <para>用户的头像信息。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("avatar")]
+        [JsonPropertyName("avatar")]
         public AvatarSuffix? Avatar { get; set; }
 
         /// <summary></summary>
@@ -48,28 +47,28 @@ public record GetSearchV1UserResponseDto
             /// <para>用户的头像图片 URL，72×72px。</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("avatar_72")]
+            [JsonPropertyName("avatar_72")]
             public string? Avatar72 { get; set; }
 
             /// <summary>
             /// <para>用户的头像图片 URL，240×240px。</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("avatar_240")]
+            [JsonPropertyName("avatar_240")]
             public string? Avatar240 { get; set; }
 
             /// <summary>
             /// <para>用户的头像图片 URL，640×640px。</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("avatar_640")]
+            [JsonPropertyName("avatar_640")]
             public string? Avatar640 { get; set; }
 
             /// <summary>
             /// <para>用户的头像图片 URL，原始大小。</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("avatar_origin")]
+            [JsonPropertyName("avatar_origin")]
             public string? AvatarOrigin { get; set; }
         }
 
@@ -77,28 +76,28 @@ public record GetSearchV1UserResponseDto
         /// <para>用户所在的部门 ID。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("department_ids")]
+        [JsonPropertyName("department_ids")]
         public string[]? DepartmentIds { get; set; }
 
         /// <summary>
         /// <para>用户名。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>用户的 open_id。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string? OpenId { get; set; }
 
         /// <summary>
         /// <para>用户的 user_id，只有已申请 `获取用户UserID` 权限的企业自建应用返回此字段。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建导入任务 请求体
@@ -14,7 +13,7 @@ public record PostDriveV1ImportTasksBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：xlsx</para>
     /// </summary>
-    [JsonProperty("file_extension")]
+    [JsonPropertyName("file_extension")]
     public string FileExtension { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostDriveV1ImportTasksBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：boxcnxe5OxxxxxxxSNdsJviENsk</para>
     /// </summary>
-    [JsonProperty("file_token")]
+    [JsonPropertyName("file_token")]
     public string FileToken { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostDriveV1ImportTasksBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：sheet</para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string Type { get; set; } = string.Empty;
 
     /// <summary>
@@ -38,14 +37,14 @@ public record PostDriveV1ImportTasksBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：test</para>
     /// </summary>
-    [JsonProperty("file_name")]
+    [JsonPropertyName("file_name")]
     public string? FileName { get; set; }
 
     /// <summary>
     /// <para>挂载点</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("point")]
+    [JsonPropertyName("point")]
     public ImportTaskMountPoint Point { get; set; } = new();
 
     /// <summary>
@@ -61,7 +60,7 @@ public record PostDriveV1ImportTasksBodyDto
         /// <item>1：挂载到云空间</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("mount_type")]
+        [JsonPropertyName("mount_type")]
         public int MountType { get; set; }
 
         /// <summary>
@@ -69,7 +68,7 @@ public record PostDriveV1ImportTasksBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：fldxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("mount_key")]
+        [JsonPropertyName("mount_key")]
         public string MountKey { get; set; } = string.Empty;
     }
 }

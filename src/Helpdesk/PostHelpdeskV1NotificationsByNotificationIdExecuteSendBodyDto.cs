@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 执行推送 请求体
@@ -14,6 +13,6 @@ public record PostHelpdeskV1NotificationsByNotificationIdExecuteSendBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1624326025000</para>
     /// </summary>
-    [JsonProperty("send_at")]
+    [JsonPropertyName("send_at")]
     public string SendAt { get; set; } = string.Empty;
 }

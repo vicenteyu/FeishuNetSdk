@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 更新自定义分组 响应体
@@ -19,7 +18,7 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
     /// <para>更新后的自定义分组</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("section")]
+    [JsonPropertyName("section")]
     public PatchTaskV2SectionsBySectionGuidResponseDtoSection? Section { get; set; }
 
     /// <summary>
@@ -32,7 +31,7 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2</para>
         /// </summary>
-        [JsonProperty("guid")]
+        [JsonPropertyName("guid")]
         public string? Guid { get; set; }
 
         /// <summary>
@@ -40,7 +39,7 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：已经评审过的任务</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -48,7 +47,7 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：tasklist</para>
         /// </summary>
-        [JsonProperty("resource_type")]
+        [JsonPropertyName("resource_type")]
         public string? ResourceType { get; set; }
 
         /// <summary>
@@ -56,14 +55,14 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_default")]
+        [JsonPropertyName("is_default")]
         public bool? IsDefault { get; set; }
 
         /// <summary>
         /// <para>自定义分组的创建者</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("creator")]
+        [JsonPropertyName("creator")]
         public Member? Creator { get; set; }
 
         /// <summary>
@@ -77,7 +76,7 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
             /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
             /// <para>最大长度：100</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -86,7 +85,7 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
             /// <para>示例值：user</para>
             /// <para>默认值：user</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -95,7 +94,7 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
             /// <para>示例值：editor</para>
             /// <para>最大长度：20</para>
             /// </summary>
-            [JsonProperty("role")]
+            [JsonPropertyName("role")]
             public string? Role { get; set; }
         }
 
@@ -103,7 +102,7 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
         /// <para>如果该分组归属于清单，展示清单的简要信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("tasklist")]
+        [JsonPropertyName("tasklist")]
         public TasklistSummary? Tasklist { get; set; }
 
         /// <summary>
@@ -116,7 +115,7 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：cc371766-6584-cf50-a222-c22cd9055004</para>
             /// </summary>
-            [JsonProperty("guid")]
+            [JsonPropertyName("guid")]
             public string? Guid { get; set; }
 
             /// <summary>
@@ -124,7 +123,7 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：活动分工任务列表</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
         }
 
@@ -133,7 +132,7 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1675742789470</para>
         /// </summary>
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public string? CreatedAt { get; set; }
 
         /// <summary>
@@ -141,7 +140,7 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1675742789470</para>
         /// </summary>
-        [JsonProperty("updated_at")]
+        [JsonPropertyName("updated_at")]
         public string? UpdatedAt { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 通知补卡审批发起 请求体
@@ -14,7 +13,7 @@ public record PostAttendanceV1UserTaskRemedysBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：abd754f7</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostAttendanceV1UserTaskRemedysBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：20210701</para>
     /// </summary>
-    [JsonProperty("remedy_date")]
+    [JsonPropertyName("remedy_date")]
     public int RemedyDate { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostAttendanceV1UserTaskRemedysBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：0</para>
     /// </summary>
-    [JsonProperty("punch_no")]
+    [JsonPropertyName("punch_no")]
     public int PunchNo { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostAttendanceV1UserTaskRemedysBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("work_type")]
+    [JsonPropertyName("work_type")]
     public int WorkType { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostAttendanceV1UserTaskRemedysBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：2021-07-0108:00</para>
     /// </summary>
-    [JsonProperty("remedy_time")]
+    [JsonPropertyName("remedy_time")]
     public string RemedyTime { get; set; } = string.Empty;
 
     /// <summary>
@@ -54,7 +53,7 @@ public record PostAttendanceV1UserTaskRemedysBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：忘记打卡</para>
     /// </summary>
-    [JsonProperty("reason")]
+    [JsonPropertyName("reason")]
     public string Reason { get; set; } = string.Empty;
 
     /// <summary>
@@ -62,6 +61,6 @@ public record PostAttendanceV1UserTaskRemedysBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1611476284</para>
     /// </summary>
-    [JsonProperty("time")]
+    [JsonPropertyName("time")]
     public string? Time { get; set; }
 }

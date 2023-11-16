@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取云文档权限设置V2 请求体
@@ -13,13 +12,13 @@ public record PostDrivePermissionV2PublicBodyDto
     /// <para>文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#8353e05f)</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("token")]
+    [JsonPropertyName("token")]
     public string Token { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>文档类型 "doc", "sheet" or "isv"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string Type { get; set; } = string.Empty;
 }

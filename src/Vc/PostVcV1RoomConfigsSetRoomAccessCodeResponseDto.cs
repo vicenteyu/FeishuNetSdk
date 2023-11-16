@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 创建会议室部署码 响应体
@@ -14,6 +13,6 @@ public record PostVcV1RoomConfigsSetRoomAccessCodeResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：YNMLTJOUZ</para>
     /// </summary>
-    [JsonProperty("access_code")]
+    [JsonPropertyName("access_code")]
     public string? AccessCode { get; set; }
 }

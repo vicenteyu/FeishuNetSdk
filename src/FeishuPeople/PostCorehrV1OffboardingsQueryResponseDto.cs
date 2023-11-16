@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 查询员工离职原因列表 响应体
@@ -13,7 +12,7 @@ public record PostCorehrV1OffboardingsQueryResponseDto
     /// <para>离职原因列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public OffboardingReason[]? Items { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record PostCorehrV1OffboardingsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：reason_for_offboarding_option8</para>
         /// </summary>
-        [JsonProperty("offboarding_reason_unique_identifier")]
+        [JsonPropertyName("offboarding_reason_unique_identifier")]
         public string? OffboardingReasonUniqueIdentifier { get; set; }
 
         /// <summary>
         /// <para>名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n[]? Names { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PostCorehrV1OffboardingsQueryResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -54,7 +53,7 @@ public record PostCorehrV1OffboardingsQueryResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -63,7 +62,7 @@ public record PostCorehrV1OffboardingsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("active")]
+        [JsonPropertyName("active")]
         public bool? Active { get; set; }
 
         /// <summary>
@@ -71,7 +70,7 @@ public record PostCorehrV1OffboardingsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：offboarding_reason_1</para>
         /// </summary>
-        [JsonProperty("parent_offboarding_reason_unique_identifier")]
+        [JsonPropertyName("parent_offboarding_reason_unique_identifier")]
         public string? ParentOffboardingReasonUniqueIdentifier { get; set; }
 
         /// <summary>
@@ -79,7 +78,7 @@ public record PostCorehrV1OffboardingsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2021-08-2020:28:23</para>
         /// </summary>
-        [JsonProperty("created_time")]
+        [JsonPropertyName("created_time")]
         public string? CreatedTime { get; set; }
 
         /// <summary>
@@ -87,7 +86,7 @@ public record PostCorehrV1OffboardingsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022-01-0717:21:06</para>
         /// </summary>
-        [JsonProperty("updated_time")]
+        [JsonPropertyName("updated_time")]
         public string? UpdatedTime { get; set; }
     }
 }

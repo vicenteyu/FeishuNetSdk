@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk.Spec;
 /// <summary>
 /// 获取全部工单自定义字段 请求体
@@ -14,6 +13,6 @@ public record GetHelpdeskV1TicketCustomizedFieldsBodyDto
     /// <para>**示例值**：true</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("visible")]
+    [JsonPropertyName("visible")]
     public bool? Visible { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 获取应用版本中开发者申请的通讯录权限范围 响应体
@@ -13,7 +12,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdContactsR
     /// <para>应用版本通讯录权限范围建议信息。开发者在提交该版本时如果修改了通讯录权限范围则返回申请的通讯录权限范围。不代表最终应用生效的通讯录权限范围。如果没有修改,则为空。【如果通讯录权限范围与应用可用范围保持一致，上次的配置也是如此，则认为没变化。】</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("contacts_range")]
+    [JsonPropertyName("contacts_range")]
     public ApplicationAppContactsRange? ContactsRange { get; set; }
 
     /// <summary>
@@ -31,14 +30,14 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdContactsR
         /// <item>all：全部成员</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("contacts_scope_type")]
+        [JsonPropertyName("contacts_scope_type")]
         public string? ContactsScopeType { get; set; }
 
         /// <summary>
         /// <para>通讯录权限范围的可用名单</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("visible_list")]
+        [JsonPropertyName("visible_list")]
         public AppVisibleList? VisibleList { get; set; }
 
         /// <summary>
@@ -50,21 +49,21 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdContactsR
             /// <para>通讯录权限范围的可用成员id列表，按照user_id_type返回</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("open_ids")]
+            [JsonPropertyName("open_ids")]
             public string[]? OpenIds { get; set; }
 
             /// <summary>
             /// <para>通讯录权限范围的可用部门的 id 列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("department_ids")]
+            [JsonPropertyName("department_ids")]
             public string[]? DepartmentIds { get; set; }
 
             /// <summary>
             /// <para>通讯录权限范围的可用用户组 id 列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("group_ids")]
+            [JsonPropertyName("group_ids")]
             public string[]? GroupIds { get; set; }
         }
     }

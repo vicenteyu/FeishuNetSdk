@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 创建评论 响应体
@@ -13,6 +12,6 @@ public record PostApprovalV4InstancesByInstanceIdCommentsResponseDto
     /// <para>保存成功的comment_id</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("comment_id")]
+    [JsonPropertyName("comment_id")]
     public string? CommentId { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 写入图片 响应体
@@ -13,20 +12,20 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageResponseDto
     /// <para>spreadsheet 的 token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("spreadsheetToken")]
+    [JsonPropertyName("spreadsheetToken")]
     public string? SpreadsheetToken { get; set; }
 
     /// <summary>
     /// <para>spreadsheet 的版本号</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("revision")]
+    [JsonPropertyName("revision")]
     public int? Revision { get; set; }
 
     /// <summary>
     /// <para>写入图片的range</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("updateRange")]
+    [JsonPropertyName("updateRange")]
     public string? UpdateRange { get; set; }
 }

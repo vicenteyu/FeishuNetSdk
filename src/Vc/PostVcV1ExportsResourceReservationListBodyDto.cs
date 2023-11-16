@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 导出会议室预定数据 请求体
@@ -14,7 +13,7 @@ public record PostVcV1ExportsResourceReservationListBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：omb_57c9cc7d9a81e27e54c8fabfd02759e7</para>
     /// </summary>
-    [JsonProperty("room_level_id")]
+    [JsonPropertyName("room_level_id")]
     public string RoomLevelId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostVcV1ExportsResourceReservationListBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("need_topic")]
+    [JsonPropertyName("need_topic")]
     public bool? NeedTopic { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostVcV1ExportsResourceReservationListBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1655276858</para>
     /// </summary>
-    [JsonProperty("start_time")]
+    [JsonPropertyName("start_time")]
     public string StartTime { get; set; } = string.Empty;
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostVcV1ExportsResourceReservationListBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1655276858</para>
     /// </summary>
-    [JsonProperty("end_time")]
+    [JsonPropertyName("end_time")]
     public string EndTime { get; set; } = string.Empty;
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostVcV1ExportsResourceReservationListBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：["omm_eada1d61a550955240c28757e7dec3af"]</para>
     /// </summary>
-    [JsonProperty("room_ids")]
+    [JsonPropertyName("room_ids")]
     public string[]? RoomIds { get; set; }
 
     /// <summary>
@@ -54,6 +53,6 @@ public record PostVcV1ExportsResourceReservationListBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("is_exclude")]
+    [JsonPropertyName("is_exclude")]
     public bool? IsExclude { get; set; }
 }

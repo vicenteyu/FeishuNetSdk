@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 获取客服技能列表 响应体
@@ -13,7 +12,7 @@ public record GetHelpdeskV1AgentSkillRulesResponseDto
     /// <para>rules列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("rules")]
+    [JsonPropertyName("rules")]
     public AgentSkillRule[]? Rules { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record GetHelpdeskV1AgentSkillRulesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：test-skill-id</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("operator_options")]
+        [JsonPropertyName("operator_options")]
         public int[]? OperatorOptions { get; set; }
 
         /// <summary>
@@ -41,7 +40,7 @@ public record GetHelpdeskV1AgentSkillRulesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：{\"selected_departments\":[{\"id\":\"部门ID\",\"name\":\"IT\"}]}</para>
         /// </summary>
-        [JsonProperty("operand")]
+        [JsonPropertyName("operand")]
         public string? Operand { get; set; }
 
         /// <summary>
@@ -49,7 +48,7 @@ public record GetHelpdeskV1AgentSkillRulesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
-        [JsonProperty("category")]
+        [JsonPropertyName("category")]
         public int? Category { get; set; }
 
         /// <summary>
@@ -57,7 +56,7 @@ public record GetHelpdeskV1AgentSkillRulesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：中文知识库分类</para>
         /// </summary>
-        [JsonProperty("display_name")]
+        [JsonPropertyName("display_name")]
         public string? DisplayName { get; set; }
     }
 }

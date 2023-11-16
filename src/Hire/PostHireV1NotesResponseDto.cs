@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建备注 响应体
@@ -13,7 +12,7 @@ public record PostHireV1NotesResponseDto
     /// <para>备注信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("note")]
+    [JsonPropertyName("note")]
     public PostHireV1NotesResponseDtoNote? Note { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostHireV1NotesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6949805467799537964</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostHireV1NotesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6916472453069883661</para>
         /// </summary>
-        [JsonProperty("talent_id")]
+        [JsonPropertyName("talent_id")]
         public string TalentId { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostHireV1NotesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6891565253964859661</para>
         /// </summary>
-        [JsonProperty("application_id")]
+        [JsonPropertyName("application_id")]
         public string? ApplicationId { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostHireV1NotesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("is_private")]
+        [JsonPropertyName("is_private")]
         public bool? IsPrivate { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostHireV1NotesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1618209327096</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public int? CreateTime { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostHireV1NotesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1618209327096</para>
         /// </summary>
-        [JsonProperty("modify_time")]
+        [JsonPropertyName("modify_time")]
         public int? ModifyTime { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record PostHireV1NotesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_f476cb099ac9227c9bae09ce46112579</para>
         /// </summary>
-        [JsonProperty("creator_id")]
+        [JsonPropertyName("creator_id")]
         public string? CreatorId { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record PostHireV1NotesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：测试</para>
         /// </summary>
-        [JsonProperty("content")]
+        [JsonPropertyName("content")]
         public string Content { get; set; } = string.Empty;
     }
 }

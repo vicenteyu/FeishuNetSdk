@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 回传笔试结果 请求体
@@ -14,7 +13,7 @@ public record PostHireV1EcoExamsByExamIdUpdateResultBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：60.5</para>
     /// </summary>
-    [JsonProperty("result")]
+    [JsonPropertyName("result")]
     public string Result { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,14 +21,14 @@ public record PostHireV1EcoExamsByExamIdUpdateResultBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1658676234053</para>
     /// </summary>
-    [JsonProperty("result_time")]
+    [JsonPropertyName("result_time")]
     public string? ResultTime { get; set; }
 
     /// <summary>
     /// <para>报告列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("report_list")]
+    [JsonPropertyName("report_list")]
     public EcoExamResultReport[]? ReportLists { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record PostHireV1EcoExamsByExamIdUpdateResultBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：阶段报告.pdf</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostHireV1EcoExamsByExamIdUpdateResultBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：https://xxxxx/xxxxxx/xxxx.pdf</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string Url { get; set; } = string.Empty;
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostHireV1EcoExamsByExamIdUpdateResultBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1658676234053</para>
         /// </summary>
-        [JsonProperty("answer_time")]
+        [JsonPropertyName("answer_time")]
         public string? AnswerTime { get; set; }
     }
 
@@ -66,7 +65,7 @@ public record PostHireV1EcoExamsByExamIdUpdateResultBodyDto
     /// <para>详细评价结果</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("detail_list")]
+    [JsonPropertyName("detail_list")]
     public EcoExamResultDetail[]? DetailLists { get; set; }
 
     /// <summary>
@@ -79,7 +78,7 @@ public record PostHireV1EcoExamsByExamIdUpdateResultBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：pj001</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -87,7 +86,7 @@ public record PostHireV1EcoExamsByExamIdUpdateResultBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：基本功</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -95,7 +94,7 @@ public record PostHireV1EcoExamsByExamIdUpdateResultBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：优秀</para>
         /// </summary>
-        [JsonProperty("result")]
+        [JsonPropertyName("result")]
         public string Result { get; set; } = string.Empty;
     }
 }

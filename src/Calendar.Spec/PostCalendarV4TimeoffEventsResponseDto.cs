@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar.Spec;
 /// <summary>
 /// 创建请假日程 响应体
@@ -14,21 +13,21 @@ public record PostCalendarV4TimeoffEventsResponseDto
     /// <para>请假日程ID。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("timeoff_event_id")]
+    [JsonPropertyName("timeoff_event_id")]
     public string? TimeoffEventId { get; set; }
 
     /// <summary>
     /// <para>用户id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
     /// <para>时区</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("timezone")]
+    [JsonPropertyName("timezone")]
     public string? Timezone { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostCalendarV4TimeoffEventsResponseDto
     /// <para>start_time与end_time格式需保持一致，否则无效。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("start_time")]
+    [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
 
     /// <summary>
@@ -48,20 +47,20 @@ public record PostCalendarV4TimeoffEventsResponseDto
     /// <para>start_time与end_time格式需保持一致，否则无效。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("end_time")]
+    [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
 
     /// <summary>
     /// <para>自定义请假日程标题，没有设置则为默认日程标题</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string? Title { get; set; }
 
     /// <summary>
     /// <para>自定义请假日程描述，没有设置则为默认日程描述</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 }

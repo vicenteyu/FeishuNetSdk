@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Baike;
 /// <summary>
 /// 提取潜在的词条 响应体
@@ -13,7 +12,7 @@ public record PostBaikeV1EntitiesExtractResponseDto
     /// <para>文本中可能的成为词条的词汇</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("entity_word")]
+    [JsonPropertyName("entity_word")]
     public EntityWord[] EntityWords { get; set; } = Array.Empty<EntityWord>();
 
     /// <summary>
@@ -26,14 +25,14 @@ public record PostBaikeV1EntitiesExtractResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：飞书词典</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>词条可能的别名</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("aliases")]
+        [JsonPropertyName("aliases")]
         public string[]? Aliases { get; set; }
     }
 }

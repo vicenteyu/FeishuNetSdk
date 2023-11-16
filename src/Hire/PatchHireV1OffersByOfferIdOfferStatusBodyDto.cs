@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新 Offer 状态 请求体
@@ -26,7 +25,7 @@ public record PatchHireV1OffersByOfferIdOfferStatusBodyDto
     /// <item>9：Offer已失效</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("offer_status")]
+    [JsonPropertyName("offer_status")]
     public int OfferStatus { get; set; }
 
     /// <summary>
@@ -34,14 +33,14 @@ public record PatchHireV1OffersByOfferIdOfferStatusBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2023-01-01</para>
     /// </summary>
-    [JsonProperty("expiration_date")]
+    [JsonPropertyName("expiration_date")]
     public string? ExpirationDate { get; set; }
 
     /// <summary>
     /// <para>终止原因列表，当反馈状态是「候选人已拒绝」时为必填项；最多传入50个</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("termination_reason_id_list")]
+    [JsonPropertyName("termination_reason_id_list")]
     public string[]? TerminationReasonIdList { get; set; }
 
     /// <summary>
@@ -49,6 +48,6 @@ public record PatchHireV1OffersByOfferIdOfferStatusBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：不符合期望</para>
     /// </summary>
-    [JsonProperty("termination_reason_note")]
+    [JsonPropertyName("termination_reason_note")]
     public string? TerminationReasonNote { get; set; }
 }

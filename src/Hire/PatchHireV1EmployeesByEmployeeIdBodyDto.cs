@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新入职状态 请求体
@@ -18,14 +17,14 @@ public record PatchHireV1EmployeesByEmployeeIdBodyDto
     /// <item>2：离职</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("operation")]
+    [JsonPropertyName("operation")]
     public int Operation { get; set; }
 
     /// <summary>
     /// <para>转正信息，操作员工转正时必填</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("conversion_info")]
+    [JsonPropertyName("conversion_info")]
     public EmployeeConversionInfo? ConversionInfo { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PatchHireV1EmployeesByEmployeeIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1637596800000</para>
         /// </summary>
-        [JsonProperty("actual_conversion_time")]
+        [JsonPropertyName("actual_conversion_time")]
         public int? ActualConversionTime { get; set; }
     }
 
@@ -46,7 +45,7 @@ public record PatchHireV1EmployeesByEmployeeIdBodyDto
     /// <para>离职信息，操作员工离职时必填</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("overboard_info")]
+    [JsonPropertyName("overboard_info")]
     public EmployeeOverboardInfo? OverboardInfo { get; set; }
 
     /// <summary>
@@ -59,7 +58,7 @@ public record PatchHireV1EmployeesByEmployeeIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1637596800000</para>
         /// </summary>
-        [JsonProperty("actual_overboard_time")]
+        [JsonPropertyName("actual_overboard_time")]
         public int? ActualOverboardTime { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record PatchHireV1EmployeesByEmployeeIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：职业发展考虑</para>
         /// </summary>
-        [JsonProperty("overboard_note")]
+        [JsonPropertyName("overboard_note")]
         public string? OverboardNote { get; set; }
     }
 }

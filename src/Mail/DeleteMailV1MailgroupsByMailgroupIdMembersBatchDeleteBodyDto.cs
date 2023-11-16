@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 批量删除邮件组成员 请求体
@@ -15,6 +14,6 @@ public record DeleteMailV1MailgroupsByMailgroupIdMembersBatchDeleteBodyDto
     /// <para>示例值：["xxxxxxx","yyyyyyy"]</para>
     /// <para>最大长度：200</para>
     /// </summary>
-    [JsonProperty("member_id_list")]
+    [JsonPropertyName("member_id_list")]
     public string[]? MemberIdList { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 更新任务 响应体
@@ -13,7 +12,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
     /// <para>返回修改后的任务详情</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("task")]
+    [JsonPropertyName("task")]
     public PatchTaskV1TasksByTaskIdResponseDtoTask? Task { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：83912691-2e43-47fc-94a4-d512e03984fa</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -39,7 +38,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>最大长度：1000</para>
         /// <para>最小长度：0</para>
         /// </summary>
-        [JsonProperty("summary")]
+        [JsonPropertyName("summary")]
         public string? Summary { get; set; }
 
         /// <summary>
@@ -51,7 +50,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>最大长度：65536</para>
         /// <para>最小长度：0</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -60,7 +59,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1623499200</para>
         /// </summary>
-        [JsonProperty("complete_time")]
+        [JsonPropertyName("complete_time")]
         public string? CompleteTime { get; set; }
 
         /// <summary>
@@ -70,7 +69,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_99e1a581b36ecc4862cbfbce473f346a</para>
         /// </summary>
-        [JsonProperty("creator_id")]
+        [JsonPropertyName("creator_id")]
         public string? CreatorId { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>最大长度：65536</para>
         /// <para>最小长度：0</para>
         /// </summary>
-        [JsonProperty("extra")]
+        [JsonPropertyName("extra")]
         public string? Extra { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1623392486</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
@@ -99,14 +98,14 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1623392486</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public string? UpdateTime { get; set; }
 
         /// <summary>
         /// <para>任务的截止时间设置</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("due")]
+        [JsonPropertyName("due")]
         public PatchTaskV1TasksByTaskIdResponseDtoTaskDue? Due { get; set; }
 
         /// <summary>
@@ -119,7 +118,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1623124318</para>
             /// </summary>
-            [JsonProperty("time")]
+            [JsonPropertyName("time")]
             public string? Time { get; set; }
 
             /// <summary>
@@ -129,7 +128,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
             /// <para>示例值：Asia/Shanghai</para>
             /// <para>默认值：Asia/Shanghai</para>
             /// </summary>
-            [JsonProperty("timezone")]
+            [JsonPropertyName("timezone")]
             public string? Timezone { get; set; }
 
             /// <summary>
@@ -141,7 +140,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
             /// <para>示例值：false</para>
             /// <para>默认值：false</para>
             /// </summary>
-            [JsonProperty("is_all_day")]
+            [JsonPropertyName("is_all_day")]
             public bool? IsAllDay { get; set; }
         }
 
@@ -149,7 +148,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>任务关联的第三方平台来源信息</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("origin")]
+        [JsonPropertyName("origin")]
         public PatchTaskV1TasksByTaskIdResponseDtoTaskOrigin Origin { get; set; } = new();
 
         /// <summary>
@@ -165,14 +164,14 @@ public record PatchTaskV1TasksByTaskIdResponseDto
             /// <para>最大长度：1024</para>
             /// <para>最小长度：0</para>
             /// </summary>
-            [JsonProperty("platform_i18n_name")]
+            [JsonPropertyName("platform_i18n_name")]
             public string PlatformI18nName { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>任务关联的来源平台详情页链接</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("href")]
+            [JsonPropertyName("href")]
             public PatchTaskV1TasksByTaskIdResponseDtoTaskOriginHref? Href { get; set; }
 
             /// <summary>
@@ -188,7 +187,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
                 /// <para>最大长度：1024</para>
                 /// <para>最小长度：0</para>
                 /// </summary>
-                [JsonProperty("url")]
+                [JsonPropertyName("url")]
                 public string? Url { get; set; }
 
                 /// <summary>
@@ -198,7 +197,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
                 /// <para>最大长度：512</para>
                 /// <para>最小长度：0</para>
                 /// </summary>
-                [JsonProperty("title")]
+                [JsonPropertyName("title")]
                 public string? Title { get; set; }
             }
         }
@@ -211,7 +210,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>最大长度：65536</para>
         /// <para>最小长度：0</para>
         /// </summary>
-        [JsonProperty("custom")]
+        [JsonPropertyName("custom")]
         public string? Custom { get; set; }
 
         /// <summary>
@@ -230,7 +229,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <item>8：来源新版云文档</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("source")]
+        [JsonPropertyName("source")]
         public int? Source { get; set; }
 
         /// <summary>
@@ -238,7 +237,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_03c21c80caea2c816665f8056dc59027</para>
         /// </summary>
-        [JsonProperty("followers")]
+        [JsonPropertyName("followers")]
         public Follower[]? Followers { get; set; }
 
         /// <summary>
@@ -251,7 +250,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ou_99e1a581b36ecc4862cbfbce473f3123</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -259,7 +258,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：[ "ou_550cc75233d8b7b9fcbdad65f34433f4", "ou_d1e9d27cf3235b40ca9a67c67ef088b0" ]</para>
             /// </summary>
-            [JsonProperty("id_list")]
+            [JsonPropertyName("id_list")]
             public string[]? IdList { get; set; }
         }
 
@@ -268,7 +267,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_558d4999baae26e32aa2fd9bb228660b</para>
         /// </summary>
-        [JsonProperty("collaborators")]
+        [JsonPropertyName("collaborators")]
         public Collaborator[]? Collaborators { get; set; }
 
         /// <summary>
@@ -283,7 +282,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ou_99e1a581b36ecc4862cbfbce473f1234</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -292,7 +291,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：["ou_550cc75233d8b7b9fcbdad65f34433f4", "ou_d1e9d27cf3235b40ca9a67c67ef088b0"]</para>
             /// </summary>
-            [JsonProperty("id_list")]
+            [JsonPropertyName("id_list")]
             public string[]? IdList { get; set; }
         }
 
@@ -303,7 +302,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>示例值：["ou_1400208f15333e20e11339d39067844b", "ou_84ed6312949945c8ae6168f10829e9e6"]</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("collaborator_ids")]
+        [JsonPropertyName("collaborator_ids")]
         public string[]? CollaboratorIds { get; set; }
 
         /// <summary>
@@ -313,7 +312,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>示例值：["ou_1400208f15333e20e11339d39067844b", "ou_84ed6312949945c8ae6168f10829e9e6"]</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("follower_ids")]
+        [JsonPropertyName("follower_ids")]
         public string[]? FollowerIds { get; set; }
 
         /// <summary>
@@ -322,7 +321,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR</para>
         /// </summary>
-        [JsonProperty("repeat_rule")]
+        [JsonPropertyName("repeat_rule")]
         public string? RepeatRule { get; set; }
 
         /// <summary>
@@ -333,7 +332,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>最大长度：1000</para>
         /// <para>最小长度：0</para>
         /// </summary>
-        [JsonProperty("rich_summary")]
+        [JsonPropertyName("rich_summary")]
         public string? RichSummary { get; set; }
 
         /// <summary>
@@ -343,7 +342,7 @@ public record PatchTaskV1TasksByTaskIdResponseDto
         /// <para>最大长度：65536</para>
         /// <para>最小长度：0</para>
         /// </summary>
-        [JsonProperty("rich_description")]
+        [JsonPropertyName("rich_description")]
         public string? RichDescription { get; set; }
     }
 }

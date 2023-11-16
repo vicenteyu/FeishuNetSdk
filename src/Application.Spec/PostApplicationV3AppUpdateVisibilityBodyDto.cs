@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application.Spec;
 /// <summary>
 /// 更新应用可用范围 请求体
@@ -14,14 +13,14 @@ public record PostApplicationV3AppUpdateVisibilityBodyDto
     /// <para>目标应用的 ID</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("app_id")]
+    [JsonPropertyName("app_id")]
     public string AppId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>删除的用户列表，元素个数不超过 500，**先增加后删除**</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("del_users")]
+    [JsonPropertyName("del_users")]
     public User[]? DelUsers { get; set; }
 
     /// <summary></summary>
@@ -31,14 +30,14 @@ public record PostApplicationV3AppUpdateVisibilityBodyDto
         /// <para>与 user_id 至少给其中之一，user_id 优先于 open_id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string? OpenId { get; set; }
 
         /// <summary>
         /// <para>否</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
     }
 
@@ -46,27 +45,27 @@ public record PostApplicationV3AppUpdateVisibilityBodyDto
     /// <para>增加的用户列表，元素个数不超过500，**先增加后删除**</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("add_users")]
+    [JsonPropertyName("add_users")]
     public User[]? AddUsers { get; set; }
 
     /// <summary>
     /// <para>是否全员可见，0：否；1：是；不填：继续当前状态不改变</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("is_visiable_to_all")]
+    [JsonPropertyName("is_visiable_to_all")]
     public int? IsVisiableToAll { get; set; }
 
     /// <summary>
     /// <para>添加的部门列表，元素个数不超过 500，**先增加后删除**</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("add_departments")]
+    [JsonPropertyName("add_departments")]
     public string[]? AddDepartments { get; set; }
 
     /// <summary>
     /// <para>删除的部门列表，元素个数不超过 500，**先增加后删除**</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("del_departments")]
+    [JsonPropertyName("del_departments")]
     public string[]? DelDepartments { get; set; }
 }

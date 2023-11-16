@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Auth.Spec;
 /// <summary>
 /// JSAPI 临时授权凭证 响应体
@@ -14,13 +13,13 @@ public record PostJssdkTicketGetResponseDto
     /// <para>调用 js api 的临时票据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("ticket")]
+    [JsonPropertyName("ticket")]
     public string? Ticket { get; set; }
 
     /// <summary>
     /// <para>ticket 的有效时间（单位：秒）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("expire_in")]
+    [JsonPropertyName("expire_in")]
     public int? ExpireIn { get; set; }
 }

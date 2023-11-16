@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建投递 响应体
@@ -14,6 +13,6 @@ public record PostHireV1ApplicationsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：6920175883425581324</para>
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string? Id { get; set; }
 }

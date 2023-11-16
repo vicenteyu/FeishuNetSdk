@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Baike;
 /// <summary>
 /// 精准搜索词条 响应体
@@ -13,7 +12,7 @@ public record PostBaikeV1EntitiesMatchResponseDto
     /// <para>搜索结果</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("results")]
+    [JsonPropertyName("results")]
     public MatchInfo[]? Results { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostBaikeV1EntitiesMatchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：enterprise_34***584</para>
         /// </summary>
-        [JsonProperty("entity_id")]
+        [JsonPropertyName("entity_id")]
         public string? EntityId { get; set; }
 
         /// <summary>
@@ -39,7 +38,7 @@ public record PostBaikeV1EntitiesMatchResponseDto
         /// <item>2：别名</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public int? Type { get; set; }
     }
 }

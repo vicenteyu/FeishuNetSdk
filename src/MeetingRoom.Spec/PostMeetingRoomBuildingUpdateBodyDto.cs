@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 更新建筑物 请求体
@@ -13,41 +12,41 @@ public record PostMeetingRoomBuildingUpdateBodyDto
     /// <para>要更新的建筑ID</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("building_id")]
+    [JsonPropertyName("building_id")]
     public string BuildingId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>建筑名称</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
     /// <para>楼层列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("floors")]
+    [JsonPropertyName("floors")]
     public string[]? Floors { get; set; }
 
     /// <summary>
     /// <para>国家/地区ID</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("country_id")]
+    [JsonPropertyName("country_id")]
     public string? CountryId { get; set; }
 
     /// <summary>
     /// <para>城市ID</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("district_id")]
+    [JsonPropertyName("district_id")]
     public string? DistrictId { get; set; }
 
     /// <summary>
     /// <para>租户自定义建筑ID</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("custom_building_id")]
+    [JsonPropertyName("custom_building_id")]
     public string? CustomBuildingId { get; set; }
 }

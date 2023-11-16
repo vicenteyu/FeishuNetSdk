@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 全额提取内推账号余额 响应体
@@ -14,7 +13,7 @@ public record PostHireV1ReferralAccountByReferralAccountIdWithdrawResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：6942778198054125570</para>
     /// </summary>
-    [JsonProperty("external_order_id")]
+    [JsonPropertyName("external_order_id")]
     public string? ExternalOrderId { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record PostHireV1ReferralAccountByReferralAccountIdWithdrawResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1683634459543</para>
     /// </summary>
-    [JsonProperty("trans_time")]
+    [JsonPropertyName("trans_time")]
     public string? TransTime { get; set; }
 
     /// <summary>
     /// <para>本次提现金额明细</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("withdrawal_details")]
+    [JsonPropertyName("withdrawal_details")]
     public BonusAmount? WithdrawalDetails { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record PostHireV1ReferralAccountByReferralAccountIdWithdrawResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>
-        [JsonProperty("point_bonus")]
+        [JsonPropertyName("point_bonus")]
         public int? PointBonus { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 将自定义字段加入资源 请求体
@@ -15,7 +14,7 @@ public record PostTaskV2CustomFieldsByCustomFieldGuidAddBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：tasklist</para>
     /// </summary>
-    [JsonProperty("resource_type")]
+    [JsonPropertyName("resource_type")]
     public string ResourceType { get; set; } = string.Empty;
 
     /// <summary>
@@ -23,6 +22,6 @@ public record PostTaskV2CustomFieldsByCustomFieldGuidAddBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593</para>
     /// </summary>
-    [JsonProperty("resource_id")]
+    [JsonPropertyName("resource_id")]
     public string ResourceId { get; set; } = string.Empty;
 }

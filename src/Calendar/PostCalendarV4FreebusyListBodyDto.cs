@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 查询主日历忙闲信息 请求体
@@ -14,7 +13,7 @@ public record PostCalendarV4FreebusyListBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：2020-10-28T12:00:00+08:00</para>
     /// </summary>
-    [JsonProperty("time_min")]
+    [JsonPropertyName("time_min")]
     public string TimeMin { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostCalendarV4FreebusyListBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：2020-12-28T12:00:00+08:00</para>
     /// </summary>
-    [JsonProperty("time_max")]
+    [JsonPropertyName("time_max")]
     public string TimeMax { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostCalendarV4FreebusyListBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_xxxxxxxxxx</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
@@ -38,6 +37,6 @@ public record PostCalendarV4FreebusyListBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：omm_xxxxxxxxxx</para>
     /// </summary>
-    [JsonProperty("room_id")]
+    [JsonPropertyName("room_id")]
     public string? RoomId { get; set; }
 }

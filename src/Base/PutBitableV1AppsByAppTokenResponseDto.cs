@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新多维表格元数据 响应体
@@ -13,7 +12,7 @@ public record PutBitableV1AppsByAppTokenResponseDto
     /// <para>多维表格元数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("app")]
+    [JsonPropertyName("app")]
     public DisplayAppV2? App { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PutBitableV1AppsByAppTokenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：S404b*****e9PQsYDWYcNryFn0g</para>
         /// </summary>
-        [JsonProperty("app_token")]
+        [JsonPropertyName("app_token")]
         public string? AppToken { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PutBitableV1AppsByAppTokenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：appname</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PutBitableV1AppsByAppTokenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("is_advanced")]
+        [JsonPropertyName("is_advanced")]
         public bool? IsAdvanced { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PutBitableV1AppsByAppTokenResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：Asia/Beijing</para>
         /// </summary>
-        [JsonProperty("time_zone")]
+        [JsonPropertyName("time_zone")]
         public string? TimeZone { get; set; }
     }
 }

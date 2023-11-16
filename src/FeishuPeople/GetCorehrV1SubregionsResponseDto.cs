@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量查询城市/区域信息 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1SubregionsResponseDto
     /// <para>城市/区域信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Subregion[]? Items { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record GetCorehrV1SubregionsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：12</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>城市/区域名称</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n[] Names { get; set; } = Array.Empty<I18n>();
 
         /// <summary>
@@ -46,7 +45,7 @@ public record GetCorehrV1SubregionsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -54,7 +53,7 @@ public record GetCorehrV1SubregionsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -63,7 +62,7 @@ public record GetCorehrV1SubregionsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：12</para>
         /// </summary>
-        [JsonProperty("subdivision_id")]
+        [JsonPropertyName("subdivision_id")]
         public string SubdivisionId { get; set; } = string.Empty;
 
         /// <summary>
@@ -71,7 +70,7 @@ public record GetCorehrV1SubregionsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
-        [JsonProperty("superior_subregion_id")]
+        [JsonPropertyName("superior_subregion_id")]
         public string? SuperiorSubregionId { get; set; }
     }
 
@@ -80,7 +79,7 @@ public record GetCorehrV1SubregionsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -88,6 +87,6 @@ public record GetCorehrV1SubregionsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1234452132</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

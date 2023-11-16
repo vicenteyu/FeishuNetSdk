@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取简历评估信息 响应体
@@ -14,7 +13,7 @@ public record GetHireV1EvaluationsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record GetHireV1EvaluationsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>简历评估信息列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Evaluation[]? Items { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record GetHireV1EvaluationsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6875295756292425998</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetHireV1EvaluationsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6875569957036738823</para>
         /// </summary>
-        [JsonProperty("application_id")]
+        [JsonPropertyName("application_id")]
         public string? ApplicationId { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetHireV1EvaluationsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6784315427607595268</para>
         /// </summary>
-        [JsonProperty("stage_id")]
+        [JsonPropertyName("stage_id")]
         public string? StageId { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetHireV1EvaluationsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_aaf83d1b2c856ead36aa9a38784b9a5c</para>
         /// </summary>
-        [JsonProperty("creator_id")]
+        [JsonPropertyName("creator_id")]
         public string? CreatorId { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record GetHireV1EvaluationsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_aaf83d1b2c856ead36aa9a38784b9a5c</para>
         /// </summary>
-        [JsonProperty("evaluator_id")]
+        [JsonPropertyName("evaluator_id")]
         public string? EvaluatorId { get; set; }
 
         /// <summary>
@@ -86,7 +85,7 @@ public record GetHireV1EvaluationsResponseDto
         /// <item>2：未提交</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("commit_status")]
+        [JsonPropertyName("commit_status")]
         public int? CommitStatus { get; set; }
 
         /// <summary>
@@ -98,7 +97,7 @@ public record GetHireV1EvaluationsResponseDto
         /// <item>2：未通过</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("conclusion")]
+        [JsonPropertyName("conclusion")]
         public int? Conclusion { get; set; }
 
         /// <summary>
@@ -106,7 +105,7 @@ public record GetHireV1EvaluationsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：这位同学很优秀</para>
         /// </summary>
-        [JsonProperty("content")]
+        [JsonPropertyName("content")]
         public string? Content { get; set; }
 
         /// <summary>
@@ -114,7 +113,7 @@ public record GetHireV1EvaluationsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1600843767338</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
@@ -122,7 +121,7 @@ public record GetHireV1EvaluationsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1600843937733</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public string? UpdateTime { get; set; }
     }
 }

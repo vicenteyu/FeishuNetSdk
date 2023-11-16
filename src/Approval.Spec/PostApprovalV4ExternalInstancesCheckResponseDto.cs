@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 校验三方审批实例 响应体
@@ -14,7 +13,7 @@ public record PostApprovalV4ExternalInstancesCheckResponseDto
     /// <para>更新时间不一致的实例信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("diff_instances")]
+    [JsonPropertyName("diff_instances")]
     public ExteranlInstanceCheckResponse[]? DiffInstances { get; set; }
 
     /// <summary></summary>
@@ -24,21 +23,21 @@ public record PostApprovalV4ExternalInstancesCheckResponseDto
         /// <para>审批实例 id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("instance_id")]
+        [JsonPropertyName("instance_id")]
         public string? InstanceId { get; set; }
 
         /// <summary>
         /// <para>任务最近更新时间</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public string? UpdateTime { get; set; }
 
         /// <summary>
         /// <para>任务信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("tasks")]
+        [JsonPropertyName("tasks")]
         public ExternalInstanceTask[]? Tasks { get; set; }
 
         /// <summary></summary>
@@ -48,14 +47,14 @@ public record PostApprovalV4ExternalInstancesCheckResponseDto
             /// <para>任务 id</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("task_id")]
+            [JsonPropertyName("task_id")]
             public string? TaskId { get; set; }
 
             /// <summary>
             /// <para>任务最近更新时间</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("update_time")]
+            [JsonPropertyName("update_time")]
             public string? UpdateTime { get; set; }
         }
     }

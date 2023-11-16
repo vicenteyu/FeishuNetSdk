@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取我的空间（root folder）元信息 响应体
@@ -13,20 +12,20 @@ public record GetDriveExplorerV2RootFolderMetaResponseDto
     /// <para>文件夹的 token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("token")]
+    [JsonPropertyName("token")]
     public string? Token { get; set; }
 
     /// <summary>
     /// <para>文件夹的 id</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     /// <summary>
     /// <para>文件夹的所有者 id</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 }

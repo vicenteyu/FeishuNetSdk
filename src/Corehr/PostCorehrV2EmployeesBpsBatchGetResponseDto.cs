@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 查询员工 HRBP / 属地 BP 响应体
@@ -13,7 +12,7 @@ public record PostCorehrV2EmployeesBpsBatchGetResponseDto
     /// <para>员工直属 BP 信息，当员工所在部门、属地无 BP 时，会上钻找到最近的 BP</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("employment_direct_bps")]
+    [JsonPropertyName("employment_direct_bps")]
     public EmploymentBp[]? EmploymentDirectBps { get; set; }
 
     /// <summary>
@@ -26,21 +25,21 @@ public record PostCorehrV2EmployeesBpsBatchGetResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6863326262618752123</para>
         /// </summary>
-        [JsonProperty("employment_id")]
+        [JsonPropertyName("employment_id")]
         public string? EmploymentId { get; set; }
 
         /// <summary>
         /// <para>员工直属 HRBP 雇佣 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("hrbp_ids")]
+        [JsonPropertyName("hrbp_ids")]
         public string[]? HrbpIds { get; set; }
 
         /// <summary>
         /// <para>员工直属属地 BP 雇佣 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("location_bp_ids")]
+        [JsonPropertyName("location_bp_ids")]
         public string[]? LocationBpIds { get; set; }
     }
 
@@ -48,6 +47,6 @@ public record PostCorehrV2EmployeesBpsBatchGetResponseDto
     /// <para>员工全部 BP 信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("employment_all_bps")]
+    [JsonPropertyName("employment_all_bps")]
     public EmploymentBp[]? EmploymentAllBps { get; set; }
 }

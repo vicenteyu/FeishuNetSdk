@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增协作者 请求体
@@ -14,6 +13,6 @@ public record PostBitableV1AppsByAppTokenRolesByRoleIdMembersBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>
-    [JsonProperty("member_id")]
+    [JsonPropertyName("member_id")]
     public string MemberId { get; set; } = string.Empty;
 }

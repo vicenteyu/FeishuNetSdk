@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Admin.Spec;
 /// <summary>
 /// 重置用户的企业邮箱密码 请求体
@@ -15,7 +14,7 @@ public record PostAdminV1PasswordResetBodyDto
     /// <para>**示例值**：1234abcd</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("password")]
+    [JsonPropertyName("password")]
     public PasswordSuffix Password { get; set; } = new();
 
     /// <summary></summary>
@@ -26,7 +25,7 @@ public record PostAdminV1PasswordResetBodyDto
         /// <para>**示例值**："abcd*efg"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("ent_email_password")]
+        [JsonPropertyName("ent_email_password")]
         public string EntEmailPassword { get; set; } = string.Empty;
     }
 
@@ -37,6 +36,6 @@ public record PostAdminV1PasswordResetBodyDto
     /// <para>- 长度范围：`0` ～ `200` 字符</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string UserId { get; set; } = string.Empty;
 }

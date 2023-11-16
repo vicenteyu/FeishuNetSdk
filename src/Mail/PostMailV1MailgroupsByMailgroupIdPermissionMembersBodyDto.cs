@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 创建邮件组权限成员 请求体
@@ -14,7 +13,7 @@ public record PostMailV1MailgroupsByMailgroupIdPermissionMembersBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：xxxxxxxxxx</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostMailV1MailgroupsByMailgroupIdPermissionMembersBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：xxxxxxxxxx</para>
     /// </summary>
-    [JsonProperty("department_id")]
+    [JsonPropertyName("department_id")]
     public string? DepartmentId { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostMailV1MailgroupsByMailgroupIdPermissionMembersBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：xxx@xx.x</para>
     /// </summary>
-    [JsonProperty("email")]
+    [JsonPropertyName("email")]
     public string? Email { get; set; }
 
     /// <summary>
@@ -44,6 +43,6 @@ public record PostMailV1MailgroupsByMailgroupIdPermissionMembersBodyDto
     /// <item>PUBLIC_MAILBOX：公共邮箱</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string? Type { get; set; }
 }

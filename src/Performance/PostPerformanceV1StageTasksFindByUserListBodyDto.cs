@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Performance;
 /// <summary>
 /// 获取周期任务（指定用户） 请求体
@@ -14,7 +13,7 @@ public record PostPerformanceV1StageTasksFindByUserListBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：7033710017401751071</para>
     /// </summary>
-    [JsonProperty("semester_id")]
+    [JsonPropertyName("semester_id")]
     public string SemesterId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostPerformanceV1StageTasksFindByUserListBodyDto
     /// <para>必填：是</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("user_id_lists")]
+    [JsonPropertyName("user_id_lists")]
     public string[] UserIdLists { get; set; } = Array.Empty<string>();
 
     /// <summary>
@@ -33,7 +32,7 @@ public record PostPerformanceV1StageTasksFindByUserListBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：3</para>
     /// </summary>
-    [JsonProperty("task_option_lists")]
+    [JsonPropertyName("task_option_lists")]
     public int[]? TaskOptionLists { get; set; }
 
     /// <summary>
@@ -41,7 +40,7 @@ public record PostPerformanceV1StageTasksFindByUserListBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1630425599999</para>
     /// </summary>
-    [JsonProperty("after_time")]
+    [JsonPropertyName("after_time")]
     public string? AfterTime { get; set; }
 
     /// <summary>
@@ -49,6 +48,6 @@ public record PostPerformanceV1StageTasksFindByUserListBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1630425599999</para>
     /// </summary>
-    [JsonProperty("before_time")]
+    [JsonPropertyName("before_time")]
     public string? BeforeTime { get; set; }
 }

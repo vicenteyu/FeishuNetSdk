@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 列出数据表 响应体
@@ -14,7 +13,7 @@ public record GetBitableV1AppsByAppTokenTablesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record GetBitableV1AppsByAppTokenTablesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -30,14 +29,14 @@ public record GetBitableV1AppsByAppTokenTablesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：\-</para>
     /// </summary>
-    [JsonProperty("total")]
+    [JsonPropertyName("total")]
     public int? Total { get; set; }
 
     /// <summary>
     /// <para>数据表信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public AppTable[]? Items { get; set; }
 
     /// <summary>
@@ -50,7 +49,7 @@ public record GetBitableV1AppsByAppTokenTablesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>
-        [JsonProperty("table_id")]
+        [JsonPropertyName("table_id")]
         public string? TableId { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetBitableV1AppsByAppTokenTablesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>
-        [JsonProperty("revision")]
+        [JsonPropertyName("revision")]
         public int? Revision { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetBitableV1AppsByAppTokenTablesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
     }
 }

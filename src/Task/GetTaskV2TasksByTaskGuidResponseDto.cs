@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 获取任务详情 响应体
@@ -13,7 +12,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
     /// <para>获得的任务实体</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("task")]
+    [JsonPropertyName("task")]
     public GetTaskV2TasksByTaskGuidResponseDtoTask? Task { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：83912691-2e43-47fc-94a4-d512e03984fa</para>
         /// </summary>
-        [JsonProperty("guid")]
+        [JsonPropertyName("guid")]
         public string? Guid { get; set; }
 
         /// <summary>
@@ -35,7 +34,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>示例值：进行销售年中总结</para>
         /// <para>最大长度：10000</para>
         /// </summary>
-        [JsonProperty("summary")]
+        [JsonPropertyName("summary")]
         public string? Summary { get; set; }
 
         /// <summary>
@@ -44,7 +43,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>示例值：进行销售年中总结</para>
         /// <para>最大长度：10000</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -52,7 +51,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1675742789470</para>
         /// </summary>
-        [JsonProperty("due")]
+        [JsonPropertyName("due")]
         public GetTaskV2TasksByTaskGuidResponseDtoTaskDue? Due { get; set; }
 
         /// <summary>
@@ -65,7 +64,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1675454764000</para>
             /// </summary>
-            [JsonProperty("timestamp")]
+            [JsonPropertyName("timestamp")]
             public string? Timestamp { get; set; }
 
             /// <summary>
@@ -73,7 +72,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("is_all_day")]
+            [JsonPropertyName("is_all_day")]
             public bool? IsAllDay { get; set; }
         }
 
@@ -81,7 +80,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>任务的提醒配置列表。目前每个任务最多有1个。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("reminders")]
+        [JsonPropertyName("reminders")]
         public Reminder[]? Reminders { get; set; }
 
         /// <summary>
@@ -95,7 +94,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>示例值：10</para>
             /// <para>最大长度：20</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -103,7 +102,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：30</para>
             /// </summary>
-            [JsonProperty("relative_fire_minute")]
+            [JsonPropertyName("relative_fire_minute")]
             public int RelativeFireMinute { get; set; }
         }
 
@@ -111,7 +110,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>任务创建者</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("creator")]
+        [JsonPropertyName("creator")]
         public Member? Creator { get; set; }
 
         /// <summary>
@@ -125,7 +124,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
             /// <para>最大长度：100</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -134,7 +133,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>示例值：user</para>
             /// <para>默认值：user</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -143,7 +142,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>示例值：assignee</para>
             /// <para>最大长度：20</para>
             /// </summary>
-            [JsonProperty("role")]
+            [JsonPropertyName("role")]
             public string? Role { get; set; }
         }
 
@@ -151,7 +150,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>任务成员列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("members")]
+        [JsonPropertyName("members")]
         public Member[]? Members { get; set; }
 
         /// <summary>
@@ -160,14 +159,14 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>示例值：1675742789470</para>
         /// <para>最大长度：20</para>
         /// </summary>
-        [JsonProperty("completed_at")]
+        [JsonPropertyName("completed_at")]
         public string? CompletedAt { get; set; }
 
         /// <summary>
         /// <para>任务的附件列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("attachments")]
+        [JsonPropertyName("attachments")]
         public Attachment[]? Attachments { get; set; }
 
         /// <summary>
@@ -180,7 +179,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：f860de3e-6881-4ddd-9321-070f36d1af0b</para>
             /// </summary>
-            [JsonProperty("guid")]
+            [JsonPropertyName("guid")]
             public string? Guid { get; set; }
 
             /// <summary>
@@ -188,7 +187,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：boxcnTDqPaRA6JbYnzQsZ2doB2b</para>
             /// </summary>
-            [JsonProperty("file_token")]
+            [JsonPropertyName("file_token")]
             public string? FileToken { get; set; }
 
             /// <summary>
@@ -196,7 +195,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：foo.jpg</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -204,14 +203,14 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：62232</para>
             /// </summary>
-            [JsonProperty("size")]
+            [JsonPropertyName("size")]
             public int? Size { get; set; }
 
             /// <summary>
             /// <para>附件归属的资源</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("resource")]
+            [JsonPropertyName("resource")]
             public AttachmentResource? Resource { get; set; }
 
             /// <summary>
@@ -224,7 +223,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：task</para>
                 /// </summary>
-                [JsonProperty("type")]
+                [JsonPropertyName("type")]
                 public string? Type { get; set; }
 
                 /// <summary>
@@ -232,7 +231,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string? Id { get; set; }
             }
 
@@ -240,7 +239,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>附件上传者</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("uploader")]
+            [JsonPropertyName("uploader")]
             public Member? Uploader { get; set; }
 
             /// <summary>
@@ -254,7 +253,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
                 /// <para>最大长度：100</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string? Id { get; set; }
 
                 /// <summary>
@@ -263,7 +262,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>示例值：user</para>
                 /// <para>默认值：user</para>
                 /// </summary>
-                [JsonProperty("type")]
+                [JsonPropertyName("type")]
                 public string? Type { get; set; }
 
                 /// <summary>
@@ -272,7 +271,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>示例值：assignee</para>
                 /// <para>最大长度：20</para>
                 /// </summary>
-                [JsonProperty("role")]
+                [JsonPropertyName("role")]
                 public string? Role { get; set; }
             }
 
@@ -281,7 +280,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_cover")]
+            [JsonPropertyName("is_cover")]
             public bool? IsCover { get; set; }
 
             /// <summary>
@@ -289,7 +288,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1675742789470</para>
             /// </summary>
-            [JsonProperty("uploaded_at")]
+            [JsonPropertyName("uploaded_at")]
             public string? UploadedAt { get; set; }
         }
 
@@ -297,7 +296,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>任务关联的第三方平台来源信息。创建是设置后就不可更改。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("origin")]
+        [JsonPropertyName("origin")]
         public GetTaskV2TasksByTaskGuidResponseDtoTaskOrigin? Origin { get; set; }
 
         /// <summary>
@@ -309,7 +308,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>任务导入来源的名称，用于在任务中心详情页展示。需提供多语言版本。</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("platform_i18n_name")]
+            [JsonPropertyName("platform_i18n_name")]
             public I18nText? PlatformI18nName { get; set; }
 
             /// <summary>
@@ -323,7 +322,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>示例值：workbench</para>
                 /// <para>最大长度：1000</para>
                 /// </summary>
-                [JsonProperty("en_us")]
+                [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
 
                 /// <summary>
@@ -332,7 +331,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>示例值：工作台</para>
                 /// <para>最大长度：1000</para>
                 /// </summary>
-                [JsonProperty("zh_cn")]
+                [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
@@ -341,7 +340,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>示例值：工作臺</para>
                 /// <para>最大长度：1000</para>
                 /// </summary>
-                [JsonProperty("zh_hk")]
+                [JsonPropertyName("zh_hk")]
                 public string? ZhHk { get; set; }
 
                 /// <summary>
@@ -350,7 +349,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>示例值：工作臺</para>
                 /// <para>最大长度：1000</para>
                 /// </summary>
-                [JsonProperty("zh_tw")]
+                [JsonPropertyName("zh_tw")]
                 public string? ZhTw { get; set; }
 
                 /// <summary>
@@ -359,7 +358,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>示例值：作業台</para>
                 /// <para>最大长度：1000</para>
                 /// </summary>
-                [JsonProperty("ja_jp")]
+                [JsonPropertyName("ja_jp")]
                 public string? JaJp { get; set; }
 
                 /// <summary>
@@ -367,7 +366,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：Tabledetravail</para>
                 /// </summary>
-                [JsonProperty("fr_fr")]
+                [JsonPropertyName("fr_fr")]
                 public string? FrFr { get; set; }
 
                 /// <summary>
@@ -375,7 +374,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：bancodilavoro</para>
                 /// </summary>
-                [JsonProperty("it_it")]
+                [JsonPropertyName("it_it")]
                 public string? ItIt { get; set; }
 
                 /// <summary>
@@ -383,7 +382,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：Werkbank</para>
                 /// </summary>
-                [JsonProperty("de_de")]
+                [JsonPropertyName("de_de")]
                 public string? DeDe { get; set; }
 
                 /// <summary>
@@ -391,7 +390,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：верстак</para>
                 /// </summary>
-                [JsonProperty("ru_ru")]
+                [JsonPropertyName("ru_ru")]
                 public string? RuRu { get; set; }
 
                 /// <summary>
@@ -399,7 +398,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：โต๊ะทำงาน</para>
                 /// </summary>
-                [JsonProperty("th_th")]
+                [JsonPropertyName("th_th")]
                 public string? ThTh { get; set; }
 
                 /// <summary>
@@ -407,7 +406,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：bancodetrabajo</para>
                 /// </summary>
-                [JsonProperty("es_es")]
+                [JsonPropertyName("es_es")]
                 public string? EsEs { get; set; }
 
                 /// <summary>
@@ -415,7 +414,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：작업대</para>
                 /// </summary>
-                [JsonProperty("ko_kr")]
+                [JsonPropertyName("ko_kr")]
                 public string? KoKr { get; set; }
             }
 
@@ -423,7 +422,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>任务关联的来源平台详情页链接</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("href")]
+            [JsonPropertyName("href")]
             public GetTaskV2TasksByTaskGuidResponseDtoTaskOriginHref? Href { get; set; }
 
             /// <summary>
@@ -437,7 +436,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>示例值：https://www.example.com</para>
                 /// <para>最大长度：1024</para>
                 /// </summary>
-                [JsonProperty("url")]
+                [JsonPropertyName("url")]
                 public string? Url { get; set; }
 
                 /// <summary>
@@ -446,7 +445,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>示例值：反馈一个问题，需要协助排查</para>
                 /// <para>最大长度：512</para>
                 /// </summary>
-                [JsonProperty("title")]
+                [JsonPropertyName("title")]
                 public string? Title { get; set; }
             }
         }
@@ -457,14 +456,14 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>示例值：dGVzdA==</para>
         /// <para>最大长度：65536</para>
         /// </summary>
-        [JsonProperty("extra")]
+        [JsonPropertyName("extra")]
         public string? Extra { get; set; }
 
         /// <summary>
         /// <para>任务所属清单的名字。调用者只能看到有权限访问的清单的列表。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("tasklists")]
+        [JsonPropertyName("tasklists")]
         public TaskInTasklistInfo[]? Tasklists { get; set; }
 
         /// <summary>
@@ -478,7 +477,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>示例值：cc371766-6584-cf50-a222-c22cd9055004</para>
             /// <para>最大长度：100</para>
             /// </summary>
-            [JsonProperty("tasklist_guid")]
+            [JsonPropertyName("tasklist_guid")]
             public string? TasklistGuid { get; set; }
 
             /// <summary>
@@ -486,7 +485,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2</para>
             /// </summary>
-            [JsonProperty("section_guid")]
+            [JsonPropertyName("section_guid")]
             public string? SectionGuid { get; set; }
         }
 
@@ -496,7 +495,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR</para>
         /// <para>最大长度：500</para>
         /// </summary>
-        [JsonProperty("repeat_rule")]
+        [JsonPropertyName("repeat_rule")]
         public string? RepeatRule { get; set; }
 
         /// <summary>
@@ -504,7 +503,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0</para>
         /// </summary>
-        [JsonProperty("parent_task_guid")]
+        [JsonPropertyName("parent_task_guid")]
         public string? ParentTaskGuid { get; set; }
 
         /// <summary>
@@ -512,7 +511,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("mode")]
+        [JsonPropertyName("mode")]
         public int? Mode { get; set; }
 
         /// <summary>
@@ -528,14 +527,14 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <item>8：文档任务</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("source")]
+        [JsonPropertyName("source")]
         public int? Source { get; set; }
 
         /// <summary>
         /// <para>任务的自定义完成配置</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_complete")]
+        [JsonPropertyName("custom_complete")]
         public GetTaskV2TasksByTaskGuidResponseDtoTaskCustomComplete? CustomComplete { get; set; }
 
         /// <summary>
@@ -547,7 +546,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>pc客户端自定义完成配置（含mac和windows）</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("pc")]
+            [JsonPropertyName("pc")]
             public CustomCompleteItem? Pc { get; set; }
 
             /// <summary>
@@ -560,14 +559,14 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// </summary>
-                [JsonProperty("href")]
+                [JsonPropertyName("href")]
                 public string? Href { get; set; }
 
                 /// <summary>
                 /// <para>自定义完成的弹出提示为</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("tip")]
+                [JsonPropertyName("tip")]
                 public I18nText? Tip { get; set; }
 
                 /// <summary>
@@ -581,7 +580,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                     /// <para>示例值：workbench</para>
                     /// <para>最大长度：1000</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
 
                     /// <summary>
@@ -590,7 +589,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                     /// <para>示例值：工作台</para>
                     /// <para>最大长度：1000</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -599,7 +598,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                     /// <para>示例值：工作臺</para>
                     /// <para>最大长度：1000</para>
                     /// </summary>
-                    [JsonProperty("zh_hk")]
+                    [JsonPropertyName("zh_hk")]
                     public string? ZhHk { get; set; }
 
                     /// <summary>
@@ -608,7 +607,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                     /// <para>示例值：工作臺</para>
                     /// <para>最大长度：1000</para>
                     /// </summary>
-                    [JsonProperty("zh_tw")]
+                    [JsonPropertyName("zh_tw")]
                     public string? ZhTw { get; set; }
 
                     /// <summary>
@@ -617,7 +616,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                     /// <para>示例值：作業台</para>
                     /// <para>最大长度：1000</para>
                     /// </summary>
-                    [JsonProperty("ja_jp")]
+                    [JsonPropertyName("ja_jp")]
                     public string? JaJp { get; set; }
 
                     /// <summary>
@@ -625,7 +624,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：Tabledetravail</para>
                     /// </summary>
-                    [JsonProperty("fr_fr")]
+                    [JsonPropertyName("fr_fr")]
                     public string? FrFr { get; set; }
 
                     /// <summary>
@@ -633,7 +632,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：bancodilavoro</para>
                     /// </summary>
-                    [JsonProperty("it_it")]
+                    [JsonPropertyName("it_it")]
                     public string? ItIt { get; set; }
 
                     /// <summary>
@@ -641,7 +640,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：Werkbank</para>
                     /// </summary>
-                    [JsonProperty("de_de")]
+                    [JsonPropertyName("de_de")]
                     public string? DeDe { get; set; }
 
                     /// <summary>
@@ -649,7 +648,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：верстак</para>
                     /// </summary>
-                    [JsonProperty("ru_ru")]
+                    [JsonPropertyName("ru_ru")]
                     public string? RuRu { get; set; }
 
                     /// <summary>
@@ -657,7 +656,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：โต๊ะทำงาน</para>
                     /// </summary>
-                    [JsonProperty("th_th")]
+                    [JsonPropertyName("th_th")]
                     public string? ThTh { get; set; }
 
                     /// <summary>
@@ -665,7 +664,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：bancodetrabajo</para>
                     /// </summary>
-                    [JsonProperty("es_es")]
+                    [JsonPropertyName("es_es")]
                     public string? EsEs { get; set; }
 
                     /// <summary>
@@ -673,7 +672,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：작업대</para>
                     /// </summary>
-                    [JsonProperty("ko_kr")]
+                    [JsonPropertyName("ko_kr")]
                     public string? KoKr { get; set; }
                 }
             }
@@ -682,14 +681,14 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>ios端的自定义完成配置</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("ios")]
+            [JsonPropertyName("ios")]
             public CustomCompleteItem? Ios { get; set; }
 
             /// <summary>
             /// <para>android端的自定义完成配置</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("android")]
+            [JsonPropertyName("android")]
             public CustomCompleteItem? Android { get; set; }
         }
 
@@ -699,7 +698,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>示例值：t6272302</para>
         /// <para>最大长度：20</para>
         /// </summary>
-        [JsonProperty("task_id")]
+        [JsonPropertyName("task_id")]
         public string? TaskId { get; set; }
 
         /// <summary>
@@ -707,7 +706,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1675742789470</para>
         /// </summary>
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public string? CreatedAt { get; set; }
 
         /// <summary>
@@ -715,7 +714,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1675742789470</para>
         /// </summary>
-        [JsonProperty("updated_at")]
+        [JsonPropertyName("updated_at")]
         public string? UpdatedAt { get; set; }
 
         /// <summary>
@@ -724,7 +723,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>示例值：todo</para>
         /// <para>最大长度：20</para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string? Status { get; set; }
 
         /// <summary>
@@ -732,14 +731,14 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&amp;suite_entity_num=t192012</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
 
         /// <summary>
         /// <para>任务的开始时间</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("start")]
+        [JsonPropertyName("start")]
         public GetTaskV2TasksByTaskGuidResponseDtoTaskStart? Start { get; set; }
 
         /// <summary>
@@ -752,7 +751,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1675454764000</para>
             /// </summary>
-            [JsonProperty("timestamp")]
+            [JsonPropertyName("timestamp")]
             public string? Timestamp { get; set; }
 
             /// <summary>
@@ -760,7 +759,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("is_all_day")]
+            [JsonPropertyName("is_all_day")]
             public bool? IsAllDay { get; set; }
         }
 
@@ -769,7 +768,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("subtask_count")]
+        [JsonPropertyName("subtask_count")]
         public int? SubtaskCount { get; set; }
 
         /// <summary>
@@ -777,14 +776,14 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("is_milestone")]
+        [JsonPropertyName("is_milestone")]
         public bool? IsMilestone { get; set; }
 
         /// <summary>
         /// <para>任务的自定义字段值</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public CustomFieldValue[]? CustomFields { get; set; }
 
         /// <summary>
@@ -797,7 +796,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：a4f648d7-76ef-477f-bc8e-0601b5a60093</para>
             /// </summary>
-            [JsonProperty("guid")]
+            [JsonPropertyName("guid")]
             public string? Guid { get; set; }
 
             /// <summary>
@@ -805,7 +804,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：number</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -814,7 +813,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>示例值：10.23</para>
             /// <para>最大长度：20</para>
             /// </summary>
-            [JsonProperty("number_value")]
+            [JsonPropertyName("number_value")]
             public string? NumberValue { get; set; }
 
             /// <summary>
@@ -822,7 +821,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1687708260000</para>
             /// </summary>
-            [JsonProperty("datetime_value")]
+            [JsonPropertyName("datetime_value")]
             public string? DatetimeValue { get; set; }
 
             /// <summary>
@@ -830,7 +829,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>最大长度：50</para>
             /// </summary>
-            [JsonProperty("member_value")]
+            [JsonPropertyName("member_value")]
             public Member[]? MemberValues { get; set; }
 
             /// <summary>
@@ -844,7 +843,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
                 /// <para>最大长度：100</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string? Id { get; set; }
 
                 /// <summary>
@@ -853,7 +852,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>示例值：user</para>
                 /// <para>默认值：user</para>
                 /// </summary>
-                [JsonProperty("type")]
+                [JsonPropertyName("type")]
                 public string? Type { get; set; }
 
                 /// <summary>
@@ -862,7 +861,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>示例值：editor</para>
                 /// <para>最大长度：20</para>
                 /// </summary>
-                [JsonProperty("role")]
+                [JsonPropertyName("role")]
                 public string? Role { get; set; }
             }
 
@@ -871,7 +870,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152</para>
             /// </summary>
-            [JsonProperty("single_select_value")]
+            [JsonPropertyName("single_select_value")]
             public string? SingleSelectValue { get; set; }
 
             /// <summary>
@@ -879,7 +878,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>最大长度：50</para>
             /// </summary>
-            [JsonProperty("multi_select_value")]
+            [JsonPropertyName("multi_select_value")]
             public string[]? MultiSelectValue { get; set; }
 
             /// <summary>
@@ -887,7 +886,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：优先级</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -895,7 +894,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：这是一段文本介绍。</para>
             /// </summary>
-            [JsonProperty("text_value")]
+            [JsonPropertyName("text_value")]
             public string? TextValue { get; set; }
         }
 
@@ -903,7 +902,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>任务依赖</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("dependencies")]
+        [JsonPropertyName("dependencies")]
         public TaskDependency[]? Dependencies { get; set; }
 
         /// <summary>
@@ -920,7 +919,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <item>next：后置依赖</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string Type { get; set; } = string.Empty;
 
             /// <summary>
@@ -928,7 +927,7 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0</para>
             /// </summary>
-            [JsonProperty("task_guid")]
+            [JsonPropertyName("task_guid")]
             public string TaskGuid { get; set; } = string.Empty;
         }
     }

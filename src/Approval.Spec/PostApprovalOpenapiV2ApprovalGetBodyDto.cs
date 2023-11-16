@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 查看审批定义 请求体
@@ -13,7 +12,7 @@ public record PostApprovalOpenapiV2ApprovalGetBodyDto
     /// <para>审批定义 Code</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string ApprovalCode { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostApprovalOpenapiV2ApprovalGetBodyDto
     /// <para>ja-JP - 日文</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("locale")]
+    [JsonPropertyName("locale")]
     public string? Locale { get; set; }
 }

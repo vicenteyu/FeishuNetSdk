@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 搜索员工信息 请求体
@@ -14,21 +13,21 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("fields")]
+    [JsonPropertyName("fields")]
     public string[]? Fields { get; set; }
 
     /// <summary>
     /// <para>雇佣 ID 列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("employment_id_list")]
+    [JsonPropertyName("employment_id_list")]
     public string[]? EmploymentIdList { get; set; }
 
     /// <summary>
     /// <para>工号列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("employee_number_list")]
+    [JsonPropertyName("employee_number_list")]
     public string[]? EmployeeNumberList { get; set; }
 
     /// <summary>
@@ -36,7 +35,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：13312345678@qq.com</para>
     /// </summary>
-    [JsonProperty("work_email")]
+    [JsonPropertyName("work_email")]
     public string? WorkEmail { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：16760342300</para>
     /// </summary>
-    [JsonProperty("phone_number")]
+    [JsonPropertyName("phone_number")]
     public string? PhoneNumber { get; set; }
 
     /// <summary>
@@ -54,7 +53,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：张三</para>
     /// </summary>
-    [JsonProperty("key_word")]
+    [JsonPropertyName("key_word")]
     public string? KeyWord { get; set; }
 
     /// <summary>
@@ -66,7 +65,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <item>terminated：离职</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("employment_status")]
+    [JsonPropertyName("employment_status")]
     public string? EmploymentStatus { get; set; }
 
     /// <summary>
@@ -74,14 +73,14 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6971090097697521314</para>
     /// </summary>
-    [JsonProperty("employee_type_id")]
+    [JsonPropertyName("employee_type_id")]
     public string? EmployeeTypeId { get; set; }
 
     /// <summary>
     /// <para>部门 ID，根据员工主职的直接部门查询，可以通过【查询部门】API 获取 部门 ID</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("department_id_list")]
+    [JsonPropertyName("department_id_list")]
     public string[]? DepartmentIdList { get; set; }
 
     /// <summary>
@@ -89,7 +88,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：7027024823985447820</para>
     /// </summary>
-    [JsonProperty("direct_manager_id_list")]
+    [JsonPropertyName("direct_manager_id_list")]
     public string[]? DirectManagerIdList { get; set; }
 
     /// <summary>
@@ -97,7 +96,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：7027024823985117820</para>
     /// </summary>
-    [JsonProperty("dotted_line_manager_id_list")]
+    [JsonPropertyName("dotted_line_manager_id_list")]
     public string[]? DottedLineManagerIdList { get; set; }
 
     /// <summary>
@@ -105,7 +104,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
-    [JsonProperty("regular_employee_start_date_start")]
+    [JsonPropertyName("regular_employee_start_date_start")]
     public string? RegularEmployeeStartDateStart { get; set; }
 
     /// <summary>
@@ -113,7 +112,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
-    [JsonProperty("regular_employee_start_date_end")]
+    [JsonPropertyName("regular_employee_start_date_end")]
     public string? RegularEmployeeStartDateEnd { get; set; }
 
     /// <summary>
@@ -121,7 +120,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
-    [JsonProperty("effective_time_start")]
+    [JsonPropertyName("effective_time_start")]
     public string? EffectiveTimeStart { get; set; }
 
     /// <summary>
@@ -129,7 +128,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
-    [JsonProperty("effective_time_end")]
+    [JsonPropertyName("effective_time_end")]
     public string? EffectiveTimeEnd { get; set; }
 
     /// <summary>
@@ -137,7 +136,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("work_location_id_list_include_sub")]
+    [JsonPropertyName("work_location_id_list_include_sub")]
     public string[]? WorkLocationIdListIncludeSub { get; set; }
 
     /// <summary>
@@ -145,7 +144,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("preferred_english_full_name_list")]
+    [JsonPropertyName("preferred_english_full_name_list")]
     public string[]? PreferredEnglishFullNameList { get; set; }
 
     /// <summary>
@@ -153,7 +152,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("preferred_local_full_name_list")]
+    [JsonPropertyName("preferred_local_full_name_list")]
     public string[]? PreferredLocalFullNameList { get; set; }
 
     /// <summary>
@@ -161,7 +160,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("national_id_number_list")]
+    [JsonPropertyName("national_id_number_list")]
     public string[]? NationalIdNumberList { get; set; }
 
     /// <summary>
@@ -169,7 +168,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("phone_number_list")]
+    [JsonPropertyName("phone_number_list")]
     public string[]? PhoneNumberList { get; set; }
 
     /// <summary>
@@ -177,7 +176,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("email_address_list")]
+    [JsonPropertyName("email_address_list")]
     public string[]? EmailAddressList { get; set; }
 
     /// <summary>
@@ -185,6 +184,6 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("department_id_list_include_sub")]
+    [JsonPropertyName("department_id_list_include_sub")]
     public string[]? DepartmentIdListIncludeSub { get; set; }
 }

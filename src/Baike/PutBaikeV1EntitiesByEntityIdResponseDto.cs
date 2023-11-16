@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Baike;
 /// <summary>
 /// 更新免审词条 响应体
@@ -14,7 +13,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
     /// <para>词条信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("entity")]
+    [JsonPropertyName("entity")]
     public PutBaikeV1EntitiesByEntityIdResponseDtoEntity? Entity { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：enterprise_40217521</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -35,7 +34,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
         /// <para>必填：是</para>
         /// <para>最大长度：1</para>
         /// </summary>
-        [JsonProperty("main_keys")]
+        [JsonPropertyName("main_keys")]
         public Term[] MainKeys { get; set; } = Array.Empty<Term>();
 
         /// <summary>
@@ -48,14 +47,14 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：飞书词典</para>
             /// </summary>
-            [JsonProperty("key")]
+            [JsonPropertyName("key")]
             public string Key { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>名称展示范围</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("display_status")]
+            [JsonPropertyName("display_status")]
             public TermDisplayStatus DisplayStatus { get; set; } = new();
 
             /// <summary>
@@ -68,7 +67,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：true</para>
                 /// </summary>
-                [JsonProperty("allow_highlight")]
+                [JsonPropertyName("allow_highlight")]
                 public bool AllowHighlight { get; set; }
 
                 /// <summary>
@@ -76,7 +75,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：true</para>
                 /// </summary>
-                [JsonProperty("allow_search")]
+                [JsonPropertyName("allow_search")]
                 public bool AllowSearch { get; set; }
             }
         }
@@ -86,7 +85,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
         /// <para>必填：否</para>
         /// <para>最大长度：10</para>
         /// </summary>
-        [JsonProperty("aliases")]
+        [JsonPropertyName("aliases")]
         public Term[]? Aliases { get; set; }
 
         /// <summary>
@@ -95,7 +94,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
         /// <para>示例值：词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通</para>
         /// <para>最大长度：5000</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -103,7 +102,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1649318125</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
@@ -111,14 +110,14 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1649318125</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public string? UpdateTime { get; set; }
 
         /// <summary>
         /// <para>更多相关信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("related_meta")]
+        [JsonPropertyName("related_meta")]
         public PutBaikeV1EntitiesByEntityIdResponseDtoEntityRelatedMeta? RelatedMeta { get; set; }
 
         /// <summary>
@@ -130,7 +129,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
             /// <para>相关联系人</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("users")]
+            [JsonPropertyName("users")]
             public Referer[]? Users { get; set; }
 
             /// <summary>
@@ -143,7 +142,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：格式请看请求体示例</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string Id { get; set; } = string.Empty;
 
                 /// <summary>
@@ -151,7 +150,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：飞书词典帮助中心</para>
                 /// </summary>
-                [JsonProperty("title")]
+                [JsonPropertyName("title")]
                 public string? Title { get; set; }
 
                 /// <summary>
@@ -159,7 +158,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.feishu.cn/hc/zh-CN</para>
                 /// </summary>
-                [JsonProperty("url")]
+                [JsonPropertyName("url")]
                 public string? Url { get; set; }
             }
 
@@ -167,35 +166,35 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
             /// <para>相关服务中的相关公开群</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("chats")]
+            [JsonPropertyName("chats")]
             public Referer[]? Chats { get; set; }
 
             /// <summary>
             /// <para>相关云文档</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("docs")]
+            [JsonPropertyName("docs")]
             public Referer[]? Docs { get; set; }
 
             /// <summary>
             /// <para>相关服务中的相关值班号</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("oncalls")]
+            [JsonPropertyName("oncalls")]
             public Referer[]? Oncalls { get; set; }
 
             /// <summary>
             /// <para>相关链接</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("links")]
+            [JsonPropertyName("links")]
             public Referer[]? Links { get; set; }
 
             /// <summary>
             /// <para>相关词条</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("abbreviations")]
+            [JsonPropertyName("abbreviations")]
             public Abbreviation[]? Abbreviations { get; set; }
 
             /// <summary>
@@ -208,7 +207,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：enterprise_51527260</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string? Id { get; set; }
             }
 
@@ -217,7 +216,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
             /// <para>词条只能属于二级分类，且每个一级分类下只能选择一个二级分类。</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("classifications")]
+            [JsonPropertyName("classifications")]
             public Classification[]? Classifications { get; set; }
 
             /// <summary>
@@ -231,7 +230,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：7049606926****37761</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string Id { get; set; } = string.Empty;
 
                 /// <summary>
@@ -239,7 +238,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：行业术语</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public string? Name { get; set; }
 
                 /// <summary>
@@ -247,7 +246,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：7049606926****37777</para>
                 /// </summary>
-                [JsonProperty("father_id")]
+                [JsonPropertyName("father_id")]
                 public string? FatherId { get; set; }
             }
 
@@ -256,7 +255,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
             /// <para>必填：否</para>
             /// <para>最大长度：10</para>
             /// </summary>
-            [JsonProperty("images")]
+            [JsonPropertyName("images")]
             public BaikeImage[]? Images { get; set; }
 
             /// <summary>
@@ -269,7 +268,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：boxbcEcmKiDia3evgqWTpvdc7jc</para>
                 /// </summary>
-                [JsonProperty("token")]
+                [JsonPropertyName("token")]
                 public string Token { get; set; } = string.Empty;
             }
         }
@@ -278,7 +277,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
         /// <para>当前词条收到的反馈数据</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("statistics")]
+        [JsonPropertyName("statistics")]
         public PutBaikeV1EntitiesByEntityIdResponseDtoEntityStatistics? Statistics { get; set; }
 
         /// <summary>
@@ -291,7 +290,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：55</para>
             /// </summary>
-            [JsonProperty("like_count")]
+            [JsonPropertyName("like_count")]
             public int LikeCount { get; set; }
 
             /// <summary>
@@ -299,7 +298,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：3</para>
             /// </summary>
-            [JsonProperty("dislike_count")]
+            [JsonPropertyName("dislike_count")]
             public int DislikeCount { get; set; }
         }
 
@@ -307,7 +306,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
         /// <para>外部系统关联数据</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("outer_info")]
+        [JsonPropertyName("outer_info")]
         public PutBaikeV1EntitiesByEntityIdResponseDtoEntityOuterInfo? OuterInfo { get; set; }
 
         /// <summary>
@@ -321,7 +320,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
             /// <para>示例值：星云</para>
             /// <para>最大长度：32</para>
             /// </summary>
-            [JsonProperty("provider")]
+            [JsonPropertyName("provider")]
             public string Provider { get; set; } = string.Empty;
 
             /// <summary>
@@ -330,7 +329,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
             /// <para>示例值：client_653267498d</para>
             /// <para>最大长度：64</para>
             /// </summary>
-            [JsonProperty("outer_id")]
+            [JsonPropertyName("outer_id")]
             public string OuterId { get; set; } = string.Empty;
         }
 
@@ -340,7 +339,7 @@ public record PutBaikeV1EntitiesByEntityIdResponseDto
         /// <para>示例值：加粗&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;ahref=\"https://feishu.cn\"&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;</para>
         /// <para>最大长度：5000</para>
         /// </summary>
-        [JsonProperty("rich_text")]
+        [JsonPropertyName("rich_text")]
         public string? RichText { get; set; }
     }
 }

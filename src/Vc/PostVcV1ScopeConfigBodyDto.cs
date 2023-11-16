@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 设置会议室配置 请求体
@@ -18,7 +17,7 @@ public record PostVcV1ScopeConfigBodyDto
     /// <item>2：会议室</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("scope_type")]
+    [JsonPropertyName("scope_type")]
     public int ScopeType { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record PostVcV1ScopeConfigBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：omm_608d34d82d531b27fa993902d350a307</para>
     /// </summary>
-    [JsonProperty("scope_id")]
+    [JsonPropertyName("scope_id")]
     public string ScopeId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>节点配置</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("scope_config")]
+    [JsonPropertyName("scope_config")]
     public RoomConfig? ScopeConfig { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostVcV1ScopeConfigBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx</para>
         /// </summary>
-        [JsonProperty("room_background")]
+        [JsonPropertyName("room_background")]
         public string? RoomBackground { get; set; }
 
         /// <summary>
@@ -54,14 +53,14 @@ public record PostVcV1ScopeConfigBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx</para>
         /// </summary>
-        [JsonProperty("display_background")]
+        [JsonPropertyName("display_background")]
         public string? DisplayBackground { get; set; }
 
         /// <summary>
         /// <para>飞书会议室数字标牌</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("digital_signage")]
+        [JsonPropertyName("digital_signage")]
         public RoomDigitalSignage? DigitalSignage { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record PostVcV1ScopeConfigBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("if_cover_child_scope")]
+            [JsonPropertyName("if_cover_child_scope")]
             public bool? IfCoverChildScope { get; set; }
 
             /// <summary>
@@ -82,7 +81,7 @@ public record PostVcV1ScopeConfigBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("enable")]
+            [JsonPropertyName("enable")]
             public bool? Enable { get; set; }
 
             /// <summary>
@@ -90,7 +89,7 @@ public record PostVcV1ScopeConfigBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("mute")]
+            [JsonPropertyName("mute")]
             public bool? Mute { get; set; }
 
             /// <summary>
@@ -98,7 +97,7 @@ public record PostVcV1ScopeConfigBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：3</para>
             /// </summary>
-            [JsonProperty("start_display")]
+            [JsonPropertyName("start_display")]
             public int? StartDisplay { get; set; }
 
             /// <summary>
@@ -106,14 +105,14 @@ public record PostVcV1ScopeConfigBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：3</para>
             /// </summary>
-            [JsonProperty("stop_display")]
+            [JsonPropertyName("stop_display")]
             public int? StopDisplay { get; set; }
 
             /// <summary>
             /// <para>素材列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("materials")]
+            [JsonPropertyName("materials")]
             public RoomDigitalSignageMaterial[]? Materials { get; set; }
 
             /// <summary>
@@ -126,7 +125,7 @@ public record PostVcV1ScopeConfigBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：7847784676276</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string? Id { get; set; }
 
                 /// <summary>
@@ -134,7 +133,7 @@ public record PostVcV1ScopeConfigBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：name</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public string? Name { get; set; }
 
                 /// <summary>
@@ -147,7 +146,7 @@ public record PostVcV1ScopeConfigBodyDto
                 /// <item>3：GIF</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("material_type")]
+                [JsonPropertyName("material_type")]
                 public int? MaterialType { get; set; }
 
                 /// <summary>
@@ -155,7 +154,7 @@ public record PostVcV1ScopeConfigBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：url</para>
                 /// </summary>
-                [JsonProperty("url")]
+                [JsonPropertyName("url")]
                 public string? Url { get; set; }
 
                 /// <summary>
@@ -163,7 +162,7 @@ public record PostVcV1ScopeConfigBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：15</para>
                 /// </summary>
-                [JsonProperty("duration")]
+                [JsonPropertyName("duration")]
                 public int? Duration { get; set; }
 
                 /// <summary>
@@ -171,7 +170,7 @@ public record PostVcV1ScopeConfigBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：url</para>
                 /// </summary>
-                [JsonProperty("cover")]
+                [JsonPropertyName("cover")]
                 public string? Cover { get; set; }
 
                 /// <summary>
@@ -179,7 +178,7 @@ public record PostVcV1ScopeConfigBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：md5</para>
                 /// </summary>
-                [JsonProperty("md5")]
+                [JsonPropertyName("md5")]
                 public string? Md5 { get; set; }
 
                 /// <summary>
@@ -187,7 +186,7 @@ public record PostVcV1ScopeConfigBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：vid</para>
                 /// </summary>
-                [JsonProperty("vid")]
+                [JsonPropertyName("vid")]
                 public string? Vid { get; set; }
 
                 /// <summary>
@@ -195,7 +194,7 @@ public record PostVcV1ScopeConfigBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：100</para>
                 /// </summary>
-                [JsonProperty("size")]
+                [JsonPropertyName("size")]
                 public string? Size { get; set; }
             }
         }
@@ -204,14 +203,14 @@ public record PostVcV1ScopeConfigBodyDto
         /// <para>飞书投屏盒子数字标牌</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("room_box_digital_signage")]
+        [JsonPropertyName("room_box_digital_signage")]
         public RoomDigitalSignage? RoomBoxDigitalSignage { get; set; }
 
         /// <summary>
         /// <para>会议室状态</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("room_status")]
+        [JsonPropertyName("room_status")]
         public RoomConfigRoomStatus? RoomStatus { get; set; }
 
         /// <summary>
@@ -224,7 +223,7 @@ public record PostVcV1ScopeConfigBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("status")]
+            [JsonPropertyName("status")]
             public bool Status { get; set; }
 
             /// <summary>
@@ -232,7 +231,7 @@ public record PostVcV1ScopeConfigBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("schedule_status")]
+            [JsonPropertyName("schedule_status")]
             public bool? ScheduleStatus { get; set; }
 
             /// <summary>
@@ -240,7 +239,7 @@ public record PostVcV1ScopeConfigBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：1652356050</para>
             /// </summary>
-            [JsonProperty("disable_start_time")]
+            [JsonPropertyName("disable_start_time")]
             public string? DisableStartTime { get; set; }
 
             /// <summary>
@@ -248,7 +247,7 @@ public record PostVcV1ScopeConfigBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：1652442450</para>
             /// </summary>
-            [JsonProperty("disable_end_time")]
+            [JsonPropertyName("disable_end_time")]
             public string? DisableEndTime { get; set; }
 
             /// <summary>
@@ -256,7 +255,7 @@ public record PostVcV1ScopeConfigBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：测试占用</para>
             /// </summary>
-            [JsonProperty("disable_reason")]
+            [JsonPropertyName("disable_reason")]
             public string? DisableReason { get; set; }
 
             /// <summary>
@@ -264,7 +263,7 @@ public record PostVcV1ScopeConfigBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：["ou_3ec3f6a28a0d08c45d895276e8e5e19b"]</para>
             /// </summary>
-            [JsonProperty("contact_ids")]
+            [JsonPropertyName("contact_ids")]
             public string[]? ContactIds { get; set; }
 
             /// <summary>
@@ -272,7 +271,7 @@ public record PostVcV1ScopeConfigBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("disable_notice")]
+            [JsonPropertyName("disable_notice")]
             public bool? DisableNotice { get; set; }
 
             /// <summary>
@@ -280,7 +279,7 @@ public record PostVcV1ScopeConfigBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("resume_notice")]
+            [JsonPropertyName("resume_notice")]
             public bool? ResumeNotice { get; set; }
         }
     }

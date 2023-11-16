@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 修改角色名称 请求体
@@ -15,6 +14,6 @@ public record PutContactV3FunctionalRolesByRoleIdBodyDto
     /// <para>示例值：考勤管理员</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("role_name")]
+    [JsonPropertyName("role_name")]
     public string RoleName { get; set; } = string.Empty;
 }

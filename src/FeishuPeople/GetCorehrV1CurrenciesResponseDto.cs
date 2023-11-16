@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量查询货币信息 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1CurrenciesResponseDto
     /// <para>货币信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Currency[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetCorehrV1CurrenciesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,14 +33,14 @@ public record GetCorehrV1CurrenciesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
-        [JsonProperty("country_region_id")]
+        [JsonPropertyName("country_region_id")]
         public string? CountryRegionId { get; set; }
 
         /// <summary>
         /// <para>货币名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("currency_name")]
+        [JsonPropertyName("currency_name")]
         public I18n[]? CurrencyNames { get; set; }
 
         /// <summary>
@@ -54,7 +53,7 @@ public record GetCorehrV1CurrenciesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -62,7 +61,7 @@ public record GetCorehrV1CurrenciesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -71,7 +70,7 @@ public record GetCorehrV1CurrenciesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
-        [JsonProperty("numeric_code")]
+        [JsonPropertyName("numeric_code")]
         public int? NumericCode { get; set; }
 
         /// <summary>
@@ -79,7 +78,7 @@ public record GetCorehrV1CurrenciesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
-        [JsonProperty("currency_alpha_3_code")]
+        [JsonPropertyName("currency_alpha_3_code")]
         public string? CurrencyAlpha3Code { get; set; }
     }
 
@@ -88,7 +87,7 @@ public record GetCorehrV1CurrenciesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -96,6 +95,6 @@ public record GetCorehrV1CurrenciesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1234452132</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

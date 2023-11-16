@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新 e-HR 导入任务结果 请求体
@@ -14,7 +13,7 @@ public record PatchHireV1EhrImportTasksByEhrImportTaskIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：当前HC不可用</para>
     /// </summary>
-    [JsonProperty("fail_reason")]
+    [JsonPropertyName("fail_reason")]
     public string? FailReason { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PatchHireV1EhrImportTasksByEhrImportTaskIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：https://example.com</para>
     /// </summary>
-    [JsonProperty("redirect_url")]
+    [JsonPropertyName("redirect_url")]
     public string? RedirectUrl { get; set; }
 
     /// <summary>
@@ -34,6 +33,6 @@ public record PatchHireV1EhrImportTasksByEhrImportTaskIdBodyDto
     /// <item>2：导入失败</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("state")]
+    [JsonPropertyName("state")]
     public int State { get; set; }
 }

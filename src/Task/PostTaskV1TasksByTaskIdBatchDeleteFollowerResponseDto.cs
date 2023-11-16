@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 批量删除关注人 响应体
@@ -13,6 +12,6 @@ public record PostTaskV1TasksByTaskIdBatchDeleteFollowerResponseDto
     /// <para>实际删除的关注人用户ID列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("followers")]
+    [JsonPropertyName("followers")]
     public string[]? Followers { get; set; }
 }

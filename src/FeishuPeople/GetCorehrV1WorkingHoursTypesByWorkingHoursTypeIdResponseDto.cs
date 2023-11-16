@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 查询单个工时制度 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDto
     /// <para>工时制度信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("working_hours_type")]
+    [JsonPropertyName("working_hours_type")]
     public GetCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDtoWorkingHoursType? WorkingHoursType { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6890452208593372679</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,14 +33,14 @@ public record GetCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("code")]
+        [JsonPropertyName("code")]
         public string? Code { get; set; }
 
         /// <summary>
         /// <para>名称</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n[] Names { get; set; } = Array.Empty<I18n>();
 
         /// <summary>
@@ -54,7 +53,7 @@ public record GetCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -62,7 +61,7 @@ public record GetCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -70,7 +69,7 @@ public record GetCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDto
         /// <para>国家/地区 ID 列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("country_region_id_list")]
+        [JsonPropertyName("country_region_id_list")]
         public string[]? CountryRegionIdList { get; set; }
 
         /// <summary>
@@ -78,7 +77,7 @@ public record GetCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("default_for_job")]
+        [JsonPropertyName("default_for_job")]
         public bool DefaultForJob { get; set; }
 
         /// <summary>
@@ -86,14 +85,14 @@ public record GetCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("active")]
+        [JsonPropertyName("active")]
         public bool Active { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -106,7 +105,7 @@ public record GetCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("field_name")]
+            [JsonPropertyName("field_name")]
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
@@ -114,7 +113,7 @@ public record GetCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：\"Sandy\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }

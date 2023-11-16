@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 搜索日历 响应体
@@ -13,7 +12,7 @@ public record PostCalendarV4CalendarsSearchResponseDto
     /// <para>搜索命中的日历列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Calendar[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostCalendarV4CalendarsSearchResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
         /// </summary>
-        [JsonProperty("calendar_id")]
+        [JsonPropertyName("calendar_id")]
         public string CalendarId { get; set; } = string.Empty;
 
         /// <summary>
@@ -35,7 +34,7 @@ public record PostCalendarV4CalendarsSearchResponseDto
         /// <para>示例值：测试日历</para>
         /// <para>最大长度：255</para>
         /// </summary>
-        [JsonProperty("summary")]
+        [JsonPropertyName("summary")]
         public string? Summary { get; set; }
 
         /// <summary>
@@ -44,7 +43,7 @@ public record PostCalendarV4CalendarsSearchResponseDto
         /// <para>示例值：使用开放接口创建日历</para>
         /// <para>最大长度：255</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -57,7 +56,7 @@ public record PostCalendarV4CalendarsSearchResponseDto
         /// <item>public：他人可查看日程详情</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("permissions")]
+        [JsonPropertyName("permissions")]
         public string? Permissions { get; set; }
 
         /// <summary>
@@ -65,7 +64,7 @@ public record PostCalendarV4CalendarsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：-1</para>
         /// </summary>
-        [JsonProperty("color")]
+        [JsonPropertyName("color")]
         public int? Color { get; set; }
 
         /// <summary>
@@ -81,7 +80,7 @@ public record PostCalendarV4CalendarsSearchResponseDto
         /// <item>exchange：用户绑定的Exchange日历</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record PostCalendarV4CalendarsSearchResponseDto
         /// <para>示例值：日历备注名</para>
         /// <para>最大长度：255</para>
         /// </summary>
-        [JsonProperty("summary_alias")]
+        [JsonPropertyName("summary_alias")]
         public string? SummaryAlias { get; set; }
 
         /// <summary>
@@ -99,7 +98,7 @@ public record PostCalendarV4CalendarsSearchResponseDto
         /// <para>示例值：false</para>
         /// <para>默认值：false</para>
         /// </summary>
-        [JsonProperty("is_deleted")]
+        [JsonPropertyName("is_deleted")]
         public bool? IsDeleted { get; set; }
 
         /// <summary>
@@ -108,7 +107,7 @@ public record PostCalendarV4CalendarsSearchResponseDto
         /// <para>示例值：false</para>
         /// <para>默认值：false</para>
         /// </summary>
-        [JsonProperty("is_third_party")]
+        [JsonPropertyName("is_third_party")]
         public bool? IsThirdParty { get; set; }
 
         /// <summary>
@@ -123,7 +122,7 @@ public record PostCalendarV4CalendarsSearchResponseDto
         /// <item>owner：管理员，管理日历及共享设置</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("role")]
+        [JsonPropertyName("role")]
         public string? Role { get; set; }
     }
 
@@ -132,6 +131,6 @@ public record PostCalendarV4CalendarsSearchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：10</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

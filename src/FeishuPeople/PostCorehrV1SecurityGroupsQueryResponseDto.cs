@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 查询部门 / 地点的 HRBP / 属地 BP 响应体
@@ -13,7 +12,7 @@ public record PostCorehrV1SecurityGroupsQueryResponseDto
     /// <para>HRBP/属地 BP 信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("hrbp_list")]
+    [JsonPropertyName("hrbp_list")]
     public Hrbp[]? HrbpLists { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record PostCorehrV1SecurityGroupsQueryResponseDto
         /// <para>对于 属地 BP 而言，若入参的部门和地点没有找到对应的属地 BP，将优先拿地点向上找寻，即向其上级地点取对应的属地 BP</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("employment_id_list")]
+        [JsonPropertyName("employment_id_list")]
         public string[] EmploymentIdList { get; set; } = Array.Empty<string>();
 
         /// <summary>
@@ -35,7 +34,7 @@ public record PostCorehrV1SecurityGroupsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7063072995761456670</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
@@ -43,7 +42,7 @@ public record PostCorehrV1SecurityGroupsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6892687221355185677</para>
         /// </summary>
-        [JsonProperty("work_location_id")]
+        [JsonPropertyName("work_location_id")]
         public string? WorkLocationId { get; set; }
     }
 }

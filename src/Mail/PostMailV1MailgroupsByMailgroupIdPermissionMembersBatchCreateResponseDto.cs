@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 批量创建邮件组权限成员 响应体
@@ -13,7 +12,7 @@ public record PostMailV1MailgroupsByMailgroupIdPermissionMembersBatchCreateRespo
     /// <para>添加成功后的邮件组权限成员信息列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public MailgroupPermissionMember[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostMailV1MailgroupsByMailgroupIdPermissionMembersBatchCreateRespo
         /// <para>必填：否</para>
         /// <para>示例值：xxxxxxxxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("permission_member_id")]
+        [JsonPropertyName("permission_member_id")]
         public string? PermissionMemberId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostMailV1MailgroupsByMailgroupIdPermissionMembersBatchCreateRespo
         /// <para>必填：否</para>
         /// <para>示例值：xxxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostMailV1MailgroupsByMailgroupIdPermissionMembersBatchCreateRespo
         /// <para>必填：否</para>
         /// <para>示例值：xxxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostMailV1MailgroupsByMailgroupIdPermissionMembersBatchCreateRespo
         /// <para>必填：否</para>
         /// <para>示例值：xxx@xx.x</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string? Email { get; set; }
 
         /// <summary>
@@ -64,7 +63,7 @@ public record PostMailV1MailgroupsByMailgroupIdPermissionMembersBatchCreateRespo
         /// <item>PUBLIC_MAILBOX：公共邮箱</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
     }
 }

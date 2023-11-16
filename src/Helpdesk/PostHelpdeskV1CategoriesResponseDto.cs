@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 创建知识库分类 响应体
@@ -13,7 +12,7 @@ public record PostHelpdeskV1CategoriesResponseDto
     /// <para>知识库分类</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("category")]
+    [JsonPropertyName("category")]
     public PostHelpdeskV1CategoriesResponseDtoCategory? Category { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostHelpdeskV1CategoriesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6948728206392295444</para>
         /// </summary>
-        [JsonProperty("category_id")]
+        [JsonPropertyName("category_id")]
         public string CategoryId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostHelpdeskV1CategoriesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6948728206392295444</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostHelpdeskV1CategoriesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：创建团队和邀请成员</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostHelpdeskV1CategoriesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("parent_id")]
+        [JsonPropertyName("parent_id")]
         public string ParentId { get; set; } = string.Empty;
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostHelpdeskV1CategoriesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6939771743531696147</para>
         /// </summary>
-        [JsonProperty("helpdesk_id")]
+        [JsonPropertyName("helpdesk_id")]
         public string HelpdeskId { get; set; } = string.Empty;
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostHelpdeskV1CategoriesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：zh_cn</para>
         /// </summary>
-        [JsonProperty("language")]
+        [JsonPropertyName("language")]
         public string? Language { get; set; }
     }
 }

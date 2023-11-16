@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar.Spec;
 /// <summary>
 /// 将 Exchange 账户绑定到飞书账户 请求体
@@ -16,7 +15,7 @@ public record PostCalendarV4ExchangeBindingsBodyDto
     /// <para>- 长度范围：`1` ～ `500` 字符</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("admin_account")]
+    [JsonPropertyName("admin_account")]
     public string? AdminAccount { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostCalendarV4ExchangeBindingsBodyDto
     /// <para>- 长度范围：`1` ～ `500` 字符</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("exchange_account")]
+    [JsonPropertyName("exchange_account")]
     public string? ExchangeAccount { get; set; }
 
     /// <summary>
@@ -34,6 +33,6 @@ public record PostCalendarV4ExchangeBindingsBodyDto
     /// <para>**示例值**："ou_xxxxxxxxxxxxxxxxxx"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 }

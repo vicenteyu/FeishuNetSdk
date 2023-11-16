@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建订阅 请求体
@@ -14,7 +13,7 @@ public record PostDriveV1FilesByFileTokenSubscriptionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1234567890987654321</para>
     /// </summary>
-    [JsonProperty("subscription_id")]
+    [JsonPropertyName("subscription_id")]
     public string? SubscriptionId { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostDriveV1FilesByFileTokenSubscriptionsBodyDto
     /// <item>comment_update：评论更新</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("subscription_type")]
+    [JsonPropertyName("subscription_type")]
     public string SubscriptionType { get; set; } = string.Empty;
 
     /// <summary>
@@ -33,7 +32,7 @@ public record PostDriveV1FilesByFileTokenSubscriptionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("is_subcribe")]
+    [JsonPropertyName("is_subcribe")]
     public bool? IsSubcribe { get; set; }
 
     /// <summary>
@@ -46,6 +45,6 @@ public record PostDriveV1FilesByFileTokenSubscriptionsBodyDto
     /// <item>wiki：知识库wiki</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("file_type")]
+    [JsonPropertyName("file_type")]
     public string FileType { get; set; } = string.Empty;
 }

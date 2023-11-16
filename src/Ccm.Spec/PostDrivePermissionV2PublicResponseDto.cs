@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取云文档权限设置V2 响应体
@@ -15,7 +14,7 @@ public record PostDrivePermissionV2PublicResponseDto
     /// <para>"anyone_can_edit" - 有编辑权限的用户</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("security_entity")]
+    [JsonPropertyName("security_entity")]
     public string? SecurityEntity { get; set; }
 
     /// <summary>
@@ -24,7 +23,7 @@ public record PostDrivePermissionV2PublicResponseDto
     /// <para>"anyone_can_edit" - 有编辑权限的用户</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("comment_entity")]
+    [JsonPropertyName("comment_entity")]
     public string? CommentEntity { get; set; }
 
     /// <summary>
@@ -34,7 +33,7 @@ public record PostDrivePermissionV2PublicResponseDto
     /// <para>"only_me"-只有我可以</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("share_entity")]
+    [JsonPropertyName("share_entity")]
     public string? ShareEntity { get; set; }
 
     /// <summary>
@@ -45,27 +44,27 @@ public record PostDrivePermissionV2PublicResponseDto
     /// <para>"anyone_editable" - 获得链接的任何人可编辑</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("link_share_entity")]
+    [JsonPropertyName("link_share_entity")]
     public string? LinkShareEntity { get; set; }
 
     /// <summary>
     /// <para>是否允许分享到租户外开关</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("external_access")]
+    [JsonPropertyName("external_access")]
     public bool? ExternalAccess { get; set; }
 
     /// <summary>
     /// <para>非owner是否允许邀请外部人</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("invite_external")]
+    [JsonPropertyName("invite_external")]
     public bool? InviteExternal { get; set; }
 
     /// <summary>
     /// <para>权限版本号</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("permission_version")]
+    [JsonPropertyName("permission_version")]
     public string? PermissionVersion { get; set; }
 }

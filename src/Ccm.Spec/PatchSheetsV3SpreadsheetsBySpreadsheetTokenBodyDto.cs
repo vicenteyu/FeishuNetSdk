@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 修改电子表格属性 请求体
@@ -14,6 +13,6 @@ public record PatchSheetsV3SpreadsheetsBySpreadsheetTokenBodyDto
     /// <para>**示例值**："title"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string? Title { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 会话标签页排序 响应体
@@ -13,7 +12,7 @@ public record PostImV1ChatsByChatIdChatTabsSortTabsResponseDto
     /// <para>会话标签页</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("chat_tabs")]
+    [JsonPropertyName("chat_tabs")]
     public ChatTab[]? ChatTabs { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostImV1ChatsByChatIdChatTabsSortTabsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7101214603622940671</para>
         /// </summary>
-        [JsonProperty("tab_id")]
+        [JsonPropertyName("tab_id")]
         public string? TabId { get; set; }
 
         /// <summary>
@@ -35,7 +34,7 @@ public record PostImV1ChatsByChatIdChatTabsSortTabsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：文档</para>
         /// </summary>
-        [JsonProperty("tab_name")]
+        [JsonPropertyName("tab_name")]
         public string? TabName { get; set; }
 
         /// <summary>
@@ -53,14 +52,14 @@ public record PostImV1ChatsByChatIdChatTabsSortTabsResponseDto
         /// <item>file：文件</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("tab_type")]
+        [JsonPropertyName("tab_type")]
         public string TabType { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>Tab内容</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("tab_content")]
+        [JsonPropertyName("tab_content")]
         public ChatTabContent? TabContent { get; set; }
 
         /// <summary>
@@ -73,7 +72,7 @@ public record PostImV1ChatsByChatIdChatTabsSortTabsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://www.feishu.cn</para>
             /// </summary>
-            [JsonProperty("url")]
+            [JsonPropertyName("url")]
             public string? Url { get; set; }
 
             /// <summary>
@@ -81,7 +80,7 @@ public record PostImV1ChatsByChatIdChatTabsSortTabsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://example.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz</para>
             /// </summary>
-            [JsonProperty("doc")]
+            [JsonPropertyName("doc")]
             public string? Doc { get; set; }
 
             /// <summary>
@@ -89,7 +88,7 @@ public record PostImV1ChatsByChatIdChatTabsSortTabsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://example.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx</para>
             /// </summary>
-            [JsonProperty("meeting_minute")]
+            [JsonPropertyName("meeting_minute")]
             public string? MeetingMinute { get; set; }
         }
 
@@ -97,7 +96,7 @@ public record PostImV1ChatsByChatIdChatTabsSortTabsResponseDto
         /// <para>Tab的配置</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("tab_config")]
+        [JsonPropertyName("tab_config")]
         public ChatTabConfig? TabConfig { get; set; }
 
         /// <summary>
@@ -110,7 +109,7 @@ public record PostImV1ChatsByChatIdChatTabsSortTabsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig</para>
             /// </summary>
-            [JsonProperty("icon_key")]
+            [JsonPropertyName("icon_key")]
             public string? IconKey { get; set; }
 
             /// <summary>
@@ -118,7 +117,7 @@ public record PostImV1ChatsByChatIdChatTabsSortTabsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_built_in")]
+            [JsonPropertyName("is_built_in")]
             public bool? IsBuiltIn { get; set; }
         }
     }

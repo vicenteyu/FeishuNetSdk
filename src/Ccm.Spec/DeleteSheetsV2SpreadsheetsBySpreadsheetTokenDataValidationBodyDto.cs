@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 删除下拉列表设置 请求体
@@ -13,7 +12,7 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto
     /// <para>范围数组，每个range 最大单元格数量5000，每个range独立执行，一个range的失败不影响其他range的执行。返回结果会返回每个range的执行结果</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("dataValidationRanges")]
+    [JsonPropertyName("dataValidationRanges")]
     public DataValidationRange[]? DataValidationRanges { get; set; }
 
     /// <summary></summary>
@@ -23,14 +22,14 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto
         /// <para>查询范围，包含 sheetId 与单元格范围两部分，目前支持四种索引方式，详见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("range")]
+        [JsonPropertyName("range")]
         public string Range { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>指定需要删除的dataValidationIds</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("dataValidationIds")]
+        [JsonPropertyName("dataValidationIds")]
         public int[] DataValidationIds { get; set; } = Array.Empty<int>();
     }
 }

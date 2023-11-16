@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取信息登记表模板列表 响应体
@@ -13,7 +12,7 @@ public record GetHireV1RegistrationSchemasResponseDto
     /// <para>信息登记表列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public RegistrationSchema[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetHireV1RegistrationSchemasResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7044739584859326764</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,21 +33,21 @@ public record GetHireV1RegistrationSchemasResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：默认信息登记表</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>登记表适用场景</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("scenarios")]
+        [JsonPropertyName("scenarios")]
         public int[]? Scenarios { get; set; }
 
         /// <summary>
         /// <para>模块列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("objects")]
+        [JsonPropertyName("objects")]
         public CommonSchema[]? Objects { get; set; }
 
         /// <summary>
@@ -61,14 +60,14 @@ public record GetHireV1RegistrationSchemasResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6949805467799537964</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
             /// <para>模块名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
@@ -81,7 +80,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：测试</para>
                 /// </summary>
-                [JsonProperty("zh_cn")]
+                [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
@@ -89,7 +88,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：test</para>
                 /// </summary>
-                [JsonProperty("en_us")]
+                [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
             }
 
@@ -97,14 +96,14 @@ public record GetHireV1RegistrationSchemasResponseDto
             /// <para>模块描述</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("description")]
+            [JsonPropertyName("description")]
             public I18n? Description { get; set; }
 
             /// <summary>
             /// <para>模块信息</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("setting")]
+            [JsonPropertyName("setting")]
             public CommonSchemaSetting? Setting { get; set; }
 
             /// <summary>
@@ -131,14 +130,14 @@ public record GetHireV1RegistrationSchemasResponseDto
                 /// <item>13：附件</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("object_type")]
+                [JsonPropertyName("object_type")]
                 public int? ObjectType { get; set; }
 
                 /// <summary>
                 /// <para>配置信息</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("config")]
+                [JsonPropertyName("config")]
                 public CommonSchemaConfig? Config { get; set; }
 
                 /// <summary>
@@ -150,7 +149,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                     /// <para>选项信息</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("options")]
+                    [JsonPropertyName("options")]
                     public CommonSchemaOption[]? Options { get; set; }
 
                     /// <summary>
@@ -163,14 +162,14 @@ public record GetHireV1RegistrationSchemasResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：test</para>
                         /// </summary>
-                        [JsonProperty("key")]
+                        [JsonPropertyName("key")]
                         public string? Key { get; set; }
 
                         /// <summary>
                         /// <para>选项名称</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("name")]
+                        [JsonPropertyName("name")]
                         public I18n? Name { get; set; }
 
                         /// <summary>
@@ -183,7 +182,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：测试</para>
                             /// </summary>
-                            [JsonProperty("zh_cn")]
+                            [JsonPropertyName("zh_cn")]
                             public string? ZhCn { get; set; }
 
                             /// <summary>
@@ -191,7 +190,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：test</para>
                             /// </summary>
-                            [JsonProperty("en_us")]
+                            [JsonPropertyName("en_us")]
                             public string? EnUs { get; set; }
                         }
 
@@ -199,7 +198,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                         /// <para>选项描述</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("description")]
+                        [JsonPropertyName("description")]
                         public I18n? Description { get; set; }
 
                         /// <summary>
@@ -211,7 +210,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                         /// <item>2：已停用</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("active_status")]
+                        [JsonPropertyName("active_status")]
                         public int? ActiveStatus { get; set; }
                     }
                 }
@@ -222,7 +221,7 @@ public record GetHireV1RegistrationSchemasResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("is_customized")]
+            [JsonPropertyName("is_customized")]
             public bool? IsCustomized { get; set; }
 
             /// <summary>
@@ -230,7 +229,7 @@ public record GetHireV1RegistrationSchemasResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_required")]
+            [JsonPropertyName("is_required")]
             public bool? IsRequired { get; set; }
 
             /// <summary>
@@ -238,7 +237,7 @@ public record GetHireV1RegistrationSchemasResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("is_visible")]
+            [JsonPropertyName("is_visible")]
             public bool? IsVisible { get; set; }
 
             /// <summary>
@@ -250,14 +249,14 @@ public record GetHireV1RegistrationSchemasResponseDto
             /// <item>2：已停用</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("active_status")]
+            [JsonPropertyName("active_status")]
             public int? ActiveStatus { get; set; }
 
             /// <summary>
             /// <para>字段列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("children_list")]
+            [JsonPropertyName("children_list")]
             public CommonSchemaChild[]? ChildrenLists { get; set; }
 
             /// <summary>
@@ -270,14 +269,14 @@ public record GetHireV1RegistrationSchemasResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：6949805467799537964</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string? Id { get; set; }
 
                 /// <summary>
                 /// <para>字段名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
@@ -290,7 +289,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：测试</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -298,7 +297,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：test</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
 
@@ -306,14 +305,14 @@ public record GetHireV1RegistrationSchemasResponseDto
                 /// <para>字段描述</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("description")]
+                [JsonPropertyName("description")]
                 public I18n? Description { get; set; }
 
                 /// <summary>
                 /// <para>字段信息</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("setting")]
+                [JsonPropertyName("setting")]
                 public CommonSchemaSetting? Setting { get; set; }
 
                 /// <summary>
@@ -340,14 +339,14 @@ public record GetHireV1RegistrationSchemasResponseDto
                     /// <item>13：附件</item>
                     /// </list></para>
                     /// </summary>
-                    [JsonProperty("object_type")]
+                    [JsonPropertyName("object_type")]
                     public int? ObjectType { get; set; }
 
                     /// <summary>
                     /// <para>配置信息</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("config")]
+                    [JsonPropertyName("config")]
                     public CommonSchemaConfig? Config { get; set; }
 
                     /// <summary>
@@ -359,7 +358,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                         /// <para>选项信息</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("options")]
+                        [JsonPropertyName("options")]
                         public CommonSchemaOption[]? Options { get; set; }
 
                         /// <summary>
@@ -372,14 +371,14 @@ public record GetHireV1RegistrationSchemasResponseDto
                             /// <para>必填：否</para>
                             /// <para>示例值：test</para>
                             /// </summary>
-                            [JsonProperty("key")]
+                            [JsonPropertyName("key")]
                             public string? Key { get; set; }
 
                             /// <summary>
                             /// <para>选项名称</para>
                             /// <para>必填：否</para>
                             /// </summary>
-                            [JsonProperty("name")]
+                            [JsonPropertyName("name")]
                             public I18n? Name { get; set; }
 
                             /// <summary>
@@ -392,7 +391,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                                 /// <para>必填：否</para>
                                 /// <para>示例值：测试</para>
                                 /// </summary>
-                                [JsonProperty("zh_cn")]
+                                [JsonPropertyName("zh_cn")]
                                 public string? ZhCn { get; set; }
 
                                 /// <summary>
@@ -400,7 +399,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                                 /// <para>必填：否</para>
                                 /// <para>示例值：test</para>
                                 /// </summary>
-                                [JsonProperty("en_us")]
+                                [JsonPropertyName("en_us")]
                                 public string? EnUs { get; set; }
                             }
 
@@ -408,7 +407,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                             /// <para>选项描述</para>
                             /// <para>必填：否</para>
                             /// </summary>
-                            [JsonProperty("description")]
+                            [JsonPropertyName("description")]
                             public I18n? Description { get; set; }
 
                             /// <summary>
@@ -420,7 +419,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                             /// <item>2：已停用</item>
                             /// </list></para>
                             /// </summary>
-                            [JsonProperty("active_status")]
+                            [JsonPropertyName("active_status")]
                             public int? ActiveStatus { get; set; }
                         }
                     }
@@ -431,7 +430,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：6949805467799537964</para>
                 /// </summary>
-                [JsonProperty("parent_id")]
+                [JsonPropertyName("parent_id")]
                 public string? ParentId { get; set; }
 
                 /// <summary>
@@ -439,7 +438,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>
-                [JsonProperty("is_customized")]
+                [JsonPropertyName("is_customized")]
                 public bool? IsCustomized { get; set; }
 
                 /// <summary>
@@ -447,7 +446,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
-                [JsonProperty("is_required")]
+                [JsonPropertyName("is_required")]
                 public bool? IsRequired { get; set; }
 
                 /// <summary>
@@ -455,7 +454,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>
-                [JsonProperty("is_visible")]
+                [JsonPropertyName("is_visible")]
                 public bool? IsVisible { get; set; }
 
                 /// <summary>
@@ -467,7 +466,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                 /// <item>2：已停用</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("active_status")]
+                [JsonPropertyName("active_status")]
                 public int? ActiveStatus { get; set; }
             }
         }
@@ -478,7 +477,7 @@ public record GetHireV1RegistrationSchemasResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：6930815272790114324</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -486,6 +485,6 @@ public record GetHireV1RegistrationSchemasResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

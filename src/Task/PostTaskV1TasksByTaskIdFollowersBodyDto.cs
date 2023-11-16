@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 新增关注人 请求体
@@ -14,7 +13,7 @@ public record PostTaskV1TasksByTaskIdFollowersBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_99e1a581b36ecc4862cbfbce473f3123</para>
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostTaskV1TasksByTaskIdFollowersBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：[ "ou_550cc75233d8b7b9fcbdad65f34433f4", "ou_d1e9d27cf3235b40ca9a67c67ef088b0" ]</para>
     /// </summary>
-    [JsonProperty("id_list")]
+    [JsonPropertyName("id_list")]
     public string[]? IdList { get; set; }
 }

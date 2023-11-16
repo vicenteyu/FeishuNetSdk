@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 列出协作者 响应体
@@ -13,7 +12,7 @@ public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto
     /// <para>协作者列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public AppRoleMember[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_xxxxxxxx</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string? OpenId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：on_xxxxxxxx</para>
         /// </summary>
-        [JsonProperty("union_id")]
+        [JsonPropertyName("union_id")]
         public string? UnionId { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：xxxxxxxx</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：oc_xxxxxxxx</para>
         /// </summary>
-        [JsonProperty("chat_id")]
+        [JsonPropertyName("chat_id")]
         public string? ChatId { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：xxxxxxxx</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：od-xxxxxxxx</para>
         /// </summary>
-        [JsonProperty("open_department_id")]
+        [JsonPropertyName("open_department_id")]
         public string? OpenDepartmentId { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：张三</para>
         /// </summary>
-        [JsonProperty("member_name")]
+        [JsonPropertyName("member_name")]
         public string? MemberName { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：SanZhang</para>
         /// </summary>
-        [JsonProperty("member_en_name")]
+        [JsonPropertyName("member_en_name")]
         public string? MemberEnName { get; set; }
 
         /// <summary>
@@ -95,7 +94,7 @@ public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto
         /// <item>department：部门</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("member_type")]
+        [JsonPropertyName("member_type")]
         public string? MemberType { get; set; }
     }
 
@@ -104,7 +103,7 @@ public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -112,7 +111,7 @@ public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -120,6 +119,6 @@ public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：10</para>
     /// </summary>
-    [JsonProperty("total")]
+    [JsonPropertyName("total")]
     public int? Total { get; set; }
 }

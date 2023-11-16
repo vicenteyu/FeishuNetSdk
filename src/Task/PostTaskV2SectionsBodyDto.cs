@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 创建自定义分组 请求体
@@ -16,7 +15,7 @@ public record PostTaskV2SectionsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：已经审核过的任务</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostTaskV2SectionsBodyDto
     /// <para>示例值：tasklist</para>
     /// <para>默认值：tasklist</para>
     /// </summary>
-    [JsonProperty("resource_type")]
+    [JsonPropertyName("resource_type")]
     public string ResourceType { get; set; } = string.Empty;
 
     /// <summary>
@@ -33,7 +32,7 @@ public record PostTaskV2SectionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：cc371766-6584-cf50-a222-c22cd9055004</para>
     /// </summary>
-    [JsonProperty("resource_id")]
+    [JsonPropertyName("resource_id")]
     public string? ResourceId { get; set; }
 
     /// <summary>
@@ -44,7 +43,7 @@ public record PostTaskV2SectionsBodyDto
     /// <para>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("insert_before")]
+    [JsonPropertyName("insert_before")]
     public string? InsertBefore { get; set; }
 
     /// <summary>
@@ -55,6 +54,6 @@ public record PostTaskV2SectionsBodyDto
     /// <para>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("insert_after")]
+    [JsonPropertyName("insert_after")]
     public string? InsertAfter { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 获取群分享链接 响应体
@@ -14,7 +13,7 @@ public record PostImV1ChatsByChatIdLinkResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=3nf8789-4rfx-427d-a6bf-ed1d2df348aabd</para>
     /// </summary>
-    [JsonProperty("share_link")]
+    [JsonPropertyName("share_link")]
     public string? ShareLink { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostImV1ChatsByChatIdLinkResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1609296809</para>
     /// </summary>
-    [JsonProperty("expire_time")]
+    [JsonPropertyName("expire_time")]
     public string? ExpireTime { get; set; }
 
     /// <summary>
@@ -30,6 +29,6 @@ public record PostImV1ChatsByChatIdLinkResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("is_permanent")]
+    [JsonPropertyName("is_permanent")]
     public bool? IsPermanent { get; set; }
 }

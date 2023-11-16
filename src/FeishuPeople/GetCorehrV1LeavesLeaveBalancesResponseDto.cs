@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量查询员工假期余额 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
     /// <para>员工假期余额信息列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("employment_leave_balance_list")]
+    [JsonPropertyName("employment_leave_balance_list")]
     public EmploymentLeaveBalance[]? EmploymentLeaveBalanceLists { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：4718803945687580505</para>
         /// </summary>
-        [JsonProperty("employment_id")]
+        [JsonPropertyName("employment_id")]
         public string EmploymentId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>员工姓名</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("employment_name")]
+        [JsonPropertyName("employment_name")]
         public I18n[] EmploymentNames { get; set; } = Array.Empty<I18n>();
 
         /// <summary>
@@ -46,7 +45,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -54,7 +53,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -63,14 +62,14 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：2022-07-29</para>
         /// </summary>
-        [JsonProperty("as_of_date")]
+        [JsonPropertyName("as_of_date")]
         public string AsOfDate { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>假期余额列表</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("leave_balance_list")]
+        [JsonPropertyName("leave_balance_list")]
         public LeaveBalance[] LeaveBalanceLists { get; set; } = Array.Empty<LeaveBalance>();
 
         /// <summary>
@@ -83,14 +82,14 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：4718803945687580505</para>
             /// </summary>
-            [JsonProperty("leave_type_id")]
+            [JsonPropertyName("leave_type_id")]
             public string LeaveTypeId { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>假期类型名称</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("leave_type_name")]
+            [JsonPropertyName("leave_type_name")]
             public I18n[] LeaveTypeNames { get; set; } = Array.Empty<I18n>();
 
             /// <summary>
@@ -103,7 +102,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
-                [JsonProperty("lang")]
+                [JsonPropertyName("lang")]
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
@@ -111,7 +110,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：张三</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
 
@@ -120,7 +119,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
-            [JsonProperty("historical_cycles_left")]
+            [JsonPropertyName("historical_cycles_left")]
             public string? HistoricalCyclesLeft { get; set; }
 
             /// <summary>
@@ -128,7 +127,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
-            [JsonProperty("this_cycle_total")]
+            [JsonPropertyName("this_cycle_total")]
             public string? ThisCycleTotal { get; set; }
 
             /// <summary>
@@ -136,7 +135,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：0</para>
             /// </summary>
-            [JsonProperty("this_cycle_taken")]
+            [JsonPropertyName("this_cycle_taken")]
             public string ThisCycleTaken { get; set; } = string.Empty;
 
             /// <summary>
@@ -144,7 +143,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：0</para>
             /// </summary>
-            [JsonProperty("leave_balance")]
+            [JsonPropertyName("leave_balance")]
             public string LeaveBalanceSuffix { get; set; } = string.Empty;
 
             /// <summary>
@@ -155,7 +154,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：1</para>
             /// </summary>
-            [JsonProperty("leave_duration_unit")]
+            [JsonPropertyName("leave_duration_unit")]
             public int LeaveDurationUnit { get; set; }
         }
     }
@@ -165,7 +164,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -173,6 +172,6 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

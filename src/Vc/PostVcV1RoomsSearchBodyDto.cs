@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 搜索会议室 请求体
@@ -14,7 +13,7 @@ public record PostVcV1RoomsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：["10001"]</para>
     /// </summary>
-    [JsonProperty("custom_room_ids")]
+    [JsonPropertyName("custom_room_ids")]
     public string[]? CustomRoomIds { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostVcV1RoomsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：测试会议室</para>
     /// </summary>
-    [JsonProperty("keyword")]
+    [JsonPropertyName("keyword")]
     public string? Keyword { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostVcV1RoomsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293</para>
     /// </summary>
-    [JsonProperty("room_level_id")]
+    [JsonPropertyName("room_level_id")]
     public string? RoomLevelId { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostVcV1RoomsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("search_level_name")]
+    [JsonPropertyName("search_level_name")]
     public bool? SearchLevelName { get; set; }
 
     /// <summary>
@@ -47,7 +46,7 @@ public record PostVcV1RoomsSearchBodyDto
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </summary>
-    [JsonProperty("page_size")]
+    [JsonPropertyName("page_size")]
     public int? PageSize { get; set; }
 
     /// <summary>
@@ -55,6 +54,6 @@ public record PostVcV1RoomsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：0</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 获取可补卡时间 响应体
@@ -13,7 +12,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
     /// <para>用户可补卡时间</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_allowed_remedys")]
+    [JsonPropertyName("user_allowed_remedys")]
     public UserAllowedRemedy[]? UserAllowedRemedys { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：20210104</para>
         /// </summary>
-        [JsonProperty("remedy_date")]
+        [JsonPropertyName("remedy_date")]
         public int RemedyDate { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("is_free_punch")]
+        [JsonPropertyName("is_free_punch")]
         public bool? IsFreePunch { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("punch_no")]
+        [JsonPropertyName("punch_no")]
         public int? PunchNo { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("work_type")]
+        [JsonPropertyName("work_type")]
         public int? WorkType { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：Lack</para>
         /// </summary>
-        [JsonProperty("punch_status")]
+        [JsonPropertyName("punch_status")]
         public string? PunchStatus { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2021-07-0109:00</para>
         /// </summary>
-        [JsonProperty("normal_punch_time")]
+        [JsonPropertyName("normal_punch_time")]
         public string? NormalPunchTime { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2021-07-0108:00</para>
         /// </summary>
-        [JsonProperty("remedy_start_time")]
+        [JsonPropertyName("remedy_start_time")]
         public string? RemedyStartTime { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2021-07-0110:00</para>
         /// </summary>
-        [JsonProperty("remedy_end_time")]
+        [JsonPropertyName("remedy_end_time")]
         public string? RemedyEndTime { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 更新动态订阅 响应体
@@ -18,7 +17,7 @@ public record PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivityS
     /// <para>更新后的订阅</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("activity_subscription")]
+    [JsonPropertyName("activity_subscription")]
     public TasklistActivitySubscription? ActivitySubscription { get; set; }
 
     /// <summary>
@@ -31,7 +30,7 @@ public record PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivityS
         /// <para>必填：否</para>
         /// <para>示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae</para>
         /// </summary>
-        [JsonProperty("guid")]
+        [JsonPropertyName("guid")]
         public string? Guid { get; set; }
 
         /// <summary>
@@ -39,7 +38,7 @@ public record PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivityS
         /// <para>必填：否</para>
         /// <para>示例值：Roadmap订阅</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -47,7 +46,7 @@ public record PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivityS
         /// <para>必填：否</para>
         /// <para>最大长度：50</para>
         /// </summary>
-        [JsonProperty("subscribers")]
+        [JsonPropertyName("subscribers")]
         public Member[]? Subscribers { get; set; }
 
         /// <summary>
@@ -61,7 +60,7 @@ public record PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivityS
             /// <para>示例值：oc_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
             /// <para>最大长度：100</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -70,7 +69,7 @@ public record PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivityS
             /// <para>示例值：chat</para>
             /// <para>默认值：user</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -79,7 +78,7 @@ public record PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivityS
             /// <para>示例值：editor</para>
             /// <para>最大长度：20</para>
             /// </summary>
-            [JsonProperty("role")]
+            [JsonPropertyName("role")]
             public string? Role { get; set; }
         }
 
@@ -87,7 +86,7 @@ public record PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivityS
         /// <para>要订阅的清单动态类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("include_keys")]
+        [JsonPropertyName("include_keys")]
         public int[]? IncludeKeys { get; set; }
 
         /// <summary>
@@ -95,7 +94,7 @@ public record PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivityS
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("disabled")]
+        [JsonPropertyName("disabled")]
         public bool? Disabled { get; set; }
     }
 }

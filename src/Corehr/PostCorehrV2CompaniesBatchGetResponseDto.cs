@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 通过公司 ID 批量获取公司信息 响应体
@@ -13,7 +12,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
     /// <para>查询的公司信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Company[]? Items { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：4692472714243080020</para>
         /// </summary>
-        [JsonProperty("company_id")]
+        [JsonPropertyName("company_id")]
         public string? CompanyId { get; set; }
 
         /// <summary>
         /// <para>公司基本信息</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("hiberarchy_common")]
+        [JsonPropertyName("hiberarchy_common")]
         public CompanyHiberarchyCommon HiberarchyCommon { get; set; } = new();
 
         /// <summary>
@@ -46,14 +45,14 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：4719168654814483759</para>
             /// </summary>
-            [JsonProperty("parent_id")]
+            [JsonPropertyName("parent_id")]
             public string? ParentId { get; set; }
 
             /// <summary>
             /// <para>名称</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public I18n[] Names { get; set; } = Array.Empty<I18n>();
 
             /// <summary>
@@ -66,7 +65,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
-                [JsonProperty("lang")]
+                [JsonPropertyName("lang")]
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
@@ -74,7 +73,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：张三</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
 
@@ -82,7 +81,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// <para>组织类型</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public Enum Type { get; set; } = new();
 
             /// <summary>
@@ -95,14 +94,14 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：phone_type</para>
                 /// </summary>
-                [JsonProperty("enum_name")]
+                [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
 
                 /// <summary>
                 /// <para>枚举多语展示</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("display")]
+                [JsonPropertyName("display")]
                 public I18n[]? Displies { get; set; }
 
                 /// <summary>
@@ -115,7 +114,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
-                    [JsonProperty("lang")]
+                    [JsonPropertyName("lang")]
                     public string Lang { get; set; } = string.Empty;
 
                     /// <summary>
@@ -123,7 +122,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
                     /// <para>必填：是</para>
                     /// <para>示例值：张三</para>
                     /// </summary>
-                    [JsonProperty("value")]
+                    [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
                 }
             }
@@ -133,7 +132,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("active")]
+            [JsonPropertyName("active")]
             public bool Active { get; set; }
 
             /// <summary>
@@ -141,7 +140,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2020-05-0100:00:00</para>
             /// </summary>
-            [JsonProperty("effective_time")]
+            [JsonPropertyName("effective_time")]
             public string? EffectiveTime { get; set; }
 
             /// <summary>
@@ -149,7 +148,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2020-05-0200:00:00</para>
             /// </summary>
-            [JsonProperty("expiration_time")]
+            [JsonPropertyName("expiration_time")]
             public string? ExpirationTime { get; set; }
 
             /// <summary>
@@ -157,14 +156,14 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：12456</para>
             /// </summary>
-            [JsonProperty("code")]
+            [JsonPropertyName("code")]
             public string? Code { get; set; }
 
             /// <summary>
             /// <para>描述</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("description")]
+            [JsonPropertyName("description")]
             public I18n[]? Descriptions { get; set; }
 
             /// <summary>
@@ -172,7 +171,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：123</para>
             /// </summary>
-            [JsonProperty("tree_order")]
+            [JsonPropertyName("tree_order")]
             public string? TreeOrder { get; set; }
 
             /// <summary>
@@ -180,14 +179,14 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：123</para>
             /// </summary>
-            [JsonProperty("list_order")]
+            [JsonPropertyName("list_order")]
             public string? ListOrder { get; set; }
 
             /// <summary>
             /// <para>自定义字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("custom_fields")]
+            [JsonPropertyName("custom_fields")]
             public ObjectFieldData[]? CustomFields { get; set; }
 
             /// <summary>
@@ -200,7 +199,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：name</para>
                 /// </summary>
-                [JsonProperty("field_name")]
+                [JsonPropertyName("field_name")]
                 public string FieldName { get; set; } = string.Empty;
 
                 /// <summary>
@@ -208,7 +207,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：Sandy</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
         }
@@ -217,7 +216,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
         /// <para>性质</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public Enum? Type { get; set; }
 
         /// <summary>
@@ -230,14 +229,14 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>枚举多语展示</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("display")]
+            [JsonPropertyName("display")]
             public I18n[]? Displies { get; set; }
 
             /// <summary>
@@ -250,7 +249,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
-                [JsonProperty("lang")]
+                [JsonPropertyName("lang")]
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
@@ -258,7 +257,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：张三</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
         }
@@ -267,14 +266,14 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
         /// <para>行业</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("industry_list")]
+        [JsonPropertyName("industry_list")]
         public Enum[]? IndustryLists { get; set; }
 
         /// <summary>
         /// <para>法定代表人</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("legal_representative")]
+        [JsonPropertyName("legal_representative")]
         public I18n[]? LegalRepresentatives { get; set; }
 
         /// <summary>
@@ -287,7 +286,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -295,7 +294,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -304,7 +303,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：邮编</para>
         /// </summary>
-        [JsonProperty("post_code")]
+        [JsonPropertyName("post_code")]
         public string? PostCode { get; set; }
 
         /// <summary>
@@ -312,7 +311,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：123456840</para>
         /// </summary>
-        [JsonProperty("tax_payer_id")]
+        [JsonPropertyName("tax_payer_id")]
         public string? TaxPayerId { get; set; }
 
         /// <summary>
@@ -320,14 +319,14 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("confidential")]
+        [JsonPropertyName("confidential")]
         public bool? Confidential { get; set; }
 
         /// <summary>
         /// <para>主体类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("sub_type_list")]
+        [JsonPropertyName("sub_type_list")]
         public Enum[]? SubTypeLists { get; set; }
 
         /// <summary>
@@ -335,21 +334,21 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("branch_company")]
+        [JsonPropertyName("branch_company")]
         public bool? BranchCompany { get; set; }
 
         /// <summary>
         /// <para>主要负责人</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("primary_manager")]
+        [JsonPropertyName("primary_manager")]
         public I18n[]? PrimaryManagers { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public CustomFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -362,14 +361,14 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("custom_api_name")]
+            [JsonPropertyName("custom_api_name")]
             public string CustomApiName { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>自定义字段名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public CustomName? Name { get; set; }
 
             /// <summary>
@@ -382,7 +381,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：自定义姓名</para>
                 /// </summary>
-                [JsonProperty("zh_cn")]
+                [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
@@ -390,7 +389,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：CustomName</para>
                 /// </summary>
-                [JsonProperty("en_us")]
+                [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
             }
 
@@ -399,7 +398,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public int? Type { get; set; }
 
             /// <summary>
@@ -407,7 +406,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }

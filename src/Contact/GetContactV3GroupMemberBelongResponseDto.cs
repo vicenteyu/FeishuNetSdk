@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 查询用户所属用户组 响应体
@@ -13,7 +12,7 @@ public record GetContactV3GroupMemberBelongResponseDto
     /// <para>用户组ID列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("group_list")]
+    [JsonPropertyName("group_list")]
     public string[]? GroupList { get; set; }
 
     /// <summary>
@@ -21,7 +20,7 @@ public record GetContactV3GroupMemberBelongResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -29,6 +28,6 @@ public record GetContactV3GroupMemberBelongResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

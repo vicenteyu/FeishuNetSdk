@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取附件信息 响应体
@@ -13,7 +12,7 @@ public record GetHireV1AttachmentsByAttachmentIdResponseDto
     /// <para>附件信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("attachment")]
+    [JsonPropertyName("attachment")]
     public GetHireV1AttachmentsByAttachmentIdResponseDtoAttachment? Attachment { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetHireV1AttachmentsByAttachmentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6949805467799537964</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetHireV1AttachmentsByAttachmentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://hire.feishu.cn/blob/xx/</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetHireV1AttachmentsByAttachmentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：xx的简历.prd</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetHireV1AttachmentsByAttachmentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：application/pdf</para>
         /// </summary>
-        [JsonProperty("mime")]
+        [JsonPropertyName("mime")]
         public string? Mime { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetHireV1AttachmentsByAttachmentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1618899376480</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public int? CreateTime { get; set; }
     }
 }

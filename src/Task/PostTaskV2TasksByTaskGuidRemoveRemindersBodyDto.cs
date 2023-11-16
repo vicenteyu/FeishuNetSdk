@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 移除任务提醒 请求体
@@ -14,6 +13,6 @@ public record PostTaskV2TasksByTaskGuidRemoveRemindersBodyDto
     /// <para>要移除的reminder的id列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("reminder_ids")]
+    [JsonPropertyName("reminder_ids")]
     public string[] ReminderIds { get; set; } = Array.Empty<string>();
 }

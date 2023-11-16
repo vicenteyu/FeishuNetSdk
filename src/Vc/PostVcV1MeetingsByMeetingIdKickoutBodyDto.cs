@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 移除参会人 请求体
@@ -13,7 +12,7 @@ public record PostVcV1MeetingsByMeetingIdKickoutBodyDto
     /// <para>需移除的用户列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("kickout_users")]
+    [JsonPropertyName("kickout_users")]
     public MeetingUser[] KickoutUsers { get; set; } = Array.Empty<MeetingUser>();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostVcV1MeetingsByMeetingIdKickoutBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -43,7 +42,7 @@ public record PostVcV1MeetingsByMeetingIdKickoutBodyDto
         /// <item>7：sip用户</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("user_type")]
+        [JsonPropertyName("user_type")]
         public int? UserType { get; set; }
     }
 }

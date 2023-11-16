@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 搜索试用期信息 请求体
@@ -13,14 +12,14 @@ public record PostCorehrV2ProbationSearchBodyDto
     /// <para>雇佣 ID 列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("employment_ids")]
+    [JsonPropertyName("employment_ids")]
     public string[]? EmploymentIds { get; set; }
 
     /// <summary>
     /// <para>部门 ID 列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("department_ids")]
+    [JsonPropertyName("department_ids")]
     public string[]? DepartmentIds { get; set; }
 
     /// <summary>
@@ -28,7 +27,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-05-18</para>
     /// </summary>
-    [JsonProperty("probation_start_date_start")]
+    [JsonPropertyName("probation_start_date_start")]
     public string? ProbationStartDateStart { get; set; }
 
     /// <summary>
@@ -36,7 +35,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-05-20</para>
     /// </summary>
-    [JsonProperty("probation_start_date_end")]
+    [JsonPropertyName("probation_start_date_end")]
     public string? ProbationStartDateEnd { get; set; }
 
     /// <summary>
@@ -44,7 +43,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-06-20</para>
     /// </summary>
-    [JsonProperty("probation_expected_end_date_start")]
+    [JsonPropertyName("probation_expected_end_date_start")]
     public string? ProbationExpectedEndDateStart { get; set; }
 
     /// <summary>
@@ -52,7 +51,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-07-20</para>
     /// </summary>
-    [JsonProperty("probation_expected_end_date_end")]
+    [JsonPropertyName("probation_expected_end_date_end")]
     public string? ProbationExpectedEndDateEnd { get; set; }
 
     /// <summary>
@@ -60,7 +59,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-08-20</para>
     /// </summary>
-    [JsonProperty("actual_probation_end_date_start")]
+    [JsonPropertyName("actual_probation_end_date_start")]
     public string? ActualProbationEndDateStart { get; set; }
 
     /// <summary>
@@ -68,7 +67,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-09-20</para>
     /// </summary>
-    [JsonProperty("actual_probation_end_date_end")]
+    [JsonPropertyName("actual_probation_end_date_end")]
     public string? ActualProbationEndDateEnd { get; set; }
 
     /// <summary>
@@ -76,7 +75,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-10-20</para>
     /// </summary>
-    [JsonProperty("initiating_time_start")]
+    [JsonPropertyName("initiating_time_start")]
     public string? InitiatingTimeStart { get; set; }
 
     /// <summary>
@@ -84,7 +83,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-11-20</para>
     /// </summary>
-    [JsonProperty("initiating_time_end")]
+    [JsonPropertyName("initiating_time_end")]
     public string? InitiatingTimeEnd { get; set; }
 
     /// <summary>
@@ -100,7 +99,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     /// <item>offboarded：已离职</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("probation_status")]
+    [JsonPropertyName("probation_status")]
     public string? ProbationStatus { get; set; }
 
     /// <summary>
@@ -112,7 +111,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     /// <item>rejected：不通过</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("final_assessment_result")]
+    [JsonPropertyName("final_assessment_result")]
     public string? FinalAssessmentResult { get; set; }
 
     /// <summary>
@@ -124,6 +123,6 @@ public record PostCorehrV2ProbationSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：grade_a</para>
     /// </summary>
-    [JsonProperty("final_assessment_grade")]
+    [JsonPropertyName("final_assessment_grade")]
     public string? FinalAssessmentGrade { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 将用户或机器人移出群聊 响应体
@@ -13,6 +12,6 @@ public record DeleteImV1ChatsByChatIdMembersResponseDto
     /// <para>无效成员列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("invalid_id_list")]
+    [JsonPropertyName("invalid_id_list")]
     public string[]? InvalidIdList { get; set; }
 }

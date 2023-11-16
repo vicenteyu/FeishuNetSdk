@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取元数据 请求体
@@ -14,7 +13,7 @@ public record PostSuiteDocsApiMetaBodyDto
     /// <para>请求文档，一次不超过200个</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("request_docs")]
+    [JsonPropertyName("request_docs")]
     public RequestDoc[] RequestDocs { get; set; } = Array.Empty<RequestDoc>();
 
     /// <summary></summary>
@@ -24,7 +23,7 @@ public record PostSuiteDocsApiMetaBodyDto
         /// <para>文件的 token，获取方式见[概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("docs_token")]
+        [JsonPropertyName("docs_token")]
         public string DocsToken { get; set; } = string.Empty;
 
         /// <summary>
@@ -37,7 +36,7 @@ public record PostSuiteDocsApiMetaBodyDto
         /// <para>6) "docx": 飞书新版文档</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("docs_type")]
+        [JsonPropertyName("docs_type")]
         public string DocsType { get; set; } = string.Empty;
     }
 }

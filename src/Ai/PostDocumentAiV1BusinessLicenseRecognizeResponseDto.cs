@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 识别文件中的营业执照 响应体
@@ -13,7 +12,7 @@ public record PostDocumentAiV1BusinessLicenseRecognizeResponseDto
     /// <para>营业执照信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("business_license")]
+    [JsonPropertyName("business_license")]
     public PostDocumentAiV1BusinessLicenseRecognizeResponseDtoBusinessLicense? BusinessLicense { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostDocumentAiV1BusinessLicenseRecognizeResponseDto
         /// <para>识别出的实体类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("entities")]
+        [JsonPropertyName("entities")]
         public BusinessEntity[]? Entities { get; set; }
 
         /// <summary>
@@ -52,7 +51,7 @@ public record PostDocumentAiV1BusinessLicenseRecognizeResponseDto
             /// <item>approval_date：核准日期</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -60,7 +59,7 @@ public record PostDocumentAiV1BusinessLicenseRecognizeResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
     }

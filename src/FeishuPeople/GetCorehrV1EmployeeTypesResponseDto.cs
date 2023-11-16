@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量查询人员类型 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1EmployeeTypesResponseDto
     /// <para>查询的雇员类型信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public EmployeeType[]? Items { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record GetCorehrV1EmployeeTypesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6919732473504990727</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>名称</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n[] Names { get; set; } = Array.Empty<I18n>();
 
         /// <summary>
@@ -46,7 +45,7 @@ public record GetCorehrV1EmployeeTypesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -54,7 +53,7 @@ public record GetCorehrV1EmployeeTypesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -63,7 +62,7 @@ public record GetCorehrV1EmployeeTypesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("default_employee_type")]
+        [JsonPropertyName("default_employee_type")]
         public bool DefaultEmployeeType { get; set; }
 
         /// <summary>
@@ -71,7 +70,7 @@ public record GetCorehrV1EmployeeTypesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("active")]
+        [JsonPropertyName("active")]
         public bool Active { get; set; }
 
         /// <summary>
@@ -79,14 +78,14 @@ public record GetCorehrV1EmployeeTypesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1245</para>
         /// </summary>
-        [JsonProperty("code")]
+        [JsonPropertyName("code")]
         public string? Code { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -99,7 +98,7 @@ public record GetCorehrV1EmployeeTypesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("field_name")]
+            [JsonPropertyName("field_name")]
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
@@ -107,7 +106,7 @@ public record GetCorehrV1EmployeeTypesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：\"Sandy\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }
@@ -117,7 +116,7 @@ public record GetCorehrV1EmployeeTypesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -125,6 +124,6 @@ public record GetCorehrV1EmployeeTypesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1234452132</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 通知补卡审批发起 响应体
@@ -13,7 +12,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
     /// <para>补卡审批信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_remedy")]
+    [JsonPropertyName("user_remedy")]
     public UserTaskRemedy? UserRemedy { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：20210701</para>
         /// </summary>
-        [JsonProperty("remedy_date")]
+        [JsonPropertyName("remedy_date")]
         public int RemedyDate { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("punch_no")]
+        [JsonPropertyName("punch_no")]
         public int PunchNo { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("work_type")]
+        [JsonPropertyName("work_type")]
         public int WorkType { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6737202939523236113</para>
         /// </summary>
-        [JsonProperty("approval_id")]
+        [JsonPropertyName("approval_id")]
         public string? ApprovalId { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：2021-07-0108:00</para>
         /// </summary>
-        [JsonProperty("remedy_time")]
+        [JsonPropertyName("remedy_time")]
         public string RemedyTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -81,7 +80,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         /// <item>4：通过后撤回</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public int? Status { get; set; }
 
         /// <summary>
@@ -89,7 +88,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：忘记打卡</para>
         /// </summary>
-        [JsonProperty("reason")]
+        [JsonPropertyName("reason")]
         public string Reason { get; set; } = string.Empty;
 
         /// <summary>
@@ -97,7 +96,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1611476284</para>
         /// </summary>
-        [JsonProperty("time")]
+        [JsonPropertyName("time")]
         public string? Time { get; set; }
 
         /// <summary>
@@ -105,7 +104,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：Asia/Shanghai</para>
         /// </summary>
-        [JsonProperty("time_zone")]
+        [JsonPropertyName("time_zone")]
         public string? TimeZone { get; set; }
 
         /// <summary>
@@ -113,7 +112,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1611476284</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
@@ -121,7 +120,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1611476284</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public string? UpdateTime { get; set; }
     }
 }

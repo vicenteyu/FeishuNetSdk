@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取职位上的招聘人员信息 响应体
@@ -13,7 +12,7 @@ public record GetHireV1JobsByJobIdManagersByManagerIdResponseDto
     /// <para>职位负责人</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("info")]
+    [JsonPropertyName("info")]
     public JobManager? Info { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetHireV1JobsByJobIdManagersByManagerIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1618209327096</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,21 +33,21 @@ public record GetHireV1JobsByJobIdManagersByManagerIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：ou_efk39117c300506837def50545420c6a</para>
         /// </summary>
-        [JsonProperty("recruiter_id")]
+        [JsonPropertyName("recruiter_id")]
         public string RecruiterId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>用人经理 ID 列表</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("hiring_manager_id_list")]
+        [JsonPropertyName("hiring_manager_id_list")]
         public string[] HiringManagerIdList { get; set; } = Array.Empty<string>();
 
         /// <summary>
         /// <para>协助人 ID 列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("assistant_id_list")]
+        [JsonPropertyName("assistant_id_list")]
         public string[]? AssistantIdList { get; set; }
     }
 }

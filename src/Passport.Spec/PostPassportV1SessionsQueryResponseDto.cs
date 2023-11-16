@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Passport.Spec;
 /// <summary>
 /// 批量获取脱敏的用户登录信息 响应体
@@ -13,7 +12,7 @@ public record PostPassportV1SessionsQueryResponseDto
     /// <para>用户登录信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("mask_sessions")]
+    [JsonPropertyName("mask_sessions")]
     public MaskSession[]? MaskSessions { get; set; }
 
     /// <summary></summary>
@@ -23,7 +22,7 @@ public record PostPassportV1SessionsQueryResponseDto
         /// <para>创建时间</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
@@ -40,14 +39,14 @@ public record PostPassportV1SessionsQueryResponseDto
         /// <item>5：服务端</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("terminal_type")]
+        [JsonPropertyName("terminal_type")]
         public int? TerminalType { get; set; }
 
         /// <summary>
         /// <para>用户ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
     }
 }

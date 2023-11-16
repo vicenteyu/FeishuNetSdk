@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.HumanAuthentication.Spec;
 /// <summary>
 /// 录入身份信息 请求体
@@ -14,7 +13,7 @@ public record PostHumanAuthenticationV1IdentitiesBodyDto
     /// <para>**示例值**："张三"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("identity_name")]
+    [JsonPropertyName("identity_name")]
     public string IdentityName { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostHumanAuthenticationV1IdentitiesBodyDto
     /// <para>**示例值**："4xxxxxxxx"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("identity_code")]
+    [JsonPropertyName("identity_code")]
     public string IdentityCode { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,6 +29,6 @@ public record PostHumanAuthenticationV1IdentitiesBodyDto
     /// <para>**示例值**："13xxxxxxx"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("mobile")]
+    [JsonPropertyName("mobile")]
     public string? Mobile { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 开启密码 响应体
@@ -14,6 +13,6 @@ public record PostDriveV1PermissionsByTokenPublicPasswordResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：A8e6</para>
     /// </summary>
-    [JsonProperty("password")]
+    [JsonPropertyName("password")]
     public string? Password { get; set; }
 }

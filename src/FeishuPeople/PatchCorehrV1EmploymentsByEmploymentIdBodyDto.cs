@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 更新雇佣信息 请求体
@@ -14,7 +13,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
-    [JsonProperty("seniority_date")]
+    [JsonPropertyName("seniority_date")]
     public string? SeniorityDate { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1000000</para>
     /// </summary>
-    [JsonProperty("employee_number")]
+    [JsonPropertyName("employee_number")]
     public string? EmployeeNumber { get; set; }
 
     /// <summary>
     /// <para>雇佣类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)雇佣类型（employment_type）枚举定义获得</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("employment_type")]
+    [JsonPropertyName("employment_type")]
     public Enum? EmploymentType { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：type_1</para>
         /// </summary>
-        [JsonProperty("enum_name")]
+        [JsonPropertyName("enum_name")]
         public string EnumName { get; set; } = string.Empty;
     }
 
@@ -51,7 +50,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6919733936050406926</para>
     /// </summary>
-    [JsonProperty("person_id")]
+    [JsonPropertyName("person_id")]
     public string? PersonId { get; set; }
 
     /// <summary>
@@ -59,14 +58,14 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("primary_employment")]
+    [JsonPropertyName("primary_employment")]
     public bool? PrimaryEmployment { get; set; }
 
     /// <summary>
     /// <para>自定义字段</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("custom_fields")]
+    [JsonPropertyName("custom_fields")]
     public ObjectFieldData[]? CustomFields { get; set; }
 
     /// <summary>
@@ -79,7 +78,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：name</para>
         /// </summary>
-        [JsonProperty("field_name")]
+        [JsonPropertyName("field_name")]
         public string FieldName { get; set; } = string.Empty;
 
         /// <summary>
@@ -87,7 +86,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：\"Sandy\"</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
     }
 
@@ -98,7 +97,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
     /// <para>- email_usage = "work"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("work_email_list")]
+    [JsonPropertyName("work_email_list")]
     public Email[]? WorkEmailLists { get; set; }
 
     /// <summary>
@@ -114,7 +113,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：12456@test.com</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string EmailSuffix { get; set; } = string.Empty;
 
         /// <summary>
@@ -122,7 +121,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_primary")]
+        [JsonPropertyName("is_primary")]
         public bool? IsPrimary { get; set; }
 
         /// <summary>
@@ -130,14 +129,14 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_public")]
+        [JsonPropertyName("is_public")]
         public bool? IsPublic { get; set; }
 
         /// <summary>
         /// <para>邮箱用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("email_usage")]
+        [JsonPropertyName("email_usage")]
         public Enum? EmailUsage { get; set; }
 
         /// <summary>
@@ -150,7 +149,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：type_1</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
 
@@ -158,7 +157,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -171,7 +170,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("field_name")]
+            [JsonPropertyName("field_name")]
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
@@ -179,7 +178,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：\"Sandy\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }
@@ -188,7 +187,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
     /// <para>离职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)离职原因（reason_for_offboarding）枚举定义部分获得</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("reason_for_offboarding")]
+    [JsonPropertyName("reason_for_offboarding")]
     public Enum? ReasonForOffboarding { get; set; }
 
     /// <summary>
@@ -196,6 +195,6 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6838119494196871234</para>
     /// </summary>
-    [JsonProperty("ats_application_id")]
+    [JsonPropertyName("ats_application_id")]
     public string? AtsApplicationId { get; set; }
 }

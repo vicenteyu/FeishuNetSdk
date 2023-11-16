@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 创建推送 请求体
@@ -14,7 +13,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6981801914270744596</para>
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：测试推送任务</para>
     /// </summary>
-    [JsonProperty("job_name")]
+    [JsonPropertyName("job_name")]
     public string? JobName { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：0</para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public int? Status { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：{"avatar_url":"","name":"","user_id":"ou_7277fd1262bfafc363d5b2a1f9c2ac90"}</para>
     /// </summary>
-    [JsonProperty("create_user")]
+    [JsonPropertyName("create_user")]
     public NotificationUser? CreateUser { get; set; }
 
     /// <summary>
@@ -51,7 +50,7 @@ public record PostHelpdeskV1NotificationsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_7277fd1262bfafc363d5b2a1f9c2ac90</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -59,7 +58,7 @@ public record PostHelpdeskV1NotificationsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：http://*.com/*.png</para>
         /// </summary>
-        [JsonProperty("avatar_url")]
+        [JsonPropertyName("avatar_url")]
         public string? AvatarUrl { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record PostHelpdeskV1NotificationsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：test</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
     }
 
@@ -76,7 +75,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1626332244719</para>
     /// </summary>
-    [JsonProperty("created_at")]
+    [JsonPropertyName("created_at")]
     public string? CreatedAt { get; set; }
 
     /// <summary>
@@ -84,7 +83,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：{"avatar_url":"","name":"","user_id":"ou_7277fd1262bfafc363d5b2a1f9c2ac90"}</para>
     /// </summary>
-    [JsonProperty("update_user")]
+    [JsonPropertyName("update_user")]
     public NotificationUser? UpdateUser { get; set; }
 
     /// <summary>
@@ -92,7 +91,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1626332244719</para>
     /// </summary>
-    [JsonProperty("updated_at")]
+    [JsonPropertyName("updated_at")]
     public string? UpdatedAt { get; set; }
 
     /// <summary>
@@ -100,7 +99,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("target_user_count")]
+    [JsonPropertyName("target_user_count")]
     public int? TargetUserCount { get; set; }
 
     /// <summary>
@@ -108,7 +107,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("sent_user_count")]
+    [JsonPropertyName("sent_user_count")]
     public int? SentUserCount { get; set; }
 
     /// <summary>
@@ -116,7 +115,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("read_user_count")]
+    [JsonPropertyName("read_user_count")]
     public int? ReadUserCount { get; set; }
 
     /// <summary>
@@ -124,7 +123,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1626332244719</para>
     /// </summary>
-    [JsonProperty("send_at")]
+    [JsonPropertyName("send_at")]
     public string? SendAt { get; set; }
 
     /// <summary>
@@ -132,7 +131,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：{\"config\":{\"wide_screen_mode\":true},\"elements\":[{\"tag\":\"div\",\"text\":{\"tag\":\"lark_md\",\"content\":\"[飞书](https://www.feishu.cn)整合即时沟通、日历、音视频会议、云文档、云盘、工作台等功能于一体，成就组织和个人，更高效、更愉悦。\"}}]}</para>
     /// </summary>
-    [JsonProperty("push_content")]
+    [JsonPropertyName("push_content")]
     public string? PushContent { get; set; }
 
     /// <summary>
@@ -141,7 +140,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：0</para>
     /// </summary>
-    [JsonProperty("push_type")]
+    [JsonPropertyName("push_type")]
     public int? PushType { get; set; }
 
     /// <summary>
@@ -150,7 +149,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：0</para>
     /// </summary>
-    [JsonProperty("push_scope_type")]
+    [JsonPropertyName("push_scope_type")]
     public int? PushScopeType { get; set; }
 
     /// <summary>
@@ -159,7 +158,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：0</para>
     /// </summary>
-    [JsonProperty("new_staff_scope_type")]
+    [JsonPropertyName("new_staff_scope_type")]
     public int? NewStaffScopeType { get; set; }
 
     /// <summary>
@@ -167,7 +166,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：[{"department_id":"od_7c1a2815c9846b5e518b950de0e62de8"}]</para>
     /// </summary>
-    [JsonProperty("new_staff_scope_department_list")]
+    [JsonPropertyName("new_staff_scope_department_list")]
     public NotificationDepartment[]? NewStaffScopeDepartmentLists { get; set; }
 
     /// <summary>
@@ -180,7 +179,7 @@ public record PostHelpdeskV1NotificationsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
@@ -188,7 +187,7 @@ public record PostHelpdeskV1NotificationsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：测试部门</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
     }
 
@@ -197,7 +196,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：[{"user_id":"ou_7277fd1262bfafc363d5b2a1f9c2ac90"}]</para>
     /// </summary>
-    [JsonProperty("user_list")]
+    [JsonPropertyName("user_list")]
     public NotificationUser[]? UserLists { get; set; }
 
     /// <summary>
@@ -205,7 +204,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：[{"department_id":"od_7c1a2815c9846b5e518b950de0e62de8"}]</para>
     /// </summary>
-    [JsonProperty("department_list")]
+    [JsonPropertyName("department_list")]
     public NotificationDepartment[]? DepartmentLists { get; set; }
 
     /// <summary>
@@ -213,7 +212,7 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：[{"chat_id":"oc_7c1a2815c9846b5e518b950de0e62de8"}]</para>
     /// </summary>
-    [JsonProperty("chat_list")]
+    [JsonPropertyName("chat_list")]
     public NotificationChat[]? ChatLists { get; set; }
 
     /// <summary>
@@ -226,7 +225,7 @@ public record PostHelpdeskV1NotificationsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90</para>
         /// </summary>
-        [JsonProperty("chat_id")]
+        [JsonPropertyName("chat_id")]
         public string? ChatId { get; set; }
 
         /// <summary>
@@ -234,7 +233,7 @@ public record PostHelpdeskV1NotificationsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：测试群聊</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
     }
 
@@ -243,6 +242,6 @@ public record PostHelpdeskV1NotificationsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：{}</para>
     /// </summary>
-    [JsonProperty("ext")]
+    [JsonPropertyName("ext")]
     public string? Ext { get; set; }
 }

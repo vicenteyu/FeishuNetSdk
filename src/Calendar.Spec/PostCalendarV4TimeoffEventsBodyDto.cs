@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar.Spec;
 /// <summary>
 /// 创建请假日程 请求体
@@ -15,7 +14,7 @@ public record PostCalendarV4TimeoffEventsBodyDto
     /// <para>**示例值**："ou_XXXXXXXXXX"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
@@ -23,7 +22,7 @@ public record PostCalendarV4TimeoffEventsBodyDto
     /// <para>**示例值**："Asia/Shanghai"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("timezone")]
+    [JsonPropertyName("timezone")]
     public string Timezone { get; set; } = string.Empty;
 
     /// <summary>
@@ -34,7 +33,7 @@ public record PostCalendarV4TimeoffEventsBodyDto
     /// <para>**示例值**："2021-01-01"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("start_time")]
+    [JsonPropertyName("start_time")]
     public string StartTime { get; set; } = string.Empty;
 
     /// <summary>
@@ -45,7 +44,7 @@ public record PostCalendarV4TimeoffEventsBodyDto
     /// <para>**示例值**："2021-01-01"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("end_time")]
+    [JsonPropertyName("end_time")]
     public string EndTime { get; set; } = string.Empty;
 
     /// <summary>
@@ -53,7 +52,7 @@ public record PostCalendarV4TimeoffEventsBodyDto
     /// <para>**示例值**："请假中(全天) / 1-Day Time Off"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string? Title { get; set; }
 
     /// <summary>
@@ -61,6 +60,6 @@ public record PostCalendarV4TimeoffEventsBodyDto
     /// <para>**示例值**："若删除此日程，飞书中相应的“请假”标签将自动消失，而请假系统中的休假申请不会被撤销。"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取筛选 响应体
@@ -13,7 +12,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterResp
     /// <para>筛选信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("sheet_filter_info")]
+    [JsonPropertyName("sheet_filter_info")]
     public SheetFilterInfoSuffix? SheetFilterInfo { get; set; }
 
     /// <summary></summary>
@@ -23,21 +22,21 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterResp
         /// <para>筛选应用范围</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("range")]
+        [JsonPropertyName("range")]
         public string? Range { get; set; }
 
         /// <summary>
         /// <para>筛选出来隐藏的行</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("filtered_out_rows")]
+        [JsonPropertyName("filtered_out_rows")]
         public int[]? FilteredOutRows { get; set; }
 
         /// <summary>
         /// <para>sheet的筛选条件</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("filter_infos")]
+        [JsonPropertyName("filter_infos")]
         public FilterInfo[]? FilterInfos { get; set; }
 
         /// <summary></summary>
@@ -47,14 +46,14 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterResp
             /// <para>设置了筛选条件的列</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("col")]
+            [JsonPropertyName("col")]
             public string? Col { get; set; }
 
             /// <summary>
             /// <para>筛选条件</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("conditions")]
+            [JsonPropertyName("conditions")]
             public Condition[]? Conditions { get; set; }
 
             /// <summary></summary>
@@ -64,21 +63,21 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterResp
                 /// <para>筛选类型</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("filter_type")]
+                [JsonPropertyName("filter_type")]
                 public string? FilterType { get; set; }
 
                 /// <summary>
                 /// <para>比较类型</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("compare_type")]
+                [JsonPropertyName("compare_type")]
                 public string? CompareType { get; set; }
 
                 /// <summary>
                 /// <para>筛选参数</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("expected")]
+                [JsonPropertyName("expected")]
                 public string[]? Expected { get; set; }
             }
         }

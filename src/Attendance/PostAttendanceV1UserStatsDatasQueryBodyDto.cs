@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询统计数据 请求体
@@ -19,7 +18,7 @@ public record PostAttendanceV1UserStatsDatasQueryBodyDto
     /// <item>zh：中文</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("locale")]
+    [JsonPropertyName("locale")]
     public string Locale { get; set; } = string.Empty;
 
     /// <summary>
@@ -31,7 +30,7 @@ public record PostAttendanceV1UserStatsDatasQueryBodyDto
     /// <item>month：月度统计</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("stats_type")]
+    [JsonPropertyName("stats_type")]
     public string StatsType { get; set; } = string.Empty;
 
     /// <summary>
@@ -39,7 +38,7 @@ public record PostAttendanceV1UserStatsDatasQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：20210316</para>
     /// </summary>
-    [JsonProperty("start_date")]
+    [JsonPropertyName("start_date")]
     public int StartDate { get; set; }
 
     /// <summary>
@@ -48,7 +47,7 @@ public record PostAttendanceV1UserStatsDatasQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：20210323</para>
     /// </summary>
-    [JsonProperty("end_date")]
+    [JsonPropertyName("end_date")]
     public int EndDate { get; set; }
 
     /// <summary>
@@ -58,7 +57,7 @@ public record PostAttendanceV1UserStatsDatasQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：["ec8ddg56","4dbb52f2","4167842e"]</para>
     /// </summary>
-    [JsonProperty("user_ids")]
+    [JsonPropertyName("user_ids")]
     public string[]? UserIds { get; set; }
 
     /// <summary>
@@ -66,7 +65,7 @@ public record PostAttendanceV1UserStatsDatasQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("need_history")]
+    [JsonPropertyName("need_history")]
     public bool? NeedHistory { get; set; }
 
     /// <summary>
@@ -74,7 +73,7 @@ public record PostAttendanceV1UserStatsDatasQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("current_group_only")]
+    [JsonPropertyName("current_group_only")]
     public bool? CurrentGroupOnly { get; set; }
 
     /// <summary>
@@ -84,6 +83,6 @@ public record PostAttendanceV1UserStatsDatasQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ec8ddg56</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 }

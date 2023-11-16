@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 获取三方审批任务状态 响应体
@@ -17,7 +16,7 @@ public record GetApprovalV4ExternalTasksResponseDto
     /// <para>返回数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("data")]
+    [JsonPropertyName("data")]
     public ExternalTaskList[]? Datas { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record GetApprovalV4ExternalTasksResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：29075</para>
         /// </summary>
-        [JsonProperty("instance_id")]
+        [JsonPropertyName("instance_id")]
         public string InstanceId { get; set; } = string.Empty;
 
         /// <summary>
@@ -38,7 +37,7 @@ public record GetApprovalV4ExternalTasksResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：fwwweffff33111133xxx</para>
         /// </summary>
-        [JsonProperty("approval_id")]
+        [JsonPropertyName("approval_id")]
         public string ApprovalId { get; set; } = string.Empty;
 
         /// <summary>
@@ -46,7 +45,7 @@ public record GetApprovalV4ExternalTasksResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6</para>
         /// </summary>
-        [JsonProperty("approval_code")]
+        [JsonPropertyName("approval_code")]
         public string ApprovalCode { get; set; } = string.Empty;
 
         /// <summary>
@@ -62,7 +61,7 @@ public record GetApprovalV4ExternalTasksResponseDto
         /// <item>HIDDEN：状态隐藏(不显示状态)</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; } = string.Empty;
 
         /// <summary>
@@ -70,14 +69,14 @@ public record GetApprovalV4ExternalTasksResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1621863215000</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public string UpdateTime { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>审批实例下的审批任务</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("tasks")]
+        [JsonPropertyName("tasks")]
         public ExternalTaskItem[]? Tasks { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record GetApprovalV4ExternalTasksResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：310</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string Id { get; set; } = string.Empty;
 
             /// <summary>
@@ -105,7 +104,7 @@ public record GetApprovalV4ExternalTasksResponseDto
             /// <item>DONE：任务通过但审批人未操作；审批人看不到这个任务,若想要看到,可以通过抄送该人.</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("status")]
+            [JsonPropertyName("status")]
             public string Status { get; set; } = string.Empty;
 
             /// <summary>
@@ -113,7 +112,7 @@ public record GetApprovalV4ExternalTasksResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：1621863215000</para>
             /// </summary>
-            [JsonProperty("update_time")]
+            [JsonPropertyName("update_time")]
             public string UpdateTime { get; set; } = string.Empty;
         }
     }
@@ -123,7 +122,7 @@ public record GetApprovalV4ExternalTasksResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -131,6 +130,6 @@ public record GetApprovalV4ExternalTasksResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

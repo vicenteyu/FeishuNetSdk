@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 开始录制 请求体
@@ -14,6 +13,6 @@ public record PatchVcV1MeetingsByMeetingIdRecordingStartBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：8</para>
     /// </summary>
-    [JsonProperty("timezone")]
+    [JsonPropertyName("timezone")]
     public int? Timezone { get; set; }
 }

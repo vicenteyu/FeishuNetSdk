@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 内推账号提现对账接口 响应体
@@ -13,7 +12,7 @@ public record PostHireV1ReferralAccountReconciliationResponseDto
     /// <para>核对失败的信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("check_failed_list")]
+    [JsonPropertyName("check_failed_list")]
     public CheckFailedAccountInfo[]? CheckFailedLists { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record PostHireV1ReferralAccountReconciliationResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6930815272790114324</para>
         /// </summary>
-        [JsonProperty("account_id")]
+        [JsonPropertyName("account_id")]
         public string? AccountId { get; set; }
 
         /// <summary>
         /// <para>招聘系统内的提取金额</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("total_withdraw_reward_info")]
+        [JsonPropertyName("total_withdraw_reward_info")]
         public BonusAmount? TotalWithdrawRewardInfo { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PostHireV1ReferralAccountReconciliationResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
-            [JsonProperty("point_bonus")]
+            [JsonPropertyName("point_bonus")]
             public int? PointBonus { get; set; }
         }
 
@@ -54,7 +53,7 @@ public record PostHireV1ReferralAccountReconciliationResponseDto
         /// <para>商城实际充值金额</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("total_recharge_reward_info")]
+        [JsonPropertyName("total_recharge_reward_info")]
         public BonusAmount? TotalRechargeRewardInfo { get; set; }
     }
 }

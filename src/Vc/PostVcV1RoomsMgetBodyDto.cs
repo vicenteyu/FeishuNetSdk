@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 批量查询会议室详情 请求体
@@ -14,6 +13,6 @@ public record PostVcV1RoomsMgetBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：["omm_4de32cf10a4358788ff4e09e37ebbf9b","omm_3c5dd7e09bac0c1758fcf9511bd1a771"]</para>
     /// </summary>
-    [JsonProperty("room_ids")]
+    [JsonPropertyName("room_ids")]
     public string[] RoomIds { get; set; } = Array.Empty<string>();
 }

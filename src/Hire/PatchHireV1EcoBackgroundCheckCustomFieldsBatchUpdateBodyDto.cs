@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新背调自定义字段 请求体
@@ -14,14 +13,14 @@ public record PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6995842370159937061</para>
     /// </summary>
-    [JsonProperty("account_id")]
+    [JsonPropertyName("account_id")]
     public string AccountId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>自定义字段列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("custom_field_list")]
+    [JsonPropertyName("custom_field_list")]
     public EcoBackgroundCheckCustomFieldData[] CustomFieldLists { get; set; } = Array.Empty<EcoBackgroundCheckCustomFieldData>();
 
     /// <summary>
@@ -45,7 +44,7 @@ public record PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateBodyDto
         /// <item>resume：候选人简历</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
@@ -53,14 +52,14 @@ public record PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：candidate_resume</para>
         /// </summary>
-        [JsonProperty("key")]
+        [JsonPropertyName("key")]
         public string Key { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>自定义字段的名称，用户在安排背调表单看到的控件标题</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n Name { get; set; } = new();
 
         /// <summary>
@@ -73,7 +72,7 @@ public record PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：测试</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -81,7 +80,7 @@ public record PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：test</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
 
@@ -90,21 +89,21 @@ public record PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_required")]
+        [JsonPropertyName("is_required")]
         public bool IsRequired { get; set; }
 
         /// <summary>
         /// <para>自定义字段的描述，如果是输入控件，为用户在安排背调表单看到的 placeholder 或 提示文字</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public I18n? Description { get; set; }
 
         /// <summary>
         /// <para>type 为 select 或 multiselect 时必填，单选或多选的选项</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("options")]
+        [JsonPropertyName("options")]
         public EcoBackgroundCheckCustomFieldDataOption[]? Options { get; set; }
 
         /// <summary>
@@ -117,14 +116,14 @@ public record PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：A</para>
             /// </summary>
-            [JsonProperty("key")]
+            [JsonPropertyName("key")]
             public string Key { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>选项的名称</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public I18n Name { get; set; } = new();
 
             /// <summary>
@@ -137,7 +136,7 @@ public record PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：测试</para>
                 /// </summary>
-                [JsonProperty("zh_cn")]
+                [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
@@ -145,7 +144,7 @@ public record PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：test</para>
                 /// </summary>
-                [JsonProperty("en_us")]
+                [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
             }
         }

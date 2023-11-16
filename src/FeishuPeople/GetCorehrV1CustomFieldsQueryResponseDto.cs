@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取自定义字段列表 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
     /// <para>自定义字段列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public CustomField[]? Items { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：custom_field_33</para>
         /// </summary>
-        [JsonProperty("custom_api_name")]
+        [JsonPropertyName("custom_api_name")]
         public string? CustomApiName { get; set; }
 
         /// <summary>
         /// <para>自定义字段名称</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public CustomFieldName Name { get; set; } = new();
 
         /// <summary>
@@ -46,7 +45,7 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：cn</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：en</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
 
@@ -62,7 +61,7 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
         /// <para>描述</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public NameSuffix Description { get; set; } = new();
 
         /// <summary>
@@ -75,7 +74,7 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：cn</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -83,7 +82,7 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：en</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
 
@@ -92,7 +91,7 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_open")]
+        [JsonPropertyName("is_open")]
         public bool IsOpen { get; set; }
 
         /// <summary>
@@ -100,7 +99,7 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_required")]
+        [JsonPropertyName("is_required")]
         public bool IsRequired { get; set; }
 
         /// <summary>
@@ -108,7 +107,7 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_unique")]
+        [JsonPropertyName("is_unique")]
         public bool IsUnique { get; set; }
 
         /// <summary>
@@ -116,7 +115,7 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：offboarding_info</para>
         /// </summary>
-        [JsonProperty("object_api_name")]
+        [JsonPropertyName("object_api_name")]
         public string ObjectApiName { get; set; } = string.Empty;
 
         /// <summary>
@@ -132,7 +131,7 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public int Type { get; set; }
 
         /// <summary>
@@ -140,7 +139,7 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1625542287</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
@@ -148,7 +147,7 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1625542639</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public string? UpdateTime { get; set; }
     }
 }

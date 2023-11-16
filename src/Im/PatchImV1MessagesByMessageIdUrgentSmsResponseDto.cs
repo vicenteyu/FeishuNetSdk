@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 发送短信加急 响应体
@@ -13,6 +12,6 @@ public record PatchImV1MessagesByMessageIdUrgentSmsResponseDto
     /// <para>无效的用户ID</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("invalid_user_id_list")]
+    [JsonPropertyName("invalid_user_id_list")]
     public string[] InvalidUserIdList { get; set; } = Array.Empty<string>();
 }

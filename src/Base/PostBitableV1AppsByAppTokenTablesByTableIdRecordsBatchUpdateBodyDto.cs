@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新多条记录 请求体
@@ -13,7 +12,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateBodyDt
     /// <para>记录</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("records")]
+    [JsonPropertyName("records")]
     public AppTableRecord[] Records { get; set; } = Array.Empty<AppTableRecord>();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateBodyDt
         /// <para>必填：否</para>
         /// <para>示例值：recqwIwhc6</para>
         /// </summary>
-        [JsonProperty("record_id")]
+        [JsonPropertyName("record_id")]
         public string? RecordId { get; set; }
 
         /// <summary>
@@ -36,7 +35,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateBodyDt
         /// <para>必填：是</para>
         /// <para>示例值：{"多行文本":"HelloWorld"}</para>
         /// </summary>
-        [JsonProperty("fields")]
+        [JsonPropertyName("fields")]
         public object Fields { get; set; } = new();
     }
 }

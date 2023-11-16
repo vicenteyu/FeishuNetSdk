@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 查询批量消息整体进度 响应体
@@ -13,7 +12,7 @@ public record GetImV1BatchMessagesByBatchMessageIdGetProgressResponseDto
     /// <para>消息发送进度</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("batch_message_send_progress")]
+    [JsonPropertyName("batch_message_send_progress")]
     public GetImV1BatchMessagesByBatchMessageIdGetProgressResponseDtoBatchMessageSendProgress? BatchMessageSendProgress { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record GetImV1BatchMessagesByBatchMessageIdGetProgressResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：204</para>
         /// </summary>
-        [JsonProperty("valid_user_ids_count")]
+        [JsonPropertyName("valid_user_ids_count")]
         public int? ValidUserIdsCount { get; set; }
 
         /// <summary>
@@ -39,7 +38,7 @@ public record GetImV1BatchMessagesByBatchMessageIdGetProgressResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：200</para>
         /// </summary>
-        [JsonProperty("success_user_ids_count")]
+        [JsonPropertyName("success_user_ids_count")]
         public int? SuccessUserIdsCount { get; set; }
 
         /// <summary>
@@ -47,7 +46,7 @@ public record GetImV1BatchMessagesByBatchMessageIdGetProgressResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：150</para>
         /// </summary>
-        [JsonProperty("read_user_ids_count")]
+        [JsonPropertyName("read_user_ids_count")]
         public int? ReadUserIdsCount { get; set; }
     }
 
@@ -55,7 +54,7 @@ public record GetImV1BatchMessagesByBatchMessageIdGetProgressResponseDto
     /// <para>消息撤回进度</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("batch_message_recall_progress")]
+    [JsonPropertyName("batch_message_recall_progress")]
     public GetImV1BatchMessagesByBatchMessageIdGetProgressResponseDtoBatchMessageRecallProgress? BatchMessageRecallProgress { get; set; }
 
     /// <summary>
@@ -68,7 +67,7 @@ public record GetImV1BatchMessagesByBatchMessageIdGetProgressResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("recall")]
+        [JsonPropertyName("recall")]
         public bool? Recall { get; set; }
 
         /// <summary>
@@ -76,7 +75,7 @@ public record GetImV1BatchMessagesByBatchMessageIdGetProgressResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>
-        [JsonProperty("recall_count")]
+        [JsonPropertyName("recall_count")]
         public int? RecallCount { get; set; }
     }
 }

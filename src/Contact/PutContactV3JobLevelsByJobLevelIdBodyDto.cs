@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 更新职级 请求体
@@ -15,7 +14,7 @@ public record PutContactV3JobLevelsByJobLevelIdBodyDto
     /// <para>示例值：高级专家</para>
     /// <para>最大长度：255</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -23,7 +22,7 @@ public record PutContactV3JobLevelsByJobLevelIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：公司内部中高级职称，有一定专业技术能力的人员</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
@@ -31,7 +30,7 @@ public record PutContactV3JobLevelsByJobLevelIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：200</para>
     /// </summary>
-    [JsonProperty("order")]
+    [JsonPropertyName("order")]
     public int? Order { get; set; }
 
     /// <summary>
@@ -39,14 +38,14 @@ public record PutContactV3JobLevelsByJobLevelIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public bool? Status { get; set; }
 
     /// <summary>
     /// <para>多语言名称</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("i18n_name")]
+    [JsonPropertyName("i18n_name")]
     public I18nContent[]? I18nNames { get; set; }
 
     /// <summary>
@@ -59,7 +58,7 @@ public record PutContactV3JobLevelsByJobLevelIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：zh_cn</para>
         /// </summary>
-        [JsonProperty("locale")]
+        [JsonPropertyName("locale")]
         public string? Locale { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record PutContactV3JobLevelsByJobLevelIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：多语言内容</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string? Value { get; set; }
     }
 
@@ -75,6 +74,6 @@ public record PutContactV3JobLevelsByJobLevelIdBodyDto
     /// <para>多语言描述</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("i18n_description")]
+    [JsonPropertyName("i18n_description")]
     public I18nContent[]? I18nDescriptions { get; set; }
 }

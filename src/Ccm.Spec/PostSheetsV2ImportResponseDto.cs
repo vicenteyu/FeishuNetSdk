@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 导入表格 响应体
@@ -14,6 +13,6 @@ public record PostSheetsV2ImportResponseDto
     /// <para>与导入文件一一对应的凭证，用于查询文件导入的进度，详见[查询导入结果的接口](https://open.feishu.cn/document/ukTMukTMukTM/uETO2YjLxkjN24SM5YjN)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("ticket")]
+    [JsonPropertyName("ticket")]
     public string? Ticket { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 删除日程参与人 请求体
@@ -14,14 +13,14 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDe
     /// <para>必填：否</para>
     /// <para>示例值：["user_xxxxx","chat_xxxxx","resource_xxxxx","third_party_xxxxx"]</para>
     /// </summary>
-    [JsonProperty("attendee_ids")]
+    [JsonPropertyName("attendee_ids")]
     public string[]? AttendeeIds { get; set; }
 
     /// <summary>
     /// <para>需要删除的参与人类型实体ID，作为attendee_ids字段的补充。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("delete_ids")]
+    [JsonPropertyName("delete_ids")]
     public CalendarEventAttendeeId[]? DeleteIds { get; set; }
 
     /// <summary>
@@ -40,7 +39,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDe
         /// <item>third_party：邮箱</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
@@ -48,7 +47,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDe
         /// <para>必填：否</para>
         /// <para>示例值：ou_xxxxxxxx</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -56,7 +55,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDe
         /// <para>必填：否</para>
         /// <para>示例值：oc_xxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("chat_id")]
+        [JsonPropertyName("chat_id")]
         public string? ChatId { get; set; }
 
         /// <summary>
@@ -64,7 +63,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDe
         /// <para>必填：否</para>
         /// <para>示例值：omm_xxxxxxxx</para>
         /// </summary>
-        [JsonProperty("room_id")]
+        [JsonPropertyName("room_id")]
         public string? RoomId { get; set; }
 
         /// <summary>
@@ -72,7 +71,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDe
         /// <para>必填：否</para>
         /// <para>示例值：wangwu@email.com</para>
         /// </summary>
-        [JsonProperty("third_party_email")]
+        [JsonPropertyName("third_party_email")]
         public string? ThirdPartyEmail { get; set; }
     }
 
@@ -81,7 +80,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDe
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("need_notification")]
+    [JsonPropertyName("need_notification")]
     public bool? NeedNotification { get; set; }
 
     /// <summary>
@@ -89,7 +88,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDe
     /// <para>必填：否</para>
     /// <para>示例值：1647320400</para>
     /// </summary>
-    [JsonProperty("instance_start_time_admin")]
+    [JsonPropertyName("instance_start_time_admin")]
     public string? InstanceStartTimeAdmin { get; set; }
 
     /// <summary>
@@ -97,6 +96,6 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDe
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("is_enable_admin")]
+    [JsonPropertyName("is_enable_admin")]
     public bool? IsEnableAdmin { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 删除多个数据表 请求体
@@ -14,6 +13,6 @@ public record PostBitableV1AppsByAppTokenTablesBatchDeleteBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：["tblsRc9GRRXKqhvW"]</para>
     /// </summary>
-    [JsonProperty("table_ids")]
+    [JsonPropertyName("table_ids")]
     public string[]? TableIds { get; set; }
 }

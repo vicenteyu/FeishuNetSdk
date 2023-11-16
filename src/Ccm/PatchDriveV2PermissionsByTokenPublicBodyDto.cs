@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 更新云文档权限设置 请求体
@@ -19,7 +18,7 @@ public record PatchDriveV2PermissionsByTokenPublicBodyDto
     /// <item>allow_share_partner_tenant：允许分享给关联组织（只有租户后台设置仅允许关联组织分享，才能设置为该值）</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("external_access_entity")]
+    [JsonPropertyName("external_access_entity")]
     public string? ExternalAccessEntity { get; set; }
 
     /// <summary>
@@ -32,7 +31,7 @@ public record PatchDriveV2PermissionsByTokenPublicBodyDto
     /// <item>only_full_access：拥有可管理权限（包括我）的用户</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("security_entity")]
+    [JsonPropertyName("security_entity")]
     public string? SecurityEntity { get; set; }
 
     /// <summary>
@@ -44,7 +43,7 @@ public record PatchDriveV2PermissionsByTokenPublicBodyDto
     /// <item>anyone_can_edit：拥有可编辑权限的用户</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("comment_entity")]
+    [JsonPropertyName("comment_entity")]
     public string? CommentEntity { get; set; }
 
     /// <summary>
@@ -56,7 +55,7 @@ public record PatchDriveV2PermissionsByTokenPublicBodyDto
     /// <item>same_tenant：组织内所有可阅读或编辑此文档的用户</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("share_entity")]
+    [JsonPropertyName("share_entity")]
     public string? ShareEntity { get; set; }
 
     /// <summary>
@@ -69,7 +68,7 @@ public record PatchDriveV2PermissionsByTokenPublicBodyDto
     /// <item>collaborator_full_access：拥有可管理权限（包括我）的协作者</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("manage_collaborator_entity")]
+    [JsonPropertyName("manage_collaborator_entity")]
     public string? ManageCollaboratorEntity { get; set; }
 
     /// <summary>
@@ -86,7 +85,7 @@ public record PatchDriveV2PermissionsByTokenPublicBodyDto
     /// <item>closed：关闭链接分享</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("link_share_entity")]
+    [JsonPropertyName("link_share_entity")]
     public string? LinkShareEntity { get; set; }
 
     /// <summary>
@@ -99,6 +98,6 @@ public record PatchDriveV2PermissionsByTokenPublicBodyDto
     /// <item>only_full_access：拥有可管理权限（包括我）的协作者</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("copy_entity")]
+    [JsonPropertyName("copy_entity")]
     public string? CopyEntity { get; set; }
 }

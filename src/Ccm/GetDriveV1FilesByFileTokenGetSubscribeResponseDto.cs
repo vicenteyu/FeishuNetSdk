@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 查询云文档事件订阅状态 响应体
@@ -13,6 +12,6 @@ public record GetDriveV1FilesByFileTokenGetSubscribeResponseDto
     /// <para>true 表示已订阅，false 表示未订阅</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("is_subscribe")]
+    [JsonPropertyName("is_subscribe")]
     public bool IsSubscribe { get; set; }
 }

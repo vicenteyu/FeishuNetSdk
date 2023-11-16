@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 判断协作者是否有某权限 响应体
@@ -13,6 +12,6 @@ public record PostDrivePermissionMemberPermittedResponseDto
     /// <para>是否具有指定权限</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("is_permitted")]
+    [JsonPropertyName("is_permitted")]
     public bool? IsPermitted { get; set; }
 }

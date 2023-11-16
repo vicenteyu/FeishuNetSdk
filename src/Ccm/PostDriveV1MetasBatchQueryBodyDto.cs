@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取文档元数据 请求体
@@ -14,7 +13,7 @@ public record PostDriveV1MetasBatchQueryBodyDto
     /// <para>必填：是</para>
     /// <para>最大长度：200</para>
     /// </summary>
-    [JsonProperty("request_docs")]
+    [JsonPropertyName("request_docs")]
     public RequestDoc[] RequestDocs { get; set; } = Array.Empty<RequestDoc>();
 
     /// <summary>
@@ -27,7 +26,7 @@ public record PostDriveV1MetasBatchQueryBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：doccnfYZzTlvXqZIGTdAHKabcef</para>
         /// </summary>
-        [JsonProperty("doc_token")]
+        [JsonPropertyName("doc_token")]
         public string DocToken { get; set; } = string.Empty;
 
         /// <summary>
@@ -45,7 +44,7 @@ public record PostDriveV1MetasBatchQueryBodyDto
         /// <item>folder：飞书文件夹</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("doc_type")]
+        [JsonPropertyName("doc_type")]
         public string DocType { get; set; } = string.Empty;
     }
 
@@ -54,6 +53,6 @@ public record PostDriveV1MetasBatchQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("with_url")]
+    [JsonPropertyName("with_url")]
     public bool? WithUrl { get; set; }
 }

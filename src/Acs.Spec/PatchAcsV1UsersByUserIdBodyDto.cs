@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Acs.Spec;
 /// <summary>
 /// 修改用户部分信息 请求体
@@ -14,7 +13,7 @@ public record PatchAcsV1UsersByUserIdBodyDto
     /// <para>用户特征</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("feature")]
+    [JsonPropertyName("feature")]
     public FeatureSuffix? Feature { get; set; }
 
     /// <summary></summary>
@@ -25,7 +24,7 @@ public record PatchAcsV1UsersByUserIdBodyDto
         /// <para>**示例值**：123456</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("card")]
+        [JsonPropertyName("card")]
         public int? Card { get; set; }
     }
 }

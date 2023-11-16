@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 转发消息 请求体
@@ -14,6 +13,6 @@ public record PostImV1MessagesByMessageIdForwardBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：ou_a0553eda9014c201e6969b478895c230</para>
     /// </summary>
-    [JsonProperty("receive_id")]
+    [JsonPropertyName("receive_id")]
     public string ReceiveId { get; set; } = string.Empty;
 }

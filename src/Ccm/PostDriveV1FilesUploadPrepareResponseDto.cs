@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 分片上传文件（预上传） 响应体
@@ -14,7 +13,7 @@ public record PostDriveV1FilesUploadPrepareResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：7111211691345512356</para>
     /// </summary>
-    [JsonProperty("upload_id")]
+    [JsonPropertyName("upload_id")]
     public string? UploadId { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostDriveV1FilesUploadPrepareResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：4194304</para>
     /// </summary>
-    [JsonProperty("block_size")]
+    [JsonPropertyName("block_size")]
     public int? BlockSize { get; set; }
 
     /// <summary>
@@ -30,6 +29,6 @@ public record PostDriveV1FilesUploadPrepareResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("block_num")]
+    [JsonPropertyName("block_num")]
     public int? BlockNum { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 删除块 响应体
@@ -14,7 +13,7 @@ public record DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDelet
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("document_revision_id")]
+    [JsonPropertyName("document_revision_id")]
     public int? DocumentRevisionId { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDelet
     /// <para>必填：是</para>
     /// <para>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97</para>
     /// </summary>
-    [JsonProperty("client_token")]
+    [JsonPropertyName("client_token")]
     public string ClientToken { get; set; } = string.Empty;
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 导出参会人会议质量数据 响应体
@@ -15,6 +14,6 @@ public record PostVcV1ExportsParticipantQualityListResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：7111325589855797267</para>
     /// </summary>
-    [JsonProperty("task_id")]
+    [JsonPropertyName("task_id")]
     public string? TaskId { get; set; }
 }

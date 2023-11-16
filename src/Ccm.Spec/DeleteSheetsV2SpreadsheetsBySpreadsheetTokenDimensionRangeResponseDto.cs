@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 删除行列 响应体
@@ -13,13 +12,13 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeResponse
     /// <para>删除的行/列数</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("delCount")]
+    [JsonPropertyName("delCount")]
     public int? DelCount { get; set; }
 
     /// <summary>
     /// <para>插入维度</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("majorDimension")]
+    [JsonPropertyName("majorDimension")]
     public string? MajorDimension { get; set; }
 }

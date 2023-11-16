@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Workplace;
 /// <summary>
 /// 获取工作台访问数据 响应体
@@ -13,7 +12,7 @@ public record PostWorkplaceV1WorkplaceAccessDataSearchResponseDto
     /// <para>工作台访问数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public WorkplaceAccessData[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostWorkplaceV1WorkplaceAccessDataSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2023-03-12</para>
         /// </summary>
-        [JsonProperty("date")]
+        [JsonPropertyName("date")]
         public string? Date { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostWorkplaceV1WorkplaceAccessDataSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：20</para>
         /// </summary>
-        [JsonProperty("all_workplace")]
+        [JsonPropertyName("all_workplace")]
         public AccessData? AllWorkplace { get; set; }
 
         /// <summary>
@@ -47,7 +46,7 @@ public record PostWorkplaceV1WorkplaceAccessDataSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
-            [JsonProperty("pv")]
+            [JsonPropertyName("pv")]
             public int? Pv { get; set; }
 
             /// <summary>
@@ -55,7 +54,7 @@ public record PostWorkplaceV1WorkplaceAccessDataSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：30</para>
             /// </summary>
-            [JsonProperty("uv")]
+            [JsonPropertyName("uv")]
             public int? Uv { get; set; }
         }
 
@@ -64,7 +63,7 @@ public record PostWorkplaceV1WorkplaceAccessDataSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// </summary>
-        [JsonProperty("default_workplace")]
+        [JsonPropertyName("default_workplace")]
         public AccessData? DefaultWorkplace { get; set; }
     }
 
@@ -74,7 +73,7 @@ public record PostWorkplaceV1WorkplaceAccessDataSearchResponseDto
     /// <para>示例值：true</para>
     /// <para>默认值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -82,6 +81,6 @@ public record PostWorkplaceV1WorkplaceAccessDataSearchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：ddowkdkl9w2d</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

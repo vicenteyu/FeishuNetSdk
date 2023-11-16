@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 新增人员类型 响应体
@@ -13,7 +12,7 @@ public record PostContactV3EmployeeTypeEnumsResponseDto
     /// <para>新建的人员类型信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("employee_type_enum")]
+    [JsonPropertyName("employee_type_enum")]
     public PostContactV3EmployeeTypeEnumsResponseDtoEmployeeTypeEnum? EmployeeTypeEnum { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostContactV3EmployeeTypeEnumsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：exGeIjow7zIqWMy+ONkFxA==</para>
         /// </summary>
-        [JsonProperty("enum_id")]
+        [JsonPropertyName("enum_id")]
         public string? EnumId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostContactV3EmployeeTypeEnumsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("enum_value")]
+        [JsonPropertyName("enum_value")]
         public string? EnumValue { get; set; }
 
         /// <summary>
@@ -43,7 +42,7 @@ public record PostContactV3EmployeeTypeEnumsResponseDto
         /// <para>示例值：专家</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("content")]
+        [JsonPropertyName("content")]
         public string Content { get; set; } = string.Empty;
 
         /// <summary>
@@ -55,7 +54,7 @@ public record PostContactV3EmployeeTypeEnumsResponseDto
         /// <item>2：自定义</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("enum_type")]
+        [JsonPropertyName("enum_type")]
         public int EnumType { get; set; }
 
         /// <summary>
@@ -67,14 +66,14 @@ public record PostContactV3EmployeeTypeEnumsResponseDto
         /// <item>2：未激活</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("enum_status")]
+        [JsonPropertyName("enum_status")]
         public int EnumStatus { get; set; }
 
         /// <summary>
         /// <para>i18n定义</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("i18n_content")]
+        [JsonPropertyName("i18n_content")]
         public I18nContent[]? I18nContents { get; set; }
 
         /// <summary>
@@ -87,7 +86,7 @@ public record PostContactV3EmployeeTypeEnumsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：zh_cn</para>
             /// </summary>
-            [JsonProperty("locale")]
+            [JsonPropertyName("locale")]
             public string? Locale { get; set; }
 
             /// <summary>
@@ -95,7 +94,7 @@ public record PostContactV3EmployeeTypeEnumsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：专家（中文）</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
     }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 添加知识空间成员 响应体
@@ -13,7 +12,7 @@ public record PostWikiV2SpacesBySpaceIdMembersResponseDto
     /// <para>知识空间成员</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("member")]
+    [JsonPropertyName("member")]
     public PostWikiV2SpacesBySpaceIdMembersResponseDtoMember? Member { get; set; }
 
     /// <summary>
@@ -32,7 +31,7 @@ public record PostWikiV2SpacesBySpaceIdMembersResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：userid</para>
         /// </summary>
-        [JsonProperty("member_type")]
+        [JsonPropertyName("member_type")]
         public string MemberType { get; set; } = string.Empty;
 
         /// <summary>
@@ -40,7 +39,7 @@ public record PostWikiV2SpacesBySpaceIdMembersResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1565676577122621</para>
         /// </summary>
-        [JsonProperty("member_id")]
+        [JsonPropertyName("member_id")]
         public string MemberId { get; set; } = string.Empty;
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostWikiV2SpacesBySpaceIdMembersResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：admin</para>
         /// </summary>
-        [JsonProperty("member_role")]
+        [JsonPropertyName("member_role")]
         public string MemberRole { get; set; } = string.Empty;
     }
 }

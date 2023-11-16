@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 解决/恢复 评论 请求体
@@ -14,6 +13,6 @@ public record PatchDriveV1FilesByFileTokenCommentsByCommentIdBodyDto
     /// <para>**示例值**：true</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("is_solved")]
+    [JsonPropertyName("is_solved")]
     public bool IsSolved { get; set; }
 }

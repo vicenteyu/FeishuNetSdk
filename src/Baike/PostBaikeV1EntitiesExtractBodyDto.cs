@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Baike;
 /// <summary>
 /// 提取潜在的词条 请求体
@@ -15,6 +14,6 @@ public record PostBaikeV1EntitiesExtractBodyDto
     /// <para>示例值：飞书词典是一部高效汇聚企业内各类信息，并可由企业成员参与编辑的在线词典</para>
     /// <para>最大长度：128</para>
     /// </summary>
-    [JsonProperty("text")]
+    [JsonPropertyName("text")]
     public string? Text { get; set; }
 }

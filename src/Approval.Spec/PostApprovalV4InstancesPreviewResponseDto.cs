@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 预览审批流程 响应体
@@ -13,7 +12,7 @@ public record PostApprovalV4InstancesPreviewResponseDto
     /// <para>预览节点信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("preview_nodes")]
+    [JsonPropertyName("preview_nodes")]
     public PreviewNode[] PreviewNodes { get; set; } = Array.Empty<PreviewNode>();
 
     /// <summary></summary>
@@ -23,28 +22,28 @@ public record PostApprovalV4InstancesPreviewResponseDto
         /// <para>审批人id列表</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("user_id_list")]
+        [JsonPropertyName("user_id_list")]
         public string[] UserIdList { get; set; } = Array.Empty<string>();
 
         /// <summary>
         /// <para>审批结束抄送人id列表</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("end_cc_id_list")]
+        [JsonPropertyName("end_cc_id_list")]
         public string[] EndCcIdList { get; set; } = Array.Empty<string>();
 
         /// <summary>
         /// <para>节点id</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("node_id")]
+        [JsonPropertyName("node_id")]
         public string NodeId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>节点名称</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("node_name")]
+        [JsonPropertyName("node_name")]
         public string NodeName { get; set; } = string.Empty;
 
         /// <summary>
@@ -56,42 +55,42 @@ public record PostApprovalV4InstancesPreviewResponseDto
         /// <para>SEQUENTIAL:按顺序</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("node_type")]
+        [JsonPropertyName("node_type")]
         public string NodeType { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>用户自定义节点id</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("custom_node_id")]
+        [JsonPropertyName("custom_node_id")]
         public string CustomNodeId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>节点的说明信息</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("comments")]
+        [JsonPropertyName("comments")]
         public object[] Comments { get; set; } = Array.Empty<object>();
 
         /// <summary>
         /// <para>审批人是否为空，若为空，则user_id_list为兜底审批人id列表</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("is_empty_logic")]
+        [JsonPropertyName("is_empty_logic")]
         public bool IsEmptyLogic { get; set; }
 
         /// <summary>
         /// <para>是否发起人自选节点</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("is_approver_type_free")]
+        [JsonPropertyName("is_approver_type_free")]
         public bool IsApproverTypeFree { get; set; }
 
         /// <summary>
         /// <para>节点是否支持抄送人自选</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("has_cc_type_free")]
+        [JsonPropertyName("has_cc_type_free")]
         public bool HasCcTypeFree { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 修改公共邮箱全部信息 请求体
@@ -14,7 +13,7 @@ public record PutMailV1PublicMailboxesByPublicMailboxIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：test_public_mailbox@xxx.xx</para>
     /// </summary>
-    [JsonProperty("email")]
+    [JsonPropertyName("email")]
     public string? Email { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PutMailV1PublicMailboxesByPublicMailboxIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：testpublicmailbox</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 }

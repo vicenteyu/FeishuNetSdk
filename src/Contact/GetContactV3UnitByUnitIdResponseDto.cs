@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取单位信息 响应体
@@ -13,7 +12,7 @@ public record GetContactV3UnitByUnitIdResponseDto
     /// <para>单位信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("unit")]
+    [JsonPropertyName("unit")]
     public GetContactV3UnitByUnitIdResponseDtoUnit Unit { get; set; } = new();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetContactV3UnitByUnitIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：BU121</para>
         /// </summary>
-        [JsonProperty("unit_id")]
+        [JsonPropertyName("unit_id")]
         public string UnitId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetContactV3UnitByUnitIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：消费者事业部</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetContactV3UnitByUnitIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：事业部</para>
         /// </summary>
-        [JsonProperty("unit_type")]
+        [JsonPropertyName("unit_type")]
         public string UnitType { get; set; } = string.Empty;
     }
 }

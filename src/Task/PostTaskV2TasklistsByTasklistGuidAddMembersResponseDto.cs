@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 添加清单成员 响应体
@@ -18,7 +17,7 @@ public record PostTaskV2TasklistsByTasklistGuidAddMembersResponseDto
     /// <para>完成更新后的清单实体</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("tasklist")]
+    [JsonPropertyName("tasklist")]
     public PostTaskV2TasklistsByTasklistGuidAddMembersResponseDtoTasklist? Tasklist { get; set; }
 
     /// <summary>
@@ -31,7 +30,7 @@ public record PostTaskV2TasklistsByTasklistGuidAddMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：cc371766-6584-cf50-a222-c22cd9055004</para>
         /// </summary>
-        [JsonProperty("guid")]
+        [JsonPropertyName("guid")]
         public string? Guid { get; set; }
 
         /// <summary>
@@ -40,14 +39,14 @@ public record PostTaskV2TasklistsByTasklistGuidAddMembersResponseDto
         /// <para>示例值：年会总结工作任务清单</para>
         /// <para>最大长度：300</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>清单创建者</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("creator")]
+        [JsonPropertyName("creator")]
         public Member? Creator { get; set; }
 
         /// <summary>
@@ -61,7 +60,7 @@ public record PostTaskV2TasklistsByTasklistGuidAddMembersResponseDto
             /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
             /// <para>最大长度：100</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -70,7 +69,7 @@ public record PostTaskV2TasklistsByTasklistGuidAddMembersResponseDto
             /// <para>示例值：user</para>
             /// <para>默认值：user</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -79,7 +78,7 @@ public record PostTaskV2TasklistsByTasklistGuidAddMembersResponseDto
             /// <para>示例值：creator</para>
             /// <para>最大长度：20</para>
             /// </summary>
-            [JsonProperty("role")]
+            [JsonPropertyName("role")]
             public string? Role { get; set; }
         }
 
@@ -87,14 +86,14 @@ public record PostTaskV2TasklistsByTasklistGuidAddMembersResponseDto
         /// <para>清单所有者</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("owner")]
+        [JsonPropertyName("owner")]
         public Member? Owner { get; set; }
 
         /// <summary>
         /// <para>清单协作成员</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("members")]
+        [JsonPropertyName("members")]
         public Member[]? Members { get; set; }
 
         /// <summary>
@@ -102,7 +101,7 @@ public record PostTaskV2TasklistsByTasklistGuidAddMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://applink.feishu.cn/client/todo/task_list?guid=b45b360f-1961-4058-b338-7f50c96e1b52</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
 
         /// <summary>
@@ -110,7 +109,7 @@ public record PostTaskV2TasklistsByTasklistGuidAddMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1675742789470</para>
         /// </summary>
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public string? CreatedAt { get; set; }
 
         /// <summary>
@@ -118,7 +117,7 @@ public record PostTaskV2TasklistsByTasklistGuidAddMembersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1675742789470</para>
         /// </summary>
-        [JsonProperty("updated_at")]
+        [JsonPropertyName("updated_at")]
         public string? UpdatedAt { get; set; }
     }
 }

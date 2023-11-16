@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取保护范围 响应体
@@ -13,7 +12,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetRes
     /// <para>保护范围</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("protectedRanges")]
+    [JsonPropertyName("protectedRanges")]
     public ProtectedRange[]? ProtectedRanges { get; set; }
 
     /// <summary></summary>
@@ -23,14 +22,14 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetRes
         /// <para>保护范围ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("protectId")]
+        [JsonPropertyName("protectId")]
         public string? ProtectId { get; set; }
 
         /// <summary>
         /// <para>保护范围，如果为空，则为保护子表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("dimension")]
+        [JsonPropertyName("dimension")]
         public DimensionSuffix? Dimension { get; set; }
 
         /// <summary></summary>
@@ -40,28 +39,28 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetRes
             /// <para>sheet 的 id</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("sheetId")]
+            [JsonPropertyName("sheetId")]
             public string? SheetId { get; set; }
 
             /// <summary>
             /// <para>保护行列起始下标，下标从1开始</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("startIndex")]
+            [JsonPropertyName("startIndex")]
             public int? StartIndex { get; set; }
 
             /// <summary>
             /// <para>保护行列终止下标，下标从1开始</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("endIndex")]
+            [JsonPropertyName("endIndex")]
             public int? EndIndex { get; set; }
 
             /// <summary>
             /// <para>保护范围的维度，COLUMNS为保护列，ROWS为保护行</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("majorDimension")]
+            [JsonPropertyName("majorDimension")]
             public string? MajorDimension { get; set; }
         }
 
@@ -69,21 +68,21 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetRes
         /// <para>sheet的id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("sheetId")]
+        [JsonPropertyName("sheetId")]
         public string? SheetId { get; set; }
 
         /// <summary>
         /// <para>保护说明</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("lockInfo")]
+        [JsonPropertyName("lockInfo")]
         public string? LockInfo { get; set; }
 
         /// <summary>
         /// <para>用户信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("editors")]
+        [JsonPropertyName("editors")]
         public Editor? Editors { get; set; }
 
         /// <summary></summary>
@@ -93,7 +92,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetRes
             /// <para>用户信息列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("users")]
+            [JsonPropertyName("users")]
             public User[]? Users { get; set; }
 
             /// <summary></summary>
@@ -103,14 +102,14 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetRes
                 /// <para>用户类型</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("memberType")]
+                [JsonPropertyName("memberType")]
                 public string? MemberType { get; set; }
 
                 /// <summary>
                 /// <para>用户ID</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("memberId")]
+                [JsonPropertyName("memberId")]
                 public string? MemberId { get; set; }
             }
         }

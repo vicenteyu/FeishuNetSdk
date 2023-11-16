@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Admin;
 /// <summary>
 /// 上传勋章图片 响应体
@@ -14,6 +13,6 @@ public record PostAdminV1BadgeImagesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：f02a98aa-1413-4af6-93ab-431ba9e5f2cg</para>
     /// </summary>
-    [JsonProperty("image_key")]
+    [JsonPropertyName("image_key")]
     public string? ImageKey { get; set; }
 }

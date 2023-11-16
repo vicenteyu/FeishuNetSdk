@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 通过序列 ID 批量获取序列信息 请求体
@@ -14,6 +13,6 @@ public record PostCorehrV2JobFamiliesBatchGetBodyDto
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("job_family_ids")]
+    [JsonPropertyName("job_family_ids")]
     public string[] JobFamilyIds { get; set; } = Array.Empty<string>();
 }

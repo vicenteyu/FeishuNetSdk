@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 移动行列 请求体
@@ -13,7 +12,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimen
     /// <para>移动源位置参数</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("source")]
+    [JsonPropertyName("source")]
     public Dimension? Source { get; set; }
 
     /// <summary></summary>
@@ -24,7 +23,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimen
         /// <para>**示例值**："ROWS"</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("major_dimension")]
+        [JsonPropertyName("major_dimension")]
         public string? MajorDimension { get; set; }
 
         /// <summary>
@@ -32,7 +31,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimen
         /// <para>**示例值**：0</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("start_index")]
+        [JsonPropertyName("start_index")]
         public int? StartIndex { get; set; }
 
         /// <summary>
@@ -40,7 +39,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimen
         /// <para>**示例值**：1</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("end_index")]
+        [JsonPropertyName("end_index")]
         public int? EndIndex { get; set; }
     }
 
@@ -49,6 +48,6 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimen
     /// <para>**示例值**：4</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("destination_index")]
+    [JsonPropertyName("destination_index")]
     public int? DestinationIndex { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 新建文件夹 请求体
@@ -15,6 +14,6 @@ public record PostDriveExplorerV2FolderByFolderTokenBodyDto
     /// <para>文件夹标题</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string Title { get; set; } = string.Empty;
 }

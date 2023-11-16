@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 删除保护范围 响应体
@@ -13,6 +12,6 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDel
     /// <para>成功删除的保护范围ID</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("delProtectIds")]
+    [JsonPropertyName("delProtectIds")]
     public string[]? DelProtectIds { get; set; }
 }

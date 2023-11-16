@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 修改保护范围 响应体
@@ -13,7 +12,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
     /// <para>响应</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("replies")]
+    [JsonPropertyName("replies")]
     public Reply[]? Replies { get; set; }
 
     /// <summary></summary>
@@ -23,14 +22,14 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
         /// <para>sheet的id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("sheetId")]
+        [JsonPropertyName("sheetId")]
         public string? Sheetid { get; set; }
 
         /// <summary>
         /// <para>成功修改的保护行列信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("dimension")]
+        [JsonPropertyName("dimension")]
         public DimensionSuffix? Dimension { get; set; }
 
         /// <summary></summary>
@@ -40,28 +39,28 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
             /// <para>sheetId</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("sheetId")]
+            [JsonPropertyName("sheetId")]
             public string? SheetId { get; set; }
 
             /// <summary>
             /// <para>保护行列起始下标，下标从1开始</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("startIndex")]
+            [JsonPropertyName("startIndex")]
             public int? StartIndex { get; set; }
 
             /// <summary>
             /// <para>保护行列终止下标，下标从1开始</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("endIndex")]
+            [JsonPropertyName("endIndex")]
             public int? EndIndex { get; set; }
 
             /// <summary>
             /// <para>保护范围的维度</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("majorDimension")]
+            [JsonPropertyName("majorDimension")]
             public string? MajorDimension { get; set; }
         }
 
@@ -69,7 +68,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
         /// <para>可编辑保护范围的用户</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("editors")]
+        [JsonPropertyName("editors")]
         public EditorsSuffix? Editors { get; set; }
 
         /// <summary></summary>
@@ -79,7 +78,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
             /// <para>成功增加的用户的列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("addEditors")]
+            [JsonPropertyName("addEditors")]
             public Editor[]? AddEditors { get; set; }
 
 
@@ -87,7 +86,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
             /// <para>成功删除的用户的列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("delEditors")]
+            [JsonPropertyName("delEditors")]
             public Editor[]? DelEditors { get; set; }
 
             /// <summary></summary>
@@ -97,14 +96,14 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
                 /// <para>用户类型</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("memberType")]
+                [JsonPropertyName("memberType")]
                 public string? MemberType { get; set; }
 
                 /// <summary>
                 /// <para>用户类型对应的用户ID</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("memberId")]
+                [JsonPropertyName("memberId")]
                 public string? MemberId { get; set; }
             }
         }
@@ -113,7 +112,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdat
         /// <para>成功修改的保护说明</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("lockInfo")]
+        [JsonPropertyName("lockInfo")]
         public string? LockInfo { get; set; }
     }
 }

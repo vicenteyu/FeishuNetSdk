@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 回传笔试安排结果 请求体
@@ -14,7 +13,7 @@ public record PostHireV1EcoExamsByExamIdLoginInfoBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：0</para>
     /// </summary>
-    [JsonProperty("result")]
+    [JsonPropertyName("result")]
     public int? Result { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record PostHireV1EcoExamsByExamIdLoginInfoBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：success</para>
     /// </summary>
-    [JsonProperty("msg")]
+    [JsonPropertyName("msg")]
     public string? Msg { get; set; }
 
     /// <summary>
     /// <para>笔试作答信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("exam_login_info")]
+    [JsonPropertyName("exam_login_info")]
     public EcoExamLoginInfo ExamLoginInfo { get; set; } = new();
 
     /// <summary>
@@ -42,7 +41,7 @@ public record PostHireV1EcoExamsByExamIdLoginInfoBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：https://xxxx/xxxx/xxxx</para>
         /// </summary>
-        [JsonProperty("exam_url")]
+        [JsonPropertyName("exam_url")]
         public string ExamUrl { get; set; } = string.Empty;
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostHireV1EcoExamsByExamIdLoginInfoBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：waxsdfbhg</para>
         /// </summary>
-        [JsonProperty("username")]
+        [JsonPropertyName("username")]
         public string? Username { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostHireV1EcoExamsByExamIdLoginInfoBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：xxxxxx</para>
         /// </summary>
-        [JsonProperty("password")]
+        [JsonPropertyName("password")]
         public string? Password { get; set; }
     }
 }

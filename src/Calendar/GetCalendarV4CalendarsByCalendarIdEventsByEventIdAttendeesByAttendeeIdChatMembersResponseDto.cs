@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 获取日程参与群成员列表 响应体
@@ -13,7 +12,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttend
     /// <para>群中的群成员，当type为chat时有效；群成员不支持编辑</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public CalendarEventAttendeeChatMember[]? Items { get; set; }
 
     /// <summary>
@@ -33,7 +32,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttend
         /// <item>removed：参与人或会议室已经从日程中被移除</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("rsvp_status")]
+        [JsonPropertyName("rsvp_status")]
         public string? RsvpStatus { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttend
         /// <para>示例值：true</para>
         /// <para>默认值：false</para>
         /// </summary>
-        [JsonProperty("is_optional")]
+        [JsonPropertyName("is_optional")]
         public bool? IsOptional { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttend
         /// <para>必填：否</para>
         /// <para>示例值：ZhangSan</para>
         /// </summary>
-        [JsonProperty("display_name")]
+        [JsonPropertyName("display_name")]
         public string? DisplayName { get; set; }
 
         /// <summary>
@@ -59,7 +58,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttend
         /// <para>必填：否</para>
         /// <para>示例值：ou_143669c5a53647f00f6c80a0253aa68b</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string? OpenId { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttend
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_organizer")]
+        [JsonPropertyName("is_organizer")]
         public bool? IsOrganizer { get; set; }
 
         /// <summary>
@@ -75,7 +74,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttend
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("is_external")]
+        [JsonPropertyName("is_external")]
         public bool? IsExternal { get; set; }
     }
 
@@ -84,7 +83,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttend
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -92,6 +91,6 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttend
     /// <para>必填：否</para>
     /// <para>示例值：73TyueXXXXX</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

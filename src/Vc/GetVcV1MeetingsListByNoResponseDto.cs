@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 获取与会议号关联的会议列表 响应体
@@ -14,7 +13,7 @@ public record GetVcV1MeetingsListByNoResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record GetVcV1MeetingsListByNoResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：50</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>会议简要信息列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("meeting_briefs")]
+    [JsonPropertyName("meeting_briefs")]
     public Meeting[]? MeetingBriefs { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record GetVcV1MeetingsListByNoResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6911188411934433028</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetVcV1MeetingsListByNoResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：mymeeting</para>
         /// </summary>
-        [JsonProperty("topic")]
+        [JsonPropertyName("topic")]
         public string? Topic { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetVcV1MeetingsListByNoResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://vc.feishu.cn/j/337736498</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetVcV1MeetingsListByNoResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：123456789</para>
         /// </summary>
-        [JsonProperty("meeting_no")]
+        [JsonPropertyName("meeting_no")]
         public string? MeetingNo { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application.Spec;
 /// <summary>
 /// 获取机器人信息 响应体
@@ -13,21 +12,21 @@ public record GetBotV3InfoResponseDto
     /// <para>错误码，非 0 取值表示失败</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("code")]
+    [JsonPropertyName("code")]
     public int? Code { get; set; }
 
     /// <summary>
     /// <para>错误描述</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("msg")]
+    [JsonPropertyName("msg")]
     public string? Msg { get; set; }
 
     /// <summary>
     /// <para>机器人信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("bot")]
+    [JsonPropertyName("bot")]
     public BotInfo? Bot { get; set; }
 
     /// <summary>
@@ -46,35 +45,35 @@ public record GetBotV3InfoResponseDto
         /// <para>6: Lark套餐到期或降级停用</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("activate_status")]
+        [JsonPropertyName("activate_status")]
         public int? ActivateStatus { get; set; }
 
         /// <summary>
         /// <para>app 名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("app_name")]
+        [JsonPropertyName("app_name")]
         public string? AppName { get; set; }
 
         /// <summary>
         /// <para>app 图像地址</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("avatar_url")]
+        [JsonPropertyName("avatar_url")]
         public string? AvatarUrl { get; set; }
 
         /// <summary>
         /// <para>app 的 IP 白名单地址</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("ip_white_list")]
+        [JsonPropertyName("ip_white_list")]
         public string[]? IpWhiteList { get; set; }
 
         /// <summary>
         /// <para>机器人的open_id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string? OpenId { get; set; }
     }
 }

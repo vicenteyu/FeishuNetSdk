@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 发送短信加急 请求体
@@ -16,6 +15,6 @@ public record PatchImV1MessagesByMessageIdUrgentSmsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：["ou_6yf8af6bgb9100449565764t3382b168"]</para>
     /// </summary>
-    [JsonProperty("user_id_list")]
+    [JsonPropertyName("user_id_list")]
     public string[] UserIdList { get; set; } = Array.Empty<string>();
 }

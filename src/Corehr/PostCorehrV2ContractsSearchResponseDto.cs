@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 搜索合同 响应体
@@ -13,7 +12,7 @@ public record PostCorehrV2ContractsSearchResponseDto
     /// <para>查询的合同信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Contract[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostCorehrV2ContractsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7147527056140813828</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostCorehrV2ContractsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2023-01-0100:00:00</para>
         /// </summary>
-        [JsonProperty("effective_time")]
+        [JsonPropertyName("effective_time")]
         public string? EffectiveTime { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostCorehrV2ContractsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2024-01-01</para>
         /// </summary>
-        [JsonProperty("contract_end_date")]
+        [JsonPropertyName("contract_end_date")]
         public string? ContractEndDate { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostCorehrV2ContractsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2023-11-0100:00:00</para>
         /// </summary>
-        [JsonProperty("expiration_time")]
+        [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }
 
         /// <summary>
@@ -58,14 +57,14 @@ public record PostCorehrV2ContractsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
-        [JsonProperty("employment_id")]
+        [JsonPropertyName("employment_id")]
         public string? EmploymentId { get; set; }
 
         /// <summary>
         /// <para>合同类型，枚举值可通过文档【飞书人事枚举常量】合同类型（contract_type）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("contract_type")]
+        [JsonPropertyName("contract_type")]
         public Enum? ContractType { get; set; }
 
         /// <summary>
@@ -78,14 +77,14 @@ public record PostCorehrV2ContractsSearchResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>枚举多语展示</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("display")]
+            [JsonPropertyName("display")]
             public I18n[]? Displies { get; set; }
 
             /// <summary>
@@ -98,7 +97,7 @@ public record PostCorehrV2ContractsSearchResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
-                [JsonProperty("lang")]
+                [JsonPropertyName("lang")]
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
@@ -106,7 +105,7 @@ public record PostCorehrV2ContractsSearchResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：张三</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
         }
@@ -116,7 +115,7 @@ public record PostCorehrV2ContractsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7091599096804394540</para>
         /// </summary>
-        [JsonProperty("first_party_company_id")]
+        [JsonPropertyName("first_party_company_id")]
         public string? FirstPartyCompanyId { get; set; }
 
         /// <summary>
@@ -124,14 +123,14 @@ public record PostCorehrV2ContractsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7088589447189022252</para>
         /// </summary>
-        [JsonProperty("person_id")]
+        [JsonPropertyName("person_id")]
         public string? PersonId { get; set; }
 
         /// <summary>
         /// <para>期限类型，枚举值可通过文档【飞书人事枚举常量】合同期限类型（duration_type）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("duration_type")]
+        [JsonPropertyName("duration_type")]
         public Enum? DurationType { get; set; }
 
         /// <summary>
@@ -139,14 +138,14 @@ public record PostCorehrV2ContractsSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0000011</para>
         /// </summary>
-        [JsonProperty("contract_number")]
+        [JsonPropertyName("contract_number")]
         public string? ContractNumber { get; set; }
 
         /// <summary>
         /// <para>签订类型，枚举值可通过文档【飞书人事枚举常量】签订类型（signing_type）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("signing_type")]
+        [JsonPropertyName("signing_type")]
         public Enum? SigningType { get; set; }
     }
 
@@ -155,7 +154,7 @@ public record PostCorehrV2ContractsSearchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -163,6 +162,6 @@ public record PostCorehrV2ContractsSearchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

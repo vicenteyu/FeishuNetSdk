@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 获取父部门信息 响应体
@@ -13,7 +12,7 @@ public record PostCorehrV2DepartmentsParentsResponseDto
     /// <para>父部门查询结果</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public DepartmentParents[]? Items { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record PostCorehrV2DepartmentsParentsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064111</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
         /// <para>父部门列表，部门按照至底向上的顺序返回</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("parent_department_list")]
+        [JsonPropertyName("parent_department_list")]
         public DepartmentParentInfo[]? ParentDepartmentLists { get; set; }
 
         /// <summary>
@@ -46,14 +45,14 @@ public record PostCorehrV2DepartmentsParentsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：4719456877659520852</para>
             /// </summary>
-            [JsonProperty("department_id")]
+            [JsonPropertyName("department_id")]
             public string? DepartmentId { get; set; }
 
             /// <summary>
             /// <para>部门名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("department_name")]
+            [JsonPropertyName("department_name")]
             public I18n[]? DepartmentNames { get; set; }
 
             /// <summary>
@@ -66,7 +65,7 @@ public record PostCorehrV2DepartmentsParentsResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
-                [JsonProperty("lang")]
+                [JsonPropertyName("lang")]
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
@@ -74,7 +73,7 @@ public record PostCorehrV2DepartmentsParentsResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：张三</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
 
@@ -83,7 +82,7 @@ public record PostCorehrV2DepartmentsParentsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：4719456877659520111</para>
             /// </summary>
-            [JsonProperty("parent_department_id")]
+            [JsonPropertyName("parent_department_id")]
             public string? ParentDepartmentId { get; set; }
 
             /// <summary>
@@ -91,7 +90,7 @@ public record PostCorehrV2DepartmentsParentsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("active")]
+            [JsonPropertyName("active")]
             public bool? Active { get; set; }
 
             /// <summary>
@@ -99,7 +98,7 @@ public record PostCorehrV2DepartmentsParentsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("is_root")]
+            [JsonPropertyName("is_root")]
             public bool? IsRoot { get; set; }
         }
     }

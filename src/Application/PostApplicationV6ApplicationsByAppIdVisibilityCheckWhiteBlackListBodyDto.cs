@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 查询用户或部门是否在应用的可用或禁用名单 请求体
@@ -16,7 +15,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListB
     /// <para>示例值：ou_a2c7c74ff52b1644220e319aeabd9c63</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("user_ids")]
+    [JsonPropertyName("user_ids")]
     public string[]? UserIds { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListB
     /// <para>示例值：od-b329544b2737a0c42ea01fdde3546673</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("department_ids")]
+    [JsonPropertyName("department_ids")]
     public string[]? DepartmentIds { get; set; }
 
     /// <summary>
@@ -36,6 +35,6 @@ public record PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListB
     /// <para>示例值：e62d2977e8328eb4</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("group_ids")]
+    [JsonPropertyName("group_ids")]
     public string[]? GroupIds { get; set; }
 }

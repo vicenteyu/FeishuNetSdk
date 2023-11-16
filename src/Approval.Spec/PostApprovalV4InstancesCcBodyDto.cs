@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 抄送审批实例 请求体
@@ -14,7 +13,7 @@ public record PostApprovalV4InstancesCcBodyDto
     /// <para>**示例值**："7C468A54-8745-2245-9675-08B7C63E7A85"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string ApprovalCode { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostApprovalV4InstancesCcBodyDto
     /// <para>**示例值**："7C468A54-8745-2245-9675-08B7C63E7A85"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("instance_code")]
+    [JsonPropertyName("instance_code")]
     public string InstanceCode { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostApprovalV4InstancesCcBodyDto
     /// <para>**示例值**："f7cb567e"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostApprovalV4InstancesCcBodyDto
     /// <para>**示例值**：f7cb567e</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("cc_user_ids")]
+    [JsonPropertyName("cc_user_ids")]
     public string[] CcUserIds { get; set; } = Array.Empty<string>();
 
     /// <summary>
@@ -46,6 +45,6 @@ public record PostApprovalV4InstancesCcBodyDto
     /// <para>**示例值**："ok"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("comment")]
+    [JsonPropertyName("comment")]
     public string? Comment { get; set; }
 }

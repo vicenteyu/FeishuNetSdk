@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 查询单个国家证件类型 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto
     /// <para>国家证件类型信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("national_id_type")]
+    [JsonPropertyName("national_id_type")]
     public GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDtoNationalIdType? NationalIdType { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6888198886960137735</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,14 +33,14 @@ public record GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6862995747139225096</para>
         /// </summary>
-        [JsonProperty("country_region_id")]
+        [JsonPropertyName("country_region_id")]
         public string CountryRegionId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>名称</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n[] Names { get; set; } = Array.Empty<I18n>();
 
         /// <summary>
@@ -54,7 +53,7 @@ public record GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -62,7 +61,7 @@ public record GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -71,7 +70,7 @@ public record GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("active")]
+        [JsonPropertyName("active")]
         public bool Active { get; set; }
 
         /// <summary>
@@ -79,14 +78,14 @@ public record GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：^\d{9}$</para>
         /// </summary>
-        [JsonProperty("validation_rule")]
+        [JsonPropertyName("validation_rule")]
         public string ValidationRule { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>校验规则描述</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("validation_rule_description")]
+        [JsonPropertyName("validation_rule_description")]
         public I18n[]? ValidationRuleDescriptions { get; set; }
 
         /// <summary>
@@ -94,14 +93,14 @@ public record GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：AUS-TFN</para>
         /// </summary>
-        [JsonProperty("code")]
+        [JsonPropertyName("code")]
         public string Code { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>证件类型</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("identification_type")]
+        [JsonPropertyName("identification_type")]
         public Enum IdentificationType { get; set; } = new();
 
         /// <summary>
@@ -114,14 +113,14 @@ public record GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：type_1</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>枚举多语展示</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("display")]
+            [JsonPropertyName("display")]
             public I18n[]? Displies { get; set; }
 
             /// <summary>
@@ -134,7 +133,7 @@ public record GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
-                [JsonProperty("lang")]
+                [JsonPropertyName("lang")]
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
@@ -142,7 +141,7 @@ public record GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：张三</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
         }
@@ -151,7 +150,7 @@ public record GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -164,7 +163,7 @@ public record GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("field_name")]
+            [JsonPropertyName("field_name")]
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
@@ -172,7 +171,7 @@ public record GetCorehrV1NationalIdTypesByNationalIdTypeIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：\"Sandy\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }

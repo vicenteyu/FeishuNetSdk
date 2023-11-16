@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 查询导出任务结果 响应体
@@ -19,7 +18,7 @@ public record GetVcV1ExportsByTaskIdResponseDto
     /// <item>3：完成</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public int Status { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record GetVcV1ExportsByTaskIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx</para>
     /// </summary>
-    [JsonProperty("url")]
+    [JsonPropertyName("url")]
     public string? Url { get; set; }
 
     /// <summary>
@@ -35,7 +34,7 @@ public record GetVcV1ExportsByTaskIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：6yHu7Igp7Igy62Ez6fLr6IJz7j9i5WMe6fHq5yZeY2Jz6yLqYAMAY46fZfEz64Lr5fYyYQ==</para>
     /// </summary>
-    [JsonProperty("file_token")]
+    [JsonPropertyName("file_token")]
     public string? FileToken { get; set; }
 
     /// <summary>
@@ -43,6 +42,6 @@ public record GetVcV1ExportsByTaskIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：nopermission</para>
     /// </summary>
-    [JsonProperty("fail_msg")]
+    [JsonPropertyName("fail_msg")]
     public string? FailMsg { get; set; }
 }

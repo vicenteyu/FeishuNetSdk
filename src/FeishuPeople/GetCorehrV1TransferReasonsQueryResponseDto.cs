@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取异动原因列表 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1TransferReasonsQueryResponseDto
     /// <para>异动原因列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public TransferReason[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetCorehrV1TransferReasonsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：voluntary_transfer</para>
         /// </summary>
-        [JsonProperty("transfer_reason_unique_identifier")]
+        [JsonPropertyName("transfer_reason_unique_identifier")]
         public string? TransferReasonUniqueIdentifier { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetCorehrV1TransferReasonsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：张三</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n[]? Names { get; set; }
 
         /// <summary>
@@ -47,7 +46,7 @@ public record GetCorehrV1TransferReasonsQueryResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -55,7 +54,7 @@ public record GetCorehrV1TransferReasonsQueryResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -64,7 +63,7 @@ public record GetCorehrV1TransferReasonsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("active")]
+        [JsonPropertyName("active")]
         public bool? Active { get; set; }
 
         /// <summary>
@@ -72,7 +71,7 @@ public record GetCorehrV1TransferReasonsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：reason_for_job_change_option25</para>
         /// </summary>
-        [JsonProperty("parent_transfer_reason_unique_identifier")]
+        [JsonPropertyName("parent_transfer_reason_unique_identifier")]
         public string? ParentTransferReasonUniqueIdentifier { get; set; }
 
         /// <summary>
@@ -80,7 +79,7 @@ public record GetCorehrV1TransferReasonsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2021-07-0420:30:47</para>
         /// </summary>
-        [JsonProperty("created_time")]
+        [JsonPropertyName("created_time")]
         public string? CreatedTime { get; set; }
 
         /// <summary>
@@ -88,7 +87,7 @@ public record GetCorehrV1TransferReasonsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022-02-2816:27:56</para>
         /// </summary>
-        [JsonProperty("updated_time")]
+        [JsonPropertyName("updated_time")]
         public string? UpdatedTime { get; set; }
     }
 }

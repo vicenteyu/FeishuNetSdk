@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 按名称查询考勤组 响应体
@@ -13,7 +12,7 @@ public record PostAttendanceV1GroupsSearchResponseDto
     /// <para>考勤组列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("group_list")]
+    [JsonPropertyName("group_list")]
     public GroupMeta[]? GroupLists { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostAttendanceV1GroupsSearchResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6919358128597097404</para>
         /// </summary>
-        [JsonProperty("group_id")]
+        [JsonPropertyName("group_id")]
         public string GroupId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostAttendanceV1GroupsSearchResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：考勤组1</para>
         /// </summary>
-        [JsonProperty("group_name")]
+        [JsonPropertyName("group_name")]
         public string GroupName { get; set; } = string.Empty;
     }
 }

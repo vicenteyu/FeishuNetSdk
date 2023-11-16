@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取招聘流程信息 响应体
@@ -14,7 +13,7 @@ public record GetHireV1JobProcessesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record GetHireV1JobProcessesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public JobProcesses[]? Items { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record GetHireV1JobProcessesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：123123123123</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetHireV1JobProcessesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：中文</para>
         /// </summary>
-        [JsonProperty("zh_name")]
+        [JsonPropertyName("zh_name")]
         public string? ZhName { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetHireV1JobProcessesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：name</para>
         /// </summary>
-        [JsonProperty("en_name")]
+        [JsonPropertyName("en_name")]
         public string? EnName { get; set; }
 
         /// <summary>
@@ -70,14 +69,14 @@ public record GetHireV1JobProcessesResponseDto
         /// <item>2：校招流程</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public int? Type { get; set; }
 
         /// <summary>
         /// <para>阶段列表, 内部按用户设置顺序排列</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("stage_list")]
+        [JsonPropertyName("stage_list")]
         public JobProcessesStage[]? StageLists { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record GetHireV1JobProcessesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：123123123123123</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -98,7 +97,7 @@ public record GetHireV1JobProcessesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：名字</para>
             /// </summary>
-            [JsonProperty("zh_name")]
+            [JsonPropertyName("zh_name")]
             public string? ZhName { get; set; }
 
             /// <summary>
@@ -106,7 +105,7 @@ public record GetHireV1JobProcessesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("en_name")]
+            [JsonPropertyName("en_name")]
             public string? EnName { get; set; }
 
             /// <summary>
@@ -125,7 +124,7 @@ public record GetHireV1JobProcessesResponseDto
             /// <item>255：系统默认</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public int? Type { get; set; }
         }
     }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 合并转发消息 请求体
@@ -14,7 +13,7 @@ public record PostImV1MessagesMergeForwardBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </summary>
-    [JsonProperty("receive_id")]
+    [JsonPropertyName("receive_id")]
     public string ReceiveId { get; set; } = string.Empty;
 
     /// <summary>
@@ -23,6 +22,6 @@ public record PostImV1MessagesMergeForwardBodyDto
     /// <para>示例值：["om_d862083dd13b61cc009e66c40a0f0a56","om_61244dab1ef11257621dcd7g0e256651"]</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("message_id_list")]
+    [JsonPropertyName("message_id_list")]
     public string[] MessageIdList { get; set; } = Array.Empty<string>();
 }

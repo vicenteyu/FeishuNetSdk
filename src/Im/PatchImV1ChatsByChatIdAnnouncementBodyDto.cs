@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 更新群公告信息 请求体
@@ -15,7 +14,7 @@ public record PatchImV1ChatsByChatIdAnnouncementBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：12</para>
     /// </summary>
-    [JsonProperty("revision")]
+    [JsonPropertyName("revision")]
     public string Revision { get; set; } = string.Empty;
 
     /// <summary>
@@ -24,6 +23,6 @@ public record PatchImV1ChatsByChatIdAnnouncementBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：{\"requestType\":\"InsertBlocksRequestType\",\"insertBlocksRequest\":{\"payload\":\"{\\\"blocks\\\":[{\\\"type\\\":\\\"paragraph\\\",\\\"paragraph\\\":{\\\"elements\\\":[{\\\"type\\\":\\\"textRun\\\",\\\"textRun\\\":{\\\"text\\\":\\\"ylyyyyyDocsAPISampleContent\\\",\\\"style\\\":{}}}],\\\"style\\\":{}}}]}\",\"location\":{\"zoneId\":\"0\",\"index\":0,\"endOfZone\":true}}}</para>
     /// </summary>
-    [JsonProperty("requests")]
+    [JsonPropertyName("requests")]
     public string[]? Requests { get; set; }
 }

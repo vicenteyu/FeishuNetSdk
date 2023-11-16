@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 查询用户组列表 响应体
@@ -13,7 +12,7 @@ public record GetContactV3GroupSimplelistResponseDto
     /// <para>用户组列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("grouplist")]
+    [JsonPropertyName("grouplist")]
     public Group[] Grouplists { get; set; } = Array.Empty<Group>();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetContactV3GroupSimplelistResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：g193821</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetContactV3GroupSimplelistResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：IT外包组</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetContactV3GroupSimplelistResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：IT外包组，需要对该组人群进行细颗粒度权限管控。</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetContactV3GroupSimplelistResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("member_user_count")]
+        [JsonPropertyName("member_user_count")]
         public int? MemberUserCount { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetContactV3GroupSimplelistResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("member_department_count")]
+        [JsonPropertyName("member_department_count")]
         public int? MemberDepartmentCount { get; set; }
 
         /// <summary>
@@ -70,14 +69,14 @@ public record GetContactV3GroupSimplelistResponseDto
         /// <item>2：动态用户组</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public int? Type { get; set; }
 
         /// <summary>
         /// <para>部门范围</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("department_scope_list")]
+        [JsonPropertyName("department_scope_list")]
         public string[]? DepartmentScopeList { get; set; }
 
         /// <summary>
@@ -85,7 +84,7 @@ public record GetContactV3GroupSimplelistResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：4ba51ab38648f9cd</para>
         /// </summary>
-        [JsonProperty("group_id")]
+        [JsonPropertyName("group_id")]
         public string? GroupId { get; set; }
     }
 
@@ -94,7 +93,7 @@ public record GetContactV3GroupSimplelistResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：AQD9/Rn9556539ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JDTJJDDPw=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string PageToken { get; set; } = string.Empty;
 
     /// <summary>
@@ -102,6 +101,6 @@ public record GetContactV3GroupSimplelistResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool HasMore { get; set; }
 }

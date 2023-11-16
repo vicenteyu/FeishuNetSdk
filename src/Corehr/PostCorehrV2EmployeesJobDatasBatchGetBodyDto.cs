@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 批量查询员工任职信息 请求体
@@ -14,7 +13,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetBodyDto
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("employment_ids")]
+    [JsonPropertyName("employment_ids")]
     public string[] EmploymentIds { get; set; } = Array.Empty<string>();
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("get_all_version")]
+    [JsonPropertyName("get_all_version")]
     public bool? GetAllVersion { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
-    [JsonProperty("effective_date_start")]
+    [JsonPropertyName("effective_date_start")]
     public string? EffectiveDateStart { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
-    [JsonProperty("effective_date_end")]
+    [JsonPropertyName("effective_date_end")]
     public string? EffectiveDateEnd { get; set; }
 
     /// <summary>
@@ -46,6 +45,6 @@ public record PostCorehrV2EmployeesJobDatasBatchGetBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
-    [JsonProperty("data_date")]
+    [JsonPropertyName("data_date")]
     public string? DataDate { get; set; }
 }

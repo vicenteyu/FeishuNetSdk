@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 获取应用版本信息 响应体
@@ -13,7 +12,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
     /// <para>应用版本信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("app_version")]
+    [JsonPropertyName("app_version")]
     public ApplicationAppVersion? AppVersion { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <para>必填：是</para>
         /// <para>示例值：cli_9f3ca975326b501b</para>
         /// </summary>
-        [JsonProperty("app_id")]
+        [JsonPropertyName("app_id")]
         public string AppId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <para>必填：否</para>
         /// <para>示例值：1.0.0</para>
         /// </summary>
-        [JsonProperty("version")]
+        [JsonPropertyName("version")]
         public string? Version { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <para>必填：是</para>
         /// <para>示例值：oav_d317f090b7258ad0372aa53963cda70d</para>
         /// </summary>
-        [JsonProperty("version_id")]
+        [JsonPropertyName("version_id")]
         public string VersionId { get; set; } = string.Empty;
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <para>必填：否</para>
         /// <para>示例值：应用名称</para>
         /// </summary>
-        [JsonProperty("app_name")]
+        [JsonPropertyName("app_name")]
         public string? AppName { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <para>必填：否</para>
         /// <para>示例值：https://www.example.com</para>
         /// </summary>
-        [JsonProperty("avatar_url")]
+        [JsonPropertyName("avatar_url")]
         public string? AvatarUrl { get; set; }
 
         /// <summary>
@@ -66,14 +65,14 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <para>必填：否</para>
         /// <para>示例值：应用描述</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
         /// <para>应用权限列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("scopes")]
+        [JsonPropertyName("scopes")]
         public AppScope[]? Scopes { get; set; }
 
         /// <summary>
@@ -86,7 +85,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：是</para>
             /// <para>示例值：contact:user.base</para>
             /// </summary>
-            [JsonProperty("scope")]
+            [JsonPropertyName("scope")]
             public string Scope { get; set; } = string.Empty;
 
             /// <summary>
@@ -94,7 +93,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：否</para>
             /// <para>示例值：获取应用信息</para>
             /// </summary>
-            [JsonProperty("description")]
+            [JsonPropertyName("description")]
             public string? Description { get; set; }
 
             /// <summary>
@@ -108,7 +107,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <item>0：未知等级</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("level")]
+            [JsonPropertyName("level")]
             public int? Level { get; set; }
         }
 
@@ -117,14 +116,14 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <para>必填：否</para>
         /// <para>示例值：https://www.example.com</para>
         /// </summary>
-        [JsonProperty("back_home_url")]
+        [JsonPropertyName("back_home_url")]
         public string? BackHomeUrl { get; set; }
 
         /// <summary>
         /// <para>应用的国际化信息列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("i18n")]
+        [JsonPropertyName("i18n")]
         public AppI18nInfo[]? I18ns { get; set; }
 
         /// <summary>
@@ -142,7 +141,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <item>ja_jp：日文</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("i18n_key")]
+            [JsonPropertyName("i18n_key")]
             public string I18nKey { get; set; } = string.Empty;
 
             /// <summary>
@@ -150,7 +149,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：否</para>
             /// <para>示例值：应用名称</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -158,7 +157,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：否</para>
             /// <para>示例值：应用描述</para>
             /// </summary>
-            [JsonProperty("description")]
+            [JsonPropertyName("description")]
             public string? Description { get; set; }
 
             /// <summary>
@@ -166,7 +165,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：否</para>
             /// <para>示例值：https://www.example.com</para>
             /// </summary>
-            [JsonProperty("help_use")]
+            [JsonPropertyName("help_use")]
             public string? HelpUse { get; set; }
         }
 
@@ -175,14 +174,14 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <para>必填：否</para>
         /// <para>最大长度：3</para>
         /// </summary>
-        [JsonProperty("common_categories")]
+        [JsonPropertyName("common_categories")]
         public string[]? CommonCategories { get; set; }
 
         /// <summary>
         /// <para>应用已订阅开放平台事件列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("events")]
+        [JsonPropertyName("events")]
         public string[]? Events { get; set; }
 
         /// <summary>
@@ -197,7 +196,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <item>4：未提交审核</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public int? Status { get; set; }
 
         /// <summary>
@@ -205,7 +204,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <para>必填：否</para>
         /// <para>示例值：1610462759</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
@@ -213,14 +212,14 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <para>必填：否</para>
         /// <para>示例值：1610462759</para>
         /// </summary>
-        [JsonProperty("publish_time")]
+        [JsonPropertyName("publish_time")]
         public string? PublishTime { get; set; }
 
         /// <summary>
         /// <para>当前版本下应用开启的能力</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("ability")]
+        [JsonPropertyName("ability")]
         public AppAbility? Ability { get; set; }
 
         /// <summary>
@@ -232,7 +231,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>小程序能力</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("gadget")]
+            [JsonPropertyName("gadget")]
             public AppAbilityGadget? Gadget { get; set; }
 
             /// <summary>
@@ -250,14 +249,14 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <item>4：主导航模式</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("enable_pc_mode")]
+                [JsonPropertyName("enable_pc_mode")]
                 public int? EnablePcMode { get; set; }
 
                 /// <summary>
                 /// <para>schema url 列表</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("schema_urls")]
+                [JsonPropertyName("schema_urls")]
                 public string[]? SchemaUrls { get; set; }
 
                 /// <summary>
@@ -265,7 +264,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
-                [JsonProperty("pc_use_mobile_pkg")]
+                [JsonPropertyName("pc_use_mobile_pkg")]
                 public bool? PcUseMobilePkg { get; set; }
 
                 /// <summary>
@@ -273,7 +272,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：1.0.0</para>
                 /// </summary>
-                [JsonProperty("pc_version")]
+                [JsonPropertyName("pc_version")]
                 public string? PcVersion { get; set; }
 
                 /// <summary>
@@ -281,7 +280,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：1.0.0</para>
                 /// </summary>
-                [JsonProperty("mobile_version")]
+                [JsonPropertyName("mobile_version")]
                 public string? MobileVersion { get; set; }
 
                 /// <summary>
@@ -289,7 +288,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：2.0</para>
                 /// </summary>
-                [JsonProperty("mobile_min_lark_version")]
+                [JsonPropertyName("mobile_min_lark_version")]
                 public string? MobileMinLarkVersion { get; set; }
 
                 /// <summary>
@@ -297,7 +296,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：2.0</para>
                 /// </summary>
-                [JsonProperty("pc_min_lark_version")]
+                [JsonPropertyName("pc_min_lark_version")]
                 public string? PcMinLarkVersion { get; set; }
             }
 
@@ -305,7 +304,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>网页能力</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("web_app")]
+            [JsonPropertyName("web_app")]
             public AppAbilityWebApp? WebApp { get; set; }
 
             /// <summary>
@@ -318,7 +317,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// </summary>
-                [JsonProperty("pc_url")]
+                [JsonPropertyName("pc_url")]
                 public string? PcUrl { get; set; }
 
                 /// <summary>
@@ -326,7 +325,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// </summary>
-                [JsonProperty("mobile_url")]
+                [JsonPropertyName("mobile_url")]
                 public string? MobileUrl { get; set; }
             }
 
@@ -334,7 +333,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>机器人能力</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("bot")]
+            [JsonPropertyName("bot")]
             public AppAbilityBot? Bot { get; set; }
 
             /// <summary>
@@ -347,7 +346,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// </summary>
-                [JsonProperty("card_request_url")]
+                [JsonPropertyName("card_request_url")]
                 public string? CardRequestUrl { get; set; }
             }
 
@@ -355,7 +354,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>小组件能力</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("workplace_widgets")]
+            [JsonPropertyName("workplace_widgets")]
             public WorkplaceWidget[]? WorkplaceWidgets { get; set; }
 
             /// <summary>
@@ -368,7 +367,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：1.0.0</para>
                 /// </summary>
-                [JsonProperty("min_lark_version")]
+                [JsonPropertyName("min_lark_version")]
                 public string? MinLarkVersion { get; set; }
             }
 
@@ -376,7 +375,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>主导航小程序</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("navigate")]
+            [JsonPropertyName("navigate")]
             public AppAbilityNavigate? Navigate { get; set; }
 
             /// <summary>
@@ -388,7 +387,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>pc 端主导航信息</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("pc")]
+                [JsonPropertyName("pc")]
                 public NavigateMeta? Pc { get; set; }
 
                 /// <summary>
@@ -401,7 +400,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <para>必填：否</para>
                     /// <para>示例值：1.0.0</para>
                     /// </summary>
-                    [JsonProperty("version")]
+                    [JsonPropertyName("version")]
                     public string? Version { get; set; }
 
                     /// <summary>
@@ -409,7 +408,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <para>必填：否</para>
                     /// <para>示例值：https://www.example.com</para>
                     /// </summary>
-                    [JsonProperty("image_url")]
+                    [JsonPropertyName("image_url")]
                     public string? ImageUrl { get; set; }
 
                     /// <summary>
@@ -417,7 +416,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <para>必填：否</para>
                     /// <para>示例值：https://www.example.com</para>
                     /// </summary>
-                    [JsonProperty("hover_image_url")]
+                    [JsonPropertyName("hover_image_url")]
                     public string? HoverImageUrl { get; set; }
                 }
 
@@ -425,7 +424,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>移动端主导航信息</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("mobile")]
+                [JsonPropertyName("mobile")]
                 public NavigateMeta? Mobile { get; set; }
             }
 
@@ -433,7 +432,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>云文档应用</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("cloud_doc")]
+            [JsonPropertyName("cloud_doc")]
             public AppAbilityCloudDoc? CloudDoc { get; set; }
 
             /// <summary>
@@ -446,14 +445,14 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// </summary>
-                [JsonProperty("space_url")]
+                [JsonPropertyName("space_url")]
                 public string? SpaceUrl { get; set; }
 
                 /// <summary>
                 /// <para>国际化信息</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("i18n")]
+                [JsonPropertyName("i18n")]
                 public CloudDocI18nInfo[]? I18ns { get; set; }
 
                 /// <summary>
@@ -471,7 +470,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <item>ja_jp：日文</item>
                     /// </list></para>
                     /// </summary>
-                    [JsonProperty("i18n_key")]
+                    [JsonPropertyName("i18n_key")]
                     public string I18nKey { get; set; } = string.Empty;
 
                     /// <summary>
@@ -479,7 +478,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <para>必填：否</para>
                     /// <para>示例值：名称</para>
                     /// </summary>
-                    [JsonProperty("name")]
+                    [JsonPropertyName("name")]
                     public string? Name { get; set; }
 
                     /// <summary>
@@ -487,7 +486,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <para>必填：否</para>
                     /// <para>示例值：读权限说明</para>
                     /// </summary>
-                    [JsonProperty("read_description")]
+                    [JsonPropertyName("read_description")]
                     public string? ReadDescription { get; set; }
 
                     /// <summary>
@@ -495,7 +494,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <para>必填：否</para>
                     /// <para>示例值：写权限说明</para>
                     /// </summary>
-                    [JsonProperty("write_description")]
+                    [JsonPropertyName("write_description")]
                     public string? WriteDescription { get; set; }
                 }
 
@@ -504,7 +503,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// </summary>
-                [JsonProperty("icon_url")]
+                [JsonPropertyName("icon_url")]
                 public string? IconUrl { get; set; }
 
                 /// <summary>
@@ -516,7 +515,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <item>1：移动端</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("mode")]
+                [JsonPropertyName("mode")]
                 public int? Mode { get; set; }
             }
 
@@ -524,7 +523,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>云文档小组件</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("docs_blocks")]
+            [JsonPropertyName("docs_blocks")]
             public DocsBlock[]? DocsBlocks { get; set; }
 
             /// <summary>
@@ -537,14 +536,14 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：blk_4fb61568435880110854c1d0</para>
                 /// </summary>
-                [JsonProperty("block_type_id")]
+                [JsonPropertyName("block_type_id")]
                 public string? BlockTypeId { get; set; }
 
                 /// <summary>
                 /// <para>block 的国际化信息</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("i18n")]
+                [JsonPropertyName("i18n")]
                 public BlockI18nInfo[]? I18ns { get; set; }
 
                 /// <summary>
@@ -562,7 +561,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <item>ja_jp：日文</item>
                     /// </list></para>
                     /// </summary>
-                    [JsonProperty("i18n_key")]
+                    [JsonPropertyName("i18n_key")]
                     public string? I18nKey { get; set; }
 
                     /// <summary>
@@ -570,7 +569,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <para>必填：否</para>
                     /// <para>示例值：名称</para>
                     /// </summary>
-                    [JsonProperty("name")]
+                    [JsonPropertyName("name")]
                     public string? Name { get; set; }
                 }
 
@@ -579,7 +578,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// </summary>
-                [JsonProperty("mobile_icon_url")]
+                [JsonPropertyName("mobile_icon_url")]
                 public string? MobileIconUrl { get; set; }
 
                 /// <summary>
@@ -587,7 +586,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// </summary>
-                [JsonProperty("pc_icon_url")]
+                [JsonPropertyName("pc_icon_url")]
                 public string? PcIconUrl { get; set; }
             }
 
@@ -595,7 +594,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>消息快捷操作</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("message_action")]
+            [JsonPropertyName("message_action")]
             public AppAbilityMessageAction? MessageAction { get; set; }
 
             /// <summary>
@@ -608,7 +607,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// </summary>
-                [JsonProperty("pc_app_link")]
+                [JsonPropertyName("pc_app_link")]
                 public string? PcAppLink { get; set; }
 
                 /// <summary>
@@ -616,14 +615,14 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// </summary>
-                [JsonProperty("mobile_app_link")]
+                [JsonPropertyName("mobile_app_link")]
                 public string? MobileAppLink { get; set; }
 
                 /// <summary>
                 /// <para>国际化信息</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("i18n")]
+                [JsonPropertyName("i18n")]
                 public MessageActionI18nInfo[]? I18ns { get; set; }
 
                 /// <summary>
@@ -641,7 +640,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <item>ja_jp：日文</item>
                     /// </list></para>
                     /// </summary>
-                    [JsonProperty("i18n_key")]
+                    [JsonPropertyName("i18n_key")]
                     public string? I18nKey { get; set; }
 
                     /// <summary>
@@ -649,7 +648,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <para>必填：否</para>
                     /// <para>示例值：名称</para>
                     /// </summary>
-                    [JsonProperty("name")]
+                    [JsonPropertyName("name")]
                     public string? Name { get; set; }
                 }
             }
@@ -658,7 +657,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>加号菜单</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("plus_menu")]
+            [JsonPropertyName("plus_menu")]
             public AppAbilityPlusMenu? PlusMenu { get; set; }
 
             /// <summary>
@@ -671,7 +670,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// </summary>
-                [JsonProperty("pc_app_link")]
+                [JsonPropertyName("pc_app_link")]
                 public string? PcAppLink { get; set; }
 
                 /// <summary>
@@ -679,7 +678,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// </summary>
-                [JsonProperty("mobile_app_link")]
+                [JsonPropertyName("mobile_app_link")]
                 public string? MobileAppLink { get; set; }
             }
         }
@@ -688,7 +687,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <para>跟随应用版本的信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("remark")]
+        [JsonPropertyName("remark")]
         public AppVersionRemark? Remark { get; set; }
 
         /// <summary>
@@ -701,7 +700,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：否</para>
             /// <para>示例值：备注说明</para>
             /// </summary>
-            [JsonProperty("remark")]
+            [JsonPropertyName("remark")]
             public string? Remark { get; set; }
 
             /// <summary>
@@ -709,14 +708,14 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：否</para>
             /// <para>示例值：更新说明</para>
             /// </summary>
-            [JsonProperty("update_remark")]
+            [JsonPropertyName("update_remark")]
             public string? UpdateRemark { get; set; }
 
             /// <summary>
             /// <para>应用当前版本开发者编辑的可见性建议，若开发者未编辑可见性建议，则该字段无内容</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("visibility")]
+            [JsonPropertyName("visibility")]
             public AppVisibility? Visibility { get; set; }
 
             /// <summary>
@@ -729,14 +728,14 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
-                [JsonProperty("is_all")]
+                [JsonPropertyName("is_all")]
                 public bool? IsAll { get; set; }
 
                 /// <summary>
                 /// <para>可见名单</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("visible_list")]
+                [JsonPropertyName("visible_list")]
                 public AppVisibleList? VisibleList { get; set; }
 
                 /// <summary>
@@ -748,21 +747,21 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <para>可见性成员 open_id 列表</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("open_ids")]
+                    [JsonPropertyName("open_ids")]
                     public string[]? OpenIds { get; set; }
 
                     /// <summary>
                     /// <para>可见性部门的 id 列表</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("department_ids")]
+                    [JsonPropertyName("department_ids")]
                     public string[]? DepartmentIds { get; set; }
 
                     /// <summary>
                     /// <para>可见性成员 group_id 列表</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("group_ids")]
+                    [JsonPropertyName("group_ids")]
                     public string[]? GroupIds { get; set; }
                 }
 
@@ -770,7 +769,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>不可见名单</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("invisible_list")]
+                [JsonPropertyName("invisible_list")]
                 public AppVisibleList? InvisibleList { get; set; }
             }
         }

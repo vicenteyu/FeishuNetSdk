@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取协作者列表 请求体
@@ -15,13 +14,13 @@ public record PostDrivePermissionMemberListBodyDto
     /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("token")]
+    [JsonPropertyName("token")]
     public string Token { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>文档类型，可选 **doc、docx、sheet、bitable、file、minutes**</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string Type { get; set; } = string.Empty;
 }

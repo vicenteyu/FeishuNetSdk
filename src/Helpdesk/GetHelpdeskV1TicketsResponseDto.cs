@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 查询全部工单详情 响应体
@@ -14,14 +13,14 @@ public record GetHelpdeskV1TicketsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：100</para>
     /// </summary>
-    [JsonProperty("total")]
+    [JsonPropertyName("total")]
     public int? Total { get; set; }
 
     /// <summary>
     /// <para>工单</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("tickets")]
+    [JsonPropertyName("tickets")]
     public Ticket[]? Tickets { get; set; }
 
     /// <summary>
@@ -36,7 +35,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6626871355780366331</para>
         /// </summary>
-        [JsonProperty("ticket_id")]
+        [JsonPropertyName("ticket_id")]
         public string TicketId { get; set; } = string.Empty;
 
         /// <summary>
@@ -44,14 +43,14 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6626871355780366330</para>
         /// </summary>
-        [JsonProperty("helpdesk_id")]
+        [JsonPropertyName("helpdesk_id")]
         public string? HelpdeskId { get; set; }
 
         /// <summary>
         /// <para>工单创建用户</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("guest")]
+        [JsonPropertyName("guest")]
         public TicketUser? Guest { get; set; }
 
         /// <summary>
@@ -64,7 +63,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ou_37019b7c830210acd88fdce886e25c71</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -72,7 +71,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://xxxx</para>
             /// </summary>
-            [JsonProperty("avatar_url")]
+            [JsonPropertyName("avatar_url")]
             public string? AvatarUrl { get; set; }
 
             /// <summary>
@@ -80,7 +79,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：abc</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -88,7 +87,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：xxxx@abc.com</para>
             /// </summary>
-            [JsonProperty("email")]
+            [JsonPropertyName("email")]
             public string? Email { get; set; }
 
             /// <summary>
@@ -96,7 +95,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：用户部门名称(有权限才展示)</para>
             /// </summary>
-            [JsonProperty("department")]
+            [JsonPropertyName("department")]
             public string? Department { get; set; }
 
             /// <summary>
@@ -104,7 +103,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：城市</para>
             /// </summary>
-            [JsonProperty("city")]
+            [JsonPropertyName("city")]
             public string? City { get; set; }
 
             /// <summary>
@@ -112,7 +111,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：国家</para>
             /// </summary>
-            [JsonProperty("country")]
+            [JsonPropertyName("country")]
             public string? Country { get; set; }
         }
 
@@ -120,7 +119,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>备注</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("comments")]
+        [JsonPropertyName("comments")]
         public TicketComments? Comments { get; set; }
 
         /// <summary>
@@ -133,7 +132,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：备注内容</para>
             /// </summary>
-            [JsonProperty("content")]
+            [JsonPropertyName("content")]
             public string? Content { get; set; }
 
             /// <summary>
@@ -141,7 +140,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1690970837624</para>
             /// </summary>
-            [JsonProperty("created_at")]
+            [JsonPropertyName("created_at")]
             public int? CreatedAt { get; set; }
 
             /// <summary>
@@ -149,7 +148,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：12</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public int? Id { get; set; }
 
             /// <summary>
@@ -157,7 +156,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：备注人头像</para>
             /// </summary>
-            [JsonProperty("user_avatar_url")]
+            [JsonPropertyName("user_avatar_url")]
             public string? UserAvatarUrl { get; set; }
 
             /// <summary>
@@ -165,7 +164,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：备注人姓名</para>
             /// </summary>
-            [JsonProperty("user_name")]
+            [JsonPropertyName("user_name")]
             public string? UserName { get; set; }
 
             /// <summary>
@@ -173,7 +172,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：7262656095919128578</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public int? UserId { get; set; }
         }
 
@@ -182,7 +181,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("ticket_type")]
+        [JsonPropertyName("ticket_type")]
         public int? TicketType { get; set; }
 
         /// <summary>
@@ -190,7 +189,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：50</para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public int? Status { get; set; }
 
         /// <summary>
@@ -198,7 +197,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("score")]
+        [JsonPropertyName("score")]
         public int? Score { get; set; }
 
         /// <summary>
@@ -206,7 +205,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1616920429000</para>
         /// </summary>
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public long? CreatedAt { get; set; }
 
         /// <summary>
@@ -214,7 +213,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1616920429000</para>
         /// </summary>
-        [JsonProperty("updated_at")]
+        [JsonPropertyName("updated_at")]
         public long? UpdatedAt { get; set; }
 
         /// <summary>
@@ -222,14 +221,14 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1616920429000</para>
         /// </summary>
-        [JsonProperty("closed_at")]
+        [JsonPropertyName("closed_at")]
         public long? ClosedAt { get; set; }
 
         /// <summary>
         /// <para>不满意原因</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("dissatisfaction_reason")]
+        [JsonPropertyName("dissatisfaction_reason")]
         public I18n? DissatisfactionReason { get; set; }
 
         /// <summary>
@@ -242,7 +241,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：答案看不懂</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -250,7 +249,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：Idon'tunderstand</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
 
             /// <summary>
@@ -258,7 +257,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：回答が複雑すぎる</para>
             /// </summary>
-            [JsonProperty("ja_jp")]
+            [JsonPropertyName("ja_jp")]
             public string? JaJp { get; set; }
         }
 
@@ -266,7 +265,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>工单客服</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("agents")]
+        [JsonPropertyName("agents")]
         public TicketUser[]? Agents { get; set; }
 
         /// <summary>
@@ -275,7 +274,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("channel")]
+        [JsonPropertyName("channel")]
         public int? Channel { get; set; }
 
         /// <summary>
@@ -283,21 +282,21 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("solve")]
+        [JsonPropertyName("solve")]
         public int? Solve { get; set; }
 
         /// <summary>
         /// <para>关单用户ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("closed_by")]
+        [JsonPropertyName("closed_by")]
         public TicketUser? ClosedBy { get; set; }
 
         /// <summary>
         /// <para>工单协作者</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("collaborators")]
+        [JsonPropertyName("collaborators")]
         public TicketUser[]? Collaborators { get; set; }
 
         /// <summary>
@@ -306,7 +305,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>[获取全部工单自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/list-ticket-customized-fields)</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("customized_fields")]
+        [JsonPropertyName("customized_fields")]
         public CustomizedFieldDisplayItem[]? CustomizedFields { get; set; }
 
         /// <summary>
@@ -321,7 +320,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：123</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -329,7 +328,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：value</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
 
             /// <summary>
@@ -337,7 +336,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：key</para>
             /// </summary>
-            [JsonProperty("key_name")]
+            [JsonPropertyName("key_name")]
             public string? KeyName { get; set; }
 
             /// <summary>
@@ -345,7 +344,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：displayname</para>
             /// </summary>
-            [JsonProperty("display_name")]
+            [JsonPropertyName("display_name")]
             public string? DisplayName { get; set; }
 
             /// <summary>
@@ -353,7 +352,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
-            [JsonProperty("position")]
+            [JsonPropertyName("position")]
             public int? Position { get; set; }
 
             /// <summary>
@@ -361,7 +360,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("required")]
+            [JsonPropertyName("required")]
             public bool? Required { get; set; }
 
             /// <summary>
@@ -369,7 +368,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("editable")]
+            [JsonPropertyName("editable")]
             public bool? Editable { get; set; }
         }
 
@@ -378,7 +377,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：42624.95</para>
         /// </summary>
-        [JsonProperty("agent_service_duration")]
+        [JsonPropertyName("agent_service_duration")]
         public float? AgentServiceDuration { get; set; }
 
         /// <summary>
@@ -386,7 +385,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：123869</para>
         /// </summary>
-        [JsonProperty("agent_first_response_duration")]
+        [JsonPropertyName("agent_first_response_duration")]
         public long? AgentFirstResponseDuration { get; set; }
 
         /// <summary>
@@ -394,7 +393,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("bot_service_duration")]
+        [JsonPropertyName("bot_service_duration")]
         public long? BotServiceDuration { get; set; }
 
         /// <summary>
@@ -402,7 +401,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：66</para>
         /// </summary>
-        [JsonProperty("agent_resolution_time")]
+        [JsonPropertyName("agent_resolution_time")]
         public long? AgentResolutionTime { get; set; }
 
         /// <summary>
@@ -410,7 +409,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：68</para>
         /// </summary>
-        [JsonProperty("actual_processing_time")]
+        [JsonPropertyName("actual_processing_time")]
         public long? ActualProcessingTime { get; set; }
 
         /// <summary>
@@ -418,7 +417,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1636444596000</para>
         /// </summary>
-        [JsonProperty("agent_entry_time")]
+        [JsonPropertyName("agent_entry_time")]
         public long? AgentEntryTime { get; set; }
 
         /// <summary>
@@ -426,7 +425,7 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1636444696000</para>
         /// </summary>
-        [JsonProperty("agent_first_response_time")]
+        [JsonPropertyName("agent_first_response_time")]
         public long? AgentFirstResponseTime { get; set; }
 
         /// <summary>
@@ -434,14 +433,14 @@ public record GetHelpdeskV1TicketsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1636444796000</para>
         /// </summary>
-        [JsonProperty("agent_last_response_time")]
+        [JsonPropertyName("agent_last_response_time")]
         public long? AgentLastResponseTime { get; set; }
 
         /// <summary>
         /// <para>主责客服</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("agent_owner")]
+        [JsonPropertyName("agent_owner")]
         public TicketUser? AgentOwner { get; set; }
     }
 }

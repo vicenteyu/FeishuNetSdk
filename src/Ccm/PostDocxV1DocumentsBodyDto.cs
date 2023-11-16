@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建文档 请求体
@@ -15,7 +14,7 @@ public record PostDocxV1DocumentsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：fldcnqquW1svRIYVT2Np6IuLCKd</para>
     /// </summary>
-    [JsonProperty("folder_token")]
+    [JsonPropertyName("folder_token")]
     public string? FolderToken { get; set; }
 
     /// <summary>
@@ -25,6 +24,6 @@ public record PostDocxV1DocumentsBodyDto
     /// <para>最大长度：800</para>
     /// <para>最小长度：1</para>
     /// </summary>
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string? Title { get; set; }
 }

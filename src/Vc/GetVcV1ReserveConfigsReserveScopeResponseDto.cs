@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 查询会议室预定限制 响应体
@@ -13,7 +12,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
     /// <para>预定审批设置</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("approve_config")]
+    [JsonPropertyName("approve_config")]
     public ApprovalConfig? ApproveConfig { get; set; }
 
     /// <summary>
@@ -31,7 +30,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("approval_switch")]
+        [JsonPropertyName("approval_switch")]
         public int? ApprovalSwitch { get; set; }
 
         /// <summary>
@@ -40,7 +39,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("approval_condition")]
+        [JsonPropertyName("approval_condition")]
         public int? ApprovalCondition { get; set; }
 
         /// <summary>
@@ -53,7 +52,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
-        [JsonProperty("meeting_duration")]
+        [JsonPropertyName("meeting_duration")]
         public float? MeetingDuration { get; set; }
 
         /// <summary>
@@ -61,7 +60,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]</para>
         /// </summary>
-        [JsonProperty("approvers")]
+        [JsonPropertyName("approvers")]
         public SubscribeUser[]? Approvers { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：ou_a27b0xxxc98f856</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string UserId { get; set; } = string.Empty;
         }
     }
@@ -83,7 +82,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
     /// <para>预定时间设置</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("time_config")]
+    [JsonPropertyName("time_config")]
     public GetVcV1ReserveConfigsReserveScopeResponseDtoTimeConfig? TimeConfig { get; set; }
 
     /// <summary>
@@ -96,7 +95,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("time_switch")]
+        [JsonPropertyName("time_switch")]
         public int TimeSwitch { get; set; }
 
         /// <summary>
@@ -106,7 +105,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：30</para>
         /// </summary>
-        [JsonProperty("days_in_advance")]
+        [JsonPropertyName("days_in_advance")]
         public int? DaysInAdvance { get; set; }
 
         /// <summary>
@@ -120,7 +119,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：27900</para>
         /// </summary>
-        [JsonProperty("opening_hour")]
+        [JsonPropertyName("opening_hour")]
         public string? OpeningHour { get; set; }
 
         /// <summary>
@@ -135,7 +134,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("start_time")]
+        [JsonPropertyName("start_time")]
         public string? StartTime { get; set; }
 
         /// <summary>
@@ -151,7 +150,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：86400</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string? EndTime { get; set; }
 
         /// <summary>
@@ -160,7 +159,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：24</para>
         /// </summary>
-        [JsonProperty("max_duration")]
+        [JsonPropertyName("max_duration")]
         public int? MaxDuration { get; set; }
     }
 
@@ -168,7 +167,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
     /// <para>预定范围设置</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("reserve_scope_config")]
+    [JsonPropertyName("reserve_scope_config")]
     public GetVcV1ReserveConfigsReserveScopeResponseDtoReserveScopeConfig? ReserveScopeConfig { get; set; }
 
     /// <summary>
@@ -184,7 +183,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("allow_all_users")]
+        [JsonPropertyName("allow_all_users")]
         public int? AllowAllUsers { get; set; }
 
         /// <summary>
@@ -192,7 +191,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]</para>
         /// </summary>
-        [JsonProperty("allow_users")]
+        [JsonPropertyName("allow_users")]
         public SubscribeUser[]? AllowUsers { get; set; }
 
         /// <summary>
@@ -205,7 +204,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：ou_a27bxxx8f856</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string UserId { get; set; } = string.Empty;
         }
 
@@ -214,7 +213,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]</para>
         /// </summary>
-        [JsonProperty("allow_depts")]
+        [JsonPropertyName("allow_depts")]
         public SubscribeDepartment[]? AllowDepts { get; set; }
 
         /// <summary>
@@ -227,7 +226,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：od-47d8b5xxxcc5f61a</para>
             /// </summary>
-            [JsonProperty("department_id")]
+            [JsonPropertyName("department_id")]
             public string DepartmentId { get; set; } = string.Empty;
         }
     }

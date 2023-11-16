@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 清空评论 响应体
@@ -13,13 +12,13 @@ public record PostApprovalV4InstancesByInstanceIdCommentsRemoveResponseDto
     /// <para>审批实例code</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("instance_id")]
+    [JsonPropertyName("instance_id")]
     public string? InstanceId { get; set; }
 
     /// <summary>
     /// <para>租户自定义审批实例ID</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("external_id")]
+    [JsonPropertyName("external_id")]
     public string? ExternalId { get; set; }
 }

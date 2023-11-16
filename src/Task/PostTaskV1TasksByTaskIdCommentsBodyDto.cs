@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 创建评论 请求体
@@ -16,7 +15,7 @@ public record PostTaskV1TasksByTaskIdCommentsBodyDto
     /// <para>示例值：举杯邀明月，对影成三人</para>
     /// <para>最大长度：65536</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string? Content { get; set; }
 
     /// <summary>
@@ -24,7 +23,7 @@ public record PostTaskV1TasksByTaskIdCommentsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6937231762296684564</para>
     /// </summary>
-    [JsonProperty("parent_id")]
+    [JsonPropertyName("parent_id")]
     public string? ParentId { get; set; }
 
     /// <summary>
@@ -32,7 +31,7 @@ public record PostTaskV1TasksByTaskIdCommentsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1657075055135</para>
     /// </summary>
-    [JsonProperty("create_milli_time")]
+    [JsonPropertyName("create_milli_time")]
     public string? CreateMilliTime { get; set; }
 
     /// <summary>
@@ -41,6 +40,6 @@ public record PostTaskV1TasksByTaskIdCommentsBodyDto
     /// <para>示例值：举杯邀明月，对影成三人&lt;atid=7058204817822318612&gt;&lt;/at&gt;</para>
     /// <para>最大长度：65536</para>
     /// </summary>
-    [JsonProperty("rich_content")]
+    [JsonPropertyName("rich_content")]
     public string? RichContent { get; set; }
 }

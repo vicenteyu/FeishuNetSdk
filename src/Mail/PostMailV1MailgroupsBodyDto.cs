@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 创建邮件组 请求体
@@ -14,7 +13,7 @@ public record PostMailV1MailgroupsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：test_mail_group@xxx.xx</para>
     /// </summary>
-    [JsonProperty("email")]
+    [JsonPropertyName("email")]
     public string? Email { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostMailV1MailgroupsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：testmailgroup</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostMailV1MailgroupsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：mailgroupfortesting</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
@@ -44,6 +43,6 @@ public record PostMailV1MailgroupsBodyDto
     /// <item>CUSTOM_MEMBERS：自定义成员</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("who_can_send_mail")]
+    [JsonPropertyName("who_can_send_mail")]
     public string? WhoCanSendMail { get; set; }
 }

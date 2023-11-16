@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.PersonalSettings;
 /// <summary>
 /// 批量开启系统状态 响应体
@@ -13,7 +12,7 @@ public record PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchOpenRespo
     /// <para>开启结果</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("result_list")]
+    [JsonPropertyName("result_list")]
     public SystemStatusUserOpenResultEntity[] ResultLists { get; set; } = Array.Empty<SystemStatusUserOpenResultEntity>();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchOpenRespo
         /// <para>必填：是</para>
         /// <para>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchOpenRespo
         /// <para>必填：是</para>
         /// <para>示例值：1665990378</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string EndTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -51,7 +50,7 @@ public record PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchOpenRespo
         /// <item>resign_user_id：用户离职</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("result")]
+        [JsonPropertyName("result")]
         public string? Result { get; set; }
     }
 }

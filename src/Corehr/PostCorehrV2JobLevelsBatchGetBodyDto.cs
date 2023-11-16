@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 通过职级 ID 批量获取职级信息 请求体
@@ -14,6 +13,6 @@ public record PostCorehrV2JobLevelsBatchGetBodyDto
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("job_level_ids")]
+    [JsonPropertyName("job_level_ids")]
     public string[] JobLevelIds { get; set; } = Array.Empty<string>();
 }

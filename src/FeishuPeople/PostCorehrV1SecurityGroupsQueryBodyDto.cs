@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 查询部门 / 地点的 HRBP / 属地 BP 请求体
@@ -13,7 +12,7 @@ public record PostCorehrV1SecurityGroupsQueryBodyDto
     /// <para>角色列表，一次最多支持查询 50 个</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("item_list")]
+    [JsonPropertyName("item_list")]
     public BpRoleOrganization[] ItemLists { get; set; } = Array.Empty<BpRoleOrganization>();
 
     /// <summary>
@@ -28,7 +27,7 @@ public record PostCorehrV1SecurityGroupsQueryBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：location_bp</para>
         /// </summary>
-        [JsonProperty("role_key")]
+        [JsonPropertyName("role_key")]
         public string RoleKey { get; set; } = string.Empty;
 
         /// <summary>
@@ -36,7 +35,7 @@ public record PostCorehrV1SecurityGroupsQueryBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：7063072995761456670</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string DepartmentId { get; set; } = string.Empty;
 
         /// <summary>
@@ -44,7 +43,7 @@ public record PostCorehrV1SecurityGroupsQueryBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6892687221355185677</para>
         /// </summary>
-        [JsonProperty("work_location_id")]
+        [JsonPropertyName("work_location_id")]
         public string? WorkLocationId { get; set; }
     }
 }

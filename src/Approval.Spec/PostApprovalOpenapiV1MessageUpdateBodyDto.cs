@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 更新审批 Bot 消息 请求体
@@ -14,7 +13,7 @@ public record PostApprovalOpenapiV1MessageUpdateBodyDto
     /// <para>卡片 id，发送卡片时会拿到</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("message_id")]
+    [JsonPropertyName("message_id")]
     public string MessageId { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,27 +29,27 @@ public record PostApprovalOpenapiV1MessageUpdateBodyDto
     /// <para>CUSTOM:自定义按钮状态</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string Status { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>status=CUSTOM时可以自定义审批同意/拒绝后title状态</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("status_name")]
+    [JsonPropertyName("status_name")]
     public string? StatusName { get; set; }
 
     /// <summary>
     /// <para>status=CUSTOM时可以自定义审批同意/拒绝后“查看详情按钮名称”</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("detail_action_name")]
+    [JsonPropertyName("detail_action_name")]
     public string? DetailActionName { get; set; }
 
     /// <summary>
     /// <para>i18n国际化文案</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("i18n_resources")]
+    [JsonPropertyName("i18n_resources")]
     public string? I18nResources { get; set; }
 }

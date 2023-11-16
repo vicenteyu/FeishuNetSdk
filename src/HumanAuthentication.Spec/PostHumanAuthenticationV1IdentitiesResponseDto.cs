@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.HumanAuthentication.Spec;
 /// <summary>
 /// 录入身份信息 响应体
@@ -13,6 +12,6 @@ public record PostHumanAuthenticationV1IdentitiesResponseDto
     /// <para>用户绑定实名身份的uid</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("verify_uid")]
+    [JsonPropertyName("verify_uid")]
     public string? VerifyUid { get; set; }
 }

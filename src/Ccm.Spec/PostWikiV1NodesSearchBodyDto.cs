@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 搜索 Wiki 请求体
@@ -14,20 +13,20 @@ public record PostWikiV1NodesSearchBodyDto
     /// <para>搜索关键词</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("query")]
+    [JsonPropertyName("query")]
     public string Query { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>文档所属的知识空间ID，为空搜索全部知识空间</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("space_id")]
+    [JsonPropertyName("space_id")]
     public string? SpaceId { get; set; }
 
     /// <summary>
     /// <para>不为空搜索该节点及其所有子节点，为空搜索所有 wiki（使用 node_id 过滤必须传入 space_id）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("node_id")]
+    [JsonPropertyName("node_id")]
     public string? NodeId { get; set; }
 }

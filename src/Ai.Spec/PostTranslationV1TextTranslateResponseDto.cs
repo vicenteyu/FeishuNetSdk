@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai.Spec;
 /// <summary>
 /// 翻译文本 响应体
@@ -29,6 +28,6 @@ public record PostTranslationV1TextTranslateResponseDto
     /// <para>翻译后的文本</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("text")]
+    [JsonPropertyName("text")]
     public string? Text { get; set; }
 }

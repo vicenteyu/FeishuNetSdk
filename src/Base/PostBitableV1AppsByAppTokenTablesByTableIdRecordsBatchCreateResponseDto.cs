@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增多条记录 响应体
@@ -13,7 +12,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateRespon
     /// <para>本次请求新增的记录列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("records")]
+    [JsonPropertyName("records")]
     public AppTableRecord[]? Records { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateRespon
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>
-        [JsonProperty("record_id")]
+        [JsonPropertyName("record_id")]
         public string? RecordId { get; set; }
 
         /// <summary>
         /// <para>该记录的创建人</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("created_by")]
+        [JsonPropertyName("created_by")]
         public Person? CreatedBy { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateRespon
             /// <para>必填：否</para>
             /// <para>示例值：testesttest</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateRespon
             /// <para>必填：否</para>
             /// <para>示例值：黄泡泡</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -62,7 +61,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateRespon
             /// <para>必填：否</para>
             /// <para>示例值：PaopaoHuang</para>
             /// </summary>
-            [JsonProperty("en_name")]
+            [JsonPropertyName("en_name")]
             public string? EnName { get; set; }
 
             /// <summary>
@@ -70,7 +69,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateRespon
             /// <para>必填：否</para>
             /// <para>示例值：huangpaopao@feishu.cn</para>
             /// </summary>
-            [JsonProperty("email")]
+            [JsonPropertyName("email")]
             public string? Email { get; set; }
 
             /// <summary>
@@ -78,7 +77,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateRespon
             /// <para>必填：否</para>
             /// <para>示例值：https://example.com/avatar</para>
             /// </summary>
-            [JsonProperty("avatar_url")]
+            [JsonPropertyName("avatar_url")]
             public string? AvatarUrl { get; set; }
         }
 
@@ -87,14 +86,14 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateRespon
         /// <para>必填：否</para>
         /// <para>示例值：1610281603</para>
         /// </summary>
-        [JsonProperty("created_time")]
+        [JsonPropertyName("created_time")]
         public long? CreatedTime { get; set; }
 
         /// <summary>
         /// <para>该记录最新一次更新的修改人</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("last_modified_by")]
+        [JsonPropertyName("last_modified_by")]
         public Person? LastModifiedBy { get; set; }
 
         /// <summary>
@@ -102,7 +101,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateRespon
         /// <para>必填：否</para>
         /// <para>示例值：1610281603</para>
         /// </summary>
-        [JsonProperty("last_modified_time")]
+        [JsonPropertyName("last_modified_time")]
         public long? LastModifiedTime { get; set; }
 
         /// <summary>
@@ -112,7 +111,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateRespon
         /// <para>必填：是</para>
         /// <para>示例值：\-</para>
         /// </summary>
-        [JsonProperty("fields")]
+        [JsonPropertyName("fields")]
         public object Fields { get; set; } = new();
     }
 }

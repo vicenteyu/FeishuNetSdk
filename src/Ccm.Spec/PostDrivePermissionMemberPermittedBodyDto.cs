@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 判断协作者是否有某权限 请求体
@@ -13,20 +12,20 @@ public record PostDrivePermissionMemberPermittedBodyDto
     /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("token")]
+    [JsonPropertyName("token")]
     public string Token { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>文档类型，可选 **doc、docx、sheet、bitable、file**</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string Type { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>权限，"view" or "edit" or "share"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("perm")]
+    [JsonPropertyName("perm")]
     public string Perm { get; set; } = string.Empty;
 }

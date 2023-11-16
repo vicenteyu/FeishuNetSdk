@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 更新筛选 请求体
@@ -14,14 +13,14 @@ public record PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBody
     /// <para>**示例值**："E"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("col")]
+    [JsonPropertyName("col")]
     public string Col { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>筛选条件</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("condition")]
+    [JsonPropertyName("condition")]
     public ConditionSuffix Condition { get; set; } = new();
 
     /// <summary></summary>
@@ -32,7 +31,7 @@ public record PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBody
         /// <para>**示例值**："number"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("filter_type")]
+        [JsonPropertyName("filter_type")]
         public string FilterType { get; set; } = string.Empty;
 
         /// <summary>
@@ -40,7 +39,7 @@ public record PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBody
         /// <para>**示例值**："less"</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("compare_type")]
+        [JsonPropertyName("compare_type")]
         public string? CompareType { get; set; }
 
         /// <summary>
@@ -48,7 +47,7 @@ public record PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBody
         /// <para>**示例值**：6</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("expected")]
+        [JsonPropertyName("expected")]
         public string[] Expected { get; set; } = Array.Empty<string>();
     }
 }

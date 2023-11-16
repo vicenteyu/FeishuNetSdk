@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 查询员工 HRBP / 属地 BP 请求体
@@ -14,7 +13,7 @@ public record PostCorehrV2EmployeesBpsBatchGetBodyDto
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("employment_ids")]
+    [JsonPropertyName("employment_ids")]
     public string[] EmploymentIds { get; set; } = Array.Empty<string>();
 
     /// <summary>
@@ -23,6 +22,6 @@ public record PostCorehrV2EmployeesBpsBatchGetBodyDto
     /// <para>示例值：true</para>
     /// <para>默认值：false</para>
     /// </summary>
-    [JsonProperty("get_all")]
+    [JsonPropertyName("get_all")]
     public bool? GetAll { get; set; }
 }

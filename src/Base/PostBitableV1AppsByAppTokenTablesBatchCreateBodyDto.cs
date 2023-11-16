@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增多个数据表 请求体
@@ -13,7 +12,7 @@ public record PostBitableV1AppsByAppTokenTablesBatchCreateBodyDto
     /// <para>tables</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("tables")]
+    [JsonPropertyName("tables")]
     public ReqTable[]? Tables { get; set; }
 
     /// <summary>
@@ -29,7 +28,7 @@ public record PostBitableV1AppsByAppTokenTablesBatchCreateBodyDto
         /// <para>示例值：table1</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
     }
 }

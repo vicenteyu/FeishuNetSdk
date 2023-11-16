@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 创建部门 请求体
@@ -13,7 +12,7 @@ public record PostCorehrV1DepartmentsBodyDto
     /// <para>子类型</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("sub_type")]
+    [JsonPropertyName("sub_type")]
     public Enum? SubType { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostCorehrV1DepartmentsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：type_1</para>
         /// </summary>
-        [JsonProperty("enum_name")]
+        [JsonPropertyName("enum_name")]
         public string EnumName { get; set; } = string.Empty;
     }
 
@@ -35,7 +34,7 @@ public record PostCorehrV1DepartmentsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6893013238632416776</para>
     /// </summary>
-    [JsonProperty("manager")]
+    [JsonPropertyName("manager")]
     public string? Manager { get; set; }
 
     /// <summary>
@@ -43,14 +42,14 @@ public record PostCorehrV1DepartmentsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("is_confidential")]
+    [JsonPropertyName("is_confidential")]
     public bool IsConfidential { get; set; }
 
     /// <summary>
     /// <para>层级关系，内层字段见实体</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("hiberarchy_common")]
+    [JsonPropertyName("hiberarchy_common")]
     public PostCorehrV1DepartmentsBodyDtoHiberarchyCommon HiberarchyCommon { get; set; } = new();
 
     /// <summary>
@@ -63,14 +62,14 @@ public record PostCorehrV1DepartmentsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：4719168654814483759</para>
         /// </summary>
-        [JsonProperty("parent_id")]
+        [JsonPropertyName("parent_id")]
         public string? ParentId { get; set; }
 
         /// <summary>
         /// <para>名称</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n[] Names { get; set; } = Array.Empty<I18n>();
 
         /// <summary>
@@ -83,7 +82,7 @@ public record PostCorehrV1DepartmentsBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -91,7 +90,7 @@ public record PostCorehrV1DepartmentsBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -99,7 +98,7 @@ public record PostCorehrV1DepartmentsBodyDto
         /// <para>组织类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)组织类型（organization_type）枚举定义部分获得</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public Enum Type { get; set; } = new();
 
         /// <summary>
@@ -112,7 +111,7 @@ public record PostCorehrV1DepartmentsBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：type_1</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
 
@@ -121,7 +120,7 @@ public record PostCorehrV1DepartmentsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("active")]
+        [JsonPropertyName("active")]
         public bool Active { get; set; }
 
         /// <summary>
@@ -129,7 +128,7 @@ public record PostCorehrV1DepartmentsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2020-05-0200:00:00</para>
         /// </summary>
-        [JsonProperty("expiration_time")]
+        [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }
 
         /// <summary>
@@ -137,21 +136,21 @@ public record PostCorehrV1DepartmentsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：12456</para>
         /// </summary>
-        [JsonProperty("code")]
+        [JsonPropertyName("code")]
         public string? Code { get; set; }
 
         /// <summary>
         /// <para>描述</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public I18n[]? Descriptions { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -164,7 +163,7 @@ public record PostCorehrV1DepartmentsBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("field_name")]
+            [JsonPropertyName("field_name")]
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
@@ -172,7 +171,7 @@ public record PostCorehrV1DepartmentsBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：\"Sandy\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }
@@ -182,7 +181,7 @@ public record PostCorehrV1DepartmentsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：2020-05-0100:00:00</para>
     /// </summary>
-    [JsonProperty("effective_time")]
+    [JsonPropertyName("effective_time")]
     public string EffectiveTime { get; set; } = string.Empty;
 
     /// <summary>
@@ -190,14 +189,14 @@ public record PostCorehrV1DepartmentsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2020-05-0200:00:00</para>
     /// </summary>
-    [JsonProperty("expiration_time")]
+    [JsonPropertyName("expiration_time")]
     public string? ExpirationTime { get; set; }
 
     /// <summary>
     /// <para>自定义字段</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("custom_fields")]
+    [JsonPropertyName("custom_fields")]
     public ObjectFieldData[]? CustomFields { get; set; }
 
     /// <summary>
@@ -210,7 +209,7 @@ public record PostCorehrV1DepartmentsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：name</para>
         /// </summary>
-        [JsonProperty("field_name")]
+        [JsonPropertyName("field_name")]
         public string FieldName { get; set; } = string.Empty;
 
         /// <summary>
@@ -218,7 +217,7 @@ public record PostCorehrV1DepartmentsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：\"Sandy\"</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
     }
 
@@ -227,6 +226,6 @@ public record PostCorehrV1DepartmentsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：7142384817131652652</para>
     /// </summary>
-    [JsonProperty("cost_center_id")]
+    [JsonPropertyName("cost_center_id")]
     public string? CostCenterId { get; set; }
 }

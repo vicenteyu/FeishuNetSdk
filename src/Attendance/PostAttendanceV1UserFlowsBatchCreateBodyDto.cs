@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 导入打卡流水 请求体
@@ -13,7 +12,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
     /// <para>打卡流水记录列表(数量限制50)</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("flow_records")]
+    [JsonPropertyName("flow_records")]
     public UserFlow[] FlowRecords { get; set; } = Array.Empty<UserFlow>();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
-        [JsonProperty("creator_id")]
+        [JsonPropertyName("creator_id")]
         public string CreatorId { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：西溪八方城</para>
         /// </summary>
-        [JsonProperty("location_name")]
+        [JsonPropertyName("location_name")]
         public string LocationName { get; set; } = string.Empty;
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：1611476284</para>
         /// </summary>
-        [JsonProperty("check_time")]
+        [JsonPropertyName("check_time")]
         public string CheckTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：上班打卡</para>
         /// </summary>
-        [JsonProperty("comment")]
+        [JsonPropertyName("comment")]
         public string Comment { get; set; } = string.Empty;
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6709359313699356941</para>
         /// </summary>
-        [JsonProperty("record_id")]
+        [JsonPropertyName("record_id")]
         public string? RecordId { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：b0:b8:67:5c:1d:72</para>
         /// </summary>
-        [JsonProperty("ssid")]
+        [JsonPropertyName("ssid")]
         public string? Ssid { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：b0:b8:67:5c:1d:72</para>
         /// </summary>
-        [JsonProperty("bssid")]
+        [JsonPropertyName("bssid")]
         public string? Bssid { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_field")]
+        [JsonPropertyName("is_field")]
         public bool? IsField { get; set; }
 
         /// <summary>
@@ -98,7 +97,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_wifi")]
+        [JsonPropertyName("is_wifi")]
         public bool? IsWifi { get; set; }
 
         /// <summary>
@@ -116,7 +115,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         /// <item>7：考勤开放平台导入</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public int? Type { get; set; }
 
         /// <summary>
@@ -124,7 +123,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：https://time.clockin.biz/manage/download/6840389754748502021</para>
         /// </summary>
-        [JsonProperty("photo_urls")]
+        [JsonPropertyName("photo_urls")]
         public string[]? PhotoUrls { get; set; }
 
         /// <summary>
@@ -144,7 +143,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         /// <item>Todo：尚未打卡</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("check_result")]
+        [JsonPropertyName("check_result")]
         public string? CheckResult { get; set; }
     }
 }

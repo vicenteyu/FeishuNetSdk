@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 移动云空间文档至知识空间 响应体
@@ -14,7 +13,7 @@ public record PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：wikbcLZuhp4r9QuJumHzVabcdef</para>
     /// </summary>
-    [JsonProperty("wiki_token")]
+    [JsonPropertyName("wiki_token")]
     public string? WikiToken { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7</para>
     /// </summary>
-    [JsonProperty("task_id")]
+    [JsonPropertyName("task_id")]
     public string? TaskId { get; set; }
 
     /// <summary>
@@ -30,6 +29,6 @@ public record PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("applied")]
+    [JsonPropertyName("applied")]
     public bool? Applied { get; set; }
 }

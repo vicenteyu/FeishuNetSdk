@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 获取客服邮箱 响应体
@@ -14,6 +13,6 @@ public record GetHelpdeskV1AgentEmailsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：{\"ou_xxx\":\"xxx\",\"ou_yyy\":\"yyy\"}</para>
     /// </summary>
-    [JsonProperty("agents")]
+    [JsonPropertyName("agents")]
     public string? Agents { get; set; }
 }

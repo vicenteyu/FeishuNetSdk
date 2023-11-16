@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询统计设置 响应体
@@ -13,7 +12,7 @@ public record PostAttendanceV1UserStatsViewsQueryResponseDto
     /// <para>统计视图</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("view")]
+    [JsonPropertyName("view")]
     public UserStatsView? View { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostAttendanceV1UserStatsViewsQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值："TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09"</para>
         /// </summary>
-        [JsonProperty("view_id")]
+        [JsonPropertyName("view_id")]
         public string ViewId { get; set; } = string.Empty;
 
         /// <summary>
@@ -38,7 +37,7 @@ public record PostAttendanceV1UserStatsViewsQueryResponseDto
         /// <item>month：月度统计</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("stats_type")]
+        [JsonPropertyName("stats_type")]
         public string StatsType { get; set; } = string.Empty;
 
         /// <summary>
@@ -46,14 +45,14 @@ public record PostAttendanceV1UserStatsViewsQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值："ec8ddg56"</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>用户设置字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("items")]
+        [JsonPropertyName("items")]
         public Item[]? Items { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostAttendanceV1UserStatsViewsQueryResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：501</para>
             /// </summary>
-            [JsonProperty("code")]
+            [JsonPropertyName("code")]
             public string Code { get; set; } = string.Empty;
 
             /// <summary>
@@ -74,14 +73,14 @@ public record PostAttendanceV1UserStatsViewsQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：基本信息</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public string? Title { get; set; }
 
             /// <summary>
             /// <para>子标题</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("child_items")]
+            [JsonPropertyName("child_items")]
             public ChildItem[]? ChildItems { get; set; }
 
             /// <summary>
@@ -94,7 +93,7 @@ public record PostAttendanceV1UserStatsViewsQueryResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：501</para>
                 /// </summary>
-                [JsonProperty("code")]
+                [JsonPropertyName("code")]
                 public string Code { get; set; } = string.Empty;
 
                 /// <summary>
@@ -102,7 +101,7 @@ public record PostAttendanceV1UserStatsViewsQueryResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：0</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
 
                 /// <summary>
@@ -110,7 +109,7 @@ public record PostAttendanceV1UserStatsViewsQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：工号</para>
                 /// </summary>
-                [JsonProperty("title")]
+                [JsonPropertyName("title")]
                 public string? Title { get; set; }
 
                 /// <summary>
@@ -118,7 +117,7 @@ public record PostAttendanceV1UserStatsViewsQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：0</para>
                 /// </summary>
-                [JsonProperty("column_type")]
+                [JsonPropertyName("column_type")]
                 public int? ColumnType { get; set; }
 
                 /// <summary>
@@ -126,7 +125,7 @@ public record PostAttendanceV1UserStatsViewsQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>
-                [JsonProperty("read_only")]
+                [JsonPropertyName("read_only")]
                 public bool? ReadOnly { get; set; }
 
                 /// <summary>
@@ -134,7 +133,7 @@ public record PostAttendanceV1UserStatsViewsQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：""</para>
                 /// </summary>
-                [JsonProperty("min_value")]
+                [JsonPropertyName("min_value")]
                 public string? MinValue { get; set; }
 
                 /// <summary>
@@ -142,7 +141,7 @@ public record PostAttendanceV1UserStatsViewsQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：""</para>
                 /// </summary>
-                [JsonProperty("max_value")]
+                [JsonPropertyName("max_value")]
                 public string? MaxValue { get; set; }
             }
         }

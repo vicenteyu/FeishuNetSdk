@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建外部面试 请求体
@@ -14,7 +13,7 @@ public record PostHireV1ExternalInterviewsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：123</para>
     /// </summary>
-    [JsonProperty("external_id")]
+    [JsonPropertyName("external_id")]
     public string? ExternalId { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostHireV1ExternalInterviewsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6960663240925956437</para>
     /// </summary>
-    [JsonProperty("external_application_id")]
+    [JsonPropertyName("external_application_id")]
     public string ExternalApplicationId { get; set; } = string.Empty;
 
     /// <summary>
@@ -35,7 +34,7 @@ public record PostHireV1ExternalInterviewsBodyDto
     /// <item>3：爽约</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("participate_status")]
+    [JsonPropertyName("participate_status")]
     public int? ParticipateStatus { get; set; }
 
     /// <summary>
@@ -43,7 +42,7 @@ public record PostHireV1ExternalInterviewsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1618500278638</para>
     /// </summary>
-    [JsonProperty("begin_time")]
+    [JsonPropertyName("begin_time")]
     public int? BeginTime { get; set; }
 
     /// <summary>
@@ -51,6 +50,6 @@ public record PostHireV1ExternalInterviewsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1618500278639</para>
     /// </summary>
-    [JsonProperty("end_time")]
+    [JsonPropertyName("end_time")]
     public int? EndTime { get; set; }
 }

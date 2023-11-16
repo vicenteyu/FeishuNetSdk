@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新表单元数据 请求体
@@ -14,7 +13,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：表单</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：表单描述</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("shared")]
+    [JsonPropertyName("shared")]
     public bool? Shared { get; set; }
 
     /// <summary>
@@ -43,7 +42,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdBodyDto
     /// <item>anyone_editable：互联网上获得链接的人可填写</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("shared_limit")]
+    [JsonPropertyName("shared_limit")]
     public string? SharedLimit { get; set; }
 
     /// <summary>
@@ -51,6 +50,6 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("submit_limit_once")]
+    [JsonPropertyName("submit_limit_once")]
     public bool? SubmitLimitOnce { get; set; }
 }

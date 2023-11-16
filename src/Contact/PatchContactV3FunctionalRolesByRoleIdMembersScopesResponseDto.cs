@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 批量设置角色成员管理范围 响应体
@@ -13,7 +12,7 @@ public record PatchContactV3FunctionalRolesByRoleIdMembersScopesResponseDto
     /// <para>批量更新角色成员管理范围结果集</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("results")]
+    [JsonPropertyName("results")]
     public FunctionalRoleMemberResult[]? Results { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PatchContactV3FunctionalRolesByRoleIdMembersScopesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -43,7 +42,7 @@ public record PatchContactV3FunctionalRolesByRoleIdMembersScopesResponseDto
         /// </list></para>
         /// <para>默认值：1</para>
         /// </summary>
-        [JsonProperty("reason")]
+        [JsonPropertyName("reason")]
         public int Reason { get; set; }
     }
 }

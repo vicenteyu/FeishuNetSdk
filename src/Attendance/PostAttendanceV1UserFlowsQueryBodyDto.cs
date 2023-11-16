@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 批量查询打卡流水 请求体
@@ -14,7 +13,7 @@ public record PostAttendanceV1UserFlowsQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：["abd754f7"]</para>
     /// </summary>
-    [JsonProperty("user_ids")]
+    [JsonPropertyName("user_ids")]
     public string[] UserIds { get; set; } = Array.Empty<string>();
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostAttendanceV1UserFlowsQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1566641088</para>
     /// </summary>
-    [JsonProperty("check_time_from")]
+    [JsonPropertyName("check_time_from")]
     public string CheckTimeFrom { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,6 +29,6 @@ public record PostAttendanceV1UserFlowsQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1566641088</para>
     /// </summary>
-    [JsonProperty("check_time_to")]
+    [JsonPropertyName("check_time_to")]
     public string CheckTimeTo { get; set; } = string.Empty;
 }

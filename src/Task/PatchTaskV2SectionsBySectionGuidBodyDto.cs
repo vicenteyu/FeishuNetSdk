@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 更新自定义分组 请求体
@@ -19,7 +18,7 @@ public record PatchTaskV2SectionsBySectionGuidBodyDto
     /// <para>要更新的自定义分组的数据。</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("section")]
+    [JsonPropertyName("section")]
     public InputSection Section { get; set; } = new();
 
     /// <summary>
@@ -32,7 +31,7 @@ public record PatchTaskV2SectionsBySectionGuidBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：已经审核过的任务</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -41,7 +40,7 @@ public record PatchTaskV2SectionsBySectionGuidBodyDto
         /// <para>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("insert_before")]
+        [JsonPropertyName("insert_before")]
         public string? InsertBefore { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PatchTaskV2SectionsBySectionGuidBodyDto
         /// <para>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("insert_after")]
+        [JsonPropertyName("insert_after")]
         public string? InsertAfter { get; set; }
     }
 
@@ -62,6 +61,6 @@ public record PatchTaskV2SectionsBySectionGuidBodyDto
     /// <para>必填：是</para>
     /// <para>最大长度：10</para>
     /// </summary>
-    [JsonProperty("update_fields")]
+    [JsonPropertyName("update_fields")]
     public string[] UpdateFields { get; set; } = Array.Empty<string>();
 }

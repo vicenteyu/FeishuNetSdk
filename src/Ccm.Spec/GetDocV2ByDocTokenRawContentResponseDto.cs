@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取旧版文档纯文本内容 响应体
@@ -14,6 +13,6 @@ public record GetDocV2ByDocTokenRawContentResponseDto
     /// <para>文本内容</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
 }

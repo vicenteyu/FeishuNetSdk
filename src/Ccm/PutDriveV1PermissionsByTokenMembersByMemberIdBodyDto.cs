@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 更新协作者权限 请求体
@@ -21,7 +20,7 @@ public record PutDriveV1PermissionsByTokenMembersByMemberIdBodyDto
     /// <item>userid：用户自定义ID</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("member_type")]
+    [JsonPropertyName("member_type")]
     public string MemberType { get; set; } = string.Empty;
 
     /// <summary>
@@ -35,6 +34,6 @@ public record PutDriveV1PermissionsByTokenMembersByMemberIdBodyDto
     /// <item>full_access：可管理角色</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("perm")]
+    [JsonPropertyName("perm")]
     public string Perm { get; set; } = string.Empty;
 }

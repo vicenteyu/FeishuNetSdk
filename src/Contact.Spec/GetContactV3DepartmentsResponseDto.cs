@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 获取部门信息列表 响应体
@@ -13,20 +12,20 @@ public record GetContactV3DepartmentsResponseDto
     /// <para>是否还有更多项</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Department[]? Items { get; set; }
 
     /// <summary></summary>
@@ -42,7 +41,7 @@ public record GetContactV3DepartmentsResponseDto
         /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -55,7 +54,7 @@ public record GetContactV3DepartmentsResponseDto
         /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("i18n_name")]
+        [JsonPropertyName("i18n_name")]
         public DepartmentI18nName? I18nName { get; set; }
 
         /// <summary></summary>
@@ -65,21 +64,21 @@ public record GetContactV3DepartmentsResponseDto
             /// <para>部门的中文名</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
             /// <para>部门的日文名</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("ja_jp")]
+            [JsonPropertyName("ja_jp")]
             public string? JaJp { get; set; }
 
             /// <summary>
             /// <para>部门的英文名</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
 
@@ -93,7 +92,7 @@ public record GetContactV3DepartmentsResponseDto
         /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("parent_department_id")]
+        [JsonPropertyName("parent_department_id")]
         public string? ParentDepartmentId { get; set; }
 
         /// <summary>
@@ -106,14 +105,14 @@ public record GetContactV3DepartmentsResponseDto
         /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
         /// <para>部门的open_id，类型与通过请求的查询参数传入的department_id_type相同</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("open_department_id")]
+        [JsonPropertyName("open_department_id")]
         public string? OpenDepartmentId { get; set; }
 
         /// <summary>
@@ -125,7 +124,7 @@ public record GetContactV3DepartmentsResponseDto
         /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("leader_user_id")]
+        [JsonPropertyName("leader_user_id")]
         public string? LeaderUserId { get; set; }
 
         /// <summary>
@@ -137,7 +136,7 @@ public record GetContactV3DepartmentsResponseDto
         /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("chat_id")]
+        [JsonPropertyName("chat_id")]
         public string? ChatId { get; set; }
 
         /// <summary>
@@ -149,7 +148,7 @@ public record GetContactV3DepartmentsResponseDto
         /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("order")]
+        [JsonPropertyName("order")]
         public string? Order { get; set; }
 
         /// <summary>
@@ -161,7 +160,7 @@ public record GetContactV3DepartmentsResponseDto
         /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("unit_ids")]
+        [JsonPropertyName("unit_ids")]
         public string[]? UnitIds { get; set; }
 
         /// <summary>
@@ -173,7 +172,7 @@ public record GetContactV3DepartmentsResponseDto
         /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("member_count")]
+        [JsonPropertyName("member_count")]
         public int? MemberCount { get; set; }
 
         /// <summary>
@@ -185,7 +184,7 @@ public record GetContactV3DepartmentsResponseDto
         /// <para>&lt;md-perm name="contact:contact:access_as_app" desc="以应用身份访问通讯录" support_app_types="custom,isv" tags="history,offline"&gt;以应用身份访问通讯录&lt;/md-perm&gt;</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public DepartmentStatus? Status { get; set; }
 
         /// <summary></summary>
@@ -195,7 +194,7 @@ public record GetContactV3DepartmentsResponseDto
             /// <para>是否被删除</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("is_deleted")]
+            [JsonPropertyName("is_deleted")]
             public bool? IsDeleted { get; set; }
         }
 

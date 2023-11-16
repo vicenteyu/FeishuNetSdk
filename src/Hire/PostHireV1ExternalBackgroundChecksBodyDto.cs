@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建外部背调 请求体
@@ -14,7 +13,7 @@ public record PostHireV1ExternalBackgroundChecksBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：123</para>
     /// </summary>
-    [JsonProperty("external_id")]
+    [JsonPropertyName("external_id")]
     public string? ExternalId { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostHireV1ExternalBackgroundChecksBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1234111</para>
     /// </summary>
-    [JsonProperty("external_application_id")]
+    [JsonPropertyName("external_application_id")]
     public string ExternalApplicationId { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostHireV1ExternalBackgroundChecksBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1626602069393</para>
     /// </summary>
-    [JsonProperty("date")]
+    [JsonPropertyName("date")]
     public int? Date { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostHireV1ExternalBackgroundChecksBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：测试.pdf</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostHireV1ExternalBackgroundChecksBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("result")]
+    [JsonPropertyName("result")]
     public string? Result { get; set; }
 
     /// <summary>
@@ -54,6 +53,6 @@ public record PostHireV1ExternalBackgroundChecksBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6989181065243969836</para>
     /// </summary>
-    [JsonProperty("attachment_id_list")]
+    [JsonPropertyName("attachment_id_list")]
     public string[]? AttachmentIdList { get; set; }
 }

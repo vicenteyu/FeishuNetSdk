@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Acs.Spec;
 /// <summary>
 /// 获取单个用户信息 响应体
@@ -13,7 +12,7 @@ public record GetAcsV1UsersByUserIdResponseDto
     /// <para>门禁用户信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user")]
+    [JsonPropertyName("user")]
     public UserSuffix? User { get; set; }
 
     /// <summary></summary>
@@ -23,7 +22,7 @@ public record GetAcsV1UsersByUserIdResponseDto
         /// <para>用户特征</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("feature")]
+        [JsonPropertyName("feature")]
         public FeatureSuffix? Feature { get; set; }
 
         /// <summary></summary>
@@ -33,14 +32,14 @@ public record GetAcsV1UsersByUserIdResponseDto
             /// <para>卡号</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("card")]
+            [JsonPropertyName("card")]
             public int? Card { get; set; }
 
             /// <summary>
             /// <para>是否已上传人脸图片</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("face_uploaded")]
+            [JsonPropertyName("face_uploaded")]
             public bool? FaceUploaded { get; set; }
         }
 
@@ -48,7 +47,7 @@ public record GetAcsV1UsersByUserIdResponseDto
         /// <para>用户 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
     }
 }

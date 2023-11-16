@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 识别文件中的中国护照 响应体
@@ -13,7 +12,7 @@ public record PostDocumentAiV1ChinesePassportRecognizeResponseDto
     /// <para>中国护照信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("chinese_passport")]
+    [JsonPropertyName("chinese_passport")]
     public PostDocumentAiV1ChinesePassportRecognizeResponseDtoChinesePassport? ChinesePassport { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostDocumentAiV1ChinesePassportRecognizeResponseDto
         /// <para>识别出的实体类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("entities")]
+        [JsonPropertyName("entities")]
         public ChinesePassportEntity[]? Entities { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PostDocumentAiV1ChinesePassportRecognizeResponseDto
             /// <item>passport_number：护照号码</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record PostDocumentAiV1ChinesePassportRecognizeResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
     }

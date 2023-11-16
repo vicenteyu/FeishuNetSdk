@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Baike;
 /// <summary>
 /// 精准搜索词条 请求体
@@ -15,6 +14,6 @@ public record PostBaikeV1EntitiesMatchBodyDto
     /// <para>示例值：飞书词典</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("word")]
+    [JsonPropertyName("word")]
     public string Word { get; set; } = string.Empty;
 }

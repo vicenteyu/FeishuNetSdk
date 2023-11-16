@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 三方审批实例校验 请求体
@@ -14,7 +13,7 @@ public record PostApprovalOpenapiV3ExternalInstanceCheckBodyDto
     /// <para>实例信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("update_times")]
+    [JsonPropertyName("update_times")]
     public UpdateTimeSuffix[] UpdateTimes { get; set; } = Array.Empty<UpdateTimeSuffix>();
 
     /// <summary></summary>
@@ -24,21 +23,21 @@ public record PostApprovalOpenapiV3ExternalInstanceCheckBodyDto
         /// <para>审批实例 id</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("instance_id")]
+        [JsonPropertyName("instance_id")]
         public string InstanceId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>审批实例最近更新时间</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public long UpdateTime { get; set; }
 
         /// <summary>
         /// <para>任务信息</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("tasks")]
+        [JsonPropertyName("tasks")]
         public Task[] Tasks { get; set; } = Array.Empty<Task>();
 
         /// <summary></summary>
@@ -48,14 +47,14 @@ public record PostApprovalOpenapiV3ExternalInstanceCheckBodyDto
             /// <para>任务 id</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("task_id")]
+            [JsonPropertyName("task_id")]
             public string TaskId { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>任务最近更新时间</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("update_time")]
+            [JsonPropertyName("update_time")]
             public long UpdateTime { get; set; }
         }
     }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Workplace;
 /// <summary>
 /// 获取定制工作台访问数据 响应体
@@ -13,7 +12,7 @@ public record PostWorkplaceV1CustomWorkplaceAccessDataSearchResponseDto
     /// <para>定制工作台访问数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public CustomWorkplaceAccessData[]? Items { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record PostWorkplaceV1CustomWorkplaceAccessDataSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：tpl_645b003aaa40001435b2ddw</para>
         /// </summary>
-        [JsonProperty("custom_workplace_id")]
+        [JsonPropertyName("custom_workplace_id")]
         public string? CustomWorkplaceId { get; set; }
 
         /// <summary>
         /// <para>访问数据</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("access_data")]
+        [JsonPropertyName("access_data")]
         public CustomWorkplaceAccessDataAccessData? AccessData { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PostWorkplaceV1CustomWorkplaceAccessDataSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
-            [JsonProperty("pv")]
+            [JsonPropertyName("pv")]
             public int? Pv { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record PostWorkplaceV1CustomWorkplaceAccessDataSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：30</para>
             /// </summary>
-            [JsonProperty("uv")]
+            [JsonPropertyName("uv")]
             public int? Uv { get; set; }
         }
 
@@ -63,14 +62,14 @@ public record PostWorkplaceV1CustomWorkplaceAccessDataSearchResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2023-03-12</para>
         /// </summary>
-        [JsonProperty("date")]
+        [JsonPropertyName("date")]
         public string? Date { get; set; }
 
         /// <summary>
         /// <para>定制工作台多语言名字。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_workplace_name")]
+        [JsonPropertyName("custom_workplace_name")]
         public I18nName[]? CustomWorkplaceNames { get; set; }
 
         /// <summary>
@@ -83,7 +82,7 @@ public record PostWorkplaceV1CustomWorkplaceAccessDataSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：zh</para>
             /// </summary>
-            [JsonProperty("language")]
+            [JsonPropertyName("language")]
             public string? Language { get; set; }
 
             /// <summary>
@@ -91,7 +90,7 @@ public record PostWorkplaceV1CustomWorkplaceAccessDataSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：名字</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
         }
     }
@@ -102,7 +101,7 @@ public record PostWorkplaceV1CustomWorkplaceAccessDataSearchResponseDto
     /// <para>示例值：true</para>
     /// <para>默认值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -110,6 +109,6 @@ public record PostWorkplaceV1CustomWorkplaceAccessDataSearchResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：ddowkdkl9w2d</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

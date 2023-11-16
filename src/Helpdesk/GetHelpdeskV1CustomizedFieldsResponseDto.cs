@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 获取服务台自定义字段 响应体
@@ -13,7 +12,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
     /// <para>用户自定义字段</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_customized_fields")]
+    [JsonPropertyName("user_customized_fields")]
     public UserCustomizedField[]? UserCustomizedFields { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6746384425543548981</para>
         /// </summary>
-        [JsonProperty("user_customized_field_id")]
+        [JsonPropertyName("user_customized_field_id")]
         public string? UserCustomizedFieldId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6746384425543548981</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1542164574896126</para>
         /// </summary>
-        [JsonProperty("helpdesk_id")]
+        [JsonPropertyName("helpdesk_id")]
         public string? HelpdeskId { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：company_id3</para>
         /// </summary>
-        [JsonProperty("key_name")]
+        [JsonPropertyName("key_name")]
         public string? KeyName { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：CompanyID</para>
         /// </summary>
-        [JsonProperty("display_name")]
+        [JsonPropertyName("display_name")]
         public string? DisplayName { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("position")]
+        [JsonPropertyName("position")]
         public string? Position { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：string</para>
         /// </summary>
-        [JsonProperty("field_type")]
+        [JsonPropertyName("field_type")]
         public string? FieldType { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：租户ID</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("visible")]
+        [JsonPropertyName("visible")]
         public bool? Visible { get; set; }
 
         /// <summary>
@@ -98,7 +97,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("editable")]
+        [JsonPropertyName("editable")]
         public bool? Editable { get; set; }
 
         /// <summary>
@@ -106,7 +105,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("required")]
+        [JsonPropertyName("required")]
         public bool? Required { get; set; }
 
         /// <summary>
@@ -114,7 +113,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1574040677000</para>
         /// </summary>
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public string? CreatedAt { get; set; }
 
         /// <summary>
@@ -122,7 +121,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1574040677000</para>
         /// </summary>
-        [JsonProperty("updated_at")]
+        [JsonPropertyName("updated_at")]
         public string? UpdatedAt { get; set; }
     }
 
@@ -130,7 +129,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
     /// <para>自定义工单字段</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("ticket_customized_fields")]
+    [JsonPropertyName("ticket_customized_fields")]
     public TicketCustomizedField[]? TicketCustomizedFields { get; set; }
 
     /// <summary>
@@ -143,7 +142,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6834320707288072194</para>
         /// </summary>
-        [JsonProperty("ticket_customized_field_id")]
+        [JsonPropertyName("ticket_customized_field_id")]
         public string TicketCustomizedFieldId { get; set; } = string.Empty;
 
         /// <summary>
@@ -151,7 +150,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1542164574896126</para>
         /// </summary>
-        [JsonProperty("helpdesk_id")]
+        [JsonPropertyName("helpdesk_id")]
         public string HelpdeskId { get; set; } = string.Empty;
 
         /// <summary>
@@ -159,7 +158,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：testdropdown</para>
         /// </summary>
-        [JsonProperty("key_name")]
+        [JsonPropertyName("key_name")]
         public string KeyName { get; set; } = string.Empty;
 
         /// <summary>
@@ -167,7 +166,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：testdropdown</para>
         /// </summary>
-        [JsonProperty("display_name")]
+        [JsonPropertyName("display_name")]
         public string DisplayName { get; set; } = string.Empty;
 
         /// <summary>
@@ -175,7 +174,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：3</para>
         /// </summary>
-        [JsonProperty("position")]
+        [JsonPropertyName("position")]
         public string Position { get; set; } = string.Empty;
 
         /// <summary>
@@ -187,7 +186,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：dropdown</para>
         /// </summary>
-        [JsonProperty("field_type")]
+        [JsonPropertyName("field_type")]
         public string FieldType { get; set; } = string.Empty;
 
         /// <summary>
@@ -195,7 +194,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：下拉示例</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string Description { get; set; } = string.Empty;
 
         /// <summary>
@@ -203,7 +202,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("visible")]
+        [JsonPropertyName("visible")]
         public bool Visible { get; set; }
 
         /// <summary>
@@ -211,7 +210,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("editable")]
+        [JsonPropertyName("editable")]
         public bool Editable { get; set; }
 
         /// <summary>
@@ -219,7 +218,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("required")]
+        [JsonPropertyName("required")]
         public bool Required { get; set; }
 
         /// <summary>
@@ -227,7 +226,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1591239289000</para>
         /// </summary>
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public string? CreatedAt { get; set; }
 
         /// <summary>
@@ -235,14 +234,14 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1591239289000</para>
         /// </summary>
-        [JsonProperty("updated_at")]
+        [JsonPropertyName("updated_at")]
         public string? UpdatedAt { get; set; }
 
         /// <summary>
         /// <para>创建用户</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("created_by")]
+        [JsonPropertyName("created_by")]
         public TicketUser? CreatedBy { get; set; }
 
         /// <summary>
@@ -255,7 +254,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ou_37019b7c830210acd88fdce886e25c71</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -263,7 +262,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://xxxx</para>
             /// </summary>
-            [JsonProperty("avatar_url")]
+            [JsonPropertyName("avatar_url")]
             public string? AvatarUrl { get; set; }
 
             /// <summary>
@@ -271,7 +270,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：abc</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -279,7 +278,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：xxxx@abc.com</para>
             /// </summary>
-            [JsonProperty("email")]
+            [JsonPropertyName("email")]
             public string? Email { get; set; }
 
             /// <summary>
@@ -287,7 +286,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：用户部门名称(有权限才展示)</para>
             /// </summary>
-            [JsonProperty("department")]
+            [JsonPropertyName("department")]
             public string? Department { get; set; }
 
             /// <summary>
@@ -295,7 +294,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：城市</para>
             /// </summary>
-            [JsonProperty("city")]
+            [JsonPropertyName("city")]
             public string? City { get; set; }
 
             /// <summary>
@@ -303,7 +302,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：国家</para>
             /// </summary>
-            [JsonProperty("country")]
+            [JsonPropertyName("country")]
             public string? Country { get; set; }
         }
 
@@ -311,7 +310,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>更新用户</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("updated_by")]
+        [JsonPropertyName("updated_by")]
         public TicketUser? UpdatedBy { get; set; }
 
         /// <summary>
@@ -319,7 +318,7 @@ public record GetHelpdeskV1CustomizedFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("dropdown_allow_multiple")]
+        [JsonPropertyName("dropdown_allow_multiple")]
         public bool? DropdownAllowMultiple { get; set; }
     }
 }

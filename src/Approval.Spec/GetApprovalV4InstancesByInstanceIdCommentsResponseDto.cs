@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 获取评论 响应体
@@ -13,7 +12,7 @@ public record GetApprovalV4InstancesByInstanceIdCommentsResponseDto
     /// <para>评论数据列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("comments")]
+    [JsonPropertyName("comments")]
     public Comment[]? Comments { get; set; }
 
     /// <summary></summary>
@@ -23,42 +22,42 @@ public record GetApprovalV4InstancesByInstanceIdCommentsResponseDto
         /// <para>评论ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>评论内容</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("content")]
+        [JsonPropertyName("content")]
         public string? Content { get; set; }
 
         /// <summary>
         /// <para>评论创建时间</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
         /// <para>评论更新时间</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public string? UpdateTime { get; set; }
 
         /// <summary>
         /// <para>是否删除，0:未删除，1:已删除</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("is_delete")]
+        [JsonPropertyName("is_delete")]
         public int? IsDelete { get; set; }
 
         /// <summary>
         /// <para>评论的回复</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("replies")]
+        [JsonPropertyName("replies")]
         public CommentReply[]? Replies { get; set; }
 
         /// <summary></summary>
@@ -68,56 +67,56 @@ public record GetApprovalV4InstancesByInstanceIdCommentsResponseDto
             /// <para>评论ID</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
             /// <para>评论内容</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("content")]
+            [JsonPropertyName("content")]
             public string? Content { get; set; }
 
             /// <summary>
             /// <para>评论创建时间</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("create_time")]
+            [JsonPropertyName("create_time")]
             public string? CreateTime { get; set; }
 
             /// <summary>
             /// <para>评论更新时间</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("update_time")]
+            [JsonPropertyName("update_time")]
             public string? UpdateTime { get; set; }
 
             /// <summary>
             /// <para>是否删除，0:未删除，1:已删除</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("is_delete")]
+            [JsonPropertyName("is_delete")]
             public int? IsDelete { get; set; }
 
             /// <summary>
             /// <para>评论中艾特人信息</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("at_info_list")]
+            [JsonPropertyName("at_info_list")]
             public CommentAtInfo[]? AtInfoList { get; set; }
 
             /// <summary>
             /// <para>评论创建人</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("commentator")]
+            [JsonPropertyName("commentator")]
             public string? Commentator { get; set; }
 
             /// <summary>
             /// <para>附加字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("extra")]
+            [JsonPropertyName("extra")]
             public string? Extra { get; set; }
         }
 
@@ -128,21 +127,21 @@ public record GetApprovalV4InstancesByInstanceIdCommentsResponseDto
             /// <para>被艾特人的ID</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string? UserId { get; set; }
 
             /// <summary>
             /// <para>被艾特人的姓名</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
             /// <para>被艾特人在评论中的位置，从0开始</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("offset")]
+            [JsonPropertyName("offset")]
             public string? Offset { get; set; }
         }
 
@@ -150,21 +149,21 @@ public record GetApprovalV4InstancesByInstanceIdCommentsResponseDto
         /// <para>评论中艾特人信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("at_info_list")]
+        [JsonPropertyName("at_info_list")]
         public CommentAtInfo[]? AtInfoList { get; set; }
 
         /// <summary>
         /// <para>评论创建人</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("commentator")]
+        [JsonPropertyName("commentator")]
         public string? Commentator { get; set; }
 
         /// <summary>
         /// <para>附加字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("extra")]
+        [JsonPropertyName("extra")]
         public string? Extra { get; set; }
     }
 }

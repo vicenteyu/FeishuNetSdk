@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 创建审批定义 请求体
@@ -14,43 +13,43 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     /// <para>审批名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("approval_name")]
+    [JsonPropertyName("approval_name")]
     public string ApprovalName { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>传空表示新建</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string? ApprovalCode { get; set; }
 
     /// <summary>
     /// <para>审批描述的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
     /// <para>审批前台可见人范围，详见下方说明</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("viewers")]
+    [JsonPropertyName("viewers")]
     public Viewer[] Viewers { get; set; } = Array.Empty<Viewer>();
 
     /// <summary></summary>
     public record Viewer
     {
         /// <summary></summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary></summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string OpenId { get; set; } = string.Empty;
 
         /// <summary></summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
     }
 
@@ -58,7 +57,7 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     /// <para>审批定义表单</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("form")]
+    [JsonPropertyName("form")]
     public FormSuffix Form { get; set; } = new();
 
     /// <summary></summary>
@@ -68,7 +67,7 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
         /// <para>审批定义表单内容，json 数组，详见下方说明</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("form_content")]
+        [JsonPropertyName("form_content")]
         public string FormContent { get; set; } = string.Empty;
     }
 
@@ -76,7 +75,7 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     /// <para>审批定义节点，map 数组，需要将开始节点作为 list 第一个元素，结束节点作为最后一个元素</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("node_list")]
+    [JsonPropertyName("node_list")]
     public Node[] NodeList { get; set; } = Array.Empty<Node>();
 
     /// <summary></summary>
@@ -86,14 +85,14 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
         /// <para>节点 ID，开始节点的 ID 为 START，结束节点的 ID 为 END，开始和结束节点不需要指定 name、node_type 以及 approver</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>节点名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -104,21 +103,21 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
         /// <para>当 node_type 为依次审批时，审批人必须为『发起人自选』</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("node_type")]
+        [JsonPropertyName("node_type")]
         public string NodeType { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>审批人列表，详见下方说明</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("approver")]
+        [JsonPropertyName("approver")]
         public Viewer[] Approver { get; set; } = Array.Empty<Viewer>();
 
         /// <summary>
         /// <para>抄送人列表，详见下方说明</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("ccer")]
+        [JsonPropertyName("ccer")]
         public Viewer[]? Ccer { get; set; }
     }
 
@@ -126,7 +125,7 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     /// <para>审批定义其他设置</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("settings")]
+    [JsonPropertyName("settings")]
     public Setting? Settings { get; set; }
 
     /// <summary></summary>
@@ -136,14 +135,14 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
         /// <para>审批实例通过后允许撤回的时间，以秒为单位，默认 31 天，0 为不可撤回</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("revert_interval")]
+        [JsonPropertyName("revert_interval")]
         public int? RevertInterval { get; set; }
 
         /// <summary>
         /// <para>是否支持审批通过第一个节点后撤回，默认为1，0为不支持</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("revert_option")]
+        [JsonPropertyName("revert_option")]
         public int? RevertOption { get; set; }
     }
 
@@ -151,7 +150,7 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     /// <para>审批定义配置项，用于配置对应审批定义是否可以由用户在审批后台进行修改</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("config")]
+    [JsonPropertyName("config")]
     public ConfigSuffix? Config { get; set; }
 
     /// <summary></summary>
@@ -161,35 +160,35 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
         /// <para>是否可以修改可见范围，默认 false</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("can_update_viewer")]
+        [JsonPropertyName("can_update_viewer")]
         public bool? CanUpdateViewer { get; set; }
 
         /// <summary>
         /// <para>是否可以修改表单内容，默认 false</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("can_update_form")]
+        [JsonPropertyName("can_update_form")]
         public bool? CanUpdateForm { get; set; }
 
         /// <summary>
         /// <para>是否可以修改流程节点，默认 false</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("can_update_process")]
+        [JsonPropertyName("can_update_process")]
         public bool? CanUpdateProcess { get; set; }
 
         /// <summary>
         /// <para>是否可以修改撤回时间，默认 false</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("can_update_revert")]
+        [JsonPropertyName("can_update_revert")]
         public bool? CanUpdateRevert { get; set; }
 
         /// <summary>
         /// <para>用于配置帮助页链接，可以从审批后台跳转到该链接页面</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("help_url")]
+        [JsonPropertyName("help_url")]
         public string? HelpUrl { get; set; }
     }
 
@@ -197,14 +196,14 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     /// <para>审批图标枚举，详见下方说明，默认为 0</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("icon")]
+    [JsonPropertyName("icon")]
     public int? Icon { get; set; }
 
     /// <summary>
     /// <para>国际化文案</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("i18n_resources")]
+    [JsonPropertyName("i18n_resources")]
     public I18nResource[] I18nResources { get; set; } = Array.Empty<I18nResource>();
 
     /// <summary></summary>
@@ -217,21 +216,21 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
         /// <para>ja-JP - 日文</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("locale")]
+        [JsonPropertyName("locale")]
         public string Locale { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>是否默认语言，默认语言需要包含所有 key，非默认语言如果 key 不存在会使用默认语言代替</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("is_default")]
+        [JsonPropertyName("is_default")]
         public bool IsDefault { get; set; }
 
         /// <summary>
         /// <para>文案 key, value, i18n key 以 @i18n@ 开头</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("texts")]
+        [JsonPropertyName("texts")]
         public object Texts { get; set; } = new();
 
         /// <summary></summary>
@@ -240,25 +239,25 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
             /// <summary>
             /// 审批名称
             /// </summary>
-            [JsonProperty("@i18n@approval_name")]
+            [JsonPropertyName("@i18n@approval_name")]
             public string ApprovalName { get; set; } = string.Empty;
 
             /// <summary>
             /// 审批描述
             /// </summary>
-            [JsonProperty("@i18n@description")]
+            [JsonPropertyName("@i18n@description")]
             public string Description { get; set; } = string.Empty;
 
             /// <summary>
             /// 控件1
             /// </summary>
-            [JsonProperty("@i18n@widget1")]
+            [JsonPropertyName("@i18n@widget1")]
             public string Widget1 { get; set; } = string.Empty;
 
             /// <summary>
             /// 节点名称
             /// </summary>
-            [JsonProperty("@i18n@node_name")]
+            [JsonPropertyName("@i18n@node_name")]
             public string NodeName { get; set; } = string.Empty;
         }
     }

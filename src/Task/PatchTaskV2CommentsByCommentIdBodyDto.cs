@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 更新评论 请求体
@@ -15,7 +14,7 @@ public record PatchTaskV2CommentsByCommentIdBodyDto
     /// <para>要更新的评论数据。</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("comment")]
+    [JsonPropertyName("comment")]
     public InputComment Comment { get; set; } = new();
 
     /// <summary>
@@ -29,7 +28,7 @@ public record PatchTaskV2CommentsByCommentIdBodyDto
         /// <para>示例值：举杯邀明月，对影成三人</para>
         /// <para>最大长度：10000</para>
         /// </summary>
-        [JsonProperty("content")]
+        [JsonPropertyName("content")]
         public string? Content { get; set; }
     }
 
@@ -40,6 +39,6 @@ public record PatchTaskV2CommentsByCommentIdBodyDto
     /// <para>&lt;/md-enum&gt;</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("update_fields")]
+    [JsonPropertyName("update_fields")]
     public string[] UpdateFields { get; set; } = Array.Empty<string>();
 }

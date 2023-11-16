@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 查询邮箱地址状态 请求体
@@ -14,6 +13,6 @@ public record PostMailV1UsersQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：["aaa@lark.com","bbb@lark.com"]</para>
     /// </summary>
-    [JsonProperty("email_list")]
+    [JsonPropertyName("email_list")]
     public string[] EmailList { get; set; } = Array.Empty<string>();
 }

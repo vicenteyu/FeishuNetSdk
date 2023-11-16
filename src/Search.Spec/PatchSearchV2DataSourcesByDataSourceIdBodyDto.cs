@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Search.Spec;
 /// <summary>
 /// 修改数据源 请求体
@@ -14,7 +13,7 @@ public record PatchSearchV2DataSourcesByDataSourceIdBodyDto
     /// <para>**示例值**："客服工单"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -28,7 +27,7 @@ public record PatchSearchV2DataSourcesByDataSourceIdBodyDto
     /// <item>1：未上线</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("state")]
+    [JsonPropertyName("state")]
     public int? State { get; set; }
 
     /// <summary>
@@ -36,7 +35,7 @@ public record PatchSearchV2DataSourcesByDataSourceIdBodyDto
     /// <para>**示例值**："搜索客服工单"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
@@ -44,21 +43,21 @@ public record PatchSearchV2DataSourcesByDataSourceIdBodyDto
     /// <para>**示例值**："https://www.xxx.com/open.jpg"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("icon_url")]
+    [JsonPropertyName("icon_url")]
     public string? IconUrl { get; set; }
 
     /// <summary>
     /// <para>数据源名称多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"测试数据源", "en_us":"Test DataSource"}</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("i18n_name")]
+    [JsonPropertyName("i18n_name")]
     public I18nMeta? I18nName { get; set; }
 
     /// <summary>
     /// <para>数据源描述多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"搜索测试数据源相关数据", "en_us":"Search data from Test DataSource"}</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("i18n_description")]
+    [JsonPropertyName("i18n_description")]
     public I18nMeta? I18nDescription { get; set; }
 
     /// <summary></summary>
@@ -69,7 +68,7 @@ public record PatchSearchV2DataSourcesByDataSourceIdBodyDto
         /// <para>**示例值**："任务"</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("zh_cn")]
+        [JsonPropertyName("zh_cn")]
         public string? ZhCn { get; set; }
 
         /// <summary>
@@ -77,7 +76,7 @@ public record PatchSearchV2DataSourcesByDataSourceIdBodyDto
         /// <para>**示例值**："TODO"</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("en_us")]
+        [JsonPropertyName("en_us")]
         public string? EnUs { get; set; }
 
         /// <summary>
@@ -85,7 +84,7 @@ public record PatchSearchV2DataSourcesByDataSourceIdBodyDto
         /// <para>**示例值**："タスク"</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("ja_jp")]
+        [JsonPropertyName("ja_jp")]
         public string? JaJp { get; set; }
     }
 }

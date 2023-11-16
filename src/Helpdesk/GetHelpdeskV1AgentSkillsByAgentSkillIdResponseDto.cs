@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 查询指定客服技能 响应体
@@ -13,7 +12,7 @@ public record GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDto
     /// <para>技能</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("agent_skill")]
+    [JsonPropertyName("agent_skill")]
     public GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDtoAgentSkill? AgentSkill { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：test-skill-id</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,14 +33,14 @@ public record GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：skill-name</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>技能rules</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("rules")]
+        [JsonPropertyName("rules")]
         public AgentSkillRule[]? Rules { get; set; }
 
         /// <summary>
@@ -54,7 +53,7 @@ public record GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：test-skill-id</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -62,14 +61,14 @@ public record GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：8</para>
             /// </summary>
-            [JsonProperty("selected_operator")]
+            [JsonPropertyName("selected_operator")]
             public int? SelectedOperator { get; set; }
 
             /// <summary>
             /// <para>rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("operator_options")]
+            [JsonPropertyName("operator_options")]
             public int[]? OperatorOptions { get; set; }
 
             /// <summary>
@@ -77,7 +76,7 @@ public record GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：{\"selected_departments\":[{\"id\":\"部门ID\",\"name\":\"IT\"}]}</para>
             /// </summary>
-            [JsonProperty("operand")]
+            [JsonPropertyName("operand")]
             public string? Operand { get; set; }
 
             /// <summary>
@@ -85,7 +84,7 @@ public record GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：3</para>
             /// </summary>
-            [JsonProperty("category")]
+            [JsonPropertyName("category")]
             public int? Category { get; set; }
 
             /// <summary>
@@ -93,7 +92,7 @@ public record GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：中文知识库分类</para>
             /// </summary>
-            [JsonProperty("display_name")]
+            [JsonPropertyName("display_name")]
             public string? DisplayName { get; set; }
         }
 
@@ -101,7 +100,7 @@ public record GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDto
         /// <para>具有此技能的客服ids</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("agent_ids")]
+        [JsonPropertyName("agent_ids")]
         public string[]? AgentIds { get; set; }
 
         /// <summary>
@@ -109,14 +108,14 @@ public record GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("is_default")]
+        [JsonPropertyName("is_default")]
         public bool? IsDefault { get; set; }
 
         /// <summary>
         /// <para>客服 info</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("agents")]
+        [JsonPropertyName("agents")]
         public Agent[]? Agents { get; set; }
 
         /// <summary>
@@ -129,7 +128,7 @@ public record GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ou_ea651a5c09e2d01af8acd34059f5359b</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -137,7 +136,7 @@ public record GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://avatar-url.com/test.png</para>
             /// </summary>
-            [JsonProperty("avatar_url")]
+            [JsonPropertyName("avatar_url")]
             public string? AvatarUrl { get; set; }
 
             /// <summary>
@@ -145,7 +144,7 @@ public record GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：test-user</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
         }
     }

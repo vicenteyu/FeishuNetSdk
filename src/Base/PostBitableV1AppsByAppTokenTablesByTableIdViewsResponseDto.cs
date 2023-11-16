@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增视图 响应体
@@ -13,7 +12,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
     /// <para>视图</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("view")]
+    [JsonPropertyName("view")]
     public AppTableView? View { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：vewTpR1urY</para>
         /// </summary>
-        [JsonProperty("view_id")]
+        [JsonPropertyName("view_id")]
         public string? ViewId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：甘特视图1</para>
         /// </summary>
-        [JsonProperty("view_name")]
+        [JsonPropertyName("view_name")]
         public string? ViewName { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：gantt</para>
         /// </summary>
-        [JsonProperty("view_type")]
+        [JsonPropertyName("view_type")]
         public string? ViewType { get; set; }
     }
 }

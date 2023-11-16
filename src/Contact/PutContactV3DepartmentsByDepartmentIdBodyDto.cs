@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 更新部门所有信息 请求体
@@ -15,7 +14,7 @@ public record PutContactV3DepartmentsByDepartmentIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：DemoName</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
@@ -23,7 +22,7 @@ public record PutContactV3DepartmentsByDepartmentIdBodyDto
     /// <para>注意：不可包含斜杠</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("i18n_name")]
+    [JsonPropertyName("i18n_name")]
     public DepartmentI18nName? I18nName { get; set; }
 
     /// <summary>
@@ -37,7 +36,7 @@ public record PutContactV3DepartmentsByDepartmentIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：Demo名称</para>
         /// </summary>
-        [JsonProperty("zh_cn")]
+        [JsonPropertyName("zh_cn")]
         public string? ZhCn { get; set; }
 
         /// <summary>
@@ -45,7 +44,7 @@ public record PutContactV3DepartmentsByDepartmentIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：デモ名</para>
         /// </summary>
-        [JsonProperty("ja_jp")]
+        [JsonPropertyName("ja_jp")]
         public string? JaJp { get; set; }
 
         /// <summary>
@@ -53,7 +52,7 @@ public record PutContactV3DepartmentsByDepartmentIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：DemoName</para>
         /// </summary>
-        [JsonProperty("en_us")]
+        [JsonPropertyName("en_us")]
         public string? EnUs { get; set; }
     }
 
@@ -63,7 +62,7 @@ public record PutContactV3DepartmentsByDepartmentIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：D067</para>
     /// </summary>
-    [JsonProperty("parent_department_id")]
+    [JsonPropertyName("parent_department_id")]
     public string ParentDepartmentId { get; set; } = string.Empty;
 
     /// <summary>
@@ -71,7 +70,7 @@ public record PutContactV3DepartmentsByDepartmentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>
-    [JsonProperty("leader_user_id")]
+    [JsonPropertyName("leader_user_id")]
     public string? LeaderUserId { get; set; }
 
     /// <summary>
@@ -79,7 +78,7 @@ public record PutContactV3DepartmentsByDepartmentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：100</para>
     /// </summary>
-    [JsonProperty("order")]
+    [JsonPropertyName("order")]
     public string? Order { get; set; }
 
     /// <summary>
@@ -87,7 +86,7 @@ public record PutContactV3DepartmentsByDepartmentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：custom_unit_id</para>
     /// </summary>
-    [JsonProperty("unit_ids")]
+    [JsonPropertyName("unit_ids")]
     public string[]? UnitIds { get; set; }
 
     /// <summary>
@@ -96,14 +95,14 @@ public record PutContactV3DepartmentsByDepartmentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("create_group_chat")]
+    [JsonPropertyName("create_group_chat")]
     public bool? CreateGroupChat { get; set; }
 
     /// <summary>
     /// <para>部门负责人</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("leaders")]
+    [JsonPropertyName("leaders")]
     public DepartmentLeader[]? Leaders { get; set; }
 
     /// <summary>
@@ -120,7 +119,7 @@ public record PutContactV3DepartmentsByDepartmentIdBodyDto
         /// <item>2：副负责人</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("leaderType")]
+        [JsonPropertyName("leaderType")]
         public int LeaderType { get; set; }
 
         /// <summary>
@@ -128,7 +127,7 @@ public record PutContactV3DepartmentsByDepartmentIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
         /// </summary>
-        [JsonProperty("leaderID")]
+        [JsonPropertyName("leaderID")]
         public string LeaderID { get; set; } = string.Empty;
     }
 
@@ -143,6 +142,6 @@ public record PutContactV3DepartmentsByDepartmentIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：[1,2,3]</para>
     /// </summary>
-    [JsonProperty("group_chat_employee_types")]
+    [JsonPropertyName("group_chat_employee_types")]
     public int[]? GroupChatEmployeeTypes { get; set; }
 }

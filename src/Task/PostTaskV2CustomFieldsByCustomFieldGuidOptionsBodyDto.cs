@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 创建自定义任务选项 请求体
@@ -15,7 +14,7 @@ public record PostTaskV2CustomFieldsByCustomFieldGuidOptionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：高优</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -23,7 +22,7 @@ public record PostTaskV2CustomFieldsByCustomFieldGuidOptionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：10</para>
     /// </summary>
-    [JsonProperty("color_index")]
+    [JsonPropertyName("color_index")]
     public int? ColorIndex { get; set; }
 
     /// <summary>
@@ -31,7 +30,7 @@ public record PostTaskV2CustomFieldsByCustomFieldGuidOptionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2bd905f8-ef38-408b-aa1f-2b2ad33b2913</para>
     /// </summary>
-    [JsonProperty("insert_before")]
+    [JsonPropertyName("insert_before")]
     public string? InsertBefore { get; set; }
 
     /// <summary>
@@ -39,7 +38,7 @@ public record PostTaskV2CustomFieldsByCustomFieldGuidOptionsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：b13adf3c-cad6-4e02-8929-550c112b5633</para>
     /// </summary>
-    [JsonProperty("insert_after")]
+    [JsonPropertyName("insert_after")]
     public string? InsertAfter { get; set; }
 
     /// <summary>
@@ -48,6 +47,6 @@ public record PostTaskV2CustomFieldsByCustomFieldGuidOptionsBodyDto
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
     /// </summary>
-    [JsonProperty("is_hidden")]
+    [JsonPropertyName("is_hidden")]
     public bool? IsHidden { get; set; }
 }

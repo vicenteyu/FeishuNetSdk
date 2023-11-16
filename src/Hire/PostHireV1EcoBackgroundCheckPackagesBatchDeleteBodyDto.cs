@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 删除背调套餐和附加调查项 请求体
@@ -14,7 +13,7 @@ public record PostHireV1EcoBackgroundCheckPackagesBatchDeleteBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：xd_bc_001</para>
     /// </summary>
-    [JsonProperty("account_id")]
+    [JsonPropertyName("account_id")]
     public string AccountId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostHireV1EcoBackgroundCheckPackagesBatchDeleteBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6996920667635566881</para>
     /// </summary>
-    [JsonProperty("package_id_list")]
+    [JsonPropertyName("package_id_list")]
     public string[]? PackageIdList { get; set; }
 
     /// <summary>
@@ -30,6 +29,6 @@ public record PostHireV1EcoBackgroundCheckPackagesBatchDeleteBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6996920667635566881</para>
     /// </summary>
-    [JsonProperty("additional_item_id_list")]
+    [JsonPropertyName("additional_item_id_list")]
     public string[]? AdditionalItemIdList { get; set; }
 }

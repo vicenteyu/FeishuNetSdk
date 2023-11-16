@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 查询工作表 响应体
@@ -13,7 +12,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
     /// <para>工作表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("sheet")]
+    [JsonPropertyName("sheet")]
     public SheetSuffix? Sheet { get; set; }
 
     /// <summary></summary>
@@ -23,21 +22,21 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
         /// <para>工作表id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("sheet_id")]
+        [JsonPropertyName("sheet_id")]
         public string? SheetId { get; set; }
 
         /// <summary>
         /// <para>工作表标题</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
         /// <para>工作表索引位置，索引从 0 开始计数。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("index")]
+        [JsonPropertyName("index")]
         public int? Index { get; set; }
 
         /// <summary>
@@ -46,14 +45,14 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
         /// <para>- `false`：表示未被隐藏</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("hidden")]
+        [JsonPropertyName("hidden")]
         public bool? Hidden { get; set; }
 
         /// <summary>
         /// <para>单元格属性</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("grid_properties")]
+        [JsonPropertyName("grid_properties")]
         public GridProperty? GridProperties { get; set; }
 
         /// <summary></summary>
@@ -63,28 +62,28 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
             /// <para>冻结的行数量</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("frozen_row_count")]
+            [JsonPropertyName("frozen_row_count")]
             public int? FrozenRowCount { get; set; }
 
             /// <summary>
             /// <para>冻结的列数量</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("frozen_column_count")]
+            [JsonPropertyName("frozen_column_count")]
             public int? FrozenColumnCount { get; set; }
 
             /// <summary>
             /// <para>工作表的行数</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("row_count")]
+            [JsonPropertyName("row_count")]
             public int? RowCount { get; set; }
 
             /// <summary>
             /// <para>工作表的列数量</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("column_count")]
+            [JsonPropertyName("column_count")]
             public int? ColumnCount { get; set; }
         }
 
@@ -95,14 +94,14 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
         /// <para>- `#UNSUPPORTED_TYPE`：不支持的类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("resource_type")]
+        [JsonPropertyName("resource_type")]
         public string? ResourceType { get; set; }
 
         /// <summary>
         /// <para>合并单元格的相关信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("merges")]
+        [JsonPropertyName("merges")]
         public MergeRange[]? Merges { get; set; }
 
         /// <summary></summary>
@@ -112,28 +111,28 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
             /// <para>起始行</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("start_row_index")]
+            [JsonPropertyName("start_row_index")]
             public int? StartRowIndex { get; set; }
 
             /// <summary>
             /// <para>结束行</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("end_row_index")]
+            [JsonPropertyName("end_row_index")]
             public int? EndRowIndex { get; set; }
 
             /// <summary>
             /// <para>起始列</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("start_column_index")]
+            [JsonPropertyName("start_column_index")]
             public int? StartColumnIndex { get; set; }
 
             /// <summary>
             /// <para>结束列</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("end_column_index")]
+            [JsonPropertyName("end_column_index")]
             public int? EndColumnIndex { get; set; }
         }
     }

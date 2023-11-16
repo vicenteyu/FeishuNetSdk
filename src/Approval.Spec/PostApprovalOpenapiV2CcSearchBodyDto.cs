@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 抄送列表查询 请求体
@@ -13,21 +12,21 @@ public record PostApprovalOpenapiV2CcSearchBodyDto
     /// <para>用户 id</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>审批定义 code</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string? ApprovalCode { get; set; }
 
     /// <summary>
     /// <para>审批实例 code</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("instance_code")]
+    [JsonPropertyName("instance_code")]
     public string? InstanceCode { get; set; }
 
     /// <summary>
@@ -35,7 +34,7 @@ public record PostApprovalOpenapiV2CcSearchBodyDto
     /// <para>注：和 approval_code 取并集</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("instance_external_id")]
+    [JsonPropertyName("instance_external_id")]
     public string? InstanceExternalId { get; set; }
 
     /// <summary>
@@ -43,14 +42,14 @@ public record PostApprovalOpenapiV2CcSearchBodyDto
     /// <para>注：和 instance_code 取并集</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("group_external_id")]
+    [JsonPropertyName("group_external_id")]
     public string? GroupExternalId { get; set; }
 
     /// <summary>
     /// <para>审批抄送标题（只有第三方审批有）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("cc_title")]
+    [JsonPropertyName("cc_title")]
     public string? CcTitle { get; set; }
 
     /// <summary>
@@ -61,28 +60,28 @@ public record PostApprovalOpenapiV2CcSearchBodyDto
     /// <para>若不在集合中，报错</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("read_status")]
+    [JsonPropertyName("read_status")]
     public string? ReadStatus { get; set; }
 
     /// <summary>
     /// <para>抄送查询开始时间 (unix毫秒时间戳)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("ccCreateTimeFrom")]
+    [JsonPropertyName("ccCreateTimeFrom")]
     public int? CcCreateTimeFrom { get; set; }
 
     /// <summary>
     /// <para>抄送查询结束时间 (unix毫秒时间戳)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("ccCreateTimeTo")]
+    [JsonPropertyName("ccCreateTimeTo")]
     public int? CcCreateTimeTo { get; set; }
 
     /// <summary>
     /// <para>地区 （zh-CN、en-US、ja-JP）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("locale")]
+    [JsonPropertyName("locale")]
     public string? Locale { get; set; }
 
     /// <summary>
@@ -90,7 +89,7 @@ public record PostApprovalOpenapiV2CcSearchBodyDto
     /// <para>注：不得超过10000</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("offset")]
+    [JsonPropertyName("offset")]
     public int? Offset { get; set; }
 
     /// <summary>
@@ -99,6 +98,6 @@ public record PostApprovalOpenapiV2CcSearchBodyDto
     /// <para>不设置默认查询10条数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("limit")]
+    [JsonPropertyName("limit")]
     public int? Limit { get; set; }
 }

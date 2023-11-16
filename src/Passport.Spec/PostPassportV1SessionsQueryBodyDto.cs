@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Passport.Spec;
 /// <summary>
 /// 批量获取脱敏的用户登录信息 请求体
@@ -16,6 +15,6 @@ public record PostPassportV1SessionsQueryBodyDto
     /// <para>- 最大长度：`100`</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_ids")]
+    [JsonPropertyName("user_ids")]
     public string[]? UserIds { get; set; }
 }

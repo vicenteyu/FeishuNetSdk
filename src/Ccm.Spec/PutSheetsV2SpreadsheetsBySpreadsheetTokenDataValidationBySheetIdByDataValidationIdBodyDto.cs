@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 更新下拉列表设置 请求体
@@ -13,14 +12,14 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdBy
     /// <para>下拉列表填"list"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("dataValidationType")]
+    [JsonPropertyName("dataValidationType")]
     public string DataValidationType { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>下拉列表规则属性</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("dataValidation")]
+    [JsonPropertyName("dataValidation")]
     public DataValidationSuffix? DataValidation { get; set; }
 
     /// <summary></summary>
@@ -30,14 +29,14 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdBy
         /// <para>下拉列表选项值, 需为字符串,不能包含","，选项值最长100字符,选项个数最多500个</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("conditionValues")]
+        [JsonPropertyName("conditionValues")]
         public string[] ConditionValues { get; set; } = Array.Empty<string>();
 
         /// <summary>
         /// <para>可选属性</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("options")]
+        [JsonPropertyName("options")]
         public Option? Options { get; set; }
 
         /// <summary></summary>
@@ -47,21 +46,21 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdBy
             /// <para>单选填false, 多选填true，不填默认为false</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("multipleValues")]
+            [JsonPropertyName("multipleValues")]
             public bool? MultipleValues { get; set; }
 
             /// <summary>
             /// <para>是否设置颜色和胶囊样式, 不填默认为false</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("highlightValidData")]
+            [JsonPropertyName("highlightValidData")]
             public bool? HighlightValidData { get; set; }
 
             /// <summary>
             /// <para>当highlightValidData为true时，color需填颜色,与conditionValues中的值一一对应。需是RGB16进制格式,如"#fffd00"</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("colors")]
+            [JsonPropertyName("colors")]
             public string[]? Colors { get; set; }
         }
     }

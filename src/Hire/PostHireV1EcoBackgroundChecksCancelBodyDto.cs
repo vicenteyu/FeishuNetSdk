@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 终止背调订单 请求体
@@ -14,6 +13,6 @@ public record PostHireV1EcoBackgroundChecksCancelBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6931286400470354183</para>
     /// </summary>
-    [JsonProperty("background_check_id")]
+    [JsonPropertyName("background_check_id")]
     public string BackgroundCheckId { get; set; } = string.Empty;
 }

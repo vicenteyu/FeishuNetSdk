@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 查询抄送列表 请求体
@@ -14,7 +13,7 @@ public record PostApprovalV4InstancesSearchCcBodyDto
     /// <para>**示例值**："lwiu098wj"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostApprovalV4InstancesSearchCcBodyDto
     /// <para>**示例值**："EB828003-9FFE-4B3F-AA50-2E199E2ED942"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string? ApprovalCode { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostApprovalV4InstancesSearchCcBodyDto
     /// <para>**示例值**："EB828003-9FFE-4B3F-AA50-2E199E2ED943"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("instance_code")]
+    [JsonPropertyName("instance_code")]
     public string? InstanceCode { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostApprovalV4InstancesSearchCcBodyDto
     /// <para>**示例值**："EB828003-9FFE-4B3F-AA50-2E199E2ED976"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("instance_external_id")]
+    [JsonPropertyName("instance_external_id")]
     public string? InstanceExternalId { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostApprovalV4InstancesSearchCcBodyDto
     /// <para>**示例值**："1234567"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("group_external_id")]
+    [JsonPropertyName("group_external_id")]
     public string? GroupExternalId { get; set; }
 
     /// <summary>
@@ -54,7 +53,7 @@ public record PostApprovalV4InstancesSearchCcBodyDto
     /// <para>**示例值**："test"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("cc_title")]
+    [JsonPropertyName("cc_title")]
     public string? CcTitle { get; set; }
 
     /// <summary>
@@ -69,7 +68,7 @@ public record PostApprovalV4InstancesSearchCcBodyDto
     /// <item>ALL：所有状态</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("read_status")]
+    [JsonPropertyName("read_status")]
     public string? ReadStatus { get; set; }
 
     /// <summary>
@@ -77,7 +76,7 @@ public record PostApprovalV4InstancesSearchCcBodyDto
     /// <para>**示例值**："1547654251506"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("cc_create_time_from")]
+    [JsonPropertyName("cc_create_time_from")]
     public string? CcCreateTimeFrom { get; set; }
 
     /// <summary>
@@ -85,7 +84,7 @@ public record PostApprovalV4InstancesSearchCcBodyDto
     /// <para>**示例值**："1547654251506"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("cc_create_time_to")]
+    [JsonPropertyName("cc_create_time_to")]
     public string? CcCreateTimeTo { get; set; }
 
     /// <summary>
@@ -100,6 +99,6 @@ public record PostApprovalV4InstancesSearchCcBodyDto
     /// <item>ja-JP：日文</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("locale")]
+    [JsonPropertyName("locale")]
     public string? Locale { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 查询会议室预定表单 响应体
@@ -13,7 +12,7 @@ public record GetVcV1ReserveConfigsByReserveConfigIdFormResponseDto
     /// <para>预定表单</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("reserve_form_config")]
+    [JsonPropertyName("reserve_form_config")]
     public GetVcV1ReserveConfigsByReserveConfigIdFormResponseDtoReserveFormConfig ReserveFormConfig { get; set; } = new();
 
     /// <summary>
@@ -27,14 +26,14 @@ public record GetVcV1ReserveConfigsByReserveConfigIdFormResponseDto
         /// <para>示例值：false</para>
         /// <para>默认值：false</para>
         /// </summary>
-        [JsonProperty("reserve_form")]
+        [JsonPropertyName("reserve_form")]
         public bool ReserveForm { get; set; }
 
         /// <summary>
         /// <para>通知人列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("notified_users")]
+        [JsonPropertyName("notified_users")]
         public SubscribeUser[]? NotifiedUsers { get; set; }
 
         /// <summary>
@@ -47,7 +46,7 @@ public record GetVcV1ReserveConfigsByReserveConfigIdFormResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：ou_e8bce6c3935ef1fc1b432992fd9d3db8</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string UserId { get; set; } = string.Empty;
         }
 
@@ -56,7 +55,7 @@ public record GetVcV1ReserveConfigsByReserveConfigIdFormResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
-        [JsonProperty("notified_time")]
+        [JsonPropertyName("notified_time")]
         public int? NotifiedTime { get; set; }
 
         /// <summary>
@@ -64,7 +63,7 @@ public record GetVcV1ReserveConfigsByReserveConfigIdFormResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
-        [JsonProperty("time_unit")]
+        [JsonPropertyName("time_unit")]
         public int? TimeUnit { get; set; }
     }
 }

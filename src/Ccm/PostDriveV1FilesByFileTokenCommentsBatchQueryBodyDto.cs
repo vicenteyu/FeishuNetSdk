@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 批量获取全文评论 请求体
@@ -14,6 +13,6 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1654857036541812356</para>
     /// </summary>
-    [JsonProperty("comment_ids")]
+    [JsonPropertyName("comment_ids")]
     public string[] CommentIds { get; set; } = Array.Empty<string>();
 }

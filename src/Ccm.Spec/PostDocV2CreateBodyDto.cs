@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 创建旧版文档 请求体
@@ -14,13 +13,13 @@ public record PostDocV2CreateBodyDto
     /// <para>文件夹 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("folderToken")]
+    [JsonPropertyName("folderToken")]
     public string? FolderToken { get; set; }
 
     /// <summary>
     /// <para>传入符合[文档数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)的字符串，若为空表示创建空文档</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string? Content { get; set; }
 }

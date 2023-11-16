@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 更新部门ID 请求体
@@ -15,6 +14,6 @@ public record PatchContactV3DepartmentsByDepartmentIdUpdateDepartmentIdBodyDto
     /// <para>示例值：NewDevDepartID</para>
     /// <para>最大长度：128</para>
     /// </summary>
-    [JsonProperty("new_department_id")]
+    [JsonPropertyName("new_department_id")]
     public string NewDepartmentId { get; set; } = string.Empty;
 }

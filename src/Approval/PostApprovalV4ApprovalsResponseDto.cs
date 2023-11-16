@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 创建审批定义 响应体
@@ -14,7 +13,7 @@ public record PostApprovalV4ApprovalsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string? ApprovalCode { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostApprovalV4ApprovalsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：7090754740375519252</para>
     /// </summary>
-    [JsonProperty("approval_id")]
+    [JsonPropertyName("approval_id")]
     public string? ApprovalId { get; set; }
 }

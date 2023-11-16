@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 提交审核 响应体
@@ -14,6 +13,6 @@ public record PostHelpdeskV1NotificationsByNotificationIdSubmitApproveResponseDt
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_access")]
+    [JsonPropertyName("has_access")]
     public bool? HasAccess { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 获取三方审批任务状态 响应体
@@ -18,7 +17,7 @@ public record PostApprovalOpenapiV2ExternalListResponseDto
     /// <para>是</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("data")]
+    [JsonPropertyName("data")]
     public DataSuffix[]? Data { get; set; }
 
     /// <summary></summary>
@@ -28,42 +27,42 @@ public record PostApprovalOpenapiV2ExternalListResponseDto
         /// <para>审批实例 ID</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("instance_id")]
+        [JsonPropertyName("instance_id")]
         public string InstanceId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>审批对应的 approval_code</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("approval_code")]
+        [JsonPropertyName("approval_code")]
         public string ApprovalCode { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>审批的id</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("approval_id")]
+        [JsonPropertyName("approval_id")]
         public string ApprovalId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>审批实例当前的状态，参考[三方审批实例状态枚举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>审批实例最后更新时间，单位 毫秒</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public int UpdateTime { get; set; }
 
         /// <summary>
         /// <para>审批实例下的审批任务</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("tasks")]
+        [JsonPropertyName("tasks")]
         public Task[]? Tasks { get; set; }
 
         /// <summary></summary>
@@ -73,21 +72,21 @@ public record PostApprovalOpenapiV2ExternalListResponseDto
             /// <para>审批任务 ID</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string Id { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>审批任务状态，状态值参照 [三方审批任务状态枚举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("status")]
+            [JsonPropertyName("status")]
             public string Status { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>审批任务最后更新时间，单位 毫秒</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("update_time")]
+            [JsonPropertyName("update_time")]
             public long UpdateTime { get; set; }
         }
     }
@@ -96,6 +95,6 @@ public record PostApprovalOpenapiV2ExternalListResponseDto
     /// <para>通过 status 获取所有任务的请求，数据是分批返回的， scroll_id 用于获取下一批数据，直至 scroll_id 为空</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("scroll_id")]
+    [JsonPropertyName("scroll_id")]
     public string? ScrollId { get; set; }
 }

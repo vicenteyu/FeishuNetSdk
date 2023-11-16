@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取异动类型列表 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1TransferTypesQueryResponseDto
     /// <para>异动类型列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public TransferType[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetCorehrV1TransferTypesQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：internal_transfer</para>
         /// </summary>
-        [JsonProperty("transfer_type_unique_identifier")]
+        [JsonPropertyName("transfer_type_unique_identifier")]
         public string? TransferTypeUniqueIdentifier { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetCorehrV1TransferTypesQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：张三</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n[]? Names { get; set; }
 
         /// <summary>
@@ -47,7 +46,7 @@ public record GetCorehrV1TransferTypesQueryResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -55,7 +54,7 @@ public record GetCorehrV1TransferTypesQueryResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：刘梓新</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -64,7 +63,7 @@ public record GetCorehrV1TransferTypesQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("active")]
+        [JsonPropertyName("active")]
         public bool? Active { get; set; }
 
         /// <summary>
@@ -72,7 +71,7 @@ public record GetCorehrV1TransferTypesQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：people_6963913041981490725_6983885526583627531</para>
         /// </summary>
-        [JsonProperty("flow_id")]
+        [JsonPropertyName("flow_id")]
         public string? FlowId { get; set; }
 
         /// <summary>
@@ -80,7 +79,7 @@ public record GetCorehrV1TransferTypesQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：张三</para>
         /// </summary>
-        [JsonProperty("flow_name")]
+        [JsonPropertyName("flow_name")]
         public I18n[]? FlowNames { get; set; }
 
         /// <summary>
@@ -88,7 +87,7 @@ public record GetCorehrV1TransferTypesQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2021-06-2918:21:26</para>
         /// </summary>
-        [JsonProperty("created_time")]
+        [JsonPropertyName("created_time")]
         public string? CreatedTime { get; set; }
 
         /// <summary>
@@ -96,7 +95,7 @@ public record GetCorehrV1TransferTypesQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022-01-0717:20:51</para>
         /// </summary>
-        [JsonProperty("updated_time")]
+        [JsonPropertyName("updated_time")]
         public string? UpdatedTime { get; set; }
     }
 }

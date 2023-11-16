@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.HumanAuthentication.Spec;
 /// <summary>
 /// 查询人脸认证结果 响应体
@@ -14,13 +13,13 @@ public record GetFaceVerifyV1QueryAuthResultResponseDto
     /// <para>认证结果, 0: 认证中, 1: 认证成功, -1: 认证失败</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("auth_state")]
+    [JsonPropertyName("auth_state")]
     public int? AuthState { get; set; }
 
     /// <summary>
     /// <para>认证时间，unix 时间戳</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("auth_timpstamp")]
+    [JsonPropertyName("auth_timpstamp")]
     public int? AuthTimpstamp { get; set; }
 }

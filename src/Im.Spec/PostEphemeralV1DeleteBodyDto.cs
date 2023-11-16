@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im.Spec;
 /// <summary>
 /// 删除仅特定人可见的消息卡片 请求体
@@ -15,6 +14,6 @@ public record PostEphemeralV1DeleteBodyDto
     /// <para>临时消息ID</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("message_id")]
+    [JsonPropertyName("message_id")]
     public string MessageId { get; set; } = string.Empty;
 }

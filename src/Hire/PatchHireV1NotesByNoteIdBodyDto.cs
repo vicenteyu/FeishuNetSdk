@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新备注 请求体
@@ -14,6 +13,6 @@ public record PatchHireV1NotesByNoteIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：111</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
 }

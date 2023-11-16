@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取人才文件夹信息 响应体
@@ -14,7 +13,7 @@ public record GetHireV1TalentFoldersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record GetHireV1TalentFoldersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>文件夹列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public TalentFolderForList[]? Items { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record GetHireV1TalentFoldersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7041806543797995820</para>
         /// </summary>
-        [JsonProperty("folder_id")]
+        [JsonPropertyName("folder_id")]
         public string? FolderId { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetHireV1TalentFoldersResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：人才文件夹A1</para>
         /// </summary>
-        [JsonProperty("folder_name")]
+        [JsonPropertyName("folder_name")]
         public string FolderName { get; set; } = string.Empty;
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetHireV1TalentFoldersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_85bb308c57f597471cd2bb5b4f580245</para>
         /// </summary>
-        [JsonProperty("owner_id")]
+        [JsonPropertyName("owner_id")]
         public string? OwnerId { get; set; }
     }
 }

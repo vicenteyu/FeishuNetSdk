@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Event;
 /// <summary>
 /// 获取事件出口 IP 响应体
@@ -14,7 +13,7 @@ public record GetEventV1OutboundIpResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1.1.1.1</para>
     /// </summary>
-    [JsonProperty("ip_list")]
+    [JsonPropertyName("ip_list")]
     public string[]? IpList { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record GetEventV1OutboundIpResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：xxx</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -30,6 +29,6 @@ public record GetEventV1OutboundIpResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 批量获取全文评论 响应体
@@ -13,7 +12,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
     /// <para>评论的相关信息、回复的信息、回复分页的信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public FileComment[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6916106822734512356</para>
         /// </summary>
-        [JsonProperty("comment_id")]
+        [JsonPropertyName("comment_id")]
         public string? CommentId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1610281603</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public int? CreateTime { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1610281603</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public int? UpdateTime { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("is_solved")]
+        [JsonPropertyName("is_solved")]
         public bool? IsSolved { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1610281603</para>
         /// </summary>
-        [JsonProperty("solved_time")]
+        [JsonPropertyName("solved_time")]
         public int? SolvedTime { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：null</para>
         /// </summary>
-        [JsonProperty("solver_user_id")]
+        [JsonPropertyName("solver_user_id")]
         public string? SolverUserId { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("has_more")]
+        [JsonPropertyName("has_more")]
         public bool? HasMore { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6916106822734512356</para>
         /// </summary>
-        [JsonProperty("page_token")]
+        [JsonPropertyName("page_token")]
         public string? PageToken { get; set; }
 
         /// <summary>
@@ -98,7 +97,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_whole")]
+        [JsonPropertyName("is_whole")]
         public bool? IsWhole { get; set; }
 
         /// <summary>
@@ -106,14 +105,14 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：划词评论引用内容</para>
         /// </summary>
-        [JsonProperty("quote")]
+        [JsonPropertyName("quote")]
         public string? Quote { get; set; }
 
         /// <summary>
         /// <para>评论里的回复列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("reply_list")]
+        [JsonPropertyName("reply_list")]
         public FileCommentReplyList? ReplyList { get; set; }
 
         /// <summary>
@@ -125,7 +124,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
             /// <para>回复列表</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("replies")]
+            [JsonPropertyName("replies")]
             public FileCommentReply[] Replies { get; set; } = Array.Empty<FileCommentReply>();
 
             /// <summary>
@@ -138,7 +137,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：6916106822734512356</para>
                 /// </summary>
-                [JsonProperty("reply_id")]
+                [JsonPropertyName("reply_id")]
                 public string? ReplyId { get; set; }
 
                 /// <summary>
@@ -146,7 +145,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eab2abcef</para>
                 /// </summary>
-                [JsonProperty("user_id")]
+                [JsonPropertyName("user_id")]
                 public string? UserId { get; set; }
 
                 /// <summary>
@@ -154,7 +153,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1610281603</para>
                 /// </summary>
-                [JsonProperty("create_time")]
+                [JsonPropertyName("create_time")]
                 public int? CreateTime { get; set; }
 
                 /// <summary>
@@ -162,14 +161,14 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1610281603</para>
                 /// </summary>
-                [JsonProperty("update_time")]
+                [JsonPropertyName("update_time")]
                 public int? UpdateTime { get; set; }
 
                 /// <summary>
                 /// <para>回复内容</para>
                 /// <para>必填：是</para>
                 /// </summary>
-                [JsonProperty("content")]
+                [JsonPropertyName("content")]
                 public ReplyContent Content { get; set; } = new();
 
                 /// <summary>
@@ -181,7 +180,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                     /// <para>回复的内容</para>
                     /// <para>必填：是</para>
                     /// </summary>
-                    [JsonProperty("elements")]
+                    [JsonPropertyName("elements")]
                     public ReplyElement[] Elements { get; set; } = Array.Empty<ReplyElement>();
 
                     /// <summary>
@@ -199,14 +198,14 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                         /// <item>person：at 联系人</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("type")]
+                        [JsonPropertyName("type")]
                         public string Type { get; set; } = string.Empty;
 
                         /// <summary>
                         /// <para>文本内容</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("text_run")]
+                        [JsonPropertyName("text_run")]
                         public ReplyElementTextRun? TextRun { get; set; }
 
                         /// <summary>
@@ -219,7 +218,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                             /// <para>必填：是</para>
                             /// <para>示例值：comment text</para>
                             /// </summary>
-                            [JsonProperty("text")]
+                            [JsonPropertyName("text")]
                             public string Text { get; set; } = string.Empty;
                         }
 
@@ -227,7 +226,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                         /// <para>文本内容</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("docs_link")]
+                        [JsonPropertyName("docs_link")]
                         public ReplyElementDocsLink? DocsLink { get; set; }
 
                         /// <summary>
@@ -240,7 +239,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https://example.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -248,7 +247,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                         /// <para>文本内容</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("person")]
+                        [JsonPropertyName("person")]
                         public ReplyElementPerson? Person { get; set; }
 
                         /// <summary>
@@ -261,7 +260,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                             /// <para>必填：是</para>
                             /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef</para>
                             /// </summary>
-                            [JsonProperty("user_id")]
+                            [JsonPropertyName("user_id")]
                             public string UserId { get; set; } = string.Empty;
                         }
                     }
@@ -271,7 +270,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                 /// <para>回复的其他内容，图片token等</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("extra")]
+                [JsonPropertyName("extra")]
                 public ReplyExtra? Extra { get; set; }
 
                 /// <summary>
@@ -283,7 +282,7 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto
                     /// <para>评论中的图片token list</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("image_list")]
+                    [JsonPropertyName("image_list")]
                     public string[]? ImageList { get; set; }
                 }
             }

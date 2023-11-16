@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 操作员工离职 响应体
@@ -14,7 +13,7 @@ public record PostCorehrV1OffboardingsSubmitResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：7095671727698478604</para>
     /// </summary>
-    [JsonProperty("offboarding_id")]
+    [JsonPropertyName("offboarding_id")]
     public string? OffboardingId { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostCorehrV1OffboardingsSubmitResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：6982509313466189342</para>
     /// </summary>
-    [JsonProperty("employment_id")]
+    [JsonPropertyName("employment_id")]
     public string? EmploymentId { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostCorehrV1OffboardingsSubmitResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：reason_for_offboarding_option8</para>
     /// </summary>
-    [JsonProperty("offboarding_reason_unique_identifier")]
+    [JsonPropertyName("offboarding_reason_unique_identifier")]
     public string? OffboardingReasonUniqueIdentifier { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostCorehrV1OffboardingsSubmitResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-05-18</para>
     /// </summary>
-    [JsonProperty("offboarding_date")]
+    [JsonPropertyName("offboarding_date")]
     public string? OffboardingDate { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostCorehrV1OffboardingsSubmitResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：离职原因说明</para>
     /// </summary>
-    [JsonProperty("offboarding_reason_explanation")]
+    [JsonPropertyName("offboarding_reason_explanation")]
     public string? OffboardingReasonExplanation { get; set; }
 
     /// <summary>
@@ -54,7 +53,7 @@ public record PostCorehrV1OffboardingsSubmitResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("add_block_list")]
+    [JsonPropertyName("add_block_list")]
     public string? AddBlockList { get; set; }
 
     /// <summary>
@@ -62,7 +61,7 @@ public record PostCorehrV1OffboardingsSubmitResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：红线</para>
     /// </summary>
-    [JsonProperty("block_reason")]
+    [JsonPropertyName("block_reason")]
     public string? BlockReason { get; set; }
 
     /// <summary>
@@ -70,7 +69,7 @@ public record PostCorehrV1OffboardingsSubmitResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：xx年xx月xx日因xx原因红线</para>
     /// </summary>
-    [JsonProperty("block_reason_explanation")]
+    [JsonPropertyName("block_reason_explanation")]
     public string? BlockReasonExplanation { get; set; }
 
     /// <summary>
@@ -78,6 +77,6 @@ public record PostCorehrV1OffboardingsSubmitResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-05-0917:50:17</para>
     /// </summary>
-    [JsonProperty("created_time")]
+    [JsonPropertyName("created_time")]
     public string? CreatedTime { get; set; }
 }

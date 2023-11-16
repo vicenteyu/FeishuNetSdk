@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 复制文档 响应体
@@ -15,34 +14,34 @@ public record PostDriveExplorerV2FileCopyFilesByFileTokenResponseDto
     /// <para>目标文件夹的 token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("folderToken")]
+    [JsonPropertyName("folderToken")]
     public string? FolderToken { get; set; }
 
     /// <summary>
     /// <para>新创建文件的版本号</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("revision")]
+    [JsonPropertyName("revision")]
     public string? Revision { get; set; }
 
     /// <summary>
     /// <para>新创建文件的 token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("token")]
+    [JsonPropertyName("token")]
     public string? Token { get; set; }
 
     /// <summary>
     /// <para>新创建文件的类型，"file"、"doc"、"sheet"、"bitable"、"docx"、"mindnote"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string? Type { get; set; }
 
     /// <summary>
     /// <para>新创建文件的 url</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("url")]
+    [JsonPropertyName("url")]
     public string? Url { get; set; }
 }

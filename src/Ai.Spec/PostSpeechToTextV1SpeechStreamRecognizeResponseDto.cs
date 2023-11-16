@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai.Spec;
 /// <summary>
 /// 识别流式语音 响应体
@@ -13,20 +12,20 @@ public record PostSpeechToTextV1SpeechStreamRecognizeResponseDto
     /// <para>16 位 String 随机串作为同一数据流的标识</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("stream_id")]
+    [JsonPropertyName("stream_id")]
     public string? StreamId { get; set; }
 
     /// <summary>
     /// <para>数据流分片的序号，序号从 0 开始，每次请求递增 1</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("sequence_id")]
+    [JsonPropertyName("sequence_id")]
     public int? SequenceId { get; set; }
 
     /// <summary>
     /// <para>语音流识别后的文本信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("recognition_text")]
+    [JsonPropertyName("recognition_text")]
     public string? RecognitionText { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建账号自定义字段 请求体
@@ -18,14 +17,14 @@ public record PostHireV1EcoAccountCustomFieldsBodyDto
     /// <item>2：笔试</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("scope")]
+    [JsonPropertyName("scope")]
     public int Scope { get; set; }
 
     /// <summary>
     /// <para>自定义字段列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("custom_field_list")]
+    [JsonPropertyName("custom_field_list")]
     public EcoAccountCustomFieldData[] CustomFieldLists { get; set; } = Array.Empty<EcoAccountCustomFieldData>();
 
     /// <summary>
@@ -38,14 +37,14 @@ public record PostHireV1EcoAccountCustomFieldsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：org_id</para>
         /// </summary>
-        [JsonProperty("key")]
+        [JsonPropertyName("key")]
         public string Key { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>自定义字段的名称，用户在添加账号表单看到的控件标题</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n Name { get; set; } = new();
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostHireV1EcoAccountCustomFieldsBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：测试</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -66,7 +65,7 @@ public record PostHireV1EcoAccountCustomFieldsBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：test</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
 
@@ -75,14 +74,14 @@ public record PostHireV1EcoAccountCustomFieldsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_required")]
+        [JsonPropertyName("is_required")]
         public bool IsRequired { get; set; }
 
         /// <summary>
         /// <para>自定义字段的描述，用户在添加账号表单看到的 place holder</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public I18n? Description { get; set; }
     }
 }

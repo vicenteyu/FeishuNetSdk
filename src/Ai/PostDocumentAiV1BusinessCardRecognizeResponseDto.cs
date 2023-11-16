@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 识别文件中的名片 响应体
@@ -13,7 +12,7 @@ public record PostDocumentAiV1BusinessCardRecognizeResponseDto
     /// <para>名片信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("business_cards")]
+    [JsonPropertyName("business_cards")]
     public RecognizedEntities[]? BusinessCards { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostDocumentAiV1BusinessCardRecognizeResponseDto
         /// <para>识别的实体列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("entities")]
+        [JsonPropertyName("entities")]
         public RecognizedEntity[]? Entities { get; set; }
 
         /// <summary>
@@ -52,7 +51,7 @@ public record PostDocumentAiV1BusinessCardRecognizeResponseDto
             /// </list></para>
             /// <para>默认值：名片中识别出来的人名</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -60,7 +59,7 @@ public record PostDocumentAiV1BusinessCardRecognizeResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
     }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 判断用户或机器人是否在群里 响应体
@@ -14,6 +13,6 @@ public record GetImV1ChatsByChatIdMembersIsInChatResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("is_in_chat")]
+    [JsonPropertyName("is_in_chat")]
     public bool? IsInChat { get; set; }
 }

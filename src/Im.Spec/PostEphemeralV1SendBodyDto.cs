@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im.Spec;
 /// <summary>
 /// 发送仅特定人可见的消息卡片 请求体
@@ -14,41 +13,41 @@ public record PostEphemeralV1SendBodyDto
     /// <para>发送临时消息的群ID可通过事件推送获取</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("chat_id")]
+    [JsonPropertyName("chat_id")]
     public string ChatId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>指定发送临时消息卡片的用户，其他人将无法看到临时消息卡片；只需要填 open_id、email、user_id中的一个即可，推荐使用 OpenID，获取方式可参考文档[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid) （服务端依次读取字段的顺序为 **open_id** &gt; **user_id** &gt; **email**）</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("open_id")]
+    [JsonPropertyName("open_id")]
     public string? OpenId { get; set; }
 
     /// <summary>
     /// <para>指定发送临时消息卡片的用户，其他人将无法看到临时消息卡片；只需要填 open_id、email、user_id中的一个即可，推荐使用 OpenID，获取方式可参考文档[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid) （服务端依次读取字段的顺序为 **open_id** &gt; **user_id** &gt; **email**）</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
     /// <para>指定发送临时消息卡片的用户，其他人将无法看到临时消息卡片；只需要填 open_id、email、user_id中的一个即可，推荐使用 OpenID，获取方式可参考文档[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid) （服务端依次读取字段的顺序为 **open_id** &gt; **user_id** &gt; **email**）</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("email")]
+    [JsonPropertyName("email")]
     public string? Email { get; set; }
 
     /// <summary>
     /// <para>消息的类型，此处固定填 "interactive"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("msg_type")]
+    [JsonPropertyName("msg_type")]
     public string MsgType { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>消息卡片的描述内容，具体参考 [基础结构](https://open.feishu.cn/document/ukTMukTMukTM/uEjNwUjLxYDM14SM2ATN)</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("card")]
+    [JsonPropertyName("card")]
     public object Card { get; set; } = new();
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量查询待入职人员 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1PreHiresResponseDto
     /// <para>查询的待入职信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public PreHireQuery[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetCorehrV1PreHiresResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：4719168654814483759</para>
         /// </summary>
-        [JsonProperty("ats_application_id")]
+        [JsonPropertyName("ats_application_id")]
         public string? AtsApplicationId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetCorehrV1PreHiresResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：154545454</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -42,14 +41,14 @@ public record GetCorehrV1PreHiresResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2020-01-01</para>
         /// </summary>
-        [JsonProperty("hire_date")]
+        [JsonPropertyName("hire_date")]
         public string? HireDate { get; set; }
 
         /// <summary>
         /// <para>雇佣类型</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("employee_type")]
+        [JsonPropertyName("employee_type")]
         public Enum EmployeeType { get; set; } = new();
 
         /// <summary>
@@ -62,14 +61,14 @@ public record GetCorehrV1PreHiresResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：type_1</para>
             /// </summary>
-            [JsonProperty("enum_name")]
+            [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>枚举多语展示</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("display")]
+            [JsonPropertyName("display")]
             public I18n[]? Displies { get; set; }
 
             /// <summary>
@@ -82,7 +81,7 @@ public record GetCorehrV1PreHiresResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
-                [JsonProperty("lang")]
+                [JsonPropertyName("lang")]
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
@@ -90,7 +89,7 @@ public record GetCorehrV1PreHiresResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：张三</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
         }
@@ -100,7 +99,7 @@ public record GetCorehrV1PreHiresResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1245646</para>
         /// </summary>
-        [JsonProperty("worker_id")]
+        [JsonPropertyName("worker_id")]
         public string? WorkerId { get; set; }
 
         /// <summary>
@@ -108,7 +107,7 @@ public record GetCorehrV1PreHiresResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：正式</para>
         /// </summary>
-        [JsonProperty("employee_type_id")]
+        [JsonPropertyName("employee_type_id")]
         public string EmployeeTypeId { get; set; } = string.Empty;
 
         /// <summary>
@@ -116,14 +115,14 @@ public record GetCorehrV1PreHiresResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：656464648662</para>
         /// </summary>
-        [JsonProperty("person_id")]
+        [JsonPropertyName("person_id")]
         public string PersonId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -136,7 +135,7 @@ public record GetCorehrV1PreHiresResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("field_name")]
+            [JsonPropertyName("field_name")]
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
@@ -144,7 +143,7 @@ public record GetCorehrV1PreHiresResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：\"Sandy\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -157,14 +156,14 @@ public record GetCorehrV1PreHiresResponseDto
         /// <para>- `deleted`：已删除，对应的系统操作是将待入职人员回退至 Offer 沟通阶段</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("onboarding_status")]
+        [JsonPropertyName("onboarding_status")]
         public Enum OnboardingStatus { get; set; } = new();
 
         /// <summary>
         /// <para>成本中心分摊信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("cost_center_rate")]
+        [JsonPropertyName("cost_center_rate")]
         public SupportCostCenterItem[]? CostCenterRates { get; set; }
 
         /// <summary>
@@ -177,7 +176,7 @@ public record GetCorehrV1PreHiresResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6950635856373745165</para>
             /// </summary>
-            [JsonProperty("cost_center_id")]
+            [JsonPropertyName("cost_center_id")]
             public string? CostCenterId { get; set; }
 
             /// <summary>
@@ -185,7 +184,7 @@ public record GetCorehrV1PreHiresResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
-            [JsonProperty("rate")]
+            [JsonPropertyName("rate")]
             public int? Rate { get; set; }
         }
 
@@ -193,7 +192,7 @@ public record GetCorehrV1PreHiresResponseDto
         /// <para>工作邮箱</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("work_email_list")]
+        [JsonPropertyName("work_email_list")]
         public Email[]? WorkEmailLists { get; set; }
 
         /// <summary>
@@ -206,7 +205,7 @@ public record GetCorehrV1PreHiresResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：12456@test.com</para>
             /// </summary>
-            [JsonProperty("email")]
+            [JsonPropertyName("email")]
             public string EmailSuffix { get; set; } = string.Empty;
 
             /// <summary>
@@ -214,7 +213,7 @@ public record GetCorehrV1PreHiresResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("is_primary")]
+            [JsonPropertyName("is_primary")]
             public bool? IsPrimary { get; set; }
 
             /// <summary>
@@ -222,14 +221,14 @@ public record GetCorehrV1PreHiresResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
-            [JsonProperty("is_public")]
+            [JsonPropertyName("is_public")]
             public bool? IsPublic { get; set; }
 
             /// <summary>
             /// <para>邮箱用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("email_usage")]
+            [JsonPropertyName("email_usage")]
             public Enum? EmailUsage { get; set; }
 
             /// <summary>
@@ -242,14 +241,14 @@ public record GetCorehrV1PreHiresResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：type_1</para>
                 /// </summary>
-                [JsonProperty("enum_name")]
+                [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
 
                 /// <summary>
                 /// <para>枚举多语展示</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("display")]
+                [JsonPropertyName("display")]
                 public I18n[]? Displies { get; set; }
 
                 /// <summary>
@@ -262,7 +261,7 @@ public record GetCorehrV1PreHiresResponseDto
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
-                    [JsonProperty("lang")]
+                    [JsonPropertyName("lang")]
                     public string Lang { get; set; } = string.Empty;
 
                     /// <summary>
@@ -270,7 +269,7 @@ public record GetCorehrV1PreHiresResponseDto
                     /// <para>必填：是</para>
                     /// <para>示例值：张三</para>
                     /// </summary>
-                    [JsonProperty("value")]
+                    [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
                 }
             }
@@ -279,7 +278,7 @@ public record GetCorehrV1PreHiresResponseDto
             /// <para>自定义字段</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("custom_fields")]
+            [JsonPropertyName("custom_fields")]
             public ObjectFieldData[]? CustomFields { get; set; }
 
             /// <summary>
@@ -292,7 +291,7 @@ public record GetCorehrV1PreHiresResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：name</para>
                 /// </summary>
-                [JsonProperty("field_name")]
+                [JsonPropertyName("field_name")]
                 public string FieldName { get; set; } = string.Empty;
 
                 /// <summary>
@@ -300,7 +299,7 @@ public record GetCorehrV1PreHiresResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：\"Sandy\"</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
         }
@@ -310,7 +309,7 @@ public record GetCorehrV1PreHiresResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：656464648662</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
     }
 
@@ -319,7 +318,7 @@ public record GetCorehrV1PreHiresResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -327,6 +326,6 @@ public record GetCorehrV1PreHiresResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1234452132</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

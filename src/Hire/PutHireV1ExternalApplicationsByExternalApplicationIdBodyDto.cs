@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新外部投递 请求体
@@ -14,7 +13,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：123</para>
     /// </summary>
-    [JsonProperty("external_id")]
+    [JsonPropertyName("external_id")]
     public string? ExternalId { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     /// <item>2：校招</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("job_recruitment_type")]
+    [JsonPropertyName("job_recruitment_type")]
     public int? JobRecruitmentType { get; set; }
 
     /// <summary>
@@ -34,7 +33,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：高级Java</para>
     /// </summary>
-    [JsonProperty("job_title")]
+    [JsonPropertyName("job_title")]
     public string? JobTitle { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：lagou</para>
     /// </summary>
-    [JsonProperty("resume_source")]
+    [JsonPropertyName("resume_source")]
     public string? ResumeSource { get; set; }
 
     /// <summary>
@@ -50,7 +49,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("stage")]
+    [JsonPropertyName("stage")]
     public string? Stage { get; set; }
 
     /// <summary>
@@ -58,7 +57,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6960663240925956459</para>
     /// </summary>
-    [JsonProperty("talent_id")]
+    [JsonPropertyName("talent_id")]
     public string TalentId { get; set; } = string.Empty;
 
     /// <summary>
@@ -66,7 +65,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：不合适</para>
     /// </summary>
-    [JsonProperty("termination_reason")]
+    [JsonPropertyName("termination_reason")]
     public string? TerminationReason { get; set; }
 
     /// <summary>
@@ -80,7 +79,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     /// <item>4：其他</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("delivery_type")]
+    [JsonPropertyName("delivery_type")]
     public int? DeliveryType { get; set; }
 
     /// <summary>
@@ -88,7 +87,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1618500278645</para>
     /// </summary>
-    [JsonProperty("modify_time")]
+    [JsonPropertyName("modify_time")]
     public int? ModifyTime { get; set; }
 
     /// <summary>
@@ -96,7 +95,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1618500278644</para>
     /// </summary>
-    [JsonProperty("create_time")]
+    [JsonPropertyName("create_time")]
     public int? CreateTime { get; set; }
 
     /// <summary>
@@ -104,6 +103,6 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：health</para>
     /// </summary>
-    [JsonProperty("termination_type")]
+    [JsonPropertyName("termination_type")]
     public string? TerminationType { get; set; }
 }

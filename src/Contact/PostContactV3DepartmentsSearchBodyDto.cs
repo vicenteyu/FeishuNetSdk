@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 搜索部门 请求体
@@ -14,6 +13,6 @@ public record PostContactV3DepartmentsSearchBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：DemoName</para>
     /// </summary>
-    [JsonProperty("query")]
+    [JsonPropertyName("query")]
     public string Query { get; set; } = string.Empty;
 }

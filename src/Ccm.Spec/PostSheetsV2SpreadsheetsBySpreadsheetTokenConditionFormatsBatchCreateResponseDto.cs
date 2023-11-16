@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 创建条件格式 响应体
@@ -13,7 +12,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCre
     /// <para>响应</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("responses")]
+    [JsonPropertyName("responses")]
     public Response[]? Responses { get; set; }
 
     /// <summary></summary>
@@ -23,28 +22,28 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCre
         /// <para>sheet的Id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("sheet_id")]
+        [JsonPropertyName("sheet_id")]
         public string? SheetId { get; set; }
 
         /// <summary>
         /// <para>设置成功的条件格式id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("cf_id")]
+        [JsonPropertyName("cf_id")]
         public string? CfId { get; set; }
 
         /// <summary>
         /// <para>条件格式设置状态码，0表示成功，非0表示失败</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("res_code")]
+        [JsonPropertyName("res_code")]
         public int? ResCode { get; set; }
 
         /// <summary>
         /// <para>条件格式设置返回的状态信息，空表示成功，非空表示失败原因</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("res_msg")]
+        [JsonPropertyName("res_msg")]
         public string? ResMsg { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 审批任务转交 请求体
@@ -13,21 +12,21 @@ public record PostApprovalOpenapiV2InstanceTransferBodyDto
     /// <para>审批定义 Code</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string ApprovalCode { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>审批实例 Code</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("instance_code")]
+    [JsonPropertyName("instance_code")]
     public string InstanceCode { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>操作用户</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
@@ -35,21 +34,21 @@ public record PostApprovalOpenapiV2InstanceTransferBodyDto
     /// <para>审批实例详情task_list中id，详情请参考[](https://open.feishu.cn/document/ukTMukTMukTM/uEDNyUjLxQjM14SM0ITN)</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("task_id")]
+    [JsonPropertyName("task_id")]
     public string TaskId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>意见</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("comment")]
+    [JsonPropertyName("comment")]
     public string? Comment { get; set; }
 
     /// <summary>
     /// <para>被转交人唯一 ID</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("transfer_user_id")]
+    [JsonPropertyName("transfer_user_id")]
     public string TransferUserId { get; set; } = string.Empty;
 
     /// <summary>
@@ -57,7 +56,7 @@ public record PostApprovalOpenapiV2InstanceTransferBodyDto
     /// <para>如果没有user_id，必须要有open_id</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("open_id")]
+    [JsonPropertyName("open_id")]
     public string? OpenId { get; set; }
 
     /// <summary>
@@ -65,6 +64,6 @@ public record PostApprovalOpenapiV2InstanceTransferBodyDto
     /// <para>如果没有transfer_user_id，必须要有transfer_open_id</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("transfer_open_id")]
+    [JsonPropertyName("transfer_open_id")]
     public string? TransferOpenId { get; set; }
 }

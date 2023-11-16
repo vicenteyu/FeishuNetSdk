@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Performance;
 /// <summary>
 /// 获取绩效结果 响应体
@@ -13,7 +12,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
     /// <para>绩效评估周期列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("semesters")]
+    [JsonPropertyName("semesters")]
     public Semester[]? Semesters { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6992035450862224940</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>绩效评估周期名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n? Name { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：体验</para>
             /// </summary>
-            [JsonProperty("zh-CN")]
+            [JsonPropertyName("zh-CN")]
             public string? ZhCN { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：Interactiveexperience</para>
             /// </summary>
-            [JsonProperty("en-US")]
+            [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
         }
 
@@ -63,7 +62,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1625068800000</para>
         /// </summary>
-        [JsonProperty("start_time")]
+        [JsonPropertyName("start_time")]
         public string? StartTime { get; set; }
 
         /// <summary>
@@ -71,7 +70,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1640966399999</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string? EndTime { get; set; }
     }
 
@@ -79,7 +78,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
     /// <para>绩效评估项目列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("activities")]
+    [JsonPropertyName("activities")]
     public Activity[]? Activities { get; set; }
 
     /// <summary>
@@ -92,14 +91,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6992035450862323244</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>绩效评估项目名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n? Name { get; set; }
 
         /// <summary>
@@ -112,7 +111,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：体验</para>
             /// </summary>
-            [JsonProperty("zh-CN")]
+            [JsonPropertyName("zh-CN")]
             public string? ZhCN { get; set; }
 
             /// <summary>
@@ -120,7 +119,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：Interactiveexperience</para>
             /// </summary>
-            [JsonProperty("en-US")]
+            [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
         }
 
@@ -129,7 +128,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6992035450862224940</para>
         /// </summary>
-        [JsonProperty("semester_id")]
+        [JsonPropertyName("semester_id")]
         public string? SemesterId { get; set; }
     }
 
@@ -137,7 +136,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
     /// <para>评估项列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("indicators")]
+    [JsonPropertyName("indicators")]
     public Indicator[]? Indicators { get; set; }
 
     /// <summary>
@@ -150,14 +149,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6982759010081818159</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>评估项名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n? Name { get; set; }
 
         /// <summary>
@@ -170,7 +169,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：体验</para>
             /// </summary>
-            [JsonProperty("zh-CN")]
+            [JsonPropertyName("zh-CN")]
             public string? ZhCN { get; set; }
 
             /// <summary>
@@ -178,7 +177,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：Interactiveexperience</para>
             /// </summary>
-            [JsonProperty("en-US")]
+            [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
         }
 
@@ -186,7 +185,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>评估项等级列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("options")]
+        [JsonPropertyName("options")]
         public IndicatorOption[]? Options { get; set; }
 
         /// <summary>
@@ -199,14 +198,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6966127279593588268</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
             /// <para>等级名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
@@ -219,7 +218,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：体验</para>
                 /// </summary>
-                [JsonProperty("zh-CN")]
+                [JsonPropertyName("zh-CN")]
                 public string? ZhCN { get; set; }
 
                 /// <summary>
@@ -227,7 +226,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：Interactiveexperience</para>
                 /// </summary>
-                [JsonProperty("en-US")]
+                [JsonPropertyName("en-US")]
                 public string? EnUS { get; set; }
             }
 
@@ -236,7 +235,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：B</para>
             /// </summary>
-            [JsonProperty("label")]
+            [JsonPropertyName("label")]
             public string? Label { get; set; }
         }
     }
@@ -245,7 +244,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
     /// <para>评估模板列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("templates")]
+    [JsonPropertyName("templates")]
     public Template[]? Templates { get; set; }
 
     /// <summary>
@@ -258,14 +257,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6982759007063000610</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>评估模板所在环节名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n? Name { get; set; }
 
         /// <summary>
@@ -278,7 +277,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：体验</para>
             /// </summary>
-            [JsonProperty("zh-CN")]
+            [JsonPropertyName("zh-CN")]
             public string? ZhCN { get; set; }
 
             /// <summary>
@@ -286,7 +285,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：Interactiveexperience</para>
             /// </summary>
-            [JsonProperty("en-US")]
+            [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
         }
 
@@ -295,7 +294,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：communication_and_open_result</para>
         /// </summary>
-        [JsonProperty("stage")]
+        [JsonPropertyName("stage")]
         public string? Stage { get; set; }
     }
 
@@ -303,7 +302,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
     /// <para>评估内容列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("units")]
+    [JsonPropertyName("units")]
     public Unit[]? Units { get; set; }
 
     /// <summary>
@@ -316,14 +315,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6982759008043877922</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>评估内容名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n? Name { get; set; }
 
         /// <summary>
@@ -336,7 +335,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：体验</para>
             /// </summary>
-            [JsonProperty("zh-CN")]
+            [JsonPropertyName("zh-CN")]
             public string? ZhCN { get; set; }
 
             /// <summary>
@@ -344,7 +343,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：Interactiveexperience</para>
             /// </summary>
-            [JsonProperty("en-US")]
+            [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
         }
     }
@@ -353,7 +352,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
     /// <para>填写项列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("fields")]
+    [JsonPropertyName("fields")]
     public Field[]? Fields { get; set; }
 
     /// <summary>
@@ -366,14 +365,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6982759010081818159</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>填写项名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n? Name { get; set; }
 
         /// <summary>
@@ -386,7 +385,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：体验</para>
             /// </summary>
-            [JsonProperty("zh-CN")]
+            [JsonPropertyName("zh-CN")]
             public string? ZhCN { get; set; }
 
             /// <summary>
@@ -394,7 +393,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：Interactiveexperience</para>
             /// </summary>
-            [JsonProperty("en-US")]
+            [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
         }
 
@@ -403,7 +402,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6982759010081818159</para>
         /// </summary>
-        [JsonProperty("indicator_id")]
+        [JsonPropertyName("indicator_id")]
         public string? IndicatorId { get; set; }
 
         /// <summary>
@@ -411,7 +410,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6982759010081818159</para>
         /// </summary>
-        [JsonProperty("parent_field_id")]
+        [JsonPropertyName("parent_field_id")]
         public string? ParentFieldId { get; set; }
     }
 
@@ -419,7 +418,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
     /// <para>评估数据列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("datas")]
+    [JsonPropertyName("datas")]
     public ReviewProfile[]? Datas { get; set; }
 
     /// <summary>
@@ -431,7 +430,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>被评估人 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public User? UserId { get; set; }
 
         /// <summary>
@@ -444,7 +443,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：od-asd2dasdasd</para>
             /// </summary>
-            [JsonProperty("open_id")]
+            [JsonPropertyName("open_id")]
             public string? OpenId { get; set; }
 
             /// <summary>
@@ -452,7 +451,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ou-ux987dsf6x</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string? UserId { get; set; }
         }
 
@@ -461,7 +460,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6992035450862224940</para>
         /// </summary>
-        [JsonProperty("semester_id")]
+        [JsonPropertyName("semester_id")]
         public string? SemesterId { get; set; }
 
         /// <summary>
@@ -469,14 +468,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6992035450862323244</para>
         /// </summary>
-        [JsonProperty("activity_id")]
+        [JsonPropertyName("activity_id")]
         public string? ActivityId { get; set; }
 
         /// <summary>
         /// <para>本周期内各环节内容</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("stages")]
+        [JsonPropertyName("stages")]
         public ReviewStage[]? Stages { get; set; }
 
         /// <summary>
@@ -489,7 +488,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：leader_review</para>
             /// </summary>
-            [JsonProperty("stage_type")]
+            [JsonPropertyName("stage_type")]
             public string? StageType { get; set; }
 
             /// <summary>
@@ -504,14 +503,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <item>4：已复议，绩效结果已开通，且被评估人已发起复议</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("progress")]
+            [JsonPropertyName("progress")]
             public int? Progress { get; set; }
 
             /// <summary>
             /// <para>环节填写内容</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("data")]
+            [JsonPropertyName("data")]
             public ReviewDetail[]? Datas { get; set; }
 
             /// <summary>
@@ -524,7 +523,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：6982759008972326447</para>
                 /// </summary>
-                [JsonProperty("template_id")]
+                [JsonPropertyName("template_id")]
                 public string? TemplateId { get; set; }
 
                 /// <summary>
@@ -532,7 +531,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：6982759008973882926</para>
                 /// </summary>
-                [JsonProperty("unit_id")]
+                [JsonPropertyName("unit_id")]
                 public string? UnitId { get; set; }
 
                 /// <summary>
@@ -540,14 +539,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：6982759009698137641</para>
                 /// </summary>
-                [JsonProperty("field_id")]
+                [JsonPropertyName("field_id")]
                 public string? FieldId { get; set; }
 
                 /// <summary>
                 /// <para>评估人 ID</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("reviewer_user_id")]
+                [JsonPropertyName("reviewer_user_id")]
                 public User? ReviewerUserId { get; set; }
 
                 /// <summary>
@@ -560,7 +559,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：od-asd2dasdasd</para>
                     /// </summary>
-                    [JsonProperty("open_id")]
+                    [JsonPropertyName("open_id")]
                     public string? OpenId { get; set; }
 
                     /// <summary>
@@ -568,7 +567,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：ou-ux987dsf6x</para>
                     /// </summary>
-                    [JsonProperty("user_id")]
+                    [JsonPropertyName("user_id")]
                     public string? UserId { get; set; }
                 }
 
@@ -577,7 +576,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1627977114000</para>
                 /// </summary>
-                [JsonProperty("submit_time")]
+                [JsonPropertyName("submit_time")]
                 public string? SubmitTime { get; set; }
 
                 /// <summary>
@@ -585,7 +584,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：6982759009698137641</para>
                 /// </summary>
-                [JsonProperty("indicator_id")]
+                [JsonPropertyName("indicator_id")]
                 public string? IndicatorId { get; set; }
 
                 /// <summary>
@@ -593,7 +592,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：6966127279593686572</para>
                 /// </summary>
-                [JsonProperty("option_id")]
+                [JsonPropertyName("option_id")]
                 public string? OptionId { get; set; }
 
                 /// <summary>
@@ -601,7 +600,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：0.4</para>
                 /// </summary>
-                [JsonProperty("score")]
+                [JsonPropertyName("score")]
                 public string? Score { get; set; }
 
                 /// <summary>
@@ -609,7 +608,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：与公司共同发展</para>
                 /// </summary>
-                [JsonProperty("text")]
+                [JsonPropertyName("text")]
                 public string? Text { get; set; }
             }
         }

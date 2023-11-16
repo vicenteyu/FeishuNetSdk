@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 获取表单元数据 响应体
@@ -13,7 +12,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdResponseDto
     /// <para>表单元数据信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("form")]
+    [JsonPropertyName("form")]
     public AppTableForm Form { get; set; } = new();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：表单</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：表单描述</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("shared")]
+        [JsonPropertyName("shared")]
         public bool? Shared { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://example.feishu.cn/share/base/shrcnCy1KAlpahNotmhRn1abcde</para>
         /// </summary>
-        [JsonProperty("shared_url")]
+        [JsonPropertyName("shared_url")]
         public string? SharedUrl { get; set; }
 
         /// <summary>
@@ -63,7 +62,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdResponseDto
         /// <item>anyone_editable：互联网上获得链接的人可填写</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("shared_limit")]
+        [JsonPropertyName("shared_limit")]
         public string? SharedLimit { get; set; }
 
         /// <summary>
@@ -71,7 +70,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("submit_limit_once")]
+        [JsonPropertyName("submit_limit_once")]
         public bool? SubmitLimitOnce { get; set; }
     }
 }

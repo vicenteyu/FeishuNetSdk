@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新 Offer 信息 响应体
@@ -15,7 +14,7 @@ public record PutHireV1OffersByOfferIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：7016605170635213100</para>
     /// </summary>
-    [JsonProperty("offer_id")]
+    [JsonPropertyName("offer_id")]
     public string? OfferId { get; set; }
 
     /// <summary>
@@ -23,14 +22,14 @@ public record PutHireV1OffersByOfferIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：7013318077945596204</para>
     /// </summary>
-    [JsonProperty("schema_id")]
+    [JsonPropertyName("schema_id")]
     public string? SchemaId { get; set; }
 
     /// <summary>
     /// <para>Offer 基本信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("basic_info")]
+    [JsonPropertyName("basic_info")]
     public OfferBasicInfo? BasicInfo { get; set; }
 
     /// <summary>
@@ -43,7 +42,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：od-6b394871807047c7023ebfc1ff37cd3a</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
@@ -51,7 +50,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
         /// </summary>
-        [JsonProperty("leader_user_id")]
+        [JsonPropertyName("leader_user_id")]
         public string? LeaderUserId { get; set; }
 
         /// <summary>
@@ -59,7 +58,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：123</para>
         /// </summary>
-        [JsonProperty("employment_job_id")]
+        [JsonPropertyName("employment_job_id")]
         public string? EmploymentJobId { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("employee_type_id")]
+        [JsonPropertyName("employee_type_id")]
         public string? EmployeeTypeId { get; set; }
 
         /// <summary>
@@ -75,7 +74,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6807407987381831949</para>
         /// </summary>
-        [JsonProperty("job_family_id")]
+        [JsonPropertyName("job_family_id")]
         public string? JobFamilyId { get; set; }
 
         /// <summary>
@@ -83,7 +82,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6807407987381881101</para>
         /// </summary>
-        [JsonProperty("job_level_id")]
+        [JsonPropertyName("job_level_id")]
         public string? JobLevelId { get; set; }
 
         /// <summary>
@@ -91,7 +90,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
-        [JsonProperty("probation_month")]
+        [JsonPropertyName("probation_month")]
         public int? ProbationMonth { get; set; }
 
         /// <summary>
@@ -99,14 +98,14 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
-        [JsonProperty("contract_year")]
+        [JsonPropertyName("contract_year")]
         public int? ContractYear { get; set; }
 
         /// <summary>
         /// <para>合同期（年/月）</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("contract_period")]
+        [JsonPropertyName("contract_period")]
         public ContractPeriodInfo? ContractPeriod { get; set; }
 
         /// <summary>
@@ -123,7 +122,7 @@ public record PutHireV1OffersByOfferIdResponseDto
             /// <item>2：年</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("period_type")]
+            [JsonPropertyName("period_type")]
             public int PeriodType { get; set; }
 
             /// <summary>
@@ -131,7 +130,7 @@ public record PutHireV1OffersByOfferIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：3</para>
             /// </summary>
-            [JsonProperty("period")]
+            [JsonPropertyName("period")]
             public int Period { get; set; }
         }
 
@@ -140,7 +139,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：{"date":"2022-04-07"}</para>
         /// </summary>
-        [JsonProperty("expected_onboard_date")]
+        [JsonPropertyName("expected_onboard_date")]
         public string? ExpectedOnboardDate { get; set; }
 
         /// <summary>
@@ -148,7 +147,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6897079709306259719</para>
         /// </summary>
-        [JsonProperty("onboard_address_id")]
+        [JsonPropertyName("onboard_address_id")]
         public string? OnboardAddressId { get; set; }
 
         /// <summary>
@@ -156,7 +155,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6897079709306259719</para>
         /// </summary>
-        [JsonProperty("work_address_id")]
+        [JsonPropertyName("work_address_id")]
         public string? WorkAddressId { get; set; }
 
         /// <summary>
@@ -164,7 +163,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
         /// </summary>
-        [JsonProperty("owner_user_id")]
+        [JsonPropertyName("owner_user_id")]
         public string? OwnerUserId { get; set; }
 
         /// <summary>
@@ -172,7 +171,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：十分优秀，推荐入职</para>
         /// </summary>
-        [JsonProperty("recommended_words")]
+        [JsonPropertyName("recommended_words")]
         public string? RecommendedWords { get; set; }
 
         /// <summary>
@@ -180,7 +179,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2342352224</para>
         /// </summary>
-        [JsonProperty("job_requirement_id")]
+        [JsonPropertyName("job_requirement_id")]
         public string? JobRequirementId { get; set; }
 
         /// <summary>
@@ -188,14 +187,14 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("job_process_type_id")]
+        [JsonPropertyName("job_process_type_id")]
         public int? JobProcessTypeId { get; set; }
 
         /// <summary>
         /// <para>附件ID列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("attachment_id_list")]
+        [JsonPropertyName("attachment_id_list")]
         public string[]? AttachmentIdList { get; set; }
 
         /// <summary>
@@ -203,7 +202,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：张三的简历</para>
         /// </summary>
-        [JsonProperty("attachment_description")]
+        [JsonPropertyName("attachment_description")]
         public string? AttachmentDescription { get; set; }
 
         /// <summary>
@@ -211,7 +210,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
         /// </summary>
-        [JsonProperty("operator_user_id")]
+        [JsonPropertyName("operator_user_id")]
         public string OperatorUserId { get; set; } = string.Empty;
     }
 
@@ -219,7 +218,7 @@ public record PutHireV1OffersByOfferIdResponseDto
     /// <para>Offer 薪资信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("salary_info")]
+    [JsonPropertyName("salary_info")]
     public OfferSalaryInfo? SalaryInfo { get; set; }
 
     /// <summary>
@@ -232,7 +231,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：CNY</para>
         /// </summary>
-        [JsonProperty("currency")]
+        [JsonPropertyName("currency")]
         public string? Currency { get; set; }
 
         /// <summary>
@@ -240,7 +239,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1000000</para>
         /// </summary>
-        [JsonProperty("basic_salary")]
+        [JsonPropertyName("basic_salary")]
         public string? BasicSalary { get; set; }
 
         /// <summary>
@@ -248,7 +247,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0.8</para>
         /// </summary>
-        [JsonProperty("probation_salary_percentage")]
+        [JsonPropertyName("probation_salary_percentage")]
         public string? ProbationSalaryPercentage { get; set; }
 
         /// <summary>
@@ -256,7 +255,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
-        [JsonProperty("award_salary_multiple")]
+        [JsonPropertyName("award_salary_multiple")]
         public string? AwardSalaryMultiple { get; set; }
 
         /// <summary>
@@ -264,7 +263,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：11</para>
         /// </summary>
-        [JsonProperty("option_shares")]
+        [JsonPropertyName("option_shares")]
         public string? OptionShares { get; set; }
 
         /// <summary>
@@ -272,7 +271,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
-        [JsonProperty("quarterly_bonus")]
+        [JsonPropertyName("quarterly_bonus")]
         public string? QuarterlyBonus { get; set; }
 
         /// <summary>
@@ -280,7 +279,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：16</para>
         /// </summary>
-        [JsonProperty("half_year_bonus")]
+        [JsonPropertyName("half_year_bonus")]
         public string? HalfYearBonus { get; set; }
     }
 
@@ -288,7 +287,7 @@ public record PutHireV1OffersByOfferIdResponseDto
     /// <para>自定义信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("customized_info_list")]
+    [JsonPropertyName("customized_info_list")]
     public OfferCustomizedInfo[]? CustomizedInfoLists { get; set; }
 
     /// <summary>
@@ -301,7 +300,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6972464088568269100</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -309,7 +308,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string? Value { get; set; }
     }
 }

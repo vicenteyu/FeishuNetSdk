@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 添加依赖 请求体
@@ -16,7 +15,7 @@ public record PostTaskV2TasksByTaskGuidAddDependenciesBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("dependencies")]
+    [JsonPropertyName("dependencies")]
     public TaskDependency[]? Dependencies { get; set; }
 
     /// <summary>
@@ -33,7 +32,7 @@ public record PostTaskV2TasksByTaskGuidAddDependenciesBodyDto
         /// <item>next：后置依赖</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
@@ -41,7 +40,7 @@ public record PostTaskV2TasksByTaskGuidAddDependenciesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0</para>
         /// </summary>
-        [JsonProperty("task_guid")]
+        [JsonPropertyName("task_guid")]
         public string TaskGuid { get; set; } = string.Empty;
     }
 }

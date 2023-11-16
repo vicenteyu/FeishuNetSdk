@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 添加群菜单 请求体
@@ -13,7 +12,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
     /// <para>要向群内追加的菜单</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("menu_tree")]
+    [JsonPropertyName("menu_tree")]
     public ChatMenuTree MenuTree { get; set; } = new();
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
         /// <para>一级菜单列表</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("chat_menu_top_levels")]
+        [JsonPropertyName("chat_menu_top_levels")]
         public ChatMenuTopLevel[] ChatMenuTopLevels { get; set; } = Array.Empty<ChatMenuTopLevel>();
 
         /// <summary>
@@ -37,7 +36,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
             /// <para>一级菜单信息</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("chat_menu_item")]
+            [JsonPropertyName("chat_menu_item")]
             public ChatMenuTopLevelChatMenuItem ChatMenuItem { get; set; } = new();
 
             /// <summary>
@@ -56,14 +55,14 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                 /// <item>REDIRECT_LINK：跳转链接类型</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("action_type")]
+                [JsonPropertyName("action_type")]
                 public string ActionType { get; set; } = string.Empty;
 
                 /// <summary>
                 /// <para>跳转链接</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("redirect_link")]
+                [JsonPropertyName("redirect_link")]
                 public ChatMenuItemRedirectLink? RedirectLink { get; set; }
 
                 /// <summary>
@@ -76,7 +75,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：https://open.feishu.cn/</para>
                     /// </summary>
-                    [JsonProperty("common_url")]
+                    [JsonPropertyName("common_url")]
                     public string? CommonUrl { get; set; }
 
                     /// <summary>
@@ -84,7 +83,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：https://open.feishu.cn/</para>
                     /// </summary>
-                    [JsonProperty("ios_url")]
+                    [JsonPropertyName("ios_url")]
                     public string? IosUrl { get; set; }
 
                     /// <summary>
@@ -92,7 +91,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：https://open.feishu.cn/</para>
                     /// </summary>
-                    [JsonProperty("android_url")]
+                    [JsonPropertyName("android_url")]
                     public string? AndroidUrl { get; set; }
 
                     /// <summary>
@@ -100,7 +99,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：https://open.feishu.cn/</para>
                     /// </summary>
-                    [JsonProperty("pc_url")]
+                    [JsonPropertyName("pc_url")]
                     public string? PcUrl { get; set; }
 
                     /// <summary>
@@ -108,7 +107,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：https://open.feishu.cn/</para>
                     /// </summary>
-                    [JsonProperty("web_url")]
+                    [JsonPropertyName("web_url")]
                     public string? WebUrl { get; set; }
                 }
 
@@ -119,7 +118,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：img_v2_b0fbe905-7988-4282-b882-82edd010336j</para>
                 /// </summary>
-                [JsonProperty("image_key")]
+                [JsonPropertyName("image_key")]
                 public string? ImageKey { get; set; }
 
                 /// <summary>
@@ -129,7 +128,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：群聊</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public string Name { get; set; } = string.Empty;
 
                 /// <summary>
@@ -138,7 +137,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                 /// <para>- 一级、二级菜单名称字符数要在1到120范围内</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("i18n_names")]
+                [JsonPropertyName("i18n_names")]
                 public ChatMenuTopLevelChatMenuItemI18nNames? I18nNames { get; set; }
 
                 /// <summary>
@@ -153,7 +152,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：评审报名</para>
                     /// </summary>
-                    [JsonProperty("zh_cn")]
+                    [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
@@ -161,7 +160,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：Signup</para>
                     /// </summary>
-                    [JsonProperty("en_us")]
+                    [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
 
                     /// <summary>
@@ -169,7 +168,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：サインアップ</para>
                     /// </summary>
-                    [JsonProperty("ja_jp")]
+                    [JsonPropertyName("ja_jp")]
                     public string? JaJp { get; set; }
                 }
             }
@@ -178,7 +177,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
             /// <para>二级菜单列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("children")]
+            [JsonPropertyName("children")]
             public ChatMenuSecondLevel[]? Childrens { get; set; }
 
             /// <summary>
@@ -190,7 +189,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                 /// <para>二级菜单信息</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("chat_menu_item")]
+                [JsonPropertyName("chat_menu_item")]
                 public ChatMenuSecondLevelChatMenuItem? ChatMenuItem { get; set; }
 
                 /// <summary>
@@ -209,14 +208,14 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                     /// <item>REDIRECT_LINK：跳转链接类型</item>
                     /// </list></para>
                     /// </summary>
-                    [JsonProperty("action_type")]
+                    [JsonPropertyName("action_type")]
                     public string? ActionType { get; set; }
 
                     /// <summary>
                     /// <para>跳转链接</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("redirect_link")]
+                    [JsonPropertyName("redirect_link")]
                     public ChatMenuItemRedirectLink? RedirectLink { get; set; }
 
                     /// <summary>
@@ -229,7 +228,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：https://open.feishu.cn/</para>
                         /// </summary>
-                        [JsonProperty("common_url")]
+                        [JsonPropertyName("common_url")]
                         public string? CommonUrl { get; set; }
 
                         /// <summary>
@@ -237,7 +236,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：https://open.feishu.cn/</para>
                         /// </summary>
-                        [JsonProperty("ios_url")]
+                        [JsonPropertyName("ios_url")]
                         public string? IosUrl { get; set; }
 
                         /// <summary>
@@ -245,7 +244,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：https://open.feishu.cn/</para>
                         /// </summary>
-                        [JsonProperty("android_url")]
+                        [JsonPropertyName("android_url")]
                         public string? AndroidUrl { get; set; }
 
                         /// <summary>
@@ -253,7 +252,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：https://open.feishu.cn/</para>
                         /// </summary>
-                        [JsonProperty("pc_url")]
+                        [JsonPropertyName("pc_url")]
                         public string? PcUrl { get; set; }
 
                         /// <summary>
@@ -261,7 +260,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：https://open.feishu.cn/</para>
                         /// </summary>
-                        [JsonProperty("web_url")]
+                        [JsonPropertyName("web_url")]
                         public string? WebUrl { get; set; }
                     }
 
@@ -272,7 +271,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：img_v2_b0fbe905-7988-4282-b882-82edd010336j</para>
                     /// </summary>
-                    [JsonProperty("image_key")]
+                    [JsonPropertyName("image_key")]
                     public string? ImageKey { get; set; }
 
                     /// <summary>
@@ -282,7 +281,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：群聊</para>
                     /// </summary>
-                    [JsonProperty("name")]
+                    [JsonPropertyName("name")]
                     public string? Name { get; set; }
 
                     /// <summary>
@@ -291,7 +290,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                     /// <para>- 一级、二级菜单名称字符数要在1到120范围内</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("i18n_names")]
+                    [JsonPropertyName("i18n_names")]
                     public ChatMenuSecondLevelChatMenuItemI18nNames? I18nNames { get; set; }
 
                     /// <summary>
@@ -306,7 +305,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：评审报名</para>
                         /// </summary>
-                        [JsonProperty("zh_cn")]
+                        [JsonPropertyName("zh_cn")]
                         public string? ZhCn { get; set; }
 
                         /// <summary>
@@ -314,7 +313,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：Signup</para>
                         /// </summary>
-                        [JsonProperty("en_us")]
+                        [JsonPropertyName("en_us")]
                         public string? EnUs { get; set; }
 
                         /// <summary>
@@ -322,7 +321,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：サインアップ</para>
                         /// </summary>
-                        [JsonProperty("ja_jp")]
+                        [JsonPropertyName("ja_jp")]
                         public string? JaJp { get; set; }
                     }
                 }

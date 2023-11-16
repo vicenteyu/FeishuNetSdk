@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 查询批量任务执行状态 响应体
@@ -15,63 +14,63 @@ public record GetContactV2TaskGetResponseDto
     /// <para>异步任务 ID。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("task_id")]
+    [JsonPropertyName("task_id")]
     public string? TaskId { get; set; }
 
     /// <summary>
     /// <para>任务类型，目前有两种，添加用户时为 add_user，添加部门时为 add_department。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string? Type { get; set; }
 
     /// <summary>
     /// <para>任务当前执行状态，小于 9：正在执行过程中，9：执行完成，10：执行失败。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public int? Status { get; set; }
 
     /// <summary>
     /// <para>任务执行进度百分比。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("progress")]
+    [JsonPropertyName("progress")]
     public int? Progress { get; set; }
 
     /// <summary>
     /// <para>任务总条数。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("total_num")]
+    [JsonPropertyName("total_num")]
     public int? TotalNum { get; set; }
 
     /// <summary>
     /// <para>任务当前执行成功的条数。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("success_num")]
+    [JsonPropertyName("success_num")]
     public int? SuccessNum { get; set; }
 
     /// <summary>
     /// <para>任务当前执行失败的条数。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("fail_num")]
+    [JsonPropertyName("fail_num")]
     public int? FailNum { get; set; }
 
     /// <summary>
     /// <para>任务创建时间，以秒为单位的 Unix 时间戳。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("create_time")]
+    [JsonPropertyName("create_time")]
     public int? CreateTime { get; set; }
 
     /// <summary>
     /// <para>任务完成时间，以秒为单位的 Unix 时间戳，当任务未完成时不返回此字段。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("finish_time")]
+    [JsonPropertyName("finish_time")]
     public int? FinishTime { get; set; }
 
     /// <summary>
@@ -79,7 +78,7 @@ public record GetContactV2TaskGetResponseDto
     /// <para>列表中的执行结果顺序和创建任务时请求体中的子任务顺序一致。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("task_info")]
+    [JsonPropertyName("task_info")]
     public Task[]? TaskInfo { get; set; }
 
     /// <summary></summary>
@@ -89,28 +88,28 @@ public record GetContactV2TaskGetResponseDto
         /// <para>子任务返回码，非 0 表示失败。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("code")]
+        [JsonPropertyName("code")]
         public string? Code { get; set; }
 
         /// <summary>
         /// <para>对子任务返回码的文本描述。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("msg")]
+        [JsonPropertyName("msg")]
         public string? Msg { get; set; }
 
         /// <summary>
         /// <para>子任务进行的操作，1：添加，2：更新。子任务执行失败时不返回此字段。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("action")]
+        [JsonPropertyName("action")]
         public string? Action { get; set; }
 
         /// <summary>
         /// <para>子任务请求名称，用户操作时为用户名，部门操作时为部门名。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -122,14 +121,14 @@ public record GetContactV2TaskGetResponseDto
         /// <para>请求时的用户邮箱。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string? Email { get; set; }
 
         /// <summary>
         /// <para>请求时的用户手机号。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("mobile")]
+        [JsonPropertyName("mobile")]
         public string? Mobile { get; set; }
 
         /// <summary>
@@ -137,21 +136,21 @@ public record GetContactV2TaskGetResponseDto
         /// <para>当请求时没有填写 user_id 字段并且子任务执行成功时，字段值为系统生成的唯一标识。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
         /// <para>请求时的用户所属部门。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("departments")]
+        [JsonPropertyName("departments")]
         public string[]? Departments { get; set; }
 
         /// <summary>
         /// <para>生成的用户 open_id，子任务执行失败时不返回此字段。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string? OpenId { get; set; }
 
         /// <summary>
@@ -164,21 +163,21 @@ public record GetContactV2TaskGetResponseDto
         /// <para>当请求时没有填写自定义 ID 字段并且子任务执行成功时，字段值为系统生成的部门 ID。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
         /// <para>请求时的父部门 ID。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("parent_id")]
+        [JsonPropertyName("parent_id")]
         public string? ParentId { get; set; }
 
         /// <summary>
         /// <para>部门群 ID，部门群不存在时不返回此字段。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("chat_id")]
+        [JsonPropertyName("chat_id")]
         public string? ChatId { get; set; }
     }
 }

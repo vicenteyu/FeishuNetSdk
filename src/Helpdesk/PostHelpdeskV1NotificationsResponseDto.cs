@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 创建推送 响应体
@@ -14,7 +13,7 @@ public record PostHelpdeskV1NotificationsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：6985032626234982420</para>
     /// </summary>
-    [JsonProperty("notification_id")]
+    [JsonPropertyName("notification_id")]
     public string? NotificationId { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostHelpdeskV1NotificationsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：0</para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public int? Status { get; set; }
 }

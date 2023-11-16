@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 批量删除执行者 响应体
@@ -13,6 +12,6 @@ public record PostTaskV1TasksByTaskIdBatchDeleteCollaboratorResponseDto
     /// <para>实际删除的执行人用户ID列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("collaborators")]
+    [JsonPropertyName("collaborators")]
     public string[]? Collaborators { get; set; }
 }

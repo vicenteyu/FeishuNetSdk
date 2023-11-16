@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取协作者列表 响应体
@@ -15,7 +14,7 @@ public record PostDrivePermissionMemberListResponseDto
     /// <para>协作者列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("members")]
+    [JsonPropertyName("members")]
     public Member[]? Members { get; set; }
 
     /// <summary></summary>
@@ -25,28 +24,28 @@ public record PostDrivePermissionMemberListResponseDto
         /// <para>协作者类型 "user" or "chat"</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("member_type")]
+        [JsonPropertyName("member_type")]
         public string? MemberType { get; set; }
 
         /// <summary>
         /// <para>协作者openid</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("member_open_id")]
+        [JsonPropertyName("member_open_id")]
         public string? MemberOpenId { get; set; }
 
         /// <summary>
         /// <para>协作者userid(仅当member_type="user"时有效)</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("member_user_id")]
+        [JsonPropertyName("member_user_id")]
         public string? MemberUserId { get; set; }
 
         /// <summary>
         /// <para>协作者权限 (注意: **有"edit"权限的协作者一定有"view"权限**)</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("perm")]
+        [JsonPropertyName("perm")]
         public string? Perm { get; set; }
     }
 }

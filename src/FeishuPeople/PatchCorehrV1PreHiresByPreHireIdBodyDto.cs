@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 更新待入职信息 请求体
@@ -14,7 +13,7 @@ public record PatchCorehrV1PreHiresByPreHireIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：4719168654814483759</para>
     /// </summary>
-    [JsonProperty("ats_application_id")]
+    [JsonPropertyName("ats_application_id")]
     public string? AtsApplicationId { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record PatchCorehrV1PreHiresByPreHireIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
-    [JsonProperty("hire_date")]
+    [JsonPropertyName("hire_date")]
     public string? HireDate { get; set; }
 
     /// <summary>
     /// <para>雇佣类型</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("employee_type")]
+    [JsonPropertyName("employee_type")]
     public Enum? EmployeeType { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record PatchCorehrV1PreHiresByPreHireIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：type_1</para>
         /// </summary>
-        [JsonProperty("enum_name")]
+        [JsonPropertyName("enum_name")]
         public string EnumName { get; set; } = string.Empty;
     }
 
@@ -51,7 +50,7 @@ public record PatchCorehrV1PreHiresByPreHireIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1245646</para>
     /// </summary>
-    [JsonProperty("worker_id")]
+    [JsonPropertyName("worker_id")]
     public string? WorkerId { get; set; }
 
     /// <summary>
@@ -59,7 +58,7 @@ public record PatchCorehrV1PreHiresByPreHireIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：正式</para>
     /// </summary>
-    [JsonProperty("employee_type_id")]
+    [JsonPropertyName("employee_type_id")]
     public string? EmployeeTypeId { get; set; }
 
     /// <summary>
@@ -67,14 +66,14 @@ public record PatchCorehrV1PreHiresByPreHireIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：656464648662</para>
     /// </summary>
-    [JsonProperty("person_id")]
+    [JsonPropertyName("person_id")]
     public string? PersonId { get; set; }
 
     /// <summary>
     /// <para>自定义字段</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("custom_fields")]
+    [JsonPropertyName("custom_fields")]
     public ObjectFieldData[]? CustomFields { get; set; }
 
     /// <summary>
@@ -87,7 +86,7 @@ public record PatchCorehrV1PreHiresByPreHireIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：name</para>
         /// </summary>
-        [JsonProperty("field_name")]
+        [JsonPropertyName("field_name")]
         public string FieldName { get; set; } = string.Empty;
 
         /// <summary>
@@ -95,7 +94,7 @@ public record PatchCorehrV1PreHiresByPreHireIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：\"Sandy\"</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
     }
 
@@ -103,7 +102,7 @@ public record PatchCorehrV1PreHiresByPreHireIdBodyDto
     /// <para>成本中心分摊信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("cost_center_rate")]
+    [JsonPropertyName("cost_center_rate")]
     public SupportCostCenterItem[]? CostCenterRates { get; set; }
 
     /// <summary>
@@ -116,7 +115,7 @@ public record PatchCorehrV1PreHiresByPreHireIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6950635856373745165</para>
         /// </summary>
-        [JsonProperty("cost_center_id")]
+        [JsonPropertyName("cost_center_id")]
         public string? CostCenterId { get; set; }
 
         /// <summary>
@@ -124,7 +123,7 @@ public record PatchCorehrV1PreHiresByPreHireIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>
-        [JsonProperty("rate")]
+        [JsonPropertyName("rate")]
         public int? Rate { get; set; }
     }
 
@@ -137,6 +136,6 @@ public record PatchCorehrV1PreHiresByPreHireIdBodyDto
     /// <para>- 已完成(completed)</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("onboarding_status")]
+    [JsonPropertyName("onboarding_status")]
     public Enum OnboardingStatus { get; set; } = new();
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建导出任务 请求体
@@ -20,7 +19,7 @@ public record PostDriveV1ExportTasksBodyDto
     /// <item>csv：csv格式</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("file_extension")]
+    [JsonPropertyName("file_extension")]
     public string FileExtension { get; set; } = string.Empty;
 
     /// <summary>
@@ -28,7 +27,7 @@ public record PostDriveV1ExportTasksBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：shtcnxe5OxxxxxxxSNdsJviENsk</para>
     /// </summary>
-    [JsonProperty("token")]
+    [JsonPropertyName("token")]
     public string Token { get; set; } = string.Empty;
 
     /// <summary>
@@ -42,7 +41,7 @@ public record PostDriveV1ExportTasksBodyDto
     /// <item>docx：新版飞书云文档类型，支持导出为docx、pdf格式</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string Type { get; set; } = string.Empty;
 
     /// <summary>
@@ -52,6 +51,6 @@ public record PostDriveV1ExportTasksBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：tblKz5D60T4JlfcT</para>
     /// </summary>
-    [JsonProperty("sub_id")]
+    [JsonPropertyName("sub_id")]
     public string? SubId { get; set; }
 }

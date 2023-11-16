@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 获取会议室列表 响应体
@@ -13,21 +12,21 @@ public record GetMeetingRoomRoomListResponseDto
     /// <para>分页标记，存在下一页时返回</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>存在下一页时，该值为 true，否则为 false</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>会议室列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("rooms")]
+    [JsonPropertyName("rooms")]
     public Room[]? Rooms { get; set; }
 
     /// <summary></summary>
@@ -37,63 +36,63 @@ public record GetMeetingRoomRoomListResponseDto
         /// <para>会议室 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("room_id")]
+        [JsonPropertyName("room_id")]
         public string? RoomId { get; set; }
 
         /// <summary>
         /// <para>会议室所属建筑物 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("building_id")]
+        [JsonPropertyName("building_id")]
         public string? BuildingId { get; set; }
 
         /// <summary>
         /// <para>会议室所属建筑物名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("building_name")]
+        [JsonPropertyName("building_name")]
         public string? BuildingName { get; set; }
 
         /// <summary>
         /// <para>会议室能容纳的人数</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("capacity")]
+        [JsonPropertyName("capacity")]
         public int? Capacity { get; set; }
 
         /// <summary>
         /// <para>会议室的相关描述</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
         /// <para>会议室的展示 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("display_id")]
+        [JsonPropertyName("display_id")]
         public string? DisplayId { get; set; }
 
         /// <summary>
         /// <para>会议室所在楼层名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("floor_name")]
+        [JsonPropertyName("floor_name")]
         public string? FloorName { get; set; }
 
         /// <summary>
         /// <para>会议室是否不可用，若会议室不可用，则该值为 true，否则为 false</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("is_disabled")]
+        [JsonPropertyName("is_disabled")]
         public bool? IsDisabled { get; set; }
 
         /// <summary>
         /// <para>会议室名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 查询用户的任务列表 响应体
@@ -13,7 +12,7 @@ public record GetApprovalV4TasksQueryResponseDto
     /// <para>任务列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("tasks")]
+    [JsonPropertyName("tasks")]
     public Task[]? Tasks { get; set; }
 
     /// <summary></summary>
@@ -32,28 +31,28 @@ public record GetApprovalV4TasksQueryResponseDto
         /// <item>18：已读知会</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("topic")]
+        [JsonPropertyName("topic")]
         public string? Topic { get; set; }
 
         /// <summary>
         /// <para>任务所属的用户 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
         /// <para>任务题目</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
         /// <para>任务相关 URL</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("urls")]
+        [JsonPropertyName("urls")]
         public TaskUrls? Urls { get; set; }
 
         /// <summary></summary>
@@ -63,21 +62,21 @@ public record GetApprovalV4TasksQueryResponseDto
             /// <para>帮助服务台 URL</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("helpdesk")]
+            [JsonPropertyName("helpdesk")]
             public string? Helpdesk { get; set; }
 
             /// <summary>
             /// <para>移动端 URL</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("mobile")]
+            [JsonPropertyName("mobile")]
             public string? Mobile { get; set; }
 
             /// <summary>
             /// <para>PC 端 URL</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("pc")]
+            [JsonPropertyName("pc")]
             public string? Pc { get; set; }
         }
 
@@ -85,14 +84,14 @@ public record GetApprovalV4TasksQueryResponseDto
         /// <para>流程三方 ID，仅第三方流程，需要在当前租户、当前 APP 内唯一</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("process_external_id")]
+        [JsonPropertyName("process_external_id")]
         public string? ProcessExternalId { get; set; }
 
         /// <summary>
         /// <para>任务三方 ID，仅第三方流程，需要在当前流程实例内唯一</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("task_external_id")]
+        [JsonPropertyName("task_external_id")]
         public string? TaskExternalId { get; set; }
 
         /// <summary>
@@ -109,7 +108,7 @@ public record GetApprovalV4TasksQueryResponseDto
         /// <item>34：撤回</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string? Status { get; set; }
 
         /// <summary>
@@ -126,77 +125,77 @@ public record GetApprovalV4TasksQueryResponseDto
         /// <item>5：已终止</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("process_status")]
+        [JsonPropertyName("process_status")]
         public string? ProcessStatus { get; set; }
 
         /// <summary>
         /// <para>流程定义 Code</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("definition_code")]
+        [JsonPropertyName("definition_code")]
         public string? DefinitionCode { get; set; }
 
         /// <summary>
         /// <para>发起人 ID 列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("initiators")]
+        [JsonPropertyName("initiators")]
         public string[]? Initiators { get; set; }
 
         /// <summary>
         /// <para>发起人姓名列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("initiator_names")]
+        [JsonPropertyName("initiator_names")]
         public string[]? InitiatorNames { get; set; }
 
         /// <summary>
         /// <para>任务 ID，全局唯一</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("task_id")]
+        [JsonPropertyName("task_id")]
         public string? TaskId { get; set; }
 
         /// <summary>
         /// <para>流程 ID，全局唯一</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("process_id")]
+        [JsonPropertyName("process_id")]
         public string? ProcessId { get; set; }
 
         /// <summary>
         /// <para>流程 Code</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("process_code")]
+        [JsonPropertyName("process_code")]
         public string? ProcessCode { get; set; }
 
         /// <summary>
         /// <para>流程定义分组 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("definition_group_id")]
+        [JsonPropertyName("definition_group_id")]
         public string? DefinitionGroupId { get; set; }
 
         /// <summary>
         /// <para>流程定义分组名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("definition_group_name")]
+        [JsonPropertyName("definition_group_name")]
         public string? DefinitionGroupName { get; set; }
 
         /// <summary>
         /// <para>流程定义 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("definition_id")]
+        [JsonPropertyName("definition_id")]
         public string? DefinitionId { get; set; }
 
         /// <summary>
         /// <para>流程定义名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("definition_name")]
+        [JsonPropertyName("definition_name")]
         public string? DefinitionName { get; set; }
     }
 
@@ -204,21 +203,21 @@ public record GetApprovalV4TasksQueryResponseDto
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>是否还有更多项</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>列表计数，只在分页第一页返回</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("count")]
+    [JsonPropertyName("count")]
     public CountSuffix? Count { get; set; }
 
     /// <summary></summary>
@@ -228,14 +227,14 @@ public record GetApprovalV4TasksQueryResponseDto
         /// <para>总数，大于等于 1000 个项目时将返回 999</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("total")]
+        [JsonPropertyName("total")]
         public int? Total { get; set; }
 
         /// <summary>
         /// <para>还有更多，当大于等于 1000 时将返回 true</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("has_more")]
+        [JsonPropertyName("has_more")]
         public bool? HasMore { get; set; }
     }
 }

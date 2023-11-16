@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 读取多个范围 响应体
@@ -13,28 +12,28 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchGetResponseDto
     /// <para>sheet 的版本号</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("revision")]
+    [JsonPropertyName("revision")]
     public int? Revision { get; set; }
 
     /// <summary>
     /// <para>spreadsheet 的 token，详见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("spreadsheetToken")]
+    [JsonPropertyName("spreadsheetToken")]
     public string? SpreadsheetToken { get; set; }
 
     /// <summary>
     /// <para>读取的单元格总数</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("totalCells")]
+    [JsonPropertyName("totalCells")]
     public int? TotalCells { get; set; }
 
     /// <summary>
     /// <para>值与范围</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("valueRanges")]
+    [JsonPropertyName("valueRanges")]
     public ValueRange[]? ValueRanges { get; set; }
 
     /// <summary></summary>
@@ -44,28 +43,28 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchGetResponseDto
         /// <para>插入维度</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("majorDimension")]
+        [JsonPropertyName("majorDimension")]
         public string? MajorDimension { get; set; }
 
         /// <summary>
         /// <para>返回数据的范围，为空时表示查询范围没有数据</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("range")]
+        [JsonPropertyName("range")]
         public string? Range { get; set; }
 
         /// <summary>
         /// <para>sheet 的版本号</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("revision")]
+        [JsonPropertyName("revision")]
         public int? Revision { get; set; }
 
         /// <summary>
         /// <para>查询得到的值</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("values")]
+        [JsonPropertyName("values")]
         public object[][]? Values { get; set; }
     }
 }

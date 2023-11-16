@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 回传背调订单的最终结果 请求体
@@ -14,7 +13,7 @@ public record PostHireV1EcoBackgroundChecksUpdateResultBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6931286400470354183</para>
     /// </summary>
-    [JsonProperty("background_check_id")]
+    [JsonPropertyName("background_check_id")]
     public string BackgroundCheckId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostHireV1EcoBackgroundChecksUpdateResultBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：无差异</para>
     /// </summary>
-    [JsonProperty("result")]
+    [JsonPropertyName("result")]
     public string Result { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,14 +29,14 @@ public record PostHireV1EcoBackgroundChecksUpdateResultBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1660123456789</para>
     /// </summary>
-    [JsonProperty("result_time")]
+    [JsonPropertyName("result_time")]
     public string ResultTime { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>报告列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("report_file_list")]
+    [JsonPropertyName("report_file_list")]
     public EcoBackgroundCheckReportFile[]? ReportFileLists { get; set; }
 
     /// <summary>
@@ -50,7 +49,7 @@ public record PostHireV1EcoBackgroundChecksUpdateResultBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：阶段报告.pdf</para>
         /// </summary>
-        [JsonProperty("report_name")]
+        [JsonPropertyName("report_name")]
         public string ReportName { get; set; } = string.Empty;
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostHireV1EcoBackgroundChecksUpdateResultBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：https://xxxxx/xxxxxx/xxxx.pdf</para>
         /// </summary>
-        [JsonProperty("report_url")]
+        [JsonPropertyName("report_url")]
         public string ReportUrl { get; set; } = string.Empty;
 
         /// <summary>
@@ -70,7 +69,7 @@ public record PostHireV1EcoBackgroundChecksUpdateResultBodyDto
         /// <item>2：外链型链接</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("report_url_type")]
+        [JsonPropertyName("report_url_type")]
         public int? ReportUrlType { get; set; }
     }
 }

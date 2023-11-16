@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取知识空间子节点列表 响应体
@@ -14,7 +13,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
     /// <para>数据列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Node[]? Items { get; set; }
 
     /// <summary>
@@ -28,7 +27,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6946843325487912356</para>
         /// </summary>
-        [JsonProperty("space_id")]
+        [JsonPropertyName("space_id")]
         public string? SpaceId { get; set; }
 
         /// <summary>
@@ -36,7 +35,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：wikcnKQ1k3p******8Vabcef</para>
         /// </summary>
-        [JsonProperty("node_token")]
+        [JsonPropertyName("node_token")]
         public string? NodeToken { get; set; }
 
         /// <summary>
@@ -44,7 +43,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：doccnzAaOD******Wabcdef</para>
         /// </summary>
-        [JsonProperty("obj_token")]
+        [JsonPropertyName("obj_token")]
         public string? ObjToken { get; set; }
 
         /// <summary>
@@ -60,7 +59,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <item>docx：新版文档</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("obj_type")]
+        [JsonPropertyName("obj_type")]
         public string ObjType { get; set; } = string.Empty;
 
         /// <summary>
@@ -68,7 +67,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：wikcnKQ1k3p******8Vabcef</para>
         /// </summary>
-        [JsonProperty("parent_node_token")]
+        [JsonPropertyName("parent_node_token")]
         public string? ParentNodeToken { get; set; }
 
         /// <summary>
@@ -80,7 +79,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <item>shortcut：快捷方式</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("node_type")]
+        [JsonPropertyName("node_type")]
         public string NodeType { get; set; } = string.Empty;
 
         /// <summary>
@@ -88,7 +87,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：wikcnKQ1k3p******8Vabcef</para>
         /// </summary>
-        [JsonProperty("origin_node_token")]
+        [JsonPropertyName("origin_node_token")]
         public string? OriginNodeToken { get; set; }
 
         /// <summary>
@@ -96,7 +95,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6946843325487912356</para>
         /// </summary>
-        [JsonProperty("origin_space_id")]
+        [JsonPropertyName("origin_space_id")]
         public string? OriginSpaceId { get; set; }
 
         /// <summary>
@@ -104,7 +103,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("has_child")]
+        [JsonPropertyName("has_child")]
         public bool? HasChild { get; set; }
 
         /// <summary>
@@ -112,7 +111,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：标题</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
@@ -120,7 +119,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1642402428</para>
         /// </summary>
-        [JsonProperty("obj_create_time")]
+        [JsonPropertyName("obj_create_time")]
         public string? ObjCreateTime { get; set; }
 
         /// <summary>
@@ -128,7 +127,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1642402428</para>
         /// </summary>
-        [JsonProperty("obj_edit_time")]
+        [JsonPropertyName("obj_edit_time")]
         public string? ObjEditTime { get; set; }
 
         /// <summary>
@@ -136,7 +135,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1642402428</para>
         /// </summary>
-        [JsonProperty("node_create_time")]
+        [JsonPropertyName("node_create_time")]
         public string? NodeCreateTime { get; set; }
 
         /// <summary>
@@ -144,7 +143,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_xxxxx</para>
         /// </summary>
-        [JsonProperty("creator")]
+        [JsonPropertyName("creator")]
         public string? Creator { get; set; }
 
         /// <summary>
@@ -152,7 +151,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_xxxxx</para>
         /// </summary>
-        [JsonProperty("owner")]
+        [JsonPropertyName("owner")]
         public string? Owner { get; set; }
     }
 
@@ -161,7 +160,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：6946843325487906839</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -169,6 +168,6 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

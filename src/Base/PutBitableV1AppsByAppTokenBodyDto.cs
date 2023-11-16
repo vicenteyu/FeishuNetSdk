@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新多维表格元数据 请求体
@@ -14,7 +13,7 @@ public record PutBitableV1AppsByAppTokenBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：新的多维表格名字</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PutBitableV1AppsByAppTokenBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("is_advanced")]
+    [JsonPropertyName("is_advanced")]
     public bool? IsAdvanced { get; set; }
 }

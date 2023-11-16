@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 添加日程参与人 请求体
@@ -15,7 +14,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
     /// <para>- 单次请求会议室的数量限制为100。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("attendees")]
+    [JsonPropertyName("attendees")]
     public CalendarEventAttendee[]? Attendees { get; set; }
 
     /// <summary>
@@ -36,7 +35,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
         /// <item>third_party：邮箱</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
@@ -45,7 +44,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
         /// <para>示例值：true</para>
         /// <para>默认值：false</para>
         /// </summary>
-        [JsonProperty("is_optional")]
+        [JsonPropertyName("is_optional")]
         public bool? IsOptional { get; set; }
 
         /// <summary>
@@ -53,7 +52,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_xxxxxxxx</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -61,7 +60,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：oc_xxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("chat_id")]
+        [JsonPropertyName("chat_id")]
         public string? ChatId { get; set; }
 
         /// <summary>
@@ -69,7 +68,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：omm_xxxxxxxx</para>
         /// </summary>
-        [JsonProperty("room_id")]
+        [JsonPropertyName("room_id")]
         public string? RoomId { get; set; }
 
         /// <summary>
@@ -77,7 +76,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：wangwu@email.com</para>
         /// </summary>
-        [JsonProperty("third_party_email")]
+        [JsonPropertyName("third_party_email")]
         public string? ThirdPartyEmail { get; set; }
 
         /// <summary>
@@ -85,14 +84,14 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_xxxxxxxx</para>
         /// </summary>
-        [JsonProperty("operate_id")]
+        [JsonPropertyName("operate_id")]
         public string? OperateId { get; set; }
 
         /// <summary>
         /// <para>会议室的个性化配置</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("resource_customization")]
+        [JsonPropertyName("resource_customization")]
         public CalendarAttendeeResourceCustomization[]? ResourceCustomizations { get; set; }
 
         /// <summary>
@@ -105,7 +104,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：16281481596100</para>
             /// </summary>
-            [JsonProperty("index_key")]
+            [JsonPropertyName("index_key")]
             public string IndexKey { get; set; } = string.Empty;
 
             /// <summary>
@@ -113,14 +112,14 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：xxx</para>
             /// </summary>
-            [JsonProperty("input_content")]
+            [JsonPropertyName("input_content")]
             public string? InputContent { get; set; }
 
             /// <summary>
             /// <para>每个配置的选项</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("options")]
+            [JsonPropertyName("options")]
             public CustomizationOption[]? Options { get; set; }
 
             /// <summary>
@@ -133,7 +132,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：16281481596185</para>
                 /// </summary>
-                [JsonProperty("option_key")]
+                [JsonPropertyName("option_key")]
                 public string? OptionKey { get; set; }
 
                 /// <summary>
@@ -141,7 +140,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：xxx</para>
                 /// </summary>
-                [JsonProperty("others_content")]
+                [JsonPropertyName("others_content")]
                 public string? OthersContent { get; set; }
             }
         }
@@ -155,7 +154,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
         /// <para>示例值：申请审批原因</para>
         /// <para>最大长度：200</para>
         /// </summary>
-        [JsonProperty("approval_reason")]
+        [JsonPropertyName("approval_reason")]
         public string? ApprovalReason { get; set; }
     }
 
@@ -164,7 +163,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("need_notification")]
+    [JsonPropertyName("need_notification")]
     public bool? NeedNotification { get; set; }
 
     /// <summary>
@@ -172,7 +171,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1647320400</para>
     /// </summary>
-    [JsonProperty("instance_start_time_admin")]
+    [JsonPropertyName("instance_start_time_admin")]
     public string? InstanceStartTimeAdmin { get; set; }
 
     /// <summary>
@@ -180,7 +179,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("is_enable_admin")]
+    [JsonPropertyName("is_enable_admin")]
     public bool? IsEnableAdmin { get; set; }
 
     /// <summary>
@@ -188,6 +187,6 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("add_operator_to_attendee")]
+    [JsonPropertyName("add_operator_to_attendee")]
     public bool? AddOperatorToAttendee { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base.Spec;
 /// <summary>
 /// 更新表单问题 响应体
@@ -13,7 +12,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFi
     /// <para>更新后的表单问题项</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("field")]
+    [JsonPropertyName("field")]
     public AppTableFormPatchedField? Field { get; set; }
 
     /// <summary></summary>
@@ -23,35 +22,35 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFi
         /// <para>上一个表单问题 ID，用于支持调整表单问题的顺序，通过前一个表单问题的 field_id 来确定位置；如果 pre_field_id 为空字符串，则说明要排到首个表单问题</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("pre_field_id")]
+        [JsonPropertyName("pre_field_id")]
         public string? PreFieldId { get; set; }
 
         /// <summary>
         /// <para>表单问题</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
         /// <para>问题描述</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
         /// <para>是否必填</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("required")]
+        [JsonPropertyName("required")]
         public bool? Required { get; set; }
 
         /// <summary>
         /// <para>是否可见，当值为 false 时，不允许更新其他字段。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("visible")]
+        [JsonPropertyName("visible")]
         public bool? Visible { get; set; }
     }
 }

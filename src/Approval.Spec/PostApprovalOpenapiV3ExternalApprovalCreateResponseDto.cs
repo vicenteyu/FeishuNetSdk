@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 三方审批定义创建 响应体
@@ -15,6 +14,6 @@ public record PostApprovalOpenapiV3ExternalApprovalCreateResponseDto
     /// <para>审批定义 Code，用于发起实例</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string? ApprovalCode { get; set; }
 }

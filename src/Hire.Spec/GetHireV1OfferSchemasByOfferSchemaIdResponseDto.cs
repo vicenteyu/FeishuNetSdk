@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire.Spec;
 /// <summary>
 /// 获取 Offer 申请表详细信息 响应体
@@ -13,7 +12,7 @@ public record GetHireV1OfferSchemasByOfferSchemaIdResponseDto
     /// <para>offer申请表ID</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     /// <summary>
@@ -25,21 +24,21 @@ public record GetHireV1OfferSchemasByOfferSchemaIdResponseDto
     /// <item>- `1`：Offer审批表</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("scenario")]
+    [JsonPropertyName("scenario")]
     public int? Scenario { get; set; }
 
     /// <summary>
     /// <para>申请表版本</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("version")]
+    [JsonPropertyName("version")]
     public int? Version { get; set; }
 
     /// <summary>
     /// <para>字段对象信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("object_list")]
+    [JsonPropertyName("object_list")]
     public OfferSchemaDetail[]? ObjectList { get; set; }
 
     /// <summary></summary>
@@ -49,14 +48,14 @@ public record GetHireV1OfferSchemasByOfferSchemaIdResponseDto
         /// <para>字段ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>字段名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public OfferSchemaName? Name { get; set; }
 
         /// <summary></summary>
@@ -66,14 +65,14 @@ public record GetHireV1OfferSchemasByOfferSchemaIdResponseDto
             /// <para>中文名</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
             /// <para>英文名</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
 
@@ -81,21 +80,21 @@ public record GetHireV1OfferSchemasByOfferSchemaIdResponseDto
         /// <para>字段类型, text=单行文本, long_text=多行文本, select=单选, multi_select=多选, date_select=日期, number=数字</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
         /// <para>字段是否为自定义</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("is_customized")]
+        [JsonPropertyName("is_customized")]
         public bool? IsCustomized { get; set; }
 
         /// <summary>
         /// <para>单选/多选可选择字段的选项值</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("option_list")]
+        [JsonPropertyName("option_list")]
         public OfferSchemaDetailOption[]? OptionList { get; set; }
 
         /// <summary></summary>
@@ -105,14 +104,14 @@ public record GetHireV1OfferSchemasByOfferSchemaIdResponseDto
             /// <para>名字</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public OfferSchemaName? Name { get; set; }
 
             /// <summary>
             /// <para>选项序号</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("index")]
+            [JsonPropertyName("index")]
             public int? Index { get; set; }
 
             /// <summary>
@@ -125,7 +124,7 @@ public record GetHireV1OfferSchemasByOfferSchemaIdResponseDto
             /// <item>- `1`：进行中</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("active_status")]
+            [JsonPropertyName("active_status")]
             public int? ActiveStatus { get; set; }
         }
     }

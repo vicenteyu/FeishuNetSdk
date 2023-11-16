@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 批量新增用户 响应体
@@ -16,6 +15,6 @@ public record PostContactV2UserBatchAddResponseDto
     /// <para>生成的异步任务 ID，参见 [查询批量任务执行状态](https://open.feishu.cn/document/ukTMukTMukTM/uUDOwUjL1gDM14SN4ATN) 接口。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("task_id")]
+    [JsonPropertyName("task_id")]
     public string? TaskId { get; set; }
 }

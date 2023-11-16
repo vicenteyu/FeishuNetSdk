@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取单个职务信息 响应体
@@ -13,7 +12,7 @@ public record GetContactV3JobTitlesByJobTitleIdResponseDto
     /// <para>职务信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("job_title")]
+    [JsonPropertyName("job_title")]
     public GetContactV3JobTitlesByJobTitleIdResponseDtoJobTitle? JobTitle { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetContactV3JobTitlesByJobTitleIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：b5565c46b749</para>
         /// </summary>
-        [JsonProperty("job_title_id")]
+        [JsonPropertyName("job_title_id")]
         public string? JobTitleId { get; set; }
 
         /// <summary>
@@ -35,14 +34,14 @@ public record GetContactV3JobTitlesByJobTitleIdResponseDto
         /// <para>示例值：高级工程师</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>多语言职务名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("i18n_name")]
+        [JsonPropertyName("i18n_name")]
         public I18nContent[]? I18nNames { get; set; }
 
         /// <summary>
@@ -55,7 +54,7 @@ public record GetContactV3JobTitlesByJobTitleIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：zh_cn</para>
             /// </summary>
-            [JsonProperty("locale")]
+            [JsonPropertyName("locale")]
             public string? Locale { get; set; }
 
             /// <summary>
@@ -63,7 +62,7 @@ public record GetContactV3JobTitlesByJobTitleIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：专家</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
 
@@ -72,7 +71,7 @@ public record GetContactV3JobTitlesByJobTitleIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true表示启用,false表示未启用</para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public bool? Status { get; set; }
     }
 }

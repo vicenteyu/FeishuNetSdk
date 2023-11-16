@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 获取应用信息 响应体
@@ -13,7 +12,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
     /// <para>应用数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("app")]
+    [JsonPropertyName("app")]
     public Application? App { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：cli_9b445f5258795107</para>
         /// </summary>
-        [JsonProperty("app_id")]
+        [JsonPropertyName("app_id")]
         public string AppId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_d317f090b7258ad0372aa53963cda70d</para>
         /// </summary>
-        [JsonProperty("creator_id")]
+        [JsonPropertyName("creator_id")]
         public string? CreatorId { get; set; }
 
         /// <summary>
@@ -48,7 +47,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <item>3：未知状态</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public int? Status { get; set; }
 
         /// <summary>
@@ -62,7 +61,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <item>3：未知应用类型</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("scene_type")]
+        [JsonPropertyName("scene_type")]
         public int? SceneType { get; set; }
 
         /// <summary>
@@ -74,14 +73,14 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <item>1：付费</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("payment_type")]
+        [JsonPropertyName("payment_type")]
         public int? PaymentType { get; set; }
 
         /// <summary>
         /// <para>安全设置中的重定向 URL</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("redirect_urls")]
+        [JsonPropertyName("redirect_urls")]
         public string[]? RedirectUrls { get; set; }
 
         /// <summary>
@@ -89,7 +88,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：oav_d317f090b7258ad0372aa53963cda70d</para>
         /// </summary>
-        [JsonProperty("online_version_id")]
+        [JsonPropertyName("online_version_id")]
         public string? OnlineVersionId { get; set; }
 
         /// <summary>
@@ -97,7 +96,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：oav_d317f090b7258ad0372aa53963cda70d</para>
         /// </summary>
-        [JsonProperty("unaudit_version_id")]
+        [JsonPropertyName("unaudit_version_id")]
         public string? UnauditVersionId { get; set; }
 
         /// <summary>
@@ -105,7 +104,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：应用名称</para>
         /// </summary>
-        [JsonProperty("app_name")]
+        [JsonPropertyName("app_name")]
         public string? AppName { get; set; }
 
         /// <summary>
@@ -113,7 +112,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://sf1-ttcdn-tos.pstatp.com/img/avatar/d279000ca4d3f7f6aaff~72x72.jpg</para>
         /// </summary>
-        [JsonProperty("avatar_url")]
+        [JsonPropertyName("avatar_url")]
         public string? AvatarUrl { get; set; }
 
         /// <summary>
@@ -121,14 +120,14 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：应用描述</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
         /// <para>应用权限列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("scopes")]
+        [JsonPropertyName("scopes")]
         public AppScope[]? Scopes { get; set; }
 
         /// <summary>
@@ -141,7 +140,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：contact:user.base</para>
             /// </summary>
-            [JsonProperty("scope")]
+            [JsonPropertyName("scope")]
             public string Scope { get; set; } = string.Empty;
 
             /// <summary>
@@ -149,7 +148,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：获取应用信息</para>
             /// </summary>
-            [JsonProperty("description")]
+            [JsonPropertyName("description")]
             public string? Description { get; set; }
 
             /// <summary>
@@ -163,7 +162,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <item>0：未知等级</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("level")]
+            [JsonPropertyName("level")]
             public int? Level { get; set; }
         }
 
@@ -172,14 +171,14 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://www.example.com</para>
         /// </summary>
-        [JsonProperty("back_home_url")]
+        [JsonPropertyName("back_home_url")]
         public string? BackHomeUrl { get; set; }
 
         /// <summary>
         /// <para>应用的国际化信息列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("i18n")]
+        [JsonPropertyName("i18n")]
         public AppI18nInfo[]? I18ns { get; set; }
 
         /// <summary>
@@ -197,7 +196,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <item>ja_jp：日文</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("i18n_key")]
+            [JsonPropertyName("i18n_key")]
             public string I18nKey { get; set; } = string.Empty;
 
             /// <summary>
@@ -205,7 +204,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：应用名称</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -213,7 +212,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：应用描述</para>
             /// </summary>
-            [JsonProperty("description")]
+            [JsonPropertyName("description")]
             public string? Description { get; set; }
 
             /// <summary>
@@ -221,7 +220,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://www.example.com</para>
             /// </summary>
-            [JsonProperty("help_use")]
+            [JsonPropertyName("help_use")]
             public string? HelpUse { get; set; }
         }
 
@@ -235,7 +234,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <item>ja_jp：日文</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("primary_language")]
+        [JsonPropertyName("primary_language")]
         public string? PrimaryLanguage { get; set; }
 
         /// <summary>
@@ -243,14 +242,14 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <para>必填：否</para>
         /// <para>最大长度：3</para>
         /// </summary>
-        [JsonProperty("common_categories")]
+        [JsonPropertyName("common_categories")]
         public string[]? CommonCategories { get; set; }
 
         /// <summary>
         /// <para>应用的所有者信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("owner")]
+        [JsonPropertyName("owner")]
         public ApplicationOwner? Owner { get; set; }
 
         /// <summary>
@@ -268,7 +267,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <item>2：企业内成员</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public int Type { get; set; }
 
             /// <summary>
@@ -276,7 +275,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ou_d317f090b7258ad0372aa53963cda70d</para>
             /// </summary>
-            [JsonProperty("owner_id")]
+            [JsonPropertyName("owner_id")]
             public string? OwnerId { get; set; }
 
             /// <summary>
@@ -284,7 +283,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：testtenant</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -292,7 +291,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://applink.feishu.cn/client/helpdesk/open?id=6940534140529803284</para>
             /// </summary>
-            [JsonProperty("help_desk")]
+            [JsonPropertyName("help_desk")]
             public string? HelpDesk { get; set; }
 
             /// <summary>
@@ -300,7 +299,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：test123@163.com</para>
             /// </summary>
-            [JsonProperty("email")]
+            [JsonPropertyName("email")]
             public string? Email { get; set; }
 
             /// <summary>
@@ -308,7 +307,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1234534234234</para>
             /// </summary>
-            [JsonProperty("phone")]
+            [JsonPropertyName("phone")]
             public string? Phone { get; set; }
         }
     }

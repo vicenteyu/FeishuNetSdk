@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 批量新增用户 请求体
@@ -16,7 +15,7 @@ public record PostContactV2UserBatchAddBodyDto
     /// <para>所有待新增用户的集合。</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("users")]
+    [JsonPropertyName("users")]
     public User[] Users { get; set; } = Array.Empty<User>();
 
     /// <summary></summary>
@@ -26,7 +25,7 @@ public record PostContactV2UserBatchAddBodyDto
         /// <para>用户名。</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostContactV2UserBatchAddBodyDto
         /// <para>需要应用的通讯录权限范围包含该部门。</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("departments")]
+        [JsonPropertyName("departments")]
         public string[] Departments { get; set; } = Array.Empty<string>();
 
         /// <summary>
@@ -43,21 +42,21 @@ public record PostContactV2UserBatchAddBodyDto
         /// <para>自定义唯一标识不区分大小写，长度为 1 ~ 64 个字符。只能由数字、字母和“_”、“-”、“@”、“.”四种特殊字符组成，且第一个字符必须是数字或字母。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
         /// <para>用户邮箱。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string? Email { get; set; }
 
         /// <summary>
         /// <para>用户手机号。</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("mobile")]
+        [JsonPropertyName("mobile")]
         public string Mobile { get; set; } = string.Empty;
 
         /// <summary>
@@ -65,14 +64,14 @@ public record PostContactV2UserBatchAddBodyDto
         /// <para>不可见时，企业内其他员工将无法在客户端内查看该员工的手机号码。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("mobile_visible")]
+        [JsonPropertyName("mobile_visible")]
         public bool? MobileVisible { get; set; }
 
         /// <summary>
         /// <para>用户所在城市。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("city")]
+        [JsonPropertyName("city")]
         public string? City { get; set; }
 
         /// <summary>
@@ -80,49 +79,49 @@ public record PostContactV2UserBatchAddBodyDto
         /// <para>字段值请参考国际标准化组织 [ISO 3166-1 标准](https://www.iso.org/obp/ui/#iso:pub:PUB500001:en) 中的二位代码。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("country")]
+        [JsonPropertyName("country")]
         public string? Country { get; set; }
 
         /// <summary>
         /// <para>性别，1：男，2：女。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("gender")]
+        [JsonPropertyName("gender")]
         public int? Gender { get; set; }
 
         /// <summary>
         /// <para>员工类型，1：正式员工，2：实习生，3：外包，4：劳务，5：顾问。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("employee_type")]
+        [JsonPropertyName("employee_type")]
         public int? EmployeeType { get; set; }
 
         /// <summary>
         /// <para>入职时间，以秒为单位的 Unix 时间戳。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("join_time")]
+        [JsonPropertyName("join_time")]
         public int? JoinTime { get; set; }
 
         /// <summary>
         /// <para>直属上级用户 ID，支持通过 user_id 或 open_id 进行设置。请求同时传递两个字段时只使用 leader_user_id，忽略 leader_open_id。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("leader_user_id")]
+        [JsonPropertyName("leader_user_id")]
         public string? LeaderUserId { get; set; }
 
         /// <summary>
         /// <para>直属上级用户 ID，支持通过 user_id 或 open_id 进行设置。请求同时传递两个字段时只使用 leader_user_id，忽略 leader_open_id。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("leader_open_id")]
+        [JsonPropertyName("leader_open_id")]
         public string? LeaderOpenId { get; set; }
 
         /// <summary>
         /// <para>员工工号。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("employee_no")]
+        [JsonPropertyName("employee_no")]
         public string? EmployeeNo { get; set; }
 
         /// <summary>
@@ -132,7 +131,7 @@ public record PostContactV2UserBatchAddBodyDto
         /// <para>当企业管理后台未开启“允许开放平台 API 调用”时，或者传入的属性 ID 不存在 / 非法时，会忽略该条属性的设置信息。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_attrs")]
+        [JsonPropertyName("custom_attrs")]
         public CustomAttr[]? CustomAttrs { get; set; }
 
         /// <summary></summary>
@@ -142,14 +141,14 @@ public record PostContactV2UserBatchAddBodyDto
             /// <para>自定义属性 ID。</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string Id { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>自定义属性值。</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public ValueSuffix Value { get; set; } = new();
 
             /// <summary></summary>
@@ -159,21 +158,21 @@ public record PostContactV2UserBatchAddBodyDto
                 /// <para>当自定义属性类型为 text 时，传入此字段，表示属性的文字值。</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("text")]
+                [JsonPropertyName("text")]
                 public string? Text { get; set; }
 
                 /// <summary>
                 /// <para>当自定义属性类型为 href 时，传入此字段，表示属性的 URL 值。</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("url")]
+                [JsonPropertyName("url")]
                 public string? Url { get; set; }
 
                 /// <summary>
                 /// <para>当自定义属性类型为 href 时，传入此字段，表示属性的 PC 端 URL 值。</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("pc_url")]
+                [JsonPropertyName("pc_url")]
                 public string? PcUrl { get; set; }
             }
         }
@@ -182,7 +181,7 @@ public record PostContactV2UserBatchAddBodyDto
         /// <para>员工工位。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("work_station")]
+        [JsonPropertyName("work_station")]
         public string? WorkStation { get; set; }
     }
 
@@ -191,6 +190,6 @@ public record PostContactV2UserBatchAddBodyDto
     /// <para>该字段为 true 时， 用户添加成功后会向对应的邮箱或手机发送邀请通知。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("need_send_notification")]
+    [JsonPropertyName("need_send_notification")]
     public bool? NeedSendNotification { get; set; }
 }

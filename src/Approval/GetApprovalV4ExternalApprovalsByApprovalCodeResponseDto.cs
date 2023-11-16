@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 查看指定三方审批定义 响应体
@@ -14,7 +13,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：@i18n@1</para>
     /// </summary>
-    [JsonProperty("approval_name")]
+    [JsonPropertyName("approval_name")]
     public string ApprovalName { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：permission_test</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string ApprovalCode { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,7 +29,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：work_group</para>
     /// </summary>
-    [JsonProperty("group_code")]
+    [JsonPropertyName("group_code")]
     public string GroupCode { get; set; } = string.Empty;
 
     /// <summary>
@@ -38,7 +37,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：@i18n@2</para>
     /// </summary>
-    [JsonProperty("group_name")]
+    [JsonPropertyName("group_name")]
     public string? GroupName { get; set; }
 
     /// <summary>
@@ -46,14 +45,14 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：@i18n@2</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
     /// <para>三方审批定义相关</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("external")]
+    [JsonPropertyName("external")]
     public ApprovalCreateExternal? External { get; set; }
 
     /// <summary>
@@ -66,7 +65,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：@i18n@3</para>
         /// </summary>
-        [JsonProperty("biz_name")]
+        [JsonPropertyName("biz_name")]
         public string? BizName { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：permission</para>
         /// </summary>
-        [JsonProperty("biz_type")]
+        [JsonPropertyName("biz_type")]
         public string? BizType { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&amp;path=pages/approval-form/index?id=9999</para>
         /// </summary>
-        [JsonProperty("create_link_mobile")]
+        [JsonPropertyName("create_link_mobile")]
         public string? CreateLinkMobile { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&amp;appId=cli_9c90fc38e07a9101&amp;path=pc/pages/create-form/index?id=9999</para>
         /// </summary>
-        [JsonProperty("create_link_pc")]
+        [JsonPropertyName("create_link_pc")]
         public string? CreateLinkPc { get; set; }
 
         /// <summary>
@@ -98,7 +97,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("support_pc")]
+        [JsonPropertyName("support_pc")]
         public bool? SupportPc { get; set; }
 
         /// <summary>
@@ -106,7 +105,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("support_mobile")]
+        [JsonPropertyName("support_mobile")]
         public bool? SupportMobile { get; set; }
 
         /// <summary>
@@ -114,7 +113,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("support_batch_read")]
+        [JsonPropertyName("support_batch_read")]
         public bool? SupportBatchRead { get; set; }
 
         /// <summary>
@@ -122,7 +121,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("enable_mark_readed")]
+        [JsonPropertyName("enable_mark_readed")]
         public bool? EnableMarkReaded { get; set; }
 
         /// <summary>
@@ -130,7 +129,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("enable_quick_operate")]
+        [JsonPropertyName("enable_quick_operate")]
         public bool? EnableQuickOperate { get; set; }
 
         /// <summary>
@@ -139,7 +138,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：http://www.feishu.cn/approval/openapi/instanceOperate</para>
         /// </summary>
-        [JsonProperty("action_callback_url")]
+        [JsonPropertyName("action_callback_url")]
         public string? ActionCallbackUrl { get; set; }
 
         /// <summary>
@@ -147,7 +146,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：sdjkljkx9lsadf110</para>
         /// </summary>
-        [JsonProperty("action_callback_token")]
+        [JsonPropertyName("action_callback_token")]
         public string? ActionCallbackToken { get; set; }
 
         /// <summary>
@@ -155,7 +154,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：gfdqedvsadfgfsd</para>
         /// </summary>
-        [JsonProperty("action_callback_key")]
+        [JsonPropertyName("action_callback_key")]
         public string? ActionCallbackKey { get; set; }
 
         /// <summary>
@@ -163,7 +162,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("allow_batch_operate")]
+        [JsonPropertyName("allow_batch_operate")]
         public bool? AllowBatchOperate { get; set; }
 
         /// <summary>
@@ -171,7 +170,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("exclude_efficiency_statistics")]
+        [JsonPropertyName("exclude_efficiency_statistics")]
         public bool? ExcludeEfficiencyStatistics { get; set; }
     }
 
@@ -179,7 +178,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
     /// <para>可见人列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("viewers")]
+    [JsonPropertyName("viewers")]
     public ApprovalCreateViewers[]? Viewers { get; set; }
 
     /// <summary>
@@ -198,7 +197,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <item>NONE：任何人都不可见</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("viewer_type")]
+        [JsonPropertyName("viewer_type")]
         public string? ViewerType { get; set; }
 
         /// <summary>
@@ -206,7 +205,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：19a294c2</para>
         /// </summary>
-        [JsonProperty("viewer_user_id")]
+        [JsonPropertyName("viewer_user_id")]
         public string? ViewerUserId { get; set; }
 
         /// <summary>
@@ -214,7 +213,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：od-ac9d697abfa990b715dcc33d58a62a9d</para>
         /// </summary>
-        [JsonProperty("viewer_department_id")]
+        [JsonPropertyName("viewer_department_id")]
         public string? ViewerDepartmentId { get; set; }
     }
 
@@ -222,7 +221,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
     /// <para>国际化文案</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("i18n_resources")]
+    [JsonPropertyName("i18n_resources")]
     public I18nResource[]? I18nResources { get; set; }
 
     /// <summary>
@@ -240,7 +239,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <item>ja-JP：日文</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("locale")]
+        [JsonPropertyName("locale")]
         public string Locale { get; set; } = string.Empty;
 
         /// <summary>
@@ -248,7 +247,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：{"@i18n@1":"权限申请","@i18n@2":"OA审批","@i18n@3":"Permission"}</para>
         /// </summary>
-        [JsonProperty("texts")]
+        [JsonPropertyName("texts")]
         public I18nResourceText[] Texts { get; set; } = Array.Empty<I18nResourceText>();
 
         /// <summary>
@@ -261,7 +260,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：@i18n@1</para>
             /// </summary>
-            [JsonProperty("key")]
+            [JsonPropertyName("key")]
             public string Key { get; set; } = string.Empty;
 
             /// <summary>
@@ -269,7 +268,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：审批定义</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -278,7 +277,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_default")]
+        [JsonPropertyName("is_default")]
         public bool IsDefault { get; set; }
     }
 
@@ -286,6 +285,6 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
     /// <para>流程管理员</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("managers")]
+    [JsonPropertyName("managers")]
     public string[]? Managers { get; set; }
 }

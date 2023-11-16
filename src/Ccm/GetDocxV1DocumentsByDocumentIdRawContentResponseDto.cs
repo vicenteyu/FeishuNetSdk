@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取文档纯文本内容 响应体
@@ -14,6 +13,6 @@ public record GetDocxV1DocumentsByDocumentIdRawContentResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：云文档\n多人实时协同，插入一切元素。不仅是在线文档，更是强大的创作和互动工具\n云文档：专为协作而生\n</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string? Content { get; set; }
 }

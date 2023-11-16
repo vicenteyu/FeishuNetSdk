@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 移动文件/文件夹 响应体
@@ -14,6 +13,6 @@ public record PostDriveV1FilesByFileTokenMoveResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：12345</para>
     /// </summary>
-    [JsonProperty("task_id")]
+    [JsonPropertyName("task_id")]
     public string? TaskId { get; set; }
 }

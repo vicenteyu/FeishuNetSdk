@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 查询指定用户组 响应体
@@ -13,7 +12,7 @@ public record GetContactV3GroupByGroupIdResponseDto
     /// <para>用户组详情</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("group")]
+    [JsonPropertyName("group")]
     public GetContactV3GroupByGroupIdResponseDtoGroup Group { get; set; } = new();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetContactV3GroupByGroupIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：g193821</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetContactV3GroupByGroupIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：IT外包组</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetContactV3GroupByGroupIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：IT外包组，需要对该组人群进行细颗粒度权限管控。</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetContactV3GroupByGroupIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("member_user_count")]
+        [JsonPropertyName("member_user_count")]
         public int? MemberUserCount { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetContactV3GroupByGroupIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("member_department_count")]
+        [JsonPropertyName("member_department_count")]
         public int? MemberDepartmentCount { get; set; }
 
         /// <summary>
@@ -70,7 +69,7 @@ public record GetContactV3GroupByGroupIdResponseDto
         /// <item>2：动态用户组</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public int? Type { get; set; }
     }
 }

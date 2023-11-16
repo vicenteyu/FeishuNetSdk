@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 创建评论 请求体
@@ -14,14 +13,14 @@ public record PostApprovalV4InstancesByInstanceIdCommentsBodyDto
     /// <para>**示例值**："{\"text\":\"来自小程序的评论111我带附件中有extra \",\"files\":[{\"url\":\"xxx\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\",\"extra\":\"\"}]}"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string? Content { get; set; }
 
     /// <summary>
     /// <para>评论中艾特人信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("at_info_list")]
+    [JsonPropertyName("at_info_list")]
     public CommentAtInfo[]? AtInfoList { get; set; }
 
     /// <summary></summary>
@@ -32,7 +31,7 @@ public record PostApprovalV4InstancesByInstanceIdCommentsBodyDto
         /// <para>**示例值**："579fd9c4"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -40,7 +39,7 @@ public record PostApprovalV4InstancesByInstanceIdCommentsBodyDto
         /// <para>**示例值**："张某"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -48,7 +47,7 @@ public record PostApprovalV4InstancesByInstanceIdCommentsBodyDto
         /// <para>**示例值**："1"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("offset")]
+        [JsonPropertyName("offset")]
         public string Offset { get; set; } = string.Empty;
     }
 
@@ -57,7 +56,7 @@ public record PostApprovalV4InstancesByInstanceIdCommentsBodyDto
     /// <para>**示例值**："7081516627711524883"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("parent_comment_id")]
+    [JsonPropertyName("parent_comment_id")]
     public string? ParentCommentId { get; set; }
 
     /// <summary>
@@ -65,7 +64,7 @@ public record PostApprovalV4InstancesByInstanceIdCommentsBodyDto
     /// <para>**示例值**："7081516627711524883"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("comment_id")]
+    [JsonPropertyName("comment_id")]
     public string? CommentId { get; set; }
 
     /// <summary>
@@ -73,7 +72,7 @@ public record PostApprovalV4InstancesByInstanceIdCommentsBodyDto
     /// <para>**示例值**：false</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("disable_bot")]
+    [JsonPropertyName("disable_bot")]
     public bool? DisableBot { get; set; }
 
     /// <summary>
@@ -81,6 +80,6 @@ public record PostApprovalV4InstancesByInstanceIdCommentsBodyDto
     /// <para>**示例值**："{\"a\":\"a\"}"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("extra")]
+    [JsonPropertyName("extra")]
     public string? Extra { get; set; }
 }

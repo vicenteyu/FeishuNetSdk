@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 注册外部系统内推账户 响应体
@@ -13,7 +12,7 @@ public record PostHireV1ReferralAccountResponseDto
     /// <para>账号信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("account")]
+    [JsonPropertyName("account")]
     public PostHireV1ReferralAccountResponseDtoAccount? Account { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record PostHireV1ReferralAccountResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6942778198054125570</para>
         /// </summary>
-        [JsonProperty("account_id")]
+        [JsonPropertyName("account_id")]
         public string AccountId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>账户资产</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("assets")]
+        [JsonPropertyName("assets")]
         public PostHireV1ReferralAccountResponseDtoAccountAssets? Assets { get; set; }
 
         /// <summary>
@@ -45,7 +44,7 @@ public record PostHireV1ReferralAccountResponseDto
             /// <para>已确认的奖励</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("confirmed_bonus")]
+            [JsonPropertyName("confirmed_bonus")]
             public BonusAmount? ConfirmedBonus { get; set; }
 
             /// <summary>
@@ -58,7 +57,7 @@ public record PostHireV1ReferralAccountResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：100</para>
                 /// </summary>
-                [JsonProperty("point_bonus")]
+                [JsonPropertyName("point_bonus")]
                 public int? PointBonus { get; set; }
             }
         }
@@ -72,7 +71,7 @@ public record PostHireV1ReferralAccountResponseDto
         /// <item>2：停用</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public int? Status { get; set; }
     }
 }

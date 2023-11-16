@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Performance;
 /// <summary>
 /// 获取周期任务（指定用户） 响应体
@@ -13,7 +12,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
     /// <para>周期基本信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("base")]
+    [JsonPropertyName("base")]
     public SemesterBaseInfo? Base { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7263150499637264385</para>
         /// </summary>
-        [JsonProperty("semester_id")]
+        [JsonPropertyName("semester_id")]
         public string? SemesterId { get; set; }
 
         /// <summary>
         /// <para>周期名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("semester_name")]
+        [JsonPropertyName("semester_name")]
         public I18n? SemesterName { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：示例周期</para>
             /// </summary>
-            [JsonProperty("zh-CN")]
+            [JsonPropertyName("zh-CN")]
             public string? ZhCN { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：DemoSemester</para>
             /// </summary>
-            [JsonProperty("en-US")]
+            [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
         }
 
@@ -63,7 +62,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1625068800000</para>
         /// </summary>
-        [JsonProperty("start_time")]
+        [JsonPropertyName("start_time")]
         public string? StartTime { get; set; }
 
         /// <summary>
@@ -71,7 +70,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1625068800000</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string? EndTime { get; set; }
     }
 
@@ -79,7 +78,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
     /// <para>周期任务</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public StageTask[]? Items { get; set; }
 
     /// <summary>
@@ -92,14 +91,14 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6765375796711327240</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
         /// <para>各分类的任务数</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("stage_num_lists")]
+        [JsonPropertyName("stage_num_lists")]
         public StageTaskStatusNum[]? StageNumLists { get; set; }
 
         /// <summary>
@@ -117,7 +116,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             /// <item>3：已逾期（此分类仅在租户系统设置为不允许逾期提交时存在）</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("task_option_id")]
+            [JsonPropertyName("task_option_id")]
             public int? TaskOptionId { get; set; }
 
             /// <summary>
@@ -125,7 +124,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：4</para>
             /// </summary>
-            [JsonProperty("stage_num")]
+            [JsonPropertyName("stage_num")]
             public int? StageNum { get; set; }
         }
 
@@ -133,7 +132,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
         /// <para>环节任务信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("stage_task_info_lists")]
+        [JsonPropertyName("stage_task_info_lists")]
         public StageTaskInfo[]? StageTaskInfoLists { get; set; }
 
         /// <summary>
@@ -146,14 +145,14 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：7263150499637379073</para>
             /// </summary>
-            [JsonProperty("stage_id")]
+            [JsonPropertyName("stage_id")]
             public string? StageId { get; set; }
 
             /// <summary>
             /// <para>环节名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
@@ -166,7 +165,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：360°确认</para>
                 /// </summary>
-                [JsonProperty("zh-CN")]
+                [JsonPropertyName("zh-CN")]
                 public string? ZhCN { get; set; }
 
                 /// <summary>
@@ -174,7 +173,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：confirm_invitation</para>
                 /// </summary>
-                [JsonProperty("en-US")]
+                [JsonPropertyName("en-US")]
                 public string? EnUS { get; set; }
             }
 
@@ -183,7 +182,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1625068800000</para>
             /// </summary>
-            [JsonProperty("deadline")]
+            [JsonPropertyName("deadline")]
             public string? Deadline { get; set; }
 
             /// <summary>
@@ -191,7 +190,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：99</para>
             /// </summary>
-            [JsonProperty("need_todo_count")]
+            [JsonPropertyName("need_todo_count")]
             public int? NeedTodoCount { get; set; }
 
             /// <summary>
@@ -199,7 +198,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://performance.feishu-pre.cn/perf/review/7235911950407352321/7235906557916086300</para>
             /// </summary>
-            [JsonProperty("jump_url")]
+            [JsonPropertyName("jump_url")]
             public string? JumpUrl { get; set; }
 
             /// <summary>
@@ -213,7 +212,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             /// <item>stage_pause：环节被暂停</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("stage_task_status")]
+            [JsonPropertyName("stage_task_status")]
             public string? StageTaskStatus { get; set; }
 
             /// <summary>
@@ -226,7 +225,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             /// <item>3：已逾期（此分类仅在租户系统设置为不允许逾期提交时存在）</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("task_option_id")]
+            [JsonPropertyName("task_option_id")]
             public int? TaskOptionId { get; set; }
         }
     }

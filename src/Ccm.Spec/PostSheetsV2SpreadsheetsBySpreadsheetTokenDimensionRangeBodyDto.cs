@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 增加行列 请求体
@@ -13,7 +12,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
     /// <para>需要增加行列的维度信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("dimension")]
+    [JsonPropertyName("dimension")]
     public DimensionSuffix Dimension { get; set; } = new();
 
     /// <summary></summary>
@@ -23,21 +22,21 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
         /// <para>sheetId</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("sheetId")]
+        [JsonPropertyName("sheetId")]
         public string SheetId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>可选 ROWS、COLUMNS</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("majorDimension")]
+        [JsonPropertyName("majorDimension")]
         public string MajorDimension { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>要增加的行/列数,0&lt;length&lt;5000</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("length")]
+        [JsonPropertyName("length")]
         public int Length { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 获取角色列表 响应体
@@ -13,7 +12,7 @@ public record GetContactV2RoleListResponseDto
     /// <para>角色列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("role_list")]
+    [JsonPropertyName("role_list")]
     public Role[]? RoleList { get; set; }
 
     /// <summary></summary>
@@ -23,14 +22,14 @@ public record GetContactV2RoleListResponseDto
         /// <para>角色 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>角色名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
     }
 }

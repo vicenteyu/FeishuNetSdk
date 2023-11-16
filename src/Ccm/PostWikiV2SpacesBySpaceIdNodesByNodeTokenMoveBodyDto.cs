@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 移动知识空间节点 请求体
@@ -14,7 +13,7 @@ public record PostWikiV2SpacesBySpaceIdNodesByNodeTokenMoveBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc</para>
     /// </summary>
-    [JsonProperty("target_parent_token")]
+    [JsonPropertyName("target_parent_token")]
     public string? TargetParentToken { get; set; }
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostWikiV2SpacesBySpaceIdNodesByNodeTokenMoveBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：7008061636015512345</para>
     /// </summary>
-    [JsonProperty("target_space_id")]
+    [JsonPropertyName("target_space_id")]
     public string? TargetSpaceId { get; set; }
 }

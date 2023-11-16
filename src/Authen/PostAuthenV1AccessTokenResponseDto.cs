@@ -1,7 +1,6 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Authen;
 /// <summary>
-/// 获取 user_access_token（网页应用） 响应体
+/// 获取 user_access_token (网页应用) 响应体
 /// <para>根据[登录预授权码](https://open.feishu.cn/document/ukTMukTMukTM/ukzN4UjL5cDO14SO3gTN) code 获取 `user_access_token`。</para>
 /// <para>接口ID：7180265937329553412</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/authentication-management/access-token/create-2</para>
@@ -14,7 +13,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：u-Q7JWnaIM_kRChuLfreHmpArjOEayt.5XUBJcZr.V0Gst4FdQCtvrd9sAViLXQnQgkpL19brGOjKZQTxb</para>
     /// </summary>
-    [JsonProperty("access_token")]
+    [JsonPropertyName("access_token")]
     public string? AccessToken { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：Bearer</para>
     /// </summary>
-    [JsonProperty("token_type")]
+    [JsonPropertyName("token_type")]
     public string? TokenType { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：7140</para>
     /// </summary>
-    [JsonProperty("expires_in")]
+    [JsonPropertyName("expires_in")]
     public int? ExpiresIn { get; set; }
 
     /// <summary>
@@ -38,15 +37,15 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：zhangsan</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
     /// <para>用户英文名称</para>
     /// <para>必填：否</para>
-    /// <para>示例值：ThreeZhang</para>
+    /// <para>示例值：Three Zhang</para>
     /// </summary>
-    [JsonProperty("en_name")]
+    [JsonPropertyName("en_name")]
     public string? EnName { get; set; }
 
     /// <summary>
@@ -54,7 +53,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：www.feishu.cn/avatar/icon</para>
     /// </summary>
-    [JsonProperty("avatar_url")]
+    [JsonPropertyName("avatar_url")]
     public string? AvatarUrl { get; set; }
 
     /// <summary>
@@ -62,7 +61,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：www.feishu.cn/avatar/icon_thumb</para>
     /// </summary>
-    [JsonProperty("avatar_thumb")]
+    [JsonPropertyName("avatar_thumb")]
     public string? AvatarThumb { get; set; }
 
     /// <summary>
@@ -70,7 +69,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：www.feishu.cn/avatar/icon_middle</para>
     /// </summary>
-    [JsonProperty("avatar_middle")]
+    [JsonPropertyName("avatar_middle")]
     public string? AvatarMiddle { get; set; }
 
     /// <summary>
@@ -78,7 +77,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：www.feishu.cn/avatar/icon_big</para>
     /// </summary>
-    [JsonProperty("avatar_big")]
+    [JsonPropertyName("avatar_big")]
     public string? AvatarBig { get; set; }
 
     /// <summary>
@@ -86,7 +85,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_caecc734c2e3328a62489fe0648c4b98779515d3</para>
     /// </summary>
-    [JsonProperty("open_id")]
+    [JsonPropertyName("open_id")]
     public string? OpenId { get; set; }
 
     /// <summary>
@@ -94,7 +93,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：on_d89jhsdhjsajkda7828enjdj328ydhhw3u43yjhdj</para>
     /// </summary>
-    [JsonProperty("union_id")]
+    [JsonPropertyName("union_id")]
     public string? UnionId { get; set; }
 
     /// <summary>
@@ -102,7 +101,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：zhangsan@feishu.cn</para>
     /// </summary>
-    [JsonProperty("email")]
+    [JsonPropertyName("email")]
     public string? Email { get; set; }
 
     /// <summary>
@@ -110,7 +109,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：demo@mail.com</para>
     /// </summary>
-    [JsonProperty("enterprise_email")]
+    [JsonPropertyName("enterprise_email")]
     public string? EnterpriseEmail { get; set; }
 
     /// <summary>
@@ -118,7 +117,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：5d9bdxxx</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
@@ -126,7 +125,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：+86130002883xx</para>
     /// </summary>
-    [JsonProperty("mobile")]
+    [JsonPropertyName("mobile")]
     public string? Mobile { get; set; }
 
     /// <summary>
@@ -134,7 +133,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：736588c92lxf175d</para>
     /// </summary>
-    [JsonProperty("tenant_key")]
+    [JsonPropertyName("tenant_key")]
     public string? TenantKey { get; set; }
 
     /// <summary>
@@ -142,7 +141,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：2591940</para>
     /// </summary>
-    [JsonProperty("refresh_expires_in")]
+    [JsonPropertyName("refresh_expires_in")]
     public int? RefreshExpiresIn { get; set; }
 
     /// <summary>
@@ -150,7 +149,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：ur-oQ0mMq6MCcueAv0pwx2fQQhxqv__CbLu6G8ySFwafeKww2Def2BJdOkW3.9gCFM.LBQgFri901QaqeuL</para>
     /// </summary>
-    [JsonProperty("refresh_token")]
+    [JsonPropertyName("refresh_token")]
     public string? RefreshToken { get; set; }
 
     /// <summary>
@@ -158,6 +157,6 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：AAAAAAAAAANjgHsqKEAAEw==</para>
     /// </summary>
-    [JsonProperty("sid")]
+    [JsonPropertyName("sid")]
     public string? Sid { get; set; }
 }

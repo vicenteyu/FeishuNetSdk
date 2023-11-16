@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 复制文件 响应体
@@ -14,7 +13,7 @@ public record PostDriveV1FilesByFileTokenCopyResponseDto
     /// <para>复制后的文件资源</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("file")]
+    [JsonPropertyName("file")]
     public PostDriveV1FilesByFileTokenCopyResponseDtoFile? File { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record PostDriveV1FilesByFileTokenCopyResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：doxcnUkUOWtOelpFcha2Zabcef</para>
         /// </summary>
-        [JsonProperty("token")]
+        [JsonPropertyName("token")]
         public string Token { get; set; } = string.Empty;
 
         /// <summary>
@@ -36,7 +35,7 @@ public record PostDriveV1FilesByFileTokenCopyResponseDto
         /// <para>示例值：title</para>
         /// <para>最大长度：250</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -44,7 +43,7 @@ public record PostDriveV1FilesByFileTokenCopyResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：docx</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
@@ -52,7 +51,7 @@ public record PostDriveV1FilesByFileTokenCopyResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：fldbcO1UuPz8VwnpPx5a92abcef</para>
         /// </summary>
-        [JsonProperty("parent_token")]
+        [JsonPropertyName("parent_token")]
         public string? ParentToken { get; set; }
 
         /// <summary>
@@ -60,14 +59,14 @@ public record PostDriveV1FilesByFileTokenCopyResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://feishu.cn/docx/doxcnUkUOWtOelpFcha2Zabcef</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
 
         /// <summary>
         /// <para>快捷方式文件信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("shortcut_info")]
+        [JsonPropertyName("shortcut_info")]
         public PostDriveV1FilesByFileTokenCopyResponseDtoFileShortcutInfo? ShortcutInfo { get; set; }
 
         /// <summary>
@@ -80,7 +79,7 @@ public record PostDriveV1FilesByFileTokenCopyResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：docx</para>
             /// </summary>
-            [JsonProperty("target_type")]
+            [JsonPropertyName("target_type")]
             public string TargetType { get; set; } = string.Empty;
 
             /// <summary>
@@ -88,7 +87,7 @@ public record PostDriveV1FilesByFileTokenCopyResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：doxcnUkUOWtOelpFcha2Zabcef</para>
             /// </summary>
-            [JsonProperty("target_token")]
+            [JsonPropertyName("target_token")]
             public string TargetToken { get; set; } = string.Empty;
         }
     }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 批量添加用户组成员 响应体
@@ -13,7 +12,7 @@ public record PostContactV3GroupByGroupIdMemberBatchAddResponseDto
     /// <para>成员添加操作结果</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("results")]
+    [JsonPropertyName("results")]
     public MemberResult[]? Results { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostContactV3GroupByGroupIdMemberBatchAddResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：u287xj12</para>
         /// </summary>
-        [JsonProperty("member_id")]
+        [JsonPropertyName("member_id")]
         public string MemberId { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostContactV3GroupByGroupIdMemberBatchAddResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("code")]
+        [JsonPropertyName("code")]
         public int Code { get; set; }
     }
 }

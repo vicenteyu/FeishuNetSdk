@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 批量获取审批实例 ID 响应体
@@ -13,20 +12,20 @@ public record GetApprovalV4InstancesResponseDto
     /// <para>审批实例 Code</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("instance_code_list")]
+    [JsonPropertyName("instance_code_list")]
     public string[]? InstanceCodeList { get; set; }
 
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>是否还有更多项</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

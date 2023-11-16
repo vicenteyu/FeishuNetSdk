@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 通过手机号或邮箱获取人才 ID 响应体
@@ -13,7 +12,7 @@ public record PostHireV1TalentsBatchGetIdResponseDto
     /// <para>人才信息列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("talent_list")]
+    [JsonPropertyName("talent_list")]
     public TalentBatchInfo[]? TalentLists { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostHireV1TalentsBatchGetIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6891560630172518670</para>
         /// </summary>
-        [JsonProperty("talent_id")]
+        [JsonPropertyName("talent_id")]
         public string? TalentId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostHireV1TalentsBatchGetIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：86</para>
         /// </summary>
-        [JsonProperty("mobile_code")]
+        [JsonPropertyName("mobile_code")]
         public string? MobileCode { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostHireV1TalentsBatchGetIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：182900291190</para>
         /// </summary>
-        [JsonProperty("mobile_number")]
+        [JsonPropertyName("mobile_number")]
         public string? MobileNumber { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostHireV1TalentsBatchGetIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：foo@bytedance.com</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string? Email { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostHireV1TalentsBatchGetIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("identification_type")]
+        [JsonPropertyName("identification_type")]
         public int? IdentificationType { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostHireV1TalentsBatchGetIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：130xxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("identification_number")]
+        [JsonPropertyName("identification_number")]
         public string? IdentificationNumber { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新数据表 请求体
@@ -18,6 +17,6 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdBodyDto
     /// <para>示例值：数据表的新名称</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 }

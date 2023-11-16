@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 注册外部系统内推账户 请求体
@@ -13,7 +12,7 @@ public record PostHireV1ReferralAccountBodyDto
     /// <para>电话</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("mobile")]
+    [JsonPropertyName("mobile")]
     public PostHireV1ReferralAccountBodyDtoMobile? Mobile { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostHireV1ReferralAccountBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：86</para>
         /// </summary>
-        [JsonProperty("code")]
+        [JsonPropertyName("code")]
         public string? Code { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostHireV1ReferralAccountBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：18900001111</para>
         /// </summary>
-        [JsonProperty("number")]
+        [JsonPropertyName("number")]
         public string? Number { get; set; }
     }
 
@@ -43,6 +42,6 @@ public record PostHireV1ReferralAccountBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：hire@open.com</para>
     /// </summary>
-    [JsonProperty("email")]
+    [JsonPropertyName("email")]
     public string? Email { get; set; }
 }

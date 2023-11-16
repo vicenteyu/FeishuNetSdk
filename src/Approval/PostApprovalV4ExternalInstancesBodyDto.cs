@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 同步三方审批实例 请求体
@@ -20,7 +19,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string ApprovalCode { get; set; } = string.Empty;
 
     /// <summary>
@@ -37,7 +36,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <item>TERMINATED：审批终止</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string Status { get; set; } = string.Empty;
 
     /// <summary>
@@ -45,7 +44,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：{\"xxx\":\"xxx\",\"business_key\":\"xxx\"}</para>
     /// </summary>
-    [JsonProperty("extra")]
+    [JsonPropertyName("extra")]
     public string? Extra { get; set; }
 
     /// <summary>
@@ -53,14 +52,14 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：24492654</para>
     /// </summary>
-    [JsonProperty("instance_id")]
+    [JsonPropertyName("instance_id")]
     public string InstanceId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>审批实例链接集合 ，用于【已发起】列表的跳转，跳转回三方系统； pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("links")]
+    [JsonPropertyName("links")]
     public ExternalInstanceLink Links { get; set; } = new();
 
     /// <summary>
@@ -73,7 +72,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&amp;appId=cli_9c90fc38e07a9101&amp;path=pc/pages/detail?id=1234</para>
         /// </summary>
-        [JsonProperty("pc_link")]
+        [JsonPropertyName("pc_link")]
         public string PcLink { get; set; } = string.Empty;
 
         /// <summary>
@@ -81,7 +80,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&amp;path=pages/detail?id=1234</para>
         /// </summary>
-        [JsonProperty("mobile_link")]
+        [JsonPropertyName("mobile_link")]
         public string? MobileLink { get; set; }
     }
 
@@ -90,7 +89,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：@i18n@1</para>
     /// </summary>
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string? Title { get; set; }
 
     /// <summary>
@@ -98,7 +97,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：[{ "name": "@i18n@2", "value": "@i18n@3" }]</para>
     /// </summary>
-    [JsonProperty("form")]
+    [JsonPropertyName("form")]
     public ExternalInstanceForm[]? Forms { get; set; }
 
     /// <summary>
@@ -111,7 +110,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：@i18n@2</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -119,7 +118,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：@i18n@3</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string? Value { get; set; }
     }
 
@@ -128,7 +127,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：a987sf9s</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
@@ -136,7 +135,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：@i18n@9</para>
     /// </summary>
-    [JsonProperty("user_name")]
+    [JsonPropertyName("user_name")]
     public string? UserName { get; set; }
 
     /// <summary>
@@ -144,7 +143,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1</para>
     /// </summary>
-    [JsonProperty("open_id")]
+    [JsonPropertyName("open_id")]
     public string? OpenId { get; set; }
 
     /// <summary>
@@ -152,7 +151,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：od-8ec33278bc2</para>
     /// </summary>
-    [JsonProperty("department_id")]
+    [JsonPropertyName("department_id")]
     public string? DepartmentId { get; set; }
 
     /// <summary>
@@ -160,7 +159,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：@i18n@10</para>
     /// </summary>
-    [JsonProperty("department_name")]
+    [JsonPropertyName("department_name")]
     public string? DepartmentName { get; set; }
 
     /// <summary>
@@ -168,7 +167,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1556468012678</para>
     /// </summary>
-    [JsonProperty("start_time")]
+    [JsonPropertyName("start_time")]
     public string StartTime { get; set; } = string.Empty;
 
     /// <summary>
@@ -176,7 +175,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1556468012678</para>
     /// </summary>
-    [JsonProperty("end_time")]
+    [JsonPropertyName("end_time")]
     public string EndTime { get; set; } = string.Empty;
 
     /// <summary>
@@ -184,7 +183,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1556468012678</para>
     /// </summary>
-    [JsonProperty("update_time")]
+    [JsonPropertyName("update_time")]
     public string UpdateTime { get; set; } = string.Empty;
 
     /// <summary>
@@ -198,7 +197,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <item>TRUSTEESHIP：以托管打开</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("display_method")]
+    [JsonPropertyName("display_method")]
     public string? DisplayMethod { get; set; }
 
     /// <summary>
@@ -210,7 +209,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <item>UPDATE：增量更新</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("update_mode")]
+    [JsonPropertyName("update_mode")]
     public string? UpdateMode { get; set; }
 
     /// <summary>
@@ -218,7 +217,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：200</para>
     /// </summary>
-    [JsonProperty("task_list")]
+    [JsonPropertyName("task_list")]
     public ExternalInstanceTaskNode[]? TaskLists { get; set; }
 
     /// <summary>
@@ -231,7 +230,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：112534</para>
         /// </summary>
-        [JsonProperty("task_id")]
+        [JsonPropertyName("task_id")]
         public string TaskId { get; set; } = string.Empty;
 
         /// <summary>
@@ -239,7 +238,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：a987sf9s</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -247,7 +246,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string? OpenId { get; set; }
 
         /// <summary>
@@ -255,14 +254,14 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：i18n1</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
         /// <para>【待审批】或【已审批】中使用的跳转链接，用于跳转回三方系统pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("links")]
+        [JsonPropertyName("links")]
         public ExternalInstanceLink Links { get; set; } = new();
 
         /// <summary>
@@ -275,7 +274,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&amp;appId=cli_9c90fc38e07a9101&amp;path=pc/pages/detail?id=1234</para>
             /// </summary>
-            [JsonProperty("pc_link")]
+            [JsonPropertyName("pc_link")]
             public string PcLink { get; set; } = string.Empty;
 
             /// <summary>
@@ -283,7 +282,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&amp;path=pages/detail?id=1234</para>
             /// </summary>
-            [JsonProperty("mobile_link")]
+            [JsonPropertyName("mobile_link")]
             public string? MobileLink { get; set; }
         }
 
@@ -299,7 +298,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <item>DONE：任务通过但审批人未操作；审批人看不到这个任务, 若想要看到, 可以通过抄送该人.</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; } = string.Empty;
 
         /// <summary>
@@ -325,7 +324,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：{\"xxx\":\"xxx\",\"complete_reason\":\"approved\"}</para>
         /// </summary>
-        [JsonProperty("extra")]
+        [JsonPropertyName("extra")]
         public string? Extra { get; set; }
 
         /// <summary>
@@ -333,7 +332,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：1556468012678</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string CreateTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -341,7 +340,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：1556468012678</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string EndTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -349,7 +348,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1556468012678</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public string? UpdateTime { get; set; }
 
         /// <summary>
@@ -357,14 +356,14 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：123456</para>
         /// </summary>
-        [JsonProperty("action_context")]
+        [JsonPropertyName("action_context")]
         public string? ActionContext { get; set; }
 
         /// <summary>
         /// <para>任务级别操作配置,快捷审批目前支持移动端操作</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("action_configs")]
+        [JsonPropertyName("action_configs")]
         public ActionConfig[]? ActionConfigs { get; set; }
 
         /// <summary>
@@ -383,7 +382,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：APPROVE</para>
             /// </summary>
-            [JsonProperty("action_type")]
+            [JsonPropertyName("action_type")]
             public string ActionType { get; set; } = string.Empty;
 
             /// <summary>
@@ -391,7 +390,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：@i18n@5</para>
             /// </summary>
-            [JsonProperty("action_name")]
+            [JsonPropertyName("action_name")]
             public string? ActionName { get; set; }
 
             /// <summary>
@@ -399,7 +398,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_need_reason")]
+            [JsonPropertyName("is_need_reason")]
             public bool? IsNeedReason { get; set; }
 
             /// <summary>
@@ -407,7 +406,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_reason_required")]
+            [JsonPropertyName("is_reason_required")]
             public bool? IsReasonRequired { get; set; }
 
             /// <summary>
@@ -415,7 +414,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_need_attachment")]
+            [JsonPropertyName("is_need_attachment")]
             public bool? IsNeedAttachment { get; set; }
         }
 
@@ -430,7 +429,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <item>TRUSTEESHIP：以托管模式打开</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("display_method")]
+        [JsonPropertyName("display_method")]
         public string? DisplayMethod { get; set; }
 
         /// <summary>
@@ -441,7 +440,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>示例值：false</para>
         /// <para>默认值：false</para>
         /// </summary>
-        [JsonProperty("exclude_statistics")]
+        [JsonPropertyName("exclude_statistics")]
         public bool? ExcludeStatistics { get; set; }
 
         /// <summary>
@@ -451,7 +450,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：node</para>
         /// </summary>
-        [JsonProperty("node_id")]
+        [JsonPropertyName("node_id")]
         public string? NodeId { get; set; }
 
         /// <summary>
@@ -459,7 +458,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：i18n@name</para>
         /// </summary>
-        [JsonProperty("node_name")]
+        [JsonPropertyName("node_name")]
         public string? NodeName { get; set; }
     }
 
@@ -468,7 +467,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：200</para>
     /// </summary>
-    [JsonProperty("cc_list")]
+    [JsonPropertyName("cc_list")]
     public CcNode[]? CcLists { get; set; }
 
     /// <summary>
@@ -481,7 +480,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：123456</para>
         /// </summary>
-        [JsonProperty("cc_id")]
+        [JsonPropertyName("cc_id")]
         public string CcId { get; set; } = string.Empty;
 
         /// <summary>
@@ -489,7 +488,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：12345</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -497,14 +496,14 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string? OpenId { get; set; }
 
         /// <summary>
         /// <para>跳转链接，用于【抄送我的】列表中的跳转pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("links")]
+        [JsonPropertyName("links")]
         public ExternalInstanceLink Links { get; set; } = new();
 
         /// <summary>
@@ -517,7 +516,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&amp;appId=cli_9c90fc38e07a9101&amp;path=pc/pages/detail?id=1234</para>
             /// </summary>
-            [JsonProperty("pc_link")]
+            [JsonPropertyName("pc_link")]
             public string PcLink { get; set; } = string.Empty;
 
             /// <summary>
@@ -525,7 +524,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&amp;path=pages/detail?id=1234</para>
             /// </summary>
-            [JsonProperty("mobile_link")]
+            [JsonPropertyName("mobile_link")]
             public string? MobileLink { get; set; }
         }
 
@@ -538,7 +537,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <item>UNREAD：未读</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("read_status")]
+        [JsonPropertyName("read_status")]
         public string ReadStatus { get; set; } = string.Empty;
 
         /// <summary>
@@ -546,7 +545,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：{\"xxx\":\"xxx\"}</para>
         /// </summary>
-        [JsonProperty("extra")]
+        [JsonPropertyName("extra")]
         public string? Extra { get; set; }
 
         /// <summary>
@@ -554,7 +553,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：xxx</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
@@ -562,7 +561,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：1556468012678</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string CreateTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -570,7 +569,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：1556468012678</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public string UpdateTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -584,7 +583,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <item>TRUSTEESHIP：以托管模式打开</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("display_method")]
+        [JsonPropertyName("display_method")]
         public string? DisplayMethod { get; set; }
     }
 
@@ -592,7 +591,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>国际化文案</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("i18n_resources")]
+    [JsonPropertyName("i18n_resources")]
     public I18nResource[] I18nResources { get; set; } = Array.Empty<I18nResource>();
 
     /// <summary>
@@ -610,7 +609,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <item>ja-JP：日文</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("locale")]
+        [JsonPropertyName("locale")]
         public string Locale { get; set; } = string.Empty;
 
         /// <summary>
@@ -618,7 +617,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }</para>
         /// </summary>
-        [JsonProperty("texts")]
+        [JsonPropertyName("texts")]
         public I18nResourceText[] Texts { get; set; } = Array.Empty<I18nResourceText>();
 
         /// <summary>
@@ -631,7 +630,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：@i18n@1</para>
             /// </summary>
-            [JsonProperty("key")]
+            [JsonPropertyName("key")]
             public string Key { get; set; } = string.Empty;
 
             /// <summary>
@@ -639,7 +638,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：people</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -648,7 +647,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_default")]
+        [JsonPropertyName("is_default")]
         public bool IsDefault { get; set; }
     }
 
@@ -657,7 +656,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：788981c886b1c28ac29d1e68efd60683d6d90dfce80938ee9453e2a5f3e9e306</para>
     /// </summary>
-    [JsonProperty("trusteeship_url_token")]
+    [JsonPropertyName("trusteeship_url_token")]
     public string? TrusteeshipUrlToken { get; set; }
 
     /// <summary>
@@ -665,14 +664,14 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：user_id</para>
     /// </summary>
-    [JsonProperty("trusteeship_user_id_type")]
+    [JsonPropertyName("trusteeship_user_id_type")]
     public string? TrusteeshipUserIdType { get; set; }
 
     /// <summary>
     /// <para>单据托管回调接入方的接口的URL地址</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("trusteeship_urls")]
+    [JsonPropertyName("trusteeship_urls")]
     public PostApprovalV4ExternalInstancesBodyDtoTrusteeshipUrls? TrusteeshipUrls { get; set; }
 
     /// <summary>
@@ -685,7 +684,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：https://#{your_domain}/api/form_detail</para>
         /// </summary>
-        [JsonProperty("form_detail_url")]
+        [JsonPropertyName("form_detail_url")]
         public string? FormDetailUrl { get; set; }
 
         /// <summary>
@@ -693,7 +692,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：https://#{your_domain}/api/action_definition</para>
         /// </summary>
-        [JsonProperty("action_definition_url")]
+        [JsonPropertyName("action_definition_url")]
         public string? ActionDefinitionUrl { get; set; }
 
         /// <summary>
@@ -701,7 +700,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：https://#{your_domain}/api/approval_node</para>
         /// </summary>
-        [JsonProperty("approval_node_url")]
+        [JsonPropertyName("approval_node_url")]
         public string? ApprovalNodeUrl { get; set; }
 
         /// <summary>
@@ -709,7 +708,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：https://#{your_domain}/api/action_callback</para>
         /// </summary>
-        [JsonProperty("action_callback_url")]
+        [JsonPropertyName("action_callback_url")]
         public string? ActionCallbackUrl { get; set; }
 
         /// <summary>
@@ -717,7 +716,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：https://#{your_domain}/api/pull_business_data</para>
         /// </summary>
-        [JsonProperty("pull_business_data_url")]
+        [JsonPropertyName("pull_business_data_url")]
         public string? PullBusinessDataUrl { get; set; }
     }
 
@@ -725,7 +724,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>托管预缓存策略</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("trusteeship_cache_config")]
+    [JsonPropertyName("trusteeship_cache_config")]
     public TrusteeshipInstanceCacheConfig? TrusteeshipCacheConfig { get; set; }
 
     /// <summary>
@@ -744,7 +743,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <item>BY_USER：对于每个待办任务存储一份</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("form_policy")]
+        [JsonPropertyName("form_policy")]
         public string? FormPolicy { get; set; }
 
         /// <summary>
@@ -752,7 +751,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("form_vary_with_locale")]
+        [JsonPropertyName("form_vary_with_locale")]
         public bool? FormVaryWithLocale { get; set; }
 
         /// <summary>
@@ -760,7 +759,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值："1"</para>
         /// </summary>
-        [JsonProperty("form_version")]
+        [JsonPropertyName("form_version")]
         public string? FormVersion { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 批量新增部门 请求体
@@ -16,7 +15,7 @@ public record PostContactV2DepartmentBatchAddBodyDto
     /// <para>所有要新增部门的集合。</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("departments")]
+    [JsonPropertyName("departments")]
     public Department[] Departments { get; set; } = Array.Empty<Department>();
 
     /// <summary></summary>
@@ -28,14 +27,14 @@ public record PostContactV2DepartmentBatchAddBodyDto
         /// <para>不区分大小写，长度为 1 ~ 64 个字符。只能由数字、字母和“_”、“-”、“@”、“.”四种特殊字符组成，且第一个字符必须是数字或字母。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>部门名称。</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -43,28 +42,28 @@ public record PostContactV2DepartmentBatchAddBodyDto
         /// <para>当被添加的部门为企业一级部门时，此字段填写“0”。</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("parent_id")]
+        [JsonPropertyName("parent_id")]
         public string ParentId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>部门负责人 ID，支持通过 user_id 或 open_id 进行设置。请求同时传递两个字段时只使用 leader_user_id，忽略 leader_open_id。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("leader_user_id")]
+        [JsonPropertyName("leader_user_id")]
         public string? LeaderUserId { get; set; }
 
         /// <summary>
         /// <para>部门负责人 ID，支持通过 user_id 或 open_id 进行设置。请求同时传递两个字段时只使用 leader_user_id，忽略 leader_open_id。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("leader_open_id")]
+        [JsonPropertyName("leader_open_id")]
         public string? LeaderOpenId { get; set; }
 
         /// <summary>
         /// <para>是否同时创建部门群，默认为 false，不创建部门群。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("create_group_chat")]
+        [JsonPropertyName("create_group_chat")]
         public bool? CreateGroupChat { get; set; }
     }
 }

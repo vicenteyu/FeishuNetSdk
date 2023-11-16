@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 服务台机器人向工单绑定的群内发送消息 响应体
@@ -14,6 +13,6 @@ public record PostHelpdeskV1MessageResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：om_7054301238434</para>
     /// </summary>
-    [JsonProperty("message_id")]
+    [JsonPropertyName("message_id")]
     public string? MessageId { get; set; }
 }

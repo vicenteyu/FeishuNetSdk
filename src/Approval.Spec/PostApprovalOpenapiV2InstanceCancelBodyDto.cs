@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 审批实例撤回 请求体
@@ -13,27 +12,27 @@ public record PostApprovalOpenapiV2InstanceCancelBodyDto
     /// <para>审批定义Code</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string ApprovalCode { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>审批实例Code</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("instance_code")]
+    [JsonPropertyName("instance_code")]
     public string InstanceCode { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>操作用户</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>某个应用下用户的唯一标识，根据userID、openID、TenantId获得Lark用户。</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("open_id")]
+    [JsonPropertyName("open_id")]
     public string OpenId { get; set; } = string.Empty;
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 查询部门 HRBP 响应体
@@ -13,7 +12,7 @@ public record PostCorehrV2BpsGetByDepartmentResponseDto
     /// <para>部门 HRBP 信息，依次为部门及各层级上级部门</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public DepartmentHrbp[]? Items { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record PostCorehrV2BpsGetByDepartmentResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：4719456877659520852</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
         /// <para>部门 HRBP 雇佣 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("hrbp_ids")]
+        [JsonPropertyName("hrbp_ids")]
         public string[]? HrbpIds { get; set; }
     }
 }

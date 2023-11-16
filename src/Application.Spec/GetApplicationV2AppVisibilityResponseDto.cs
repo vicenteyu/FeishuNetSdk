@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application.Spec;
 /// <summary>
 /// 获取应用在企业内的可用范围 响应体
@@ -13,7 +12,7 @@ public record GetApplicationV2AppVisibilityResponseDto
     /// <para>可用部门列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("departments")]
+    [JsonPropertyName("departments")]
     public Department[]? Departments { get; set; }
 
     /// <summary></summary>
@@ -23,7 +22,7 @@ public record GetApplicationV2AppVisibilityResponseDto
         /// <para>自定义 department_id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
     }
 
@@ -31,14 +30,14 @@ public record GetApplicationV2AppVisibilityResponseDto
     /// <para>禁用部门列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("invisible_departments")]
+    [JsonPropertyName("invisible_departments")]
     public Department[]? InvisibleDepartments { get; set; }
 
     /// <summary>
     /// <para>可用用户列表（仅包含单独设置的用户，可用部门、用户组中的用户未展开）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("users")]
+    [JsonPropertyName("users")]
     public User[]? Users { get; set; }
 
     /// <summary></summary>
@@ -48,14 +47,14 @@ public record GetApplicationV2AppVisibilityResponseDto
         /// <para>用户的 user_id，只返回给申请了 user_id 权限的企业自建应用</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
         /// <para>用户的 open_id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string? OpenId { get; set; }
     }
 
@@ -63,14 +62,14 @@ public record GetApplicationV2AppVisibilityResponseDto
     /// <para>禁用用户列表（仅包含单独设置的用户，可用部门、用户组中的用户未展开）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("invisible_users")]
+    [JsonPropertyName("invisible_users")]
     public User[]? InvisibleUsers { get; set; }
 
     /// <summary>
     /// <para>可用用户组列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("groups")]
+    [JsonPropertyName("groups")]
     public Group[]? Groups { get; set; }
 
     /// <summary></summary>
@@ -80,7 +79,7 @@ public record GetApplicationV2AppVisibilityResponseDto
         /// <para>用户组 group_id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
     }
 
@@ -88,27 +87,27 @@ public record GetApplicationV2AppVisibilityResponseDto
     /// <para>禁用用户组列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("invisible_groups")]
+    [JsonPropertyName("invisible_groups")]
     public Group[]? InvisibleGroups { get; set; }
 
     /// <summary>
     /// <para>是否全员可见，1：是，0：否</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("is_visible_to_all")]
+    [JsonPropertyName("is_visible_to_all")]
     public int? IsVisibleToAll { get; set; }
 
     /// <summary>
     /// <para>是否还有更多可见用户，1：是，0：否</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("has_more_users")]
+    [JsonPropertyName("has_more_users")]
     public int? HasMoreUsers { get; set; }
 
     /// <summary>
     /// <para>拉取下一页用户列表时使用的 user_page_token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_page_token")]
+    [JsonPropertyName("user_page_token")]
     public string? UserPageToken { get; set; }
 }

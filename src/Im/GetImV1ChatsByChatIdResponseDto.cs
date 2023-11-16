@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 获取群信息 响应体
@@ -14,7 +13,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg</para>
     /// </summary>
-    [JsonProperty("avatar")]
+    [JsonPropertyName("avatar")]
     public string? Avatar { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：测试群名称</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -30,14 +29,14 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：测试群描述</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
     /// <para>群国际化名称</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("i18n_names")]
+    [JsonPropertyName("i18n_names")]
     public GetImV1ChatsByChatIdResponseDtoI18nNames? I18nNames { get; set; }
 
     /// <summary>
@@ -50,7 +49,7 @@ public record GetImV1ChatsByChatIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：群聊</para>
         /// </summary>
-        [JsonProperty("zh_cn")]
+        [JsonPropertyName("zh_cn")]
         public string? ZhCn { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetImV1ChatsByChatIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：groupchat</para>
         /// </summary>
-        [JsonProperty("en_us")]
+        [JsonPropertyName("en_us")]
         public string? EnUs { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetImV1ChatsByChatIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：グループチャット</para>
         /// </summary>
-        [JsonProperty("ja_jp")]
+        [JsonPropertyName("ja_jp")]
         public string? JaJp { get; set; }
     }
 
@@ -79,7 +78,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：all_members</para>
     /// </summary>
-    [JsonProperty("add_member_permission")]
+    [JsonPropertyName("add_member_permission")]
     public string? AddMemberPermission { get; set; }
 
     /// <summary>
@@ -91,7 +90,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：allowed</para>
     /// </summary>
-    [JsonProperty("share_card_permission")]
+    [JsonPropertyName("share_card_permission")]
     public string? ShareCardPermission { get; set; }
 
     /// <summary>
@@ -103,7 +102,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：all_members</para>
     /// </summary>
-    [JsonProperty("at_all_permission")]
+    [JsonPropertyName("at_all_permission")]
     public string? AtAllPermission { get; set; }
 
     /// <summary>
@@ -114,7 +113,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：all_members</para>
     /// </summary>
-    [JsonProperty("edit_permission")]
+    [JsonPropertyName("edit_permission")]
     public string? EditPermission { get; set; }
 
     /// <summary>
@@ -125,7 +124,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：user_id</para>
     /// </summary>
-    [JsonProperty("owner_id_type")]
+    [JsonPropertyName("owner_id_type")]
     public string? OwnerIdType { get; set; }
 
     /// <summary>
@@ -136,21 +135,21 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：4d7a3c6g</para>
     /// </summary>
-    [JsonProperty("owner_id")]
+    [JsonPropertyName("owner_id")]
     public string? OwnerId { get; set; }
 
     /// <summary>
     /// <para>用户管理员列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_manager_id_list")]
+    [JsonPropertyName("user_manager_id_list")]
     public string[]? UserManagerIdList { get; set; }
 
     /// <summary>
     /// <para>机器人管理员列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("bot_manager_id_list")]
+    [JsonPropertyName("bot_manager_id_list")]
     public string[]? BotManagerIdList { get; set; }
 
     /// <summary>
@@ -162,7 +161,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：group</para>
     /// </summary>
-    [JsonProperty("chat_mode")]
+    [JsonPropertyName("chat_mode")]
     public string? ChatMode { get; set; }
 
     /// <summary>
@@ -174,7 +173,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：private</para>
     /// </summary>
-    [JsonProperty("chat_type")]
+    [JsonPropertyName("chat_type")]
     public string? ChatType { get; set; }
 
     /// <summary>
@@ -190,7 +189,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：inner</para>
     /// </summary>
-    [JsonProperty("chat_tag")]
+    [JsonPropertyName("chat_tag")]
     public string? ChatTag { get; set; }
 
     /// <summary>
@@ -203,7 +202,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：only_owner</para>
     /// </summary>
-    [JsonProperty("join_message_visibility")]
+    [JsonPropertyName("join_message_visibility")]
     public string? JoinMessageVisibility { get; set; }
 
     /// <summary>
@@ -216,7 +215,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：only_owner</para>
     /// </summary>
-    [JsonProperty("leave_message_visibility")]
+    [JsonPropertyName("leave_message_visibility")]
     public string? LeaveMessageVisibility { get; set; }
 
     /// <summary>
@@ -228,7 +227,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：no_approval_required</para>
     /// </summary>
-    [JsonProperty("membership_approval")]
+    [JsonPropertyName("membership_approval")]
     public string? MembershipApproval { get; set; }
 
     /// <summary>
@@ -240,7 +239,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：all_members</para>
     /// </summary>
-    [JsonProperty("moderation_permission")]
+    [JsonPropertyName("moderation_permission")]
     public string? ModerationPermission { get; set; }
 
     /// <summary>
@@ -248,7 +247,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("external")]
+    [JsonPropertyName("external")]
     public bool? External { get; set; }
 
     /// <summary>
@@ -256,7 +255,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：736588c9260f175e</para>
     /// </summary>
-    [JsonProperty("tenant_key")]
+    [JsonPropertyName("tenant_key")]
     public string? TenantKey { get; set; }
 
     /// <summary>
@@ -264,7 +263,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("user_count")]
+    [JsonPropertyName("user_count")]
     public string? UserCount { get; set; }
 
     /// <summary>
@@ -272,14 +271,14 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：3</para>
     /// </summary>
-    [JsonProperty("bot_count")]
+    [JsonPropertyName("bot_count")]
     public string? BotCount { get; set; }
 
     /// <summary>
     /// <para>保密模式设置</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("restricted_mode_setting")]
+    [JsonPropertyName("restricted_mode_setting")]
     public GetImV1ChatsByChatIdResponseDtoRestrictedModeSetting? RestrictedModeSetting { get; set; }
 
     /// <summary>
@@ -292,7 +291,7 @@ public record GetImV1ChatsByChatIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public bool? Status { get; set; }
 
         /// <summary>
@@ -304,7 +303,7 @@ public record GetImV1ChatsByChatIdResponseDto
         /// <item>not_anyone：所有成员禁止截屏录屏</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("screenshot_has_permission_setting")]
+        [JsonPropertyName("screenshot_has_permission_setting")]
         public string? ScreenshotHasPermissionSetting { get; set; }
 
         /// <summary>
@@ -316,7 +315,7 @@ public record GetImV1ChatsByChatIdResponseDto
         /// <item>not_anyone：所有成员禁止下载资源</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("download_has_permission_setting")]
+        [JsonPropertyName("download_has_permission_setting")]
         public string? DownloadHasPermissionSetting { get; set; }
 
         /// <summary>
@@ -328,7 +327,7 @@ public record GetImV1ChatsByChatIdResponseDto
         /// <item>not_anyone：所有成员禁止复制和转发消息</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("message_has_permission_setting")]
+        [JsonPropertyName("message_has_permission_setting")]
         public string? MessageHasPermissionSetting { get; set; }
     }
 
@@ -341,7 +340,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <item>all_members：所有成员</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("urgent_setting")]
+    [JsonPropertyName("urgent_setting")]
     public string? UrgentSetting { get; set; }
 
     /// <summary>
@@ -353,6 +352,6 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <item>all_members：所有成员</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("video_conference_setting")]
+    [JsonPropertyName("video_conference_setting")]
     public string? VideoConferenceSetting { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 文档搜索 响应体
@@ -13,7 +12,7 @@ public record PostSuiteDocsApiSearchObjectResponseDto
     /// <para>搜索匹配文档列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("docs_entities")]
+    [JsonPropertyName("docs_entities")]
     public DocsEntitie[]? DocsEntities { get; set; }
 
     /// <summary></summary>
@@ -23,28 +22,28 @@ public record PostSuiteDocsApiSearchObjectResponseDto
         /// <para>文档token</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("docs_token")]
+        [JsonPropertyName("docs_token")]
         public string? DocsToken { get; set; }
 
         /// <summary>
         /// <para>文档类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("docs_type")]
+        [JsonPropertyName("docs_type")]
         public string? DocsType { get; set; }
 
         /// <summary>
         /// <para>标题</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
         /// <para>文件所有者</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("owner_id")]
+        [JsonPropertyName("owner_id")]
         public string? OwnerId { get; set; }
     }
 
@@ -52,13 +51,13 @@ public record PostSuiteDocsApiSearchObjectResponseDto
     /// <para>搜索偏移位结果列表后是否还有数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public string? HasMore { get; set; }
 
     /// <summary>
     /// <para>搜索匹配文档总数量</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("total")]
+    [JsonPropertyName("total")]
     public int? Total { get; set; }
 }

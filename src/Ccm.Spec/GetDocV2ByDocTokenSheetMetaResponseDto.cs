@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取旧版文档中的电子表格元数据 响应体
@@ -13,14 +12,14 @@ public record GetDocV2ByDocTokenSheetMetaResponseDto
     /// <para>sheet 的 token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("spreadsheetToken")]
+    [JsonPropertyName("spreadsheetToken")]
     public string? SpreadsheetToken { get; set; }
 
     /// <summary>
     /// <para>doc 下的 sheet 属性</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("sheets")]
+    [JsonPropertyName("sheets")]
     public Sheet[]? Sheets { get; set; }
 
     /// <summary></summary>
@@ -30,35 +29,35 @@ public record GetDocV2ByDocTokenSheetMetaResponseDto
         /// <para>sheet 的 id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("sheetId")]
+        [JsonPropertyName("sheetId")]
         public string? SheetId { get; set; }
 
         /// <summary>
         /// <para>sheet 的标题</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
         /// <para>该 sheet 的位置</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("index")]
+        [JsonPropertyName("index")]
         public int? Index { get; set; }
 
         /// <summary>
         /// <para>该 sheet 的行数</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("rowCount")]
+        [JsonPropertyName("rowCount")]
         public int? RowCount { get; set; }
 
         /// <summary>
         /// <para>该 sheet 的列数</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("columnCount")]
+        [JsonPropertyName("columnCount")]
         public int? ColumnCount { get; set; }
     }
 }

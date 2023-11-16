@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 创建浮动图片 请求体
@@ -14,7 +13,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImag
     /// <para>**示例值**："ye06SS14ph"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("float_image_id")]
+    [JsonPropertyName("float_image_id")]
     public string? FloatImageId { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImag
     /// <para>**示例值**："boxbcbQsaSqIXsxxxxx1HCPJFbh"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("float_image_token")]
+    [JsonPropertyName("float_image_token")]
     public string? FloatImageToken { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImag
     /// <para>**示例值**："0b**12!A1:A1"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("range")]
+    [JsonPropertyName("range")]
     public string? Range { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImag
     /// <para>**示例值**：100</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("width")]
+    [JsonPropertyName("width")]
     public float? Width { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImag
     /// <para>**示例值**：100</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("height")]
+    [JsonPropertyName("height")]
     public float? Height { get; set; }
 
     /// <summary>
@@ -54,7 +53,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImag
     /// <para>**示例值**：0</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("offset_x")]
+    [JsonPropertyName("offset_x")]
     public float? OffsetX { get; set; }
 
     /// <summary>
@@ -62,6 +61,6 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImag
     /// <para>**示例值**：0</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("offset_y")]
+    [JsonPropertyName("offset_y")]
     public float? OffsetY { get; set; }
 }

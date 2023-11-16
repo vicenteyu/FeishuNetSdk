@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 识别文件中的身份证 响应体
@@ -13,7 +12,7 @@ public record PostDocumentAiV1IdCardRecognizeResponseDto
     /// <para>身份证信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("id_card")]
+    [JsonPropertyName("id_card")]
     public PostDocumentAiV1IdCardRecognizeResponseDtoIdCard? IdCard { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostDocumentAiV1IdCardRecognizeResponseDto
         /// <para>识别的实体列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("entities")]
+        [JsonPropertyName("entities")]
         public IdEntity[]? Entities { get; set; }
 
         /// <summary>
@@ -49,7 +48,7 @@ public record PostDocumentAiV1IdCardRecognizeResponseDto
             /// <item>birth：出生日期</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -57,7 +56,7 @@ public record PostDocumentAiV1IdCardRecognizeResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
 
@@ -66,14 +65,14 @@ public record PostDocumentAiV1IdCardRecognizeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("side")]
+        [JsonPropertyName("side")]
         public int? Side { get; set; }
 
         /// <summary>
         /// <para>四角坐标[x0,y0,x1,y1,x2,y2,x3,y3]</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("conners")]
+        [JsonPropertyName("conners")]
         public int[]? Conners { get; set; }
     }
 }

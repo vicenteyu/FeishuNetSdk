@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 查询筛选视图 响应体
@@ -13,7 +12,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterView
     /// <para>子表的所有筛选视图信息，id、name、range</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public FilterView[]? Items { get; set; }
 
     /// <summary></summary>
@@ -23,21 +22,21 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterView
         /// <para>筛选视图 id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("filter_view_id")]
+        [JsonPropertyName("filter_view_id")]
         public string? FilterViewId { get; set; }
 
         /// <summary>
         /// <para>筛选视图名字</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("filter_view_name")]
+        [JsonPropertyName("filter_view_name")]
         public string? FilterViewName { get; set; }
 
         /// <summary>
         /// <para>筛选视图的筛选范围</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("range")]
+        [JsonPropertyName("range")]
         public string? Range { get; set; }
     }
 }

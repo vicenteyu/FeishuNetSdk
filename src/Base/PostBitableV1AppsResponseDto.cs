@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 创建多维表格 响应体
@@ -13,7 +12,7 @@ public record PostBitableV1AppsResponseDto
     /// <para>返回响应体</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("app")]
+    [JsonPropertyName("app")]
     public PostBitableV1AppsResponseDtoApp? App { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostBitableV1AppsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>
-        [JsonProperty("app_token")]
+        [JsonPropertyName("app_token")]
         public string? AppToken { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostBitableV1AppsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostBitableV1AppsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>
-        [JsonProperty("folder_token")]
+        [JsonPropertyName("folder_token")]
         public string? FolderToken { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostBitableV1AppsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostBitableV1AppsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：tblxxxxxxxxoumSQ</para>
         /// </summary>
-        [JsonProperty("default_table_id")]
+        [JsonPropertyName("default_table_id")]
         public string? DefaultTableId { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostBitableV1AppsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：Asia/Beijing</para>
         /// </summary>
-        [JsonProperty("time_zone")]
+        [JsonPropertyName("time_zone")]
         public string? TimeZone { get; set; }
     }
 }

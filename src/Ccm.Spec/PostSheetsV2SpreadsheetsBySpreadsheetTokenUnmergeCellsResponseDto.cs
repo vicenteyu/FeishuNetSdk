@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 拆分单元格 响应体
@@ -13,6 +12,6 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsResponseDto
     /// <para>spreadsheet 的 token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("spreadsheetToken")]
+    [JsonPropertyName("spreadsheetToken")]
     public string? SpreadsheetToken { get; set; }
 }

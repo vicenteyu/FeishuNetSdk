@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 更新应用分组信息 请求体
@@ -15,6 +14,6 @@ public record PatchApplicationV6ApplicationsByAppIdBodyDto
     /// <para>示例值：["办公效率"]</para>
     /// <para>最大长度：3</para>
     /// </summary>
-    [JsonProperty("common_categories")]
+    [JsonPropertyName("common_categories")]
     public string[]? CommonCategories { get; set; }
 }

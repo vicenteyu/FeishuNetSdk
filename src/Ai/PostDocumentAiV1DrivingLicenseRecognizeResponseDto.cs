@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 识别文件中的驾驶证 响应体
@@ -13,7 +12,7 @@ public record PostDocumentAiV1DrivingLicenseRecognizeResponseDto
     /// <para>驾驶证信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("driving_license")]
+    [JsonPropertyName("driving_license")]
     public DrvingLicense? DrivingLicense { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostDocumentAiV1DrivingLicenseRecognizeResponseDto
         /// <para>识别出的实体类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("entities")]
+        [JsonPropertyName("entities")]
         public DrivingEntity[]? Entities { get; set; }
 
         /// <summary>
@@ -54,7 +53,7 @@ public record PostDocumentAiV1DrivingLicenseRecognizeResponseDto
             /// <item>id_photo_location：相片位置</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -62,7 +61,7 @@ public record PostDocumentAiV1DrivingLicenseRecognizeResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
     }

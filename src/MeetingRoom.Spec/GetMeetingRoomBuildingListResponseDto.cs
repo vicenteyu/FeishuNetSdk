@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 获取建筑物列表 响应体
@@ -13,21 +12,21 @@ public record GetMeetingRoomBuildingListResponseDto
     /// <para>分页标记，存在下一页时返回</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>存在下一页时，该值为 true，否则为 false</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>建筑列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("buildings")]
+    [JsonPropertyName("buildings")]
     public Building[]? Buildings { get; set; }
 
     /// <summary></summary>
@@ -37,42 +36,42 @@ public record GetMeetingRoomBuildingListResponseDto
         /// <para>建筑物 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("building_id")]
+        [JsonPropertyName("building_id")]
         public string? BuildingId { get; set; }
 
         /// <summary>
         /// <para>建筑物的相关描述</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
         /// <para>属于当前建筑物的所有楼层列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("floors")]
+        [JsonPropertyName("floors")]
         public string[]? Floors { get; set; }
 
         /// <summary>
         /// <para>建筑物名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>所属国家 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("country_id")]
+        [JsonPropertyName("country_id")]
         public string? CountryId { get; set; }
 
         /// <summary>
         /// <para>所属城市 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("district_id")]
+        [JsonPropertyName("district_id")]
         public string? DistrictId { get; set; }
     }
 }

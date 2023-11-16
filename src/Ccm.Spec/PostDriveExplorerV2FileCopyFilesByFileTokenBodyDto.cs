@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 复制文档 请求体
@@ -15,27 +14,27 @@ public record PostDriveExplorerV2FileCopyFilesByFileTokenBodyDto
     /// <para>被复制文件的类型 "file"、"doc"、"sheet"、"bitable"、"docx"、"mindnote"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string Type { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>目标文件夹的 token, 获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("dstFolderToken")]
+    [JsonPropertyName("dstFolderToken")]
     public string DstFolderToken { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>复制的副本文件的新名称</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("dstName")]
+    [JsonPropertyName("dstName")]
     public string DstName { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>是否复制评论</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("commentNeeded")]
+    [JsonPropertyName("commentNeeded")]
     public bool? CommentNeeded { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建知识空间 响应体
@@ -13,7 +12,7 @@ public record PostWikiV2SpacesResponseDto
     /// <para>知识空间</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("space")]
+    [JsonPropertyName("space")]
     public PostWikiV2SpacesResponseDtoSpace? Space { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostWikiV2SpacesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：知识空间</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostWikiV2SpacesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：知识空间描述</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostWikiV2SpacesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：123456</para>
         /// </summary>
-        [JsonProperty("space_id")]
+        [JsonPropertyName("space_id")]
         public string? SpaceId { get; set; }
 
         /// <summary>
@@ -54,7 +53,7 @@ public record PostWikiV2SpacesResponseDto
         /// <item>person：个人空间</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("space_type")]
+        [JsonPropertyName("space_type")]
         public string? SpaceType { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostWikiV2SpacesResponseDto
         /// <item>private：私有空间</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("visibility")]
+        [JsonPropertyName("visibility")]
         public string? Visibility { get; set; }
     }
 }

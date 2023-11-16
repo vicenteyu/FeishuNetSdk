@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 合并转发消息 响应体
@@ -14,7 +13,7 @@ public record PostImV1MessagesMergeForwardResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：--</para>
     /// </summary>
-    [JsonProperty("message")]
+    [JsonPropertyName("message")]
     public PostImV1MessagesMergeForwardResponseDtoMessage? Message { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record PostImV1MessagesMergeForwardResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
         /// </summary>
-        [JsonProperty("message_id")]
+        [JsonPropertyName("message_id")]
         public string? MessageId { get; set; }
 
         /// <summary>
@@ -35,7 +34,7 @@ public record PostImV1MessagesMergeForwardResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：om_40eb06e7b84dc71c03e009ad3c754195</para>
         /// </summary>
-        [JsonProperty("root_id")]
+        [JsonPropertyName("root_id")]
         public string? RootId { get; set; }
 
         /// <summary>
@@ -43,7 +42,7 @@ public record PostImV1MessagesMergeForwardResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：om_d4be107c616aed9c1da8ed8068570a9f</para>
         /// </summary>
-        [JsonProperty("parent_id")]
+        [JsonPropertyName("parent_id")]
         public string? ParentId { get; set; }
 
         /// <summary>
@@ -51,7 +50,7 @@ public record PostImV1MessagesMergeForwardResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：card</para>
         /// </summary>
-        [JsonProperty("msg_type")]
+        [JsonPropertyName("msg_type")]
         public string? MsgType { get; set; }
 
         /// <summary>
@@ -59,7 +58,7 @@ public record PostImV1MessagesMergeForwardResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1609296809</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record PostImV1MessagesMergeForwardResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1609336806</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public string? UpdateTime { get; set; }
 
         /// <summary>
@@ -75,7 +74,7 @@ public record PostImV1MessagesMergeForwardResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("deleted")]
+        [JsonPropertyName("deleted")]
         public bool? Deleted { get; set; }
 
         /// <summary>
@@ -83,7 +82,7 @@ public record PostImV1MessagesMergeForwardResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("updated")]
+        [JsonPropertyName("updated")]
         public bool? Updated { get; set; }
 
         /// <summary>
@@ -91,7 +90,7 @@ public record PostImV1MessagesMergeForwardResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
         /// </summary>
-        [JsonProperty("chat_id")]
+        [JsonPropertyName("chat_id")]
         public string? ChatId { get; set; }
 
         /// <summary>
@@ -99,7 +98,7 @@ public record PostImV1MessagesMergeForwardResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：object</para>
         /// </summary>
-        [JsonProperty("sender")]
+        [JsonPropertyName("sender")]
         public PostImV1MessagesMergeForwardResponseDtoMessageSender? Sender { get; set; }
 
         /// <summary>
@@ -112,7 +111,7 @@ public record PostImV1MessagesMergeForwardResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：cli_9f427eec54ae901b</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string Id { get; set; } = string.Empty;
 
             /// <summary>
@@ -123,7 +122,7 @@ public record PostImV1MessagesMergeForwardResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：app_id</para>
             /// </summary>
-            [JsonProperty("id_type")]
+            [JsonPropertyName("id_type")]
             public string IdType { get; set; } = string.Empty;
 
             /// <summary>
@@ -136,7 +135,7 @@ public record PostImV1MessagesMergeForwardResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：app</para>
             /// </summary>
-            [JsonProperty("sender_type")]
+            [JsonPropertyName("sender_type")]
             public string SenderType { get; set; } = string.Empty;
 
             /// <summary>
@@ -144,7 +143,7 @@ public record PostImV1MessagesMergeForwardResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：736588c9260f175e</para>
             /// </summary>
-            [JsonProperty("tenant_key")]
+            [JsonPropertyName("tenant_key")]
             public string? TenantKey { get; set; }
         }
 
@@ -153,7 +152,7 @@ public record PostImV1MessagesMergeForwardResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：json结构</para>
         /// </summary>
-        [JsonProperty("body")]
+        [JsonPropertyName("body")]
         public MessageBody? Body { get; set; }
 
         /// <summary>
@@ -166,7 +165,7 @@ public record PostImV1MessagesMergeForwardResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：text:测试消息</para>
             /// </summary>
-            [JsonProperty("content")]
+            [JsonPropertyName("content")]
             public string Content { get; set; } = string.Empty;
         }
 
@@ -174,7 +173,7 @@ public record PostImV1MessagesMergeForwardResponseDto
         /// <para>被@的用户或机器人的id列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("mentions")]
+        [JsonPropertyName("mentions")]
         public Mention[]? Mentions { get; set; }
 
         /// <summary>
@@ -187,7 +186,7 @@ public record PostImV1MessagesMergeForwardResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：a_user_1</para>
             /// </summary>
-            [JsonProperty("key")]
+            [JsonPropertyName("key")]
             public string Key { get; set; } = string.Empty;
 
             /// <summary>
@@ -195,7 +194,7 @@ public record PostImV1MessagesMergeForwardResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：ou_155184d1e73cbfb8973e5a9e698e74f2</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string Id { get; set; } = string.Empty;
 
             /// <summary>
@@ -203,7 +202,7 @@ public record PostImV1MessagesMergeForwardResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：open_id</para>
             /// </summary>
-            [JsonProperty("id_type")]
+            [JsonPropertyName("id_type")]
             public string IdType { get; set; } = string.Empty;
 
             /// <summary>
@@ -211,7 +210,7 @@ public record PostImV1MessagesMergeForwardResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：Tom</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string Name { get; set; } = string.Empty;
 
             /// <summary>
@@ -219,7 +218,7 @@ public record PostImV1MessagesMergeForwardResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：736588c9260f175e</para>
             /// </summary>
-            [JsonProperty("tenant_key")]
+            [JsonPropertyName("tenant_key")]
             public string? TenantKey { get; set; }
         }
 
@@ -228,7 +227,7 @@ public record PostImV1MessagesMergeForwardResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：om_40eb06e7b84dc71c03e00ida3c754892</para>
         /// </summary>
-        [JsonProperty("upper_message_id")]
+        [JsonPropertyName("upper_message_id")]
         public string? UpperMessageId { get; set; }
     }
 
@@ -236,6 +235,6 @@ public record PostImV1MessagesMergeForwardResponseDto
     /// <para>无效的消息ID列表，如不存在的消息、已被撤回的消息、不可见的历史消息、不支持的消息类型等。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("invalid_message_id_list")]
+    [JsonPropertyName("invalid_message_id_list")]
     public string[]? InvalidMessageIdList { get; set; }
 }

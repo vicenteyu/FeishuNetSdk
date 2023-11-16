@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 提取文件中的合同字段 响应体
@@ -14,14 +13,14 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：121345678</para>
     /// </summary>
-    [JsonProperty("file_id")]
+    [JsonPropertyName("file_id")]
     public string? FileId { get; set; }
 
     /// <summary>
     /// <para>总交易金额</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("price")]
+    [JsonPropertyName("price")]
     public ExtractPrice? Price { get; set; }
 
     /// <summary>
@@ -34,7 +33,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：200000</para>
         /// </summary>
-        [JsonProperty("contract_price")]
+        [JsonPropertyName("contract_price")]
         public float? ContractPrice { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值："200000"</para>
         /// </summary>
-        [JsonProperty("contract_price_original")]
+        [JsonPropertyName("contract_price_original")]
         public string? ContractPriceOriginal { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：本合同项下总金额共计￥200000（贰拾万元整）</para>
         /// </summary>
-        [JsonProperty("text")]
+        [JsonPropertyName("text")]
         public string? Text { get; set; }
     }
 
@@ -58,7 +57,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
     /// <para>期限相关信息，包括开始日期、结束日期、有效时长</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("time")]
+    [JsonPropertyName("time")]
     public ExtractTime? Time { get; set; }
 
     /// <summary>
@@ -71,7 +70,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2020-07-01</para>
         /// </summary>
-        [JsonProperty("time_start")]
+        [JsonPropertyName("time_start")]
         public string? TimeStart { get; set; }
 
         /// <summary>
@@ -79,7 +78,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022-06-30</para>
         /// </summary>
-        [JsonProperty("time_end")]
+        [JsonPropertyName("time_end")]
         public string? TimeEnd { get; set; }
 
         /// <summary>
@@ -87,7 +86,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2020年07月1日</para>
         /// </summary>
-        [JsonProperty("original_time_start")]
+        [JsonPropertyName("original_time_start")]
         public string? OriginalTimeStart { get; set; }
 
         /// <summary>
@@ -95,7 +94,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022年6月30日</para>
         /// </summary>
-        [JsonProperty("original_time_end")]
+        [JsonPropertyName("original_time_end")]
         public string? OriginalTimeEnd { get; set; }
 
         /// <summary>
@@ -103,7 +102,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。</para>
         /// </summary>
-        [JsonProperty("text_start")]
+        [JsonPropertyName("text_start")]
         public string? TextStart { get; set; }
 
         /// <summary>
@@ -111,14 +110,14 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。</para>
         /// </summary>
-        [JsonProperty("text_end")]
+        [JsonPropertyName("text_end")]
         public string? TextEnd { get; set; }
 
         /// <summary>
         /// <para>合同持续时长</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("initial_term")]
+        [JsonPropertyName("initial_term")]
         public ExtractTerm? InitialTerm { get; set; }
 
         /// <summary>
@@ -131,7 +130,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2</para>
             /// </summary>
-            [JsonProperty("initial_time")]
+            [JsonPropertyName("initial_time")]
             public string? InitialTime { get; set; }
 
             /// <summary>
@@ -139,7 +138,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：年</para>
             /// </summary>
-            [JsonProperty("initial_unit")]
+            [JsonPropertyName("initial_unit")]
             public string? InitialUnit { get; set; }
         }
 
@@ -148,7 +147,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2年</para>
         /// </summary>
-        [JsonProperty("text_initial_term")]
+        [JsonPropertyName("text_initial_term")]
         public string? TextInitialTerm { get; set; }
     }
 
@@ -156,7 +155,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
     /// <para>盖章份数</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("copy")]
+    [JsonPropertyName("copy")]
     public ExtractCopy? Copy { get; set; }
 
     /// <summary>
@@ -169,7 +168,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("copy_num")]
+        [JsonPropertyName("copy_num")]
         public int? CopyNum { get; set; }
 
         /// <summary>
@@ -177,7 +176,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：一式贰份</para>
         /// </summary>
-        [JsonProperty("original_copy")]
+        [JsonPropertyName("original_copy")]
         public string? OriginalCopy { get; set; }
 
         /// <summary>
@@ -185,7 +184,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：协议</para>
         /// </summary>
-        [JsonProperty("key")]
+        [JsonPropertyName("key")]
         public string? Key { get; set; }
 
         /// <summary>
@@ -193,7 +192,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：此协议一式贰份，双方各执壹份，具有同等法律效力。</para>
         /// </summary>
-        [JsonProperty("text")]
+        [JsonPropertyName("text")]
         public string? Text { get; set; }
     }
 
@@ -201,7 +200,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
     /// <para>币种</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("currency")]
+    [JsonPropertyName("currency")]
     public ExtractCurrency? Currency { get; set; }
 
     /// <summary>
@@ -214,7 +213,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：CNY</para>
         /// </summary>
-        [JsonProperty("currency_name")]
+        [JsonPropertyName("currency_name")]
         public string? CurrencyName { get; set; }
 
         /// <summary>
@@ -222,7 +221,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：¥</para>
         /// </summary>
-        [JsonProperty("currency_text")]
+        [JsonPropertyName("currency_text")]
         public string? CurrencyText { get; set; }
     }
 
@@ -231,14 +230,14 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：项目活动框架协议</para>
     /// </summary>
-    [JsonProperty("header")]
+    [JsonPropertyName("header")]
     public string? Header { get; set; }
 
     /// <summary>
     /// <para>主体信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("body_info")]
+    [JsonPropertyName("body_info")]
     public BodyInfo[]? BodyInfos { get; set; }
 
     /// <summary>
@@ -256,7 +255,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <item>third：第三方、其他方主体</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("body_type")]
+        [JsonPropertyName("body_type")]
         public string? BodyType { get; set; }
 
         /// <summary>
@@ -264,7 +263,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：value</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public BodyEntity? Value { get; set; }
 
         /// <summary>
@@ -277,7 +276,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：北京市A区B园4号楼</para>
             /// </summary>
-            [JsonProperty("address")]
+            [JsonPropertyName("address")]
             public string? Address { get; set; }
 
             /// <summary>
@@ -285,7 +284,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("contacts")]
+            [JsonPropertyName("contacts")]
             public string? Contacts { get; set; }
 
             /// <summary>
@@ -293,7 +292,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：zhangsan.1111@bytedance.com</para>
             /// </summary>
-            [JsonProperty("email")]
+            [JsonPropertyName("email")]
             public string? Email { get; set; }
 
             /// <summary>
@@ -301,7 +300,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：13600000000</para>
             /// </summary>
-            [JsonProperty("phone")]
+            [JsonPropertyName("phone")]
             public string? Phone { get; set; }
 
             /// <summary>
@@ -309,7 +308,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：310XXXXXXXXXXXXXXX</para>
             /// </summary>
-            [JsonProperty("id_number")]
+            [JsonPropertyName("id_number")]
             public string? IdNumber { get; set; }
 
             /// <summary>
@@ -317,7 +316,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("legal_representative")]
+            [JsonPropertyName("legal_representative")]
             public string? LegalRepresentative { get; set; }
 
             /// <summary>
@@ -325,7 +324,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：北京字节跳动网络技术有限公司</para>
             /// </summary>
-            [JsonProperty("party")]
+            [JsonPropertyName("party")]
             public string? Party { get; set; }
         }
     }
@@ -334,7 +333,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
     /// <para>银行信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("bank_info")]
+    [JsonPropertyName("bank_info")]
     public BankInfo[]? BankInfos { get; set; }
 
     /// <summary>
@@ -353,7 +352,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <item>unceratin_bank：其他方银行</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("bank_type")]
+        [JsonPropertyName("bank_type")]
         public string? BankType { get; set; }
 
         /// <summary>
@@ -361,7 +360,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：value</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public BankEntity? Value { get; set; }
 
         /// <summary>
@@ -374,7 +373,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：北京字节跳动网络技术有限公司</para>
             /// </summary>
-            [JsonProperty("account_name")]
+            [JsonPropertyName("account_name")]
             public string? AccountName { get; set; }
 
             /// <summary>
@@ -382,7 +381,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：中国A银行B支行</para>
             /// </summary>
-            [JsonProperty("bank_name")]
+            [JsonPropertyName("bank_name")]
             public string? BankName { get; set; }
 
             /// <summary>
@@ -390,7 +389,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：11230xxxxx004701</para>
             /// </summary>
-            [JsonProperty("account_number")]
+            [JsonPropertyName("account_number")]
             public string? AccountNumber { get; set; }
 
             /// <summary>
@@ -398,7 +397,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：010-8xxxx688</para>
             /// </summary>
-            [JsonProperty("phone")]
+            [JsonPropertyName("phone")]
             public string? Phone { get; set; }
 
             /// <summary>
@@ -406,7 +405,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("contacts")]
+            [JsonPropertyName("contacts")]
             public string? Contacts { get; set; }
 
             /// <summary>
@@ -414,7 +413,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：911101xxxxx684235</para>
             /// </summary>
-            [JsonProperty("tax_number")]
+            [JsonPropertyName("tax_number")]
             public string? TaxNumber { get; set; }
 
             /// <summary>
@@ -422,7 +421,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：A市B区C园D楼3-8</para>
             /// </summary>
-            [JsonProperty("address")]
+            [JsonPropertyName("address")]
             public string? Address { get; set; }
 
             /// <summary>
@@ -430,7 +429,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：11230xxxxx004701</para>
             /// </summary>
-            [JsonProperty("id_number")]
+            [JsonPropertyName("id_number")]
             public string? IdNumber { get; set; }
 
             /// <summary>
@@ -438,7 +437,7 @@ public record PostDocumentAiV1ContractFieldExtractionResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：zhangsan.1111@bytedance.com</para>
             /// </summary>
-            [JsonProperty("email")]
+            [JsonPropertyName("email")]
             public string? Email { get; set; }
         }
     }

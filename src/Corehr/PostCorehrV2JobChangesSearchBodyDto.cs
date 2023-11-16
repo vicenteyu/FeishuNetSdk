@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 搜索员工异动信息 请求体
@@ -14,7 +13,7 @@ public record PostCorehrV2JobChangesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：10</para>
     /// </summary>
-    [JsonProperty("employment_ids")]
+    [JsonPropertyName("employment_ids")]
     public string[]? EmploymentIds { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostCorehrV2JobChangesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：10</para>
     /// </summary>
-    [JsonProperty("job_change_ids")]
+    [JsonPropertyName("job_change_ids")]
     public string[]? JobChangeIds { get; set; }
 
     /// <summary>
@@ -31,6 +30,6 @@ public record PostCorehrV2JobChangesSearchBodyDto
     /// <para>示例值：Approved</para>
     /// <para>最大长度：10</para>
     /// </summary>
-    [JsonProperty("statuses")]
+    [JsonPropertyName("statuses")]
     public string[]? Statuses { get; set; }
 }

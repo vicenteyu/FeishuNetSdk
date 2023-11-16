@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Performance;
 /// <summary>
 /// 获取周期任务（全部用户） 请求体
@@ -14,7 +13,7 @@ public record PostPerformanceV1StageTasksFindByPageBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：7033710017401751071</para>
     /// </summary>
-    [JsonProperty("semester_id")]
+    [JsonPropertyName("semester_id")]
     public string SemesterId { get; set; } = string.Empty;
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostPerformanceV1StageTasksFindByPageBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：3</para>
     /// </summary>
-    [JsonProperty("task_option_lists")]
+    [JsonPropertyName("task_option_lists")]
     public int[]? TaskOptionLists { get; set; }
 
     /// <summary>
@@ -33,7 +32,7 @@ public record PostPerformanceV1StageTasksFindByPageBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1630425599999</para>
     /// </summary>
-    [JsonProperty("after_time")]
+    [JsonPropertyName("after_time")]
     public string? AfterTime { get; set; }
 
     /// <summary>
@@ -41,7 +40,7 @@ public record PostPerformanceV1StageTasksFindByPageBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1630425599999</para>
     /// </summary>
-    [JsonProperty("before_time")]
+    [JsonPropertyName("before_time")]
     public string? BeforeTime { get; set; }
 
     /// <summary>
@@ -49,7 +48,7 @@ public record PostPerformanceV1StageTasksFindByPageBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -58,6 +57,6 @@ public record PostPerformanceV1StageTasksFindByPageBodyDto
     /// <para>示例值：30</para>
     /// <para>默认值：20</para>
     /// </summary>
-    [JsonProperty("page_size")]
+    [JsonPropertyName("page_size")]
     public int? PageSize { get; set; }
 }

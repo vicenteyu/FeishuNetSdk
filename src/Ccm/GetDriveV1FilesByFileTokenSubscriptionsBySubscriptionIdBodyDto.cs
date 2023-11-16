@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取订阅状态 请求体
@@ -19,6 +18,6 @@ public record GetDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdBodyDto
     /// <item>wiki：云空间</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("file_type")]
+    [JsonPropertyName("file_type")]
     public string FileType { get; set; } = string.Empty;
 }

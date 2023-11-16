@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 增加行列 响应体
@@ -13,13 +12,13 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeResponseDt
     /// <para>增加的行/列数</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("addCount")]
+    [JsonPropertyName("addCount")]
     public int? AddCount { get; set; }
 
     /// <summary>
     /// <para>插入维度</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("majorDimension")]
+    [JsonPropertyName("majorDimension")]
     public string? MajorDimension { get; set; }
 }

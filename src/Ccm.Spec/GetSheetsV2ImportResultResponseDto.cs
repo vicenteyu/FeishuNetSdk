@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 查询导入结果 响应体
@@ -13,20 +12,20 @@ public record GetSheetsV2ImportResultResponseDto
     /// <para>导入时获取的凭证</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("ticket")]
+    [JsonPropertyName("ticket")]
     public string? Ticket { get; set; }
 
     /// <summary>
     /// <para>导入文档的链接</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("url")]
+    [JsonPropertyName("url")]
     public string? Url { get; set; }
 
     /// <summary>
     /// <para>导入的文档的状态码</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("warningCode")]
+    [JsonPropertyName("warningCode")]
     public int? WarningCode { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 删除行列 请求体
@@ -13,7 +12,7 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
     /// <para>需要删除行列的维度信息，将删除[startIndex,endIndex]区间的行或列</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("dimension")]
+    [JsonPropertyName("dimension")]
     public DimensionSuffix Dimension { get; set; } = new();
 
     /// <summary></summary>
@@ -23,28 +22,28 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
         /// <para>sheetId</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("sheetId")]
+        [JsonPropertyName("sheetId")]
         public string SheetId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>可选 ROWS、COLUMNS</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("majorDimension")]
+        [JsonPropertyName("majorDimension")]
         public string MajorDimension { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>开始的位置，从1开始</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("startIndex")]
+        [JsonPropertyName("startIndex")]
         public int StartIndex { get; set; }
 
         /// <summary>
         /// <para>结束的位置</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("endIndex")]
+        [JsonPropertyName("endIndex")]
         public int EndIndex { get; set; }
     }
 }

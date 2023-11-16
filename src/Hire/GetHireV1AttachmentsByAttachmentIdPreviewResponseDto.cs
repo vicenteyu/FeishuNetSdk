@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取附件预览信息 响应体
@@ -14,6 +13,6 @@ public record GetHireV1AttachmentsByAttachmentIdPreviewResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：链接</para>
     /// </summary>
-    [JsonProperty("url")]
+    [JsonPropertyName("url")]
     public string Url { get; set; } = string.Empty;
 }

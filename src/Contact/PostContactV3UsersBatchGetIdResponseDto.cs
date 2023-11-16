@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 通过手机号或邮箱获取用户 ID 响应体
@@ -13,7 +12,7 @@ public record PostContactV3UsersBatchGetIdResponseDto
     /// <para>手机号或者邮箱对应的用户id信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_list")]
+    [JsonPropertyName("user_list")]
     public UserContactInfo[]? UserLists { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostContactV3UsersBatchGetIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_979112345678741d29069abcdef089d4</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostContactV3UsersBatchGetIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：13812345678</para>
         /// </summary>
-        [JsonProperty("mobile")]
+        [JsonPropertyName("mobile")]
         public string? Mobile { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostContactV3UsersBatchGetIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：lisi@z.com</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string? Email { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 创建自定义字段 响应体
@@ -57,7 +56,7 @@ public record PostTaskV2CustomFieldsResponseDto
     /// <para>创建的自定义字段</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("custom_field")]
+    [JsonPropertyName("custom_field")]
     public PostTaskV2CustomFieldsResponseDtoCustomField? CustomField { get; set; }
 
     /// <summary>
@@ -70,7 +69,7 @@ public record PostTaskV2CustomFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：34d4b29f-3d58-4bc5-b752-6be80fb687c8</para>
         /// </summary>
-        [JsonProperty("guid")]
+        [JsonPropertyName("guid")]
         public string? Guid { get; set; }
 
         /// <summary>
@@ -78,7 +77,7 @@ public record PostTaskV2CustomFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：优先级</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -86,14 +85,14 @@ public record PostTaskV2CustomFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：number</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
         /// <para>数字类型的字段设置</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("number_setting")]
+        [JsonPropertyName("number_setting")]
         public PostTaskV2CustomFieldsResponseDtoCustomFieldNumberSetting? NumberSetting { get; set; }
 
         /// <summary>
@@ -114,7 +113,7 @@ public record PostTaskV2CustomFieldsResponseDto
             /// </list></para>
             /// <para>默认值：normal</para>
             /// </summary>
-            [JsonProperty("format")]
+            [JsonPropertyName("format")]
             public string? Format { get; set; }
 
             /// <summary>
@@ -122,7 +121,7 @@ public record PostTaskV2CustomFieldsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：自定义符号</para>
             /// </summary>
-            [JsonProperty("custom_symbol")]
+            [JsonPropertyName("custom_symbol")]
             public string? CustomSymbol { get; set; }
 
             /// <summary>
@@ -135,7 +134,7 @@ public record PostTaskV2CustomFieldsResponseDto
             /// </list></para>
             /// <para>默认值：right</para>
             /// </summary>
-            [JsonProperty("custom_symbol_position")]
+            [JsonPropertyName("custom_symbol_position")]
             public string? CustomSymbolPosition { get; set; }
 
             /// <summary>
@@ -148,7 +147,7 @@ public record PostTaskV2CustomFieldsResponseDto
             /// </list></para>
             /// <para>默认值：none</para>
             /// </summary>
-            [JsonProperty("separator")]
+            [JsonPropertyName("separator")]
             public string? Separator { get; set; }
 
             /// <summary>
@@ -157,7 +156,7 @@ public record PostTaskV2CustomFieldsResponseDto
             /// <para>示例值：2</para>
             /// <para>默认值：0</para>
             /// </summary>
-            [JsonProperty("decimal_count")]
+            [JsonPropertyName("decimal_count")]
             public int? DecimalCount { get; set; }
         }
 
@@ -165,7 +164,7 @@ public record PostTaskV2CustomFieldsResponseDto
         /// <para>人员类型的字段设置</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("member_setting")]
+        [JsonPropertyName("member_setting")]
         public PostTaskV2CustomFieldsResponseDtoCustomFieldMemberSetting? MemberSetting { get; set; }
 
         /// <summary>
@@ -179,7 +178,7 @@ public record PostTaskV2CustomFieldsResponseDto
             /// <para>示例值：true</para>
             /// <para>默认值：false</para>
             /// </summary>
-            [JsonProperty("multi")]
+            [JsonPropertyName("multi")]
             public bool? Multi { get; set; }
         }
 
@@ -187,7 +186,7 @@ public record PostTaskV2CustomFieldsResponseDto
         /// <para>时间日期类型的字段设置</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("datetime_setting")]
+        [JsonPropertyName("datetime_setting")]
         public PostTaskV2CustomFieldsResponseDtoCustomFieldDatetimeSetting? DatetimeSetting { get; set; }
 
         /// <summary>
@@ -200,7 +199,7 @@ public record PostTaskV2CustomFieldsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：yyyy/mm/dd</para>
             /// </summary>
-            [JsonProperty("format")]
+            [JsonPropertyName("format")]
             public string? Format { get; set; }
         }
 
@@ -208,7 +207,7 @@ public record PostTaskV2CustomFieldsResponseDto
         /// <para>单选类型的字段设置</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("single_select_setting")]
+        [JsonPropertyName("single_select_setting")]
         public SelectSetting? SingleSelectSetting { get; set; }
 
         /// <summary>
@@ -221,7 +220,7 @@ public record PostTaskV2CustomFieldsResponseDto
             /// <para>必填：否</para>
             /// <para>最大长度：100</para>
             /// </summary>
-            [JsonProperty("options")]
+            [JsonPropertyName("options")]
             public Option[]? Options { get; set; }
 
             /// <summary>
@@ -234,7 +233,7 @@ public record PostTaskV2CustomFieldsResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152</para>
                 /// </summary>
-                [JsonProperty("guid")]
+                [JsonPropertyName("guid")]
                 public string? Guid { get; set; }
 
                 /// <summary>
@@ -242,7 +241,7 @@ public record PostTaskV2CustomFieldsResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：高优</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public string? Name { get; set; }
 
                 /// <summary>
@@ -250,7 +249,7 @@ public record PostTaskV2CustomFieldsResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
-                [JsonProperty("color_index")]
+                [JsonPropertyName("color_index")]
                 public int? ColorIndex { get; set; }
 
                 /// <summary>
@@ -258,7 +257,7 @@ public record PostTaskV2CustomFieldsResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
-                [JsonProperty("is_hidden")]
+                [JsonPropertyName("is_hidden")]
                 public bool? IsHidden { get; set; }
             }
         }
@@ -267,14 +266,14 @@ public record PostTaskV2CustomFieldsResponseDto
         /// <para>多选类型的字段设置</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("multi_select_setting")]
+        [JsonPropertyName("multi_select_setting")]
         public SelectSetting? MultiSelectSetting { get; set; }
 
         /// <summary>
         /// <para>创建人</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("creator")]
+        [JsonPropertyName("creator")]
         public Member? Creator { get; set; }
 
         /// <summary>
@@ -288,7 +287,7 @@ public record PostTaskV2CustomFieldsResponseDto
             /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
             /// <para>最大长度：100</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -297,7 +296,7 @@ public record PostTaskV2CustomFieldsResponseDto
             /// <para>示例值：user</para>
             /// <para>默认值：user</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -306,7 +305,7 @@ public record PostTaskV2CustomFieldsResponseDto
             /// <para>示例值：creator</para>
             /// <para>最大长度：20</para>
             /// </summary>
-            [JsonProperty("role")]
+            [JsonPropertyName("role")]
             public string? Role { get; set; }
         }
 
@@ -315,7 +314,7 @@ public record PostTaskV2CustomFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1688196600000</para>
         /// </summary>
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public string? CreatedAt { get; set; }
 
         /// <summary>
@@ -323,14 +322,14 @@ public record PostTaskV2CustomFieldsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1688196600000</para>
         /// </summary>
-        [JsonProperty("updated_at")]
+        [JsonPropertyName("updated_at")]
         public string? UpdatedAt { get; set; }
 
         /// <summary>
         /// <para>文本类型设置</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("text_setting")]
+        [JsonPropertyName("text_setting")]
         public object? TextSetting { get; set; }
     }
 }

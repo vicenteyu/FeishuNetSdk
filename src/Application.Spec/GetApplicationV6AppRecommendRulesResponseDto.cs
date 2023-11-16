@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application.Spec;
 /// <summary>
 /// 获取当前设置的推荐规则列表 响应体
@@ -13,7 +12,7 @@ public record GetApplicationV6AppRecommendRulesResponseDto
     /// <para>推荐规则列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("rules")]
+    [JsonPropertyName("rules")]
     public AppRecommendRule[]? Rules { get; set; }
 
     /// <summary></summary>
@@ -23,14 +22,14 @@ public record GetApplicationV6AppRecommendRulesResponseDto
         /// <para>推荐规则 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>推荐规则名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -43,14 +42,14 @@ public record GetApplicationV6AppRecommendRulesResponseDto
         /// <item>closed：停用</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string? Status { get; set; }
 
         /// <summary>
         /// <para>推荐规则可见性信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("visibility_info")]
+        [JsonPropertyName("visibility_info")]
         public VisibilityInfoSuffix? VisibilityInfo { get; set; }
 
         /// <summary></summary>
@@ -60,28 +59,28 @@ public record GetApplicationV6AppRecommendRulesResponseDto
             /// <para>是否全员可见</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("is_all")]
+            [JsonPropertyName("is_all")]
             public bool? IsAll { get; set; }
 
             /// <summary>
             /// <para>可见部门 ID 列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("department_ids")]
+            [JsonPropertyName("department_ids")]
             public string[]? DepartmentIds { get; set; }
 
             /// <summary>
             /// <para>可见用户 ID 列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("user_ids")]
+            [JsonPropertyName("user_ids")]
             public string[]? UserIds { get; set; }
 
             /// <summary>
             /// <para>可见用户组 ID 列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("group_ids")]
+            [JsonPropertyName("group_ids")]
             public string[]? GroupIds { get; set; }
         }
 
@@ -92,7 +91,7 @@ public record GetApplicationV6AppRecommendRulesResponseDto
             /// <para>推荐应用项 ID</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("item_id")]
+            [JsonPropertyName("item_id")]
             public string? ItemId { get; set; }
 
             /// <summary>
@@ -105,42 +104,42 @@ public record GetApplicationV6AppRecommendRulesResponseDto
             /// <item>link：链接类型</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("item_type")]
+            [JsonPropertyName("item_type")]
             public string? ItemType { get; set; }
 
             /// <summary>
             /// <para>推荐应用项名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
             /// <para>推荐应用项描述</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("description")]
+            [JsonPropertyName("description")]
             public string? Description { get; set; }
 
             /// <summary>
             /// <para>链接类型应用项的跳转链接（应用类型该字段为空）</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("link_url")]
+            [JsonPropertyName("link_url")]
             public string? LinkUrl { get; set; }
 
             /// <summary>
             /// <para>应用类型应用项的 app id（链接类型该字段为空）</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("client_id")]
+            [JsonPropertyName("client_id")]
             public string? ClientId { get; set; }
 
             /// <summary>
             /// <para>应用项图标链接</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("icon_url")]
+            [JsonPropertyName("icon_url")]
             public string? IconUrl { get; set; }
 
             /// <summary>
@@ -156,14 +155,14 @@ public record GetApplicationV6AppRecommendRulesResponseDto
             /// <item>ja_jp：日文</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("default_locale")]
+            [JsonPropertyName("default_locale")]
             public string? DefaultLocale { get; set; }
 
             /// <summary>
             /// <para>应用项的多语种名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("i18n_name")]
+            [JsonPropertyName("i18n_name")]
             public I18nNameSuffix? I18nName { get; set; }
 
             /// <summary></summary>
@@ -173,35 +172,35 @@ public record GetApplicationV6AppRecommendRulesResponseDto
                 /// <para>应用项的简体中文名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("zh_cn")]
+                [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
                 /// <para>应用项的繁体中文（中国香港）名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("zh_hk")]
+                [JsonPropertyName("zh_hk")]
                 public string? ZhHk { get; set; }
 
                 /// <summary>
                 /// <para>应用项的繁体中文（中国台湾）名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("zh_tw")]
+                [JsonPropertyName("zh_tw")]
                 public string? ZhTw { get; set; }
 
                 /// <summary>
                 /// <para>应用项的英文名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("en_us")]
+                [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
 
                 /// <summary>
                 /// <para>应用项的日文名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("ja_jp")]
+                [JsonPropertyName("ja_jp")]
                 public string? JaJp { get; set; }
             }
         }
@@ -210,14 +209,14 @@ public record GetApplicationV6AppRecommendRulesResponseDto
         /// <para>不可移除推荐应用项列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("recommend_item_infos")]
+        [JsonPropertyName("recommend_item_infos")]
         public ItemInfo[]? RecommendItemInfos { get; set; }
 
         /// <summary>
         /// <para>可移除推荐应用项列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("distributed_recommend_item_infos")]
+        [JsonPropertyName("distributed_recommend_item_infos")]
         public ItemInfo[]? DistributedRecommendItemInfos { get; set; }
     }
 
@@ -225,13 +224,13 @@ public record GetApplicationV6AppRecommendRulesResponseDto
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>是否还有更多项</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

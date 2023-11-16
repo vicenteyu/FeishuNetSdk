@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 转移所有者 请求体
@@ -19,7 +18,7 @@ public record PostDriveV1PermissionsByTokenMembersTransferOwnerBodyDto
     /// <item>userid：用户自定义ID</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("member_type")]
+    [JsonPropertyName("member_type")]
     public string MemberType { get; set; } = string.Empty;
 
     /// <summary>
@@ -27,6 +26,6 @@ public record PostDriveV1PermissionsByTokenMembersTransferOwnerBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：ou_67e5ecb64ce1c0bd94612c17999db411</para>
     /// </summary>
-    [JsonProperty("member_id")]
+    [JsonPropertyName("member_id")]
     public string MemberId { get; set; } = string.Empty;
 }

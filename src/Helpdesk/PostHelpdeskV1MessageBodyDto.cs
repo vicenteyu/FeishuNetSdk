@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 服务台机器人向工单绑定的群内发送消息 请求体
@@ -20,7 +19,7 @@ public record PostHelpdeskV1MessageBodyDto
     /// <item>interactive：卡片消息</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("msg_type")]
+    [JsonPropertyName("msg_type")]
     public string MsgType { get; set; } = string.Empty;
 
     /// <summary>
@@ -28,7 +27,7 @@ public record PostHelpdeskV1MessageBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：{\"post\":{\"zh_cn\":{\"title\":\"sometitle\",\"content\":[[{\"tag\":\"text\",\"text\":\"somecontent\"}]]}}}</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
 
     /// <summary>
@@ -36,7 +35,7 @@ public record PostHelpdeskV1MessageBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：ou_7346484524</para>
     /// </summary>
-    [JsonProperty("receiver_id")]
+    [JsonPropertyName("receiver_id")]
     public string ReceiverId { get; set; } = string.Empty;
 
     /// <summary>
@@ -48,6 +47,6 @@ public record PostHelpdeskV1MessageBodyDto
     /// <item>user：通过服务台机器人私聊发送</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("receive_type")]
+    [JsonPropertyName("receive_type")]
     public string? ReceiveType { get; set; }
 }

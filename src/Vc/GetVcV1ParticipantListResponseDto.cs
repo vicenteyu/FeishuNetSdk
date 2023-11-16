@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 查询参会人明细 响应体
@@ -13,7 +12,7 @@ public record GetVcV1ParticipantListResponseDto
     /// <para>参会人列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("participants")]
+    [JsonPropertyName("participants")]
     public Participant[]? Participants { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：kehan</para>
         /// </summary>
-        [JsonProperty("participant_name")]
+        [JsonPropertyName("participant_name")]
         public string? ParticipantName { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：development</para>
         /// </summary>
-        [JsonProperty("department")]
+        [JsonPropertyName("department")]
         public string? Department { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：8efq90</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：omm_8efq90</para>
         /// </summary>
-        [JsonProperty("meeting_room_id")]
+        [JsonPropertyName("meeting_room_id")]
         public string? MeetingRoomId { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：202205789</para>
         /// </summary>
-        [JsonProperty("employee_id")]
+        [JsonPropertyName("employee_id")]
         public string? EmployeeId { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：021-883889</para>
         /// </summary>
-        [JsonProperty("phone")]
+        [JsonPropertyName("phone")]
         public string? Phone { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：xxxx@163.com</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string? Email { get; set; }
 
         /// <summary>
@@ -83,7 +82,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>示例值：windows</para>
         /// <para>默认值：windows</para>
         /// </summary>
-        [JsonProperty("device")]
+        [JsonPropertyName("device")]
         public string? Device { get; set; }
 
         /// <summary>
@@ -91,7 +90,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：5.26.0-alpha.38</para>
         /// </summary>
-        [JsonProperty("app_version")]
+        [JsonPropertyName("app_version")]
         public string? AppVersion { get; set; }
 
         /// <summary>
@@ -99,7 +98,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：27.xx.xx.183</para>
         /// </summary>
-        [JsonProperty("public_ip")]
+        [JsonPropertyName("public_ip")]
         public string? PublicIp { get; set; }
 
         /// <summary>
@@ -107,7 +106,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：192.xx.xx.13</para>
         /// </summary>
-        [JsonProperty("internal_ip")]
+        [JsonPropertyName("internal_ip")]
         public string? InternalIp { get; set; }
 
         /// <summary>
@@ -115,7 +114,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("use_rtc_proxy")]
+        [JsonPropertyName("use_rtc_proxy")]
         public bool? UseRtcProxy { get; set; }
 
         /// <summary>
@@ -123,7 +122,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：东莞</para>
         /// </summary>
-        [JsonProperty("location")]
+        [JsonPropertyName("location")]
         public string? Location { get; set; }
 
         /// <summary>
@@ -131,7 +130,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：wifi</para>
         /// </summary>
-        [JsonProperty("network_type")]
+        [JsonPropertyName("network_type")]
         public string? NetworkType { get; set; }
 
         /// <summary>
@@ -139,7 +138,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：udp</para>
         /// </summary>
-        [JsonProperty("protocol")]
+        [JsonPropertyName("protocol")]
         public string? Protocol { get; set; }
 
         /// <summary>
@@ -148,7 +147,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>示例值：麦克风阵列 (Realtek(R) Audio)</para>
         /// <para>默认值：mic</para>
         /// </summary>
-        [JsonProperty("microphone")]
+        [JsonPropertyName("microphone")]
         public string? Microphone { get; set; }
 
         /// <summary>
@@ -156,7 +155,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：扬声器 (Realtek(R) Audio)</para>
         /// </summary>
-        [JsonProperty("speaker")]
+        [JsonPropertyName("speaker")]
         public string? Speaker { get; set; }
 
         /// <summary>
@@ -164,7 +163,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：HD Camera</para>
         /// </summary>
-        [JsonProperty("camera")]
+        [JsonPropertyName("camera")]
         public string? Camera { get; set; }
 
         /// <summary>
@@ -172,7 +171,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("audio")]
+        [JsonPropertyName("audio")]
         public bool? Audio { get; set; }
 
         /// <summary>
@@ -180,7 +179,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("video")]
+        [JsonPropertyName("video")]
         public bool? Video { get; set; }
 
         /// <summary>
@@ -188,7 +187,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("sharing")]
+        [JsonPropertyName("sharing")]
         public bool? Sharing { get; set; }
 
         /// <summary>
@@ -196,7 +195,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022.12.23 11:16:59 (GMT+08:00)</para>
         /// </summary>
-        [JsonProperty("join_time")]
+        [JsonPropertyName("join_time")]
         public string? JoinTime { get; set; }
 
         /// <summary>
@@ -204,7 +203,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022.12.23 11:18:51 (GMT+08:00)</para>
         /// </summary>
-        [JsonProperty("leave_time")]
+        [JsonPropertyName("leave_time")]
         public string? LeaveTime { get; set; }
 
         /// <summary>
@@ -212,7 +211,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：00:01:52</para>
         /// </summary>
-        [JsonProperty("time_in_meeting")]
+        [JsonPropertyName("time_in_meeting")]
         public string? TimeInMeeting { get; set; }
 
         /// <summary>
@@ -220,7 +219,7 @@ public record GetVcV1ParticipantListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：主持人结束会议</para>
         /// </summary>
-        [JsonProperty("leave_reason")]
+        [JsonPropertyName("leave_reason")]
         public string? LeaveReason { get; set; }
     }
 
@@ -229,7 +228,7 @@ public record GetVcV1ParticipantListResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：20</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -237,6 +236,6 @@ public record GetVcV1ParticipantListResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

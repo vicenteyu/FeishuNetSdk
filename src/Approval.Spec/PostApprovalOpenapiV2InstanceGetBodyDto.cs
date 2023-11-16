@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 获取单个审批实例详情 请求体
@@ -13,7 +12,7 @@ public record PostApprovalOpenapiV2InstanceGetBodyDto
     /// <para>审批实例 Code, 若在创建的时候传了uuid, 也可以通过传uuid获取</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("instance_code")]
+    [JsonPropertyName("instance_code")]
     public string InstanceCode { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,20 +21,20 @@ public record PostApprovalOpenapiV2InstanceGetBodyDto
     /// <para>ja-JP - 日文</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("locale")]
+    [JsonPropertyName("locale")]
     public string? Locale { get; set; }
 
     /// <summary>
     /// <para>发起审批用户,平台级审批时使用</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
     /// <para>发起审批用户 open id</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("open_id")]
+    [JsonPropertyName("open_id")]
     public string? OpenId { get; set; }
 }

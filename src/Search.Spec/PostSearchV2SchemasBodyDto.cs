@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Search.Spec;
 /// <summary>
 /// 创建数据范式 请求体
@@ -13,7 +12,7 @@ public record PostSearchV2SchemasBodyDto
     /// <para>数据范式的属性定义</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("properties")]
+    [JsonPropertyName("properties")]
     public SchemaProperty[] Properties { get; set; } = Array.Empty<SchemaProperty>();
 
     /// <summary></summary>
@@ -26,7 +25,7 @@ public record PostSearchV2SchemasBodyDto
         /// <para>- 长度范围：`0` ～ `20` 字符</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PostSearchV2SchemasBodyDto
         /// <item>tinytext：短文本类型，（utf8编码）长度小于140的文本。在设置search_options时，与text类型有区别，支持更多召回策略</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
@@ -54,7 +53,7 @@ public record PostSearchV2SchemasBodyDto
         /// <para>**示例值**：true</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("is_searchable")]
+        [JsonPropertyName("is_searchable")]
         public bool? IsSearchable { get; set; }
 
         /// <summary>
@@ -62,7 +61,7 @@ public record PostSearchV2SchemasBodyDto
         /// <para>**示例值**：false</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("is_sortable")]
+        [JsonPropertyName("is_sortable")]
         public bool? IsSortable { get; set; }
 
         /// <summary>
@@ -70,14 +69,14 @@ public record PostSearchV2SchemasBodyDto
         /// <para>**示例值**：true</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("is_returnable")]
+        [JsonPropertyName("is_returnable")]
         public bool? IsReturnable { get; set; }
 
         /// <summary>
         /// <para>属性排序的可选配置，当 is_sortable 为 true 时，该字段为必填字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("sort_options")]
+        [JsonPropertyName("sort_options")]
         public SchemaSortOptions? SortOptions { get; set; }
 
         /// <summary></summary>
@@ -100,7 +99,7 @@ public record PostSearchV2SchemasBodyDto
             /// <item>4：最低优先级</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("priority")]
+            [JsonPropertyName("priority")]
             public int? Priority { get; set; }
 
             /// <summary>
@@ -115,7 +114,7 @@ public record PostSearchV2SchemasBodyDto
             /// <item>desc：降序</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("order")]
+            [JsonPropertyName("order")]
             public string? Order { get; set; }
         }
 
@@ -123,7 +122,7 @@ public record PostSearchV2SchemasBodyDto
         /// <para>相关类型数据的定义和约束</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("type_definitions")]
+        [JsonPropertyName("type_definitions")]
         public SchemaTypeDefinitions? TypeDefinitions { get; set; }
 
         /// <summary></summary>
@@ -135,7 +134,7 @@ public record PostSearchV2SchemasBodyDto
             /// <para>- 最大长度：`100`</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("tag")]
+            [JsonPropertyName("tag")]
             public SchemaTagOptions[]? Tag { get; set; }
 
             /// <summary></summary>
@@ -148,7 +147,7 @@ public record PostSearchV2SchemasBodyDto
                 /// <para>- 最大长度：`20` 字符</para>
                 /// <para>必填：是</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public string Name { get; set; } = string.Empty;
 
                 /// <summary>
@@ -165,7 +164,7 @@ public record PostSearchV2SchemasBodyDto
                 /// <item>yellow：焦点信息、推广性信息</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("color")]
+                [JsonPropertyName("color")]
                 public string Color { get; set; } = string.Empty;
 
                 /// <summary>
@@ -175,7 +174,7 @@ public record PostSearchV2SchemasBodyDto
                 /// <para>- 最大长度：`8` 字符</para>
                 /// <para>必填：是</para>
                 /// </summary>
-                [JsonProperty("text")]
+                [JsonPropertyName("text")]
                 public string Text { get; set; } = string.Empty;
             }
         }
@@ -184,7 +183,7 @@ public record PostSearchV2SchemasBodyDto
         /// <para>属性搜索的可选配置，当 is_searchable 为 true 时，该字段为必填参数</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("search_options")]
+        [JsonPropertyName("search_options")]
         public SchemaSearchOptions? SearchOptions { get; set; }
 
         /// <summary></summary>
@@ -195,7 +194,7 @@ public record PostSearchV2SchemasBodyDto
             /// <para>**示例值**：true</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("enable_semantic_match")]
+            [JsonPropertyName("enable_semantic_match")]
             public bool? EnableSemanticMatch { get; set; }
 
             /// <summary>
@@ -203,7 +202,7 @@ public record PostSearchV2SchemasBodyDto
             /// <para>**示例值**：false</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("enable_exact_match")]
+            [JsonPropertyName("enable_exact_match")]
             public bool? EnableExactMatch { get; set; }
 
             /// <summary>
@@ -211,7 +210,7 @@ public record PostSearchV2SchemasBodyDto
             /// <para>**示例值**：false</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("enable_prefix_match")]
+            [JsonPropertyName("enable_prefix_match")]
             public bool? EnablePrefixMatch { get; set; }
 
             /// <summary>
@@ -219,7 +218,7 @@ public record PostSearchV2SchemasBodyDto
             /// <para>**示例值**：false</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("enable_number_suffix_match")]
+            [JsonPropertyName("enable_number_suffix_match")]
             public bool? EnableNumberSuffixMatch { get; set; }
 
             /// <summary>
@@ -227,7 +226,7 @@ public record PostSearchV2SchemasBodyDto
             /// <para>**示例值**：false</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("enable_camel_match")]
+            [JsonPropertyName("enable_camel_match")]
             public bool? EnableCamelMatch { get; set; }
         }
     }
@@ -236,7 +235,7 @@ public record PostSearchV2SchemasBodyDto
     /// <para>数据展示相关配置</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("display")]
+    [JsonPropertyName("display")]
     public SchemaDisplay Display { get; set; } = new();
 
     /// <summary></summary>
@@ -253,14 +252,14 @@ public record PostSearchV2SchemasBodyDto
         /// <item>search_common_card：普通common卡片</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("card_key")]
+        [JsonPropertyName("card_key")]
         public string CardKey { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>数据字段名称和展示字段名称的映射关系。如果没有设置，则只会展示 与展示字段名称同名的 数据字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("fields_mapping")]
+        [JsonPropertyName("fields_mapping")]
         public SchemaDisplayFieldMapping[]? FieldsMapping { get; set; }
 
         /// <summary></summary>
@@ -271,7 +270,7 @@ public record PostSearchV2SchemasBodyDto
             /// <para>**示例值**："summary"</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("display_field")]
+            [JsonPropertyName("display_field")]
             public string DisplayField { get; set; } = string.Empty;
 
             /// <summary>
@@ -279,7 +278,7 @@ public record PostSearchV2SchemasBodyDto
             /// <para>**示例值**："${description}"</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("data_field")]
+            [JsonPropertyName("data_field")]
             public string DataField { get; set; } = string.Empty;
         }
 
@@ -293,6 +292,6 @@ public record PostSearchV2SchemasBodyDto
     /// <para>- 正则校验：`^[a-zA-Z][a-zA-Z0-9-_].*$`</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("schema_id")]
+    [JsonPropertyName("schema_id")]
     public string SchemaId { get; set; } = string.Empty;
 }

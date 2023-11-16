@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai.Spec;
 /// <summary>
 /// 翻译文本 请求体
@@ -30,7 +29,7 @@ public record PostTranslationV1TextTranslateBodyDto
     /// <para>**示例值**："zh"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("source_language")]
+    [JsonPropertyName("source_language")]
     public string SourceLanguage { get; set; } = string.Empty;
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostTranslationV1TextTranslateBodyDto
     /// <para>**示例值**："尝试使用一下飞书吧"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("text")]
+    [JsonPropertyName("text")]
     public string Text { get; set; } = string.Empty;
 
     /// <summary>
@@ -46,14 +45,14 @@ public record PostTranslationV1TextTranslateBodyDto
     /// <para>**示例值**："en"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("target_language")]
+    [JsonPropertyName("target_language")]
     public string TargetLanguage { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>请求级术语表，携带术语，仅在本次翻译中生效（最多能携带 128个术语词）</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("glossary")]
+    [JsonPropertyName("glossary")]
     public Term[]? Glossary { get; set; }
 
     /// <summary></summary>
@@ -64,7 +63,7 @@ public record PostTranslationV1TextTranslateBodyDto
         /// <para>**示例值**："飞书"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("from")]
+        [JsonPropertyName("from")]
         public string From { get; set; } = string.Empty;
 
         /// <summary>
@@ -72,7 +71,7 @@ public record PostTranslationV1TextTranslateBodyDto
         /// <para>**示例值**："Lark"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("to")]
+        [JsonPropertyName("to")]
         public string To { get; set; } = string.Empty;
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// Pin 消息 请求体
@@ -14,6 +13,6 @@ public record PostImV1PinsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </summary>
-    [JsonProperty("message_id")]
+    [JsonPropertyName("message_id")]
     public string MessageId { get; set; } = string.Empty;
 }

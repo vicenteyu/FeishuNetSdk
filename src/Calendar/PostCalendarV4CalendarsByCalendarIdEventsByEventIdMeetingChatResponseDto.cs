@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 创建会议群 响应体
@@ -15,7 +14,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChatRespo
     /// <para>必填：否</para>
     /// <para>示例值：oc_xxx</para>
     /// </summary>
-    [JsonProperty("meeting_chat_id")]
+    [JsonPropertyName("meeting_chat_id")]
     public string? MeetingChatId { get; set; }
 
     /// <summary>
@@ -23,6 +22,6 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChatRespo
     /// <para>必填：否</para>
     /// <para>示例值：https://example.cn?openChatId=oc_xxx</para>
     /// </summary>
-    [JsonProperty("applink")]
+    [JsonPropertyName("applink")]
     public string? Applink { get; set; }
 }

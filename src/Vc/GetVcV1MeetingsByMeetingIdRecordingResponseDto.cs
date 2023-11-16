@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 获取录制文件 响应体
@@ -13,7 +12,7 @@ public record GetVcV1MeetingsByMeetingIdRecordingResponseDto
     /// <para>录制文件数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("recording")]
+    [JsonPropertyName("recording")]
     public MeetingRecording? Recording { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetVcV1MeetingsByMeetingIdRecordingResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetVcV1MeetingsByMeetingIdRecordingResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：30000</para>
         /// </summary>
-        [JsonProperty("duration")]
+        [JsonPropertyName("duration")]
         public string? Duration { get; set; }
     }
 }

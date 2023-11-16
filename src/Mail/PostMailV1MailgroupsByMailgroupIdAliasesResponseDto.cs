@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 创建邮件组别名 响应体
@@ -13,7 +12,7 @@ public record PostMailV1MailgroupsByMailgroupIdAliasesResponseDto
     /// <para>邮件组别名</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("mailgroup_alias")]
+    [JsonPropertyName("mailgroup_alias")]
     public EmailAlias? MailgroupAlias { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostMailV1MailgroupsByMailgroupIdAliasesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：xxx@xx.xxx</para>
         /// </summary>
-        [JsonProperty("primary_email")]
+        [JsonPropertyName("primary_email")]
         public string? PrimaryEmail { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostMailV1MailgroupsByMailgroupIdAliasesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：xxx@xx.xxx</para>
         /// </summary>
-        [JsonProperty("email_alias")]
+        [JsonPropertyName("email_alias")]
         public string? EmailAliasSuffix { get; set; }
     }
 }

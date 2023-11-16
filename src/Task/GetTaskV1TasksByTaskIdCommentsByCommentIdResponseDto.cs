@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 获取评论详情 响应体
@@ -13,7 +12,7 @@ public record GetTaskV1TasksByTaskIdCommentsByCommentIdResponseDto
     /// <para>返回新的任务评论详情</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("comment")]
+    [JsonPropertyName("comment")]
     public GetTaskV1TasksByTaskIdCommentsByCommentIdResponseDtoComment? Comment { get; set; }
 
     /// <summary>
@@ -28,7 +27,7 @@ public record GetTaskV1TasksByTaskIdCommentsByCommentIdResponseDto
         /// <para>示例值：举杯邀明月，对影成三人</para>
         /// <para>最大长度：65536</para>
         /// </summary>
-        [JsonProperty("content")]
+        [JsonPropertyName("content")]
         public string? Content { get; set; }
 
         /// <summary>
@@ -36,7 +35,7 @@ public record GetTaskV1TasksByTaskIdCommentsByCommentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6937231762296684564</para>
         /// </summary>
-        [JsonProperty("parent_id")]
+        [JsonPropertyName("parent_id")]
         public string? ParentId { get; set; }
 
         /// <summary>
@@ -44,7 +43,7 @@ public record GetTaskV1TasksByTaskIdCommentsByCommentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6937231762296684564</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -52,7 +51,7 @@ public record GetTaskV1TasksByTaskIdCommentsByCommentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1657075055135</para>
         /// </summary>
-        [JsonProperty("create_milli_time")]
+        [JsonPropertyName("create_milli_time")]
         public string? CreateMilliTime { get; set; }
 
         /// <summary>
@@ -61,7 +60,7 @@ public record GetTaskV1TasksByTaskIdCommentsByCommentIdResponseDto
         /// <para>示例值：举杯邀明月，对影成三人&lt;atid=7058204817822318612&gt;&lt;/at&gt;</para>
         /// <para>最大长度：65536</para>
         /// </summary>
-        [JsonProperty("rich_content")]
+        [JsonPropertyName("rich_content")]
         public string? RichContent { get; set; }
 
         /// <summary>
@@ -69,7 +68,7 @@ public record GetTaskV1TasksByTaskIdCommentsByCommentIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_99e1a581b36ecc4862cbfbce473f346a</para>
         /// </summary>
-        [JsonProperty("creator_id")]
+        [JsonPropertyName("creator_id")]
         public string? CreatorId { get; set; }
     }
 }

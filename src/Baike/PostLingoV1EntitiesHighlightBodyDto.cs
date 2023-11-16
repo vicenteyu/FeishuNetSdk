@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Baike;
 /// <summary>
 /// 词条高亮 请求体
@@ -15,6 +14,6 @@ public record PostLingoV1EntitiesHighlightBodyDto
     /// <para>示例值：词典是飞书提供的一款知识管理工具</para>
     /// <para>最大长度：1000</para>
     /// </summary>
-    [JsonProperty("text")]
+    [JsonPropertyName("text")]
     public string Text { get; set; } = string.Empty;
 }

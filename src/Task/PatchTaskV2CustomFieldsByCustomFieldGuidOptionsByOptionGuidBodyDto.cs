@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 更新自定义字段选项 请求体
@@ -19,7 +18,7 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidBodyDto
     /// <para>要更新的option数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("option")]
+    [JsonPropertyName("option")]
     public InputOption? Option { get; set; }
 
     /// <summary>
@@ -32,7 +31,7 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：高优</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -40,7 +39,7 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// </summary>
-        [JsonProperty("color_index")]
+        [JsonPropertyName("color_index")]
         public int? ColorIndex { get; set; }
 
         /// <summary>
@@ -48,7 +47,7 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：2bd905f8-ef38-408b-aa1f-2b2ad33b2913</para>
         /// </summary>
-        [JsonProperty("insert_before")]
+        [JsonPropertyName("insert_before")]
         public string? InsertBefore { get; set; }
 
         /// <summary>
@@ -56,7 +55,7 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：b13adf3c-cad6-4e02-8929-550c112b5633</para>
         /// </summary>
-        [JsonProperty("insert_after")]
+        [JsonPropertyName("insert_after")]
         public string? InsertAfter { get; set; }
 
         /// <summary>
@@ -65,7 +64,7 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidBodyDto
         /// <para>示例值：false</para>
         /// <para>默认值：false</para>
         /// </summary>
-        [JsonProperty("is_hidden")]
+        [JsonPropertyName("is_hidden")]
         public bool? IsHidden { get; set; }
     }
 
@@ -79,6 +78,6 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：20</para>
     /// </summary>
-    [JsonProperty("update_fields")]
+    [JsonPropertyName("update_fields")]
     public string[]? UpdateFields { get; set; }
 }

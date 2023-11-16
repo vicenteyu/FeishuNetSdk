@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 获取父部门信息 请求体
@@ -14,6 +13,6 @@ public record PostCorehrV2DepartmentsParentsBodyDto
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("department_id_list")]
+    [JsonPropertyName("department_id_list")]
     public string[] DepartmentIdList { get; set; } = Array.Empty<string>();
 }

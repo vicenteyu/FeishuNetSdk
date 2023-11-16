@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Search.Spec;
 /// <summary>
 /// 查询指定数据项 响应体
@@ -13,7 +12,7 @@ public record GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto
     /// <para>数据项实例</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("item")]
+    [JsonPropertyName("item")]
     public ItemSuffix? Item { get; set; }
 
     /// <summary></summary>
@@ -23,14 +22,14 @@ public record GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto
         /// <para>item 在 datasource 中的唯一标识，只允许英文字母、数字和下划线</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>item 的访问权限控制。 acl 字段为空数组，则默认数据不可见。如果数据是全员可见，需要设置 access="allow"; type="user"; value="everyone"</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("acl")]
+        [JsonPropertyName("acl")]
         public AclSuffix[]? Acl { get; set; }
 
         /// <summary></summary>
@@ -46,7 +45,7 @@ public record GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto
             /// <item>deny：禁止访问</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("access")]
+            [JsonPropertyName("access")]
             public string? Access { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto
             /// <para>**注**：在 type 为 user 且 access 为 allow 时，可填 "everyone" 来表示该数据项对全员可见；</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
 
             /// <summary>
@@ -68,7 +67,7 @@ public record GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto
             /// <item>open_id：用户的open_id</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
         }
 
@@ -76,7 +75,7 @@ public record GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto
         /// <para>item 的元信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("metadata")]
+        [JsonPropertyName("metadata")]
         public ItemMetadata? Metadata { get; set; }
 
         /// <summary></summary>
@@ -86,35 +85,35 @@ public record GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto
             /// <para>该条数据记录对应的标题</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public string? Title { get; set; }
 
             /// <summary>
             /// <para>该条数据记录对应的跳转url</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("source_url")]
+            [JsonPropertyName("source_url")]
             public string? SourceUrl { get; set; }
 
             /// <summary>
             /// <para>数据项的创建时间。Unix 时间，单位为秒</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("create_time")]
+            [JsonPropertyName("create_time")]
             public int? CreateTime { get; set; }
 
             /// <summary>
             /// <para>数据项的更新时间。Unix 时间，单位为秒</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("update_time")]
+            [JsonPropertyName("update_time")]
             public int? UpdateTime { get; set; }
 
             /// <summary>
             /// <para>移动端搜索命中的跳转地址。如果您PC端和移动端有不同的跳转地址，可以在这里写入移动端专用的url，我们会在搜索时为您选择合适的地址</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("source_url_mobile")]
+            [JsonPropertyName("source_url_mobile")]
             public string? SourceUrlMobile { get; set; }
         }
 
@@ -122,14 +121,14 @@ public record GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto
         /// <para>结构化数据（以 json 字符串传递），这些字段是搜索结果的展示字段(特殊字段无须在此另外指定);具体格式可参参考 [接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/common-template-intergration-handbook) **请求创建数据项**部分。这里的示例遵循了”创建数据范式“部分中的数据范式示例，请按自己定义的数据范式填写数据</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("structured_data")]
+        [JsonPropertyName("structured_data")]
         public string? StructuredData { get; set; }
 
         /// <summary>
         /// <para>非结构化数据，如文档文本，飞书搜索会用来做召回</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("content")]
+        [JsonPropertyName("content")]
         public ItemContent? Content { get; set; }
 
         /// <summary></summary>
@@ -145,14 +144,14 @@ public record GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto
             /// <item>plaintext：纯文本格式</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("format")]
+            [JsonPropertyName("format")]
             public string? Format { get; set; }
 
             /// <summary>
             /// <para>全文数据</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("content_data")]
+            [JsonPropertyName("content_data")]
             public string? ContentData { get; set; }
 
         }

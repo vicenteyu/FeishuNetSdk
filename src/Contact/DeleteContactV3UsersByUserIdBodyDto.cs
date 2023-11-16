@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 删除用户 请求体
@@ -14,7 +13,7 @@ public record DeleteContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>
-    [JsonProperty("department_chat_acceptor_user_id")]
+    [JsonPropertyName("department_chat_acceptor_user_id")]
     public string? DepartmentChatAcceptorUserId { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record DeleteContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>
-    [JsonProperty("external_chat_acceptor_user_id")]
+    [JsonPropertyName("external_chat_acceptor_user_id")]
     public string? ExternalChatAcceptorUserId { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record DeleteContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>
-    [JsonProperty("docs_acceptor_user_id")]
+    [JsonPropertyName("docs_acceptor_user_id")]
     public string? DocsAcceptorUserId { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record DeleteContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>
-    [JsonProperty("calendar_acceptor_user_id")]
+    [JsonPropertyName("calendar_acceptor_user_id")]
     public string? CalendarAcceptorUserId { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record DeleteContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>
-    [JsonProperty("application_acceptor_user_id")]
+    [JsonPropertyName("application_acceptor_user_id")]
     public string? ApplicationAcceptorUserId { get; set; }
 
     /// <summary>
@@ -54,7 +53,7 @@ public record DeleteContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>
-    [JsonProperty("minutes_acceptor_user_id")]
+    [JsonPropertyName("minutes_acceptor_user_id")]
     public string? MinutesAcceptorUserId { get; set; }
 
     /// <summary>
@@ -62,14 +61,14 @@ public record DeleteContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>
-    [JsonProperty("survey_acceptor_user_id")]
+    [JsonPropertyName("survey_acceptor_user_id")]
     public string? SurveyAcceptorUserId { get; set; }
 
     /// <summary>
     /// <para>用户邮件资源处理方式。用户被删除时，根据传递的操作指令对其拥有的邮件资源做对应处理。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("email_acceptor")]
+    [JsonPropertyName("email_acceptor")]
     public ResourceAcceptor? EmailAcceptor { get; set; }
 
     /// <summary>
@@ -87,7 +86,7 @@ public record DeleteContactV3UsersByUserIdBodyDto
         /// <item>3：删除资源</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("processing_type")]
+        [JsonPropertyName("processing_type")]
         public string ProcessingType { get; set; } = string.Empty;
 
         /// <summary>
@@ -95,7 +94,7 @@ public record DeleteContactV3UsersByUserIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
         /// </summary>
-        [JsonProperty("acceptor_user_id")]
+        [JsonPropertyName("acceptor_user_id")]
         public string? AcceptorUserId { get; set; }
     }
 }

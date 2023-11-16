@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai.Spec;
 /// <summary>
 /// 识别语音文件 请求体
@@ -13,7 +12,7 @@ public record PostSpeechToTextV1SpeechFileRecognizeBodyDto
     /// <para>语音资源</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("speech")]
+    [JsonPropertyName("speech")]
     public SpeechSuffix Speech { get; set; } = new();
 
     /// <summary></summary>
@@ -24,7 +23,7 @@ public record PostSpeechToTextV1SpeechFileRecognizeBodyDto
         /// <para>**示例值**："PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg=="</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("speech")]
+        [JsonPropertyName("speech")]
         public string? Speech { get; set; }
     }
 
@@ -32,7 +31,7 @@ public record PostSpeechToTextV1SpeechFileRecognizeBodyDto
     /// <para>配置属性</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("config")]
+    [JsonPropertyName("config")]
     public FileConfig Config { get; set; } = new();
 
     /// <summary></summary>
@@ -43,7 +42,7 @@ public record PostSpeechToTextV1SpeechFileRecognizeBodyDto
         /// <para>**示例值**："qwe12dd34567890w"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("file_id")]
+        [JsonPropertyName("file_id")]
         public string FileId { get; set; } = string.Empty;
 
         /// <summary>
@@ -51,7 +50,7 @@ public record PostSpeechToTextV1SpeechFileRecognizeBodyDto
         /// <para>**示例值**："pcm"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("format")]
+        [JsonPropertyName("format")]
         public string Format { get; set; } = string.Empty;
 
         /// <summary>
@@ -59,7 +58,7 @@ public record PostSpeechToTextV1SpeechFileRecognizeBodyDto
         /// <para>**示例值**："16k_auto"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("engine_type")]
+        [JsonPropertyName("engine_type")]
         public string EngineType { get; set; } = string.Empty;
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 搜索日程 请求体
@@ -16,14 +15,14 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto
     /// <para>示例值：querywords</para>
     /// <para>最大长度：200</para>
     /// </summary>
-    [JsonProperty("query")]
+    [JsonPropertyName("query")]
     public string Query { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>搜索过滤器</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("filter")]
+    [JsonPropertyName("filter")]
     public EventSearchFilter? Filter { get; set; }
 
     /// <summary>
@@ -35,7 +34,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto
         /// <para>搜索过滤项，日程搜索区间的开始时间，被搜索日程的事件必须与搜索区间有交集</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("start_time")]
+        [JsonPropertyName("start_time")]
         public TimeInfo? StartTime { get; set; }
 
         /// <summary>
@@ -48,7 +47,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：2018-09-01</para>
             /// </summary>
-            [JsonProperty("date")]
+            [JsonPropertyName("date")]
             public string? Date { get; set; }
 
             /// <summary>
@@ -56,7 +55,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：1602504000</para>
             /// </summary>
-            [JsonProperty("timestamp")]
+            [JsonPropertyName("timestamp")]
             public string? Timestamp { get; set; }
 
             /// <summary>
@@ -64,7 +63,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：Asia/Shanghai</para>
             /// </summary>
-            [JsonProperty("timezone")]
+            [JsonPropertyName("timezone")]
             public string? Timezone { get; set; }
         }
 
@@ -72,7 +71,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto
         /// <para>搜索过滤项，日程搜索区间的结束时间，被搜索日程的事件必须与搜索区间有交集</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public TimeInfo? EndTime { get; set; }
 
         /// <summary>
@@ -80,7 +79,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：xxxxx</para>
         /// </summary>
-        [JsonProperty("user_ids")]
+        [JsonPropertyName("user_ids")]
         public string[]? UserIds { get; set; }
 
         /// <summary>
@@ -88,7 +87,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：xxxxx</para>
         /// </summary>
-        [JsonProperty("room_ids")]
+        [JsonPropertyName("room_ids")]
         public string[]? RoomIds { get; set; }
 
         /// <summary>
@@ -96,7 +95,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：xxxxx</para>
         /// </summary>
-        [JsonProperty("chat_ids")]
+        [JsonPropertyName("chat_ids")]
         public string[]? ChatIds { get; set; }
     }
 }

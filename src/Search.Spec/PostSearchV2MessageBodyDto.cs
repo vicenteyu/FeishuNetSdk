@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Search.Spec;
 /// <summary>
 /// 搜索消息 请求体
@@ -14,7 +13,7 @@ public record PostSearchV2MessageBodyDto
     /// <para>**示例值**："测试消息"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("query")]
+    [JsonPropertyName("query")]
     public string Query { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostSearchV2MessageBodyDto
     /// <para>**示例值**：["ou_1970b39a6730a4a8e97b530d8cb14ccb"]</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("from_ids")]
+    [JsonPropertyName("from_ids")]
     public string[]? FromIds { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostSearchV2MessageBodyDto
     /// <para>**示例值**：["oc_c063434856a818a615fd36697a9ffe09"]</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("chat_ids")]
+    [JsonPropertyName("chat_ids")]
     public string[]? ChatIds { get; set; }
 
     /// <summary>
@@ -45,7 +44,7 @@ public record PostSearchV2MessageBodyDto
     /// <item>media：视频</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("message_type")]
+    [JsonPropertyName("message_type")]
     public string? MessageType { get; set; }
 
     /// <summary>
@@ -53,7 +52,7 @@ public record PostSearchV2MessageBodyDto
     /// <para>**示例值**：["ou_1970b39a6730a4a8e97b530d8cb14ccb"]</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("at_chatter_ids")]
+    [JsonPropertyName("at_chatter_ids")]
     public string[]? AtChatterIds { get; set; }
 
     /// <summary>
@@ -67,7 +66,7 @@ public record PostSearchV2MessageBodyDto
     /// <item>user：用户</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("from_type")]
+    [JsonPropertyName("from_type")]
     public string? FromType { get; set; }
 
     /// <summary>
@@ -81,7 +80,7 @@ public record PostSearchV2MessageBodyDto
     /// <item>p2p_chat：单聊</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("chat_type")]
+    [JsonPropertyName("chat_type")]
     public string? ChatType { get; set; }
 
     /// <summary>
@@ -89,7 +88,7 @@ public record PostSearchV2MessageBodyDto
     /// <para>**示例值**："1609296809"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("start_time")]
+    [JsonPropertyName("start_time")]
     public string? StartTime { get; set; }
 
     /// <summary>
@@ -97,6 +96,6 @@ public record PostSearchV2MessageBodyDto
     /// <para>**示例值**："1609296809"</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("end_time")]
+    [JsonPropertyName("end_time")]
     public string? EndTime { get; set; }
 }

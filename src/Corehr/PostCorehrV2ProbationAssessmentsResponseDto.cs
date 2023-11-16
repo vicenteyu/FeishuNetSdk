@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 新增试用期考核信息 响应体
@@ -13,6 +12,6 @@ public record PostCorehrV2ProbationAssessmentsResponseDto
     /// <para>创建的试用期考核记录 ID 列表，有序返回</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("assessment_ids")]
+    [JsonPropertyName("assessment_ids")]
     public string[]? AssessmentIds { get; set; }
 }

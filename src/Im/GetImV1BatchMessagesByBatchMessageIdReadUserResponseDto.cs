@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 查询批量消息推送和阅读人数 响应体
@@ -13,7 +12,7 @@ public record GetImV1BatchMessagesByBatchMessageIdReadUserResponseDto
     /// <para>批量发送消息的用户阅读情况</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("read_user")]
+    [JsonPropertyName("read_user")]
     public BatchMessageReadUser? ReadUser { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetImV1BatchMessagesByBatchMessageIdReadUserResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：10</para>
         /// </summary>
-        [JsonProperty("read_count")]
+        [JsonPropertyName("read_count")]
         public string ReadCount { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetImV1BatchMessagesByBatchMessageIdReadUserResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：100</para>
         /// </summary>
-        [JsonProperty("total_count")]
+        [JsonPropertyName("total_count")]
         public string TotalCount { get; set; } = string.Empty;
     }
 }

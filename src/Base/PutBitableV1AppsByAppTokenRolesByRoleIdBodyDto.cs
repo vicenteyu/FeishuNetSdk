@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新自定义角色 请求体
@@ -14,7 +13,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：自定义角色1</para>
     /// </summary>
-    [JsonProperty("role_name")]
+    [JsonPropertyName("role_name")]
     public string RoleName { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("table_roles")]
+    [JsonPropertyName("table_roles")]
     public AppRoleTableRole[] TableRoles { get; set; } = Array.Empty<AppRoleTableRole>();
 
     /// <summary>
@@ -35,7 +34,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：数据表1</para>
         /// </summary>
-        [JsonProperty("table_name")]
+        [JsonPropertyName("table_name")]
         public string? TableName { get; set; }
 
         /// <summary>
@@ -43,7 +42,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：tblKz5D60T4JlfcT</para>
         /// </summary>
-        [JsonProperty("table_id")]
+        [JsonPropertyName("table_id")]
         public string? TableId { get; set; }
 
         /// <summary>
@@ -58,14 +57,14 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
         /// </list></para>
         /// <para>默认值：0</para>
         /// </summary>
-        [JsonProperty("table_perm")]
+        [JsonPropertyName("table_perm")]
         public int TablePerm { get; set; }
 
         /// <summary>
         /// <para>记录筛选条件，在table_perm为1或2时有意义，用于指定可编辑或可阅读某些记录</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("rec_rule")]
+        [JsonPropertyName("rec_rule")]
         public AppRoleTableRoleRecRule? RecRule { get; set; }
 
         /// <summary>
@@ -78,7 +77,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
             /// <para>必填：是</para>
             /// <para>最大长度：100</para>
             /// </summary>
-            [JsonProperty("conditions")]
+            [JsonPropertyName("conditions")]
             public AppRoleTableRoleRecRuleCondition[] Conditions { get; set; } = Array.Empty<AppRoleTableRoleRecRuleCondition>();
 
             /// <summary>
@@ -91,7 +90,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：单选</para>
                 /// </summary>
-                [JsonProperty("field_name")]
+                [JsonPropertyName("field_name")]
                 public string FieldName { get; set; } = string.Empty;
 
                 /// <summary>
@@ -108,7 +107,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
                 /// </list></para>
                 /// <para>默认值：is</para>
                 /// </summary>
-                [JsonProperty("operator")]
+                [JsonPropertyName("operator")]
                 public string? Operator { get; set; }
 
                 /// <summary>
@@ -116,7 +115,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：["optbdVHf4q","optrpd3eIJ"]</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string[]? Value { get; set; }
             }
 
@@ -130,7 +129,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
             /// </list></para>
             /// <para>默认值：and</para>
             /// </summary>
-            [JsonProperty("conjunction")]
+            [JsonPropertyName("conjunction")]
             public string? Conjunction { get; set; }
 
             /// <summary>
@@ -143,7 +142,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
             /// </list></para>
             /// <para>默认值：0</para>
             /// </summary>
-            [JsonProperty("other_perm")]
+            [JsonPropertyName("other_perm")]
             public int? OtherPerm { get; set; }
         }
 
@@ -155,7 +154,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：{"姓名":1,"年龄":2}</para>
         /// </summary>
-        [JsonProperty("field_perm")]
+        [JsonPropertyName("field_perm")]
         public object? FieldPerm { get; set; }
 
         /// <summary>
@@ -164,7 +163,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
         /// <para>示例值：true</para>
         /// <para>默认值：true</para>
         /// </summary>
-        [JsonProperty("allow_add_record")]
+        [JsonPropertyName("allow_add_record")]
         public bool? AllowAddRecord { get; set; }
 
         /// <summary>
@@ -173,7 +172,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
         /// <para>示例值：true</para>
         /// <para>默认值：true</para>
         /// </summary>
-        [JsonProperty("allow_delete_record")]
+        [JsonPropertyName("allow_delete_record")]
         public bool? AllowDeleteRecord { get; set; }
     }
 
@@ -182,7 +181,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("block_roles")]
+    [JsonPropertyName("block_roles")]
     public AppRoleBlockRole[]? BlockRoles { get; set; }
 
     /// <summary>
@@ -195,7 +194,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：blknkqrP3RqUkcAW</para>
         /// </summary>
-        [JsonProperty("block_id")]
+        [JsonPropertyName("block_id")]
         public string BlockId { get; set; } = string.Empty;
 
         /// <summary>
@@ -208,7 +207,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto
         /// </list></para>
         /// <para>默认值：0</para>
         /// </summary>
-        [JsonProperty("block_perm")]
+        [JsonPropertyName("block_perm")]
         public int BlockPerm { get; set; }
     }
 }

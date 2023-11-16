@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取内推信息 响应体
@@ -13,7 +12,7 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
     /// <para>内推信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("referral")]
+    [JsonPropertyName("referral")]
     public GetHireV1ReferralsGetByApplicationResponseDtoReferral? Referral { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6643786345878</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：643452344576878</para>
         /// </summary>
-        [JsonProperty("application_id")]
+        [JsonPropertyName("application_id")]
         public string ApplicationId { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1618899376474</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public int CreateTime { get; set; }
 
         /// <summary>
@@ -50,14 +49,14 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：ou_xxxx</para>
         /// </summary>
-        [JsonProperty("referral_user_id")]
+        [JsonPropertyName("referral_user_id")]
         public string ReferralUserId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>内推人信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("referral_user")]
+        [JsonPropertyName("referral_user")]
         public IdNameObject? ReferralUser { get; set; }
 
         /// <summary>
@@ -70,14 +69,14 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1213213123123</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
             /// <para>名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
@@ -90,7 +89,7 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：测试</para>
                 /// </summary>
-                [JsonProperty("zh_cn")]
+                [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
@@ -98,7 +97,7 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：test</para>
                 /// </summary>
-                [JsonProperty("en_us")]
+                [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
             }
         }

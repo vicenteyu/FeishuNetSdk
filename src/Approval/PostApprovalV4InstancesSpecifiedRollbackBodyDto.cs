@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 退回审批任务 请求体
@@ -14,7 +13,7 @@ public record PostApprovalV4InstancesSpecifiedRollbackBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：893g4c45</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostApprovalV4InstancesSpecifiedRollbackBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：7026591166355210260</para>
     /// </summary>
-    [JsonProperty("task_id")]
+    [JsonPropertyName("task_id")]
     public string TaskId { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostApprovalV4InstancesSpecifiedRollbackBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：申请事项填写不具体，请重新填写</para>
     /// </summary>
-    [JsonProperty("reason")]
+    [JsonPropertyName("reason")]
     public string? Reason { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostApprovalV4InstancesSpecifiedRollbackBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：暂不填写</para>
     /// </summary>
-    [JsonProperty("extra")]
+    [JsonPropertyName("extra")]
     public string? Extra { get; set; }
 
     /// <summary>
@@ -47,6 +46,6 @@ public record PostApprovalV4InstancesSpecifiedRollbackBodyDto
     /// <para>示例值：["START","APPROVAL_27997_285502","APPROVAL_462205_2734554"]</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("task_def_key_list")]
+    [JsonPropertyName("task_def_key_list")]
     public string[] TaskDefKeyList { get; set; } = Array.Empty<string>();
 }

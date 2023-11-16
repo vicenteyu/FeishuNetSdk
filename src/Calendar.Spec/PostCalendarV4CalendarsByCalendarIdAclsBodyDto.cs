@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar.Spec;
 /// <summary>
 /// 创建访问控制 请求体
@@ -24,14 +23,14 @@ public record PostCalendarV4CalendarsByCalendarIdAclsBodyDto
     /// <item>owner：管理员，管理日历及共享设置</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("role")]
+    [JsonPropertyName("role")]
     public string Role { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>权限范围</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("scope")]
+    [JsonPropertyName("scope")]
     public AclScope Scope { get; set; } = new();
 
     /// <summary></summary>
@@ -47,7 +46,7 @@ public record PostCalendarV4CalendarsByCalendarIdAclsBodyDto
         /// <item>user：用户</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
@@ -55,7 +54,7 @@ public record PostCalendarV4CalendarsByCalendarIdAclsBodyDto
         /// <para>**示例值**："ou_xxxxxx"</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 创建任务 请求体
@@ -20,7 +19,7 @@ public record PostTaskV1TasksBodyDto
     /// <para>示例值：完成本季度OKR编写</para>
     /// <para>最大长度：1000</para>
     /// </summary>
-    [JsonProperty("summary")]
+    [JsonPropertyName("summary")]
     public string? Summary { get; set; }
 
     /// <summary>
@@ -31,7 +30,7 @@ public record PostTaskV1TasksBodyDto
     /// <para>示例值：对本次会议内容复盘总结，编写更新本季度OKR</para>
     /// <para>最大长度：65536</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
@@ -42,14 +41,14 @@ public record PostTaskV1TasksBodyDto
     /// <para>示例值：dGVzdA==</para>
     /// <para>最大长度：65536</para>
     /// </summary>
-    [JsonProperty("extra")]
+    [JsonPropertyName("extra")]
     public string? Extra { get; set; }
 
     /// <summary>
     /// <para>任务的截止时间设置</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("due")]
+    [JsonPropertyName("due")]
     public PostTaskV1TasksBodyDtoDue? Due { get; set; }
 
     /// <summary>
@@ -62,7 +61,7 @@ public record PostTaskV1TasksBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1623124318</para>
         /// </summary>
-        [JsonProperty("time")]
+        [JsonPropertyName("time")]
         public string? Time { get; set; }
 
         /// <summary>
@@ -72,7 +71,7 @@ public record PostTaskV1TasksBodyDto
         /// <para>示例值：Asia/Shanghai</para>
         /// <para>默认值：Asia/Shanghai</para>
         /// </summary>
-        [JsonProperty("timezone")]
+        [JsonPropertyName("timezone")]
         public string? Timezone { get; set; }
 
         /// <summary>
@@ -84,7 +83,7 @@ public record PostTaskV1TasksBodyDto
         /// <para>示例值：false</para>
         /// <para>默认值：false</para>
         /// </summary>
-        [JsonProperty("is_all_day")]
+        [JsonPropertyName("is_all_day")]
         public bool? IsAllDay { get; set; }
     }
 
@@ -92,7 +91,7 @@ public record PostTaskV1TasksBodyDto
     /// <para>任务关联的第三方平台来源信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("origin")]
+    [JsonPropertyName("origin")]
     public PostTaskV1TasksBodyDtoOrigin Origin { get; set; } = new();
 
     /// <summary>
@@ -107,14 +106,14 @@ public record PostTaskV1TasksBodyDto
         /// <para>示例值：{\"zh_cn\":\"IT工作台\",\"en_us\":\"ITWorkspace\"}</para>
         /// <para>最大长度：1024</para>
         /// </summary>
-        [JsonProperty("platform_i18n_name")]
+        [JsonPropertyName("platform_i18n_name")]
         public string PlatformI18nName { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>任务关联的来源平台详情页链接</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("href")]
+        [JsonPropertyName("href")]
         public PostTaskV1TasksBodyDtoOriginHref? Href { get; set; }
 
         /// <summary>
@@ -129,7 +128,7 @@ public record PostTaskV1TasksBodyDto
             /// <para>示例值：https://support.feishu.com/internal/foo-bar</para>
             /// <para>最大长度：1024</para>
             /// </summary>
-            [JsonProperty("url")]
+            [JsonPropertyName("url")]
             public string? Url { get; set; }
 
             /// <summary>
@@ -138,7 +137,7 @@ public record PostTaskV1TasksBodyDto
             /// <para>示例值：反馈一个问题，需要协助排查</para>
             /// <para>最大长度：512</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public string? Title { get; set; }
         }
     }
@@ -150,7 +149,7 @@ public record PostTaskV1TasksBodyDto
     /// <para>示例值：true</para>
     /// <para>默认值：false</para>
     /// </summary>
-    [JsonProperty("can_edit")]
+    [JsonPropertyName("can_edit")]
     public bool? CanEdit { get; set; }
 
     /// <summary>
@@ -160,7 +159,7 @@ public record PostTaskV1TasksBodyDto
     /// <para>示例值：{\"custom_complete\":{\"android\":{\"href\":\"https://www.feishu.cn/\",\"tip\":{\"zh_cn\":\"你好\",\"en_us\":\"hello\"}},\"ios\":{\"href\":\"https://www.feishu.cn/\",\"tip\":{\"zh_cn\":\"你好\",\"en_us\":\"hello\"}},\"pc\":{\"href\":\"https://www.feishu.cn/\",\"tip\":{\"zh_cn\":\"你好\",\"en_us\":\"hello\"}}}}</para>
     /// <para>最大长度：65536</para>
     /// </summary>
-    [JsonProperty("custom")]
+    [JsonPropertyName("custom")]
     public string? Custom { get; set; }
 
     /// <summary>
@@ -170,7 +169,7 @@ public record PostTaskV1TasksBodyDto
     /// <para>示例值：["ou_1400208f15333e20e11339d39067844b","ou_84ed6312949945c8ae6168f10829e9e6"]</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("collaborator_ids")]
+    [JsonPropertyName("collaborator_ids")]
     public string[]? CollaboratorIds { get; set; }
 
     /// <summary>
@@ -180,7 +179,7 @@ public record PostTaskV1TasksBodyDto
     /// <para>示例值：["ou_1400208f15333e20e11339d39067844b","ou_84ed6312949945c8ae6168f10829e9e6"]</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("follower_ids")]
+    [JsonPropertyName("follower_ids")]
     public string[]? FollowerIds { get; set; }
 
     /// <summary>
@@ -189,7 +188,7 @@ public record PostTaskV1TasksBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR</para>
     /// </summary>
-    [JsonProperty("repeat_rule")]
+    [JsonPropertyName("repeat_rule")]
     public string? RepeatRule { get; set; }
 
     /// <summary>
@@ -199,7 +198,7 @@ public record PostTaskV1TasksBodyDto
     /// <para>示例值：完成本季度OKR编写\[飞书开放平台](https://open.feishu.cn/)</para>
     /// <para>最大长度：1000</para>
     /// </summary>
-    [JsonProperty("rich_summary")]
+    [JsonPropertyName("rich_summary")]
     public string? RichSummary { get; set; }
 
     /// <summary>
@@ -208,6 +207,6 @@ public record PostTaskV1TasksBodyDto
     /// <para>示例值：对本次会议内容复盘总结，编写更新本季度OKR\[飞书开放平台](https://open.feishu.cn/)</para>
     /// <para>最大长度：65536</para>
     /// </summary>
-    [JsonProperty("rich_description")]
+    [JsonPropertyName("rich_description")]
     public string? RichDescription { get; set; }
 }

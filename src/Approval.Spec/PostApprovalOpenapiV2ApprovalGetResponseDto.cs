@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 查看审批定义 响应体
@@ -13,7 +12,7 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
     /// <para>审批名称</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("approval_name")]
+    [JsonPropertyName("approval_name")]
     public string ApprovalName { get; set; } = string.Empty;
 
     /// <summary>
@@ -24,14 +23,14 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
     /// <para>UNKNOWN -未知</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string Status { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>json 数组，**控件信息**</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("form")]
+    [JsonPropertyName("form")]
     public string Form { get; set; } = string.Empty;
 
     /// <summary></summary>
@@ -41,56 +40,56 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
         /// <para>控件 ID</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>控件自定义 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_id")]
+        [JsonPropertyName("custom_id")]
         public string? CustomId { get; set; }
 
         /// <summary>
         /// <para>控件名称</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>控件类型</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>此控件是否启用了默认值</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("enable_default_value")]
+        [JsonPropertyName("enable_default_value")]
         public bool EnableDefaultValue { get; set; }
 
         /// <summary>
         /// <para>控件的默认值</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("widget_default_value")]
+        [JsonPropertyName("widget_default_value")]
         public string WidgetDefaultValue { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>控件的默认值类型</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("default_value_type")]
+        [JsonPropertyName("default_value_type")]
         public string DefaultValueType { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>控件显隐条件</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("display_condition")]
+        [JsonPropertyName("display_condition")]
         public DisplayConditionSuffix? DisplayCondition { get; set; }
 
         /// <summary></summary>
@@ -100,14 +99,14 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
             /// <para>否</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("conditional")]
+            [JsonPropertyName("conditional")]
             public string? Conditional { get; set; }
 
             /// <summary>
             /// <para>否</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("conditions")]
+            [JsonPropertyName("conditions")]
             public Condition[]? Conditions { get; set; }
 
             /// <summary></summary>
@@ -117,14 +116,14 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
                 /// <para>多个条件同时满足</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("conditional")]
+                [JsonPropertyName("conditional")]
                 public string? Conditional { get; set; }
 
                 /// <summary>
                 /// <para>否</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("expressions")]
+                [JsonPropertyName("expressions")]
                 public Expression[]? Expressions { get; set; }
 
                 /// <summary></summary>
@@ -134,21 +133,21 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
                     /// <para>否</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("source_widget")]
+                    [JsonPropertyName("source_widget")]
                     public string? SourceWidget { get; set; }
 
                     /// <summary>
                     /// <para>判断规则</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("compare_type")]
+                    [JsonPropertyName("compare_type")]
                     public string? CompareType { get; set; }
 
                     /// <summary>
                     /// <para>条件值</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("standard_value")]
+                    [JsonPropertyName("standard_value")]
                     public string? StandardValue { get; set; }
                 }
             }
@@ -159,7 +158,7 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
     /// <para>节点信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("node_list")]
+    [JsonPropertyName("node_list")]
     public Node[] NodeList { get; set; } = Array.Empty<Node>();
 
     /// <summary></summary>
@@ -169,7 +168,7 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
         /// <para>节点名称</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -177,21 +176,21 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
         /// <para>true - 发起审批时需要提交审批人</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("need_approver")]
+        [JsonPropertyName("need_approver")]
         public bool NeedApprover { get; set; }
 
         /// <summary>
         /// <para>节点 ID</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("node_id")]
+        [JsonPropertyName("node_id")]
         public string NodeId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>节点自定义 ID，如果没有设置则不返回</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_node_id")]
+        [JsonPropertyName("custom_node_id")]
         public string? CustomNodeId { get; set; }
 
         /// <summary>
@@ -202,7 +201,7 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
         /// <para>CC_NODE -抄送节点</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("node_type")]
+        [JsonPropertyName("node_type")]
         public string NodeType { get; set; } = string.Empty;
     }
 
@@ -210,7 +209,7 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
     /// <para>可见人列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("viewers")]
+    [JsonPropertyName("viewers")]
     public Viewer Viewers { get; set; } = new();
 
     /// <summary></summary>
@@ -226,7 +225,7 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
         /// <para>NONE：任何人都不可见</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
@@ -236,14 +235,14 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
         /// <para>在可见人类型为USER_GROUP时，open_id为用户组的open_id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("open_id")]
+        [JsonPropertyName("open_id")]
         public string? OpenId { get; set; }
 
         /// <summary>
         /// <para>在可见人类型为USER时，表示可见人用户id</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
     }
 }

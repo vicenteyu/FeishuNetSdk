@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 上传文件 响应体
@@ -14,6 +13,6 @@ public record PostImV1FilesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g</para>
     /// </summary>
-    [JsonProperty("file_key")]
+    [JsonPropertyName("file_key")]
     public string? FileKey { get; set; }
 }

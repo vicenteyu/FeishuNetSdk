@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 查询实例列表 请求体
@@ -14,7 +13,7 @@ public record PostApprovalV4InstancesQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：lwiu098wj</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostApprovalV4InstancesQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string? ApprovalCode { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostApprovalV4InstancesQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943</para>
     /// </summary>
-    [JsonProperty("instance_code")]
+    [JsonPropertyName("instance_code")]
     public string? InstanceCode { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostApprovalV4InstancesQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976</para>
     /// </summary>
-    [JsonProperty("instance_external_id")]
+    [JsonPropertyName("instance_external_id")]
     public string? InstanceExternalId { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostApprovalV4InstancesQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1234567</para>
     /// </summary>
-    [JsonProperty("group_external_id")]
+    [JsonPropertyName("group_external_id")]
     public string? GroupExternalId { get; set; }
 
     /// <summary>
@@ -54,7 +53,7 @@ public record PostApprovalV4InstancesQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：test</para>
     /// </summary>
-    [JsonProperty("instance_title")]
+    [JsonPropertyName("instance_title")]
     public string? InstanceTitle { get; set; }
 
     /// <summary>
@@ -70,7 +69,7 @@ public record PostApprovalV4InstancesQueryBodyDto
     /// <item>ALL：所有状态</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("instance_status")]
+    [JsonPropertyName("instance_status")]
     public string? InstanceStatus { get; set; }
 
     /// <summary>
@@ -78,7 +77,7 @@ public record PostApprovalV4InstancesQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1547654251506</para>
     /// </summary>
-    [JsonProperty("instance_start_time_from")]
+    [JsonPropertyName("instance_start_time_from")]
     public string? InstanceStartTimeFrom { get; set; }
 
     /// <summary>
@@ -86,7 +85,7 @@ public record PostApprovalV4InstancesQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1547654251506</para>
     /// </summary>
-    [JsonProperty("instance_start_time_to")]
+    [JsonPropertyName("instance_start_time_to")]
     public string? InstanceStartTimeTo { get; set; }
 
     /// <summary>
@@ -99,6 +98,6 @@ public record PostApprovalV4InstancesQueryBodyDto
     /// <item>ja-JP：日文</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("locale")]
+    [JsonPropertyName("locale")]
     public string? Locale { get; set; }
 }

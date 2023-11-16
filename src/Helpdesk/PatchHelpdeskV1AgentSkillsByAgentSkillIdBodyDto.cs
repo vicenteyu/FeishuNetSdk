@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 更新客服技能 请求体
@@ -13,7 +12,7 @@ public record PatchHelpdeskV1AgentSkillsByAgentSkillIdBodyDto
     /// <para>更新技能</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("agent_skill")]
+    [JsonPropertyName("agent_skill")]
     public PatchHelpdeskV1AgentSkillsByAgentSkillIdBodyDtoAgentSkill? AgentSkill { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record PatchHelpdeskV1AgentSkillsByAgentSkillIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：skill-name</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>技能rules</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("rules")]
+        [JsonPropertyName("rules")]
         public AgentSkillRule[]? Rules { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PatchHelpdeskV1AgentSkillsByAgentSkillIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：test-skill-id</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record PatchHelpdeskV1AgentSkillsByAgentSkillIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：8</para>
             /// </summary>
-            [JsonProperty("selected_operator")]
+            [JsonPropertyName("selected_operator")]
             public int? SelectedOperator { get; set; }
 
             /// <summary>
@@ -62,7 +61,7 @@ public record PatchHelpdeskV1AgentSkillsByAgentSkillIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：[3]</para>
             /// </summary>
-            [JsonProperty("operator_options")]
+            [JsonPropertyName("operator_options")]
             public int[]? OperatorOptions { get; set; }
 
             /// <summary>
@@ -70,7 +69,7 @@ public record PatchHelpdeskV1AgentSkillsByAgentSkillIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：{\"selected_departments\":[{\"id\":\"部门ID\",\"name\":\"IT\"}]}</para>
             /// </summary>
-            [JsonProperty("operand")]
+            [JsonPropertyName("operand")]
             public string? Operand { get; set; }
         }
 
@@ -79,7 +78,7 @@ public record PatchHelpdeskV1AgentSkillsByAgentSkillIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：["ou_ea21d7f018e1155d960e40d33191f966"]</para>
         /// </summary>
-        [JsonProperty("agent_ids")]
+        [JsonPropertyName("agent_ids")]
         public string[]? AgentIds { get; set; }
     }
 }

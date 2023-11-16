@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 拆分单元格 请求体
@@ -13,6 +12,6 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsBodyDto
     /// <para>查询范围，包含 sheetId 与单元格范围两部分，目前支持四种索引方式，详见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("range")]
+    [JsonPropertyName("range")]
     public string Range { get; set; } = string.Empty;
 }

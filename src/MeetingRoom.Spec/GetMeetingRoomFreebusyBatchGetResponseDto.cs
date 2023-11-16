@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 查询会议室忙闲 响应体
@@ -13,28 +12,28 @@ public record GetMeetingRoomFreebusyBatchGetResponseDto
     /// <para>查询会议室忙闲的起始时间，与请求参数完全相同</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("time_min")]
+    [JsonPropertyName("time_min")]
     public string? TimeMin { get; set; }
 
     /// <summary>
     /// <para>查询会议室忙闲的结束时间，与请求参数完全相同</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("time_max")]
+    [JsonPropertyName("time_max")]
     public string? TimeMax { get; set; }
 
     /// <summary>
     /// <para>会议室忙闲列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("free_busy")]
+    [JsonPropertyName("free_busy")]
     public object? FreeBusy { get; set; }
 
     /// <summary>
     /// <para>与请求合法参数相同，表示之后是对应会议室的忙闲状态</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("room_id")]
+    [JsonPropertyName("room_id")]
     public string? RoomId { get; set; }
 
     /// <summary></summary>
@@ -44,35 +43,35 @@ public record GetMeetingRoomFreebusyBatchGetResponseDto
         /// <para>忙碌起始时间</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("start_time")]
+        [JsonPropertyName("start_time")]
         public string? StartTime { get; set; }
 
         /// <summary>
         /// <para>忙碌结束时间</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string? EndTime { get; set; }
 
         /// <summary>
         /// <para>日程 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("uid")]
+        [JsonPropertyName("uid")]
         public string? Uid { get; set; }
 
         /// <summary>
         /// <para>日程实例的原始时间, 非重复日程以及重复性日程的原日程为0，重复性日程的例外日程为非0</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("original_time")]
+        [JsonPropertyName("original_time")]
         public string? OriginalTime { get; set; }
 
         /// <summary>
         /// <para>组织者信息, 私密日程不返回该信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("organizer_info")]
+        [JsonPropertyName("organizer_info")]
         public string? OrganizerInfo { get; set; }
 
         /// <summary></summary>
@@ -82,14 +81,14 @@ public record GetMeetingRoomFreebusyBatchGetResponseDto
             /// <para>组织者姓名</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
             /// <para>组织者 open_id</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("open_id")]
+            [JsonPropertyName("open_id")]
             public string? OpenId { get; set; }
         }
     }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取单个工作城市信息 响应体
@@ -13,7 +12,7 @@ public record GetContactV3WorkCitiesByWorkCityIdResponseDto
     /// <para>工作城市信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("work_city")]
+    [JsonPropertyName("work_city")]
     public GetContactV3WorkCitiesByWorkCityIdResponseDtoWorkCity? WorkCity { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetContactV3WorkCitiesByWorkCityIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0dd1ec95f021</para>
         /// </summary>
-        [JsonProperty("work_city_id")]
+        [JsonPropertyName("work_city_id")]
         public string? WorkCityId { get; set; }
 
         /// <summary>
@@ -35,14 +34,14 @@ public record GetContactV3WorkCitiesByWorkCityIdResponseDto
         /// <para>示例值：北京</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>多语言工作城市</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("i18n_name")]
+        [JsonPropertyName("i18n_name")]
         public I18nContent[]? I18nNames { get; set; }
 
         /// <summary>
@@ -55,7 +54,7 @@ public record GetContactV3WorkCitiesByWorkCityIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：zh_cn</para>
             /// </summary>
-            [JsonProperty("locale")]
+            [JsonPropertyName("locale")]
             public string? Locale { get; set; }
 
             /// <summary>
@@ -63,7 +62,7 @@ public record GetContactV3WorkCitiesByWorkCityIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：北京</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
 
@@ -72,7 +71,7 @@ public record GetContactV3WorkCitiesByWorkCityIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true表示启用,false表示未启用</para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public bool? Status { get; set; }
     }
 }

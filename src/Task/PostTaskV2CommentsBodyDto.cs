@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 创建评论 请求体
@@ -15,7 +14,7 @@ public record PostTaskV2CommentsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：这是一条评论。</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
 
     /// <summary>
@@ -24,7 +23,7 @@ public record PostTaskV2CommentsBodyDto
     /// <para>示例值：6937231762296684564</para>
     /// <para>最大长度：20</para>
     /// </summary>
-    [JsonProperty("reply_to_comment_id")]
+    [JsonPropertyName("reply_to_comment_id")]
     public string? ReplyToCommentId { get; set; }
 
     /// <summary>
@@ -33,7 +32,7 @@ public record PostTaskV2CommentsBodyDto
     /// <para>示例值：task</para>
     /// <para>默认值：task</para>
     /// </summary>
-    [JsonProperty("resource_type")]
+    [JsonPropertyName("resource_type")]
     public string? ResourceType { get; set; }
 
     /// <summary>
@@ -42,6 +41,6 @@ public record PostTaskV2CommentsBodyDto
     /// <para>示例值：ccb55625-95d2-2e80-655f-0e40bf67953f</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("resource_id")]
+    [JsonPropertyName("resource_id")]
     public string? ResourceId { get; set; }
 }

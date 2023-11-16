@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Auth.Spec;
 /// <summary>
 /// 自建应用获取 tenant_access_token 请求体
@@ -15,7 +14,7 @@ public record PostAuthV3TenantAccessTokenInternalBodyDto
     /// <para>**示例值：** "cli_slkdjalasdkjasd"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("app_id")]
+    [JsonPropertyName("app_id")]
     public string AppId { get; set; } = string.Empty;
 
     /// <summary>
@@ -23,6 +22,6 @@ public record PostAuthV3TenantAccessTokenInternalBodyDto
     /// <para>**示例值：** "dskLLdkasdjlasdKK"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("app_secret")]
+    [JsonPropertyName("app_secret")]
     public string AppSecret { get; set; } = string.Empty;
 }

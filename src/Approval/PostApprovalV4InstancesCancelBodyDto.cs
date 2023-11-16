@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 撤回审批实例 请求体
@@ -14,7 +13,7 @@ public record PostApprovalV4InstancesCancelBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A85</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string ApprovalCode { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostApprovalV4InstancesCancelBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71</para>
     /// </summary>
-    [JsonProperty("instance_code")]
+    [JsonPropertyName("instance_code")]
     public string InstanceCode { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,6 +29,6 @@ public record PostApprovalV4InstancesCancelBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：f7cb567e</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string UserId { get; set; } = string.Empty;
 }

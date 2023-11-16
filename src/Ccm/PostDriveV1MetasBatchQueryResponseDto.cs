@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取文档元数据 响应体
@@ -13,7 +12,7 @@ public record PostDriveV1MetasBatchQueryResponseDto
     /// <para>文档元数据列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("metas")]
+    [JsonPropertyName("metas")]
     public Meta[] Metas { get; set; } = Array.Empty<Meta>();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostDriveV1MetasBatchQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：doccnfYZzTlvXqZIGTdAHKabcef</para>
         /// </summary>
-        [JsonProperty("doc_token")]
+        [JsonPropertyName("doc_token")]
         public string DocToken { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostDriveV1MetasBatchQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：doc</para>
         /// </summary>
-        [JsonProperty("doc_type")]
+        [JsonPropertyName("doc_type")]
         public string DocType { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostDriveV1MetasBatchQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：sampletitle</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string Title { get; set; } = string.Empty;
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostDriveV1MetasBatchQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef</para>
         /// </summary>
-        [JsonProperty("owner_id")]
+        [JsonPropertyName("owner_id")]
         public string OwnerId { get; set; } = string.Empty;
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostDriveV1MetasBatchQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1652066345</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string CreateTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostDriveV1MetasBatchQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef</para>
         /// </summary>
-        [JsonProperty("latest_modify_user")]
+        [JsonPropertyName("latest_modify_user")]
         public string LatestModifyUser { get; set; } = string.Empty;
 
         /// <summary>
@@ -74,7 +73,7 @@ public record PostDriveV1MetasBatchQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1652066345</para>
         /// </summary>
-        [JsonProperty("latest_modify_time")]
+        [JsonPropertyName("latest_modify_time")]
         public string LatestModifyTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -82,7 +81,7 @@ public record PostDriveV1MetasBatchQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string Url { get; set; } = string.Empty;
 
         /// <summary>
@@ -90,7 +89,7 @@ public record PostDriveV1MetasBatchQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：L2-内部</para>
         /// </summary>
-        [JsonProperty("sec_label_name")]
+        [JsonPropertyName("sec_label_name")]
         public string? SecLabelName { get; set; }
     }
 
@@ -98,7 +97,7 @@ public record PostDriveV1MetasBatchQueryResponseDto
     /// <para>无法获取元数据的文档列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("failed_list")]
+    [JsonPropertyName("failed_list")]
     public MetaFailed[]? FailedLists { get; set; }
 
     /// <summary>
@@ -111,7 +110,7 @@ public record PostDriveV1MetasBatchQueryResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：boxcnrHpsg1QDqXAAAyachabcef</para>
         /// </summary>
-        [JsonProperty("token")]
+        [JsonPropertyName("token")]
         public string Token { get; set; } = string.Empty;
 
         /// <summary>
@@ -124,7 +123,7 @@ public record PostDriveV1MetasBatchQueryResponseDto
         /// <item>970005：Recordnotfound(不存在或者已被删除)</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("code")]
+        [JsonPropertyName("code")]
         public int Code { get; set; }
     }
 }

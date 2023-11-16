@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 查询所有公共邮箱 响应体
@@ -14,7 +13,7 @@ public record GetMailV1PublicMailboxesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record GetMailV1PublicMailboxesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：xxx</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>公共邮箱列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public PublicMailbox[]? Items { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record GetMailV1PublicMailboxesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：xxxxxxxxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("public_mailbox_id")]
+        [JsonPropertyName("public_mailbox_id")]
         public string? PublicMailboxId { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetMailV1PublicMailboxesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：test_public_mailbox@xxx.xx</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string? Email { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetMailV1PublicMailboxesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：test public mailbox</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetMailV1PublicMailboxesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：cn</para>
         /// </summary>
-        [JsonProperty("geo")]
+        [JsonPropertyName("geo")]
         public string? Geo { get; set; }
     }
 }

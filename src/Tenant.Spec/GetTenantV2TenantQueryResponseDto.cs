@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Tenant.Spec;
 /// <summary>
 /// 获取企业信息 响应体
@@ -13,7 +12,7 @@ public record GetTenantV2TenantQueryResponseDto
     /// <para>企业信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("tenant")]
+    [JsonPropertyName("tenant")]
     public TenantSuffix? Tenant { get; set; }
 
     /// <summary></summary>
@@ -23,14 +22,14 @@ public record GetTenantV2TenantQueryResponseDto
         /// <para>企业名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>企业编号，平台内唯一</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("display_id")]
+        [JsonPropertyName("display_id")]
         public string? DisplayId { get; set; }
 
         /// <summary>
@@ -43,21 +42,21 @@ public record GetTenantV2TenantQueryResponseDto
         /// <item>2：个人版</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("tenant_tag")]
+        [JsonPropertyName("tenant_tag")]
         public int? TenantTag { get; set; }
 
         /// <summary>
         /// <para>企业标识</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("tenant_key")]
+        [JsonPropertyName("tenant_key")]
         public string? TenantKey { get; set; }
 
         /// <summary>
         /// <para>企业头像</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("avatar")]
+        [JsonPropertyName("avatar")]
         public AvatarSuffix? Avatar { get; set; }
 
         /// <summary></summary>
@@ -67,28 +66,28 @@ public record GetTenantV2TenantQueryResponseDto
             /// <para>企业头像</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("avatar_origin")]
+            [JsonPropertyName("avatar_origin")]
             public string? AvatarOrigin { get; set; }
 
             /// <summary>
             /// <para>企业头像 72x72</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("avatar_72")]
+            [JsonPropertyName("avatar_72")]
             public string? Avatar72 { get; set; }
 
             /// <summary>
             /// <para>企业头像 240x240</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("avatar_240")]
+            [JsonPropertyName("avatar_240")]
             public string? Avatar240 { get; set; }
 
             /// <summary>
             /// <para>企业头像 640x640</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("avatar_640")]
+            [JsonPropertyName("avatar_640")]
             public string? Avatar640 { get; set; }
         }
     }

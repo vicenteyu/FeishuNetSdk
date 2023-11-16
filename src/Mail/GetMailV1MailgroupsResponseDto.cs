@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 批量获取邮件组 响应体
@@ -14,7 +13,7 @@ public record GetMailV1MailgroupsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record GetMailV1MailgroupsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：xxx</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>邮件组列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Mailgroup[]? Items { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record GetMailV1MailgroupsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：xxxxxxxxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("mailgroup_id")]
+        [JsonPropertyName("mailgroup_id")]
         public string? MailgroupId { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetMailV1MailgroupsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：test_mail_group@xxx.xx</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string? Email { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetMailV1MailgroupsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：testmailgroup</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetMailV1MailgroupsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：mailgroupfortesting</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record GetMailV1MailgroupsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// </summary>
-        [JsonProperty("direct_members_count")]
+        [JsonPropertyName("direct_members_count")]
         public string? DirectMembersCount { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record GetMailV1MailgroupsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("include_external_member")]
+        [JsonPropertyName("include_external_member")]
         public bool? IncludeExternalMember { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record GetMailV1MailgroupsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("include_all_company_member")]
+        [JsonPropertyName("include_all_company_member")]
         public bool? IncludeAllCompanyMember { get; set; }
 
         /// <summary>
@@ -104,7 +103,7 @@ public record GetMailV1MailgroupsResponseDto
         /// <item>CUSTOM_MEMBERS：自定义成员</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("who_can_send_mail")]
+        [JsonPropertyName("who_can_send_mail")]
         public string? WhoCanSendMail { get; set; }
     }
 }

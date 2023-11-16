@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task.Spec;
 /// <summary>
 /// 获取关注人列表 响应体
@@ -13,7 +12,7 @@ public record GetTaskV1TasksByTaskIdFollowersResponseDto
     /// <para>返回的关注人ID列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Follower[]? Items { get; set; }
 
     /// <summary></summary>
@@ -23,14 +22,14 @@ public record GetTaskV1TasksByTaskIdFollowersResponseDto
         /// <para>任务关注人 ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>要删除的关注人ID列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("id_list")]
+        [JsonPropertyName("id_list")]
         public string[]? IdList { get; set; }
 
     }
@@ -39,13 +38,13 @@ public record GetTaskV1TasksByTaskIdFollowersResponseDto
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>是否还有更多项</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

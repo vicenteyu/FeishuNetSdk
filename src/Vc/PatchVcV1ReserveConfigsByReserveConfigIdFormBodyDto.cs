@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 更新会议室预定表单 请求体
@@ -14,14 +13,14 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdFormBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：2</para>
     /// </summary>
-    [JsonProperty("scope_type")]
+    [JsonPropertyName("scope_type")]
     public int ScopeType { get; set; }
 
     /// <summary>
     /// <para>预定表单设置</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("reserve_form_config")]
+    [JsonPropertyName("reserve_form_config")]
     public PatchVcV1ReserveConfigsByReserveConfigIdFormBodyDtoReserveFormConfig ReserveFormConfig { get; set; } = new();
 
     /// <summary>
@@ -34,7 +33,7 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdFormBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("if_cover_child_scope")]
+        [JsonPropertyName("if_cover_child_scope")]
         public bool? IfCoverChildScope { get; set; }
 
         /// <summary>
@@ -43,14 +42,14 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdFormBodyDto
         /// <para>示例值：false</para>
         /// <para>默认值：false</para>
         /// </summary>
-        [JsonProperty("reserve_form")]
+        [JsonPropertyName("reserve_form")]
         public bool ReserveForm { get; set; }
 
         /// <summary>
         /// <para>通知人列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("notified_users")]
+        [JsonPropertyName("notified_users")]
         public SubscribeUser[]? NotifiedUsers { get; set; }
 
         /// <summary>
@@ -63,7 +62,7 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdFormBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：ou_a27b07a9071d90577c0177bcec98f856</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string UserId { get; set; } = string.Empty;
         }
 
@@ -72,7 +71,7 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdFormBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
-        [JsonProperty("notified_time")]
+        [JsonPropertyName("notified_time")]
         public int? NotifiedTime { get; set; }
 
         /// <summary>
@@ -80,7 +79,7 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdFormBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
-        [JsonProperty("time_unit")]
+        [JsonPropertyName("time_unit")]
         public int? TimeUnit { get; set; }
     }
 }

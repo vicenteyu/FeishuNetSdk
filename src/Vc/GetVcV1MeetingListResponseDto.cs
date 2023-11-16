@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 查询会议明细 响应体
@@ -13,7 +12,7 @@ public record GetVcV1MeetingListResponseDto
     /// <para>会议列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("meeting_list")]
+    [JsonPropertyName("meeting_list")]
     public MeetingInfo[]? MeetingLists { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：705605196</para>
         /// </summary>
-        [JsonProperty("meeting_id")]
+        [JsonPropertyName("meeting_id")]
         public string? MeetingId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：讨论会</para>
         /// </summary>
-        [JsonProperty("meeting_topic")]
+        [JsonPropertyName("meeting_topic")]
         public string? MeetingTopic { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：kehan</para>
         /// </summary>
-        [JsonProperty("organizer")]
+        [JsonPropertyName("organizer")]
         public string? Organizer { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：development</para>
         /// </summary>
-        [JsonProperty("department")]
+        [JsonPropertyName("department")]
         public string? Department { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：92f879</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：202105149765</para>
         /// </summary>
-        [JsonProperty("employee_id")]
+        [JsonPropertyName("employee_id")]
         public string? EmployeeId { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：xxxx@163.com</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string? Email { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：021-673288</para>
         /// </summary>
-        [JsonProperty("mobile")]
+        [JsonPropertyName("mobile")]
         public string? Mobile { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022.12.23 11:16:59 (GMT+08:00)</para>
         /// </summary>
-        [JsonProperty("meeting_start_time")]
+        [JsonPropertyName("meeting_start_time")]
         public string? MeetingStartTime { get; set; }
 
         /// <summary>
@@ -98,7 +97,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2022.12.23 11:18:51 (GMT+08:00)</para>
         /// </summary>
-        [JsonProperty("meeting_end_time")]
+        [JsonPropertyName("meeting_end_time")]
         public string? MeetingEndTime { get; set; }
 
         /// <summary>
@@ -106,7 +105,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：00:01:52</para>
         /// </summary>
-        [JsonProperty("meeting_duration")]
+        [JsonPropertyName("meeting_duration")]
         public string? MeetingDuration { get; set; }
 
         /// <summary>
@@ -114,7 +113,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("number_of_participants")]
+        [JsonPropertyName("number_of_participants")]
         public string? NumberOfParticipants { get; set; }
 
         /// <summary>
@@ -122,7 +121,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("audio")]
+        [JsonPropertyName("audio")]
         public bool? Audio { get; set; }
 
         /// <summary>
@@ -130,7 +129,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("video")]
+        [JsonPropertyName("video")]
         public bool? Video { get; set; }
 
         /// <summary>
@@ -138,7 +137,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("sharing")]
+        [JsonPropertyName("sharing")]
         public bool? Sharing { get; set; }
 
         /// <summary>
@@ -146,7 +145,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("recording")]
+        [JsonPropertyName("recording")]
         public bool? Recording { get; set; }
 
         /// <summary>
@@ -154,7 +153,7 @@ public record GetVcV1MeetingListResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("telephone")]
+        [JsonPropertyName("telephone")]
         public bool? Telephone { get; set; }
     }
 
@@ -163,7 +162,7 @@ public record GetVcV1MeetingListResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：20</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -171,6 +170,6 @@ public record GetVcV1MeetingListResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

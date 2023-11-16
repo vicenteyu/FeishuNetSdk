@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 查看指定审批定义 响应体
@@ -14,7 +13,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：Payment</para>
     /// </summary>
-    [JsonProperty("approval_name")]
+    [JsonPropertyName("approval_name")]
     public string ApprovalName { get; set; } = string.Empty;
 
     /// <summary>
@@ -28,7 +27,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
     /// <item>UNKNOWN：未知</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string Status { get; set; } = string.Empty;
 
     /// <summary>
@@ -36,14 +35,14 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：[{\"id\":\"widget1\",\"custom_id\":\"user_name\",\"name\":\"Itemapplication\",\"type\":\"textarea\",\"printable\":true,\"required\":true}\"]</para>
     /// </summary>
-    [JsonProperty("form")]
+    [JsonPropertyName("form")]
     public string Form { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>节点信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("node_list")]
+    [JsonPropertyName("node_list")]
     public ApprovalNodeInfo[] NodeLists { get; set; } = Array.Empty<ApprovalNodeInfo>();
 
     /// <summary>
@@ -56,7 +55,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：Approval</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -64,7 +63,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("need_approver")]
+        [JsonPropertyName("need_approver")]
         public bool NeedApprover { get; set; }
 
         /// <summary>
@@ -72,7 +71,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：46e6d96cfa756980907209209ec03b64</para>
         /// </summary>
-        [JsonProperty("node_id")]
+        [JsonPropertyName("node_id")]
         public string NodeId { get; set; } = string.Empty;
 
         /// <summary>
@@ -80,7 +79,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：46e6d96cfa756980907209209ec03b64</para>
         /// </summary>
-        [JsonProperty("custom_node_id")]
+        [JsonPropertyName("custom_node_id")]
         public string? CustomNodeId { get; set; }
 
         /// <summary>
@@ -94,7 +93,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         /// <item>CC_NODE：抄送节点</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("node_type")]
+        [JsonPropertyName("node_type")]
         public string NodeType { get; set; } = string.Empty;
 
         /// <summary>
@@ -102,14 +101,14 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("approver_chosen_multi")]
+        [JsonPropertyName("approver_chosen_multi")]
         public bool ApproverChosenMulti { get; set; }
 
         /// <summary>
         /// <para>自选范围</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("approver_chosen_range")]
+        [JsonPropertyName("approver_chosen_range")]
         public ApproverChosenRange[]? ApproverChosenRanges { get; set; }
 
         /// <summary>
@@ -127,14 +126,14 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
             /// <item>2：指定用户范围</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("approver_range_type")]
+            [JsonPropertyName("approver_range_type")]
             public int? ApproverRangeType { get; set; }
 
             /// <summary>
             /// <para>根据上面的type，分别存放角色id与人员open_id，type为0时本字段为空列表</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("approver_range_ids")]
+            [JsonPropertyName("approver_range_ids")]
             public string[]? ApproverRangeIds { get; set; }
         }
 
@@ -143,7 +142,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("require_signature")]
+        [JsonPropertyName("require_signature")]
         public bool? RequireSignature { get; set; }
     }
 
@@ -151,7 +150,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
     /// <para>可见人列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("viewers")]
+    [JsonPropertyName("viewers")]
     public ApprovalViewerInfo[] Viewers { get; set; } = Array.Empty<ApprovalViewerInfo>();
 
     /// <summary>
@@ -172,7 +171,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         /// <item>NONE：任何人都不可见</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
@@ -180,7 +179,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_e03053f0541cecc3269d7a9dc34a0b21</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -188,7 +187,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：f7cb567e</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
     }
 
@@ -196,6 +195,6 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
     /// <para>有数据管理权限的审批流程管理员ID</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("approval_admin_ids")]
+    [JsonPropertyName("approval_admin_ids")]
     public string[]? ApprovalAdminIds { get; set; }
 }

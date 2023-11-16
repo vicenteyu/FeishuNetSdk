@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 删除下拉列表设置 响应体
@@ -13,7 +12,7 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponse
     /// <para>array</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("rangeResults")]
+    [JsonPropertyName("rangeResults")]
     public RangeResult[]? RangeResults { get; set; }
 
     /// <summary></summary>
@@ -23,28 +22,28 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponse
         /// <para>执行的range,与请求入参中的range 对应</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("range")]
+        [JsonPropertyName("range")]
         public string Range { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>结果信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("msg")]
+        [JsonPropertyName("msg")]
         public string? Msg { get; set; }
 
         /// <summary>
         /// <para>执行结果</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("success")]
+        [JsonPropertyName("success")]
         public bool Success { get; set; }
 
         /// <summary>
         /// <para>影响的单元格数量</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("updatedCells")]
+        [JsonPropertyName("updatedCells")]
         public int UpdatedCells { get; set; }
     }
 }

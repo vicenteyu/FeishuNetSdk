@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 更新订阅状态 请求体
@@ -14,7 +13,7 @@ public record PatchDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("is_subscribe")]
+    [JsonPropertyName("is_subscribe")]
     public bool IsSubscribe { get; set; }
 
     /// <summary>
@@ -27,6 +26,6 @@ public record PatchDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdBodyDto
     /// <item>wiki：知识库wiki</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("file_type")]
+    [JsonPropertyName("file_type")]
     public string FileType { get; set; } = string.Empty;
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增多个数据表 响应体
@@ -13,6 +12,6 @@ public record PostBitableV1AppsByAppTokenTablesBatchCreateResponseDto
     /// <para>table ids</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("table_ids")]
+    [JsonPropertyName("table_ids")]
     public string[]? TableIds { get; set; }
 }

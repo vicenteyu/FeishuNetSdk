@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 部门群转为普通群 请求体
@@ -14,6 +13,6 @@ public record PostContactV3DepartmentsUnbindDepartmentChatBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：D096</para>
     /// </summary>
-    [JsonProperty("department_id")]
+    [JsonPropertyName("department_id")]
     public string DepartmentId { get; set; } = string.Empty;
 }

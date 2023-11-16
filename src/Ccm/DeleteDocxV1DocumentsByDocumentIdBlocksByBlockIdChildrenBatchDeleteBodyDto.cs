@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 删除块 请求体
@@ -15,7 +14,7 @@ public record DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDelet
     /// <para>示例值：0</para>
     /// <para>最小值：0</para>
     /// </summary>
-    [JsonProperty("start_index")]
+    [JsonPropertyName("start_index")]
     public int StartIndex { get; set; }
 
     /// <summary>
@@ -24,6 +23,6 @@ public record DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDelet
     /// <para>示例值：1</para>
     /// <para>最小值：1</para>
     /// </summary>
-    [JsonProperty("end_index")]
+    [JsonPropertyName("end_index")]
     public int EndIndex { get; set; }
 }

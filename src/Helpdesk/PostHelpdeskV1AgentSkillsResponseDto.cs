@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 创建客服技能 响应体
@@ -14,6 +13,6 @@ public record PostHelpdeskV1AgentSkillsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：test-skill-id</para>
     /// </summary>
-    [JsonProperty("agent_skill_id")]
+    [JsonPropertyName("agent_skill_id")]
     public string? AgentSkillId { get; set; }
 }

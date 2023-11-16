@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.PersonalSettings;
 /// <summary>
 /// 批量关闭系统状态 请求体
@@ -15,6 +14,6 @@ public record PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchCloseBody
     /// <para>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("user_list")]
+    [JsonPropertyName("user_list")]
     public string[] UserList { get; set; } = Array.Empty<string>();
 }

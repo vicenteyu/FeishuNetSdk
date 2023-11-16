@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Search.Spec;
 /// <summary>
 /// 搜索应用 请求体
@@ -14,6 +13,6 @@ public record PostSearchV2AppBodyDto
     /// <para>**示例值**："测试应用"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("query")]
+    [JsonPropertyName("query")]
     public string Query { get; set; } = string.Empty;
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Minutes;
 /// <summary>
 /// 获取妙记统计数据 响应体
@@ -13,7 +12,7 @@ public record GetMinutesV1MinutesByMinuteTokenStatisticsResponseDto
     /// <para>妙记浏览信息统计</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("statistics")]
+    [JsonPropertyName("statistics")]
     public Statictics? Statistics { get; set; }
 
     /// <summary>
@@ -27,7 +26,7 @@ public record GetMinutesV1MinutesByMinuteTokenStatisticsResponseDto
         /// <para>示例值：3</para>
         /// <para>最大长度：20</para>
         /// </summary>
-        [JsonProperty("user_view_count")]
+        [JsonPropertyName("user_view_count")]
         public string? UserViewCount { get; set; }
 
         /// <summary>
@@ -36,7 +35,7 @@ public record GetMinutesV1MinutesByMinuteTokenStatisticsResponseDto
         /// <para>示例值：20</para>
         /// <para>最大长度：20</para>
         /// </summary>
-        [JsonProperty("page_view_count")]
+        [JsonPropertyName("page_view_count")]
         public string? PageViewCount { get; set; }
 
         /// <summary>
@@ -44,7 +43,7 @@ public record GetMinutesV1MinutesByMinuteTokenStatisticsResponseDto
         /// <para>必填：否</para>
         /// <para>最大长度：100000</para>
         /// </summary>
-        [JsonProperty("user_view_list")]
+        [JsonPropertyName("user_view_list")]
         public UserViewDetail[]? UserViewLists { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetMinutesV1MinutesByMinuteTokenStatisticsResponseDto
             /// <para>示例值：ou_612b787ccd3259fb3c816b3f678dxxxx</para>
             /// <para>最大长度：100</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string? UserId { get; set; }
 
             /// <summary>
@@ -67,7 +66,7 @@ public record GetMinutesV1MinutesByMinuteTokenStatisticsResponseDto
             /// <para>示例值：1669121332000</para>
             /// <para>最大长度：20</para>
             /// </summary>
-            [JsonProperty("view_time")]
+            [JsonPropertyName("view_time")]
             public string? ViewTime { get; set; }
         }
     }

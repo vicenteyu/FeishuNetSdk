@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 建立部门与单位的绑定关系 请求体
@@ -14,7 +13,7 @@ public record PostContactV3UnitBindDepartmentBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：BU121</para>
     /// </summary>
-    [JsonProperty("unit_id")]
+    [JsonPropertyName("unit_id")]
     public string UnitId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostContactV3UnitBindDepartmentBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
     /// </summary>
-    [JsonProperty("department_id")]
+    [JsonPropertyName("department_id")]
     public string DepartmentId { get; set; } = string.Empty;
 
     /// <summary>
@@ -35,6 +34,6 @@ public record PostContactV3UnitBindDepartmentBodyDto
     /// </list></para>
     /// <para>默认值：open_department_id</para>
     /// </summary>
-    [JsonProperty("department_id_type")]
+    [JsonPropertyName("department_id_type")]
     public string? DepartmentIdType { get; set; }
 }

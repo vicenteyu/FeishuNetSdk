@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建文档 响应体
@@ -13,7 +12,7 @@ public record PostDocxV1DocumentsResponseDto
     /// <para>新建文档的文档信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("document")]
+    [JsonPropertyName("document")]
     public PostDocxV1DocumentsResponseDtoDocument? Document { get; set; }
 
     /// <summary>
@@ -28,7 +27,7 @@ public record PostDocxV1DocumentsResponseDto
         /// <para>最大长度：27</para>
         /// <para>最小长度：27</para>
         /// </summary>
-        [JsonProperty("document_id")]
+        [JsonPropertyName("document_id")]
         public string? DocumentId { get; set; }
 
         /// <summary>
@@ -36,7 +35,7 @@ public record PostDocxV1DocumentsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("revision_id")]
+        [JsonPropertyName("revision_id")]
         public int? RevisionId { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PostDocxV1DocumentsResponseDto
         /// <para>最大长度：800</para>
         /// <para>最小长度：0</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
     }
 }

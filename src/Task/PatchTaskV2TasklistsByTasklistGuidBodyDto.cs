@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 更新清单 请求体
@@ -21,7 +20,7 @@ public record PatchTaskV2TasklistsByTasklistGuidBodyDto
     /// <para>要更新清单的数据</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("tasklist")]
+    [JsonPropertyName("tasklist")]
     public InputTasklist Tasklist { get; set; } = new();
 
     /// <summary>
@@ -34,14 +33,14 @@ public record PatchTaskV2TasklistsByTasklistGuidBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：年会工作任务清单</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>更新的清单所有者。</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("owner")]
+        [JsonPropertyName("owner")]
         public Member? Owner { get; set; }
 
         /// <summary>
@@ -55,7 +54,7 @@ public record PatchTaskV2TasklistsByTasklistGuidBodyDto
             /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
             /// <para>最大长度：100</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -64,7 +63,7 @@ public record PatchTaskV2TasklistsByTasklistGuidBodyDto
             /// <para>示例值：user</para>
             /// <para>默认值：user</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -73,7 +72,7 @@ public record PatchTaskV2TasklistsByTasklistGuidBodyDto
             /// <para>示例值：owner</para>
             /// <para>最大长度：20</para>
             /// </summary>
-            [JsonProperty("role")]
+            [JsonPropertyName("role")]
             public string? Role { get; set; }
         }
     }
@@ -86,7 +85,7 @@ public record PatchTaskV2TasklistsByTasklistGuidBodyDto
     /// <para>&lt;/md-enum&gt;</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("update_fields")]
+    [JsonPropertyName("update_fields")]
     public string[] UpdateFields { get; set; } = Array.Empty<string>();
 
     /// <summary>
@@ -101,6 +100,6 @@ public record PatchTaskV2TasklistsByTasklistGuidBodyDto
     /// </list></para>
     /// <para>默认值：none</para>
     /// </summary>
-    [JsonProperty("origin_owner_to_role")]
+    [JsonPropertyName("origin_owner_to_role")]
     public string? OriginOwnerToRole { get; set; }
 }

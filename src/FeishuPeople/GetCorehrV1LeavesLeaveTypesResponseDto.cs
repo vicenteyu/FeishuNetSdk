@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取假期类型列表 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
     /// <para>假期类型列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("leave_type_list")]
+    [JsonPropertyName("leave_type_list")]
     public LeaveType[]? LeaveTypeLists { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：4718803945687580505</para>
         /// </summary>
-        [JsonProperty("leave_type_id")]
+        [JsonPropertyName("leave_type_id")]
         public string LeaveTypeId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>假期类型名称</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("leave_type_name")]
+        [JsonPropertyName("leave_type_name")]
         public I18n[] LeaveTypeNames { get; set; } = Array.Empty<I18n>();
 
         /// <summary>
@@ -46,7 +45,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -54,7 +53,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -66,14 +65,14 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：2</para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public int Status { get; set; }
 
         /// <summary>
         /// <para>假期子类列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("leave_subtype_list")]
+        [JsonPropertyName("leave_subtype_list")]
         public LeaveSubtype[]? LeaveSubtypeLists { get; set; }
 
         /// <summary>
@@ -86,14 +85,14 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：4718803945687580505</para>
             /// </summary>
-            [JsonProperty("leave_type_id")]
+            [JsonPropertyName("leave_type_id")]
             public string LeaveTypeId { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>假期子类名称</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("leave_type_name")]
+            [JsonPropertyName("leave_type_name")]
             public I18n[] LeaveTypeNames { get; set; } = Array.Empty<I18n>();
 
             /// <summary>
@@ -106,7 +105,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
-                [JsonProperty("lang")]
+                [JsonPropertyName("lang")]
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
@@ -114,7 +113,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：张三</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
         }
@@ -124,7 +123,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1658730384</para>
         /// </summary>
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public string CreatedAt { get; set; } = string.Empty;
 
         /// <summary>
@@ -132,7 +131,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：7104164629974646786</para>
         /// </summary>
-        [JsonProperty("created_by")]
+        [JsonPropertyName("created_by")]
         public string CreatedBy { get; set; } = string.Empty;
 
         /// <summary>
@@ -140,7 +139,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1658996995</para>
         /// </summary>
-        [JsonProperty("updated_at")]
+        [JsonPropertyName("updated_at")]
         public string UpdatedAt { get; set; } = string.Empty;
 
         /// <summary>
@@ -148,7 +147,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：7112112899636854812</para>
         /// </summary>
-        [JsonProperty("updated_by")]
+        [JsonPropertyName("updated_by")]
         public string UpdatedBy { get; set; } = string.Empty;
     }
 
@@ -157,7 +156,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -165,6 +164,6 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建块 请求体
@@ -15,7 +14,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
     /// <para>最大长度：50</para>
     /// <para>最小长度：1</para>
     /// </summary>
-    [JsonProperty("children")]
+    [JsonPropertyName("children")]
     public Block[]? Childrens { get; set; }
 
     /// <summary>
@@ -70,14 +69,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
         /// <item>999：未支持 Block</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("block_type")]
+        [JsonPropertyName("block_type")]
         public int BlockType { get; set; }
 
         /// <summary>
         /// <para>文本 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("text")]
+        [JsonPropertyName("text")]
         public BlockText? Text { get; set; }
 
         /// <summary>
@@ -89,7 +88,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <para>文本样式</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("style")]
+            [JsonPropertyName("style")]
             public TextStyle? Style { get; set; }
 
             /// <summary>
@@ -108,7 +107,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// </list></para>
                 /// <para>默认值：1</para>
                 /// </summary>
-                [JsonProperty("align")]
+                [JsonPropertyName("align")]
                 public int? Align { get; set; }
 
                 /// <summary>
@@ -117,7 +116,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>示例值：true</para>
                 /// <para>默认值：false</para>
                 /// </summary>
-                [JsonProperty("done")]
+                [JsonPropertyName("done")]
                 public bool? Done { get; set; }
 
                 /// <summary>
@@ -126,7 +125,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>示例值：true</para>
                 /// <para>默认值：false</para>
                 /// </summary>
-                [JsonProperty("folded")]
+                [JsonPropertyName("folded")]
                 public bool? Folded { get; set; }
 
                 /// <summary>
@@ -211,7 +210,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <item>75：TOML</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("language")]
+                [JsonPropertyName("language")]
                 public int? Language { get; set; }
 
                 /// <summary>
@@ -220,7 +219,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>示例值：true</para>
                 /// <para>默认值：false</para>
                 /// </summary>
-                [JsonProperty("wrap")]
+                [JsonPropertyName("wrap")]
                 public bool? Wrap { get; set; }
             }
 
@@ -228,7 +227,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <para>文本元素</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("elements")]
+            [JsonPropertyName("elements")]
             public TextElement[] Elements { get; set; } = Array.Empty<TextElement>();
 
             /// <summary>
@@ -240,7 +239,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>文字</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("text_run")]
+                [JsonPropertyName("text_run")]
                 public TextElementTextRun? TextRun { get; set; }
 
                 /// <summary>
@@ -253,14 +252,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：文本</para>
                     /// </summary>
-                    [JsonProperty("content")]
+                    [JsonPropertyName("content")]
                     public string Content { get; set; } = string.Empty;
 
                     /// <summary>
                     /// <para>文本局部样式</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_element_style")]
+                    [JsonPropertyName("text_element_style")]
                     public TextElementTextRunTextElementStyle? TextElementStyle { get; set; }
 
                     /// <summary>
@@ -274,7 +273,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("bold")]
+                        [JsonPropertyName("bold")]
                         public bool? Bold { get; set; }
 
                         /// <summary>
@@ -283,7 +282,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("italic")]
+                        [JsonPropertyName("italic")]
                         public bool? Italic { get; set; }
 
                         /// <summary>
@@ -292,7 +291,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("strikethrough")]
+                        [JsonPropertyName("strikethrough")]
                         public bool? Strikethrough { get; set; }
 
                         /// <summary>
@@ -301,7 +300,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("underline")]
+                        [JsonPropertyName("underline")]
                         public bool? Underline { get; set; }
 
                         /// <summary>
@@ -310,7 +309,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("inline_code")]
+                        [JsonPropertyName("inline_code")]
                         public bool? InlineCode { get; set; }
 
                         /// <summary>
@@ -335,7 +334,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>15：暗银灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("background_color")]
+                        [JsonPropertyName("background_color")]
                         public int? BackgroundColor { get; set; }
 
                         /// <summary>
@@ -352,14 +351,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>7：灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("text_color")]
+                        [JsonPropertyName("text_color")]
                         public int? TextColor { get; set; }
 
                         /// <summary>
                         /// <para>链接</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("link")]
+                        [JsonPropertyName("link")]
                         public TextElementTextRunTextElementStyleLink? Link { get; set; }
 
                         /// <summary>
@@ -372,7 +371,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https%3A%2F%2Fopen.feishu.cn%2F</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -381,7 +380,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：["1660030311959965796"]</para>
                         /// </summary>
-                        [JsonProperty("comment_ids")]
+                        [JsonPropertyName("comment_ids")]
                         public string[]? CommentIds { get; set; }
                     }
                 }
@@ -390,7 +389,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>@用户</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("mention_user")]
+                [JsonPropertyName("mention_user")]
                 public TextElementMentionUser? MentionUser { get; set; }
 
                 /// <summary>
@@ -403,14 +402,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：ou_3bbe8a09c20e89cce9bff989ed840674</para>
                     /// </summary>
-                    [JsonProperty("user_id")]
+                    [JsonPropertyName("user_id")]
                     public string UserId { get; set; } = string.Empty;
 
                     /// <summary>
                     /// <para>文本局部样式</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_element_style")]
+                    [JsonPropertyName("text_element_style")]
                     public TextElementMentionUserTextElementStyle? TextElementStyle { get; set; }
 
                     /// <summary>
@@ -424,7 +423,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("bold")]
+                        [JsonPropertyName("bold")]
                         public bool? Bold { get; set; }
 
                         /// <summary>
@@ -433,7 +432,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("italic")]
+                        [JsonPropertyName("italic")]
                         public bool? Italic { get; set; }
 
                         /// <summary>
@@ -442,7 +441,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("strikethrough")]
+                        [JsonPropertyName("strikethrough")]
                         public bool? Strikethrough { get; set; }
 
                         /// <summary>
@@ -451,7 +450,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("underline")]
+                        [JsonPropertyName("underline")]
                         public bool? Underline { get; set; }
 
                         /// <summary>
@@ -460,7 +459,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("inline_code")]
+                        [JsonPropertyName("inline_code")]
                         public bool? InlineCode { get; set; }
 
                         /// <summary>
@@ -485,7 +484,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>15：暗银灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("background_color")]
+                        [JsonPropertyName("background_color")]
                         public int? BackgroundColor { get; set; }
 
                         /// <summary>
@@ -502,14 +501,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>7：灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("text_color")]
+                        [JsonPropertyName("text_color")]
                         public int? TextColor { get; set; }
 
                         /// <summary>
                         /// <para>链接</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("link")]
+                        [JsonPropertyName("link")]
                         public TextElementMentionUserTextElementStyleLink? Link { get; set; }
 
                         /// <summary>
@@ -522,7 +521,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https%3A%2F%2Fopen.feishu.cn%2F</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -531,7 +530,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：["1660030311959965796"]</para>
                         /// </summary>
-                        [JsonProperty("comment_ids")]
+                        [JsonPropertyName("comment_ids")]
                         public string[]? CommentIds { get; set; }
                     }
                 }
@@ -540,7 +539,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>@文档</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("mention_doc")]
+                [JsonPropertyName("mention_doc")]
                 public TextElementMentionDoc? MentionDoc { get; set; }
 
                 /// <summary>
@@ -553,7 +552,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：doxbc873Y7cXD153gXqb76G1Y9b</para>
                     /// </summary>
-                    [JsonProperty("token")]
+                    [JsonPropertyName("token")]
                     public string Token { get; set; } = string.Empty;
 
                     /// <summary>
@@ -571,7 +570,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <item>22：Docx</item>
                     /// </list></para>
                     /// </summary>
-                    [JsonProperty("obj_type")]
+                    [JsonPropertyName("obj_type")]
                     public int ObjType { get; set; }
 
                     /// <summary>
@@ -579,14 +578,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b</para>
                     /// </summary>
-                    [JsonProperty("url")]
+                    [JsonPropertyName("url")]
                     public string Url { get; set; } = string.Empty;
 
                     /// <summary>
                     /// <para>文本局部样式</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_element_style")]
+                    [JsonPropertyName("text_element_style")]
                     public TextElementMentionDocTextElementStyle? TextElementStyle { get; set; }
 
                     /// <summary>
@@ -600,7 +599,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("bold")]
+                        [JsonPropertyName("bold")]
                         public bool? Bold { get; set; }
 
                         /// <summary>
@@ -609,7 +608,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("italic")]
+                        [JsonPropertyName("italic")]
                         public bool? Italic { get; set; }
 
                         /// <summary>
@@ -618,7 +617,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("strikethrough")]
+                        [JsonPropertyName("strikethrough")]
                         public bool? Strikethrough { get; set; }
 
                         /// <summary>
@@ -627,7 +626,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("underline")]
+                        [JsonPropertyName("underline")]
                         public bool? Underline { get; set; }
 
                         /// <summary>
@@ -636,7 +635,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("inline_code")]
+                        [JsonPropertyName("inline_code")]
                         public bool? InlineCode { get; set; }
 
                         /// <summary>
@@ -661,7 +660,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>15：暗银灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("background_color")]
+                        [JsonPropertyName("background_color")]
                         public int? BackgroundColor { get; set; }
 
                         /// <summary>
@@ -678,14 +677,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>7：灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("text_color")]
+                        [JsonPropertyName("text_color")]
                         public int? TextColor { get; set; }
 
                         /// <summary>
                         /// <para>链接</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("link")]
+                        [JsonPropertyName("link")]
                         public TextElementMentionDocTextElementStyleLink? Link { get; set; }
 
                         /// <summary>
@@ -698,7 +697,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https%3A%2F%2Fopen.feishu.cn%2F</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -707,7 +706,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：["1660030311959965796"]</para>
                         /// </summary>
-                        [JsonProperty("comment_ids")]
+                        [JsonPropertyName("comment_ids")]
                         public string[]? CommentIds { get; set; }
                     }
                 }
@@ -716,7 +715,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>日期提醒</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("reminder")]
+                [JsonPropertyName("reminder")]
                 public TextElementReminder? Reminder { get; set; }
 
                 /// <summary>
@@ -729,7 +728,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：0e2633a3-aa1a-4171-af9e-0768ff863566</para>
                     /// </summary>
-                    [JsonProperty("create_user_id")]
+                    [JsonPropertyName("create_user_id")]
                     public string CreateUserId { get; set; } = string.Empty;
 
                     /// <summary>
@@ -738,7 +737,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>示例值：true</para>
                     /// <para>默认值：false</para>
                     /// </summary>
-                    [JsonProperty("is_whole_day")]
+                    [JsonPropertyName("is_whole_day")]
                     public bool? IsWholeDay { get; set; }
 
                     /// <summary>
@@ -746,14 +745,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：1641967200000</para>
                     /// </summary>
-                    [JsonProperty("expire_time")]
+                    [JsonPropertyName("expire_time")]
                     public string ExpireTime { get; set; } = string.Empty;
 
                     /// <summary>
                     /// <para>文本局部样式</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_element_style")]
+                    [JsonPropertyName("text_element_style")]
                     public TextElementReminderTextElementStyle? TextElementStyle { get; set; }
 
                     /// <summary>
@@ -767,7 +766,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("bold")]
+                        [JsonPropertyName("bold")]
                         public bool? Bold { get; set; }
 
                         /// <summary>
@@ -776,7 +775,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("italic")]
+                        [JsonPropertyName("italic")]
                         public bool? Italic { get; set; }
 
                         /// <summary>
@@ -785,7 +784,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("strikethrough")]
+                        [JsonPropertyName("strikethrough")]
                         public bool? Strikethrough { get; set; }
 
                         /// <summary>
@@ -794,7 +793,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("underline")]
+                        [JsonPropertyName("underline")]
                         public bool? Underline { get; set; }
 
                         /// <summary>
@@ -803,7 +802,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("inline_code")]
+                        [JsonPropertyName("inline_code")]
                         public bool? InlineCode { get; set; }
 
                         /// <summary>
@@ -828,7 +827,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>15：暗银灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("background_color")]
+                        [JsonPropertyName("background_color")]
                         public int? BackgroundColor { get; set; }
 
                         /// <summary>
@@ -845,14 +844,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>7：灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("text_color")]
+                        [JsonPropertyName("text_color")]
                         public int? TextColor { get; set; }
 
                         /// <summary>
                         /// <para>链接</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("link")]
+                        [JsonPropertyName("link")]
                         public TextElementReminderTextElementStyleLink? Link { get; set; }
 
                         /// <summary>
@@ -865,7 +864,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https%3A%2F%2Fopen.feishu.cn%2F</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -874,7 +873,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：["1660030311959965796"]</para>
                         /// </summary>
-                        [JsonProperty("comment_ids")]
+                        [JsonPropertyName("comment_ids")]
                         public string[]? CommentIds { get; set; }
                     }
                 }
@@ -883,7 +882,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>内联附件</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("file")]
+                [JsonPropertyName("file")]
                 public InlineFile? File { get; set; }
 
                 /// <summary>
@@ -896,7 +895,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：boxcnOj88GDkmWGm2zsTyCBqoLb</para>
                     /// </summary>
-                    [JsonProperty("file_token")]
+                    [JsonPropertyName("file_token")]
                     public string? FileToken { get; set; }
 
                     /// <summary>
@@ -904,14 +903,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：doxcnM46kSWSkgUMW04ldKsJDsc</para>
                     /// </summary>
-                    [JsonProperty("source_block_id")]
+                    [JsonPropertyName("source_block_id")]
                     public string? SourceBlockId { get; set; }
 
                     /// <summary>
                     /// <para>文本局部样式</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_element_style")]
+                    [JsonPropertyName("text_element_style")]
                     public InlineFileTextElementStyle? TextElementStyle { get; set; }
 
                     /// <summary>
@@ -925,7 +924,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("bold")]
+                        [JsonPropertyName("bold")]
                         public bool? Bold { get; set; }
 
                         /// <summary>
@@ -934,7 +933,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("italic")]
+                        [JsonPropertyName("italic")]
                         public bool? Italic { get; set; }
 
                         /// <summary>
@@ -943,7 +942,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("strikethrough")]
+                        [JsonPropertyName("strikethrough")]
                         public bool? Strikethrough { get; set; }
 
                         /// <summary>
@@ -952,7 +951,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("underline")]
+                        [JsonPropertyName("underline")]
                         public bool? Underline { get; set; }
 
                         /// <summary>
@@ -961,7 +960,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("inline_code")]
+                        [JsonPropertyName("inline_code")]
                         public bool? InlineCode { get; set; }
 
                         /// <summary>
@@ -986,7 +985,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>15：暗银灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("background_color")]
+                        [JsonPropertyName("background_color")]
                         public int? BackgroundColor { get; set; }
 
                         /// <summary>
@@ -1003,14 +1002,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>7：灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("text_color")]
+                        [JsonPropertyName("text_color")]
                         public int? TextColor { get; set; }
 
                         /// <summary>
                         /// <para>链接</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("link")]
+                        [JsonPropertyName("link")]
                         public InlineFileTextElementStyleLink? Link { get; set; }
 
                         /// <summary>
@@ -1023,7 +1022,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https%3A%2F%2Fopen.feishu.cn%2F</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -1032,7 +1031,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：["1660030311959965796"]</para>
                         /// </summary>
-                        [JsonProperty("comment_ids")]
+                        [JsonPropertyName("comment_ids")]
                         public string[]? CommentIds { get; set; }
                     }
                 }
@@ -1041,7 +1040,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>内联 block</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("inline_block")]
+                [JsonPropertyName("inline_block")]
                 public TextElementInlineBlock? InlineBlock { get; set; }
 
                 /// <summary>
@@ -1054,14 +1053,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：doxcnPFi0R56ctbvh2MjkkROFWf</para>
                     /// </summary>
-                    [JsonProperty("block_id")]
+                    [JsonPropertyName("block_id")]
                     public string BlockId { get; set; } = string.Empty;
 
                     /// <summary>
                     /// <para>文本局部样式</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_element_style")]
+                    [JsonPropertyName("text_element_style")]
                     public TextElementInlineBlockTextElementStyle? TextElementStyle { get; set; }
 
                     /// <summary>
@@ -1075,7 +1074,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("bold")]
+                        [JsonPropertyName("bold")]
                         public bool? Bold { get; set; }
 
                         /// <summary>
@@ -1084,7 +1083,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("italic")]
+                        [JsonPropertyName("italic")]
                         public bool? Italic { get; set; }
 
                         /// <summary>
@@ -1093,7 +1092,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("strikethrough")]
+                        [JsonPropertyName("strikethrough")]
                         public bool? Strikethrough { get; set; }
 
                         /// <summary>
@@ -1102,7 +1101,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("underline")]
+                        [JsonPropertyName("underline")]
                         public bool? Underline { get; set; }
 
                         /// <summary>
@@ -1111,7 +1110,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("inline_code")]
+                        [JsonPropertyName("inline_code")]
                         public bool? InlineCode { get; set; }
 
                         /// <summary>
@@ -1136,7 +1135,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>15：暗银灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("background_color")]
+                        [JsonPropertyName("background_color")]
                         public int? BackgroundColor { get; set; }
 
                         /// <summary>
@@ -1153,14 +1152,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>7：灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("text_color")]
+                        [JsonPropertyName("text_color")]
                         public int? TextColor { get; set; }
 
                         /// <summary>
                         /// <para>链接</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("link")]
+                        [JsonPropertyName("link")]
                         public TextElementInlineBlockTextElementStyleLink? Link { get; set; }
 
                         /// <summary>
@@ -1173,7 +1172,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https%3A%2F%2Fopen.feishu.cn%2F</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -1182,7 +1181,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：["1660030311959965796"]</para>
                         /// </summary>
-                        [JsonProperty("comment_ids")]
+                        [JsonPropertyName("comment_ids")]
                         public string[]? CommentIds { get; set; }
                     }
                 }
@@ -1191,7 +1190,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>公式</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("equation")]
+                [JsonPropertyName("equation")]
                 public TextElementEquation? Equation { get; set; }
 
                 /// <summary>
@@ -1204,14 +1203,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：E=mc^2\n</para>
                     /// </summary>
-                    [JsonProperty("content")]
+                    [JsonPropertyName("content")]
                     public string Content { get; set; } = string.Empty;
 
                     /// <summary>
                     /// <para>文本局部样式</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_element_style")]
+                    [JsonPropertyName("text_element_style")]
                     public TextElementEquationTextElementStyle? TextElementStyle { get; set; }
 
                     /// <summary>
@@ -1225,7 +1224,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("bold")]
+                        [JsonPropertyName("bold")]
                         public bool? Bold { get; set; }
 
                         /// <summary>
@@ -1234,7 +1233,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("italic")]
+                        [JsonPropertyName("italic")]
                         public bool? Italic { get; set; }
 
                         /// <summary>
@@ -1243,7 +1242,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("strikethrough")]
+                        [JsonPropertyName("strikethrough")]
                         public bool? Strikethrough { get; set; }
 
                         /// <summary>
@@ -1252,7 +1251,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("underline")]
+                        [JsonPropertyName("underline")]
                         public bool? Underline { get; set; }
 
                         /// <summary>
@@ -1261,7 +1260,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("inline_code")]
+                        [JsonPropertyName("inline_code")]
                         public bool? InlineCode { get; set; }
 
                         /// <summary>
@@ -1286,7 +1285,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>15：暗银灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("background_color")]
+                        [JsonPropertyName("background_color")]
                         public int? BackgroundColor { get; set; }
 
                         /// <summary>
@@ -1303,14 +1302,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>7：灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("text_color")]
+                        [JsonPropertyName("text_color")]
                         public int? TextColor { get; set; }
 
                         /// <summary>
                         /// <para>链接</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("link")]
+                        [JsonPropertyName("link")]
                         public TextElementEquationTextElementStyleLink? Link { get; set; }
 
                         /// <summary>
@@ -1323,7 +1322,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https%3A%2F%2Fopen.feishu.cn%2F</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -1332,7 +1331,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：["1660030311959965796"]</para>
                         /// </summary>
-                        [JsonProperty("comment_ids")]
+                        [JsonPropertyName("comment_ids")]
                         public string[]? CommentIds { get; set; }
                     }
                 }
@@ -1343,7 +1342,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
         /// <para>一级标题 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("heading1")]
+        [JsonPropertyName("heading1")]
         public TextSuffix? Heading1 { get; set; }
 
         /// <summary>
@@ -1355,7 +1354,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <para>文本样式</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("style")]
+            [JsonPropertyName("style")]
             public TextStyle? Style { get; set; }
 
             /// <summary>
@@ -1374,7 +1373,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// </list></para>
                 /// <para>默认值：1</para>
                 /// </summary>
-                [JsonProperty("align")]
+                [JsonPropertyName("align")]
                 public int? Align { get; set; }
 
                 /// <summary>
@@ -1383,7 +1382,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>示例值：true</para>
                 /// <para>默认值：false</para>
                 /// </summary>
-                [JsonProperty("done")]
+                [JsonPropertyName("done")]
                 public bool? Done { get; set; }
 
                 /// <summary>
@@ -1392,7 +1391,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>示例值：true</para>
                 /// <para>默认值：false</para>
                 /// </summary>
-                [JsonProperty("folded")]
+                [JsonPropertyName("folded")]
                 public bool? Folded { get; set; }
 
                 /// <summary>
@@ -1477,7 +1476,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <item>75：TOML</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("language")]
+                [JsonPropertyName("language")]
                 public int? Language { get; set; }
 
                 /// <summary>
@@ -1486,7 +1485,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>示例值：true</para>
                 /// <para>默认值：false</para>
                 /// </summary>
-                [JsonProperty("wrap")]
+                [JsonPropertyName("wrap")]
                 public bool? Wrap { get; set; }
             }
 
@@ -1494,7 +1493,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <para>文本元素</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("elements")]
+            [JsonPropertyName("elements")]
             public TextElement[] Elements { get; set; } = Array.Empty<TextElement>();
 
             /// <summary>
@@ -1506,7 +1505,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>文字</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("text_run")]
+                [JsonPropertyName("text_run")]
                 public TextElementTextRun? TextRun { get; set; }
 
                 /// <summary>
@@ -1519,14 +1518,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：文本</para>
                     /// </summary>
-                    [JsonProperty("content")]
+                    [JsonPropertyName("content")]
                     public string Content { get; set; } = string.Empty;
 
                     /// <summary>
                     /// <para>文本局部样式</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_element_style")]
+                    [JsonPropertyName("text_element_style")]
                     public TextElementTextRunTextElementStyle? TextElementStyle { get; set; }
 
                     /// <summary>
@@ -1540,7 +1539,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("bold")]
+                        [JsonPropertyName("bold")]
                         public bool? Bold { get; set; }
 
                         /// <summary>
@@ -1549,7 +1548,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("italic")]
+                        [JsonPropertyName("italic")]
                         public bool? Italic { get; set; }
 
                         /// <summary>
@@ -1558,7 +1557,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("strikethrough")]
+                        [JsonPropertyName("strikethrough")]
                         public bool? Strikethrough { get; set; }
 
                         /// <summary>
@@ -1567,7 +1566,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("underline")]
+                        [JsonPropertyName("underline")]
                         public bool? Underline { get; set; }
 
                         /// <summary>
@@ -1576,7 +1575,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("inline_code")]
+                        [JsonPropertyName("inline_code")]
                         public bool? InlineCode { get; set; }
 
                         /// <summary>
@@ -1601,7 +1600,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>15：暗银灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("background_color")]
+                        [JsonPropertyName("background_color")]
                         public int? BackgroundColor { get; set; }
 
                         /// <summary>
@@ -1618,14 +1617,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>7：灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("text_color")]
+                        [JsonPropertyName("text_color")]
                         public int? TextColor { get; set; }
 
                         /// <summary>
                         /// <para>链接</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("link")]
+                        [JsonPropertyName("link")]
                         public TextElementTextRunTextElementStyleLink? Link { get; set; }
 
                         /// <summary>
@@ -1638,7 +1637,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https%3A%2F%2Fopen.feishu.cn%2F</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -1647,7 +1646,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：["1660030311959965796"]</para>
                         /// </summary>
-                        [JsonProperty("comment_ids")]
+                        [JsonPropertyName("comment_ids")]
                         public string[]? CommentIds { get; set; }
                     }
                 }
@@ -1656,7 +1655,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>@用户</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("mention_user")]
+                [JsonPropertyName("mention_user")]
                 public TextElementMentionUser? MentionUser { get; set; }
 
                 /// <summary>
@@ -1669,14 +1668,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：ou_3bbe8a09c20e89cce9bff989ed840674</para>
                     /// </summary>
-                    [JsonProperty("user_id")]
+                    [JsonPropertyName("user_id")]
                     public string UserId { get; set; } = string.Empty;
 
                     /// <summary>
                     /// <para>文本局部样式</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_element_style")]
+                    [JsonPropertyName("text_element_style")]
                     public TextElementMentionUserTextElementStyle? TextElementStyle { get; set; }
 
                     /// <summary>
@@ -1690,7 +1689,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("bold")]
+                        [JsonPropertyName("bold")]
                         public bool? Bold { get; set; }
 
                         /// <summary>
@@ -1699,7 +1698,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("italic")]
+                        [JsonPropertyName("italic")]
                         public bool? Italic { get; set; }
 
                         /// <summary>
@@ -1708,7 +1707,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("strikethrough")]
+                        [JsonPropertyName("strikethrough")]
                         public bool? Strikethrough { get; set; }
 
                         /// <summary>
@@ -1717,7 +1716,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("underline")]
+                        [JsonPropertyName("underline")]
                         public bool? Underline { get; set; }
 
                         /// <summary>
@@ -1726,7 +1725,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("inline_code")]
+                        [JsonPropertyName("inline_code")]
                         public bool? InlineCode { get; set; }
 
                         /// <summary>
@@ -1751,7 +1750,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>15：暗银灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("background_color")]
+                        [JsonPropertyName("background_color")]
                         public int? BackgroundColor { get; set; }
 
                         /// <summary>
@@ -1768,14 +1767,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>7：灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("text_color")]
+                        [JsonPropertyName("text_color")]
                         public int? TextColor { get; set; }
 
                         /// <summary>
                         /// <para>链接</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("link")]
+                        [JsonPropertyName("link")]
                         public TextElementMentionUserTextElementStyleLink? Link { get; set; }
 
                         /// <summary>
@@ -1788,7 +1787,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https%3A%2F%2Fopen.feishu.cn%2F</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -1797,7 +1796,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：["1660030311959965796"]</para>
                         /// </summary>
-                        [JsonProperty("comment_ids")]
+                        [JsonPropertyName("comment_ids")]
                         public string[]? CommentIds { get; set; }
                     }
                 }
@@ -1806,7 +1805,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>@文档</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("mention_doc")]
+                [JsonPropertyName("mention_doc")]
                 public TextElementMentionDoc? MentionDoc { get; set; }
 
                 /// <summary>
@@ -1819,7 +1818,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：doxbc873Y7cXD153gXqb76G1Y9b</para>
                     /// </summary>
-                    [JsonProperty("token")]
+                    [JsonPropertyName("token")]
                     public string Token { get; set; } = string.Empty;
 
                     /// <summary>
@@ -1837,7 +1836,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <item>22：Docx</item>
                     /// </list></para>
                     /// </summary>
-                    [JsonProperty("obj_type")]
+                    [JsonPropertyName("obj_type")]
                     public int ObjType { get; set; }
 
                     /// <summary>
@@ -1845,14 +1844,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b</para>
                     /// </summary>
-                    [JsonProperty("url")]
+                    [JsonPropertyName("url")]
                     public string Url { get; set; } = string.Empty;
 
                     /// <summary>
                     /// <para>文本局部样式</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_element_style")]
+                    [JsonPropertyName("text_element_style")]
                     public TextElementMentionDocTextElementStyle? TextElementStyle { get; set; }
 
                     /// <summary>
@@ -1866,7 +1865,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("bold")]
+                        [JsonPropertyName("bold")]
                         public bool? Bold { get; set; }
 
                         /// <summary>
@@ -1875,7 +1874,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("italic")]
+                        [JsonPropertyName("italic")]
                         public bool? Italic { get; set; }
 
                         /// <summary>
@@ -1884,7 +1883,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("strikethrough")]
+                        [JsonPropertyName("strikethrough")]
                         public bool? Strikethrough { get; set; }
 
                         /// <summary>
@@ -1893,7 +1892,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("underline")]
+                        [JsonPropertyName("underline")]
                         public bool? Underline { get; set; }
 
                         /// <summary>
@@ -1902,7 +1901,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("inline_code")]
+                        [JsonPropertyName("inline_code")]
                         public bool? InlineCode { get; set; }
 
                         /// <summary>
@@ -1927,7 +1926,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>15：暗银灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("background_color")]
+                        [JsonPropertyName("background_color")]
                         public int? BackgroundColor { get; set; }
 
                         /// <summary>
@@ -1944,14 +1943,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>7：灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("text_color")]
+                        [JsonPropertyName("text_color")]
                         public int? TextColor { get; set; }
 
                         /// <summary>
                         /// <para>链接</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("link")]
+                        [JsonPropertyName("link")]
                         public TextElementMentionDocTextElementStyleLink? Link { get; set; }
 
                         /// <summary>
@@ -1964,7 +1963,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https%3A%2F%2Fopen.feishu.cn%2F</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -1973,7 +1972,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：["1660030311959965796"]</para>
                         /// </summary>
-                        [JsonProperty("comment_ids")]
+                        [JsonPropertyName("comment_ids")]
                         public string[]? CommentIds { get; set; }
                     }
                 }
@@ -1982,7 +1981,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>日期提醒</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("reminder")]
+                [JsonPropertyName("reminder")]
                 public TextElementReminder? Reminder { get; set; }
 
                 /// <summary>
@@ -1995,7 +1994,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：0e2633a3-aa1a-4171-af9e-0768ff863566</para>
                     /// </summary>
-                    [JsonProperty("create_user_id")]
+                    [JsonPropertyName("create_user_id")]
                     public string CreateUserId { get; set; } = string.Empty;
 
                     /// <summary>
@@ -2004,7 +2003,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>示例值：true</para>
                     /// <para>默认值：false</para>
                     /// </summary>
-                    [JsonProperty("is_whole_day")]
+                    [JsonPropertyName("is_whole_day")]
                     public bool? IsWholeDay { get; set; }
 
                     /// <summary>
@@ -2012,14 +2011,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：1641967200000</para>
                     /// </summary>
-                    [JsonProperty("expire_time")]
+                    [JsonPropertyName("expire_time")]
                     public string ExpireTime { get; set; } = string.Empty;
 
                     /// <summary>
                     /// <para>文本局部样式</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_element_style")]
+                    [JsonPropertyName("text_element_style")]
                     public TextElementReminderTextElementStyle? TextElementStyle { get; set; }
 
                     /// <summary>
@@ -2033,7 +2032,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("bold")]
+                        [JsonPropertyName("bold")]
                         public bool? Bold { get; set; }
 
                         /// <summary>
@@ -2042,7 +2041,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("italic")]
+                        [JsonPropertyName("italic")]
                         public bool? Italic { get; set; }
 
                         /// <summary>
@@ -2051,7 +2050,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("strikethrough")]
+                        [JsonPropertyName("strikethrough")]
                         public bool? Strikethrough { get; set; }
 
                         /// <summary>
@@ -2060,7 +2059,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("underline")]
+                        [JsonPropertyName("underline")]
                         public bool? Underline { get; set; }
 
                         /// <summary>
@@ -2069,7 +2068,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("inline_code")]
+                        [JsonPropertyName("inline_code")]
                         public bool? InlineCode { get; set; }
 
                         /// <summary>
@@ -2094,7 +2093,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>15：暗银灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("background_color")]
+                        [JsonPropertyName("background_color")]
                         public int? BackgroundColor { get; set; }
 
                         /// <summary>
@@ -2111,14 +2110,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>7：灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("text_color")]
+                        [JsonPropertyName("text_color")]
                         public int? TextColor { get; set; }
 
                         /// <summary>
                         /// <para>链接</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("link")]
+                        [JsonPropertyName("link")]
                         public TextElementReminderTextElementStyleLink? Link { get; set; }
 
                         /// <summary>
@@ -2131,7 +2130,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https%3A%2F%2Fopen.feishu.cn%2F</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -2140,7 +2139,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：["1660030311959965796"]</para>
                         /// </summary>
-                        [JsonProperty("comment_ids")]
+                        [JsonPropertyName("comment_ids")]
                         public string[]? CommentIds { get; set; }
                     }
                 }
@@ -2149,7 +2148,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>内联附件</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("file")]
+                [JsonPropertyName("file")]
                 public InlineFile? File { get; set; }
 
                 /// <summary>
@@ -2162,7 +2161,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：boxcnOj88GDkmWGm2zsTyCBqoLb</para>
                     /// </summary>
-                    [JsonProperty("file_token")]
+                    [JsonPropertyName("file_token")]
                     public string? FileToken { get; set; }
 
                     /// <summary>
@@ -2170,14 +2169,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：否</para>
                     /// <para>示例值：doxcnM46kSWSkgUMW04ldKsJDsc</para>
                     /// </summary>
-                    [JsonProperty("source_block_id")]
+                    [JsonPropertyName("source_block_id")]
                     public string? SourceBlockId { get; set; }
 
                     /// <summary>
                     /// <para>文本局部样式</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_element_style")]
+                    [JsonPropertyName("text_element_style")]
                     public InlineFileTextElementStyle? TextElementStyle { get; set; }
 
                     /// <summary>
@@ -2191,7 +2190,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("bold")]
+                        [JsonPropertyName("bold")]
                         public bool? Bold { get; set; }
 
                         /// <summary>
@@ -2200,7 +2199,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("italic")]
+                        [JsonPropertyName("italic")]
                         public bool? Italic { get; set; }
 
                         /// <summary>
@@ -2209,7 +2208,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("strikethrough")]
+                        [JsonPropertyName("strikethrough")]
                         public bool? Strikethrough { get; set; }
 
                         /// <summary>
@@ -2218,7 +2217,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("underline")]
+                        [JsonPropertyName("underline")]
                         public bool? Underline { get; set; }
 
                         /// <summary>
@@ -2227,7 +2226,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("inline_code")]
+                        [JsonPropertyName("inline_code")]
                         public bool? InlineCode { get; set; }
 
                         /// <summary>
@@ -2252,7 +2251,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>15：暗银灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("background_color")]
+                        [JsonPropertyName("background_color")]
                         public int? BackgroundColor { get; set; }
 
                         /// <summary>
@@ -2269,14 +2268,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>7：灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("text_color")]
+                        [JsonPropertyName("text_color")]
                         public int? TextColor { get; set; }
 
                         /// <summary>
                         /// <para>链接</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("link")]
+                        [JsonPropertyName("link")]
                         public InlineFileTextElementStyleLink? Link { get; set; }
 
                         /// <summary>
@@ -2289,7 +2288,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https%3A%2F%2Fopen.feishu.cn%2F</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -2298,7 +2297,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：["1660030311959965796"]</para>
                         /// </summary>
-                        [JsonProperty("comment_ids")]
+                        [JsonPropertyName("comment_ids")]
                         public string[]? CommentIds { get; set; }
                     }
                 }
@@ -2307,7 +2306,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>内联 block</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("inline_block")]
+                [JsonPropertyName("inline_block")]
                 public TextElementInlineBlock? InlineBlock { get; set; }
 
                 /// <summary>
@@ -2320,14 +2319,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：doxcnPFi0R56ctbvh2MjkkROFWf</para>
                     /// </summary>
-                    [JsonProperty("block_id")]
+                    [JsonPropertyName("block_id")]
                     public string BlockId { get; set; } = string.Empty;
 
                     /// <summary>
                     /// <para>文本局部样式</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_element_style")]
+                    [JsonPropertyName("text_element_style")]
                     public TextElementInlineBlockTextElementStyle? TextElementStyle { get; set; }
 
                     /// <summary>
@@ -2341,7 +2340,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("bold")]
+                        [JsonPropertyName("bold")]
                         public bool? Bold { get; set; }
 
                         /// <summary>
@@ -2350,7 +2349,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("italic")]
+                        [JsonPropertyName("italic")]
                         public bool? Italic { get; set; }
 
                         /// <summary>
@@ -2359,7 +2358,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("strikethrough")]
+                        [JsonPropertyName("strikethrough")]
                         public bool? Strikethrough { get; set; }
 
                         /// <summary>
@@ -2368,7 +2367,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("underline")]
+                        [JsonPropertyName("underline")]
                         public bool? Underline { get; set; }
 
                         /// <summary>
@@ -2377,7 +2376,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("inline_code")]
+                        [JsonPropertyName("inline_code")]
                         public bool? InlineCode { get; set; }
 
                         /// <summary>
@@ -2402,7 +2401,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>15：暗银灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("background_color")]
+                        [JsonPropertyName("background_color")]
                         public int? BackgroundColor { get; set; }
 
                         /// <summary>
@@ -2419,14 +2418,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>7：灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("text_color")]
+                        [JsonPropertyName("text_color")]
                         public int? TextColor { get; set; }
 
                         /// <summary>
                         /// <para>链接</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("link")]
+                        [JsonPropertyName("link")]
                         public TextElementInlineBlockTextElementStyleLink? Link { get; set; }
 
                         /// <summary>
@@ -2439,7 +2438,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https%3A%2F%2Fopen.feishu.cn%2F</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -2448,7 +2447,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：["1660030311959965796"]</para>
                         /// </summary>
-                        [JsonProperty("comment_ids")]
+                        [JsonPropertyName("comment_ids")]
                         public string[]? CommentIds { get; set; }
                     }
                 }
@@ -2457,7 +2456,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>公式</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("equation")]
+                [JsonPropertyName("equation")]
                 public TextElementEquation? Equation { get; set; }
 
                 /// <summary>
@@ -2470,14 +2469,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>必填：是</para>
                     /// <para>示例值：E=mc^2\n</para>
                     /// </summary>
-                    [JsonProperty("content")]
+                    [JsonPropertyName("content")]
                     public string Content { get; set; } = string.Empty;
 
                     /// <summary>
                     /// <para>文本局部样式</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("text_element_style")]
+                    [JsonPropertyName("text_element_style")]
                     public TextElementEquationTextElementStyle? TextElementStyle { get; set; }
 
                     /// <summary>
@@ -2491,7 +2490,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("bold")]
+                        [JsonPropertyName("bold")]
                         public bool? Bold { get; set; }
 
                         /// <summary>
@@ -2500,7 +2499,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("italic")]
+                        [JsonPropertyName("italic")]
                         public bool? Italic { get; set; }
 
                         /// <summary>
@@ -2509,7 +2508,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("strikethrough")]
+                        [JsonPropertyName("strikethrough")]
                         public bool? Strikethrough { get; set; }
 
                         /// <summary>
@@ -2518,7 +2517,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("underline")]
+                        [JsonPropertyName("underline")]
                         public bool? Underline { get; set; }
 
                         /// <summary>
@@ -2527,7 +2526,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>示例值：true</para>
                         /// <para>默认值：false</para>
                         /// </summary>
-                        [JsonProperty("inline_code")]
+                        [JsonPropertyName("inline_code")]
                         public bool? InlineCode { get; set; }
 
                         /// <summary>
@@ -2552,7 +2551,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>15：暗银灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("background_color")]
+                        [JsonPropertyName("background_color")]
                         public int? BackgroundColor { get; set; }
 
                         /// <summary>
@@ -2569,14 +2568,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <item>7：灰色</item>
                         /// </list></para>
                         /// </summary>
-                        [JsonProperty("text_color")]
+                        [JsonPropertyName("text_color")]
                         public int? TextColor { get; set; }
 
                         /// <summary>
                         /// <para>链接</para>
                         /// <para>必填：否</para>
                         /// </summary>
-                        [JsonProperty("link")]
+                        [JsonPropertyName("link")]
                         public TextElementEquationTextElementStyleLink? Link { get; set; }
 
                         /// <summary>
@@ -2589,7 +2588,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                             /// <para>必填：是</para>
                             /// <para>示例值：https%3A%2F%2Fopen.feishu.cn%2F</para>
                             /// </summary>
-                            [JsonProperty("url")]
+                            [JsonPropertyName("url")]
                             public string Url { get; set; } = string.Empty;
                         }
 
@@ -2598,7 +2597,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                         /// <para>必填：否</para>
                         /// <para>示例值：["1660030311959965796"]</para>
                         /// </summary>
-                        [JsonProperty("comment_ids")]
+                        [JsonPropertyName("comment_ids")]
                         public string[]? CommentIds { get; set; }
                     }
                 }
@@ -2609,105 +2608,105 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
         /// <para>二级标题 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("heading2")]
+        [JsonPropertyName("heading2")]
         public TextSuffix? Heading2 { get; set; }
 
         /// <summary>
         /// <para>三级标题 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("heading3")]
+        [JsonPropertyName("heading3")]
         public TextSuffix? Heading3 { get; set; }
 
         /// <summary>
         /// <para>四级标题 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("heading4")]
+        [JsonPropertyName("heading4")]
         public TextSuffix? Heading4 { get; set; }
 
         /// <summary>
         /// <para>五级标题 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("heading5")]
+        [JsonPropertyName("heading5")]
         public TextSuffix? Heading5 { get; set; }
 
         /// <summary>
         /// <para>六级标题 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("heading6")]
+        [JsonPropertyName("heading6")]
         public TextSuffix? Heading6 { get; set; }
 
         /// <summary>
         /// <para>七级标题 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("heading7")]
+        [JsonPropertyName("heading7")]
         public TextSuffix? Heading7 { get; set; }
 
         /// <summary>
         /// <para>八级标题 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("heading8")]
+        [JsonPropertyName("heading8")]
         public TextSuffix? Heading8 { get; set; }
 
         /// <summary>
         /// <para>九级标题 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("heading9")]
+        [JsonPropertyName("heading9")]
         public TextSuffix? Heading9 { get; set; }
 
         /// <summary>
         /// <para>无序列表 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("bullet")]
+        [JsonPropertyName("bullet")]
         public TextSuffix? Bullet { get; set; }
 
         /// <summary>
         /// <para>有序列表 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("ordered")]
+        [JsonPropertyName("ordered")]
         public TextSuffix? Ordered { get; set; }
 
         /// <summary>
         /// <para>代码块 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("code")]
+        [JsonPropertyName("code")]
         public TextSuffix? Code { get; set; }
 
         /// <summary>
         /// <para>引用 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("quote")]
+        [JsonPropertyName("quote")]
         public TextSuffix? Quote { get; set; }
 
         /// <summary>
         /// <para>公式 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("equation")]
+        [JsonPropertyName("equation")]
         public TextSuffix? Equation { get; set; }
 
         /// <summary>
         /// <para>待办事项 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("todo")]
+        [JsonPropertyName("todo")]
         public TextSuffix? Todo { get; set; }
 
         /// <summary>
         /// <para>多维表格 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("bitable")]
+        [JsonPropertyName("bitable")]
         public BlockBitable? Bitable { get; set; }
 
         /// <summary>
@@ -2724,7 +2723,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <item>2：看板</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("view_type")]
+            [JsonPropertyName("view_type")]
             public int? ViewType { get; set; }
         }
 
@@ -2732,7 +2731,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
         /// <para>高亮块 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("callout")]
+        [JsonPropertyName("callout")]
         public BlockCallout? Callout { get; set; }
 
         /// <summary>
@@ -2762,7 +2761,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <item>15：暗银灰色</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("background_color")]
+            [JsonPropertyName("background_color")]
             public int? BackgroundColor { get; set; }
 
             /// <summary>
@@ -2779,7 +2778,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <item>7：灰色</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("border_color")]
+            [JsonPropertyName("border_color")]
             public int? BorderColor { get; set; }
 
             /// <summary>
@@ -2796,7 +2795,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <item>7：灰色</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("text_color")]
+            [JsonPropertyName("text_color")]
             public int? TextColor { get; set; }
         }
 
@@ -2804,7 +2803,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
         /// <para>群聊卡片 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("chat_card")]
+        [JsonPropertyName("chat_card")]
         public BlockChatCard? ChatCard { get; set; }
 
         /// <summary>
@@ -2817,7 +2816,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：7052227140476993555</para>
             /// </summary>
-            [JsonProperty("chat_id")]
+            [JsonPropertyName("chat_id")]
             public string ChatId { get; set; } = string.Empty;
 
             /// <summary>
@@ -2831,7 +2830,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// </list></para>
             /// <para>默认值：1</para>
             /// </summary>
-            [JsonProperty("align")]
+            [JsonPropertyName("align")]
             public int? Align { get; set; }
         }
 
@@ -2839,21 +2838,21 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
         /// <para>分割线 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("divider")]
+        [JsonPropertyName("divider")]
         public object? Divider { get; set; }
 
         /// <summary>
         /// <para>文件 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("file")]
+        [JsonPropertyName("file")]
         public object? File { get; set; }
 
         /// <summary>
         /// <para>分栏 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("grid")]
+        [JsonPropertyName("grid")]
         public BlockGrid? Grid { get; set; }
 
         /// <summary>
@@ -2868,7 +2867,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <para>最大值：5</para>
             /// <para>最小值：2</para>
             /// </summary>
-            [JsonProperty("column_size")]
+            [JsonPropertyName("column_size")]
             public int ColumnSize { get; set; }
         }
 
@@ -2876,7 +2875,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
         /// <para>内嵌 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("iframe")]
+        [JsonPropertyName("iframe")]
         public BlockIframe? Iframe { get; set; }
 
         /// <summary>
@@ -2888,7 +2887,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <para>iframe 的组成元素</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("component")]
+            [JsonPropertyName("component")]
             public IframeComponent Component { get; set; } = new();
 
             /// <summary>
@@ -2919,7 +2918,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <item>99：Other</item>
                 /// </list></para>
                 /// </summary>
-                [JsonProperty("iframe_type")]
+                [JsonPropertyName("iframe_type")]
                 public int? IframeType { get; set; }
 
                 /// <summary>
@@ -2927,7 +2926,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：https%3A%2F%2Fwww.bilibili.com%2Fvideo%2FBV1Hi4y1w7V7</para>
                 /// </summary>
-                [JsonProperty("url")]
+                [JsonPropertyName("url")]
                 public string Url { get; set; } = string.Empty;
             }
         }
@@ -2936,21 +2935,21 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
         /// <para>图片 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("image")]
+        [JsonPropertyName("image")]
         public object? Image { get; set; }
 
         /// <summary>
         /// <para>三方 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("isv")]
+        [JsonPropertyName("isv")]
         public object? Isv { get; set; }
 
         /// <summary>
         /// <para>Add-ons</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("add_ons")]
+        [JsonPropertyName("add_ons")]
         public BlockAddOns? AddOns { get; set; }
 
         /// <summary>
@@ -2963,7 +2962,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：7056882725002051603</para>
             /// </summary>
-            [JsonProperty("component_id")]
+            [JsonPropertyName("component_id")]
             public string? ComponentId { get; set; }
 
             /// <summary>
@@ -2971,7 +2970,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：blk_636a0a6657db8001c8df5488</para>
             /// </summary>
-            [JsonProperty("component_type_id")]
+            [JsonPropertyName("component_type_id")]
             public string ComponentTypeId { get; set; } = string.Empty;
 
             /// <summary>
@@ -2979,7 +2978,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <para>必填：否</para>
             /// <para>示例值："{}"</para>
             /// </summary>
-            [JsonProperty("record")]
+            [JsonPropertyName("record")]
             public string? Record { get; set; }
         }
 
@@ -2987,7 +2986,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
         /// <para>电子表格 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("sheet")]
+        [JsonPropertyName("sheet")]
         public BlockSheet? Sheet { get; set; }
 
         /// <summary>
@@ -3002,7 +3001,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <para>最大值：9</para>
             /// <para>最小值：1</para>
             /// </summary>
-            [JsonProperty("row_size")]
+            [JsonPropertyName("row_size")]
             public int? RowSize { get; set; }
 
             /// <summary>
@@ -3012,7 +3011,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <para>最大值：9</para>
             /// <para>最小值：1</para>
             /// </summary>
-            [JsonProperty("column_size")]
+            [JsonPropertyName("column_size")]
             public int? ColumnSize { get; set; }
         }
 
@@ -3020,7 +3019,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
         /// <para>表格 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("table")]
+        [JsonPropertyName("table")]
         public BlockTable? Table { get; set; }
 
         /// <summary>
@@ -3032,7 +3031,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <para>表格属性</para>
             /// <para>必填：是</para>
             /// </summary>
-            [JsonProperty("property")]
+            [JsonPropertyName("property")]
             public TableProperty Property { get; set; } = new();
 
             /// <summary>
@@ -3047,7 +3046,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>最大值：9</para>
                 /// <para>最小值：1</para>
                 /// </summary>
-                [JsonProperty("row_size")]
+                [JsonPropertyName("row_size")]
                 public int RowSize { get; set; }
 
                 /// <summary>
@@ -3057,14 +3056,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>最大值：9</para>
                 /// <para>最小值：1</para>
                 /// </summary>
-                [JsonProperty("column_size")]
+                [JsonPropertyName("column_size")]
                 public int ColumnSize { get; set; }
 
                 /// <summary>
                 /// <para>单元格合并信息。在创建 Table 时候此属性是只读的，将由后端进行生成。如果需要对单元格进行合并操作，可以通过更新块的子请求 merge_table_cells 来实现。</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("merge_info")]
+                [JsonPropertyName("merge_info")]
                 public TableMergeInfo[]? MergeInfos { get; set; }
 
                 /// <summary>
@@ -3078,7 +3077,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>示例值：2</para>
                     /// <para>最小值：1</para>
                     /// </summary>
-                    [JsonProperty("row_span")]
+                    [JsonPropertyName("row_span")]
                     public int? RowSpan { get; set; }
 
                     /// <summary>
@@ -3087,7 +3086,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                     /// <para>示例值：2</para>
                     /// <para>最小值：1</para>
                     /// </summary>
-                    [JsonProperty("col_span")]
+                    [JsonPropertyName("col_span")]
                     public int? ColSpan { get; set; }
                 }
             }
@@ -3097,14 +3096,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
         /// <para>引用容器 Block</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("quote_container")]
+        [JsonPropertyName("quote_container")]
         public object? QuoteContainer { get; set; }
 
         /// <summary>
         /// <para>OKR Block，仅可在使用 `user_access_token` 时创建</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("okr")]
+        [JsonPropertyName("okr")]
         public BlockOkr? Okr { get; set; }
 
         /// <summary>
@@ -3117,14 +3116,14 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：7076349900476448796</para>
             /// </summary>
-            [JsonProperty("okr_id")]
+            [JsonPropertyName("okr_id")]
             public string? OkrId { get; set; }
 
             /// <summary>
             /// <para>OKR Block 中的 Objective ID 和 Key Result ID，此值为空时插入 OKR 下所有的 Objective 和 Key Result</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("objectives")]
+            [JsonPropertyName("objectives")]
             public ObjectiveIdWithKrId[]? Objectives { get; set; }
 
             /// <summary>
@@ -3137,7 +3136,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：7109022409227026460</para>
                 /// </summary>
-                [JsonProperty("objective_id")]
+                [JsonPropertyName("objective_id")]
                 public string? ObjectiveId { get; set; }
 
                 /// <summary>
@@ -3145,7 +3144,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
                 /// <para>必填：否</para>
                 /// <para>示例值：["7109022573011894300","7109022546444517404"]</para>
                 /// </summary>
-                [JsonProperty("kr_ids")]
+                [JsonPropertyName("kr_ids")]
                 public string[]? KrIds { get; set; }
             }
         }
@@ -3155,7 +3154,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：[1660030311959965796]</para>
         /// </summary>
-        [JsonProperty("comment_ids")]
+        [JsonPropertyName("comment_ids")]
         public string[]? CommentIds { get; set; }
     }
 
@@ -3165,6 +3164,6 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto
     /// <para>示例值：0</para>
     /// <para>默认值：-1</para>
     /// </summary>
-    [JsonProperty("index")]
+    [JsonPropertyName("index")]
     public int? Index { get; set; }
 }

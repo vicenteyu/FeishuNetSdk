@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 查询参会人会议质量数据 响应体
@@ -13,7 +12,7 @@ public record GetVcV1ParticipantQualityListResponseDto
     /// <para>参会人参会质量列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("participant_quality_list")]
+    [JsonPropertyName("participant_quality_list")]
     public ParticipantQuality[]? ParticipantQualityLists { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record GetVcV1ParticipantQualityListResponseDto
         /// <para>网络</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("network")]
+        [JsonPropertyName("network")]
         public QualityNetwork? Network { get; set; }
 
         /// <summary>
@@ -38,7 +37,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2022.12.23 11:16:00 (GMT+08:00)</para>
             /// </summary>
-            [JsonProperty("time")]
+            [JsonPropertyName("time")]
             public string? Time { get; set; }
 
             /// <summary>
@@ -46,7 +45,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100ms</para>
             /// </summary>
-            [JsonProperty("network_delay")]
+            [JsonPropertyName("network_delay")]
             public string? NetworkDelay { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：8kbps</para>
             /// </summary>
-            [JsonProperty("bitrate_received")]
+            [JsonPropertyName("bitrate_received")]
             public string? BitrateReceived { get; set; }
 
             /// <summary>
@@ -62,7 +61,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：8%</para>
             /// </summary>
-            [JsonProperty("packet_loss_avg_received")]
+            [JsonPropertyName("packet_loss_avg_received")]
             public string? PacketLossAvgReceived { get; set; }
 
             /// <summary>
@@ -70,7 +69,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：9%</para>
             /// </summary>
-            [JsonProperty("packet_loss_max_received")]
+            [JsonPropertyName("packet_loss_max_received")]
             public string? PacketLossMaxReceived { get; set; }
 
             /// <summary>
@@ -78,7 +77,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：9kbps</para>
             /// </summary>
-            [JsonProperty("bitrate_sent")]
+            [JsonPropertyName("bitrate_sent")]
             public string? BitrateSent { get; set; }
 
             /// <summary>
@@ -86,7 +85,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：8%</para>
             /// </summary>
-            [JsonProperty("packet_loss_avg_sent")]
+            [JsonPropertyName("packet_loss_avg_sent")]
             public string? PacketLossAvgSent { get; set; }
 
             /// <summary>
@@ -94,7 +93,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：10%</para>
             /// </summary>
-            [JsonProperty("packet_loss_max_sent")]
+            [JsonPropertyName("packet_loss_max_sent")]
             public string? PacketLossMaxSent { get; set; }
         }
 
@@ -102,7 +101,7 @@ public record GetVcV1ParticipantQualityListResponseDto
         /// <para>音频</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("audio")]
+        [JsonPropertyName("audio")]
         public QualityAudio? Audio { get; set; }
 
         /// <summary>
@@ -115,7 +114,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2022.12.23 11:16:00 (GMT+08:00)</para>
             /// </summary>
-            [JsonProperty("time")]
+            [JsonPropertyName("time")]
             public string? Time { get; set; }
 
             /// <summary>
@@ -123,7 +122,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：6dB</para>
             /// </summary>
-            [JsonProperty("mic_input_volume")]
+            [JsonPropertyName("mic_input_volume")]
             public string? MicInputVolume { get; set; }
 
             /// <summary>
@@ -131,7 +130,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：8dB</para>
             /// </summary>
-            [JsonProperty("speaker_volume")]
+            [JsonPropertyName("speaker_volume")]
             public string? SpeakerVolume { get; set; }
 
             /// <summary>
@@ -139,7 +138,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：3kbps</para>
             /// </summary>
-            [JsonProperty("bitrate_received")]
+            [JsonPropertyName("bitrate_received")]
             public string? BitrateReceived { get; set; }
 
             /// <summary>
@@ -147,7 +146,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100ms</para>
             /// </summary>
-            [JsonProperty("latency_received")]
+            [JsonPropertyName("latency_received")]
             public string? LatencyReceived { get; set; }
 
             /// <summary>
@@ -155,7 +154,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100ms</para>
             /// </summary>
-            [JsonProperty("jitter_received")]
+            [JsonPropertyName("jitter_received")]
             public string? JitterReceived { get; set; }
 
             /// <summary>
@@ -163,7 +162,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：9kbps</para>
             /// </summary>
-            [JsonProperty("bitrate_sent")]
+            [JsonPropertyName("bitrate_sent")]
             public string? BitrateSent { get; set; }
 
             /// <summary>
@@ -171,7 +170,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100ms</para>
             /// </summary>
-            [JsonProperty("latency_sent")]
+            [JsonPropertyName("latency_sent")]
             public string? LatencySent { get; set; }
 
             /// <summary>
@@ -179,7 +178,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100ms</para>
             /// </summary>
-            [JsonProperty("jitter_sent")]
+            [JsonPropertyName("jitter_sent")]
             public string? JitterSent { get; set; }
         }
 
@@ -187,7 +186,7 @@ public record GetVcV1ParticipantQualityListResponseDto
         /// <para>视频</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("video")]
+        [JsonPropertyName("video")]
         public QualityVideoSharing? Video { get; set; }
 
         /// <summary>
@@ -200,7 +199,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2022.12.23 11:16:00 (GMT+08:00)</para>
             /// </summary>
-            [JsonProperty("time")]
+            [JsonPropertyName("time")]
             public string? Time { get; set; }
 
             /// <summary>
@@ -208,7 +207,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：8kbps</para>
             /// </summary>
-            [JsonProperty("bitrate_received")]
+            [JsonPropertyName("bitrate_received")]
             public string? BitrateReceived { get; set; }
 
             /// <summary>
@@ -216,7 +215,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100ms</para>
             /// </summary>
-            [JsonProperty("latency_received")]
+            [JsonPropertyName("latency_received")]
             public string? LatencyReceived { get; set; }
 
             /// <summary>
@@ -224,7 +223,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100ms</para>
             /// </summary>
-            [JsonProperty("jitter_received")]
+            [JsonPropertyName("jitter_received")]
             public string? JitterReceived { get; set; }
 
             /// <summary>
@@ -232,7 +231,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1080P</para>
             /// </summary>
-            [JsonProperty("maximum_resolution_received")]
+            [JsonPropertyName("maximum_resolution_received")]
             public string? MaximumResolutionReceived { get; set; }
 
             /// <summary>
@@ -240,7 +239,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100fps</para>
             /// </summary>
-            [JsonProperty("framerate_received")]
+            [JsonPropertyName("framerate_received")]
             public string? FramerateReceived { get; set; }
 
             /// <summary>
@@ -248,7 +247,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：9kbps</para>
             /// </summary>
-            [JsonProperty("bitrate_sent")]
+            [JsonPropertyName("bitrate_sent")]
             public string? BitrateSent { get; set; }
 
             /// <summary>
@@ -256,7 +255,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100ms</para>
             /// </summary>
-            [JsonProperty("latency_sent")]
+            [JsonPropertyName("latency_sent")]
             public string? LatencySent { get; set; }
 
             /// <summary>
@@ -264,7 +263,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100ms</para>
             /// </summary>
-            [JsonProperty("jitter_sent")]
+            [JsonPropertyName("jitter_sent")]
             public string? JitterSent { get; set; }
 
             /// <summary>
@@ -272,7 +271,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：4K</para>
             /// </summary>
-            [JsonProperty("maximum_resolution_sent")]
+            [JsonPropertyName("maximum_resolution_sent")]
             public string? MaximumResolutionSent { get; set; }
 
             /// <summary>
@@ -280,7 +279,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：90fps</para>
             /// </summary>
-            [JsonProperty("framerate_sent")]
+            [JsonPropertyName("framerate_sent")]
             public string? FramerateSent { get; set; }
         }
 
@@ -288,14 +287,14 @@ public record GetVcV1ParticipantQualityListResponseDto
         /// <para>共享屏幕</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("screen_sharing")]
+        [JsonPropertyName("screen_sharing")]
         public QualityVideoSharing? ScreenSharing { get; set; }
 
         /// <summary>
         /// <para>Cpu使用量</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("cpu_usage")]
+        [JsonPropertyName("cpu_usage")]
         public QualityCpuUsage? CpuUsage { get; set; }
 
         /// <summary>
@@ -308,7 +307,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2022.12.23 11:17:00</para>
             /// </summary>
-            [JsonProperty("time")]
+            [JsonPropertyName("time")]
             public string? Time { get; set; }
 
             /// <summary>
@@ -316,7 +315,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：0.8%</para>
             /// </summary>
-            [JsonProperty("client_avg_cpu_usage")]
+            [JsonPropertyName("client_avg_cpu_usage")]
             public string? ClientAvgCpuUsage { get; set; }
 
             /// <summary>
@@ -324,7 +323,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2.3%</para>
             /// </summary>
-            [JsonProperty("client_max_cpu_usage")]
+            [JsonPropertyName("client_max_cpu_usage")]
             public string? ClientMaxCpuUsage { get; set; }
 
             /// <summary>
@@ -332,7 +331,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：8.3%</para>
             /// </summary>
-            [JsonProperty("system_avg_cpu_usage")]
+            [JsonPropertyName("system_avg_cpu_usage")]
             public string? SystemAvgCpuUsage { get; set; }
 
             /// <summary>
@@ -340,7 +339,7 @@ public record GetVcV1ParticipantQualityListResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：30%</para>
             /// </summary>
-            [JsonProperty("system_max_cpu_usage")]
+            [JsonPropertyName("system_max_cpu_usage")]
             public string? SystemMaxCpuUsage { get; set; }
         }
     }
@@ -350,7 +349,7 @@ public record GetVcV1ParticipantQualityListResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：20</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -358,6 +357,6 @@ public record GetVcV1ParticipantQualityListResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

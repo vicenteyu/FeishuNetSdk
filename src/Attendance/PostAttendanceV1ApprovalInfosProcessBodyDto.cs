@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 通知审批状态更新 请求体
@@ -14,7 +13,7 @@ public record PostAttendanceV1ApprovalInfosProcessBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6737202939523236113</para>
     /// </summary>
-    [JsonProperty("approval_id")]
+    [JsonPropertyName("approval_id")]
     public string ApprovalId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostAttendanceV1ApprovalInfosProcessBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：remedy</para>
     /// </summary>
-    [JsonProperty("approval_type")]
+    [JsonPropertyName("approval_type")]
     public string ApprovalType { get; set; } = string.Empty;
 
     /// <summary>
@@ -36,6 +35,6 @@ public record PostAttendanceV1ApprovalInfosProcessBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：4</para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public int Status { get; set; }
 }

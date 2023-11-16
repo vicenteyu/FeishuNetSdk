@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 取消订阅服务台事件 请求体
@@ -13,7 +12,7 @@ public record PostHelpdeskV1EventsUnsubscribeBodyDto
     /// <para>event list to unsubscribe</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("events")]
+    [JsonPropertyName("events")]
     public Event[] Events { get; set; } = Array.Empty<Event>();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostHelpdeskV1EventsUnsubscribeBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：helpdesk.ticket_message</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostHelpdeskV1EventsUnsubscribeBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：ticket_message.created_v1</para>
         /// </summary>
-        [JsonProperty("subtype")]
+        [JsonPropertyName("subtype")]
         public string Subtype { get; set; } = string.Empty;
     }
 }

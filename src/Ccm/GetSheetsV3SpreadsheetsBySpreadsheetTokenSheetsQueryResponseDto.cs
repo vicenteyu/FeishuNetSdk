@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取工作表 响应体
@@ -13,7 +12,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
     /// <para>工作表列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("sheets")]
+    [JsonPropertyName("sheets")]
     public Sheet[]? Sheets { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：sxj5ws</para>
         /// </summary>
-        [JsonProperty("sheet_id")]
+        [JsonPropertyName("sheet_id")]
         public string? SheetId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：title</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
-        [JsonProperty("index")]
+        [JsonPropertyName("index")]
         public int? Index { get; set; }
 
         /// <summary>
@@ -52,14 +51,14 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("hidden")]
+        [JsonPropertyName("hidden")]
         public bool? Hidden { get; set; }
 
         /// <summary>
         /// <para>单元格属性</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("grid_properties")]
+        [JsonPropertyName("grid_properties")]
         public SheetGridProperties? GridProperties { get; set; }
 
         /// <summary>
@@ -72,7 +71,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
-            [JsonProperty("frozen_row_count")]
+            [JsonPropertyName("frozen_row_count")]
             public int? FrozenRowCount { get; set; }
 
             /// <summary>
@@ -80,7 +79,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
-            [JsonProperty("frozen_column_count")]
+            [JsonPropertyName("frozen_column_count")]
             public int? FrozenColumnCount { get; set; }
 
             /// <summary>
@@ -88,7 +87,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：200</para>
             /// </summary>
-            [JsonProperty("row_count")]
+            [JsonPropertyName("row_count")]
             public int? RowCount { get; set; }
 
             /// <summary>
@@ -96,7 +95,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：20</para>
             /// </summary>
-            [JsonProperty("column_count")]
+            [JsonPropertyName("column_count")]
             public int? ColumnCount { get; set; }
         }
 
@@ -108,14 +107,14 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：sheet</para>
         /// </summary>
-        [JsonProperty("resource_type")]
+        [JsonPropertyName("resource_type")]
         public string? ResourceType { get; set; }
 
         /// <summary>
         /// <para>合并单元格的相关信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("merges")]
+        [JsonPropertyName("merges")]
         public MergeRange[]? Merges { get; set; }
 
         /// <summary>
@@ -128,7 +127,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
-            [JsonProperty("start_row_index")]
+            [JsonPropertyName("start_row_index")]
             public int? StartRowIndex { get; set; }
 
             /// <summary>
@@ -136,7 +135,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
-            [JsonProperty("end_row_index")]
+            [JsonPropertyName("end_row_index")]
             public int? EndRowIndex { get; set; }
 
             /// <summary>
@@ -144,7 +143,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
-            [JsonProperty("start_column_index")]
+            [JsonPropertyName("start_column_index")]
             public int? StartColumnIndex { get; set; }
 
             /// <summary>
@@ -152,7 +151,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
-            [JsonProperty("end_column_index")]
+            [JsonPropertyName("end_column_index")]
             public int? EndColumnIndex { get; set; }
         }
     }

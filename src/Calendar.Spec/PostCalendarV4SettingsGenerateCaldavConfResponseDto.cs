@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar.Spec;
 /// <summary>
 /// 生成 CalDAV 配置 响应体
@@ -13,27 +12,27 @@ public record PostCalendarV4SettingsGenerateCaldavConfResponseDto
     /// <para>caldav密码</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("password")]
+    [JsonPropertyName("password")]
     public string? Password { get; set; }
 
     /// <summary>
     /// <para>caldav用户名</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_name")]
+    [JsonPropertyName("user_name")]
     public string? UserName { get; set; }
 
     /// <summary>
     /// <para>服务器地址</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("server_address")]
+    [JsonPropertyName("server_address")]
     public string? ServerAddress { get; set; }
 
     /// <summary>
     /// <para>设备名</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("device_name")]
+    [JsonPropertyName("device_name")]
     public string? DeviceName { get; set; }
 }

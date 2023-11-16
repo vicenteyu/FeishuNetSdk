@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取简历来源列表 响应体
@@ -13,7 +12,7 @@ public record GetHireV1ResumeSourcesResponseDto
     /// <para>数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public ResumeSource[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetHireV1ResumeSourcesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1111</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetHireV1ResumeSourcesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：内推</para>
         /// </summary>
-        [JsonProperty("zh_name")]
+        [JsonPropertyName("zh_name")]
         public string? ZhName { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetHireV1ResumeSourcesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：referral</para>
         /// </summary>
-        [JsonProperty("en_name")]
+        [JsonPropertyName("en_name")]
         public string? EnName { get; set; }
 
         /// <summary>
@@ -54,7 +53,7 @@ public record GetHireV1ResumeSourcesResponseDto
         /// <item>2：已禁用</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("active_status")]
+        [JsonPropertyName("active_status")]
         public int? ActiveStatus { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record GetHireV1ResumeSourcesResponseDto
         /// <item>10009：实习生转正</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("resume_source_type")]
+        [JsonPropertyName("resume_source_type")]
         public int? ResumeSourceType { get; set; }
     }
 
@@ -83,7 +82,7 @@ public record GetHireV1ResumeSourcesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -91,6 +90,6 @@ public record GetHireV1ResumeSourcesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

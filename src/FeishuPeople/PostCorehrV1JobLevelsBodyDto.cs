@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 创建职级 请求体
@@ -14,7 +13,7 @@ public record PostCorehrV1JobLevelsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：9999</para>
     /// </summary>
-    [JsonProperty("level_order")]
+    [JsonPropertyName("level_order")]
     public int LevelOrder { get; set; }
 
     /// <summary>
@@ -22,14 +21,14 @@ public record PostCorehrV1JobLevelsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=</para>
     /// </summary>
-    [JsonProperty("code")]
+    [JsonPropertyName("code")]
     public string? Code { get; set; }
 
     /// <summary>
     /// <para>名称</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public I18n[] Names { get; set; } = Array.Empty<I18n>();
 
     /// <summary>
@@ -42,7 +41,7 @@ public record PostCorehrV1JobLevelsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：zh-CN</para>
         /// </summary>
-        [JsonProperty("lang")]
+        [JsonPropertyName("lang")]
         public string Lang { get; set; } = string.Empty;
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostCorehrV1JobLevelsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：张三</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
     }
 
@@ -58,7 +57,7 @@ public record PostCorehrV1JobLevelsBodyDto
     /// <para>描述</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public I18n[]? Descriptions { get; set; }
 
     /// <summary>
@@ -66,14 +65,14 @@ public record PostCorehrV1JobLevelsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("active")]
+    [JsonPropertyName("active")]
     public bool Active { get; set; }
 
     /// <summary>
     /// <para>自定义字段</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("custom_fields")]
+    [JsonPropertyName("custom_fields")]
     public ObjectFieldData[]? CustomFields { get; set; }
 
     /// <summary>
@@ -86,7 +85,7 @@ public record PostCorehrV1JobLevelsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：name</para>
         /// </summary>
-        [JsonProperty("field_name")]
+        [JsonPropertyName("field_name")]
         public string FieldName { get; set; } = string.Empty;
 
         /// <summary>
@@ -94,7 +93,7 @@ public record PostCorehrV1JobLevelsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：\"Sandy\"</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
     }
 }

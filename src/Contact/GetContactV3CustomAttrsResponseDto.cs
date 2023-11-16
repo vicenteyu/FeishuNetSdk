@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取企业自定义用户字段 响应体
@@ -13,7 +12,7 @@ public record GetContactV3CustomAttrsResponseDto
     /// <para>自定义字段定义</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public CustomAttr[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetContactV3CustomAttrsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：C-6965457429001748507</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -39,7 +38,7 @@ public record GetContactV3CustomAttrsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：TEXT</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
@@ -47,7 +46,7 @@ public record GetContactV3CustomAttrsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：{}</para>
         /// </summary>
-        [JsonProperty("options")]
+        [JsonPropertyName("options")]
         public CustomAttrOptions? Options { get; set; }
 
         /// <summary>
@@ -60,7 +59,7 @@ public record GetContactV3CustomAttrsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：qasdefgr</para>
             /// </summary>
-            [JsonProperty("default_option_id")]
+            [JsonPropertyName("default_option_id")]
             public string? DefaultOptionId { get; set; }
 
             /// <summary>
@@ -72,7 +71,7 @@ public record GetContactV3CustomAttrsResponseDto
             /// <item>PICTURE：图片选项</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("option_type")]
+            [JsonPropertyName("option_type")]
             public string OptionType { get; set; } = string.Empty;
 
             /// <summary>
@@ -80,7 +79,7 @@ public record GetContactV3CustomAttrsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：[]</para>
             /// </summary>
-            [JsonProperty("options")]
+            [JsonPropertyName("options")]
             public CustomAttrOption[] Options { get; set; } = Array.Empty<CustomAttrOption>();
 
             /// <summary>
@@ -93,7 +92,7 @@ public record GetContactV3CustomAttrsResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：qasdefgr</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string Id { get; set; } = string.Empty;
 
                 /// <summary>
@@ -101,7 +100,7 @@ public record GetContactV3CustomAttrsResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：Option</para>
                 /// </summary>
-                [JsonProperty("value")]
+                [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
 
                 /// <summary>
@@ -109,7 +108,7 @@ public record GetContactV3CustomAttrsResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：Name</para>
                 /// </summary>
-                [JsonProperty("name")]
+                [JsonPropertyName("name")]
                 public string? Name { get; set; }
             }
         }
@@ -119,7 +118,7 @@ public record GetContactV3CustomAttrsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：{}</para>
         /// </summary>
-        [JsonProperty("i18n_name")]
+        [JsonPropertyName("i18n_name")]
         public I18nContent[]? I18nNames { get; set; }
 
         /// <summary>
@@ -132,7 +131,7 @@ public record GetContactV3CustomAttrsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：zh_cn</para>
             /// </summary>
-            [JsonProperty("locale")]
+            [JsonPropertyName("locale")]
             public string? Locale { get; set; }
 
             /// <summary>
@@ -140,7 +139,7 @@ public record GetContactV3CustomAttrsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：多语言内容</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
     }
@@ -150,7 +149,7 @@ public record GetContactV3CustomAttrsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：AQD9/Rn9eij9Pm39ED40/RYU5lvOM4s6zgbeeNNaWd%2BVKwAsoreeRWk0J2noGvJy</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -158,6 +157,6 @@ public record GetContactV3CustomAttrsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk.Spec;
 /// <summary>
 /// 获取全部知识库分类 响应体
@@ -13,7 +12,7 @@ public record GetHelpdeskV1CategoriesResponseDto
     /// <para>知识库分类列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("categories")]
+    [JsonPropertyName("categories")]
     public Category[]? Categories { get; set; }
 
     /// <summary></summary>
@@ -23,49 +22,49 @@ public record GetHelpdeskV1CategoriesResponseDto
         /// <para>知识库分类ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("category_id")]
+        [JsonPropertyName("category_id")]
         public string? CategoryId { get; set; }
 
         /// <summary>
         /// <para>知识库分类ID，（旧版，请使用category_id）</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>父知识库分类ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("parent_id")]
+        [JsonPropertyName("parent_id")]
         public string? ParentId { get; set; }
 
         /// <summary>
         /// <para>服务台ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("helpdesk_id")]
+        [JsonPropertyName("helpdesk_id")]
         public string? HelpdeskId { get; set; }
 
         /// <summary>
         /// <para>语言</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("language")]
+        [JsonPropertyName("language")]
         public string? Language { get; set; }
 
         /// <summary>
         /// <para>子分类详情</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("children")]
+        [JsonPropertyName("children")]
         public Category[]? Children { get; set; }
 
     }

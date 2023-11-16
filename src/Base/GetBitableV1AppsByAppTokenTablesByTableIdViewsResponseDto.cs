@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 列出视图 响应体
@@ -13,7 +12,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
     /// <para>视图信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public AppTableView[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：vewieWxfON</para>
         /// </summary>
-        [JsonProperty("view_id")]
+        [JsonPropertyName("view_id")]
         public string? ViewId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：表格1</para>
         /// </summary>
-        [JsonProperty("view_name")]
+        [JsonPropertyName("view_name")]
         public string? ViewName { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：grid</para>
         /// </summary>
-        [JsonProperty("view_type")]
+        [JsonPropertyName("view_type")]
         public string? ViewType { get; set; }
 
         /// <summary>
@@ -55,7 +54,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
         /// <item>Private：个人视图</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("view_public_level")]
+        [JsonPropertyName("view_public_level")]
         public string? ViewPublicLevel { get; set; }
 
         /// <summary>
@@ -63,7 +62,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_2910013f1e6456f16a0ce75ede950a0a</para>
         /// </summary>
-        [JsonProperty("view_private_owner_id")]
+        [JsonPropertyName("view_private_owner_id")]
         public string? ViewPrivateOwnerId { get; set; }
     }
 
@@ -72,7 +71,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -80,7 +79,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
@@ -88,6 +87,6 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：20</para>
     /// </summary>
-    [JsonProperty("total")]
+    [JsonPropertyName("total")]
     public int? Total { get; set; }
 }

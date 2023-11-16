@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 创建建筑物 响应体
@@ -13,6 +12,6 @@ public record PostMeetingRoomBuildingCreateResponseDto
     /// <para>成功创建的建筑ID</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("building_id")]
+    [JsonPropertyName("building_id")]
     public string? BuildingId { get; set; }
 }

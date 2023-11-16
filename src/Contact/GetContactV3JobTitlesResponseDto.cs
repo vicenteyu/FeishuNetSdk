@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取租户职务列表 响应体
@@ -13,7 +12,7 @@ public record GetContactV3JobTitlesResponseDto
     /// <para>职务列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public JobTitle[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetContactV3JobTitlesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：b5565c46b749</para>
         /// </summary>
-        [JsonProperty("job_title_id")]
+        [JsonPropertyName("job_title_id")]
         public string? JobTitleId { get; set; }
 
         /// <summary>
@@ -35,14 +34,14 @@ public record GetContactV3JobTitlesResponseDto
         /// <para>示例值：高级工程师</para>
         /// <para>最大长度：100</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
         /// <para>多语言职务名称</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("i18n_name")]
+        [JsonPropertyName("i18n_name")]
         public I18nContent[]? I18nNames { get; set; }
 
         /// <summary>
@@ -55,7 +54,7 @@ public record GetContactV3JobTitlesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：zh_cn</para>
             /// </summary>
-            [JsonProperty("locale")]
+            [JsonPropertyName("locale")]
             public string? Locale { get; set; }
 
             /// <summary>
@@ -63,7 +62,7 @@ public record GetContactV3JobTitlesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：专家</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
 
@@ -72,7 +71,7 @@ public record GetContactV3JobTitlesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：true表示启用,false表示未启用</para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public bool? Status { get; set; }
     }
 
@@ -81,7 +80,7 @@ public record GetContactV3JobTitlesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1r5QdASJi1sp5aJn</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -89,6 +88,6 @@ public record GetContactV3JobTitlesResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

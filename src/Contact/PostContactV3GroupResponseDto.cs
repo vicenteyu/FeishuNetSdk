@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 创建用户组 响应体
@@ -14,6 +13,6 @@ public record PostContactV3GroupResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：g122817</para>
     /// </summary>
-    [JsonProperty("group_id")]
+    [JsonPropertyName("group_id")]
     public string GroupId { get; set; } = string.Empty;
 }

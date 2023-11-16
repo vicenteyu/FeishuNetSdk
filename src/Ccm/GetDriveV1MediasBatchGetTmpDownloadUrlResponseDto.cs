@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取素材临时下载链接 响应体
@@ -13,7 +12,7 @@ public record GetDriveV1MediasBatchGetTmpDownloadUrlResponseDto
     /// <para>临时下载列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("tmp_download_urls")]
+    [JsonPropertyName("tmp_download_urls")]
     public TmpDownloadUrl[]? TmpDownloadUrls { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetDriveV1MediasBatchGetTmpDownloadUrlResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：boxcnrHpsg1QDqXAAAyachabcef</para>
         /// </summary>
-        [JsonProperty("file_token")]
+        [JsonPropertyName("file_token")]
         public string FileToken { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetDriveV1MediasBatchGetTmpDownloadUrlResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=ZDA3MzNiNmUwMjE2MGUzZmQ1OGZlOWYzMWQ4YmI0ZjdfMDYzOWNlZjgyMmI1MmY5NTUxZmM0MjJlYWIyMGVjOWZfSUQ6Njk3NjgzMTY0Mjc5OTI5MjQyMl8xNjI0NDMxMDY3OjE2MjQ1MTc0NjdfVjM</para>
         /// </summary>
-        [JsonProperty("tmp_download_url")]
+        [JsonPropertyName("tmp_download_url")]
         public string TmpDownloadUrlSuffix { get; set; } = string.Empty;
     }
 }

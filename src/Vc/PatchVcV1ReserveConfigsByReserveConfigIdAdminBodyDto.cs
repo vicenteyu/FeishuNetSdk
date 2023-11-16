@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 更新会议室预定管理员 请求体
@@ -14,14 +13,14 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdAdminBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：2</para>
     /// </summary>
-    [JsonProperty("scope_type")]
+    [JsonPropertyName("scope_type")]
     public int ScopeType { get; set; }
 
     /// <summary>
     /// <para>预定管理员或部门</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("reserve_admin_config")]
+    [JsonPropertyName("reserve_admin_config")]
     public PatchVcV1ReserveConfigsByReserveConfigIdAdminBodyDtoReserveAdminConfig ReserveAdminConfig { get; set; } = new();
 
     /// <summary>
@@ -33,7 +32,7 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdAdminBodyDto
         /// <para>预定管理部门</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("depts")]
+        [JsonPropertyName("depts")]
         public SubscribeDepartment[]? Depts { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdAdminBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：od-47d8b570b0a011e9679a755efcc5f61a</para>
             /// </summary>
-            [JsonProperty("department_id")]
+            [JsonPropertyName("department_id")]
             public string DepartmentId { get; set; } = string.Empty;
         }
 
@@ -54,7 +53,7 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdAdminBodyDto
         /// <para>预定管理员</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("users")]
+        [JsonPropertyName("users")]
         public SubscribeUser[]? Users { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record PatchVcV1ReserveConfigsByReserveConfigIdAdminBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：ou_a27b07a9071d90577c0177bcec98f856</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string UserId { get; set; } = string.Empty;
         }
     }

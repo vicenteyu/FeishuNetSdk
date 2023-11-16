@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取字段详情 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
     /// <para>字段详情</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("data")]
+    [JsonPropertyName("data")]
     public CustomField? Data { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：custom_field_33</para>
         /// </summary>
-        [JsonProperty("custom_api_name")]
+        [JsonPropertyName("custom_api_name")]
         public string? CustomApiName { get; set; }
 
         /// <summary>
         /// <para>字段名称</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public CustomFieldName Name { get; set; } = new();
 
         /// <summary>
@@ -46,7 +45,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：cn</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：en</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
 
@@ -62,7 +61,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
         /// <para>描述</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public NameSuffix Description { get; set; } = new();
 
         /// <summary>
@@ -75,7 +74,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：cn</para>
             /// </summary>
-            [JsonProperty("zh_cn")]
+            [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
@@ -83,7 +82,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：en</para>
             /// </summary>
-            [JsonProperty("en_us")]
+            [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
 
@@ -92,7 +91,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_open")]
+        [JsonPropertyName("is_open")]
         public bool IsOpen { get; set; }
 
         /// <summary>
@@ -100,7 +99,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_required")]
+        [JsonPropertyName("is_required")]
         public bool IsRequired { get; set; }
 
         /// <summary>
@@ -108,7 +107,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_unique")]
+        [JsonPropertyName("is_unique")]
         public bool IsUnique { get; set; }
 
         /// <summary>
@@ -116,7 +115,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：offboarding_info</para>
         /// </summary>
-        [JsonProperty("object_api_name")]
+        [JsonPropertyName("object_api_name")]
         public string ObjectApiName { get; set; } = string.Empty;
 
         /// <summary>
@@ -136,14 +135,14 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public int Type { get; set; }
 
         /// <summary>
         /// <para>配置信息，当前仅字段类型为「文本」、「布尔」、「数字」、「枚举」、「日期时间」、「附件」、「图片」时返回具体的配置信息，其余类型的自定义字段暂不返回</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("common_schema_config")]
+        [JsonPropertyName("common_schema_config")]
         public CustomFieldCommonSchemaConfig? CommonSchemaConfig { get; set; }
 
         /// <summary>
@@ -155,7 +154,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
             /// <para>文本配置信息</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("text_field_setting")]
+            [JsonPropertyName("text_field_setting")]
             public CustomFieldCommonSchemaConfigTextFieldSetting? TextFieldSetting { get; set; }
 
             /// <summary>
@@ -168,7 +167,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>
-                [JsonProperty("is_multilingual")]
+                [JsonPropertyName("is_multilingual")]
                 public bool? IsMultilingual { get; set; }
 
                 /// <summary>
@@ -176,7 +175,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>
-                [JsonProperty("is_multiline")]
+                [JsonPropertyName("is_multiline")]
                 public bool? IsMultiline { get; set; }
 
                 /// <summary>
@@ -184,7 +183,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：是</para>
                 /// <para>示例值：1</para>
                 /// </summary>
-                [JsonProperty("max_length")]
+                [JsonPropertyName("max_length")]
                 public int MaxLength { get; set; }
 
                 /// <summary>
@@ -192,7 +191,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>
-                [JsonProperty("is_url_type")]
+                [JsonPropertyName("is_url_type")]
                 public bool? IsUrlType { get; set; }
             }
 
@@ -200,7 +199,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
             /// <para>数字配置信息</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("number_field_setting")]
+            [JsonPropertyName("number_field_setting")]
             public CustomFieldCommonSchemaConfigNumberFieldSetting? NumberFieldSetting { get; set; }
 
             /// <summary>
@@ -218,7 +217,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
-                [JsonProperty("number_field_type")]
+                [JsonPropertyName("number_field_type")]
                 public int? NumberFieldType { get; set; }
 
                 /// <summary>
@@ -226,7 +225,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
-                [JsonProperty("decimal_places")]
+                [JsonPropertyName("decimal_places")]
                 public int? DecimalPlaces { get; set; }
 
                 /// <summary>
@@ -238,7 +237,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
-                [JsonProperty("round_type")]
+                [JsonPropertyName("round_type")]
                 public int? RoundType { get; set; }
 
                 /// <summary>
@@ -246,7 +245,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
-                [JsonProperty("decimal_total_places")]
+                [JsonPropertyName("decimal_total_places")]
                 public int? DecimalTotalPlaces { get; set; }
             }
 
@@ -254,7 +253,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
             /// <para>选项配置信息</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("enum_field_setting")]
+            [JsonPropertyName("enum_field_setting")]
             public CustomFieldCommonSchemaConfigEnumFieldSetting? EnumFieldSetting { get; set; }
 
             /// <summary>
@@ -266,7 +265,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>选项信息</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("enum_field_option_list")]
+                [JsonPropertyName("enum_field_option_list")]
                 public CommonSchemaOption[]? EnumFieldOptionLists { get; set; }
 
                 /// <summary>
@@ -279,14 +278,14 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：custom_field_33</para>
                     /// </summary>
-                    [JsonProperty("api_name")]
+                    [JsonPropertyName("api_name")]
                     public string? ApiName { get; set; }
 
                     /// <summary>
                     /// <para>选项名称</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("name")]
+                    [JsonPropertyName("name")]
                     public CommonSchemaOptionName? Name { get; set; }
 
                     /// <summary>
@@ -299,7 +298,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：cn</para>
                         /// </summary>
-                        [JsonProperty("zh_cn")]
+                        [JsonPropertyName("zh_cn")]
                         public string? ZhCn { get; set; }
 
                         /// <summary>
@@ -307,7 +306,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：en</para>
                         /// </summary>
-                        [JsonProperty("en_us")]
+                        [JsonPropertyName("en_us")]
                         public string? EnUs { get; set; }
                     }
 
@@ -315,7 +314,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                     /// <para>选项描述</para>
                     /// <para>必填：否</para>
                     /// </summary>
-                    [JsonProperty("description")]
+                    [JsonPropertyName("description")]
                     public NameSuffix? Description { get; set; }
 
                     /// <summary>
@@ -328,7 +327,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：cn</para>
                         /// </summary>
-                        [JsonProperty("zh_cn")]
+                        [JsonPropertyName("zh_cn")]
                         public string? ZhCn { get; set; }
 
                         /// <summary>
@@ -336,7 +335,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                         /// <para>必填：否</para>
                         /// <para>示例值：en</para>
                         /// </summary>
-                        [JsonProperty("en_us")]
+                        [JsonPropertyName("en_us")]
                         public string? EnUs { get; set; }
                     }
 
@@ -345,7 +344,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：true</para>
                     /// </summary>
-                    [JsonProperty("is_open")]
+                    [JsonPropertyName("is_open")]
                     public bool? IsOpen { get; set; }
                 }
 
@@ -354,7 +353,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
-                [JsonProperty("is_multiple")]
+                [JsonPropertyName("is_multiple")]
                 public bool? IsMultiple { get; set; }
             }
 
@@ -362,7 +361,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
             /// <para>查找字段配置信息</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("lookup_field_setting")]
+            [JsonPropertyName("lookup_field_setting")]
             public CustomFieldCommonSchemaConfigLookupFieldSetting? LookupFieldSetting { get; set; }
 
             /// <summary>
@@ -375,7 +374,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：employment</para>
                 /// </summary>
-                [JsonProperty("lookup_obj_api_name")]
+                [JsonPropertyName("lookup_obj_api_name")]
                 public string? LookupObjApiName { get; set; }
 
                 /// <summary>
@@ -383,7 +382,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
-                [JsonProperty("is_multiple")]
+                [JsonPropertyName("is_multiple")]
                 public bool? IsMultiple { get; set; }
             }
 
@@ -391,7 +390,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
             /// <para>日期时间配置信息</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("date_time_field_setting")]
+            [JsonPropertyName("date_time_field_setting")]
             public CustomFieldCommonSchemaConfigDateTimeFieldSetting? DateTimeFieldSetting { get; set; }
 
             /// <summary>
@@ -409,7 +408,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
-                [JsonProperty("date_time_type")]
+                [JsonPropertyName("date_time_type")]
                 public int? DateTimeType { get; set; }
             }
 
@@ -417,7 +416,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
             /// <para>附件配置信息</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("attachment_field_setting")]
+            [JsonPropertyName("attachment_field_setting")]
             public CustomFieldCommonSchemaConfigAttachmentFieldSetting? AttachmentFieldSetting { get; set; }
 
             /// <summary>
@@ -430,7 +429,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
-                [JsonProperty("is_multiple")]
+                [JsonPropertyName("is_multiple")]
                 public bool? IsMultiple { get; set; }
 
                 /// <summary>
@@ -455,7 +454,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
-                [JsonProperty("file_type")]
+                [JsonPropertyName("file_type")]
                 public int? FileType { get; set; }
             }
 
@@ -463,7 +462,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
             /// <para>图片配置信息</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("image_field_setting")]
+            [JsonPropertyName("image_field_setting")]
             public CustomFieldCommonSchemaConfigImageFieldSetting? ImageFieldSetting { get; set; }
 
             /// <summary>
@@ -480,7 +479,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
-                [JsonProperty("image_type")]
+                [JsonPropertyName("image_type")]
                 public int? ImageType { get; set; }
 
                 /// <summary>
@@ -491,7 +490,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
-                [JsonProperty("display_style")]
+                [JsonPropertyName("display_style")]
                 public int? DisplayStyle { get; set; }
             }
         }
@@ -501,7 +500,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1625542287</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
@@ -509,7 +508,7 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1625542639</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public string? UpdateTime { get; set; }
     }
 }

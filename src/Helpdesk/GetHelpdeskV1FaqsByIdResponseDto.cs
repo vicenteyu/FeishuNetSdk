@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 获取指定知识库详情 响应体
@@ -13,7 +12,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
     /// <para>知识库详情</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("faq")]
+    [JsonPropertyName("faq")]
     public GetHelpdeskV1FaqsByIdResponseDtoFaq? Faq { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6936004780707807231</para>
         /// </summary>
-        [JsonProperty("faq_id")]
+        [JsonPropertyName("faq_id")]
         public string? FaqId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6936004780707807231</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6936004780707807251</para>
         /// </summary>
-        [JsonProperty("helpdesk_id")]
+        [JsonPropertyName("helpdesk_id")]
         public string? HelpdeskId { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：问题</para>
         /// </summary>
-        [JsonProperty("question")]
+        [JsonPropertyName("question")]
         public string? Question { get; set; }
 
         /// <summary>
@@ -58,14 +57,14 @@ public record GetHelpdeskV1FaqsByIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：答案</para>
         /// </summary>
-        [JsonProperty("answer")]
+        [JsonPropertyName("answer")]
         public string? Answer { get; set; }
 
         /// <summary>
         /// <para>富文本答案</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("answer_richtext")]
+        [JsonPropertyName("answer_richtext")]
         public Richtext[]? AnswerRichtexts { get; set; }
 
         /// <summary>
@@ -78,7 +77,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：我的答案</para>
             /// </summary>
-            [JsonProperty("content")]
+            [JsonPropertyName("content")]
             public string? Content { get; set; }
 
             /// <summary>
@@ -86,7 +85,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：text</para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
         }
 
@@ -95,7 +94,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1596379008</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public int? CreateTime { get; set; }
 
         /// <summary>
@@ -103,14 +102,14 @@ public record GetHelpdeskV1FaqsByIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1596379008</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public int? UpdateTime { get; set; }
 
         /// <summary>
         /// <para>分类</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("categories")]
+        [JsonPropertyName("categories")]
         public Category[]? Categories { get; set; }
 
         /// <summary>
@@ -123,7 +122,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：6948728206392295444</para>
             /// </summary>
-            [JsonProperty("category_id")]
+            [JsonPropertyName("category_id")]
             public string CategoryId { get; set; } = string.Empty;
 
             /// <summary>
@@ -131,7 +130,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：6948728206392295444</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string Id { get; set; } = string.Empty;
 
             /// <summary>
@@ -139,7 +138,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：创建团队和邀请成员</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string Name { get; set; } = string.Empty;
 
             /// <summary>
@@ -147,7 +146,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：0</para>
             /// </summary>
-            [JsonProperty("parent_id")]
+            [JsonPropertyName("parent_id")]
             public string ParentId { get; set; } = string.Empty;
 
             /// <summary>
@@ -155,7 +154,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：6939771743531696147</para>
             /// </summary>
-            [JsonProperty("helpdesk_id")]
+            [JsonPropertyName("helpdesk_id")]
             public string HelpdeskId { get; set; } = string.Empty;
 
             /// <summary>
@@ -163,7 +162,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：zh_cn</para>
             /// </summary>
-            [JsonProperty("language")]
+            [JsonPropertyName("language")]
             public string? Language { get; set; }
         }
 
@@ -171,7 +170,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
         /// <para>相似问题列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("tags")]
+        [JsonPropertyName("tags")]
         public string[]? Tags { get; set; }
 
         /// <summary>
@@ -179,14 +178,14 @@ public record GetHelpdeskV1FaqsByIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1596379008</para>
         /// </summary>
-        [JsonProperty("expire_time")]
+        [JsonPropertyName("expire_time")]
         public int? ExpireTime { get; set; }
 
         /// <summary>
         /// <para>更新用户</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("update_user")]
+        [JsonPropertyName("update_user")]
         public TicketUser? UpdateUser { get; set; }
 
         /// <summary>
@@ -199,7 +198,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ou_37019b7c830210acd88fdce886e25c71</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -207,7 +206,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://xxxx</para>
             /// </summary>
-            [JsonProperty("avatar_url")]
+            [JsonPropertyName("avatar_url")]
             public string? AvatarUrl { get; set; }
 
             /// <summary>
@@ -215,7 +214,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：abc</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -223,7 +222,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：用户部门名称(有权限才展示)</para>
             /// </summary>
-            [JsonProperty("department")]
+            [JsonPropertyName("department")]
             public string? Department { get; set; }
 
             /// <summary>
@@ -231,7 +230,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：城市</para>
             /// </summary>
-            [JsonProperty("city")]
+            [JsonPropertyName("city")]
             public string? City { get; set; }
 
             /// <summary>
@@ -239,7 +238,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：国家</para>
             /// </summary>
-            [JsonProperty("country")]
+            [JsonPropertyName("country")]
             public string? Country { get; set; }
         }
 
@@ -247,7 +246,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
         /// <para>创建用户</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("create_user")]
+        [JsonPropertyName("create_user")]
         public TicketUser? CreateUser { get; set; }
     }
 }

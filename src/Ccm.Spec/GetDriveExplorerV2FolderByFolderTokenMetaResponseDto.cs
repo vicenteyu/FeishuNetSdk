@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取文件夹元信息 响应体
@@ -13,48 +12,48 @@ public record GetDriveExplorerV2FolderByFolderTokenMetaResponseDto
     /// <para>文件夹的 id</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     /// <summary>
     /// <para>文件夹的标题</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
     /// <para>文件夹的 token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("token")]
+    [JsonPropertyName("token")]
     public string? Token { get; set; }
 
     /// <summary>
     /// <para>文件夹的创建者 id</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("createUid")]
+    [JsonPropertyName("createUid")]
     public string? CreateUid { get; set; }
 
     /// <summary>
     /// <para>文件夹的最后编辑者 id</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("editUid")]
+    [JsonPropertyName("editUid")]
     public string? EditUid { get; set; }
 
     /// <summary>
     /// <para>文件夹的上级目录 id</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("parentId")]
+    [JsonPropertyName("parentId")]
     public string? ParentId { get; set; }
 
     /// <summary>
     /// <para>文件夹为个人文件夹时，为文件夹的所有者 id；文件夹为共享文件夹时，为文件夹树id</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("ownUid")]
+    [JsonPropertyName("ownUid")]
     public string? OwnUid { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 获取会议报告 响应体
@@ -13,7 +12,7 @@ public record GetVcV1ReportsGetDailyResponseDto
     /// <para>会议报告</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("meeting_report")]
+    [JsonPropertyName("meeting_report")]
     public Report? MeetingReport { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetVcV1ReportsGetDailyResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>
-        [JsonProperty("total_meeting_count")]
+        [JsonPropertyName("total_meeting_count")]
         public string? TotalMeetingCount { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetVcV1ReportsGetDailyResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：300000</para>
         /// </summary>
-        [JsonProperty("total_meeting_duration")]
+        [JsonPropertyName("total_meeting_duration")]
         public string? TotalMeetingDuration { get; set; }
 
         /// <summary>
@@ -42,14 +41,14 @@ public record GetVcV1ReportsGetDailyResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：20000</para>
         /// </summary>
-        [JsonProperty("total_participant_count")]
+        [JsonPropertyName("total_participant_count")]
         public string? TotalParticipantCount { get; set; }
 
         /// <summary>
         /// <para>每日会议报告列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("daily_report")]
+        [JsonPropertyName("daily_report")]
         public ReportMeetingDaily[]? DailyReports { get; set; }
 
         /// <summary>
@@ -62,7 +61,7 @@ public record GetVcV1ReportsGetDailyResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1609113600</para>
             /// </summary>
-            [JsonProperty("date")]
+            [JsonPropertyName("date")]
             public string? Date { get; set; }
 
             /// <summary>
@@ -70,7 +69,7 @@ public record GetVcV1ReportsGetDailyResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
-            [JsonProperty("meeting_count")]
+            [JsonPropertyName("meeting_count")]
             public string? MeetingCount { get; set; }
 
             /// <summary>
@@ -78,7 +77,7 @@ public record GetVcV1ReportsGetDailyResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：147680</para>
             /// </summary>
-            [JsonProperty("meeting_duration")]
+            [JsonPropertyName("meeting_duration")]
             public string? MeetingDuration { get; set; }
 
             /// <summary>
@@ -86,7 +85,7 @@ public record GetVcV1ReportsGetDailyResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：2000</para>
             /// </summary>
-            [JsonProperty("participant_count")]
+            [JsonPropertyName("participant_count")]
             public string? ParticipantCount { get; set; }
         }
     }

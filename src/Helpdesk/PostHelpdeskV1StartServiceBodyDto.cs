@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 创建服务台对话 请求体
@@ -14,7 +13,7 @@ public record PostHelpdeskV1StartServiceBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("human_service")]
+    [JsonPropertyName("human_service")]
     public bool? HumanService { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostHelpdeskV1StartServiceBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：[ou_7dab8a3d3cdcc9da365777c7ad535d62]</para>
     /// </summary>
-    [JsonProperty("appointed_agents")]
+    [JsonPropertyName("appointed_agents")]
     public string[]? AppointedAgents { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostHelpdeskV1StartServiceBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>
-    [JsonProperty("open_id")]
+    [JsonPropertyName("open_id")]
     public string OpenId { get; set; } = string.Empty;
 
     /// <summary>
@@ -38,6 +37,6 @@ public record PostHelpdeskV1StartServiceBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：测试自定义字段信息</para>
     /// </summary>
-    [JsonProperty("customized_info")]
+    [JsonPropertyName("customized_info")]
     public string? CustomizedInfo { get; set; }
 }

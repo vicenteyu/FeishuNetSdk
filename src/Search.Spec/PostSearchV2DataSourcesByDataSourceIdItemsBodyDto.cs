@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Search.Spec;
 /// <summary>
 /// 为指定数据项创建索引 请求体
@@ -16,14 +15,14 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
     /// <para>- 最大长度：`128` 字符</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>item 的访问权限控制。 acl 字段为空数组，则默认数据不可见。如果数据是全员可见，需要设置 access="allow"; type="user"; value="everyone"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("acl")]
+    [JsonPropertyName("acl")]
     public AclSuffix[] Acl { get; set; } = Array.Empty<AclSuffix>();
 
     /// <summary></summary>
@@ -40,7 +39,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
         /// <item>deny：禁止访问</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("access")]
+        [JsonPropertyName("access")]
         public string? Access { get; set; }
 
         /// <summary>
@@ -49,7 +48,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
         /// <para>**示例值**："d35e3c23"</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string? Value { get; set; }
 
         /// <summary>
@@ -64,7 +63,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
         /// <item>open_id：用户的open_id</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
     }
@@ -73,7 +72,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
     /// <para>item 的元信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("metadata")]
+    [JsonPropertyName("metadata")]
     public ItemMetadata Metadata { get; set; } = new();
 
     /// <summary></summary>
@@ -84,7 +83,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
         /// <para>**示例值**："工单：无法创建文章"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string Title { get; set; } = string.Empty;
 
         /// <summary>
@@ -92,7 +91,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
         /// <para>**示例值**："http://www.abc.com.cn"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("source_url")]
+        [JsonPropertyName("source_url")]
         public string SourceUrl { get; set; } = string.Empty;
 
         /// <summary>
@@ -100,7 +99,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
         /// <para>**示例值**：1618831236</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public int? CreateTime { get; set; }
 
         /// <summary>
@@ -108,7 +107,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
         /// <para>**示例值**：1618831236</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("update_time")]
+        [JsonPropertyName("update_time")]
         public int? UpdateTime { get; set; }
 
         /// <summary>
@@ -116,7 +115,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
         /// <para>**示例值**："https://www.feishu.cn"</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("source_url_mobile")]
+        [JsonPropertyName("source_url_mobile")]
         public string? SourceUrlMobile { get; set; }
     }
 
@@ -125,14 +124,14 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
     /// <para>**示例值**："{"description":"问题出现的环境和复现方法描述……", "priority":"HIGH"}"</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("structured_data")]
+    [JsonPropertyName("structured_data")]
     public string StructuredData { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>非结构化数据，如文档文本，飞书搜索会用来做召回</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("content")]
+    [JsonPropertyName("content")]
     public ItemContent? Content { get; set; }
 
     /// <summary></summary>
@@ -149,7 +148,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
         /// <item>plaintext：纯文本格式</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("format")]
+        [JsonPropertyName("format")]
         public string? Format { get; set; }
 
         /// <summary>
@@ -157,7 +156,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
         /// <para>**示例值**："这是一个很长的文本"</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("content_data")]
+        [JsonPropertyName("content_data")]
         public string? ContentData { get; set; }
     }
 }

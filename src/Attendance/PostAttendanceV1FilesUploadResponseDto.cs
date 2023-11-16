@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 上传用户人脸识别照片 响应体
@@ -13,7 +12,7 @@ public record PostAttendanceV1FilesUploadResponseDto
     /// <para>文件</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("file")]
+    [JsonPropertyName("file")]
     public PostAttendanceV1FilesUploadResponseDtoFile? File { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostAttendanceV1FilesUploadResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：6b30e7636a38861bbe02869c726a4612</para>
         /// </summary>
-        [JsonProperty("file_id")]
+        [JsonPropertyName("file_id")]
         public string FileId { get; set; } = string.Empty;
     }
 }

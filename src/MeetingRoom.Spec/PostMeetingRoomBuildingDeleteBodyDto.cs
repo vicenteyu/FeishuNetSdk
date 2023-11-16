@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 删除建筑物 请求体
@@ -13,6 +12,6 @@ public record PostMeetingRoomBuildingDeleteBodyDto
     /// <para>要删除的建筑ID</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("building_id")]
+    [JsonPropertyName("building_id")]
     public string BuildingId { get; set; } = string.Empty;
 }

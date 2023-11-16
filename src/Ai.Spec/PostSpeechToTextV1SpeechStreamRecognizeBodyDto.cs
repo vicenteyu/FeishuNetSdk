@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai.Spec;
 /// <summary>
 /// 识别流式语音 请求体
@@ -13,7 +12,7 @@ public record PostSpeechToTextV1SpeechStreamRecognizeBodyDto
     /// <para>语音资源</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("speech")]
+    [JsonPropertyName("speech")]
     public SpeechSuffix Speech { get; set; } = new();
 
     /// <summary></summary>
@@ -24,7 +23,7 @@ public record PostSpeechToTextV1SpeechStreamRecognizeBodyDto
         /// <para>**示例值**："PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg=="</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("speech")]
+        [JsonPropertyName("speech")]
         public string? Speech { get; set; }
     }
 
@@ -32,7 +31,7 @@ public record PostSpeechToTextV1SpeechStreamRecognizeBodyDto
     /// <para>配置属性</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("config")]
+    [JsonPropertyName("config")]
     public StreamConfig Config { get; set; } = new();
 
     /// <summary></summary>
@@ -43,7 +42,7 @@ public record PostSpeechToTextV1SpeechStreamRecognizeBodyDto
         /// <para>**示例值**："asd1234567890ddd"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("stream_id")]
+        [JsonPropertyName("stream_id")]
         public string StreamId { get; set; } = string.Empty;
 
         /// <summary>
@@ -51,7 +50,7 @@ public record PostSpeechToTextV1SpeechStreamRecognizeBodyDto
         /// <para>**示例值**：1</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("sequence_id")]
+        [JsonPropertyName("sequence_id")]
         public int SequenceId { get; set; }
 
         /// <summary>
@@ -59,7 +58,7 @@ public record PostSpeechToTextV1SpeechStreamRecognizeBodyDto
         /// <para>**示例值**：1</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("action")]
+        [JsonPropertyName("action")]
         public int Action { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record PostSpeechToTextV1SpeechStreamRecognizeBodyDto
         /// <para>**示例值**："pcm"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("format")]
+        [JsonPropertyName("format")]
         public string Format { get; set; } = string.Empty;
 
         /// <summary>
@@ -75,7 +74,7 @@ public record PostSpeechToTextV1SpeechStreamRecognizeBodyDto
         /// <para>**示例值**："16k_auto"</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("engine_type")]
+        [JsonPropertyName("engine_type")]
         public string EngineType { get; set; } = string.Empty;
     }
 }

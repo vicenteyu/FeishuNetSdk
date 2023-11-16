@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 预约会议 响应体
@@ -13,7 +12,7 @@ public record PostVcV1ReservesApplyResponseDto
     /// <para>预约数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("reserve")]
+    [JsonPropertyName("reserve")]
     public PostVcV1ReservesApplyResponseDtoReserve? Reserve { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostVcV1ReservesApplyResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6911188411934973028</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostVcV1ReservesApplyResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：112000358</para>
         /// </summary>
-        [JsonProperty("meeting_no")]
+        [JsonPropertyName("meeting_no")]
         public string? MeetingNo { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostVcV1ReservesApplyResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://vc.feishu.cn/j/337736498</para>
         /// </summary>
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         public string? Url { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostVcV1ReservesApplyResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://applink.feishu.cn/client/videochat/open?source=openplatform&amp;action=join&amp;idtype=reservationid&amp;id={?}&amp;preview={?}&amp;mic={?}&amp;speaker={?}&amp;camera={?}</para>
         /// </summary>
-        [JsonProperty("app_link")]
+        [JsonPropertyName("app_link")]
         public string? AppLink { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostVcV1ReservesApplyResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：https://meetings.feishu.cn/s/1gub381l4gglv</para>
         /// </summary>
-        [JsonProperty("live_link")]
+        [JsonPropertyName("live_link")]
         public string? LiveLink { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PostVcV1ReservesApplyResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1608883322</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string? EndTime { get; set; }
     }
 
@@ -74,7 +73,7 @@ public record PostVcV1ReservesApplyResponseDto
     /// <para>预约参数检查信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("reserve_correction_check_info")]
+    [JsonPropertyName("reserve_correction_check_info")]
     public PostVcV1ReservesApplyResponseDtoReserveCorrectionCheckInfo? ReserveCorrectionCheckInfo { get; set; }
 
     /// <summary>
@@ -86,7 +85,7 @@ public record PostVcV1ReservesApplyResponseDto
         /// <para>指定主持人无效id列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("invalid_host_id_list")]
+        [JsonPropertyName("invalid_host_id_list")]
         public string[]? InvalidHostIdList { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取元数据 响应体
@@ -14,7 +13,7 @@ public record PostSuiteDocsApiMetaResponseDto
     /// <para>文件元数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("docs_metas")]
+    [JsonPropertyName("docs_metas")]
     public DocsMeta[]? DocsMetas { get; set; }
 
     /// <summary></summary>
@@ -24,49 +23,49 @@ public record PostSuiteDocsApiMetaResponseDto
         /// <para>文件token</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("docs_token")]
+        [JsonPropertyName("docs_token")]
         public string? DocsToken { get; set; }
 
         /// <summary>
         /// <para>文件类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("docs_type")]
+        [JsonPropertyName("docs_type")]
         public string? DocsType { get; set; }
 
         /// <summary>
         /// <para>标题</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
         /// <para>文件拥有者</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("owner_id")]
+        [JsonPropertyName("owner_id")]
         public string? OwnerId { get; set; }
 
         /// <summary>
         /// <para>创建时间（Unix时间戳）</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("create_time")]
+        [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
         /// <para>最后编辑者</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("latest_modify_user")]
+        [JsonPropertyName("latest_modify_user")]
         public string? LatestModifyUser { get; set; }
 
         /// <summary>
         /// <para>最后编辑时间（Unix时间戳）</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("latest_modify_time")]
+        [JsonPropertyName("latest_modify_time")]
         public string? LatestModifyTime { get; set; }
     }
 }

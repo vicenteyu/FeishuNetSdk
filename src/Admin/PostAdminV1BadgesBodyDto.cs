@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Admin;
 /// <summary>
 /// 创建勋章 请求体
@@ -14,7 +13,7 @@ public record PostAdminV1BadgesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：激励勋章</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostAdminV1BadgesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：这枚勋章为了激励员工颁发。</para>
     /// </summary>
-    [JsonProperty("explanation")]
+    [JsonPropertyName("explanation")]
     public string? Explanation { get; set; }
 
     /// <summary>
@@ -30,7 +29,7 @@ public record PostAdminV1BadgesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：75a1949f-d9df-4b46-bc88-dacc51e88f3j</para>
     /// </summary>
-    [JsonProperty("detail_image")]
+    [JsonPropertyName("detail_image")]
     public string DetailImage { get; set; } = string.Empty;
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PostAdminV1BadgesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：03daa74a-159f-49e9-963e-b6c4d76103fj</para>
     /// </summary>
-    [JsonProperty("show_image")]
+    [JsonPropertyName("show_image")]
     public string ShowImage { get; set; } = string.Empty;
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PostAdminV1BadgesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：{"zh_cn":"激励勋章","en_us":"IncentiveMedal","ja_jp":"奨励メダル"}</para>
     /// </summary>
-    [JsonProperty("i18n_name")]
+    [JsonPropertyName("i18n_name")]
     public I18n? I18nName { get; set; }
 
     /// <summary>
@@ -59,7 +58,7 @@ public record PostAdminV1BadgesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：激励勋章</para>
         /// </summary>
-        [JsonProperty("zh_cn")]
+        [JsonPropertyName("zh_cn")]
         public string? ZhCn { get; set; }
 
         /// <summary>
@@ -67,7 +66,7 @@ public record PostAdminV1BadgesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：IncentiveMedal</para>
         /// </summary>
-        [JsonProperty("en_us")]
+        [JsonPropertyName("en_us")]
         public string? EnUs { get; set; }
 
         /// <summary>
@@ -75,7 +74,7 @@ public record PostAdminV1BadgesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：奨励メダル</para>
         /// </summary>
-        [JsonProperty("ja_jp")]
+        [JsonPropertyName("ja_jp")]
         public string? JaJp { get; set; }
     }
 
@@ -84,6 +83,6 @@ public record PostAdminV1BadgesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：{"zh_cn":"这枚勋章为了激励员工颁发。","en_us":"Thismedalisawardedtomotivateemployees.","ja_jp":"このメダルは、従業員のモチベーションを高めるために授与されます。"}</para>
     /// </summary>
-    [JsonProperty("i18n_explanation")]
+    [JsonPropertyName("i18n_explanation")]
     public I18n? I18nExplanation { get; set; }
 }

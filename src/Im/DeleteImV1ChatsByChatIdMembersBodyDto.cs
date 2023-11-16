@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 将用户或机器人移出群聊 请求体
@@ -17,6 +16,6 @@ public record DeleteImV1ChatsByChatIdMembersBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：["ou_9204a37300b3700d61effaa439f34295"]</para>
     /// </summary>
-    [JsonProperty("id_list")]
+    [JsonPropertyName("id_list")]
     public string[]? IdList { get; set; }
 }

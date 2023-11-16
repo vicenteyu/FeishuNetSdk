@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 创建知识库 请求体
@@ -13,7 +12,7 @@ public record PostHelpdeskV1FaqsBodyDto
     /// <para>知识库详情</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("faq")]
+    [JsonPropertyName("faq")]
     public FaqUpdateInfo? Faq { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostHelpdeskV1FaqsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：6836004780707807251</para>
         /// </summary>
-        [JsonProperty("category_id")]
+        [JsonPropertyName("category_id")]
         public string? CategoryId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostHelpdeskV1FaqsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：问题</para>
         /// </summary>
-        [JsonProperty("question")]
+        [JsonPropertyName("question")]
         public string Question { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostHelpdeskV1FaqsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：答案</para>
         /// </summary>
-        [JsonProperty("answer")]
+        [JsonPropertyName("answer")]
         public string? Answer { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostHelpdeskV1FaqsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：{\"content\":\"这只是一个测试，医保问题\",\"type\":\"text\"}</para>
         /// </summary>
-        [JsonProperty("answer_richtext")]
+        [JsonPropertyName("answer_richtext")]
         public string? AnswerRichtext { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostHelpdeskV1FaqsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：["tag1","tag2","tag3"]</para>
         /// </summary>
-        [JsonProperty("tags")]
+        [JsonPropertyName("tags")]
         public string[]? Tags { get; set; }
     }
 }

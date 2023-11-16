@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Performance;
 /// <summary>
 /// 获取绩效结果 请求体
@@ -14,7 +13,7 @@ public record PostPerformanceV1ReviewDatasQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1430425599999</para>
     /// </summary>
-    [JsonProperty("start_time")]
+    [JsonPropertyName("start_time")]
     public string StartTime { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostPerformanceV1ReviewDatasQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1630425599999</para>
     /// </summary>
-    [JsonProperty("end_time")]
+    [JsonPropertyName("end_time")]
     public string EndTime { get; set; } = string.Empty;
 
     /// <summary>
@@ -31,7 +30,7 @@ public record PostPerformanceV1ReviewDatasQueryBodyDto
     /// <para>示例值：["leader_review","communication_and_open_result"]</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("stage_types")]
+    [JsonPropertyName("stage_types")]
     public string[] StageTypes { get; set; } = Array.Empty<string>();
 
     /// <summary>
@@ -48,7 +47,7 @@ public record PostPerformanceV1ReviewDatasQueryBodyDto
     /// <para>示例值：[0,1,2,3]--&gt;</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("stage_progress")]
+    [JsonPropertyName("stage_progress")]
     public int[]? StageProgress { get; set; }
 
     /// <summary>
@@ -73,7 +72,7 @@ public record PostPerformanceV1ReviewDatasQueryBodyDto
     /// <para>示例值：["6992035450862224940"]</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("semester_id_list")]
+    [JsonPropertyName("semester_id_list")]
     public string[]? SemesterIdList { get; set; }
 
     /// <summary>
@@ -82,7 +81,7 @@ public record PostPerformanceV1ReviewDatasQueryBodyDto
     /// <para>示例值：["ou_3245842393d09e9428ad4655da6e30b3"]</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("reviewee_user_id_list")]
+    [JsonPropertyName("reviewee_user_id_list")]
     public string[] RevieweeUserIdList { get; set; } = Array.Empty<string>();
 
     /// <summary>
@@ -90,6 +89,6 @@ public record PostPerformanceV1ReviewDatasQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1630425599999</para>
     /// </summary>
-    [JsonProperty("updated_later_than")]
+    [JsonPropertyName("updated_later_than")]
     public string? UpdatedLaterThan { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 创建单位 响应体
@@ -14,6 +13,6 @@ public record PostContactV3UnitResponseDto
     /// <para>必填：是</para>
     /// <para>示例值：BU121</para>
     /// </summary>
-    [JsonProperty("unit_id")]
+    [JsonPropertyName("unit_id")]
     public string UnitId { get; set; } = string.Empty;
 }

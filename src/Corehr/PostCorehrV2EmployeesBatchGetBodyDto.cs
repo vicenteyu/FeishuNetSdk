@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 批量查询员工信息 请求体
@@ -14,7 +13,7 @@ public record PostCorehrV2EmployeesBatchGetBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("fields")]
+    [JsonPropertyName("fields")]
     public string[]? Fields { get; set; }
 
     /// <summary>
@@ -23,7 +22,7 @@ public record PostCorehrV2EmployeesBatchGetBodyDto
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>
     /// </summary>
-    [JsonProperty("employment_ids")]
+    [JsonPropertyName("employment_ids")]
     public string[]? EmploymentIds { get; set; }
 
     /// <summary>
@@ -32,7 +31,7 @@ public record PostCorehrV2EmployeesBatchGetBodyDto
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>
     /// </summary>
-    [JsonProperty("person_ids")]
+    [JsonPropertyName("person_ids")]
     public string[]? PersonIds { get; set; }
 
     /// <summary>
@@ -41,6 +40,6 @@ public record PostCorehrV2EmployeesBatchGetBodyDto
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>
     /// </summary>
-    [JsonProperty("work_emails")]
+    [JsonPropertyName("work_emails")]
     public string[]? WorkEmails { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.SecurityAndCompliance;
 /// <summary>
 /// 获取OpenAPI审计日志数据 响应体
@@ -13,7 +12,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
     /// <para>openapi日志列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public OpenapiLog[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：111</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：POST/open-apis/authen/v1/access_token</para>
         /// </summary>
-        [JsonProperty("api_key")]
+        [JsonPropertyName("api_key")]
         public string ApiKey { get; set; } = string.Empty;
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1610613336</para>
         /// </summary>
-        [JsonProperty("event_time")]
+        [JsonPropertyName("event_time")]
         public int? EventTime { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：cli_xxx</para>
         /// </summary>
-        [JsonProperty("app_id")]
+        [JsonPropertyName("app_id")]
         public string? AppId { get; set; }
 
         /// <summary>
@@ -58,14 +57,14 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：192.123.12.1或fdbd:ff1:ce00:135:c7e:d128:5028:6546</para>
         /// </summary>
-        [JsonProperty("ip")]
+        [JsonPropertyName("ip")]
         public string? Ip { get; set; }
 
         /// <summary>
         /// <para>openapi调用日志详情</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("log_detail")]
+        [JsonPropertyName("log_detail")]
         public OpenapiLogDetail? LogDetail { get; set; }
 
         /// <summary>
@@ -78,7 +77,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：/open-apis/auth/v3/app_access_token</para>
             /// </summary>
-            [JsonProperty("path")]
+            [JsonPropertyName("path")]
             public string? Path { get; set; }
 
             /// <summary>
@@ -86,7 +85,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：POST</para>
             /// </summary>
-            [JsonProperty("method")]
+            [JsonPropertyName("method")]
             public string? Method { get; set; }
 
             /// <summary>
@@ -94,7 +93,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：{}</para>
             /// </summary>
-            [JsonProperty("query_param")]
+            [JsonPropertyName("query_param")]
             public string? QueryParam { get; set; }
 
             /// <summary>
@@ -102,7 +101,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：{"app_id":"cli_xxx","app_secret":"xxx","app_ticket":"xxx"}</para>
             /// </summary>
-            [JsonProperty("payload")]
+            [JsonPropertyName("payload")]
             public string? Payload { get; set; }
 
             /// <summary>
@@ -110,7 +109,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
-            [JsonProperty("status_code")]
+            [JsonPropertyName("status_code")]
             public int? StatusCode { get; set; }
 
             /// <summary>
@@ -118,7 +117,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：{"code":0,"msg":"ok"}</para>
             /// </summary>
-            [JsonProperty("response")]
+            [JsonPropertyName("response")]
             public string? Response { get; set; }
         }
     }
@@ -128,7 +127,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：xxxx</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -136,6 +135,6 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

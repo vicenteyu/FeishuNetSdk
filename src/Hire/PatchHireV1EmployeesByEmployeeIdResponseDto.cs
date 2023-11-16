@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新入职状态 响应体
@@ -13,7 +12,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
     /// <para>员工信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("employee")]
+    [JsonPropertyName("employee")]
     public PatchHireV1EmployeesByEmployeeIdResponseDtoEmployee? Employee { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7095600054216542508</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7073372582620416300</para>
         /// </summary>
-        [JsonProperty("application_id")]
+        [JsonPropertyName("application_id")]
         public string? ApplicationId { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <item>2：已离职</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("onboard_status")]
+        [JsonPropertyName("onboard_status")]
         public int? OnboardStatus { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <item>2：已转正</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("conversion_status")]
+        [JsonPropertyName("conversion_status")]
         public int? ConversionStatus { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1637596800000</para>
         /// </summary>
-        [JsonProperty("onboard_time")]
+        [JsonPropertyName("onboard_time")]
         public int? OnboardTime { get; set; }
 
         /// <summary>
@@ -74,7 +73,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1637596800000</para>
         /// </summary>
-        [JsonProperty("expected_conversion_time")]
+        [JsonPropertyName("expected_conversion_time")]
         public int? ExpectedConversionTime { get; set; }
 
         /// <summary>
@@ -82,7 +81,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1637596800000</para>
         /// </summary>
-        [JsonProperty("actual_conversion_time")]
+        [JsonPropertyName("actual_conversion_time")]
         public int? ActualConversionTime { get; set; }
 
         /// <summary>
@@ -90,7 +89,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1637596800000</para>
         /// </summary>
-        [JsonProperty("overboard_time")]
+        [JsonPropertyName("overboard_time")]
         public int? OverboardTime { get; set; }
 
         /// <summary>
@@ -98,7 +97,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：职业发展考虑</para>
         /// </summary>
-        [JsonProperty("overboard_note")]
+        [JsonPropertyName("overboard_note")]
         public string? OverboardNote { get; set; }
 
         /// <summary>
@@ -106,7 +105,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：CT_2</para>
         /// </summary>
-        [JsonProperty("onboard_city_code")]
+        [JsonPropertyName("onboard_city_code")]
         public string? OnboardCityCode { get; set; }
 
         /// <summary>
@@ -114,7 +113,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6966123381141866028</para>
         /// </summary>
-        [JsonProperty("department")]
+        [JsonPropertyName("department")]
         public string? Department { get; set; }
 
         /// <summary>
@@ -122,7 +121,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou-xxx</para>
         /// </summary>
-        [JsonProperty("leader")]
+        [JsonPropertyName("leader")]
         public string? Leader { get; set; }
 
         /// <summary>
@@ -130,7 +129,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6937934036379650311</para>
         /// </summary>
-        [JsonProperty("sequence")]
+        [JsonPropertyName("sequence")]
         public string? Sequence { get; set; }
 
         /// <summary>
@@ -138,7 +137,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7006234385490345986</para>
         /// </summary>
-        [JsonProperty("level")]
+        [JsonPropertyName("level")]
         public string? Level { get; set; }
 
         /// <summary>
@@ -146,7 +145,7 @@ public record PatchHireV1EmployeesByEmployeeIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("employee_type")]
+        [JsonPropertyName("employee_type")]
         public string? EmployeeType { get; set; }
     }
 }

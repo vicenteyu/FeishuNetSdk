@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 创建班次 请求体
@@ -14,7 +13,7 @@ public record PostAttendanceV1ShiftsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：早班</para>
     /// </summary>
-    [JsonProperty("shift_name")]
+    [JsonPropertyName("shift_name")]
     public string ShiftName { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,14 +21,14 @@ public record PostAttendanceV1ShiftsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("punch_times")]
+    [JsonPropertyName("punch_times")]
     public int PunchTimes { get; set; }
 
     /// <summary>
     /// <para>排班组子负责人id列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("sub_shift_leader_ids")]
+    [JsonPropertyName("sub_shift_leader_ids")]
     public string[]? SubShiftLeaderIds { get; set; }
 
     /// <summary>
@@ -37,7 +36,7 @@ public record PostAttendanceV1ShiftsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("is_flexible")]
+    [JsonPropertyName("is_flexible")]
     public bool? IsFlexible { get; set; }
 
     /// <summary>
@@ -45,14 +44,14 @@ public record PostAttendanceV1ShiftsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：60</para>
     /// </summary>
-    [JsonProperty("flexible_minutes")]
+    [JsonPropertyName("flexible_minutes")]
     public int? FlexibleMinutes { get; set; }
 
     /// <summary>
     /// <para>弹性打卡时间设置</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("flexible_rule")]
+    [JsonPropertyName("flexible_rule")]
     public FlexibleRule[]? FlexibleRules { get; set; }
 
     /// <summary>
@@ -65,7 +64,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
-        [JsonProperty("flexible_early_minutes")]
+        [JsonPropertyName("flexible_early_minutes")]
         public int FlexibleEarlyMinutes { get; set; }
 
         /// <summary>
@@ -73,7 +72,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
-        [JsonProperty("flexible_late_minutes")]
+        [JsonPropertyName("flexible_late_minutes")]
         public int FlexibleLateMinutes { get; set; }
     }
 
@@ -82,14 +81,14 @@ public record PostAttendanceV1ShiftsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("no_need_off")]
+    [JsonPropertyName("no_need_off")]
     public bool? NoNeedOff { get; set; }
 
     /// <summary>
     /// <para>打卡规则</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("punch_time_rule")]
+    [JsonPropertyName("punch_time_rule")]
     public PunchTimeRule[] PunchTimeRules { get; set; } = Array.Empty<PunchTimeRule>();
 
     /// <summary>
@@ -102,7 +101,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：9:00</para>
         /// </summary>
-        [JsonProperty("on_time")]
+        [JsonPropertyName("on_time")]
         public string OnTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -110,7 +109,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：18:00，第二天凌晨2点，26:00</para>
         /// </summary>
-        [JsonProperty("off_time")]
+        [JsonPropertyName("off_time")]
         public string OffTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -118,7 +117,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：30</para>
         /// </summary>
-        [JsonProperty("late_minutes_as_late")]
+        [JsonPropertyName("late_minutes_as_late")]
         public int LateMinutesAsLate { get; set; }
 
         /// <summary>
@@ -126,7 +125,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
-        [JsonProperty("late_minutes_as_lack")]
+        [JsonPropertyName("late_minutes_as_lack")]
         public int LateMinutesAsLack { get; set; }
 
         /// <summary>
@@ -134,7 +133,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
-        [JsonProperty("on_advance_minutes")]
+        [JsonPropertyName("on_advance_minutes")]
         public int OnAdvanceMinutes { get; set; }
 
         /// <summary>
@@ -142,7 +141,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：30</para>
         /// </summary>
-        [JsonProperty("early_minutes_as_early")]
+        [JsonPropertyName("early_minutes_as_early")]
         public int EarlyMinutesAsEarly { get; set; }
 
         /// <summary>
@@ -150,7 +149,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
-        [JsonProperty("early_minutes_as_lack")]
+        [JsonPropertyName("early_minutes_as_lack")]
         public int EarlyMinutesAsLack { get; set; }
 
         /// <summary>
@@ -158,7 +157,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
-        [JsonProperty("off_delay_minutes")]
+        [JsonPropertyName("off_delay_minutes")]
         public int OffDelayMinutes { get; set; }
 
         /// <summary>
@@ -166,7 +165,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：40</para>
         /// </summary>
-        [JsonProperty("late_minutes_as_serious_late")]
+        [JsonPropertyName("late_minutes_as_serious_late")]
         public int? LateMinutesAsSeriousLate { get; set; }
     }
 
@@ -174,7 +173,7 @@ public record PostAttendanceV1ShiftsBodyDto
     /// <para>晚走晚到规则</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("late_off_late_on_rule")]
+    [JsonPropertyName("late_off_late_on_rule")]
     public LateOffLateOnRule[]? LateOffLateOnRules { get; set; }
 
     /// <summary>
@@ -187,7 +186,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
-        [JsonProperty("late_off_minutes")]
+        [JsonPropertyName("late_off_minutes")]
         public int LateOffMinutes { get; set; }
 
         /// <summary>
@@ -195,7 +194,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：30</para>
         /// </summary>
-        [JsonProperty("late_on_minutes")]
+        [JsonPropertyName("late_on_minutes")]
         public int LateOnMinutes { get; set; }
     }
 
@@ -203,7 +202,7 @@ public record PostAttendanceV1ShiftsBodyDto
     /// <para>休息规则</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("rest_time_rule")]
+    [JsonPropertyName("rest_time_rule")]
     public RestRule[]? RestTimeRules { get; set; }
 
     /// <summary>
@@ -216,7 +215,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：13:00</para>
         /// </summary>
-        [JsonProperty("rest_begin_time")]
+        [JsonPropertyName("rest_begin_time")]
         public string RestBeginTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -224,7 +223,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：14:00</para>
         /// </summary>
-        [JsonProperty("rest_end_time")]
+        [JsonPropertyName("rest_end_time")]
         public string RestEndTime { get; set; } = string.Empty;
     }
 
@@ -232,7 +231,7 @@ public record PostAttendanceV1ShiftsBodyDto
     /// <para>打卡规则</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("overtime_rule")]
+    [JsonPropertyName("overtime_rule")]
     public OvertimeRule[]? OvertimeRules { get; set; }
 
     /// <summary>
@@ -245,7 +244,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：9:00</para>
         /// </summary>
-        [JsonProperty("on_overtime")]
+        [JsonPropertyName("on_overtime")]
         public string OnOvertime { get; set; } = string.Empty;
 
         /// <summary>
@@ -253,7 +252,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：18:00</para>
         /// </summary>
-        [JsonProperty("off_overtime")]
+        [JsonPropertyName("off_overtime")]
         public string OffOvertime { get; set; } = string.Empty;
     }
 
@@ -262,6 +261,6 @@ public record PostAttendanceV1ShiftsBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("allow_punch_approval")]
+    [JsonPropertyName("allow_punch_approval")]
     public bool? AllowPunchApproval { get; set; }
 }

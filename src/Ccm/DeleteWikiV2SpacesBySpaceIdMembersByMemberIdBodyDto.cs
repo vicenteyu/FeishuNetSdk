@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 删除知识空间成员 请求体
@@ -20,7 +19,7 @@ public record DeleteWikiV2SpacesBySpaceIdMembersByMemberIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：userid</para>
     /// </summary>
-    [JsonProperty("member_type")]
+    [JsonPropertyName("member_type")]
     public string MemberType { get; set; } = string.Empty;
 
     /// <summary>
@@ -30,6 +29,6 @@ public record DeleteWikiV2SpacesBySpaceIdMembersByMemberIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：admin</para>
     /// </summary>
-    [JsonProperty("member_role")]
+    [JsonPropertyName("member_role")]
     public string MemberRole { get; set; } = string.Empty;
 }

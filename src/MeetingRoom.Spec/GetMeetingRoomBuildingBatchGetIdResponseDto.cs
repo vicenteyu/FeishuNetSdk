@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 查询建筑物ID 响应体
@@ -13,7 +12,7 @@ public record GetMeetingRoomBuildingBatchGetIdResponseDto
     /// <para>建筑列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("buildings")]
+    [JsonPropertyName("buildings")]
     public Building[]? Buildings { get; set; }
 
     /// <summary></summary>
@@ -23,14 +22,14 @@ public record GetMeetingRoomBuildingBatchGetIdResponseDto
         /// <para>建筑物ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("building_id")]
+        [JsonPropertyName("building_id")]
         public string? BuildingId { get; set; }
 
         /// <summary>
         /// <para>租户自定义建筑物ID</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_building_id")]
+        [JsonPropertyName("custom_building_id")]
         public string? CustomBuildingId { get; set; }
     }
 }

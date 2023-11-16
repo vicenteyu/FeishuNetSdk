@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 更新知识空间设置 响应体
@@ -13,7 +12,7 @@ public record PutWikiV2SpacesBySpaceIdSettingResponseDto
     /// <para>知识空间设置</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("setting")]
+    [JsonPropertyName("setting")]
     public PutWikiV2SpacesBySpaceIdSettingResponseDtoSetting? Setting { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PutWikiV2SpacesBySpaceIdSettingResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：admin/admin_and_member</para>
         /// </summary>
-        [JsonProperty("create_setting")]
+        [JsonPropertyName("create_setting")]
         public string? CreateSetting { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PutWikiV2SpacesBySpaceIdSettingResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：allow/not_allow</para>
         /// </summary>
-        [JsonProperty("security_setting")]
+        [JsonPropertyName("security_setting")]
         public string? SecuritySetting { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PutWikiV2SpacesBySpaceIdSettingResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：allow/not_allow</para>
         /// </summary>
-        [JsonProperty("comment_setting")]
+        [JsonPropertyName("comment_setting")]
         public string? CommentSetting { get; set; }
     }
 }

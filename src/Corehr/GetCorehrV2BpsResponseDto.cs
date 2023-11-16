@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 获取 HRBP 列表 响应体
@@ -13,7 +12,7 @@ public record GetCorehrV2BpsResponseDto
     /// <para>HRBP 信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public Bp[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetCorehrV2BpsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：4719456877659520852</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetCorehrV2BpsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：4719456877659520852</para>
         /// </summary>
-        [JsonProperty("hrbp_id")]
+        [JsonPropertyName("hrbp_id")]
         public string? HrbpId { get; set; }
     }
 
@@ -43,7 +42,7 @@ public record GetCorehrV2BpsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -51,6 +50,6 @@ public record GetCorehrV2BpsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

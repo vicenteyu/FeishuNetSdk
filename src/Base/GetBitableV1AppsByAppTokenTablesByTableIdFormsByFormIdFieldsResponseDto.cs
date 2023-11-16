@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 列出表单问题 响应体
@@ -13,7 +12,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
     /// <para>表单问题信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public AppTableFormField[] Items { get; set; } = Array.Empty<AppTableFormField>();
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
         /// <para>必填：否</para>
         /// <para>示例值：fldjX7dUj5</para>
         /// </summary>
-        [JsonProperty("field_id")]
+        [JsonPropertyName("field_id")]
         public string? FieldId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
         /// <para>必填：否</para>
         /// <para>示例值：多行文本</para>
         /// </summary>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
         /// <para>必填：否</para>
         /// <para>示例值：多行文本描述</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("required")]
+        [JsonPropertyName("required")]
         public bool? Required { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("visible")]
+        [JsonPropertyName("visible")]
         public bool? Visible { get; set; }
     }
 
@@ -67,7 +66,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
     /// <para>必填：是</para>
     /// <para>示例值：fld1lAbHh7</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string PageToken { get; set; } = string.Empty;
 
     /// <summary>
@@ -75,7 +74,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool HasMore { get; set; }
 
     /// <summary>
@@ -83,6 +82,6 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
     /// <para>必填：是</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("total")]
+    [JsonPropertyName("total")]
     public int Total { get; set; }
 }

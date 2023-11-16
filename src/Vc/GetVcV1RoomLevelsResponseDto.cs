@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 查询会议室层级列表 响应体
@@ -13,7 +12,7 @@ public record GetVcV1RoomLevelsResponseDto
     /// <para>会议室层级列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public RoomLevel[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record GetVcV1RoomLevelsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：层级ID</para>
         /// </summary>
-        [JsonProperty("room_level_id")]
+        [JsonPropertyName("room_level_id")]
         public string? RoomLevelId { get; set; }
 
         /// <summary>
@@ -34,7 +33,7 @@ public record GetVcV1RoomLevelsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：测试层级</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record GetVcV1RoomLevelsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293</para>
         /// </summary>
-        [JsonProperty("parent_id")]
+        [JsonPropertyName("parent_id")]
         public string? ParentId { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ public record GetVcV1RoomLevelsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：[omb_8d020b12fe49e82847c2af3c193d5754,omb_8d020b12fe49e82847c2af3c193d5754]</para>
         /// </summary>
-        [JsonProperty("path")]
+        [JsonPropertyName("path")]
         public string[]? Path { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record GetVcV1RoomLevelsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
-        [JsonProperty("has_child")]
+        [JsonPropertyName("has_child")]
         public bool? HasChild { get; set; }
 
         /// <summary>
@@ -66,7 +65,7 @@ public record GetVcV1RoomLevelsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：10000</para>
         /// </summary>
-        [JsonProperty("custom_group_id")]
+        [JsonPropertyName("custom_group_id")]
         public string? CustomGroupId { get; set; }
     }
 
@@ -75,7 +74,7 @@ public record GetVcV1RoomLevelsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：10</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -83,6 +82,6 @@ public record GetVcV1RoomLevelsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

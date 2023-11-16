@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 查询抄送列表 响应体
@@ -13,14 +12,14 @@ public record PostApprovalV4InstancesSearchCcResponseDto
     /// <para>查询返回条数</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("count")]
+    [JsonPropertyName("count")]
     public int? Count { get; set; }
 
     /// <summary>
     /// <para>审批实例列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("cc_list")]
+    [JsonPropertyName("cc_list")]
     public CcSearchItem[]? CcList { get; set; }
 
     /// <summary></summary>
@@ -30,7 +29,7 @@ public record PostApprovalV4InstancesSearchCcResponseDto
         /// <para>审批定义</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("approval")]
+        [JsonPropertyName("approval")]
         public InstanceSearchApproval? Approval { get; set; }
 
         /// <summary></summary>
@@ -40,28 +39,28 @@ public record PostApprovalV4InstancesSearchCcResponseDto
             /// <para>审批定义 code</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("code")]
+            [JsonPropertyName("code")]
             public string? Code { get; set; }
 
             /// <summary>
             /// <para>审批定义名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
             /// <para>是否为第三方审批</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("is_external")]
+            [JsonPropertyName("is_external")]
             public bool? IsExternal { get; set; }
 
             /// <summary>
             /// <para>第三方审批信息</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("external")]
+            [JsonPropertyName("external")]
             public InstanceSearchApprovalExternal? External { get; set; }
 
             /// <summary></summary>
@@ -71,7 +70,7 @@ public record PostApprovalV4InstancesSearchCcResponseDto
                 /// <para>是否支持批量读</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonProperty("batch_cc_read")]
+                [JsonPropertyName("batch_cc_read")]
                 public bool? BatchCcRead { get; set; }
             }
         }
@@ -80,7 +79,7 @@ public record PostApprovalV4InstancesSearchCcResponseDto
         /// <para>审批定义分组</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("group")]
+        [JsonPropertyName("group")]
         public InstanceSearchGroup? Group { get; set; }
 
         /// <summary></summary>
@@ -90,14 +89,14 @@ public record PostApprovalV4InstancesSearchCcResponseDto
             /// <para>审批定义分组外部 id</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("external_id")]
+            [JsonPropertyName("external_id")]
             public string? ExternalId { get; set; }
 
             /// <summary>
             /// <para>审批定义分组名称</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
         }
 
@@ -105,7 +104,7 @@ public record PostApprovalV4InstancesSearchCcResponseDto
         /// <para>审批实例信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("instance")]
+        [JsonPropertyName("instance")]
         public InstanceSearchNode? Instance { get; set; }
 
         /// <summary></summary>
@@ -115,35 +114,35 @@ public record PostApprovalV4InstancesSearchCcResponseDto
             /// <para>审批实例 code</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("code")]
+            [JsonPropertyName("code")]
             public string? Code { get; set; }
 
             /// <summary>
             /// <para>审批实例外部 id</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("external_id")]
+            [JsonPropertyName("external_id")]
             public string? ExternalId { get; set; }
 
             /// <summary>
             /// <para>审批实例发起人 id</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string? UserId { get; set; }
 
             /// <summary>
             /// <para>审批实例开始时间</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("start_time")]
+            [JsonPropertyName("start_time")]
             public string? StartTime { get; set; }
 
             /// <summary>
             /// <para>审批实例结束时间</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("end_time")]
+            [JsonPropertyName("end_time")]
             public string? EndTime { get; set; }
 
             /// <summary>
@@ -159,35 +158,35 @@ public record PostApprovalV4InstancesSearchCcResponseDto
             /// <item>approved：通过</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("status")]
+            [JsonPropertyName("status")]
             public string? Status { get; set; }
 
             /// <summary>
             /// <para>审批实例名称（只有第三方审批有）</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public string? Title { get; set; }
 
             /// <summary>
             /// <para>审批实例扩展字段，string型json</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("extra")]
+            [JsonPropertyName("extra")]
             public string? Extra { get; set; }
 
             /// <summary>
             /// <para>审批流水号</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("serial_id")]
+            [JsonPropertyName("serial_id")]
             public string? SerialId { get; set; }
 
             /// <summary>
             /// <para>审批实例链接（只有第三方审批有）</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("link")]
+            [JsonPropertyName("link")]
             public InstanceSearchLink? Link { get; set; }
         }
 
@@ -195,7 +194,7 @@ public record PostApprovalV4InstancesSearchCcResponseDto
         /// <para>审批抄送</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("cc")]
+        [JsonPropertyName("cc")]
         public CcSearchNode? Cc { get; set; }
 
         /// <summary></summary>
@@ -205,14 +204,14 @@ public record PostApprovalV4InstancesSearchCcResponseDto
             /// <para>审批抄送发起人 id</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("user_id")]
+            [JsonPropertyName("user_id")]
             public string? UserId { get; set; }
 
             /// <summary>
             /// <para>审批抄送开始时间</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("create_time")]
+            [JsonPropertyName("create_time")]
             public string? CreateTime { get; set; }
 
             /// <summary>
@@ -225,28 +224,28 @@ public record PostApprovalV4InstancesSearchCcResponseDto
             /// <item>unread：未读</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("read_status")]
+            [JsonPropertyName("read_status")]
             public string? ReadStatus { get; set; }
 
             /// <summary>
             /// <para>审批抄送名称（只有第三方审批有）</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("title")]
+            [JsonPropertyName("title")]
             public string? Title { get; set; }
 
             /// <summary>
             /// <para>审批抄送扩展字段，string型json</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("extra")]
+            [JsonPropertyName("extra")]
             public string? Extra { get; set; }
 
             /// <summary>
             /// <para>审批抄送链接（只有第三方审批有）</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("link")]
+            [JsonPropertyName("link")]
             public InstanceSearchLink? Link { get; set; }
         }
 
@@ -257,14 +256,14 @@ public record PostApprovalV4InstancesSearchCcResponseDto
             /// <para>审批实例 pc 端链接</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("pc_link")]
+            [JsonPropertyName("pc_link")]
             public string? PcLink { get; set; }
 
             /// <summary>
             /// <para>审批实例移动端链接</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("mobile_link")]
+            [JsonPropertyName("mobile_link")]
             public string? MobileLink { get; set; }
         }
     }
@@ -273,13 +272,13 @@ public record PostApprovalV4InstancesSearchCcResponseDto
     /// <para>翻页 Token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>是否有更多任务可供拉取</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

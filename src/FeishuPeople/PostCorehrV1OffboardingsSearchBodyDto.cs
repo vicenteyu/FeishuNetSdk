@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 搜索离职信息 请求体
@@ -13,7 +12,7 @@ public record PostCorehrV1OffboardingsSearchBodyDto
     /// <para>雇佣 ID 列表，为空默认查询所有离职人员</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("employment_ids")]
+    [JsonPropertyName("employment_ids")]
     public string[]? EmploymentIds { get; set; }
 
     /// <summary>
@@ -21,7 +20,7 @@ public record PostCorehrV1OffboardingsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1672578336</para>
     /// </summary>
-    [JsonProperty("apply_initiating_time_start")]
+    [JsonPropertyName("apply_initiating_time_start")]
     public string? ApplyInitiatingTimeStart { get; set; }
 
     /// <summary>
@@ -29,7 +28,7 @@ public record PostCorehrV1OffboardingsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1674133537</para>
     /// </summary>
-    [JsonProperty("apply_initiating_time_end")]
+    [JsonPropertyName("apply_initiating_time_end")]
     public string? ApplyInitiatingTimeEnd { get; set; }
 
     /// <summary>
@@ -37,7 +36,7 @@ public record PostCorehrV1OffboardingsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-01-01</para>
     /// </summary>
-    [JsonProperty("expected_offboarding_date_start")]
+    [JsonPropertyName("expected_offboarding_date_start")]
     public string? ExpectedOffboardingDateStart { get; set; }
 
     /// <summary>
@@ -45,7 +44,7 @@ public record PostCorehrV1OffboardingsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-01-01</para>
     /// </summary>
-    [JsonProperty("expected_offboarding_date_end")]
+    [JsonPropertyName("expected_offboarding_date_end")]
     public string? ExpectedOffboardingDateEnd { get; set; }
 
     /// <summary>
@@ -53,7 +52,7 @@ public record PostCorehrV1OffboardingsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-01-01</para>
     /// </summary>
-    [JsonProperty("offboarding_date_start")]
+    [JsonPropertyName("offboarding_date_start")]
     public string? OffboardingDateStart { get; set; }
 
     /// <summary>
@@ -61,7 +60,7 @@ public record PostCorehrV1OffboardingsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2022-01-01</para>
     /// </summary>
-    [JsonProperty("offboarding_date_end")]
+    [JsonPropertyName("offboarding_date_end")]
     public string? OffboardingDateEnd { get; set; }
 
     /// <summary>
@@ -69,7 +68,7 @@ public record PostCorehrV1OffboardingsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：10</para>
     /// </summary>
-    [JsonProperty("statuses")]
+    [JsonPropertyName("statuses")]
     public string[]? Statuses { get; set; }
 
     /// <summary>
@@ -78,7 +77,7 @@ public record PostCorehrV1OffboardingsSearchBodyDto
     /// <para>按照离职原因搜索(corehr:employment.offboarding_reason.search:read)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("reasons")]
+    [JsonPropertyName("reasons")]
     public string[]? Reasons { get; set; }
 
     /// <summary>
@@ -87,6 +86,6 @@ public record PostCorehrV1OffboardingsSearchBodyDto
     /// <para>按照离职原因搜索(corehr:employment.offboarding_reason.search:read)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("employee_reasons")]
+    [JsonPropertyName("employee_reasons")]
     public string[]? EmployeeReasons { get; set; }
 }

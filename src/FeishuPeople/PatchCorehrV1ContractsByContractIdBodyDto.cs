@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 更新合同 请求体
@@ -14,7 +13,7 @@ public record PatchCorehrV1ContractsByContractIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2050-01-0100:00:00</para>
     /// </summary>
-    [JsonProperty("effective_time")]
+    [JsonPropertyName("effective_time")]
     public string? EffectiveTime { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PatchCorehrV1ContractsByContractIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：9999-12-3123:59:59</para>
     /// </summary>
-    [JsonProperty("expiration_time")]
+    [JsonPropertyName("expiration_time")]
     public string? ExpirationTime { get; set; }
 
     /// <summary>
@@ -30,14 +29,14 @@ public record PatchCorehrV1ContractsByContractIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6893013238632416776</para>
     /// </summary>
-    [JsonProperty("employment_id")]
+    [JsonPropertyName("employment_id")]
     public string? EmploymentId { get; set; }
 
     /// <summary>
     /// <para>合同类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)合同类型（contract_type）枚举定义部分获得</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("contract_type")]
+    [JsonPropertyName("contract_type")]
     public Enum? ContractType { get; set; }
 
     /// <summary>
@@ -50,7 +49,7 @@ public record PatchCorehrV1ContractsByContractIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：type_1</para>
         /// </summary>
-        [JsonProperty("enum_name")]
+        [JsonPropertyName("enum_name")]
         public string EnumName { get; set; } = string.Empty;
     }
 
@@ -59,7 +58,7 @@ public record PatchCorehrV1ContractsByContractIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6892686614112241165</para>
     /// </summary>
-    [JsonProperty("first_party_company_id")]
+    [JsonPropertyName("first_party_company_id")]
     public string? FirstPartyCompanyId { get; set; }
 
     /// <summary>
@@ -67,14 +66,14 @@ public record PatchCorehrV1ContractsByContractIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：151515151</para>
     /// </summary>
-    [JsonProperty("person_id")]
+    [JsonPropertyName("person_id")]
     public string? PersonId { get; set; }
 
     /// <summary>
     /// <para>自定义字段</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("custom_fields")]
+    [JsonPropertyName("custom_fields")]
     public ObjectFieldData[]? CustomFields { get; set; }
 
     /// <summary>
@@ -87,7 +86,7 @@ public record PatchCorehrV1ContractsByContractIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：name</para>
         /// </summary>
-        [JsonProperty("field_name")]
+        [JsonPropertyName("field_name")]
         public string FieldName { get; set; } = string.Empty;
 
         /// <summary>
@@ -95,7 +94,7 @@ public record PatchCorehrV1ContractsByContractIdBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：\"Sandy\"</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
     }
 
@@ -104,7 +103,7 @@ public record PatchCorehrV1ContractsByContractIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：fixed_term</para>
     /// </summary>
-    [JsonProperty("duration_type")]
+    [JsonPropertyName("duration_type")]
     public Enum? DurationType { get; set; }
 
     /// <summary>
@@ -112,7 +111,7 @@ public record PatchCorehrV1ContractsByContractIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2006-01-02</para>
     /// </summary>
-    [JsonProperty("contract_end_date")]
+    [JsonPropertyName("contract_end_date")]
     public string? ContractEndDate { get; set; }
 
     /// <summary>
@@ -120,13 +119,13 @@ public record PatchCorehrV1ContractsByContractIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6919737965274990093</para>
     /// </summary>
-    [JsonProperty("contract_number")]
+    [JsonPropertyName("contract_number")]
     public string? ContractNumber { get; set; }
 
     /// <summary>
     /// <para>签订类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)签订类型（signing_type）枚举定义部分获得</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("signing_type")]
+    [JsonPropertyName("signing_type")]
     public Enum? SigningType { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 删除会议室层级 请求体
@@ -15,7 +14,7 @@ public record PostVcV1RoomLevelsDelBodyDto
     /// <para>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("room_level_id")]
+    [JsonPropertyName("room_level_id")]
     public string RoomLevelId { get; set; } = string.Empty;
 
     /// <summary>
@@ -23,6 +22,6 @@ public record PostVcV1RoomLevelsDelBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("delete_child")]
+    [JsonPropertyName("delete_child")]
     public bool? DeleteChild { get; set; }
 }

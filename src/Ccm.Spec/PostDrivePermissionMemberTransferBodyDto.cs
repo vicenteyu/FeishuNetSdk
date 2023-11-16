@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 转移拥有者 请求体
@@ -13,21 +12,21 @@ public record PostDrivePermissionMemberTransferBodyDto
     /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("token")]
+    [JsonPropertyName("token")]
     public string Token { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>文档类型，可选 **doc、docx、sheet、bitable、file**</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string Type { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>要转移到的新的文档所有者</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("owner")]
+    [JsonPropertyName("owner")]
     public OwnerSuffix Owner { get; set; } = new();
 
     /// <summary></summary>
@@ -37,14 +36,14 @@ public record PostDrivePermissionMemberTransferBodyDto
         /// <para>用户类型，可选 **email、openid、userid、unionid**</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("member_type")]
+        [JsonPropertyName("member_type")]
         public string MemberType { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>用户类型下的值，获取方式见 [如何获得 User ID、Open ID 和 Union ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("member_id")]
+        [JsonPropertyName("member_id")]
         public string MemberId { get; set; } = string.Empty;
     }
 
@@ -52,13 +51,13 @@ public record PostDrivePermissionMemberTransferBodyDto
     /// <para>true 为转移后删除旧 owner 的权限，默认为false</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("remove_old_owner")]
+    [JsonPropertyName("remove_old_owner")]
     public bool? RemoveOldOwner { get; set; }
 
     /// <summary>
     /// <para>true为不通知新owner，默认为false</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("cancel_notify")]
+    [JsonPropertyName("cancel_notify")]
     public bool? CancelNotify { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 获取三方审批任务状态 请求体
@@ -18,34 +17,34 @@ public record PostApprovalOpenapiV2ExternalListBodyDto
     /// <para>审批定义 Code，用于指定只获取这些定义下的数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("approval_codes")]
+    [JsonPropertyName("approval_codes")]
     public string[]? ApprovalCodes { get; set; }
 
     /// <summary>
     /// <para>审批实例 ID, 用于指定只获取这些实例下的数据，最多支持 20 个</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("instance_ids")]
+    [JsonPropertyName("instance_ids")]
     public string[]? InstanceIds { get; set; }
 
     /// <summary>
     /// <para>审批人 user_id，用于指定只获取这些用户的数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_ids")]
+    [JsonPropertyName("user_ids")]
     public string[]? UserIds { get; set; }
 
     /// <summary>
     /// <para>审批任务状态，用于指定获取该状态下的数据，状态值参照 [三方审批任务状态枚举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string? Status { get; set; }
 
     /// <summary>
     /// <para>通过 status 获取所有任务的请求，数据是分批返回的，使用 scroll_id 获取下一批数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("scroll_id")]
+    [JsonPropertyName("scroll_id")]
     public string? ScrollId { get; set; }
 }

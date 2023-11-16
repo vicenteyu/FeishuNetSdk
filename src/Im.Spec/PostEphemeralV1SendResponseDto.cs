@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im.Spec;
 /// <summary>
 /// 发送仅特定人可见的消息卡片 响应体
@@ -14,6 +13,6 @@ public record PostEphemeralV1SendResponseDto
     /// <para>消息 ID</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("message_id")]
+    [JsonPropertyName("message_id")]
     public string? MessageId { get; set; }
 }

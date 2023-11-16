@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 分片上传文件（完成上传） 请求体
@@ -14,7 +13,7 @@ public record PostDriveV1FilesUploadFinishBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：7111211691345512356</para>
     /// </summary>
-    [JsonProperty("upload_id")]
+    [JsonPropertyName("upload_id")]
     public string UploadId { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostDriveV1FilesUploadFinishBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("block_num")]
+    [JsonPropertyName("block_num")]
     public int BlockNum { get; set; }
 }

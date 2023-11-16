@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增记录 请求体
@@ -16,6 +15,6 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：{ "多行文本":"HelloWorld" }</para>
     /// </summary>
-    [JsonProperty("fields")]
+    [JsonPropertyName("fields")]
     public object Fields { get; set; } = new();
 }

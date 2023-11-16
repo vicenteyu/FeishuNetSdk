@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 批量添加公共邮箱成员 请求体
@@ -14,7 +13,7 @@ public record PostMailV1PublicMailboxesByPublicMailboxIdMembersBatchCreateBodyDt
     /// <para>必填：是</para>
     /// <para>最大长度：200</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public PublicMailboxMember[] Items { get; set; } = Array.Empty<PublicMailboxMember>();
 
     /// <summary>
@@ -27,7 +26,7 @@ public record PostMailV1PublicMailboxesByPublicMailboxIdMembersBatchCreateBodyDt
         /// <para>必填：否</para>
         /// <para>示例值：xxxxxxxxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("member_id")]
+        [JsonPropertyName("member_id")]
         public string? MemberId { get; set; }
 
         /// <summary>
@@ -35,7 +34,7 @@ public record PostMailV1PublicMailboxesByPublicMailboxIdMembersBatchCreateBodyDt
         /// <para>必填：否</para>
         /// <para>示例值：xxxxxxxxxx</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record PostMailV1PublicMailboxesByPublicMailboxIdMembersBatchCreateBodyDt
         /// <item>USER：内部用户</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
     }
 }

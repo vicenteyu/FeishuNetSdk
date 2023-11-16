@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 修改用户部分信息 请求体
@@ -15,7 +14,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>示例值：张三</para>
     /// <para>最小长度：1</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
@@ -23,7 +22,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：San Zhang</para>
     /// </summary>
-    [JsonProperty("en_name")]
+    [JsonPropertyName("en_name")]
     public string? EnName { get; set; }
 
     /// <summary>
@@ -31,7 +30,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：Alex Zhang</para>
     /// </summary>
-    [JsonProperty("nickname")]
+    [JsonPropertyName("nickname")]
     public string? Nickname { get; set; }
 
     /// <summary>
@@ -42,7 +41,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：zhangsan@gmail.com</para>
     /// </summary>
-    [JsonProperty("email")]
+    [JsonPropertyName("email")]
     public string? Email { get; set; }
 
     /// <summary>
@@ -55,7 +54,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：13011111111 (其他例子，中国大陆手机号: 13011111111 或 +8613011111111, 非中国大陆手机号: +41446681800)</para>
     /// </summary>
-    [JsonProperty("mobile")]
+    [JsonPropertyName("mobile")]
     public string? Mobile { get; set; }
 
     /// <summary>
@@ -63,7 +62,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("mobile_visible")]
+    [JsonPropertyName("mobile_visible")]
     public bool? MobileVisible { get; set; }
 
     /// <summary>
@@ -76,7 +75,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <item>2：女</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("gender")]
+    [JsonPropertyName("gender")]
     public int? Gender { get; set; }
 
     /// <summary>
@@ -85,7 +84,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g</para>
     /// </summary>
-    [JsonProperty("avatar_key")]
+    [JsonPropertyName("avatar_key")]
     public string? AvatarKey { get; set; }
 
     /// <summary>
@@ -95,7 +94,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
     /// </summary>
-    [JsonProperty("department_ids")]
+    [JsonPropertyName("department_ids")]
     public string[]? DepartmentIds { get; set; }
 
     /// <summary>
@@ -105,7 +104,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>
-    [JsonProperty("leader_user_id")]
+    [JsonPropertyName("leader_user_id")]
     public string? LeaderUserId { get; set; }
 
     /// <summary>
@@ -113,7 +112,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：杭州</para>
     /// </summary>
-    [JsonProperty("city")]
+    [JsonPropertyName("city")]
     public string? City { get; set; }
 
     /// <summary>
@@ -121,7 +120,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：CN</para>
     /// </summary>
-    [JsonProperty("country")]
+    [JsonPropertyName("country")]
     public string? Country { get; set; }
 
     /// <summary>
@@ -129,7 +128,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：北楼-H34</para>
     /// </summary>
-    [JsonProperty("work_station")]
+    [JsonPropertyName("work_station")]
     public string? WorkStation { get; set; }
 
     /// <summary>
@@ -137,7 +136,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：2147483647</para>
     /// </summary>
-    [JsonProperty("join_time")]
+    [JsonPropertyName("join_time")]
     public int? JoinTime { get; set; }
 
     /// <summary>
@@ -145,7 +144,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("employee_no")]
+    [JsonPropertyName("employee_no")]
     public string? EmployeeNo { get; set; }
 
     /// <summary>
@@ -159,7 +158,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
-    [JsonProperty("employee_type")]
+    [JsonPropertyName("employee_type")]
     public int? EmployeeType { get; set; }
 
     /// <summary>
@@ -167,7 +166,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>用于标记通讯录下组织架构的人员顺序，人员可能存在多个部门中，且有不同的排序。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("orders")]
+    [JsonPropertyName("orders")]
     public UserOrder[]? Orders { get; set; }
 
     /// <summary>
@@ -183,7 +182,7 @@ public record PatchContactV3UsersByUserIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
         /// </summary>
-        [JsonProperty("department_id")]
+        [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
 
         /// <summary>
@@ -191,7 +190,7 @@ public record PatchContactV3UsersByUserIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>
-        [JsonProperty("user_order")]
+        [JsonPropertyName("user_order")]
         public int? UserOrderSuffix { get; set; }
 
         /// <summary>
@@ -199,7 +198,7 @@ public record PatchContactV3UsersByUserIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>
-        [JsonProperty("department_order")]
+        [JsonPropertyName("department_order")]
         public int? DepartmentOrder { get; set; }
 
         /// <summary>
@@ -207,7 +206,7 @@ public record PatchContactV3UsersByUserIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("is_primary_dept")]
+        [JsonPropertyName("is_primary_dept")]
         public bool? IsPrimaryDept { get; set; }
     }
 
@@ -216,7 +215,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>更多详情参见[用户接口相关问题](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("custom_attrs")]
+    [JsonPropertyName("custom_attrs")]
     public UserCustomAttr[]? CustomAttrs { get; set; }
 
     /// <summary>
@@ -236,7 +235,7 @@ public record PatchContactV3UsersByUserIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：TEXT</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
@@ -244,14 +243,14 @@ public record PatchContactV3UsersByUserIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：DemoId</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
         /// <para>自定义字段取值</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public UserCustomAttrValue? Value { get; set; }
 
         /// <summary>
@@ -264,7 +263,7 @@ public record PatchContactV3UsersByUserIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：DemoText</para>
             /// </summary>
-            [JsonProperty("text")]
+            [JsonPropertyName("text")]
             public string? Text { get; set; }
 
             /// <summary>
@@ -272,7 +271,7 @@ public record PatchContactV3UsersByUserIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：http://www.fs.cn</para>
             /// </summary>
-            [JsonProperty("url")]
+            [JsonPropertyName("url")]
             public string? Url { get; set; }
 
             /// <summary>
@@ -280,7 +279,7 @@ public record PatchContactV3UsersByUserIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：http://www.fs.cn</para>
             /// </summary>
-            [JsonProperty("pc_url")]
+            [JsonPropertyName("pc_url")]
             public string? PcUrl { get; set; }
 
             /// <summary>
@@ -288,14 +287,14 @@ public record PatchContactV3UsersByUserIdBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：edcvfrtg</para>
             /// </summary>
-            [JsonProperty("option_id")]
+            [JsonPropertyName("option_id")]
             public string? OptionId { get; set; }
 
             /// <summary>
             /// <para>字段类型为 GENERIC_USER 时，该参数定义引用人员</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonProperty("generic_user")]
+            [JsonPropertyName("generic_user")]
             public CustomAttrGenericUser? GenericUser { get; set; }
 
             /// <summary>
@@ -308,7 +307,7 @@ public record PatchContactV3UsersByUserIdBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：9b2fabg5</para>
                 /// </summary>
-                [JsonProperty("id")]
+                [JsonPropertyName("id")]
                 public string Id { get; set; } = string.Empty;
 
                 /// <summary>
@@ -318,7 +317,7 @@ public record PatchContactV3UsersByUserIdBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：1</para>
                 /// </summary>
-                [JsonProperty("type")]
+                [JsonPropertyName("type")]
                 public int Type { get; set; }
             }
         }
@@ -330,7 +329,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：demo@mail.com</para>
     /// </summary>
-    [JsonProperty("enterprise_email")]
+    [JsonPropertyName("enterprise_email")]
     public string? EnterpriseEmail { get; set; }
 
     /// <summary>
@@ -338,7 +337,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：xxxxx</para>
     /// </summary>
-    [JsonProperty("job_title")]
+    [JsonPropertyName("job_title")]
     public string? JobTitle { get; set; }
 
     /// <summary>
@@ -346,7 +345,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("is_frozen")]
+    [JsonPropertyName("is_frozen")]
     public bool? IsFrozen { get; set; }
 
     /// <summary>
@@ -354,7 +353,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：mga5oa8ayjlp9rb</para>
     /// </summary>
-    [JsonProperty("job_level_id")]
+    [JsonPropertyName("job_level_id")]
     public string? JobLevelId { get; set; }
 
     /// <summary>
@@ -362,7 +361,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：mga5oa8ayjlp9rb</para>
     /// </summary>
-    [JsonProperty("job_family_id")]
+    [JsonPropertyName("job_family_id")]
     public string? JobFamilyId { get; set; }
 
     /// <summary>
@@ -370,13 +369,13 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：["7179609168571645971"]</para>
     /// </summary>
-    [JsonProperty("subscription_ids")]
+    [JsonPropertyName("subscription_ids")]
     public string[]? SubscriptionIds { get; set; }
 
     /// <summary>
     /// <para>虚线上级ID</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("dotted_line_leader_user_ids")]
+    [JsonPropertyName("dotted_line_leader_user_ids")]
     public string[]? DottedLineLeaderUserIds { get; set; }
 }

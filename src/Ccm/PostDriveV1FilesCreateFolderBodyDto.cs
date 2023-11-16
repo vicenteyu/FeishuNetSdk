@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 新建文件夹 请求体
@@ -14,7 +13,7 @@ public record PostDriveV1FilesCreateFolderBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：NewFolder</para>
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
@@ -22,6 +21,6 @@ public record PostDriveV1FilesCreateFolderBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：fldbcO1UuPz8VwnpPx5a92abcef</para>
     /// </summary>
-    [JsonProperty("folder_token")]
+    [JsonPropertyName("folder_token")]
     public string FolderToken { get; set; } = string.Empty;
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建文件快捷方式 请求体
@@ -14,14 +13,14 @@ public record PostDriveV1FilesCreateShortcutBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：fldbc5qgwyQnO0uedNllWuF3fAd</para>
     /// </summary>
-    [JsonProperty("parent_token")]
+    [JsonPropertyName("parent_token")]
     public string ParentToken { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>源文档的信息</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("refer_entity")]
+    [JsonPropertyName("refer_entity")]
     public PostDriveV1FilesCreateShortcutBodyDtoReferEntity ReferEntity { get; set; } = new();
 
     /// <summary>
@@ -34,7 +33,7 @@ public record PostDriveV1FilesCreateShortcutBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：doxbcGvhSVN0R6octqPwAEYNfFb</para>
         /// </summary>
-        [JsonProperty("refer_token")]
+        [JsonPropertyName("refer_token")]
         public string ReferToken { get; set; } = string.Empty;
 
         /// <summary>
@@ -50,7 +49,7 @@ public record PostDriveV1FilesCreateShortcutBodyDto
         /// <item>mindnote：思维笔记</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("refer_type")]
+        [JsonPropertyName("refer_type")]
         public string ReferType { get; set; } = string.Empty;
     }
 }

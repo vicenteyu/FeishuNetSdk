@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 查询邮箱地址状态 响应体
@@ -13,7 +12,7 @@ public record PostMailV1UsersQueryResponseDto
     /// <para>邮箱地址以及其对应的类型类型和状态</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_list")]
+    [JsonPropertyName("user_list")]
     public User[]? UserLists { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostMailV1UsersQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：aaa@lark.com</para>
         /// </summary>
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string? Email { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostMailV1UsersQueryResponseDto
         /// <item>6：禁用</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public int? Status { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ public record PostMailV1UsersQueryResponseDto
         /// <item>6：邮件组别名</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public int? Type { get; set; }
     }
 }

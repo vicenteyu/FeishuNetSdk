@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 搜索日历 请求体
@@ -15,6 +14,6 @@ public record PostCalendarV4CalendarsSearchBodyDto
     /// <para>示例值：querywords</para>
     /// <para>最大长度：200</para>
     /// </summary>
-    [JsonProperty("query")]
+    [JsonPropertyName("query")]
     public string Query { get; set; } = string.Empty;
 }

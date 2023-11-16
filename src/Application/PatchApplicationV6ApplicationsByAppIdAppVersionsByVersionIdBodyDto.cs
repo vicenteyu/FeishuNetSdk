@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 更新应用审核状态 请求体
@@ -21,6 +20,6 @@ public record PatchApplicationV6ApplicationsByAppIdAppVersionsByVersionIdBodyDto
     /// <item>4：未提交审核</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public int? Status { get; set; }
 }

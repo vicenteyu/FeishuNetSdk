@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Admin;
 /// <summary>
 /// 获取授予名单列表 响应体
@@ -15,7 +14,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
     /// <para>示例值：[{"grant_id":"g_uS4yux","badge_id":"m_DjMzaK","name":"授权给全员用户的周年授予名单","grant_type":1,"timezone":"Asia/Shanghai","is_grant_all":true,"rule_detail":{"anniversary":6,"effective_period":0}}]</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("grants")]
+    [JsonPropertyName("grants")]
     public Grant[]? Grants { get; set; }
 
     /// <summary>
@@ -29,7 +28,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
         /// <para>示例值：g_49Z7CQ</para>
         /// <para>最大长度：64</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -38,7 +37,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
         /// <para>示例值：m_qTR2HM</para>
         /// <para>最大长度：64</para>
         /// </summary>
-        [JsonProperty("badge_id")]
+        [JsonPropertyName("badge_id")]
         public string? BadgeId { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：激励勋章的授予名单</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -59,7 +58,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
         /// </list></para>
         /// <para>默认值：0</para>
         /// </summary>
-        [JsonProperty("grant_type")]
+        [JsonPropertyName("grant_type")]
         public int GrantType { get; set; }
 
         /// <summary>
@@ -67,14 +66,14 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：Asia/Shanghai</para>
         /// </summary>
-        [JsonProperty("time_zone")]
+        [JsonPropertyName("time_zone")]
         public string TimeZone { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>规则详情</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("rule_detail")]
+        [JsonPropertyName("rule_detail")]
         public GrantRuleDetail RuleDetail { get; set; } = new();
 
         /// <summary>
@@ -87,7 +86,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1649606400</para>
             /// </summary>
-            [JsonProperty("effective_time")]
+            [JsonPropertyName("effective_time")]
             public string? EffectiveTime { get; set; }
 
             /// <summary>
@@ -95,7 +94,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1649692799</para>
             /// </summary>
-            [JsonProperty("expiration_time")]
+            [JsonPropertyName("expiration_time")]
             public string? ExpirationTime { get; set; }
 
             /// <summary>
@@ -104,7 +103,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
             /// <para>示例值：1</para>
             /// <para>默认值：1</para>
             /// </summary>
-            [JsonProperty("anniversary")]
+            [JsonPropertyName("anniversary")]
             public int? Anniversary { get; set; }
 
             /// <summary>
@@ -117,7 +116,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
             /// </list></para>
             /// <para>默认值：1</para>
             /// </summary>
-            [JsonProperty("effective_period")]
+            [JsonPropertyName("effective_period")]
             public int? EffectivePeriod { get; set; }
         }
 
@@ -127,7 +126,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
         /// <para>示例值：false</para>
         /// <para>默认值：false</para>
         /// </summary>
-        [JsonProperty("is_grant_all")]
+        [JsonPropertyName("is_grant_all")]
         public bool IsGrantAll { get; set; }
 
         /// <summary>
@@ -135,14 +134,14 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：[u273y71]</para>
         /// </summary>
-        [JsonProperty("user_ids")]
+        [JsonPropertyName("user_ids")]
         public string[]? UserIds { get; set; }
 
         /// <summary>
         /// <para>授予的部门ID列表，授予名单列表接口返回结果中不返回该字段，只在详情接口返回</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("department_ids")]
+        [JsonPropertyName("department_ids")]
         public string[]? DepartmentIds { get; set; }
 
         /// <summary>
@@ -150,7 +149,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：[g122817]</para>
         /// </summary>
-        [JsonProperty("group_ids")]
+        [JsonPropertyName("group_ids")]
         public string[]? GroupIds { get; set; }
     }
 
@@ -160,7 +159,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
     /// <para>示例值：om5fn1</para>
     /// <para>最大长度：64</para>
     /// </summary>
-    [JsonProperty("page_token")]
+    [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
 
     /// <summary>
@@ -169,6 +168,6 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
     /// </summary>
-    [JsonProperty("has_more")]
+    [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 更新群发言权限 请求体
@@ -14,7 +13,7 @@ public record PutImV1ChatsByChatIdModerationBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：moderator_list</para>
     /// </summary>
-    [JsonProperty("moderation_setting")]
+    [JsonPropertyName("moderation_setting")]
     public string? ModerationSetting { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PutImV1ChatsByChatIdModerationBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：["ou_7d8a6e6df7621556ce0d21922b676706ccs"]</para>
     /// </summary>
-    [JsonProperty("moderator_added_list")]
+    [JsonPropertyName("moderator_added_list")]
     public string[]? ModeratorAddedList { get; set; }
 
     /// <summary>
@@ -30,6 +29,6 @@ public record PutImV1ChatsByChatIdModerationBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：["ou_8d7h6e6df76215566d8dbs92k6767c4d87"]</para>
     /// </summary>
-    [JsonProperty("moderator_removed_list")]
+    [JsonPropertyName("moderator_removed_list")]
     public string[]? ModeratorRemovedList { get; set; }
 }

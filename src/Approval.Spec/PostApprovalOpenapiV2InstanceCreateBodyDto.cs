@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 创建审批实例 请求体
@@ -13,35 +12,35 @@ public record PostApprovalOpenapiV2InstanceCreateBodyDto
     /// <para>审批定义 code</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("approval_code")]
+    [JsonPropertyName("approval_code")]
     public string ApprovalCode { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>发起审批用户</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
     /// <para>发起审批用户 open id, 如果传了 user_id 则优先使用 user_id</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("open_id")]
+    [JsonPropertyName("open_id")]
     public string OpenId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>发起审批用户部门id，如果用户只属于一个部门，可以不填。如果属于多个部门，默认会选择部门列表第一个部门</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("department_id")]
+    [JsonPropertyName("department_id")]
     public string? DepartmentId { get; set; }
 
     /// <summary>
     /// <para>json 数组，**控件值**</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("form")]
+    [JsonPropertyName("form")]
     public string Form { get; set; } = string.Empty;
 
     /// <summary></summary>
@@ -51,21 +50,21 @@ public record PostApprovalOpenapiV2InstanceCreateBodyDto
         /// <para>控件 ID，也可以使用自定义 ID custom_id 的值</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>控件类型</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>控件值，不同类型的值格式不一样</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("value")]
+        [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
     }
 
@@ -75,14 +74,14 @@ public record PostApprovalOpenapiV2InstanceCreateBodyDto
     /// <para>value: 审批人列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("node_approver_user_id_list")]
+    [JsonPropertyName("node_approver_user_id_list")]
     public object? NodeApproverUserIdList { get; set; }
 
     /// <summary>
     /// <para>审批人发起人自选 open id，与上述node_approver_user_id_list字段取并集</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("node_approver_open_id_list")]
+    [JsonPropertyName("node_approver_open_id_list")]
     public object? NodeApproverOpenIdList { get; set; }
 
     /// <summary>
@@ -92,7 +91,7 @@ public record PostApprovalOpenapiV2InstanceCreateBodyDto
     /// <para>单个节点最多选择20位抄送人</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("node_cc_user_id_list")]
+    [JsonPropertyName("node_cc_user_id_list")]
     public object? NodeCcUserIdList { get; set; }
 
     /// <summary>
@@ -100,13 +99,13 @@ public record PostApprovalOpenapiV2InstanceCreateBodyDto
     /// <para>单个节点最多选择20位抄送人</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("node_cc_open_id_list")]
+    [JsonPropertyName("node_cc_open_id_list")]
     public object? NodeCcOpenIdList { get; set; }
 
     /// <summary>
     /// <para>审批实例 uuid，用于幂等操作, 每个租户下面的唯一key，同一个 uuid 只能用于创建一个审批实例，如果冲突，返回错误码 60012 ，格式建议为 XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX，不区分大小写</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("uuid")]
+    [JsonPropertyName("uuid")]
     public string? Uuid { get; set; }
 }

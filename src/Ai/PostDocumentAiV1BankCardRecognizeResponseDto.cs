@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 识别文件中的银行卡 响应体
@@ -13,7 +12,7 @@ public record PostDocumentAiV1BankCardRecognizeResponseDto
     /// <para>银行卡信息</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("bank_card")]
+    [JsonPropertyName("bank_card")]
     public PostDocumentAiV1BankCardRecognizeResponseDtoBankCard? BankCard { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PostDocumentAiV1BankCardRecognizeResponseDto
         /// <para>识别出的实体类型</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("entities")]
+        [JsonPropertyName("entities")]
         public BankCardEntity[]? Entities { get; set; }
 
         /// <summary>
@@ -42,7 +41,7 @@ public record PostDocumentAiV1BankCardRecognizeResponseDto
             /// <item>date_of_expiry：有效日期</item>
             /// </list></para>
             /// </summary>
-            [JsonProperty("type")]
+            [JsonPropertyName("type")]
             public string? Type { get; set; }
 
             /// <summary>
@@ -50,7 +49,7 @@ public record PostDocumentAiV1BankCardRecognizeResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：5184********8888</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
     }

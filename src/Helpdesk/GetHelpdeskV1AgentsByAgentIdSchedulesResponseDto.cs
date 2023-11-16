@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 查询指定客服工作日程 响应体
@@ -13,7 +12,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
     /// <para>客服日程</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("agent_schedule")]
+    [JsonPropertyName("agent_schedule")]
     public GetHelpdeskV1AgentsByAgentIdSchedulesResponseDtoAgentSchedule? AgentSchedule { get; set; }
 
     /// <summary>
@@ -26,14 +25,14 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public int? Status { get; set; }
 
         /// <summary>
         /// <para>客服信息</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("agent")]
+        [JsonPropertyName("agent")]
         public AgentUser? Agent { get; set; }
 
         /// <summary>
@@ -46,7 +45,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：ou_ea651a5c09e2d01af8acd34059f5359b</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -54,7 +53,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：https://avatar-url.com/test.png</para>
             /// </summary>
-            [JsonProperty("avatar_url")]
+            [JsonPropertyName("avatar_url")]
             public string? AvatarUrl { get; set; }
 
             /// <summary>
@@ -62,7 +61,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：test-user</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -70,7 +69,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：test@bytedance.com</para>
             /// </summary>
-            [JsonProperty("email")]
+            [JsonPropertyName("email")]
             public string? Email { get; set; }
 
             /// <summary>
@@ -78,7 +77,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：测试部门</para>
             /// </summary>
-            [JsonProperty("department")]
+            [JsonPropertyName("department")]
             public string? Department { get; set; }
 
             /// <summary>
@@ -86,7 +85,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：test-company</para>
             /// </summary>
-            [JsonProperty("company_name")]
+            [JsonPropertyName("company_name")]
             public string? CompanyName { get; set; }
         }
 
@@ -94,7 +93,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
         /// <para>工作日程列表</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("schedule")]
+        [JsonPropertyName("schedule")]
         public WeekdaySchedule[]? Schedules { get; set; }
 
         /// <summary>
@@ -107,7 +106,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：00:00</para>
             /// </summary>
-            [JsonProperty("start_time")]
+            [JsonPropertyName("start_time")]
             public string? StartTime { get; set; }
 
             /// <summary>
@@ -115,7 +114,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：24:00</para>
             /// </summary>
-            [JsonProperty("end_time")]
+            [JsonPropertyName("end_time")]
             public string? EndTime { get; set; }
 
             /// <summary>
@@ -123,7 +122,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：9</para>
             /// </summary>
-            [JsonProperty("weekday")]
+            [JsonPropertyName("weekday")]
             public int? Weekday { get; set; }
         }
 
@@ -131,7 +130,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
         /// <para>客服技能</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("agent_skills")]
+        [JsonPropertyName("agent_skills")]
         public AgentSkillLessInfo[]? AgentSkills { get; set; }
 
         /// <summary>
@@ -144,7 +143,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：agent-skill-id</para>
             /// </summary>
-            [JsonProperty("id")]
+            [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
@@ -152,7 +151,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：agent-skill</para>
             /// </summary>
-            [JsonProperty("name")]
+            [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
@@ -160,7 +159,7 @@ public record GetHelpdeskV1AgentsByAgentIdSchedulesResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
-            [JsonProperty("is_default")]
+            [JsonPropertyName("is_default")]
             public bool? IsDefault { get; set; }
         }
     }

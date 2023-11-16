@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ai.Spec;
 /// <summary>
 /// 识别图片中的文字 响应体
@@ -13,6 +12,6 @@ public record PostOpticalCharRecognitionV1ImageBasicRecognizeResponseDto
     /// <para>按区域识别，返回文本列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("text_list")]
+    [JsonPropertyName("text_list")]
     public string[]? TextList { get; set; }
 }

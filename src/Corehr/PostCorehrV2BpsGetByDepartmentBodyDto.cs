@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 查询部门 HRBP 请求体
@@ -14,6 +13,6 @@ public record PostCorehrV2BpsGetByDepartmentBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：6893014062142064111</para>
     /// </summary>
-    [JsonProperty("department_id")]
+    [JsonPropertyName("department_id")]
     public string DepartmentId { get; set; } = string.Empty;
 }

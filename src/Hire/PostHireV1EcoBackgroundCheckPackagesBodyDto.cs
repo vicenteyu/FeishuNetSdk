@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建背调套餐和附加调查项 请求体
@@ -14,14 +13,14 @@ public record PostHireV1EcoBackgroundCheckPackagesBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：ord_id</para>
     /// </summary>
-    [JsonProperty("account_id")]
+    [JsonPropertyName("account_id")]
     public string AccountId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>背调套餐列表</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonProperty("package_list")]
+    [JsonPropertyName("package_list")]
     public EcoBackgroundCheckPackageData[] PackageLists { get; set; } = Array.Empty<EcoBackgroundCheckPackageData>();
 
     /// <summary>
@@ -34,7 +33,7 @@ public record PostHireV1EcoBackgroundCheckPackagesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：pkg001</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -43,7 +42,7 @@ public record PostHireV1EcoBackgroundCheckPackagesBodyDto
         /// <para>示例值：基础套餐</para>
         /// <para>最大长度：36</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -51,7 +50,7 @@ public record PostHireV1EcoBackgroundCheckPackagesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：工作履历信息验证X1，工作表现鉴定评价X1，教育背景核实，公民身份信息验证，简历对比，民事诉讼调查</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
     }
 
@@ -59,7 +58,7 @@ public record PostHireV1EcoBackgroundCheckPackagesBodyDto
     /// <para>附加调查项列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("additional_item_list")]
+    [JsonPropertyName("additional_item_list")]
     public EcoBackgroundCheckPackageAdditionalItem[]? AdditionalItemLists { get; set; }
 
     /// <summary>
@@ -72,7 +71,7 @@ public record PostHireV1EcoBackgroundCheckPackagesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：ext001</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
@@ -80,7 +79,7 @@ public record PostHireV1EcoBackgroundCheckPackagesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：工作履历信息验证X2</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
@@ -88,7 +87,7 @@ public record PostHireV1EcoBackgroundCheckPackagesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：详细调查</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string? Description { get; set; }
     }
 }

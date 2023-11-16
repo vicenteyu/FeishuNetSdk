@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 添加公共邮箱成员 请求体
@@ -14,7 +13,7 @@ public record PostMailV1PublicMailboxesByPublicMailboxIdMembersBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：xxxxxxxxxx</para>
     /// </summary>
-    [JsonProperty("user_id")]
+    [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
@@ -25,6 +24,6 @@ public record PostMailV1PublicMailboxesByPublicMailboxIdMembersBodyDto
     /// <item>USER：内部用户</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string? Type { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 更新知识空间节点标题 请求体
@@ -14,6 +13,6 @@ public record PostWikiV2SpacesBySpaceIdNodesByNodeTokenUpdateTitleBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：新标题</para>
     /// </summary>
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string Title { get; set; } = string.Empty;
 }

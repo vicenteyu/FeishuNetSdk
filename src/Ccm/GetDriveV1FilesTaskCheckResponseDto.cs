@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 查询异步任务状态 响应体
@@ -14,6 +13,6 @@ public record GetDriveV1FilesTaskCheckResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：success</para>
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string? Status { get; set; }
 }

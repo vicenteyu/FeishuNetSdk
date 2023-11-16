@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 邀请参会人 响应体
@@ -13,7 +12,7 @@ public record PatchVcV1MeetingsByMeetingIdInviteResponseDto
     /// <para>邀请结果</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("invite_results")]
+    [JsonPropertyName("invite_results")]
     public MeetingInviteStatus[]? InviteResults { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PatchVcV1MeetingsByMeetingIdInviteResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -43,7 +42,7 @@ public record PatchVcV1MeetingsByMeetingIdInviteResponseDto
         /// <item>7：sip用户</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("user_type")]
+        [JsonPropertyName("user_type")]
         public int? UserType { get; set; }
 
         /// <summary>
@@ -55,7 +54,7 @@ public record PatchVcV1MeetingsByMeetingIdInviteResponseDto
         /// <item>2：邀请失败</item>
         /// </list></para>
         /// </summary>
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public int? Status { get; set; }
     }
 }

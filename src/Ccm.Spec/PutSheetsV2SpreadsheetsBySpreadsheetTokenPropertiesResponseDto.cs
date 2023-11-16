@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 更新表格属性 响应体
@@ -13,13 +12,13 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesResponseDto
     /// <para>spreadsheet 的 token</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("spreadsheetToken")]
+    [JsonPropertyName("spreadsheetToken")]
     public string? SpreadsheetToken { get; set; }
 
     /// <summary>
     /// <para>spreadsheet 的标题</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string? Title { get; set; }
 }

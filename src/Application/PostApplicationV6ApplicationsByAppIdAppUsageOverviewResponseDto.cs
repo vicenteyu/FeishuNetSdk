@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 获取应用使用概览 响应体
@@ -13,7 +12,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageOverviewResponseDto
     /// <para>员工使用应用概览数据</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public ApplicationAppUsage[]? Items { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageOverviewResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：pv</para>
         /// </summary>
-        [JsonProperty("metric_name")]
+        [JsonPropertyName("metric_name")]
         public string MetricName { get; set; } = string.Empty;
 
         /// <summary>
@@ -34,7 +33,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageOverviewResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：100</para>
         /// </summary>
-        [JsonProperty("metric_value")]
+        [JsonPropertyName("metric_value")]
         public int MetricValue { get; set; }
     }
 }

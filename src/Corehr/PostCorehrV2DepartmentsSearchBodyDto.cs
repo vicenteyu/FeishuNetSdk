@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 搜索部门信息 请求体
@@ -14,7 +13,7 @@ public record PostCorehrV2DepartmentsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
-    [JsonProperty("active")]
+    [JsonPropertyName("active")]
     public bool? Active { get; set; }
 
     /// <summary>
@@ -22,7 +21,7 @@ public record PostCorehrV2DepartmentsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
-    [JsonProperty("get_all_children")]
+    [JsonPropertyName("get_all_children")]
     public bool? GetAllChildren { get; set; }
 
     /// <summary>
@@ -32,21 +31,21 @@ public record PostCorehrV2DepartmentsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
-    [JsonProperty("manager_list")]
+    [JsonPropertyName("manager_list")]
     public string[]? ManagerList { get; set; }
 
     /// <summary>
     /// <para>部门 ID 列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("department_id_list")]
+    [JsonPropertyName("department_id_list")]
     public string[]? DepartmentIdList { get; set; }
 
     /// <summary>
     /// <para>部门名称列表，需精确匹配</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("name_list")]
+    [JsonPropertyName("name_list")]
     public string[]? NameList { get; set; }
 
     /// <summary>
@@ -56,20 +55,20 @@ public record PostCorehrV2DepartmentsSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：7094136522860922222</para>
     /// </summary>
-    [JsonProperty("parent_department_id")]
+    [JsonPropertyName("parent_department_id")]
     public string? ParentDepartmentId { get; set; }
 
     /// <summary>
     /// <para>部门 code 列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("code_list")]
+    [JsonPropertyName("code_list")]
     public string[]? CodeList { get; set; }
 
     /// <summary>
     /// <para>返回数据的字段列表，为空时不返回任何字段</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("fields")]
+    [JsonPropertyName("fields")]
     public string[]? Fields { get; set; }
 }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 更新日历信息 请求体
@@ -16,7 +15,7 @@ public record PatchCalendarV4CalendarsByCalendarIdBodyDto
     /// <para>示例值：测试日历</para>
     /// <para>最大长度：255</para>
     /// </summary>
-    [JsonProperty("summary")]
+    [JsonPropertyName("summary")]
     public string? Summary { get; set; }
 
     /// <summary>
@@ -25,7 +24,7 @@ public record PatchCalendarV4CalendarsByCalendarIdBodyDto
     /// <para>示例值：使用开放接口创建日历</para>
     /// <para>最大长度：255</para>
     /// </summary>
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
@@ -38,7 +37,7 @@ public record PatchCalendarV4CalendarsByCalendarIdBodyDto
     /// <item>public：他人可查看日程详情</item>
     /// </list></para>
     /// </summary>
-    [JsonProperty("permissions")]
+    [JsonPropertyName("permissions")]
     public string? Permissions { get; set; }
 
     /// <summary>
@@ -46,7 +45,7 @@ public record PatchCalendarV4CalendarsByCalendarIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：-1</para>
     /// </summary>
-    [JsonProperty("color")]
+    [JsonPropertyName("color")]
     public int? Color { get; set; }
 
     /// <summary>
@@ -55,6 +54,6 @@ public record PatchCalendarV4CalendarsByCalendarIdBodyDto
     /// <para>示例值：日历备注名</para>
     /// <para>最大长度：255</para>
     /// </summary>
-    [JsonProperty("summary_alias")]
+    [JsonPropertyName("summary_alias")]
     public string? SummaryAlias { get; set; }
 }

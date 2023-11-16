@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 更新用户ID 请求体
@@ -14,6 +13,6 @@ public record PatchContactV3UsersByUserIdUpdateUserIdBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：3e3cf96b</para>
     /// </summary>
-    [JsonProperty("new_user_id")]
+    [JsonPropertyName("new_user_id")]
     public string NewUserId { get; set; } = string.Empty;
 }

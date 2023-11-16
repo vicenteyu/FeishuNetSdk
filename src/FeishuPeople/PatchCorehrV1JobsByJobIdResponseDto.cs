@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 更新职务 响应体
@@ -13,7 +12,7 @@ public record PatchCorehrV1JobsByJobIdResponseDto
     /// <para>职务</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonProperty("job")]
+    [JsonPropertyName("job")]
     public PatchCorehrV1JobsByJobIdResponseDtoJob? Job { get; set; }
 
     /// <summary>
@@ -26,7 +25,7 @@ public record PatchCorehrV1JobsByJobIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：4698040628992333549</para>
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
@@ -34,14 +33,14 @@ public record PatchCorehrV1JobsByJobIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：JP422119</para>
         /// </summary>
-        [JsonProperty("code")]
+        [JsonPropertyName("code")]
         public string? Code { get; set; }
 
         /// <summary>
         /// <para>名称</para>
         /// <para>必填：是</para>
         /// </summary>
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public I18n[] Names { get; set; } = Array.Empty<I18n>();
 
         /// <summary>
@@ -54,7 +53,7 @@ public record PatchCorehrV1JobsByJobIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
-            [JsonProperty("lang")]
+            [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
@@ -62,7 +61,7 @@ public record PatchCorehrV1JobsByJobIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
@@ -70,7 +69,7 @@ public record PatchCorehrV1JobsByJobIdResponseDto
         /// <para>描述</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public I18n[]? Descriptions { get; set; }
 
         /// <summary>
@@ -78,14 +77,14 @@ public record PatchCorehrV1JobsByJobIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
-        [JsonProperty("active")]
+        [JsonPropertyName("active")]
         public bool Active { get; set; }
 
         /// <summary>
         /// <para>职务头衔</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("job_title")]
+        [JsonPropertyName("job_title")]
         public I18n[]? JobTitles { get; set; }
 
         /// <summary>
@@ -93,7 +92,7 @@ public record PatchCorehrV1JobsByJobIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：7373183781</para>
         /// </summary>
-        [JsonProperty("job_family_id_list")]
+        [JsonPropertyName("job_family_id_list")]
         public string[]? JobFamilyIdList { get; set; }
 
         /// <summary>
@@ -101,7 +100,7 @@ public record PatchCorehrV1JobsByJobIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：316316317</para>
         /// </summary>
-        [JsonProperty("job_level_id_list")]
+        [JsonPropertyName("job_level_id_list")]
         public string[]? JobLevelIdList { get; set; }
 
         /// <summary>
@@ -109,7 +108,7 @@ public record PatchCorehrV1JobsByJobIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：6890452208593372679</para>
         /// </summary>
-        [JsonProperty("working_hours_type_id")]
+        [JsonPropertyName("working_hours_type_id")]
         public string? WorkingHoursTypeId { get; set; }
 
         /// <summary>
@@ -117,7 +116,7 @@ public record PatchCorehrV1JobsByJobIdResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：2020-01-0100:00:00</para>
         /// </summary>
-        [JsonProperty("effective_time")]
+        [JsonPropertyName("effective_time")]
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
@@ -125,14 +124,14 @@ public record PatchCorehrV1JobsByJobIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：2021-01-0100:00:00</para>
         /// </summary>
-        [JsonProperty("expiration_time")]
+        [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonProperty("custom_fields")]
+        [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
@@ -145,7 +144,7 @@ public record PatchCorehrV1JobsByJobIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonProperty("field_name")]
+            [JsonPropertyName("field_name")]
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
@@ -153,7 +152,7 @@ public record PatchCorehrV1JobsByJobIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：\"Sandy\"</para>
             /// </summary>
-            [JsonProperty("value")]
+            [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
     }

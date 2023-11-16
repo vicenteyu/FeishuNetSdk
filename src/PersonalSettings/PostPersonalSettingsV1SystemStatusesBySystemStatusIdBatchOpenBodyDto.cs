@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 namespace FeishuNetSdk.PersonalSettings;
 /// <summary>
 /// 批量开启系统状态 请求体
@@ -14,7 +13,7 @@ public record PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchOpenBodyD
     /// <para>必填：是</para>
     /// <para>最大长度：50</para>
     /// </summary>
-    [JsonProperty("user_list")]
+    [JsonPropertyName("user_list")]
     public SystemStatusUserOpenParam[] UserLists { get; set; } = Array.Empty<SystemStatusUserOpenParam>();
 
     /// <summary>
@@ -27,7 +26,7 @@ public record PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchOpenBodyD
         /// <para>必填：是</para>
         /// <para>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab</para>
         /// </summary>
-        [JsonProperty("user_id")]
+        [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
@@ -35,7 +34,7 @@ public record PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchOpenBodyD
         /// <para>必填：是</para>
         /// <para>示例值：1665990378</para>
         /// </summary>
-        [JsonProperty("end_time")]
+        [JsonPropertyName("end_time")]
         public string EndTime { get; set; } = string.Empty;
     }
 }
