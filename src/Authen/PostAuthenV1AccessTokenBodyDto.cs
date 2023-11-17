@@ -14,7 +14,7 @@ public record PostAuthenV1AccessTokenBodyDto
     /// <para>示例值：authorization_code</para>
     /// </summary>
     [JsonPropertyName("grant_type")]
-    public string GrantType { get; set; } = string.Empty;
+    public string GrantType { get; set; } = "authorization_code";
 
     /// <summary>
     /// <para>登录预授权码，调用[获取登录预授权码](https://open.feishu.cn/document/ukTMukTMukTM/ukzN4UjL5cDO14SO3gTN)接口获取</para>

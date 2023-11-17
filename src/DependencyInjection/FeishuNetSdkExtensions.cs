@@ -42,8 +42,10 @@ namespace Microsoft.Extensions.DependencyInjection
             FeishuNetSdkOptions options)
         {
             services.AddHttpApi<IFeishuApi>();
-            services.AddHttpApi<IFeishuTenantApi>(option
-                => option.KeyValueSerializeOptions.IgnoreNullValues = true);
+            services.AddHttpApi<IFeishuAppApi>();
+            services.AddHttpApi<IFeishuTenantApi>(option => option.KeyValueSerializeOptions.IgnoreNullValues = true);
+            services.AddHttpApi<IFeishuUserApi>(option => option.KeyValueSerializeOptions.IgnoreNullValues = true);
+
             services.AddTokenProvider<IFeishuTenantApi>(async provider =>
             {
                 var token = await provider.GetRequiredService<IFeishuApi>()
@@ -63,6 +65,27 @@ namespace Microsoft.Extensions.DependencyInjection
                     Expires_in = token.Expire
                 };
             });
+
+            services.AddTokenProvider<IFeishuAppApi>(async provider =>
+            {
+                var token = await provider.GetRequiredService<IFeishuApi>()
+                    .PostAuthV3AppAccessTokenInternalAsync(
+                        new FeishuNetSdk.Auth.Spec
+                            .PostAuthV3AppAccessTokenInternalBodyDto
+                        {
+                            AppId = options.AppId,
+                            AppSecret = options.AppSecret
+                        });
+                //当返回码异常，抛出异常
+                if (token.Code != 0)
+                    throw new TokenException(token.Msg);
+                return new TokenResult
+                {
+                    Access_token = token.AppAccessToken,
+                    Expires_in = token.Expire
+                };
+            });
+
             return services;
         }
     }

@@ -6,7 +6,12 @@
 
 飞书开放平台网址：[https://open.feishu.cn/](https://open.feishu.cn/)
 
-接口清单详见：[TenantAccessToken适用接口清单](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
+接口清单详见：
+
+[TenantAccessToken 适用接口清单](https://github.com/vicenteyu/FeishuNetSdk/blob/main/TenantAccessList.md)
+
+[UserAccessToken 适用接口清单](https://github.com/vicenteyu/FeishuNetSdk/blob/main/UserAccessList.md)
+
 
 ## 用法：
 

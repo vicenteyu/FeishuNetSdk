@@ -22962,9 +22962,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>投递 ID</para>
     /// <para>示例值：6949805467799537964</para>
     /// </param>
+    /// <param name="options">
+    /// <para>必填：否</para>
+    /// <para>请求控制参数，用于控制接口响应逻辑。如需一次查询多个用户ID，可通过将同一参数名多次传递，并且每次传递不同的参数值。例如：https://{url}?options={option1}&amp;options={option2}。</para>
+    /// <para>默认值：null</para>
+    /// </param>
     [HttpGet("/open-apis/hire/v1/applications/{application_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1ApplicationsByApplicationIdResponseDto>> GetHireV1ApplicationsByApplicationIdAsync(
-        [PathQuery] string application_id);
+        [PathQuery] string application_id,
+        [PathQuery] string[]? options = null);
 
     /// <summary>
     /// <para>【招聘】获取投递列表</para>

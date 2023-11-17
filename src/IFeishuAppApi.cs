@@ -1,0 +1,50 @@
+using FeishuNetSdk.Attributes;
+using WebApiClientCore;
+using WebApiClientCore.Attributes;
+using WebApiClientCore.Parameters;
+
+namespace FeishuNetSdk;
+/// <summary>
+/// 获取用户凭证（AppAccessToken）的接口
+/// </summary>
+[EnableLoggingFilter]
+[IgnoreStatusExceptionFilter]
+[HttpHost("https://open.feishu.cn/"), JsonReturn, OAuthToken]
+public interface IFeishuAppApi : IHttpApi
+{
+    /// <summary>
+    /// <para>【身份验证】JSAPI 临时授权凭证</para>
+    /// <para>接口ID：6911312738021720065</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/h5_js_sdk/authorization</para>
+    /// <para>Authorization：tenant_access_token、user_access_token、app_access_token</para>
+    /// <para>该接口用于返回调用 JSAPI 临时调用凭证，使用该凭证，在调用 JSAPI 时，请求不会被拦截</para>
+    /// <para>由于获取 jsapi_ticket 的api调用次数非常有限，频繁刷新 jsapi_ticket 会导致api调用受限，影响自身业务，开发者需要在自己的服务全局缓存jsapi_ticket 。</para>
+    /// </summary>
+    [HttpPost("/open-apis/jssdk/ticket/get")]
+    System.Threading.Tasks.Task<FeishuResponse<Auth.Spec.PostJssdkTicketGetResponseDto>> PostJssdkTicketGetAsync();
+
+    /// <summary>
+    /// <para>【身份验证】获取 user_access_token (网页应用)</para>
+    /// <para>接口ID：7180265937329553412</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/access_token/create</para>
+    /// <para>Authorization：app_access_token</para>
+    /// <para>根据[登录预授权码](https://open.feishu.cn/document/ukTMukTMukTM/ukzN4UjL5cDO14SO3gTN) code 获取 `user_access_token`。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/authen/v1/access_token")]
+    System.Threading.Tasks.Task<FeishuResponse<Authen.PostAuthenV1AccessTokenResponseDto>> PostAuthenV1AccessTokenAsync(
+        [JsonContent] Authen.PostAuthenV1AccessTokenBodyDto dto);
+
+    /// <summary>
+    /// <para>【身份验证】刷新 user_access_token</para>
+    /// <para>接口ID：7180265937329520644</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/refresh_access_token/create</para>
+    /// <para>Authorization：app_access_token</para>
+    /// <para>user_access_token 的最大有效期是 2小时左右。当 user_access_token 过期时，可以调用本接口获取新的 user_access_token。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/authen/v1/refresh_access_token")]
+    System.Threading.Tasks.Task<FeishuResponse<Authen.PostAuthenV1RefreshAccessTokenResponseDto>> PostAuthenV1RefreshAccessTokenAsync(
+        [JsonContent] Authen.PostAuthenV1RefreshAccessTokenBodyDto dto);
+}
+
