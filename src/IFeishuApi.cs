@@ -70,33 +70,5 @@ public interface IFeishuApi : IHttpApi
     [HttpPost("/open-apis/auth/v3/app_ticket/resend")]
     System.Threading.Tasks.Task<FeishuResponse> PostAuthV3AppTicketResendAsync(
         [JsonContent] Auth.Spec.PostAuthV3AppTicketResendBodyDto dto);
-
-    /// <summary>
-    /// <para>【身份验证】获取登录预授权码</para>
-    /// <para>接口ID：6907569744329932801</para>
-    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukzN4UjL5cDO14SO3gTN</para>
-    /// <para>调用本接口获取用户的登录预授权码 code。登录预授权码的有效期是 5 分钟，且只能被使用一次。</para>
-    /// <para>**说明**：本接口适用于用户登录网页应用场景。当业务请求下方授权登录链接后，会加载授权登录页面，用户需要点击授权，此时地址栏会自动302至重定向 URL，并携带飞书开放平台返回的登录预授权码 code。有关重定向 URL 的详细介绍，请参考[获取 user_access_token](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/access_token/create)。</para>
-    /// </summary>
-    /// <param name="redirect_uri">
-    /// <para>必填：是</para>
-    /// <para>重定向 URL，需要经过 Encode 处理</para>
-    /// <para>1. 重定向 URL 使用于网页应用。可以在开发者后台，**应用功能 &gt; 网页** 页面启用网页功能，并配置桌面端主页和移动端主页</para>
-    /// <para>2. 调用本接口前，需要在开发者后台的 **安全设置** 页面，配置重定向 URL，支持配置多个。只有在重定向 URL 列表中的 URL 才会通过开放平台的安全校验</para>
-    /// </param>
-    /// <param name="app_id">
-    /// <para>必填：是</para>
-    /// <para>应用 ID，可以在开发者后台的 **凭证与基础信息** 页面查看 `app_id`。有关 `app_id` 的详细介绍，请参考[通用参数](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology)</para>
-    /// </param>
-    /// <param name="state">
-    /// <para>必填：否</para>
-    /// <para>用来维护请求和回调状态的附加字符串， 在授权完成回调时会附加此参数，应用可以根据此字符串来判断上下文关系</para>
-    /// <para>默认值：null</para>
-    /// </param>
-    [HttpGet("/open-apis/authen/v1/index?redirect_uri={REDIRECT_URI}&amp;app_id={APPID}&amp;state={STATE}")]
-    System.Threading.Tasks.Task<FeishuResponse> GetAuthenV1IndexAsync(
-        [PathQuery] string redirect_uri,
-        [PathQuery] string app_id,
-        [PathQuery] string? state = null);
 }
 
