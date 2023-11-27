@@ -24,6 +24,19 @@ public interface IFeishuAppApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Auth.Spec.PostJssdkTicketGetResponseDto>> PostJssdkTicketGetAsync();
 
     /// <summary>
+    /// <para>【身份验证】获取 user_access_token（小程序）</para>
+    /// <para>接口ID：6907569745298817026</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uYjL24iN/ukjM04SOyQjL5IDN</para>
+    /// <para>Authorization：app_access_token</para>
+    /// <para>通过 [login](https://open.feishu.cn/document/uYjL24iN/uYzMuYzMuYzM)接口获取到登录凭证`code`后，开发者可以通过服务器发送请求的方式获取 session_key 和 用户凭证信息。</para>
+    /// <para>本接口适用于 [小程序登录](https://open.feishu.cn/document/uYjL24iN/uETO5QjLxkTO04SM5kDN) 及[小组件登录](https://open.feishu.cn/document/uAjLw4CM/uYjL24iN/block/guide/open-ability/block-login)。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/mina/v2/tokenLoginValidate")]
+    System.Threading.Tasks.Task<FeishuResponse<Auth.Spec.PostMinaV2TokenLoginValidateResponseDto>> PostMinaV2TokenLoginValidateAsync(
+        [JsonContent] Auth.Spec.PostMinaV2TokenLoginValidateBodyDto dto);
+
+    /// <summary>
     /// <para>【身份验证】获取 user_access_token (网页应用)</para>
     /// <para>接口ID：7180265937329553412</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/access_token/create</para>
