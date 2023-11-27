@@ -1,4 +1,4 @@
-namespace FeishuNetSdk.Search.Spec;
+namespace FeishuNetSdk.Search;
 /// <summary>
 /// 搜索应用 请求体
 /// <para>用户可以通过关键字搜索到可见应用，应用可见性与套件内搜索一致。</para>
@@ -10,8 +10,8 @@ public record PostSearchV2AppBodyDto
 {
     /// <summary>
     /// <para>搜索关键词</para>
-    /// <para>**示例值**："测试应用"</para>
     /// <para>必填：是</para>
+    /// <para>示例值：测试应用</para>
     /// </summary>
     [JsonPropertyName("query")]
     public string Query { get; set; } = string.Empty;

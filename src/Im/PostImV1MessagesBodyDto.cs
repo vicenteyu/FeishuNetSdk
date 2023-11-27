@@ -25,7 +25,7 @@ public record PostImV1MessagesBodyDto
     public string MsgType { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>消息内容，JSON结构序列化后的字符串。不同msg_type对应不同内容，具体格式说明参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)</para>
+    /// <para>消息内容，JSON结构序列化后的字符串。不同msg_type对应不同内容，具体格式说明参考：[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)</para>
     /// <para>**注意：**</para>
     /// <para>- JSON字符串需进行转义，如换行符转义后为`\\n`</para>
     /// <para>- 文本消息请求体最大不能超过150KB</para>

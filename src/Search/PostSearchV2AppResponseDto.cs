@@ -1,4 +1,4 @@
-namespace FeishuNetSdk.Search.Spec;
+namespace FeishuNetSdk.Search;
 /// <summary>
 /// 搜索应用 响应体
 /// <para>用户可以通过关键字搜索到可见应用，应用可见性与套件内搜索一致。</para>
@@ -18,6 +18,7 @@ public record PostSearchV2AppResponseDto
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
+    /// <para>示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==</para>
     /// </summary>
     [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
@@ -25,6 +26,7 @@ public record PostSearchV2AppResponseDto
     /// <summary>
     /// <para>是否还有更多项</para>
     /// <para>必填：否</para>
+    /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }

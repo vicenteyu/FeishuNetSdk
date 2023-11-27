@@ -3945,7 +3945,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>素材文件的`Token`，比如对于新版文档中的附件，可以通过[获取块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get)接口获取指定 File Block 的 Token。</para>
+    /// <para>素材文件的`Token`。</para>
+    /// <para>* 对于新版文档中的素材，可以通过[获取块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get)接口获取指定 File Block 或 Image Block 的 Token。</para>
+    /// <para>* 对于电子表格中的素材，可以通过[读取多个范围</para>
+    /// <para>](https://open.feishu.cn/document/server-docs/docs/sheets-v3/data-operation/reading-multiple-ranges)接口获取指定 attachment 的 fileToken。</para>
+    /// <para>* 对于多维表格中的素材，可以通过[列出记录</para>
+    /// <para>](https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-record/list) 接口获取指定的附件的 file_token。拥有**高级权限的多维表格**在下载素材时，还需要添加额外的 [extra](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction#a478a7c3) 作为 URL 查询参数。</para>
     /// <para>示例值：boxcnrHpsg1QDqXAAAyachabcef</para>
     /// </param>
     /// <param name="extra">
@@ -17677,7 +17682,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取企业名称、企业编号等企业信息</para>
     /// </summary>
     [HttpGet("/open-apis/tenant/v2/tenant/query")]
-    System.Threading.Tasks.Task<FeishuResponse<Tenant.Spec.GetTenantV2TenantQueryResponseDto>> GetTenantV2TenantQueryAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Tenant.GetTenantV2TenantQueryResponseDto>> GetTenantV2TenantQueryAsync();
 
     /// <summary>
     /// <para>【认证信息】获取认证信息</para>
@@ -24660,6 +24665,37 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string draft_id,
         [JsonContent] Baike.PutLingoV1DraftsByDraftIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【词典】删除免审词条</para>
+    /// <para>接口ID：7301296774114639876</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过 entity_id 删除已有的词条，无需经过词典管理员审核。因此，调用该接口时应当慎重操作。</para>
+    /// </summary>
+    /// <param name="entity_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>词条 ID</para>
+    /// <para>示例值：enterprise_43742132363</para>
+    /// </param>
+    /// <param name="provider">
+    /// <para>必填：否</para>
+    /// <para>外部系统（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）</para>
+    /// <para>示例值：星云</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="outer_id">
+    /// <para>必填：否</para>
+    /// <para>词条在外部系统中对应的唯一 ID（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）</para>
+    /// <para>示例值：123aaa</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpDelete("/open-apis/lingo/v1/entities/{entity_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteLingoV1EntitiesByEntityIdAsync(
+        [PathQuery] string entity_id,
+        [PathQuery] string? provider = null,
+        [PathQuery] string? outer_id = null);
 
     /// <summary>
     /// <para>【词典】创建免审词条</para>

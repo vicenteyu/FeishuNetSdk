@@ -58,7 +58,7 @@ public record PostImV1ChatsBodyDto
         /// <summary>
         /// <para>英文名</para>
         /// <para>必填：否</para>
-        /// <para>示例值：groupchat</para>
+        /// <para>示例值：group chat</para>
         /// </summary>
         [JsonPropertyName("en_us")]
         public string? EnUs { get; set; }
@@ -97,7 +97,7 @@ public record PostImV1ChatsBodyDto
     /// <para>**注意：**</para>
     /// <para>- 操作此接口的机器人会自动入群，无需重复填写</para>
     /// <para>- 拉机器人入群请使用`app_id`</para>
-    /// <para>- 最多同时邀请5个机器人，并且群组最多容纳 15 个机器人</para>
+    /// <para>- 最多同时邀请5个机器人，且邀请后群组中机器人数量不能超过 15 个</para>
     /// <para>必填：否</para>
     /// <para>示例值：["cli_a10fbf7e94b8d01d"]</para>
     /// <para>最大长度：5</para>

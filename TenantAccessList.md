@@ -3,7 +3,7 @@
 <tr><td colspan="3">GetEventV1OutboundIp</td></tr>
 <tr><td rowspan="2">2</td><td rowspan="2">2023-02-01</td><td>&#10003;</td><td>帐号</td><td>批量获取脱敏的用户登录信息</td></tr>
 <tr><td colspan="3">PostPassportV1SessionsQuery</td></tr>
-<tr><td rowspan="2">3</td><td rowspan="2">2023-09-08</td><td>&#10003;</td><td>通讯录</td><td>通过手机号或邮箱获取用户 ID</td></tr>
+<tr><td rowspan="2">3</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>通讯录</td><td>通过手机号或邮箱获取用户 ID</td></tr>
 <tr><td colspan="3">PostContactV3UsersBatchGetId</td></tr>
 <tr><td rowspan="2">4</td><td rowspan="2">2023-07-12</td><td>&#10003;</td><td>消息与群组</td><td>解散群</td></tr>
 <tr><td colspan="3">DeleteImV1ChatsByChatId</td></tr>
@@ -31,7 +31,7 @@
 <tr><td colspan="3">PostImV1ChatsByChatIdManagersAddManagers</td></tr>
 <tr><td rowspan="2">16</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>消息与群组</td><td>删除群管理员</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdManagersDeleteManagers</td></tr>
-<tr><td rowspan="2">17</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>消息与群组</td><td>将用户或机器人拉入群聊</td></tr>
+<tr><td rowspan="2">17</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>消息与群组</td><td>将用户或机器人拉入群聊</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdMembers</td></tr>
 <tr><td rowspan="2">18</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>消息与群组</td><td>用户或机器人主动加入群聊</td></tr>
 <tr><td colspan="3">PatchImV1ChatsByChatIdMembersMeJoin</td></tr>
@@ -67,7 +67,7 @@
 <tr><td colspan="3">PostImV1ChatsByChatIdMenuTreeSort</td></tr>
 <tr><td rowspan="2">34</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>消息与群组</td><td>获取群菜单</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatIdMenuTree</td></tr>
-<tr><td rowspan="2">35</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>云文档</td><td>获取我的空间（root folder）元信息</td></tr>
+<tr><td rowspan="2">35</td><td rowspan="2">2023-11-21</td><td>&#10003;</td><td>云文档</td><td>获取我的空间（root folder）元信息</td></tr>
 <tr><td colspan="3">GetDriveExplorerV2RootFolderMeta</td></tr>
 <tr><td rowspan="2">36</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>删除用户组</td></tr>
 <tr><td colspan="3">DeleteContactV3GroupByGroupId</td></tr>
@@ -97,7 +97,7 @@
 <tr><td colspan="3">GetDriveV1FilesTaskCheck</td></tr>
 <tr><td rowspan="2">49</td><td rowspan="2">2023-10-24</td><td>&#10003;</td><td>云文档</td><td>上传素材</td></tr>
 <tr><td colspan="3">PostDriveV1MediasUploadAll</td></tr>
-<tr><td rowspan="2">50</td><td rowspan="2">2023-11-08</td><td>&#10003;</td><td>云文档</td><td>下载素材</td></tr>
+<tr><td rowspan="2">50</td><td rowspan="2">2023-11-21</td><td>&#10003;</td><td>云文档</td><td>下载素材</td></tr>
 <tr><td colspan="3">GetDriveV1MediasByFileTokenDownload</td></tr>
 <tr><td rowspan="2">51</td><td rowspan="2">2023-11-08</td><td>&#10003;</td><td>云文档</td><td>获取素材临时下载链接</td></tr>
 <tr><td colspan="3">GetDriveV1MediasBatchGetTmpDownloadUrl</td></tr>
@@ -149,7 +149,7 @@
 <tr><td colspan="3">GetDriveV1FilesByFileTokenVersions</td></tr>
 <tr><td rowspan="2">75</td><td rowspan="2">2023-08-07</td><td>&#10003;</td><td>云文档</td><td>转移所有者</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersTransferOwner</td></tr>
-<tr><td rowspan="2">76</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>云文档</td><td>判断当前用户是否有某权限</td></tr>
+<tr><td rowspan="2">76</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>云文档</td><td>判断当前用户是否有某权限</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembersAuth</td></tr>
 <tr><td rowspan="2">77</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>云文档</td><td>获取协作者列表（新版本）</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembers</td></tr>
@@ -291,7 +291,7 @@
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViews</td></tr>
 <tr><td rowspan="2">146</td><td rowspan="2">2022-09-29</td><td>&#10003;</td><td>云文档</td><td>更新筛选视图</td></tr>
 <tr><td colspan="3">PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewId</td></tr>
-<tr><td rowspan="2">147</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>创建部门</td></tr>
+<tr><td rowspan="2">147</td><td rowspan="2">2023-11-22</td><td>&#10003;</td><td>通讯录</td><td>创建部门</td></tr>
 <tr><td colspan="3">PostContactV3Departments</td></tr>
 <tr><td rowspan="2">148</td><td rowspan="2">2022-09-29</td><td>&#10003;</td><td>云文档</td><td>删除筛选视图</td></tr>
 <tr><td colspan="3">DeleteSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewId</td></tr>
@@ -421,7 +421,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenRoles</td></tr>
 <tr><td rowspan="2">211</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>多维表格</td><td>删除自定义角色</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenRolesByRoleId</td></tr>
-<tr><td rowspan="2">212</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>多维表格</td><td>更新自定义角色</td></tr>
+<tr><td rowspan="2">212</td><td rowspan="2">2023-11-23</td><td>&#10003;</td><td>多维表格</td><td>更新自定义角色</td></tr>
 <tr><td colspan="3">PutBitableV1AppsByAppTokenRolesByRoleId</td></tr>
 <tr><td rowspan="2">213</td><td rowspan="2">2023-09-04</td><td>&#10003;</td><td>通讯录</td><td>批量获取部门信息</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsBatch</td></tr>
@@ -643,7 +643,7 @@
 <tr><td colspan="3">PostAttendanceV1ShiftsQuery</td></tr>
 <tr><td rowspan="2">322</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>考勤打卡</td><td>查询所有班次</td></tr>
 <tr><td colspan="3">GetAttendanceV1Shifts</td></tr>
-<tr><td rowspan="2">323</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改考勤组</td></tr>
+<tr><td rowspan="2">323</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改考勤组</td></tr>
 <tr><td colspan="3">PostAttendanceV1Groups</td></tr>
 <tr><td rowspan="2">324</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>获取单位信息</td></tr>
 <tr><td colspan="3">GetContactV3UnitByUnitId</td></tr>
@@ -655,7 +655,7 @@
 <tr><td colspan="3">PostAttendanceV1GroupsSearch</td></tr>
 <tr><td rowspan="2">328</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>查询所有考勤组</td></tr>
 <tr><td colspan="3">GetAttendanceV1Groups</td></tr>
-<tr><td rowspan="2">329</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改排班表</td></tr>
+<tr><td rowspan="2">329</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改排班表</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserDailyShiftsBatchCreate</td></tr>
 <tr><td rowspan="2">330</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>查询排班表</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserDailyShiftsQuery</td></tr>
@@ -665,31 +665,31 @@
 <tr><td colspan="3">PostAttendanceV1UserStatsFieldsQuery</td></tr>
 <tr><td rowspan="2">333</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>查询统计设置</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserStatsViewsQuery</td></tr>
-<tr><td rowspan="2">334</td><td rowspan="2">2023-09-19</td><td>&#10003;</td><td>考勤打卡</td><td>查询统计数据</td></tr>
+<tr><td rowspan="2">334</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>考勤打卡</td><td>查询统计数据</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserStatsDatasQuery</td></tr>
 <tr><td rowspan="2">335</td><td rowspan="2">2023-09-19</td><td>&#10003;</td><td>通讯录</td><td>删除用户</td></tr>
 <tr><td colspan="3">DeleteContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">336</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>获取单位列表</td></tr>
 <tr><td colspan="3">GetContactV3Unit</td></tr>
-<tr><td rowspan="2">337</td><td rowspan="2">2023-09-14</td><td>&#10003;</td><td>考勤打卡</td><td>获取审批通过数据</td></tr>
+<tr><td rowspan="2">337</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>考勤打卡</td><td>获取审批通过数据</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserApprovalsQuery</td></tr>
-<tr><td rowspan="2">338</td><td rowspan="2">2023-09-12</td><td>&#10003;</td><td>考勤打卡</td><td>写入审批结果</td></tr>
+<tr><td rowspan="2">338</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>考勤打卡</td><td>写入审批结果</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserApprovals</td></tr>
 <tr><td rowspan="2">339</td><td rowspan="2">2023-11-14</td><td>&#10003;</td><td>考勤打卡</td><td>通知审批状态更新</td></tr>
 <tr><td colspan="3">PostAttendanceV1ApprovalInfosProcess</td></tr>
-<tr><td rowspan="2">340</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>考勤打卡</td><td>通知补卡审批发起</td></tr>
+<tr><td rowspan="2">340</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>考勤打卡</td><td>通知补卡审批发起</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserTaskRemedys</td></tr>
 <tr><td rowspan="2">341</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>获取可补卡时间</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedys</td></tr>
 <tr><td rowspan="2">342</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>获取补卡记录</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserTaskRemedysQuery</td></tr>
-<tr><td rowspan="2">343</td><td rowspan="2">2023-09-19</td><td>&#10003;</td><td>考勤打卡</td><td>导入打卡流水</td></tr>
+<tr><td rowspan="2">343</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>考勤打卡</td><td>导入打卡流水</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserFlowsBatchCreate</td></tr>
 <tr><td rowspan="2">344</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>查询打卡流水</td></tr>
 <tr><td colspan="3">GetAttendanceV1UserFlowsByUserFlowId</td></tr>
 <tr><td rowspan="2">345</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>批量查询打卡流水</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserFlowsQuery</td></tr>
-<tr><td rowspan="2">346</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>查询打卡结果</td></tr>
+<tr><td rowspan="2">346</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>考勤打卡</td><td>查询打卡结果</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserTasksQuery</td></tr>
 <tr><td rowspan="2">347</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>添加用户组成员</td></tr>
 <tr><td colspan="3">PostContactV3GroupByGroupIdMemberAdd</td></tr>
@@ -709,7 +709,7 @@
 <tr><td colspan="3">PostApprovalV4Approvals</td></tr>
 <tr><td rowspan="2">355</td><td rowspan="2">2023-08-29</td><td>&#10003;</td><td>审批</td><td>查看指定审批定义</td></tr>
 <tr><td colspan="3">GetApprovalV4ApprovalsByApprovalCode</td></tr>
-<tr><td rowspan="2">356</td><td rowspan="2">2023-09-19</td><td>&#10003;</td><td>审批</td><td>创建审批实例</td></tr>
+<tr><td rowspan="2">356</td><td rowspan="2">2023-11-22</td><td>&#10003;</td><td>审批</td><td>创建审批实例</td></tr>
 <tr><td colspan="3">PostApprovalV4Instances</td></tr>
 <tr><td rowspan="2">357</td><td rowspan="2">2023-09-19</td><td>&#10003;</td><td>审批</td><td>撤回审批实例</td></tr>
 <tr><td colspan="3">PostApprovalV4InstancesCancel</td></tr>
@@ -1159,7 +1159,7 @@
 <tr><td colspan="3">GetTenantV2TenantAssignInfoListQuery</td></tr>
 <tr><td rowspan="2">580</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>获取单个序列信息</td></tr>
 <tr><td colspan="3">GetContactV3JobFamiliesByJobFamilyId</td></tr>
-<tr><td rowspan="2">581</td><td rowspan="2">2023-04-06</td><td>&#10003;</td><td>企业信息</td><td>获取企业信息</td></tr>
+<tr><td rowspan="2">581</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>企业信息</td><td>获取企业信息</td></tr>
 <tr><td colspan="3">GetTenantV2TenantQuery</td></tr>
 <tr><td rowspan="2">582</td><td rowspan="2">2022-10-19</td><td>&#10003;</td><td>认证信息</td><td>获取认证信息</td></tr>
 <tr><td colspan="3">GetVerificationV1Verification</td></tr>
@@ -1289,7 +1289,7 @@
 <tr><td colspan="3">GetCorehrV1CountryRegionsByCountryRegionId</td></tr>
 <tr><td rowspan="2">645</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>批量查询国家/地区信息</td></tr>
 <tr><td colspan="3">GetCorehrV1CountryRegions</td></tr>
-<tr><td rowspan="2">646</td><td rowspan="2">2023-10-30</td><td>&#10003;</td><td>消息与群组</td><td>发送消息</td></tr>
+<tr><td rowspan="2">646</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>消息与群组</td><td>发送消息</td></tr>
 <tr><td colspan="3">PostImV1Messages</td></tr>
 <tr><td rowspan="2">647</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>查询单条省份/行政区信息</td></tr>
 <tr><td colspan="3">GetCorehrV1SubdivisionsBySubdivisionId</td></tr>
@@ -1311,7 +1311,7 @@
 <tr><td colspan="3">GetCorehrV1EmployeeTypes</td></tr>
 <tr><td rowspan="2">656</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>创建国家证件类型</td></tr>
 <tr><td colspan="3">PostCorehrV1NationalIdTypes</td></tr>
-<tr><td rowspan="2">657</td><td rowspan="2">2023-10-30</td><td>&#10003;</td><td>消息与群组</td><td>回复消息</td></tr>
+<tr><td rowspan="2">657</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>消息与群组</td><td>回复消息</td></tr>
 <tr><td colspan="3">PostImV1MessagesByMessageIdReply</td></tr>
 <tr><td rowspan="2">658</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>删除国家证件类型</td></tr>
 <tr><td colspan="3">DeleteCorehrV1NationalIdTypesByNationalIdTypeId</td></tr>
@@ -1445,7 +1445,7 @@
 <tr><td colspan="3">DeleteCorehrV1JobsByJobId</td></tr>
 <tr><td rowspan="2">723</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>更新职务</td></tr>
 <tr><td colspan="3">PatchCorehrV1JobsByJobId</td></tr>
-<tr><td rowspan="2">724</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>消息与群组</td><td>获取会话历史消息</td></tr>
+<tr><td rowspan="2">724</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>消息与群组</td><td>获取会话历史消息</td></tr>
 <tr><td colspan="3">GetImV1Messages</td></tr>
 <tr><td rowspan="2">725</td><td rowspan="2">2023-10-08</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询单个职务（V2）</td></tr>
 <tr><td colspan="3">GetCorehrV2JobsByJobId</td></tr>
@@ -1489,7 +1489,7 @@
 <tr><td colspan="3">PatchCorehrV2ProbationAssessmentsByAssessmentId</td></tr>
 <tr><td rowspan="2">745</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>删除试用期考核信息</td></tr>
 <tr><td colspan="3">DeleteCorehrV2ProbationAssessmentsByAssessmentId</td></tr>
-<tr><td rowspan="2">746</td><td rowspan="2">2023-11-15</td><td>&#10003;</td><td>消息与群组</td><td>获取指定消息的内容</td></tr>
+<tr><td rowspan="2">746</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>消息与群组</td><td>获取指定消息的内容</td></tr>
 <tr><td colspan="3">GetImV1MessagesByMessageId</td></tr>
 <tr><td rowspan="2">747</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>获取异动原因列表</td></tr>
 <tr><td colspan="3">GetCorehrV1TransferReasonsQuery</td></tr>
@@ -1517,11 +1517,11 @@
 <tr><td colspan="3">GetCorehrV1LeavesLeaveBalances</td></tr>
 <tr><td rowspan="2">759</td><td rowspan="2">2023-08-11</td><td>&#10003;</td><td>飞书人事</td><td>批量查询员工请假记录</td></tr>
 <tr><td colspan="3">GetCorehrV1LeavesLeaveRequestHistory</td></tr>
-<tr><td rowspan="2">760</td><td rowspan="2">2023-11-06</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询员工 HRBP / 属地 BP</td></tr>
+<tr><td rowspan="2">760</td><td rowspan="2">2023-11-22</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询员工 HRBP / 属地 BP</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesBpsBatchGet</td></tr>
-<tr><td rowspan="2">761</td><td rowspan="2">2023-11-06</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询部门 HRBP</td></tr>
+<tr><td rowspan="2">761</td><td rowspan="2">2023-11-22</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询部门 HRBP</td></tr>
 <tr><td colspan="3">PostCorehrV2BpsGetByDepartment</td></tr>
-<tr><td rowspan="2">762</td><td rowspan="2">2023-11-06</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取 HRBP 列表</td></tr>
+<tr><td rowspan="2">762</td><td rowspan="2">2023-11-22</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取 HRBP 列表</td></tr>
 <tr><td colspan="3">GetCorehrV2Bps</td></tr>
 <tr><td rowspan="2">763</td><td rowspan="2">2023-09-12</td><td>&#10003;</td><td>飞书人事</td><td>查询部门 / 地点的 HRBP / 属地 BP</td></tr>
 <tr><td colspan="3">PostCorehrV1SecurityGroupsQuery</td></tr>
@@ -1529,7 +1529,7 @@
 <tr><td colspan="3">PostCorehrV1AssignedUsersSearch</td></tr>
 <tr><td rowspan="2">765</td><td rowspan="2">2023-09-12</td><td>&#10003;</td><td>飞书人事</td><td>批量获取角色列表</td></tr>
 <tr><td colspan="3">GetCorehrV1SecurityGroups</td></tr>
-<tr><td rowspan="2">766</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>飞书人事</td><td>获取流程表单数据</td></tr>
+<tr><td rowspan="2">766</td><td rowspan="2">2023-11-22</td><td>&#10003;</td><td>飞书人事</td><td>获取流程表单数据</td></tr>
 <tr><td colspan="3">GetCorehrV1ProcessesByProcessIdFormVariableData</td></tr>
 <tr><td rowspan="2">767</td><td rowspan="2">2023-10-17</td><td>&#10003;</td><td>飞书人事</td><td>获取员工薪资标准</td></tr>
 <tr><td colspan="3">GetCorehrV1CompensationStandardsMatch</td></tr>
@@ -1603,7 +1603,7 @@
 <tr><td colspan="3">PostHireV1ApplicationsByApplicationIdTerminate</td></tr>
 <tr><td rowspan="2">802</td><td rowspan="2">2023-08-11</td><td>&#10003;</td><td>消息与群组</td><td>批量撤回消息</td></tr>
 <tr><td colspan="3">DeleteImV1BatchMessagesByBatchMessageId</td></tr>
-<tr><td rowspan="2">803</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>获取投递信息</td></tr>
+<tr><td rowspan="2">803</td><td rowspan="2">2023-11-17</td><td>&#10003;</td><td>招聘</td><td>获取投递信息</td></tr>
 <tr><td colspan="3">GetHireV1ApplicationsByApplicationId</td></tr>
 <tr><td rowspan="2">804</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>获取投递列表</td></tr>
 <tr><td colspan="3">GetHireV1Applications</td></tr>
@@ -1977,7 +1977,7 @@
 <tr><td colspan="3">PostVcV1RoomConfigsSetCheckboardAccessCode</td></tr>
 <tr><td rowspan="2">989</td><td rowspan="2">2023-07-05</td><td>&#10003;</td><td>视频会议</td><td>创建会议室部署码</td></tr>
 <tr><td colspan="3">PostVcV1RoomConfigsSetRoomAccessCode</td></tr>
-<tr><td rowspan="2">990</td><td rowspan="2">2023-08-29</td><td>&#10003;</td><td>消息与群组</td><td>创建群</td></tr>
+<tr><td rowspan="2">990</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>消息与群组</td><td>创建群</td></tr>
 <tr><td colspan="3">PostImV1Chats</td></tr>
 <tr><td rowspan="2">991</td><td rowspan="2">2023-07-05</td><td>&#10003;</td><td>视频会议</td><td>查询会议室配置</td></tr>
 <tr><td colspan="3">GetVcV1RoomConfigsQuery</td></tr>
@@ -1985,6 +1985,8 @@
 <tr><td colspan="3">PostVcV1RoomConfigsSet</td></tr>
 <tr><td rowspan="2">993</td><td rowspan="2">2021-10-22</td><td>&#10003;</td><td>身份验证</td><td>JSAPI 临时授权凭证</td></tr>
 <tr><td colspan="3">PostJssdkTicketGet</td></tr>
-<tr><td rowspan="2">994</td><td rowspan="2">2022-09-27</td><td>新增</td><td>应用信息</td><td>获取机器人信息</td></tr>
+<tr><td rowspan="2">994</td><td rowspan="2">2022-09-27</td><td>&#10003;</td><td>应用信息</td><td>获取机器人信息</td></tr>
 <tr><td colspan="3">GetBotV3Info</td></tr>
+<tr><td rowspan="2">995</td><td rowspan="2">2023-11-24</td><td>新增</td><td>词典</td><td>删除免审词条</td></tr>
+<tr><td colspan="3">DeleteLingoV1EntitiesByEntityId</td></tr>
 </tbody></table>

@@ -61,7 +61,7 @@ public record GetImV1MessagesResponseDto
         public string? ParentId { get; set; }
 
         /// <summary>
-        /// <para>消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)</para>
+        /// <para>消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)</para>
         /// <para>必填：否</para>
         /// <para>示例值：interactive</para>
         /// </summary>
@@ -176,9 +176,11 @@ public record GetImV1MessagesResponseDto
         public record MessageBody
         {
             /// <summary>
-            /// <para>消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)</para>
+            /// <para>消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考：[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)</para>
+            /// <para>**注意**：</para>
+            /// <para>- 卡片消息内容与在卡片搭建工具中获取的卡片 JSON 不一致，暂不支持返回原始卡片 JSON</para>
             /// <para>必填：是</para>
-            /// <para>示例值：{\"text\":\"testcontent\"}</para>
+            /// <para>示例值：{\"text\":\"test content\"}</para>
             /// </summary>
             [JsonPropertyName("content")]
             public string Content { get; set; } = string.Empty;

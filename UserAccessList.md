@@ -243,7 +243,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenRoles</td></tr>
 <tr><td rowspan="2">122</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>多维表格</td><td>删除自定义角色</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenRolesByRoleId</td></tr>
-<tr><td rowspan="2">123</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>多维表格</td><td>更新自定义角色</td></tr>
+<tr><td rowspan="2">123</td><td rowspan="2">2023-11-23</td><td>&#10003;</td><td>多维表格</td><td>更新自定义角色</td></tr>
 <tr><td colspan="3">PutBitableV1AppsByAppTokenRolesByRoleId</td></tr>
 <tr><td rowspan="2">124</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>多维表格</td><td>批量删除协作者</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchDelete</td></tr>
@@ -557,7 +557,7 @@
 <tr><td colspan="3">GetTaskV1Tasks</td></tr>
 <tr><td rowspan="2">279</td><td rowspan="2">2023-07-13</td><td>&#10003;</td><td>任务</td><td>新增提醒时间</td></tr>
 <tr><td colspan="3">PostTaskV1TasksByTaskIdReminders</td></tr>
-<tr><td rowspan="2">280</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>消息与群组</td><td>将用户或机器人拉入群聊</td></tr>
+<tr><td rowspan="2">280</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>消息与群组</td><td>将用户或机器人拉入群聊</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdMembers</td></tr>
 <tr><td rowspan="2">281</td><td rowspan="2">2023-07-13</td><td>&#10003;</td><td>任务</td><td>删除提醒时间</td></tr>
 <tr><td colspan="3">DeleteTaskV1TasksByTaskIdRemindersByReminderId</td></tr>
@@ -709,9 +709,9 @@
 <tr><td colspan="3">PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuid</td></tr>
 <tr><td rowspan="2">355</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxes</td></tr>
-<tr><td rowspan="2">356</td><td rowspan="2">2023-04-11</td><td>&#10003;</td><td>搜索</td><td>搜索消息</td></tr>
+<tr><td rowspan="2">356</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>搜索</td><td>搜索消息</td></tr>
 <tr><td colspan="3">PostSearchV2Message</td></tr>
-<tr><td rowspan="2">357</td><td rowspan="2">2023-03-30</td><td>&#10003;</td><td>搜索</td><td>搜索应用</td></tr>
+<tr><td rowspan="2">357</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>搜索</td><td>搜索应用</td></tr>
 <tr><td colspan="3">PostSearchV2App</td></tr>
 <tr><td rowspan="2">358</td><td rowspan="2">2023-10-30</td><td>&#10003;</td><td>消息与群组</td><td>添加会话标签页</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdChatTabs</td></tr>
@@ -823,7 +823,7 @@
 <tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenProperties</td></tr>
 <tr><td rowspan="2">412</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>导入表格</td></tr>
 <tr><td colspan="3">PostSheetsV2Import</td></tr>
-<tr><td rowspan="2">413</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>云文档</td><td>获取我的空间（root folder）元信息</td></tr>
+<tr><td rowspan="2">413</td><td rowspan="2">2023-11-21</td><td>&#10003;</td><td>云文档</td><td>获取我的空间（root folder）元信息</td></tr>
 <tr><td colspan="3">GetDriveExplorerV2RootFolderMeta</td></tr>
 <tr><td rowspan="2">414</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>查询导入结果</td></tr>
 <tr><td colspan="3">GetSheetsV2ImportResult</td></tr>
@@ -873,7 +873,7 @@
 <tr><td colspan="3">PostDriveV1MediasUploadAll</td></tr>
 <tr><td rowspan="2">437</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>获取单个部门信息</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsByDepartmentId</td></tr>
-<tr><td rowspan="2">438</td><td rowspan="2">2023-11-08</td><td>&#10003;</td><td>云文档</td><td>下载素材</td></tr>
+<tr><td rowspan="2">438</td><td rowspan="2">2023-11-21</td><td>&#10003;</td><td>云文档</td><td>下载素材</td></tr>
 <tr><td colspan="3">GetDriveV1MediasByFileTokenDownload</td></tr>
 <tr><td rowspan="2">439</td><td rowspan="2">2023-11-08</td><td>&#10003;</td><td>云文档</td><td>获取素材临时下载链接</td></tr>
 <tr><td colspan="3">GetDriveV1MediasBatchGetTmpDownloadUrl</td></tr>
@@ -961,4 +961,6 @@
 <tr><td colspan="3">PostDriveV1FilesByFileTokenComments</td></tr>
 <tr><td rowspan="2">481</td><td rowspan="2">2021-10-22</td><td>&#10003;</td><td>身份验证</td><td>JSAPI 临时授权凭证</td></tr>
 <tr><td colspan="3">PostJssdkTicketGet</td></tr>
+<tr><td rowspan="2">482</td><td rowspan="2">2023-11-24</td><td>新增</td><td>词典</td><td>删除免审词条</td></tr>
+<tr><td colspan="3">DeleteLingoV1EntitiesByEntityId</td></tr>
 </tbody></table>

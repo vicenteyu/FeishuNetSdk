@@ -12947,12 +12947,38 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：user_access_token</para>
     /// <para>用户可以通过关键字搜索可见消息，可见性和套件内搜索一致。</para>
     /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：20</para>
+    /// <para>默认值：20</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：9e91187f9107ef4d43cd71c3722cd97665e6cec51bf30a06328839bc9867</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/search/v2/message")]
-    System.Threading.Tasks.Task<FeishuResponse<Search.Spec.PostSearchV2MessageResponseDto>> PostSearchV2MessageAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Search.PostSearchV2MessageResponseDto>> PostSearchV2MessageAsync(
         UserAccessToken access_token,
-        [JsonContent] Search.Spec.PostSearchV2MessageBodyDto dto);
+        [JsonContent] Search.PostSearchV2MessageBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] int? page_size = 20,
+        [PathQuery] string? page_token = null);
 
     /// <summary>
     /// <para>【搜索】搜索应用</para>
@@ -12961,12 +12987,38 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：user_access_token</para>
     /// <para>用户可以通过关键字搜索到可见应用，应用可见性与套件内搜索一致。</para>
     /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：20</para>
+    /// <para>默认值：20</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：9e91187f9107ef4d43cd71c3722cd97665e6cec51bf30a06328839bc9867</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/search/v2/app")]
-    System.Threading.Tasks.Task<FeishuResponse<Search.Spec.PostSearchV2AppResponseDto>> PostSearchV2AppAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Search.PostSearchV2AppResponseDto>> PostSearchV2AppAsync(
         UserAccessToken access_token,
-        [JsonContent] Search.Spec.PostSearchV2AppBodyDto dto);
+        [JsonContent] Search.PostSearchV2AppBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] int? page_size = 20,
+        [PathQuery] string? page_token = null);
 
     /// <summary>
     /// <para>【OKR】获取用户的 OKR 列表</para>
@@ -13236,6 +13288,39 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string draft_id,
         [JsonContent] Baike.PutLingoV1DraftsByDraftIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【词典】删除免审词条</para>
+    /// <para>接口ID：7301296774114639876</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过 entity_id 删除已有的词条，无需经过词典管理员审核。因此，调用该接口时应当慎重操作。</para>
+    /// </summary>
+    /// <param name="entity_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>词条 ID</para>
+    /// <para>示例值：enterprise_43742132363</para>
+    /// </param>
+    /// <param name="provider">
+    /// <para>必填：否</para>
+    /// <para>外部系统（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）</para>
+    /// <para>示例值：星云</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="outer_id">
+    /// <para>必填：否</para>
+    /// <para>词条在外部系统中对应的唯一 ID（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）</para>
+    /// <para>示例值：123aaa</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpDelete("/open-apis/lingo/v1/entities/{entity_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteLingoV1EntitiesByEntityIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string entity_id,
+        [PathQuery] string? provider = null,
+        [PathQuery] string? outer_id = null);
 
     /// <summary>
     /// <para>【词典】创建免审词条</para>

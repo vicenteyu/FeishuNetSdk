@@ -13,7 +13,7 @@ public record PostContactV3UsersBatchGetIdBodyDto
     /// <para>注意，emails与mobiles相互独立，每条用户邮箱返回对应的用户ID。</para>
     /// <para>本接口返回的用户ID数量为emails数量与mobiles数量的和。</para>
     /// <para>必填：否</para>
-    /// <para>示例值：zhangsan@a.com</para>
+    /// <para>示例值：sync@a.com</para>
     /// <para>最大长度：50</para>
     /// </summary>
     [JsonPropertyName("emails")]
@@ -25,9 +25,18 @@ public record PostContactV3UsersBatchGetIdBodyDto
     /// <para>1. emails与mobiles相互独立，每条用户手机号返回对应的用户ID。</para>
     /// <para>2. 非中国大陆地区的手机号需要添加以 “+” 开头的国家 / 地区代码。</para>
     /// <para>必填：否</para>
-    /// <para>示例值：13812345678</para>
+    /// <para>示例值：17839872039</para>
     /// <para>最大长度：50</para>
     /// </summary>
     [JsonPropertyName("mobiles")]
     public string[]? Mobiles { get; set; }
+
+    /// <summary>
+    /// <para>查询结果是否包含离职员工。取值为 true 后可查询离职用户的 ID</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：false</para>
+    /// </summary>
+    [JsonPropertyName("include_resigned")]
+    public bool? IncludeResigned { get; set; }
 }
