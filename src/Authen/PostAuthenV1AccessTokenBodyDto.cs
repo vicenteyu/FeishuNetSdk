@@ -1,6 +1,6 @@
 namespace FeishuNetSdk.Authen;
 /// <summary>
-/// 获取 user_access_token (网页应用) 请求体
+/// 获取 user_access_token 请求体
 /// <para>根据[登录预授权码](https://open.feishu.cn/document/ukTMukTMukTM/ukzN4UjL5cDO14SO3gTN) code 获取 `user_access_token`。</para>
 /// <para>接口ID：7180265937329553412</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/authentication-management/access-token/create-2</para>
@@ -14,7 +14,7 @@ public record PostAuthenV1AccessTokenBodyDto
     /// <para>示例值：authorization_code</para>
     /// </summary>
     [JsonPropertyName("grant_type")]
-    public string GrantType { get; set; } = "authorization_code";
+    public string GrantType { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>登录预授权码，调用[获取登录预授权码](https://open.feishu.cn/document/ukTMukTMukTM/ukzN4UjL5cDO14SO3gTN)接口获取</para>

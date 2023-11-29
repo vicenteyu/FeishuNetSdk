@@ -961,6 +961,6 @@
 <tr><td colspan="3">PostDriveV1FilesByFileTokenComments</td></tr>
 <tr><td rowspan="2">481</td><td rowspan="2">2021-10-22</td><td>&#10003;</td><td>身份验证</td><td>JSAPI 临时授权凭证</td></tr>
 <tr><td colspan="3">PostJssdkTicketGet</td></tr>
-<tr><td rowspan="2">482</td><td rowspan="2">2023-11-24</td><td>新增</td><td>词典</td><td>删除免审词条</td></tr>
+<tr><td rowspan="2">482</td><td rowspan="2">2023-11-24</td><td>&#10003;</td><td>词典</td><td>删除免审词条</td></tr>
 <tr><td colspan="3">DeleteLingoV1EntitiesByEntityId</td></tr>
 </tbody></table>

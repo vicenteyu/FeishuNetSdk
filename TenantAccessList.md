@@ -1987,6 +1987,6 @@
 <tr><td colspan="3">PostJssdkTicketGet</td></tr>
 <tr><td rowspan="2">994</td><td rowspan="2">2022-09-27</td><td>&#10003;</td><td>应用信息</td><td>获取机器人信息</td></tr>
 <tr><td colspan="3">GetBotV3Info</td></tr>
-<tr><td rowspan="2">995</td><td rowspan="2">2023-11-24</td><td>新增</td><td>词典</td><td>删除免审词条</td></tr>
+<tr><td rowspan="2">995</td><td rowspan="2">2023-11-24</td><td>&#10003;</td><td>词典</td><td>删除免审词条</td></tr>
 <tr><td colspan="3">DeleteLingoV1EntitiesByEntityId</td></tr>
 </tbody></table>
