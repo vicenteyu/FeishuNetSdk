@@ -207,6 +207,8 @@ public record GetHireV1OffersByOfferIdResponseDto
                 /// <para>合同时长</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：3</para>
+                /// <para>最大值：100</para>
+                /// <para>最小值：0</para>
                 /// </summary>
                 [JsonPropertyName("period")]
                 public int Period { get; set; }
@@ -461,6 +463,63 @@ public record GetHireV1OffersByOfferIdResponseDto
                 [JsonPropertyName("customize_value")]
                 public string? CustomizeValue { get; set; }
             }
+
+            /// <summary>
+            /// <para>人事侧的办公地点与地址（目前仅字节可用)</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("work_location_address_info")]
+            public MasterLocationAddressInfo? WorkLocationAddressInfo { get; set; }
+
+            /// <summary>
+            /// <para>人事侧的办公地点与地址（目前仅字节可用)</para>
+            /// </summary>
+            public record MasterLocationAddressInfo
+            {
+                /// <summary>
+                /// <para>办公地点</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("location_info")]
+                public MasterLocationInfo? LocationInfo { get; set; }
+
+                /// <summary>
+                /// <para>办公地点</para>
+                /// </summary>
+                public record MasterLocationInfo
+                {
+                    /// <summary>
+                    /// <para>地点ID</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：6930815272790114324</para>
+                    /// </summary>
+                    [JsonPropertyName("id")]
+                    public string? Id { get; set; }
+
+                    /// <summary>
+                    /// <para>中文名称</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：北京</para>
+                    /// </summary>
+                    [JsonPropertyName("zh_name")]
+                    public string? ZhName { get; set; }
+
+                    /// <summary>
+                    /// <para>英文名称</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：Beijing</para>
+                    /// </summary>
+                    [JsonPropertyName("en_name")]
+                    public string? EnName { get; set; }
+                }
+
+                /// <summary>
+                /// <para>办公地址</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("address_info")]
+                public MasterLocationInfo? AddressInfo { get; set; }
+            }
         }
 
         /// <summary>
@@ -587,14 +646,14 @@ public record GetHireV1OffersByOfferIdResponseDto
         /// <item>3：审批已撤回</item>
         /// <item>4：审批通过</item>
         /// <item>5：审批不通过</item>
-        /// <item>6：Offer已发出</item>
+        /// <item>6：Offer 已发出</item>
         /// <item>7：候选人已接受</item>
         /// <item>8：候选人已拒绝</item>
-        /// <item>9：Offer已失效</item>
+        /// <item>9：Offer 已失效</item>
         /// <item>10：未审批</item>
-        /// <item>11：实习待入职（仅实习Offer具有）</item>
-        /// <item>12：实习已入职（仅实习Offer具有）</item>
-        /// <item>13：实习已离职（仅实习Offer具有）</item>
+        /// <item>11：实习待入职（仅实习 Offer 具有）</item>
+        /// <item>12：实习已入职（仅实习 Offer 具有）</item>
+        /// <item>13：实习已离职（仅实习 Offer 具有）</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("offer_status")]
@@ -605,8 +664,8 @@ public record GetHireV1OffersByOfferIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>1：正式Offer</item>
-        /// <item>2：实习Offer</item>
+        /// <item>1：正式 Offer</item>
+        /// <item>2：实习 Offer</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("offer_type")]
@@ -639,6 +698,56 @@ public record GetHireV1OffersByOfferIdResponseDto
             /// </summary>
             [JsonPropertyName("job_name")]
             public string? JobName { get; set; }
+        }
+
+        /// <summary>
+        /// <para>offer自定义模块列表</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("customized_module_list")]
+        public ApplicationOfferCustomModule[]? CustomizedModuleLists { get; set; }
+
+        /// <summary>
+        /// <para>offer自定义模块列表</para>
+        /// </summary>
+        public record ApplicationOfferCustomModule
+        {
+            /// <summary>
+            /// <para>自定义模块ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6930815272790114324</para>
+            /// </summary>
+            [JsonPropertyName("id")]
+            public string? ID { get; set; }
+
+            /// <summary>
+            /// <para>自定义模块下字段的值</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("object_list")]
+            public ApplicationOfferCustomValue[]? ObjectLists { get; set; }
+
+            /// <summary>
+            /// <para>自定义模块下字段的值</para>
+            /// </summary>
+            public record ApplicationOfferCustomValue
+            {
+                /// <summary>
+                /// <para>自定义字段ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6930815272790114324</para>
+                /// </summary>
+                [JsonPropertyName("object_id")]
+                public string? ObjectId { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段Value</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：value</para>
+                /// </summary>
+                [JsonPropertyName("customize_value")]
+                public string? CustomizeValue { get; set; }
+            }
         }
     }
 }

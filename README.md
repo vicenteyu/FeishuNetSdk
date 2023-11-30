@@ -133,6 +133,10 @@ public async Task<IResult> GetT5Async()
 }
 ```
 
+**HTTP状态码为 200 时，表示成功，返回文件二进制流。**
+
+**HTTP状态码为 206 时，表示下载部分内容成功，返回指定 Range 的部分文件的二进制流。**
+
 ## 注意事项：
 
 ### 当`获取凭证`异常时，内部异常类型为`TokenException`。

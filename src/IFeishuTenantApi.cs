@@ -24350,8 +24350,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6940461543747256348</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/human_authentication-v1/face/query-recognition-result</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>无源人脸比对流程，开发者后台通过调用此接口请求飞书后台，对本次活体比对结果做校验。</para>
-    /// <para>无源人脸比对接入需申请白名单，接入前请联系飞书开放平台工作人员，邮箱：open-platform@bytedance.com。</para>
+    /// <para>人脸比对流程，开发者后台调用此接口请求飞书后台，对本次活体比对结果做校验，支持查询有源认证与无源认证结果。</para>
+    /// <para>人脸比对接入需申请白名单，接入前请联系飞书开放平台工作人员，邮箱：open-platform@bytedance.com。</para>
     /// </summary>
     /// <param name="req_order_no">
     /// <para>必填：是</para>
@@ -24367,11 +24367,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>用户租户标识, 与open_id二选其一</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="ticket_type">
+    /// <para>必填：否</para>
+    /// <para>认证方式标识，可取值'verify'或空; verify表示查询有源认证结果,缺省表示查询无源认证结果</para>
+    /// <para>默认值：null</para>
+    /// </param>
     [HttpGet("/open-apis/face_verify/v1/query_auth_result")]
     System.Threading.Tasks.Task<FeishuResponse<HumanAuthentication.Spec.GetFaceVerifyV1QueryAuthResultResponseDto>> GetFaceVerifyV1QueryAuthResultAsync(
         [PathQuery] string req_order_no,
         [PathQuery] string? open_id = null,
-        [PathQuery] string? employee_id = null);
+        [PathQuery] string? employee_id = null,
+        [PathQuery] string? ticket_type = null);
 
     /// <summary>
     /// <para>【智能门禁】修改用户部分信息</para>
