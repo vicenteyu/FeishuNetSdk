@@ -49,19 +49,32 @@ builder.Services.AddFeishuNetSdk(builder.Configuration.GetSection("FeishuNetSdk"
 ```csharp
 public class TestController : ControllerBase
 {
-    private readonly IFeishuTenantApi _feishuApi;
-    public TestController(IFeishuTenantApi feishuApi)
+    private readonly IFeishuTenantApi _tenantApi;  // <== TenantAccessToken 适用API
+    private readonly IFeishuUserApi _userApi;      // <== UserAccessToken 适用API
+    
+    public TestController(IFeishuTenantApi tenantApi, IFeishuUserApi userApi)
     {
-        _feishuApi = feishuApi;
+        _tenantApi = tenantApi;
+        _userApi = userApi;
     }
     
     [HttpGet("t2")]
     public async Task<IResult> GetT2Async()
     {
-        var result = await _feishuApi.GetImV1ChatsAsync();
+        var result = await _tenantApi.GetImV1ChatsAsync();
         return Results.Json(result);
     }
 }
+```
+
+### 4、UserAccessToken 接口使用方法
+
+1.跳转登录页面，获取`登录预授权码`:`code`。
+1.使用`IFeishuAppApi`，根据`code`获取`user_access_token`。
+1.使用`IFeishuUserApi`，调用接口。`user_access_token`默认为第一参数。
+
+```csharp
+
 ```
 
 

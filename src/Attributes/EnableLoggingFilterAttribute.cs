@@ -9,48 +9,53 @@ namespace WebApiClientCore.Attributes
     /// <summary>
     /// 启用日志
     /// </summary>
-    public class EnableLoggingFilterAttribute : ApiFilterAttribute
+    public class EnableLoggingFilterAttribute : LoggingFilterAttribute
     {
-        private static readonly LoggingFilterAttribute _loggingFilter = new();
-
         /// <summary>
         /// 启用时，不再输出缓存内容。
         /// </summary>
         public bool EnableCacheLogging { get; set; } = true;
 
         /// <summary>
-        /// 请求之前
+        /// 写日志到指定日志组件
+        /// 默认写入Microsoft.Extensions.Logging
         /// </summary>
-        public async override Task OnRequestAsync(ApiRequestContext context)
+        /// <param name="context">上下文</param>
+        /// <param name="logMessage">日志消息</param>
+        /// <returns>Task.</returns>
+        protected override Task WriteLogAsync(ApiResponseContext context, LogMessage logMessage)
         {
-            if (!IsEnable(context.HttpContext)) return;
-            await _loggingFilter.OnRequestAsync(context);
-        }
+            var sdkOptions = context.HttpContext.ServiceProvider
+                   .GetRequiredService<IOptionsMonitor<FeishuNetSdkOptions>>();
 
-        /// <summary>
-        /// 响应之后
-        /// </summary>
-        public async override Task OnResponseAsync(ApiResponseContext context)
-        {
-            if (!IsEnable(context.HttpContext)) return;
+            if (!sdkOptions.CurrentValue.EnableLogging) return Task.CompletedTask;
 
             if (EnableCacheLogging
                 && context.HttpContext.ResponseMessage?.Headers?
                     .TryGetValues("Response-Cache-Provider", out var values) == true
                 && values?.Any() == true)
             {
-                context.HttpContext.ResponseMessage ??= new HttpResponseMessage();
-                context.HttpContext.ResponseMessage.Content = new StringContent("...来自缓存...");
+                logMessage.ResponseContent = "...来自缓存...";
             }
 
-            await _loggingFilter.OnResponseAsync(context);
+            return base.WriteLogAsync(context, logMessage);
         }
 
-        private static bool IsEnable(HttpContext context)
+        /// <summary>
+        /// 写日志到ILogger
+        /// </summary>
+        /// <param name="logger">日志</param>
+        /// <param name="logMessage">日志消息</param>
+        protected override void WriteLog(ILogger logger, LogMessage logMessage)
         {
-            var sdkOptions = context.ServiceProvider
-                .GetRequiredService<IOptionsMonitor<FeishuNetSdkOptions>>();
-            return sdkOptions.CurrentValue.EnableLogging;
+            if (logMessage.Exception == null)
+            {
+                logger.LogInformation("\n{info}", logMessage.ToString());
+            }
+            else
+            {
+                logger.LogError("\n{error}", logMessage.ToString());
+            }
         }
     }
 }
