@@ -46,7 +46,7 @@ public record PostAttendanceV1GroupsResponseDto
         public string TimeZone { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>绑定的部门 ID</para>
+        /// <para>绑定的部门 ID（与「need_punch_members」同时使用时，以当前字段为准）</para>
         /// <para>必填：否</para>
         /// <para>示例值：od-fcb45c28a45311afd440b7869541fce8</para>
         /// </summary>
@@ -54,7 +54,7 @@ public record PostAttendanceV1GroupsResponseDto
         public string[]? BindDeptIds { get; set; }
 
         /// <summary>
-        /// <para>排除的部门 ID</para>
+        /// <para>排除的部门 ID（该字段已下线）</para>
         /// <para>必填：否</para>
         /// <para>示例值：od-fcb45c28a45311afd440b7869541fce8</para>
         /// </summary>
@@ -62,7 +62,7 @@ public record PostAttendanceV1GroupsResponseDto
         public string[]? ExceptDeptIds { get; set; }
 
         /// <summary>
-        /// <para>绑定的用户 ID</para>
+        /// <para>绑定的用户 ID（与「need_punch_members」同时使用时，以当前字段为准）</para>
         /// <para>必填：否</para>
         /// <para>示例值：52aa1fa1</para>
         /// </summary>
@@ -70,7 +70,7 @@ public record PostAttendanceV1GroupsResponseDto
         public string[]? BindUserIds { get; set; }
 
         /// <summary>
-        /// <para>排除的用户 ID</para>
+        /// <para>排除的用户 ID（该字段已下线）</para>
         /// <para>必填：否</para>
         /// <para>示例值：52aa1fa1</para>
         /// </summary>
@@ -303,7 +303,7 @@ public record PostAttendanceV1GroupsResponseDto
             /// <summary>
             /// <para>考勤机名称</para>
             /// <para>必填：是</para>
-            /// <para>示例值：创实9楼</para>
+            /// <para>示例值：创实 9 楼</para>
             /// </summary>
             [JsonPropertyName("machine_name")]
             public string MachineName { get; set; } = string.Empty;
@@ -815,14 +815,14 @@ public record PostAttendanceV1GroupsResponseDto
         public LeaveNeedPunchCfgSuffix? TravelNeedPunchCfg { get; set; }
 
         /// <summary>
-        /// <para>需要打卡的人员集合（新版人事圈人使用该字段）</para>
+        /// <para>需要打卡的人员集合（仅当不传「bind_dept_ids」和「bind_user_ids」时，才会使用该字段）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("need_punch_members")]
         public PunchMember[]? NeedPunchMembers { get; set; }
 
         /// <summary>
-        /// <para>需要打卡的人员集合（新版人事圈人使用该字段）</para>
+        /// <para>需要打卡的人员集合（仅当不传「bind_dept_ids」和「bind_user_ids」时，才会使用该字段）</para>
         /// </summary>
         public record PunchMember
         {
@@ -886,7 +886,7 @@ public record PostAttendanceV1GroupsResponseDto
                 public record ScopeValue
                 {
                     /// <summary>
-                    /// <para> 标识Key</para>
+                    /// <para>标识Key</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：CH</para>
                     /// </summary>
@@ -930,14 +930,14 @@ public record PostAttendanceV1GroupsResponseDto
         }
 
         /// <summary>
-        /// <para>无需打卡的人员集合（新版人事圈人使用该字段）</para>
+        /// <para>无需打卡的人员集合（仅当不传「bind_default_dept_ids」和「bind_default_user_ids」时，才会使用该字段）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("no_need_punch_members")]
         public PunchMember[]? NoNeedPunchMembers { get; set; }
 
         /// <summary>
-        /// <para>是否允许保存有冲突人员的考勤组。如果 true，则冲突人员将被自动拉入到当前设置的考勤组中，并从原考勤组中移除；如果 false，则需手动调整冲突人员（新版人事圈人使用该字段）</para>
+        /// <para>是否允许保存有冲突人员的考勤组。如果 true，则冲突人员将被自动拉入到当前设置的考勤组中，并从原考勤组中移除；如果 false，则需手动调整冲突人员。默认为 false。</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
@@ -945,7 +945,7 @@ public record PostAttendanceV1GroupsResponseDto
         public bool? SaveAutoChanges { get; set; }
 
         /// <summary>
-        /// <para>当有新员工入职或人员异动，符合条件的人员是否自动加入考勤组（新版人事圈人使用该字段）</para>
+        /// <para>当有新员工入职或人员异动，符合条件的人员是否自动加入考勤组</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
@@ -953,14 +953,14 @@ public record PostAttendanceV1GroupsResponseDto
         public bool? OrgChangeAutoAdjust { get; set; }
 
         /// <summary>
-        /// <para>默认出勤的部门id列表</para>
+        /// <para>参与无需打卡的部门 ID 列表（与「no_need_punch_members」同时使用时，以当前字段为准）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("bind_default_dept_ids")]
         public string[]? BindDefaultDeptIds { get; set; }
 
         /// <summary>
-        /// <para>默认出勤的用户ID列表</para>
+        /// <para>参与无需打卡的人员 ID 列表（与「no_need_punch_members」同时使用时，以当前字段为准）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("bind_default_user_ids")]

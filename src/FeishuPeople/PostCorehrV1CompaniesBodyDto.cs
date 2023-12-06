@@ -59,10 +59,10 @@ public record PostCorehrV1CompaniesBodyDto
 
         /// <summary>
         /// <para>组织类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)组织类型（organization_type）枚举定义部分获得</para>
-        /// <para>必填：是</para>
+        /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("type")]
-        public Enum Type { get; set; } = new();
+        public Enum? Type { get; set; }
 
         /// <summary>
         /// <para>组织类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)组织类型（organization_type）枚举定义部分获得</para>
@@ -89,7 +89,7 @@ public record PostCorehrV1CompaniesBodyDto
         /// <summary>
         /// <para>生效时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2020-05-0100:00:00</para>
+        /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("effective_time")]
         public string? EffectiveTime { get; set; }
@@ -97,7 +97,7 @@ public record PostCorehrV1CompaniesBodyDto
         /// <summary>
         /// <para>失效时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2020-05-0200:00:00</para>
+        /// <para>示例值：2020-05-02 00:00:00</para>
         /// </summary>
         [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }
@@ -278,4 +278,112 @@ public record PostCorehrV1CompaniesBodyDto
         [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
     }
+
+    /// <summary>
+    /// <para>默认币种</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("currency")]
+    public PostCorehrV1CompaniesBodyDtoCurrency? Currency { get; set; }
+
+    /// <summary>
+    /// <para>默认币种</para>
+    /// </summary>
+    public record PostCorehrV1CompaniesBodyDtoCurrency
+    {
+        /// <summary>
+        /// <para>货币名称</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("currency_name")]
+        public I18n[]? CurrencyNames { get; set; }
+
+        /// <summary>
+        /// <para>货币名称</para>
+        /// </summary>
+        public record I18n
+        {
+            /// <summary>
+            /// <para>语言</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：zh-CN</para>
+            /// </summary>
+            [JsonPropertyName("lang")]
+            public string Lang { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>内容</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：刘梓新</para>
+            /// </summary>
+            [JsonPropertyName("value")]
+            public string Value { get; set; } = string.Empty;
+        }
+
+        /// <summary>
+        /// <para>数字代码</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：12</para>
+        /// </summary>
+        [JsonPropertyName("numeric_code")]
+        public int? NumericCode { get; set; }
+
+        /// <summary>
+        /// <para>三位字母代码</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：12</para>
+        /// </summary>
+        [JsonPropertyName("currency_alpha_3_code")]
+        public string? CurrencyAlpha3Code { get; set; }
+    }
+
+    /// <summary>
+    /// <para>电话</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("phone")]
+    public PhoneNumberAndAreaCode? Phone { get; set; }
+
+    /// <summary>
+    /// <para>电话</para>
+    /// </summary>
+    public record PhoneNumberAndAreaCode
+    {
+        /// <summary>
+        /// <para>区号</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：123123</para>
+        /// </summary>
+        [JsonPropertyName("area_code")]
+        public Enum AreaCode { get; set; } = new();
+
+        /// <summary>
+        /// <para>区号</para>
+        /// </summary>
+        public record Enum
+        {
+            /// <summary>
+            /// <para>枚举值</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：phone_type</para>
+            /// </summary>
+            [JsonPropertyName("enum_name")]
+            public string EnumName { get; set; } = string.Empty;
+        }
+
+        /// <summary>
+        /// <para>号码</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：213213</para>
+        /// </summary>
+        [JsonPropertyName("phone_number")]
+        public string PhoneNumber { get; set; } = string.Empty;
+    }
+
+    /// <summary>
+    /// <para>传真</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("fax")]
+    public PhoneNumberAndAreaCode? Fax { get; set; }
 }

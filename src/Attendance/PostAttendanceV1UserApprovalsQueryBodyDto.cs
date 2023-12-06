@@ -61,7 +61,7 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
     public int? Status { get; set; }
 
     /// <summary>
-    /// <para>查询的起始时间，精确到秒的时间戳</para>
+    /// <para>查询的起始时间，精确到秒的时间戳（灰度中，暂不开放）</para>
     /// <para>必填：否</para>
     /// <para>示例值：1566641088</para>
     /// </summary>
@@ -69,7 +69,7 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
     public string? CheckTimeFrom { get; set; }
 
     /// <summary>
-    /// <para>查询的结束时间，精确到秒的时间戳</para>
+    /// <para>查询的结束时间，精确到秒的时间戳（灰度中，暂不开放）</para>
     /// <para>必填：否</para>
     /// <para>示例值：1592561088</para>
     /// </summary>
