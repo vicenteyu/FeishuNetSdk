@@ -67,5 +67,29 @@ public record GetDriveV1FilesByFileTokenStatisticsResponseDto
         /// </summary>
         [JsonPropertyName("timestamp")]
         public int? Timestamp { get; set; }
+
+        /// <summary>
+        /// <para>今日新增文档访问人数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("uv_today")]
+        public int? UvToday { get; set; }
+
+        /// <summary>
+        /// <para>今日新增文档访问次数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("pv_today")]
+        public int? PvToday { get; set; }
+
+        /// <summary>
+        /// <para>今日新增文档点赞数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("like_count_today")]
+        public int? LikeCountToday { get; set; }
     }
 }
