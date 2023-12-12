@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace FeishuNetSdk.Dtos
@@ -40,5 +41,10 @@ namespace FeishuNetSdk.Dtos
             [JsonPropertyName("template_variable")]
             public Dictionary<string, string> TemplateVariable { get; set; } = new();
         }
+
+        /// <summary>
+        /// 输出格式化字符串
+        /// </summary>
+        public override string ToString() => JsonSerializer.Serialize(this);
     }
 }

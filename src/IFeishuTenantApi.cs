@@ -10130,7 +10130,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7124235806021238785</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/meeting_list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>导出会议明细（仅支持已结束会议），具体权限要求请参考资源介绍。</para>
+    /// <para>导出会议明细，具体权限要求请参考资源介绍。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -10154,7 +10154,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7124195547444477980</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/participant_list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>导出某个会议的参会人详情列表（仅支持已结束会议），具体权限要求请参考「资源介绍」。</para>
+    /// <para>导出某个会议的参会人详情列表，具体权限要求请参考「资源介绍」。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -10860,7 +10860,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7194805625628033027</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting_list/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>查询会议明细（仅支持已结束会议），具体权限要求请参考「资源介绍」。</para>
+    /// <para>查询会议明细，具体权限要求请参考「资源介绍」。</para>
     /// </summary>
     /// <param name="start_time">
     /// <para>必填：是</para>
@@ -10871,6 +10871,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>查询结束时间（unix时间，单位sec）</para>
     /// <para>示例值：1655276858</para>
+    /// </param>
+    /// <param name="meeting_status">
+    /// <para>必填：否</para>
+    /// <para>会议状态</para>
+    /// <para>示例值：2</para>
+    /// <list type="bullet">
+    /// <item>1：进行中</item>
+    /// <item>2：已结束</item>
+    /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="meeting_no">
     /// <para>必填：否</para>
@@ -10917,6 +10927,7 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1MeetingListResponseDto>> GetVcV1MeetingListAsync(
         [PathQuery] string start_time,
         [PathQuery] string end_time,
+        [PathQuery] int? meeting_status = null,
         [PathQuery] string? meeting_no = null,
         [PathQuery] string? user_id = null,
         [PathQuery] string? room_id = null,
@@ -10929,7 +10940,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7194805625628147715</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/participant_list/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>查询参会人明细（仅支持已结束会议），具体权限要求请参考「资源介绍」。</para>
+    /// <para>查询参会人明细，具体权限要求请参考「资源介绍」。</para>
     /// </summary>
     /// <param name="meeting_start_time">
     /// <para>必填：是</para>
@@ -10940,6 +10951,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>会议结束时间（unix时间，单位sec）</para>
     /// <para>示例值：1655276858</para>
+    /// </param>
+    /// <param name="meeting_status">
+    /// <para>必填：否</para>
+    /// <para>会议状态（不传默认为已结束会议）</para>
+    /// <para>示例值：2</para>
+    /// <list type="bullet">
+    /// <item>1：进行中</item>
+    /// <item>2：已结束</item>
+    /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="meeting_no">
     /// <para>必填：是</para>
@@ -10986,6 +11007,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string meeting_start_time,
         [PathQuery] string meeting_end_time,
         [PathQuery] string meeting_no,
+        [PathQuery] int? meeting_status = null,
         [PathQuery] string? user_id = null,
         [PathQuery] string? room_id = null,
         [PathQuery] int? page_size = 20,
@@ -20408,54 +20430,6 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int page_size = 10);
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】通过公司 ID 批量获取公司信息</para>
-    /// <para>接口ID：7252157701853184028</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get</para>
-    /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过公司 ID 批量获取公司信息</para>
-    /// </summary>
-    /// <param name="dto">请求体</param>
-    [HttpPost("/open-apis/corehr/v2/companies/batch_get")]
-    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CompaniesBatchGetResponseDto>> PostCorehrV2CompaniesBatchGetAsync(
-        [JsonContent] Corehr.PostCorehrV2CompaniesBatchGetBodyDto dto);
-
-    /// <summary>
-    /// <para>【飞书人事】创建公司</para>
-    /// <para>接口ID：7072977358001389570</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create</para>
-    /// <para>Authorization：tenant_access_token</para>
-    /// <para>创建公司。</para>
-    /// </summary>
-    /// <param name="client_token">
-    /// <para>必填：否</para>
-    /// <para>根据client_token是否一致来判断是否为同一请求</para>
-    /// <para>示例值：12454646</para>
-    /// <para>默认值：null</para>
-    /// </param>
-    /// <param name="dto">请求体</param>
-    [HttpPost("/open-apis/corehr/v1/companies")]
-    System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1CompaniesResponseDto>> PostCorehrV1CompaniesAsync(
-        [JsonContent] FeishuPeople.PostCorehrV1CompaniesBodyDto dto,
-        [PathQuery] string? client_token = null);
-
-    /// <summary>
-    /// <para>【飞书人事】删除公司</para>
-    /// <para>接口ID：7072977288456126492</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/delete</para>
-    /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除公司。</para>
-    /// </summary>
-    /// <param name="company_id">
-    /// <para>路径参数</para>
-    /// <para>必填：是</para>
-    /// <para>需要删除的公司ID</para>
-    /// <para>示例值：341432424</para>
-    /// </param>
-    [HttpDelete("/open-apis/corehr/v1/companies/{company_id}")]
-    System.Threading.Tasks.Task<FeishuResponse> DeleteCorehrV1CompaniesByCompanyIdAsync(
-        [PathQuery] string company_id);
-
-    /// <summary>
     /// <para>【飞书人事】查询单个公司</para>
     /// <para>接口ID：7017694651621867524</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get</para>
@@ -20495,6 +20469,80 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1CompaniesResponseDto>> GetCorehrV1CompaniesAsync(
         [PathQuery] string? page_token = null,
         [PathQuery] int page_size = 10);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】通过公司 ID 批量获取公司信息</para>
+    /// <para>接口ID：7252157701853184028</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>通过公司 ID 批量获取公司信息</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/companies/batch_get")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CompaniesBatchGetResponseDto>> PostCorehrV2CompaniesBatchGetAsync(
+        [JsonContent] Corehr.PostCorehrV2CompaniesBatchGetBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事】创建公司</para>
+    /// <para>接口ID：7072977358001389570</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>创建公司。</para>
+    /// </summary>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据client_token是否一致来判断是否为同一请求</para>
+    /// <para>示例值：12454646</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v1/companies")]
+    System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1CompaniesResponseDto>> PostCorehrV1CompaniesAsync(
+        [JsonContent] FeishuPeople.PostCorehrV1CompaniesBodyDto dto,
+        [PathQuery] string? client_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事】更新公司</para>
+    /// <para>接口ID：7309323790810824705</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/patch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>更新公司信息。</para>
+    /// </summary>
+    /// <param name="company_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>需要更新的公司 ID</para>
+    /// <para>示例值：1616161616</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据client_token是否一致来判断是否为同一请求</para>
+    /// <para>示例值：12454646</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/corehr/v1/companies/{company_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PatchCorehrV1CompaniesByCompanyIdResponseDto>> PatchCorehrV1CompaniesByCompanyIdAsync(
+        [PathQuery] string company_id,
+        [JsonContent] FeishuPeople.PatchCorehrV1CompaniesByCompanyIdBodyDto dto,
+        [PathQuery] string? client_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事】删除公司</para>
+    /// <para>接口ID：7072977288456126492</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除公司。</para>
+    /// </summary>
+    /// <param name="company_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>需要删除的公司ID</para>
+    /// <para>示例值：341432424</para>
+    /// </param>
+    [HttpDelete("/open-apis/corehr/v1/companies/{company_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteCorehrV1CompaniesByCompanyIdAsync(
+        [PathQuery] string company_id);
 
     /// <summary>
     /// <para>【飞书人事（企业版）】通过职级 ID 批量获取职级信息</para>
@@ -21948,6 +21996,85 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1SecurityGroupsResponseDto>> GetCorehrV1SecurityGroupsAsync(
         [PathQuery] string? page_token = null,
         [PathQuery] int page_size = 10);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询流程实例列表</para>
+    /// <para>接口ID：7296819819722571804</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询流程实例列表。</para>
+    /// </summary>
+    /// <param name="modify_time_to">
+    /// <para>必填：是</para>
+    /// <para>任务查询结束时间 (unix毫秒时间戳)，闭区间，开始时间和结束时间跨度不能超过31天</para>
+    /// <para>示例值：1547654251506</para>
+    /// </param>
+    /// <param name="statuses">
+    /// <para>必填：否</para>
+    /// <para>查询状态列表</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：7278949005675988535</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="modify_time_from">
+    /// <para>必填：是</para>
+    /// <para>查询开始时间（unix毫秒时间戳），闭区间，开始时间和结束时间跨度不能超过31天</para>
+    /// <para>示例值：1547654251506</para>
+    /// </param>
+    /// <param name="flow_definition_id">
+    /// <para>必填：否</para>
+    /// <para>流程定义ID</para>
+    /// <para>示例值：people_6961286846093788680_7081951411982077732</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v2/processes")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2ProcessesResponseDto>> GetCorehrV2ProcessesAsync(
+        [PathQuery] string modify_time_to,
+        [PathQuery] string modify_time_from,
+        [PathQuery] int[]? statuses = null,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? flow_definition_id = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】获取单个流程详情</para>
+    /// <para>接口ID：7296819819722588188</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据流程实例 id 获取单个流程详情。</para>
+    /// </summary>
+    /// <param name="process_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>流程ID</para>
+    /// <para>示例值：7278949005675988535</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v2/processes/{process_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2ProcessesByProcessIdResponseDto>> GetCorehrV2ProcessesByProcessIdAsync(
+        [PathQuery] string process_id,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【飞书人事】获取流程表单数据</para>

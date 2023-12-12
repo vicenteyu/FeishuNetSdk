@@ -8754,7 +8754,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7124235806021238785</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/meeting_list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>导出会议明细（仅支持已结束会议），具体权限要求请参考资源介绍。</para>
+    /// <para>导出会议明细，具体权限要求请参考资源介绍。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -8780,7 +8780,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7124195547444477980</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/participant_list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>导出某个会议的参会人详情列表（仅支持已结束会议），具体权限要求请参考「资源介绍」。</para>
+    /// <para>导出某个会议的参会人详情列表，具体权限要求请参考「资源介绍」。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -9568,7 +9568,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7194805625628033027</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting_list/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>查询会议明细（仅支持已结束会议），具体权限要求请参考「资源介绍」。</para>
+    /// <para>查询会议明细，具体权限要求请参考「资源介绍」。</para>
     /// </summary>
     /// <param name="start_time">
     /// <para>必填：是</para>
@@ -9579,6 +9579,16 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>查询结束时间（unix时间，单位sec）</para>
     /// <para>示例值：1655276858</para>
+    /// </param>
+    /// <param name="meeting_status">
+    /// <para>必填：否</para>
+    /// <para>会议状态</para>
+    /// <para>示例值：2</para>
+    /// <list type="bullet">
+    /// <item>1：进行中</item>
+    /// <item>2：已结束</item>
+    /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="meeting_no">
     /// <para>必填：否</para>
@@ -9627,6 +9637,7 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string start_time,
         [PathQuery] string end_time,
+        [PathQuery] int? meeting_status = null,
         [PathQuery] string? meeting_no = null,
         [PathQuery] string? user_id = null,
         [PathQuery] string? room_id = null,
@@ -9639,7 +9650,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7194805625628147715</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/participant_list/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>查询参会人明细（仅支持已结束会议），具体权限要求请参考「资源介绍」。</para>
+    /// <para>查询参会人明细，具体权限要求请参考「资源介绍」。</para>
     /// </summary>
     /// <param name="meeting_start_time">
     /// <para>必填：是</para>
@@ -9650,6 +9661,16 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>会议结束时间（unix时间，单位sec）</para>
     /// <para>示例值：1655276858</para>
+    /// </param>
+    /// <param name="meeting_status">
+    /// <para>必填：否</para>
+    /// <para>会议状态（不传默认为已结束会议）</para>
+    /// <para>示例值：2</para>
+    /// <list type="bullet">
+    /// <item>1：进行中</item>
+    /// <item>2：已结束</item>
+    /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="meeting_no">
     /// <para>必填：是</para>
@@ -9698,6 +9719,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string meeting_start_time,
         [PathQuery] string meeting_end_time,
         [PathQuery] string meeting_no,
+        [PathQuery] int? meeting_status = null,
         [PathQuery] string? user_id = null,
         [PathQuery] string? room_id = null,
         [PathQuery] int? page_size = 20,
@@ -13019,6 +13041,34 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事】更新公司</para>
+    /// <para>接口ID：7309323790810824705</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/patch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>更新公司信息。</para>
+    /// </summary>
+    /// <param name="company_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>需要更新的公司 ID</para>
+    /// <para>示例值：1616161616</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据client_token是否一致来判断是否为同一请求</para>
+    /// <para>示例值：12454646</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPatch("/open-apis/corehr/v1/companies/{company_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PatchCorehrV1CompaniesByCompanyIdResponseDto>> PatchCorehrV1CompaniesByCompanyIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string company_id,
+        [JsonContent] FeishuPeople.PatchCorehrV1CompaniesByCompanyIdBodyDto dto,
+        [PathQuery] string? client_token = null);
 
     /// <summary>
     /// <para>【OKR】获取用户的 OKR 列表</para>

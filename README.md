@@ -69,16 +69,41 @@ public class TestController : ControllerBase
 
 ### 4、UserAccessToken 接口使用方法
 
-1.跳转登录页面，获取`登录预授权码`:`code`。
-1.使用`IFeishuAppApi`，根据`code`获取`user_access_token`。
-1.使用`IFeishuUserApi`，调用接口。`user_access_token`默认为第一参数。
-
-```csharp
-
-```
+1. 跳转登录页面，获取`登录预授权码`:`code`。
+1. 使用`IFeishuAppApi`，根据`code`获取`user_access_token`。
+1. 使用`IFeishuUserApi`，调用接口。`user_access_token`默认为第一参数。
 
 
 ## 示例：
+
+### 消息卡片（模板消息）
+
+```csharp
+[HttpGet("t2")]
+public async Task<IResult> GetT2Async()
+{
+    var dto = new TemplateCardDto
+    {
+        Data = new()
+        {
+            TemplateId = "ctp_xx0123456789",  // <== 模板Id
+            TemplateVariable = new()          // <== 模板变量
+            {
+                { "aa", Aa },
+                { "bb", Bb },
+                { "cc", Cc }
+            }
+        }
+    };
+    var result = await _feishuApi.PostImV1MessagesAsync("open_id",
+        new FeishuNetSdk.Im.PostImV1MessagesBodyDto
+        {
+            MsgType = "interactive",
+            ReceiveId = "ou_3c5beeexxxxxx6ce936414bb0d13d386",
+            Content = dto.ToString(),
+        });
+}
+```
 
 ### 文件上传示例
 参数类型 `FormDataFile` 支持 `filePath`、`FileInfo`、`byte[]`、`Stream`。

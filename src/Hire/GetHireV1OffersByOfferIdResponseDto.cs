@@ -53,10 +53,10 @@ public record GetHireV1OffersByOfferIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
-            /// <item>1：Social</item>
-            /// <item>2：Campus</item>
-            /// <item>3：Intern</item>
-            /// <item>4：InternTransfer</item>
+            /// <item>1：社招offer</item>
+            /// <item>2：校招offer</item>
+            /// <item>3：实习offer</item>
+            /// <item>4：实习生转正offer，商业化租户无此选项</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("offer_type")]

@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 导出参会人明细 请求体
-/// <para>导出某个会议的参会人详情列表（仅支持已结束会议），具体权限要求请参考「资源介绍」。</para>
+/// <para>导出某个会议的参会人详情列表，具体权限要求请参考「资源介绍」。</para>
 /// <para>接口ID：7124195547444477980</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/export/participant_list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fexport%2fparticipant_list</para>
@@ -23,6 +23,18 @@ public record PostVcV1ExportsParticipantListBodyDto
     /// </summary>
     [JsonPropertyName("meeting_end_time")]
     public string MeetingEndTime { get; set; } = string.Empty;
+
+    /// <summary>
+    /// <para>会议状态（不传默认为已结束会议）</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：2</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>1：进行中</item>
+    /// <item>2：已结束</item>
+    /// </list></para>
+    /// </summary>
+    [JsonPropertyName("meeting_status")]
+    public int? MeetingStatus { get; set; }
 
     /// <summary>
     /// <para>9位会议号</para>

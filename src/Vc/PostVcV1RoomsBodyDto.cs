@@ -69,7 +69,7 @@ public record PostVcV1RoomsBodyDto
         public bool Status { get; set; }
 
         /// <summary>
-        /// <para>会议室未来状态为启用或禁用</para>
+        /// <para>会议室未来状态为启用或禁用（请忽略，该字段用于查询接口的返回值）</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
