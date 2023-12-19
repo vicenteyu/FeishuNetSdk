@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取旧版文档元信息 响应体
-/// <para>此接口只支持查询旧版文档元信息，如果需要查询新版文档元信息，请使用[获取元数据](https://open.feishu.cn/document/ukTMukTMukTM/uMjN3UjLzYzN14yM2cTN)接口。</para>
+/// <para>此接口只支持查询旧版文档元信息。要查询新版文档（`docx` 类型）元信息，使用[获取文档元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query)接口。</para>
 /// <para>接口ID：6907569524100448257</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version/docs/document/obtain-document-meta</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuczN3UjL3czN14yN3cTN</para>
@@ -20,7 +20,7 @@ public record GetDocV2MetaByDocTokenResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("create_time")]
-    public int? CreateTime { get; set; }
+    public long? CreateTime { get; set; }
 
     /// <summary>
     /// <para>创建者open_id</para>
@@ -41,14 +41,14 @@ public record GetDocV2MetaByDocTokenResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("delete_flag")]
-    public int? DeleteFlag { get; set; }
+    public long? DeleteFlag { get; set; }
 
     /// <summary>
     /// <para>最后编辑时间戳</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("edit_time")]
-    public int? EditTime { get; set; }
+    public long? EditTime { get; set; }
 
     /// <summary>
     /// <para>最后编辑者用户名</para>
@@ -104,7 +104,7 @@ public record GetDocV2MetaByDocTokenResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("server_time")]
-    public int? ServerTime { get; set; }
+    public long? ServerTime { get; set; }
 
     /// <summary>
     /// <para>文档所在租户id</para>
@@ -125,7 +125,7 @@ public record GetDocV2MetaByDocTokenResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("type")]
-    public int? Type { get; set; }
+    public long? Type { get; set; }
 
     /// <summary>
     /// <para>文档url</para>

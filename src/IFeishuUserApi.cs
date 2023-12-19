@@ -3620,7 +3620,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7068199542315204636</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>创建新版文档，文档标题和目录可选。</para>
+    /// <para>创建文档类型为 docx 的文档。你可选择传入文档标题和文件夹。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -14223,11 +14223,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6908984614439829506</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugDM2YjL4AjN24COwYjN</para>
     /// <para>Authorization：user_access_token、tenant_access_token</para>
-    /// <para>在使用此接口前，请仔细阅读[文档概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs-doc-overview)和[准备接入文档 API](https://open.feishu.cn/document/ukTMukTMukTM/ugzNzUjL4czM14CO3MTN/guide/getting-start)了解文档调用的规则和约束，确保你的文档数据不会丢失或出错。</para>
-    /// <para>文档数据结构定义可参考：[文档数据结构概述](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)</para>
+    /// <para>此接口已废弃。要创建文档，使用[创建文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create)接口。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("历史版本")]
     [HttpPost("/open-apis/doc/v2/create")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDocV2CreateResponseDto>> PostDocV2CreateAsync(
         UserAccessToken access_token,
@@ -14238,7 +14238,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569524100448257</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uczN3UjL3czN14yN3cTN</para>
     /// <para>Authorization：user_access_token、tenant_access_token</para>
-    /// <para>此接口只支持查询旧版文档元信息，如果需要查询新版文档元信息，请使用[获取元数据](https://open.feishu.cn/document/ukTMukTMukTM/uMjN3UjLzYzN14yM2cTN)接口。</para>
+    /// <para>此接口只支持查询旧版文档元信息。要查询新版文档（`docx` 类型）元信息，使用[获取文档元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query)接口。</para>
     /// </summary>
     /// <param name="docToken">
     /// <para>路径参数</para>
@@ -14256,7 +14256,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569744330833921</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uADOzUjLwgzM14CM4MTN</para>
     /// <para>Authorization：user_access_token、tenant_access_token</para>
-    /// <para>该接口用于根据 docToken 获取文档中的电子表格的元数据。</para>
+    /// <para>此接口只支持获取旧版文档数据。要获取新版文档（`docx` 类型）中的元数据，使用[获取文档元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query)接口。</para>
     /// </summary>
     /// <param name="docToken">
     /// <para>路径参数</para>
@@ -14274,8 +14274,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569742384857090</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukzNzUjL5czM14SO3MTN</para>
     /// <para>Authorization：user_access_token、tenant_access_token</para>
-    /// <para>此接口只支持查询旧版文档纯文本内容，如果需要查询新版文档的纯文本内容，请使用[获取新版文档纯文本内容</para>
-    /// <para>](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/raw_content)接口。</para>
+    /// <para>此接口只支持查询旧版文档纯文本内容。要查询新版文档（文档类型：`docx`）的纯文本内容，使用[获取文档纯文本内容](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/raw_content)接口。</para>
     /// </summary>
     /// <param name="docToken">
     /// <para>路径参数</para>
@@ -14293,8 +14292,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6908984614439845890</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDM2YjL1AjN24SNwYjN</para>
     /// <para>Authorization：user_access_token、tenant_access_token</para>
-    /// <para>在使用此接口前，请仔细阅读[文档概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs-doc-overview)和[准备接入文档 API](https://open.feishu.cn/document/ukTMukTMukTM/ugzNzUjL4czM14CO3MTN/guide/getting-start)了解文档调用的规则和约束，确保你的文档数据不会丢失或出错。</para>
-    /// <para>文档数据结构定义可参考：[文档数据结构概述](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)</para>
+    /// <para>此接口只支持获取旧版文档富文本内容。要获取新版文档（文档类型：`docx`）的富文本内容，调用以下接口：</para>
+    /// <para>- [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)</para>
+    /// <para>- [获取指定块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get)</para>
+    /// <para>- [获取指定块下所有子块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/get)</para>
     /// </summary>
     /// <param name="docToken">
     /// <para>路径参数</para>
@@ -14312,8 +14313,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6908984614439813122</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYDM2YjL2AjN24iNwYjN</para>
     /// <para>Authorization：user_access_token、tenant_access_token</para>
-    /// <para>在使用此接口前，请仔细阅读[文档概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs-doc-overview)和[准备接入文档 API](https://open.feishu.cn/document/ukTMukTMukTM/ugzNzUjL4czM14CO3MTN/guide/getting-start)了解文档调用的规则和约束，确保你的文档数据不会丢失或出错。</para>
-    /// <para>文档数据结构定义可参考：[文档数据结构概述](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)</para>
+    /// <para>此接口只支持编辑旧版文档内容。要编辑新版文档（文档类型：`docx`）的内容，调用以下接口：</para>
+    /// <para>- [创建块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/create)</para>
+    /// <para>- [更新块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/patch)</para>
+    /// <para>- [批量更新块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/batch_update)</para>
+    /// <para>- [删除块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/batch_delete)</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>

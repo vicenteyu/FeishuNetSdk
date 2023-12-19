@@ -1,8 +1,10 @@
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取旧版文档富文本内容 响应体
-/// <para>在使用此接口前，请仔细阅读[文档概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs-doc-overview)和[准备接入文档 API](https://open.feishu.cn/document/ukTMukTMukTM/ugzNzUjL4czM14CO3MTN/guide/getting-start)了解文档调用的规则和约束，确保你的文档数据不会丢失或出错。</para>
-/// <para>文档数据结构定义可参考：[文档数据结构概述](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)</para>
+/// <para>此接口只支持获取旧版文档富文本内容。要获取新版文档（文档类型：`docx`）的富文本内容，调用以下接口：</para>
+/// <para>- [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)</para>
+/// <para>- [获取指定块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get)</para>
+/// <para>- [获取指定块下所有子块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/get)</para>
 /// <para>接口ID：6908984614439845890</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/docs/docs/content/get-document</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDM2YjL1AjN24SNwYjN</para>

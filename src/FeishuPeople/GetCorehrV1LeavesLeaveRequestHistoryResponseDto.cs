@@ -85,7 +85,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         /// <para>- 字符串日期：如 "2022-09-09"</para>
         /// <para>- 字符串日期加 morning/afternoon：如 "2022-09-09 morning""</para>
         /// <para>必填：是</para>
-        /// <para>示例值：2022-07-06morning</para>
+        /// <para>示例值：2022-07-06</para>
         /// </summary>
         [JsonPropertyName("start_time")]
         public string StartTime { get; set; } = string.Empty;
