@@ -18867,6 +18867,84 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string token);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】查询国籍信息</para>
+    /// <para>接口ID：7301516605753180163</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据国家 ID、国籍 ID 查询国籍信息</para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/basic_info/nationalities/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2BasicInfoNationalitiesSearchResponseDto>> PostCorehrV2BasicInfoNationalitiesSearchAsync(
+        [JsonContent] Corehr.PostCorehrV2BasicInfoNationalitiesSearchBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询银行信息</para>
+    /// <para>接口ID：7301516605753196547</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据银行 ID 、银行名称查询银行信息</para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/basic_info/banks/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2BasicInfoBanksSearchResponseDto>> PostCorehrV2BasicInfoBanksSearchAsync(
+        [JsonContent] Corehr.PostCorehrV2BasicInfoBanksSearchBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询支行信息</para>
+    /// <para>接口ID：7301516605753212931</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank_branch/search</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据银行 ID、支行 ID 、支行名称查询银行信息</para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/basic_info/bank_branchs/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2BasicInfoBankBranchsSearchResponseDto>> PostCorehrV2BasicInfoBankBranchsSearchAsync(
+        [JsonContent] Corehr.PostCorehrV2BasicInfoBankBranchsSearchBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
     /// <para>【飞书人事】获取字段详情</para>
     /// <para>接口ID：7112009113388138524</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param</para>
@@ -18928,6 +19006,110 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1CustomFieldsListObjectApiNameResponseDto>> GetCorehrV1CustomFieldsListObjectApiNameAsync(
         [PathQuery] string? page_token = null,
         [PathQuery] int page_size = 10);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询国家/地区信息v2</para>
+    /// <para>接口ID：7301516605753229315</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据国家/地区 ID、状态批量查询国家/地区信息</para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/basic_info/country_regions/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2BasicInfoCountryRegionsSearchResponseDto>> PostCorehrV2BasicInfoCountryRegionsSearchAsync(
+        [JsonContent] Corehr.PostCorehrV2BasicInfoCountryRegionsSearchBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询省份/行政区信息v2</para>
+    /// <para>接口ID：7301516605753245699</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据省份/行政区 ID、状态批量查询行政区、省份、州等数据</para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/basic_info/country_region_subdivisions/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchResponseDto>> PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchAsync(
+        [JsonContent] Corehr.PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询城市信息v2</para>
+    /// <para>接口ID：7301516605753131011</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据上级省份/行政区 ID 、城市 ID、状态 查询城市（自治区、地区、县「美」、町、村「日」）信息</para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/basic_info/cities/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2BasicInfoCitiesSearchResponseDto>> PostCorehrV2BasicInfoCitiesSearchAsync(
+        [JsonContent] Corehr.PostCorehrV2BasicInfoCitiesSearchBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询区/县信息v2</para>
+    /// <para>接口ID：7301516605753147395</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据区/县 ID、上级城市 ID 查询区/县信息</para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/basic_info/districts/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2BasicInfoDistrictsSearchResponseDto>> PostCorehrV2BasicInfoDistrictsSearchAsync(
+        [JsonContent] Corehr.PostCorehrV2BasicInfoDistrictsSearchBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
 
     /// <summary>
     /// <para>【飞书人事】查询单条国家/地区信息</para>
@@ -19395,6 +19577,32 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1WorkingHoursTypesResponseDto>> GetCorehrV1WorkingHoursTypesAsync(
         [PathQuery] string? page_token = null,
         [PathQuery] int page_size = 10);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询货币信息v2</para>
+    /// <para>接口ID：7301516605753163779</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据货币 ID、状态查询货币信息</para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/basic_info/currencies/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2BasicInfoCurrenciesSearchResponseDto>> PostCorehrV2BasicInfoCurrenciesSearchAsync(
+        [JsonContent] Corehr.PostCorehrV2BasicInfoCurrenciesSearchBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
 
     /// <summary>
     /// <para>【飞书人事】查询单个货币信息</para>

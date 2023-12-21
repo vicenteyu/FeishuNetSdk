@@ -23,7 +23,7 @@
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdRawContent</td></tr>
 <tr><td rowspan="2">12</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>云文档</td><td>获取文档所有块</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocks</td></tr>
-<tr><td rowspan="2">13</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>云文档</td><td>创建文档</td></tr>
+<tr><td rowspan="2">13</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>创建文档</td></tr>
 <tr><td colspan="3">PostDocxV1Documents</td></tr>
 <tr><td rowspan="2">14</td><td rowspan="2">2023-07-18</td><td>&#10003;</td><td>通讯录</td><td>获取单个职务信息</td></tr>
 <tr><td colspan="3">GetContactV3JobTitlesByJobTitleId</td></tr>
@@ -157,7 +157,7 @@
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesQuery</td></tr>
 <tr><td rowspan="2">79</td><td rowspan="2">2022-09-29</td><td>&#10003;</td><td>云文档</td><td>创建浮动图片</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImages</td></tr>
-<tr><td rowspan="2">80</td><td rowspan="2">2023-11-15</td><td>&#10003;</td><td>消息与群组</td><td>添加消息表情回复</td></tr>
+<tr><td rowspan="2">80</td><td rowspan="2">2023-12-15</td><td>&#10003;</td><td>消息与群组</td><td>添加消息表情回复</td></tr>
 <tr><td colspan="3">PostImV1MessagesByMessageIdReactions</td></tr>
 <tr><td rowspan="2">81</td><td rowspan="2">2022-09-29</td><td>&#10003;</td><td>云文档</td><td>更新浮动图片</td></tr>
 <tr><td colspan="3">PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageId</td></tr>
@@ -179,7 +179,7 @@
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenTablesByTableId</td></tr>
 <tr><td rowspan="2">90</td><td rowspan="2">2023-08-03</td><td>&#10003;</td><td>多维表格</td><td>删除多个数据表</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesBatchDelete</td></tr>
-<tr><td rowspan="2">91</td><td rowspan="2">2023-11-15</td><td>&#10003;</td><td>消息与群组</td><td>删除消息表情回复</td></tr>
+<tr><td rowspan="2">91</td><td rowspan="2">2023-12-15</td><td>&#10003;</td><td>消息与群组</td><td>删除消息表情回复</td></tr>
 <tr><td colspan="3">DeleteImV1MessagesByMessageIdReactionsByReactionId</td></tr>
 <tr><td rowspan="2">92</td><td rowspan="2">2023-08-03</td><td>&#10003;</td><td>多维表格</td><td>更新数据表</td></tr>
 <tr><td colspan="3">PatchBitableV1AppsByAppTokenTablesByTableId</td></tr>
@@ -805,17 +805,17 @@
 <tr><td colspan="3">GetImV1ChatsByChatIdChatTabsListTabs</td></tr>
 <tr><td rowspan="2">403</td><td rowspan="2">2023-03-06</td><td>&#10003;</td><td>通讯录</td><td>获取部门信息列表</td></tr>
 <tr><td colspan="3">GetContactV3Departments</td></tr>
-<tr><td rowspan="2">404</td><td rowspan="2">2023-09-01</td><td>&#10003;</td><td>云文档</td><td>创建旧版文档</td></tr>
+<tr><td rowspan="2">404</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 创建旧版文档</td></tr>
 <tr><td colspan="3">PostDocV2Create</td></tr>
-<tr><td rowspan="2">405</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档元信息</td></tr>
+<tr><td rowspan="2">405</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档元信息</td></tr>
 <tr><td colspan="3">GetDocV2MetaByDocToken</td></tr>
-<tr><td rowspan="2">406</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档中的电子表格元数据</td></tr>
+<tr><td rowspan="2">406</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档中的电子表格元数据</td></tr>
 <tr><td colspan="3">GetDocV2ByDocTokenSheetMeta</td></tr>
-<tr><td rowspan="2">407</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档纯文本内容</td></tr>
+<tr><td rowspan="2">407</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档纯文本内容</td></tr>
 <tr><td colspan="3">GetDocV2ByDocTokenRawContent</td></tr>
-<tr><td rowspan="2">408</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档富文本内容</td></tr>
+<tr><td rowspan="2">408</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档富文本内容</td></tr>
 <tr><td colspan="3">GetDocV2ByDocTokenContent</td></tr>
-<tr><td rowspan="2">409</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>云文档</td><td>编辑旧版文档内容</td></tr>
+<tr><td rowspan="2">409</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>编辑旧版文档内容</td></tr>
 <tr><td colspan="3">PostDocV2ByDocTokenBatchUpdate</td></tr>
 <tr><td rowspan="2">410</td><td rowspan="2">2022-07-04</td><td>&#10003;</td><td>云文档</td><td>获取表格元数据</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfo</td></tr>
@@ -963,6 +963,6 @@
 <tr><td colspan="3">PostJssdkTicketGet</td></tr>
 <tr><td rowspan="2">482</td><td rowspan="2">2023-11-24</td><td>&#10003;</td><td>词典</td><td>删除免审词条</td></tr>
 <tr><td colspan="3">DeleteLingoV1EntitiesByEntityId</td></tr>
-<tr><td rowspan="2">483</td><td rowspan="2">2023-12-12</td><td>新增</td><td>飞书人事</td><td>更新公司</td></tr>
+<tr><td rowspan="2">483</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
 <tr><td colspan="3">PatchCorehrV1CompaniesByCompanyId</td></tr>
 </tbody></table>
