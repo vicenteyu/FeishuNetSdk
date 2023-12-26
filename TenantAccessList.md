@@ -445,7 +445,7 @@
 <tr><td colspan="3">DeleteWikiV2SpacesBySpaceIdMembersByMemberId</td></tr>
 <tr><td rowspan="2">223</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>更新知识空间设置</td></tr>
 <tr><td colspan="3">PutWikiV2SpacesBySpaceIdSetting</td></tr>
-<tr><td rowspan="2">224</td><td rowspan="2">2023-08-23</td><td>&#10003;</td><td>通讯录</td><td>创建用户</td></tr>
+<tr><td rowspan="2">224</td><td rowspan="2">2023-12-25</td><td>&#10003;</td><td>通讯录</td><td>创建用户</td></tr>
 <tr><td colspan="3">PostContactV3Users</td></tr>
 <tr><td rowspan="2">225</td><td rowspan="2">2023-11-13</td><td>&#10003;</td><td>通讯录</td><td>获取子部门列表</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsByDepartmentIdChildren</td></tr>
@@ -1111,7 +1111,7 @@
 <tr><td colspan="3">PatchApplicationV6ApplicationsByAppIdContactsRange</td></tr>
 <tr><td rowspan="2">556</td><td rowspan="2">2023-09-12</td><td>&#10003;</td><td>应用信息</td><td>获取用户可用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV1UserVisibleApps</td></tr>
-<tr><td rowspan="2">557</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
+<tr><td rowspan="2">557</td><td rowspan="2">2023-12-25</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
 <tr><td colspan="3">PatchContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">558</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>删除序列</td></tr>
 <tr><td colspan="3">DeleteContactV3JobFamiliesByJobFamilyId</td></tr>
@@ -1219,17 +1219,17 @@
 <tr><td colspan="3">PostDocumentAiV1TaxiInvoiceRecognize</td></tr>
 <tr><td rowspan="2">610</td><td rowspan="2">2023-10-31</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的身份证</td></tr>
 <tr><td colspan="3">PostDocumentAiV1IdCardRecognize</td></tr>
-<tr><td rowspan="2">611</td><td rowspan="2">2023-10-31</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的食品生产许可证</td></tr>
+<tr><td rowspan="2">611</td><td rowspan="2">2023-12-22</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的食品生产许可证</td></tr>
 <tr><td colspan="3">PostDocumentAiV1FoodProduceLicenseRecognize</td></tr>
-<tr><td rowspan="2">612</td><td rowspan="2">2023-10-31</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的食品经营许可证</td></tr>
+<tr><td rowspan="2">612</td><td rowspan="2">2023-12-22</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的食品经营许可证</td></tr>
 <tr><td colspan="3">PostDocumentAiV1FoodManageLicenseRecognize</td></tr>
 <tr><td rowspan="2">613</td><td rowspan="2">2023-07-18</td><td>&#10003;</td><td>通讯录</td><td>获取租户职务列表</td></tr>
 <tr><td colspan="3">GetContactV3JobTitles</td></tr>
 <tr><td rowspan="2">614</td><td rowspan="2">2023-10-31</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的驾驶证</td></tr>
 <tr><td colspan="3">PostDocumentAiV1DrivingLicenseRecognize</td></tr>
-<tr><td rowspan="2">615</td><td rowspan="2">2023-10-31</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的增值税发票</td></tr>
+<tr><td rowspan="2">615</td><td rowspan="2">2023-12-22</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的增值税发票</td></tr>
 <tr><td colspan="3">PostDocumentAiV1VatInvoiceRecognize</td></tr>
-<tr><td rowspan="2">616</td><td rowspan="2">2023-10-31</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的营业执照</td></tr>
+<tr><td rowspan="2">616</td><td rowspan="2">2023-12-22</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的营业执照</td></tr>
 <tr><td colspan="3">PostDocumentAiV1BusinessLicenseRecognize</td></tr>
 <tr><td rowspan="2">617</td><td rowspan="2">2023-10-31</td><td>&#10003;</td><td>AI 能力</td><td>提取文件中的合同字段</td></tr>
 <tr><td colspan="3">PostDocumentAiV1ContractFieldExtraction</td></tr>
@@ -1279,11 +1279,11 @@
 <tr><td colspan="3">GetEhrV1Employees</td></tr>
 <tr><td rowspan="2">640</td><td rowspan="2">2022-12-23</td><td>&#10003;</td><td>飞书人事（标准版）</td><td>下载人员的附件</td></tr>
 <tr><td colspan="3">GetEhrV1AttachmentsByToken</td></tr>
-<tr><td rowspan="2">641</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>飞书人事</td><td>获取字段详情</td></tr>
+<tr><td rowspan="2">641</td><td rowspan="2">2023-12-26</td><td>&#10003;</td><td>飞书人事</td><td>获取字段详情</td></tr>
 <tr><td colspan="3">GetCorehrV1CustomFieldsGetByParam</td></tr>
-<tr><td rowspan="2">642</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>飞书人事</td><td>获取自定义字段列表</td></tr>
+<tr><td rowspan="2">642</td><td rowspan="2">2023-12-26</td><td>&#10003;</td><td>飞书人事</td><td>获取自定义字段列表</td></tr>
 <tr><td colspan="3">GetCorehrV1CustomFieldsQuery</td></tr>
-<tr><td rowspan="2">643</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>飞书人事</td><td>获取飞书人事对象列表</td></tr>
+<tr><td rowspan="2">643</td><td rowspan="2">2023-12-26</td><td>&#10003;</td><td>飞书人事</td><td>获取飞书人事对象列表</td></tr>
 <tr><td colspan="3">GetCorehrV1CustomFieldsListObjectApiName</td></tr>
 <tr><td rowspan="2">644</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>查询单条国家/地区信息</td></tr>
 <tr><td colspan="3">GetCorehrV1CountryRegionsByCountryRegionId</td></tr>
@@ -1339,9 +1339,9 @@
 <tr><td colspan="3">PutImV1MessagesByMessageId</td></tr>
 <tr><td rowspan="2">670</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>批量查询货币信息</td></tr>
 <tr><td colspan="3">GetCorehrV1Currencies</td></tr>
-<tr><td rowspan="2">671</td><td rowspan="2">2023-11-15</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询员工信息</td></tr>
+<tr><td rowspan="2">671</td><td rowspan="2">2023-12-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询员工信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesBatchGet</td></tr>
-<tr><td rowspan="2">672</td><td rowspan="2">2023-11-15</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工信息</td></tr>
+<tr><td rowspan="2">672</td><td rowspan="2">2023-12-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesSearch</td></tr>
 <tr><td rowspan="2">673</td><td rowspan="2">2023-09-12</td><td>&#10003;</td><td>飞书人事</td><td>创建雇佣信息</td></tr>
 <tr><td colspan="3">PostCorehrV1Employments</td></tr>
@@ -1349,9 +1349,9 @@
 <tr><td colspan="3">PatchCorehrV1EmploymentsByEmploymentId</td></tr>
 <tr><td rowspan="2">675</td><td rowspan="2">2023-09-12</td><td>&#10003;</td><td>飞书人事</td><td>删除雇佣信息</td></tr>
 <tr><td colspan="3">DeleteCorehrV1EmploymentsByEmploymentId</td></tr>
-<tr><td rowspan="2">676</td><td rowspan="2">2023-11-15</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>创建个人信息（V2）</td></tr>
+<tr><td rowspan="2">676</td><td rowspan="2">2023-12-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>创建个人信息（V2）</td></tr>
 <tr><td colspan="3">PostCorehrV2Persons</td></tr>
-<tr><td rowspan="2">677</td><td rowspan="2">2023-11-15</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>更新个人信息（V2）</td></tr>
+<tr><td rowspan="2">677</td><td rowspan="2">2023-12-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>更新个人信息（V2）</td></tr>
 <tr><td colspan="3">PatchCorehrV2PersonsByPersonId</td></tr>
 <tr><td rowspan="2">678</td><td rowspan="2">2023-09-12</td><td>&#10003;</td><td>飞书人事</td><td>删除个人信息</td></tr>
 <tr><td colspan="3">DeleteCorehrV1PersonsByPersonId</td></tr>
@@ -1995,20 +1995,20 @@
 <tr><td colspan="3">GetCorehrV2Processes</td></tr>
 <tr><td rowspan="2">998</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取单个流程详情</td></tr>
 <tr><td colspan="3">GetCorehrV2ProcessesByProcessId</td></tr>
-<tr><td rowspan="2">999</td><td rowspan="2">2023-12-21</td><td>新增</td><td>飞书人事（企业版）</td><td>查询国籍信息</td></tr>
+<tr><td rowspan="2">999</td><td rowspan="2">2023-12-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询国籍信息</td></tr>
 <tr><td colspan="3">PostCorehrV2BasicInfoNationalitiesSearch</td></tr>
-<tr><td rowspan="2">1000</td><td rowspan="2">2023-12-21</td><td>新增</td><td>飞书人事（企业版）</td><td>查询银行信息</td></tr>
+<tr><td rowspan="2">1000</td><td rowspan="2">2023-12-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询银行信息</td></tr>
 <tr><td colspan="3">PostCorehrV2BasicInfoBanksSearch</td></tr>
-<tr><td rowspan="2">1001</td><td rowspan="2">2023-12-21</td><td>新增</td><td>飞书人事（企业版）</td><td>查询支行信息</td></tr>
+<tr><td rowspan="2">1001</td><td rowspan="2">2023-12-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询支行信息</td></tr>
 <tr><td colspan="3">PostCorehrV2BasicInfoBankBranchsSearch</td></tr>
-<tr><td rowspan="2">1002</td><td rowspan="2">2023-12-21</td><td>新增</td><td>飞书人事（企业版）</td><td>查询国家/地区信息v2</td></tr>
+<tr><td rowspan="2">1002</td><td rowspan="2">2023-12-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询国家/地区信息v2</td></tr>
 <tr><td colspan="3">PostCorehrV2BasicInfoCountryRegionsSearch</td></tr>
-<tr><td rowspan="2">1003</td><td rowspan="2">2023-12-21</td><td>新增</td><td>飞书人事（企业版）</td><td>查询省份/行政区信息v2</td></tr>
+<tr><td rowspan="2">1003</td><td rowspan="2">2023-12-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询省份/行政区信息v2</td></tr>
 <tr><td colspan="3">PostCorehrV2BasicInfoCountryRegionSubdivisionsSearch</td></tr>
-<tr><td rowspan="2">1004</td><td rowspan="2">2023-12-21</td><td>新增</td><td>飞书人事（企业版）</td><td>查询城市信息v2</td></tr>
+<tr><td rowspan="2">1004</td><td rowspan="2">2023-12-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询城市信息v2</td></tr>
 <tr><td colspan="3">PostCorehrV2BasicInfoCitiesSearch</td></tr>
-<tr><td rowspan="2">1005</td><td rowspan="2">2023-12-21</td><td>新增</td><td>飞书人事（企业版）</td><td>查询区/县信息v2</td></tr>
+<tr><td rowspan="2">1005</td><td rowspan="2">2023-12-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询区/县信息v2</td></tr>
 <tr><td colspan="3">PostCorehrV2BasicInfoDistrictsSearch</td></tr>
-<tr><td rowspan="2">1006</td><td rowspan="2">2023-12-21</td><td>新增</td><td>飞书人事（企业版）</td><td>查询货币信息v2</td></tr>
+<tr><td rowspan="2">1006</td><td rowspan="2">2023-12-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询货币信息v2</td></tr>
 <tr><td colspan="3">PostCorehrV2BasicInfoCurrenciesSearch</td></tr>
 </tbody></table>

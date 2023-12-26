@@ -18195,7 +18195,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7249730096956702723</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/food_produce_license/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>食品生产许可证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// <para>食品生产许可证识别接口，支持JPG/JPEG/PNG/BMP/PDF五种文件类型的一次性的识别。</para>
     /// </summary>
     /// <param name="file">
     /// <para>必填：是</para>
@@ -18210,7 +18210,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7249730096956719107</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/food_manage_license/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>食品经营许可证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// <para>食品经营许可证识别接口，支持JPG/JPEG/PNG/BMP/PDF五种文件类型的一次性的识别。</para>
     /// </summary>
     /// <param name="file">
     /// <para>必填：是</para>
@@ -18240,7 +18240,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7247054875321434114</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/vat_invoice/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>增值税发票识别接口，支持JPG/JPEG/PNG/PDF/OFD四种文件类型的一次性的识别。</para>
+    /// <para>增值税发票识别接口，支持JPG/JPEG/PNG/PDF/BMP五种文件类型的一次性的识别。</para>
     /// </summary>
     /// <param name="file">
     /// <para>必填：是</para>
@@ -18255,7 +18255,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7249730096956735491</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/business_license/recognize</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>营业执照识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// <para>营业执照识别接口，支持JPG/JPEG/PNG/BMP/PDF五种文件类型的一次性的识别。</para>
     /// </summary>
     /// <param name="file">
     /// <para>必填：是</para>

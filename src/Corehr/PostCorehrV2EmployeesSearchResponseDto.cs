@@ -748,6 +748,14 @@ public record PostCorehrV2EmployeesSearchResponseDto
             public string? DateOfBirth { get; set; }
 
             /// <summary>
+            /// <para>国籍 ID，可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)查询</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6862995757234914821</para>
+            /// </summary>
+            [JsonPropertyName("nationality_id_v2")]
+            public string? NationalityIdV2 { get; set; }
+
+            /// <summary>
             /// <para>-| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person</para>
             /// <para>必填：否</para>
             /// </summary>
@@ -921,6 +929,22 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 /// </summary>
                 [JsonPropertyName("region_id")]
                 public string? RegionId { get; set; }
+
+                /// <summary>
+                /// <para>城市</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6863333254578046471</para>
+                /// </summary>
+                [JsonPropertyName("city_id_v2")]
+                public string? CityIdV2 { get; set; }
+
+                /// <summary>
+                /// <para>区/县</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6863333516579440141</para>
+                /// </summary>
+                [JsonPropertyName("district_id_v2")]
+                public string? DistrictIdV2 { get; set; }
 
                 /// <summary>
                 /// <para>地址行 1（非拉丁语系的本地文字）</para>
@@ -1598,7 +1622,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
             public record BankAccount
             {
                 /// <summary>
-                /// <para>银行名称</para>
+                /// <para>银行名称。当在飞书人事找不到银行下拉选项，手动填写文本时，请通过此字段获取结果</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：中国农业银行</para>
                 /// </summary>
@@ -1622,7 +1646,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 public string AccountHolder { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>支行名称</para>
+                /// <para>支行名称。当在飞书人事找不到支行下拉选项，手动填写文本时，请通过此字段获取结果</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：中国农业银行支行</para>
                 /// </summary>
@@ -1630,7 +1654,23 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 public string? BranchName { get; set; }
 
                 /// <summary>
-                /// <para>国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得</para>
+                /// <para>银行 ID，详细信息可通过[【查询银行信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)查询。当在飞书人事选择具体银行下拉选项时，请通过此字段获取结果</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：MDBH00000001</para>
+                /// </summary>
+                [JsonPropertyName("bank_id_v2")]
+                public string? BankIdV2 { get; set; }
+
+                /// <summary>
+                /// <para>支行 ID，要求必须为填入银行的支行，详细信息可通过[【查询支行信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank_branch/search)查询。当在飞书人事选择具体支行下拉选项时，请通过此字段获取结果</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：MDBK00000017</para>
+                /// </summary>
+                [JsonPropertyName("branch_id_v2")]
+                public string? BranchIdV2 { get; set; }
+
+                /// <summary>
+                /// <para>国家/地区 ID，详细信息可通过[【查询国家/地区信息v2】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)查询</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：12</para>
                 /// </summary>
@@ -1695,7 +1735,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 public Enum? BankAccountType { get; set; }
 
                 /// <summary>
-                /// <para>货币id</para>
+                /// <para>货币id，可通过[【查询货币信息v2】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)查询</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：12QueryCountryRegionSubdivisionDataReq</para>
                 /// </summary>
@@ -1707,7 +1747,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：CH56 0483 5012 3456 7800 9</para>
                 /// </summary>
-                [JsonPropertyName(nameof(IBAN))]
+                [JsonPropertyName("IBAN")]
                 public string? IBAN { get; set; }
 
                 /// <summary>
@@ -2220,6 +2260,14 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 public string? DateOfBirth { get; set; }
 
                 /// <summary>
+                /// <para>国籍 ID，可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)查询</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6862995745046267401</para>
+                /// </summary>
+                [JsonPropertyName("nationality_id_v2")]
+                public string? NationalityIdV2 { get; set; }
+
+                /// <summary>
                 /// <para>证件号码</para>
                 /// <para>必填：否</para>
                 /// </summary>
@@ -2619,6 +2667,22 @@ public record PostCorehrV2EmployeesSearchResponseDto
                     /// </summary>
                     [JsonPropertyName("region_id")]
                     public string? RegionId { get; set; }
+
+                    /// <summary>
+                    /// <para>城市</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：6863333254578046471</para>
+                    /// </summary>
+                    [JsonPropertyName("city_id_v2")]
+                    public string? CityIdV2 { get; set; }
+
+                    /// <summary>
+                    /// <para>区/县</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：6863333516579440141</para>
+                    /// </summary>
+                    [JsonPropertyName("district_id_v2")]
+                    public string? DistrictIdV2 { get; set; }
 
                     /// <summary>
                     /// <para>地址行 1（非拉丁语系的本地文字）</para>
@@ -4094,169 +4158,6 @@ public record PostCorehrV2EmployeesSearchResponseDto
         /// </summary>
         [JsonPropertyName("time_zone")]
         public string? TimeZone { get; set; }
-
-        /// <summary>
-        /// <para>当前生效的外派记录</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("primary_international_assignment")]
-        public InternationalAssignmentSuffix? PrimaryInternationalAssignment { get; set; }
-
-        /// <summary>
-        /// <para>当前生效的外派记录</para>
-        /// </summary>
-        public record InternationalAssignmentSuffix
-        {
-            /// <summary>
-            /// <para>当前生效的外派记录ID</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：7046599238679447000</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>当前生效外派记录的外派城市（派驻地）ID</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：7046599238679447084</para>
-            /// </summary>
-            [JsonPropertyName("assignment_city_id")]
-            public string? AssignmentCityId { get; set; }
-
-            /// <summary>
-            /// <para>当前生效外派记录的外派公司ID</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：7046599238679447084</para>
-            /// </summary>
-            [JsonPropertyName("assignment_company_id")]
-            public string? AssignmentCompanyId { get; set; }
-
-            /// <summary>
-            /// <para>当前生效外派记录的外派国家ID</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：7046599238679447084</para>
-            /// </summary>
-            [JsonPropertyName("assignment_country_id")]
-            public string? AssignmentCountryId { get; set; }
-
-            /// <summary>
-            /// <para>当前生效外派记录的外派原因</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("assignment_reason")]
-            public I18n? AssignmentReason { get; set; }
-
-            /// <summary>
-            /// <para>当前生效外派记录的外派原因</para>
-            /// </summary>
-            public record I18n
-            {
-                /// <summary>
-                /// <para>语言</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：zh-CN</para>
-                /// </summary>
-                [JsonPropertyName("lang")]
-                public string Lang { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>内容</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：张三</para>
-                /// </summary>
-                [JsonPropertyName("value")]
-                public string Value { get; set; } = string.Empty;
-            }
-
-            /// <summary>
-            /// <para>当前生效外派记录的生效时间</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：2023-08-29</para>
-            /// </summary>
-            [JsonPropertyName("effective_time")]
-            public string? EffectiveTime { get; set; }
-
-            /// <summary>
-            /// <para>当前生效外派记录的开始外派流程 ID</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：111111</para>
-            /// </summary>
-            [JsonPropertyName("start_assignment_process_id")]
-            public string? StartAssignmentProcessId { get; set; }
-
-            /// <summary>
-            /// <para>当前生效外派记录的结束外派流程 ID</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：1111111</para>
-            /// </summary>
-            [JsonPropertyName("end_assignment_process_id")]
-            public string? EndAssignmentProcessId { get; set; }
-
-            /// <summary>
-            /// <para>当前生效外派记录的失效时间</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：2023-12-29</para>
-            /// </summary>
-            [JsonPropertyName("expiration_time")]
-            public string? ExpirationTime { get; set; }
-
-            /// <summary>
-            /// <para>-| 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("international_assignment_status")]
-            public Enum? InternationalAssignmentStatus { get; set; }
-
-            /// <summary>
-            /// <para>-| 当前生效外派记录的外派状态 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_status - object_api_name：international_assignment</para>
-            /// </summary>
-            public record Enum
-            {
-                /// <summary>
-                /// <para>枚举值</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
-                /// </summary>
-                [JsonPropertyName("enum_name")]
-                public string EnumName { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>枚举多语展示</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("display")]
-                public I18n[]? Displies { get; set; }
-
-                /// <summary>
-                /// <para>枚举多语展示</para>
-                /// </summary>
-                public record I18n
-                {
-                    /// <summary>
-                    /// <para>语言</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：zh-CN</para>
-                    /// </summary>
-                    [JsonPropertyName("lang")]
-                    public string Lang { get; set; } = string.Empty;
-
-                    /// <summary>
-                    /// <para>内容</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
-                    /// </summary>
-                    [JsonPropertyName("value")]
-                    public string Value { get; set; } = string.Empty;
-                }
-            }
-
-            /// <summary>
-            /// <para>-| 当前生效外派记录的外派类型 - 枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：international_assignment_type - object_api_name：international_assignment</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("international_assignment_type")]
-            public Enum? InternationalAssignmentType { get; set; }
-        }
     }
 
     /// <summary>

@@ -307,14 +307,14 @@ public record PostCorehrV2PersonsResponseDto
         }
 
         /// <summary>
-        /// <para>性别，枚举值可通过文档【飞书人事枚举常量】性别（gender）枚举定义部分获得</para>
+        /// <para>-| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("gender")]
         public Enum? Gender { get; set; }
 
         /// <summary>
-        /// <para>性别，枚举值可通过文档【飞书人事枚举常量】性别（gender）枚举定义部分获得</para>
+        /// <para>-| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person</para>
         /// </summary>
         public record Enum
         {
@@ -1329,9 +1329,9 @@ public record PostCorehrV2PersonsResponseDto
             public Enum? BankAccountType { get; set; }
 
             /// <summary>
-            /// <para>货币 ID</para>
+            /// <para>货币id</para>
             /// <para>必填：否</para>
-            /// <para>示例值：12</para>
+            /// <para>示例值：12QueryCountryRegionSubdivisionDataReq</para>
             /// </summary>
             [JsonPropertyName("currency_id")]
             public string? CurrencyId { get; set; }
@@ -3149,7 +3149,7 @@ public record PostCorehrV2PersonsResponseDto
         public string? HukouLocation { get; set; }
 
         /// <summary>
-        /// <para>人才ID</para>
+        /// <para>人才 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6863326262618752123</para>
         /// </summary>
@@ -3237,5 +3237,178 @@ public record PostCorehrV2PersonsResponseDto
         /// </summary>
         [JsonPropertyName("family_address")]
         public string? FamilyAddress { get; set; }
+
+        /// <summary>
+        /// <para>出生国家/地区</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：中国</para>
+        /// </summary>
+        [JsonPropertyName("born_country_region")]
+        public string? BornCountryRegion { get; set; }
+
+        /// <summary>
+        /// <para>是否残疾</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_disabled")]
+        public bool? IsDisabled { get; set; }
+
+        /// <summary>
+        /// <para>残疾证号</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1110000</para>
+        /// </summary>
+        [JsonPropertyName("disable_card_number")]
+        public string? DisableCardNumber { get; set; }
+
+        /// <summary>
+        /// <para>是否烈属</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_martyr_family")]
+        public bool? IsMartyrFamily { get; set; }
+
+        /// <summary>
+        /// <para>烈属证号</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1110000</para>
+        /// </summary>
+        [JsonPropertyName("martyr_card_number")]
+        public string? MartyrCardNumber { get; set; }
+
+        /// <summary>
+        /// <para>是否孤老</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_old_alone")]
+        public bool? IsOldAlone { get; set; }
+
+        /// <summary>
+        /// <para>居民身份信息</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6863326262618752123</para>
+        /// </summary>
+        [JsonPropertyName("resident_taxes")]
+        public ResidentTax[]? ResidentTaxes { get; set; }
+
+        /// <summary>
+        /// <para>居民身份信息</para>
+        /// </summary>
+        public record ResidentTax
+        {
+            /// <summary>
+            /// <para>年度</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：2023</para>
+            /// </summary>
+            [JsonPropertyName("year_resident_tax")]
+            public string YearResidentTax { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>-| 居民身份，枚举值 api_name 可通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("resident_status")]
+            public Enum? ResidentStatus { get; set; }
+
+            /// <summary>
+            /// <para>-| 居民身份，枚举值 api_name 可通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
+            /// </summary>
+            public record Enum
+            {
+                /// <summary>
+                /// <para>枚举值</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：phone_type</para>
+                /// </summary>
+                [JsonPropertyName("enum_name")]
+                public string EnumName { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>枚举多语展示</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("display")]
+                public I18n[]? Displies { get; set; }
+
+                /// <summary>
+                /// <para>枚举多语展示</para>
+                /// </summary>
+                public record I18n
+                {
+                    /// <summary>
+                    /// <para>语言</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：zh-CN</para>
+                    /// </summary>
+                    [JsonPropertyName("lang")]
+                    public string Lang { get; set; } = string.Empty;
+
+                    /// <summary>
+                    /// <para>内容</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：张三</para>
+                    /// </summary>
+                    [JsonPropertyName("value")]
+                    public string Value { get; set; } = string.Empty;
+                }
+            }
+
+            /// <summary>
+            /// <para>国家/地区，可通过【查询国家/地区信息】 接口查询</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：中国</para>
+            /// </summary>
+            [JsonPropertyName("tax_country_region_id")]
+            public string? TaxCountryRegionId { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// </summary>
+            public record ObjectFieldData
+            {
+                /// <summary>
+                /// <para>字段名</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：name</para>
+                /// </summary>
+                [JsonPropertyName("field_name")]
+                public string FieldName { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：Sandy</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public string Value { get; set; } = string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// <para>首次入境日期</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2021-01-02</para>
+        /// </summary>
+        [JsonPropertyName("first_entry_time")]
+        public string? FirstEntryTime { get; set; }
+
+        /// <summary>
+        /// <para>预计离境日期</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2022-01-02</para>
+        /// </summary>
+        [JsonPropertyName("leave_time")]
+        public string? LeaveTime { get; set; }
     }
 }

@@ -1312,9 +1312,9 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
             public Enum? BankAccountType { get; set; }
 
             /// <summary>
-            /// <para>货币 ID</para>
+            /// <para>货币id</para>
             /// <para>必填：否</para>
-            /// <para>示例值：12</para>
+            /// <para>示例值：12QueryCountryRegionSubdivisionDataReq</para>
             /// </summary>
             [JsonPropertyName("currency_id")]
             public string? CurrencyId { get; set; }

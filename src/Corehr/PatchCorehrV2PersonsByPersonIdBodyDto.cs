@@ -860,9 +860,9 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         public Enum? BankAccountType { get; set; }
 
         /// <summary>
-        /// <para>货币 ID</para>
+        /// <para>货币id</para>
         /// <para>必填：否</para>
-        /// <para>示例值：12</para>
+        /// <para>示例值：12QueryCountryRegionSubdivisionDataReq</para>
         /// </summary>
         [JsonPropertyName("currency_id")]
         public string? CurrencyId { get; set; }
@@ -1695,14 +1695,6 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// </summary>
     [JsonPropertyName("profile_image_id")]
     public string? ProfileImageId { get; set; }
-
-    /// <summary>
-    /// <para>年龄</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：22</para>
-    /// </summary>
-    [JsonPropertyName("age")]
-    public int? Age { get; set; }
 
     /// <summary>
     /// <para>个人资料附件</para>
