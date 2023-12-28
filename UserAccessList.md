@@ -357,7 +357,7 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChat</td></tr>
 <tr><td rowspan="2">179</td><td rowspan="2">2023-10-27</td><td>&#10003;</td><td>会议室</td><td>查询会议室忙闲</td></tr>
 <tr><td colspan="3">GetMeetingRoomFreebusyBatchGet</td></tr>
-<tr><td rowspan="2">180</td><td rowspan="2">2023-08-29</td><td>&#10003;</td><td>消息与群组</td><td>获取群信息</td></tr>
+<tr><td rowspan="2">180</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>消息与群组</td><td>获取群信息</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatId</td></tr>
 <tr><td rowspan="2">181</td><td rowspan="2">2023-08-04</td><td>&#10003;</td><td>日历</td><td>添加日程参与人</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendees</td></tr>
@@ -717,17 +717,17 @@
 <tr><td colspan="3">PostImV1ChatsByChatIdChatTabs</td></tr>
 <tr><td rowspan="2">359</td><td rowspan="2">2022-12-27</td><td>&#10003;</td><td>OKR</td><td>获取用户的 OKR 列表</td></tr>
 <tr><td colspan="3">GetOkrV1UsersByUserIdOkrs</td></tr>
-<tr><td rowspan="2">360</td><td rowspan="2">2022-12-27</td><td>&#10003;</td><td>OKR</td><td>批量获取 OKR</td></tr>
+<tr><td rowspan="2">360</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>批量获取 OKR</td></tr>
 <tr><td colspan="3">GetOkrV1OkrsBatchGet</td></tr>
-<tr><td rowspan="2">361</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>OKR</td><td>创建 OKR 进展记录</td></tr>
+<tr><td rowspan="2">361</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>创建 OKR 进展记录</td></tr>
 <tr><td colspan="3">PostOkrV1ProgressRecords</td></tr>
-<tr><td rowspan="2">362</td><td rowspan="2">2022-12-27</td><td>&#10003;</td><td>OKR</td><td>删除 OKR 进展记录</td></tr>
+<tr><td rowspan="2">362</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>删除 OKR 进展记录</td></tr>
 <tr><td colspan="3">DeleteOkrV1ProgressRecordsByProgressId</td></tr>
-<tr><td rowspan="2">363</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>OKR</td><td>更新 OKR 进展记录</td></tr>
+<tr><td rowspan="2">363</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>更新 OKR 进展记录</td></tr>
 <tr><td colspan="3">PutOkrV1ProgressRecordsByProgressId</td></tr>
-<tr><td rowspan="2">364</td><td rowspan="2">2022-12-27</td><td>&#10003;</td><td>OKR</td><td>获取 OKR 进展记录</td></tr>
+<tr><td rowspan="2">364</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>获取 OKR 进展记录</td></tr>
 <tr><td colspan="3">GetOkrV1ProgressRecordsByProgressId</td></tr>
-<tr><td rowspan="2">365</td><td rowspan="2">2023-07-13</td><td>&#10003;</td><td>OKR</td><td>上传进展记录图片</td></tr>
+<tr><td rowspan="2">365</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>上传进展记录图片</td></tr>
 <tr><td colspan="3">PostOkrV1ImagesUpload</td></tr>
 <tr><td rowspan="2">366</td><td rowspan="2">2023-09-07</td><td>&#10003;</td><td>绩效</td><td>获取周期任务（指定用户）</td></tr>
 <tr><td colspan="3">PostPerformanceV1StageTasksFindByUserList</td></tr>
@@ -869,7 +869,7 @@
 <tr><td colspan="3">PostDriveV1FilesCreateShortcut</td></tr>
 <tr><td rowspan="2">435</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>查询异步任务状态</td></tr>
 <tr><td colspan="3">GetDriveV1FilesTaskCheck</td></tr>
-<tr><td rowspan="2">436</td><td rowspan="2">2023-10-24</td><td>&#10003;</td><td>云文档</td><td>上传素材</td></tr>
+<tr><td rowspan="2">436</td><td rowspan="2">2023-12-27</td><td>&#10003;</td><td>云文档</td><td>上传素材</td></tr>
 <tr><td colspan="3">PostDriveV1MediasUploadAll</td></tr>
 <tr><td rowspan="2">437</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>获取单个部门信息</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsByDepartmentId</td></tr>
@@ -877,7 +877,7 @@
 <tr><td colspan="3">GetDriveV1MediasByFileTokenDownload</td></tr>
 <tr><td rowspan="2">439</td><td rowspan="2">2023-11-08</td><td>&#10003;</td><td>云文档</td><td>获取素材临时下载链接</td></tr>
 <tr><td colspan="3">GetDriveV1MediasBatchGetTmpDownloadUrl</td></tr>
-<tr><td rowspan="2">440</td><td rowspan="2">2023-09-19</td><td>&#10003;</td><td>云文档</td><td>分片上传素材（预上传）</td></tr>
+<tr><td rowspan="2">440</td><td rowspan="2">2023-12-27</td><td>&#10003;</td><td>云文档</td><td>分片上传素材（预上传）</td></tr>
 <tr><td colspan="3">PostDriveV1MediasUploadPrepare</td></tr>
 <tr><td rowspan="2">441</td><td rowspan="2">2022-06-28</td><td>&#10003;</td><td>云文档</td><td>分片上传素材（上传分片）</td></tr>
 <tr><td colspan="3">PostDriveV1MediasUploadPart</td></tr>
@@ -965,4 +965,8 @@
 <tr><td colspan="3">DeleteLingoV1EntitiesByEntityId</td></tr>
 <tr><td rowspan="2">483</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
 <tr><td colspan="3">PatchCorehrV1CompaniesByCompanyId</td></tr>
+<tr><td rowspan="2">484</td><td rowspan="2">2023-12-28</td><td>新增</td><td>日历</td><td>回复日程</td></tr>
+<tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdReply</td></tr>
+<tr><td rowspan="2">485</td><td rowspan="2">2023-12-28</td><td>新增</td><td>日历</td><td>获取重复日程实例</td></tr>
+<tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstances</td></tr>
 </tbody></table>

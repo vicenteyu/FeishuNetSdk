@@ -39,7 +39,7 @@ public record PostDriveV1MediasUploadPrepareBodyDto
     public string ParentType { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>上传点的标识符</para>
+    /// <para>上传点 Token，用于指定素材将要上传到的具体文档或位置。点击 [这里](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction) 了解各上传点类型及其对应的上传点 Token 的说明</para>
     /// <para>必填：是</para>
     /// <para>示例值：doccnFivLCfJfblZjGZtxgabcef</para>
     /// </summary>
@@ -50,6 +50,7 @@ public record PostDriveV1MediasUploadPrepareBodyDto
     /// <para>文件大小</para>
     /// <para>必填：是</para>
     /// <para>示例值：1024</para>
+    /// <para>最小值：0</para>
     /// </summary>
     [JsonPropertyName("size")]
     public int Size { get; set; }

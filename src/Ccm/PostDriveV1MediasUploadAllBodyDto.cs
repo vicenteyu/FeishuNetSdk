@@ -14,7 +14,7 @@ public record PostDriveV1MediasUploadAllBodyDto
     /// <para>示例值：demo.jpeg</para>
     /// <para>最大长度：250</para>
     /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("file_name")]
+    [JsonPropertyName("file_name")]
     public string FileName { get; set; } = string.Empty;
 
     /// <summary>
@@ -35,22 +35,23 @@ public record PostDriveV1MediasUploadAllBodyDto
     /// <item>ccm_import_open：云文档导入文件。</item>
     /// </list></para>
     /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("parent_type")]
+    [JsonPropertyName("parent_type")]
     public string ParentType { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>上传点token: 参考说明[上传点类型及对应标识符（token）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)</para>
+    /// <para>上传点 token，用于指定素材将要上传到的具体文档或位置。点击 [这里](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction) 了解各上传点类型及其对应的上传点 Token 的说明</para>
     /// <para>必填：是</para>
     /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("parent_node")]
+    [JsonPropertyName("parent_node")]
     public string ParentNode { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>文件大小（以字节为单位）。</para>
     /// <para>必填：是</para>
     /// <para>示例值：1024</para>
+    /// <para>最大值：20971520</para>
     /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("size")]
+    [JsonPropertyName("size")]
     public int Size { get; set; }
 
     /// <summary>
@@ -58,7 +59,7 @@ public record PostDriveV1MediasUploadAllBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：12345678</para>
     /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("checksum")]
+    [JsonPropertyName("checksum")]
     public string? Checksum { get; set; }
 
     /// <summary>
@@ -66,6 +67,6 @@ public record PostDriveV1MediasUploadAllBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：{"test":"test"}</para>
     /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("extra")]
+    [JsonPropertyName("extra")]
     public string? Extra { get; set; }
 }

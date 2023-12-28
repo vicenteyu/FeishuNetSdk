@@ -9428,6 +9428,84 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int? page_size = 20);
 
     /// <summary>
+    /// <para>【日历】回复日程</para>
+    /// <para>接口ID：7317471576948834305</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/reply</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于以当前身份（应用 / 用户）回复日程。</para>
+    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// </summary>
+    /// <param name="calendar_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>日历资源ID</para>
+    /// <para>示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn</para>
+    /// </param>
+    /// <param name="event_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>日程资源ID</para>
+    /// <para>示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}/reply")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCalendarV4CalendarsByCalendarIdEventsByEventIdReplyAsync(
+        [PathQuery] string calendar_id,
+        [PathQuery] string event_id,
+        [JsonContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdReplyBodyDto dto);
+
+    /// <summary>
+    /// <para>【日历】获取重复日程实例</para>
+    /// <para>接口ID：7317471576948850689</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/instances</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于以当前身份（应用 / 用户）在获取日历上重复性日程的日程实例信息。</para>
+    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// </summary>
+    /// <param name="calendar_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>日历资源ID</para>
+    /// <para>示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn</para>
+    /// </param>
+    /// <param name="event_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>日程资源ID</para>
+    /// <para>示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0</para>
+    /// </param>
+    /// <param name="start_time">
+    /// <para>必填：是</para>
+    /// <para>日程实例开始Unix时间戳,单位为秒,返回的日程实例信息的end_time下限（不包含）</para>
+    /// <para>示例值：1631777271</para>
+    /// </param>
+    /// <param name="end_time">
+    /// <para>必填：是</para>
+    /// <para>日程实例结束Unix时间戳,单位为秒,返回的日程实例信息的start_time上限（不包含）</para>
+    /// <para>示例值：1631777271</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：50</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}/instances")]
+    System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstancesResponseDto>> GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstancesAsync(
+        [PathQuery] string calendar_id,
+        [PathQuery] string event_id,
+        [PathQuery] string start_time,
+        [PathQuery] string end_time,
+        [PathQuery] int? page_size = 50,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
     /// <para>【日历】解绑会议群</para>
     /// <para>接口ID：7263360328350728196</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-meeting_chat/delete</para>
@@ -24515,8 +24593,34 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 OKR id 批量获取 OKR。</para>
     /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="okr_ids">
+    /// <para>必填：是</para>
+    /// <para>OKR ID 列表，最多10个</para>
+    /// <para>示例值：7043693679567028244</para>
+    /// </param>
+    /// <param name="lang">
+    /// <para>必填：否</para>
+    /// <para>请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn，请求 Query中</para>
+    /// <para>示例值：zh_cn</para>
+    /// <para>默认值：zh_cn</para>
+    /// </param>
     [HttpGet("/open-apis/okr/v1/okrs/batch_get")]
-    System.Threading.Tasks.Task<FeishuResponse<Okr.Spec.GetOkrV1OkrsBatchGetResponseDto>> GetOkrV1OkrsBatchGetAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV1OkrsBatchGetResponseDto>> GetOkrV1OkrsBatchGetAsync(
+        [PathQuery] string[] okr_ids,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? lang = "zh_cn");
 
     /// <summary>
     /// <para>【OKR】创建 OKR 进展记录</para>
@@ -24553,7 +24657,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待删除的 OKR进展记录 ID</para>
-    /// <para>**示例值**："7041857032248410131"</para>
+    /// <para>示例值：7041857032248410131</para>
     /// </param>
     [HttpDelete("/open-apis/okr/v1/progress_records/{progress_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteOkrV1ProgressRecordsByProgressIdAsync(
@@ -24601,11 +24705,23 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>待查询的 OKR进展记录 ID</para>
-    /// <para>**示例值**："7041857032248410131"</para>
+    /// <para>示例值：7041857032248410131</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
     /// </param>
     [HttpGet("/open-apis/okr/v1/progress_records/{progress_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Okr.Spec.GetOkrV1ProgressRecordsByProgressIdResponseDto>> GetOkrV1ProgressRecordsByProgressIdAsync(
-        [PathQuery] string progress_id);
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV1ProgressRecordsByProgressIdResponseDto>> GetOkrV1ProgressRecordsByProgressIdAsync(
+        [PathQuery] string progress_id,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【OKR】上传进展记录图片</para>

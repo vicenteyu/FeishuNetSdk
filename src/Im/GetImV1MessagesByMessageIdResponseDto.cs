@@ -9,14 +9,14 @@ namespace FeishuNetSdk.Im;
 public record GetImV1MessagesByMessageIdResponseDto
 {
     /// <summary>
-    /// <para>-</para>
+    /// <para>若指定消息的类型为合并转发（merge_forward），返回的数据包含 1 条合并转发消息 + N 条子消息</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public Message[]? Items { get; set; }
 
     /// <summary>
-    /// <para>-</para>
+    /// <para>若指定消息的类型为合并转发（merge_forward），返回的数据包含 1 条合并转发消息 + N 条子消息</para>
     /// </summary>
     public record Message
     {
@@ -114,10 +114,7 @@ public record GetImV1MessagesByMessageIdResponseDto
             public string Id { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>该字段标识发送者的id类型</para>
-            /// <para>**可选值有：**</para>
-            /// <para>- `open_id`</para>
-            /// <para>- `app_id`</para>
+            /// <para>该字段标识发送者的id类型。若发送者是应用，类型为 app_id；若发送者为用户，类型与`user_id_type`参数一致</para>
             /// <para>必填：是</para>
             /// <para>示例值：app_id</para>
             /// </summary>
