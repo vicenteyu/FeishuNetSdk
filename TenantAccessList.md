@@ -71,25 +71,25 @@
 <tr><td colspan="3">GetDriveExplorerV2RootFolderMeta</td></tr>
 <tr><td rowspan="2">36</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>删除用户组</td></tr>
 <tr><td colspan="3">DeleteContactV3GroupByGroupId</td></tr>
-<tr><td rowspan="2">37</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>云文档</td><td>获取文件夹下的清单</td></tr>
+<tr><td rowspan="2">37</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>获取文件夹下的清单</td></tr>
 <tr><td colspan="3">GetDriveV1Files</td></tr>
 <tr><td rowspan="2">38</td><td rowspan="2">2022-06-28</td><td>&#10003;</td><td>云文档</td><td>获取文件夹元信息</td></tr>
 <tr><td colspan="3">GetDriveExplorerV2FolderByFolderTokenMeta</td></tr>
-<tr><td rowspan="2">39</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>新建文件夹</td></tr>
+<tr><td rowspan="2">39</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>新建文件夹</td></tr>
 <tr><td colspan="3">PostDriveV1FilesCreateFolder</td></tr>
 <tr><td rowspan="2">40</td><td rowspan="2">2023-06-28</td><td>&#10003;</td><td>云文档</td><td>获取文档元数据</td></tr>
 <tr><td colspan="3">PostDriveV1MetasBatchQuery</td></tr>
 <tr><td rowspan="2">41</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>新建在线文档</td></tr>
 <tr><td colspan="3">PostDriveExplorerV2FileByFolderToken</td></tr>
-<tr><td rowspan="2">42</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>复制文件</td></tr>
+<tr><td rowspan="2">42</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>复制文件</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenCopy</td></tr>
-<tr><td rowspan="2">43</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>移动文件/文件夹</td></tr>
+<tr><td rowspan="2">43</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>移动文件/文件夹</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenMove</td></tr>
-<tr><td rowspan="2">44</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>删除文件/文件夹</td></tr>
+<tr><td rowspan="2">44</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>删除文件/文件夹</td></tr>
 <tr><td colspan="3">DeleteDriveV1FilesByFileToken</td></tr>
 <tr><td rowspan="2">45</td><td rowspan="2">2023-12-07</td><td>&#10003;</td><td>云文档</td><td>获取文档统计信息</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenStatistics</td></tr>
-<tr><td rowspan="2">46</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>创建文件快捷方式</td></tr>
+<tr><td rowspan="2">46</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>创建文件快捷方式</td></tr>
 <tr><td colspan="3">PostDriveV1FilesCreateShortcut</td></tr>
 <tr><td rowspan="2">47</td><td rowspan="2">2023-07-26</td><td>&#10003;</td><td>通讯录</td><td>更新用户组</td></tr>
 <tr><td colspan="3">PatchContactV3GroupByGroupId</td></tr>
@@ -115,19 +115,19 @@
 <tr><td colspan="3">GetDriveV1FilesByFileTokenGetSubscribe</td></tr>
 <tr><td rowspan="2">58</td><td rowspan="2">2023-07-26</td><td>&#10003;</td><td>通讯录</td><td>查询指定用户组</td></tr>
 <tr><td colspan="3">GetContactV3GroupByGroupId</td></tr>
-<tr><td rowspan="2">59</td><td rowspan="2">2023-10-30</td><td>&#10003;</td><td>云文档</td><td>上传文件</td></tr>
+<tr><td rowspan="2">59</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>上传文件</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadAll</td></tr>
-<tr><td rowspan="2">60</td><td rowspan="2">2023-10-30</td><td>&#10003;</td><td>云文档</td><td>分片上传文件（预上传）</td></tr>
+<tr><td rowspan="2">60</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>分片上传文件（预上传）</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadPrepare</td></tr>
-<tr><td rowspan="2">61</td><td rowspan="2">2023-10-24</td><td>&#10003;</td><td>云文档</td><td>分片上传文件（上传分片）</td></tr>
+<tr><td rowspan="2">61</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>分片上传文件（上传分片）</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadPart</td></tr>
-<tr><td rowspan="2">62</td><td rowspan="2">2023-10-24</td><td>&#10003;</td><td>云文档</td><td>分片上传文件（完成上传）</td></tr>
+<tr><td rowspan="2">62</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>分片上传文件（完成上传）</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadFinish</td></tr>
 <tr><td rowspan="2">63</td><td rowspan="2">2023-11-30</td><td>&#10003;</td><td>云文档</td><td>下载文件</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenDownload</td></tr>
-<tr><td rowspan="2">64</td><td rowspan="2">2023-06-05</td><td>&#10003;</td><td>云文档</td><td>创建导入任务</td></tr>
+<tr><td rowspan="2">64</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>创建导入任务</td></tr>
 <tr><td colspan="3">PostDriveV1ImportTasks</td></tr>
-<tr><td rowspan="2">65</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>查询导入任务结果</td></tr>
+<tr><td rowspan="2">65</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>查询导入任务结果</td></tr>
 <tr><td colspan="3">GetDriveV1ImportTasksByTicket</td></tr>
 <tr><td rowspan="2">66</td><td rowspan="2">2023-06-05</td><td>&#10003;</td><td>云文档</td><td>创建导出任务</td></tr>
 <tr><td colspan="3">PostDriveV1ExportTasks</td></tr>
@@ -185,9 +185,9 @@
 <tr><td colspan="3">PostDriveV1FilesByFileTokenComments</td></tr>
 <tr><td rowspan="2">93</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>获取全文评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
-<tr><td rowspan="2">94</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>批量获取全文评论</td></tr>
+<tr><td rowspan="2">94</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>批量获取全文评论</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenCommentsBatchQuery</td></tr>
-<tr><td rowspan="2">95</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>获取回复</td></tr>
+<tr><td rowspan="2">95</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>获取回复</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenCommentsByCommentIdReplies</td></tr>
 <tr><td rowspan="2">96</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>更新回复</td></tr>
 <tr><td colspan="3">PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyId</td></tr>
@@ -249,7 +249,7 @@
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrepend</td></tr>
 <tr><td rowspan="2">125</td><td rowspan="2">2023-07-19</td><td>&#10003;</td><td>通讯录</td><td>更新人员类型</td></tr>
 <tr><td colspan="3">PutContactV3EmployeeTypeEnumsByEnumId</td></tr>
-<tr><td rowspan="2">126</td><td rowspan="2">2023-11-06</td><td>&#10003;</td><td>云文档</td><td>追加数据</td></tr>
+<tr><td rowspan="2">126</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>追加数据</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppend</td></tr>
 <tr><td rowspan="2">127</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>云文档</td><td>读取单个范围</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRange</td></tr>
@@ -2011,8 +2011,8 @@
 <tr><td colspan="3">PostCorehrV2BasicInfoDistrictsSearch</td></tr>
 <tr><td rowspan="2">1006</td><td rowspan="2">2023-12-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询货币信息v2</td></tr>
 <tr><td colspan="3">PostCorehrV2BasicInfoCurrenciesSearch</td></tr>
-<tr><td rowspan="2">1007</td><td rowspan="2">2023-12-28</td><td>新增</td><td>日历</td><td>回复日程</td></tr>
+<tr><td rowspan="2">1007</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>日历</td><td>回复日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdReply</td></tr>
-<tr><td rowspan="2">1008</td><td rowspan="2">2023-12-28</td><td>新增</td><td>日历</td><td>获取重复日程实例</td></tr>
+<tr><td rowspan="2">1008</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>日历</td><td>获取重复日程实例</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstances</td></tr>
 </tbody></table>

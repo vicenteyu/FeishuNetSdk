@@ -90,5 +90,29 @@ public record PostDriveV1FilesByFileTokenCopyResponseDto
             [JsonPropertyName("target_token")]
             public string TargetToken { get; set; } = string.Empty;
         }
+
+        /// <summary>
+        /// <para>文件创建时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1686125119</para>
+        /// </summary>
+        [JsonPropertyName("created_time")]
+        public string? CreatedTime { get; set; }
+
+        /// <summary>
+        /// <para>文件最近修改时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1686125119</para>
+        /// </summary>
+        [JsonPropertyName("modified_time")]
+        public string? ModifiedTime { get; set; }
+
+        /// <summary>
+        /// <para>文件所有者</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef</para>
+        /// </summary>
+        [JsonPropertyName("owner_id")]
+        public string? OwnerId { get; set; }
     }
 }

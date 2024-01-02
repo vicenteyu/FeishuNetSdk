@@ -28,6 +28,7 @@ public record PostDriveV1FilesByFileTokenCopyBodyDto
     /// <item>bitable：多维表格类型</item>
     /// <item>docx：新版文档类型</item>
     /// <item>mindnote：思维笔记类型</item>
+    /// <item>slides：幻灯片类型</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("type")]

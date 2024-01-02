@@ -20,6 +20,7 @@ public record PostDriveV1FilesByFileTokenMoveBodyDto
     /// <item>sheet：电子表格类型</item>
     /// <item>mindnote：思维笔记类型</item>
     /// <item>folder：文件夹类型</item>
+    /// <item>slides：幻灯片类型</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("type")]

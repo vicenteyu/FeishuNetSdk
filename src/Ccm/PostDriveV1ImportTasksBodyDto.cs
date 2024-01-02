@@ -20,6 +20,7 @@ public record PostDriveV1ImportTasksBodyDto
     /// <para>导入文件Drive FileToken</para>
     /// <para>必填：是</para>
     /// <para>示例值：boxcnxe5OxxxxxxxSNdsJviENsk</para>
+    /// <para>最大长度：27</para>
     /// </summary>
     [JsonPropertyName("file_token")]
     public string FileToken { get; set; } = string.Empty;
