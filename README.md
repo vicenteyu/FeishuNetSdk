@@ -12,7 +12,7 @@
 
 [UserAccessToken 适用接口清单](https://github.com/vicenteyu/FeishuNetSdk/blob/main/UserAccessList.md)
 
-![网络路径](https://github.com/vicenteyu/FeishuNetSdk/blob/main/business.png "商业合作、定制开发"){:width="350px" height="350px"}
+<img src="https://github.com/vicenteyu/FeishuNetSdk/blob/main/business.png" alt="商业合作、定制开发" height="350px">
 
 ## 用法：
 
