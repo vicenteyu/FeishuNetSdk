@@ -1,4 +1,4 @@
-namespace FeishuNetSdk.Ai.Spec;
+namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 翻译文本 响应体
 /// <para>机器翻译 (MT)，支持以下语种互译：</para>
@@ -26,8 +26,9 @@ public record PostTranslationV1TextTranslateResponseDto
 {
     /// <summary>
     /// <para>翻译后的文本</para>
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
+    /// <para>示例值：Try to use Lark</para>
     /// </summary>
     [JsonPropertyName("text")]
-    public string? Text { get; set; }
+    public string Text { get; set; } = string.Empty;
 }

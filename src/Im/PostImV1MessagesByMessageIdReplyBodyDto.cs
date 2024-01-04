@@ -25,9 +25,18 @@ public record PostImV1MessagesByMessageIdReplyBodyDto
     public string MsgType { get; set; } = string.Empty;
 
     /// <summary>
+    /// <para>是否以话题形式回复；若要回复的消息已经是话题消息，则默认已话题形式进行回复</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：false</para>
+    /// </summary>
+    [JsonPropertyName("reply_in_thread")]
+    public bool? ReplyInThread { get; set; }
+
+    /// <summary>
     /// <para>由开发者生成的唯一字符串序列，用于回复消息请求去重；持有相同uuid的请求1小时内至多成功执行一次</para>
     /// <para>必填：否</para>
-    /// <para>示例值：选填，若填写每次调用前请更换，如：a0d69e20-1dd1-458b-k525-dfeca4015204</para>
+    /// <para>示例值：选填，每次调用前请更换，如a0d69e20-1dd1-458b-k525-dfeca4015204</para>
     /// <para>最大长度：50</para>
     /// </summary>
     [JsonPropertyName("uuid")]

@@ -11,7 +11,7 @@ public record PostCorehrV2JobChangesSearchBodyDto
     /// <summary>
     /// <para>雇员 ID 列表</para>
     /// <para>必填：否</para>
-    /// <para>最大长度：10</para>
+    /// <para>最大长度：30</para>
     /// </summary>
     [JsonPropertyName("employment_ids")]
     public string[]? EmploymentIds { get; set; }
@@ -32,4 +32,20 @@ public record PostCorehrV2JobChangesSearchBodyDto
     /// </summary>
     [JsonPropertyName("statuses")]
     public string[]? Statuses { get; set; }
+
+    /// <summary>
+    /// <para>异动生效日期-搜索范围开始，需要与搜索范围结束一同使用</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：2022-01-01</para>
+    /// </summary>
+    [JsonPropertyName("effective_date_start")]
+    public string? EffectiveDateStart { get; set; }
+
+    /// <summary>
+    /// <para>异动生效日期 - 搜索范围结束</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：2022-01-01</para>
+    /// </summary>
+    [JsonPropertyName("effective_date_end")]
+    public string? EffectiveDateEnd { get; set; }
 }

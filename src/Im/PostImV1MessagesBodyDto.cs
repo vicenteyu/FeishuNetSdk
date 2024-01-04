@@ -39,7 +39,7 @@ public record PostImV1MessagesBodyDto
     /// <summary>
     /// <para>由开发者生成的唯一字符串序列，用于发送消息请求去重；持有相同uuid的请求1小时内至多成功发送一条消息</para>
     /// <para>必填：否</para>
-    /// <para>示例值：选填，若填写每次调用前请更换，如：a0d69e20-1dd1-458b-k525-dfeca4015204</para>
+    /// <para>示例值：选填，每次调用前请更换，如a0d69e20-1dd1-458b-k525-dfeca4015204</para>
     /// <para>最大长度：50</para>
     /// </summary>
     [JsonPropertyName("uuid")]

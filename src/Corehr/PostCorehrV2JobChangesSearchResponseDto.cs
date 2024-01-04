@@ -499,6 +499,132 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// </summary>
             [JsonPropertyName("target_cost_center_rate")]
             public JobDataCostCenter[]? TargetCostCenterRates { get; set; }
+
+            /// <summary>
+            /// <para>原工作信息</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("original_employment_change")]
+            public TranferEmploymentInfo? OriginalEmploymentChange { get; set; }
+
+            /// <summary>
+            /// <para>原工作信息</para>
+            /// </summary>
+            public record TranferEmploymentInfo
+            {
+                /// <summary>
+                /// <para>转正式员工日期</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：2023-01-01</para>
+                /// </summary>
+                [JsonPropertyName("regular_employee_start_date")]
+                public string? RegularEmployeeStartDate { get; set; }
+
+                /// <summary>
+                /// <para>司龄起算日期</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：2023-01-01</para>
+                /// </summary>
+                [JsonPropertyName("seniority_date")]
+                public string? SeniorityDate { get; set; }
+
+                /// <summary>
+                /// <para>员工编号</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1111111</para>
+                /// </summary>
+                [JsonPropertyName("employee_number")]
+                public string? EmployeeNumber { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("custom_fields")]
+                public CustomFieldData[]? CustomFields { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段</para>
+                /// </summary>
+                public record CustomFieldData
+                {
+                    /// <summary>
+                    /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：name</para>
+                    /// </summary>
+                    [JsonPropertyName("custom_api_name")]
+                    public string CustomApiName { get; set; } = string.Empty;
+
+                    /// <summary>
+                    /// <para>自定义字段名称</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("name")]
+                    public CustomName? Name { get; set; }
+
+                    /// <summary>
+                    /// <para>自定义字段名称</para>
+                    /// </summary>
+                    public record CustomName
+                    {
+                        /// <summary>
+                        /// <para>中文</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：自定义姓名</para>
+                        /// </summary>
+                        [JsonPropertyName("zh_cn")]
+                        public string? ZhCn { get; set; }
+
+                        /// <summary>
+                        /// <para>英文</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：Custom Name</para>
+                        /// </summary>
+                        [JsonPropertyName("en_us")]
+                        public string? EnUs { get; set; }
+                    }
+
+                    /// <summary>
+                    /// <para>自定义字段类型</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1</para>
+                    /// </summary>
+                    [JsonPropertyName("type")]
+                    public int? Type { get; set; }
+
+                    /// <summary>
+                    /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：\"231\"</para>
+                    /// </summary>
+                    [JsonPropertyName("value")]
+                    public string Value { get; set; } = string.Empty;
+                }
+            }
+
+            /// <summary>
+            /// <para>新工作信息</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("target_employment_change")]
+            public TranferEmploymentInfo? TargetEmploymentChange { get; set; }
+
+            /// <summary>
+            /// <para>原职等</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7289005963599693366</para>
+            /// </summary>
+            [JsonPropertyName("original_job_grade")]
+            public string? OriginalJobGrade { get; set; }
+
+            /// <summary>
+            /// <para>新职等</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7289005963599693366</para>
+            /// </summary>
+            [JsonPropertyName("target_job_grade")]
+            public string? TargetJobGrade { get; set; }
         }
     }
 

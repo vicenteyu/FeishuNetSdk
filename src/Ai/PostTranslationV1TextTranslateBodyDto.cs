@@ -1,4 +1,4 @@
-namespace FeishuNetSdk.Ai.Spec;
+namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 翻译文本 请求体
 /// <para>机器翻译 (MT)，支持以下语种互译：</para>
@@ -26,24 +26,24 @@ public record PostTranslationV1TextTranslateBodyDto
 {
     /// <summary>
     /// <para>源语言</para>
-    /// <para>**示例值**："zh"</para>
     /// <para>必填：是</para>
+    /// <para>示例值：zh</para>
     /// </summary>
     [JsonPropertyName("source_language")]
     public string SourceLanguage { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>源文本</para>
-    /// <para>**示例值**："尝试使用一下飞书吧"</para>
     /// <para>必填：是</para>
+    /// <para>示例值：尝试使用一下飞书吧</para>
     /// </summary>
     [JsonPropertyName("text")]
     public string Text { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>目标语言</para>
-    /// <para>**示例值**："en"</para>
     /// <para>必填：是</para>
+    /// <para>示例值：en</para>
     /// </summary>
     [JsonPropertyName("target_language")]
     public string TargetLanguage { get; set; } = string.Empty;
@@ -53,23 +53,25 @@ public record PostTranslationV1TextTranslateBodyDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("glossary")]
-    public Term[]? Glossary { get; set; }
+    public Term[]? Glossaies { get; set; }
 
-    /// <summary></summary>
+    /// <summary>
+    /// <para>请求级术语表，携带术语，仅在本次翻译中生效（最多能携带 128个术语词）</para>
+    /// </summary>
     public record Term
     {
         /// <summary>
         /// <para>原文</para>
-        /// <para>**示例值**："飞书"</para>
         /// <para>必填：是</para>
+        /// <para>示例值：飞书</para>
         /// </summary>
         [JsonPropertyName("from")]
         public string From { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>译文</para>
-        /// <para>**示例值**："Lark"</para>
         /// <para>必填：是</para>
+        /// <para>示例值：Lark</para>
         /// </summary>
         [JsonPropertyName("to")]
         public string To { get; set; } = string.Empty;

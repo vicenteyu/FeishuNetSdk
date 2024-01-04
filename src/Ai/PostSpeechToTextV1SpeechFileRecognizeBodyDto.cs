@@ -1,4 +1,4 @@
-namespace FeishuNetSdk.Ai.Spec;
+namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 识别语音文件 请求体
 /// <para>语音文件识别接口，上传整段语音文件进行一次性识别。接口适合 60 秒以内音频识别。</para>
@@ -13,15 +13,17 @@ public record PostSpeechToTextV1SpeechFileRecognizeBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("speech")]
-    public SpeechSuffix Speech { get; set; } = new();
+    public PostSpeechToTextV1SpeechFileRecognizeBodyDtoSpeech Speech { get; set; } = new();
 
-    /// <summary></summary>
-    public record SpeechSuffix
+    /// <summary>
+    /// <para>语音资源</para>
+    /// </summary>
+    public record PostSpeechToTextV1SpeechFileRecognizeBodyDtoSpeech
     {
         /// <summary>
         /// <para>pcm格式音频文件（文件识别）或音频分片（流式识别）经base64编码后的内容</para>
-        /// <para>**示例值**："PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg=="</para>
         /// <para>必填：否</para>
+        /// <para>示例值：PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg==</para>
         /// </summary>
         [JsonPropertyName("speech")]
         public string? Speech { get; set; }
@@ -34,29 +36,31 @@ public record PostSpeechToTextV1SpeechFileRecognizeBodyDto
     [JsonPropertyName("config")]
     public FileConfig Config { get; set; } = new();
 
-    /// <summary></summary>
+    /// <summary>
+    /// <para>配置属性</para>
+    /// </summary>
     public record FileConfig
     {
         /// <summary>
         /// <para>仅包含字母数字和下划线的 16 位字符串作为文件的标识，用户生成</para>
-        /// <para>**示例值**："qwe12dd34567890w"</para>
         /// <para>必填：是</para>
+        /// <para>示例值：qwe12dd34567890w</para>
         /// </summary>
         [JsonPropertyName("file_id")]
         public string FileId { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>语音格式，目前仅支持：pcm</para>
-        /// <para>**示例值**："pcm"</para>
         /// <para>必填：是</para>
+        /// <para>示例值：pcm</para>
         /// </summary>
         [JsonPropertyName("format")]
         public string Format { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>引擎类型，目前仅支持：16k_auto 中英混合</para>
-        /// <para>**示例值**："16k_auto"</para>
         /// <para>必填：是</para>
+        /// <para>示例值：16k_auto</para>
         /// </summary>
         [JsonPropertyName("engine_type")]
         public string EngineType { get; set; } = string.Empty;

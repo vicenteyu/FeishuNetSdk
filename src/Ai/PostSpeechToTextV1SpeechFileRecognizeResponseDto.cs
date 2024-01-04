@@ -1,4 +1,4 @@
-namespace FeishuNetSdk.Ai.Spec;
+namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 识别语音文件 响应体
 /// <para>语音文件识别接口，上传整段语音文件进行一次性识别。接口适合 60 秒以内音频识别。</para>
@@ -10,8 +10,9 @@ public record PostSpeechToTextV1SpeechFileRecognizeResponseDto
 {
     /// <summary>
     /// <para>语音识别后的文本信息</para>
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
+    /// <para>示例值：你好，使用飞书吧</para>
     /// </summary>
     [JsonPropertyName("recognition_text")]
-    public string? RecognitionText { get; set; }
+    public string RecognitionText { get; set; } = string.Empty;
 }

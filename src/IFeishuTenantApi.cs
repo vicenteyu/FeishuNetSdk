@@ -2998,7 +2998,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222931479412737</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据使用的 access_token 获取用户或者机器人所在群列表。</para>
+    /// <para>获取 [access_token](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-choose-which-type-of-token-to-use) 所代表的用户或者机器人所在的群列表。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -18174,6 +18174,36 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string schema_id);
 
     /// <summary>
+    /// <para>【AI 能力】识别文件中的机动车发票</para>
+    /// <para>接口ID：7319756481343750148</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/vehicle_invoice/recognize</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>机动车发票识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的机动车发票源文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/vehicle_invoice/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1VehicleInvoiceRecognizeResponseDto>> PostDocumentAiV1VehicleInvoiceRecognizeAsync(
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的健康证</para>
+    /// <para>接口ID：7319756481343766532</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/health_certificate/recognize</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>健康证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的健康证源文件</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/health_certificate/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1HealthCertificateRecognizeResponseDto>> PostDocumentAiV1HealthCertificateRecognizeAsync(
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
     /// <para>【AI 能力】识别文件中的港澳居民来往内地通行证</para>
     /// <para>接口ID：7273083612789620739</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/hkm_mainland_travel_permit/recognize</para>
@@ -18421,8 +18451,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/speech_to_text/v1/speech/file_recognize")]
-    System.Threading.Tasks.Task<FeishuResponse<Ai.Spec.PostSpeechToTextV1SpeechFileRecognizeResponseDto>> PostSpeechToTextV1SpeechFileRecognizeAsync(
-        [JsonContent] Ai.Spec.PostSpeechToTextV1SpeechFileRecognizeBodyDto dto);
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostSpeechToTextV1SpeechFileRecognizeResponseDto>> PostSpeechToTextV1SpeechFileRecognizeAsync(
+        [JsonContent] Ai.PostSpeechToTextV1SpeechFileRecognizeBodyDto dto);
 
     /// <summary>
     /// <para>【AI 能力】识别流式语音</para>
@@ -18433,8 +18463,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/speech_to_text/v1/speech/stream_recognize")]
-    System.Threading.Tasks.Task<FeishuResponse<Ai.Spec.PostSpeechToTextV1SpeechStreamRecognizeResponseDto>> PostSpeechToTextV1SpeechStreamRecognizeAsync(
-        [JsonContent] Ai.Spec.PostSpeechToTextV1SpeechStreamRecognizeBodyDto dto);
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostSpeechToTextV1SpeechStreamRecognizeResponseDto>> PostSpeechToTextV1SpeechStreamRecognizeAsync(
+        [JsonContent] Ai.PostSpeechToTextV1SpeechStreamRecognizeBodyDto dto);
 
     /// <summary>
     /// <para>【AI 能力】识别文本语种</para>
@@ -18445,8 +18475,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/translation/v1/text/detect")]
-    System.Threading.Tasks.Task<FeishuResponse<Ai.Spec.PostTranslationV1TextDetectResponseDto>> PostTranslationV1TextDetectAsync(
-        [JsonContent] Ai.Spec.PostTranslationV1TextDetectBodyDto dto);
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostTranslationV1TextDetectResponseDto>> PostTranslationV1TextDetectAsync(
+        [JsonContent] Ai.PostTranslationV1TextDetectBodyDto dto);
 
     /// <summary>
     /// <para>【AI 能力】翻译文本</para>
@@ -18473,8 +18503,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/translation/v1/text/translate")]
-    System.Threading.Tasks.Task<FeishuResponse<Ai.Spec.PostTranslationV1TextTranslateResponseDto>> PostTranslationV1TextTranslateAsync(
-        [JsonContent] Ai.Spec.PostTranslationV1TextTranslateBodyDto dto);
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostTranslationV1TextTranslateResponseDto>> PostTranslationV1TextTranslateAsync(
+        [JsonContent] Ai.PostTranslationV1TextTranslateBodyDto dto);
 
     /// <summary>
     /// <para>【管理后台】重置用户的企业邮箱密码</para>
@@ -20856,6 +20886,218 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string company_id);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】创建成本中心</para>
+    /// <para>接口ID：7225452763517140995</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>创建成本中心</para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/cost_centers")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CostCentersResponseDto>> PostCorehrV2CostCentersAsync(
+        [JsonContent] Corehr.PostCorehrV2CostCentersBodyDto dto,
+        [PathQuery] string? user_id_type = "people_corehr_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】启用 / 停用成本中心</para>
+    /// <para>接口ID：7225452763517206531</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/patch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>启用或停用成本中心</para>
+    /// </summary>
+    /// <param name="cost_center_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>成本中心ID</para>
+    /// <para>示例值：6862995757234914824</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/corehr/v2/cost_centers/{cost_center_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PatchCorehrV2CostCentersByCostCenterIdResponseDto>> PatchCorehrV2CostCentersByCostCenterIdAsync(
+        [PathQuery] string cost_center_id,
+        [JsonContent] Corehr.PatchCorehrV2CostCentersByCostCenterIdBodyDto dto,
+        [PathQuery] string? user_id_type = "people_corehr_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】删除成本中心</para>
+    /// <para>接口ID：7225452763517157379</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除成本中心</para>
+    /// </summary>
+    /// <param name="cost_center_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>成本中心ID</para>
+    /// <para>示例值：6862995757234914824</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpDelete("/open-apis/corehr/v2/cost_centers/{cost_center_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteCorehrV2CostCentersByCostCenterIdAsync(
+        [PathQuery] string cost_center_id,
+        [JsonContent] Corehr.DeleteCorehrV2CostCentersByCostCenterIdBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】搜索成本中心信息</para>
+    /// <para>接口ID：7225452763517075459</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询成本中心信息</para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/cost_centers/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CostCentersSearchResponseDto>> PostCorehrV2CostCentersSearchAsync(
+        [JsonContent] Corehr.PostCorehrV2CostCentersSearchBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "people_corehr_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】创建成本中心版本</para>
+    /// <para>接口ID：7225452763517173763</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center-version/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>创建成本中心版本</para>
+    /// </summary>
+    /// <param name="cost_center_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>成本中心ID</para>
+    /// <para>示例值：6862995757234914824</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/cost_centers/{cost_center_id}/versions")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CostCentersByCostCenterIdVersionsResponseDto>> PostCorehrV2CostCentersByCostCenterIdVersionsAsync(
+        [PathQuery] string cost_center_id,
+        [JsonContent] Corehr.PostCorehrV2CostCentersByCostCenterIdVersionsBodyDto dto,
+        [PathQuery] string? user_id_type = "people_corehr_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】更新成本中心版本</para>
+    /// <para>接口ID：7225452763517190147</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center-version/patch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更正成本中心版本</para>
+    /// </summary>
+    /// <param name="cost_center_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>成本中心ID</para>
+    /// <para>示例值：6862995757234914824</para>
+    /// </param>
+    /// <param name="version_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>版本ID</para>
+    /// <para>示例值：6862995757234914824</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/corehr/v2/cost_centers/{cost_center_id}/versions/{version_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PatchCorehrV2CostCentersByCostCenterIdVersionsByVersionIdResponseDto>> PatchCorehrV2CostCentersByCostCenterIdVersionsByVersionIdAsync(
+        [PathQuery] string cost_center_id,
+        [PathQuery] string version_id,
+        [JsonContent] Corehr.PatchCorehrV2CostCentersByCostCenterIdVersionsByVersionIdBodyDto dto,
+        [PathQuery] string? user_id_type = "people_corehr_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】删除成本中心版本</para>
+    /// <para>接口ID：7225452763517124611</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center-version/delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>撤销成本中心版本</para>
+    /// </summary>
+    /// <param name="cost_center_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>成本中心ID</para>
+    /// <para>示例值：6862995757234914824</para>
+    /// </param>
+    /// <param name="version_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>版本ID</para>
+    /// <para>示例值：6862995757234914824</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpDelete("/open-apis/corehr/v2/cost_centers/{cost_center_id}/versions/{version_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteCorehrV2CostCentersByCostCenterIdVersionsByVersionIdAsync(
+        [PathQuery] string cost_center_id,
+        [PathQuery] string version_id,
+        [JsonContent] Corehr.DeleteCorehrV2CostCentersByCostCenterIdVersionsByVersionIdBodyDto dto);
+
+    /// <summary>
     /// <para>【飞书人事（企业版）】通过职级 ID 批量获取职级信息</para>
     /// <para>接口ID：7252157701853200412</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get</para>
@@ -22746,6 +22988,35 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1JobTypesResponseDto>> GetHireV1JobTypesAsync(
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【招聘】获取职位上的招聘人员信息</para>
+    /// <para>接口ID：7254447878126878748</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/recruiter</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据职位 ID 获取职位上的招聘人员信息，如招聘负责人、用人经理。</para>
+    /// </summary>
+    /// <param name="job_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>职位 ID</para>
+    /// <para>示例值：6960663240925956555</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/hire/v1/jobs/{job_id}/recruiter")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1JobsByJobIdRecruiterResponseDto>> GetHireV1JobsByJobIdRecruiterAsync(
+        [PathQuery] string job_id,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【招聘】创建招聘需求</para>
@@ -25743,6 +26014,100 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/mdm/v1/user_auth_data_relations/unbind")]
     System.Threading.Tasks.Task<FeishuResponse> PostMdmV1UserAuthDataRelationsUnbindAsync(
         [JsonContent] Mdm.PostMdmV1UserAuthDataRelationsUnbindBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【汇报】查询规则</para>
+    /// <para>接口ID：6969187588792385564</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/report/report-v1/rule/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询规则。</para>
+    /// </summary>
+    /// <param name="rule_name">
+    /// <para>必填：是</para>
+    /// <para>规则名称</para>
+    /// <para>示例值：工作月报</para>
+    /// </param>
+    /// <param name="include_deleted">
+    /// <para>必填：否</para>
+    /// <para>是否包括已删除，默认未删除</para>
+    /// <para>示例值：0</para>
+    /// <list type="bullet">
+    /// <item>0：不包括已删除</item>
+    /// <item>1：包括已删除</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/report/v1/rules/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Report.GetReportV1RulesQueryResponseDto>> GetReportV1RulesQueryAsync(
+        [PathQuery] string rule_name,
+        [PathQuery] int? include_deleted = null,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【汇报】移除规则看板</para>
+    /// <para>接口ID：6993276991760056323</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/report/report-v1/rule-view/remove</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>移除规则看板</para>
+    /// </summary>
+    /// <param name="rule_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>汇报规则ID</para>
+    /// <para>示例值：6894419345318182122</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/report/v1/rules/{rule_id}/views/remove")]
+    System.Threading.Tasks.Task<FeishuResponse> PostReportV1RulesByRuleIdViewsRemoveAsync(
+        [PathQuery] string rule_id,
+        [JsonContent] Report.PostReportV1RulesByRuleIdViewsRemoveBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【汇报】查询任务</para>
+    /// <para>接口ID：6969187588792369180</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/report/report-v1/task/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询任务。</para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/report/v1/tasks/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Report.PostReportV1TasksQueryResponseDto>> PostReportV1TasksQueryAsync(
+        [JsonContent] Report.PostReportV1TasksQueryBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>

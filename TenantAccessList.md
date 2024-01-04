@@ -17,7 +17,7 @@
 <tr><td colspan="3">PostImV1ChatsByChatIdTopNoticePutTopNotice</td></tr>
 <tr><td rowspan="2">9</td><td rowspan="2">2023-07-12</td><td>&#10003;</td><td>消息与群组</td><td>撤销群置顶</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdTopNoticeDeleteTopNotice</td></tr>
-<tr><td rowspan="2">10</td><td rowspan="2">2023-11-07</td><td>&#10003;</td><td>消息与群组</td><td>获取用户或机器人所在的群列表</td></tr>
+<tr><td rowspan="2">10</td><td rowspan="2">2024-01-02</td><td>&#10003;</td><td>消息与群组</td><td>获取用户或机器人所在的群列表</td></tr>
 <tr><td colspan="3">GetImV1Chats</td></tr>
 <tr><td rowspan="2">11</td><td rowspan="2">2023-11-07</td><td>&#10003;</td><td>消息与群组</td><td>搜索对用户或机器人可见的群列表</td></tr>
 <tr><td colspan="3">GetImV1ChatsSearch</td></tr>
@@ -1237,13 +1237,13 @@
 <tr><td colspan="3">PostDocumentAiV1BusinessCardRecognize</td></tr>
 <tr><td rowspan="2">619</td><td rowspan="2">2022-12-27</td><td>&#10003;</td><td>AI 能力</td><td>识别图片中的文字</td></tr>
 <tr><td colspan="3">PostOpticalCharRecognitionV1ImageBasicRecognize</td></tr>
-<tr><td rowspan="2">620</td><td rowspan="2">2022-12-27</td><td>&#10003;</td><td>AI 能力</td><td>识别语音文件</td></tr>
+<tr><td rowspan="2">620</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>AI 能力</td><td>识别语音文件</td></tr>
 <tr><td colspan="3">PostSpeechToTextV1SpeechFileRecognize</td></tr>
-<tr><td rowspan="2">621</td><td rowspan="2">2022-12-27</td><td>&#10003;</td><td>AI 能力</td><td>识别流式语音</td></tr>
+<tr><td rowspan="2">621</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>AI 能力</td><td>识别流式语音</td></tr>
 <tr><td colspan="3">PostSpeechToTextV1SpeechStreamRecognize</td></tr>
-<tr><td rowspan="2">622</td><td rowspan="2">2022-12-27</td><td>&#10003;</td><td>AI 能力</td><td>识别文本语种</td></tr>
+<tr><td rowspan="2">622</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>AI 能力</td><td>识别文本语种</td></tr>
 <tr><td colspan="3">PostTranslationV1TextDetect</td></tr>
-<tr><td rowspan="2">623</td><td rowspan="2">2022-12-27</td><td>&#10003;</td><td>AI 能力</td><td>翻译文本</td></tr>
+<tr><td rowspan="2">623</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>AI 能力</td><td>翻译文本</td></tr>
 <tr><td colspan="3">PostTranslationV1TextTranslate</td></tr>
 <tr><td rowspan="2">624</td><td rowspan="2">2023-07-19</td><td>&#10003;</td><td>通讯录</td><td>获取单个工作城市信息</td></tr>
 <tr><td colspan="3">GetContactV3WorkCitiesByWorkCityId</td></tr>
@@ -1289,7 +1289,7 @@
 <tr><td colspan="3">GetCorehrV1CountryRegionsByCountryRegionId</td></tr>
 <tr><td rowspan="2">645</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>批量查询国家/地区信息</td></tr>
 <tr><td colspan="3">GetCorehrV1CountryRegions</td></tr>
-<tr><td rowspan="2">646</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>消息与群组</td><td>发送消息</td></tr>
+<tr><td rowspan="2">646</td><td rowspan="2">2024-01-04</td><td>&#10003;</td><td>消息与群组</td><td>发送消息</td></tr>
 <tr><td colspan="3">PostImV1Messages</td></tr>
 <tr><td rowspan="2">647</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>查询单条省份/行政区信息</td></tr>
 <tr><td colspan="3">GetCorehrV1SubdivisionsBySubdivisionId</td></tr>
@@ -1311,7 +1311,7 @@
 <tr><td colspan="3">GetCorehrV1EmployeeTypes</td></tr>
 <tr><td rowspan="2">656</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>创建国家证件类型</td></tr>
 <tr><td colspan="3">PostCorehrV1NationalIdTypes</td></tr>
-<tr><td rowspan="2">657</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>消息与群组</td><td>回复消息</td></tr>
+<tr><td rowspan="2">657</td><td rowspan="2">2024-01-04</td><td>&#10003;</td><td>消息与群组</td><td>回复消息</td></tr>
 <tr><td colspan="3">PostImV1MessagesByMessageIdReply</td></tr>
 <tr><td rowspan="2">658</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>删除国家证件类型</td></tr>
 <tr><td colspan="3">DeleteCorehrV1NationalIdTypesByNationalIdTypeId</td></tr>
@@ -1497,7 +1497,7 @@
 <tr><td colspan="3">GetCorehrV1TransferTypesQuery</td></tr>
 <tr><td rowspan="2">749</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>发起员工异动</td></tr>
 <tr><td colspan="3">PostCorehrV1JobChanges</td></tr>
-<tr><td rowspan="2">750</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工异动信息</td></tr>
+<tr><td rowspan="2">750</td><td rowspan="2">2024-01-04</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工异动信息</td></tr>
 <tr><td colspan="3">PostCorehrV2JobChangesSearch</td></tr>
 <tr><td rowspan="2">751</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>查询员工离职原因列表</td></tr>
 <tr><td colspan="3">PostCorehrV1OffboardingsQuery</td></tr>
@@ -1587,25 +1587,25 @@
 <tr><td colspan="3">PostHireV1ExternalInterviewAssessments</td></tr>
 <tr><td rowspan="2">794</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>创建外部背调</td></tr>
 <tr><td colspan="3">PostHireV1ExternalBackgroundChecks</td></tr>
-<tr><td rowspan="2">795</td><td rowspan="2">2023-12-04</td><td>&#10003;</td><td>招聘</td><td>将人才加入指定文件夹</td></tr>
+<tr><td rowspan="2">795</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>招聘</td><td>将人才加入指定文件夹</td></tr>
 <tr><td colspan="3">PostHireV1TalentsAddToFolder</td></tr>
-<tr><td rowspan="2">796</td><td rowspan="2">2023-12-04</td><td>&#10003;</td><td>招聘</td><td>获取人才文件夹信息</td></tr>
+<tr><td rowspan="2">796</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>招聘</td><td>获取人才文件夹信息</td></tr>
 <tr><td colspan="3">GetHireV1TalentFolders</td></tr>
-<tr><td rowspan="2">797</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>招聘</td><td>通过手机号或邮箱获取人才 ID</td></tr>
+<tr><td rowspan="2">797</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>招聘</td><td>通过手机号或邮箱获取人才 ID</td></tr>
 <tr><td colspan="3">PostHireV1TalentsBatchGetId</td></tr>
-<tr><td rowspan="2">798</td><td rowspan="2">2023-12-04</td><td>&#10003;</td><td>招聘</td><td>获取人才字段</td></tr>
+<tr><td rowspan="2">798</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>招聘</td><td>获取人才字段</td></tr>
 <tr><td colspan="3">GetHireV1TalentObjectsQuery</td></tr>
-<tr><td rowspan="2">799</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>招聘</td><td>获取人才信息 V1</td></tr>
+<tr><td rowspan="2">799</td><td rowspan="2">2024-01-04</td><td>&#10003;</td><td>招聘</td><td>获取人才信息 V1</td></tr>
 <tr><td colspan="3">GetHireV1TalentsByTalentId</td></tr>
-<tr><td rowspan="2">800</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>创建投递</td></tr>
+<tr><td rowspan="2">800</td><td rowspan="2">2024-01-04</td><td>&#10003;</td><td>招聘</td><td>创建投递</td></tr>
 <tr><td colspan="3">PostHireV1Applications</td></tr>
-<tr><td rowspan="2">801</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>终止投递</td></tr>
+<tr><td rowspan="2">801</td><td rowspan="2">2024-01-04</td><td>&#10003;</td><td>招聘</td><td>终止投递</td></tr>
 <tr><td colspan="3">PostHireV1ApplicationsByApplicationIdTerminate</td></tr>
 <tr><td rowspan="2">802</td><td rowspan="2">2023-08-11</td><td>&#10003;</td><td>消息与群组</td><td>批量撤回消息</td></tr>
 <tr><td colspan="3">DeleteImV1BatchMessagesByBatchMessageId</td></tr>
-<tr><td rowspan="2">803</td><td rowspan="2">2023-11-17</td><td>&#10003;</td><td>招聘</td><td>获取投递信息</td></tr>
+<tr><td rowspan="2">803</td><td rowspan="2">2024-01-04</td><td>&#10003;</td><td>招聘</td><td>获取投递信息</td></tr>
 <tr><td colspan="3">GetHireV1ApplicationsByApplicationId</td></tr>
-<tr><td rowspan="2">804</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>获取投递列表</td></tr>
+<tr><td rowspan="2">804</td><td rowspan="2">2024-01-04</td><td>&#10003;</td><td>招聘</td><td>获取投递列表</td></tr>
 <tr><td colspan="3">GetHireV1Applications</td></tr>
 <tr><td rowspan="2">805</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>获取简历评估信息</td></tr>
 <tr><td colspan="3">GetHireV1Evaluations</td></tr>
@@ -2015,4 +2015,30 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdReply</td></tr>
 <tr><td rowspan="2">1008</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>日历</td><td>获取重复日程实例</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstances</td></tr>
+<tr><td rowspan="2">1009</td><td rowspan="2">2024-01-03</td><td>新增</td><td>AI 能力</td><td>识别文件中的机动车发票</td></tr>
+<tr><td colspan="3">PostDocumentAiV1VehicleInvoiceRecognize</td></tr>
+<tr><td rowspan="2">1010</td><td rowspan="2">2024-01-03</td><td>新增</td><td>AI 能力</td><td>识别文件中的健康证</td></tr>
+<tr><td colspan="3">PostDocumentAiV1HealthCertificateRecognize</td></tr>
+<tr><td rowspan="2">1011</td><td rowspan="2">2024-01-03</td><td>新增</td><td>飞书人事（企业版）</td><td>创建成本中心</td></tr>
+<tr><td colspan="3">PostCorehrV2CostCenters</td></tr>
+<tr><td rowspan="2">1012</td><td rowspan="2">2024-01-03</td><td>新增</td><td>飞书人事（企业版）</td><td>启用 / 停用成本中心</td></tr>
+<tr><td colspan="3">PatchCorehrV2CostCentersByCostCenterId</td></tr>
+<tr><td rowspan="2">1013</td><td rowspan="2">2024-01-03</td><td>新增</td><td>飞书人事（企业版）</td><td>删除成本中心</td></tr>
+<tr><td colspan="3">DeleteCorehrV2CostCentersByCostCenterId</td></tr>
+<tr><td rowspan="2">1014</td><td rowspan="2">2024-01-03</td><td>新增</td><td>飞书人事（企业版）</td><td>搜索成本中心信息</td></tr>
+<tr><td colspan="3">PostCorehrV2CostCentersSearch</td></tr>
+<tr><td rowspan="2">1015</td><td rowspan="2">2024-01-03</td><td>新增</td><td>飞书人事（企业版）</td><td>创建成本中心版本</td></tr>
+<tr><td colspan="3">PostCorehrV2CostCentersByCostCenterIdVersions</td></tr>
+<tr><td rowspan="2">1016</td><td rowspan="2">2024-01-03</td><td>新增</td><td>飞书人事（企业版）</td><td>更新成本中心版本</td></tr>
+<tr><td colspan="3">PatchCorehrV2CostCentersByCostCenterIdVersionsByVersionId</td></tr>
+<tr><td rowspan="2">1017</td><td rowspan="2">2024-01-03</td><td>新增</td><td>飞书人事（企业版）</td><td>删除成本中心版本</td></tr>
+<tr><td colspan="3">DeleteCorehrV2CostCentersByCostCenterIdVersionsByVersionId</td></tr>
+<tr><td rowspan="2">1018</td><td rowspan="2">2024-01-04</td><td>新增</td><td>招聘</td><td>获取职位上的招聘人员信息</td></tr>
+<tr><td colspan="3">GetHireV1JobsByJobIdRecruiter</td></tr>
+<tr><td rowspan="2">1019</td><td rowspan="2">2024-01-02</td><td>新增</td><td>汇报</td><td>查询规则</td></tr>
+<tr><td colspan="3">GetReportV1RulesQuery</td></tr>
+<tr><td rowspan="2">1020</td><td rowspan="2">2024-01-02</td><td>新增</td><td>汇报</td><td>移除规则看板</td></tr>
+<tr><td colspan="3">PostReportV1RulesByRuleIdViewsRemove</td></tr>
+<tr><td rowspan="2">1021</td><td rowspan="2">2024-01-02</td><td>新增</td><td>汇报</td><td>查询任务</td></tr>
+<tr><td colspan="3">PostReportV1TasksQuery</td></tr>
 </tbody></table>

@@ -998,7 +998,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222931479412737</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据使用的 access_token 获取用户或者机器人所在群列表。</para>
+    /// <para>获取 [access_token](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-choose-which-type-of-token-to-use) 所代表的用户或者机器人所在的群列表。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -13148,6 +13148,40 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的机动车发票</para>
+    /// <para>接口ID：7319756481343750148</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/vehicle_invoice/recognize</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>机动车发票识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的机动车发票源文件</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/document_ai/v1/vehicle_invoice/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1VehicleInvoiceRecognizeResponseDto>> PostDocumentAiV1VehicleInvoiceRecognizeAsync(
+        UserAccessToken access_token,
+        [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的健康证</para>
+    /// <para>接口ID：7319756481343766532</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/health_certificate/recognize</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>健康证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>识别的健康证源文件</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/document_ai/v1/health_certificate/recognize")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1HealthCertificateRecognizeResponseDto>> PostDocumentAiV1HealthCertificateRecognizeAsync(
+        UserAccessToken access_token,
+        [FormDataContent] FormDataFile file);
 
     /// <summary>
     /// <para>【飞书人事】更新公司</para>

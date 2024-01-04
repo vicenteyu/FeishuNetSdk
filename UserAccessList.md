@@ -423,7 +423,7 @@
 <tr><td colspan="3">PostVcV1RoomLevels</td></tr>
 <tr><td rowspan="2">212</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>删除会议室层级</td></tr>
 <tr><td colspan="3">PostVcV1RoomLevelsDel</td></tr>
-<tr><td rowspan="2">213</td><td rowspan="2">2023-11-07</td><td>&#10003;</td><td>消息与群组</td><td>获取用户或机器人所在的群列表</td></tr>
+<tr><td rowspan="2">213</td><td rowspan="2">2024-01-02</td><td>&#10003;</td><td>消息与群组</td><td>获取用户或机器人所在的群列表</td></tr>
 <tr><td colspan="3">GetImV1Chats</td></tr>
 <tr><td rowspan="2">214</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>更新会议室层级</td></tr>
 <tr><td colspan="3">PatchVcV1RoomLevelsByRoomLevelId</td></tr>
@@ -969,4 +969,8 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdReply</td></tr>
 <tr><td rowspan="2">485</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>日历</td><td>获取重复日程实例</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstances</td></tr>
+<tr><td rowspan="2">486</td><td rowspan="2">2024-01-03</td><td>新增</td><td>AI 能力</td><td>识别文件中的机动车发票</td></tr>
+<tr><td colspan="3">PostDocumentAiV1VehicleInvoiceRecognize</td></tr>
+<tr><td rowspan="2">487</td><td rowspan="2">2024-01-03</td><td>新增</td><td>AI 能力</td><td>识别文件中的健康证</td></tr>
+<tr><td colspan="3">PostDocumentAiV1HealthCertificateRecognize</td></tr>
 </tbody></table>
