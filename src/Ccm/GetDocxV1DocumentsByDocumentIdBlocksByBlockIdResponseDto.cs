@@ -1,6 +1,6 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 获取块 响应体
+/// 获取块的内容 响应体
 /// <para>获取指定块的富文本内容。</para>
 /// <para>接口ID：7068199542315368476</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/docs/docx-v1/document-block/get</para>

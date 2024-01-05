@@ -63,7 +63,7 @@ public record PostAttendanceV1UserFlowsBatchCreateResponseDto
         /// <summary>
         /// <para>打卡记录 ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6709359313699356941</para>
+        /// <para>示例值：考勤内部的打卡记录ID, 6709359313699356941（导入时此参数无效）</para>
         /// </summary>
         [JsonPropertyName("record_id")]
         public string? RecordId { get; set; }
@@ -145,5 +145,13 @@ public record PostAttendanceV1UserFlowsBatchCreateResponseDto
         /// </summary>
         [JsonPropertyName("check_result")]
         public string? CheckResult { get; set; }
+
+        /// <summary>
+        /// <para>用户导入的外部打卡记录ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：record_123</para>
+        /// </summary>
+        [JsonPropertyName("external_id")]
+        public string? ExternalId { get; set; }
     }
 }

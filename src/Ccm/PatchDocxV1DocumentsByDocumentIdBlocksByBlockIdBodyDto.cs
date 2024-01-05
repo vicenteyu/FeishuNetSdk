@@ -1,6 +1,6 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 更新块 请求体
+/// 更新块的内容 请求体
 /// <para>更新指定的块。</para>
 /// <para>接口ID：7068199542315286556</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/docs/docx-v1/document-block/patch</para>

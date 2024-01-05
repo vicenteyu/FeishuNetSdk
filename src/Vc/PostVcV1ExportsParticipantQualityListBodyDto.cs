@@ -34,7 +34,7 @@ public record PostVcV1ExportsParticipantQualityListBodyDto
     public string MeetingNo { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>参会人入会时间（unix时间，单位sec）</para>
+    /// <para>参会人入会时间（unix时间，单位sec），可从「查询参会人明细」返回结果获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：1655276858</para>
     /// </summary>

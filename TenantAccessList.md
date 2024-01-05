@@ -41,7 +41,7 @@
 <tr><td colspan="3">GetImV1ChatsByChatIdMembers</td></tr>
 <tr><td rowspan="2">21</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>消息与群组</td><td>判断用户或机器人是否在群里</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatIdMembersIsInChat</td></tr>
-<tr><td rowspan="2">22</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>消息与群组</td><td>更新群公告信息</td></tr>
+<tr><td rowspan="2">22</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>消息与群组</td><td>更新群公告信息</td></tr>
 <tr><td colspan="3">PatchImV1ChatsByChatIdAnnouncement</td></tr>
 <tr><td rowspan="2">23</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>消息与群组</td><td>获取群公告信息</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatIdAnnouncement</td></tr>
@@ -195,27 +195,27 @@
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyId</td></tr>
 <tr><td rowspan="2">98</td><td rowspan="2">2022-04-28</td><td>&#10003;</td><td>云文档</td><td>解决/恢复 评论</td></tr>
 <tr><td colspan="3">PatchDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
-<tr><td rowspan="2">99</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>云文档</td><td>获取文档基本信息</td></tr>
+<tr><td rowspan="2">99</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取文档基本信息</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentId</td></tr>
-<tr><td rowspan="2">100</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>云文档</td><td>获取文档纯文本内容</td></tr>
+<tr><td rowspan="2">100</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取文档纯文本内容</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdRawContent</td></tr>
-<tr><td rowspan="2">101</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>云文档</td><td>获取文档所有块</td></tr>
+<tr><td rowspan="2">101</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取文档所有块</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocks</td></tr>
 <tr><td rowspan="2">102</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>新增人员类型</td></tr>
 <tr><td colspan="3">PostContactV3EmployeeTypeEnums</td></tr>
-<tr><td rowspan="2">103</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>创建文档</td></tr>
+<tr><td rowspan="2">103</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>创建文档</td></tr>
 <tr><td colspan="3">PostDocxV1Documents</td></tr>
-<tr><td rowspan="2">104</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>云文档</td><td>获取块</td></tr>
+<tr><td rowspan="2">104</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取块的内容</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocksByBlockId</td></tr>
-<tr><td rowspan="2">105</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>云文档</td><td>创建块</td></tr>
+<tr><td rowspan="2">105</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>创建块</td></tr>
 <tr><td colspan="3">PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildren</td></tr>
-<tr><td rowspan="2">106</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>云文档</td><td>更新块</td></tr>
+<tr><td rowspan="2">106</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>更新块的内容</td></tr>
 <tr><td colspan="3">PatchDocxV1DocumentsByDocumentIdBlocksByBlockId</td></tr>
-<tr><td rowspan="2">107</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>云文档</td><td>批量更新块</td></tr>
+<tr><td rowspan="2">107</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>批量更新块的内容</td></tr>
 <tr><td colspan="3">PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdate</td></tr>
-<tr><td rowspan="2">108</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>云文档</td><td>删除块</td></tr>
+<tr><td rowspan="2">108</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>删除块</td></tr>
 <tr><td colspan="3">DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDelete</td></tr>
-<tr><td rowspan="2">109</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>云文档</td><td>获取所有子块</td></tr>
+<tr><td rowspan="2">109</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取所有子块</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocksByBlockIdChildren</td></tr>
 <tr><td rowspan="2">110</td><td rowspan="2">2022-09-07</td><td>&#10003;</td><td>云文档</td><td>修改电子表格属性</td></tr>
 <tr><td colspan="3">PatchSheetsV3SpreadsheetsBySpreadsheetToken</td></tr>
@@ -563,7 +563,7 @@
 <tr><td colspan="3">PostVcV1ExportsMeetingList</td></tr>
 <tr><td rowspan="2">282</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>视频会议</td><td>导出参会人明细</td></tr>
 <tr><td colspan="3">PostVcV1ExportsParticipantList</td></tr>
-<tr><td rowspan="2">283</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>视频会议</td><td>导出参会人会议质量数据</td></tr>
+<tr><td rowspan="2">283</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>视频会议</td><td>导出参会人会议质量数据</td></tr>
 <tr><td colspan="3">PostVcV1ExportsParticipantQualityList</td></tr>
 <tr><td rowspan="2">284</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>导出会议室预定数据</td></tr>
 <tr><td colspan="3">PostVcV1ExportsResourceReservationList</td></tr>
@@ -627,7 +627,7 @@
 <tr><td colspan="3">GetContactV3UnitListDepartment</td></tr>
 <tr><td rowspan="2">314</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>视频会议</td><td>查询参会人明细</td></tr>
 <tr><td colspan="3">GetVcV1ParticipantList</td></tr>
-<tr><td rowspan="2">315</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>视频会议</td><td>查询参会人会议质量数据</td></tr>
+<tr><td rowspan="2">315</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>视频会议</td><td>查询参会人会议质量数据</td></tr>
 <tr><td colspan="3">GetVcV1ParticipantQualityList</td></tr>
 <tr><td rowspan="2">316</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>视频会议</td><td>查询会议室预定数据</td></tr>
 <tr><td colspan="3">GetVcV1ResourceReservationList</td></tr>
@@ -683,9 +683,9 @@
 <tr><td colspan="3">PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedys</td></tr>
 <tr><td rowspan="2">342</td><td rowspan="2">2023-12-08</td><td>&#10003;</td><td>考勤打卡</td><td>获取补卡记录</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserTaskRemedysQuery</td></tr>
-<tr><td rowspan="2">343</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>考勤打卡</td><td>导入打卡流水</td></tr>
+<tr><td rowspan="2">343</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>考勤打卡</td><td>导入打卡流水</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserFlowsBatchCreate</td></tr>
-<tr><td rowspan="2">344</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>查询打卡流水</td></tr>
+<tr><td rowspan="2">344</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>考勤打卡</td><td>查询打卡流水</td></tr>
 <tr><td colspan="3">GetAttendanceV1UserFlowsByUserFlowId</td></tr>
 <tr><td rowspan="2">345</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>批量查询打卡流水</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserFlowsQuery</td></tr>
@@ -751,7 +751,7 @@
 <tr><td colspan="3">PostApprovalV4ExternalApprovals</td></tr>
 <tr><td rowspan="2">376</td><td rowspan="2">2023-07-13</td><td>&#10003;</td><td>审批</td><td>查看指定三方审批定义</td></tr>
 <tr><td colspan="3">GetApprovalV4ExternalApprovalsByApprovalCode</td></tr>
-<tr><td rowspan="2">377</td><td rowspan="2">2023-11-13</td><td>&#10003;</td><td>审批</td><td>同步三方审批实例</td></tr>
+<tr><td rowspan="2">377</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>审批</td><td>同步三方审批实例</td></tr>
 <tr><td colspan="3">PostApprovalV4ExternalInstances</td></tr>
 <tr><td rowspan="2">378</td><td rowspan="2">2022-12-28</td><td>&#10003;</td><td>审批</td><td>校验三方审批实例</td></tr>
 <tr><td colspan="3">PostApprovalV4ExternalInstancesCheck</td></tr>
@@ -1705,19 +1705,19 @@
 <tr><td colspan="3">GetOkrV1Periods</td></tr>
 <tr><td rowspan="2">853</td><td rowspan="2">2022-12-27</td><td>&#10003;</td><td>OKR</td><td>获取用户的 OKR 列表</td></tr>
 <tr><td colspan="3">GetOkrV1UsersByUserIdOkrs</td></tr>
-<tr><td rowspan="2">854</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>批量获取 OKR</td></tr>
+<tr><td rowspan="2">854</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>批量获取 OKR</td></tr>
 <tr><td colspan="3">GetOkrV1OkrsBatchGet</td></tr>
-<tr><td rowspan="2">855</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>创建 OKR 进展记录</td></tr>
+<tr><td rowspan="2">855</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>创建 OKR 进展记录</td></tr>
 <tr><td colspan="3">PostOkrV1ProgressRecords</td></tr>
-<tr><td rowspan="2">856</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>删除 OKR 进展记录</td></tr>
+<tr><td rowspan="2">856</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>删除 OKR 进展记录</td></tr>
 <tr><td colspan="3">DeleteOkrV1ProgressRecordsByProgressId</td></tr>
 <tr><td rowspan="2">857</td><td rowspan="2">2023-07-12</td><td>&#10003;</td><td>消息与群组</td><td>上传文件</td></tr>
 <tr><td colspan="3">PostImV1Files</td></tr>
-<tr><td rowspan="2">858</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>更新 OKR 进展记录</td></tr>
+<tr><td rowspan="2">858</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>更新 OKR 进展记录</td></tr>
 <tr><td colspan="3">PutOkrV1ProgressRecordsByProgressId</td></tr>
-<tr><td rowspan="2">859</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>获取 OKR 进展记录</td></tr>
+<tr><td rowspan="2">859</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>获取 OKR 进展记录</td></tr>
 <tr><td colspan="3">GetOkrV1ProgressRecordsByProgressId</td></tr>
-<tr><td rowspan="2">860</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>上传进展记录图片</td></tr>
+<tr><td rowspan="2">860</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>上传进展记录图片</td></tr>
 <tr><td colspan="3">PostOkrV1ImagesUpload</td></tr>
 <tr><td rowspan="2">861</td><td rowspan="2">2023-04-06</td><td>&#10003;</td><td>实名认证</td><td>录入身份信息</td></tr>
 <tr><td colspan="3">PostHumanAuthenticationV1Identities</td></tr>
@@ -2015,30 +2015,36 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdReply</td></tr>
 <tr><td rowspan="2">1008</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>日历</td><td>获取重复日程实例</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstances</td></tr>
-<tr><td rowspan="2">1009</td><td rowspan="2">2024-01-03</td><td>新增</td><td>AI 能力</td><td>识别文件中的机动车发票</td></tr>
+<tr><td rowspan="2">1009</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的机动车发票</td></tr>
 <tr><td colspan="3">PostDocumentAiV1VehicleInvoiceRecognize</td></tr>
-<tr><td rowspan="2">1010</td><td rowspan="2">2024-01-03</td><td>新增</td><td>AI 能力</td><td>识别文件中的健康证</td></tr>
+<tr><td rowspan="2">1010</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的健康证</td></tr>
 <tr><td colspan="3">PostDocumentAiV1HealthCertificateRecognize</td></tr>
-<tr><td rowspan="2">1011</td><td rowspan="2">2024-01-03</td><td>新增</td><td>飞书人事（企业版）</td><td>创建成本中心</td></tr>
+<tr><td rowspan="2">1011</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>创建成本中心</td></tr>
 <tr><td colspan="3">PostCorehrV2CostCenters</td></tr>
-<tr><td rowspan="2">1012</td><td rowspan="2">2024-01-03</td><td>新增</td><td>飞书人事（企业版）</td><td>启用 / 停用成本中心</td></tr>
+<tr><td rowspan="2">1012</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>启用 / 停用成本中心</td></tr>
 <tr><td colspan="3">PatchCorehrV2CostCentersByCostCenterId</td></tr>
-<tr><td rowspan="2">1013</td><td rowspan="2">2024-01-03</td><td>新增</td><td>飞书人事（企业版）</td><td>删除成本中心</td></tr>
+<tr><td rowspan="2">1013</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>删除成本中心</td></tr>
 <tr><td colspan="3">DeleteCorehrV2CostCentersByCostCenterId</td></tr>
-<tr><td rowspan="2">1014</td><td rowspan="2">2024-01-03</td><td>新增</td><td>飞书人事（企业版）</td><td>搜索成本中心信息</td></tr>
+<tr><td rowspan="2">1014</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索成本中心信息</td></tr>
 <tr><td colspan="3">PostCorehrV2CostCentersSearch</td></tr>
-<tr><td rowspan="2">1015</td><td rowspan="2">2024-01-03</td><td>新增</td><td>飞书人事（企业版）</td><td>创建成本中心版本</td></tr>
+<tr><td rowspan="2">1015</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>创建成本中心版本</td></tr>
 <tr><td colspan="3">PostCorehrV2CostCentersByCostCenterIdVersions</td></tr>
-<tr><td rowspan="2">1016</td><td rowspan="2">2024-01-03</td><td>新增</td><td>飞书人事（企业版）</td><td>更新成本中心版本</td></tr>
+<tr><td rowspan="2">1016</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>更新成本中心版本</td></tr>
 <tr><td colspan="3">PatchCorehrV2CostCentersByCostCenterIdVersionsByVersionId</td></tr>
-<tr><td rowspan="2">1017</td><td rowspan="2">2024-01-03</td><td>新增</td><td>飞书人事（企业版）</td><td>删除成本中心版本</td></tr>
+<tr><td rowspan="2">1017</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>删除成本中心版本</td></tr>
 <tr><td colspan="3">DeleteCorehrV2CostCentersByCostCenterIdVersionsByVersionId</td></tr>
-<tr><td rowspan="2">1018</td><td rowspan="2">2024-01-04</td><td>新增</td><td>招聘</td><td>获取职位上的招聘人员信息</td></tr>
+<tr><td rowspan="2">1018</td><td rowspan="2">2024-01-04</td><td>&#10003;</td><td>招聘</td><td>获取职位上的招聘人员信息</td></tr>
 <tr><td colspan="3">GetHireV1JobsByJobIdRecruiter</td></tr>
-<tr><td rowspan="2">1019</td><td rowspan="2">2024-01-02</td><td>新增</td><td>汇报</td><td>查询规则</td></tr>
+<tr><td rowspan="2">1019</td><td rowspan="2">2024-01-02</td><td>&#10003;</td><td>汇报</td><td>查询规则</td></tr>
 <tr><td colspan="3">GetReportV1RulesQuery</td></tr>
-<tr><td rowspan="2">1020</td><td rowspan="2">2024-01-02</td><td>新增</td><td>汇报</td><td>移除规则看板</td></tr>
+<tr><td rowspan="2">1020</td><td rowspan="2">2024-01-02</td><td>&#10003;</td><td>汇报</td><td>移除规则看板</td></tr>
 <tr><td colspan="3">PostReportV1RulesByRuleIdViewsRemove</td></tr>
-<tr><td rowspan="2">1021</td><td rowspan="2">2024-01-02</td><td>新增</td><td>汇报</td><td>查询任务</td></tr>
+<tr><td rowspan="2">1021</td><td rowspan="2">2024-01-02</td><td>&#10003;</td><td>汇报</td><td>查询任务</td></tr>
 <tr><td colspan="3">PostReportV1TasksQuery</td></tr>
+<tr><td rowspan="2">1022</td><td rowspan="2">2024-01-09</td><td>新增</td><td>OKR</td><td>获取 OKR 周期规则</td></tr>
+<tr><td colspan="3">GetOkrV1PeriodRules</td></tr>
+<tr><td rowspan="2">1023</td><td rowspan="2">2024-01-09</td><td>新增</td><td>OKR</td><td>创建 OKR 周期</td></tr>
+<tr><td colspan="3">PostOkrV1Periods</td></tr>
+<tr><td rowspan="2">1024</td><td rowspan="2">2024-01-09</td><td>新增</td><td>OKR</td><td>修改 OKR 周期状态</td></tr>
+<tr><td colspan="3">PatchOkrV1PeriodsByPeriodId</td></tr>
 </tbody></table>

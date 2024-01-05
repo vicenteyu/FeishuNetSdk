@@ -51,7 +51,7 @@ public record GetAttendanceV1UserFlowsByUserFlowIdResponseDto
     /// <summary>
     /// <para>打卡记录 ID</para>
     /// <para>必填：否</para>
-    /// <para>示例值：6709359313699356941</para>
+    /// <para>示例值：考勤内部的打卡记录ID, 6709359313699356941（导入时此参数无效）</para>
     /// </summary>
     [JsonPropertyName("record_id")]
     public string? RecordId { get; set; }
@@ -114,6 +114,14 @@ public record GetAttendanceV1UserFlowsByUserFlowIdResponseDto
     public string[]? PhotoUrls { get; set; }
 
     /// <summary>
+    /// <para>打卡设备ID</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：（只支持小程序打卡，导入时无效）99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d</para>
+    /// </summary>
+    [JsonPropertyName("device_id")]
+    public string? DeviceId { get; set; }
+
+    /// <summary>
     /// <para>打卡结果</para>
     /// <para>必填：否</para>
     /// <para>示例值：Invalid</para>
@@ -132,4 +140,12 @@ public record GetAttendanceV1UserFlowsByUserFlowIdResponseDto
     /// </summary>
     [JsonPropertyName("check_result")]
     public string? CheckResult { get; set; }
+
+    /// <summary>
+    /// <para>用户导入的外部打卡记录ID</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：record_123</para>
+    /// </summary>
+    [JsonPropertyName("external_id")]
+    public string? ExternalId { get; set; }
 }

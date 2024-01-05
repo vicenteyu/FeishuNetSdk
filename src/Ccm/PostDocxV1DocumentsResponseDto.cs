@@ -21,9 +21,9 @@ public record PostDocxV1DocumentsResponseDto
     public record PostDocxV1DocumentsResponseDtoDocument
     {
         /// <summary>
-        /// <para>文档唯一标识。对应新版文档 Token，[点击了解如何获取云文档 Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+        /// <para>文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的 `document_id`</para>
         /// <para>必填：否</para>
-        /// <para>示例值：doxcni6mOy7jLRWbEylaKKC7K88</para>
+        /// <para>示例值：doxbcmEtbFrbbq10nPNu8gabcef</para>
         /// <para>最大长度：27</para>
         /// <para>最小长度：27</para>
         /// </summary>

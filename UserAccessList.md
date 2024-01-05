@@ -17,27 +17,27 @@
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyId</td></tr>
 <tr><td rowspan="2">9</td><td rowspan="2">2022-04-28</td><td>&#10003;</td><td>云文档</td><td>解决/恢复 评论</td></tr>
 <tr><td colspan="3">PatchDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
-<tr><td rowspan="2">10</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>云文档</td><td>获取文档基本信息</td></tr>
+<tr><td rowspan="2">10</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取文档基本信息</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentId</td></tr>
-<tr><td rowspan="2">11</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>云文档</td><td>获取文档纯文本内容</td></tr>
+<tr><td rowspan="2">11</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取文档纯文本内容</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdRawContent</td></tr>
-<tr><td rowspan="2">12</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>云文档</td><td>获取文档所有块</td></tr>
+<tr><td rowspan="2">12</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取文档所有块</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocks</td></tr>
-<tr><td rowspan="2">13</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>创建文档</td></tr>
+<tr><td rowspan="2">13</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>创建文档</td></tr>
 <tr><td colspan="3">PostDocxV1Documents</td></tr>
 <tr><td rowspan="2">14</td><td rowspan="2">2023-07-18</td><td>&#10003;</td><td>通讯录</td><td>获取单个职务信息</td></tr>
 <tr><td colspan="3">GetContactV3JobTitlesByJobTitleId</td></tr>
-<tr><td rowspan="2">15</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>云文档</td><td>获取块</td></tr>
+<tr><td rowspan="2">15</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取块的内容</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocksByBlockId</td></tr>
-<tr><td rowspan="2">16</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>云文档</td><td>创建块</td></tr>
+<tr><td rowspan="2">16</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>创建块</td></tr>
 <tr><td colspan="3">PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildren</td></tr>
-<tr><td rowspan="2">17</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>云文档</td><td>更新块</td></tr>
+<tr><td rowspan="2">17</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>更新块的内容</td></tr>
 <tr><td colspan="3">PatchDocxV1DocumentsByDocumentIdBlocksByBlockId</td></tr>
-<tr><td rowspan="2">18</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>云文档</td><td>批量更新块</td></tr>
+<tr><td rowspan="2">18</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>批量更新块的内容</td></tr>
 <tr><td colspan="3">PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdate</td></tr>
-<tr><td rowspan="2">19</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>云文档</td><td>删除块</td></tr>
+<tr><td rowspan="2">19</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>删除块</td></tr>
 <tr><td colspan="3">DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDelete</td></tr>
-<tr><td rowspan="2">20</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>云文档</td><td>获取所有子块</td></tr>
+<tr><td rowspan="2">20</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取所有子块</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocksByBlockIdChildren</td></tr>
 <tr><td rowspan="2">21</td><td rowspan="2">2022-09-07</td><td>&#10003;</td><td>云文档</td><td>修改电子表格属性</td></tr>
 <tr><td colspan="3">PatchSheetsV3SpreadsheetsBySpreadsheetToken</td></tr>
@@ -411,7 +411,7 @@
 <tr><td colspan="3">PostVcV1ExportsMeetingList</td></tr>
 <tr><td rowspan="2">206</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>视频会议</td><td>导出参会人明细</td></tr>
 <tr><td colspan="3">PostVcV1ExportsParticipantList</td></tr>
-<tr><td rowspan="2">207</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>视频会议</td><td>导出参会人会议质量数据</td></tr>
+<tr><td rowspan="2">207</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>视频会议</td><td>导出参会人会议质量数据</td></tr>
 <tr><td colspan="3">PostVcV1ExportsParticipantQualityList</td></tr>
 <tr><td rowspan="2">208</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>导出会议室预定数据</td></tr>
 <tr><td colspan="3">PostVcV1ExportsResourceReservationList</td></tr>
@@ -479,7 +479,7 @@
 <tr><td colspan="3">GetVcV1MeetingList</td></tr>
 <tr><td rowspan="2">240</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>视频会议</td><td>查询参会人明细</td></tr>
 <tr><td colspan="3">GetVcV1ParticipantList</td></tr>
-<tr><td rowspan="2">241</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>视频会议</td><td>查询参会人会议质量数据</td></tr>
+<tr><td rowspan="2">241</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>视频会议</td><td>查询参会人会议质量数据</td></tr>
 <tr><td colspan="3">GetVcV1ParticipantQualityList</td></tr>
 <tr><td rowspan="2">242</td><td rowspan="2">2023-11-03</td><td>&#10003;</td><td>视频会议</td><td>查询会议室预定数据</td></tr>
 <tr><td colspan="3">GetVcV1ResourceReservationList</td></tr>
@@ -669,7 +669,7 @@
 <tr><td colspan="3">PostTaskV2AttachmentsUpload</td></tr>
 <tr><td rowspan="2">335</td><td rowspan="2">2023-08-23</td><td>&#10003;</td><td>通讯录</td><td>获取部门直属用户列表</td></tr>
 <tr><td colspan="3">GetContactV3UsersFindByDepartment</td></tr>
-<tr><td rowspan="2">336</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>消息与群组</td><td>更新群公告信息</td></tr>
+<tr><td rowspan="2">336</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>消息与群组</td><td>更新群公告信息</td></tr>
 <tr><td colspan="3">PatchImV1ChatsByChatIdAnnouncement</td></tr>
 <tr><td rowspan="2">337</td><td rowspan="2">2023-11-06</td><td>&#10003;</td><td>任务</td><td>列取附件</td></tr>
 <tr><td colspan="3">GetTaskV2Attachments</td></tr>
@@ -717,17 +717,17 @@
 <tr><td colspan="3">PostImV1ChatsByChatIdChatTabs</td></tr>
 <tr><td rowspan="2">359</td><td rowspan="2">2022-12-27</td><td>&#10003;</td><td>OKR</td><td>获取用户的 OKR 列表</td></tr>
 <tr><td colspan="3">GetOkrV1UsersByUserIdOkrs</td></tr>
-<tr><td rowspan="2">360</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>批量获取 OKR</td></tr>
+<tr><td rowspan="2">360</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>批量获取 OKR</td></tr>
 <tr><td colspan="3">GetOkrV1OkrsBatchGet</td></tr>
-<tr><td rowspan="2">361</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>创建 OKR 进展记录</td></tr>
+<tr><td rowspan="2">361</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>创建 OKR 进展记录</td></tr>
 <tr><td colspan="3">PostOkrV1ProgressRecords</td></tr>
-<tr><td rowspan="2">362</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>删除 OKR 进展记录</td></tr>
+<tr><td rowspan="2">362</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>删除 OKR 进展记录</td></tr>
 <tr><td colspan="3">DeleteOkrV1ProgressRecordsByProgressId</td></tr>
-<tr><td rowspan="2">363</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>更新 OKR 进展记录</td></tr>
+<tr><td rowspan="2">363</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>更新 OKR 进展记录</td></tr>
 <tr><td colspan="3">PutOkrV1ProgressRecordsByProgressId</td></tr>
-<tr><td rowspan="2">364</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>获取 OKR 进展记录</td></tr>
+<tr><td rowspan="2">364</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>获取 OKR 进展记录</td></tr>
 <tr><td colspan="3">GetOkrV1ProgressRecordsByProgressId</td></tr>
-<tr><td rowspan="2">365</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>OKR</td><td>上传进展记录图片</td></tr>
+<tr><td rowspan="2">365</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>上传进展记录图片</td></tr>
 <tr><td colspan="3">PostOkrV1ImagesUpload</td></tr>
 <tr><td rowspan="2">366</td><td rowspan="2">2023-09-07</td><td>&#10003;</td><td>绩效</td><td>获取周期任务（指定用户）</td></tr>
 <tr><td colspan="3">PostPerformanceV1StageTasksFindByUserList</td></tr>
@@ -969,8 +969,20 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdReply</td></tr>
 <tr><td rowspan="2">485</td><td rowspan="2">2023-12-28</td><td>&#10003;</td><td>日历</td><td>获取重复日程实例</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstances</td></tr>
-<tr><td rowspan="2">486</td><td rowspan="2">2024-01-03</td><td>新增</td><td>AI 能力</td><td>识别文件中的机动车发票</td></tr>
+<tr><td rowspan="2">486</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的机动车发票</td></tr>
 <tr><td colspan="3">PostDocumentAiV1VehicleInvoiceRecognize</td></tr>
-<tr><td rowspan="2">487</td><td rowspan="2">2024-01-03</td><td>新增</td><td>AI 能力</td><td>识别文件中的健康证</td></tr>
+<tr><td rowspan="2">487</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的健康证</td></tr>
 <tr><td colspan="3">PostDocumentAiV1HealthCertificateRecognize</td></tr>
+<tr><td rowspan="2">488</td><td rowspan="2">2024-01-09</td><td>新增</td><td>智能门禁</td><td>添加访客</td></tr>
+<tr><td colspan="3">PostAcsV1Visitors</td></tr>
+<tr><td rowspan="2">489</td><td rowspan="2">2024-01-09</td><td>新增</td><td>智能门禁</td><td>设备绑定权限组</td></tr>
+<tr><td colspan="3">PostAcsV1RuleExternalDeviceBind</td></tr>
+<tr><td rowspan="2">490</td><td rowspan="2">2024-01-09</td><td>新增</td><td>智能门禁</td><td>获取权限组信息</td></tr>
+<tr><td colspan="3">GetAcsV1RuleExternal</td></tr>
+<tr><td rowspan="2">491</td><td rowspan="2">2024-01-09</td><td>新增</td><td>智能门禁</td><td>删除权限组</td></tr>
+<tr><td colspan="3">DeleteAcsV1RuleExternal</td></tr>
+<tr><td rowspan="2">492</td><td rowspan="2">2024-01-09</td><td>新增</td><td>智能门禁</td><td>创建或更新权限组</td></tr>
+<tr><td colspan="3">PostAcsV1RuleExternal</td></tr>
+<tr><td rowspan="2">493</td><td rowspan="2">2024-01-09</td><td>新增</td><td>智能门禁</td><td>删除访客</td></tr>
+<tr><td colspan="3">DeleteAcsV1VisitorsByVisitorId</td></tr>
 </tbody></table>

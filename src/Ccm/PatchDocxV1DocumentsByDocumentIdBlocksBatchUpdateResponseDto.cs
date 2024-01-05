@@ -1,6 +1,6 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 批量更新块 响应体
+/// 批量更新块的内容 响应体
 /// <para>批量更新块的富文本内容。</para>
 /// <para>接口ID：7100866542866530308</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/docs/docx-v1/document-block/batch_update</para>
