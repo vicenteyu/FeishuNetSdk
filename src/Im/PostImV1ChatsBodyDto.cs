@@ -106,6 +106,19 @@ public record PostImV1ChatsBodyDto
     public string[]? BotIdList { get; set; }
 
     /// <summary>
+    /// <para>群消息形式</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：chat</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>chat：对话消息</item>
+    /// <item>thread：话题消息</item>
+    /// </list></para>
+    /// <para>默认值：chat</para>
+    /// </summary>
+    [JsonPropertyName("group_message_type")]
+    public string? GroupMessageType { get; set; }
+
+    /// <summary>
     /// <para>群模式</para>
     /// <para>**可选值有**：</para>
     /// <para>- `group`：群组</para>

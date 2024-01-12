@@ -55,7 +55,7 @@ public record GetImV1ChatsByChatIdResponseDto
         /// <summary>
         /// <para>英文名</para>
         /// <para>必填：否</para>
-        /// <para>示例值：groupchat</para>
+        /// <para>示例值：group chat</para>
         /// </summary>
         [JsonPropertyName("en_us")]
         public string? EnUs { get; set; }
@@ -151,6 +151,18 @@ public record GetImV1ChatsByChatIdResponseDto
     /// </summary>
     [JsonPropertyName("bot_manager_id_list")]
     public string[]? BotManagerIdList { get; set; }
+
+    /// <summary>
+    /// <para>群消息模式</para>
+    /// <para>**可选值有**：</para>
+    /// <para>- `chat`：会话消息</para>
+    /// <para>- ` thread`：话题消息</para>
+    /// <para>**注意**：仅对话群返回该字段</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：chat</para>
+    /// </summary>
+    [JsonPropertyName("group_message_type")]
+    public string? GroupMessageType { get; set; }
 
     /// <summary>
     /// <para>群模式</para>

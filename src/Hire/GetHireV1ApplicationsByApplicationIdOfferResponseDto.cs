@@ -207,6 +207,8 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
                 /// <para>合同时长</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：3</para>
+                /// <para>最大值：100</para>
+                /// <para>最小值：0</para>
                 /// </summary>
                 [JsonPropertyName("period")]
                 public int Period { get; set; }
@@ -588,14 +590,14 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
         /// <item>3：审批已撤回</item>
         /// <item>4：审批通过</item>
         /// <item>5：审批不通过</item>
-        /// <item>6：Offer已发出</item>
+        /// <item>6：Offer 已发出</item>
         /// <item>7：候选人已接受</item>
         /// <item>8：候选人已拒绝</item>
-        /// <item>9：Offer已失效</item>
+        /// <item>9：Offer 已失效</item>
         /// <item>10：未审批</item>
-        /// <item>11：实习待入职（仅实习Offer具有）</item>
-        /// <item>12：实习已入职（仅实习Offer具有）</item>
-        /// <item>13：实习已离职（仅实习Offer具有）</item>
+        /// <item>11：实习待入职（仅实习 Offer 具有）</item>
+        /// <item>12：实习已入职（仅实习 Offer 具有）</item>
+        /// <item>13：实习已离职（仅实习 Offer 具有）</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("offer_status")]

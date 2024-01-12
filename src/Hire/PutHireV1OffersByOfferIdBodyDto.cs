@@ -121,6 +121,8 @@ public record PutHireV1OffersByOfferIdBodyDto
             /// <para>合同时长</para>
             /// <para>必填：是</para>
             /// <para>示例值：3</para>
+            /// <para>最大值：100</para>
+            /// <para>最小值：0</para>
             /// </summary>
             [JsonPropertyName("period")]
             public int Period { get; set; }
@@ -221,11 +223,11 @@ public record PutHireV1OffersByOfferIdBodyDto
     {
         /// <summary>
         /// <para>币种</para>
-        /// <para>必填：否</para>
+        /// <para>必填：是</para>
         /// <para>示例值：CNY</para>
         /// </summary>
         [JsonPropertyName("currency")]
-        public string? Currency { get; set; }
+        public string Currency { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>基本工资，当启用 Offer 申请表中的「薪资信息」模块时，「基本工资」字段为必传项</para>

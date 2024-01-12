@@ -155,6 +155,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：地点名称</para>
             /// <para>最大长度：512</para>
+            /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("name")]
             public string? Name { get; set; }
@@ -164,6 +165,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：地点地址</para>
             /// <para>最大长度：255</para>
+            /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("address")]
             public string? Address { get; set; }
@@ -210,6 +212,8 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchResponseDto
             /// <para>新建或更新日程时传入该字段，仅对当前身份生效，不会对日程其他参与人生效。</para>
             /// <para>必填：否</para>
             /// <para>示例值：5</para>
+            /// <para>最大值：20160</para>
+            /// <para>最小值：-20160</para>
             /// </summary>
             [JsonPropertyName("minutes")]
             public int? Minutes { get; set; }
@@ -254,6 +258,43 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchResponseDto
         /// </summary>
         [JsonPropertyName("recurring_event_id")]
         public string? RecurringEventId { get; set; }
+
+        /// <summary>
+        /// <para>日程组织者信息</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("event_organizer")]
+        public CalendarEventEventOrganizer? EventOrganizer { get; set; }
+
+        /// <summary>
+        /// <para>日程组织者信息</para>
+        /// </summary>
+        public record CalendarEventEventOrganizer
+        {
+            /// <summary>
+            /// <para>日程组织者user ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：ou_xxxxxx</para>
+            /// </summary>
+            [JsonPropertyName("user_id")]
+            public string? UserId { get; set; }
+
+            /// <summary>
+            /// <para>日程组织者姓名</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：孙二二</para>
+            /// </summary>
+            [JsonPropertyName("display_name")]
+            public string? DisplayName { get; set; }
+        }
+
+        /// <summary>
+        /// <para>日程的app_link,跳转到具体的某个日程</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：https://applink.larkoffice.com/client/calendar/event/detail?calendarId=7039673579105026066&amp;key=aeac9c56-aeb1-4179-a21b-02f278f59048&amp;originalTime=0&amp;startTime=1700496000</para>
+        /// </summary>
+        [JsonPropertyName("app_link")]
+        public string? AppLink { get; set; }
     }
 
     /// <summary>

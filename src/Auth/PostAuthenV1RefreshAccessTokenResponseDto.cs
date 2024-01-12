@@ -1,15 +1,15 @@
-namespace FeishuNetSdk.Authen;
+namespace FeishuNetSdk.Auth;
 /// <summary>
-/// 获取 user_access_token 响应体
-/// <para>根据[登录预授权码](https://open.feishu.cn/document/ukTMukTMukTM/ukzN4UjL5cDO14SO3gTN) code 获取 `user_access_token`。</para>
-/// <para>接口ID：7180265937329553412</para>
-/// <para>文档地址：https://open.feishu.cn/document/server-docs/authentication-management/access-token/create-2</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fauthen-v1%2faccess_token%2fcreate</para>
+/// 刷新 user_access_token 响应体
+/// <para>user_access_token 的最大有效期是 2小时左右。当 user_access_token 过期时，可以调用本接口获取新的 user_access_token。</para>
+/// <para>接口ID：7180265937329520644</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/authentication-management/access-token/create</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fauthen-v1%2frefresh_access_token%2fcreate</para>
 /// </summary>
-public record PostAuthenV1AccessTokenResponseDto
+public record PostAuthenV1RefreshAccessTokenResponseDto
 {
     /// <summary>
-    /// <para>user_access_token，用于获取用户资源</para>
+    /// <para>字段`access_token`即user_access_token，用于获取用户资源和访问某些open api</para>
     /// <para>必填：否</para>
     /// <para>示例值：u-Q7JWnaIM_kRChuLfreHmpArjOEayt.5XUBJcZr.V0Gst4FdQCtvrd9sAViLXQnQgkpL19brGOjKZQTxb</para>
     /// </summary>
@@ -25,7 +25,7 @@ public record PostAuthenV1AccessTokenResponseDto
     public string? TokenType { get; set; }
 
     /// <summary>
-    /// <para>`access_token` 的有效期，单位: 秒</para>
+    /// <para>user_access_token有效期，单位: 秒，有效时间两个小时左右，需要以返回结果为准</para>
     /// <para>必填：否</para>
     /// <para>示例值：7140</para>
     /// </summary>
@@ -67,7 +67,7 @@ public record PostAuthenV1AccessTokenResponseDto
     /// <summary>
     /// <para>用户头像 240x240</para>
     /// <para>必填：否</para>
-    /// <para>示例值：www.feishu.cn/avatar/icon_middle</para>
+    /// <para>示例值：thwww.feishu.cn/avatar/icon_middle</para>
     /// </summary>
     [JsonPropertyName("avatar_middle")]
     public string? AvatarMiddle { get; set; }
@@ -137,7 +137,7 @@ public record PostAuthenV1AccessTokenResponseDto
     public string? TenantKey { get; set; }
 
     /// <summary>
-    /// <para>`refresh_token` 的有效期，单位: 秒</para>
+    /// <para>refresh_token有效期，单位: 秒，一般是30天左右，需要以返回结果为准</para>
     /// <para>必填：否</para>
     /// <para>示例值：2591940</para>
     /// </summary>
@@ -145,7 +145,7 @@ public record PostAuthenV1AccessTokenResponseDto
     public int? RefreshExpiresIn { get; set; }
 
     /// <summary>
-    /// <para>刷新用户 `access_token` 时使用的 token</para>
+    /// <para>刷新 user_access_token时使用的 refresh_token</para>
     /// <para>必填：否</para>
     /// <para>示例值：ur-oQ0mMq6MCcueAv0pwx2fQQhxqv__CbLu6G8ySFwafeKww2Def2BJdOkW3.9gCFM.LBQgFri901QaqeuL</para>
     /// </summary>

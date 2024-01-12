@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 转发消息 响应体
-/// <para>向一个用户或群聊转发一条指定消息。</para>
+/// <para>向用户、群聊或话题转发一条指定消息。</para>
 /// <para>接口ID：7210967154035621891</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message/forward</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fforward</para>
@@ -31,6 +31,14 @@ public record PostImV1MessagesByMessageIdForwardResponseDto
     /// </summary>
     [JsonPropertyName("parent_id")]
     public string? ParentId { get; set; }
+
+    /// <summary>
+    /// <para>消息所属的话题 ID（不返回说明该消息非话题消息），说明参见：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：omt_d4be107c616a</para>
+    /// </summary>
+    [JsonPropertyName("thread_id")]
+    public string? ThreadId { get; set; }
 
     /// <summary>
     /// <para>消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)</para>
@@ -148,7 +156,7 @@ public record PostImV1MessagesByMessageIdForwardResponseDto
     public record MessageBody
     {
         /// <summary>
-        /// <para>消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)</para>
+        /// <para>消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考：[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)</para>
         /// <para>必填：是</para>
         /// <para>示例值：text:测试消息</para>
         /// </summary>

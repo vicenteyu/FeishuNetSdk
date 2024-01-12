@@ -1,4 +1,4 @@
-namespace FeishuNetSdk.Authen;
+namespace FeishuNetSdk.Auth;
 /// <summary>
 /// 获取 user_access_token（网页应用） 请求体
 /// <para>根据[登录预授权码](https://open.feishu.cn/document/common-capabilities/sso/api/obtain-oauth-code) 返回 code 获取 `user_access_token`。</para>

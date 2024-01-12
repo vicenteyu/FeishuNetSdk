@@ -1,12 +1,12 @@
 namespace FeishuNetSdk.Im;
 /// <summary>
-/// 发送消息 响应体
-/// <para>给指定用户或者会话发送消息，支持文本、富文本、可交互的[消息卡片](https://open.feishu.cn/document/ukTMukTMukTM/uczM3QjL3MzN04yNzcDN)、群名片、个人名片、图片、视频、音频、文件、表情包。</para>
-/// <para>接口ID：6946222931479527425</para>
-/// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message/create</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fcreate</para>
+/// 转发话题 响应体
+/// <para>向用户、群聊或话题转发一个话题。</para>
+/// <para>接口ID：7322036039857700865</para>
+/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/thread/forward</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fthread%2fforward</para>
 /// </summary>
-public record PostImV1MessagesResponseDto
+public record PostImV1ThreadsByThreadIdForwardResponseDto
 {
     /// <summary>
     /// <para>消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
@@ -41,7 +41,7 @@ public record PostImV1MessagesResponseDto
     public string? ThreadId { get; set; }
 
     /// <summary>
-    /// <para>消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)</para>
+    /// <para>消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)</para>
     /// <para>必填：否</para>
     /// <para>示例值：card</para>
     /// </summary>
@@ -51,7 +51,7 @@ public record PostImV1MessagesResponseDto
     /// <summary>
     /// <para>消息生成的时间戳（毫秒）</para>
     /// <para>必填：否</para>
-    /// <para>示例值：1615380573411</para>
+    /// <para>示例值：1609296809</para>
     /// </summary>
     [JsonPropertyName("create_time")]
     public string? CreateTime { get; set; }
@@ -59,7 +59,7 @@ public record PostImV1MessagesResponseDto
     /// <summary>
     /// <para>消息更新的时间戳（毫秒）</para>
     /// <para>必填：否</para>
-    /// <para>示例值：1615380573411</para>
+    /// <para>示例值：1609336806</para>
     /// </summary>
     [JsonPropertyName("update_time")]
     public string? UpdateTime { get; set; }
@@ -94,12 +94,12 @@ public record PostImV1MessagesResponseDto
     /// <para>示例值：object</para>
     /// </summary>
     [JsonPropertyName("sender")]
-    public PostImV1MessagesResponseDtoSender? Sender { get; set; }
+    public PostImV1ThreadsByThreadIdForwardResponseDtoSender? Sender { get; set; }
 
     /// <summary>
     /// <para>发送者，可以是用户或应用</para>
     /// </summary>
-    public record PostImV1MessagesResponseDtoSender
+    public record PostImV1ThreadsByThreadIdForwardResponseDtoSender
     {
         /// <summary>
         /// <para>该字段标识发送者的id</para>
@@ -158,7 +158,7 @@ public record PostImV1MessagesResponseDto
         /// <summary>
         /// <para>消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考：[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)</para>
         /// <para>必填：是</para>
-        /// <para>示例值：{\"text\":\"@_user_1 test content\"}</para>
+        /// <para>示例值：Merged and Forwarded Message</para>
         /// </summary>
         [JsonPropertyName("content")]
         public string Content { get; set; } = string.Empty;
@@ -179,7 +179,7 @@ public record PostImV1MessagesResponseDto
         /// <summary>
         /// <para>被@的用户或机器人的序号。例如，第3个被@到的成员，值为“@_user_3”</para>
         /// <para>必填：是</para>
-        /// <para>示例值：@_user_1</para>
+        /// <para>示例值：1@_user_1</para>
         /// </summary>
         [JsonPropertyName("key")]
         public string Key { get; set; } = string.Empty;
@@ -201,7 +201,7 @@ public record PostImV1MessagesResponseDto
         public string IdType { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>被@的用户或机器人的姓名</para>
+        /// <para>被@的用户或机器人的名称</para>
         /// <para>必填：是</para>
         /// <para>示例值：Tom</para>
         /// </summary>
@@ -220,7 +220,7 @@ public record PostImV1MessagesResponseDto
     /// <summary>
     /// <para>合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
     /// <para>必填：否</para>
-    /// <para>示例值：om_40eb06e7b84dc71c03e009ad3c754195</para>
+    /// <para>示例值：om_40eb06e7b84dc71c03e00ida3c754892</para>
     /// </summary>
     [JsonPropertyName("upper_message_id")]
     public string? UpperMessageId { get; set; }

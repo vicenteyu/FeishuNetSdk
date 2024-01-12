@@ -3337,23 +3337,32 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="container_id_type">
     /// <para>必填：是</para>
-    /// <para>容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）</para>
+    /// <para>容器类型</para>
+    /// <para>**可选值有**：</para>
+    /// <para>- `chat`：包含单聊（p2p）和群聊（group）</para>
+    /// <para>- `thread`: 话题</para>
     /// <para>示例值：chat</para>
     /// </param>
     /// <param name="container_id">
     /// <para>必填：是</para>
-    /// <para>容器的id，即chat的id，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
+    /// <para>容器的id，可填写：</para>
+    /// <para>- 群组chat_id，参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
+    /// <para>- 话题 thread_id，参见[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)</para>
     /// <para>示例值：oc_234jsi43d3ssi993d43545f</para>
     /// </param>
     /// <param name="start_time">
     /// <para>必填：否</para>
     /// <para>历史信息的起始时间（秒级时间戳）</para>
+    /// <para>**注意：**</para>
+    /// <para>- thread 容器类型暂不支持获取指定时间范围内的消息</para>
     /// <para>示例值：1608594809</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：否</para>
     /// <para>历史信息的结束时间（秒级时间戳）</para>
+    /// <para>**注意：**</para>
+    /// <para>- thread 容器类型暂不支持获取指定时间范围内的消息</para>
     /// <para>示例值：1609296809</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -4348,6 +4357,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="need_attendee">
+    /// <para>必填：否</para>
+    /// <para>是否需要返回参与人信息</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="max_attendee_num">
+    /// <para>必填：否</para>
+    /// <para>返回的最大参与人数量，使用获取日程参与人列表获取完整参与人信息。</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：10</para>
+    /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
@@ -4364,6 +4385,8 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string calendar_id,
         [PathQuery] string event_id,
         [PathQuery] bool? need_meeting_settings = null,
+        [PathQuery] bool? need_attendee = null,
+        [PathQuery] int? max_attendee_num = 10,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -4452,6 +4475,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：1631777271</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
     [HttpGet("/open-apis/calendar/v4/calendars/{calendar_id}/events")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdEventsResponseDto>> GetCalendarV4CalendarsByCalendarIdEventsAsync(
         [PathQuery] string calendar_id,
@@ -4460,7 +4494,8 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] string? sync_token = null,
         [PathQuery] string? start_time = null,
-        [PathQuery] string? end_time = null);
+        [PathQuery] string? end_time = null,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【日历】创建访问控制</para>
@@ -6872,11 +6907,44 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：people_admin_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
+    /// <param name="employee_type_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「人员类型 ID」的类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过「查询人员类型」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_employee_type_id</para>
+    /// </param>
     [HttpGet("/open-apis/hire/v1/employees/get_by_application")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1EmployeesGetByApplicationResponseDto>> GetHireV1EmployeesGetByApplicationAsync(
         [PathQuery] string application_id,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "people_admin_department_id");
+        [PathQuery] string? department_id_type = "people_admin_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
+        [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
     /// <para>【招聘】通过员工 ID 获取入职信息</para>
@@ -6913,11 +6981,44 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：people_admin_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
+    /// <param name="employee_type_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「人员类型 ID」的类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过「查询人员类型」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_employee_type_id</para>
+    /// </param>
     [HttpGet("/open-apis/hire/v1/employees/{employee_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1EmployeesByEmployeeIdResponseDto>> GetHireV1EmployeesByEmployeeIdAsync(
         [PathQuery] string employee_id,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "people_admin_department_id");
+        [PathQuery] string? department_id_type = "people_admin_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
+        [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
     /// <para>【招聘】更新入职状态</para>
@@ -6954,13 +7055,46 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：people_admin_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
+    /// <param name="employee_type_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「人员类型 ID」的类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过「查询人员类型」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_employee_type_id</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     [HttpPatch("/open-apis/hire/v1/employees/{employee_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PatchHireV1EmployeesByEmployeeIdResponseDto>> PatchHireV1EmployeesByEmployeeIdAsync(
         [PathQuery] string employee_id,
         [JsonContent] Hire.PatchHireV1EmployeesByEmployeeIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "people_admin_department_id");
+        [PathQuery] string? department_id_type = "people_admin_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
+        [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
     /// <para>【多维表格】新增字段</para>
@@ -7465,11 +7599,33 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
     [HttpGet("/open-apis/hire/v1/jobs/{job_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1JobsByJobIdResponseDto>> GetHireV1JobsByJobIdAsync(
         [PathQuery] string job_id,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id");
 
     /// <summary>
     /// <para>【招聘】获取职位上的招聘人员信息</para>
@@ -7626,13 +7782,46 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：people_admin_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
+    /// <param name="employee_type_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「人员类型 ID」的类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过「查询人员类型」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_employee_type_id</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/applications/{application_id}/transfer_onboard")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1ApplicationsByApplicationIdTransferOnboardResponseDto>> PostHireV1ApplicationsByApplicationIdTransferOnboardAsync(
         [PathQuery] string application_id,
         [JsonContent] Hire.PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "people_admin_department_id");
+        [PathQuery] string? department_id_type = "people_admin_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
+        [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
     /// <para>【招聘】创建投递</para>
@@ -7841,11 +8030,44 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
+    /// <param name="employee_type_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「人员类型 ID」的类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过「查询人员类型」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_employee_type_id</para>
+    /// </param>
     [HttpGet("/open-apis/hire/v1/applications/{application_id}/offer")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1ApplicationsByApplicationIdOfferResponseDto>> GetHireV1ApplicationsByApplicationIdOfferAsync(
         [PathQuery] string application_id,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
+        [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
     /// <para>【招聘】获取面试记录列表</para>
@@ -9767,13 +9989,46 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
+    /// <param name="employee_type_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「人员类型 ID」的类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过「查询人员类型」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_employee_type_id</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     [HttpPut("/open-apis/hire/v1/job_requirements/{job_requirement_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PutHireV1JobRequirementsByJobRequirementIdAsync(
         [PathQuery] string job_requirement_id,
         [JsonContent] Hire.PutHireV1JobRequirementsByJobRequirementIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
+        [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
     /// <para>【招聘】获取人才字段</para>
@@ -9872,6 +10127,36 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
+    /// <param name="employee_type_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「人员类型 ID」的类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过「查询人员类型」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_employee_type_id</para>
+    /// </param>
     [HttpGet("/open-apis/hire/v1/job_requirements")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1JobRequirementsResponseDto>> GetHireV1JobRequirementsAsync(
         [PathQuery] string? page_token = null,
@@ -9882,7 +10167,10 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? update_time_begin = null,
         [PathQuery] string? update_time_end = null,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
+        [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
     /// <para>【招聘】获取招聘需求模板</para>
@@ -10000,12 +10288,45 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
+    /// <param name="employee_type_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「人员类型 ID」的类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过「查询人员类型」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_employee_type_id</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/job_requirements")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1JobRequirementsResponseDto>> PostHireV1JobRequirementsAsync(
         [JsonContent] Hire.PostHireV1JobRequirementsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
+        [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
     /// <para>【应用信息】获取应用信息</para>
@@ -11326,12 +11647,34 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过[「获取租户职级列表」](https://open.feishu.cn/document/server-docs/contact-v3/job_level/list)接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过[「获取租户序列列表」](https://open.feishu.cn/document/server-docs/contact-v3/job_family/list)接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/jobs/combined_create")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1JobsCombinedCreateResponseDto>> PostHireV1JobsCombinedCreateAsync(
         [JsonContent] Hire.PostHireV1JobsCombinedCreateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id");
 
     /// <summary>
     /// <para>【招聘】更新职位</para>
@@ -11367,13 +11710,35 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/jobs/{job_id}/combined_update")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1JobsByJobIdCombinedUpdateResponseDto>> PostHireV1JobsByJobIdCombinedUpdateAsync(
         [PathQuery] string job_id,
         [JsonContent] Hire.PostHireV1JobsByJobIdCombinedUpdateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id");
 
     /// <summary>
     /// <para>【招聘】更新职位设置</para>
@@ -13509,11 +13874,44 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
+    /// <param name="employee_type_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「人员类型 ID」的类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过「查询人员类型」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_employee_type_id</para>
+    /// </param>
     [HttpGet("/open-apis/hire/v1/offers/{offer_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1OffersByOfferIdResponseDto>> GetHireV1OffersByOfferIdAsync(
         [PathQuery] string offer_id,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
+        [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
     /// <para>【应用信息】获取多部门应用使用概览</para>
@@ -14548,12 +14946,23 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="employee_type_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「人员类型 ID」的类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过「查询人员类型」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_employee_type_id</para>
+    /// </param>
     [HttpGet("/open-apis/hire/v1/offers")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1OffersResponseDto>> GetHireV1OffersAsync(
         [PathQuery] string talent_id,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 1,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
     /// <para>【招聘】获取人才文件夹信息</para>
@@ -15971,13 +16380,46 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
+    /// <param name="employee_type_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「人员类型 ID」的类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过「查询人员类型」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_employee_type_id</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     [HttpPut("/open-apis/hire/v1/offers/{offer_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PutHireV1OffersByOfferIdResponseDto>> PutHireV1OffersByOfferIdAsync(
         [PathQuery] string offer_id,
         [JsonContent] Hire.PutHireV1OffersByOfferIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
+        [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
     /// <para>【招聘】创建 Offer</para>
@@ -16008,12 +16450,45 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
+    /// <param name="employee_type_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「人员类型 ID」的类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过「查询人员类型」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_employee_type_id</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/offers")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1OffersResponseDto>> PostHireV1OffersAsync(
         [JsonContent] Hire.PostHireV1OffersBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
+        [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
     /// <para>【词典】创建免审词条</para>
@@ -16366,7 +16841,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7094878915034464284</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口仅支持**文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，目前已支持的事件类型请参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
+    /// <para>该接口仅支持**文档拥有者**和**文档管理者**订阅文档的通知事件（但目前文档管理者仅能接收到**文件编辑**事件）。可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，目前已支持的事件类型请参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
@@ -22345,11 +22820,22 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
     [HttpGet("/open-apis/hire/v1/referral_websites/job_posts/{job_post_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto>> GetHireV1ReferralWebsitesJobPostsByJobPostIdAsync(
         [PathQuery] string job_post_id,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id");
 
     /// <summary>
     /// <para>【招聘】获取内推官网下的职位列表</para>
@@ -22401,13 +22887,24 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
     [HttpGet("/open-apis/hire/v1/referral_websites/job_posts")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1ReferralWebsitesJobPostsResponseDto>> GetHireV1ReferralWebsitesJobPostsAsync(
         [PathQuery] int? process_type = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id");
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的名片</para>
@@ -22448,7 +22945,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7210967154035621891</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/forward</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>向一个用户或群聊转发一条指定消息。</para>
+    /// <para>向用户、群聊或话题转发一条指定消息。</para>
     /// </summary>
     /// <param name="message_id">
     /// <para>路径参数</para>
@@ -22458,14 +22955,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="receive_id_type">
     /// <para>必填：是</para>
-    /// <para>消息接收者id类型 open_id/user_id/union_id/email/chat_id</para>
+    /// <para>消息接收者id类型 open_id/user_id/union_id/email/chat_id/thread_id</para>
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
     /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>email：以用户的真实邮箱来标识用户。</item>
-    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)&lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
+    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</item>
+    /// <item>thread_id：以话题ID来标识话题。了解更多：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction) &lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
     /// </list>
     /// </param>
     /// <param name="uuid">
@@ -22487,7 +22985,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7210967154035638275</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/merge_forward</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>将来自同一个群聊中的多条消息合并转发给指定用户或群聊。</para>
+    /// <para>将来自同一个群聊中的多条消息合并转发给指定用、群聊或话题。</para>
     /// </summary>
     /// <param name="receive_id_type">
     /// <para>必填：是</para>
@@ -22498,7 +22996,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>email：以用户的真实邮箱来标识用户。</item>
-    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)&lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
+    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</item>
+    /// <item>thread_id：以话题ID来标识话题。了解更多：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction) &lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
     /// </list>
     /// </param>
     /// <param name="uuid">
@@ -23014,12 +23513,45 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：6942778198054125570</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：6942778198054125571</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
+    /// <param name="employee_type_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「人员类型 ID」的类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过「查询人员类型」接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_employee_type_id</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/job_requirements/search")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1JobRequirementsSearchResponseDto>> PostHireV1JobRequirementsSearchAsync(
         [JsonContent] Hire.PostHireV1JobRequirementsSearchBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
+        [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
     /// <para>【招聘】更新 Offer 状态</para>
@@ -25907,7 +26439,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7259592279886233628</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete_subscribe</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口**仅支持文档拥有者**取消订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。暂时无法指定取消的具体事件类型，事件类型以开发者后台为准。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
+    /// <para>该接口仅支持**文档拥有者**和**文档管理者**取消订阅文档的通知事件（但目前文档管理者仅能接收到**文件编辑**事件）。可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。暂时无法指定取消的具体事件类型，事件类型以开发者后台为准。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
@@ -25937,7 +26469,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7259592279886250012</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/get_subscribe</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口**仅支持文档拥有者**查询自己文档的订阅状态，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
+    /// <para>该接口仅支持**文档拥有者**和**文档管理者**查询文档的订阅状态（但目前文档管理者仅能接收到**文件编辑**事件）。可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
@@ -27701,5 +28233,88 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/document_ai/v1/health_certificate/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1HealthCertificateRecognizeResponseDto>> PostDocumentAiV1HealthCertificateRecognizeAsync(
         [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【消息与群组】转发话题</para>
+    /// <para>接口ID：7322036039857700865</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/thread/forward</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>向用户、群聊或话题转发一个话题。</para>
+    /// </summary>
+    /// <param name="thread_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>要转发的话题ID，详见：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)</para>
+    /// <para>&lt;/md-enum-item&gt;</para>
+    /// <para>示例值：omt_dc132645203</para>
+    /// </param>
+    /// <param name="receive_id_type">
+    /// <para>必填：是</para>
+    /// <para>消息接收者id类型 open_id/user_id/union_id/email/chat_id/thread_id</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。</item>
+    /// <item>email：以用户的真实邮箱来标识用户。</item>
+    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</item>
+    /// <item>thread_id：以话题ID来标识话题。了解更多：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction) &lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
+    /// </list>
+    /// </param>
+    /// <param name="uuid">
+    /// <para>必填：否</para>
+    /// <para>由开发者生成的唯一字符串序列，用于转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的转发只可成功一次。</para>
+    /// <para>示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/im/v1/threads/{thread_id}/forward")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ThreadsByThreadIdForwardResponseDto>> PostImV1ThreadsByThreadIdForwardAsync(
+        [PathQuery] string thread_id,
+        [PathQuery] string receive_id_type,
+        [JsonContent] Im.PostImV1ThreadsByThreadIdForwardBodyDto dto,
+        [PathQuery] string? uuid = null);
+
+    /// <summary>
+    /// <para>【日历】查询日程视图</para>
+    /// <para>接口ID：7322810271218647043</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/instance_view</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于以用户身份查询某日历下的日程视图（重复性日程展开）。</para>
+    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// </summary>
+    /// <param name="calendar_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>日历ID</para>
+    /// <para>示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn</para>
+    /// </param>
+    /// <param name="start_time">
+    /// <para>必填：是</para>
+    /// <para>日程开始Unix时间戳，单位为秒，起止时间跨度小于40天</para>
+    /// <para>示例值：1631777271</para>
+    /// </param>
+    /// <param name="end_time">
+    /// <para>必填：是</para>
+    /// <para>日程结束Unix时间戳，单位为秒，起止时间跨度小于40天</para>
+    /// <para>示例值：1631777271</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/calendar/v4/calendars/{calendar_id}/events/instance_view")]
+    System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto>> GetCalendarV4CalendarsByCalendarIdEventsInstanceViewAsync(
+        [PathQuery] string calendar_id,
+        [PathQuery] string start_time,
+        [PathQuery] string end_time,
+        [PathQuery] string? user_id_type = "open_id");
 }
 

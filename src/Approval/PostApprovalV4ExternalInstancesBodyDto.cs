@@ -753,7 +753,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <summary>
         /// <para>当前使用的表单版本号，保证表单改变后，版本号增加，实际值为int64整数</para>
         /// <para>必填：否</para>
-        /// <para>示例值："1"</para>
+        /// <para>示例值：1</para>
         /// </summary>
         [JsonPropertyName("form_version")]
         public string? FormVersion { get; set; }

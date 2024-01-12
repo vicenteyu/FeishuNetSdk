@@ -25,7 +25,7 @@ public record PostImV1MessagesByMessageIdReplyBodyDto
     public string MsgType { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>是否以话题形式回复；若要回复的消息已经是话题消息，则默认已话题形式进行回复</para>
+    /// <para>是否以话题形式回复；若要回复的消息已经是话题消息，则默认以话题形式进行回复</para>
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>

@@ -1,4 +1,4 @@
-namespace FeishuNetSdk.Authen;
+namespace FeishuNetSdk.Auth;
 /// <summary>
 /// 刷新 user_access_token 响应体
 /// <para>user_access_token 的最大有效期是 2小时左右。当 user_access_token 过期时，可以调用本接口获取新的 user_access_token。</para>

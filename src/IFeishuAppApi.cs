@@ -46,8 +46,8 @@ public interface IFeishuAppApi : IHttpApi
     /// <param name="dto">请求体</param>
     [Obsolete("历史版本")]
     [HttpPost("/open-apis/authen/v1/refresh_access_token")]
-    System.Threading.Tasks.Task<FeishuResponse<Authen.PostAuthenV1RefreshAccessTokenResponseDto>> PostAuthenV1RefreshAccessTokenAsync(
-        [JsonContent] Authen.PostAuthenV1RefreshAccessTokenBodyDto dto);
+    System.Threading.Tasks.Task<FeishuResponse<Auth.PostAuthenV1RefreshAccessTokenResponseDto>> PostAuthenV1RefreshAccessTokenAsync(
+        [JsonContent] Auth.PostAuthenV1RefreshAccessTokenBodyDto dto);
 
     /// <summary>
     /// <para>【身份验证】获取 user_access_token</para>
@@ -59,8 +59,8 @@ public interface IFeishuAppApi : IHttpApi
     /// <param name="dto">请求体</param>
     [Obsolete("历史版本")]
     [HttpPost("/open-apis/authen/v1/access_token")]
-    System.Threading.Tasks.Task<FeishuResponse<Authen.PostAuthenV1AccessTokenResponseDto>> PostAuthenV1AccessTokenAsync(
-        [JsonContent] Authen.PostAuthenV1AccessTokenBodyDto dto);
+    System.Threading.Tasks.Task<FeishuResponse<Auth.PostAuthenV1AccessTokenResponseDto>> PostAuthenV1AccessTokenAsync(
+        [JsonContent] Auth.PostAuthenV1AccessTokenBodyDto dto);
 
     /// <summary>
     /// <para>【身份验证】刷新 user_access_token</para>
@@ -71,8 +71,8 @@ public interface IFeishuAppApi : IHttpApi
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/authen/v1/oidc/refresh_access_token")]
-    System.Threading.Tasks.Task<FeishuResponse<Authen.PostAuthenV1OidcRefreshAccessTokenResponseDto>> PostAuthenV1OidcRefreshAccessTokenAsync(
-        [JsonContent] Authen.PostAuthenV1OidcRefreshAccessTokenBodyDto dto);
+    System.Threading.Tasks.Task<FeishuResponse<Auth.PostAuthenV1OidcRefreshAccessTokenResponseDto>> PostAuthenV1OidcRefreshAccessTokenAsync(
+        [JsonContent] Auth.PostAuthenV1OidcRefreshAccessTokenBodyDto dto);
 
     /// <summary>
     /// <para>【身份验证】获取 user_access_token（网页应用）</para>
@@ -83,7 +83,7 @@ public interface IFeishuAppApi : IHttpApi
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/authen/v1/oidc/access_token")]
-    System.Threading.Tasks.Task<FeishuResponse<Authen.PostAuthenV1OidcAccessTokenResponseDto>> PostAuthenV1OidcAccessTokenAsync(
-        [JsonContent] Authen.PostAuthenV1OidcAccessTokenBodyDto dto);
+    System.Threading.Tasks.Task<FeishuResponse<Auth.PostAuthenV1OidcAccessTokenResponseDto>> PostAuthenV1OidcAccessTokenAsync(
+        [JsonContent] Auth.PostAuthenV1OidcAccessTokenBodyDto dto);
 }
 

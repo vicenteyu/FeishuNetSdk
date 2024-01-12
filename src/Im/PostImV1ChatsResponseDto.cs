@@ -63,7 +63,7 @@ public record PostImV1ChatsResponseDto
         /// <summary>
         /// <para>英文名</para>
         /// <para>必填：否</para>
-        /// <para>示例值：groupchat</para>
+        /// <para>示例值：group chat</para>
         /// </summary>
         [JsonPropertyName("en_us")]
         public string? EnUs { get; set; }
@@ -125,7 +125,7 @@ public record PostImV1ChatsResponseDto
     /// <para>- `only_owner`：仅群主和管理员</para>
     /// <para>- `all_members`：所有成员</para>
     /// <para>必填：否</para>
-    /// <para>示例值：allmembers</para>
+    /// <para>示例值：all members</para>
     /// </summary>
     [JsonPropertyName("add_member_permission")]
     public string? AddMemberPermission { get; set; }
@@ -147,7 +147,7 @@ public record PostImV1ChatsResponseDto
     /// <para>- `only_owner`：仅群主和管理员</para>
     /// <para>- `all_members`：所有成员</para>
     /// <para>必填：否</para>
-    /// <para>示例值：allmembers</para>
+    /// <para>示例值：all members</para>
     /// </summary>
     [JsonPropertyName("at_all_permission")]
     public string? AtAllPermission { get; set; }
@@ -158,10 +158,21 @@ public record PostImV1ChatsResponseDto
     /// <para>- `only_owner`：仅群主和管理员</para>
     /// <para>- `all_members`：所有成员</para>
     /// <para>必填：否</para>
-    /// <para>示例值：allmembers</para>
+    /// <para>示例值：all members</para>
     /// </summary>
     [JsonPropertyName("edit_permission")]
     public string? EditPermission { get; set; }
+
+    /// <summary>
+    /// <para>群消息形式</para>
+    /// <para>**可选值有**：</para>
+    /// <para>- `chat`：对话消息</para>
+    /// <para>- `thread`：话题消息</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：chat</para>
+    /// </summary>
+    [JsonPropertyName("group_message_type")]
+    public string? GroupMessageType { get; set; }
 
     /// <summary>
     /// <para>群模式</para>

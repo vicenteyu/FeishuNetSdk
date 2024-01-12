@@ -129,6 +129,8 @@ public record PutHireV1OffersByOfferIdResponseDto
             /// <para>合同时长</para>
             /// <para>必填：是</para>
             /// <para>示例值：3</para>
+            /// <para>最大值：100</para>
+            /// <para>最小值：0</para>
             /// </summary>
             [JsonPropertyName("period")]
             public int Period { get; set; }
@@ -228,11 +230,11 @@ public record PutHireV1OffersByOfferIdResponseDto
     {
         /// <summary>
         /// <para>币种</para>
-        /// <para>必填：否</para>
+        /// <para>必填：是</para>
         /// <para>示例值：CNY</para>
         /// </summary>
         [JsonPropertyName("currency")]
-        public string? Currency { get; set; }
+        public string Currency { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>基本薪资</para>

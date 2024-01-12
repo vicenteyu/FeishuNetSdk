@@ -584,6 +584,13 @@ public record GetHireV1ReferralWebsitesJobPostsResponseDto
         }
 
         /// <summary>
+        /// <para>职能分类</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("job_function")]
+        public IdNameObject? JobFunction { get; set; }
+
+        /// <summary>
         /// <para>职位广告地址列表</para>
         /// <para>必填：否</para>
         /// </summary>

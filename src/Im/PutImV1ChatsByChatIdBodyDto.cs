@@ -55,7 +55,7 @@ public record PutImV1ChatsByChatIdBodyDto
         /// <summary>
         /// <para>英文名</para>
         /// <para>必填：否</para>
-        /// <para>示例值：groupchat</para>
+        /// <para>示例值：group chat</para>
         /// </summary>
         [JsonPropertyName("en_us")]
         public string? EnUs { get; set; }
@@ -229,6 +229,18 @@ public record PutImV1ChatsByChatIdBodyDto
     /// </summary>
     [JsonPropertyName("chat_type")]
     public string? ChatType { get; set; }
+
+    /// <summary>
+    /// <para>群消息形式</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：chat</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>chat：对话消息</item>
+    /// <item>thread：话题消息</item>
+    /// </list></para>
+    /// </summary>
+    [JsonPropertyName("group_message_type")]
+    public string? GroupMessageType { get; set; }
 
     /// <summary>
     /// <para>谁可以加急</para>

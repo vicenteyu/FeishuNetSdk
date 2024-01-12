@@ -45,6 +45,14 @@ public record GetImV1MessagesByMessageIdResponseDto
         public string? ParentId { get; set; }
 
         /// <summary>
+        /// <para>消息所属的话题 ID（不返回说明该消息非话题消息），说明参见：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：omt_d4be107c616a</para>
+        /// </summary>
+        [JsonPropertyName("thread_id")]
+        public string? ThreadId { get; set; }
+
+        /// <summary>
         /// <para>消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)</para>
         /// <para>必填：否</para>
         /// <para>示例值：card</para>
