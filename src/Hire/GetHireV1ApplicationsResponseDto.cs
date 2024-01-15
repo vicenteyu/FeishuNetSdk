@@ -9,7 +9,7 @@ namespace FeishuNetSdk.Hire;
 public record GetHireV1ApplicationsResponseDto
 {
     /// <summary>
-    /// <para>投递数据列表</para>
+    /// <para>投递ID列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]

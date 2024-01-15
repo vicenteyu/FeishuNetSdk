@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 更新行列 请求体
-/// <para>该接口用于根据 spreadsheetToken 和维度信息更新隐藏行列、单元格大小；单次操作不超过5000行或列。</para>
+/// <para>该接口用于根据 spreadsheetToken 和维度信息更新隐藏行列、单元格大小、行高列宽；单次操作不超过5000行或列。</para>
 /// <para>接口ID：6907569742383562754</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/sheets-v3/sheet-rowcol/update-rows-or-columns</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuYjMzUjL2IzM14iNyMTN</para>

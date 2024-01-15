@@ -346,7 +346,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569742383562754</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYjMzUjL2IzM14iNyMTN</para>
     /// <para>Authorization：user_access_token、tenant_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 和维度信息更新隐藏行列、单元格大小；单次操作不超过5000行或列。</para>
+    /// <para>该接口用于根据 spreadsheetToken 和维度信息更新隐藏行列、单元格大小、行高列宽；单次操作不超过5000行或列。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
@@ -388,7 +388,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569742383923202</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uAzMzUjLwMzM14CMzMTN</para>
     /// <para>Authorization：user_access_token、tenant_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 、range和样式信息 批量更新单元格样式；单次写入不超过5000行，100列。建议在设置边框样式时，每次更新的单元格数量不要超过30000个。</para>
+    /// <para>该接口用于根据 spreadsheetToken 、range和样式信息 批量更新单元格样式；单次写入不超过5000行，100列。建议在设置边框样式时，每次更新的单元格数量不要超过30000个。一个区域被多个range覆盖时，仅最后一个样式会被应用。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
@@ -409,6 +409,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugDNzUjL4QzM14CO0MTN</para>
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据 spreadsheetToken 和维度信息增加多个保护范围；单次操作不超过5000行或列。</para>
+    /// <para>仅支持设置保护行或保护列，暂不支持设置保护单元格</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
@@ -982,6 +983,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQTM5YjL0ETO24CNxkjN</para>
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据保护范围ID查询详细的保护行列信息，最多支持同时查询5个ID。</para>
+    /// <para>1. 仅支持获取保护行或保护列，暂不支持获取保护单元格</para>
+    /// <para>2. 不支持获取包含多个区域的保护范围</para>
     /// </summary>
     /// <param name="protectIds">
     /// <para>必填：是</para>

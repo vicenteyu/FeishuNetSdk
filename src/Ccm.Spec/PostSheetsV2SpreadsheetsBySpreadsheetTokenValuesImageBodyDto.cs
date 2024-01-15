@@ -16,7 +16,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageBodyDto
     public string Range { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>需要写入的图片二进制流，支持 "PNG", "JPEG", "JPG", "GIF", "BMP", "JFIF", "EXIF", "TIFF", "BPG", "WEBP", "HEIC" 等图片格式</para>
+    /// <para>需要写入的图片二进制流，支持 "PNG", "JPEG", "JPG", "GIF", "BMP", "JFIF", "EXIF", "TIFF", "BPG", "HEIC" 等图片格式</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("image")]

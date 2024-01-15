@@ -89,22 +89,6 @@ public record GetHireV1InterviewsResponseDto
             public string? Content { get; set; }
 
             /// <summary>
-            /// <para>建议定级下限的职级 ID</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6435238827342432</para>
-            /// </summary>
-            [JsonPropertyName("min_job_level_id")]
-            public string? MinJobLevelId { get; set; }
-
-            /// <summary>
-            /// <para>建议定级上限的职级 ID</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：643523885843573</para>
-            /// </summary>
-            [JsonPropertyName("max_job_level_id")]
-            public string? MaxJobLevelId { get; set; }
-
-            /// <summary>
             /// <para>提交状态</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
@@ -123,6 +107,9 @@ public record GetHireV1InterviewsResponseDto
             /// <para>可选值：<list type="bullet">
             /// <item>1：通过</item>
             /// <item>2：未通过</item>
+            /// <item>2：未开始</item>
+            /// <item>2：未提交</item>
+            /// <item>2：未到场</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("conclusion")]
@@ -167,7 +154,7 @@ public record GetHireV1InterviewsResponseDto
                 /// <summary>
                 /// <para>中文描述</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：通过,能力达到要求,建议录用</para>
+                /// <para>示例值：通过, 能力达到要求, 建议录用</para>
                 /// </summary>
                 [JsonPropertyName("zh_description")]
                 public string? ZhDescription { get; set; }
@@ -183,7 +170,7 @@ public record GetHireV1InterviewsResponseDto
                 /// <summary>
                 /// <para>英文描述</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Pass,abilitytomeettherequirements,suggesttohire</para>
+                /// <para>示例值：Pass, ability to meet the requirements, suggest to hire</para>
                 /// </summary>
                 [JsonPropertyName("en_description")]
                 public string? EnDescription { get; set; }
@@ -212,6 +199,7 @@ public record GetHireV1InterviewsResponseDto
                 /// <summary>
                 /// <para>名称</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：10</para>
                 /// </summary>
                 [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
