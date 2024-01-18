@@ -83,7 +83,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// <summary>
             /// <para>开始时间，时间格式为 yyyy-MM-dd HH:mm:ss</para>
             /// <para>必填：是</para>
-            /// <para>示例值：2021-01-0409:00:00</para>
+            /// <para>示例值：2021-01-04 09:00:00</para>
             /// </summary>
             [JsonPropertyName("start_time")]
             public string StartTime { get; set; } = string.Empty;
@@ -91,7 +91,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// <summary>
             /// <para>结束时间，时间格式为 yyyy-MM-dd HH:mm:ss</para>
             /// <para>必填：是</para>
-            /// <para>示例值：2021-01-0419:00:00</para>
+            /// <para>示例值：2021-01-04 19:00:00</para>
             /// </summary>
             [JsonPropertyName("end_time")]
             public string EndTime { get; set; } = string.Empty;
@@ -119,7 +119,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
                 /// <summary>
                 /// <para>英语描述</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Englishdescription</para>
+                /// <para>示例值：English description</para>
                 /// </summary>
                 [JsonPropertyName("en")]
                 public string? En { get; set; }
@@ -196,7 +196,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// <summary>
             /// <para>开始时间，时间格式为 yyyy-MM-dd HH:mm:ss</para>
             /// <para>必填：是</para>
-            /// <para>示例值：2021-01-0409:00:00</para>
+            /// <para>示例值：2021-01-04 09:00:00</para>
             /// </summary>
             [JsonPropertyName("start_time")]
             public string StartTime { get; set; } = string.Empty;
@@ -204,7 +204,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// <summary>
             /// <para>结束时间，时间格式为 yyyy-MM-dd HH:mm:ss</para>
             /// <para>必填：是</para>
-            /// <para>示例值：2021-01-0419:00:00</para>
+            /// <para>示例值：2021-01-04 19:00:00</para>
             /// </summary>
             [JsonPropertyName("end_time")]
             public string EndTime { get; set; } = string.Empty;
@@ -232,7 +232,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
                 /// <summary>
                 /// <para>英语描述</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Englishdescription</para>
+                /// <para>示例值：English description</para>
                 /// </summary>
                 [JsonPropertyName("en")]
                 public string? En { get; set; }
@@ -332,7 +332,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// <summary>
             /// <para>开始时间，时间格式为 yyyy-MM-dd HH:mm:ss</para>
             /// <para>必填：是</para>
-            /// <para>示例值：2021-01-0909:00:00</para>
+            /// <para>示例值：2021-01-09 09:00:00</para>
             /// </summary>
             [JsonPropertyName("start_time")]
             public string StartTime { get; set; } = string.Empty;
@@ -340,10 +340,18 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// <summary>
             /// <para>结束时间，时间格式为 yyyy-MM-dd HH:mm:ss</para>
             /// <para>必填：是</para>
-            /// <para>示例值：2021-01-1013:00:00</para>
+            /// <para>示例值：2021-01-10 13:00:00</para>
             /// </summary>
             [JsonPropertyName("end_time")]
             public string EndTime { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>加班事由</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：推进项目进度</para>
+            /// </summary>
+            [JsonPropertyName("reason")]
+            public string? Reason { get; set; }
         }
 
         /// <summary>
@@ -363,7 +371,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// <summary>
             /// <para>开始时间，时间格式为 yyyy-MM-dd HH:mm:ss</para>
             /// <para>必填：是</para>
-            /// <para>示例值：2021-01-0409:00:00</para>
+            /// <para>示例值：2021-01-04 09:00:00</para>
             /// </summary>
             [JsonPropertyName("start_time")]
             public string StartTime { get; set; } = string.Empty;
@@ -371,7 +379,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// <summary>
             /// <para>结束时间，时间格式为 yyyy-MM-dd HH:mm:ss</para>
             /// <para>必填：是</para>
-            /// <para>示例值：2021-01-0419:00:00</para>
+            /// <para>示例值：2021-01-04 19:00:00</para>
             /// </summary>
             [JsonPropertyName("end_time")]
             public string EndTime { get; set; } = string.Empty;
@@ -387,7 +395,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// <summary>
             /// <para>审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss</para>
             /// <para>必填：是</para>
-            /// <para>示例值：2021-01-0412:00:00</para>
+            /// <para>示例值：2021-01-04 12:00:00</para>
             /// </summary>
             [JsonPropertyName("approve_pass_time")]
             public string ApprovePassTime { get; set; } = string.Empty;
@@ -395,7 +403,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// <summary>
             /// <para>审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss</para>
             /// <para>必填：是</para>
-            /// <para>示例值：2021-01-0411:00:00</para>
+            /// <para>示例值：2021-01-04 11:00:00</para>
             /// </summary>
             [JsonPropertyName("approve_apply_time")]
             public string ApproveApplyTime { get; set; } = string.Empty;

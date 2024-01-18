@@ -107,9 +107,9 @@ public record GetHireV1InterviewsResponseDto
             /// <para>可选值：<list type="bullet">
             /// <item>1：通过</item>
             /// <item>2：未通过</item>
-            /// <item>2：未开始</item>
-            /// <item>2：未提交</item>
-            /// <item>2：未到场</item>
+            /// <item>3：未开始</item>
+            /// <item>4：未提交</item>
+            /// <item>5：未到场</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("conclusion")]

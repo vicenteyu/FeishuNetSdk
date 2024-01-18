@@ -3348,9 +3348,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="container_id">
     /// <para>必填：是</para>
-    /// <para>容器的id，可填写：</para>
-    /// <para>- 群组chat_id，参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>- 话题 thread_id，参见[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)</para>
+    /// <para>容器的ID，可填写：</para>
+    /// <para>- chat_id，群聊或单聊的 ID，参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
+    /// <para>- thread_id，话题 ID，参见[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)</para>
     /// <para>示例值：oc_234jsi43d3ssi993d43545f</para>
     /// </param>
     /// <param name="start_time">
