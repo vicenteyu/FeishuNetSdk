@@ -1,6 +1,6 @@
 namespace FeishuNetSdk.Calendar;
 /// <summary>
-/// 查询主日历忙闲信息 请求体
+/// 查询主日历日程忙闲信息 请求体
 /// <para>查询用户主日历或会议室的忙闲信息。</para>
 /// <para>接口ID：6952888507002912795</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/calendar/list</para>
@@ -39,4 +39,20 @@ public record PostCalendarV4FreebusyListBodyDto
     /// </summary>
     [JsonPropertyName("room_id")]
     public string? RoomId { get; set; }
+
+    /// <summary>
+    /// <para>是否包含绑定的三方日历中的日程，不传默认为true，即包含。</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：true</para>
+    /// </summary>
+    [JsonPropertyName("include_external_calendar")]
+    public bool? IncludeExternalCalendar { get; set; }
+
+    /// <summary>
+    /// <para>是否包含标记为空闲的日程，不传默认为true，即不包含。</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：true</para>
+    /// </summary>
+    [JsonPropertyName("only_busy")]
+    public bool? OnlyBusy { get; set; }
 }

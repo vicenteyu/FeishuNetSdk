@@ -439,9 +439,9 @@
 <tr><td colspan="3">GetWikiV2Spaces</td></tr>
 <tr><td rowspan="2">220</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>获取知识空间信息</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceId</td></tr>
-<tr><td rowspan="2">221</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>添加知识空间成员</td></tr>
+<tr><td rowspan="2">221</td><td rowspan="2">2024-01-18</td><td>&#10003;</td><td>云文档</td><td>添加知识空间成员</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdMembers</td></tr>
-<tr><td rowspan="2">222</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>删除知识空间成员</td></tr>
+<tr><td rowspan="2">222</td><td rowspan="2">2024-01-18</td><td>&#10003;</td><td>云文档</td><td>删除知识空间成员</td></tr>
 <tr><td colspan="3">DeleteWikiV2SpacesBySpaceIdMembersByMemberId</td></tr>
 <tr><td rowspan="2">223</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>更新知识空间设置</td></tr>
 <tr><td colspan="3">PutWikiV2SpacesBySpaceIdSetting</td></tr>
@@ -473,7 +473,7 @@
 <tr><td colspan="3">GetContactV3DepartmentsParent</td></tr>
 <tr><td rowspan="2">237</td><td rowspan="2">2023-08-01</td><td>&#10003;</td><td>日历</td><td>查询主日历信息</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsPrimary</td></tr>
-<tr><td rowspan="2">238</td><td rowspan="2">2023-10-27</td><td>&#10003;</td><td>日历</td><td>查询主日历忙闲信息</td></tr>
+<tr><td rowspan="2">238</td><td rowspan="2">2024-01-23</td><td>&#10003;</td><td>日历</td><td>查询主日历日程忙闲信息</td></tr>
 <tr><td colspan="3">PostCalendarV4FreebusyList</td></tr>
 <tr><td rowspan="2">239</td><td rowspan="2">2023-07-26</td><td>&#10003;</td><td>日历</td><td>查询日历信息</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarId</td></tr>
@@ -683,7 +683,7 @@
 <tr><td colspan="3">PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedys</td></tr>
 <tr><td rowspan="2">342</td><td rowspan="2">2023-12-08</td><td>&#10003;</td><td>考勤打卡</td><td>获取补卡记录</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserTaskRemedysQuery</td></tr>
-<tr><td rowspan="2">343</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>考勤打卡</td><td>导入打卡流水</td></tr>
+<tr><td rowspan="2">343</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>考勤打卡</td><td>导入打卡流水</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserFlowsBatchCreate</td></tr>
 <tr><td rowspan="2">344</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>考勤打卡</td><td>查询打卡流水</td></tr>
 <tr><td colspan="3">GetAttendanceV1UserFlowsByUserFlowId</td></tr>
@@ -705,7 +705,7 @@
 <tr><td colspan="3">GetAttendanceV1LeaveEmployExpireRecordsByLeaveId</td></tr>
 <tr><td rowspan="2">353</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>修改发放记录</td></tr>
 <tr><td colspan="3">PatchAttendanceV1LeaveAccrualRecordByLeaveId</td></tr>
-<tr><td rowspan="2">354</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>审批</td><td>创建审批定义</td></tr>
+<tr><td rowspan="2">354</td><td rowspan="2">2024-01-18</td><td>&#10003;</td><td>审批</td><td>创建审批定义</td></tr>
 <tr><td colspan="3">PostApprovalV4Approvals</td></tr>
 <tr><td rowspan="2">355</td><td rowspan="2">2023-08-29</td><td>&#10003;</td><td>审批</td><td>查看指定审批定义</td></tr>
 <tr><td colspan="3">GetApprovalV4ApprovalsByApprovalCode</td></tr>
@@ -747,7 +747,7 @@
 <tr><td colspan="3">PostApprovalV4InstancesByInstanceIdCommentsRemove</td></tr>
 <tr><td rowspan="2">374</td><td rowspan="2">2022-09-02</td><td>&#10003;</td><td>审批</td><td>获取评论</td></tr>
 <tr><td colspan="3">GetApprovalV4InstancesByInstanceIdComments</td></tr>
-<tr><td rowspan="2">375</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>审批</td><td>创建三方审批定义</td></tr>
+<tr><td rowspan="2">375</td><td rowspan="2">2024-01-18</td><td>&#10003;</td><td>审批</td><td>创建三方审批定义</td></tr>
 <tr><td colspan="3">PostApprovalV4ExternalApprovals</td></tr>
 <tr><td rowspan="2">376</td><td rowspan="2">2023-07-13</td><td>&#10003;</td><td>审批</td><td>查看指定三方审批定义</td></tr>
 <tr><td colspan="3">GetApprovalV4ExternalApprovalsByApprovalCode</td></tr>
@@ -1537,23 +1537,23 @@
 <tr><td colspan="3">PatchImV1MessagesByMessageIdUrgentSms</td></tr>
 <tr><td rowspan="2">769</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>新建职位</td></tr>
 <tr><td colspan="3">PostHireV1JobsCombinedCreate</td></tr>
-<tr><td rowspan="2">770</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>获取职位信息</td></tr>
+<tr><td rowspan="2">770</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>获取职位信息</td></tr>
 <tr><td colspan="3">GetHireV1JobsByJobId</td></tr>
 <tr><td rowspan="2">771</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>获取职位设置</td></tr>
 <tr><td colspan="3">GetHireV1JobsByJobIdConfig</td></tr>
-<tr><td rowspan="2">772</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>更新职位</td></tr>
+<tr><td rowspan="2">772</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>更新职位</td></tr>
 <tr><td colspan="3">PostHireV1JobsByJobIdCombinedUpdate</td></tr>
 <tr><td rowspan="2">773</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>更新职位设置</td></tr>
 <tr><td colspan="3">PostHireV1JobsByJobIdUpdateConfig</td></tr>
 <tr><td rowspan="2">774</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>获取职位类别列表</td></tr>
 <tr><td colspan="3">GetHireV1JobTypes</td></tr>
-<tr><td rowspan="2">775</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>创建招聘需求</td></tr>
+<tr><td rowspan="2">775</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>创建招聘需求</td></tr>
 <tr><td colspan="3">PostHireV1JobRequirements</td></tr>
-<tr><td rowspan="2">776</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>获取招聘需求信息</td></tr>
+<tr><td rowspan="2">776</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>获取招聘需求信息</td></tr>
 <tr><td colspan="3">PostHireV1JobRequirementsSearch</td></tr>
-<tr><td rowspan="2">777</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>获取招聘需求列表</td></tr>
+<tr><td rowspan="2">777</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>获取招聘需求列表</td></tr>
 <tr><td colspan="3">GetHireV1JobRequirements</td></tr>
-<tr><td rowspan="2">778</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>更新招聘需求</td></tr>
+<tr><td rowspan="2">778</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>更新招聘需求</td></tr>
 <tr><td colspan="3">PutHireV1JobRequirementsByJobRequirementId</td></tr>
 <tr><td rowspan="2">779</td><td rowspan="2">2023-09-04</td><td>&#10003;</td><td>通讯录</td><td>批量获取用户信息</td></tr>
 <tr><td colspan="3">GetContactV3UsersBatch</td></tr>
@@ -1567,9 +1567,9 @@
 <tr><td colspan="3">GetHireV1JobProcesses</td></tr>
 <tr><td rowspan="2">784</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>获取信息登记表模板列表</td></tr>
 <tr><td colspan="3">GetHireV1RegistrationSchemas</td></tr>
-<tr><td rowspan="2">785</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>获取内推官网下的职位列表</td></tr>
+<tr><td rowspan="2">785</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>获取内推官网下的职位列表</td></tr>
 <tr><td colspan="3">GetHireV1ReferralWebsitesJobPosts</td></tr>
-<tr><td rowspan="2">786</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>获取内推官网下职位广告详情</td></tr>
+<tr><td rowspan="2">786</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>获取内推官网下职位广告详情</td></tr>
 <tr><td colspan="3">GetHireV1ReferralWebsitesJobPostsByJobPostId</td></tr>
 <tr><td rowspan="2">787</td><td rowspan="2">2023-12-01</td><td>&#10003;</td><td>招聘</td><td>获取内推信息</td></tr>
 <tr><td colspan="3">GetHireV1ReferralsGetByApplication</td></tr>
@@ -1611,17 +1611,17 @@
 <tr><td colspan="3">GetHireV1Evaluations</td></tr>
 <tr><td rowspan="2">806</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>获取面试满意度问卷列表</td></tr>
 <tr><td colspan="3">GetHireV1Questionnaires</td></tr>
-<tr><td rowspan="2">807</td><td rowspan="2">2024-01-17</td><td>&#10003;</td><td>招聘</td><td>获取面试信息</td></tr>
+<tr><td rowspan="2">807</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>获取面试信息</td></tr>
 <tr><td colspan="3">GetHireV1Interviews</td></tr>
-<tr><td rowspan="2">808</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>创建 Offer</td></tr>
+<tr><td rowspan="2">808</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>创建 Offer</td></tr>
 <tr><td colspan="3">PostHireV1Offers</td></tr>
-<tr><td rowspan="2">809</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>更新 Offer 信息</td></tr>
+<tr><td rowspan="2">809</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>更新 Offer 信息</td></tr>
 <tr><td colspan="3">PutHireV1OffersByOfferId</td></tr>
 <tr><td rowspan="2">810</td><td rowspan="2">2024-01-12</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 信息</td></tr>
 <tr><td colspan="3">GetHireV1ApplicationsByApplicationIdOffer</td></tr>
-<tr><td rowspan="2">811</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 详情</td></tr>
+<tr><td rowspan="2">811</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 详情</td></tr>
 <tr><td colspan="3">GetHireV1OffersByOfferId</td></tr>
-<tr><td rowspan="2">812</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 列表</td></tr>
+<tr><td rowspan="2">812</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 列表</td></tr>
 <tr><td colspan="3">GetHireV1Offers</td></tr>
 <tr><td rowspan="2">813</td><td rowspan="2">2023-08-11</td><td>&#10003;</td><td>消息与群组</td><td>查询批量消息推送和阅读人数</td></tr>
 <tr><td colspan="3">GetImV1BatchMessagesByBatchMessageIdReadUser</td></tr>
@@ -1631,13 +1631,13 @@
 <tr><td colspan="3">PostHireV1OffersByOfferIdInternOfferStatus</td></tr>
 <tr><td rowspan="2">816</td><td rowspan="2">2023-12-04</td><td>&#10003;</td><td>招聘</td><td>更新 e-HR 导入任务结果</td></tr>
 <tr><td colspan="3">PatchHireV1EhrImportTasksByEhrImportTaskId</td></tr>
-<tr><td rowspan="2">817</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>操作候选人入职</td></tr>
+<tr><td rowspan="2">817</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>操作候选人入职</td></tr>
 <tr><td colspan="3">PostHireV1ApplicationsByApplicationIdTransferOnboard</td></tr>
-<tr><td rowspan="2">818</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>更新入职状态</td></tr>
+<tr><td rowspan="2">818</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>更新入职状态</td></tr>
 <tr><td colspan="3">PatchHireV1EmployeesByEmployeeId</td></tr>
-<tr><td rowspan="2">819</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>通过投递 ID 获取入职信息</td></tr>
+<tr><td rowspan="2">819</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>通过投递 ID 获取入职信息</td></tr>
 <tr><td colspan="3">GetHireV1EmployeesGetByApplication</td></tr>
-<tr><td rowspan="2">820</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>招聘</td><td>通过员工 ID 获取入职信息</td></tr>
+<tr><td rowspan="2">820</td><td rowspan="2">2024-01-22</td><td>&#10003;</td><td>招聘</td><td>通过员工 ID 获取入职信息</td></tr>
 <tr><td colspan="3">GetHireV1EmployeesByEmployeeId</td></tr>
 <tr><td rowspan="2">821</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>创建备注</td></tr>
 <tr><td colspan="3">PostHireV1Notes</td></tr>
@@ -1859,7 +1859,7 @@
 <tr><td colspan="3">PostApprovalOpenapiV2InstanceReject</td></tr>
 <tr><td rowspan="2">930</td><td rowspan="2">2022-07-08</td><td>&#10003;</td><td>审批</td><td><span style="color:red;">[不推荐]</span> 审批任务转交</td></tr>
 <tr><td colspan="3">PostApprovalOpenapiV2InstanceTransfer</td></tr>
-<tr><td rowspan="2">931</td><td rowspan="2">2022-07-08</td><td>&#10003;</td><td>审批</td><td><span style="color:red;">[不推荐]</span> 三方审批定义创建</td></tr>
+<tr><td rowspan="2">931</td><td rowspan="2">2024-01-18</td><td>&#10003;</td><td>审批</td><td><span style="color:red;">[不推荐]</span> 三方审批定义创建</td></tr>
 <tr><td colspan="3">PostApprovalOpenapiV3ExternalApprovalCreate</td></tr>
 <tr><td rowspan="2">932</td><td rowspan="2">2022-09-20</td><td>&#10003;</td><td>审批</td><td><span style="color:red;">[不推荐]</span> 三方审批实例同步</td></tr>
 <tr><td colspan="3">PostApprovalOpenapiV2ExternalInstanceCreate</td></tr>
@@ -2051,4 +2051,8 @@
 <tr><td colspan="3">PostImV1ThreadsByThreadIdForward</td></tr>
 <tr><td rowspan="2">1026</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>日历</td><td>查询日程视图</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
+<tr><td rowspan="2">1027</td><td rowspan="2">2024-01-23</td><td>新增</td><td>招聘</td><td>获取职位列表</td></tr>
+<tr><td colspan="3">GetHireV1Jobs</td></tr>
+<tr><td rowspan="2">1028</td><td rowspan="2">2024-01-23</td><td>新增</td><td>多维表格</td><td>查询记录</td></tr>
+<tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
 </tbody></table>

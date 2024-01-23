@@ -1,6 +1,6 @@
 namespace FeishuNetSdk.Calendar;
 /// <summary>
-/// 查询主日历忙闲信息 响应体
+/// 查询主日历日程忙闲信息 响应体
 /// <para>查询用户主日历或会议室的忙闲信息。</para>
 /// <para>接口ID：6952888507002912795</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/calendar/list</para>

@@ -263,9 +263,9 @@
 <tr><td colspan="3">GetWikiV2SpacesBySpaceId</td></tr>
 <tr><td rowspan="2">132</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>创建知识空间</td></tr>
 <tr><td colspan="3">PostWikiV2Spaces</td></tr>
-<tr><td rowspan="2">133</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>添加知识空间成员</td></tr>
+<tr><td rowspan="2">133</td><td rowspan="2">2024-01-18</td><td>&#10003;</td><td>云文档</td><td>添加知识空间成员</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdMembers</td></tr>
-<tr><td rowspan="2">134</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>删除知识空间成员</td></tr>
+<tr><td rowspan="2">134</td><td rowspan="2">2024-01-18</td><td>&#10003;</td><td>云文档</td><td>删除知识空间成员</td></tr>
 <tr><td colspan="3">DeleteWikiV2SpacesBySpaceIdMembersByMemberId</td></tr>
 <tr><td rowspan="2">135</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>更新知识空间设置</td></tr>
 <tr><td colspan="3">PutWikiV2SpacesBySpaceIdSetting</td></tr>
@@ -303,7 +303,7 @@
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarId</td></tr>
 <tr><td rowspan="2">152</td><td rowspan="2">2023-08-01</td><td>&#10003;</td><td>日历</td><td>查询主日历信息</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsPrimary</td></tr>
-<tr><td rowspan="2">153</td><td rowspan="2">2023-10-27</td><td>&#10003;</td><td>日历</td><td>查询主日历忙闲信息</td></tr>
+<tr><td rowspan="2">153</td><td rowspan="2">2024-01-23</td><td>&#10003;</td><td>日历</td><td>查询主日历日程忙闲信息</td></tr>
 <tr><td colspan="3">PostCalendarV4FreebusyList</td></tr>
 <tr><td rowspan="2">154</td><td rowspan="2">2023-07-26</td><td>&#10003;</td><td>日历</td><td>查询日历信息</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarId</td></tr>
@@ -987,4 +987,6 @@
 <tr><td colspan="3">DeleteAcsV1VisitorsByVisitorId</td></tr>
 <tr><td rowspan="2">494</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>日历</td><td>查询日程视图</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
+<tr><td rowspan="2">495</td><td rowspan="2">2024-01-23</td><td>新增</td><td>多维表格</td><td>查询记录</td></tr>
+<tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
 </tbody></table>
