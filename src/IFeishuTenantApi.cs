@@ -8039,7 +8039,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：6942778198054125570</para>
     /// <list type="bullet">
     /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
-    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过「获取租户职级列表」接口获取</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过[「获取租户职级列表」](https://open.feishu.cn/document/server-docs/contact-v3/job_level/list)接口获取</item>
     /// </list>
     /// <para>默认值：people_admin_job_level_id</para>
     /// </param>
@@ -8049,7 +8049,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：6942778198054125571</para>
     /// <list type="bullet">
     /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
-    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过「获取租户序列列表」接口获取</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过[「获取租户序列列表」](https://open.feishu.cn/document/server-docs/contact-v3/job_family/list)接口获取</item>
     /// </list>
     /// <para>默认值：people_admin_job_category_id</para>
     /// </param>
@@ -8059,7 +8059,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：1</para>
     /// <list type="bullet">
     /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
-    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过「查询人员类型」接口获取</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过[「查询人员类型」](https://open.feishu.cn/document/server-docs/contact-v3/employee_type_enum/list)接口获取</item>
     /// </list>
     /// <para>默认值：people_admin_employee_type_id</para>
     /// </param>
@@ -20760,12 +20760,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7160631114605608962</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/process-form_variable_data/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取流程表单数据。</para>
+    /// <para>根据流程实例 ID 获取流程表单字段数据。</para>
     /// </summary>
     /// <param name="process_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>流程ID</para>
+    /// <para>流程实例 ID</para>
     /// <para>示例值：123456987</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/processes/{process_id}/form_variable_data")]
@@ -28465,5 +28465,24 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string start_time,
         [PathQuery] string end_time,
         [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【应用信息】启停用应用</para>
+    /// <para>接口ID：7327327802326958081</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-management/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>可自动停用或启用企业内已安装的自建应用与商店应用。</para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用ID</para>
+    /// <para>示例值：cli_a4517c8461f8100a</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPut("/open-apis/application/v6/applications/{app_id}/management")]
+    System.Threading.Tasks.Task<FeishuResponse> PutApplicationV6ApplicationsByAppIdManagementAsync(
+        [PathQuery] string app_id,
+        [JsonContent] Application.PutApplicationV6ApplicationsByAppIdManagementBodyDto dto);
 }
 
