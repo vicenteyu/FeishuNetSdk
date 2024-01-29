@@ -7,7 +7,7 @@ namespace FeishuNetSdk.Approval.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/message/update-bot-messages</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuAjNyYjLwYjM24CM2IjN</para>
 /// </summary>
-public record PostApprovalOpenapiV1MessageUpdateResponseDto
+public record PostApprovalV1MessageUpdateResponseDto
 {
     /// <summary>
     /// <para>消息 id ，用于卡片更新、撤回</para>

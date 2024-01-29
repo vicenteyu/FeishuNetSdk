@@ -939,8 +939,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>此接口可以用来通过飞书审批的Bot推送消息给用户，当有新的审批待办，或者审批待办的状态有更新时，可以通过飞书审批的Bot告知用户。当然开发者也可以利用开放平台的能力自建一个全新的Bot，用来推送审批相关信息。如果出现推送成功，但是没有收到消息，可能是因为开通了审批机器人的聚合推送。</para>
     /// </summary>
-    [HttpPost("https://www.feishu.cn/approval/openapi/v1/message/send")]
-    System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV1MessageSendResponseDto>> PostApprovalOpenapiV1MessageSendAsync();
+    [HttpPost("/open-apis/approval/v1/message/send")]
+    System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalV1MessageSendResponseDto>> PostApprovalV1MessageSendAsync();
 
     /// <summary>
     /// <para>【审批】订阅审批事件</para>
@@ -1108,9 +1108,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>**注意：该接口只能更新模板为 1008「收到审批待办」的卡片。**</para>
     /// </summary>
     /// <param name="dto">请求体</param>
-    [HttpPost("https://www.feishu.cn/approval/openapi/v1/message/update")]
-    System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalOpenapiV1MessageUpdateResponseDto>> PostApprovalOpenapiV1MessageUpdateAsync(
-        [JsonContent] Approval.Spec.PostApprovalOpenapiV1MessageUpdateBodyDto dto);
+    [HttpPost("/open-apis/approval/v1/message/update")]
+    System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalV1MessageUpdateResponseDto>> PostApprovalV1MessageUpdateAsync(
+        [JsonContent] Approval.Spec.PostApprovalV1MessageUpdateBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】新建在线文档</para>
@@ -28471,7 +28471,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7327327802326958081</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-management/update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>可自动停用或启用企业内已安装的自建应用与商店应用。</para>
+    /// <para>可停用或启用企业内已安装的自建应用与商店应用。</para>
     /// </summary>
     /// <param name="app_id">
     /// <para>路径参数</para>
