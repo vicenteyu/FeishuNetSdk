@@ -7870,6 +7870,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>投递 ID</para>
     /// <para>示例值：6949805467799537964</para>
     /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
     /// <param name="options">
     /// <para>必填：否</para>
     /// <para>请求控制参数，用于控制接口响应逻辑。如需一次查询多个用户ID，可通过将同一参数名多次传递，并且每次传递不同的参数值。例如：https://{url}?options={option1}&amp;options={option2}。</para>
@@ -7878,6 +7889,7 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/hire/v1/applications/{application_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1ApplicationsByApplicationIdResponseDto>> GetHireV1ApplicationsByApplicationIdAsync(
         [PathQuery] string application_id,
+        [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string[]? options = null);
 
     /// <summary>

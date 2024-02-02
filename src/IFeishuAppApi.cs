@@ -75,7 +75,7 @@ public interface IFeishuAppApi : IHttpApi
         [JsonContent] Auth.PostAuthenV1OidcRefreshAccessTokenBodyDto dto);
 
     /// <summary>
-    /// <para>【身份验证】获取 user_access_token（网页应用）</para>
+    /// <para>【身份验证】获取 user_access_token</para>
     /// <para>接口ID：7277403063290724380</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/oidc-access_token/create</para>
     /// <para>Authorization：app_access_token</para>

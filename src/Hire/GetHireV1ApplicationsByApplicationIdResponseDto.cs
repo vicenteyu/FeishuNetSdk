@@ -440,5 +440,13 @@ public record GetHireV1ApplicationsByApplicationIdResponseDto
                 public string? EnUs { get; set; }
             }
         }
+
+        /// <summary>
+        /// <para>投递创建人 ID，仅当投递创建人为企业内部员工时可获取（如员工手动上传简历 / 加入职位 / 内推），其余情况返回为空（如候选人主动投递）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
+        /// </summary>
+        [JsonPropertyName("creator_id")]
+        public string? CreatorId { get; set; }
     }
 }

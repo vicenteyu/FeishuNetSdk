@@ -1,6 +1,6 @@
 namespace FeishuNetSdk.Auth;
 /// <summary>
-/// 获取 user_access_token（网页应用） 请求体
+/// 获取 user_access_token 请求体
 /// <para>根据[登录预授权码](https://open.feishu.cn/document/common-capabilities/sso/api/obtain-oauth-code) 返回 code 获取 `user_access_token`。</para>
 /// <para>接口ID：7277403063290724380</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/oidc-access_token/create</para>
