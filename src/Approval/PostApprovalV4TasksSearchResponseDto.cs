@@ -186,11 +186,11 @@ public record PostApprovalV4TasksSearchResponseDto
             /// <summary>
             /// <para>审批实例状态</para>
             /// <para>必填：否</para>
-            /// <para>示例值：PENDING</para>
+            /// <para>示例值：pending</para>
             /// <para>可选值：<list type="bullet">
-            /// <item>reject：拒绝</item>
+            /// <item>rejected：拒绝</item>
             /// <item>pending：审批中</item>
-            /// <item>recall：撤回</item>
+            /// <item>canceled：撤回</item>
             /// <item>deleted：已删除</item>
             /// <item>approved：通过</item>
             /// </list></para>
