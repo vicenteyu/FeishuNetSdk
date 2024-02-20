@@ -249,7 +249,7 @@ public record PostCorehrV2DepartmentsSearchResponseDto
                 /// <summary>
                 /// <para>英文</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：CustomName</para>
+                /// <para>示例值：Custom Name</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -271,6 +271,13 @@ public record PostCorehrV2DepartmentsSearchResponseDto
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
+
+        /// <summary>
+        /// <para>是否使用职务</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("staffing_model")]
+        public Enum? StaffingModel { get; set; }
     }
 
     /// <summary>

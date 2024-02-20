@@ -88,11 +88,11 @@ public record GetCorehrV1DepartmentsByDepartmentIdResponseDto
 
         /// <summary>
         /// <para>是否保密</para>
-        /// <para>必填：是</para>
+        /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
         [JsonPropertyName("is_confidential")]
-        public bool IsConfidential { get; set; }
+        public bool? IsConfidential { get; set; }
 
         /// <summary>
         /// <para>层级关系，内层字段见实体</para>
@@ -145,10 +145,10 @@ public record GetCorehrV1DepartmentsByDepartmentIdResponseDto
 
             /// <summary>
             /// <para>组织类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)组织类型（organization_type）枚举定义部分获得</para>
-            /// <para>必填：是</para>
+            /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("type")]
-            public Enum Type { get; set; } = new();
+            public Enum? Type { get; set; }
 
             /// <summary>
             /// <para>组织类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)组织类型（organization_type）枚举定义部分获得</para>
@@ -204,7 +204,7 @@ public record GetCorehrV1DepartmentsByDepartmentIdResponseDto
             /// <summary>
             /// <para>生效时间</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2020-05-0100:00:00</para>
+            /// <para>示例值：2020-05-01 00:00:00</para>
             /// </summary>
             [JsonPropertyName("effective_time")]
             public string? EffectiveTime { get; set; }
@@ -212,7 +212,7 @@ public record GetCorehrV1DepartmentsByDepartmentIdResponseDto
             /// <summary>
             /// <para>失效时间</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2020-05-0200:00:00</para>
+            /// <para>示例值：2020-05-02 00:00:00</para>
             /// </summary>
             [JsonPropertyName("expiration_time")]
             public string? ExpirationTime { get; set; }
@@ -285,7 +285,7 @@ public record GetCorehrV1DepartmentsByDepartmentIdResponseDto
         /// <summary>
         /// <para>生效时间</para>
         /// <para>必填：是</para>
-        /// <para>示例值：2020-05-0100:00:00</para>
+        /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("effective_time")]
         public string EffectiveTime { get; set; } = string.Empty;
@@ -293,7 +293,7 @@ public record GetCorehrV1DepartmentsByDepartmentIdResponseDto
         /// <summary>
         /// <para>失效时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2020-05-0200:00:00</para>
+        /// <para>示例值：2020-05-02 00:00:00</para>
         /// </summary>
         [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }
@@ -334,5 +334,12 @@ public record GetCorehrV1DepartmentsByDepartmentIdResponseDto
         /// </summary>
         [JsonPropertyName("cost_center_id")]
         public string? CostCenterId { get; set; }
+
+        /// <summary>
+        /// <para>是否使用职务</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("staffing_model")]
+        public Enum? StaffingModel { get; set; }
     }
 }

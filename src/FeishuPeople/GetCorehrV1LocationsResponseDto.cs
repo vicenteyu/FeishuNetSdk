@@ -41,7 +41,7 @@ public record GetCorehrV1LocationsResponseDto
         public record LocationHiberarchyCommon
         {
             /// <summary>
-            /// <para>上级组织</para>
+            /// <para>上级</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719168654814483759</para>
             /// </summary>
@@ -78,14 +78,14 @@ public record GetCorehrV1LocationsResponseDto
             }
 
             /// <summary>
-            /// <para>组织类型</para>
+            /// <para>类型</para>
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("type")]
             public Enum Type { get; set; } = new();
 
             /// <summary>
-            /// <para>组织类型</para>
+            /// <para>类型</para>
             /// </summary>
             public record Enum
             {
@@ -138,7 +138,7 @@ public record GetCorehrV1LocationsResponseDto
             /// <summary>
             /// <para>生效时间</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2020-05-0100:00:00</para>
+            /// <para>示例值：2020-05-01 00:00:00</para>
             /// </summary>
             [JsonPropertyName("effective_time")]
             public string? EffectiveTime { get; set; }
@@ -146,7 +146,7 @@ public record GetCorehrV1LocationsResponseDto
             /// <summary>
             /// <para>失效时间</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2020-05-0200:00:00</para>
+            /// <para>示例值：2020-05-02 00:00:00</para>
             /// </summary>
             [JsonPropertyName("expiration_time")]
             public string? ExpirationTime { get; set; }
@@ -167,7 +167,7 @@ public record GetCorehrV1LocationsResponseDto
             public I18n[]? Descriptions { get; set; }
 
             /// <summary>
-            /// <para>树形排序，代表同层级的部门排序序号</para>
+            /// <para>树形排序</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
@@ -175,7 +175,7 @@ public record GetCorehrV1LocationsResponseDto
             public string? TreeOrder { get; set; }
 
             /// <summary>
-            /// <para>列表排序，代表所有部门的混排序号</para>
+            /// <para>列表排序</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
@@ -285,7 +285,7 @@ public record GetCorehrV1LocationsResponseDto
             /// <summary>
             /// <para>完整地址（西方文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Beijing,Beijing,China,</para>
+            /// <para>示例值：Beijing, Beijing, China,</para>
             /// </summary>
             [JsonPropertyName("full_address_western_script")]
             public string? FullAddressWesternScript { get; set; }
@@ -517,7 +517,7 @@ public record GetCorehrV1LocationsResponseDto
         /// <summary>
         /// <para>生效时间</para>
         /// <para>必填：是</para>
-        /// <para>示例值：2020-05-0100:00:00</para>
+        /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("effective_time")]
         public string EffectiveTime { get; set; } = string.Empty;
@@ -525,7 +525,7 @@ public record GetCorehrV1LocationsResponseDto
         /// <summary>
         /// <para>失效时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2020-05-0200:00:00</para>
+        /// <para>示例值：2020-05-02 00:00:00</para>
         /// </summary>
         [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }

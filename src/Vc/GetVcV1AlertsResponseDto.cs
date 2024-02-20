@@ -72,7 +72,7 @@ public record GetVcV1AlertsResponseDto
         /// <summary>
         /// <para>告警规则的规则描述</para>
         /// <para>必填：否</para>
-        /// <para>示例值：连续1个周期（共1分钟），控制器电量&lt;50%，则告警</para>
+        /// <para>示例值：连续1个周期（共1分钟），控制器电量 &lt; 50%，则告警</para>
         /// </summary>
         [JsonPropertyName("alert_strategy")]
         public string? AlertStrategy { get; set; }
@@ -178,5 +178,29 @@ public record GetVcV1AlertsResponseDto
         /// </summary>
         [JsonPropertyName("process_status")]
         public int? ProcessStatus { get; set; }
+
+        /// <summary>
+        /// <para>告警规则ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：100</para>
+        /// </summary>
+        [JsonPropertyName("alert_rule_id")]
+        public string? AlertRuleId { get; set; }
+
+        /// <summary>
+        /// <para>触发告警规则的会议室ID，当触发告警规则的是会议室时返回该信息</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b</para>
+        /// </summary>
+        [JsonPropertyName("monitor_target_room_id")]
+        public string? MonitorTargetRoomId { get; set; }
+
+        /// <summary>
+        /// <para>触发告警规则的会议室主机Mac地址，当monitor_target=1时返回该信息</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：52:60:19:9c:97:21</para>
+        /// </summary>
+        [JsonPropertyName("monitor_target_room_mac")]
+        public string? MonitorTargetRoomMac { get; set; }
     }
 }

@@ -66,7 +66,7 @@ public record PostCorehrV2BasicInfoBankBranchsSearchResponseDto
         public string? BankId { get; set; }
 
         /// <summary>
-        /// <para>金融分支机构编码</para>
+        /// <para>金融分支机构编码（即银行联行号）</para>
         /// <para>必填：否</para>
         /// <para>示例值：201</para>
         /// </summary>

@@ -47,7 +47,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         /// <summary>
         /// <para>打卡时间，精确到秒的时间戳</para>
         /// <para>必填：是</para>
-        /// <para>示例值：1611476284</para>
+        /// <para>示例值：1611476284 （只支持导入打卡时间在2022年1月1日之后的数据）</para>
         /// </summary>
         [JsonPropertyName("check_time")]
         public string CheckTime { get; set; } = string.Empty;

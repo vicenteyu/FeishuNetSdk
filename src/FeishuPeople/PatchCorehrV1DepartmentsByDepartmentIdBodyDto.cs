@@ -47,11 +47,11 @@ public record PatchCorehrV1DepartmentsByDepartmentIdBodyDto
 
     /// <summary>
     /// <para>是否保密</para>
-    /// <para>必填：是</para>
+    /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("is_confidential")]
-    public bool IsConfidential { get; set; }
+    public bool? IsConfidential { get; set; }
 
     /// <summary>
     /// <para>层级关系，内层字段见实体</para>
@@ -103,49 +103,12 @@ public record PatchCorehrV1DepartmentsByDepartmentIdBodyDto
         }
 
         /// <summary>
-        /// <para>组织类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)组织类型（organization_type）枚举定义部分获得</para>
-        /// <para>必填：是</para>
-        /// </summary>
-        [JsonPropertyName("type")]
-        public Enum Type { get; set; } = new();
-
-        /// <summary>
-        /// <para>组织类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)组织类型（organization_type）枚举定义部分获得</para>
-        /// </summary>
-        public record Enum
-        {
-            /// <summary>
-            /// <para>枚举值</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：type_1</para>
-            /// </summary>
-            [JsonPropertyName("enum_name")]
-            public string EnumName { get; set; } = string.Empty;
-        }
-
-        /// <summary>
         /// <para>是否启用</para>
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
         [JsonPropertyName("active")]
         public bool Active { get; set; }
-
-        /// <summary>
-        /// <para>生效时间</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：2020-05-0100:00:00</para>
-        /// </summary>
-        [JsonPropertyName("effective_time")]
-        public string? EffectiveTime { get; set; }
-
-        /// <summary>
-        /// <para>失效时间</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：2020-05-0200:00:00</para>
-        /// </summary>
-        [JsonPropertyName("expiration_time")]
-        public string? ExpirationTime { get; set; }
 
         /// <summary>
         /// <para>编码</para>
@@ -161,52 +124,15 @@ public record PatchCorehrV1DepartmentsByDepartmentIdBodyDto
         /// </summary>
         [JsonPropertyName("description")]
         public I18n[]? Descriptions { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("custom_fields")]
-        public ObjectFieldData[]? CustomFields { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段</para>
-        /// </summary>
-        public record ObjectFieldData
-        {
-            /// <summary>
-            /// <para>字段名</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：name</para>
-            /// </summary>
-            [JsonPropertyName("field_name")]
-            public string FieldName { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：\"Sandy\"</para>
-            /// </summary>
-            [JsonPropertyName("value")]
-            public string Value { get; set; } = string.Empty;
-        }
     }
 
     /// <summary>
     /// <para>生效时间</para>
     /// <para>必填：是</para>
-    /// <para>示例值：2020-05-0100:00:00</para>
+    /// <para>示例值：2020-05-01 00:00:00</para>
     /// </summary>
     [JsonPropertyName("effective_time")]
     public string EffectiveTime { get; set; } = string.Empty;
-
-    /// <summary>
-    /// <para>失效时间</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：2020-05-0200:00:00</para>
-    /// </summary>
-    [JsonPropertyName("expiration_time")]
-    public string? ExpirationTime { get; set; }
 
     /// <summary>
     /// <para>自定义字段</para>
@@ -244,4 +170,11 @@ public record PatchCorehrV1DepartmentsByDepartmentIdBodyDto
     /// </summary>
     [JsonPropertyName("cost_center_id")]
     public string? CostCenterId { get; set; }
+
+    /// <summary>
+    /// <para>是否使用职务</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("staffing_model")]
+    public Enum? StaffingModel { get; set; }
 }

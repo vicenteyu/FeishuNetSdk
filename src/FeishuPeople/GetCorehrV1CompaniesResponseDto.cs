@@ -41,7 +41,7 @@ public record GetCorehrV1CompaniesResponseDto
         public record CompanyHiberarchyCommon
         {
             /// <summary>
-            /// <para>上级组织 ID</para>
+            /// <para>上级 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719168654814483759</para>
             /// </summary>
@@ -167,7 +167,7 @@ public record GetCorehrV1CompaniesResponseDto
             public I18n[]? Descriptions { get; set; }
 
             /// <summary>
-            /// <para>树形排序，代表同层级的部门排序序号</para>
+            /// <para>树形排序</para>
             /// <para>必填：否</para>
             /// <para>示例值：001000</para>
             /// </summary>
@@ -175,7 +175,7 @@ public record GetCorehrV1CompaniesResponseDto
             public string? TreeOrder { get; set; }
 
             /// <summary>
-            /// <para>列表排序，代表所有部门的混排序号</para>
+            /// <para>列表排序</para>
             /// <para>必填：否</para>
             /// <para>示例值：001000-001000</para>
             /// </summary>

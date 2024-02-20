@@ -11263,7 +11263,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7194805625628033027</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting_list/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>查询会议明细，具体权限要求请参考「资源介绍」。</para>
+    /// <para>查询会议明细，具体权限要求请参考「资源介绍」，支持查询最近半年的数据。</para>
     /// </summary>
     /// <param name="start_time">
     /// <para>必填：是</para>
@@ -11425,7 +11425,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </summary>
     /// <param name="room_level_id">
     /// <para>必填：是</para>
-    /// <para>层级id</para>
+    /// <para>层级ID，如传递非omb前缀的异常ID时，会默认使用租户层级进行兜底</para>
     /// <para>示例值：omb_57c9cc7d9a81e27e54c8fabfd02759e7</para>
     /// </param>
     /// <param name="need_topic">
@@ -11451,7 +11451,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="is_exclude">
     /// <para>必填：否</para>
-    /// <para>若为true表示导出room_ids范围外的会议室，默认为false</para>
+    /// <para>默认为false；若为false，则获取room_ids字段传入的会议室列表预定数据；若为true，则根据room_level_id字段获取层级下的会议室列表，并过滤掉room_ids范围的会议室，获取剩余会议室的预定数据</para>
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -11522,7 +11522,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7194805625628147715</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/participant_list/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>查询参会人明细，具体权限要求请参考「资源介绍」。</para>
+    /// <para>查询参会人明细，具体权限要求请参考「资源介绍」，支持查询最近半年的数据。</para>
     /// </summary>
     /// <param name="meeting_start_time">
     /// <para>必填：是</para>
