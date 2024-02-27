@@ -1962,13 +1962,12 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="member_id_type">
     /// <para>必填：否</para>
-    /// <para>进群成员 ID 类型 open_id/user_id/union_id/app_id</para>
-    /// <para>**注意**：拉机器人入群请使用 ==app_id==</para>
+    /// <para>用户 ID 类型</para>
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>app_id：飞书开放平台应用的唯一标识。在创建应用时，由系统自动生成，用户不能自行修改。[了解更多：如何获取应用的 App ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
@@ -1976,6 +1975,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="succeed_type">
     /// <para>必填：否</para>
     /// <para>出现不可用ID后的处理方式 0/1/2</para>
+    /// <para>**默认值**：`0`</para>
     /// <para>示例值：0</para>
     /// <list type="bullet">
     /// <item>0：兼容之前的策略，不存在/不可见的 ID 会拉群失败，并返回错误响应。存在已离职 ID 时，会将其他可用 ID 拉入群聊，返回拉群成功的响应。</item>
@@ -15022,5 +15022,24 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string start_time,
         [PathQuery] string end_time,
         [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【画板】获取所有节点</para>
+    /// <para>接口ID：7338460461824360449</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/board-v1/whiteboard-node/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取画板内所有的节点</para>
+    /// </summary>
+    /// <param name="whiteboard_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>画板唯一标识</para>
+    /// <para>示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/board/v1/whiteboards/{whiteboard_id}/nodes")]
+    System.Threading.Tasks.Task<FeishuResponse<Board.GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto>> GetBoardV1WhiteboardsByWhiteboardIdNodesAsync(
+        UserAccessToken access_token,
+        [PathQuery] string whiteboard_id);
 }
 

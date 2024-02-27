@@ -1,7 +1,7 @@
 <table><thead><tr><th>序号</th><th>更新日期</th><th>可用</th><th>类别</th><th>说明</th></tr></thead><tbody>
 <tr><td rowspan="2">1</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>身份验证</td><td>获取登录用户信息</td></tr>
 <tr><td colspan="3">GetAuthenV1UserInfo</td></tr>
-<tr><td rowspan="2">2</td><td rowspan="2">2023-12-25</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
+<tr><td rowspan="2">2</td><td rowspan="2">2024-02-22</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
 <tr><td colspan="3">PatchContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">3</td><td rowspan="2">2023-06-26</td><td>&#10003;</td><td>通讯录</td><td>搜索部门</td></tr>
 <tr><td colspan="3">PostContactV3DepartmentsSearch</td></tr>
@@ -557,7 +557,7 @@
 <tr><td colspan="3">GetTaskV1Tasks</td></tr>
 <tr><td rowspan="2">279</td><td rowspan="2">2023-07-13</td><td>&#10003;</td><td>任务</td><td>新增提醒时间</td></tr>
 <tr><td colspan="3">PostTaskV1TasksByTaskIdReminders</td></tr>
-<tr><td rowspan="2">280</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>消息与群组</td><td>将用户或机器人拉入群聊</td></tr>
+<tr><td rowspan="2">280</td><td rowspan="2">2024-02-26</td><td>&#10003;</td><td>消息与群组</td><td>将用户或机器人拉入群聊</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdMembers</td></tr>
 <tr><td rowspan="2">281</td><td rowspan="2">2023-07-13</td><td>&#10003;</td><td>任务</td><td>删除提醒时间</td></tr>
 <tr><td colspan="3">DeleteTaskV1TasksByTaskIdRemindersByReminderId</td></tr>
@@ -891,13 +891,13 @@
 <tr><td colspan="3">GetDriveV1FilesByFileTokenGetSubscribe</td></tr>
 <tr><td rowspan="2">446</td><td rowspan="2">2022-07-18</td><td>&#10003;</td><td>云文档</td><td>文档搜索</td></tr>
 <tr><td colspan="3">PostSuiteDocsApiSearchObject</td></tr>
-<tr><td rowspan="2">447</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>上传文件</td></tr>
+<tr><td rowspan="2">447</td><td rowspan="2">2024-02-21</td><td>&#10003;</td><td>云文档</td><td>上传文件</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadAll</td></tr>
 <tr><td rowspan="2">448</td><td rowspan="2">2023-09-04</td><td>&#10003;</td><td>通讯录</td><td>批量获取部门信息</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsBatch</td></tr>
 <tr><td rowspan="2">449</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>分片上传文件（预上传）</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadPrepare</td></tr>
-<tr><td rowspan="2">450</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>分片上传文件（上传分片）</td></tr>
+<tr><td rowspan="2">450</td><td rowspan="2">2024-02-21</td><td>&#10003;</td><td>云文档</td><td>分片上传文件（上传分片）</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadPart</td></tr>
 <tr><td rowspan="2">451</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>分片上传文件（完成上传）</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadFinish</td></tr>
@@ -989,4 +989,6 @@
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
 <tr><td rowspan="2">495</td><td rowspan="2">2024-02-01</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
+<tr><td rowspan="2">496</td><td rowspan="2">2024-02-27</td><td>新增</td><td>画板</td><td>获取所有节点</td></tr>
+<tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 </tbody></table>
