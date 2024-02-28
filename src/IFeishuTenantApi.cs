@@ -11465,6 +11465,67 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? job_family_id_type = "people_admin_job_category_id");
 
     /// <summary>
+    /// <para>【招聘】获取人才列表</para>
+    /// <para>接口ID：7001051759612936195</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据更新时间获取人才列表，仅支持获取默认字段信息，获取详细信息可调用「获取人才详细」接口。</para>
+    /// </summary>
+    /// <param name="update_start_time">
+    /// <para>必填：否</para>
+    /// <para>最早更新时间，毫秒级时间戳</para>
+    /// <para>示例值：1618500278663</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="update_end_time">
+    /// <para>必填：否</para>
+    /// <para>最晚更新时间，毫秒级时间戳</para>
+    /// <para>示例值：1618500278663</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以 people_admin_id 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_admin_id</para>
+    /// </param>
+    /// <param name="query_option">
+    /// <para>必填：否</para>
+    /// <para>请求控制参数</para>
+    /// <para>示例值：ignore_empty_error</para>
+    /// <list type="bullet">
+    /// <item>ignore_empty_error：忽略结果为空时的报错</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/hire/v1/talents")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1TalentsResponseDto>> GetHireV1TalentsAsync(
+        [PathQuery] string? update_start_time = null,
+        [PathQuery] string? update_end_time = null,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "people_admin_id",
+        [PathQuery] string? query_option = null);
+
+    /// <summary>
     /// <para>【通讯录】更新用户组</para>
     /// <para>接口ID：7008085931593007107</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/patch</para>
