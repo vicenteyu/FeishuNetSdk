@@ -20860,7 +20860,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7160631114605608962</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/process-form_variable_data/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据流程实例 ID 获取流程表单字段数据。</para>
+    /// <para>根据流程实例 id（process_id）获取流程表单字段数据，包括表单里的业务字段和自定义字段。仅支持飞书人事、假勤相关业务流程。</para>
     /// </summary>
     /// <param name="process_id">
     /// <para>路径参数</para>
@@ -24031,12 +24031,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：12454646</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="no_need_query">
+    /// <para>必填：否</para>
+    /// <para>根据no_need_query判断更新后是否返回更新后个人信息，若填写为 “true”则只返回更新结果信息。</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     [HttpPatch("/open-apis/corehr/v2/persons/{person_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PatchCorehrV2PersonsByPersonIdResponseDto>> PatchCorehrV2PersonsByPersonIdAsync(
         [PathQuery] string person_id,
         [JsonContent] Corehr.PatchCorehrV2PersonsByPersonIdBodyDto dto,
-        [PathQuery] string? client_token = null);
+        [PathQuery] string? client_token = null,
+        [PathQuery] bool? no_need_query = null);
 
     /// <summary>
     /// <para>【飞书人事（企业版）】创建个人信息（V2）</para>
@@ -27867,7 +27874,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7296819819722571804</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>查询流程实例列表。</para>
+    /// <para>查询流程实例列表。发起的流程为流程实例（process_id 是唯一标识）；配置的流程为流程定义（flow_definition_id 是唯一标识）。</para>
     /// </summary>
     /// <param name="modify_time_to">
     /// <para>必填：是</para>
@@ -27916,7 +27923,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7296819819722588188</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据流程实例 id 获取单个流程详情。</para>
+    /// <para>根据流程实例 id（process_id）获取单个流程详情。比如流程状态、流程发起人、流程发起时间、流程摘要、流程里的所有待办、已办、抄送任务等。</para>
     /// </summary>
     /// <param name="process_id">
     /// <para>路径参数</para>
@@ -27932,7 +27939,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>

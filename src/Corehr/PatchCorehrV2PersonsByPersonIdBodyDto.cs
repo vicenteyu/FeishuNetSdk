@@ -223,6 +223,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     public string? DateOfBirth { get; set; }
 
     /// <summary>
+    /// <para>国籍 ID，可通过【查询国籍信息】接口查询</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：6862995757234914821</para>
+    /// </summary>
+    [JsonPropertyName("nationality_id_v2")]
+    public string? NationalityIdV2 { get; set; }
+
+    /// <summary>
     /// <para>民族 / 种族，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person</para>
     /// <para>必填：否</para>
     /// </summary>
@@ -313,6 +321,22 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// </summary>
         [JsonPropertyName("region_id")]
         public string? RegionId { get; set; }
+
+        /// <summary>
+        /// <para>城市</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6863333254578046471</para>
+        /// </summary>
+        [JsonPropertyName("city_id_v2")]
+        public string? CityIdV2 { get; set; }
+
+        /// <summary>
+        /// <para>区/县</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6863333516579440141</para>
+        /// </summary>
+        [JsonPropertyName("district_id_v2")]
+        public string? DistrictIdV2 { get; set; }
 
         /// <summary>
         /// <para>地址行 1（非拉丁语系的本地文字）</para>
@@ -824,6 +848,22 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         public string? BranchName { get; set; }
 
         /// <summary>
+        /// <para>银行 ID，详细信息可通过【查询银行信息】接口查询获得</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：MDBH00000001</para>
+        /// </summary>
+        [JsonPropertyName("bank_id_v2")]
+        public string? BankIdV2 { get; set; }
+
+        /// <summary>
+        /// <para>支行 ID，要求必须为填入银行的支行，详细信息可通过【查询支行信息】接口查询获得</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：MDBK00000017</para>
+        /// </summary>
+        [JsonPropertyName("branch_id_v2")]
+        public string? BranchIdV2 { get; set; }
+
+        /// <summary>
         /// <para>国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
@@ -1034,6 +1074,14 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// </summary>
         [JsonPropertyName("date_of_birth")]
         public string? DateOfBirth { get; set; }
+
+        /// <summary>
+        /// <para>国籍 ID，可通过【查询国籍信息】接口查询</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6862995745046267401</para>
+        /// </summary>
+        [JsonPropertyName("nationality_id_v2")]
+        public string? NationalityIdV2 { get; set; }
 
         /// <summary>
         /// <para>证件号码</para>
@@ -1278,6 +1326,22 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             /// </summary>
             [JsonPropertyName("region_id")]
             public string? RegionId { get; set; }
+
+            /// <summary>
+            /// <para>城市</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6863333254578046471</para>
+            /// </summary>
+            [JsonPropertyName("city_id_v2")]
+            public string? CityIdV2 { get; set; }
+
+            /// <summary>
+            /// <para>区/县</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6863333516579440141</para>
+            /// </summary>
+            [JsonPropertyName("district_id_v2")]
+            public string? DistrictIdV2 { get; set; }
 
             /// <summary>
             /// <para>地址行 1（非拉丁语系的本地文字）</para>

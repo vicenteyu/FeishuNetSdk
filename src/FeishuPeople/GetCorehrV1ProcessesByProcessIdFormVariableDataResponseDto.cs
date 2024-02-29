@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取流程表单数据 响应体
-/// <para>根据流程实例 ID 获取流程表单字段数据。</para>
+/// <para>根据流程实例 id（process_id）获取流程表单字段数据，包括表单里的业务字段和自定义字段。仅支持飞书人事、假勤相关业务流程。</para>
 /// <para>接口ID：7160631114605608962</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/process-form_variable_data/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fprocess-form_variable_data%2fget</para>

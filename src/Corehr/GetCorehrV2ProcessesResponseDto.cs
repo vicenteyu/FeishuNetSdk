@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 查询流程实例列表 响应体
-/// <para>查询流程实例列表。</para>
+/// <para>查询流程实例列表。发起的流程为流程实例（process_id 是唯一标识）；配置的流程为流程定义（flow_definition_id 是唯一标识）。</para>
 /// <para>接口ID：7296819819722571804</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess%2flist</para>
