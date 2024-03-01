@@ -17,7 +17,7 @@ public record PostApprovalV4InstancesBodyDto
     public string ApprovalCode { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>发起审批用户</para>
+    /// <para>发起审批用户的 user_id，与 open_id 必须传入其中一个。如果传入了 user_id 则优先使用 user_id。</para>
     /// <para>必填：否</para>
     /// <para>示例值：f7cb567e</para>
     /// </summary>
@@ -25,7 +25,7 @@ public record PostApprovalV4InstancesBodyDto
     public string? UserId { get; set; }
 
     /// <summary>
-    /// <para>发起审批用户 open id, 与user_id需二者传一，如果传了 user_id 则优先使用 user_id，</para>
+    /// <para>发起审批用户的 open_id，与 user_id 必须传入其中一个。如果传入了 user_id 则优先使用 user_id。</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_3cda9c969f737aaa05e6915dce306cb9</para>
     /// </summary>
@@ -41,9 +41,9 @@ public record PostApprovalV4InstancesBodyDto
     public string? DepartmentId { get; set; }
 
     /// <summary>
-    /// <para>json 数组，控件值</para>
+    /// <para>json 数组（需压缩转义成string），控件值</para>
     /// <para>必填：是</para>
-    /// <para>示例值：[{\"id\":\"111\",\"type\":\"input\",\"value\":\"test\"}]</para>
+    /// <para>示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]</para>
     /// </summary>
     [JsonPropertyName("form")]
     public string Form { get; set; } = string.Empty;
@@ -127,6 +127,7 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A87</para>
     /// <para>最大长度：64</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("uuid")]
     public string? Uuid { get; set; }
@@ -196,7 +197,7 @@ public record PostApprovalV4InstancesBodyDto
         /// <summary>
         /// <para>文案 key, value, i18n key 以 @i18n@ 开头； 该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语音环境使用对应的文案，如果没有传用户当前的语音环境文案，则会使用默认的语言文案。</para>
         /// <para>必填：是</para>
-        /// <para>示例值：{"@i18n@1":"权限申请","@i18n@2":"OA审批","@i18n@3":"Permission"}</para>
+        /// <para>示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }</para>
         /// </summary>
         [JsonPropertyName("texts")]
         public I18nResourceText[] Texts { get; set; } = Array.Empty<I18nResourceText>();

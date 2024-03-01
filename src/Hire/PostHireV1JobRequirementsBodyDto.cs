@@ -57,7 +57,8 @@ public record PostHireV1JobRequirementsBodyDto
     public string? RecruitmentTypeId { get; set; }
 
     /// <summary>
-    /// <para>人员类型，枚举值通过[「获取员工类型列表」](https://open.feishu.cn/document/server-docs/people_admin-v1/employee_type/list)接口获取，可完全替代之前的「职位性质」字段、且有更好的扩展性。请确保已开通「招聘需求使用人员类型数据」灰度，如不确定，可联系技术支持。</para>
+    /// <para>人员类型ID</para>
+    /// <para>获取枚举详情见本文档「查询参数」部分；使用该字段前，请联系招聘团队确认已在灰度内</para>
     /// <para>必填：否</para>
     /// <para>示例值：6807409776231254285</para>
     /// </summary>
@@ -66,22 +67,25 @@ public record PostHireV1JobRequirementsBodyDto
 
     /// <summary>
     /// <para>最高职级 ID</para>
+    /// <para>获取枚举详情见本文档「查询参数」部分</para>
     /// <para>必填：否</para>
-    /// <para>示例值：6807409776231254285</para>
+    /// <para>示例值：6807409776231254286</para>
     /// </summary>
     [JsonPropertyName("max_level_id")]
     public string? MaxLevelId { get; set; }
 
     /// <summary>
     /// <para>最低职级 ID</para>
+    /// <para>获取枚举详情见本文档「查询参数」部分</para>
     /// <para>必填：否</para>
-    /// <para>示例值：6911957338526091534</para>
+    /// <para>示例值：6807409776231254287</para>
     /// </summary>
     [JsonPropertyName("min_level_id")]
     public string? MinLevelId { get; set; }
 
     /// <summary>
     /// <para>职位序列 ID</para>
+    /// <para>获取枚举详情见本文档「查询参数」部分</para>
     /// <para>必填：否</para>
     /// <para>示例值：6911957338526091536</para>
     /// </summary>

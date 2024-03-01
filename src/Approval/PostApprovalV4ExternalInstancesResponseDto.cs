@@ -223,7 +223,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         /// <summary>
         /// <para>任务列表</para>
         /// <para>必填：否</para>
-        /// <para>最大长度：200</para>
+        /// <para>最大长度：300</para>
         /// </summary>
         [JsonPropertyName("task_list")]
         public ExternalInstanceTaskNode[]? TaskLists { get; set; }

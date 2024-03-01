@@ -10,7 +10,7 @@ namespace FeishuNetSdk.Approval;
 public record PostApprovalV4ExternalApprovalsBodyDto
 {
     /// <summary>
-    /// <para>审批定义名称，创建审批定义返回的值，表示该实例属于哪个流程；该字段会影响到列表中该实例的标题，标题取自对应定义的 name 字段。</para>
+    /// <para>审批名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符</para>
     /// <para>必填：是</para>
     /// <para>示例值：@i18n@1</para>
     /// </summary>
@@ -175,14 +175,14 @@ public record PostApprovalV4ExternalApprovalsBodyDto
     }
 
     /// <summary>
-    /// <para>可见人列表，可通知配置多个可见人，只有在配置的范围内用户可以在审批发起页看到该审批，默认不传，则是任何人不可见</para>
+    /// <para>可见人列表（最大支持长度200），可通知配置多个可见人，只有在配置的范围内用户可以在审批发起页看到该审批，默认不传，则是任何人不可见</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("viewers")]
     public ApprovalCreateViewers[]? Viewers { get; set; }
 
     /// <summary>
-    /// <para>可见人列表，可通知配置多个可见人，只有在配置的范围内用户可以在审批发起页看到该审批，默认不传，则是任何人不可见</para>
+    /// <para>可见人列表（最大支持长度200），可通知配置多个可见人，只有在配置的范围内用户可以在审批发起页看到该审批，默认不传，则是任何人不可见</para>
     /// </summary>
     public record ApprovalCreateViewers
     {
@@ -245,7 +245,7 @@ public record PostApprovalV4ExternalApprovalsBodyDto
         /// <summary>
         /// <para>文案 key, value, i18n key 以 @i18n@ 开头； 该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语音环境使用对应的文案，如果没有传用户当前的语音环境文案，则会使用默认的语言文案。</para>
         /// <para>必填：是</para>
-        /// <para>示例值：{"@i18n@1":"权限申请","@i18n@2":"OA审批","@i18n@3":"Permission"}</para>
+        /// <para>示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }</para>
         /// </summary>
         [JsonPropertyName("texts")]
         public I18nResourceText[] Texts { get; set; } = Array.Empty<I18nResourceText>();
@@ -282,7 +282,7 @@ public record PostApprovalV4ExternalApprovalsBodyDto
     }
 
     /// <summary>
-    /// <para>根据user_id_type填写流程管理员id</para>
+    /// <para>根据user_id_type填写流程管理员id列表（最大支持长度200）</para>
     /// <para>必填：否</para>
     /// <para>示例值：19a294c2</para>
     /// </summary>

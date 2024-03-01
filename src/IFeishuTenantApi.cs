@@ -10027,7 +10027,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="employee_type_id_type">
     /// <para>必填：否</para>
     /// <para>此次调用中使用的「人员类型 ID」的类型</para>
-    /// <para>示例值：1</para>
+    /// <para>示例值：employee_type_enum_id</para>
     /// <list type="bullet">
     /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
     /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过[「查询人员类型」](https://open.feishu.cn/document/server-docs/contact-v3/employee_type_enum/list)接口获取</item>
@@ -10337,7 +10337,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="employee_type_id_type">
     /// <para>必填：否</para>
     /// <para>此次调用中使用的「人员类型 ID」的类型</para>
-    /// <para>示例值：1</para>
+    /// <para>示例值：employee_type_enum_id</para>
     /// <list type="bullet">
     /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
     /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过[「查询人员类型」](https://open.feishu.cn/document/server-docs/contact-v3/employee_type_enum/list)接口获取</item>
@@ -28607,5 +28607,20 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/board/v1/whiteboards/{whiteboard_id}/nodes")]
     System.Threading.Tasks.Task<FeishuResponse<Board.GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto>> GetBoardV1WhiteboardsByWhiteboardIdNodesAsync(
         [PathQuery] string whiteboard_id);
+
+    /// <summary>
+    /// <para>【AI 能力】识别文件中的简历信息</para>
+    /// <para>接口ID：7340987945434742812</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/resume/parse</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>简历信息解析接口，支持PDF/DOCX/PNG/JPG四种文件类型的一次性的识别。</para>
+    /// </summary>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>简历文件，支持 PDF / DOCX / PNG / JPG</para>
+    /// </param>
+    [HttpPost("/open-apis/document_ai/v1/resume/parse")]
+    System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1ResumeParseResponseDto>> PostDocumentAiV1ResumeParseAsync(
+        [FormDataContent] FormDataFile file);
 }
 

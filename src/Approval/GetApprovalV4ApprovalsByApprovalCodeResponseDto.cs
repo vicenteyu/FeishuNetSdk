@@ -33,7 +33,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
     /// <summary>
     /// <para>控件信息，见下方form字段说明</para>
     /// <para>必填：是</para>
-    /// <para>示例值：[{\"id\":\"widget1\",\"custom_id\":\"user_name\",\"name\":\"Itemapplication\",\"type\":\"textarea\",\"printable\":true,\"required\":true}\"]</para>
+    /// <para>示例值：[{\"id\": \"widget1\", \"custom_id\": \"user_name\",\"name\": \"Item application\",\"type\": \"textarea\",\"printable\": true,\"required\": true}]</para>
     /// </summary>
     [JsonPropertyName("form")]
     public string Form { get; set; } = string.Empty;
@@ -192,7 +192,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
     }
 
     /// <summary>
-    /// <para>有数据管理权限的审批流程管理员ID</para>
+    /// <para>有数据管理权限的审批流程管理员ID，由参数“with_admin_id”控制是否返回</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("approval_admin_ids")]

@@ -9,7 +9,7 @@ namespace FeishuNetSdk.Approval;
 public record PostApprovalV4InstancesQueryBodyDto
 {
     /// <summary>
-    /// <para>根据x_user_type填写用户 id</para>
+    /// <para>根据user_id_type填写用户 id</para>
     /// <para>必填：否</para>
     /// <para>示例值：lwiu098wj</para>
     /// </summary>
