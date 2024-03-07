@@ -177,23 +177,23 @@
 <tr><td colspan="3">GetDriveV2PermissionsByTokenPublic</td></tr>
 <tr><td rowspan="2">89</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
 <tr><td colspan="3">PatchDriveV2PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">90</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>分页获取文档全文评论</td></tr>
+<tr><td rowspan="2">90</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>获取云文档所有评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenComments</td></tr>
 <tr><td rowspan="2">91</td><td rowspan="2">2023-07-24</td><td>&#10003;</td><td>通讯录</td><td>获取企业自定义用户字段</td></tr>
 <tr><td colspan="3">GetContactV3CustomAttrs</td></tr>
-<tr><td rowspan="2">92</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>添加全文评论</td></tr>
+<tr><td rowspan="2">92</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>添加全文评论</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenComments</td></tr>
-<tr><td rowspan="2">93</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>获取全文评论</td></tr>
+<tr><td rowspan="2">93</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>获取全文评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
-<tr><td rowspan="2">94</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>批量获取全文评论</td></tr>
+<tr><td rowspan="2">94</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>批量获取评论</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenCommentsBatchQuery</td></tr>
-<tr><td rowspan="2">95</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>获取回复</td></tr>
+<tr><td rowspan="2">95</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>获取回复信息</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenCommentsByCommentIdReplies</td></tr>
-<tr><td rowspan="2">96</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>更新回复</td></tr>
+<tr><td rowspan="2">96</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>更新回复的内容</td></tr>
 <tr><td colspan="3">PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyId</td></tr>
-<tr><td rowspan="2">97</td><td rowspan="2">2022-04-28</td><td>&#10003;</td><td>云文档</td><td>删除回复</td></tr>
+<tr><td rowspan="2">97</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>删除回复</td></tr>
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyId</td></tr>
-<tr><td rowspan="2">98</td><td rowspan="2">2022-04-28</td><td>&#10003;</td><td>云文档</td><td>解决/恢复 评论</td></tr>
+<tr><td rowspan="2">98</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>解决/恢复评论</td></tr>
 <tr><td colspan="3">PatchDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
 <tr><td rowspan="2">99</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取文档基本信息</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentId</td></tr>
@@ -513,7 +513,7 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChat</td></tr>
 <tr><td rowspan="2">257</td><td rowspan="2">2023-03-23</td><td>&#10003;</td><td>日历</td><td>创建请假日程</td></tr>
 <tr><td colspan="3">PostCalendarV4TimeoffEvents</td></tr>
-<tr><td rowspan="2">258</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>创建单位</td></tr>
+<tr><td rowspan="2">258</td><td rowspan="2">2024-03-07</td><td>&#10003;</td><td>通讯录</td><td>创建单位</td></tr>
 <tr><td colspan="3">PostContactV3Unit</td></tr>
 <tr><td rowspan="2">259</td><td rowspan="2">2023-03-23</td><td>&#10003;</td><td>日历</td><td>删除请假日程</td></tr>
 <tr><td colspan="3">DeleteCalendarV4TimeoffEventsByTimeoffEventId</td></tr>
@@ -1227,7 +1227,7 @@
 <tr><td colspan="3">GetContactV3JobTitles</td></tr>
 <tr><td rowspan="2">614</td><td rowspan="2">2023-10-31</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的驾驶证</td></tr>
 <tr><td colspan="3">PostDocumentAiV1DrivingLicenseRecognize</td></tr>
-<tr><td rowspan="2">615</td><td rowspan="2">2023-12-22</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的增值税发票</td></tr>
+<tr><td rowspan="2">615</td><td rowspan="2">2024-03-04</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的增值税发票</td></tr>
 <tr><td colspan="3">PostDocumentAiV1VatInvoiceRecognize</td></tr>
 <tr><td rowspan="2">616</td><td rowspan="2">2023-12-22</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的营业执照</td></tr>
 <tr><td colspan="3">PostDocumentAiV1BusinessLicenseRecognize</td></tr>
@@ -1587,15 +1587,15 @@
 <tr><td colspan="3">PostHireV1ExternalInterviewAssessments</td></tr>
 <tr><td rowspan="2">794</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>创建外部背调</td></tr>
 <tr><td colspan="3">PostHireV1ExternalBackgroundChecks</td></tr>
-<tr><td rowspan="2">795</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>招聘</td><td>将人才加入指定文件夹</td></tr>
+<tr><td rowspan="2">795</td><td rowspan="2">2024-03-05</td><td>&#10003;</td><td>招聘</td><td>将人才加入指定文件夹</td></tr>
 <tr><td colspan="3">PostHireV1TalentsAddToFolder</td></tr>
-<tr><td rowspan="2">796</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>招聘</td><td>获取人才文件夹信息</td></tr>
+<tr><td rowspan="2">796</td><td rowspan="2">2024-03-05</td><td>&#10003;</td><td>招聘</td><td>获取人才文件夹信息</td></tr>
 <tr><td colspan="3">GetHireV1TalentFolders</td></tr>
-<tr><td rowspan="2">797</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>招聘</td><td>通过手机号或邮箱获取人才 ID</td></tr>
+<tr><td rowspan="2">797</td><td rowspan="2">2024-03-05</td><td>&#10003;</td><td>招聘</td><td>通过手机号或邮箱获取人才 ID</td></tr>
 <tr><td colspan="3">PostHireV1TalentsBatchGetId</td></tr>
-<tr><td rowspan="2">798</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>招聘</td><td>获取人才字段</td></tr>
+<tr><td rowspan="2">798</td><td rowspan="2">2024-03-05</td><td>&#10003;</td><td>招聘</td><td>获取人才字段</td></tr>
 <tr><td colspan="3">GetHireV1TalentObjectsQuery</td></tr>
-<tr><td rowspan="2">799</td><td rowspan="2">2024-02-28</td><td>&#10003;</td><td>招聘</td><td>获取人才信息 V1</td></tr>
+<tr><td rowspan="2">799</td><td rowspan="2">2024-03-05</td><td>&#10003;</td><td>招聘</td><td>获取人才信息 V1</td></tr>
 <tr><td colspan="3">GetHireV1TalentsByTalentId</td></tr>
 <tr><td rowspan="2">800</td><td rowspan="2">2024-01-04</td><td>&#10003;</td><td>招聘</td><td>创建投递</td></tr>
 <tr><td colspan="3">PostHireV1Applications</td></tr>
@@ -2059,8 +2059,8 @@
 <tr><td colspan="3">PutApplicationV6ApplicationsByAppIdManagement</td></tr>
 <tr><td rowspan="2">1030</td><td rowspan="2">2024-02-27</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
-<tr><td rowspan="2">1031</td><td rowspan="2">2024-02-28</td><td>&#10003;</td><td>招聘</td><td>获取人才列表</td></tr>
+<tr><td rowspan="2">1031</td><td rowspan="2">2024-03-05</td><td>&#10003;</td><td>招聘</td><td>获取人才列表</td></tr>
 <tr><td colspan="3">GetHireV1Talents</td></tr>
-<tr><td rowspan="2">1032</td><td rowspan="2">2024-02-29</td><td>新增</td><td>AI 能力</td><td>识别文件中的简历信息</td></tr>
+<tr><td rowspan="2">1032</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的简历信息</td></tr>
 <tr><td colspan="3">PostDocumentAiV1ResumeParse</td></tr>
 </tbody></table>

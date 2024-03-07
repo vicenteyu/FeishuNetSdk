@@ -5,17 +5,17 @@
 <tr><td colspan="3">PatchContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">3</td><td rowspan="2">2023-06-26</td><td>&#10003;</td><td>通讯录</td><td>搜索部门</td></tr>
 <tr><td colspan="3">PostContactV3DepartmentsSearch</td></tr>
-<tr><td rowspan="2">4</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>获取全文评论</td></tr>
+<tr><td rowspan="2">4</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>获取全文评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
-<tr><td rowspan="2">5</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>批量获取全文评论</td></tr>
+<tr><td rowspan="2">5</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>批量获取评论</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenCommentsBatchQuery</td></tr>
-<tr><td rowspan="2">6</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>获取回复</td></tr>
+<tr><td rowspan="2">6</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>获取回复信息</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenCommentsByCommentIdReplies</td></tr>
-<tr><td rowspan="2">7</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>更新回复</td></tr>
+<tr><td rowspan="2">7</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>更新回复的内容</td></tr>
 <tr><td colspan="3">PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyId</td></tr>
-<tr><td rowspan="2">8</td><td rowspan="2">2022-04-28</td><td>&#10003;</td><td>云文档</td><td>删除回复</td></tr>
+<tr><td rowspan="2">8</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>删除回复</td></tr>
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyId</td></tr>
-<tr><td rowspan="2">9</td><td rowspan="2">2022-04-28</td><td>&#10003;</td><td>云文档</td><td>解决/恢复 评论</td></tr>
+<tr><td rowspan="2">9</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>解决/恢复评论</td></tr>
 <tr><td colspan="3">PatchDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
 <tr><td rowspan="2">10</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取文档基本信息</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentId</td></tr>
@@ -487,41 +487,41 @@
 <tr><td colspan="3">GetApprovalV4TasksQuery</td></tr>
 <tr><td rowspan="2">244</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>更新客服信息</td></tr>
 <tr><td colspan="3">PatchHelpdeskV1AgentsByAgentId</td></tr>
-<tr><td rowspan="2">245</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>创建客服工作日程</td></tr>
+<tr><td rowspan="2">245</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>创建客服工作日程</td></tr>
 <tr><td colspan="3">PostHelpdeskV1AgentSchedules</td></tr>
-<tr><td rowspan="2">246</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>删除客服工作日程</td></tr>
+<tr><td rowspan="2">246</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>删除客服工作日程</td></tr>
 <tr><td colspan="3">DeleteHelpdeskV1AgentsByAgentIdSchedules</td></tr>
 <tr><td rowspan="2">247</td><td rowspan="2">2023-07-12</td><td>&#10003;</td><td>消息与群组</td><td>获取群分享链接</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdLink</td></tr>
-<tr><td rowspan="2">248</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>更新客服工作日程</td></tr>
+<tr><td rowspan="2">248</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>更新客服工作日程</td></tr>
 <tr><td colspan="3">PatchHelpdeskV1AgentsByAgentIdSchedules</td></tr>
-<tr><td rowspan="2">249</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>创建客服技能</td></tr>
+<tr><td rowspan="2">249</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>创建客服技能</td></tr>
 <tr><td colspan="3">PostHelpdeskV1AgentSkills</td></tr>
-<tr><td rowspan="2">250</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>删除客服技能</td></tr>
+<tr><td rowspan="2">250</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>删除客服技能</td></tr>
 <tr><td colspan="3">DeleteHelpdeskV1AgentSkillsByAgentSkillId</td></tr>
-<tr><td rowspan="2">251</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>更新客服技能</td></tr>
+<tr><td rowspan="2">251</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>更新客服技能</td></tr>
 <tr><td colspan="3">PatchHelpdeskV1AgentSkillsByAgentSkillId</td></tr>
-<tr><td rowspan="2">252</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>更新工单详情</td></tr>
+<tr><td rowspan="2">252</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>更新工单详情</td></tr>
 <tr><td colspan="3">PutHelpdeskV1TicketsByTicketId</td></tr>
-<tr><td rowspan="2">253</td><td rowspan="2">2022-12-26</td><td>&#10003;</td><td>服务台</td><td>创建工单自定义字段</td></tr>
+<tr><td rowspan="2">253</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>创建工单自定义字段</td></tr>
 <tr><td colspan="3">PostHelpdeskV1TicketCustomizedFields</td></tr>
-<tr><td rowspan="2">254</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>删除工单自定义字段</td></tr>
+<tr><td rowspan="2">254</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>删除工单自定义字段</td></tr>
 <tr><td colspan="3">DeleteHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldId</td></tr>
-<tr><td rowspan="2">255</td><td rowspan="2">2022-12-26</td><td>&#10003;</td><td>服务台</td><td>更新工单自定义字段</td></tr>
+<tr><td rowspan="2">255</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>更新工单自定义字段</td></tr>
 <tr><td colspan="3">PatchHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldId</td></tr>
-<tr><td rowspan="2">256</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>创建知识库</td></tr>
+<tr><td rowspan="2">256</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>创建知识库</td></tr>
 <tr><td colspan="3">PostHelpdeskV1Faqs</td></tr>
-<tr><td rowspan="2">257</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>删除知识库</td></tr>
+<tr><td rowspan="2">257</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>删除知识库</td></tr>
 <tr><td colspan="3">DeleteHelpdeskV1FaqsById</td></tr>
 <tr><td rowspan="2">258</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>消息与群组</td><td>指定群管理员</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdManagersAddManagers</td></tr>
-<tr><td rowspan="2">259</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>修改知识库</td></tr>
+<tr><td rowspan="2">259</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>修改知识库</td></tr>
 <tr><td colspan="3">PatchHelpdeskV1FaqsById</td></tr>
-<tr><td rowspan="2">260</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>创建知识库分类</td></tr>
+<tr><td rowspan="2">260</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>创建知识库分类</td></tr>
 <tr><td colspan="3">PostHelpdeskV1Categories</td></tr>
-<tr><td rowspan="2">261</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>更新知识库分类详情</td></tr>
+<tr><td rowspan="2">261</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>更新知识库分类详情</td></tr>
 <tr><td colspan="3">PatchHelpdeskV1CategoriesById</td></tr>
-<tr><td rowspan="2">262</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>删除知识库分类详情</td></tr>
+<tr><td rowspan="2">262</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>删除知识库分类详情</td></tr>
 <tr><td colspan="3">DeleteHelpdeskV1CategoriesById</td></tr>
 <tr><td rowspan="2">263</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>创建推送</td></tr>
 <tr><td colspan="3">PostHelpdeskV1Notifications</td></tr>
@@ -955,9 +955,9 @@
 <tr><td colspan="3">GetDriveV2PermissionsByTokenPublic</td></tr>
 <tr><td rowspan="2">478</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
 <tr><td colspan="3">PatchDriveV2PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">479</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>分页获取文档全文评论</td></tr>
+<tr><td rowspan="2">479</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>获取云文档所有评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenComments</td></tr>
-<tr><td rowspan="2">480</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>添加全文评论</td></tr>
+<tr><td rowspan="2">480</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>添加全文评论</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenComments</td></tr>
 <tr><td rowspan="2">481</td><td rowspan="2">2021-10-22</td><td>&#10003;</td><td>身份验证</td><td>JSAPI 临时授权凭证</td></tr>
 <tr><td colspan="3">PostJssdkTicketGet</td></tr>

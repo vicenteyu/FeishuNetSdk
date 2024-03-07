@@ -1,6 +1,6 @@
-namespace FeishuNetSdk.Ccm.Spec;
+namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 解决/恢复 评论 请求体
+/// 解决/恢复评论 请求体
 /// <para>解决或恢复云文档中的评论。</para>
 /// <para>接口ID：6955017385137766401</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/CommentAPI/patch</para>
@@ -10,8 +10,8 @@ public record PatchDriveV1FilesByFileTokenCommentsByCommentIdBodyDto
 {
     /// <summary>
     /// <para>评论解决标志</para>
-    /// <para>**示例值**：true</para>
     /// <para>必填：是</para>
+    /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("is_solved")]
     public bool IsSolved { get; set; }

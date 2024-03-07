@@ -3325,20 +3325,31 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文档token</para>
-    /// <para>**示例值**："doccnHh7U87HOFpii5u5G*****"</para>
+    /// <para>文档 Token</para>
+    /// <para>示例值：doxbcdl03Vsxhm7Qmnj110abcef</para>
     /// </param>
     /// <param name="comment_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>评论ID</para>
-    /// <para>**示例值**："6916106822734578184"</para>
+    /// <para>评论 ID</para>
+    /// <para>示例值：6916106822734578184</para>
     /// </param>
     /// <param name="reply_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>回复ID</para>
-    /// <para>**示例值**："6916106822734594568"</para>
+    /// <para>回复 ID</para>
+    /// <para>示例值：6916106822734594568</para>
+    /// </param>
+    /// <param name="file_type">
+    /// <para>必填：是</para>
+    /// <para>文档类型</para>
+    /// <para>示例值：doc</para>
+    /// <list type="bullet">
+    /// <item>doc：文档</item>
+    /// <item>sheet：表格</item>
+    /// <item>file：文件</item>
+    /// <item>docx：新版文档</item>
+    /// </list>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/drive/v1/files/{file_token}/comments/{comment_id}/replies/{reply_id}")]
@@ -3346,31 +3357,32 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string file_token,
         [PathQuery] string comment_id,
-        [PathQuery] string reply_id);
+        [PathQuery] string reply_id,
+        [PathQuery] string file_type);
 
     /// <summary>
-    /// <para>【云文档】更新回复</para>
+    /// <para>【云文档】更新回复的内容</para>
     /// <para>接口ID：6955017385137733633</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>更新云文档中的某条回复。</para>
+    /// <para>更新云文档中的某条回复的内容。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文档token</para>
-    /// <para>示例值：doccnHh7U87HOFpii5u5G*****</para>
+    /// <para>文档 Token</para>
+    /// <para>示例值：doxbcdl03Vsxhm7Qmnj110abcef</para>
     /// </param>
     /// <param name="comment_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>评论ID</para>
+    /// <para>评论 ID</para>
     /// <para>示例值：6916106822734578184</para>
     /// </param>
     /// <param name="reply_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>回复ID</para>
+    /// <para>回复 ID</para>
     /// <para>示例值：6916106822734594568</para>
     /// </param>
     /// <param name="file_type">
@@ -3412,12 +3424,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6955017385137750017</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>往云文档添加一条全局评论。</para>
+    /// <para>往云文档添加一条全局评论，不支持局部评论。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文档token</para>
+    /// <para>文档 Token</para>
     /// <para>示例值：doccnGp4UK1UskrOEJwBXd3****</para>
     /// </param>
     /// <param name="file_type">
@@ -3451,7 +3463,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【云文档】解决/恢复 评论</para>
+    /// <para>【云文档】解决/恢复评论</para>
     /// <para>接口ID：6955017385137766401</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -3461,13 +3473,24 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档token</para>
-    /// <para>**示例值**："doccnGp4UK1UskrOEJwBXd3****"</para>
+    /// <para>示例值：doccnGp4UK1UskrOEJwBXd3****</para>
     /// </param>
     /// <param name="comment_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>评论ID</para>
-    /// <para>**示例值**："6916106822734578184"</para>
+    /// <para>示例值：6916106822734578184</para>
+    /// </param>
+    /// <param name="file_type">
+    /// <para>必填：是</para>
+    /// <para>文档类型</para>
+    /// <para>示例值：doc</para>
+    /// <list type="bullet">
+    /// <item>doc：文档</item>
+    /// <item>sheet：表格</item>
+    /// <item>file：文件</item>
+    /// <item>docx：新版文档</item>
+    /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -3476,25 +3499,26 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string file_token,
         [PathQuery] string comment_id,
-        [JsonContent] Ccm.Spec.PatchDriveV1FilesByFileTokenCommentsByCommentIdBodyDto dto);
+        [PathQuery] string file_type,
+        [JsonContent] Ccm.PatchDriveV1FilesByFileTokenCommentsByCommentIdBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取全文评论</para>
     /// <para>接口ID：6955017385137782785</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取云文档中的某条全文评论，暂时不支持局部评论</para>
+    /// <para>获取云文档中的某条全文评论，不支持局部评论。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文档token</para>
+    /// <para>文档 Token</para>
     /// <para>示例值：doccnHh7U87HOFpii5u5G*****</para>
     /// </param>
     /// <param name="comment_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>评论ID</para>
+    /// <para>评论 ID</para>
     /// <para>示例值：6916106822734578184</para>
     /// </param>
     /// <param name="file_type">
@@ -3529,16 +3553,17 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【云文档】分页获取文档全文评论</para>
+    /// <para>【云文档】获取云文档所有评论</para>
     /// <para>接口ID：6955017385137799169</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据文档 token 分页获取文档全文评论，暂时不支持局部评论</para>
+    /// <para>该接口用于根据云文档 Token 分页获取文档所有评论信息，包括评论和回复 ID、回复的内容、评论人和回复人的用户 ID 等。该接口支持返回全局评论以及局部评论。默认每页返回 50 个评论。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文档token</para>
+    /// <para>云文档 Token</para>
+    /// <para>可以通过浏览器该文档的 URL 栏上直接获取云文档 Token 。</para>
     /// <para>示例值：XIHSdYSI7oMEU1xrsnxc8fabcef</para>
     /// </param>
     /// <param name="file_type">
@@ -3572,7 +3597,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，默认每页返回 50 个评论</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -3713,6 +3738,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/create-ticket-customized-field</para>
     /// <para>Authorization：user_access_token</para>
     /// <para>该接口用于创建自定义字段。</para>
+    /// <para>注意事项：</para>
+    /// <para>user_access_token 访问，需要操作者是当前服务台的管理员或所有者</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -3767,6 +3794,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/update-ticket-customized-field</para>
     /// <para>Authorization：user_access_token</para>
     /// <para>该接口用于更新自定义字段。</para>
+    /// <para>注意事项：</para>
+    /// <para>user_access_token 访问，需要操作者是当前服务台的管理员或所有者</para>
     /// </summary>
     /// <param name="ticket_customized_field_id">
     /// <para>路径参数</para>
@@ -9716,22 +9745,22 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? fields = null);
 
     /// <summary>
-    /// <para>【云文档】批量获取全文评论</para>
+    /// <para>【云文档】批量获取评论</para>
     /// <para>接口ID：7123144042921590786</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/batch_query</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据评论 ID 列表批量获取全文评论，暂时不支持局部评论</para>
+    /// <para>该接口用于根据评论 ID 列表批量获取云文档评论信息，包括评论和回复 ID、回复的内容、评论人和回复人的用户 ID 等。支持返回全局评论以及局部评论（可通过 is_whole 字段区分）。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文档Token</para>
+    /// <para>文档 Token</para>
     /// <para>示例值：doxbcdl03Vsxhm7Qmnj110abcef</para>
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
     /// <para>文档类型</para>
-    /// <para>示例值：doc docx sheet file</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>doc：文档类型</item>
     /// <item>sheet：电子表格类型</item>
@@ -9761,22 +9790,22 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【云文档】获取回复</para>
+    /// <para>【云文档】获取回复信息</para>
     /// <para>接口ID：7123144042921607170</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据评论 ID 以及分页参数，获取回复。</para>
+    /// <para>该接口用于根据评论 ID，获取该条评论对应的回复信息，包括回复 ID、回复内容、回复人的用户 ID 等。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文档Token</para>
+    /// <para>文档 Token</para>
     /// <para>示例值：doxbcdl03Vsxhm7Qmnj110abcef</para>
     /// </param>
     /// <param name="comment_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>评论ID</para>
+    /// <para>评论 ID</para>
     /// <para>示例值：1654857036541812356</para>
     /// </param>
     /// <param name="page_size">

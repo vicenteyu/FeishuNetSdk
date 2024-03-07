@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 获取回复 响应体
-/// <para>该接口用于根据评论 ID 以及分页参数，获取回复。</para>
+/// 获取回复信息 响应体
+/// <para>该接口用于根据评论 ID，获取该条评论对应的回复信息，包括回复 ID、回复内容、回复人的用户 ID 等。</para>
 /// <para>接口ID：7123144042921607170</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/CommentAPI/list-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-comment-reply%2flist</para>
@@ -21,7 +21,7 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDto
     public record FileCommentReply
     {
         /// <summary>
-        /// <para>回复ID</para>
+        /// <para>回复 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6916106822734512356</para>
         /// </summary>
@@ -29,7 +29,7 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDto
         public string? ReplyId { get; set; }
 
         /// <summary>
-        /// <para>用户ID</para>
+        /// <para>用户 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eab2abcef</para>
         /// </summary>
@@ -111,19 +111,19 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDto
                 }
 
                 /// <summary>
-                /// <para>文本内容</para>
+                /// <para>添加云文档链接</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("docs_link")]
                 public ReplyElementDocsLink? DocsLink { get; set; }
 
                 /// <summary>
-                /// <para>文本内容</para>
+                /// <para>添加云文档链接</para>
                 /// </summary>
                 public record ReplyElementDocsLink
                 {
                     /// <summary>
-                    /// <para>回复 at云文档</para>
+                    /// <para>回复 at 云文档</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：https://example.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef</para>
                     /// </summary>
@@ -132,19 +132,19 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDto
                 }
 
                 /// <summary>
-                /// <para>文本内容</para>
+                /// <para>添加用户的 user_id</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("person")]
                 public ReplyElementPerson? Person { get; set; }
 
                 /// <summary>
-                /// <para>文本内容</para>
+                /// <para>添加用户的 user_id</para>
                 /// </summary>
                 public record ReplyElementPerson
                 {
                     /// <summary>
-                    /// <para>回复 at联系人</para>
+                    /// <para>添加用户的 user_id 以@用户</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef</para>
                     /// </summary>
@@ -155,19 +155,19 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDto
         }
 
         /// <summary>
-        /// <para>回复的其他内容，图片token等</para>
+        /// <para>回复的其他内容，图片 Token 等</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("extra")]
         public ReplyExtra? Extra { get; set; }
 
         /// <summary>
-        /// <para>回复的其他内容，图片token等</para>
+        /// <para>回复的其他内容，图片 Token 等</para>
         /// </summary>
         public record ReplyExtra
         {
             /// <summary>
-            /// <para>评论中的图片token list</para>
+            /// <para>评论中的图片 Token list</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("image_list")]

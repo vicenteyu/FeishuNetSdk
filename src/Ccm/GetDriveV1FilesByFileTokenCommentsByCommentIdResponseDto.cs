@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取全文评论 响应体
-/// <para>获取云文档中的某条全文评论，暂时不支持局部评论</para>
+/// <para>获取云文档中的某条全文评论，不支持局部评论。</para>
 /// <para>接口ID：6955017385137782785</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/CommentAPI/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-comment%2fget</para>
@@ -9,7 +9,7 @@ namespace FeishuNetSdk.Ccm;
 public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
 {
     /// <summary>
-    /// <para>评论ID（创建新评论可不填；如填写，则视为回复已有评论）</para>
+    /// <para>评论 ID</para>
     /// <para>必填：否</para>
     /// <para>示例值：6916106822734512356</para>
     /// </summary>
@@ -17,7 +17,7 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
     public string? CommentId { get; set; }
 
     /// <summary>
-    /// <para>用户ID</para>
+    /// <para>用户 ID</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef</para>
     /// </summary>
@@ -57,7 +57,7 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
     public int? SolvedTime { get; set; }
 
     /// <summary>
-    /// <para>解决评论者的用户ID</para>
+    /// <para>解决评论者的用户 ID</para>
     /// <para>必填：否</para>
     /// <para>示例值：null</para>
     /// </summary>
@@ -89,7 +89,7 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
     public bool? IsWhole { get; set; }
 
     /// <summary>
-    /// <para>如果是局部评论，引用字段</para>
+    /// <para>局部评论的引用字段</para>
     /// <para>必填：否</para>
     /// <para>示例值：划词评论引用内容</para>
     /// </summary>
@@ -121,7 +121,7 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
         public record FileCommentReply
         {
             /// <summary>
-            /// <para>回复ID</para>
+            /// <para>回复 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：6916106822734512356</para>
             /// </summary>
@@ -129,7 +129,7 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
             public string? ReplyId { get; set; }
 
             /// <summary>
-            /// <para>用户ID</para>
+            /// <para>用户 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eab2abcef</para>
             /// </summary>
@@ -211,19 +211,19 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
                     }
 
                     /// <summary>
-                    /// <para>文本内容</para>
+                    /// <para>添加云文档链接</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("docs_link")]
                     public ReplyElementDocsLink? DocsLink { get; set; }
 
                     /// <summary>
-                    /// <para>文本内容</para>
+                    /// <para>添加云文档链接</para>
                     /// </summary>
                     public record ReplyElementDocsLink
                     {
                         /// <summary>
-                        /// <para>回复 at云文档</para>
+                        /// <para>回复 at 云文档</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：https://example.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef</para>
                         /// </summary>
@@ -232,19 +232,19 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
                     }
 
                     /// <summary>
-                    /// <para>文本内容</para>
+                    /// <para>添加用户的 user_id</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("person")]
                     public ReplyElementPerson? Person { get; set; }
 
                     /// <summary>
-                    /// <para>文本内容</para>
+                    /// <para>添加用户的 user_id</para>
                     /// </summary>
                     public record ReplyElementPerson
                     {
                         /// <summary>
-                        /// <para>回复 at联系人</para>
+                        /// <para>添加用户的 user_id 以@用户</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef</para>
                         /// </summary>
@@ -255,19 +255,19 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
             }
 
             /// <summary>
-            /// <para>回复的其他内容，图片token等</para>
+            /// <para>回复的其他内容，图片 Token 等</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("extra")]
             public ReplyExtra? Extra { get; set; }
 
             /// <summary>
-            /// <para>回复的其他内容，图片token等</para>
+            /// <para>回复的其他内容，图片 Token 等</para>
             /// </summary>
             public record ReplyExtra
             {
                 /// <summary>
-                /// <para>评论中的图片token list</para>
+                /// <para>评论中的图片 Token list</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("image_list")]

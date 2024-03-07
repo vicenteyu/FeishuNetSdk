@@ -2,6 +2,8 @@ namespace FeishuNetSdk.Helpdesk.Spec;
 /// <summary>
 /// 创建工单自定义字段 请求体
 /// <para>该接口用于创建自定义字段。</para>
+/// <para>注意事项：</para>
+/// <para>user_access_token 访问，需要操作者是当前服务台的管理员或所有者</para>
 /// <para>接口ID：6955768699895562242</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/helpdesk-v1/ticket-management/ticket_customized_field/create-ticket-customized-field</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fhelpdesk-v1%2fticket_customized_field%2fcreate-ticket-customized-field</para>
@@ -106,17 +108,17 @@ public record PostHelpdeskV1TicketCustomizedFieldsBodyDto
         {
             /// <summary>
             /// <para>选项ID</para>
-            /// <para>必填：否</para>
+            /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("tag")]
-            public string? Tag { get; set; }
+            public string Tag { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>展示名称</para>
-            /// <para>必填：否</para>
+            /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("display_name")]
-            public string? DisplayName { get; set; }
+            public string DisplayName { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>同上：选项列表，只适用于多层下拉列表（最多可以设置三级下拉列表）</para>

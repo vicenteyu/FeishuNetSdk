@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 更新回复 请求体
-/// <para>更新云文档中的某条回复。</para>
+/// 更新回复的内容 请求体
+/// <para>更新云文档中的某条回复的内容。</para>
 /// <para>接口ID：6955017385137733633</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/CommentAPI/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-comment-reply%2fupdate</para>
@@ -67,19 +67,19 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
             }
 
             /// <summary>
-            /// <para>文本内容</para>
+            /// <para>添加云文档链接</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("docs_link")]
             public ReplyElementDocsLink? DocsLink { get; set; }
 
             /// <summary>
-            /// <para>文本内容</para>
+            /// <para>添加云文档链接</para>
             /// </summary>
             public record ReplyElementDocsLink
             {
                 /// <summary>
-                /// <para>回复 at云文档</para>
+                /// <para>回复 at 云文档</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：https://example.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef</para>
                 /// </summary>
@@ -88,19 +88,19 @@ public record PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyD
             }
 
             /// <summary>
-            /// <para>文本内容</para>
+            /// <para>添加用户的 user_id</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("person")]
             public ReplyElementPerson? Person { get; set; }
 
             /// <summary>
-            /// <para>文本内容</para>
+            /// <para>添加用户的 user_id</para>
             /// </summary>
             public record ReplyElementPerson
             {
                 /// <summary>
-                /// <para>回复 at联系人</para>
+                /// <para>添加用户的 user_id 以@用户。</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef</para>
                 /// </summary>
