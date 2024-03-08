@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取云文档所有评论 响应体
-/// <para>该接口用于根据云文档 Token 分页获取文档所有评论信息，包括评论和回复 ID、回复的内容、评论人和回复人的用户 ID 等。该接口支持返回全局评论以及局部评论。默认每页返回 50 个评论。</para>
+/// <para>该接口用于根据云文档 Token 分页获取文档所有评论信息，包括评论和回复 ID、回复的内容、评论人和回复人的用户 ID 等。该接口支持返回全局评论以及局部评论（可通过 is_whole 字段区分）。默认每页返回 50 个评论。</para>
 /// <para>接口ID：6955017385137799169</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/CommentAPI/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-comment%2flist</para>

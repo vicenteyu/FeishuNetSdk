@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 添加全文评论 响应体
-/// <para>往云文档添加一条全局评论，不支持局部评论。</para>
+/// <para>在文档中添加一条全局评论，不支持局部评论。</para>
 /// <para>接口ID：6955017385137750017</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/CommentAPI/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-comment%2fcreate</para>
@@ -121,38 +121,6 @@ public record PostDriveV1FilesByFileTokenCommentsResponseDto
         public record FileCommentReply
         {
             /// <summary>
-            /// <para>回复 ID</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6916106822734512356</para>
-            /// </summary>
-            [JsonPropertyName("reply_id")]
-            public string? ReplyId { get; set; }
-
-            /// <summary>
-            /// <para>用户 ID</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eab2abcef</para>
-            /// </summary>
-            [JsonPropertyName("user_id")]
-            public string? UserId { get; set; }
-
-            /// <summary>
-            /// <para>创建时间</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：1610281603</para>
-            /// </summary>
-            [JsonPropertyName("create_time")]
-            public int? CreateTime { get; set; }
-
-            /// <summary>
-            /// <para>更新时间</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：1610281603</para>
-            /// </summary>
-            [JsonPropertyName("update_time")]
-            public int? UpdateTime { get; set; }
-
-            /// <summary>
             /// <para>回复内容</para>
             /// <para>必填：是</para>
             /// </summary>
@@ -253,6 +221,38 @@ public record PostDriveV1FilesByFileTokenCommentsResponseDto
                     }
                 }
             }
+
+            /// <summary>
+            /// <para>回复 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6916106822734512356</para>
+            /// </summary>
+            [JsonPropertyName("reply_id")]
+            public string? ReplyId { get; set; }
+
+            /// <summary>
+            /// <para>用户 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eab2abcef</para>
+            /// </summary>
+            [JsonPropertyName("user_id")]
+            public string? UserId { get; set; }
+
+            /// <summary>
+            /// <para>创建时间</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1610281603</para>
+            /// </summary>
+            [JsonPropertyName("create_time")]
+            public int? CreateTime { get; set; }
+
+            /// <summary>
+            /// <para>更新时间</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1610281603</para>
+            /// </summary>
+            [JsonPropertyName("update_time")]
+            public int? UpdateTime { get; set; }
 
             /// <summary>
             /// <para>回复的其他内容，图片 Token 等</para>

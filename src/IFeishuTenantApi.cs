@@ -6137,13 +6137,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6955017385137750017</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>往云文档添加一条全局评论，不支持局部评论。</para>
+    /// <para>在文档中添加一条全局评论，不支持局部评论。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档 Token</para>
-    /// <para>示例值：doccnGp4UK1UskrOEJwBXd3****</para>
+    /// <para>可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。</para>
+    /// <para>示例值：XIHSdYSI7oMEU1xrsnxc8fabcef</para>
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
@@ -6264,7 +6265,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6955017385137799169</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据云文档 Token 分页获取文档所有评论信息，包括评论和回复 ID、回复的内容、评论人和回复人的用户 ID 等。该接口支持返回全局评论以及局部评论。默认每页返回 50 个评论。</para>
+    /// <para>该接口用于根据云文档 Token 分页获取文档所有评论信息，包括评论和回复 ID、回复的内容、评论人和回复人的用户 ID 等。该接口支持返回全局评论以及局部评论（可通过 is_whole 字段区分）。默认每页返回 50 个评论。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
@@ -28093,7 +28094,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【词典】删除免审词条</para>
     /// <para>接口ID：7301296774114639876</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/delete</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>通过 entity_id 删除已有的词条，无需经过词典管理员审核。因此，调用该接口时应当慎重操作。</para>
     /// </summary>
     /// <param name="entity_id">

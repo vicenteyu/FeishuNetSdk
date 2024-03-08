@@ -431,7 +431,7 @@ public record PostDocumentAiV1ResumeParseResponseDto
             /// <summary>
             /// <para>语言描述</para>
             /// <para>必填：否</para>
-            /// <para>示例值：英语四级</para>
+            /// <para>示例值：英语四级:600</para>
             /// </summary>
             [JsonPropertyName("description")]
             public string? Description { get; set; }

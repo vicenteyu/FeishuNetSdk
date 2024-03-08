@@ -177,11 +177,11 @@
 <tr><td colspan="3">GetDriveV2PermissionsByTokenPublic</td></tr>
 <tr><td rowspan="2">89</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
 <tr><td colspan="3">PatchDriveV2PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">90</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>获取云文档所有评论</td></tr>
+<tr><td rowspan="2">90</td><td rowspan="2">2024-03-08</td><td>&#10003;</td><td>云文档</td><td>获取云文档所有评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenComments</td></tr>
 <tr><td rowspan="2">91</td><td rowspan="2">2023-07-24</td><td>&#10003;</td><td>通讯录</td><td>获取企业自定义用户字段</td></tr>
 <tr><td colspan="3">GetContactV3CustomAttrs</td></tr>
-<tr><td rowspan="2">92</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>添加全文评论</td></tr>
+<tr><td rowspan="2">92</td><td rowspan="2">2024-03-08</td><td>&#10003;</td><td>云文档</td><td>添加全文评论</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenComments</td></tr>
 <tr><td rowspan="2">93</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>获取全文评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
@@ -1491,13 +1491,13 @@
 <tr><td colspan="3">DeleteCorehrV2ProbationAssessmentsByAssessmentId</td></tr>
 <tr><td rowspan="2">746</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>消息与群组</td><td>获取指定消息的内容</td></tr>
 <tr><td colspan="3">GetImV1MessagesByMessageId</td></tr>
-<tr><td rowspan="2">747</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事</td><td>获取异动原因列表</td></tr>
+<tr><td rowspan="2">747</td><td rowspan="2">2024-03-07</td><td>&#10003;</td><td>飞书人事</td><td>获取异动原因列表</td></tr>
 <tr><td colspan="3">GetCorehrV1TransferReasonsQuery</td></tr>
-<tr><td rowspan="2">748</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事</td><td>获取异动类型列表</td></tr>
+<tr><td rowspan="2">748</td><td rowspan="2">2024-03-07</td><td>&#10003;</td><td>飞书人事</td><td>获取异动类型列表</td></tr>
 <tr><td colspan="3">GetCorehrV1TransferTypesQuery</td></tr>
-<tr><td rowspan="2">749</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事</td><td>发起员工异动</td></tr>
+<tr><td rowspan="2">749</td><td rowspan="2">2024-03-07</td><td>&#10003;</td><td>飞书人事</td><td>发起员工异动</td></tr>
 <tr><td colspan="3">PostCorehrV1JobChanges</td></tr>
-<tr><td rowspan="2">750</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工异动信息</td></tr>
+<tr><td rowspan="2">750</td><td rowspan="2">2024-03-07</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工异动信息</td></tr>
 <tr><td colspan="3">PostCorehrV2JobChangesSearch</td></tr>
 <tr><td rowspan="2">751</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事</td><td>查询员工离职原因列表</td></tr>
 <tr><td colspan="3">PostCorehrV1OffboardingsQuery</td></tr>
@@ -1987,7 +1987,7 @@
 <tr><td colspan="3">PostJssdkTicketGet</td></tr>
 <tr><td rowspan="2">994</td><td rowspan="2">2022-09-27</td><td>&#10003;</td><td>应用信息</td><td>获取机器人信息</td></tr>
 <tr><td colspan="3">GetBotV3Info</td></tr>
-<tr><td rowspan="2">995</td><td rowspan="2">2023-11-24</td><td>&#10003;</td><td>词典</td><td>删除免审词条</td></tr>
+<tr><td rowspan="2">995</td><td rowspan="2">2024-03-08</td><td>&#10003;</td><td>词典</td><td>删除免审词条</td></tr>
 <tr><td colspan="3">DeleteLingoV1EntitiesByEntityId</td></tr>
 <tr><td rowspan="2">996</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
 <tr><td colspan="3">PatchCorehrV1CompaniesByCompanyId</td></tr>
@@ -2061,6 +2061,6 @@
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 <tr><td rowspan="2">1031</td><td rowspan="2">2024-03-05</td><td>&#10003;</td><td>招聘</td><td>获取人才列表</td></tr>
 <tr><td colspan="3">GetHireV1Talents</td></tr>
-<tr><td rowspan="2">1032</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的简历信息</td></tr>
+<tr><td rowspan="2">1032</td><td rowspan="2">2024-03-07</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的简历信息</td></tr>
 <tr><td colspan="3">PostDocumentAiV1ResumeParse</td></tr>
 </tbody></table>
