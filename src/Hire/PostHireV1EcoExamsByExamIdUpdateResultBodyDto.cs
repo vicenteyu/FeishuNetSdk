@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 回传笔试结果 请求体
-/// <para>回传笔试结果</para>
+/// <para>回传笔试结果。回传笔试结果后，若需更新笔试结果，可再次调用该接口更新笔试结果，更新后的数据将覆盖原数据。用户若已在飞书招聘完成阅卷，不再支持回传笔试结果。</para>
 /// <para>接口ID：7195815979079467009</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/ecological-docking/eco_exam/update_result</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2feco_exam%2fupdate_result</para>

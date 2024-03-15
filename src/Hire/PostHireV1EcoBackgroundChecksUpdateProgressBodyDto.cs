@@ -49,6 +49,15 @@ public record PostHireV1EcoBackgroundChecksUpdateProgressBodyDto
     public string StageTime { get; set; } = string.Empty;
 
     /// <summary>
+    /// <para>背调结果（阶段性背调结果）</para>
+    /// <para>注意：若需回传该字段，report_file_list为必填</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：通过</para>
+    /// </summary>
+    [JsonPropertyName("result")]
+    public string? Result { get; set; }
+
+    /// <summary>
     /// <para>报告列表</para>
     /// <para>必填：否</para>
     /// </summary>

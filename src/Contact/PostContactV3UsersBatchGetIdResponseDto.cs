@@ -43,5 +43,58 @@ public record PostContactV3UsersBatchGetIdResponseDto
         /// </summary>
         [JsonPropertyName("email")]
         public string? Email { get; set; }
+
+        /// <summary>
+        /// <para>用户状态</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("status")]
+        public UserStatus? Status { get; set; }
+
+        /// <summary>
+        /// <para>用户状态</para>
+        /// </summary>
+        public record UserStatus
+        {
+            /// <summary>
+            /// <para>是否冻结</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("is_frozen")]
+            public bool? IsFrozen { get; set; }
+
+            /// <summary>
+            /// <para>是否离职</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("is_resigned")]
+            public bool? IsResigned { get; set; }
+
+            /// <summary>
+            /// <para>是否激活</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("is_activated")]
+            public bool? IsActivated { get; set; }
+
+            /// <summary>
+            /// <para>是否主动退出，主动退出一段时间后用户会自动转为已离职</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("is_exited")]
+            public bool? IsExited { get; set; }
+
+            /// <summary>
+            /// <para>是否未加入，需要用户自主确认才能加入团队</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("is_unjoin")]
+            public bool? IsUnjoin { get; set; }
+        }
     }
 }

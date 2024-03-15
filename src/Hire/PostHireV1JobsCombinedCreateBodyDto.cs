@@ -225,7 +225,8 @@ public record PostHireV1JobsCombinedCreateBodyDto
     public string? Description { get; set; }
 
     /// <summary>
-    /// <para>职位亮点</para>
+    /// <para>职位亮点，可参考招聘[枚举常量介绍](</para>
+    /// <para>https://open.feishu.cn/document/server-docs/hire-v1/enum)</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956554</para>
     /// </summary>

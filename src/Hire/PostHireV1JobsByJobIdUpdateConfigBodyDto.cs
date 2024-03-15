@@ -41,7 +41,7 @@ public record PostHireV1JobsByJobIdUpdateConfigBodyDto
     public int[] UpdateOptionList { get; set; } = Array.Empty<int>();
 
     /// <summary>
-    /// <para>面试评价表，枚举通过接口「获取面试评价表列表」获取</para>
+    /// <para>面试评价表，枚举通过接口[获取面试评价表信息](https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/interview-settings/list)获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956571</para>
     /// </summary>
