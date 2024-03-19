@@ -28672,5 +28672,81 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/document_ai/v1/resume/parse")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1ResumeParseResponseDto>> PostDocumentAiV1ResumeParseAsync(
         [FormDataContent] FormDataFile file);
+
+    /// <summary>
+    /// <para>【飞书应用引擎】拒绝人工任务</para>
+    /// <para>接口ID：7347562540447088641</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/approval_task/reject</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>对于人工任务进行拒绝操作</para>
+    /// </summary>
+    /// <param name="approval_task_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>人工任务 ID</para>
+    /// <para>示例值：1785996265147395</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/approval_tasks/{approval_task_id}/reject")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApaasV1ApprovalTasksByApprovalTaskIdRejectAsync(
+        [PathQuery] string approval_task_id,
+        [JsonContent] AppEngine.PostApaasV1ApprovalTasksByApprovalTaskIdRejectBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书应用引擎】转交人工任务</para>
+    /// <para>接口ID：7347562540447105025</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/approval_task/transfer</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>对于人工任务进行转交操作</para>
+    /// </summary>
+    /// <param name="approval_task_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>人工任务 ID</para>
+    /// <para>示例值：1785996265147395</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/approval_tasks/{approval_task_id}/transfer")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApaasV1ApprovalTasksByApprovalTaskIdTransferAsync(
+        [PathQuery] string approval_task_id,
+        [JsonContent] AppEngine.PostApaasV1ApprovalTasksByApprovalTaskIdTransferBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书应用引擎】人工任务加签</para>
+    /// <para>接口ID：7347562540447121409</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/approval_task/add_assignee</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>对于人工任务进行加签操作</para>
+    /// </summary>
+    /// <param name="approval_task_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>人工任务 ID</para>
+    /// <para>示例值：1785771068261436</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/approval_tasks/{approval_task_id}/add_assignee")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApaasV1ApprovalTasksByApprovalTaskIdAddAssigneeAsync(
+        [PathQuery] string approval_task_id,
+        [JsonContent] AppEngine.PostApaasV1ApprovalTasksByApprovalTaskIdAddAssigneeBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书应用引擎】同意人工任务</para>
+    /// <para>接口ID：7347562540447137793</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/approval_task/agree</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>对于人工任务进行同意操作</para>
+    /// </summary>
+    /// <param name="approval_task_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>人工任务 ID</para>
+    /// <para>示例值：1785996265147395</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/approval_tasks/{approval_task_id}/agree")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApaasV1ApprovalTasksByApprovalTaskIdAgreeAsync(
+        [PathQuery] string approval_task_id,
+        [JsonContent] AppEngine.PostApaasV1ApprovalTasksByApprovalTaskIdAgreeBodyDto dto);
 }
 
