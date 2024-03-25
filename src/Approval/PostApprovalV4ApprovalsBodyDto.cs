@@ -33,7 +33,7 @@ public record PostApprovalV4ApprovalsBodyDto
     public string? Description { get; set; }
 
     /// <summary>
-    /// <para>viewers 字段指定了哪些人能从审批应用的前台发起该审批。</para>
+    /// <para>viewers 字段指定了哪些人能从审批应用的前台发起该审批（列表最大支持长度200）。</para>
     /// <para>1. 当 viewer_type 为 USER，需要填写viewer_user_id；</para>
     /// <para>2. 当 viewer_type 为DEPARTMENT，需要填写viewer_department_id；</para>
     /// <para>3. 当 viewer_type 为TENANT或NONE时，viewer_user_id和viewer_department_id无需填写</para>
@@ -43,7 +43,7 @@ public record PostApprovalV4ApprovalsBodyDto
     public ApprovalCreateViewers[] Viewers { get; set; } = Array.Empty<ApprovalCreateViewers>();
 
     /// <summary>
-    /// <para>viewers 字段指定了哪些人能从审批应用的前台发起该审批。</para>
+    /// <para>viewers 字段指定了哪些人能从审批应用的前台发起该审批（列表最大支持长度200）。</para>
     /// <para>1. 当 viewer_type 为 USER，需要填写viewer_user_id；</para>
     /// <para>2. 当 viewer_type 为DEPARTMENT，需要填写viewer_department_id；</para>
     /// <para>3. 当 viewer_type 为TENANT或NONE时，viewer_user_id和viewer_department_id无需填写</para>
@@ -159,7 +159,7 @@ public record PostApprovalV4ApprovalsBodyDto
             /// <para>审批/抄送人类型，</para>
             /// <para>1. 当 type 为 Supervisor、SupervisorTopDown、DepartmentManager 、DepartmentManagerTopDown 这 4 种时，需要在 level 中填写对应的级数，例如：由下往上三级主管审批，level = 3；</para>
             /// <para>2. 当 type 为 Personal 时，需要填写对应的user_id ，用于指定用户；</para>
-            /// <para>3. 当 approver 为 Free 发起人自选时，不需要指定 user_id 和level；</para>
+            /// <para>3. 当 type 为 Free 发起人自选时，不需要指定 user_id 和level；</para>
             /// <para>4. ccer不支持 Free 发起人自选</para>
             /// <para>必填：是</para>
             /// <para>示例值：Supervisor</para>
@@ -466,7 +466,7 @@ public record PostApprovalV4ApprovalsBodyDto
     }
 
     /// <summary>
-    /// <para>根据user_id_type填写流程管理员的用户id</para>
+    /// <para>根据user_id_type填写流程管理员的用户id（列表最大支持长度200）</para>
     /// <para>必填：否</para>
     /// <para>示例值：["1c5ea995"]</para>
     /// </summary>

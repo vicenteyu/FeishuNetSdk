@@ -1,21 +1,21 @@
 <table><thead><tr><th>序号</th><th>更新日期</th><th>可用</th><th>类别</th><th>说明</th></tr></thead><tbody>
 <tr><td rowspan="2">1</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>身份验证</td><td>获取登录用户信息</td></tr>
 <tr><td colspan="3">GetAuthenV1UserInfo</td></tr>
-<tr><td rowspan="2">2</td><td rowspan="2">2024-02-22</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
+<tr><td rowspan="2">2</td><td rowspan="2">2024-03-12</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
 <tr><td colspan="3">PatchContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">3</td><td rowspan="2">2023-06-26</td><td>&#10003;</td><td>通讯录</td><td>搜索部门</td></tr>
 <tr><td colspan="3">PostContactV3DepartmentsSearch</td></tr>
-<tr><td rowspan="2">4</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>获取全文评论</td></tr>
+<tr><td rowspan="2">4</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>云文档</td><td>获取全文评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
-<tr><td rowspan="2">5</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>批量获取评论</td></tr>
+<tr><td rowspan="2">5</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>云文档</td><td>批量获取评论</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenCommentsBatchQuery</td></tr>
-<tr><td rowspan="2">6</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>获取回复信息</td></tr>
+<tr><td rowspan="2">6</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>云文档</td><td>获取回复信息</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenCommentsByCommentIdReplies</td></tr>
-<tr><td rowspan="2">7</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>更新回复的内容</td></tr>
+<tr><td rowspan="2">7</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>云文档</td><td>更新回复的内容</td></tr>
 <tr><td colspan="3">PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyId</td></tr>
-<tr><td rowspan="2">8</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>删除回复</td></tr>
+<tr><td rowspan="2">8</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>云文档</td><td>删除回复</td></tr>
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyId</td></tr>
-<tr><td rowspan="2">9</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>云文档</td><td>解决/恢复评论</td></tr>
+<tr><td rowspan="2">9</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>云文档</td><td>解决/恢复评论</td></tr>
 <tr><td colspan="3">PatchDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
 <tr><td rowspan="2">10</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取文档基本信息</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentId</td></tr>
@@ -223,7 +223,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreate</td></tr>
 <tr><td rowspan="2">112</td><td rowspan="2">2023-08-03</td><td>&#10003;</td><td>多维表格</td><td>更新多条记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdate</td></tr>
-<tr><td rowspan="2">113</td><td rowspan="2">2023-12-07</td><td>&#10003;</td><td>通讯录</td><td>获取单个用户信息</td></tr>
+<tr><td rowspan="2">113</td><td rowspan="2">2024-03-12</td><td>&#10003;</td><td>通讯录</td><td>获取单个用户信息</td></tr>
 <tr><td colspan="3">GetContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">114</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>消息与群组</td><td>Pin 消息</td></tr>
 <tr><td colspan="3">PostImV1Pins</td></tr>
@@ -409,7 +409,7 @@
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdRecordingSetPermission</td></tr>
 <tr><td rowspan="2">205</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>视频会议</td><td>导出会议明细</td></tr>
 <tr><td colspan="3">PostVcV1ExportsMeetingList</td></tr>
-<tr><td rowspan="2">206</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>视频会议</td><td>导出参会人明细</td></tr>
+<tr><td rowspan="2">206</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>视频会议</td><td>导出参会人明细</td></tr>
 <tr><td colspan="3">PostVcV1ExportsParticipantList</td></tr>
 <tr><td rowspan="2">207</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>视频会议</td><td>导出参会人会议质量数据</td></tr>
 <tr><td colspan="3">PostVcV1ExportsParticipantQualityList</td></tr>
@@ -445,7 +445,7 @@
 <tr><td colspan="3">GetVcV1RoomsByRoomId</td></tr>
 <tr><td rowspan="2">223</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>批量查询会议室详情</td></tr>
 <tr><td colspan="3">PostVcV1RoomsMget</td></tr>
-<tr><td rowspan="2">224</td><td rowspan="2">2023-09-04</td><td>&#10003;</td><td>通讯录</td><td>批量获取用户信息</td></tr>
+<tr><td rowspan="2">224</td><td rowspan="2">2024-03-12</td><td>&#10003;</td><td>通讯录</td><td>批量获取用户信息</td></tr>
 <tr><td colspan="3">GetContactV3UsersBatch</td></tr>
 <tr><td rowspan="2">225</td><td rowspan="2">2023-11-07</td><td>&#10003;</td><td>消息与群组</td><td>搜索对用户或机器人可见的群列表</td></tr>
 <tr><td colspan="3">GetImV1ChatsSearch</td></tr>
@@ -475,9 +475,9 @@
 <tr><td colspan="3">GetVcV1ReserveConfigsByReserveConfigIdDisableInform</td></tr>
 <tr><td rowspan="2">238</td><td rowspan="2">2023-08-29</td><td>&#10003;</td><td>视频会议</td><td>更新禁用状态变更通知</td></tr>
 <tr><td colspan="3">PatchVcV1ReserveConfigsByReserveConfigIdDisableInform</td></tr>
-<tr><td rowspan="2">239</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>视频会议</td><td>查询会议明细</td></tr>
+<tr><td rowspan="2">239</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>视频会议</td><td>查询会议明细</td></tr>
 <tr><td colspan="3">GetVcV1MeetingList</td></tr>
-<tr><td rowspan="2">240</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>视频会议</td><td>查询参会人明细</td></tr>
+<tr><td rowspan="2">240</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>视频会议</td><td>查询参会人明细</td></tr>
 <tr><td colspan="3">GetVcV1ParticipantList</td></tr>
 <tr><td rowspan="2">241</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>视频会议</td><td>查询参会人会议质量数据</td></tr>
 <tr><td colspan="3">GetVcV1ParticipantQualityList</td></tr>
@@ -667,7 +667,7 @@
 <tr><td colspan="3">GetTaskV2Comments</td></tr>
 <tr><td rowspan="2">334</td><td rowspan="2">2023-11-06</td><td>&#10003;</td><td>任务</td><td>上传附件</td></tr>
 <tr><td colspan="3">PostTaskV2AttachmentsUpload</td></tr>
-<tr><td rowspan="2">335</td><td rowspan="2">2023-08-23</td><td>&#10003;</td><td>通讯录</td><td>获取部门直属用户列表</td></tr>
+<tr><td rowspan="2">335</td><td rowspan="2">2024-03-12</td><td>&#10003;</td><td>通讯录</td><td>获取部门直属用户列表</td></tr>
 <tr><td colspan="3">GetContactV3UsersFindByDepartment</td></tr>
 <tr><td rowspan="2">336</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>消息与群组</td><td>更新群公告信息</td></tr>
 <tr><td colspan="3">PatchImV1ChatsByChatIdAnnouncement</td></tr>
@@ -763,9 +763,9 @@
 <tr><td colspan="3">PostLingoV1FilesUpload</td></tr>
 <tr><td rowspan="2">382</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>下载图片</td></tr>
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
-<tr><td rowspan="2">383</td><td rowspan="2">2023-07-05</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">383</td><td rowspan="2">2024-03-12</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">384</td><td rowspan="2">2023-07-05</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">384</td><td rowspan="2">2024-03-12</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">385</td><td rowspan="2">2023-04-07</td><td>&#10003;</td><td>应用信息</td><td>获取用户自定义常用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV5ApplicationsFavourite</td></tr>
@@ -883,11 +883,11 @@
 <tr><td colspan="3">PostDriveV1MediasUploadPart</td></tr>
 <tr><td rowspan="2">442</td><td rowspan="2">2022-06-28</td><td>&#10003;</td><td>云文档</td><td>分片上传素材（完成上传）</td></tr>
 <tr><td colspan="3">PostDriveV1MediasUploadFinish</td></tr>
-<tr><td rowspan="2">443</td><td rowspan="2">2024-01-10</td><td>&#10003;</td><td>云文档</td><td>订阅云文档事件</td></tr>
+<tr><td rowspan="2">443</td><td rowspan="2">2024-03-14</td><td>&#10003;</td><td>云文档</td><td>订阅云文档事件</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenSubscribe</td></tr>
-<tr><td rowspan="2">444</td><td rowspan="2">2024-01-10</td><td>&#10003;</td><td>云文档</td><td>取消云文档事件订阅</td></tr>
+<tr><td rowspan="2">444</td><td rowspan="2">2024-03-14</td><td>&#10003;</td><td>云文档</td><td>取消云文档事件订阅</td></tr>
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenDeleteSubscribe</td></tr>
-<tr><td rowspan="2">445</td><td rowspan="2">2024-01-10</td><td>&#10003;</td><td>云文档</td><td>查询云文档事件订阅状态</td></tr>
+<tr><td rowspan="2">445</td><td rowspan="2">2024-03-14</td><td>&#10003;</td><td>云文档</td><td>查询云文档事件订阅状态</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenGetSubscribe</td></tr>
 <tr><td rowspan="2">446</td><td rowspan="2">2022-07-18</td><td>&#10003;</td><td>云文档</td><td>文档搜索</td></tr>
 <tr><td colspan="3">PostSuiteDocsApiSearchObject</td></tr>
@@ -955,9 +955,9 @@
 <tr><td colspan="3">GetDriveV2PermissionsByTokenPublic</td></tr>
 <tr><td rowspan="2">478</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
 <tr><td colspan="3">PatchDriveV2PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">479</td><td rowspan="2">2024-03-08</td><td>&#10003;</td><td>云文档</td><td>获取云文档所有评论</td></tr>
+<tr><td rowspan="2">479</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>云文档</td><td>获取云文档所有评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenComments</td></tr>
-<tr><td rowspan="2">480</td><td rowspan="2">2024-03-08</td><td>&#10003;</td><td>云文档</td><td>添加全文评论</td></tr>
+<tr><td rowspan="2">480</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>云文档</td><td>添加全文评论</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenComments</td></tr>
 <tr><td rowspan="2">481</td><td rowspan="2">2021-10-22</td><td>&#10003;</td><td>身份验证</td><td>JSAPI 临时授权凭证</td></tr>
 <tr><td colspan="3">PostJssdkTicketGet</td></tr>
@@ -987,7 +987,7 @@
 <tr><td colspan="3">DeleteAcsV1VisitorsByVisitorId</td></tr>
 <tr><td rowspan="2">494</td><td rowspan="2">2024-01-11</td><td>&#10003;</td><td>日历</td><td>查询日程视图</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
-<tr><td rowspan="2">495</td><td rowspan="2">2024-02-01</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
+<tr><td rowspan="2">495</td><td rowspan="2">2024-03-20</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
 <tr><td rowspan="2">496</td><td rowspan="2">2024-02-27</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>

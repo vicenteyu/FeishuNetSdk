@@ -705,7 +705,7 @@
 <tr><td colspan="3">GetAttendanceV1LeaveEmployExpireRecordsByLeaveId</td></tr>
 <tr><td rowspan="2">353</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>修改发放记录</td></tr>
 <tr><td colspan="3">PatchAttendanceV1LeaveAccrualRecordByLeaveId</td></tr>
-<tr><td rowspan="2">354</td><td rowspan="2">2024-01-18</td><td>&#10003;</td><td>审批</td><td>创建审批定义</td></tr>
+<tr><td rowspan="2">354</td><td rowspan="2">2024-03-22</td><td>&#10003;</td><td>审批</td><td>创建审批定义</td></tr>
 <tr><td colspan="3">PostApprovalV4Approvals</td></tr>
 <tr><td rowspan="2">355</td><td rowspan="2">2024-03-01</td><td>&#10003;</td><td>审批</td><td>查看指定审批定义</td></tr>
 <tr><td colspan="3">GetApprovalV4ApprovalsByApprovalCode</td></tr>
@@ -1377,7 +1377,7 @@
 <tr><td colspan="3">GetCorehrV1JobDatas</td></tr>
 <tr><td rowspan="2">689</td><td rowspan="2">2024-02-23</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取父部门信息</td></tr>
 <tr><td colspan="3">PostCorehrV2DepartmentsParents</td></tr>
-<tr><td rowspan="2">690</td><td rowspan="2">2024-02-05</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索部门信息</td></tr>
+<tr><td rowspan="2">690</td><td rowspan="2">2024-03-22</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索部门信息</td></tr>
 <tr><td colspan="3">PostCorehrV2DepartmentsSearch</td></tr>
 <tr><td rowspan="2">691</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>消息与群组</td><td>转发消息</td></tr>
 <tr><td colspan="3">PostImV1MessagesByMessageIdForward</td></tr>
@@ -2053,7 +2053,7 @@
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
 <tr><td rowspan="2">1027</td><td rowspan="2">2024-01-23</td><td>&#10003;</td><td>招聘</td><td>获取职位列表</td></tr>
 <tr><td colspan="3">GetHireV1Jobs</td></tr>
-<tr><td rowspan="2">1028</td><td rowspan="2">2024-02-01</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
+<tr><td rowspan="2">1028</td><td rowspan="2">2024-03-20</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
 <tr><td rowspan="2">1029</td><td rowspan="2">2024-01-26</td><td>&#10003;</td><td>应用信息</td><td>启停用应用</td></tr>
 <tr><td colspan="3">PutApplicationV6ApplicationsByAppIdManagement</td></tr>
@@ -2063,12 +2063,14 @@
 <tr><td colspan="3">GetHireV1Talents</td></tr>
 <tr><td rowspan="2">1032</td><td rowspan="2">2024-03-07</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的简历信息</td></tr>
 <tr><td colspan="3">PostDocumentAiV1ResumeParse</td></tr>
-<tr><td rowspan="2">1033</td><td rowspan="2">2024-03-19</td><td>新增</td><td>飞书应用引擎</td><td>拒绝人工任务</td></tr>
+<tr><td rowspan="2">1033</td><td rowspan="2">2024-03-19</td><td>&#10003;</td><td>飞书应用引擎</td><td>拒绝人工任务</td></tr>
 <tr><td colspan="3">PostApaasV1ApprovalTasksByApprovalTaskIdReject</td></tr>
-<tr><td rowspan="2">1034</td><td rowspan="2">2024-03-19</td><td>新增</td><td>飞书应用引擎</td><td>转交人工任务</td></tr>
+<tr><td rowspan="2">1034</td><td rowspan="2">2024-03-19</td><td>&#10003;</td><td>飞书应用引擎</td><td>转交人工任务</td></tr>
 <tr><td colspan="3">PostApaasV1ApprovalTasksByApprovalTaskIdTransfer</td></tr>
-<tr><td rowspan="2">1035</td><td rowspan="2">2024-03-19</td><td>新增</td><td>飞书应用引擎</td><td>人工任务加签</td></tr>
+<tr><td rowspan="2">1035</td><td rowspan="2">2024-03-19</td><td>&#10003;</td><td>飞书应用引擎</td><td>人工任务加签</td></tr>
 <tr><td colspan="3">PostApaasV1ApprovalTasksByApprovalTaskIdAddAssignee</td></tr>
-<tr><td rowspan="2">1036</td><td rowspan="2">2024-03-19</td><td>新增</td><td>飞书应用引擎</td><td>同意人工任务</td></tr>
+<tr><td rowspan="2">1036</td><td rowspan="2">2024-03-19</td><td>&#10003;</td><td>飞书应用引擎</td><td>同意人工任务</td></tr>
 <tr><td colspan="3">PostApaasV1ApprovalTasksByApprovalTaskIdAgree</td></tr>
+<tr><td rowspan="2">1037</td><td rowspan="2">2024-03-22</td><td>新增</td><td>飞书人事（企业版）</td><td>批量查询部门（ V2）</td></tr>
+<tr><td colspan="3">PostCorehrV2DepartmentsBatchGet</td></tr>
 </tbody></table>

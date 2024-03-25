@@ -1,16 +1,20 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 搜索部门信息 响应体
-/// <para>搜索部门信息</para>
-/// <para>接口ID：7211423970042200068</para>
-/// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/department/search</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fdepartment%2fsearch</para>
+/// 批量查询部门（ V2） 响应体
+/// <para>批量查询部门信息。</para>
+/// <para>对比历史版本[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/list)</para>
+/// <para>接口，V2 版本增加了敏感字段权限要求，并使用了 POST HTTP 请求</para>
+/// <para>接口ID：7280432392631549953</para>
+/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fdepartment%2fbatch_get</para>
 /// </summary>
-public record PostCorehrV2DepartmentsSearchResponseDto
+public record PostCorehrV2DepartmentsBatchGetResponseDto
 {
     /// <summary>
     /// <para>查询的部门信息</para>
     /// <para>必填：否</para>
+    /// <para>最大长度：100</para>
+    /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("items")]
     public Department[]? Items { get; set; }
@@ -66,18 +70,14 @@ public record PostCorehrV2DepartmentsSearchResponseDto
         }
 
         /// <summary>
-        /// <para>部门类型，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-        /// <para>- object_api_name = "department"</para>
-        /// <para>- custom_api_name = "subtype"</para>
+        /// <para>部门类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)部门子类型（department_sub_type）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("sub_type")]
         public Enum? SubType { get; set; }
 
         /// <summary>
-        /// <para>部门类型，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-        /// <para>- object_api_name = "department"</para>
-        /// <para>- custom_api_name = "subtype"</para>
+        /// <para>部门类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)部门子类型（department_sub_type）枚举定义部分获得</para>
         /// </summary>
         public record Enum
         {
@@ -128,7 +128,7 @@ public record PostCorehrV2DepartmentsSearchResponseDto
         public string? ParentDepartmentId { get; set; }
 
         /// <summary>
-        /// <para>部门负责人雇佣 ID，枚举值及详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口查询获得</para>
+        /// <para>部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893013238632416777</para>
         /// </summary>
@@ -273,27 +273,10 @@ public record PostCorehrV2DepartmentsSearchResponseDto
         }
 
         /// <summary>
-        /// <para>是否使用职务</para>
-        /// <para>（功能灰度中，暂未开放）</para>
+        /// <para>是否使用职务（功能灰度中，暂未开放）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("staffing_model")]
         public Enum? StaffingModel { get; set; }
     }
-
-    /// <summary>
-    /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：eyJldV9uYyI6IlswLFwiNjk2MTI4Njg0NjA5Mzc4ODY4MC03MjExMDM0ODcxMjA3OTUzOTc1XCJdIn0</para>
-    /// </summary>
-    [JsonPropertyName("page_token")]
-    public string? PageToken { get; set; }
-
-    /// <summary>
-    /// <para>是否还有更多项</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：true</para>
-    /// </summary>
-    [JsonPropertyName("has_more")]
-    public bool? HasMore { get; set; }
 }
