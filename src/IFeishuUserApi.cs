@@ -8693,14 +8693,22 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>sheet：表格</item>
     /// <item>bitable：多维表格</item>
+    /// <item>folder：文件夹</item>
     /// </list>
+    /// </param>
+    /// <param name="event_type">
+    /// <para>必填：否</para>
+    /// <para>事件类型，订阅为folder类型时必填</para>
+    /// <para>示例值：file.created_in_folder_v1</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/{file_token}/subscribe")]
     System.Threading.Tasks.Task<FeishuResponse> PostDriveV1FilesByFileTokenSubscribeAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
-        [PathQuery] string file_type);
+        [PathQuery] string file_type,
+        [PathQuery] string? event_type = null);
 
     /// <summary>
     /// <para>【云文档】查询异步任务状态</para>
@@ -10309,6 +10317,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>docx：新版文档</item>
+    /// <item>sheet：电子表格</item>
     /// </list>
     /// </param>
     /// <param name="user_id_type">
@@ -10357,6 +10366,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>docx：新版文档</item>
+    /// <item>sheet：电子表格</item>
     /// </list>
     /// </param>
     /// <param name="user_id_type">
@@ -10404,6 +10414,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>docx：新版文档</item>
+    /// <item>sheet：电子表格</item>
     /// </list>
     /// </param>
     /// <param name="user_id_type">
@@ -11293,7 +11304,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7194805625628033027</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting_list/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>查询会议明细，具体权限要求请参考「资源介绍」，支持查询最近半年的数据。</para>
+    /// <para>查询会议明细，具体权限要求请参考[资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-room-data/resource-introduction)</para>
     /// </summary>
     /// <param name="start_time">
     /// <para>必填：是</para>
@@ -11307,7 +11318,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="meeting_status">
     /// <para>必填：否</para>
-    /// <para>会议状态</para>
+    /// <para>会议状态（不传默认为已结束会议）</para>
     /// <para>示例值：2</para>
     /// <list type="bullet">
     /// <item>1：进行中</item>
@@ -11552,16 +11563,16 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7194805625628147715</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/participant_list/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>查询参会人明细，具体权限要求请参考「资源介绍」，支持查询最近半年的数据。</para>
+    /// <para>查询参会人明细，具体权限要求请参考[资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-room-data/resource-introduction)</para>
     /// </summary>
     /// <param name="meeting_start_time">
     /// <para>必填：是</para>
-    /// <para>会议开始时间（需要精确到一分钟，unix时间，单位sec）</para>
+    /// <para>会议开始时间（unix时间，单位sec）</para>
     /// <para>示例值：1655276858</para>
     /// </param>
     /// <param name="meeting_end_time">
     /// <para>必填：是</para>
-    /// <para>会议结束时间（unix时间，单位sec）</para>
+    /// <para>会议结束时间（unix时间，单位sec，若是进行中会议可填当前时间，否则填准确的会议结束时间）</para>
     /// <para>示例值：1655276858</para>
     /// </param>
     /// <param name="meeting_status">
@@ -13759,14 +13770,22 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>sheet：表格</item>
     /// <item>bitable：多维表格</item>
     /// <item>file：文件</item>
+    /// <item>folder：文件夹</item>
     /// </list>
+    /// </param>
+    /// <param name="event_type">
+    /// <para>必填：否</para>
+    /// <para>事件类型，订阅为folder类型时必填</para>
+    /// <para>示例值：file.created_in_folder_v1</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/drive/v1/files/{file_token}/delete_subscribe")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteDriveV1FilesByFileTokenDeleteSubscribeAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
-        [PathQuery] string file_type);
+        [PathQuery] string file_type,
+        [PathQuery] string? event_type = null);
 
     /// <summary>
     /// <para>【云文档】查询云文档事件订阅状态</para>
@@ -13791,14 +13810,22 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>sheet：表格</item>
     /// <item>bitable：多维表格</item>
     /// <item>file：文件</item>
+    /// <item>folder：文件夹</item>
     /// </list>
+    /// </param>
+    /// <param name="event_type">
+    /// <para>必填：否</para>
+    /// <para>事件类型，订阅为folder类型时必填</para>
+    /// <para>示例值：file.created_in_folder_v1</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/get_subscribe")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesByFileTokenGetSubscribeResponseDto>> GetDriveV1FilesByFileTokenGetSubscribeAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
-        [PathQuery] string file_type);
+        [PathQuery] string file_type,
+        [PathQuery] string? event_type = null);
 
     /// <summary>
     /// <para>【日历】解绑会议群</para>

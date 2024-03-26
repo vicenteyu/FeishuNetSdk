@@ -20375,6 +20375,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>docx：新版文档</item>
+    /// <item>sheet：电子表格</item>
     /// </list>
     /// </param>
     /// <param name="user_id_type">
@@ -20421,6 +20422,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>docx：新版文档</item>
+    /// <item>sheet：电子表格</item>
     /// </list>
     /// </param>
     /// <param name="user_id_type">
@@ -20466,6 +20468,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>docx：新版文档</item>
+    /// <item>sheet：电子表格</item>
     /// </list>
     /// </param>
     /// <param name="user_id_type">
@@ -27959,6 +27962,37 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
+    /// <para>【消息与群组】即时提醒</para>
+    /// <para>接口ID：7291232621641039875</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/feed_card/patch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>即时提醒能力是飞书在消息列表中提供的强提醒能力，当有重要通知或任务需要及时触达用户，可将群组或机器人对话在消息列表中置顶展示，打开飞书首页即可处理重要任务。</para>
+    /// </summary>
+    /// <param name="feed_card_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>群id，当前只支持群聊</para>
+    /// <para>示例值：oc_679eaeb583654bff73fefcc6e6371370</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/im/v2/feed_cards/{feed_card_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.PatchImV2FeedCardsByFeedCardIdResponseDto>> PatchImV2FeedCardsByFeedCardIdAsync(
+        [PathQuery] string feed_card_id,
+        [JsonContent] Im.PatchImV2FeedCardsByFeedCardIdBodyDto dto,
+        [PathQuery] string user_id_type = "open_id");
+
+    /// <summary>
     /// <para>【飞书人事（企业版）】查询流程实例列表</para>
     /// <para>接口ID：7296819819722571804</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list</para>
@@ -28391,6 +28425,102 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Corehr.PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchBodyDto dto,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【消息与群组】更新应用消息流卡片</para>
+    /// <para>接口ID：7302258202712473628</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/app_feed_card-batch/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口用于更新消息流卡片的头像、标题、预览、标签状态、按钮等信息</para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPut("/open-apis/im/v2/app_feed_card/batch")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.PutImV2AppFeedCardBatchResponseDto>> PutImV2AppFeedCardBatchAsync(
+        [JsonContent] Im.PutImV2AppFeedCardBatchBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【消息与群组】删除应用消息流卡片</para>
+    /// <para>接口ID：7302258202712490012</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/app_feed_card-batch/delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口用于删除应用消息流卡片</para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpDelete("/open-apis/im/v2/app_feed_card/batch")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.DeleteImV2AppFeedCardBatchResponseDto>> DeleteImV2AppFeedCardBatchAsync(
+        [JsonContent] Im.DeleteImV2AppFeedCardBatchBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【消息与群组】更新消息流卡片按钮</para>
+    /// <para>接口ID：7302258202712506396</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/chat_button/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>为群组消息、机器人消息的消息流卡片添加、更新、删除快捷操作按钮。</para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPut("/open-apis/im/v2/chat_button")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.PutImV2ChatButtonResponseDto>> PutImV2ChatButtonAsync(
+        [JsonContent] Im.PutImV2ChatButtonBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【消息与群组】创建应用消息流卡片</para>
+    /// <para>接口ID：7302258202712522780</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/app_feed_card/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>应用消息流卡片是飞书为应用提供的消息触达能力，让应用可以直接在消息流发送消息，重要消息能更快触达用户。</para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/im/v2/app_feed_card")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.PostImV2AppFeedCardResponseDto>> PostImV2AppFeedCardAsync(
+        [JsonContent] Im.PostImV2AppFeedCardBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【飞书人事】更新公司</para>

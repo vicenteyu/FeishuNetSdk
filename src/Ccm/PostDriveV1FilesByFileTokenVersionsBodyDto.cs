@@ -9,7 +9,8 @@ namespace FeishuNetSdk.Ccm;
 public record PostDriveV1FilesByFileTokenVersionsBodyDto
 {
     /// <summary>
-    /// <para>版本文档标题</para>
+    /// <para>版本文档标题，该参数必填，请忽略左侧必填列显示的“否”。</para>
+    /// <para>最大长度 1024 个Unicode 码点。通常情况下，一个英文或中文字符对应一个码点，但是某些特殊符号可能会对应多个码点。例如，家庭组合「👨‍👩‍👧」这个表情符号对应5个码点。</para>
     /// <para>必填：否</para>
     /// <para>示例值：文档标题</para>
     /// </summary>
@@ -17,85 +18,14 @@ public record PostDriveV1FilesByFileTokenVersionsBodyDto
     public string? Name { get; set; }
 
     /// <summary>
-    /// <para>版本文档版本号</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：version1</para>
-    /// </summary>
-    [JsonPropertyName("version")]
-    public string? Version { get; set; }
-
-    /// <summary>
-    /// <para>创建版本的文档Token，如何获取文档Token可以参考[如何获取云文档相关token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb</para>
-    /// </summary>
-    [JsonPropertyName("parent_token")]
-    public string? ParentToken { get; set; }
-
-    /// <summary>
-    /// <para>版本文档所有者id，user_id</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：694699009591869450</para>
-    /// </summary>
-    [JsonPropertyName("owner_id")]
-    public string? OwnerId { get; set; }
-
-    /// <summary>
-    /// <para>版本文档创建者id， user_id</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：694699009591869451</para>
-    /// </summary>
-    [JsonPropertyName("creator_id")]
-    public string? CreatorId { get; set; }
-
-    /// <summary>
-    /// <para>版本文档创建时间</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：1660708537</para>
-    /// </summary>
-    [JsonPropertyName("create_time")]
-    public string? CreateTime { get; set; }
-
-    /// <summary>
-    /// <para>版本文档更新时间</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：1660708537</para>
-    /// </summary>
-    [JsonPropertyName("update_time")]
-    public string? UpdateTime { get; set; }
-
-    /// <summary>
-    /// <para>版本文档状态</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：0</para>
-    /// <para>可选值：<list type="bullet">
-    /// <item>0：正常状态</item>
-    /// <item>1：删除状态</item>
-    /// <item>2：回收站状态</item>
-    /// </list></para>
-    /// </summary>
-    [JsonPropertyName("status")]
-    public string? Status { get; set; }
-
-    /// <summary>
-    /// <para>版本文档类型</para>
+    /// <para>版本文档类型，该参数必填，请忽略左侧必填列显示的“否”</para>
     /// <para>必填：否</para>
     /// <para>示例值：docx</para>
     /// <para>可选值：<list type="bullet">
     /// <item>docx：新版文档</item>
+    /// <item>sheet：电子表格</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("obj_type")]
     public string? ObjType { get; set; }
-
-    /// <summary>
-    /// <para>源文档类型</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：docx</para>
-    /// <para>可选值：<list type="bullet">
-    /// <item>docx：新版文档</item>
-    /// </list></para>
-    /// </summary>
-    [JsonPropertyName("parent_type")]
-    public string? ParentType { get; set; }
 }

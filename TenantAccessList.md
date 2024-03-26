@@ -139,13 +139,13 @@
 <tr><td colspan="3">GetContactV3GroupSimplelist</td></tr>
 <tr><td rowspan="2">70</td><td rowspan="2">2023-12-07</td><td>&#10003;</td><td>云文档</td><td>获取文档访问记录</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenViewRecords</td></tr>
-<tr><td rowspan="2">71</td><td rowspan="2">2023-08-08</td><td>&#10003;</td><td>云文档</td><td>创建文档版本</td></tr>
+<tr><td rowspan="2">71</td><td rowspan="2">2024-03-25</td><td>&#10003;</td><td>云文档</td><td>创建文档版本</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenVersions</td></tr>
-<tr><td rowspan="2">72</td><td rowspan="2">2023-08-08</td><td>&#10003;</td><td>云文档</td><td>删除文档版本</td></tr>
+<tr><td rowspan="2">72</td><td rowspan="2">2024-03-25</td><td>&#10003;</td><td>云文档</td><td>删除文档版本</td></tr>
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenVersionsByVersionId</td></tr>
-<tr><td rowspan="2">73</td><td rowspan="2">2023-08-08</td><td>&#10003;</td><td>云文档</td><td>获取文档版本</td></tr>
+<tr><td rowspan="2">73</td><td rowspan="2">2024-03-25</td><td>&#10003;</td><td>云文档</td><td>获取文档版本</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenVersionsByVersionId</td></tr>
-<tr><td rowspan="2">74</td><td rowspan="2">2023-08-08</td><td>&#10003;</td><td>云文档</td><td>获取文档版本列表</td></tr>
+<tr><td rowspan="2">74</td><td rowspan="2">2024-03-25</td><td>&#10003;</td><td>云文档</td><td>获取文档版本列表</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenVersions</td></tr>
 <tr><td rowspan="2">75</td><td rowspan="2">2023-08-07</td><td>&#10003;</td><td>云文档</td><td>转移所有者</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersTransferOwner</td></tr>
@@ -1579,7 +1579,7 @@
 <tr><td colspan="3">PutHireV1ExternalApplicationsByExternalApplicationId</td></tr>
 <tr><td rowspan="2">790</td><td rowspan="2">2024-01-15</td><td>&#10003;</td><td>招聘</td><td>删除外部投递</td></tr>
 <tr><td colspan="3">DeleteHireV1ExternalApplicationsByExternalApplicationId</td></tr>
-<tr><td rowspan="2">791</td><td rowspan="2">2024-01-17</td><td>&#10003;</td><td>消息与群组</td><td>批量发送消息</td></tr>
+<tr><td rowspan="2">791</td><td rowspan="2">2024-03-25</td><td>&#10003;</td><td>消息与群组</td><td>批量发送消息</td></tr>
 <tr><td colspan="3">PostMessageV4BatchSend</td></tr>
 <tr><td rowspan="2">792</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>创建外部面试</td></tr>
 <tr><td colspan="3">PostHireV1ExternalInterviews</td></tr>
@@ -2071,6 +2071,16 @@
 <tr><td colspan="3">PostApaasV1ApprovalTasksByApprovalTaskIdAddAssignee</td></tr>
 <tr><td rowspan="2">1036</td><td rowspan="2">2024-03-19</td><td>&#10003;</td><td>飞书应用引擎</td><td>同意人工任务</td></tr>
 <tr><td colspan="3">PostApaasV1ApprovalTasksByApprovalTaskIdAgree</td></tr>
-<tr><td rowspan="2">1037</td><td rowspan="2">2024-03-22</td><td>新增</td><td>飞书人事（企业版）</td><td>批量查询部门（ V2）</td></tr>
+<tr><td rowspan="2">1037</td><td rowspan="2">2024-03-22</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门（ V2）</td></tr>
 <tr><td colspan="3">PostCorehrV2DepartmentsBatchGet</td></tr>
+<tr><td rowspan="2">1038</td><td rowspan="2">2024-03-25</td><td>新增</td><td>消息与群组</td><td>即时提醒</td></tr>
+<tr><td colspan="3">PatchImV2FeedCardsByFeedCardId</td></tr>
+<tr><td rowspan="2">1039</td><td rowspan="2">2024-03-25</td><td>新增</td><td>消息与群组</td><td>更新应用消息流卡片</td></tr>
+<tr><td colspan="3">PutImV2AppFeedCardBatch</td></tr>
+<tr><td rowspan="2">1040</td><td rowspan="2">2024-03-25</td><td>新增</td><td>消息与群组</td><td>删除应用消息流卡片</td></tr>
+<tr><td colspan="3">DeleteImV2AppFeedCardBatch</td></tr>
+<tr><td rowspan="2">1041</td><td rowspan="2">2024-03-25</td><td>新增</td><td>消息与群组</td><td>更新消息流卡片按钮</td></tr>
+<tr><td colspan="3">PutImV2ChatButton</td></tr>
+<tr><td rowspan="2">1042</td><td rowspan="2">2024-03-25</td><td>新增</td><td>消息与群组</td><td>创建应用消息流卡片</td></tr>
+<tr><td colspan="3">PostImV2AppFeedCard</td></tr>
 </tbody></table>

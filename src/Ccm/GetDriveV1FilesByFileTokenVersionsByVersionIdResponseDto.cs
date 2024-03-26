@@ -83,6 +83,7 @@ public record GetDriveV1FilesByFileTokenVersionsByVersionIdResponseDto
     /// <para>示例值：docx</para>
     /// <para>可选值：<list type="bullet">
     /// <item>docx：新版文档</item>
+    /// <item>sheet：电子表格</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("obj_type")]
@@ -94,6 +95,7 @@ public record GetDriveV1FilesByFileTokenVersionsByVersionIdResponseDto
     /// <para>示例值：docx</para>
     /// <para>可选值：<list type="bullet">
     /// <item>docx：新版文档</item>
+    /// <item>sheet：电子表格</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("parent_type")]
