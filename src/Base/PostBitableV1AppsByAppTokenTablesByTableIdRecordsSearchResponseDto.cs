@@ -13,7 +13,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
-    public AppTableRecord? Items { get; set; }
+    public AppTableRecord[]? Items { get; set; }
 
     /// <summary>
     /// <para>record 结果</para>
