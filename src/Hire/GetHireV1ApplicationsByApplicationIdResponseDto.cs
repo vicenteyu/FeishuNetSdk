@@ -121,7 +121,7 @@ public record GetHireV1ApplicationsByApplicationIdResponseDto
         public int? ActiveStatus { get; set; }
 
         /// <summary>
-        /// <para>投递方式</para>
+        /// <para>投递方式，详细枚举请参考[「枚举常量介绍」](https://open.larkoffice.com/document/server-docs/hire-v1/enum) - 投递方式枚举定义</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">

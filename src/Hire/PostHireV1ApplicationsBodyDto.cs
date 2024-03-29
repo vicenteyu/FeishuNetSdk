@@ -25,6 +25,14 @@ public record PostHireV1ApplicationsBodyDto
     public string JobId { get; set; } = string.Empty;
 
     /// <summary>
+    /// <para>人员ID，仅在投递来源为属于「员工转岗」或「实习生转正」时，需传入该字段。校验数据无误后，会成为招聘方维护的一条人才、员工关联关系记录；创建其他来源投递时，不会进行人员与人才绑定</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：6930815272790114324</para>
+    /// </summary>
+    [JsonPropertyName("user_id")]
+    public string? UserId { get; set; }
+
+    /// <summary>
     /// <para>简历来源 ID，可通过「获取简历来源」接口查询。若简历来源类型属于「员工转岗」或「实习生转正」，人才需处于已入职状态。</para>
     /// <para>必填：否</para>
     /// <para>示例值：7115289562569591070</para>
