@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 更新协作者权限 响应体
-/// <para>该接口用于根据 filetoken 更新文档协作者的权限。</para>
+/// <para>该接口用于根据文件的 token 更新文档协作者的权限。</para>
 /// <para>接口ID：6998069547745230876</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-member%2fupdate</para>
@@ -26,10 +26,13 @@ public record PutDriveV1PermissionsByTokenMembersByMemberIdResponseDto
         /// <para>示例值：openid</para>
         /// <para>可选值：<list type="bullet">
         /// <item>email：飞书邮箱</item>
-        /// <item>openid：开放平台ID</item>
-        /// <item>openchat：开放平台群组ID</item>
-        /// <item>opendepartmentid：开放平台部门ID</item>
-        /// <item>userid：用户自定义ID</item>
+        /// <item>openid：开放平台 ID</item>
+        /// <item>unionid：开放平台 UnionID</item>
+        /// <item>openchat：开放平台群组 ID</item>
+        /// <item>opendepartmentid：开放平台部门 ID</item>
+        /// <item>userid：用户自定义 ID</item>
+        /// <item>groupid：自定义用户组 ID</item>
+        /// <item>wikispaceid：知识空间 ID</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("member_type")]
@@ -56,5 +59,22 @@ public record PutDriveV1PermissionsByTokenMembersByMemberIdResponseDto
         /// </summary>
         [JsonPropertyName("perm")]
         public string Perm { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>协作者类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：user</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>user：用户</item>
+        /// <item>chat：群组</item>
+        /// <item>department：组织架构</item>
+        /// <item>group：用户组</item>
+        /// <item>wiki_space_member：知识库成员</item>
+        /// <item>wiki_space_viewer：知识库可阅读成员</item>
+        /// <item>wiki_space_editor：知识库可编辑成员</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
     }
 }

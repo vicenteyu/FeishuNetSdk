@@ -9835,7 +9835,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6987581166854635521</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 给用户增加文档的权限。</para>
+    /// <para>该接口用于根据文件的 token 给用户增加文档的权限。</para>
     /// </summary>
     /// <param name="token">
     /// <para>路径参数</para>
@@ -9857,6 +9857,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>folder：文件夹</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="need_notification">
@@ -11137,7 +11138,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6998069547745214492</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 移除文档协作者的权限。</para>
+    /// <para>该接口用于根据文件的 token 移除文档协作者的权限。</para>
     /// </summary>
     /// <param name="token">
     /// <para>路径参数</para>
@@ -11165,6 +11166,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>folder：文件夹</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="member_type">
@@ -11173,25 +11175,30 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：openid</para>
     /// <list type="bullet">
     /// <item>email：邮箱地址</item>
-    /// <item>openid：[开放平台ID](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)</item>
-    /// <item>openchat：[开放平台群组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</item>
-    /// <item>opendepartmentid：[开放平台部门ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)</item>
-    /// <item>userid：[用户自定义ID](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)</item>
+    /// <item>openid：开放平台 ID</item>
+    /// <item>openchat：开放平台群组 ID</item>
+    /// <item>opendepartmentid：开放平台部门 ID</item>
+    /// <item>userid：用户自定义 ID</item>
+    /// <item>unionid：开放平台 UnionID</item>
+    /// <item>groupid：自定义用户组 ID</item>
+    /// <item>wikispaceid：知识空间 ID - **注意**：仅知识库文档支持该参数，当需要操作知识库文档里的「知识库成员」类型协作者时传该参数</item>
     /// </list>
     /// </param>
+    /// <param name="dto">请求体</param>
     [HttpDelete("/open-apis/drive/v1/permissions/{token}/members/{member_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteDriveV1PermissionsByTokenMembersByMemberIdAsync(
         [PathQuery] string token,
         [PathQuery] string member_id,
         [PathQuery] string type,
-        [PathQuery] string member_type);
+        [PathQuery] string member_type,
+        [JsonContent] Ccm.DeleteDriveV1PermissionsByTokenMembersByMemberIdBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】更新协作者权限</para>
     /// <para>接口ID：6998069547745230876</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 更新文档协作者的权限。</para>
+    /// <para>该接口用于根据文件的 token 更新文档协作者的权限。</para>
     /// </summary>
     /// <param name="token">
     /// <para>路径参数</para>
@@ -11225,6 +11232,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -19346,7 +19354,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7121656165336367106</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 查询协作者</para>
+    /// <para>该接口用于根据文件的 token 查询协作者。</para>
     /// </summary>
     /// <param name="token">
     /// <para>路径参数</para>
@@ -19367,6 +19375,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="fields">
@@ -28018,7 +28027,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="statuses">
     /// <para>必填：否</para>
-    /// <para>查询状态列表</para>
+    /// <para>查询状态列表。如需一次查询多个状态值,可通过将同一参数名多次传递,并且每次传递不同的参数值。例如:https://{url}?statuses=1&amp;statuses=2</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">

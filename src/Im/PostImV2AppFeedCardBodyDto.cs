@@ -279,9 +279,28 @@ public record PostImV2AppFeedCardBodyDto
             /// <para>是否关闭通知</para>
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
+            /// <para>默认值：false</para>
             /// </summary>
             [JsonPropertyName("close_notify")]
             public bool? CloseNotify { get; set; }
+
+            /// <summary>
+            /// <para>自定义语音播报文本内容</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：您有新的订单</para>
+            /// <para>最大长度：20</para>
+            /// </summary>
+            [JsonPropertyName("custom_sound_text")]
+            public string? CustomSoundText { get; set; }
+
+            /// <summary>
+            /// <para>是否播报自定义语音</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// <para>默认值：false</para>
+            /// </summary>
+            [JsonPropertyName("with_custom_sound")]
+            public bool? WithCustomSound { get; set; }
         }
     }
 

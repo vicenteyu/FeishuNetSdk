@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取协作者列表（新版本） 响应体
-/// <para>该接口用于根据 filetoken 查询协作者</para>
+/// <para>该接口用于根据文件的 token 查询协作者。</para>
 /// <para>接口ID：7121656165336367106</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-member%2flist</para>
@@ -26,10 +26,13 @@ public record GetDriveV1PermissionsByTokenMembersResponseDto
         /// <para>示例值：openid</para>
         /// <para>可选值：<list type="bullet">
         /// <item>email：飞书邮箱</item>
-        /// <item>openid：[开放平台ID](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)</item>
-        /// <item>openchat：[开放平台群组ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</item>
-        /// <item>opendepartmentid：[开放平台部门ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)</item>
-        /// <item>userid：[用户自定义ID](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)</item>
+        /// <item>openid：开放平台 ID</item>
+        /// <item>unionid：开放平台 UnionID</item>
+        /// <item>openchat：开放平台群组 ID</item>
+        /// <item>opendepartmentid：开放平台部门 ID</item>
+        /// <item>userid：用户自定义 ID</item>
+        /// <item>groupid：自定义用户组 ID</item>
+        /// <item>wikispaceid：知识空间 ID - **注意**：仅知识库文档支持该参数，代表知识库文档里的「知识库成员」类型协作者的 ID</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("member_type")]
@@ -64,6 +67,10 @@ public record GetDriveV1PermissionsByTokenMembersResponseDto
         /// <item>user：用户</item>
         /// <item>chat：群组</item>
         /// <item>department：组织架构</item>
+        /// <item>group：用户组</item>
+        /// <item>wiki_space_member：知识库成员 - **注意**：在知识库启用了成员分组功能后不支持该参数</item>
+        /// <item>wiki_space_viewer：知识库可阅读成员 - **注意**：仅在知识库启用了成员分组功能后才支持该参数</item>
+        /// <item>wiki_space_editor：知识库可编辑成员 - **注意**：仅在知识库启用了成员分组功能后才支持该参数</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("type")]

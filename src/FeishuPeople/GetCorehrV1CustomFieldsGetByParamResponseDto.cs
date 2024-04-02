@@ -121,17 +121,17 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
         /// <summary>
         /// <para>字段类型</para>
         /// <para>**可选值有：**</para>
-        /// <para>- `1`：文本 Text，“文本”和“超链接”属于该类型</para>
-        /// <para>- `2`：布尔 Boolean</para>
-        /// <para>- `3`：数字 Number</para>
-        /// <para>- `4`：枚举 Option，“单选”和“多选”属于该类型</para>
-        /// <para>- `5`：查找 Lookup，“人员（单选）”、“人员（多选）”和个人信息中的自定义分组属于该类型</para>
-        /// <para>- `6`：自动编号 AutoNumber</para>
-        /// <para>- `7`：日期时间 Date time</para>
-        /// <para>- `8`：附件 Attachment，“附件单选”和“附件多选”属于该类型</para>
-        /// <para>- `9`：图片 Image</para>
-        /// <para>- `10`：计算字段 Calculated</para>
-        /// <para>- `11`：反向查找 BackLookup</para>
+        /// <para>- 1：文本 Text，“文本”和“超链接”属于该类型</para>
+        /// <para>- 2：布尔 Boolean</para>
+        /// <para>- 3：数字 Number</para>
+        /// <para>- 4：枚举 Option，“单选”和“多选”为该类型</para>
+        /// <para>- 5：查找 Lookup，“人员（单选）”、“人员（多选）”和个人信息中的自定义分组为该类型</para>
+        /// <para>- 6：自动编码 Autonumber</para>
+        /// <para>- 7：日期时间 Datetime</para>
+        /// <para>- 8：附件 Attachment，“附件单选”和“附件多选”为该类型</para>
+        /// <para>- 9：图片 Image</para>
+        /// <para>- 10：计算字段 Calculated</para>
+        /// <para>- 11：反向查找 Backlookup</para>
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>
