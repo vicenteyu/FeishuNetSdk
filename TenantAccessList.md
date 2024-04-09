@@ -95,17 +95,17 @@
 <tr><td colspan="3">PatchContactV3GroupByGroupId</td></tr>
 <tr><td rowspan="2">48</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>查询异步任务状态</td></tr>
 <tr><td colspan="3">GetDriveV1FilesTaskCheck</td></tr>
-<tr><td rowspan="2">49</td><td rowspan="2">2023-12-27</td><td>&#10003;</td><td>云文档</td><td>上传素材</td></tr>
+<tr><td rowspan="2">49</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>上传素材</td></tr>
 <tr><td colspan="3">PostDriveV1MediasUploadAll</td></tr>
-<tr><td rowspan="2">50</td><td rowspan="2">2023-11-30</td><td>&#10003;</td><td>云文档</td><td>下载素材</td></tr>
+<tr><td rowspan="2">50</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>下载素材</td></tr>
 <tr><td colspan="3">GetDriveV1MediasByFileTokenDownload</td></tr>
-<tr><td rowspan="2">51</td><td rowspan="2">2023-11-08</td><td>&#10003;</td><td>云文档</td><td>获取素材临时下载链接</td></tr>
+<tr><td rowspan="2">51</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>获取素材临时下载链接</td></tr>
 <tr><td colspan="3">GetDriveV1MediasBatchGetTmpDownloadUrl</td></tr>
-<tr><td rowspan="2">52</td><td rowspan="2">2023-12-27</td><td>&#10003;</td><td>云文档</td><td>分片上传素材（预上传）</td></tr>
+<tr><td rowspan="2">52</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>分片上传素材-预上传</td></tr>
 <tr><td colspan="3">PostDriveV1MediasUploadPrepare</td></tr>
-<tr><td rowspan="2">53</td><td rowspan="2">2022-06-28</td><td>&#10003;</td><td>云文档</td><td>分片上传素材（上传分片）</td></tr>
+<tr><td rowspan="2">53</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>分片上传素材-上传分片</td></tr>
 <tr><td colspan="3">PostDriveV1MediasUploadPart</td></tr>
-<tr><td rowspan="2">54</td><td rowspan="2">2022-06-28</td><td>&#10003;</td><td>云文档</td><td>分片上传素材（完成上传）</td></tr>
+<tr><td rowspan="2">54</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>分片上传素材-完成上传</td></tr>
 <tr><td colspan="3">PostDriveV1MediasUploadFinish</td></tr>
 <tr><td rowspan="2">55</td><td rowspan="2">2024-03-14</td><td>&#10003;</td><td>云文档</td><td>订阅云文档事件</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenSubscribe</td></tr>
@@ -123,17 +123,17 @@
 <tr><td colspan="3">PostDriveV1FilesUploadPart</td></tr>
 <tr><td rowspan="2">62</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>分片上传文件（完成上传）</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadFinish</td></tr>
-<tr><td rowspan="2">63</td><td rowspan="2">2023-11-30</td><td>&#10003;</td><td>云文档</td><td>下载文件</td></tr>
+<tr><td rowspan="2">63</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>下载文件</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenDownload</td></tr>
 <tr><td rowspan="2">64</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>创建导入任务</td></tr>
 <tr><td colspan="3">PostDriveV1ImportTasks</td></tr>
 <tr><td rowspan="2">65</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>查询导入任务结果</td></tr>
 <tr><td colspan="3">GetDriveV1ImportTasksByTicket</td></tr>
-<tr><td rowspan="2">66</td><td rowspan="2">2024-02-04</td><td>&#10003;</td><td>云文档</td><td>创建导出任务</td></tr>
+<tr><td rowspan="2">66</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>创建导出任务</td></tr>
 <tr><td colspan="3">PostDriveV1ExportTasks</td></tr>
-<tr><td rowspan="2">67</td><td rowspan="2">2023-06-05</td><td>&#10003;</td><td>云文档</td><td>查询导出任务结果</td></tr>
+<tr><td rowspan="2">67</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>查询导出任务结果</td></tr>
 <tr><td colspan="3">GetDriveV1ExportTasksByTicket</td></tr>
-<tr><td rowspan="2">68</td><td rowspan="2">2023-06-05</td><td>&#10003;</td><td>云文档</td><td>下载导出文件</td></tr>
+<tr><td rowspan="2">68</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>下载导出文件</td></tr>
 <tr><td colspan="3">GetDriveV1ExportTasksFileByFileTokenDownload</td></tr>
 <tr><td rowspan="2">69</td><td rowspan="2">2023-07-19</td><td>&#10003;</td><td>通讯录</td><td>查询用户组列表</td></tr>
 <tr><td colspan="3">GetContactV3GroupSimplelist</td></tr>
@@ -147,9 +147,9 @@
 <tr><td colspan="3">GetDriveV1FilesByFileTokenVersionsByVersionId</td></tr>
 <tr><td rowspan="2">74</td><td rowspan="2">2024-03-25</td><td>&#10003;</td><td>云文档</td><td>获取文档版本列表</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenVersions</td></tr>
-<tr><td rowspan="2">75</td><td rowspan="2">2023-08-07</td><td>&#10003;</td><td>云文档</td><td>转移所有者</td></tr>
+<tr><td rowspan="2">75</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>转移所有者</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersTransferOwner</td></tr>
-<tr><td rowspan="2">76</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>云文档</td><td>判断当前用户是否有某权限</td></tr>
+<tr><td rowspan="2">76</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>判断当前用户是否有某权限</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembersAuth</td></tr>
 <tr><td rowspan="2">77</td><td rowspan="2">2024-04-02</td><td>&#10003;</td><td>云文档</td><td>获取协作者列表（新版本）</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembers</td></tr>
@@ -163,15 +163,15 @@
 <tr><td colspan="3">PutDriveV1PermissionsByTokenMembersByMemberId</td></tr>
 <tr><td rowspan="2">82</td><td rowspan="2">2024-04-01</td><td>&#10003;</td><td>云文档</td><td>移除协作者权限</td></tr>
 <tr><td colspan="3">DeleteDriveV1PermissionsByTokenMembersByMemberId</td></tr>
-<tr><td rowspan="2">83</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>云文档</td><td>开启密码</td></tr>
+<tr><td rowspan="2">83</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>开启密码</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenPublicPassword</td></tr>
-<tr><td rowspan="2">84</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>云文档</td><td>刷新密码</td></tr>
+<tr><td rowspan="2">84</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>刷新密码</td></tr>
 <tr><td colspan="3">PutDriveV1PermissionsByTokenPublicPassword</td></tr>
-<tr><td rowspan="2">85</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>云文档</td><td>关闭密码</td></tr>
+<tr><td rowspan="2">85</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>关闭密码</td></tr>
 <tr><td colspan="3">DeleteDriveV1PermissionsByTokenPublicPassword</td></tr>
-<tr><td rowspan="2">86</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
+<tr><td rowspan="2">86</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">87</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
+<tr><td rowspan="2">87</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
 <tr><td colspan="3">PatchDriveV1PermissionsByTokenPublic</td></tr>
 <tr><td rowspan="2">88</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
 <tr><td colspan="3">GetDriveV2PermissionsByTokenPublic</td></tr>
@@ -1341,7 +1341,7 @@
 <tr><td colspan="3">GetCorehrV1Currencies</td></tr>
 <tr><td rowspan="2">671</td><td rowspan="2">2024-04-02</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询员工信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesBatchGet</td></tr>
-<tr><td rowspan="2">672</td><td rowspan="2">2024-04-02</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工信息</td></tr>
+<tr><td rowspan="2">672</td><td rowspan="2">2024-04-07</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesSearch</td></tr>
 <tr><td rowspan="2">673</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事</td><td>创建雇佣信息</td></tr>
 <tr><td colspan="3">PostCorehrV1Employments</td></tr>
@@ -2083,4 +2083,14 @@
 <tr><td colspan="3">PutImV2ChatButton</td></tr>
 <tr><td rowspan="2">1042</td><td rowspan="2">2024-04-02</td><td>&#10003;</td><td>消息与群组</td><td>创建应用消息流卡片</td></tr>
 <tr><td colspan="3">PostImV2AppFeedCard</td></tr>
+<tr><td rowspan="2">1043</td><td rowspan="2">2024-04-09</td><td>新增</td><td>消息与群组</td><td>解绑标签与群</td></tr>
+<tr><td colspan="3">PutImV2BizEntityTagRelation</td></tr>
+<tr><td rowspan="2">1044</td><td rowspan="2">2024-04-09</td><td>新增</td><td>消息与群组</td><td>创建标签</td></tr>
+<tr><td colspan="3">PostImV2Tags</td></tr>
+<tr><td rowspan="2">1045</td><td rowspan="2">2024-04-09</td><td>新增</td><td>消息与群组</td><td>修改标签</td></tr>
+<tr><td colspan="3">PatchImV2TagsByTagId</td></tr>
+<tr><td rowspan="2">1046</td><td rowspan="2">2024-04-09</td><td>新增</td><td>消息与群组</td><td>绑定标签到群</td></tr>
+<tr><td colspan="3">PostImV2BizEntityTagRelation</td></tr>
+<tr><td rowspan="2">1047</td><td rowspan="2">2024-04-09</td><td>新增</td><td>消息与群组</td><td>查询实体与标签的绑定关系</td></tr>
+<tr><td colspan="3">GetImV2BizEntityTagRelation</td></tr>
 </tbody></table>

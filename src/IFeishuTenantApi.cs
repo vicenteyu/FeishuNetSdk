@@ -9029,12 +9029,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6979562676003831836</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>将文件、图片、视频等素材文件上传到指定云文档中。素材文件在云空间中不会显示，只会显示在对应云文档中。</para>
+    /// <para>将文件、图片、视频等素材上传到指定云文档中。素材将显示在对应云文档中，在云空间中不会显示。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
-    /// <para>文件二进制内容。</para>
+    /// <para>文件的二进制内容</para>
     /// </param>
     [HttpPost("/open-apis/drive/v1/medias/upload_all")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1MediasUploadAllResponseDto>> PostDriveV1MediasUploadAllAsync(
@@ -9042,11 +9042,11 @@ public interface IFeishuTenantApi : IHttpApi
         [FormDataContent] FormDataFile file);
 
     /// <summary>
-    /// <para>【云文档】分片上传素材（预上传）</para>
+    /// <para>【云文档】分片上传素材-预上传</para>
     /// <para>接口ID：6979562676003848220</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。</para>
+    /// <para>发送初始化请求，以获取上传事务 ID 和分片策略，为[上传素材分片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part)做准备。平台固定以 4MB 的大小对素材进行分片。了解完整的分片上传素材流程，参考[分片上传素材概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/multipart-upload-media/introduction)。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/v1/medias/upload_prepare")]
@@ -9071,40 +9071,43 @@ public interface IFeishuTenantApi : IHttpApi
         [FormDataContent] FormDataFile file);
 
     /// <summary>
-    /// <para>【云文档】分片上传素材（完成上传）</para>
+    /// <para>【云文档】分片上传素材-完成上传</para>
     /// <para>接口ID：6979562676003880988</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>触发完成上传。</para>
+    /// <para>调用[上传分片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part)接口将分片全部上传完毕后，你可调用本接口触发完成上传。了解完整的分片上传素材流程，参考[分片上传素材概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/multipart-upload-media/introduction)。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/v1/medias/upload_finish")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveV1MediasUploadFinishResponseDto>> PostDriveV1MediasUploadFinishAsync(
-        [JsonContent] Ccm.Spec.PostDriveV1MediasUploadFinishBodyDto dto);
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1MediasUploadFinishResponseDto>> PostDriveV1MediasUploadFinishAsync(
+        [JsonContent] Ccm.PostDriveV1MediasUploadFinishBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取素材临时下载链接</para>
     /// <para>接口ID：6979562676003897372</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>通过`file_tokens`获取素材临时下载链接，链接时效性是 24 小时，过期失效。</para>
+    /// <para>该接口用于获取云文档中素材的临时下载链接。链接的有效期为 24 小时，过期失效。</para>
     /// </summary>
     /// <param name="file_tokens">
     /// <para>必填：是</para>
-    /// <para>文件标识符列表，数据校验规则：</para>
-    /// <para>- 最小个数：1</para>
-    /// <para>- 最大个数：5</para>
-    /// <para>如需一次查询多个文件标识符，可通过将同一个参数名多次传递，并且每次传递不同的参数值，例如一次查询两个文件标识符的下载链接：</para>
-    /// <para>https://{url}?file_tokens={token1}&amp;file_tokens={token2}</para>
+    /// <para>素材文件的 token。获取方式如下所示：</para>
+    /// <para>* 新版文档：通过[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)接口获取指定文件块（File Block）或图片块（Image Block）的 token，即为素材 token。</para>
+    /// <para>* 电子表格：通过[读取多个范围](https://open.feishu.cn/document/ukTMukTMukTM/ukTMzUjL5EzM14SOxMTN)接口获取指定附件的</para>
+    /// <para>`fileToken`，即为素材的 token。</para>
+    /// <para>* 多维表格：通过[列出记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/list)接口获取指定附件的 `file_token`，即为素材的 token。</para>
+    /// <para>如需一次获取多个素材的下载链接，可多次传递本参数及素材的 token 值，格式如下：</para>
+    /// <para>`https://{url}?file_tokens={token1}&amp;file_tokens={token2}`</para>
     /// <para>其中：</para>
-    /// <para>- `file_tokens`是参数名，可以多次传递</para>
-    /// <para>- `token1`和`token2`是参数值</para>
+    /// <para>- `file_tokens` 是参数名，可以多次传递</para>
+    /// <para>- `token1` 和 `token2` 为素材的实际 token 值</para>
+    /// <para>- 你最多可一次获取五个素材的下载链接</para>
     /// <para>示例值：boxcnrHpsg1QDqXAAAyachabcef</para>
     /// </param>
     /// <param name="extra">
     /// <para>必填：否</para>
-    /// <para>拓展信息，比如对于拥有高级权限的 Bitable，在下载素材或者获取素材临时下载链接时，需要添加额外的`extra`作为 URL 查询参数进行鉴权。</para>
-    /// <para>示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)</para>
+    /// <para>拓展信息，如拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[上传点类型及对应 Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。未填正确填写该参数的接口将返回 403 的 HTTP 状态码。</para>
+    /// <para>示例值：请参考[上传点类型及对应 extra 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)</para>
     /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/drive/v1/medias/batch_get_tmp_download_url")]
@@ -9117,7 +9120,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6979562676003913756</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>下载各种类型文档中的素材，比如电子表格中的图片，支持通过在请求头通过指定`Range`进行分片下载。</para>
+    /// <para>下载各类云文档中的素材，例如电子表格中的图片。该接口支持通过在请求头添加`Range` 参数分片下载素材。</para>
     /// </summary>
     /// <param name="range">
     /// <para>通过指定 HTTP 请求头的Range来下载素材的部分内容，单位是byte，即字节。</para>
@@ -9126,18 +9129,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>素材文件的`Token`。</para>
-    /// <para>* 对于新版文档中的素材，可以通过[获取块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get)接口获取指定 File Block 或 Image Block 的 Token。</para>
-    /// <para>* 对于电子表格中的素材，可以通过[读取多个范围</para>
-    /// <para>](https://open.feishu.cn/document/server-docs/docs/sheets-v3/data-operation/reading-multiple-ranges)接口获取指定 attachment 的 fileToken。</para>
-    /// <para>* 对于多维表格中的素材，可以通过[列出记录</para>
-    /// <para>](https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-record/list) 接口获取指定的附件的 file_token。拥有**高级权限的多维表格**在下载素材时，还需要添加额外的 [extra](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction#a478a7c3) 作为 URL 查询参数。</para>
+    /// <para>素材文件的 token。获取方式如下所示：</para>
+    /// <para>* 新版文档：通过[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)接口获取指定文件块（File Block）或图片块（Image Block）的 token，即为素材的 token。</para>
+    /// <para>* 电子表格：通过[读取多个范围](https://open.feishu.cn/document/ukTMukTMukTM/ukTMzUjL5EzM14SOxMTN)接口获取指定附件的</para>
+    /// <para>`fileToken` 参数，即为素材的 token。</para>
+    /// <para>* 多维表格：通过[列出记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/list)接口获取指定附件的 `file_token`，即为素材的 token。</para>
     /// <para>示例值：boxcnrHpsg1QDqXAAAyachabcef</para>
     /// </param>
     /// <param name="extra">
     /// <para>必填：否</para>
-    /// <para>扩展信息</para>
-    /// <para>示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)</para>
+    /// <para>拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[extra 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。未填正确填写该参数的接口将返回 403 的 HTTP 状态码。</para>
+    /// <para>示例值：无</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
@@ -9169,7 +9171,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6979562676003946524</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>下载云空间下的文件，不含飞书文档、电子表格以及多维表格等在线文档，支持指定文件`Range`进行下载。</para>
+    /// <para>下载云空间中的文件，如 PDF 文件。不包含飞书文档、电子表格以及多维表格等在线文档。该接口支持通过在请求头添加`Range` 参数分片下载部分文件。</para>
     /// </summary>
     /// <param name="range">
     /// <para>通过指定 HTTP 请求头的Range来下载素材的部分内容，单位是byte，即字节。</para>
@@ -9178,8 +9180,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
-    /// <para>示例值：boxcnabCdefg12345</para>
+    /// <para>文件的 token，获取方式见 [云文档常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs-faq)。</para>
+    /// <para>示例值：boxcnabCdefgabcef</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/download")]
@@ -9188,21 +9190,20 @@ public interface IFeishuTenantApi : IHttpApi
         [Header][AliasAs("Range")] string? range = null);
 
     /// <summary>
-    /// <para>【云文档】分片上传素材（上传分片）</para>
+    /// <para>【云文档】分片上传素材-上传分片</para>
     /// <para>接口ID：6979562676003979292</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>上传对应的文件块。</para>
+    /// <para>根据 [预上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare)接口返回的上传事务 ID 和分片策略上传对应的素材分片。上传完成后，你可调用 [分片上传素材（完成上传）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish)触发完成上传。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
-    /// <para>文件分片二进制内容。</para>
-    /// <para>**示例值**：file binary</para>
+    /// <para>素材文件分片的二进制内容</para>
     /// </param>
     [HttpPost("/open-apis/drive/v1/medias/upload_part")]
     System.Threading.Tasks.Task<FeishuResponse> PostDriveV1MediasUploadPartAsync(
-        [FormDataContent] Ccm.Spec.PostDriveV1MediasUploadPartBodyDto dto,
+        [FormDataContent] Ccm.PostDriveV1MediasUploadPartBodyDto dto,
         [FormDataContent] FormDataFile file);
 
     /// <summary>
@@ -9901,6 +9902,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -16946,7 +16948,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7089034521211191298</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>创建导出任务，将云文档导出为指定格式的本地文件，目前支持新版文档、电子表格、多维表格和旧版文档。该接口为异步接口，任务创建完成即刻返回，并不会阻塞等待到任务执行成功，因此需要结合[查询导出任务结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get)接口获取导出结果。</para>
+    /// <para>该接口用于创建导出文件的任务，并返回导出任务 ID。导出文件指将飞书文档、电子表格、多维表格导出为本地文件。该接口为异步接口，需要继续调用[查询导出任务结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get)接口获取导出结果。了解完整的导出文件步骤，参考[导出飞书云文档概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/export-user-guide)。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/v1/export_tasks")]
@@ -16958,19 +16960,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7089034521211207682</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据[创建导出任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create)返回的`ticket`轮询导出任务的结果，通过本接口获取到导出产物的文件`token`之后，可调用[下载导出文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download)接口将导出产物下载到本地。</para>
+    /// <para>根据[创建导出任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create)返回的导出任务 ID（ticket）轮询导出任务结果，并返回导出文件的 token。你可使用该 token 继续调用[下载导出文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download)接口将导出的产物下载到本地。了解完整的导出文件步骤，参考[导出飞书云文档概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/export-user-guide)。</para>
     /// </summary>
     /// <param name="ticket">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>导出任务ID，[创建导出任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create) 响应中的 ticket 字段</para>
-    /// <para>示例值：6933093124755423251</para>
+    /// <para>导出任务 ID。调用[创建导出任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create) 获取。</para>
+    /// <para>示例值：6933093124755412345</para>
     /// </param>
     /// <param name="token">
     /// <para>必填：是</para>
-    /// <para>导出文档的 token</para>
-    /// <para>[如何获取文档 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doccnZVxxxxxxxxxxxxGiyBgYqe</para>
+    /// <para>要导出的云文档的 token。获取方式参考[如何获取云文档相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。你可参考以下请求示例了解如何使用查询参数。</para>
+    /// <para>示例值：docbcZVGtv1papC6jAVGiyabcef</para>
     /// </param>
     [HttpGet("/open-apis/drive/v1/export_tasks/{ticket}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1ExportTasksByTicketResponseDto>> GetDriveV1ExportTasksByTicketAsync(
@@ -17027,6 +17028,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     [HttpGet("/open-apis/drive/v1/permissions/{token}/public")]
@@ -17039,13 +17041,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7091583486251335682</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据[查询导出任务结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get)返回的导出产物`token`，下载导出产物文件到本地。</para>
+    /// <para>根据[查询导出任务结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get)返回的导出文件的 token，下载导出产物到本地。了解完整的导出文件步骤，参考[导出飞书云文档概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/export-user-guide)。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>导出文档 token</para>
-    /// <para>示例值：boxcnNAlfwHxxxxxxxxxxSaLSec</para>
+    /// <para>导出的文件的 token。可通过调用[查询导出任务结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get)获取该参数的值。</para>
+    /// <para>示例值：boxcnxe5OdjlAkNgSNdsJvabcef</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
     [HttpGet("/open-apis/drive/v1/export_tasks/file/{file_token}/download")]
@@ -21668,7 +21670,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7186547801970507777</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/transfer_owner</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 和用户信息转移文件的所有者。</para>
+    /// <para>该接口用于根据云文档 token 和用户信息转移文件的所有者。</para>
     /// </summary>
     /// <param name="token">
     /// <para>路径参数</para>
@@ -21689,6 +21691,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="need_notification">
@@ -21709,6 +21712,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
     /// </param>
+    /// <param name="old_owner_perm">
+    /// <para>必填：否</para>
+    /// <para>仅当 remove_old_owner = false 时，此参数才会生效 保留原文件所有者指定的权限角色</para>
+    /// <para>示例值：view</para>
+    /// <para>默认值：full_access</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/drive/v1/permissions/{token}/members/transfer_owner")]
     System.Threading.Tasks.Task<FeishuResponse> PostDriveV1PermissionsByTokenMembersTransferOwnerAsync(
@@ -21717,7 +21726,8 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Ccm.PostDriveV1PermissionsByTokenMembersTransferOwnerBodyDto dto,
         [PathQuery] bool? need_notification = true,
         [PathQuery] bool? remove_old_owner = false,
-        [PathQuery] bool? stay_put = false);
+        [PathQuery] bool? stay_put = false,
+        [PathQuery] string? old_owner_perm = "full_access");
 
     /// <summary>
     /// <para>【云文档】判断当前用户是否有某权限</para>
@@ -23855,6 +23865,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙计（暂不支持）</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     [HttpPost("/open-apis/drive/v1/permissions/{token}/public/password")]
@@ -23888,6 +23899,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙计（暂不支持）</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     [HttpPut("/open-apis/drive/v1/permissions/{token}/public/password")]
@@ -23921,6 +23933,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙计（暂不支持）</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     [HttpDelete("/open-apis/drive/v1/permissions/{token}/public/password")]
@@ -28622,6 +28635,61 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int? page_size = 20);
 
     /// <summary>
+    /// <para>【消息与群组】解绑标签与群</para>
+    /// <para>接口ID：7315032956271263748</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/biz_entity_tag_relation/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>从业务实体上解绑标签。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPut("/open-apis/im/v2/biz_entity_tag_relation")]
+    System.Threading.Tasks.Task<FeishuResponse> PutImV2BizEntityTagRelationAsync(
+        [JsonContent] Im.PutImV2BizEntityTagRelationBodyDto dto);
+
+    /// <summary>
+    /// <para>【消息与群组】创建标签</para>
+    /// <para>接口ID：7315032956271280132</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/tag/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>创建标签并返回标签 ID。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/im/v2/tags")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.PostImV2TagsResponseDto>> PostImV2TagsAsync(
+        [JsonContent] Im.PostImV2TagsBodyDto dto);
+
+    /// <summary>
+    /// <para>【消息与群组】修改标签</para>
+    /// <para>接口ID：7315032956271296516</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/tag/patch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>修改标签在各个语言下的名称。</para>
+    /// </summary>
+    /// <param name="tag_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>标签 ID</para>
+    /// <para>示例值：716168xxxxx</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/im/v2/tags/{tag_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.PatchImV2TagsByTagIdResponseDto>> PatchImV2TagsByTagIdAsync(
+        [PathQuery] string tag_id,
+        [JsonContent] Im.PatchImV2TagsByTagIdBodyDto dto);
+
+    /// <summary>
+    /// <para>【消息与群组】绑定标签到群</para>
+    /// <para>接口ID：7315032956271329284</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/biz_entity_tag_relation/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>绑定标签到业务实体。目前支持给会话打标签。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/im/v2/biz_entity_tag_relation")]
+    System.Threading.Tasks.Task<FeishuResponse> PostImV2BizEntityTagRelationAsync(
+        [JsonContent] Im.PostImV2BizEntityTagRelationBodyDto dto);
+
+    /// <summary>
     /// <para>【日历】回复日程</para>
     /// <para>接口ID：7317471576948834305</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/reply</para>
@@ -28938,5 +29006,30 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostApaasV1ApprovalTasksByApprovalTaskIdAgreeAsync(
         [PathQuery] string approval_task_id,
         [JsonContent] AppEngine.PostApaasV1ApprovalTasksByApprovalTaskIdAgreeBodyDto dto);
+
+    /// <summary>
+    /// <para>【消息与群组】查询实体与标签的绑定关系</para>
+    /// <para>接口ID：7350335258430816257</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/biz_entity_tag_relation/get</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询实体与标签的绑定关系</para>
+    /// </summary>
+    /// <param name="tag_biz_type">
+    /// <para>必填：是</para>
+    /// <para>业务类型</para>
+    /// <para>示例值：chat</para>
+    /// <list type="bullet">
+    /// <item>chat：chat类型</item>
+    /// </list>
+    /// </param>
+    /// <param name="biz_entity_id">
+    /// <para>必填：是</para>
+    /// <para>业务实体id</para>
+    /// <para>示例值：71616xxxx</para>
+    /// </param>
+    [HttpGet("/open-apis/im/v2/biz_entity_tag_relation")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.GetImV2BizEntityTagRelationResponseDto>> GetImV2BizEntityTagRelationAsync(
+        [PathQuery] string tag_biz_type,
+        [PathQuery] string biz_entity_id);
 }
 

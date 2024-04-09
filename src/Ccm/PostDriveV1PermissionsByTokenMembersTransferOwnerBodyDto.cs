@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 转移所有者 请求体
-/// <para>该接口用于根据 filetoken 和用户信息转移文件的所有者。</para>
+/// <para>该接口用于根据云文档 token 和用户信息转移文件的所有者。</para>
 /// <para>接口ID：7186547801970507777</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/transfer_owner</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-member%2ftransfer_owner</para>
