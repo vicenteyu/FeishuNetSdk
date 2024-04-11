@@ -149,38 +149,6 @@ public record GetDriveV1FilesByFileTokenCommentsResponseDto
             public record FileCommentReply
             {
                 /// <summary>
-                /// <para>回复 ID</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6916106822734512357</para>
-                /// </summary>
-                [JsonPropertyName("reply_id")]
-                public string? ReplyId { get; set; }
-
-                /// <summary>
-                /// <para>用户 ID</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eab2abcef</para>
-                /// </summary>
-                [JsonPropertyName("user_id")]
-                public string? UserId { get; set; }
-
-                /// <summary>
-                /// <para>创建时间</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：1610281603</para>
-                /// </summary>
-                [JsonPropertyName("create_time")]
-                public int? CreateTime { get; set; }
-
-                /// <summary>
-                /// <para>更新时间</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：1610281603</para>
-                /// </summary>
-                [JsonPropertyName("update_time")]
-                public int? UpdateTime { get; set; }
-
-                /// <summary>
                 /// <para>回复内容</para>
                 /// <para>必填：是</para>
                 /// </summary>
@@ -281,6 +249,38 @@ public record GetDriveV1FilesByFileTokenCommentsResponseDto
                         }
                     }
                 }
+
+                /// <summary>
+                /// <para>回复 ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6916106822734512357</para>
+                /// </summary>
+                [JsonPropertyName("reply_id")]
+                public string? ReplyId { get; set; }
+
+                /// <summary>
+                /// <para>用户 ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：ou_cc19b2bfb93f8a44db4b4d6eab2abcef</para>
+                /// </summary>
+                [JsonPropertyName("user_id")]
+                public string? UserId { get; set; }
+
+                /// <summary>
+                /// <para>创建时间</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1610281603</para>
+                /// </summary>
+                [JsonPropertyName("create_time")]
+                public int? CreateTime { get; set; }
+
+                /// <summary>
+                /// <para>更新时间</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1610281603</para>
+                /// </summary>
+                [JsonPropertyName("update_time")]
+                public int? UpdateTime { get; set; }
 
                 /// <summary>
                 /// <para>回复的其他内容，图片 Token 等</para>

@@ -9,7 +9,7 @@ namespace FeishuNetSdk.MeetingRoom.Spec;
 public record PostMeetingRoomSummaryBatchGetBodyDto
 {
     /// <summary>
-    /// <para>需要查询的日程Uid和Original time</para>
+    /// <para>需要查询的日程 Uid 和 Original time 列表。</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("eventUids")]
@@ -19,14 +19,14 @@ public record PostMeetingRoomSummaryBatchGetBodyDto
     public record EventUid
     {
         /// <summary>
-        /// <para>日程的唯一id</para>
+        /// <para>日程的唯一 ID。</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("uid")]
         public string Uid { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>日程实例原始时间。非重复性日程和重复性日程，此处传0；重复性日程的例外，传对应的original_time</para>
+        /// <para>日程实例原始时间。非重复性日程和重复性日程，此处传 0；重复性日程的例外日程，需要传入对应的 original_time 值（时间戳类型）。</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("original_time")]

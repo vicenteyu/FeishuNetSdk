@@ -106,6 +106,14 @@ public record PostCorehrV2EmployeesJobDatasQueryResponseDto
             public string? JobLevelId { get; set; }
 
             /// <summary>
+            /// <para>职等 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6890452208593372679</para>
+            /// </summary>
+            [JsonPropertyName("job_grade_id")]
+            public string? JobGradeId { get; set; }
+
+            /// <summary>
             /// <para>序列 ID，枚举值及详细信息可通过[查询单个序列](https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_family/get)接口查询获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：1245678</para>
@@ -148,7 +156,7 @@ public record PostCorehrV2EmployeesJobDatasQueryResponseDto
             /// <summary>
             /// <para>生效时间</para>
             /// <para>必填：是</para>
-            /// <para>示例值：2020-05-0100:00:00</para>
+            /// <para>示例值：2020-05-01 00:00:00</para>
             /// </summary>
             [JsonPropertyName("effective_time")]
             public string EffectiveTime { get; set; } = string.Empty;
@@ -156,7 +164,7 @@ public record PostCorehrV2EmployeesJobDatasQueryResponseDto
             /// <summary>
             /// <para>失效时间</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2020-05-0200:00:00</para>
+            /// <para>示例值：2020-05-02 00:00:00</para>
             /// </summary>
             [JsonPropertyName("expiration_time")]
             public string? ExpirationTime { get; set; }
@@ -302,70 +310,26 @@ public record PostCorehrV2EmployeesJobDatasQueryResponseDto
             }
 
             /// <summary>
-            /// <para>自定义字段</para>
+            /// <para>排班类型</para>
             /// <para>必填：否</para>
             /// </summary>
-            [JsonPropertyName("custom_fields")]
-            public CustomFieldData[]? CustomFields { get; set; }
+            [JsonPropertyName("work_shift")]
+            public Enum? WorkShift { get; set; }
 
             /// <summary>
-            /// <para>自定义字段</para>
+            /// <para>薪资类型</para>
+            /// <para>必填：否</para>
             /// </summary>
-            public record CustomFieldData
-            {
-                /// <summary>
-                /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：name</para>
-                /// </summary>
-                [JsonPropertyName("custom_api_name")]
-                public string CustomApiName { get; set; } = string.Empty;
+            [JsonPropertyName("compensation_type")]
+            public Enum? CompensationType { get; set; }
 
-                /// <summary>
-                /// <para>自定义字段名称</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("name")]
-                public CustomName? Name { get; set; }
-
-                /// <summary>
-                /// <para>自定义字段名称</para>
-                /// </summary>
-                public record CustomName
-                {
-                    /// <summary>
-                    /// <para>中文</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：自定义姓名</para>
-                    /// </summary>
-                    [JsonPropertyName("zh_cn")]
-                    public string? ZhCn { get; set; }
-
-                    /// <summary>
-                    /// <para>英文</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：CustomName</para>
-                    /// </summary>
-                    [JsonPropertyName("en_us")]
-                    public string? EnUs { get; set; }
-                }
-
-                /// <summary>
-                /// <para>自定义字段类型</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：1</para>
-                /// </summary>
-                [JsonPropertyName("type")]
-                public int? Type { get; set; }
-
-                /// <summary>
-                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：\"231\"</para>
-                /// </summary>
-                [JsonPropertyName("value")]
-                public string Value { get; set; } = string.Empty;
-            }
+            /// <summary>
+            /// <para>任职公司</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6890452208593372680</para>
+            /// </summary>
+            [JsonPropertyName("service_company")]
+            public string? ServiceCompany { get; set; }
         }
     }
 

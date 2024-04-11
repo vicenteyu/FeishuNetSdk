@@ -305,19 +305,22 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569524100956161</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uIDOyUjLygjM14iM4ITN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于获取指定会议室的忙闲日程实例列表。非重复日程只有唯一实例；重复日程可能存在多个实例，依据重复规则和时间范围扩展。建议查询区间为30天内。</para>
+    /// <para>调用该接口获取指定会议室的忙碌、空闲日程信息。</para>
+    /// <para>查询结果中：</para>
+    /// <para>- 非重复日程只有唯一的实例信息。</para>
+    /// <para>- 重复日程可能存在多个实例信息，根据日程重复规则和时间范围进行扩展。建议查询的时间区间为 30 天内。</para>
     /// </summary>
     /// <param name="room_ids">
     /// <para>必填：是</para>
-    /// <para>用于查询指定会议室的 ID</para>
+    /// <para>会议室 ID。你可以通过[查询会议室列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/list)或[搜索会议室](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/search)接口获取指定会议室 ID。</para>
     /// </param>
     /// <param name="time_min">
     /// <para>必填：是</para>
-    /// <para>查询会议室忙闲的起始时间，需要遵循格式 [RFC3339](https://tools.ietf.org/html/rfc3339)，需要进行URL Encode</para>
+    /// <para>查询的起始时间，需要遵循 [RFC3339](https://tools.ietf.org/html/rfc3339) 格式，且需要进行 URL 编码。</para>
     /// </param>
     /// <param name="time_max">
     /// <para>必填：是</para>
-    /// <para>查询会议室忙闲的结束时间，需要遵循格式 [RFC3339](https://tools.ietf.org/html/rfc3339)，需要进行URL Encode</para>
+    /// <para>查询的结束时间，需要遵循 [RFC3339](https://tools.ietf.org/html/rfc3339) 格式，且需要进行 URL 编码。</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/meeting_room/freebusy/batch_get")]
@@ -2506,39 +2509,47 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507002699803</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用 / 用户）获取日历上的一个日程。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）获取指定日历内的某一日程信息，包括日程的标题、时间段、视频会议信息、公开范围以及参与人权限等。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
+    /// <para>日程所在的日历 ID。关于日历 ID 可参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="event_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)</para>
+    /// <para>日程 ID。</para>
+    /// <para>创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)</para>
+    /// <para>- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)</para>
     /// <para>示例值：xxxxxxxxx_0</para>
     /// </param>
     /// <param name="need_meeting_settings">
     /// <para>必填：否</para>
-    /// <para>是否需要返回会前设置。</para>
-    /// <para>- 日程的会议类型(vc_type)为vc</para>
+    /// <para>是否需要返回飞书视频会议（VC）的会前设置。需满足以下条件才可以获取到返回结果：</para>
+    /// <para>- 日程的会议类型（vc_type）需要是 vc。</para>
     /// <para>- 需要有日程的编辑权限。</para>
+    /// <para>**可选值有**：</para>
+    /// <para>- true：需要</para>
+    /// <para>- false（默认值）：不需要</para>
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="need_attendee">
     /// <para>必填：否</para>
-    /// <para>是否需要返回参与人信息</para>
+    /// <para>是否需要返回参与人信息。</para>
+    /// <para>**可选值有**：</para>
+    /// <para>- true：需要</para>
+    /// <para>- false（默认值）：不需要</para>
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="max_attendee_num">
     /// <para>必填：否</para>
-    /// <para>返回的最大参与人数量，使用获取日程参与人列表获取完整参与人信息。</para>
-    /// <para>示例值：false</para>
+    /// <para>返回的最大参与人数量。调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)可获取日程完整的参与人信息。</para>
+    /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
     /// <param name="user_id_type">
@@ -2568,13 +2579,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507002716187</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/subscription</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>该接口用于以用户身份订阅指定日历下的日程变更事件。</para>
+    /// <para>调用该接口以用户身份订阅指定日历下的日程变更事件。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
-    /// <para>**示例值**："feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn"</para>
+    /// <para>日历 ID。关于日历 ID 可参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
+    /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/subscription")]
@@ -2587,13 +2598,16 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507002748955</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscribe</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用 / 用户）订阅某个日历。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）订阅指定的日历。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
+    /// <para>日历ID。</para>
+    /// <para>创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary)</para>
+    /// <para>- [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)</para>
+    /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -2607,24 +2621,24 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507002798107</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用 / 用户）获取日历下的日程列表。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）获取指定日历下的日程列表。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
+    /// <para>日历 ID。关于日历 ID 可参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>一次请求要求返回最大数量，默认500，取值范围为[50, 1000]</para>
+    /// <para>一次请求要求返回的最大日程数量。</para>
     /// <para>示例值：50</para>
     /// <para>默认值：500</para>
     /// </param>
     /// <param name="anchor_time">
     /// <para>必填：否</para>
-    /// <para>拉取anchor_time之后的日程，为timestamp</para>
+    /// <para>通过该参数设置一个秒级时间戳，发送请求后会拉取 anchor_time 之后的日程。</para>
+    /// <para>**默认值**：空</para>
     /// <para>示例值：1609430400</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -2636,19 +2650,22 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="sync_token">
     /// <para>必填：否</para>
-    /// <para>上次请求Response返回的增量同步标记，分页请求未结束时为空</para>
+    /// <para>增量同步标记，第一次请求不填。当分页查询结束（page_token 返回值为空）时，接口会返回 sync_token 字段，下次调用可使用该 sync_token 增量获取日历变更数据。</para>
+    /// <para>**默认值**：空</para>
     /// <para>示例值：ListCalendarsSyncToken_1632452910</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="start_time">
     /// <para>必填：否</para>
-    /// <para>日程开始Unix时间戳，单位为秒</para>
+    /// <para>日程开始 Unix 时间戳，单位为秒。</para>
+    /// <para>**默认值**：空</para>
     /// <para>示例值：1631777271</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：否</para>
-    /// <para>日程结束Unix时间戳，单位为秒</para>
+    /// <para>日程结束 Unix 时间戳，单位为秒。</para>
+    /// <para>**默认值**：空</para>
     /// <para>示例值：1631777271</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -2681,40 +2698,58 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507002814491</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用 / 用户）给日历添加访问控制权限，即日历成员。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）为指定日历添加访问控制，即日历成员权限。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
-    /// <para>**示例值**："feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn"</para>
+    /// <para>需要添加访问控制的日历 ID。</para>
+    /// <para>创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary)</para>
+    /// <para>- [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)</para>
+    /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
+    /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/acls")]
-    System.Threading.Tasks.Task<FeishuResponse<Calendar.Spec.PostCalendarV4CalendarsByCalendarIdAclsResponseDto>> PostCalendarV4CalendarsByCalendarIdAclsAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdAclsResponseDto>> PostCalendarV4CalendarsByCalendarIdAclsAsync(
         UserAccessToken access_token,
         [PathQuery] string calendar_id,
-        [JsonContent] Calendar.Spec.PostCalendarV4CalendarsByCalendarIdAclsBodyDto dto);
+        [JsonContent] Calendar.PostCalendarV4CalendarsByCalendarIdAclsBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【日历】删除日程参与人</para>
     /// <para>接口ID：6952888507002830875</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/batch_delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>批量删除日程的参与人。</para>
+    /// <para>调用该接口以当前身份（应用或用户）删除指定日程的一个或多个参与人。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
+    /// <para>日程对应的日历 ID。了解更多，参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="event_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)</para>
+    /// <para>日程 ID。</para>
+    /// <para>创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)</para>
+    /// <para>- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)</para>
     /// <para>示例值：xxxxxxxxx_0</para>
     /// </param>
     /// <param name="user_id_type">
@@ -2743,24 +2778,28 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507002847259</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取日程的群参与人的群成员列表。</para>
+    /// <para>调用该接口以当前身份（应用或用户）获取日程的群组类型参与人的群成员列表。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
+    /// <para>日程所在的日历 ID。关于日历 ID 可参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="event_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)</para>
+    /// <para>日程 ID。</para>
+    /// <para>创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)</para>
+    /// <para>- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)</para>
     /// <para>示例值：xxxxxxxxx_0</para>
     /// </param>
     /// <param name="attendee_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群参与人 ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)</para>
+    /// <para>群组类型参与人 ID。</para>
+    /// <para>添加日程参与人时，会返回参与人 ID（attendee_id），你也可以调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)接口，查询指定日程的参与人 ID。</para>
     /// <para>示例值：chat_xxxxxx</para>
     /// </param>
     /// <param name="page_token">
@@ -2771,7 +2810,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>一次请求返回的最大群成员数量。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -2830,13 +2869,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507002880027</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于分页获得当前身份（应用 / 用户）的日历列表。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口分页查询当前身份（应用或用户）的日历列表。</para>
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>一次请求要求返回最大数量，默认500，取值范围为[50. 1000]</para>
-    /// <para>示例值：50</para>
+    /// <para>一次请求返回的最大日历数量。</para>
+    /// <para>示例值：`50`</para>
     /// <para>默认值：500</para>
     /// </param>
     /// <param name="page_token">
@@ -2847,7 +2885,8 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="sync_token">
     /// <para>必填：否</para>
-    /// <para>上次请求Response返回的增量同步标记，分页请求未结束时为空</para>
+    /// <para>增量同步标记，第一次请求不填。当分页查询结束（page_token 返回值为空）时，接口会返回 sync_token 字段，下次调用可使用该 sync_token 增量获取日历变更数据。</para>
+    /// <para>**默认值**：空</para>
     /// <para>示例值：ListCalendarsSyncToken_xxx</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -2864,18 +2903,21 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507002896411</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取日程的参与人列表，若参与者列表中有群组，请使用 [获取参与人群成员列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee-chat_member/list) 。</para>
+    /// <para>调用该接口以当前身份（应用或用户）获取日程的参与人列表。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
+    /// <para>日程所在的日历 ID。关于日历 ID 可参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="event_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)</para>
+    /// <para>日程 ID。</para>
+    /// <para>创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)</para>
+    /// <para>- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)</para>
     /// <para>示例值：xxxxxxxxx_0</para>
     /// </param>
     /// <param name="user_id_type">
@@ -2891,7 +2933,11 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="need_resource_customization">
     /// <para>必填：否</para>
-    /// <para>是否需要会议室表单信息。当前身份需要有日程的编辑权限，才会返回表单信息。</para>
+    /// <para>是否需要会议室表单信息。</para>
+    /// <para>**可选值有**：</para>
+    /// <para>- true：需要</para>
+    /// <para>- false（默认值）：不需要</para>
+    /// <para>**注意**：当前身份需要有日程的编辑权限才会返回会议室表单信息，即当前身份需要是日程的组织者，或者是日程参与人且日程设置了**参与人可编辑日程**权限。你可以调用[获取日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/get)接口，获取日程的参与人权限（attendee_ability）。</para>
     /// <para>示例值：true</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -2903,7 +2949,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>一次请求返回的最大日程参与人数量。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -2963,20 +3009,24 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507002945563</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用 / 用户）删除日历的控制权限，即日历成员。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）删除指定日历内的某一访问控制，即成员权限。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
-    /// <para>**示例值**："feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn"</para>
+    /// <para>需要删除访问控制的日历 ID。</para>
+    /// <para>创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary)</para>
+    /// <para>- [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)</para>
+    /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
+    /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="acl_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)</para>
-    /// <para>**示例值**："user_xxxxxx"</para>
+    /// <para>访问控制 ID。</para>
+    /// <para>为日历创建访问控制时会返回访问控制 ID。你也可以调用[获取访问控制列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list)接口，获取指定日历内的访问控制信息。</para>
+    /// <para>示例值：user_xxxxxx</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/calendar/v4/calendars/{calendar_id}/acls/{acl_id}")]
@@ -2990,27 +3040,41 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507002961947</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用 / 用户）删除日历上的一个日程。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）删除指定日历上的一个日程。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
-    /// <para>**示例值**："feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn"</para>
+    /// <para>日程所在的日历 ID。了解更多，参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
+    /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="event_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)</para>
-    /// <para>**示例值**："xxxxxxxxx_0"</para>
+    /// <para>日程 ID。</para>
+    /// <para>创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)</para>
+    /// <para>- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)</para>
+    /// <para>示例值：xxxxxxxxx_0</para>
+    /// </param>
+    /// <param name="need_notification">
+    /// <para>必填：否</para>
+    /// <para>删除日程是否给日程参与人发送 Bot 通知。</para>
+    /// <para>**默认值**：true</para>
+    /// <para>示例值：false</para>
+    /// <list type="bullet">
+    /// <item>true：发送</item>
+    /// <item>false：不发送</item>
+    /// </list>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteCalendarV4CalendarsByCalendarIdEventsByEventIdAsync(
         UserAccessToken access_token,
         [PathQuery] string calendar_id,
-        [PathQuery] string event_id);
+        [PathQuery] string event_id,
+        [PathQuery] bool? need_notification = null);
 
     /// <summary>
     /// <para>【日历】查询日历信息</para>
@@ -3037,13 +3101,16 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507002994715</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用 / 用户）删除一个共享日历。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）删除某一指定的共享日历。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
+    /// <para>日历 ID。</para>
+    /// <para>创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary)</para>
+    /// <para>- [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)</para>
+    /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -3057,13 +3124,17 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507003027483</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/subscription</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>该接口用于以用户身份订阅指定日历下的日历成员变更事件。</para>
+    /// <para>调用该接口以用户身份订阅指定日历下的访问控制变更事件。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
-    /// <para>**示例值**："feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn"</para>
+    /// <para>日历ID。</para>
+    /// <para>创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary)</para>
+    /// <para>- [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)</para>
+    /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
+    /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/acls/subscription")]
@@ -3076,19 +3147,21 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507003043867</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用 / 用户）更新日历上的一个日程。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）更新指定日历上的一个日程，包括日程标题、描述、开始与结束时间、视频会议以及日程地点等信息。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
+    /// <para>日程所在的日历 ID。了解更多，参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="event_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)</para>
+    /// <para>日程 ID。</para>
+    /// <para>创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)</para>
+    /// <para>- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)</para>
     /// <para>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0</para>
     /// </param>
     /// <param name="user_id_type">
@@ -3117,7 +3190,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507003060251</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/subscription</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>该接口用于以用户身份订阅当前身份下日历列表中的所有日历变更。</para>
+    /// <para>调用该接口为当前用户身份订阅[日历变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/events/changed)。</para>
     /// </summary>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/subscription")]
@@ -3129,8 +3202,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507003076635</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于为当前身份（应用 / 用户）创建一个共享日历。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口为当前身份（应用或用户）创建一个共享日历。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -3144,13 +3216,16 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507003093019</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscribe</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用 / 用户）取消对某日历的订阅状态。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）取消指定日历的订阅状态。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
+    /// <para>日历 ID。</para>
+    /// <para>你可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary)</para>
+    /// <para>- [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)</para>
+    /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -3164,13 +3239,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507003109403</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以用户身份搜索某日历下的相关日程。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以用户身份搜索指定日历下的相关日程。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
+    /// <para>日历 ID。关于日历 ID 可参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="user_id_type">
@@ -3192,7 +3266,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>一次调用所返回的最大日程数量。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -3212,18 +3286,21 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507003125787</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>批量给日程添加参与人。</para>
+    /// <para>调用该接口以当前身份（应用或用户）为指定日程添加一个或多个参与人，参与人类型包括用户、群组、会议室以及邮箱。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
+    /// <para>日程对应的日历 ID。了解更多，参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="event_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)</para>
+    /// <para>日程 ID。</para>
+    /// <para>创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)</para>
+    /// <para>- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)</para>
     /// <para>示例值：xxxxxxxxx_0</para>
     /// </param>
     /// <param name="user_id_type">
@@ -3252,13 +3329,16 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507003158555</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用 / 用户）修改日历信息。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）修改指定日历的标题、描述、公开范围等信息。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
+    /// <para>日历 ID。</para>
+    /// <para>创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary)</para>
+    /// <para>- [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)</para>
+    /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -3274,20 +3354,50 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6953067803433009153</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用 / 用户）获取日历的控制权限列表。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）获取指定日历的访问控制列表。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
-    /// <para>**示例值**："feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn"</para>
+    /// <para>日历 ID。</para>
+    /// <para>创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary)</para>
+    /// <para>- [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)</para>
+    /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
+    /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：xxx</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，即一次请求返回的最大条目数。</para>
+    /// <para>**注意**：最小值 10，即取值小于 10 时统一按 10 处理。</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：20</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/calendar/v4/calendars/{calendar_id}/acls")]
-    System.Threading.Tasks.Task<FeishuResponse<Calendar.Spec.GetCalendarV4CalendarsByCalendarIdAclsResponseDto>> GetCalendarV4CalendarsByCalendarIdAclsAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdAclsResponseDto>> GetCalendarV4CalendarsByCalendarIdAclsAsync(
         UserAccessToken access_token,
-        [PathQuery] string calendar_id);
+        [PathQuery] string calendar_id,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 20);
 
     /// <summary>
     /// <para>【邮箱】查询所有公共邮箱</para>
@@ -4526,46 +4636,70 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6963176044560728066</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/create</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>本接口将Exchange账户绑定到飞书账户，进而支持Exchange日历的导入</para>
+    /// <para>调用该接口将 Exchange 账户绑定到飞书账户，进而支持 Exchange 日历的导入。</para>
     /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/exchange_bindings")]
-    System.Threading.Tasks.Task<FeishuResponse<Calendar.Spec.PostCalendarV4ExchangeBindingsResponseDto>> PostCalendarV4ExchangeBindingsAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4ExchangeBindingsResponseDto>> PostCalendarV4ExchangeBindingsAsync(
         UserAccessToken access_token,
-        [JsonContent] Calendar.Spec.PostCalendarV4ExchangeBindingsBodyDto dto);
+        [JsonContent] Calendar.PostCalendarV4ExchangeBindingsBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【日历】查询 Exchange 账户的绑定状态</para>
     /// <para>接口ID：6963176044560744450</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/get</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>本接口获取Exchange账户的绑定状态，包括exchange日历是否同步完成。</para>
+    /// <para>调用该接口获取 Exchange 账户的绑定状态，包括 Exchange 日历的同步状态。</para>
     /// </summary>
     /// <param name="exchange_binding_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)</para>
-    /// <para>**示例值**："ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20="</para>
+    /// <para>Exchange 绑定的唯一标识 ID。调用 [将 Exchange 账户绑定到飞书账户](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/create) 绑定时，可从返回结果中获取 exchange_binding_id。</para>
+    /// <para>示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/calendar/v4/exchange_bindings/{exchange_binding_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Calendar.Spec.GetCalendarV4ExchangeBindingsByExchangeBindingIdResponseDto>> GetCalendarV4ExchangeBindingsByExchangeBindingIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4ExchangeBindingsByExchangeBindingIdResponseDto>> GetCalendarV4ExchangeBindingsByExchangeBindingIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string exchange_binding_id);
+        [PathQuery] string exchange_binding_id,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【日历】解除 Exchange 账户绑定</para>
     /// <para>接口ID：6963176044560760834</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/delete</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>本接口解除Exchange账户和飞书账户的绑定关系，Exchange账户解除绑定后才能绑定其他飞书账户</para>
+    /// <para>调用该接口解除 Exchange 账户和飞书账户的绑定关系，Exchange 账户解除绑定后才能和其他飞书账户继续绑定。</para>
     /// </summary>
     /// <param name="exchange_binding_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)</para>
-    /// <para>**示例值**："ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20="</para>
+    /// <para>Exchange 绑定的唯一标识 ID。调用 [将 Exchange 账户绑定到飞书账户](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/create) 绑定时，可从返回结果中获取 exchange_binding_id。</para>
+    /// <para>示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/calendar/v4/exchange_bindings/{exchange_binding_id}")]
@@ -4584,17 +4718,17 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA\*****yGehy8"</para>
+    /// <para>示例值：shtcnmBA\*****yGehy8</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
-    /// <para>**示例值**："0b\**12"</para>
+    /// <para>示例值：0b\**12</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id);
@@ -6281,19 +6415,21 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6990540948577599491</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用 / 用户）在日历上创建一个日程。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）在指定日历上创建一个日程。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
+    /// <para>日历 ID。</para>
+    /// <para>创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary)</para>
+    /// <para>- [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)</para>
+    /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="idempotency_key">
     /// <para>必填：否</para>
-    /// <para>创建日程的幂等key。</para>
-    /// <para>- 应用和日历维度下唯一。</para>
+    /// <para>创建日程的幂等 key，该 key 在应用和日历维度下唯一，用于避免重复创建资源。建议按照示例值的格式进行取值。</para>
     /// <para>示例值：25fdf41b-8c80-2ce1-e94c-de8b5e7aa7e6</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -7948,7 +8084,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7051880392425439236</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取当前身份的主日历信息。</para>
+    /// <para>调用该接口获取当前身份（应用或用户）的主日历信息。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -10023,7 +10159,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7129706575502098436</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/unsubscription</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>该接口用于以用户身份取消订阅当前身份下日历列表中的日历变更事件。</para>
+    /// <para>调用该接口为当前用户身份取消订阅[日历变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/events/changed)。</para>
     /// </summary>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/unsubscription")]
@@ -10035,13 +10171,17 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7129706575502114820</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/unsubscription</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>该接口用于以用户身份取消订阅指定日历下的日历成员变更事件。</para>
+    /// <para>调用该接口以用户身份取消订阅指定日历下的访问控制变更事件。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
-    /// <para>**示例值**："feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn"</para>
+    /// <para>日历ID。</para>
+    /// <para>创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary)</para>
+    /// <para>- [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)</para>
+    /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
+    /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/acls/unsubscription")]
@@ -10054,13 +10194,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7129706575502131204</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/unsubscription</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>该接口用于以用户身份取消订阅指定日历下的日程变更事件。</para>
+    /// <para>调用该接口以用户身份取消订阅指定日历下的日程变更事件。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)</para>
-    /// <para>**示例值**："feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn"</para>
+    /// <para>日历 ID。关于日历 ID 可参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
+    /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/unsubscription")]
@@ -13854,23 +13994,23 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7263360328350728196</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-meeting_chat/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用/用户）解绑已创建的会议群。身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）为日程解绑已创建的会议群。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID</para>
+    /// <para>日程所在的日历 ID。</para>
     /// <para>示例值：feishu.cn_xxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="event_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日程ID</para>
+    /// <para>日程 ID。</para>
     /// <para>示例值：75d28f9b-e35c-4230-8a83-123_0</para>
     /// </param>
     /// <param name="meeting_chat_id">
     /// <para>必填：是</para>
-    /// <para>会议群ID</para>
+    /// <para>会议群 ID。在创建会议群时会返回会议群 ID。</para>
     /// <para>示例值：oc_xxx</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -13886,19 +14026,21 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7263360328350744580</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-meeting_chat/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用/用户）给日程创建一个会议群。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）为指定日程创建一个会议群。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID</para>
+    /// <para>日程所在的日历 ID。了解更多，参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
     /// <para>示例值：feishu.cn_xxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="event_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日程ID</para>
+    /// <para>日程 ID。</para>
+    /// <para>创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)</para>
+    /// <para>- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)</para>
     /// <para>示例值：75d28f9b-e35c-4230-8a83-123_0</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -14761,19 +14903,21 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7317471576948834305</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/reply</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用 / 用户）回复日程。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）回复日程。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历资源ID</para>
+    /// <para>日程所在的日历 ID。了解更多，参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
     /// <para>示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="event_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日程资源ID</para>
+    /// <para>日程 ID。</para>
+    /// <para>创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)</para>
+    /// <para>- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)</para>
     /// <para>示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -14790,34 +14934,38 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7317471576948850689</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/instances</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以当前身份（应用 / 用户）在获取日历上重复性日程的日程实例信息。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以当前身份（应用或用户）获取指定日历中的某一重复日程信息。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历资源ID</para>
+    /// <para>日历 ID。关于日历 ID 可参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
     /// <para>示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="event_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日程资源ID</para>
+    /// <para>日程 ID。</para>
+    /// <para>创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>- [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)</para>
+    /// <para>- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)</para>
     /// <para>示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0</para>
     /// </param>
     /// <param name="start_time">
     /// <para>必填：是</para>
-    /// <para>日程实例开始Unix时间戳,单位为秒,返回的日程实例信息的end_time下限（不包含）</para>
+    /// <para>开始时间，Unix 时间戳，单位为秒。该参数与 end_time 用于设置时间范围，即重复日程的查询区间为 （start_time, end_time）</para>
+    /// <para>**注意**：start_time 与 end_time 之间的时间区间不能超过 2年。</para>
     /// <para>示例值：1631777271</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：是</para>
-    /// <para>日程实例结束Unix时间戳,单位为秒,返回的日程实例信息的start_time上限（不包含）</para>
+    /// <para>结束时间，Unix 时间戳，单位为秒。该参数与 start_time 用于设置时间范围，即重复日程的查询区间为 （start_time, end_time）</para>
+    /// <para>**注意**：start_time 与 end_time 之间的时间区间不能超过 2年。</para>
     /// <para>示例值：1631777271</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>一次调用返回的日程数量上限。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：50</para>
     /// </param>
@@ -15030,23 +15178,24 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7322810271218647043</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/instance_view</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于以用户身份查询某日历下的日程视图（重复性日程展开）。</para>
-    /// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+    /// <para>调用该接口以用户身份查询指定日历下的日程视图。与[获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)不同的是，当前接口会按照重复日程的重复性规则展开成多个日程实例（instance），并根据查询的时间区间返回相应的日程实例信息。</para>
     /// </summary>
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日历ID</para>
+    /// <para>日历 ID。关于日历 ID 可参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
     /// <para>示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="start_time">
     /// <para>必填：是</para>
-    /// <para>日程开始Unix时间戳，单位为秒，起止时间跨度小于40天</para>
+    /// <para>开始时间，Unix 时间戳，单位为秒。该参数与 end_time 用于设置查询的时间范围。</para>
+    /// <para>**注意**：start_time 与 end_time 之间的时间区间需要小于 40 天。</para>
     /// <para>示例值：1631777271</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：是</para>
-    /// <para>日程结束Unix时间戳，单位为秒，起止时间跨度小于40天</para>
+    /// <para>结束时间，Unix 时间戳，单位为秒。该参数与 start_time 用于设置查询的时间范围。</para>
+    /// <para>**注意**：start_time 与 end_time 之间的时间区间需要小于 40 天。</para>
     /// <para>示例值：1631777271</para>
     /// </param>
     /// <param name="user_id_type">

@@ -35,7 +35,7 @@ public record GetDriveV1ExportTasksByTicketResponseDto
         public string FileExtension { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>要导出的云文档的类型 。可通过云文档的链接判断。</para>
+        /// <para>要导出的云文档的类型。可通过云文档的链接判断。</para>
         /// <para>必填：是</para>
         /// <para>示例值：doc</para>
         /// <para>可选值：<list type="bullet">

@@ -1,8 +1,7 @@
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 查询日程视图 响应体
-/// <para>该接口用于以用户身份查询某日历下的日程视图（重复性日程展开）。</para>
-/// <para>身份由 Header Authorization 的 Token 类型决定。</para>
+/// <para>调用该接口以用户身份查询指定日历下的日程视图。与[获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)不同的是，当前接口会按照重复日程的重复性规则展开成多个日程实例（instance），并根据查询的时间区间返回相应的日程实例信息。</para>
 /// <para>接口ID：7322810271218647043</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/instance_view</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2fcalendar-event%2finstance_view</para>
@@ -10,19 +9,19 @@ namespace FeishuNetSdk.Calendar;
 public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
 {
     /// <summary>
-    /// <para>日程instance列表</para>
+    /// <para>日程 instance 列表。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public Instance[]? Items { get; set; }
 
     /// <summary>
-    /// <para>日程instance列表</para>
+    /// <para>日程 instance 列表。</para>
     /// </summary>
     public record Instance
     {
         /// <summary>
-        /// <para>日程实例ID</para>
+        /// <para>日程 instance ID。后续可通过该 ID 查询、更新或删除日程实例信息。</para>
         /// <para>必填：是</para>
         /// <para>示例值：75d28f9b-e35c-4230-8a83-4a661497db54_1602504000</para>
         /// </summary>
@@ -30,7 +29,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         public string EventId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>日程主题</para>
+        /// <para>日程主题。</para>
         /// <para>必填：否</para>
         /// <para>示例值：日程主题</para>
         /// </summary>
@@ -38,7 +37,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         public string? Summary { get; set; }
 
         /// <summary>
-        /// <para>日程描述</para>
+        /// <para>日程描述。</para>
         /// <para>必填：否</para>
         /// <para>示例值：desc</para>
         /// </summary>
@@ -46,19 +45,19 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         public string? Description { get; set; }
 
         /// <summary>
-        /// <para>开始时间</para>
+        /// <para>日程开始时间。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("start_time")]
         public TimeInfo? StartTime { get; set; }
 
         /// <summary>
-        /// <para>开始时间</para>
+        /// <para>日程开始时间。</para>
         /// </summary>
         public record TimeInfo
         {
             /// <summary>
-            /// <para>仅全天日程使用该字段，如2018-09-01。需满足 RFC3339 格式。</para>
+            /// <para>开始时间，仅全天日程使用该字段，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) 格式，例如，2018-09-01。</para>
             /// <para>必填：否</para>
             /// <para>示例值：2018-09-01</para>
             /// </summary>
@@ -66,7 +65,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? Date { get; set; }
 
             /// <summary>
-            /// <para>秒级时间戳，如1602504000(表示2020/10/12 20:0:00 +8时区)</para>
+            /// <para>秒级时间戳，指日程具体的开始时间。例如，1602504000 表示 2020/10/12 20:00:00（UTC +8 时区）。</para>
             /// <para>必填：否</para>
             /// <para>示例值：1602504000</para>
             /// </summary>
@@ -74,7 +73,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? Timestamp { get; set; }
 
             /// <summary>
-            /// <para>时区名称，使用IANA Time Zone Database标准，如Asia/Shanghai；全天日程时区固定为UTC，非全天日程时区默认为Asia/Shanghai</para>
+            /// <para>时区。使用 IANA Time Zone Database 标准。</para>
             /// <para>必填：否</para>
             /// <para>示例值：Asia/Shanghai</para>
             /// </summary>
@@ -83,14 +82,14 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         }
 
         /// <summary>
-        /// <para>结束时间</para>
+        /// <para>日程结束时间。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("end_time")]
         public TimeInfo? EndTime { get; set; }
 
         /// <summary>
-        /// <para>日程状态</para>
+        /// <para>日程状态。</para>
         /// <para>必填：否</para>
         /// <para>示例值：confirmed</para>
         /// <para>可选值：<list type="bullet">
@@ -103,7 +102,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         public string? Status { get; set; }
 
         /// <summary>
-        /// <para>是否是例外日程实例</para>
+        /// <para>日程是否是重复日程的例外日程。了解例外日程，可参见[例外日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction#71c5ec78)。</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
@@ -111,7 +110,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         public bool? IsException { get; set; }
 
         /// <summary>
-        /// <para>日程的app_link,跳转到具体的某个日程</para>
+        /// <para>日程的 app_link，用于跳转到具体的某个日程。</para>
         /// <para>必填：否</para>
         /// <para>示例值：https://applink.larkoffice.com/client/calendar/event/detail?calendarId=7039673579105026066&amp;key=aeac9c56-aeb1-4179-a21b-02f278f59048&amp;originalTime=0&amp;startTime=1700496000</para>
         /// </summary>
@@ -119,7 +118,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         public string? AppLink { get; set; }
 
         /// <summary>
-        /// <para>日程组织者日历ID</para>
+        /// <para>日程组织者的日历 ID。关于日历 ID 可参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
         /// <para>必填：否</para>
         /// <para>示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn</para>
         /// </summary>
@@ -127,26 +126,26 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         public string? OrganizerCalendarId { get; set; }
 
         /// <summary>
-        /// <para>视频会议信息，仅当日程至少有一位attendee时生效</para>
+        /// <para>视频会议信息。仅当日程至少有一位参与人时生效。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("vchat")]
         public InstanceVchat? Vchat { get; set; }
 
         /// <summary>
-        /// <para>视频会议信息，仅当日程至少有一位attendee时生效</para>
+        /// <para>视频会议信息。仅当日程至少有一位参与人时生效。</para>
         /// </summary>
         public record InstanceVchat
         {
             /// <summary>
-            /// <para>视频会议类型</para>
+            /// <para>视频会议类型。</para>
             /// <para>必填：否</para>
             /// <para>示例值：vc</para>
             /// <para>可选值：<list type="bullet">
             /// <item>vc：飞书视频会议</item>
             /// <item>third_party：第三方链接视频会议</item>
             /// <item>no_meeting：无视频会议</item>
-            /// <item>lark_live：Lark直播</item>
+            /// <item>lark_live：飞书直播</item>
             /// <item>unknown：未知类型</item>
             /// </list></para>
             /// </summary>
@@ -154,20 +153,20 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? VcType { get; set; }
 
             /// <summary>
-            /// <para>第三方视频会议icon类型</para>
+            /// <para>第三方视频会议 icon 类型。</para>
             /// <para>必填：否</para>
             /// <para>示例值：vc</para>
             /// <para>可选值：<list type="bullet">
-            /// <item>vc：飞书视频会议icon</item>
-            /// <item>live：直播视频会议icon</item>
-            /// <item>default：默认icon</item>
+            /// <item>vc：飞书视频会议 icon</item>
+            /// <item>live：直播视频会议 icon</item>
+            /// <item>default：默认 icon</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("icon_type")]
             public string? IconType { get; set; }
 
             /// <summary>
-            /// <para>第三方视频会议文案，可以为空，为空展示默认文案</para>
+            /// <para>第三方视频会议文案。</para>
             /// <para>必填：否</para>
             /// <para>示例值：发起视频会议</para>
             /// <para>最大长度：500</para>
@@ -177,7 +176,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? Description { get; set; }
 
             /// <summary>
-            /// <para>视频会议URL</para>
+            /// <para>视频会议 URL。</para>
             /// <para>必填：否</para>
             /// <para>示例值：vc.feishu.cn/j/152568231</para>
             /// <para>最大长度：2000</para>
@@ -188,11 +187,11 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         }
 
         /// <summary>
-        /// <para>日程公开范围，新建日程默认为Default；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效</para>
+        /// <para>日程公开范围。仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效。</para>
         /// <para>必填：否</para>
         /// <para>示例值：default</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>default：默认权限，仅向他人显示是否“忙碌”</item>
+        /// <item>default：默认权限，仅向他人显示是否忙碌</item>
         /// <item>public：公开，显示日程详情</item>
         /// <item>private：私密，仅自己可见</item>
         /// </list></para>
@@ -201,7 +200,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         public string? Visibility { get; set; }
 
         /// <summary>
-        /// <para>参与人权限</para>
+        /// <para>参与人权限。</para>
         /// <para>必填：否</para>
         /// <para>示例值：none</para>
         /// <para>可选值：<list type="bullet">
@@ -215,7 +214,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         public string? AttendeeAbility { get; set; }
 
         /// <summary>
-        /// <para>日程占用的忙闲状态，新建日程默认为Busy；仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效</para>
+        /// <para>日程占用的忙闲状态。仅新建日程时对所有参与人生效，之后修改该属性仅对当前身份生效。</para>
         /// <para>必填：否</para>
         /// <para>示例值：busy</para>
         /// <para>可选值：<list type="bullet">
@@ -227,19 +226,19 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         public string? FreeBusyStatus { get; set; }
 
         /// <summary>
-        /// <para>日程地点</para>
+        /// <para>日程地点。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("location")]
         public EventLocation? Location { get; set; }
 
         /// <summary>
-        /// <para>日程地点</para>
+        /// <para>日程地点。</para>
         /// </summary>
         public record EventLocation
         {
             /// <summary>
-            /// <para>地点名称</para>
+            /// <para>地点名称。</para>
             /// <para>必填：否</para>
             /// <para>示例值：地点名称</para>
             /// <para>最大长度：512</para>
@@ -249,7 +248,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? Name { get; set; }
 
             /// <summary>
-            /// <para>地点地址</para>
+            /// <para>地点地址。</para>
             /// <para>必填：否</para>
             /// <para>示例值：地点地址</para>
             /// <para>最大长度：255</para>
@@ -259,7 +258,9 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? Address { get; set; }
 
             /// <summary>
-            /// <para>地点坐标纬度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准</para>
+            /// <para>地点坐标纬度信息。</para>
+            /// <para>- 对于国内的地点，采用 GCJ-02 标准</para>
+            /// <para>- 对于海外的地点，采用 WGS84 标准</para>
             /// <para>必填：否</para>
             /// <para>示例值：1.100000023841858</para>
             /// </summary>
@@ -267,7 +268,9 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public float? Latitude { get; set; }
 
             /// <summary>
-            /// <para>地点坐标经度信息，对于国内的地点，采用GCJ-02标准，海外地点采用WGS84标准</para>
+            /// <para>地点坐标经度信息。</para>
+            /// <para>- 对于国内的地点，采用 GCJ-02 标准</para>
+            /// <para>- 对于海外的地点，采用 WGS84 标准</para>
             /// <para>必填：否</para>
             /// <para>示例值：2.200000047683716</para>
             /// </summary>
@@ -276,7 +279,11 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         }
 
         /// <summary>
-        /// <para>日程颜色，颜色RGB值的int32表示。仅对当前身份生效；客户端展示时会映射到色板上最接近的一种颜色；值为0或-1时默认跟随日历颜色。</para>
+        /// <para>日程颜色，由颜色 RGB 值的 int32 表示。</para>
+        /// <para>**说明**：</para>
+        /// <para>- 仅对当前身份生效。</para>
+        /// <para>- 取值为 0 或 -1 时，表示默认跟随日历颜色。</para>
+        /// <para>- 客户端展示时会映射到色板上最接近的一种颜色。</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -284,7 +291,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         public int? Color { get; set; }
 
         /// <summary>
-        /// <para>例外日程的原重复日程的event_id</para>
+        /// <para>例外日程对应的原重复日程的 event_id。</para>
         /// <para>必填：否</para>
         /// <para>示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0</para>
         /// </summary>
@@ -292,19 +299,19 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         public string? RecurringEventId { get; set; }
 
         /// <summary>
-        /// <para>日程组织者信息</para>
+        /// <para>日程组织者信息。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("event_organizer")]
         public InstanceEventOrganizer? EventOrganizer { get; set; }
 
         /// <summary>
-        /// <para>日程组织者信息</para>
+        /// <para>日程组织者信息。</para>
         /// </summary>
         public record InstanceEventOrganizer
         {
             /// <summary>
-            /// <para>日程组织者user ID</para>
+            /// <para>日程组织者 user ID。</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_xxxxxx</para>
             /// </summary>
@@ -312,7 +319,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? UserId { get; set; }
 
             /// <summary>
-            /// <para>日程组织者姓名</para>
+            /// <para>日程组织者姓名。</para>
             /// <para>必填：否</para>
             /// <para>示例值：孙二二</para>
             /// </summary>
@@ -321,23 +328,19 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
         }
 
         /// <summary>
-        /// <para>日程参与人信息，当前只返回会议室，需要其他类型参与人信息请使用「获取日程参与人列表」</para>
+        /// <para>日程参与人信息，当前只返回会议室，需要其他类型参与人信息请使用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)接口。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("attendees")]
         public CalendarEventAttendee[]? Attendees { get; set; }
 
         /// <summary>
-        /// <para>日程参与人信息，当前只返回会议室，需要其他类型参与人信息请使用「获取日程参与人列表」</para>
+        /// <para>日程参与人信息，当前只返回会议室，需要其他类型参与人信息请使用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)接口。</para>
         /// </summary>
         public record CalendarEventAttendee
         {
             /// <summary>
-            /// <para>参与人类型，仅当新建参与人时可设置类型</para>
-            /// <para>type为User时，值为open_id/user_id/union_id</para>
-            /// <para>type为Chat时，值为open_chat_id</para>
-            /// <para>type为Resource时，值为open_room_id</para>
-            /// <para>type为ThirdParty时，值为third_party_email；不支持通过API新建该类型参与人</para>
+            /// <para>参与人类型。</para>
             /// <para>必填：否</para>
             /// <para>示例值：user</para>
             /// <para>可选值：<list type="bullet">
@@ -351,7 +354,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? Type { get; set; }
 
             /// <summary>
-            /// <para>参与人ID</para>
+            /// <para>参与人 ID。日程参与人在当前日程内的唯一标识。</para>
             /// <para>必填：否</para>
             /// <para>示例值：user_xxxxxx</para>
             /// </summary>
@@ -359,7 +362,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? AttendeeId { get; set; }
 
             /// <summary>
-            /// <para>参与人RSVP状态</para>
+            /// <para>参与人 RSVP 状态，即日程回复状态。</para>
             /// <para>必填：否</para>
             /// <para>示例值：accept</para>
             /// <para>可选值：<list type="bullet">
@@ -374,7 +377,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? RsvpStatus { get; set; }
 
             /// <summary>
-            /// <para>参与人是否为「可选参加」，无法编辑群参与人的此字段</para>
+            /// <para>参与人是否为可选参加，该参数值对群组的群成员不生效。</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// <para>默认值：false</para>
@@ -383,7 +386,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public bool? IsOptional { get; set; }
 
             /// <summary>
-            /// <para>参与人是否为日程组织者</para>
+            /// <para>参与人是否为日程组织者。</para>
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
@@ -391,7 +394,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public bool? IsOrganizer { get; set; }
 
             /// <summary>
-            /// <para>参与人是否为外部参与人；外部参与人不支持编辑</para>
+            /// <para>参与人是否为外部参与人。外部参与人不支持编辑。</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
@@ -399,7 +402,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public bool? IsExternal { get; set; }
 
             /// <summary>
-            /// <para>参与人名称</para>
+            /// <para>参与人名称。</para>
             /// <para>必填：否</para>
             /// <para>示例值：张三</para>
             /// </summary>
@@ -407,19 +410,19 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? DisplayName { get; set; }
 
             /// <summary>
-            /// <para>群中的群成员，当type为Chat时有效；群成员不支持编辑</para>
+            /// <para>群中的群成员，当参与人类型（type）为 chat 时有效。群成员不支持编辑。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("chat_members")]
             public AttendeeChatMember[]? ChatMembers { get; set; }
 
             /// <summary>
-            /// <para>群中的群成员，当type为Chat时有效；群成员不支持编辑</para>
+            /// <para>群中的群成员，当参与人类型（type）为 chat 时有效。群成员不支持编辑。</para>
             /// </summary>
             public record AttendeeChatMember
             {
                 /// <summary>
-                /// <para>参与人RSVP状态</para>
+                /// <para>参与人 RSVP 状态，即日程回复状态。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：accept</para>
                 /// <para>可选值：<list type="bullet">
@@ -434,7 +437,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
                 public string? RsvpStatus { get; set; }
 
                 /// <summary>
-                /// <para>参与人是否为「可选参加」</para>
+                /// <para>参与人是否为可选参加。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// <para>默认值：false</para>
@@ -443,7 +446,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
                 public bool? IsOptional { get; set; }
 
                 /// <summary>
-                /// <para>参与人名称</para>
+                /// <para>参与人名称。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：zhangsan</para>
                 /// </summary>
@@ -451,7 +454,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
                 public string? DisplayName { get; set; }
 
                 /// <summary>
-                /// <para>参与人是否为日程组织者</para>
+                /// <para>参与人是否为日程组织者。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>
@@ -459,7 +462,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
                 public bool? IsOrganizer { get; set; }
 
                 /// <summary>
-                /// <para>参与人是否为外部参与人</para>
+                /// <para>参与人是否为外部参与人。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
@@ -468,7 +471,8 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             }
 
             /// <summary>
-            /// <para>参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id</para>
+            /// <para>用户类型参与人的用户 ID，ID 类型与 user_id_type 的值保持一致。关于用户 ID 可参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。</para>
+            /// <para>**注意**：当 is_external 返回为 true 时，此字段只会返回 open_id 或者 union_id。</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_xxxxxxxx</para>
             /// </summary>
@@ -476,7 +480,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? UserId { get; set; }
 
             /// <summary>
-            /// <para>chat类型参与人的群组chat_id</para>
+            /// <para>群组类型参与人的群组 ID。关于群组 ID 可参见[群 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)。</para>
             /// <para>必填：否</para>
             /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
             /// </summary>
@@ -484,7 +488,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? ChatId { get; set; }
 
             /// <summary>
-            /// <para>resource类型参与人的会议室room_id</para>
+            /// <para>会议室类型参与人的会议室 ID。</para>
             /// <para>必填：否</para>
             /// <para>示例值：omm_83d09ad4f6896e02029a6a075f71c9d1</para>
             /// </summary>
@@ -492,7 +496,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? RoomId { get; set; }
 
             /// <summary>
-            /// <para>third_party类型参与人的邮箱</para>
+            /// <para>外部邮箱类型参与人的邮箱地址。</para>
             /// <para>必填：否</para>
             /// <para>示例值：test@example.com</para>
             /// </summary>
@@ -500,7 +504,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? ThirdPartyEmail { get; set; }
 
             /// <summary>
-            /// <para>bot身份操作时，为预定的会议室指定实际预定人</para>
+            /// <para>如果日程是使用应用身份创建的，在添加会议室时，指定的会议室联系人 ID。ID 类型与 user_id_type 的值保持一致。</para>
             /// <para>必填：否</para>
             /// <para>示例值：4d7a3c6g</para>
             /// </summary>
@@ -508,19 +512,19 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             public string? OperateId { get; set; }
 
             /// <summary>
-            /// <para>会议室的个性化配置</para>
+            /// <para>会议室的个性化配置。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("resource_customization")]
             public CalendarAttendeeResourceCustomization[]? ResourceCustomizations { get; set; }
 
             /// <summary>
-            /// <para>会议室的个性化配置</para>
+            /// <para>会议室的个性化配置。</para>
             /// </summary>
             public record CalendarAttendeeResourceCustomization
             {
                 /// <summary>
-                /// <para>每个配置的唯一ID</para>
+                /// <para>每个配置的唯一 ID。</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：16281481596100</para>
                 /// </summary>
@@ -528,7 +532,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
                 public string IndexKey { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>当type类型为填空时，该参数有返回值</para>
+                /// <para>填空类型的取值。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：xxx</para>
                 /// </summary>
@@ -536,19 +540,19 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
                 public string? InputContent { get; set; }
 
                 /// <summary>
-                /// <para>每个配置的选项</para>
+                /// <para>每个配置的选项。</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("options")]
                 public CustomizationOption[]? Options { get; set; }
 
                 /// <summary>
-                /// <para>每个配置的选项</para>
+                /// <para>每个配置的选项。</para>
                 /// </summary>
                 public record CustomizationOption
                 {
                     /// <summary>
-                    /// <para>每个选项的唯一ID</para>
+                    /// <para>每个选项的唯一 ID。</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：16281481596185</para>
                     /// </summary>
@@ -556,7 +560,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
                     public string? OptionKey { get; set; }
 
                     /// <summary>
-                    /// <para>当type类型为其它选项时，该参数有返回值</para>
+                    /// <para>其他选项类型的取值。</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：xxxx</para>
                     /// </summary>
@@ -566,7 +570,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto
             }
 
             /// <summary>
-            /// <para>会议室审批原因</para>
+            /// <para>会议室的审批原因。</para>
             /// <para>必填：否</para>
             /// <para>示例值：申请审批原因</para>
             /// <para>最大长度：200</para>

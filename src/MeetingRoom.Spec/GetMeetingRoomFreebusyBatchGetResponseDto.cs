@@ -25,16 +25,10 @@ public record GetMeetingRoomFreebusyBatchGetResponseDto
     /// <summary>
     /// <para>会议室忙闲列表</para>
     /// <para>必填：否</para>
+    /// <para>键名为 会议室 ID</para>
     /// </summary>
     [JsonPropertyName("free_busy")]
-    public object? FreeBusy { get; set; }
-
-    /// <summary>
-    /// <para>与请求合法参数相同，表示之后是对应会议室的忙闲状态</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("room_id")]
-    public string? RoomId { get; set; }
+    public Dictionary<string, Room[]>? FreeBusy { get; set; }
 
     /// <summary></summary>
     public record Room
@@ -54,25 +48,25 @@ public record GetMeetingRoomFreebusyBatchGetResponseDto
         public string? EndTime { get; set; }
 
         /// <summary>
-        /// <para>日程 ID</para>
+        /// <para>日程的唯一 ID。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("uid")]
         public string? Uid { get; set; }
 
         /// <summary>
-        /// <para>日程实例的原始时间, 非重复日程以及重复性日程的原日程为0，重复性日程的例外日程为非0</para>
+        /// <para>日程实例的原始时间。非重复性日程和重复性日程，此处为 0；重复性日程的例外日程，此处为对应的 original_time 值（时间戳类型）。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("original_time")]
         public string? OriginalTime { get; set; }
 
         /// <summary>
-        /// <para>组织者信息, 私密日程不返回该信息</para>
+        /// <para>日程组织者信息。私密日程不会返回该信息。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("organizer_info")]
-        public string? OrganizerInfo { get; set; }
+        public OrganizerInfoSuffix? OrganizerInfo { get; set; }
 
         /// <summary></summary>
         public record OrganizerInfoSuffix

@@ -9,21 +9,21 @@ namespace FeishuNetSdk.MeetingRoom.Spec;
 public record PostMeetingRoomInstanceReplyBodyDto
 {
     /// <summary>
-    /// <para>会议室的 ID</para>
+    /// <para>会议室 ID。</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("room_id")]
     public string RoomId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>会议室的日程 ID</para>
+    /// <para>会议室对应的日程 Uid。</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("uid")]
     public string Uid { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>日程实例原始时间，非重复日程必为0。重复日程若为0则表示回复其所有实例，否则表示回复单个实例。</para>
+    /// <para>日程实例原始时间。非重复性日程和重复性日程，此处传 0；重复性日程的例外日程，此处传对应的 original_time 值（时间戳类型）。</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("original_time")]

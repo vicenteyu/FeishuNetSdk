@@ -41,7 +41,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言，支持中文和英文。中文用zh-CN；英文用en-US。</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -49,7 +49,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>内容，支持中文和英文</para>
             /// <para>必填：是</para>
             /// <para>示例值：刘梓新</para>
             /// </summary>
@@ -188,7 +188,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
     public record I18n
     {
         /// <summary>
-        /// <para>语言</para>
+        /// <para>语言，支持中文和英文。中文用zh-CN；英文用en-US。</para>
         /// <para>必填：是</para>
         /// <para>示例值：zh-CN</para>
         /// </summary>
@@ -196,7 +196,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
         public string Lang { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>内容</para>
+        /// <para>内容，支持中文和英文。</para>
         /// <para>必填：是</para>
         /// <para>示例值：刘梓新</para>
         /// </summary>
@@ -304,7 +304,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言，支持中文和英文。中文用zh-CN；英文用en-US。</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -312,7 +312,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>内容，支持中文和英文</para>
             /// <para>必填：是</para>
             /// <para>示例值：刘梓新</para>
             /// </summary>
@@ -321,7 +321,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
         }
 
         /// <summary>
-        /// <para>数字代码</para>
+        /// <para>对应币种的指代代码，通过系统内部查找</para>
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
@@ -329,9 +329,9 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
         public int? NumericCode { get; set; }
 
         /// <summary>
-        /// <para>三位字母代码</para>
+        /// <para>法定货币对应代码，如CNY、USD等</para>
         /// <para>必填：否</para>
-        /// <para>示例值：12</para>
+        /// <para>示例值：CNY</para>
         /// </summary>
         [JsonPropertyName("currency_alpha_3_code")]
         public string? CurrencyAlpha3Code { get; set; }
@@ -350,7 +350,8 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
     public record PhoneNumberAndAreaCode
     {
         /// <summary>
-        /// <para>区号</para>
+        /// <para>区号对应的数字，可通过</para>
+        /// <para>[请求接口](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=phone；custom_api_name=international_area_code。</para>
         /// <para>必填：是</para>
         /// <para>示例值：123123</para>
         /// </summary>
@@ -358,12 +359,13 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
         public Enum AreaCode { get; set; } = new();
 
         /// <summary>
-        /// <para>区号</para>
+        /// <para>区号对应的数字，可通过</para>
+        /// <para>[请求接口](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=phone；custom_api_name=international_area_code。</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
-            /// <para>枚举值</para>
+            /// <para>区号对应名称</para>
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>

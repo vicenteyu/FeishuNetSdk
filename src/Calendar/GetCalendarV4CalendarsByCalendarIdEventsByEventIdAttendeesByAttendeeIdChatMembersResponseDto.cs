@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 获取日程参与群成员列表 响应体
-/// <para>获取日程的群参与人的群成员列表。</para>
+/// <para>调用该接口以当前身份（应用或用户）获取日程的群组类型参与人的群成员列表。</para>
 /// <para>接口ID：6952888507002847259</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/calendar-event-attendee/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2fcalendar-event-attendee-chat_member%2flist</para>
@@ -9,19 +9,19 @@ namespace FeishuNetSdk.Calendar;
 public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttendeeIdChatMembersResponseDto
 {
     /// <summary>
-    /// <para>群中的群成员，当type为chat时有效；群成员不支持编辑</para>
+    /// <para>群组类型参与人的群成员列表。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public CalendarEventAttendeeChatMember[]? Items { get; set; }
 
     /// <summary>
-    /// <para>群中的群成员，当type为chat时有效；群成员不支持编辑</para>
+    /// <para>群组类型参与人的群成员列表。</para>
     /// </summary>
     public record CalendarEventAttendeeChatMember
     {
         /// <summary>
-        /// <para>参与人RSVP状态</para>
+        /// <para>参与人 RSVP 状态，即日程回复状态。</para>
         /// <para>必填：否</para>
         /// <para>示例值：needs_action</para>
         /// <para>可选值：<list type="bullet">
@@ -36,7 +36,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttend
         public string? RsvpStatus { get; set; }
 
         /// <summary>
-        /// <para>参与人是否为「可选参加」</para>
+        /// <para>参与人是否为可选参加。</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// <para>默认值：false</para>
@@ -45,16 +45,15 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttend
         public bool? IsOptional { get; set; }
 
         /// <summary>
-        /// <para>参与人名称</para>
+        /// <para>参与人名称。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：ZhangSan</para>
+        /// <para>示例值：Zhang San</para>
         /// </summary>
         [JsonPropertyName("display_name")]
         public string? DisplayName { get; set; }
 
         /// <summary>
-        /// <para>参与人open_id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
-        /// <para>**示例值**："ou_xxxxxxxx"</para>
+        /// <para>参与人的 open_id。关于用户 ID 可参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_143669c5a53647f00f6c80a0253aa68b</para>
         /// </summary>
@@ -62,7 +61,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttend
         public string? OpenId { get; set; }
 
         /// <summary>
-        /// <para>参与人是否为日程组织者</para>
+        /// <para>参与人是否为日程组织者。</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -70,7 +69,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttend
         public bool? IsOrganizer { get; set; }
 
         /// <summary>
-        /// <para>参与人是否为外部参与人</para>
+        /// <para>参与人是否为外部参与人。</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>

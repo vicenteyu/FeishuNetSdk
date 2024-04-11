@@ -9,7 +9,7 @@ namespace FeishuNetSdk.MeetingRoom.Spec;
 public record PostMeetingRoomSummaryBatchGetResponseDto
 {
     /// <summary>
-    /// <para>成功查询到的日程信息</para>
+    /// <para>查询到的日程信息。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("eventInfos")]
@@ -19,28 +19,28 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
     public record EventInfo
     {
         /// <summary>
-        /// <para>日程的唯一id</para>
+        /// <para>日程的唯一 ID。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("uid")]
         public string? Uid { get; set; }
 
         /// <summary>
-        /// <para>日程实例原始时间。非重复性日程和重复性日程，此处为0；重复性日程的例外，为对应的original_time</para>
+        /// <para>日程实例原始时间。非重复性日程和重复性日程，此处为 0；重复性日程的例外日程，此处为对应的 original_time 值（时间戳类型）。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("original_time")]
         public int? OriginalTime { get; set; }
 
         /// <summary>
-        /// <para>日程主题</para>
+        /// <para>日程主题。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("summary")]
         public string? Summary { get; set; }
 
         /// <summary>
-        /// <para>视频会议信息</para>
+        /// <para>视频会议信息。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("vchat")]
@@ -90,7 +90,7 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
     }
 
     /// <summary>
-    /// <para>没有查询到的日程</para>
+    /// <para>没有查询到的日程信息。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("errorEventUids")]
@@ -100,14 +100,14 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
     public record ErrorEventUid
     {
         /// <summary>
-        /// <para>日程的唯一id</para>
+        /// <para>日程的唯一 ID。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("uid")]
         public string? Uid { get; set; }
 
         /// <summary>
-        /// <para>日程实例原始时间。非重复性日程和重复性日程，此处为0；重复性日程的例外，为对应的original_time</para>
+        /// <para>日程实例原始时间。非重复性日程和重复性日程，此处为 0；重复性日程的例外日程，此处为对应的 original_time 值（时间戳类型）。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("original_time")]
