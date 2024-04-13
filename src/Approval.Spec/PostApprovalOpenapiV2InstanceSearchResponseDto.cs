@@ -178,7 +178,7 @@ public record PostApprovalOpenapiV2InstanceSearchResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("link")]
-            public object? Link { get; set; }
+            public LinkSuffix? Link { get; set; }
 
             /// <summary></summary>
             public record LinkSuffix

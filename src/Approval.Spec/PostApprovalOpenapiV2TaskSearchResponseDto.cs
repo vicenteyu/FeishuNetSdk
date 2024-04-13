@@ -61,7 +61,7 @@ public record PostApprovalOpenapiV2TaskSearchResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("external")]
-            public object? External { get; set; }
+            public ExternalSuffix? External { get; set; }
 
             /// <summary></summary>
             public record ExternalSuffix

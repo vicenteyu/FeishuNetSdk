@@ -30,7 +30,7 @@ public record PostApprovalOpenapiV2CcSearchResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("approval")]
-        public object? Approval { get; set; }
+        public ApprovalSuffix? Approval { get; set; }
 
         /// <summary></summary>
         public record ApprovalSuffix

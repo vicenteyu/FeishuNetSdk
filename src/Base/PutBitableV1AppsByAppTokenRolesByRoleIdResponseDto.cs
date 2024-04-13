@@ -183,7 +183,7 @@ public record PutBitableV1AppsByAppTokenRolesByRoleIdResponseDto
             /// <para>示例值：{"姓名":1,"年龄":2}</para>
             /// </summary>
             [JsonPropertyName("field_perm")]
-            public object? FieldPerm { get; set; }
+            public Dictionary<string, int>? FieldPerm { get; set; }
 
             /// <summary>
             /// <para>新增记录权限，仅在table_perm为2时有意义，用于设置记录是否可以新增。</para>

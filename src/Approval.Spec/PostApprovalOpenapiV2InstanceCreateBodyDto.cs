@@ -75,14 +75,14 @@ public record PostApprovalOpenapiV2InstanceCreateBodyDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("node_approver_user_id_list")]
-    public object? NodeApproverUserIdList { get; set; }
+    public Dictionary<string, string[]>? NodeApproverUserIdList { get; set; }
 
     /// <summary>
     /// <para>审批人发起人自选 open id，与上述node_approver_user_id_list字段取并集</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("node_approver_open_id_list")]
-    public object? NodeApproverOpenIdList { get; set; }
+    public Dictionary<string, string[]>? NodeApproverOpenIdList { get; set; }
 
     /// <summary>
     /// <para>如果有发起人自选节点，则可填写对应节点的抄送人</para>
@@ -92,7 +92,7 @@ public record PostApprovalOpenapiV2InstanceCreateBodyDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("node_cc_user_id_list")]
-    public object? NodeCcUserIdList { get; set; }
+    public Dictionary<string, string[]>? NodeCcUserIdList { get; set; }
 
     /// <summary>
     /// <para>抄送人发起人自选 open id</para>
@@ -100,7 +100,7 @@ public record PostApprovalOpenapiV2InstanceCreateBodyDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("node_cc_open_id_list")]
-    public object? NodeCcOpenIdList { get; set; }
+    public Dictionary<string, string[]>? NodeCcOpenIdList { get; set; }
 
     /// <summary>
     /// <para>审批实例 uuid，用于幂等操作, 每个租户下面的唯一key，同一个 uuid 只能用于创建一个审批实例，如果冲突，返回错误码 60012 ，格式建议为 XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX，不区分大小写</para>

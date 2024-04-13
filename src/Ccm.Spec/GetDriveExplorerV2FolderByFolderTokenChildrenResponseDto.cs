@@ -20,7 +20,7 @@ public record GetDriveExplorerV2FolderByFolderTokenChildrenResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("children")]
-    public object? Children { get; set; }
+    public Dictionary<string, ChildrenSuffix>? Children { get; set; }
 
     /// <summary></summary>
     public record ChildrenSuffix

@@ -5377,6 +5377,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：2</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="target_geo">
+    /// <para>必填：否</para>
+    /// <para>需跨域访问的Geo数据，每个Geo仅包含本Geo数据，不传默认查本地数据，调用前需要先开通FG（cn、us、sg、jp），每次只能查一个Geo数据</para>
+    /// <para>示例值：cn</para>
+    /// <para>默认值：null</para>
+    /// </param>
     [HttpGet("/open-apis/admin/v1/admin_user_stats")]
     System.Threading.Tasks.Task<FeishuResponse<Admin.GetAdminV1AdminUserStatsResponseDto>> GetAdminV1AdminUserStatsAsync(
         [PathQuery] string start_date,
@@ -5386,7 +5392,8 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? department_id = null,
         [PathQuery] string? user_id = null,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? target_geo = null);
 
     /// <summary>
     /// <para>【管理后台】获取部门维度的用户活跃和功能使用数据</para>
@@ -5437,6 +5444,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：2</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="target_geo">
+    /// <para>必填：否</para>
+    /// <para>需跨域访问的Geo数据，每个Geo仅包含本Geo数据，不传默认查本地数据，调用前需要先开通FG(cn、sg、jp、us)</para>
+    /// <para>示例值：cn</para>
+    /// <para>默认值：null</para>
+    /// </param>
     [HttpGet("/open-apis/admin/v1/admin_dept_stats")]
     System.Threading.Tasks.Task<FeishuResponse<Admin.GetAdminV1AdminDeptStatsResponseDto>> GetAdminV1AdminDeptStatsAsync(
         [PathQuery] string start_date,
@@ -5445,7 +5458,8 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] bool contains_child_dept,
         [PathQuery] string department_id_type = "open_department_id",
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? target_geo = null);
 
     /// <summary>
     /// <para>【邮箱】创建公共邮箱</para>

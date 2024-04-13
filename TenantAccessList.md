@@ -1249,9 +1249,9 @@
 <tr><td colspan="3">GetContactV3WorkCitiesByWorkCityId</td></tr>
 <tr><td rowspan="2">625</td><td rowspan="2">2023-03-30</td><td>&#10003;</td><td>管理后台</td><td>重置用户的企业邮箱密码</td></tr>
 <tr><td colspan="3">PostAdminV1PasswordReset</td></tr>
-<tr><td rowspan="2">626</td><td rowspan="2">2023-06-26</td><td>&#10003;</td><td>管理后台</td><td>获取部门维度的用户活跃和功能使用数据</td></tr>
+<tr><td rowspan="2">626</td><td rowspan="2">2024-04-12</td><td>&#10003;</td><td>管理后台</td><td>获取部门维度的用户活跃和功能使用数据</td></tr>
 <tr><td colspan="3">GetAdminV1AdminDeptStats</td></tr>
-<tr><td rowspan="2">627</td><td rowspan="2">2023-06-26</td><td>&#10003;</td><td>管理后台</td><td>获取用户维度的用户活跃和功能使用数据</td></tr>
+<tr><td rowspan="2">627</td><td rowspan="2">2024-04-12</td><td>&#10003;</td><td>管理后台</td><td>获取用户维度的用户活跃和功能使用数据</td></tr>
 <tr><td colspan="3">GetAdminV1AdminUserStats</td></tr>
 <tr><td rowspan="2">628</td><td rowspan="2">2023-05-16</td><td>&#10003;</td><td>管理后台</td><td>创建勋章</td></tr>
 <tr><td colspan="3">PostAdminV1Badges</td></tr>
@@ -1405,7 +1405,7 @@
 <tr><td colspan="3">PostImV1MessagesMergeForward</td></tr>
 <tr><td rowspan="2">703</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>通过公司 ID 批量获取公司信息</td></tr>
 <tr><td colspan="3">PostCorehrV2CompaniesBatchGet</td></tr>
-<tr><td rowspan="2">704</td><td rowspan="2">2024-04-11</td><td>&#10003;</td><td>飞书人事</td><td>创建公司</td></tr>
+<tr><td rowspan="2">704</td><td rowspan="2">2024-04-12</td><td>&#10003;</td><td>飞书人事</td><td>创建公司</td></tr>
 <tr><td colspan="3">PostCorehrV1Companies</td></tr>
 <tr><td rowspan="2">705</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事</td><td>删除公司</td></tr>
 <tr><td colspan="3">DeleteCorehrV1CompaniesByCompanyId</td></tr>
@@ -1787,9 +1787,9 @@
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
 <tr><td rowspan="2">894</td><td rowspan="2">2023-09-27</td><td>&#10003;</td><td>安全合规</td><td>获取OpenAPI审计日志数据</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV1OpenapiLogsListData</td></tr>
-<tr><td rowspan="2">895</td><td rowspan="2">2024-03-12</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">895</td><td rowspan="2">2024-04-11</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">896</td><td rowspan="2">2024-03-12</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">896</td><td rowspan="2">2024-04-11</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">897</td><td rowspan="2">2023-06-29</td><td>&#10003;</td><td>工作台</td><td>获取工作台访问数据</td></tr>
 <tr><td colspan="3">PostWorkplaceV1WorkplaceAccessDataSearch</td></tr>
@@ -2093,6 +2093,6 @@
 <tr><td colspan="3">PostImV2BizEntityTagRelation</td></tr>
 <tr><td rowspan="2">1047</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>消息与群组</td><td>查询实体与标签的绑定关系</td></tr>
 <tr><td colspan="3">GetImV2BizEntityTagRelation</td></tr>
-<tr><td rowspan="2">1048</td><td rowspan="2">2024-04-09</td><td>新增</td><td>OKR</td><td>查询复盘信息</td></tr>
+<tr><td rowspan="2">1048</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>OKR</td><td>查询复盘信息</td></tr>
 <tr><td colspan="3">GetOkrV1ReviewsQuery</td></tr>
 </tbody></table>

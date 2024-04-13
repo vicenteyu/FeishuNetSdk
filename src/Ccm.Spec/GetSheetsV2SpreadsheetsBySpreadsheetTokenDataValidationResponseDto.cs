@@ -89,7 +89,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("colorValueMap")]
-            public object? ColorValueMap { get; set; }
+            public Dictionary<string, string>? ColorValueMap { get; set; }
         }
     }
 }
