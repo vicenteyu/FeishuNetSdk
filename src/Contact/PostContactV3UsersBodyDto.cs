@@ -20,6 +20,7 @@ public record PostContactV3UsersBodyDto
     /// <para>用户名</para>
     /// <para>必填：是</para>
     /// <para>示例值：张三</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
@@ -27,7 +28,7 @@ public record PostContactV3UsersBodyDto
     /// <summary>
     /// <para>英文名</para>
     /// <para>必填：否</para>
-    /// <para>示例值：SanZhang</para>
+    /// <para>示例值：San Zhang</para>
     /// </summary>
     [JsonPropertyName("en_name")]
     public string? EnName { get; set; }
@@ -35,7 +36,7 @@ public record PostContactV3UsersBodyDto
     /// <summary>
     /// <para>别名</para>
     /// <para>必填：否</para>
-    /// <para>示例值：AlexZhang</para>
+    /// <para>示例值：Alex Zhang</para>
     /// </summary>
     [JsonPropertyName("nickname")]
     public string? Nickname { get; set; }
@@ -59,7 +60,7 @@ public record PostContactV3UsersBodyDto
     /// <para>3. 国际电话区号前缀中必须包含加号 +</para>
     /// <para>4. 该 mobile 字段在海外版飞书非必填</para>
     /// <para>必填：是</para>
-    /// <para>示例值：13011111111(其他例子，中国大陆手机号:13011111111或+8613011111111,非中国大陆手机号:+41446681800)</para>
+    /// <para>示例值：13011111111 (其他例子，中国大陆手机号: 13011111111 或 +8613011111111, 非中国大陆手机号: +41446681800)</para>
     /// </summary>
     [JsonPropertyName("mobile")]
     public string Mobile { get; set; } = string.Empty;
@@ -80,6 +81,7 @@ public record PostContactV3UsersBodyDto
     /// <item>0：保密</item>
     /// <item>1：男</item>
     /// <item>2：女</item>
+    /// <item>3：其他</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("gender")]
@@ -107,7 +109,7 @@ public record PostContactV3UsersBodyDto
     /// <summary>
     /// <para>用户的直接主管的用户ID，ID值与查询参数中的user_id_type 对应。</para>
     /// <para>不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
-    /// <para>获取方式参见[如何获取user_id](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)</para>
+    /// <para>获取方式参见[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>
@@ -348,7 +350,7 @@ public record PostContactV3UsersBodyDto
     public string? JobTitle { get; set; }
 
     /// <summary>
-    /// <para>数据驻留地</para>
+    /// <para>数据驻留地，需联系服务台技术支持开通使用</para>
     /// <para>必填：否</para>
     /// <para>示例值：cn</para>
     /// </summary>

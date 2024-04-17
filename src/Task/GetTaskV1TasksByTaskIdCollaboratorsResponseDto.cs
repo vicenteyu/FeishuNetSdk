@@ -22,7 +22,7 @@ public record GetTaskV1TasksByTaskIdCollaboratorsResponseDto
     {
         /// <summary>
         /// <para>任务执行者的 ID。</para>
-        /// <para>传入的值为 user_id 或 open_id，由user_id_type 决定。user_id和open_id的获取可见文档[如何获取相关id](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)。</para>
+        /// <para>传入的值为 user_id 或 open_id，由user_id_type 决定。user_id和open_id的获取可见文档[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。</para>
         /// <para>已经废弃，为了向前兼容早期只支持单次添加一个人的情况而保留，但不再推荐使用，建议使用id_list字段</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_99e1a581b36ecc4862cbfbce473f1234</para>
@@ -32,7 +32,7 @@ public record GetTaskV1TasksByTaskIdCollaboratorsResponseDto
 
         /// <summary>
         /// <para>执行者的用户ID列表。</para>
-        /// <para>传入的值为 user_id 或 open_id，由user_id_type 决定。user_id和open_id的获取可见文档[如何获取相关id](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)。</para>
+        /// <para>传入的值为 user_id 或 open_id，由user_id_type 决定。user_id和open_id的获取可见文档[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("id_list")]

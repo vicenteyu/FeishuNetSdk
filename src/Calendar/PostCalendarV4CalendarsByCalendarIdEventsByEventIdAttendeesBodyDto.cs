@@ -186,7 +186,10 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
     public bool? NeedNotification { get; set; }
 
     /// <summary>
-    /// <para>使用管理员身份访问时，要修改的实例（仅用于重复日程修改其中的一个实例，非重复日程无需填此字段）。</para>
+    /// <para>使用管理员身份访问时，要修改的日程实例。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 该参数仅用于修改重复日程中的某一日程实例，非重复日程无需填此字段。</para>
+    /// <para>- 你可以调用[获取重复日程实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/instances)接口，获取重复日程中某一日程实例的 event_id。该参数取值为 event_id 的时间戳后缀。例如查询到的日程实例 ID 为 `2cf525f0-1e67-4b04-ad4d-30b7f003903c_1713168000`，则当前的 `instance_start_time_admin` 取值为 `1713168000`。</para>
     /// <para>**默认值**：空</para>
     /// <para>必填：否</para>
     /// <para>示例值：1647320400</para>

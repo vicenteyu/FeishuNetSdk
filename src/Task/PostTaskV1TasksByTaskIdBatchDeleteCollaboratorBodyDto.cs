@@ -10,9 +10,9 @@ public record PostTaskV1TasksByTaskIdBatchDeleteCollaboratorBodyDto
 {
     /// <summary>
     /// <para>执行者的用户ID列表。</para>
-    /// <para>传入的值为 user_id 或 open_id，由user_id_type 决定。user_id和open_id的获取可见文档[如何获取相关id](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)。</para>
+    /// <para>传入的值为 user_id 或 open_id，由user_id_type 决定。user_id和open_id的获取可见文档[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。</para>
     /// <para>必填：否</para>
-    /// <para>示例值：["ou_550cc75233d8b7b9fcbdad65f34433f4","ou_d1e9d27cf3235b40ca9a67c67ef088b0"]</para>
+    /// <para>示例值：["ou_550cc75233d8b7b9fcbdad65f34433f4", "ou_d1e9d27cf3235b40ca9a67c67ef088b0"]</para>
     /// </summary>
     [JsonPropertyName("id_list")]
     public string[]? IdList { get; set; }

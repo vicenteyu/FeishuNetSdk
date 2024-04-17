@@ -114,12 +114,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569523177324545</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATN3UjLwUzN14CM1cTN</para>
     /// <para>Authorization：user_access_token、tenant_access_token</para>
-    /// <para>该接口用于根据 filetoken 查询协作者，目前包括人("user")和群("chat") 。</para>
-    /// <para>- 该接口为旧版接口。推荐你使用新版接口接入业务，详情参见[获取协作者列表（新版本）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/list)。</para>
-    /// <para>- 你能获取到协作者列表的前提是你对该文档有分享权限。</para>
+    /// <para>该接口用于根据文件的 token 查询协作者，目前包括人("user")和群("chat") 。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("历史版本")]
     [HttpPost("/open-apis/drive/permission/member/list")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionMemberListResponseDto>> PostDrivePermissionMemberListAsync(
         UserAccessToken access_token,
@@ -267,6 +266,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于在已有数据的末尾追加写入给定的数据。该接口会从给定的range中的起始行列开始向下寻找（如range为"sheet1!A1:B2",将会依次寻找A1、A2、A3...），找到第一个空白位置后将数据写入到该区域。单次写入不得超过5000行，100列，每个格子不得超过5万字符。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     /// <param name="insertDataOption">
     /// <para>必填：否</para>
     /// <para>遇到空行追加，默认 OVERWRITE，若空行的数量小于追加数据的行数，则会覆盖已有数据；可选 INSERT_ROWS ，会在插入足够数量的行后再进行数据追加</para>
@@ -277,6 +281,7 @@ public interface IFeishuUserApi : IHttpApi
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_append")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendAsync(
         UserAccessToken access_token,
+        [PathQuery] string spreadsheetToken,
         [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendBodyDto dto,
         [PathQuery] string? insertDataOption = null);
 
@@ -288,6 +293,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>为了更好地提升该接口的安全性，我们对其进行了升级，请尽快迁移至 [新版本&gt;&gt;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// <para>获取用户云空间中指定文件夹下的文件清单。清单类型包括文件、各种在线文档（文档、电子表格、多维表格、思维笔记）、文件夹和快捷方式。该接口不支持分页，并且不会递归的获取子文件夹的清单。</para>
     /// </summary>
+    /// <param name="folderToken">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>文件夹的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
+    /// </param>
     /// <param name="types">
     /// <para>必填：否</para>
     /// <para>需要查询的文件类型，默认返回所有 children；types 可多选，可选类型有 doc、sheet、file、bitable、docx、folder、mindnote 。如 url?types=folder&amp;types=sheet</para>
@@ -298,6 +308,7 @@ public interface IFeishuUserApi : IHttpApi
     [HttpGet("/open-apis/drive/explorer/v2/folder/{folderToken}/children")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDriveExplorerV2FolderByFolderTokenChildrenResponseDto>> GetDriveExplorerV2FolderByFolderTokenChildrenAsync(
         UserAccessToken access_token,
+        [PathQuery] string folderToken,
         [PathQuery] string[]? types = null);
 
     /// <summary>
@@ -419,11 +430,17 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>请求的用户id类型，可选open_id,union_id</para>
+    /// <para>默认值：open_id</para>
+    /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_dimension")]
     System.Threading.Tasks.Task<FeishuResponse> PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimensionAsync(
         UserAccessToken access_token,
-        [PathQuery] string spreadsheetToken);
+        [PathQuery] string spreadsheetToken,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【云文档】更新表格属性</para>
@@ -501,14 +518,40 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="range">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>查询范围，包含 sheetId 与单元格范围两部分，详见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。若查询范围中使用形如&lt;sheetId&gt;!&lt;开始单元格&gt;:&lt;结束列&gt;的范围时，仅支持获取100列数据</para>
+    /// <para>查询范围，包含 sheetId 与单元格范围两部分，详见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。若查询范围中使用形如 `&amp;lt;sheetId&amp;gt;!&amp;lt;开始单元格&amp;gt;:&amp;lt;结束列&amp;gt;`的范围时，仅支持获取100列数据</para>
+    /// </param>
+    /// <param name="valueRenderOption">
+    /// <para>必填：否</para>
+    /// <para>指定单元格数据的格式。可选值为如下所示。当参数缺省时，默认不进行公式计算，返回公式本身；数值不进行数字格式化。</para>
+    /// <para>- valueRenderOption=ToString：返回纯文本的值（数值类型除外）</para>
+    /// <para>- valueRenderOption=FormattedValue：计算并格式化单元格</para>
+    /// <para>- valueRenderOption=Formula：单元格中含有公式时，返回公式本身</para>
+    /// <para>- valueRenderOption=UnformattedValue：计算但不对单元格进行格式化</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dateTimeRenderOption">
+    /// <para>必填：否</para>
+    /// <para>指定数据类型为日期、时间、或时间日期的单元格数据的格式。</para>
+    /// <para>- 当参数缺省时，默认返回浮点数值，整数部分为自 1899 年 12 月 30 日以来的天数；小数部分为该时间占 24 小时的份额。例如：若时间为 1900 年 1 月 1 日中午 12 点，则默认返回 2.5。其中，2 表示 1900 年 1 月 1 日为 1899 年12 月 30 日之后的 2 天；0.5 表示 12 点占 24 小时的二分之一，即 12/24=0.5。</para>
+    /// <para>- dateTimeRenderOption=FormattedString：计算并对时间、日期类型数据进行格式化，但不会对数字进行格式化。将返回格式化后的字符串。详见[电子表格常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/guide/sheets-faq)</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>指定返回的用户 ID 类型。默认为 lark_id，建议选择 open_id 或 union_id。了解更多，参考[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。</para>
+    /// <para>- open_id：用户在应用内的身份。 同一个 user_id 在不同应用中的 open_id 不同，其值统一以 ou_ 为前缀，如`ou_c99c5f35d542efc7ee492afe11af19ef`。</para>
+    /// <para>- union_id：用户在同一应用服务商提供的多个应用间的统一身份。</para>
+    /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values/{range}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRangeResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRangeAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [PathQuery] string range);
+        [PathQuery] string range,
+        [PathQuery] string? valueRenderOption = null,
+        [PathQuery] string? dateTimeRenderOption = null,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【云文档】获取旧版文档纯文本内容</para>
@@ -670,11 +713,23 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token；获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
+    /// <param name="extFields">
+    /// <para>必填：否</para>
+    /// <para>额外返回的字段，extFields=protectedRange时返回保护行列信息</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>返回的用户id类型，可选open_id,union_id</para>
+    /// <para>默认值：open_id</para>
+    /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/metainfo")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoAsync(
         UserAccessToken access_token,
-        [PathQuery] string spreadsheetToken);
+        [PathQuery] string spreadsheetToken,
+        [PathQuery] string? extFields = null,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【云文档】获取旧版文档中的电子表格元数据</para>
@@ -838,7 +893,6 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/h5_js_sdk/authorization</para>
     /// <para>Authorization：tenant_access_token、user_access_token、app_access_token</para>
     /// <para>该接口用于返回调用 JSAPI 临时调用凭证，使用该凭证，在调用 JSAPI 时，请求不会被拦截</para>
-    /// <para>由于获取 jsapi_ticket 的api调用次数非常有限，频繁刷新 jsapi_ticket 会导致api调用受限，影响自身业务，开发者需要在自己的服务全局缓存jsapi_ticket 。</para>
     /// </summary>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/jssdk/ticket/get")]
@@ -989,6 +1043,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>1. 仅支持获取保护行或保护列，暂不支持获取保护单元格</para>
     /// <para>2. 不支持获取包含多个区域的保护范围</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     /// <param name="protectIds">
     /// <para>必填：是</para>
     /// <para>保护范围ID，可以通过[获取表格元数据](https://open.feishu.cn/document/ukTMukTMukTM/uETMzUjLxEzM14SMxMTN)接口获取，多个ID用逗号分隔，如xxxID1,xxxID2</para>
@@ -1002,6 +1061,7 @@ public interface IFeishuUserApi : IHttpApi
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_range_batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetAsync(
         UserAccessToken access_token,
+        [PathQuery] string spreadsheetToken,
         [PathQuery] string protectIds,
         [PathQuery] string? memberType = null);
 
@@ -1119,6 +1179,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口用于根据sheetId查询详细的条件格式信息，最多支持同时查询10个sheetId。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     /// <param name="sheet_ids">
     /// <para>必填：是</para>
     /// <para>工作表ID，可以通过[获取表格元数据](https://open.feishu.cn/document/ukTMukTMukTM/uETMzUjLxEzM14SMxMTN)接口获取，多个ID用逗号分隔，如xxxID1,xxxID2</para>
@@ -1127,6 +1192,7 @@ public interface IFeishuUserApi : IHttpApi
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsAsync(
         UserAccessToken access_token,
+        [PathQuery] string spreadsheetToken,
         [PathQuery] string[] sheet_ids);
 
     /// <summary>
@@ -1405,10 +1471,65 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于获取当前部门子部门列表。[常见问题答疑](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN)。</para>
     /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>**示例值**："open_id"</para>
+    /// <para>**可选值有**：</para>
+    /// <para>- `open_id`：用户的 open id</para>
+    /// <para>- `union_id`：用户的 union id</para>
+    /// <para>- `user_id`：用户的 user id</para>
+    /// <para>**默认值**：`open_id`</para>
+    /// <para>**当值为 `user_id`，字段权限要求**：</para>
+    /// <para>&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</para>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>**示例值**："open_department_id"</para>
+    /// <para>**可选值有**：</para>
+    /// <para>- `department_id`：以自定义department_id来标识部门</para>
+    /// <para>- `open_department_id`：以open_department_id来标识部门</para>
+    /// <para>**默认值**：`open_department_id`</para>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="parent_department_id">
+    /// <para>必填：否</para>
+    /// <para>父部门的ID，填上获取部门下所有子部门，此处填写的 ID 必须是 department_id_type 指定的 ID。</para>
+    /// <para>**示例值**："od-4e6ac4d14bcd5071a37a39de902c7141"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="fetch_child">
+    /// <para>必填：否</para>
+    /// <para>是否递归获取子部门</para>
+    /// <para>**示例值**：是否递归获取子部门，默认值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>**示例值**："AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ%2BG8JG6tK7%2BZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>**示例值**：10</para>
+    /// <para>**数据校验规则**：</para>
+    /// <para>- 最大值：`50`</para>
+    /// <para>默认值：10</para>
+    /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/contact/v3/departments")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.Spec.GetContactV3DepartmentsResponseDto>> GetContactV3DepartmentsAsync(
-        UserAccessToken access_token);
+        UserAccessToken access_token,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? parent_department_id = null,
+        [PathQuery] bool? fetch_child = null,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 10);
 
     /// <summary>
     /// <para>【通讯录】获取单个部门信息</para>
@@ -1501,6 +1622,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：user_access_token、tenant_access_token</para>
     /// <para>该接口根据 spreadsheetToken 、range 查询range内的下拉列表设置信息；单次查询范围不超过5000行，100列。</para>
     /// </summary>
+    /// <param name="spreadsheetToken">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>spreadsheet 的 token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// </param>
     /// <param name="range">
     /// <para>必填：是</para>
     /// <para>查询范围，包含 sheetId 与单元格范围两部分，目前支持四种索引方式，详见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
@@ -1513,6 +1639,7 @@ public interface IFeishuUserApi : IHttpApi
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
         UserAccessToken access_token,
+        [PathQuery] string spreadsheetToken,
         [PathQuery] string range,
         [PathQuery] string dataValidationType);
 
@@ -3849,8 +3976,6 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/create-ticket-customized-field</para>
     /// <para>Authorization：user_access_token</para>
     /// <para>该接口用于创建自定义字段。</para>
-    /// <para>注意事项：</para>
-    /// <para>user_access_token 访问，需要操作者是当前服务台的管理员或所有者</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -3905,8 +4030,6 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/update-ticket-customized-field</para>
     /// <para>Authorization：user_access_token</para>
     /// <para>该接口用于更新自定义字段。</para>
-    /// <para>注意事项：</para>
-    /// <para>user_access_token 访问，需要操作者是当前服务台的管理员或所有者</para>
     /// </summary>
     /// <param name="ticket_customized_field_id">
     /// <para>路径参数</para>
@@ -4625,11 +4748,58 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>目标用户id</para>
     /// <para>**示例值**："ou-asdasdasdasdasd"</para>
     /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>**示例值**："open_id"</para>
+    /// <para>**可选值有**：</para>
+    /// <para>open_id:标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid),union_id:标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id),user_id:标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id),people_admin_id:以people_admin_id来识别用户</para>
+    /// <para>**默认值**：`open_id`</para>
+    /// <para>**当值为 `user_id`，字段权限要求**：</para>
+    /// <para>&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](/ssl</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](/ssl</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](/ssl</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="offset">
+    /// <para>必填：是</para>
+    /// <para>请求列表的偏移，offset&gt;=0</para>
+    /// <para>**示例值**："0"</para>
+    /// </param>
+    /// <param name="limit">
+    /// <para>必填：是</para>
+    /// <para>列表长度，0-10</para>
+    /// <para>**示例值**："5"</para>
+    /// </param>
+    /// <param name="lang">
+    /// <para>必填：否</para>
+    /// <para>请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn</para>
+    /// <para>**示例值**："zh_cn"</para>
+    /// <para>**默认值**：`zh_cn`</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="period_ids">
+    /// <para>必填：否</para>
+    /// <para>period_id列表，最多10个</para>
+    /// <para>**示例值**：["6951461264858777132"]</para>
+    /// <para>**数据校验规则**：</para>
+    /// <para>- 最大长度：`10`</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/okr/v1/users/{user_id}/okrs")]
     System.Threading.Tasks.Task<FeishuResponse<Okr.Spec.GetOkrV1UsersByUserIdOkrsResponseDto>> GetOkrV1UsersByUserIdOkrsAsync(
         UserAccessToken access_token,
-        [PathQuery] string user_id);
+        [PathQuery] string user_id,
+        [PathQuery] string offset,
+        [PathQuery] string limit,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? lang = null,
+        [PathQuery] string[]? period_ids = null);
 
     /// <summary>
     /// <para>【日历】将 Exchange 账户绑定到飞书账户</para>
@@ -5822,11 +5992,44 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>任务 ID</para>
     /// <para>**示例值**："0d38e26e-190a-49e9-93a2-35067763ed1f"</para>
     /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>**示例值**：10</para>
+    /// <para>**数据校验规则**：</para>
+    /// <para>- 最大值：`50`</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>**示例值**："「上次返回的page_token」"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>**示例值**："open_id"</para>
+    /// <para>**可选值有**：</para>
+    /// <para>open_id:标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid),union_id:标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id),user_id:标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</para>
+    /// <para>**默认值**：`open_id`</para>
+    /// <para>**当值为 `user_id`，字段权限要求**：</para>
+    /// <para>&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](/ssl</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](/ssl</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](/ssl</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v1/tasks/{task_id}/followers")]
     System.Threading.Tasks.Task<FeishuResponse<Task.Spec.GetTaskV1TasksByTaskIdFollowersResponseDto>> GetTaskV1TasksByTaskIdFollowersAsync(
         UserAccessToken access_token,
-        [PathQuery] string task_id);
+        [PathQuery] string task_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【任务】新增关注人</para>
@@ -6253,10 +6456,65 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据用户和任务分组查询任务列表。</para>
     /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>**示例值**：100</para>
+    /// <para>**默认值**：`100`</para>
+    /// <para>**数据校验规则**：</para>
+    /// <para>- 最大值：`200`</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>**示例值**："1"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id">
+    /// <para>必填：是</para>
+    /// <para>需要查询的 User ID</para>
+    /// <para>**示例值**："example_user_id"</para>
+    /// </param>
+    /// <param name="topic">
+    /// <para>必填：是</para>
+    /// <para>需要查询的任务分组主题，如「待办」、「已办」等</para>
+    /// <para>**示例值**："1"</para>
+    /// <para>**可选值有**：</para>
+    /// <para>1:待办审批,2:已办审批,3:已发起审批,17:未读知会,18:已读知会</para>
+    /// <list type="bullet">
+    /// <item>1：待办审批</item>
+    /// <item>2：已办审批</item>
+    /// <item>3：已发起审批</item>
+    /// <item>17：未读知会</item>
+    /// <item>18：已读知会</item>
+    /// </list>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>**示例值**："open_id"</para>
+    /// <para>**可选值有**：</para>
+    /// <para>open_id:标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid),union_id:标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id),user_id:标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</para>
+    /// <para>**默认值**：`open_id`</para>
+    /// <para>**当值为 `user_id`，字段权限要求**：</para>
+    /// <para>&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](/ssl</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](/ssl</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](/ssl</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/approval/v4/tasks/query")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.GetApprovalV4TasksQueryResponseDto>> GetApprovalV4TasksQueryAsync(
-        UserAccessToken access_token);
+        UserAccessToken access_token,
+        [PathQuery] string user_id,
+        [PathQuery] string topic,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【云文档】增加协作者权限</para>
@@ -12002,10 +12260,39 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：user_access_token</para>
     /// <para>获取用户自定义常用的应用。</para>
     /// </summary>
+    /// <param name="language">
+    /// <para>必填：否</para>
+    /// <para>应用信息的语言版本</para>
+    /// <para>**示例值**："zh_cn"</para>
+    /// <para>**可选值有**：</para>
+    /// <para>zh_cn:中文,en_us:英文,ja_jp:日文</para>
+    /// <list type="bullet">
+    /// <item>zh_cn：中文</item>
+    /// <item>en_us：英文</item>
+    /// <item>ja_jp：日文</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>**示例值**："new-e11ee058b4a8ed2881da11ac7e37c4fc"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>**示例值**：10</para>
+    /// <para>**默认值**：`10`</para>
+    /// <para>默认值：10</para>
+    /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/application/v5/applications/favourite")]
     System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetApplicationV5ApplicationsFavouriteResponseDto>> GetApplicationV5ApplicationsFavouriteAsync(
-        UserAccessToken access_token);
+        UserAccessToken access_token,
+        [PathQuery] string? language = null,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 10);
 
     /// <summary>
     /// <para>【应用信息】获取管理员推荐的应用</para>
@@ -12014,10 +12301,53 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：user_access_token</para>
     /// <para>获取管理员推荐的应用。</para>
     /// </summary>
+    /// <param name="language">
+    /// <para>必填：否</para>
+    /// <para>应用信息的语言版本</para>
+    /// <para>**示例值**："zh_cn"</para>
+    /// <para>**可选值有**：</para>
+    /// <para>zh_cn:中文,en_us:英文,ja_jp:日文</para>
+    /// <list type="bullet">
+    /// <item>zh_cn：中文</item>
+    /// <item>en_us：英文</item>
+    /// <item>ja_jp：日文</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="recommend_type">
+    /// <para>必填：否</para>
+    /// <para>推荐应用类型，默认为用户不可移除的推荐应用列表</para>
+    /// <para>**示例值**："user_unremovable"</para>
+    /// <para>**可选值有**：</para>
+    /// <para>user_unremovable:用户不可移除的推荐应用列表,user_removable:用户可移除的推荐应用列表</para>
+    /// <para>**默认值**：`user_unremovable`</para>
+    /// <list type="bullet">
+    /// <item>user_unremovable：用户不可移除的推荐应用列表</item>
+    /// <item>user_removable：用户可移除的推荐应用列表</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>**示例值**："new-e11ee058b4a8ed2881da11ac7e37c4fc"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>**示例值**：10</para>
+    /// <para>**默认值**：`10`</para>
+    /// <para>默认值：10</para>
+    /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/application/v5/applications/recommend")]
     System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetApplicationV5ApplicationsRecommendResponseDto>> GetApplicationV5ApplicationsRecommendAsync(
-        UserAccessToken access_token);
+        UserAccessToken access_token,
+        [PathQuery] string? language = null,
+        [PathQuery] string? recommend_type = null,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 10);
 
     /// <summary>
     /// <para>【云文档】开启密码</para>

@@ -38,6 +38,7 @@ public record PostTaskV1TasksResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：完成本季度OKR编写</para>
         /// <para>最大长度：1000</para>
+        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("summary")]
         public string? Summary { get; set; }
@@ -49,6 +50,7 @@ public record PostTaskV1TasksResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：对本次会议内容复盘总结，编写更新本季度OKR</para>
         /// <para>最大长度：65536</para>
+        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("description")]
         public string? Description { get; set; }
@@ -79,6 +81,7 @@ public record PostTaskV1TasksResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：dGVzdA==</para>
         /// <para>最大长度：65536</para>
+        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("extra")]
         public string? Extra { get; set; }
@@ -159,8 +162,9 @@ public record PostTaskV1TasksResponseDto
             /// <para>任务来源的名称。</para>
             /// <para>用于在任务中心详情页展示。需要提供一个字典，支持多种语言名称映射。应用在使用不同语言时，导入来源也将展示对应的内容。详细参见：[任务字段补充说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/Supplementary-directions-of-task-fields)</para>
             /// <para>必填：是</para>
-            /// <para>示例值：{\"zh_cn\":\"IT工作台\",\"en_us\":\"ITWorkspace\"}</para>
+            /// <para>示例值：{\"zh_cn\": \"IT 工作台\", \"en_us\": \"IT Workspace\"}</para>
             /// <para>最大长度：1024</para>
+            /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("platform_i18n_name")]
             public string PlatformI18nName { get; set; } = string.Empty;
@@ -183,6 +187,7 @@ public record PostTaskV1TasksResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：https://support.feishu.com/internal/foo-bar</para>
                 /// <para>最大长度：1024</para>
+                /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("url")]
                 public string? Url { get; set; }
@@ -192,6 +197,7 @@ public record PostTaskV1TasksResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：反馈一个问题，需要协助排查</para>
                 /// <para>最大长度：512</para>
+                /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("title")]
                 public string? Title { get; set; }
@@ -204,6 +210,7 @@ public record PostTaskV1TasksResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：{\"custom_complete\":{\"android\":{\"href\":\"https://www.feishu.cn/\",\"tip\":{\"zh_cn\":\"你好\",\"en_us\":\"hello\"}},\"ios\":{\"href\":\"https://www.feishu.cn/\",\"tip\":{\"zh_cn\":\"你好\",\"en_us\":\"hello\"}},\"pc\":{\"href\":\"https://www.feishu.cn/\",\"tip\":{\"zh_cn\":\"你好\",\"en_us\":\"hello\"}}}}</para>
         /// <para>最大长度：65536</para>
+        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("custom")]
         public string? Custom { get; set; }
@@ -271,7 +278,7 @@ public record PostTaskV1TasksResponseDto
         {
             /// <summary>
             /// <para>任务执行者的 ID。</para>
-            /// <para>传入的值为 user_id 或 open_id，由user_id_type 决定。user_id和open_id的获取可见文档[如何获取相关id](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)。</para>
+            /// <para>传入的值为 user_id 或 open_id，由user_id_type 决定。user_id和open_id的获取可见文档[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。</para>
             /// <para>已经废弃，为了向前兼容早期只支持单次添加一个人的情况而保留，但不再推荐使用，建议使用id_list字段</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_99e1a581b36ecc4862cbfbce473f1234</para>
@@ -281,7 +288,7 @@ public record PostTaskV1TasksResponseDto
 
             /// <summary>
             /// <para>执行者的用户ID列表。</para>
-            /// <para>传入的值为 user_id 或 open_id，由user_id_type 决定。user_id和open_id的获取可见文档[如何获取相关id](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)。</para>
+            /// <para>传入的值为 user_id 或 open_id，由user_id_type 决定。user_id和open_id的获取可见文档[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("id_list")]
@@ -290,9 +297,9 @@ public record PostTaskV1TasksResponseDto
 
         /// <summary>
         /// <para>创建任务时添加的执行者用户id列表。</para>
-        /// <para>传入的值为 user_id 或 open_id ，由user_id_type 决定。user_id和open_id的获取可见文档：[如何获取相关id](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)。</para>
+        /// <para>传入的值为 user_id 或 open_id ，由user_id_type 决定。user_id和open_id的获取可见文档：[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：["ou_1400208f15333e20e11339d39067844b","ou_84ed6312949945c8ae6168f10829e9e6"]</para>
+        /// <para>示例值：["ou_1400208f15333e20e11339d39067844b", "ou_84ed6312949945c8ae6168f10829e9e6"]</para>
         /// <para>最大长度：100</para>
         /// </summary>
         [JsonPropertyName("collaborator_ids")]
@@ -300,9 +307,9 @@ public record PostTaskV1TasksResponseDto
 
         /// <summary>
         /// <para>创建任务时添加的关注者用户id列表。</para>
-        /// <para>传入的值为 user_id 或 open_id ，由user_id_type 决定。user_id和open_id的获取可见文档：[如何获取相关id](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)。</para>
+        /// <para>传入的值为 user_id 或 open_id ，由user_id_type 决定。user_id和open_id的获取可见文档：[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：["ou_1400208f15333e20e11339d39067844b","ou_84ed6312949945c8ae6168f10829e9e6"]</para>
+        /// <para>示例值：["ou_1400208f15333e20e11339d39067844b", "ou_84ed6312949945c8ae6168f10829e9e6"]</para>
         /// <para>最大长度：100</para>
         /// </summary>
         [JsonPropertyName("follower_ids")]
@@ -323,6 +330,7 @@ public record PostTaskV1TasksResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：完成本季度OKR编写\[飞书开放平台](https://open.feishu.cn/)</para>
         /// <para>最大长度：1000</para>
+        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("rich_summary")]
         public string? RichSummary { get; set; }
@@ -332,6 +340,7 @@ public record PostTaskV1TasksResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：对本次会议内容复盘总结，编写更新本季度OKR\[飞书开放平台](https://open.feishu.cn/)</para>
         /// <para>最大长度：65536</para>
+        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("rich_description")]
         public string? RichDescription { get; set; }

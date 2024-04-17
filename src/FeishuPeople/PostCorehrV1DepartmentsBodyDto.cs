@@ -78,7 +78,7 @@ public record PostCorehrV1DepartmentsBodyDto
         public record I18n
         {
             /// <summary>
-            /// <para>名称信息的语言</para>
+            /// <para>名称信息的语言，支持中文和英文。中文用zh-CN；英文用en-US。</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -88,14 +88,14 @@ public record PostCorehrV1DepartmentsBodyDto
             /// <summary>
             /// <para>名称信息的内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：研发部</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
         /// <summary>
-        /// <para>是否启用</para>
+        /// <para>是否启用该部门</para>
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>

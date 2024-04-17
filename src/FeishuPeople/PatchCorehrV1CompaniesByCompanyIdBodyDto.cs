@@ -79,7 +79,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
         }
 
         /// <summary>
-        /// <para>是否启用</para>
+        /// <para>是否启用该公司</para>
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -148,14 +148,14 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
     }
 
     /// <summary>
-    /// <para>性质，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)公司类型（company_type）枚举定义部分获得</para>
+    /// <para>性质，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)公司类型（company_type）枚举定义部分获得。该字段为通用字段，若为公司维度则为必填。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("type")]
     public Enum? Type { get; set; }
 
     /// <summary>
-    /// <para>性质，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)公司类型（company_type）枚举定义部分获得</para>
+    /// <para>性质，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)公司类型（company_type）枚举定义部分获得。该字段为通用字段，若为公司维度则为必填。</para>
     /// </summary>
     public record Enum
     {
@@ -314,14 +314,14 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
             /// <summary>
             /// <para>内容，支持中文和英文</para>
             /// <para>必填：是</para>
-            /// <para>示例值：刘梓新</para>
+            /// <para>示例值：xx科技有限公司</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
         /// <summary>
-        /// <para>对应币种的指代代码，通过系统内部查找</para>
+        /// <para>对应币种的指代代码，通过系统内部查找，通过[查询货币信息v2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)查询获取。</para>
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
@@ -329,7 +329,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
         public int? NumericCode { get; set; }
 
         /// <summary>
-        /// <para>法定货币对应代码，如CNY、USD等</para>
+        /// <para>法定货币对应代码，如CNY、USD等.通过[查询货币信息v2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)查询获取。</para>
         /// <para>必填：否</para>
         /// <para>示例值：CNY</para>
         /// </summary>

@@ -61,7 +61,7 @@ public record PatchCorehrV1DepartmentsByDepartmentIdResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>名称信息的语言</para>
+                /// <para>名称信息的语言，支持中文和英文。中文用zh-CN；英文用en-US。</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
@@ -127,7 +127,7 @@ public record PatchCorehrV1DepartmentsByDepartmentIdResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>名称信息的语言</para>
+                /// <para>名称信息的语言，支持中文和英文。中文用zh-CN；英文用en-US。</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
@@ -176,7 +176,7 @@ public record PatchCorehrV1DepartmentsByDepartmentIdResponseDto
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>名称信息的语言</para>
+                    /// <para>名称信息的语言，支持中文和英文。中文用zh-CN；英文用en-US。</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>

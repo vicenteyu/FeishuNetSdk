@@ -73,6 +73,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <item>0：保密</item>
     /// <item>1：男</item>
     /// <item>2：女</item>
+    /// <item>3：其他</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("gender")]
@@ -100,7 +101,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <summary>
     /// <para>用户的直接主管的用户ID，ID值与查询参数中的user_id_type 对应。</para>
     /// <para>不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
-    /// <para>获取方式参见[如何获取user_id](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)</para>
+    /// <para>获取方式参见[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>

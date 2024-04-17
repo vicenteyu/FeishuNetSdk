@@ -21,7 +21,8 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstancesResponse
     public record Instance
     {
         /// <summary>
-        /// <para>日程 ID。后续可通过该 ID 查询、更新或删除日程信息。</para>
+        /// <para>日程实例 ID。</para>
+        /// <para>**注意**：重复日程实例的 ID 与其他日程 ID 不同，其 ID 包含了实例原始时间（Original time），数据格式为秒级时间戳。例如：`2cf525f0-1e67-4b04-ad4d-30b7f003903c_1713168000`，其中 `1713168000` 即为实例原始时间。</para>
         /// <para>必填：是</para>
         /// <para>示例值：75d28f9b-e35c-4230-8a83-4a661497db54_1602504000</para>
         /// </summary>

@@ -58,7 +58,7 @@ public record PostHelpdeskV1AgentSchedulesBodyDto
             public string? EndTime { get; set; }
 
             /// <summary>
-            /// <para>星期几, 1 - Monday, 2 - Tuesday, 3 - Wednesday, 4 - Thursday, 5 - Friday, 6 - Saturday, 7 - Sunday, 9 - Everday, 10 - Weekday, 11 - Weekend</para>
+            /// <para>星期几, 1 - Monday, 2 - Tuesday, 3 - Wednesday, 4 - Thursday, 5 - Friday, 6 - Saturday, 7 - Sunday, 9 - Everyday, 10 - Weekday, 11 - Weekend</para>
             /// <para>必填：否</para>
             /// <para>示例值：9</para>
             /// </summary>

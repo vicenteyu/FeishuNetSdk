@@ -51,21 +51,21 @@ public record PostCorehrV1CompaniesBodyDto
             /// <summary>
             /// <para>名称信息的内容，支持中文和英文</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：xx有限科技公司</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
         /// <summary>
-        /// <para>组织类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)组织类型（organization_type）枚举定义部分获得</para>
+        /// <para>组织类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)组织类型（organization_type）枚举定义部分获得。该字段为通用字段，若为公司维度则为必填。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("type")]
         public Enum? Type { get; set; }
 
         /// <summary>
-        /// <para>组织类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)组织类型（organization_type）枚举定义部分获得</para>
+        /// <para>组织类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)组织类型（organization_type）枚举定义部分获得。该字段为通用字段，若为公司维度则为必填。</para>
         /// </summary>
         public record Enum
         {
@@ -79,7 +79,7 @@ public record PostCorehrV1CompaniesBodyDto
         }
 
         /// <summary>
-        /// <para>是否启用</para>
+        /// <para>是否启用该公司</para>
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -103,7 +103,7 @@ public record PostCorehrV1CompaniesBodyDto
         public string? ExpirationTime { get; set; }
 
         /// <summary>
-        /// <para>编码</para>
+        /// <para>公司编码</para>
         /// <para>必填：否</para>
         /// <para>示例值：12456</para>
         /// </summary>
@@ -321,7 +321,7 @@ public record PostCorehrV1CompaniesBodyDto
         }
 
         /// <summary>
-        /// <para>对应币种的指代代码，通过系统内部查找</para>
+        /// <para>对应币种的指代代码，通过[查询货币信息v2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)查询获取。</para>
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
@@ -329,7 +329,7 @@ public record PostCorehrV1CompaniesBodyDto
         public int? NumericCode { get; set; }
 
         /// <summary>
-        /// <para>法定货币对应代码，如CNY、USD等</para>
+        /// <para>法定货币对应代码，如CNY、USD等，通过[查询货币信息v2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)查询获取。</para>
         /// <para>必填：否</para>
         /// <para>示例值：CNY</para>
         /// </summary>
@@ -351,7 +351,7 @@ public record PostCorehrV1CompaniesBodyDto
     {
         /// <summary>
         /// <para>区号对应的数字，可通过</para>
-        /// <para>[请求接口](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=phone；custom_api_name=international_area_code。</para>
+        /// <para>[请求接口](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=phone；custom_api_name=international_area_code</para>
         /// <para>必填：是</para>
         /// <para>示例值：123123</para>
         /// </summary>
@@ -360,14 +360,14 @@ public record PostCorehrV1CompaniesBodyDto
 
         /// <summary>
         /// <para>区号对应的数字，可通过</para>
-        /// <para>[请求接口](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=phone；custom_api_name=international_area_code。</para>
+        /// <para>[请求接口](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=phone；custom_api_name=international_area_code</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>区号对应名称</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：86_china</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -376,7 +376,7 @@ public record PostCorehrV1CompaniesBodyDto
         /// <summary>
         /// <para>号码</para>
         /// <para>必填：是</para>
-        /// <para>示例值：213213</para>
+        /// <para>示例值：18812341234</para>
         /// </summary>
         [JsonPropertyName("phone_number")]
         public string PhoneNumber { get; set; } = string.Empty;
