@@ -13,33 +13,37 @@ public record PostDrivePermissionMemberListResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("members")]
-    public string? Members { get; set; }
+    public Member[]? Members { get; set; }
 
-    /// <summary>
-    /// <para>协作者类型 "user" or "chat"</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("member_type")]
-    public string? MemberType { get; set; }
+    /// <summary></summary>
+    public record Member
+    {
+        /// <summary>
+        /// <para>协作者类型 "user" or "chat"</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("member_type")]
+        public string? MemberType { get; set; }
 
-    /// <summary>
-    /// <para>协作者openid</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("member_open_id")]
-    public string? MemberOpenId { get; set; }
+        /// <summary>
+        /// <para>协作者openid</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("member_open_id")]
+        public string? MemberOpenId { get; set; }
 
-    /// <summary>
-    /// <para>协作者userid(仅当member_type="user"时有效)</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("member_user_id")]
-    public string? MemberUserId { get; set; }
+        /// <summary>
+        /// <para>协作者userid(仅当member_type="user"时有效)</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("member_user_id")]
+        public string? MemberUserId { get; set; }
 
-    /// <summary>
-    /// <para>协作者权限 (注意: **有"edit"权限的协作者一定有"view"权限**)</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("perm")]
-    public string? Perm { get; set; }
+        /// <summary>
+        /// <para>协作者权限 (注意: **有"edit"权限的协作者一定有"view"权限**)</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("perm")]
+        public string? Perm { get; set; }
+    }
 }

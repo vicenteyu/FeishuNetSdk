@@ -27,21 +27,25 @@ public record PostDrivePermissionMemberTransferBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("owner")]
-    public string Owner { get; set; } = string.Empty;
+    public OwnerSuffix Owner { get; set; } = new();
 
-    /// <summary>
-    /// <para>用户类型，可选 **email、openid、userid、unionid**</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonPropertyName("member_type")]
-    public string MemberType { get; set; } = string.Empty;
+    /// <summary></summary>
+    public record OwnerSuffix
+    {
+        /// <summary>
+        /// <para>用户类型，可选 **email、openid、userid、unionid**</para>
+        /// <para>必填：是</para>
+        /// </summary>
+        [JsonPropertyName("member_type")]
+        public string MemberType { get; set; } = string.Empty;
 
-    /// <summary>
-    /// <para>用户类型下的值，获取方式见 [如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonPropertyName("member_id")]
-    public string MemberId { get; set; } = string.Empty;
+        /// <summary>
+        /// <para>用户类型下的值，获取方式见 [如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)</para>
+        /// <para>必填：是</para>
+        /// </summary>
+        [JsonPropertyName("member_id")]
+        public string MemberId { get; set; } = string.Empty;
+    }
 
     /// <summary>
     /// <para>true 为转移后删除旧 owner 的权限，默认为false</para>
