@@ -12961,39 +12961,6 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【词典】更新免审词条</para>
-    /// <para>接口ID：7249689905697128476</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/update</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>通过此接口更新已有的词条，无需经过词典管理员审核，直接写入词库。因此，调用该接口时应当慎重操作。</para>
-    /// </summary>
-    /// <param name="entity_id">
-    /// <para>路径参数</para>
-    /// <para>必填：是</para>
-    /// <para>词条 ID</para>
-    /// <para>示例值：enterprise_40217521</para>
-    /// </param>
-    /// <param name="user_id_type">
-    /// <para>必填：否</para>
-    /// <para>用户 ID 类型</para>
-    /// <para>示例值：open_id</para>
-    /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// </list>
-    /// <para>默认值：open_id</para>
-    /// </param>
-    /// <param name="dto">请求体</param>
-    /// <param name="access_token">用户凭证</param>
-    [HttpPut("/open-apis/lingo/v1/entities/{entity_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Baike.PutLingoV1EntitiesByEntityIdResponseDto>> PutLingoV1EntitiesByEntityIdAsync(
-        UserAccessToken access_token,
-        [PathQuery] string entity_id,
-        [JsonContent] Baike.PutLingoV1EntitiesByEntityIdBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
-
-    /// <summary>
     /// <para>【词典】获取词典分类</para>
     /// <para>接口ID：7249689905697161244</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/classification/list</para>
@@ -13040,40 +13007,6 @@ public interface IFeishuUserApi : IHttpApi
     [HttpGet("/open-apis/lingo/v1/repos")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetLingoV1ReposResponseDto>> GetLingoV1ReposAsync(
         UserAccessToken access_token);
-
-    /// <summary>
-    /// <para>【词典】创建免审词条</para>
-    /// <para>接口ID：7249689905697194012</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/create</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>通过此接口创建的词条，无需经过词典管理员审核，直接写入词库。因此，调用此接口时，应当慎重操作。</para>
-    /// </summary>
-    /// <param name="repo_id">
-    /// <para>必填：否</para>
-    /// <para>词库 ID（需要在指定词库创建词条时传入，不传时默认创建至全员词库）</para>
-    /// <para>如以应用身份创建词条到非全员词库，需要在“词库设置”页面添加应用；若以用户身份创建词条到非全员词库，该用户需要拥有对应词库的可见权限。</para>
-    /// <para>示例值：71527909****274113</para>
-    /// <para>默认值：null</para>
-    /// </param>
-    /// <param name="user_id_type">
-    /// <para>必填：否</para>
-    /// <para>用户 ID 类型</para>
-    /// <para>示例值：open_id</para>
-    /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// </list>
-    /// <para>默认值：open_id</para>
-    /// </param>
-    /// <param name="dto">请求体</param>
-    /// <param name="access_token">用户凭证</param>
-    [HttpPost("/open-apis/lingo/v1/entities")]
-    System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesResponseDto>> PostLingoV1EntitiesAsync(
-        UserAccessToken access_token,
-        [JsonContent] Baike.PostLingoV1EntitiesBodyDto dto,
-        [PathQuery] string? repo_id = null,
-        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【词典】词条高亮</para>

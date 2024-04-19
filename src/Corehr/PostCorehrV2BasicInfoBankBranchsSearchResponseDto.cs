@@ -92,6 +92,46 @@ public record PostCorehrV2BasicInfoBankBranchsSearchResponseDto
         /// </summary>
         [JsonPropertyName("status")]
         public int? Status { get; set; }
+
+        /// <summary>
+        /// <para>Bank Branch Code（特定国家地区使用）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：123456</para>
+        /// </summary>
+        [JsonPropertyName("bank_branch_code")]
+        public string? BankBranchCode { get; set; }
+
+        /// <summary>
+        /// <para>注册地址</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：北京市朝阳区</para>
+        /// </summary>
+        [JsonPropertyName("register_place")]
+        public string? RegisterPlace { get; set; }
+
+        /// <summary>
+        /// <para>银行地址</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：北京市朝阳区</para>
+        /// </summary>
+        [JsonPropertyName("bank_address")]
+        public string? BankAddress { get; set; }
+
+        /// <summary>
+        /// <para>创建时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2024-01-01 00:00:00</para>
+        /// </summary>
+        [JsonPropertyName("create_time")]
+        public string? CreateTime { get; set; }
+
+        /// <summary>
+        /// <para>更新时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2024-01-01 00:00:00</para>
+        /// </summary>
+        [JsonPropertyName("update_time")]
+        public string? UpdateTime { get; set; }
     }
 
     /// <summary>

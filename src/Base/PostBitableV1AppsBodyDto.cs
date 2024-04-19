@@ -17,7 +17,7 @@ public record PostBitableV1AppsBodyDto
     public string? Name { get; set; }
 
     /// <summary>
-    /// <para>多维表格App归属文件夹。关于如何获取 folder_token，可参见[如何获取云文档资源相关 token](https://open.feishu.cn/document/server-docs/docs/faq#08bb5df6)</para>
+    /// <para>多维表格App归属文件夹。默认为空，表示多维表格将被创建在云空间根目录。关于如何获取 folder_token，可参见[如何获取云文档资源相关 token](https://open.feishu.cn/document/server-docs/docs/faq#08bb5df6)</para>
     /// <para>必填：否</para>
     /// <para>示例值：fldbco*****CIMltVc</para>
     /// </summary>

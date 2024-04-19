@@ -9,7 +9,7 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2BasicInfoBankBranchsSearchBodyDto
 {
     /// <summary>
-    /// <para>银行 ID 列表，与「支行 ID 列表」、「支行名称列表」至少填写一项</para>
+    /// <para>银行 ID 列表</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -40,4 +40,20 @@ public record PostCorehrV2BasicInfoBankBranchsSearchBodyDto
     /// </summary>
     [JsonPropertyName("status_list")]
     public int[]? StatusList { get; set; }
+
+    /// <summary>
+    /// <para>最早更新时间</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：2024-01-01 00:00:00</para>
+    /// </summary>
+    [JsonPropertyName("update_start_time")]
+    public string? UpdateStartTime { get; set; }
+
+    /// <summary>
+    /// <para>最晚更新时间</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：2024-01-01 00:00:00</para>
+    /// </summary>
+    [JsonPropertyName("update_end_time")]
+    public string? UpdateEndTime { get; set; }
 }

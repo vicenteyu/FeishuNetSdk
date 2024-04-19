@@ -165,7 +165,7 @@
 <tr><td colspan="3">DeleteSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageId</td></tr>
 <tr><td rowspan="2">83</td><td rowspan="2">2023-11-07</td><td>&#10003;</td><td>多维表格</td><td>复制多维表格</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenCopy</td></tr>
-<tr><td rowspan="2">84</td><td rowspan="2">2023-11-07</td><td>&#10003;</td><td>多维表格</td><td>创建多维表格</td></tr>
+<tr><td rowspan="2">84</td><td rowspan="2">2024-04-19</td><td>&#10003;</td><td>多维表格</td><td>创建多维表格</td></tr>
 <tr><td colspan="3">PostBitableV1Apps</td></tr>
 <tr><td rowspan="2">85</td><td rowspan="2">2024-02-01</td><td>&#10003;</td><td>多维表格</td><td>获取多维表格元数据</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppToken</td></tr>
@@ -739,9 +739,9 @@
 <tr><td colspan="3">DeleteImV1ChatsByChatIdChatTabsDeleteTabs</td></tr>
 <tr><td rowspan="2">370</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>更新草稿</td></tr>
 <tr><td colspan="3">PutLingoV1DraftsByDraftId</td></tr>
-<tr><td rowspan="2">371</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>创建免审词条</td></tr>
+<tr><td rowspan="2">371</td><td rowspan="2">2023-10-25</td><td><span style="color:red;">删除</span></td><td>词典</td><td>创建免审词条</td></tr>
 <tr><td colspan="3">PostLingoV1Entities</td></tr>
-<tr><td rowspan="2">372</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>更新免审词条</td></tr>
+<tr><td rowspan="2">372</td><td rowspan="2">2023-10-25</td><td><span style="color:red;">删除</span></td><td>词典</td><td>更新免审词条</td></tr>
 <tr><td colspan="3">PutLingoV1EntitiesByEntityId</td></tr>
 <tr><td rowspan="2">373</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>获取词条详情</td></tr>
 <tr><td colspan="3">GetLingoV1EntitiesByEntityId</td></tr>
@@ -963,7 +963,7 @@
 <tr><td colspan="3">PostJssdkTicketGet</td></tr>
 <tr><td rowspan="2">482</td><td rowspan="2">2023-11-24</td><td><span style="color:red;">删除</span></td><td>词典</td><td>删除免审词条</td></tr>
 <tr><td colspan="3">DeleteLingoV1EntitiesByEntityId</td></tr>
-<tr><td rowspan="2">483</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
+<tr><td rowspan="2">483</td><td rowspan="2">2024-04-18</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
 <tr><td colspan="3">PatchCorehrV1CompaniesByCompanyId</td></tr>
 <tr><td rowspan="2">484</td><td rowspan="2">2024-04-10</td><td>&#10003;</td><td>日历</td><td>回复日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdReply</td></tr>

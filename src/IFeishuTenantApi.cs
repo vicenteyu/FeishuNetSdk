@@ -26242,7 +26242,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【词典】更新免审词条</para>
     /// <para>接口ID：7249689905697128476</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/update</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>通过此接口更新已有的词条，无需经过词典管理员审核，直接写入词库。因此，调用该接口时应当慎重操作。</para>
     /// </summary>
     /// <param name="entity_id">
@@ -26317,7 +26317,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【词典】创建免审词条</para>
     /// <para>接口ID：7249689905697194012</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/create</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>通过此接口创建的词条，无需经过词典管理员审核，直接写入词库。因此，调用此接口时，应当慎重操作。</para>
     /// </summary>
     /// <param name="repo_id">

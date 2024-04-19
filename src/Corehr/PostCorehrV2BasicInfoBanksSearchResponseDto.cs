@@ -84,6 +84,22 @@ public record PostCorehrV2BasicInfoBanksSearchResponseDto
         /// </summary>
         [JsonPropertyName("status")]
         public int? Status { get; set; }
+
+        /// <summary>
+        /// <para>创建时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2024-01-01 00:00:00</para>
+        /// </summary>
+        [JsonPropertyName("create_time")]
+        public string? CreateTime { get; set; }
+
+        /// <summary>
+        /// <para>更新时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2024-01-01 00:00:00</para>
+        /// </summary>
+        [JsonPropertyName("update_time")]
+        public string? UpdateTime { get; set; }
     }
 
     /// <summary>
