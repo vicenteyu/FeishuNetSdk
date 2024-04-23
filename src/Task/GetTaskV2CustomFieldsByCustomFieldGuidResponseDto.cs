@@ -110,6 +110,8 @@ public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDto
             /// <para>保留小数位数。输入的数字值的小数位数如果比该设置多，多余的位数将被四舍五入后舍弃。如果`format`为"percentage"，表示变为百分数之后的小数位数。</para>
             /// <para>必填：否</para>
             /// <para>示例值：2</para>
+            /// <para>最大值：6</para>
+            /// <para>最小值：0</para>
             /// <para>默认值：0</para>
             /// </summary>
             [JsonPropertyName("decimal_count")]
@@ -175,6 +177,7 @@ public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDto
             /// <para>单选选项</para>
             /// <para>必填：否</para>
             /// <para>最大长度：100</para>
+            /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("options")]
             public Option[]? Options { get; set; }
@@ -204,6 +207,8 @@ public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDto
                 /// <para>选项的颜色索引值，可以是0～54中的一个数字。如果不填写则会随机选一个。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
+                /// <para>最大值：54</para>
+                /// <para>最小值：0</para>
                 /// </summary>
                 [JsonPropertyName("color_index")]
                 public int? ColorIndex { get; set; }
@@ -282,7 +287,7 @@ public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDto
         public string? UpdatedAt { get; set; }
 
         /// <summary>
-        /// <para>文本字段配置</para>
+        /// <para>文本字段配置（目前文本类型没有可设置项）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("text_setting")]

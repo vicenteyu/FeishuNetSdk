@@ -165,6 +165,8 @@ public record PostTaskV2CustomFieldsBodyDto
         /// <para>默认为0。</para>
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
+        /// <para>最大值：6</para>
+        /// <para>最小值：0</para>
         /// <para>默认值：0</para>
         /// </summary>
         [JsonPropertyName("decimal_count")]
@@ -239,6 +241,7 @@ public record PostTaskV2CustomFieldsBodyDto
         /// <para>单选选项</para>
         /// <para>必填：否</para>
         /// <para>最大长度：100</para>
+        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("options")]
         public Option[]? Options { get; set; }
@@ -260,6 +263,8 @@ public record PostTaskV2CustomFieldsBodyDto
             /// <para>选项的颜色索引值，取值0～54。如不填写会自动从未使用的颜色索引值中随机选一个。</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
+            /// <para>最大值：54</para>
+            /// <para>最小值：0</para>
             /// </summary>
             [JsonPropertyName("color_index")]
             public int? ColorIndex { get; set; }
@@ -282,7 +287,7 @@ public record PostTaskV2CustomFieldsBodyDto
     public SelectSetting? MultiSelectSetting { get; set; }
 
     /// <summary>
-    /// <para>文本类型设置</para>
+    /// <para>文本类型设置（目前文本类型没有可设置项）</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("text_setting")]

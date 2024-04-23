@@ -30329,6 +30329,43 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string biz_entity_id);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】查询指定生效日期的部门基本信息</para>
+    /// <para>接口ID：7351676067814096900</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/query_timeline</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询指定生效的部门基本信息，含部门名称、上级、编码、负责人、是否启用、描述等信息</para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：people_corehr_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：people_corehr_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/departments/query_timeline")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2DepartmentsQueryTimelineResponseDto>> PostCorehrV2DepartmentsQueryTimelineAsync(
+        [JsonContent] Corehr.PostCorehrV2DepartmentsQueryTimelineBodyDto dto,
+        [PathQuery] string? user_id_type = "people_corehr_id",
+        [PathQuery] string? department_id_type = "people_corehr_department_id");
+
+    /// <summary>
     /// <para>【消息与群组】更新 URL 预览</para>
     /// <para>接口ID：7358413940747862020</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/url_preview/batch_update</para>

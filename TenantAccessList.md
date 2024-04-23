@@ -983,9 +983,9 @@
 <tr><td colspan="3">PostContactV3JobLevels</td></tr>
 <tr><td rowspan="2">492</td><td rowspan="2">2023-08-07</td><td>&#10003;</td><td>任务</td><td>获取自定义分组任务列表</td></tr>
 <tr><td colspan="3">GetTaskV2SectionsBySectionGuidTasks</td></tr>
-<tr><td rowspan="2">493</td><td rowspan="2">2023-10-12</td><td>&#10003;</td><td>任务</td><td>创建自定义字段</td></tr>
+<tr><td rowspan="2">493</td><td rowspan="2">2024-04-23</td><td>&#10003;</td><td>任务</td><td>创建自定义字段</td></tr>
 <tr><td colspan="3">PostTaskV2CustomFields</td></tr>
-<tr><td rowspan="2">494</td><td rowspan="2">2023-10-12</td><td>&#10003;</td><td>任务</td><td>获取自定义字段</td></tr>
+<tr><td rowspan="2">494</td><td rowspan="2">2024-04-23</td><td>&#10003;</td><td>任务</td><td>获取自定义字段</td></tr>
 <tr><td colspan="3">GetTaskV2CustomFieldsByCustomFieldGuid</td></tr>
 <tr><td rowspan="2">495</td><td rowspan="2">2023-10-12</td><td>&#10003;</td><td>任务</td><td>更新自定义字段</td></tr>
 <tr><td colspan="3">PatchTaskV2CustomFieldsByCustomFieldGuid</td></tr>
@@ -2099,4 +2099,6 @@
 <tr><td colspan="3">PostCorehrV2PreHiresSearch</td></tr>
 <tr><td rowspan="2">1050</td><td rowspan="2">2024-04-17</td><td>&#10003;</td><td>消息与群组</td><td>更新 URL 预览</td></tr>
 <tr><td colspan="3">PostImV2UrlPreviewsBatchUpdate</td></tr>
+<tr><td rowspan="2">1051</td><td rowspan="2">2024-04-22</td><td>新增</td><td>飞书人事（企业版）</td><td>查询指定生效日期的部门基本信息</td></tr>
+<tr><td colspan="3">PostCorehrV2DepartmentsQueryTimeline</td></tr>
 </tbody></table>

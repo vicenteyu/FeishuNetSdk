@@ -33,7 +33,7 @@ public record PostVcV1RoomsSearchBodyDto
     public string? RoomLevelId { get; set; }
 
     /// <summary>
-    /// <para>搜索会议室是否包括层级名称（当custom_room_ids为空时，使用该字段进行查询）</para>
+    /// <para>搜索会议室是否可以包括层级名称（当custom_room_ids为空时，使用 keyword 字段查询）</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -44,6 +44,8 @@ public record PostVcV1RoomsSearchBodyDto
     /// <para>分页大小，该值默认为10，最大为100（当custom_room_ids为空时，使用该字段进行查询）</para>
     /// <para>必填：否</para>
     /// <para>示例值：10</para>
+    /// <para>最大值：100</para>
+    /// <para>最小值：1</para>
     /// <para>默认值：10</para>
     /// </summary>
     [JsonPropertyName("page_size")]
