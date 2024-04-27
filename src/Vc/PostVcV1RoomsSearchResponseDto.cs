@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 搜索会议室 响应体
-/// <para>该接口可以用来搜索会议室，支持使用关键词进行搜索，也支持使用自定义会议室 ID 进行查询。</para>
+/// <para>该接口可以用来搜索会议室，支持使用关键词进行搜索，也支持使用自定义会议室 ID 进行查询。该接口只会返回用户有预定权限的会议室列表。</para>
 /// <para>接口ID：7160517357591937027</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/room/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2froom%2fsearch</para>

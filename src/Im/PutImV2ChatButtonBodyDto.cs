@@ -38,7 +38,10 @@ public record PutImV2ChatButtonBodyDto
     public record OpenAppFeedCardButtons
     {
         /// <summary>
-        /// <para>按钮组合</para>
+        /// <para>按钮组合，该字段为全量更新字段，若未传入字段原有值，则会清空字段数据。例如：</para>
+        /// <para>- 在保持原有按钮的字段配置的前提下，新增一个按钮配置会添加一个按钮。</para>
+        /// <para>- 在原有按钮的字段配置上做更新，会更新该按钮。</para>
+        /// <para>- 清空原有按钮的字段配置，会删除该按钮。</para>
         /// <para>必填：是</para>
         /// <para>最大长度：2</para>
         /// <para>最小长度：0</para>
@@ -47,7 +50,10 @@ public record PutImV2ChatButtonBodyDto
         public OpenAppFeedCardButton[] Buttons { get; set; } = Array.Empty<OpenAppFeedCardButton>();
 
         /// <summary>
-        /// <para>按钮组合</para>
+        /// <para>按钮组合，该字段为全量更新字段，若未传入字段原有值，则会清空字段数据。例如：</para>
+        /// <para>- 在保持原有按钮的字段配置的前提下，新增一个按钮配置会添加一个按钮。</para>
+        /// <para>- 在原有按钮的字段配置上做更新，会更新该按钮。</para>
+        /// <para>- 清空原有按钮的字段配置，会删除该按钮。</para>
         /// </summary>
         public record OpenAppFeedCardButton
         {
@@ -155,7 +161,7 @@ public record PutImV2ChatButtonBodyDto
             /// <para>示例值：{"foo": "bar"}</para>
             /// </summary>
             [JsonPropertyName("action_map")]
-            public Dictionary<string, string>? ActionMap { get; set; }
+            public object? ActionMap { get; set; }
         }
     }
 }

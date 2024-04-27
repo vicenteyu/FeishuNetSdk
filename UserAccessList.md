@@ -17,7 +17,7 @@
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyId</td></tr>
 <tr><td rowspan="2">9</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>解决/恢复评论</td></tr>
 <tr><td colspan="3">PatchDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
-<tr><td rowspan="2">10</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取文档基本信息</td></tr>
+<tr><td rowspan="2">10</td><td rowspan="2">2024-04-24</td><td>&#10003;</td><td>云文档</td><td>获取文档基本信息</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentId</td></tr>
 <tr><td rowspan="2">11</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取文档纯文本内容</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdRawContent</td></tr>
@@ -71,7 +71,7 @@
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppend</td></tr>
 <tr><td rowspan="2">36</td><td rowspan="2">2023-07-19</td><td>&#10003;</td><td>通讯录</td><td>获取单个工作城市信息</td></tr>
 <tr><td colspan="3">GetContactV3WorkCitiesByWorkCityId</td></tr>
-<tr><td rowspan="2">37</td><td rowspan="2">2024-04-17</td><td>&#10003;</td><td>云文档</td><td>读取单个范围</td></tr>
+<tr><td rowspan="2">37</td><td rowspan="2">2024-04-23</td><td>&#10003;</td><td>云文档</td><td>读取单个范围</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRange</td></tr>
 <tr><td rowspan="2">38</td><td rowspan="2">2023-11-06</td><td>&#10003;</td><td>云文档</td><td>向单个范围写入数据</td></tr>
 <tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenValues</td></tr>
@@ -169,7 +169,7 @@
 <tr><td colspan="3">PostBitableV1Apps</td></tr>
 <tr><td rowspan="2">85</td><td rowspan="2">2024-02-01</td><td>&#10003;</td><td>多维表格</td><td>获取多维表格元数据</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppToken</td></tr>
-<tr><td rowspan="2">86</td><td rowspan="2">2023-09-27</td><td>&#10003;</td><td>多维表格</td><td>更新多维表格元数据</td></tr>
+<tr><td rowspan="2">86</td><td rowspan="2">2024-04-24</td><td>&#10003;</td><td>多维表格</td><td>更新多维表格元数据</td></tr>
 <tr><td colspan="3">PutBitableV1AppsByAppToken</td></tr>
 <tr><td rowspan="2">87</td><td rowspan="2">2023-11-30</td><td>&#10003;</td><td>多维表格</td><td>新增一个数据表</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTables</td></tr>
@@ -221,7 +221,7 @@
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordId</td></tr>
 <tr><td rowspan="2">111</td><td rowspan="2">2024-02-01</td><td>&#10003;</td><td>多维表格</td><td>新增多条记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreate</td></tr>
-<tr><td rowspan="2">112</td><td rowspan="2">2023-08-03</td><td>&#10003;</td><td>多维表格</td><td>更新多条记录</td></tr>
+<tr><td rowspan="2">112</td><td rowspan="2">2024-04-24</td><td>&#10003;</td><td>多维表格</td><td>更新多条记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdate</td></tr>
 <tr><td rowspan="2">113</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>通讯录</td><td>获取单个用户信息</td></tr>
 <tr><td colspan="3">GetContactV3UsersByUserId</td></tr>
@@ -355,7 +355,7 @@
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChat</td></tr>
 <tr><td rowspan="2">178</td><td rowspan="2">2024-04-10</td><td>&#10003;</td><td>日历</td><td>创建会议群</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChat</td></tr>
-<tr><td rowspan="2">179</td><td rowspan="2">2024-04-10</td><td>&#10003;</td><td>会议室</td><td>查询会议室忙闲</td></tr>
+<tr><td rowspan="2">179</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>会议室</td><td>查询会议室忙闲</td></tr>
 <tr><td colspan="3">GetMeetingRoomFreebusyBatchGet</td></tr>
 <tr><td rowspan="2">180</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>消息与群组</td><td>获取群信息</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatId</td></tr>
@@ -419,61 +419,61 @@
 <tr><td colspan="3">GetVcV1ExportsByTaskId</td></tr>
 <tr><td rowspan="2">210</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>下载导出文件</td></tr>
 <tr><td colspan="3">GetVcV1ExportsDownload</td></tr>
-<tr><td rowspan="2">211</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>创建会议室层级</td></tr>
+<tr><td rowspan="2">211</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>创建会议室层级</td></tr>
 <tr><td colspan="3">PostVcV1RoomLevels</td></tr>
-<tr><td rowspan="2">212</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>删除会议室层级</td></tr>
+<tr><td rowspan="2">212</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>删除会议室层级</td></tr>
 <tr><td colspan="3">PostVcV1RoomLevelsDel</td></tr>
 <tr><td rowspan="2">213</td><td rowspan="2">2024-01-02</td><td>&#10003;</td><td>消息与群组</td><td>获取用户或机器人所在的群列表</td></tr>
 <tr><td colspan="3">GetImV1Chats</td></tr>
-<tr><td rowspan="2">214</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>更新会议室层级</td></tr>
+<tr><td rowspan="2">214</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>更新会议室层级</td></tr>
 <tr><td colspan="3">PatchVcV1RoomLevelsByRoomLevelId</td></tr>
-<tr><td rowspan="2">215</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>查询会议室层级详情</td></tr>
+<tr><td rowspan="2">215</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>查询会议室层级详情</td></tr>
 <tr><td colspan="3">GetVcV1RoomLevelsByRoomLevelId</td></tr>
-<tr><td rowspan="2">216</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>批量查询会议室层级详情</td></tr>
+<tr><td rowspan="2">216</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>批量查询会议室层级详情</td></tr>
 <tr><td colspan="3">PostVcV1RoomLevelsMget</td></tr>
-<tr><td rowspan="2">217</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>查询会议室层级列表</td></tr>
+<tr><td rowspan="2">217</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>查询会议室层级列表</td></tr>
 <tr><td colspan="3">GetVcV1RoomLevels</td></tr>
-<tr><td rowspan="2">218</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>搜索会议室层级</td></tr>
+<tr><td rowspan="2">218</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>搜索会议室层级</td></tr>
 <tr><td colspan="3">GetVcV1RoomLevelsSearch</td></tr>
-<tr><td rowspan="2">219</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>视频会议</td><td>创建会议室</td></tr>
+<tr><td rowspan="2">219</td><td rowspan="2">2023-12-12</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>创建会议室</td></tr>
 <tr><td colspan="3">PostVcV1Rooms</td></tr>
-<tr><td rowspan="2">220</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>删除会议室</td></tr>
+<tr><td rowspan="2">220</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>删除会议室</td></tr>
 <tr><td colspan="3">DeleteVcV1RoomsByRoomId</td></tr>
-<tr><td rowspan="2">221</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>视频会议</td><td>更新会议室</td></tr>
+<tr><td rowspan="2">221</td><td rowspan="2">2023-12-12</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>更新会议室</td></tr>
 <tr><td colspan="3">PatchVcV1RoomsByRoomId</td></tr>
-<tr><td rowspan="2">222</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>查询会议室详情</td></tr>
+<tr><td rowspan="2">222</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>查询会议室详情</td></tr>
 <tr><td colspan="3">GetVcV1RoomsByRoomId</td></tr>
-<tr><td rowspan="2">223</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>批量查询会议室详情</td></tr>
+<tr><td rowspan="2">223</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>批量查询会议室详情</td></tr>
 <tr><td colspan="3">PostVcV1RoomsMget</td></tr>
 <tr><td rowspan="2">224</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>通讯录</td><td>批量获取用户信息</td></tr>
 <tr><td colspan="3">GetContactV3UsersBatch</td></tr>
 <tr><td rowspan="2">225</td><td rowspan="2">2023-11-07</td><td>&#10003;</td><td>消息与群组</td><td>搜索对用户或机器人可见的群列表</td></tr>
 <tr><td colspan="3">GetImV1ChatsSearch</td></tr>
-<tr><td rowspan="2">226</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>查询会议室列表</td></tr>
+<tr><td rowspan="2">226</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>查询会议室列表</td></tr>
 <tr><td colspan="3">GetVcV1Rooms</td></tr>
-<tr><td rowspan="2">227</td><td rowspan="2">2024-04-23</td><td>&#10003;</td><td>视频会议</td><td>搜索会议室</td></tr>
+<tr><td rowspan="2">227</td><td rowspan="2">2024-04-26</td><td>&#10003;</td><td>视频会议</td><td>搜索会议室</td></tr>
 <tr><td colspan="3">PostVcV1RoomsSearch</td></tr>
-<tr><td rowspan="2">228</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>查询会议室配置</td></tr>
+<tr><td rowspan="2">228</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>查询会议室配置</td></tr>
 <tr><td colspan="3">GetVcV1ScopeConfig</td></tr>
-<tr><td rowspan="2">229</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>视频会议</td><td>设置会议室配置</td></tr>
+<tr><td rowspan="2">229</td><td rowspan="2">2023-12-12</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>设置会议室配置</td></tr>
 <tr><td colspan="3">PostVcV1ScopeConfig</td></tr>
-<tr><td rowspan="2">230</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>查询会议室预定限制</td></tr>
+<tr><td rowspan="2">230</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>查询会议室预定限制</td></tr>
 <tr><td colspan="3">GetVcV1ReserveConfigsReserveScope</td></tr>
-<tr><td rowspan="2">231</td><td rowspan="2">2023-08-29</td><td>&#10003;</td><td>视频会议</td><td>更新会议室预定限制</td></tr>
+<tr><td rowspan="2">231</td><td rowspan="2">2023-08-29</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>更新会议室预定限制</td></tr>
 <tr><td colspan="3">PatchVcV1ReserveConfigsByReserveConfigId</td></tr>
-<tr><td rowspan="2">232</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>查询会议室预定表单</td></tr>
+<tr><td rowspan="2">232</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>查询会议室预定表单</td></tr>
 <tr><td colspan="3">GetVcV1ReserveConfigsByReserveConfigIdForm</td></tr>
-<tr><td rowspan="2">233</td><td rowspan="2">2023-08-29</td><td>&#10003;</td><td>视频会议</td><td>更新会议室预定表单</td></tr>
+<tr><td rowspan="2">233</td><td rowspan="2">2023-08-29</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>更新会议室预定表单</td></tr>
 <tr><td colspan="3">PatchVcV1ReserveConfigsByReserveConfigIdForm</td></tr>
-<tr><td rowspan="2">234</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>查询会议室预定管理员</td></tr>
+<tr><td rowspan="2">234</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>查询会议室预定管理员</td></tr>
 <tr><td colspan="3">GetVcV1ReserveConfigsByReserveConfigIdAdmin</td></tr>
-<tr><td rowspan="2">235</td><td rowspan="2">2023-08-29</td><td>&#10003;</td><td>视频会议</td><td>更新会议室预定管理员</td></tr>
+<tr><td rowspan="2">235</td><td rowspan="2">2023-08-29</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>更新会议室预定管理员</td></tr>
 <tr><td colspan="3">PatchVcV1ReserveConfigsByReserveConfigIdAdmin</td></tr>
 <tr><td rowspan="2">236</td><td rowspan="2">2023-07-12</td><td>&#10003;</td><td>消息与群组</td><td>获取群成员发言权限</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatIdModeration</td></tr>
-<tr><td rowspan="2">237</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>视频会议</td><td>查询禁用状态变更通知</td></tr>
+<tr><td rowspan="2">237</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>查询禁用状态变更通知</td></tr>
 <tr><td colspan="3">GetVcV1ReserveConfigsByReserveConfigIdDisableInform</td></tr>
-<tr><td rowspan="2">238</td><td rowspan="2">2023-08-29</td><td>&#10003;</td><td>视频会议</td><td>更新禁用状态变更通知</td></tr>
+<tr><td rowspan="2">238</td><td rowspan="2">2023-08-29</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>更新禁用状态变更通知</td></tr>
 <tr><td colspan="3">PatchVcV1ReserveConfigsByReserveConfigIdDisableInform</td></tr>
 <tr><td rowspan="2">239</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>视频会议</td><td>查询会议明细</td></tr>
 <tr><td colspan="3">GetVcV1MeetingList</td></tr>
@@ -715,7 +715,7 @@
 <tr><td colspan="3">PostSearchV2App</td></tr>
 <tr><td rowspan="2">358</td><td rowspan="2">2023-10-30</td><td>&#10003;</td><td>消息与群组</td><td>添加会话标签页</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdChatTabs</td></tr>
-<tr><td rowspan="2">359</td><td rowspan="2">2022-12-27</td><td>&#10003;</td><td>OKR</td><td>获取用户的 OKR 列表</td></tr>
+<tr><td rowspan="2">359</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>OKR</td><td>获取用户的 OKR 列表</td></tr>
 <tr><td colspan="3">GetOkrV1UsersByUserIdOkrs</td></tr>
 <tr><td rowspan="2">360</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>批量获取 OKR</td></tr>
 <tr><td colspan="3">GetOkrV1OkrsBatchGet</td></tr>
@@ -763,9 +763,9 @@
 <tr><td colspan="3">PostLingoV1FilesUpload</td></tr>
 <tr><td rowspan="2">382</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>下载图片</td></tr>
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
-<tr><td rowspan="2">383</td><td rowspan="2">2024-04-16</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">383</td><td rowspan="2">2024-04-24</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">384</td><td rowspan="2">2024-04-16</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">384</td><td rowspan="2">2024-04-24</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">385</td><td rowspan="2">2023-04-07</td><td>&#10003;</td><td>应用信息</td><td>获取用户自定义常用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV5ApplicationsFavourite</td></tr>
@@ -775,7 +775,7 @@
 <tr><td colspan="3">PostBaikeV1Drafts</td></tr>
 <tr><td rowspan="2">388</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>更新草稿</td></tr>
 <tr><td colspan="3">PutBaikeV1DraftsByDraftId</td></tr>
-<tr><td rowspan="2">389</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>创建免审词条</td></tr>
+<tr><td rowspan="2">389</td><td rowspan="2">2024-04-24</td><td>&#10003;</td><td>词典</td><td>创建免审词条</td></tr>
 <tr><td colspan="3">PostBaikeV1Entities</td></tr>
 <tr><td rowspan="2">390</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>更新免审词条</td></tr>
 <tr><td colspan="3">PutBaikeV1EntitiesByEntityId</td></tr>
@@ -963,7 +963,7 @@
 <tr><td colspan="3">PostJssdkTicketGet</td></tr>
 <tr><td rowspan="2">482</td><td rowspan="2">2023-11-24</td><td><span style="color:red;">删除</span></td><td>词典</td><td>删除免审词条</td></tr>
 <tr><td colspan="3">DeleteLingoV1EntitiesByEntityId</td></tr>
-<tr><td rowspan="2">483</td><td rowspan="2">2024-04-18</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
+<tr><td rowspan="2">483</td><td rowspan="2">2024-04-26</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
 <tr><td colspan="3">PatchCorehrV1CompaniesByCompanyId</td></tr>
 <tr><td rowspan="2">484</td><td rowspan="2">2024-04-10</td><td>&#10003;</td><td>日历</td><td>回复日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdReply</td></tr>
@@ -987,8 +987,30 @@
 <tr><td colspan="3">DeleteAcsV1VisitorsByVisitorId</td></tr>
 <tr><td rowspan="2">494</td><td rowspan="2">2024-04-10</td><td>&#10003;</td><td>日历</td><td>查询日程视图</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
-<tr><td rowspan="2">495</td><td rowspan="2">2024-03-20</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
+<tr><td rowspan="2">495</td><td rowspan="2">2024-04-24</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
 <tr><td rowspan="2">496</td><td rowspan="2">2024-02-27</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
+<tr><td rowspan="2">497</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>获取消息</td></tr>
+<tr><td colspan="3">GetAilyV1SessionsByAilySessionIdMessagesByAilyMessageId</td></tr>
+<tr><td rowspan="2">498</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>列出消息</td></tr>
+<tr><td colspan="3">GetAilyV1SessionsByAilySessionIdMessages</td></tr>
+<tr><td rowspan="2">499</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>创建运行</td></tr>
+<tr><td colspan="3">PostAilyV1SessionsByAilySessionIdRuns</td></tr>
+<tr><td rowspan="2">500</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>列出运行</td></tr>
+<tr><td colspan="3">GetAilyV1SessionsByAilySessionIdRuns</td></tr>
+<tr><td rowspan="2">501</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>取消运行</td></tr>
+<tr><td colspan="3">PostAilyV1SessionsByAilySessionIdRunsByRunIdCancel</td></tr>
+<tr><td rowspan="2">502</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>更新会话</td></tr>
+<tr><td colspan="3">PutAilyV1SessionsByAilySessionId</td></tr>
+<tr><td rowspan="2">503</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>获取会话</td></tr>
+<tr><td colspan="3">GetAilyV1SessionsByAilySessionId</td></tr>
+<tr><td rowspan="2">504</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>删除会话</td></tr>
+<tr><td colspan="3">DeleteAilyV1SessionsByAilySessionId</td></tr>
+<tr><td rowspan="2">505</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>发送消息</td></tr>
+<tr><td colspan="3">PostAilyV1SessionsByAilySessionIdMessages</td></tr>
+<tr><td rowspan="2">506</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>获取运行</td></tr>
+<tr><td colspan="3">GetAilyV1SessionsByAilySessionIdRunsByRunId</td></tr>
+<tr><td rowspan="2">507</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>创建会话</td></tr>
+<tr><td colspan="3">PostAilyV1Sessions</td></tr>
 </tbody></table>

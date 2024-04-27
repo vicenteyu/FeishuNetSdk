@@ -93,14 +93,14 @@ public record GetHelpdeskV1FaqsResponseDto
         public string? Answer { get; set; }
 
         /// <summary>
-        /// <para>富文本答案</para>
+        /// <para>富文本答案。该字段支持 text、hyperlink、img、line break 四种类型，不同类型包含的参数信息可能不同，详情可参见[富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("answer_richtext")]
         public Richtext[]? AnswerRichtexts { get; set; }
 
         /// <summary>
-        /// <para>富文本答案</para>
+        /// <para>富文本答案。该字段支持 text、hyperlink、img、line break 四种类型，不同类型包含的参数信息可能不同，详情可参见[富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)。</para>
         /// </summary>
         public record Richtext
         {

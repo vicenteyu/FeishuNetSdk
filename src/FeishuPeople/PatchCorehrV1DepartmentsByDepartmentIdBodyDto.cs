@@ -55,10 +55,10 @@ public record PatchCorehrV1DepartmentsByDepartmentIdBodyDto
 
     /// <summary>
     /// <para>层级关系，内层字段见实体</para>
-    /// <para>必填：是</para>
+    /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("hiberarchy_common")]
-    public PatchCorehrV1DepartmentsByDepartmentIdBodyDtoHiberarchyCommon HiberarchyCommon { get; set; } = new();
+    public PatchCorehrV1DepartmentsByDepartmentIdBodyDtoHiberarchyCommon? HiberarchyCommon { get; set; }
 
     /// <summary>
     /// <para>层级关系，内层字段见实体</para>
@@ -66,7 +66,7 @@ public record PatchCorehrV1DepartmentsByDepartmentIdBodyDto
     public record PatchCorehrV1DepartmentsByDepartmentIdBodyDtoHiberarchyCommon
     {
         /// <summary>
-        /// <para>上级组织 ID，该字段为通用字段，若为部门维度则为必填。</para>
+        /// <para>上级组织 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719168654814483759</para>
         /// </summary>
@@ -75,10 +75,10 @@ public record PatchCorehrV1DepartmentsByDepartmentIdBodyDto
 
         /// <summary>
         /// <para>名称</para>
-        /// <para>必填：是</para>
+        /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("name")]
-        public I18n[] Names { get; set; } = Array.Empty<I18n>();
+        public I18n[]? Names { get; set; }
 
         /// <summary>
         /// <para>名称</para>
@@ -104,11 +104,11 @@ public record PatchCorehrV1DepartmentsByDepartmentIdBodyDto
 
         /// <summary>
         /// <para>是否启用该部门</para>
-        /// <para>必填：是</para>
+        /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
         [JsonPropertyName("active")]
-        public bool Active { get; set; }
+        public bool? Active { get; set; }
 
         /// <summary>
         /// <para>编码</para>

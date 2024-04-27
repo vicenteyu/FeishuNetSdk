@@ -128,8 +128,8 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchBodyDto
             /// <item>isGreaterEqual：大于等于</item>
             /// <item>isLess：小于</item>
             /// <item>isLessEqual：小于等于</item>
-            /// <item>like：like</item>
-            /// <item>in：in</item>
+            /// <item>like：LIKE 运算符。暂未支持</item>
+            /// <item>in：IN 运算符。暂未支持</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("operator")]

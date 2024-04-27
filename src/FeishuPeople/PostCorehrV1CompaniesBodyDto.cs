@@ -176,14 +176,18 @@ public record PostCorehrV1CompaniesBodyDto
     public Enum[]? IndustryLists { get; set; }
 
     /// <summary>
-    /// <para>法定代表人</para>
+    /// <para>法定代表人。</para>
+    /// <para>仅注册地址中的 国家 / 地区为中国大陆时，法人字段填入才有效。</para>
+    /// <para>若注册地址中的 国家 / 地区 不为中国大陆时，则填入法人字段无效。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("legal_representative")]
     public I18n[]? LegalRepresentatives { get; set; }
 
     /// <summary>
-    /// <para>法定代表人</para>
+    /// <para>法定代表人。</para>
+    /// <para>仅注册地址中的 国家 / 地区为中国大陆时，法人字段填入才有效。</para>
+    /// <para>若注册地址中的 国家 / 地区 不为中国大陆时，则填入法人字段无效。</para>
     /// </summary>
     public record I18n
     {
@@ -388,4 +392,144 @@ public record PostCorehrV1CompaniesBodyDto
     /// </summary>
     [JsonPropertyName("fax")]
     public PhoneNumberAndAreaCode? Fax { get; set; }
+
+    /// <summary>
+    /// <para>注册地址详细信息。公共字段，若请求对象为公司，则该字段必填。</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("registered_office_address_info")]
+    public Address? RegisteredOfficeAddressInfo { get; set; }
+
+    /// <summary>
+    /// <para>注册地址详细信息。公共字段，若请求对象为公司，则该字段必填。</para>
+    /// </summary>
+    public record Address
+    {
+        /// <summary>
+        /// <para>国家 / 地区id。</para>
+        /// <para>若选择中国大陆、中国香港、中国澳门，则需要指定主要行政区（中国大陆为省份）、城市、区/县（中国香港为地区） ；</para>
+        /// <para>若选择中国台湾，则需要指定主要行政区（中国台湾为省/地区）、城市、区/县（中国台湾为区）。</para>
+        /// <para>可通过</para>
+        /// <para>[请求接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)查询获取。</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：6862995757234914824</para>
+        /// </summary>
+        [JsonPropertyName("country_region_id")]
+        public string CountryRegionId { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>主要行政区id。</para>
+        /// <para>可通过</para>
+        /// <para>[请求接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)查询获取。</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6863326815667095047</para>
+        /// </summary>
+        [JsonPropertyName("region_id")]
+        public string? RegionId { get; set; }
+
+        /// <summary>
+        /// <para>城市id，可通过</para>
+        /// <para>[请求接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)查询获取。</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6863333254578046471</para>
+        /// </summary>
+        [JsonPropertyName("city_id")]
+        public string? CityId { get; set; }
+
+        /// <summary>
+        /// <para>区/县id，可通过</para>
+        /// <para>[请求接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)查询获取。</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6863333516579440141</para>
+        /// </summary>
+        [JsonPropertyName("distinct_id")]
+        public string? DistinctId { get; set; }
+
+        /// <summary>
+        /// <para>地址行 1（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：丹佛测试地址-纽埃时区</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line1")]
+        public string? LocalAddressLine1 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 2（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：PoewH</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line2")]
+        public string? LocalAddressLine2 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 3（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：PoewH</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line3")]
+        public string? LocalAddressLine3 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 4（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：jmwJc</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line4")]
+        public string? LocalAddressLine4 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 5（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：jmwJc</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line5")]
+        public string? LocalAddressLine5 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 6（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：jmwJc</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line6")]
+        public string? LocalAddressLine6 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 7（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：jmwJc</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line7")]
+        public string? LocalAddressLine7 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 8（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：rafSu</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line8")]
+        public string? LocalAddressLine8 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 9（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：McPRG</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line9")]
+        public string? LocalAddressLine9 { get; set; }
+
+        /// <summary>
+        /// <para>邮政编码</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：611530</para>
+        /// </summary>
+        [JsonPropertyName("postal_code")]
+        public string? PostalCode { get; set; }
+    }
+
+    /// <summary>
+    /// <para>办公地址详细信息。公共字段，若请求对象为公司，则该字段必填。</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("office_address_info")]
+    public Address? OfficeAddressInfo { get; set; }
 }

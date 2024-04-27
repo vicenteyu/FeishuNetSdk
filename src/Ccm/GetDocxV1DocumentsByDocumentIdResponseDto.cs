@@ -47,5 +47,121 @@ public record GetDocxV1DocumentsByDocumentIdResponseDto
         /// </summary>
         [JsonPropertyName("title")]
         public string? Title { get; set; }
+
+        /// <summary>
+        /// <para>文档展示设置</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("display_setting")]
+        public DocumentDisplaySetting? DisplaySetting { get; set; }
+
+        /// <summary>
+        /// <para>文档展示设置</para>
+        /// </summary>
+        public record DocumentDisplaySetting
+        {
+            /// <summary>
+            /// <para>文档信息中是否展示文档作者</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("show_authors")]
+            public bool? ShowAuthors { get; set; }
+
+            /// <summary>
+            /// <para>文档信息中是否展示文档创建时间</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("show_create_time")]
+            public bool? ShowCreateTime { get; set; }
+
+            /// <summary>
+            /// <para>文档信息中是否展示文档访问次数</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("show_pv")]
+            public bool? ShowPv { get; set; }
+
+            /// <summary>
+            /// <para>文档信息中是否展示文档访问人数</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("show_uv")]
+            public bool? ShowUv { get; set; }
+
+            /// <summary>
+            /// <para>文档信息中是否展示点赞总数</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("show_like_count")]
+            public bool? ShowLikeCount { get; set; }
+
+            /// <summary>
+            /// <para>文档信息中是否展示评论总数</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("show_comment_count")]
+            public bool? ShowCommentCount { get; set; }
+
+            /// <summary>
+            /// <para>文档信息中是否展示关联事项。暂未支持</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("show_related_matters")]
+            public bool? ShowRelatedMatters { get; set; }
+        }
+
+        /// <summary>
+        /// <para>文档封面</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("cover")]
+        public DocumentCover? Cover { get; set; }
+
+        /// <summary>
+        /// <para>文档封面</para>
+        /// </summary>
+        public record DocumentCover
+        {
+            /// <summary>
+            /// <para>图片 token</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：O9E7bhebQooOzMx7yc7cSabcdef</para>
+            /// <para>最大长度：27</para>
+            /// <para>最小长度：27</para>
+            /// </summary>
+            [JsonPropertyName("token")]
+            public string Token { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>视图在水平方向的偏移比例。其值为距离原图中心的水平方向偏移值 px / 原图宽度 px。</para>
+            /// <para>视图在原图中心时，该值为 0；</para>
+            /// <para>视图在原图右部分时，该值为正数；</para>
+            /// <para>视图在原图左部分时，该值为负数。</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>默认值：0</para>
+            /// </summary>
+            [JsonPropertyName("offset_ratio_x")]
+            public float? OffsetRatioX { get; set; }
+
+            /// <summary>
+            /// <para>视图在垂直方向的偏移比例。其值为距离原图中心的垂直方向偏移值 px / 原图高度 px。</para>
+            /// <para>视图在原图中心时，该值为 0；</para>
+            /// <para>视图在原图上部分时，该值为正数；</para>
+            /// <para>视图在原图下部分时，该值为负数。</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>默认值：0</para>
+            /// </summary>
+            [JsonPropertyName("offset_ratio_y")]
+            public float? OffsetRatioY { get; set; }
+        }
     }
 }

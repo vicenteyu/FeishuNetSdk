@@ -228,19 +228,19 @@ public record PostImV2AppFeedCardBodyDto
                 /// <para>示例值：{"foo": "bar"}</para>
                 /// </summary>
                 [JsonPropertyName("action_map")]
-                public Dictionary<string, string>? ActionMap { get; set; }
+                public object? ActionMap { get; set; }
             }
         }
 
         /// <summary>
-        /// <para>跳转链接</para>
+        /// <para>跳转链接（创建时该参数为必填参数）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("link")]
         public OpenAppFeedLink? Link { get; set; }
 
         /// <summary>
-        /// <para>跳转链接</para>
+        /// <para>跳转链接（创建时该参数为必填参数）</para>
         /// </summary>
         public record OpenAppFeedLink
         {

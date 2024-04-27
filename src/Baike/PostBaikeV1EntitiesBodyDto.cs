@@ -237,6 +237,7 @@ public record PostBaikeV1EntitiesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：星云</para>
         /// <para>最大长度：32</para>
+        /// <para>最小长度：2</para>
         /// </summary>
         [JsonPropertyName("provider")]
         public string Provider { get; set; } = string.Empty;
@@ -246,6 +247,7 @@ public record PostBaikeV1EntitiesBodyDto
         /// <para>必填：是</para>
         /// <para>示例值：client_653267498d</para>
         /// <para>最大长度：64</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("outer_id")]
         public string OuterId { get; set; } = string.Empty;
@@ -253,8 +255,9 @@ public record PostBaikeV1EntitiesBodyDto
 
     /// <summary>
     /// <para>富文本格式（当填写富文本内容时，description字段将会失效可不填写），支持的格式参考[飞书词典指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/overview)中的释义部分</para>
+    /// <para>**注意**：富文本格式至少需要包含一个 `&lt;p&gt;` 标签，否则请求会报错。</para>
     /// <para>必填：否</para>
-    /// <para>示例值：加粗&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;ahref=\"https://feishu.cn\"&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;</para>
+    /// <para>示例值：加粗&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;a href=\"https://feishu.cn\"&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;</para>
     /// <para>最大长度：5000</para>
     /// </summary>
     [JsonPropertyName("rich_text")]

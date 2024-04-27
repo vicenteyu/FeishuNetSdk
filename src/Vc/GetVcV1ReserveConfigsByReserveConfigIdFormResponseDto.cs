@@ -21,6 +21,14 @@ public record GetVcV1ReserveConfigsByReserveConfigIdFormResponseDto
     public record GetVcV1ReserveConfigsByReserveConfigIdFormResponseDtoReserveFormConfig
     {
         /// <summary>
+        /// <para>是否覆盖子层级及会议室</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("if_cover_child_scope")]
+        public bool? IfCoverChildScope { get; set; }
+
+        /// <summary>
         /// <para>预定表单开关，true表示打开，false表示关闭</para>
         /// <para>必填：是</para>
         /// <para>示例值：false</para>
@@ -62,6 +70,8 @@ public record GetVcV1ReserveConfigsByReserveConfigIdFormResponseDto
         /// <para>时间单位，1为分钟；2为小时；3为天，默认为天</para>
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
+        /// <para>最大值：3</para>
+        /// <para>最小值：1</para>
         /// </summary>
         [JsonPropertyName("time_unit")]
         public int? TimeUnit { get; set; }

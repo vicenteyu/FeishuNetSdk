@@ -107,7 +107,7 @@ public record PatchCorehrV1DepartmentsByDepartmentIdResponseDto
         public record PatchCorehrV1DepartmentsByDepartmentIdResponseDtoDepartmentHiberarchyCommon
         {
             /// <summary>
-            /// <para>上级组织 ID，该字段为通用字段，若为部门维度则为必填。</para>
+            /// <para>上级组织 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719168654814483759</para>
             /// </summary>

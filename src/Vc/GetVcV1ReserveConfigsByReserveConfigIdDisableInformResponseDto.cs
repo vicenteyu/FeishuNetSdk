@@ -21,6 +21,14 @@ public record GetVcV1ReserveConfigsByReserveConfigIdDisableInformResponseDto
     public record DisableInformConfig
     {
         /// <summary>
+        /// <para>是否覆盖子层级及会议室</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("if_cover_child_scope")]
+        public bool? IfCoverChildScope { get; set; }
+
+        /// <summary>
         /// <para>禁用状态变更通知开关</para>
         /// <para>必填：是</para>
         /// <para>示例值：false</para>

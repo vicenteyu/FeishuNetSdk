@@ -41,7 +41,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
         public record BpmDataengineI18n
         {
             /// <summary>
-            /// <para>（注json key是zh-CN，不是zh_cn）i18n类型字段，中文值</para>
+            /// <para>（基于系统兼容性，该参数名称在文档中展示为zh_cn，但在实际返回的 JSON Key 中展示为 zh-CN）i18n类型字段，中文值</para>
             /// <para>必填：否</para>
             /// <para>示例值：离职原因</para>
             /// </summary>
@@ -49,7 +49,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             public string? ZhCn { get; set; }
 
             /// <summary>
-            /// <para>（注json key是en-US，不是en_us）i18n类型字段，英文值</para>
+            /// <para>（基于系统兼容性，该参数名称在文档中展示为en_us，但在实际返回的 JSON Key 中展示为 en-US）i18n类型字段，英文值</para>
             /// <para>必填：否</para>
             /// <para>示例值：Reason</para>
             /// </summary>
@@ -174,15 +174,15 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             public record FormFieldVariableDatetimeValue
             {
                 /// <summary>
-                /// <para>毫秒的时间戳。注：此字段是一个 int64 类型（因为网关限制，这里只能配置为int)</para>
+                /// <para>毫秒的时间戳。注：此字段数据类型为 int64</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1670227428803</para>
                 /// </summary>
                 [JsonPropertyName("value")]
-                public long? Value { get; set; }
+                public int? Value { get; set; }
 
                 /// <summary>
-                /// <para>时区</para>
+                /// <para>时区，+08:00</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：+08:00</para>
                 /// </summary>
@@ -223,7 +223,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 public record BpmDataengineI18n
                 {
                     /// <summary>
-                    /// <para>（注json key是zh-CN，不是zh_cn）i18n类型字段，中文值</para>
+                    /// <para>（基于系统兼容性，该参数名称在文档中展示为zh_cn，但在实际返回的 JSON Key 中展示为 zh-CN）i18n类型字段，中文值</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：中文</para>
                     /// </summary>
@@ -231,7 +231,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     public string? ZhCn { get; set; }
 
                     /// <summary>
-                    /// <para>（注json key是en-US，不是en_us）i18n类型字段，英文值</para>
+                    /// <para>（基于系统兼容性，该参数名称在文档中展示为en_us，但在实际返回的 JSON Key 中展示为 en-US）i18n类型字段，英文值</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：English</para>
                     /// </summary>
@@ -341,7 +341,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 public int? Length { get; set; }
 
                 /// <summary>
-                /// <para>mime type</para>
+                /// <para>扩展类型</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：text/plain</para>
                 /// </summary>
@@ -374,7 +374,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 public record BpmDataengineI18n
                 {
                     /// <summary>
-                    /// <para>（注json key是zh-CN，不是zh_cn）i18n类型字段，中文值</para>
+                    /// <para>（基于系统兼容性，该参数名称在文档中展示为zh_cn，但在实际返回的 JSON Key 中展示为 zh-CN）i18n类型字段，中文值</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：张三</para>
                     /// </summary>
@@ -382,7 +382,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     public string? ZhCn { get; set; }
 
                     /// <summary>
-                    /// <para>（注json key是en-US，不是en_us）i18n类型字段，英文值</para>
+                    /// <para>（基于系统兼容性，该参数名称在文档中展示为en_us，但在实际返回的 JSON Key 中展示为 en-US）i18n类型字段，英文值</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
@@ -549,15 +549,15 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     public record FormFieldVariableDatetimeValue
                     {
                         /// <summary>
-                        /// <para>毫秒的时间戳。注：此字段是一个 int64 类型（因为网关限制，这里只能配置为int)</para>
+                        /// <para>毫秒的时间戳。注：此字段数据类型为 int64</para>
                         /// <para>必填：否</para>
                         /// <para>示例值：1670227428803</para>
                         /// </summary>
                         [JsonPropertyName("value")]
-                        public long? Value { get; set; }
+                        public int? Value { get; set; }
 
                         /// <summary>
-                        /// <para>时区</para>
+                        /// <para>时区，+08:00</para>
                         /// <para>必填：否</para>
                         /// <para>示例值：+08:00</para>
                         /// </summary>
@@ -598,7 +598,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         public record BpmDataengineI18n
                         {
                             /// <summary>
-                            /// <para>（注json key是zh-CN，不是zh_cn）i18n类型字段，中文值</para>
+                            /// <para>（基于系统兼容性，该参数名称在文档中展示为zh_cn，但在实际返回的 JSON Key 中展示为 zh-CN）i18n类型字段，中文值</para>
                             /// <para>必填：否</para>
                             /// <para>示例值：张三</para>
                             /// </summary>
@@ -606,7 +606,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                             public string? ZhCn { get; set; }
 
                             /// <summary>
-                            /// <para>（注json key是en-US，不是en_us）i18n类型字段，英文值</para>
+                            /// <para>（基于系统兼容性，该参数名称在文档中展示为en_us，但在实际返回的 JSON Key 中展示为 en-US）i18n类型字段，英文值</para>
                             /// <para>必填：否</para>
                             /// <para>示例值：zh-CN</para>
                             /// </summary>
@@ -716,7 +716,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         public int? Length { get; set; }
 
                         /// <summary>
-                        /// <para>mime type</para>
+                        /// <para>扩展类型</para>
                         /// <para>必填：否</para>
                         /// <para>示例值：text/plain</para>
                         /// </summary>
@@ -749,7 +749,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         public record BpmDataengineI18n
                         {
                             /// <summary>
-                            /// <para>（注json key是zh-CN，不是zh_cn）i18n类型字段，中文值</para>
+                            /// <para>（基于系统兼容性，该参数名称在文档中展示为zh_cn，但在实际返回的 JSON Key 中展示为 zh-CN）i18n类型字段，中文值</para>
                             /// <para>必填：否</para>
                             /// <para>示例值：中文</para>
                             /// </summary>
@@ -757,7 +757,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                             public string? ZhCn { get; set; }
 
                             /// <summary>
-                            /// <para>（注json key是en-US，不是en_us）i18n类型字段，英文值</para>
+                            /// <para>（基于系统兼容性，该参数名称在文档中展示为en_us，但在实际返回的 JSON Key 中展示为 en-US）i18n类型字段，英文值</para>
                             /// <para>必填：否</para>
                             /// <para>示例值：English</para>
                             /// </summary>
@@ -808,14 +808,14 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                     public record FormFieldVariableRecordValue
                     {
                         /// <summary>
-                        /// <para>注意：这个值是一个map，key是变量唯一标识，value是变量值（平台限制，没法录入Map类型，这里用object示意一下）</para>
+                        /// <para>注：该参数实际为 Map 数据类型，Key 是变量唯一标识，Value 是变量值。</para>
                         /// <para>必填：否</para>
                         /// </summary>
                         [JsonPropertyName("values")]
                         public FormFieldVariableRecordValueExample? Values { get; set; }
 
                         /// <summary>
-                        /// <para>注意：这个值是一个map，key是变量唯一标识，value是变量值（平台限制，没法录入Map类型，这里用object示意一下）</para>
+                        /// <para>注：该参数实际为 Map 数据类型，Key 是变量唯一标识，Value 是变量值。</para>
                         /// </summary>
                         public record FormFieldVariableRecordValueExample
                         {
@@ -878,14 +878,14 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
             public record FormFieldVariableRecordValue
             {
                 /// <summary>
-                /// <para>注意：这个值是一个map，key是变量唯一标识，value是变量值（平台限制，没法录入Map类型，这里用object示意一下）</para>
+                /// <para>注：该参数实际为 Map 数据类型，Key 是变量唯一标识，Value 是变量值。</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("values")]
                 public FormFieldVariableRecordValueExample? Values { get; set; }
 
                 /// <summary>
-                /// <para>注意：这个值是一个map，key是变量唯一标识，value是变量值（平台限制，没法录入Map类型，这里用object示意一下）</para>
+                /// <para>注：该参数实际为 Map 数据类型，Key 是变量唯一标识，Value 是变量值。</para>
                 /// </summary>
                 public record FormFieldVariableRecordValueExample
                 {

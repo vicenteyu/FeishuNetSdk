@@ -9,14 +9,14 @@ namespace FeishuNetSdk.Base;
 public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchResponseDto
 {
     /// <summary>
-    /// <para>record 结果</para>
+    /// <para>数组类型。record 结果。了解 record 数据结构，参考[数据结构](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public AppTableRecord[]? Items { get; set; }
 
     /// <summary>
-    /// <para>record 结果</para>
+    /// <para>数组类型。record 结果。了解 record 数据结构，参考[数据结构](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)</para>
     /// </summary>
     public record AppTableRecord
     {

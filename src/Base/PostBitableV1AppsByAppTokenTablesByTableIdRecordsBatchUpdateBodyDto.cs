@@ -21,7 +21,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateBodyDt
     public record AppTableRecord
     {
         /// <summary>
-        /// <para>一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)</para>
+        /// <para>一条记录的唯一标识 ID。参考[record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94) 获取 record_id。该参数必填，请忽略左侧必填列的否</para>
         /// <para>必填：否</para>
         /// <para>示例值：recqwIwhc6</para>
         /// </summary>

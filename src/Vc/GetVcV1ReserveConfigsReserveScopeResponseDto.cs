@@ -29,6 +29,8 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>approval_config 其他字段均可省略。</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
+        /// <para>最大值：1</para>
+        /// <para>最小值：0</para>
         /// </summary>
         [JsonPropertyName("approval_switch")]
         public int? ApprovalSwitch { get; set; }
@@ -38,6 +40,8 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>说明：为 1 时必填 **meeting_duration**</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
+        /// <para>最大值：1</para>
+        /// <para>最小值：0</para>
         /// </summary>
         [JsonPropertyName("approval_condition")]
         public int? ApprovalCondition { get; set; }
@@ -47,7 +51,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>的预定需要审批（单位：小时，取值范围[0.1-99]）</para>
         /// <para>说明：</para>
         /// <para>- 当 approval_condition</para>
-        /// <para> 为 0 ，更新时如果未设置值，默认更新为 99 .</para>
+        /// <para>为 0 ，更新时如果未设置值，默认更新为 99 .</para>
         /// <para>- 传入的值小数点后超过 2 位，自动四舍五入保留两位。</para>
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
@@ -91,16 +95,26 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
     public record GetVcV1ReserveConfigsReserveScopeResponseDtoTimeConfig
     {
         /// <summary>
+        /// <para>是否覆盖子层级及会议室</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("if_cover_child_scope")]
+        public bool? IfCoverChildScope { get; set; }
+
+        /// <summary>
         /// <para>预定时间开关：0 代表关闭，1 代表开启</para>
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
+        /// <para>最大值：1</para>
+        /// <para>最小值：0</para>
         /// </summary>
         [JsonPropertyName("time_switch")]
         public int TimeSwitch { get; set; }
 
         /// <summary>
         /// <para>最早可提前</para>
-        /// <para> days_in_advance 预定会议室（单位：天，取值范围[1-730]）</para>
+        /// <para>days_in_advance 预定会议室（单位：天，取值范围[1-730]）</para>
         /// <para>说明：不填写时，默认更新为 365</para>
         /// <para>必填：否</para>
         /// <para>示例值：30</para>
@@ -110,12 +124,12 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
 
         /// <summary>
         /// <para>开放当天可于</para>
-        /// <para> opening_hour 开始预定（单位：秒，取值范围[0,86400]）</para>
+        /// <para>opening_hour 开始预定（单位：秒，取值范围[0,86400]）</para>
         /// <para>说明：</para>
         /// <para>- 不填写时默认更新为</para>
-        /// <para> 28800</para>
+        /// <para>28800</para>
         /// <para>- 如果填写的值不是 60</para>
-        /// <para> 的倍数，则自动会更新为离其最近的 60 整数倍的值。</para>
+        /// <para>的倍数，则自动会更新为离其最近的 60 整数倍的值。</para>
         /// <para>必填：否</para>
         /// <para>示例值：27900</para>
         /// </summary>
@@ -129,7 +143,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>- 当 start_time 与</para>
         /// <para>end_time 均填写时，</para>
         /// <para>end_time 至少超过</para>
-        /// <para> start_time 30 。</para>
+        /// <para>start_time 30 。</para>
         /// <para>- 如果填写的值不是 60 的倍数，则自动会更新为离其最近的 60 整数倍的值。</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
@@ -176,12 +190,22 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
     public record GetVcV1ReserveConfigsReserveScopeResponseDtoReserveScopeConfig
     {
         /// <summary>
+        /// <para>是否覆盖子层级及会议室</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("if_cover_child_scope")]
+        public bool? IfCoverChildScope { get; set; }
+
+        /// <summary>
         /// <para>可预定成员范围：0 代表部分成员，1 代表全部成员。</para>
         /// <para>说明：</para>
         /// <para>- 此值必填。</para>
         /// <para>- 当设置为 0 时，至少需要 1 个预定部门或预定人</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
+        /// <para>最大值：1</para>
+        /// <para>最小值：0</para>
         /// </summary>
         [JsonPropertyName("allow_all_users")]
         public int? AllowAllUsers { get; set; }

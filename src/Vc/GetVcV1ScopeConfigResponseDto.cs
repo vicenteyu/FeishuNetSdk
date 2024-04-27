@@ -81,6 +81,14 @@ public record GetVcV1ScopeConfigResponseDto
             public record RoomDigitalSignage
             {
                 /// <summary>
+                /// <para>是否覆盖子层级及会议室</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：true</para>
+                /// </summary>
+                [JsonPropertyName("if_cover_child_scope")]
+                public bool? IfCoverChildScope { get; set; }
+
+                /// <summary>
                 /// <para>是否开启数字标牌功能</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>

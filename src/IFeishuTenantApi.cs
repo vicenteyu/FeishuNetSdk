@@ -612,14 +612,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="room_ids">
     /// <para>必填：是</para>
     /// <para>会议室 ID。你可以通过[查询会议室列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/list)或[搜索会议室](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/search)接口获取指定会议室 ID。</para>
+    /// <para>GET 请求中传入多个会议室 ID 的格式示例为 `room_ids=omm_83d09ad4f6896e02029a6a075f71xxxx&amp;room_ids=omm_eada1d61a550955240c28757e7dexxxx`。</para>
     /// </param>
     /// <param name="time_min">
     /// <para>必填：是</para>
-    /// <para>查询的起始时间，需要遵循 [RFC3339](https://tools.ietf.org/html/rfc3339) 格式，且需要进行 URL 编码。</para>
+    /// <para>查询的起始时间，需要遵循 [RFC3339](https://tools.ietf.org/html/rfc3339) 格式，示例：2019-09-04T08:45:00+08:00。</para>
+    /// <para>**注意**：传入该参数时需要进行 URL 编码。</para>
     /// </param>
     /// <param name="time_max">
     /// <para>必填：是</para>
-    /// <para>查询的结束时间，需要遵循 [RFC3339](https://tools.ietf.org/html/rfc3339) 格式，且需要进行 URL 编码。</para>
+    /// <para>查询的结束时间，需要遵循 [RFC3339](https://tools.ietf.org/html/rfc3339) 格式，示例：2019-09-04T09:45:00+08:00。</para>
+    /// <para>**注意**：传入该参数时需要进行 URL 编码。</para>
     /// </param>
     [HttpGet("/open-apis/meeting_room/freebusy/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<MeetingRoom.Spec.GetMeetingRoomFreebusyBatchGetResponseDto>> GetMeetingRoomFreebusyBatchGetAsync(
@@ -920,7 +923,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】读取单个范围</para>
     /// <para>接口ID：6907569742384529410</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugTMzUjL4EzM14COxMTN</para>
-    /// <para>Authorization：user_access_token、tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于根据 spreadsheetToken 和 range 读取表格单个范围的值，返回数据限制为10M。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
@@ -951,7 +954,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
-    /// <para>指定返回的用户 ID 类型。默认为 lark_id，建议选择 open_id 或 union_id。了解更多，参考[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。</para>
+    /// <para>当单元格中包含@用户等涉及用户信息的元素时，该参数可指定返回的用户 ID 类型。默认为 lark_id，建议选择 open_id 或 union_id。了解更多，参考[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。</para>
     /// <para>- open_id：用户在应用内的身份。 同一个 user_id 在不同应用中的 open_id 不同，其值统一以 ou_ 为前缀，如`ou_c99c5f35d542efc7ee492afe11af19ef`。</para>
     /// <para>- union_id：用户在同一应用服务商提供的多个应用间的统一身份。</para>
     /// <para>默认值：open_id</para>
@@ -8083,57 +8086,49 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>目标用户id</para>
-    /// <para>**示例值**："ou-asdasdasdasdasd"</para>
+    /// <para>示例值：ou-asdasdasdasdasd</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
-    /// <para>**示例值**："open_id"</para>
-    /// <para>**可选值有**：</para>
-    /// <para>open_id:标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid),union_id:标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id),user_id:标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id),people_admin_id:以people_admin_id来识别用户</para>
-    /// <para>**默认值**：`open_id`</para>
-    /// <para>**当值为 `user_id`，字段权限要求**：</para>
-    /// <para>&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</para>
+    /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](/ssl</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](/ssl</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](/ssl</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>people_admin_id：以people_admin_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="offset">
     /// <para>必填：是</para>
-    /// <para>请求列表的偏移，offset&gt;=0</para>
-    /// <para>**示例值**："0"</para>
+    /// <para>请求列表的偏移（对应响应体的 okr_list 字段），offset&gt;=0</para>
+    /// <para>示例值：0</para>
     /// </param>
     /// <param name="limit">
     /// <para>必填：是</para>
     /// <para>列表长度，0-10</para>
-    /// <para>**示例值**："5"</para>
+    /// <para>示例值：5</para>
     /// </param>
     /// <param name="lang">
     /// <para>必填：否</para>
     /// <para>请求OKR的语言版本（比如@的人名），lang=en_us/zh_cn</para>
-    /// <para>**示例值**："zh_cn"</para>
-    /// <para>**默认值**：`zh_cn`</para>
-    /// <para>默认值：null</para>
+    /// <para>示例值：zh_cn</para>
+    /// <para>默认值：zh_cn</para>
     /// </param>
     /// <param name="period_ids">
     /// <para>必填：否</para>
     /// <para>period_id列表，最多10个</para>
-    /// <para>**示例值**：["6951461264858777132"]</para>
-    /// <para>**数据校验规则**：</para>
-    /// <para>- 最大长度：`10`</para>
+    /// <para>示例值：["6951461264858777132"]</para>
     /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/okr/v1/users/{user_id}/okrs")]
-    System.Threading.Tasks.Task<FeishuResponse<Okr.Spec.GetOkrV1UsersByUserIdOkrsResponseDto>> GetOkrV1UsersByUserIdOkrsAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV1UsersByUserIdOkrsResponseDto>> GetOkrV1UsersByUserIdOkrsAsync(
         [PathQuery] string user_id,
         [PathQuery] string offset,
         [PathQuery] string limit,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? lang = null,
+        [PathQuery] string? lang = "zh_cn",
         [PathQuery] string[]? period_ids = null);
 
     /// <summary>
@@ -21532,7 +21527,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】查询会议室预定限制</para>
     /// <para>接口ID：7152043170151333892</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve_config/reserve_scope</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>查询会议室预定限制。</para>
     /// </summary>
     /// <param name="scope_id">
@@ -21566,7 +21561,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】更新会议室预定限制</para>
     /// <para>接口ID：7152043170151350276</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve_config/patch</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>更新会议室预定限制。</para>
     /// </summary>
     /// <param name="reserve_config_id">
@@ -21807,7 +21802,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】批量查询会议室层级详情</para>
     /// <para>接口ID：7160517356095897604</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_level/mget</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口可以使用会议室层级 ID 批量查询会议室层级详情。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -21819,7 +21814,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】搜索会议室层级</para>
     /// <para>接口ID：7160517356095913988</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_level/search</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口可以用来搜索会议室层级，支持使用自定义会议室层级 ID 进行查询。</para>
     /// </summary>
     /// <param name="custom_level_ids">
@@ -21835,7 +21830,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】查询会议室配置</para>
     /// <para>接口ID：7160517356095930372</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/scope_config/get</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口可以用来查询某个会议层级范围下或者某个会议室的配置。</para>
     /// </summary>
     /// <param name="scope_type">
@@ -21873,7 +21868,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】批量查询会议室详情</para>
     /// <para>接口ID：7160517356095946756</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/mget</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口可以使用会议室 ID 批量查询会议室详情。</para>
     /// </summary>
     /// <param name="user_id_type">
@@ -21897,7 +21892,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】更新会议室</para>
     /// <para>接口ID：7160517356095963140</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/patch</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口可以用来更新某个会议室的信息。</para>
     /// </summary>
     /// <param name="room_id">
@@ -21928,7 +21923,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】删除会议室</para>
     /// <para>接口ID：7160517356095979524</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/delete</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口可以用来删除某个会议室。</para>
     /// </summary>
     /// <param name="room_id">
@@ -21945,7 +21940,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】更新会议室层级</para>
     /// <para>接口ID：7160517356095995908</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_level/patch</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口可以用来更新某个会议室层级的信息。</para>
     /// </summary>
     /// <param name="room_level_id">
@@ -21964,7 +21959,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】设置会议室配置</para>
     /// <para>接口ID：7160517357591920643</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/scope_config/create</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口可以用来设置某个会议层级范围下或者某个会议室的配置。</para>
     /// </summary>
     /// <param name="user_id_type">
@@ -21988,7 +21983,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】创建会议室层级</para>
     /// <para>接口ID：7160517357591986179</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_level/create</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口用于创建会议室层级。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -22000,7 +21995,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】删除会议室层级</para>
     /// <para>接口ID：7160517357592002563</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_level/del</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口可以用来删除某个会议室层级。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -22012,7 +22007,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】查询会议室列表</para>
     /// <para>接口ID：7160517357592051715</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/list</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口可以用来查询某个会议室层级下会议室列表。</para>
     /// </summary>
     /// <param name="page_size">
@@ -22055,7 +22050,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】查询会议室详情</para>
     /// <para>接口ID：7160517357592068099</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/get</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口可以使用会议室 ID 查询会议室详情。</para>
     /// </summary>
     /// <param name="room_id">
@@ -22084,7 +22079,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】创建会议室</para>
     /// <para>接口ID：7160517357592084483</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/create</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口用于创建会议室。</para>
     /// </summary>
     /// <param name="user_id_type">
@@ -22108,7 +22103,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】查询会议室层级列表</para>
     /// <para>接口ID：7160517357592117251</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_level/list</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口用来查询某个会议室层级下的子层级列表。</para>
     /// </summary>
     /// <param name="room_level_id">
@@ -22138,7 +22133,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】查询会议室层级详情</para>
     /// <para>接口ID：7160517357592133635</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_level/get</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口可以使用会议室层级 ID 查询会议室层级详情。</para>
     /// </summary>
     /// <param name="room_level_id">
@@ -23383,7 +23378,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】查询会议室预定表单</para>
     /// <para>接口ID：7194790671877144578</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve_config-form/get</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>查询会议室预定表单。</para>
     /// </summary>
     /// <param name="reserve_config_id">
@@ -23418,7 +23413,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】更新会议室预定表单</para>
     /// <para>接口ID：7194790671877160962</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve_config-form/patch</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>更新会议室预定表单。</para>
     /// </summary>
     /// <param name="reserve_config_id">
@@ -23449,7 +23444,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】更新会议室预定管理员</para>
     /// <para>接口ID：7194805625628000259</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve_config-admin/patch</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>更新会议室预定管理员。</para>
     /// </summary>
     /// <param name="reserve_config_id">
@@ -23696,7 +23691,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】查询会议室预定管理员</para>
     /// <para>接口ID：7194805625628131331</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve_config-admin/get</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>查询会议室预定管理员。</para>
     /// </summary>
     /// <param name="reserve_config_id">
@@ -24710,7 +24705,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】查询禁用状态变更通知</para>
     /// <para>接口ID：7211447510368534532</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve_config-disable_inform/get</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>查询禁用状态变更通知</para>
     /// </summary>
     /// <param name="reserve_config_id">
@@ -24745,7 +24740,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】更新禁用状态变更通知</para>
     /// <para>接口ID：7211447510368550916</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve_config-disable_inform/patch</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>更新禁用状态变更通知</para>
     /// </summary>
     /// <param name="reserve_config_id">
@@ -25329,7 +25324,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="person_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>person的ID</para>
+    /// <para>个人信息 ID。该 ID 在创建个人信息时可从响应体中获取（person_id），此外你也可以调用[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口，获取指定员工的 person_id。</para>
     /// <para>示例值：12454646</para>
     /// </param>
     /// <param name="client_token">
@@ -30366,6 +30361,25 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? department_id_type = "people_corehr_department_id");
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】更新待入职信息（推荐）</para>
+    /// <para>接口ID：7357756972752715778</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/patch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新待入职对象指定字段的值</para>
+    /// </summary>
+    /// <param name="pre_hire_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>待入职ID</para>
+    /// <para>示例值：7345005664477775411</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/corehr/v2/pre_hires/{pre_hire_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PatchCorehrV2PreHiresByPreHireIdResponseDto>> PatchCorehrV2PreHiresByPreHireIdAsync(
+        [PathQuery] string pre_hire_id,
+        [JsonContent] Corehr.PatchCorehrV2PreHiresByPreHireIdBodyDto dto);
+
+    /// <summary>
     /// <para>【消息与群组】更新 URL 预览</para>
     /// <para>接口ID：7358413940747862020</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/url_preview/batch_update</para>
@@ -30376,5 +30390,63 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v2/url_previews/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse> PostImV2UrlPreviewsBatchUpdateAsync(
         [JsonContent] Im.PostImV2UrlPreviewsBatchUpdateBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】获取流程表单数据</para>
+    /// <para>接口ID：7362022982036717571</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-form_variable_data/get</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据流程实例 id（process_id）获取流程表单字段数据，包括表单里的业务字段和自定义字段。仅支持飞书人事、假勤相关业务流程。</para>
+    /// <para>注：旧版 API 文档已移动到【历史版本】目录。</para>
+    /// </summary>
+    /// <param name="process_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>流程实例 id</para>
+    /// <para>示例值：7341373094948242956</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v2/processes/{process_id}/form_variable_data")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto>> GetCorehrV2ProcessesByProcessIdFormVariableDataAsync(
+        [PathQuery] string process_id,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】删除待入职（推荐）</para>
+    /// <para>接口ID：7362022982037504003</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除待入职人员</para>
+    /// </summary>
+    /// <param name="pre_hire_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>待入职ID</para>
+    /// <para>示例值：7345005664477775407</para>
+    /// </param>
+    [HttpDelete("/open-apis/corehr/v2/pre_hires/{pre_hire_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteCorehrV2PreHiresByPreHireIdAsync(
+        [PathQuery] string pre_hire_id);
 }
 
