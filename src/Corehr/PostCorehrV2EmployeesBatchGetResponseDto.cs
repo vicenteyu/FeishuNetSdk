@@ -3366,6 +3366,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     /// </summary>
                     [JsonPropertyName("id")]
                     public string? Id { get; set; }
+
+                    /// <summary>
+                    /// <para>文件名</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：document.txt</para>
+                    /// </summary>
+                    [JsonPropertyName("name")]
+                    public string? Name { get; set; }
                 }
             }
 
@@ -3988,6 +3996,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     /// </summary>
                     [JsonPropertyName("id")]
                     public string? Id { get; set; }
+
+                    /// <summary>
+                    /// <para>文件名</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：document.txt</para>
+                    /// </summary>
+                    [JsonPropertyName("name")]
+                    public string? Name { get; set; }
                 }
             }
 

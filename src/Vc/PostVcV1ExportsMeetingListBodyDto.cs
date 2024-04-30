@@ -31,6 +31,7 @@ public record PostVcV1ExportsMeetingListBodyDto
     /// <para>可选值：<list type="bullet">
     /// <item>1：进行中</item>
     /// <item>2：已结束</item>
+    /// <item>3：待召开</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("meeting_status")]
@@ -59,4 +60,17 @@ public record PostVcV1ExportsMeetingListBodyDto
     /// </summary>
     [JsonPropertyName("room_id")]
     public string? RoomId { get; set; }
+
+    /// <summary>
+    /// <para>按会议类型筛选（最多一个筛选条件）</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：2</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>1：全部类型（默认）</item>
+    /// <item>2：视频会议</item>
+    /// <item>3：本地投屏</item>
+    /// </list></para>
+    /// </summary>
+    [JsonPropertyName("meeting_type")]
+    public int? MeetingType { get; set; }
 }

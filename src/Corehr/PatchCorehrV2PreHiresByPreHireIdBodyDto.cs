@@ -21,14 +21,14 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
     public record PatchCorehrV2PreHiresByPreHireIdBodyDtoBasicInfoUpdate
     {
         /// <summary>
-        /// <para>姓名,该值是一个list，会全量更新。若未传递的字段原本有值，将同步清空</para>
+        /// <para>姓名,该值是一个list，会全量更新。即使只更新 list 中的某一个元素，也需要把其它元素都完整传值，否则将丢失数据。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("names")]
         public NameForUpdate[]? Names { get; set; }
 
         /// <summary>
-        /// <para>姓名,该值是一个list，会全量更新。若未传递的字段原本有值，将同步清空</para>
+        /// <para>姓名,该值是一个list，会全量更新。即使只更新 list 中的某一个元素，也需要把其它元素都完整传值，否则将丢失数据。</para>
         /// </summary>
         public record NameForUpdate
         {
@@ -126,24 +126,24 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         }
 
         /// <summary>
-        /// <para>电话,该值是一个list，会全量更新。若未传递的字段原本有值，将同步清空</para>
+        /// <para>电话,该值是一个list，会全量更新。即使只更新 list 中的某一个元素，也需要把其它元素都完整传值，否则将丢失数据。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("phones")]
         public PhoneForUpdate[]? Phones { get; set; }
 
         /// <summary>
-        /// <para>电话,该值是一个list，会全量更新。若未传递的字段原本有值，将同步清空</para>
+        /// <para>电话,该值是一个list，会全量更新。即使只更新 list 中的某一个元素，也需要把其它元素都完整传值，否则将丢失数据。</para>
         /// </summary>
         public record PhoneForUpdate
         {
             /// <summary>
             /// <para>国家区号,枚举值</para>
-            /// <para>必填：否</para>
+            /// <para>必填：是</para>
             /// <para>示例值：86_china</para>
             /// </summary>
             [JsonPropertyName("international_area_code")]
-            public string? InternationalAreaCode { get; set; }
+            public string InternationalAreaCode { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>电话号码</para>
@@ -158,11 +158,11 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <para>- mobile_phone：手机</para>
             /// <para>- landline：座机</para>
             /// <para>- fax：传真</para>
-            /// <para>必填：否</para>
+            /// <para>必填：是</para>
             /// <para>示例值：mobile_phone</para>
             /// </summary>
             [JsonPropertyName("device_type")]
-            public string? DeviceType { get; set; }
+            public string DeviceType { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>电话用途,枚举值</para>
@@ -170,11 +170,11 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <para>- home：家庭</para>
             /// <para>- emergency_contact：紧急联系人</para>
             /// <para>- company：公司</para>
-            /// <para>必填：否</para>
+            /// <para>必填：是</para>
             /// <para>示例值：work</para>
             /// </summary>
             [JsonPropertyName("phone_usage")]
-            public string? PhoneUsage { get; set; }
+            public string PhoneUsage { get; set; } = string.Empty;
 
             /// <summary>
             /// <para>主要电话,若有多个电话，只能有一个电话的「is_primary」为true</para>
@@ -194,14 +194,14 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         }
 
         /// <summary>
-        /// <para>邮箱,该值是一个list，会全量更新。若未传递的字段原本有值，将同步清空</para>
+        /// <para>邮箱,该值是一个list，会全量更新。即使只更新 list 中的某一个元素，也需要把其它元素都完整传值，否则将丢失数据。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("emails")]
         public EmailForUpdate[]? Emails { get; set; }
 
         /// <summary>
-        /// <para>邮箱,该值是一个list，会全量更新。若未传递的字段原本有值，将同步清空</para>
+        /// <para>邮箱,该值是一个list，会全量更新。即使只更新 list 中的某一个元素，也需要把其它元素都完整传值，否则将丢失数据。</para>
         /// </summary>
         public record EmailForUpdate
         {
@@ -231,11 +231,11 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
 
             /// <summary>
             /// <para>邮箱用途，枚举值可通过文档[枚举常量介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)获得</para>
-            /// <para>必填：否</para>
+            /// <para>必填：是</para>
             /// <para>示例值：work</para>
             /// </summary>
             [JsonPropertyName("email_usage")]
-            public string? EmailUsage { get; set; }
+            public string EmailUsage { get; set; } = string.Empty;
         }
     }
 
@@ -320,14 +320,14 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public string? OnboardingMethod { get; set; }
 
         /// <summary>
-        /// <para>工作邮箱</para>
+        /// <para>工作邮箱，该值是一个list，会全量更新。即使只更新 list 中的某一个元素，也需要把其它元素都完整传值，否则将丢失数据。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("work_emails")]
         public EmailForUpdate[]? WorkEmails { get; set; }
 
         /// <summary>
-        /// <para>工作邮箱</para>
+        /// <para>工作邮箱，该值是一个list，会全量更新。即使只更新 list 中的某一个元素，也需要把其它元素都完整传值，否则将丢失数据。</para>
         /// </summary>
         public record EmailForUpdate
         {
@@ -357,11 +357,11 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
 
             /// <summary>
             /// <para>邮箱用途，枚举值可通过[枚举常量介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)获得</para>
-            /// <para>必填：否</para>
+            /// <para>必填：是</para>
             /// <para>示例值：work</para>
             /// </summary>
             [JsonPropertyName("email_usage")]
-            public string? EmailUsage { get; set; }
+            public string EmailUsage { get; set; } = string.Empty;
         }
 
         /// <summary>
@@ -414,9 +414,9 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])</para>
+            /// <para>字段值，该值是一个 string list 经转义后的字符串，具体参考请求体示例</para>
             /// <para>必填：是</para>
-            /// <para>示例值：Sandy</para>
+            /// <para>示例值：[\"Sandy\"]</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -425,9 +425,9 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
 
     /// <summary>
     /// <para>指定需要更新的系统字段，只支持最多下钻一层，格式如下：</para>
-    /// <para>- basic_info_update字段：basic_info_update.name（对name整体进行覆盖更新）；basic_info_update.emails（对邮箱整体进行更新）</para>
+    /// <para>- basic_info_update字段：basic_info_update.names（对name整体进行覆盖更新）；basic_info_update.emails（对邮箱整体进行更新）</para>
     /// <para>- offer_info_update字段：offer_info_update.onboarding_method</para>
-    /// <para>- 招聘ID：ats_application_id</para>
+    /// <para>注意，如果指定了要更新的系统字段但是没有在结构体中传对应的值，那么就会清空该字段的值</para>
     /// <para>必填：否</para>
     /// <para>示例值：\["basic_info_update.names","offer_info_update.onboarding_method"\]</para>
     /// </summary>
@@ -437,6 +437,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
     /// <summary>
     /// <para>指定需要更新的PreHire对象上的自定义字段，格式如下：</para>
     /// <para>- custom_field1__c</para>
+    /// <para>注意，如果指定了要更新的自定义字段但是没有在结构体中传对应的值，那么就会清空该字段的值</para>
     /// <para>必填：否</para>
     /// <para>示例值：\["custom_field1__c","custom_field2__c"\]</para>
     /// </summary>

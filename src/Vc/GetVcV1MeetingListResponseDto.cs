@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 查询会议明细 响应体
-/// <para>查询会议明细，具体权限要求请参考「资源介绍」，支持查询最近半年的数据。</para>
+/// <para>查询会议明细，具体权限要求请参考[资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-room-data/resource-introduction)</para>
 /// <para>接口ID：7194805625628033027</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/meeting-room-data/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fmeeting_list%2fget</para>
@@ -35,6 +35,19 @@ public record GetVcV1MeetingListResponseDto
         /// </summary>
         [JsonPropertyName("meeting_topic")]
         public string? MeetingTopic { get; set; }
+
+        /// <summary>
+        /// <para>会议类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：全部类型（默认）</item>
+        /// <item>2：视频会议</item>
+        /// <item>3：本地投屏</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("meeting_type")]
+        public int? MeetingType { get; set; }
 
         /// <summary>
         /// <para>组织者</para>
@@ -117,6 +130,14 @@ public record GetVcV1MeetingListResponseDto
         public string? NumberOfParticipants { get; set; }
 
         /// <summary>
+        /// <para>累计入会设备数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("number_of_devices")]
+        public string? NumberOfDevices { get; set; }
+
+        /// <summary>
         /// <para>音频</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
@@ -155,6 +176,43 @@ public record GetVcV1MeetingListResponseDto
         /// </summary>
         [JsonPropertyName("telephone")]
         public bool? Telephone { get; set; }
+
+        /// <summary>
+        /// <para>关联会议室列表</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("reserved_rooms")]
+        public ReservedRoom[]? ReservedRooms { get; set; }
+
+        /// <summary>
+        /// <para>关联会议室列表</para>
+        /// </summary>
+        public record ReservedRoom
+        {
+            /// <summary>
+            /// <para>会议室ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：omm_12381298739</para>
+            /// </summary>
+            [JsonPropertyName("room_id")]
+            public string? RoomId { get; set; }
+
+            /// <summary>
+            /// <para>会议室名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：room123</para>
+            /// </summary>
+            [JsonPropertyName("room_name")]
+            public string? RoomName { get; set; }
+        }
+
+        /// <summary>
+        /// <para>是否有关联文档和纪要</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("has_related_document")]
+        public bool? HasRelatedDocument { get; set; }
     }
 
     /// <summary>

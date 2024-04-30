@@ -228,7 +228,7 @@ public record PostImV2AppFeedCardBodyDto
                 /// <para>示例值：{"foo": "bar"}</para>
                 /// </summary>
                 [JsonPropertyName("action_map")]
-                public object? ActionMap { get; set; }
+                public Dictionary<string, string>? ActionMap { get; set; }
             }
         }
 

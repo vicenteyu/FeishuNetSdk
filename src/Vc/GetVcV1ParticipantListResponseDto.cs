@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 查询参会人明细 响应体
-/// <para>查询参会人明细，具体权限要求请参考「资源介绍」，支持查询最近半年的数据。</para>
+/// <para>查询参会人明细，具体权限要求请参考[资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-room-data/resource-introduction)</para>
 /// <para>接口ID：7194805625628147715</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/meeting-room-data/get-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fparticipant_list%2fget</para>
@@ -221,6 +221,20 @@ public record GetVcV1ParticipantListResponseDto
         /// </summary>
         [JsonPropertyName("leave_reason")]
         public string? LeaveReason { get; set; }
+
+        /// <summary>
+        /// <para>日程响应状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：接受</item>
+        /// <item>2：拒绝</item>
+        /// <item>3：待确认</item>
+        /// <item>4：未响应</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("accept_status")]
+        public int? AcceptStatus { get; set; }
     }
 
     /// <summary>

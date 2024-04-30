@@ -9,7 +9,7 @@ namespace FeishuNetSdk.Vc;
 public record PostVcV1ExportsParticipantListBodyDto
 {
     /// <summary>
-    /// <para>会议开始时间（需要精确到一分钟，unix时间，单位sec）</para>
+    /// <para>会议开始时间（unix时间，单位sec）</para>
     /// <para>必填：是</para>
     /// <para>示例值：1655276858</para>
     /// </summary>
@@ -17,7 +17,7 @@ public record PostVcV1ExportsParticipantListBodyDto
     public string MeetingStartTime { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>会议结束时间（unix时间，单位sec）</para>
+    /// <para>会议结束时间（unix时间，单位sec，若是进行中会议可填当前时间，否则填准确的会议结束时间）</para>
     /// <para>必填：是</para>
     /// <para>示例值：1655276858</para>
     /// </summary>
@@ -31,6 +31,7 @@ public record PostVcV1ExportsParticipantListBodyDto
     /// <para>可选值：<list type="bullet">
     /// <item>1：进行中</item>
     /// <item>2：已结束</item>
+    /// <item>3：待召开</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("meeting_status")]

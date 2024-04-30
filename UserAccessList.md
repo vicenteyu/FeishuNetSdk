@@ -407,9 +407,9 @@
 <tr><td colspan="3">GetVcV1MeetingsByMeetingIdRecording</td></tr>
 <tr><td rowspan="2">204</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>视频会议</td><td>授权录制文件</td></tr>
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdRecordingSetPermission</td></tr>
-<tr><td rowspan="2">205</td><td rowspan="2">2023-12-12</td><td>&#10003;</td><td>视频会议</td><td>导出会议明细</td></tr>
+<tr><td rowspan="2">205</td><td rowspan="2">2024-04-29</td><td>&#10003;</td><td>视频会议</td><td>导出会议明细</td></tr>
 <tr><td colspan="3">PostVcV1ExportsMeetingList</td></tr>
-<tr><td rowspan="2">206</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>视频会议</td><td>导出参会人明细</td></tr>
+<tr><td rowspan="2">206</td><td rowspan="2">2024-04-29</td><td>&#10003;</td><td>视频会议</td><td>导出参会人明细</td></tr>
 <tr><td colspan="3">PostVcV1ExportsParticipantList</td></tr>
 <tr><td rowspan="2">207</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>视频会议</td><td>导出参会人会议质量数据</td></tr>
 <tr><td colspan="3">PostVcV1ExportsParticipantQualityList</td></tr>
@@ -475,9 +475,9 @@
 <tr><td colspan="3">GetVcV1ReserveConfigsByReserveConfigIdDisableInform</td></tr>
 <tr><td rowspan="2">238</td><td rowspan="2">2023-08-29</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>更新禁用状态变更通知</td></tr>
 <tr><td colspan="3">PatchVcV1ReserveConfigsByReserveConfigIdDisableInform</td></tr>
-<tr><td rowspan="2">239</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>视频会议</td><td>查询会议明细</td></tr>
+<tr><td rowspan="2">239</td><td rowspan="2">2024-04-29</td><td>&#10003;</td><td>视频会议</td><td>查询会议明细</td></tr>
 <tr><td colspan="3">GetVcV1MeetingList</td></tr>
-<tr><td rowspan="2">240</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>视频会议</td><td>查询参会人明细</td></tr>
+<tr><td rowspan="2">240</td><td rowspan="2">2024-04-29</td><td>&#10003;</td><td>视频会议</td><td>查询参会人明细</td></tr>
 <tr><td colspan="3">GetVcV1ParticipantList</td></tr>
 <tr><td rowspan="2">241</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>视频会议</td><td>查询参会人会议质量数据</td></tr>
 <tr><td colspan="3">GetVcV1ParticipantQualityList</td></tr>
@@ -991,26 +991,26 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
 <tr><td rowspan="2">496</td><td rowspan="2">2024-02-27</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
-<tr><td rowspan="2">497</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>获取消息</td></tr>
+<tr><td rowspan="2">497</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>获取消息</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdMessagesByAilyMessageId</td></tr>
-<tr><td rowspan="2">498</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>列出消息</td></tr>
+<tr><td rowspan="2">498</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>列出消息</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdMessages</td></tr>
-<tr><td rowspan="2">499</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>创建运行</td></tr>
+<tr><td rowspan="2">499</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>创建运行</td></tr>
 <tr><td colspan="3">PostAilyV1SessionsByAilySessionIdRuns</td></tr>
-<tr><td rowspan="2">500</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>列出运行</td></tr>
+<tr><td rowspan="2">500</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>列出运行</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdRuns</td></tr>
-<tr><td rowspan="2">501</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>取消运行</td></tr>
+<tr><td rowspan="2">501</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>取消运行</td></tr>
 <tr><td colspan="3">PostAilyV1SessionsByAilySessionIdRunsByRunIdCancel</td></tr>
-<tr><td rowspan="2">502</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>更新会话</td></tr>
+<tr><td rowspan="2">502</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>更新会话</td></tr>
 <tr><td colspan="3">PutAilyV1SessionsByAilySessionId</td></tr>
-<tr><td rowspan="2">503</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>获取会话</td></tr>
+<tr><td rowspan="2">503</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>获取会话</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionId</td></tr>
-<tr><td rowspan="2">504</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>删除会话</td></tr>
+<tr><td rowspan="2">504</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>删除会话</td></tr>
 <tr><td colspan="3">DeleteAilyV1SessionsByAilySessionId</td></tr>
-<tr><td rowspan="2">505</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>发送消息</td></tr>
+<tr><td rowspan="2">505</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>发送消息</td></tr>
 <tr><td colspan="3">PostAilyV1SessionsByAilySessionIdMessages</td></tr>
-<tr><td rowspan="2">506</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>获取运行</td></tr>
+<tr><td rowspan="2">506</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>获取运行</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdRunsByRunId</td></tr>
-<tr><td rowspan="2">507</td><td rowspan="2">2024-04-25</td><td>新增</td><td>智能伙伴创建平台</td><td>创建会话</td></tr>
+<tr><td rowspan="2">507</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>创建会话</td></tr>
 <tr><td colspan="3">PostAilyV1Sessions</td></tr>
 </tbody></table>

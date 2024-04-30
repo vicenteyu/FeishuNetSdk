@@ -29,7 +29,7 @@ public interface IFeishuAppApi : IHttpApi
     /// <para>【身份验证】JSAPI 临时授权凭证</para>
     /// <para>接口ID：6911312738021720065</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/h5_js_sdk/authorization</para>
-    /// <para>Authorization：tenant_access_token、user_access_token、app_access_token</para>
+    /// <para>Authorization：app_access_token、tenant_access_token、user_access_token</para>
     /// <para>该接口用于返回调用 JSAPI 临时调用凭证，使用该凭证，在调用 JSAPI 时，请求不会被拦截</para>
     /// </summary>
     [HttpPost("/open-apis/jssdk/ticket/get")]
