@@ -79,10 +79,10 @@ public record GetCorehrV1LocationsResponseDto
 
             /// <summary>
             /// <para>类型</para>
-            /// <para>必填：是</para>
+            /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("type")]
-            public Enum Type { get; set; } = new();
+            public Enum? Type { get; set; }
 
             /// <summary>
             /// <para>类型</para>
@@ -331,6 +331,78 @@ public record GetCorehrV1LocationsResponseDto
             public string? DistinctId { get; set; }
 
             /// <summary>
+            /// <para>地址行 1</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：丹佛测试地址-纽埃时区</para>
+            /// </summary>
+            [JsonPropertyName("address_line1")]
+            public string? AddressLine1 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 2</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：PoewH</para>
+            /// </summary>
+            [JsonPropertyName("address_line2")]
+            public string? AddressLine2 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 3</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：PoewH</para>
+            /// </summary>
+            [JsonPropertyName("address_line3")]
+            public string? AddressLine3 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 4</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line4")]
+            public string? AddressLine4 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 5</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line5")]
+            public string? AddressLine5 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 6</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line6")]
+            public string? AddressLine6 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 7</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line7")]
+            public string? AddressLine7 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 8</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：rafSu</para>
+            /// </summary>
+            [JsonPropertyName("address_line8")]
+            public string? AddressLine8 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 9</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：McPRG</para>
+            /// </summary>
+            [JsonPropertyName("address_line9")]
+            public string? AddressLine9 { get; set; }
+
+            /// <summary>
             /// <para>地址行 1（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
             /// <para>示例值：丹佛测试地址-纽埃时区</para>
@@ -341,7 +413,7 @@ public record GetCorehrV1LocationsResponseDto
             /// <summary>
             /// <para>地址行 2（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：PoewH</para>
+            /// <para>示例值：New York</para>
             /// </summary>
             [JsonPropertyName("local_address_line2")]
             public string? LocalAddressLine2 { get; set; }
@@ -349,7 +421,7 @@ public record GetCorehrV1LocationsResponseDto
             /// <summary>
             /// <para>地址行 3（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：PoewH</para>
+            /// <para>示例值：New York</para>
             /// </summary>
             [JsonPropertyName("local_address_line3")]
             public string? LocalAddressLine3 { get; set; }
@@ -357,7 +429,7 @@ public record GetCorehrV1LocationsResponseDto
             /// <summary>
             /// <para>地址行 4（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
+            /// <para>示例值：New York</para>
             /// </summary>
             [JsonPropertyName("local_address_line4")]
             public string? LocalAddressLine4 { get; set; }
@@ -365,7 +437,7 @@ public record GetCorehrV1LocationsResponseDto
             /// <summary>
             /// <para>地址行 5（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
+            /// <para>示例值：New York</para>
             /// </summary>
             [JsonPropertyName("local_address_line5")]
             public string? LocalAddressLine5 { get; set; }
@@ -373,7 +445,7 @@ public record GetCorehrV1LocationsResponseDto
             /// <summary>
             /// <para>地址行 6（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
+            /// <para>示例值：New York</para>
             /// </summary>
             [JsonPropertyName("local_address_line6")]
             public string? LocalAddressLine6 { get; set; }
@@ -381,7 +453,7 @@ public record GetCorehrV1LocationsResponseDto
             /// <summary>
             /// <para>地址行 7（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
+            /// <para>示例值：New York</para>
             /// </summary>
             [JsonPropertyName("local_address_line7")]
             public string? LocalAddressLine7 { get; set; }
@@ -389,7 +461,7 @@ public record GetCorehrV1LocationsResponseDto
             /// <summary>
             /// <para>地址行 8（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：rafSu</para>
+            /// <para>示例值：New York</para>
             /// </summary>
             [JsonPropertyName("local_address_line8")]
             public string? LocalAddressLine8 { get; set; }
@@ -397,7 +469,7 @@ public record GetCorehrV1LocationsResponseDto
             /// <summary>
             /// <para>地址行 9（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：McPRG</para>
+            /// <para>示例值：New York</para>
             /// </summary>
             [JsonPropertyName("local_address_line9")]
             public string? LocalAddressLine9 { get; set; }

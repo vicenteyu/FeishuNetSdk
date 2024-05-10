@@ -11,6 +11,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDe
     /// <summary>
     /// <para>需要删除的参与人 ID 列表。</para>
     /// <para>添加日程参与人时，会返回参与人 ID（attendee_id），你也可以调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)接口，查询指定日程的参与人 ID。</para>
+    /// <para>- 一次最多删除500个参与人（与delete_ids一起计算）</para>
     /// <para>必填：否</para>
     /// <para>示例值：["user_xxxxx", "chat_xxxxx", "resource_xxxxx", "third_party_xxxxx"]</para>
     /// </summary>
@@ -19,6 +20,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDe
 
     /// <summary>
     /// <para>参与人类型对应的 ID，该 ID 是 attendee_ids 字段的补充字段。</para>
+    /// <para>- 一次最多删除500个参与人（与attendee_ids一起计算）</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("delete_ids")]
@@ -26,6 +28,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDe
 
     /// <summary>
     /// <para>参与人类型对应的 ID，该 ID 是 attendee_ids 字段的补充字段。</para>
+    /// <para>- 一次最多删除500个参与人（与attendee_ids一起计算）</para>
     /// </summary>
     public record CalendarEventAttendeeId
     {

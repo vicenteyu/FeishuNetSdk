@@ -55,14 +55,14 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto
         public bool? Hidden { get; set; }
 
         /// <summary>
-        /// <para>单元格属性</para>
+        /// <para>单元格属性，仅当 `resource_type=sheet` 时返回</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("grid_properties")]
         public SheetGridProperties? GridProperties { get; set; }
 
         /// <summary>
-        /// <para>单元格属性</para>
+        /// <para>单元格属性，仅当 `resource_type=sheet` 时返回</para>
         /// </summary>
         public record SheetGridProperties
         {

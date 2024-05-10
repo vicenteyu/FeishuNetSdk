@@ -557,8 +557,7 @@ public record PatchCorehrV1CompaniesByCompanyIdResponseDto
         public record Address
         {
             /// <summary>
-            /// <para>国家 / 地区 ID。若选择中国大陆、中国香港、中国澳门，则需要指定主要行政区（中国大陆为省份）、城市、区/县（中国香港为地区） ；</para>
-            /// <para>若选择中国台湾，则需要指定主要行政区（中国台湾为省/地区）、城市、区/县（中国台湾为区）.可通过</para>
+            /// <para>国家 / 地区 ID。各国家/地区填写字段可参考[地址填写规则](https://bytedance.larkoffice.com/wiki/GoL4wAKAXis3OWku72YcEjTxnKe?sheet=0sMjoP)查询.可通过</para>
             /// <para>[请求接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)查询获取。</para>
             /// <para>必填：是</para>
             /// <para>示例值：6862995757234914824</para>
@@ -592,6 +591,78 @@ public record PatchCorehrV1CompaniesByCompanyIdResponseDto
             /// </summary>
             [JsonPropertyName("distinct_id")]
             public string? DistinctId { get; set; }
+
+            /// <summary>
+            /// <para>地址行 1</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：丹佛测试地址-纽埃时区</para>
+            /// </summary>
+            [JsonPropertyName("address_line1")]
+            public string? AddressLine1 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 2</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：PoewH</para>
+            /// </summary>
+            [JsonPropertyName("address_line2")]
+            public string? AddressLine2 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 3</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：PoewH</para>
+            /// </summary>
+            [JsonPropertyName("address_line3")]
+            public string? AddressLine3 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 4</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line4")]
+            public string? AddressLine4 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 5</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line5")]
+            public string? AddressLine5 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 6</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line6")]
+            public string? AddressLine6 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 7</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line7")]
+            public string? AddressLine7 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 8</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：rafSu</para>
+            /// </summary>
+            [JsonPropertyName("address_line8")]
+            public string? AddressLine8 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 9</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：McPRG</para>
+            /// </summary>
+            [JsonPropertyName("address_line9")]
+            public string? AddressLine9 { get; set; }
 
             /// <summary>
             /// <para>地址行 1（非拉丁语系的本地文字）</para>

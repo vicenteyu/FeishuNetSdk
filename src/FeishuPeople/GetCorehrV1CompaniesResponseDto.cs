@@ -527,18 +527,46 @@ public record GetCorehrV1CompaniesResponseDto
         public PhoneNumberAndAreaCode? Fax { get; set; }
 
         /// <summary>
-        /// <para>注册地址</para>
+        /// <para>完整注册地址</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("registered_office_address")]
         public I18n[]? RegisteredOfficeAddress { get; set; }
 
         /// <summary>
-        /// <para>办公地址</para>
+        /// <para>完整办公地址</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("office_address")]
         public I18n[]? OfficeAddress { get; set; }
+
+        /// <summary>
+        /// <para>注册地址详细信息</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("registered_office_address_info")]
+        public Address? RegisteredOfficeAddressInfo { get; set; }
+
+        /// <summary>
+        /// <para>注册地址详细信息</para>
+        /// </summary>
+        public record Address
+        {
+            /// <summary>
+            /// <para>邮政编码</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：611530</para>
+            /// </summary>
+            [JsonPropertyName("postal_code")]
+            public string? PostalCode { get; set; }
+        }
+
+        /// <summary>
+        /// <para>办公地址详细信息</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("office_address_info")]
+        public Address? OfficeAddressInfo { get; set; }
     }
 
     /// <summary>

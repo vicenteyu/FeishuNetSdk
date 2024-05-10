@@ -20481,16 +20481,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)</para>
-    /// <para>**示例值**："shtxxxxxxxxxxxxxxx"</para>
+    /// <para>示例值：shtxxxxxxxxxxxxxxx</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)</para>
-    /// <para>**示例值**："giDk9k"</para>
+    /// <para>示例值：giDk9k</para>
     /// </param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdAsync(
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id);
 
@@ -20880,7 +20880,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="page_token">
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</para>
+    /// <para>示例值：`{"eu_nc":"[\"6994333322503669260\"]"}`</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
@@ -20978,7 +20978,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="page_token">
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</para>
+    /// <para>示例值：[1712932008000,"7356863257632491046"]</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
@@ -29421,6 +29421,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -30509,29 +30510,31 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
-    /// <para>示例值：open_id</para>
+    /// <para>示例值：people_corehr_id</para>
     /// <list type="bullet">
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
     /// </list>
-    /// <para>默认值：open_id</para>
+    /// <para>默认值：people_corehr_id</para>
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
     /// <para>此次调用中使用的部门 ID 类型</para>
-    /// <para>示例值：open_department_id</para>
+    /// <para>示例值：people_corehr_department_id</para>
     /// <list type="bullet">
     /// <item>open_department_id：以 open_department_id 来标识部门</item>
     /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 department_id 来标识部门</item>
     /// </list>
-    /// <para>默认值：open_department_id</para>
+    /// <para>默认值：people_corehr_department_id</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v2/processes/{process_id}/form_variable_data")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto>> GetCorehrV2ProcessesByProcessIdFormVariableDataAsync(
         [PathQuery] string process_id,
-        [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? user_id_type = "people_corehr_id",
+        [PathQuery] string? department_id_type = "people_corehr_department_id");
 
     /// <summary>
     /// <para>【飞书人事（企业版）】删除待入职（推荐）</para>

@@ -42,14 +42,14 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto
     public bool? NeedNotification { get; set; }
 
     /// <summary>
-    /// <para>日程开始时间。不传值则表示不更新该字段。</para>
+    /// <para>日程开始时间。需要与end_time同时有值才会生效。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("start_time")]
     public TimeInfo? StartTime { get; set; }
 
     /// <summary>
-    /// <para>日程开始时间。不传值则表示不更新该字段。</para>
+    /// <para>日程开始时间。需要与end_time同时有值才会生效。</para>
     /// </summary>
     public record TimeInfo
     {
@@ -83,7 +83,7 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto
     }
 
     /// <summary>
-    /// <para>日程结束时间。不传值则表示不更新该字段。</para>
+    /// <para>日程结束时间。需要与start_time同时有值才会生效。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("end_time")]
