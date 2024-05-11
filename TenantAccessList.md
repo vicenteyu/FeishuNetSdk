@@ -13,7 +13,7 @@
 <tr><td colspan="3">PutImV1ChatsByChatIdModeration</td></tr>
 <tr><td rowspan="2">7</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>消息与群组</td><td>获取群信息</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatId</td></tr>
-<tr><td rowspan="2">8</td><td rowspan="2">2023-07-12</td><td>&#10003;</td><td>消息与群组</td><td>更新群置顶</td></tr>
+<tr><td rowspan="2">8</td><td rowspan="2">2024-05-11</td><td>&#10003;</td><td>消息与群组</td><td>更新群置顶</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdTopNoticePutTopNotice</td></tr>
 <tr><td rowspan="2">9</td><td rowspan="2">2023-07-12</td><td>&#10003;</td><td>消息与群组</td><td>撤销群置顶</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdTopNoticeDeleteTopNotice</td></tr>
@@ -447,7 +447,7 @@
 <tr><td colspan="3">PutWikiV2SpacesBySpaceIdSetting</td></tr>
 <tr><td rowspan="2">224</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>通讯录</td><td>创建用户</td></tr>
 <tr><td colspan="3">PostContactV3Users</td></tr>
-<tr><td rowspan="2">225</td><td rowspan="2">2023-11-13</td><td>&#10003;</td><td>通讯录</td><td>获取子部门列表</td></tr>
+<tr><td rowspan="2">225</td><td rowspan="2">2024-05-11</td><td>&#10003;</td><td>通讯录</td><td>获取子部门列表</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsByDepartmentIdChildren</td></tr>
 <tr><td rowspan="2">226</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>创建知识空间节点</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodes</td></tr>
@@ -1339,7 +1339,7 @@
 <tr><td colspan="3">PutImV1MessagesByMessageId</td></tr>
 <tr><td rowspan="2">670</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>批量查询货币信息</td></tr>
 <tr><td colspan="3">GetCorehrV1Currencies</td></tr>
-<tr><td rowspan="2">671</td><td rowspan="2">2024-04-29</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询员工信息</td></tr>
+<tr><td rowspan="2">671</td><td rowspan="2">2024-05-11</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询员工信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesBatchGet</td></tr>
 <tr><td rowspan="2">672</td><td rowspan="2">2024-04-29</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesSearch</td></tr>
@@ -1349,9 +1349,9 @@
 <tr><td colspan="3">PatchCorehrV1EmploymentsByEmploymentId</td></tr>
 <tr><td rowspan="2">675</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事</td><td>删除雇佣信息</td></tr>
 <tr><td colspan="3">DeleteCorehrV1EmploymentsByEmploymentId</td></tr>
-<tr><td rowspan="2">676</td><td rowspan="2">2023-12-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>创建个人信息（V2）</td></tr>
+<tr><td rowspan="2">676</td><td rowspan="2">2024-05-11</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>创建个人信息</td></tr>
 <tr><td colspan="3">PostCorehrV2Persons</td></tr>
-<tr><td rowspan="2">677</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>更新个人信息（V2）</td></tr>
+<tr><td rowspan="2">677</td><td rowspan="2">2024-05-11</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>更新个人信息</td></tr>
 <tr><td colspan="3">PatchCorehrV2PersonsByPersonId</td></tr>
 <tr><td rowspan="2">678</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事</td><td>删除个人信息</td></tr>
 <tr><td colspan="3">DeleteCorehrV1PersonsByPersonId</td></tr>
@@ -1531,7 +1531,7 @@
 <tr><td colspan="3">GetCorehrV1SecurityGroups</td></tr>
 <tr><td rowspan="2">766</td><td rowspan="2">2024-04-26</td><td>&#10003;</td><td>飞书人事</td><td>获取流程表单数据</td></tr>
 <tr><td colspan="3">GetCorehrV1ProcessesByProcessIdFormVariableData</td></tr>
-<tr><td rowspan="2">767</td><td rowspan="2">2023-10-17</td><td>&#10003;</td><td>飞书人事</td><td>获取员工薪资标准</td></tr>
+<tr><td rowspan="2">767</td><td rowspan="2">2024-05-11</td><td>&#10003;</td><td>飞书人事</td><td>获取员工薪资标准</td></tr>
 <tr><td colspan="3">GetCorehrV1CompensationStandardsMatch</td></tr>
 <tr><td rowspan="2">768</td><td rowspan="2">2023-10-11</td><td>&#10003;</td><td>消息与群组</td><td>发送短信加急</td></tr>
 <tr><td colspan="3">PatchImV1MessagesByMessageIdUrgentSms</td></tr>
@@ -1579,7 +1579,7 @@
 <tr><td colspan="3">PutHireV1ExternalApplicationsByExternalApplicationId</td></tr>
 <tr><td rowspan="2">790</td><td rowspan="2">2024-04-28</td><td>&#10003;</td><td>招聘</td><td>删除外部投递</td></tr>
 <tr><td colspan="3">DeleteHireV1ExternalApplicationsByExternalApplicationId</td></tr>
-<tr><td rowspan="2">791</td><td rowspan="2">2024-04-28</td><td>&#10003;</td><td>消息与群组</td><td>批量发送消息</td></tr>
+<tr><td rowspan="2">791</td><td rowspan="2">2024-05-11</td><td>&#10003;</td><td>消息与群组</td><td>批量发送消息</td></tr>
 <tr><td colspan="3">PostMessageV4BatchSend</td></tr>
 <tr><td rowspan="2">792</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>创建外部面试</td></tr>
 <tr><td colspan="3">PostHireV1ExternalInterviews</td></tr>
@@ -2109,4 +2109,22 @@
 <tr><td colspan="3">DeleteCorehrV2PreHiresByPreHireId</td></tr>
 <tr><td rowspan="2">1055</td><td rowspan="2">2024-04-28</td><td>&#10003;</td><td>飞书人事</td><td>ID 转换</td></tr>
 <tr><td colspan="3">PostCorehrV1CommonDataIdConvert</td></tr>
+<tr><td rowspan="2">1056</td><td rowspan="2">2024-05-11</td><td>新增</td><td>飞书人事</td><td>创建个人信息</td></tr>
+<tr><td colspan="3">PostCorehrV1Persons</td></tr>
+<tr><td rowspan="2">1057</td><td rowspan="2">2024-05-11</td><td>新增</td><td>飞书人事</td><td>更新个人信息</td></tr>
+<tr><td colspan="3">PatchCorehrV1PersonsByPersonId</td></tr>
+<tr><td rowspan="2">1058</td><td rowspan="2">2024-05-11</td><td>新增</td><td>薪酬管理</td><td>批量查询定调薪原因</td></tr>
+<tr><td colspan="3">GetCompensationV1ChangeReasons</td></tr>
+<tr><td rowspan="2">1059</td><td rowspan="2">2024-05-11</td><td>新增</td><td>薪酬管理</td><td>批量查询员工薪资档案</td></tr>
+<tr><td colspan="3">PostCompensationV1ArchivesQuery</td></tr>
+<tr><td rowspan="2">1060</td><td rowspan="2">2024-05-11</td><td>新增</td><td>薪酬管理</td><td>批量获取薪资项分类信息</td></tr>
+<tr><td colspan="3">GetCompensationV1ItemCategories</td></tr>
+<tr><td rowspan="2">1061</td><td rowspan="2">2024-05-11</td><td>新增</td><td>薪酬管理</td><td>批量查询薪资项</td></tr>
+<tr><td colspan="3">GetCompensationV1Items</td></tr>
+<tr><td rowspan="2">1062</td><td rowspan="2">2024-05-11</td><td>新增</td><td>薪酬管理</td><td>批量查询薪资统计指标</td></tr>
+<tr><td colspan="3">GetCompensationV1Indicators</td></tr>
+<tr><td rowspan="2">1063</td><td rowspan="2">2024-05-11</td><td>新增</td><td>薪酬管理</td><td>批量查询薪资方案</td></tr>
+<tr><td colspan="3">GetCompensationV1Plans</td></tr>
+<tr><td rowspan="2">1064</td><td rowspan="2">2024-05-11</td><td>新增</td><td>飞书人事（企业版）</td><td>查询职等</td></tr>
+<tr><td colspan="3">PostCorehrV2JobGradesQuery</td></tr>
 </tbody></table>

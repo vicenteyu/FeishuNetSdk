@@ -1,26 +1,22 @@
-namespace FeishuNetSdk.Corehr;
+namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 创建个人信息 请求体
-/// <para>创建员工的个人信息</para>
-/// <para>接口ID：7225452763517108227</para>
-/// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/employee/person/create-2</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fperson%2fcreate</para>
+/// <para>创建人员的个人信息。</para>
+/// <para>接口ID：7017707615190827011</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/employee/person/create</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fperson%2fcreate</para>
 /// </summary>
-public record PostCorehrV2PersonsBodyDto
+public record PostCorehrV1PersonsBodyDto
 {
     /// <summary>
-    /// <para>姓名列表，当不为离职重聘员工时，该字段必填</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写法定姓名信息(corehr:person.legal_name:write)</para>
-    /// <para>必填：否</para>
+    /// <para>姓名</para>
+    /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("name_list")]
-    public PersonName[]? NameLists { get; set; }
+    public PersonName[] NameLists { get; set; } = Array.Empty<PersonName>();
 
     /// <summary>
-    /// <para>姓名列表，当不为离职重聘员工时，该字段必填</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写法定姓名信息(corehr:person.legal_name:write)</para>
+    /// <para>姓名</para>
     /// </summary>
     public record PersonName
     {
@@ -49,21 +45,21 @@ public record PostCorehrV2PersonsBodyDto
         public string CountryRegionId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>姓名类型</para>
+        /// <para>姓名类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)姓名类型（name_type）枚举定义部分获得</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("name_type")]
         public Enum NameType { get; set; } = new();
 
         /// <summary>
-        /// <para>姓名类型</para>
+        /// <para>姓名类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)姓名类型（name_type）枚举定义部分获得</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：type_1</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -86,7 +82,7 @@ public record PostCorehrV2PersonsBodyDto
         public string? LocalPrimary2 { get; set; }
 
         /// <summary>
-        /// <para>补充姓名类型</para>
+        /// <para>补充姓名类型，比如emergency_contact_name（紧急联系人姓名）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("additional_name_type")]
@@ -103,7 +99,7 @@ public record PostCorehrV2PersonsBodyDto
         /// <summary>
         /// <para>全名</para>
         /// <para>必填：否</para>
-        /// <para>示例值：王大帅</para>
+        /// <para>示例值：刘梓新</para>
         /// </summary>
         [JsonPropertyName("full_name")]
         public string? FullName { get; set; }
@@ -117,17 +113,17 @@ public record PostCorehrV2PersonsBodyDto
         public string? Hereditary { get; set; }
 
         /// <summary>
-        /// <para>自定义姓名（未传入时，姓名将默认根据所属国家 / 地区规则对相关姓、名字段拼接）</para>
+        /// <para>自定义姓名</para>
         /// <para>必填：否</para>
-        /// <para>示例值：王大帅</para>
+        /// <para>示例值：刘梓新</para>
         /// </summary>
         [JsonPropertyName("custom_name")]
         public string? CustomName { get; set; }
 
         /// <summary>
-        /// <para>本地文字的自定义姓名（未传入时，本地文字的姓名将默认根据所属国家 / 地区规则对本地文字的相关姓、名字段拼接）</para>
+        /// <para>本地文字的自定义姓名</para>
         /// <para>必填：否</para>
-        /// <para>示例值：王大帅</para>
+        /// <para>示例值：刘梓新</para>
         /// </summary>
         [JsonPropertyName("custom_local_name")]
         public string? CustomLocalName { get; set; }
@@ -159,7 +155,7 @@ public record PostCorehrV2PersonsBodyDto
         /// <summary>
         /// <para>尊称</para>
         /// <para>必填：否</para>
-        /// <para>示例值：王大帅</para>
+        /// <para>示例值：刘梓新</para>
         /// </summary>
         [JsonPropertyName("social")]
         public Enum? Social { get; set; }
@@ -173,7 +169,12 @@ public record PostCorehrV2PersonsBodyDto
         public string? Tertiary { get; set; }
 
         /// <summary>
-        /// <para>头衔</para>
+        /// <para>头衔，比如</para>
+        /// <para>Mr.</para>
+        /// <para>Miss.</para>
+        /// <para>Mrs.</para>
+        /// <para>Prof.</para>
+        /// <para>Dr.</para>
         /// <para>必填：否</para>
         /// <para>示例值：王</para>
         /// </summary>
@@ -195,32 +196,53 @@ public record PostCorehrV2PersonsBodyDto
         /// </summary>
         [JsonPropertyName("local_secondary")]
         public string? LocalSecondary { get; set; }
+
+        /// <summary>
+        /// <para>自定义字段</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("custom_fields")]
+        public ObjectFieldData[]? CustomFields { get; set; }
+
+        /// <summary>
+        /// <para>自定义字段</para>
+        /// </summary>
+        public record ObjectFieldData
+        {
+            /// <summary>
+            /// <para>字段名</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：name</para>
+            /// </summary>
+            [JsonPropertyName("field_name")]
+            public string FieldName { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：\"Sandy\"</para>
+            /// </summary>
+            [JsonPropertyName("value")]
+            public string Value { get; set; } = string.Empty;
+        }
     }
 
     /// <summary>
-    /// <para>性别，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-    /// <para>- object_api_name = "person"</para>
-    /// <para>- custom_api_name = "gender"</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写性别信息(corehr:person.gender:write)</para>
+    /// <para>性别，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)性别（gender）枚举定义部分获得</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("gender")]
     public Enum? Gender { get; set; }
 
     /// <summary>
-    /// <para>性别，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-    /// <para>- object_api_name = "person"</para>
-    /// <para>- custom_api_name = "gender"</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写性别信息(corehr:person.gender:write)</para>
+    /// <para>性别，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)性别（gender）枚举定义部分获得</para>
     /// </summary>
     public record Enum
     {
         /// <summary>
         /// <para>枚举值</para>
         /// <para>必填：是</para>
-        /// <para>示例值：phone_type</para>
+        /// <para>示例值：type_1</para>
         /// </summary>
         [JsonPropertyName("enum_name")]
         public string EnumName { get; set; } = string.Empty;
@@ -228,8 +250,6 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>出生日期</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写生日信息(corehr:person.date_of_birth:write)</para>
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
@@ -237,47 +257,48 @@ public record PostCorehrV2PersonsBodyDto
     public string? DateOfBirth { get; set; }
 
     /// <summary>
-    /// <para>国籍 ID，可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口查询</para>
+    /// <para>国籍id</para>
     /// <para>必填：否</para>
-    /// <para>示例值：6862995757234914821</para>
+    /// <para>示例值：123456789</para>
     /// </summary>
-    [JsonPropertyName("nationality_id_v2")]
-    public string? NationalityIdV2 { get; set; }
+    [JsonPropertyName("nationality_id")]
+    public string? NationalityId { get; set; }
 
     /// <summary>
-    /// <para>民族 / 种族，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-    /// <para>- object_api_name = "person"</para>
-    /// <para>- custom_api_name = "race"</para>
+    /// <para>民族 / 种族，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)民族（race）枚举定义部分获得</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("race")]
     public Enum? Race { get; set; }
 
     /// <summary>
-    /// <para>婚姻状况，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-    /// <para>- object_api_name = "person"</para>
-    /// <para>- custom_api_name = "marital_status"</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写婚姻状况信息(corehr:person.marital_status:write)</para>
+    /// <para>婚姻状况，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)婚姻状况（marital_status）枚举定义部分获得</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("marital_status")]
     public Enum? MaritalStatus { get; set; }
 
     /// <summary>
-    /// <para>电话列表</para>
+    /// <para>电话列表，只有当满足下面所有条件时，电话在个人信息页才可见:</para>
+    /// <para>- 电话号码不为空</para>
+    /// <para>- is_primary = "true"</para>
+    /// <para>- phone_usage = "home"</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("phone_list")]
     public Phone[]? PhoneLists { get; set; }
 
     /// <summary>
-    /// <para>电话列表</para>
+    /// <para>电话列表，只有当满足下面所有条件时，电话在个人信息页才可见:</para>
+    /// <para>- 电话号码不为空</para>
+    /// <para>- is_primary = "true"</para>
+    /// <para>- phone_usage = "home"</para>
     /// </summary>
     public record Phone
     {
         /// <summary>
         /// <para>国家区号</para>
+        /// <para>常见如：86_china（中国）、852_hong_kong（中国香港）、886_taiwan（中国台湾）、853_macao（中国澳门）、1_united_states_of_america（美利坚合众国）、7_russian_federation（俄罗斯联邦）、44_united_kingdom（英国）、81_japan（日本）、82_korea_republic_of（大韩民国）、91_india（印度）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("international_area_code")]
@@ -285,13 +306,14 @@ public record PostCorehrV2PersonsBodyDto
 
         /// <summary>
         /// <para>国家区号</para>
+        /// <para>常见如：86_china（中国）、852_hong_kong（中国香港）、886_taiwan（中国台湾）、853_macao（中国澳门）、1_united_states_of_america（美利坚合众国）、7_russian_federation（俄罗斯联邦）、44_united_kingdom（英国）、81_japan（日本）、82_korea_republic_of（大韩民国）、91_india（印度）</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：type_1</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -304,12 +326,69 @@ public record PostCorehrV2PersonsBodyDto
         /// </summary>
         [JsonPropertyName("phone_number")]
         public string PhoneNumber { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>设备类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)设备类型（device_type）枚举定义部分获得</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("device_type")]
+        public Enum? DeviceType { get; set; }
+
+        /// <summary>
+        /// <para>电话用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电话用途（phone_usage）枚举定义部分获得</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("phone_usage")]
+        public Enum? PhoneUsage { get; set; }
+
+        /// <summary>
+        /// <para>是否为主要电话</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_primary")]
+        public bool? IsPrimary { get; set; }
+
+        /// <summary>
+        /// <para>是否为公开电话</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_public")]
+        public bool? IsPublic { get; set; }
+
+        /// <summary>
+        /// <para>自定义字段</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("custom_fields")]
+        public ObjectFieldData[]? CustomFields { get; set; }
+
+        /// <summary>
+        /// <para>自定义字段</para>
+        /// </summary>
+        public record ObjectFieldData
+        {
+            /// <summary>
+            /// <para>字段名</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：name</para>
+            /// </summary>
+            [JsonPropertyName("field_name")]
+            public string FieldName { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：\"Sandy\"</para>
+            /// </summary>
+            [JsonPropertyName("value")]
+            public string Value { get; set; } = string.Empty;
+        }
     }
 
     /// <summary>
     /// <para>地址列表</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读取个人地址信息(corehr:person.address:write)</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("address_list")]
@@ -317,19 +396,9 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>地址列表</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读取个人地址信息(corehr:person.address:write)</para>
     /// </summary>
     public record Address
     {
-        /// <summary>
-        /// <para>地址 ID</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：6989822217869624863</para>
-        /// </summary>
-        [JsonPropertyName("address_id")]
-        public string? AddressId { get; set; }
-
         /// <summary>
         /// <para>国家 / 地区</para>
         /// <para>必填：是</para>
@@ -347,76 +416,20 @@ public record PostCorehrV2PersonsBodyDto
         public string? RegionId { get; set; }
 
         /// <summary>
-        /// <para>地址行 1</para>
+        /// <para>城市</para>
         /// <para>必填：否</para>
-        /// <para>示例值：丹佛测试地址-纽埃时区</para>
+        /// <para>示例值：6863333254578046471</para>
         /// </summary>
-        [JsonPropertyName("address_line1")]
-        public string? AddressLine1 { get; set; }
+        [JsonPropertyName("city_id")]
+        public string? CityId { get; set; }
 
         /// <summary>
-        /// <para>地址行 2</para>
+        /// <para>区/县</para>
         /// <para>必填：否</para>
-        /// <para>示例值：PoewH</para>
+        /// <para>示例值：6863333516579440141</para>
         /// </summary>
-        [JsonPropertyName("address_line2")]
-        public string? AddressLine2 { get; set; }
-
-        /// <summary>
-        /// <para>地址行 3</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：PoewH</para>
-        /// </summary>
-        [JsonPropertyName("address_line3")]
-        public string? AddressLine3 { get; set; }
-
-        /// <summary>
-        /// <para>地址行 4</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：jmwJc</para>
-        /// </summary>
-        [JsonPropertyName("address_line4")]
-        public string? AddressLine4 { get; set; }
-
-        /// <summary>
-        /// <para>地址行 5</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：jmwJc</para>
-        /// </summary>
-        [JsonPropertyName("address_line5")]
-        public string? AddressLine5 { get; set; }
-
-        /// <summary>
-        /// <para>地址行 6</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：jmwJc</para>
-        /// </summary>
-        [JsonPropertyName("address_line6")]
-        public string? AddressLine6 { get; set; }
-
-        /// <summary>
-        /// <para>地址行 7</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：jmwJc</para>
-        /// </summary>
-        [JsonPropertyName("address_line7")]
-        public string? AddressLine7 { get; set; }
-
-        /// <summary>
-        /// <para>地址行 8</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：rafSu</para>
-        /// </summary>
-        [JsonPropertyName("address_line8")]
-        public string? AddressLine8 { get; set; }
-
-        /// <summary>
-        /// <para>地址行 9</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：McPRG</para>
-        /// </summary>
-        [JsonPropertyName("address_line9")]
-        public string? AddressLine9 { get; set; }
+        [JsonPropertyName("distinct_id")]
+        public string? DistinctId { get; set; }
 
         /// <summary>
         /// <para>地址行 1（非拉丁语系的本地文字）</para>
@@ -499,66 +512,29 @@ public record PostCorehrV2PersonsBodyDto
         public string? PostalCode { get; set; }
 
         /// <summary>
-        /// <para>地址类型</para>
-        /// <para>必填：是</para>
-        /// </summary>
-        [JsonPropertyName("address_type_list")]
-        public Enum[] AddressTypeLists { get; set; } = Array.Empty<Enum>();
-
-        /// <summary>
-        /// <para>地址类型</para>
-        /// </summary>
-        public record Enum
-        {
-            /// <summary>
-            /// <para>枚举值</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
-            /// </summary>
-            [JsonPropertyName("enum_name")]
-            public string EnumName { get; set; } = string.Empty;
-        }
-
-        /// <summary>
-        /// <para>主要地址</para>
-        /// <para>必填：是</para>
-        /// <para>示例值：true</para>
-        /// </summary>
-        [JsonPropertyName("is_primary")]
-        public bool IsPrimary { get; set; }
-
-        /// <summary>
-        /// <para>公开地址</para>
-        /// <para>必填：是</para>
-        /// <para>示例值：true</para>
-        /// </summary>
-        [JsonPropertyName("is_public")]
-        public bool IsPublic { get; set; }
-
-        /// <summary>
         /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
-        public CustomFieldData[]? CustomFields { get; set; }
+        public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// </summary>
-        public record CustomFieldData
+        public record ObjectFieldData
         {
             /// <summary>
-            /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
+            /// <para>字段名</para>
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonPropertyName("custom_api_name")]
-            public string CustomApiName { get; set; } = string.Empty;
+            [JsonPropertyName("field_name")]
+            public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
+            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
             /// <para>必填：是</para>
-            /// <para>示例值：\"231\"</para>
+            /// <para>示例值：\"Sandy\"</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -567,8 +543,6 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>邮箱列表</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写个人邮箱信息(corehr:person.email:write)</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("email_list")]
@@ -576,76 +550,58 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>邮箱列表</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写个人邮箱信息(corehr:person.email:write)</para>
     /// </summary>
     public record Email
     {
         /// <summary>
-        /// <para>邮箱地址</para>
+        /// <para>邮箱号</para>
         /// <para>必填：是</para>
-        /// <para>示例值：1234567@example.feishu.cn</para>
+        /// <para>示例值：12456@test.com</para>
         /// </summary>
         [JsonPropertyName("email")]
         public string EmailSuffix { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>是否为主要邮箱</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：true</para>
-        /// </summary>
-        [JsonPropertyName("is_primary")]
-        public bool? IsPrimary { get; set; }
-
-        /// <summary>
-        /// <para>是否为公开邮箱</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：true</para>
-        /// </summary>
-        [JsonPropertyName("is_public")]
-        public bool? IsPublic { get; set; }
-
-        /// <summary>
-        /// <para>邮箱用途，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-        /// <para>- object_api_name = "email"</para>
-        /// <para>- custom_api_name = "email_usage"</para>
+        /// <para>自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonPropertyName("email_usage")]
-        public Enum? EmailUsage { get; set; }
+        [JsonPropertyName("custom_fields")]
+        public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>邮箱用途，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-        /// <para>- object_api_name = "email"</para>
-        /// <para>- custom_api_name = "email_usage"</para>
+        /// <para>自定义字段</para>
         /// </summary>
-        public record Enum
+        public record ObjectFieldData
         {
             /// <summary>
-            /// <para>枚举值</para>
+            /// <para>字段名</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：name</para>
             /// </summary>
-            [JsonPropertyName("enum_name")]
-            public string EnumName { get; set; } = string.Empty;
+            [JsonPropertyName("field_name")]
+            public string FieldName { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：\"Sandy\"</para>
+            /// </summary>
+            [JsonPropertyName("value")]
+            public string Value { get; set; } = string.Empty;
         }
     }
 
     /// <summary>
-    /// <para>工作经历列表</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写工作履历信息(corehr:person.work_experience:write)</para>
+    /// <para>工作履历列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("work_experience_list")]
-    public WorkExperienceInfo[]? WorkExperienceLists { get; set; }
+    public WorkExperience[]? WorkExperienceLists { get; set; }
 
     /// <summary>
-    /// <para>工作经历列表</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写工作履历信息(corehr:person.work_experience:write)</para>
+    /// <para>工作履历列表</para>
     /// </summary>
-    public record WorkExperienceInfo
+    public record WorkExperience
     {
         /// <summary>
         /// <para>公司 / 组织</para>
@@ -660,7 +616,7 @@ public record PostCorehrV2PersonsBodyDto
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>名称信息的语言</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -668,7 +624,7 @@ public record PostCorehrV2PersonsBodyDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>名称信息的内容</para>
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
@@ -718,25 +674,25 @@ public record PostCorehrV2PersonsBodyDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
-        public CustomFieldData[]? CustomFields { get; set; }
+        public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// </summary>
-        public record CustomFieldData
+        public record ObjectFieldData
         {
             /// <summary>
-            /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
+            /// <para>字段名</para>
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonPropertyName("custom_api_name")]
-            public string CustomApiName { get; set; } = string.Empty;
+            [JsonPropertyName("field_name")]
+            public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
+            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
             /// <para>必填：是</para>
-            /// <para>示例值：\"231\"</para>
+            /// <para>示例值：\"Sandy\"</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -745,8 +701,6 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>教育经历列表</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写教育经历信息(corehr:person.education:write)</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("education_list")]
@@ -754,8 +708,6 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>教育经历列表</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写教育经历信息(corehr:person.education:write)</para>
     /// </summary>
     public record Education
     {
@@ -772,7 +724,7 @@ public record PostCorehrV2PersonsBodyDto
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>名称信息的语言</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -780,7 +732,7 @@ public record PostCorehrV2PersonsBodyDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>名称信息的内容</para>
             /// <para>必填：是</para>
             /// <para>示例值：张三</para>
             /// </summary>
@@ -789,21 +741,21 @@ public record PostCorehrV2PersonsBodyDto
         }
 
         /// <summary>
-        /// <para>学历</para>
+        /// <para>学历，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)学历（level_of_education）枚举定义获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("level_of_education")]
         public Enum? LevelOfEducation { get; set; }
 
         /// <summary>
-        /// <para>学历</para>
+        /// <para>学历，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)学历（level_of_education）枚举定义获得</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：type_1</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -833,7 +785,7 @@ public record PostCorehrV2PersonsBodyDto
         public I18n[]? FieldOfStuies { get; set; }
 
         /// <summary>
-        /// <para>学位</para>
+        /// <para>学位，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)学位（degree）枚举定义获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("degree")]
@@ -874,25 +826,25 @@ public record PostCorehrV2PersonsBodyDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
-        public CustomFieldData[]? CustomFields { get; set; }
+        public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// </summary>
-        public record CustomFieldData
+        public record ObjectFieldData
         {
             /// <summary>
-            /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
+            /// <para>字段名</para>
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonPropertyName("custom_api_name")]
-            public string CustomApiName { get; set; } = string.Empty;
+            [JsonPropertyName("field_name")]
+            public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
+            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
             /// <para>必填：是</para>
-            /// <para>示例值：\"231\"</para>
+            /// <para>示例值：\"Sandy\"</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -900,23 +852,19 @@ public record PostCorehrV2PersonsBodyDto
     }
 
     /// <summary>
-    /// <para>银行账户</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写银行账号列表信息(corehr:person.bank_account:write)</para>
+    /// <para>银行账号</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("bank_account_list")]
     public BankAccount[]? BankAccountLists { get; set; }
 
     /// <summary>
-    /// <para>银行账户</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写银行账号列表信息(corehr:person.bank_account:write)</para>
+    /// <para>银行账号</para>
     /// </summary>
     public record BankAccount
     {
         /// <summary>
-        /// <para>银行名称</para>
+        /// <para>银行名称，如果已经填入银行枚举，该字段可为空。如果要填写数据不在系统提供的枚举范围内，该字段存储自定义银行名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：中国农业银行</para>
         /// </summary>
@@ -940,6 +888,27 @@ public record PostCorehrV2PersonsBodyDto
         public string AccountHolder { get; set; } = string.Empty;
 
         /// <summary>
+        /// <para>银行枚举，常见的银行枚举如：bank-5（交通银行）、bank-6（中国银行）、bank-7（中国建设银行）、bank-8（中国农业银行）、bank-9（中国工商银行）、bank-10（中国邮政储蓄银行）、bank-11（中国光大银行）、bank-12（中国民生银行）、bank-13（招商银行）、bank-14（中信银行）、bank-15（华夏银行）</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("bank")]
+        public Enum? Bank { get; set; }
+
+        /// <summary>
+        /// <para>银行枚举，常见的银行枚举如：bank-5（交通银行）、bank-6（中国银行）、bank-7（中国建设银行）、bank-8（中国农业银行）、bank-9（中国工商银行）、bank-10（中国邮政储蓄银行）、bank-11（中国光大银行）、bank-12（中国民生银行）、bank-13（招商银行）、bank-14（中信银行）、bank-15（华夏银行）</para>
+        /// </summary>
+        public record Enum
+        {
+            /// <summary>
+            /// <para>枚举值</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：type_1</para>
+            /// </summary>
+            [JsonPropertyName("enum_name")]
+            public string EnumName { get; set; } = string.Empty;
+        }
+
+        /// <summary>
         /// <para>支行名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：中国农业银行支行</para>
@@ -948,23 +917,36 @@ public record PostCorehrV2PersonsBodyDto
         public string? BranchName { get; set; }
 
         /// <summary>
-        /// <para>银行 ID，详细信息可通过[【查询银行信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)接口查询获得</para>
+        /// <para>自定义字段</para>
         /// <para>必填：否</para>
-        /// <para>示例值：MDBH00000001</para>
         /// </summary>
-        [JsonPropertyName("bank_id_v2")]
-        public string? BankIdV2 { get; set; }
+        [JsonPropertyName("custom_fields")]
+        public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>支行 ID，要求必须为填入银行的支行，详细信息可通过[【查询支行信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank_branch/search)接口查询获得</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：MDBK00000017</para>
+        /// <para>自定义字段</para>
         /// </summary>
-        [JsonPropertyName("branch_id_v2")]
-        public string? BranchIdV2 { get; set; }
+        public record ObjectFieldData
+        {
+            /// <summary>
+            /// <para>字段名</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：name</para>
+            /// </summary>
+            [JsonPropertyName("field_name")]
+            public string FieldName { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：\"Sandy\"</para>
+            /// </summary>
+            [JsonPropertyName("value")]
+            public string Value { get; set; } = string.Empty;
+        }
 
         /// <summary>
-        /// <para>国家/地区 ID，详细信息可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得</para>
+        /// <para>国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
@@ -972,28 +954,14 @@ public record PostCorehrV2PersonsBodyDto
         public string? CountryRegionId { get; set; }
 
         /// <summary>
-        /// <para>银行卡用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡用途（Bank Account Usage）枚举定义部分获得</para>
+        /// <para>银行卡用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡用途（bank_account_usage）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("bank_account_usage")]
         public Enum[]? BankAccountUsages { get; set; }
 
         /// <summary>
-        /// <para>银行卡用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡用途（Bank Account Usage）枚举定义部分获得</para>
-        /// </summary>
-        public record Enum
-        {
-            /// <summary>
-            /// <para>枚举值</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
-            /// </summary>
-            [JsonPropertyName("enum_name")]
-            public string EnumName { get; set; } = string.Empty;
-        }
-
-        /// <summary>
-        /// <para>银行卡类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡类型（Bank Account Type）枚举定义部分获得</para>
+        /// <para>银行卡类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)银行卡类型（bank_account_type）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("bank_account_type")]
@@ -1006,55 +974,22 @@ public record PostCorehrV2PersonsBodyDto
         /// </summary>
         [JsonPropertyName("currency_id")]
         public string? CurrencyId { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("custom_fields")]
-        public CustomFieldData[]? CustomFields { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段</para>
-        /// </summary>
-        public record CustomFieldData
-        {
-            /// <summary>
-            /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：name</para>
-            /// </summary>
-            [JsonPropertyName("custom_api_name")]
-            public string CustomApiName { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：\"231\"</para>
-            /// </summary>
-            [JsonPropertyName("value")]
-            public string Value { get; set; } = string.Empty;
-        }
     }
 
     /// <summary>
-    /// <para>证件列表</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写证件信息(corehr:person.national_id:write)</para>
+    /// <para>证件号码</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("national_id_list")]
     public NationalId[]? NationalIdLists { get; set; }
 
     /// <summary>
-    /// <para>证件列表</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写证件信息(corehr:person.national_id:write)</para>
+    /// <para>证件号码</para>
     /// </summary>
     public record NationalId
     {
         /// <summary>
-        /// <para>国家证件类型</para>
+        /// <para>国家证件类型，枚举值可通过【批量查询国家证件类型】接口获取</para>
         /// <para>必填：是</para>
         /// <para>示例值：6863330041896371725</para>
         /// </summary>
@@ -1106,25 +1041,25 @@ public record PostCorehrV2PersonsBodyDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
-        public CustomFieldData[]? CustomFields { get; set; }
+        public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// </summary>
-        public record CustomFieldData
+        public record ObjectFieldData
         {
             /// <summary>
-            /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
+            /// <para>字段名</para>
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonPropertyName("custom_api_name")]
-            public string CustomApiName { get; set; } = string.Empty;
+            [JsonPropertyName("field_name")]
+            public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
+            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
             /// <para>必填：是</para>
-            /// <para>示例值：\"231\"</para>
+            /// <para>示例值：\"Sandy\"</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -1132,44 +1067,259 @@ public record PostCorehrV2PersonsBodyDto
     }
 
     /// <summary>
-    /// <para>家庭成员列表</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写家庭成员信息(corehr:person.dependent:write)</para>
+    /// <para>亲属列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("dependent_list")]
     public Dependent[]? DependentLists { get; set; }
 
     /// <summary>
-    /// <para>家庭成员列表</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写家庭成员信息(corehr:person.dependent:write)</para>
+    /// <para>亲属列表</para>
     /// </summary>
     public record Dependent
     {
         /// <summary>
-        /// <para>关系</para>
+        /// <para>亲属姓名</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("name")]
+        public PersonName? Name { get; set; }
+
+        /// <summary>
+        /// <para>亲属姓名</para>
+        /// </summary>
+        public record PersonName
+        {
+            /// <summary>
+            /// <para>姓 - 本地文字</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：黄</para>
+            /// </summary>
+            [JsonPropertyName("local_primary")]
+            public string? LocalPrimary { get; set; }
+
+            /// <summary>
+            /// <para>名 - 本地文字</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：四</para>
+            /// </summary>
+            [JsonPropertyName("local_first_name")]
+            public string? LocalFirstName { get; set; }
+
+            /// <summary>
+            /// <para>国家 / 地区</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：6862995757234914824</para>
+            /// </summary>
+            [JsonPropertyName("country_region_id")]
+            public string CountryRegionId { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>姓名类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)姓名类型（name_type）枚举定义部分获得</para>
+            /// <para>必填：是</para>
+            /// </summary>
+            [JsonPropertyName("name_type")]
+            public Enum NameType { get; set; } = new();
+
+            /// <summary>
+            /// <para>姓名类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)姓名类型（name_type）枚举定义部分获得</para>
+            /// </summary>
+            public record Enum
+            {
+                /// <summary>
+                /// <para>枚举值</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：type_1</para>
+                /// </summary>
+                [JsonPropertyName("enum_name")]
+                public string EnumName { get; set; } = string.Empty;
+            }
+
+            /// <summary>
+            /// <para>名 - 第二本地文字</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：五</para>
+            /// </summary>
+            [JsonPropertyName("local_first_name_2")]
+            public string? LocalFirstName2 { get; set; }
+
+            /// <summary>
+            /// <para>姓 - 第二本地文字</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：王</para>
+            /// </summary>
+            [JsonPropertyName("local_primary_2")]
+            public string? LocalPrimary2 { get; set; }
+
+            /// <summary>
+            /// <para>补充姓名类型，比如emergency_contact_name（紧急联系人姓名）</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("additional_name_type")]
+            public Enum? AdditionalNameType { get; set; }
+
+            /// <summary>
+            /// <para>名</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：帅</para>
+            /// </summary>
+            [JsonPropertyName("first_name")]
+            public string? FirstName { get; set; }
+
+            /// <summary>
+            /// <para>全名</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：刘梓新</para>
+            /// </summary>
+            [JsonPropertyName("full_name")]
+            public string? FullName { get; set; }
+
+            /// <summary>
+            /// <para>姓氏称谓</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：王</para>
+            /// </summary>
+            [JsonPropertyName("hereditary")]
+            public string? Hereditary { get; set; }
+
+            /// <summary>
+            /// <para>自定义姓名</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：刘梓新</para>
+            /// </summary>
+            [JsonPropertyName("custom_name")]
+            public string? CustomName { get; set; }
+
+            /// <summary>
+            /// <para>本地文字的自定义姓名</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：刘梓新</para>
+            /// </summary>
+            [JsonPropertyName("custom_local_name")]
+            public string? CustomLocalName { get; set; }
+
+            /// <summary>
+            /// <para>中间名</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：大</para>
+            /// </summary>
+            [JsonPropertyName("middle_name")]
+            public string? MiddleName { get; set; }
+
+            /// <summary>
+            /// <para>姓</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：王</para>
+            /// </summary>
+            [JsonPropertyName("name_primary")]
+            public string? NamePrimary { get; set; }
+
+            /// <summary>
+            /// <para>第二姓氏</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：王</para>
+            /// </summary>
+            [JsonPropertyName("secondary")]
+            public string? Secondary { get; set; }
+
+            /// <summary>
+            /// <para>尊称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：刘梓新</para>
+            /// </summary>
+            [JsonPropertyName("social")]
+            public Enum? Social { get; set; }
+
+            /// <summary>
+            /// <para>婚后姓氏</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：王</para>
+            /// </summary>
+            [JsonPropertyName("tertiary")]
+            public string? Tertiary { get; set; }
+
+            /// <summary>
+            /// <para>头衔，比如</para>
+            /// <para>Mr.</para>
+            /// <para>Miss.</para>
+            /// <para>Mrs.</para>
+            /// <para>Prof.</para>
+            /// <para>Dr.</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：王</para>
+            /// </summary>
+            [JsonPropertyName("title")]
+            public Enum? Title { get; set; }
+
+            /// <summary>
+            /// <para>本地中间名</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：大</para>
+            /// </summary>
+            [JsonPropertyName("local_middle_name")]
+            public string? LocalMiddleName { get; set; }
+
+            /// <summary>
+            /// <para>第二姓氏 - 本地文字</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：王</para>
+            /// </summary>
+            [JsonPropertyName("local_secondary")]
+            public string? LocalSecondary { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// </summary>
+            public record ObjectFieldData
+            {
+                /// <summary>
+                /// <para>字段名</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：name</para>
+                /// </summary>
+                [JsonPropertyName("field_name")]
+                public string FieldName { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：\"Sandy\"</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public string Value { get; set; } = string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// <para>亲属关系，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)亲属关系（relationship）枚举定义获得</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("relationship")]
         public Enum Relationship { get; set; } = new();
 
         /// <summary>
-        /// <para>关系</para>
+        /// <para>亲属关系，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)亲属关系（relationship）枚举定义获得</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：type_1</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
 
         /// <summary>
-        /// <para>性别</para>
+        /// <para>亲属性别，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)性别（gender）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("gender")]
@@ -1184,12 +1334,12 @@ public record PostCorehrV2PersonsBodyDto
         public string? DateOfBirth { get; set; }
 
         /// <summary>
-        /// <para>国籍 ID，可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口查询</para>
+        /// <para>国籍</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6862995745046267401</para>
+        /// <para>示例值：7075702734054164011</para>
         /// </summary>
-        [JsonPropertyName("nationality_id_v2")]
-        public string? NationalityIdV2 { get; set; }
+        [JsonPropertyName("nationality_id")]
+        public string? NationalityId { get; set; }
 
         /// <summary>
         /// <para>证件号码</para>
@@ -1204,7 +1354,7 @@ public record PostCorehrV2PersonsBodyDto
         public record NationalId
         {
             /// <summary>
-            /// <para>国家证件类型</para>
+            /// <para>国家证件类型，枚举值可通过【批量查询国家证件类型】接口获取</para>
             /// <para>必填：是</para>
             /// <para>示例值：6863330041896371725</para>
             /// </summary>
@@ -1256,25 +1406,25 @@ public record PostCorehrV2PersonsBodyDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("custom_fields")]
-            public CustomFieldData[]? CustomFields { get; set; }
+            public ObjectFieldData[]? CustomFields { get; set; }
 
             /// <summary>
             /// <para>自定义字段</para>
             /// </summary>
-            public record CustomFieldData
+            public record ObjectFieldData
             {
                 /// <summary>
-                /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
+                /// <para>字段名</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：name</para>
                 /// </summary>
-                [JsonPropertyName("custom_api_name")]
-                public string CustomApiName { get; set; } = string.Empty;
+                [JsonPropertyName("field_name")]
+                public string FieldName { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
+                /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：\"231\"</para>
+                /// <para>示例值：\"Sandy\"</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
@@ -1282,7 +1432,7 @@ public record PostCorehrV2PersonsBodyDto
         }
 
         /// <summary>
-        /// <para>配偶工作状态</para>
+        /// <para>配偶工作状态，比如working（在岗）、not_working（不在岗）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("spouses_working_status")]
@@ -1309,25 +1459,25 @@ public record PostCorehrV2PersonsBodyDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
-        public CustomFieldData[]? CustomFields { get; set; }
+        public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>
         /// </summary>
-        public record CustomFieldData
+        public record ObjectFieldData
         {
             /// <summary>
-            /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
+            /// <para>字段名</para>
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
-            [JsonPropertyName("custom_api_name")]
-            public string CustomApiName { get; set; } = string.Empty;
+            [JsonPropertyName("field_name")]
+            public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
+            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
             /// <para>必填：是</para>
-            /// <para>示例值：\"231\"</para>
+            /// <para>示例值：\"Sandy\"</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -1370,25 +1520,23 @@ public record PostCorehrV2PersonsBodyDto
         public record DependentPhone
         {
             /// <summary>
-            /// <para>国家区号，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-            /// <para>- object_api_name = "phone"</para>
-            /// <para>- custom_api_name = "international_area_code"</para>
+            /// <para>国家区号</para>
+            /// <para>常见如：86_china（中国）、852_hong_kong（中国香港）、886_taiwan（中国台湾）、853_macao（中国澳门）、1_united_states_of_america（美利坚合众国）、7_russian_federation（俄罗斯联邦）、44_united_kingdom（英国）、81_japan（日本）、82_korea_republic_of（大韩民国）、91_india（印度）</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("international_area_code")]
             public Enum? InternationalAreaCode { get; set; }
 
             /// <summary>
-            /// <para>国家区号，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-            /// <para>- object_api_name = "phone"</para>
-            /// <para>- custom_api_name = "international_area_code"</para>
+            /// <para>国家区号</para>
+            /// <para>常见如：86_china（中国）、852_hong_kong（中国香港）、886_taiwan（中国台湾）、853_macao（中国澳门）、1_united_states_of_america（美利坚合众国）、7_russian_federation（俄罗斯联邦）、44_united_kingdom（英国）、81_japan（日本）、82_korea_republic_of（大韩民国）、91_india（印度）</para>
             /// </summary>
             public record Enum
             {
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：type_1</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -1401,6 +1549,35 @@ public record PostCorehrV2PersonsBodyDto
             /// </summary>
             [JsonPropertyName("phone_number")]
             public string PhoneNumber { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// </summary>
+            public record ObjectFieldData
+            {
+                /// <summary>
+                /// <para>字段名</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：name</para>
+                /// </summary>
+                [JsonPropertyName("field_name")]
+                public string FieldName { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：\"Sandy\"</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public string Value { get; set; } = string.Empty;
+            }
         }
 
         /// <summary>
@@ -1416,12 +1593,12 @@ public record PostCorehrV2PersonsBodyDto
         public record DependentAddress
         {
             /// <summary>
-            /// <para>地址 ID</para>
+            /// <para>地址ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：6989822217869624863</para>
             /// </summary>
-            [JsonPropertyName("address_id")]
-            public string? AddressId { get; set; }
+            [JsonPropertyName("id")]
+            public string? Id { get; set; }
 
             /// <summary>
             /// <para>国家 / 地区</para>
@@ -1440,76 +1617,20 @@ public record PostCorehrV2PersonsBodyDto
             public string? RegionId { get; set; }
 
             /// <summary>
-            /// <para>地址行 1</para>
+            /// <para>城市</para>
             /// <para>必填：否</para>
-            /// <para>示例值：丹佛测试地址-纽埃时区</para>
+            /// <para>示例值：6863333254578046471</para>
             /// </summary>
-            [JsonPropertyName("address_line1")]
-            public string? AddressLine1 { get; set; }
+            [JsonPropertyName("city_id")]
+            public string? CityId { get; set; }
 
             /// <summary>
-            /// <para>地址行 2</para>
+            /// <para>区/县</para>
             /// <para>必填：否</para>
-            /// <para>示例值：PoewH</para>
+            /// <para>示例值：6863333516579440141</para>
             /// </summary>
-            [JsonPropertyName("address_line2")]
-            public string? AddressLine2 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 3</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：PoewH</para>
-            /// </summary>
-            [JsonPropertyName("address_line3")]
-            public string? AddressLine3 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 4</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
-            /// </summary>
-            [JsonPropertyName("address_line4")]
-            public string? AddressLine4 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 5</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
-            /// </summary>
-            [JsonPropertyName("address_line5")]
-            public string? AddressLine5 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 6</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
-            /// </summary>
-            [JsonPropertyName("address_line6")]
-            public string? AddressLine6 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 7</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
-            /// </summary>
-            [JsonPropertyName("address_line7")]
-            public string? AddressLine7 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 8</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：rafSu</para>
-            /// </summary>
-            [JsonPropertyName("address_line8")]
-            public string? AddressLine8 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 9</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：McPRG</para>
-            /// </summary>
-            [JsonPropertyName("address_line9")]
-            public string? AddressLine9 { get; set; }
+            [JsonPropertyName("distinct_id")]
+            public string? DistinctId { get; set; }
 
             /// <summary>
             /// <para>地址行 1（非拉丁语系的本地文字）</para>
@@ -1528,31 +1649,31 @@ public record PostCorehrV2PersonsBodyDto
             public string? LocalAddressLine2 { get; set; }
 
             /// <summary>
-            /// <para>地址行 3（非拉丁语系的本地文字）</para>
+            /// <para>地址行 1（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：PoewH</para>
+            /// <para>示例值：丹佛测试地址-纽埃时区</para>
             /// </summary>
             [JsonPropertyName("local_address_line3")]
             public string? LocalAddressLine3 { get; set; }
 
             /// <summary>
-            /// <para>地址行 4（非拉丁语系的本地文字）</para>
+            /// <para>地址行 2（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
+            /// <para>示例值：PoewH</para>
             /// </summary>
             [JsonPropertyName("local_address_line4")]
             public string? LocalAddressLine4 { get; set; }
 
             /// <summary>
-            /// <para>地址行 5（非拉丁语系的本地文字）</para>
+            /// <para>地址行 3（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
+            /// <para>示例值：PoewH</para>
             /// </summary>
             [JsonPropertyName("local_address_line5")]
             public string? LocalAddressLine5 { get; set; }
 
             /// <summary>
-            /// <para>地址行 6（非拉丁语系的本地文字）</para>
+            /// <para>地址行 4（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
             /// <para>示例值：jmwJc</para>
             /// </summary>
@@ -1560,7 +1681,7 @@ public record PostCorehrV2PersonsBodyDto
             public string? LocalAddressLine6 { get; set; }
 
             /// <summary>
-            /// <para>地址行 7（非拉丁语系的本地文字）</para>
+            /// <para>地址行 5（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
             /// <para>示例值：jmwJc</para>
             /// </summary>
@@ -1568,53 +1689,54 @@ public record PostCorehrV2PersonsBodyDto
             public string? LocalAddressLine7 { get; set; }
 
             /// <summary>
+            /// <para>地址行 6（非拉丁语系的本地文字）</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("local_address_line8")]
+            public string? LocalAddressLine8 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 7（非拉丁语系的本地文字）</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("local_address_line9")]
+            public string? LocalAddressLine9 { get; set; }
+
+            /// <summary>
             /// <para>地址行 8（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
             /// <para>示例值：rafSu</para>
             /// </summary>
-            [JsonPropertyName("local_address_line8")]
-            public string? LocalAddressLine8 { get; set; }
+            [JsonPropertyName("postal_code")]
+            public string? PostalCode { get; set; }
 
             /// <summary>
             /// <para>地址行 9（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
             /// <para>示例值：McPRG</para>
             /// </summary>
-            [JsonPropertyName("local_address_line9")]
-            public string? LocalAddressLine9 { get; set; }
-
-            /// <summary>
-            /// <para>邮政编码</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：611530</para>
-            /// </summary>
-            [JsonPropertyName("postal_code")]
-            public string? PostalCode { get; set; }
-
-            /// <summary>
-            /// <para>自定义字段</para>
-            /// <para>必填：否</para>
-            /// </summary>
             [JsonPropertyName("custom_fields")]
-            public CustomFieldData[]? CustomFields { get; set; }
+            public ObjectFieldData[]? CustomFields { get; set; }
 
             /// <summary>
-            /// <para>自定义字段</para>
+            /// <para>地址行 9（非拉丁语系的本地文字）</para>
             /// </summary>
-            public record CustomFieldData
+            public record ObjectFieldData
             {
                 /// <summary>
-                /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
+                /// <para>字段名</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：name</para>
                 /// </summary>
-                [JsonPropertyName("custom_api_name")]
-                public string CustomApiName { get; set; } = string.Empty;
+                [JsonPropertyName("field_name")]
+                public string FieldName { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
+                /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：\"231\"</para>
+                /// <para>示例值：Sandy</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
@@ -1645,8 +1767,6 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>紧急联系人列表</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写紧急联系人信息(corehr:person.emergency_contact:write)</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("emergency_contact_list")]
@@ -1654,20 +1774,18 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>紧急联系人列表</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写紧急联系人信息(corehr:person.emergency_contact:write)</para>
     /// </summary>
     public record EmergencyContact
     {
         /// <summary>
-        /// <para>姓名</para>
+        /// <para>紧急联系人姓名</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("name")]
         public PersonName? Name { get; set; }
 
         /// <summary>
-        /// <para>姓名</para>
+        /// <para>紧急联系人姓名</para>
         /// </summary>
         public record PersonName
         {
@@ -1696,21 +1814,21 @@ public record PostCorehrV2PersonsBodyDto
             public string CountryRegionId { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>姓名类型</para>
+            /// <para>姓名类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)姓名类型（name_type）枚举定义部分获得</para>
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("name_type")]
             public Enum NameType { get; set; } = new();
 
             /// <summary>
-            /// <para>姓名类型</para>
+            /// <para>姓名类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)姓名类型（name_type）枚举定义部分获得</para>
             /// </summary>
             public record Enum
             {
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：type_1</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -1733,7 +1851,7 @@ public record PostCorehrV2PersonsBodyDto
             public string? LocalPrimary2 { get; set; }
 
             /// <summary>
-            /// <para>补充姓名类型</para>
+            /// <para>补充姓名类型，比如emergency_contact_name（紧急联系人姓名）</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("additional_name_type")]
@@ -1750,7 +1868,7 @@ public record PostCorehrV2PersonsBodyDto
             /// <summary>
             /// <para>全名</para>
             /// <para>必填：否</para>
-            /// <para>示例值：王大帅</para>
+            /// <para>示例值：刘梓新</para>
             /// </summary>
             [JsonPropertyName("full_name")]
             public string? FullName { get; set; }
@@ -1764,17 +1882,17 @@ public record PostCorehrV2PersonsBodyDto
             public string? Hereditary { get; set; }
 
             /// <summary>
-            /// <para>自定义姓名（未传入时，姓名将默认根据所属国家 / 地区规则对相关姓、名字段拼接）</para>
+            /// <para>自定义姓名</para>
             /// <para>必填：否</para>
-            /// <para>示例值：王大帅</para>
+            /// <para>示例值：刘梓新</para>
             /// </summary>
             [JsonPropertyName("custom_name")]
             public string? CustomName { get; set; }
 
             /// <summary>
-            /// <para>本地文字的自定义姓名（未传入时，本地文字的姓名将默认根据所属国家 / 地区规则对本地文字的相关姓、名字段拼接）</para>
+            /// <para>本地文字的自定义姓名</para>
             /// <para>必填：否</para>
-            /// <para>示例值：王大帅</para>
+            /// <para>示例值：刘梓新</para>
             /// </summary>
             [JsonPropertyName("custom_local_name")]
             public string? CustomLocalName { get; set; }
@@ -1806,7 +1924,7 @@ public record PostCorehrV2PersonsBodyDto
             /// <summary>
             /// <para>尊称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：王大帅</para>
+            /// <para>示例值：刘梓新</para>
             /// </summary>
             [JsonPropertyName("social")]
             public Enum? Social { get; set; }
@@ -1820,7 +1938,12 @@ public record PostCorehrV2PersonsBodyDto
             public string? Tertiary { get; set; }
 
             /// <summary>
-            /// <para>头衔</para>
+            /// <para>头衔，比如</para>
+            /// <para>Mr.</para>
+            /// <para>Miss.</para>
+            /// <para>Mrs.</para>
+            /// <para>Prof.</para>
+            /// <para>Dr.</para>
             /// <para>必填：否</para>
             /// <para>示例值：王</para>
             /// </summary>
@@ -1842,61 +1965,88 @@ public record PostCorehrV2PersonsBodyDto
             /// </summary>
             [JsonPropertyName("local_secondary")]
             public string? LocalSecondary { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// </summary>
+            public record ObjectFieldData
+            {
+                /// <summary>
+                /// <para>字段名</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：name</para>
+                /// </summary>
+                [JsonPropertyName("field_name")]
+                public string FieldName { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：\"Sandy\"</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public string Value { get; set; } = string.Empty;
+            }
         }
 
         /// <summary>
-        /// <para>关系</para>
+        /// <para>紧急联系人与本人亲属关系，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)亲属关系（relationship）枚举定义获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("relationship")]
         public Enum? Relationship { get; set; }
 
         /// <summary>
-        /// <para>关系</para>
+        /// <para>紧急联系人与本人亲属关系，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)亲属关系（relationship）枚举定义获得</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：type_1</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
 
         /// <summary>
-        /// <para>电话</para>
+        /// <para>紧急联系人电话</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("phone_ist")]
         public Phone[]? PhoneIsts { get; set; }
 
         /// <summary>
-        /// <para>电话</para>
+        /// <para>紧急联系人电话</para>
         /// </summary>
         public record Phone
         {
             /// <summary>
-            /// <para>国家区号，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-            /// <para>- object_api_name = "phone"</para>
-            /// <para>- custom_api_name = "international_area_code"</para>
+            /// <para>国家区号</para>
+            /// <para>常见如：86_china（中国）、852_hong_kong（中国香港）、886_taiwan（中国台湾）、853_macao（中国澳门）、1_united_states_of_america（美利坚合众国）、7_russian_federation（俄罗斯联邦）、44_united_kingdom（英国）、81_japan（日本）、82_korea_republic_of（大韩民国）、91_india（印度）</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("international_area_code")]
             public Enum? InternationalAreaCode { get; set; }
 
             /// <summary>
-            /// <para>国家区号，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-            /// <para>- object_api_name = "phone"</para>
-            /// <para>- custom_api_name = "international_area_code"</para>
+            /// <para>国家区号</para>
+            /// <para>常见如：86_china（中国）、852_hong_kong（中国香港）、886_taiwan（中国台湾）、853_macao（中国澳门）、1_united_states_of_america（美利坚合众国）、7_russian_federation（俄罗斯联邦）、44_united_kingdom（英国）、81_japan（日本）、82_korea_republic_of（大韩民国）、91_india（印度）</para>
             /// </summary>
             public record Enum
             {
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：type_1</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -1909,6 +2059,64 @@ public record PostCorehrV2PersonsBodyDto
             /// </summary>
             [JsonPropertyName("phone_number")]
             public string PhoneNumber { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// </summary>
+            public record ObjectFieldData
+            {
+                /// <summary>
+                /// <para>字段名</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：name</para>
+                /// </summary>
+                [JsonPropertyName("field_name")]
+                public string FieldName { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：\"Sandy\"</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public string Value { get; set; } = string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// <para>自定义字段</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("custom_fields")]
+        public ObjectFieldData[]? CustomFields { get; set; }
+
+        /// <summary>
+        /// <para>自定义字段</para>
+        /// </summary>
+        public record ObjectFieldData
+        {
+            /// <summary>
+            /// <para>字段名</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：name</para>
+            /// </summary>
+            [JsonPropertyName("field_name")]
+            public string FieldName { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：\"Sandy\"</para>
+            /// </summary>
+            [JsonPropertyName("value")]
+            public string Value { get; set; } = string.Empty;
         }
 
         /// <summary>
@@ -1922,8 +2130,6 @@ public record PostCorehrV2PersonsBodyDto
 
     /// <summary>
     /// <para>参加工作日期</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写参加工作日期(corehr:person.date_entered_workforce:write)</para>
     /// <para>必填：否</para>
     /// <para>示例值：2020-10-01</para>
     /// </summary>
@@ -1939,37 +2145,80 @@ public record PostCorehrV2PersonsBodyDto
     public string? ProfileImageId { get; set; }
 
     /// <summary>
-    /// <para>个人资料附件</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写个人资料信息(corehr:person.personal_profile:write)</para>
+    /// <para>自定义字段</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("custom_fields")]
+    public ObjectFieldData[]? CustomFields { get; set; }
+
+    /// <summary>
+    /// <para>自定义字段</para>
+    /// </summary>
+    public record ObjectFieldData
+    {
+        /// <summary>
+        /// <para>字段名</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：name</para>
+        /// </summary>
+        [JsonPropertyName("field_name")]
+        public string FieldName { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：\"Sandy\"</para>
+        /// </summary>
+        [JsonPropertyName("value")]
+        public string Value { get; set; } = string.Empty;
+    }
+
+    /// <summary>
+    /// <para>纳税身份信息</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：["1", "2"]</para>
+    /// </summary>
+    [JsonPropertyName("resident_tax_id_list")]
+    public string[]? ResidentTaxIdList { get; set; }
+
+    /// <summary>
+    /// <para>年龄</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：25</para>
+    /// </summary>
+    [JsonPropertyName("age")]
+    public int? Age { get; set; }
+
+    /// <summary>
+    /// <para>个人资料</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("personal_profile")]
     public PersonalProfile[]? PersonalProfiles { get; set; }
 
     /// <summary>
-    /// <para>个人资料附件</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写个人资料信息(corehr:person.personal_profile:write)</para>
+    /// <para>个人资料</para>
     /// </summary>
     public record PersonalProfile
     {
         /// <summary>
-        /// <para>资料类型</para>
+        /// <para>个人资料类型，比如</para>
+        /// <para>银行储蓄卡复印件、证件照、个人信息采集表、生活照</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("personal_profile_type")]
         public Enum? PersonalProfileType { get; set; }
 
         /// <summary>
-        /// <para>资料类型</para>
+        /// <para>个人资料类型，比如</para>
+        /// <para>银行储蓄卡复印件、证件照、个人信息采集表、生活照</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：type_1</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -1996,223 +2245,4 @@ public record PostCorehrV2PersonsBodyDto
             public string? Id { get; set; }
         }
     }
-
-    /// <summary>
-    /// <para>籍贯 ID，详细数据可通过[【查询单条省份/行政区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/subdivision/get)接口查询</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写籍贯信息(corehr:person.native_region:write)</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：6863326262618752111</para>
-    /// </summary>
-    [JsonPropertyName("native_region")]
-    public string? NativeRegion { get; set; }
-
-    /// <summary>
-    /// <para>户口类型，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-    /// <para>- object_api_name = "person_info_chn"</para>
-    /// <para>- custom_api_name = "hukou_type"</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写户口信息(corehr:person.hukou:write)</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("hukou_type")]
-    public Enum? HukouType { get; set; }
-
-    /// <summary>
-    /// <para>户口所在地</para>
-    /// <para>字段权限要求：</para>
-    /// <para>读写户口信息(corehr:person.hukou:write)</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：山东省平阴县</para>
-    /// </summary>
-    [JsonPropertyName("hukou_location")]
-    public string? HukouLocation { get; set; }
-
-    /// <summary>
-    /// <para>政治面貌，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)政治面貌（political_affiliation）枚举定义部分获得</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("political_affiliations")]
-    public Enum[]? PoliticalAffiliations { get; set; }
-
-    /// <summary>
-    /// <para>人才 ID</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：6863326262618752123</para>
-    /// </summary>
-    [JsonPropertyName("talent_id")]
-    public string? TalentId { get; set; }
-
-    /// <summary>
-    /// <para>自定义字段</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("custom_fields")]
-    public CustomFieldData[]? CustomFields { get; set; }
-
-    /// <summary>
-    /// <para>自定义字段</para>
-    /// </summary>
-    public record CustomFieldData
-    {
-        /// <summary>
-        /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
-        /// <para>必填：是</para>
-        /// <para>示例值：name</para>
-        /// </summary>
-        [JsonPropertyName("custom_api_name")]
-        public string CustomApiName { get; set; } = string.Empty;
-
-        /// <summary>
-        /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
-        /// <para>必填：是</para>
-        /// <para>示例值：\"231\"</para>
-        /// </summary>
-        [JsonPropertyName("value")]
-        public string Value { get; set; } = string.Empty;
-    }
-
-    /// <summary>
-    /// <para>出生国家/地区</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：中国</para>
-    /// </summary>
-    [JsonPropertyName("born_country_region")]
-    public string? BornCountryRegion { get; set; }
-
-    /// <summary>
-    /// <para>是否残疾</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：true</para>
-    /// </summary>
-    [JsonPropertyName("is_disabled")]
-    public bool? IsDisabled { get; set; }
-
-    /// <summary>
-    /// <para>残疾证号</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：1110000</para>
-    /// </summary>
-    [JsonPropertyName("disable_card_number")]
-    public string? DisableCardNumber { get; set; }
-
-    /// <summary>
-    /// <para>是否烈属</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：true</para>
-    /// </summary>
-    [JsonPropertyName("is_martyr_family")]
-    public bool? IsMartyrFamily { get; set; }
-
-    /// <summary>
-    /// <para>烈属证号</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：1110000</para>
-    /// </summary>
-    [JsonPropertyName("martyr_card_number")]
-    public string? MartyrCardNumber { get; set; }
-
-    /// <summary>
-    /// <para>是否孤老</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：true</para>
-    /// </summary>
-    [JsonPropertyName("is_old_alone")]
-    public bool? IsOldAlone { get; set; }
-
-    /// <summary>
-    /// <para>居民身份信息</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：6863326262618752123</para>
-    /// </summary>
-    [JsonPropertyName("resident_taxes")]
-    public ResidentTax[]? ResidentTaxes { get; set; }
-
-    /// <summary>
-    /// <para>居民身份信息</para>
-    /// </summary>
-    public record ResidentTax
-    {
-        /// <summary>
-        /// <para>年度</para>
-        /// <para>必填：是</para>
-        /// <para>示例值：2023</para>
-        /// </summary>
-        [JsonPropertyName("year_resident_tax")]
-        public string YearResidentTax { get; set; } = string.Empty;
-
-        /// <summary>
-        /// <para>居民身份，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("resident_status")]
-        public Enum? ResidentStatus { get; set; }
-
-        /// <summary>
-        /// <para>居民身份，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
-        /// </summary>
-        public record Enum
-        {
-            /// <summary>
-            /// <para>枚举值</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
-            /// </summary>
-            [JsonPropertyName("enum_name")]
-            public string EnumName { get; set; } = string.Empty;
-        }
-
-        /// <summary>
-        /// <para>国家/地区，可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：中国</para>
-        /// </summary>
-        [JsonPropertyName("tax_country_region_id")]
-        public string? TaxCountryRegionId { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("custom_fields")]
-        public ObjectFieldData[]? CustomFields { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段</para>
-        /// </summary>
-        public record ObjectFieldData
-        {
-            /// <summary>
-            /// <para>字段名</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：name</para>
-            /// </summary>
-            [JsonPropertyName("field_name")]
-            public string FieldName { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：Sandy</para>
-            /// </summary>
-            [JsonPropertyName("value")]
-            public string Value { get; set; } = string.Empty;
-        }
-    }
-
-    /// <summary>
-    /// <para>首次入境日期</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：2021-01-02</para>
-    /// </summary>
-    [JsonPropertyName("first_entry_time")]
-    public string? FirstEntryTime { get; set; }
-
-    /// <summary>
-    /// <para>预计离境日期</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：2022-01-02</para>
-    /// </summary>
-    [JsonPropertyName("leave_time")]
-    public string? LeaveTime { get; set; }
 }

@@ -379,7 +379,7 @@
 <tr><td colspan="3">PostVcV1ReservesApply</td></tr>
 <tr><td rowspan="2">190</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>视频会议</td><td>删除预约</td></tr>
 <tr><td colspan="3">DeleteVcV1ReservesByReserveId</td></tr>
-<tr><td rowspan="2">191</td><td rowspan="2">2023-07-12</td><td>&#10003;</td><td>消息与群组</td><td>更新群置顶</td></tr>
+<tr><td rowspan="2">191</td><td rowspan="2">2024-05-11</td><td>&#10003;</td><td>消息与群组</td><td>更新群置顶</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdTopNoticePutTopNotice</td></tr>
 <tr><td rowspan="2">192</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>视频会议</td><td>更新预约</td></tr>
 <tr><td colspan="3">PutVcV1ReservesByReserveId</td></tr>
@@ -915,7 +915,7 @@
 <tr><td colspan="3">GetDriveV1ExportTasksFileByFileTokenDownload</td></tr>
 <tr><td rowspan="2">458</td><td rowspan="2">2023-12-07</td><td>&#10003;</td><td>云文档</td><td>获取文档访问记录</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenViewRecords</td></tr>
-<tr><td rowspan="2">459</td><td rowspan="2">2023-11-13</td><td>&#10003;</td><td>通讯录</td><td>获取子部门列表</td></tr>
+<tr><td rowspan="2">459</td><td rowspan="2">2024-05-11</td><td>&#10003;</td><td>通讯录</td><td>获取子部门列表</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsByDepartmentIdChildren</td></tr>
 <tr><td rowspan="2">460</td><td rowspan="2">2024-03-25</td><td>&#10003;</td><td>云文档</td><td>创建文档版本</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenVersions</td></tr>
@@ -1013,4 +1013,6 @@
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdRunsByRunId</td></tr>
 <tr><td rowspan="2">507</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>创建会话</td></tr>
 <tr><td colspan="3">PostAilyV1Sessions</td></tr>
+<tr><td rowspan="2">508</td><td rowspan="2">2024-05-11</td><td>新增</td><td>薪酬管理</td><td>批量查询员工薪资档案</td></tr>
+<tr><td colspan="3">PostCompensationV1ArchivesQuery</td></tr>
 </tbody></table>

@@ -41,6 +41,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         /// <para>注意：不可包含斜杠</para>
         /// <para>必填：是</para>
         /// <para>示例值：DemoName</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
@@ -104,7 +105,7 @@ public record GetContactV3DepartmentsByDepartmentIdChildrenResponseDto
         public string? DepartmentId { get; set; }
 
         /// <summary>
-        /// <para>部门的open_id，类型与通过请求的查询参数传入的department_id_type相同</para>
+        /// <para>部门的 open_department_id</para>
         /// <para>必填：否</para>
         /// <para>示例值：od-g148e8fca291dc38</para>
         /// </summary>

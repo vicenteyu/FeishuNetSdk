@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 更新个人信息（V2） 请求体
-/// <para>更新个人信息</para>
+/// 更新个人信息 请求体
+/// <para>更新员工的个人信息</para>
 /// <para>接口ID：7225452763517091843</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/employee/person/patch-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fperson%2fpatch</para>
@@ -194,14 +194,18 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     }
 
     /// <summary>
-    /// <para>性别，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person</para>
+    /// <para>性别，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+    /// <para>- custom_api_name：gender</para>
+    /// <para>- object_api_name：person</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("gender")]
     public Enum? Gender { get; set; }
 
     /// <summary>
-    /// <para>性别，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person</para>
+    /// <para>性别，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+    /// <para>- custom_api_name：gender</para>
+    /// <para>- object_api_name：person</para>
     /// </summary>
     public record Enum
     {
@@ -223,7 +227,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     public string? DateOfBirth { get; set; }
 
     /// <summary>
-    /// <para>国籍 ID，可通过【查询国籍信息】接口查询</para>
+    /// <para>国籍 ID，可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口查询</para>
     /// <para>必填：否</para>
     /// <para>示例值：6862995757234914821</para>
     /// </summary>
@@ -231,14 +235,18 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     public string? NationalityIdV2 { get; set; }
 
     /// <summary>
-    /// <para>民族 / 种族，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person</para>
+    /// <para>民族 / 种族，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+    /// <para>- custom_api_name：ethnicity_race</para>
+    /// <para>- object_api_name：person</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("race")]
     public Enum? Race { get; set; }
 
     /// <summary>
-    /// <para>婚姻状况，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person</para>
+    /// <para>婚姻状况，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+    /// <para>- custom_api_name：marital_status</para>
+    /// <para>- object_api_name：person</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("marital_status")]
@@ -323,20 +331,76 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         public string? RegionId { get; set; }
 
         /// <summary>
-        /// <para>城市</para>
+        /// <para>地址行 1</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6863333254578046471</para>
+        /// <para>示例值：丹佛测试地址-纽埃时区</para>
         /// </summary>
-        [JsonPropertyName("city_id_v2")]
-        public string? CityIdV2 { get; set; }
+        [JsonPropertyName("address_line1")]
+        public string? AddressLine1 { get; set; }
 
         /// <summary>
-        /// <para>区/县</para>
+        /// <para>地址行 2</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6863333516579440141</para>
+        /// <para>示例值：PoewH</para>
         /// </summary>
-        [JsonPropertyName("district_id_v2")]
-        public string? DistrictIdV2 { get; set; }
+        [JsonPropertyName("address_line2")]
+        public string? AddressLine2 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 3</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：PoewH</para>
+        /// </summary>
+        [JsonPropertyName("address_line3")]
+        public string? AddressLine3 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 4</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：jmwJc</para>
+        /// </summary>
+        [JsonPropertyName("address_line4")]
+        public string? AddressLine4 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 5</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：jmwJc</para>
+        /// </summary>
+        [JsonPropertyName("address_line5")]
+        public string? AddressLine5 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 6</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：jmwJc</para>
+        /// </summary>
+        [JsonPropertyName("address_line6")]
+        public string? AddressLine6 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 7</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：jmwJc</para>
+        /// </summary>
+        [JsonPropertyName("address_line7")]
+        public string? AddressLine7 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 8</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：rafSu</para>
+        /// </summary>
+        [JsonPropertyName("address_line8")]
+        public string? AddressLine8 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 9</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：McPRG</para>
+        /// </summary>
+        [JsonPropertyName("address_line9")]
+        public string? AddressLine9 { get; set; }
 
         /// <summary>
         /// <para>地址行 1（非拉丁语系的本地文字）</para>
@@ -848,7 +912,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         public string? BranchName { get; set; }
 
         /// <summary>
-        /// <para>银行 ID，详细信息可通过【查询银行信息】接口查询获得</para>
+        /// <para>银行 ID，详细信息可通过[【查询银行信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：MDBH00000001</para>
         /// </summary>
@@ -856,7 +920,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         public string? BankIdV2 { get; set; }
 
         /// <summary>
-        /// <para>支行 ID，要求必须为填入银行的支行，详细信息可通过【查询支行信息】接口查询获得</para>
+        /// <para>支行 ID，要求必须为填入银行的支行，详细信息可通过[【查询支行信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank_branch/search)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：MDBK00000017</para>
         /// </summary>
@@ -864,7 +928,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         public string? BranchIdV2 { get; set; }
 
         /// <summary>
-        /// <para>国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得</para>
+        /// <para>国家/地区 ID，详细信息可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
@@ -872,14 +936,16 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         public string? CountryRegionId { get; set; }
 
         /// <summary>
-        /// <para>银行卡用途，枚举值可通过文档【飞书人事枚举常量】银行卡用途（Bank Account Usage）枚举定义部分获得</para>
+        /// <para>银行卡用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)</para>
+        /// <para>银行卡用途（Bank Account Usage）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("bank_account_usage")]
         public Enum[]? BankAccountUsages { get; set; }
 
         /// <summary>
-        /// <para>银行卡用途，枚举值可通过文档【飞书人事枚举常量】银行卡用途（Bank Account Usage）枚举定义部分获得</para>
+        /// <para>银行卡用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)</para>
+        /// <para>银行卡用途（Bank Account Usage）枚举定义部分获得</para>
         /// </summary>
         public record Enum
         {
@@ -893,7 +959,8 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         }
 
         /// <summary>
-        /// <para>银行卡类型，枚举值可通过文档【飞书人事枚举常量】银行卡类型（Bank Account Type）枚举定义部分获得</para>
+        /// <para>银行卡类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)</para>
+        /// <para>银行卡类型（Bank Account Type）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("bank_account_type")]
@@ -1076,7 +1143,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         public string? DateOfBirth { get; set; }
 
         /// <summary>
-        /// <para>国籍 ID，可通过【查询国籍信息】接口查询</para>
+        /// <para>国籍 ID，可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口查询</para>
         /// <para>必填：否</para>
         /// <para>示例值：6862995745046267401</para>
         /// </summary>
@@ -1328,20 +1395,76 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             public string? RegionId { get; set; }
 
             /// <summary>
-            /// <para>城市</para>
+            /// <para>地址行 1</para>
             /// <para>必填：否</para>
-            /// <para>示例值：6863333254578046471</para>
+            /// <para>示例值：丹佛测试地址-纽埃时区</para>
             /// </summary>
-            [JsonPropertyName("city_id_v2")]
-            public string? CityIdV2 { get; set; }
+            [JsonPropertyName("address_line1")]
+            public string? AddressLine1 { get; set; }
 
             /// <summary>
-            /// <para>区/县</para>
+            /// <para>地址行 2</para>
             /// <para>必填：否</para>
-            /// <para>示例值：6863333516579440141</para>
+            /// <para>示例值：PoewH</para>
             /// </summary>
-            [JsonPropertyName("district_id_v2")]
-            public string? DistrictIdV2 { get; set; }
+            [JsonPropertyName("address_line2")]
+            public string? AddressLine2 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 3</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：PoewH</para>
+            /// </summary>
+            [JsonPropertyName("address_line3")]
+            public string? AddressLine3 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 4</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line4")]
+            public string? AddressLine4 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 5</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line5")]
+            public string? AddressLine5 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 6</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line6")]
+            public string? AddressLine6 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 7</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line7")]
+            public string? AddressLine7 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 8</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：rafSu</para>
+            /// </summary>
+            [JsonPropertyName("address_line8")]
+            public string? AddressLine8 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 9</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：McPRG</para>
+            /// </summary>
+            [JsonPropertyName("address_line9")]
+            public string? AddressLine9 { get; set; }
 
             /// <summary>
             /// <para>地址行 1（非拉丁语系的本地文字）</para>
@@ -1773,14 +1896,6 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     public record PersonalProfile
     {
         /// <summary>
-        /// <para>个人资料 ID</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200</para>
-        /// </summary>
-        [JsonPropertyName("personal_profile_id")]
-        public string? PersonalProfileId { get; set; }
-
-        /// <summary>
         /// <para>资料类型</para>
         /// <para>必填：否</para>
         /// </summary>
@@ -1845,6 +1960,13 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// </summary>
     [JsonPropertyName("hukou_location")]
     public string? HukouLocation { get; set; }
+
+    /// <summary>
+    /// <para>政治面貌，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)政治面貌（political_affiliation）枚举定义部分获得</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("political_affiliations")]
+    public Enum[]? PoliticalAffiliations { get; set; }
 
     /// <summary>
     /// <para>人才 ID</para>
@@ -1974,7 +2096,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         }
 
         /// <summary>
-        /// <para>国家/地区，可通过【查询国家/地区信息】 接口查询</para>
+        /// <para>国家/地区，可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询</para>
         /// <para>必填：否</para>
         /// <para>示例值：中国</para>
         /// </summary>
