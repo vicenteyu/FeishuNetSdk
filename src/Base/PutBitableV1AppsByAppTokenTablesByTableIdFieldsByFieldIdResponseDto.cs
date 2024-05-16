@@ -104,6 +104,8 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdResponseDt
                 /// <para>选项颜色</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：0</para>
+                /// <para>最大值：54</para>
+                /// <para>最小值：0</para>
                 /// </summary>
                 [JsonPropertyName("color")]
                 public int? Color { get; set; }
@@ -208,7 +210,7 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdResponseDt
                     /// <para>可选值：<list type="bullet">
                     /// <item>system_number：自增数字位,value范围1-9</item>
                     /// <item>fixed_text：固定字符，最大长度：20</item>
-                    /// <item>created_time：创建时间，支持格式"yyyyMMdd"、"yyyyMM"、"yyyy"、"MMdd"、"MM"、"dd"</item>
+                    /// <item>created_time：创建时间，支持格式 "yyyyMMdd"、"yyyyMM"、"yyyy"、"MMdd"、"MM"、"dd"</item>
                     /// </list></para>
                     /// </summary>
                     [JsonPropertyName("type")]
@@ -392,6 +394,7 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdResponseDt
         /// <para>示例值：Progress</para>
         /// <para>可选值：<list type="bullet">
         /// <item>Text：多行文本</item>
+        /// <item>Email：邮箱地址</item>
         /// <item>Barcode：条码</item>
         /// <item>Number：数字</item>
         /// <item>Progress：进度</item>

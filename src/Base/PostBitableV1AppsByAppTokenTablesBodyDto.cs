@@ -27,6 +27,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：table1</para>
         /// <para>最大长度：100</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; set; }
@@ -48,7 +49,8 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
         /// <para>1. 如果 default_view_name 字段和 fields 字段都不填写，将会创建一个仅包含索引列的空数据表。</para>
         /// <para>2. 如果指定了 fields 字段，将会创建一个包含初始字段的数据表且默认第一个字段为索引列。</para>
         /// <para>必填：否</para>
-        /// <para>最大长度：50</para>
+        /// <para>最大长度：300</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("fields")]
         public AppTableCreateHeader[]? Fields { get; set; }
@@ -83,15 +85,55 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
             /// <item>11：人员</item>
             /// <item>13：电话号码</item>
             /// <item>15：超链接</item>
+            /// <item>17：附件</item>
+            /// <item>18：单向关联</item>
+            /// <item>20：公式</item>
+            /// <item>21：双向关联</item>
             /// <item>22：地理位置</item>
+            /// <item>23：群组</item>
             /// <item>1001：创建时间</item>
             /// <item>1002：最后更新时间</item>
             /// <item>1003：创建人</item>
             /// <item>1004：修改人</item>
+            /// <item>1005：自动编号</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("type")]
             public int Type { get; set; }
+
+            /// <summary>
+            /// <para>字段在界面上的展示类型，例如进度字段是数字的一种展示形态</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：Progress</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>Text：多行文本</item>
+            /// <item>Barcode：条码</item>
+            /// <item>Number：数字</item>
+            /// <item>Progress：进度</item>
+            /// <item>Currency：货币</item>
+            /// <item>Rating：评分</item>
+            /// <item>SingleSelect：单选</item>
+            /// <item>MultiSelect：多选</item>
+            /// <item>DateTime：日期</item>
+            /// <item>Checkbox：复选框</item>
+            /// <item>User：人员</item>
+            /// <item>GroupChat：群组</item>
+            /// <item>Phone：电话号码</item>
+            /// <item>Url：超链接</item>
+            /// <item>Attachment：附件</item>
+            /// <item>SingleLink：单向关联</item>
+            /// <item>Formula：公式</item>
+            /// <item>DuplexLink：双向关联</item>
+            /// <item>Location：地理位置</item>
+            /// <item>CreatedTime：创建时间</item>
+            /// <item>ModifiedTime：最后更新时间</item>
+            /// <item>CreatedUser：创建人</item>
+            /// <item>ModifiedUser：修改人</item>
+            /// <item>AutoNumber：自动编号</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("ui_type")]
+            public string? UiType { get; set; }
 
             /// <summary>
             /// <para>字段属性</para>
@@ -137,6 +179,8 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                     /// <para>选项颜色</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：0</para>
+                    /// <para>最大值：54</para>
+                    /// <para>最小值：0</para>
                     /// </summary>
                     [JsonPropertyName("color")]
                     public int? Color { get; set; }
@@ -241,7 +285,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                         /// <para>可选值：<list type="bullet">
                         /// <item>system_number：自增数字位,value范围1-9</item>
                         /// <item>fixed_text：固定字符，最大长度：20</item>
-                        /// <item>created_time：创建时间，支持格式"yyyyMMdd"、"yyyyMM"、"yyyy"、"MMdd"、"MM"、"dd"</item>
+                        /// <item>created_time：创建时间，支持格式 "yyyyMMdd"、"yyyyMM"、"yyyy"、"MMdd"、"MM"、"dd"</item>
                         /// </list></para>
                         /// </summary>
                         [JsonPropertyName("type")]
@@ -397,7 +441,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <summary>
                 /// <para>字段描述内容，支持换行\n</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：请按name_id格式填写\n例如：“Alice_20202020”</para>
+                /// <para>示例值：请按 name_id 格式填写\n例如：“Alice_20202020”</para>
                 /// </summary>
                 [JsonPropertyName("text")]
                 public string? Text { get; set; }

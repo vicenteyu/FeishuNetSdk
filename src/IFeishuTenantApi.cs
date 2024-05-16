@@ -3525,10 +3525,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。</item>
     /// <item>email：以用户的真实邮箱来标识用户。</item>
-    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)&lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
+    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)&lt;/md-enum-item&gt;</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -6848,7 +6848,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="status">
     /// <para>必填：是</para>
-    /// <para>筛选条件, 1 - online客服, 2 - offline(手动)客服, 3 - off duty(下班)客服, 4 - 移除客服</para>
+    /// <para>筛选条件</para>
+    /// <para>- 1：online客服</para>
+    /// <para>- 2：offline(手动)客服</para>
+    /// <para>- 3：off duty(下班)客服</para>
+    /// <para>- 4：移除客服</para>
+    /// <para>在 GET 请求中传入多个值的格式为 `status=1&amp;status=2`。</para>
     /// <para>示例值：status=1&amp;status=2</para>
     /// </param>
     [HttpGet("/open-apis/helpdesk/v1/agent_schedules")]

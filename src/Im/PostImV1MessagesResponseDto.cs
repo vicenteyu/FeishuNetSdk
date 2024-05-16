@@ -33,7 +33,7 @@ public record PostImV1MessagesResponseDto
     public string? ParentId { get; set; }
 
     /// <summary>
-    /// <para>消息所属的话题 ID（不返回说明该消息非话题消息），说明参见：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)</para>
+    /// <para>消息所属的话题 ID</para>
     /// <para>必填：否</para>
     /// <para>示例值：omt_d4be107c616a</para>
     /// </summary>

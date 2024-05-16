@@ -135,8 +135,8 @@ public record GetCompensationV1PlansResponseDto
                 /// <para>工作地点ID，详细信息可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口查询获得</para>
                 /// <para>成本中心ID，详细信息可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>
                 /// <para>职务ID，详细信息可以通过[批量查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口查询获得</para>
-                /// <para>职级ID，详细信息可以通过[批量获取职级信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)接口查询获得</para>
-                /// <para>序列ID，详细信息可以通过[批量获取序列信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)接口查询获得</para>
+                /// <para>职级ID，详细信息可以通过[通过职级 ID 批量获取职级信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)接口查询获得</para>
+                /// <para>序列ID，详细信息可以通过[通过序列 ID 批量获取序列信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)接口查询获得</para>
                 /// <para>人员类型ID，详细信息可以通过[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口查询获得</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：21341234</para>

@@ -18,14 +18,6 @@ public record PostCompensationV1ArchivesQueryBodyDto
     public string[] UserIdList { get; set; } = Array.Empty<string>();
 
     /// <summary>
-    /// <para>是否获取所有版本，参数为空时默认返回当前生效中的版本</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：true</para>
-    /// </summary>
-    [JsonPropertyName("get_all_version")]
-    public bool? GetAllVersion { get; set; }
-
-    /// <summary>
     /// <para>生效开始时间</para>
     /// <para>必填：否</para>
     /// <para>示例值：2022-05-10</para>
