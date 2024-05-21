@@ -1,6 +1,6 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 查询货币信息v2 响应体
+/// 查询货币信息 响应体
 /// <para>根据货币 ID、状态查询货币信息</para>
 /// <para>接口ID：7301516605753163779</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search</para>
@@ -29,12 +29,11 @@ public record PostCorehrV2BasicInfoCurrenciesSearchResponseDto
         public string? CurrencyId { get; set; }
 
         /// <summary>
-        /// <para>货币所属国家/地区 ID，详细信息可通过[查询国家 / 地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得</para>
+        /// <para>货币所属国家/地区 ID 列表，详细信息可通过[查询国家 / 地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6893114162142064111</para>
         /// </summary>
-        [JsonPropertyName("country_region_id")]
-        public string? CountryRegionId { get; set; }
+        [JsonPropertyName("country_region_id_list")]
+        public string[]? CountryRegionIdList { get; set; }
 
         /// <summary>
         /// <para>货币名称</para>

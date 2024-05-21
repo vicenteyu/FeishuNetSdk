@@ -25324,6 +25324,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     [HttpGet("/open-apis/drive/v2/permissions/{token}/public")]
@@ -25357,6 +25358,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -29629,7 +29631,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? outer_id = null);
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】查询城市信息v2</para>
+    /// <para>【飞书人事（企业版）】查询城市信息</para>
     /// <para>接口ID：7301516605753131011</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -29655,7 +29657,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】查询区/县信息v2</para>
+    /// <para>【飞书人事（企业版）】查询区/县信息</para>
     /// <para>接口ID：7301516605753147395</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -29681,7 +29683,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】查询货币信息v2</para>
+    /// <para>【飞书人事（企业版）】查询货币信息</para>
     /// <para>接口ID：7301516605753163779</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -29785,7 +29787,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】查询国家/地区信息v2</para>
+    /// <para>【飞书人事（企业版）】查询国家/地区信息</para>
     /// <para>接口ID：7301516605753229315</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -29811,7 +29813,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】查询省份/行政区信息v2</para>
+    /// <para>【飞书人事（企业版）】查询省份/行政区信息</para>
     /// <para>接口ID：7301516605753245699</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search</para>
     /// <para>Authorization：tenant_access_token</para>

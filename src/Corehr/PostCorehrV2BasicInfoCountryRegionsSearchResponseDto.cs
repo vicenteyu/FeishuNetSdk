@@ -1,6 +1,6 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 查询国家/地区信息v2 响应体
+/// 查询国家/地区信息 响应体
 /// <para>根据国家/地区 ID、状态批量查询国家/地区信息</para>
 /// <para>接口ID：7301516605753229315</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search</para>

@@ -11835,6 +11835,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -11870,6 +11871,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>

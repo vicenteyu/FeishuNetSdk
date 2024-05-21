@@ -1,6 +1,6 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 查询区/县信息v2 响应体
+/// 查询区/县信息 响应体
 /// <para>根据区/县 ID、上级城市 ID 查询区/县信息</para>
 /// <para>接口ID：7301516605753147395</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search</para>
@@ -64,6 +64,14 @@ public record PostCorehrV2BasicInfoDistrictsSearchResponseDto
         /// </summary>
         [JsonPropertyName("city_id")]
         public string? CityId { get; set; }
+
+        /// <summary>
+        /// <para>行政区划代码</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：110000</para>
+        /// </summary>
+        [JsonPropertyName("subregion_code")]
+        public string? SubregionCode { get; set; }
 
         /// <summary>
         /// <para>状态</para>

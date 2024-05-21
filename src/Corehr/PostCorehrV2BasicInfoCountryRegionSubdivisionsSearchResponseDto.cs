@@ -1,6 +1,6 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 查询省份/行政区信息v2 响应体
+/// 查询省份/行政区信息 响应体
 /// <para>根据省份/行政区 ID、状态批量查询行政区、省份、州等数据</para>
 /// <para>接口ID：7301516605753245699</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search</para>

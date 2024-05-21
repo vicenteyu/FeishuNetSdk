@@ -31,7 +31,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
         /// <summary>
         /// <para>会议主题</para>
         /// <para>必填：否</para>
-        /// <para>示例值：mymeeting</para>
+        /// <para>示例值：my meeting</para>
         /// </summary>
         [JsonPropertyName("topic")]
         public string? Topic { get; set; }
@@ -51,6 +51,14 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
         /// </summary>
         [JsonPropertyName("meeting_no")]
         public string? MeetingNo { get; set; }
+
+        /// <summary>
+        /// <para>会议密码</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：971024</para>
+        /// </summary>
+        [JsonPropertyName("password")]
+        public string? Password { get; set; }
 
         /// <summary>
         /// <para>会议创建时间（unix时间，单位sec）</para>

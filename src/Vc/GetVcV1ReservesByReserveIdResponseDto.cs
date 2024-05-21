@@ -37,6 +37,14 @@ public record GetVcV1ReservesByReserveIdResponseDto
         public string? MeetingNo { get; set; }
 
         /// <summary>
+        /// <para>会议密码</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：971024</para>
+        /// </summary>
+        [JsonPropertyName("password")]
+        public string? Password { get; set; }
+
+        /// <summary>
         /// <para>会议链接（飞书用户可通过点击会议链接快捷入会）</para>
         /// <para>必填：否</para>
         /// <para>示例值：https://vc.feishu.cn/j/337736498</para>

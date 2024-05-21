@@ -171,7 +171,7 @@
 <tr><td colspan="3">GetBitableV1AppsByAppToken</td></tr>
 <tr><td rowspan="2">86</td><td rowspan="2">2024-04-24</td><td>&#10003;</td><td>多维表格</td><td>更新多维表格元数据</td></tr>
 <tr><td colspan="3">PutBitableV1AppsByAppToken</td></tr>
-<tr><td rowspan="2">87</td><td rowspan="2">2023-11-30</td><td>&#10003;</td><td>多维表格</td><td>新增一个数据表</td></tr>
+<tr><td rowspan="2">87</td><td rowspan="2">2024-05-14</td><td>&#10003;</td><td>多维表格</td><td>新增一个数据表</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTables</td></tr>
 <tr><td rowspan="2">88</td><td rowspan="2">2023-08-03</td><td>&#10003;</td><td>多维表格</td><td>新增多个数据表</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesBatchCreate</td></tr>
@@ -231,9 +231,9 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDelete</td></tr>
 <tr><td rowspan="2">116</td><td rowspan="2">2024-05-07</td><td>&#10003;</td><td>多维表格</td><td>列出字段</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdFields</td></tr>
-<tr><td rowspan="2">117</td><td rowspan="2">2024-02-01</td><td>&#10003;</td><td>多维表格</td><td>新增字段</td></tr>
+<tr><td rowspan="2">117</td><td rowspan="2">2024-05-14</td><td>&#10003;</td><td>多维表格</td><td>新增字段</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFields</td></tr>
-<tr><td rowspan="2">118</td><td rowspan="2">2023-08-03</td><td>&#10003;</td><td>多维表格</td><td>更新字段</td></tr>
+<tr><td rowspan="2">118</td><td rowspan="2">2024-05-14</td><td>&#10003;</td><td>多维表格</td><td>更新字段</td></tr>
 <tr><td colspan="3">PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldId</td></tr>
 <tr><td rowspan="2">119</td><td rowspan="2">2023-08-03</td><td>&#10003;</td><td>多维表格</td><td>删除字段</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldId</td></tr>
@@ -375,17 +375,17 @@
 <tr><td colspan="3">DeleteCalendarV4ExchangeBindingsByExchangeBindingId</td></tr>
 <tr><td rowspan="2">188</td><td rowspan="2">2024-04-10</td><td>&#10003;</td><td>日历</td><td>查询 Exchange 账户的绑定状态</td></tr>
 <tr><td colspan="3">GetCalendarV4ExchangeBindingsByExchangeBindingId</td></tr>
-<tr><td rowspan="2">189</td><td rowspan="2">2023-10-31</td><td>&#10003;</td><td>视频会议</td><td>预约会议</td></tr>
+<tr><td rowspan="2">189</td><td rowspan="2">2024-05-20</td><td>&#10003;</td><td>视频会议</td><td>预约会议</td></tr>
 <tr><td colspan="3">PostVcV1ReservesApply</td></tr>
 <tr><td rowspan="2">190</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>视频会议</td><td>删除预约</td></tr>
 <tr><td colspan="3">DeleteVcV1ReservesByReserveId</td></tr>
 <tr><td rowspan="2">191</td><td rowspan="2">2024-05-11</td><td>&#10003;</td><td>消息与群组</td><td>更新群置顶</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdTopNoticePutTopNotice</td></tr>
-<tr><td rowspan="2">192</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>视频会议</td><td>更新预约</td></tr>
+<tr><td rowspan="2">192</td><td rowspan="2">2024-05-20</td><td>&#10003;</td><td>视频会议</td><td>更新预约</td></tr>
 <tr><td colspan="3">PutVcV1ReservesByReserveId</td></tr>
-<tr><td rowspan="2">193</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>视频会议</td><td>获取预约</td></tr>
+<tr><td rowspan="2">193</td><td rowspan="2">2024-05-20</td><td>&#10003;</td><td>视频会议</td><td>获取预约</td></tr>
 <tr><td colspan="3">GetVcV1ReservesByReserveId</td></tr>
-<tr><td rowspan="2">194</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>视频会议</td><td>获取活跃会议</td></tr>
+<tr><td rowspan="2">194</td><td rowspan="2">2024-05-20</td><td>&#10003;</td><td>视频会议</td><td>获取活跃会议</td></tr>
 <tr><td colspan="3">GetVcV1ReservesByReserveIdGetActiveMeeting</td></tr>
 <tr><td rowspan="2">195</td><td rowspan="2">2023-08-23</td><td>&#10003;</td><td>视频会议</td><td>邀请参会人</td></tr>
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdInvite</td></tr>
@@ -393,9 +393,9 @@
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdSetHost</td></tr>
 <tr><td rowspan="2">197</td><td rowspan="2">2023-08-23</td><td>&#10003;</td><td>视频会议</td><td>结束会议</td></tr>
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdEnd</td></tr>
-<tr><td rowspan="2">198</td><td rowspan="2">2023-08-23</td><td>&#10003;</td><td>视频会议</td><td>获取会议详情</td></tr>
+<tr><td rowspan="2">198</td><td rowspan="2">2024-05-20</td><td>&#10003;</td><td>视频会议</td><td>获取会议详情</td></tr>
 <tr><td colspan="3">GetVcV1MeetingsByMeetingId</td></tr>
-<tr><td rowspan="2">199</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>视频会议</td><td>获取与会议号关联的会议列表</td></tr>
+<tr><td rowspan="2">199</td><td rowspan="2">2024-05-20</td><td>&#10003;</td><td>视频会议</td><td>获取与会议号关联的会议列表</td></tr>
 <tr><td colspan="3">GetVcV1MeetingsListByNo</td></tr>
 <tr><td rowspan="2">200</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>视频会议</td><td>开始录制</td></tr>
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdRecordingStart</td></tr>
@@ -763,9 +763,9 @@
 <tr><td colspan="3">PostLingoV1FilesUpload</td></tr>
 <tr><td rowspan="2">382</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>下载图片</td></tr>
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
-<tr><td rowspan="2">383</td><td rowspan="2">2024-05-09</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">383</td><td rowspan="2">2024-05-21</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">384</td><td rowspan="2">2024-05-09</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">384</td><td rowspan="2">2024-05-21</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">385</td><td rowspan="2">2023-04-07</td><td>&#10003;</td><td>应用信息</td><td>获取用户自定义常用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV5ApplicationsFavourite</td></tr>
@@ -1013,6 +1013,6 @@
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdRunsByRunId</td></tr>
 <tr><td rowspan="2">507</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>创建会话</td></tr>
 <tr><td colspan="3">PostAilyV1Sessions</td></tr>
-<tr><td rowspan="2">508</td><td rowspan="2">2024-05-11</td><td>新增</td><td>薪酬管理</td><td>批量查询员工薪资档案</td></tr>
+<tr><td rowspan="2">508</td><td rowspan="2">2024-05-15</td><td>&#10003;</td><td>薪酬管理</td><td>批量查询员工薪资档案</td></tr>
 <tr><td colspan="3">PostCompensationV1ArchivesQuery</td></tr>
 </tbody></table>
