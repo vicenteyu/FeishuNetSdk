@@ -32,6 +32,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <para>在开发者后台填入的应用版本号</para>
         /// <para>必填：否</para>
         /// <para>示例值：1.0.0</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("version")]
         public string? Version { get; set; }
@@ -48,6 +49,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <para>应用默认名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：应用名称</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("app_name")]
         public string? AppName { get; set; }
@@ -64,6 +66,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <para>应用默认描述</para>
         /// <para>必填：否</para>
         /// <para>示例值：应用描述</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("description")]
         public string? Description { get; set; }
@@ -122,6 +125,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
         /// <summary>
         /// <para>应用的国际化信息列表</para>
         /// <para>必填：否</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("i18n")]
         public AppI18nInfo[]? I18ns { get; set; }
@@ -139,6 +143,19 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <item>zh_cn：中文</item>
             /// <item>en_us：英文</item>
             /// <item>ja_jp：日文</item>
+            /// <item>zh_hk：繁体中文(中国香港)</item>
+            /// <item>zh_tw：繁体中文(中国台湾)</item>
+            /// <item>id_id：印度尼西亚语</item>
+            /// <item>ms_my：马来语</item>
+            /// <item>de_de：德语</item>
+            /// <item>es_es：西班牙语</item>
+            /// <item>fr_fr：法语</item>
+            /// <item>it_it：意大利语</item>
+            /// <item>pt_br：葡萄牙语(巴西)</item>
+            /// <item>vi_vn：越南语</item>
+            /// <item>ru_ru：俄语</item>
+            /// <item>th_th：泰语</item>
+            /// <item>ko_kr：韩语</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("i18n_key")]
@@ -148,6 +165,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>应用国际化名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：应用名称</para>
+            /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("name")]
             public string? Name { get; set; }
@@ -156,6 +174,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>应用国际化描述（副标题）</para>
             /// <para>必填：否</para>
             /// <para>示例值：应用描述</para>
+            /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("description")]
             public string? Description { get; set; }
@@ -244,8 +263,8 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// <para>可选值：<list type="bullet">
-                /// <item>1：sidebar模式</item>
-                /// <item>2：pc模式</item>
+                /// <item>1：sidebar 模式</item>
+                /// <item>2：pc 模式</item>
                 /// <item>4：主导航模式</item>
                 /// </list></para>
                 /// </summary>
@@ -271,6 +290,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>pc 的小程序版本号</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1.0.0</para>
+                /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("pc_version")]
                 public string? PcVersion { get; set; }
@@ -279,6 +299,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>移动端小程序版本号</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1.0.0</para>
+                /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("mobile_version")]
                 public string? MobileVersion { get; set; }
@@ -287,6 +308,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>移动端兼容的最低飞书版本</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：2.0</para>
+                /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("mobile_min_lark_version")]
                 public string? MobileMinLarkVersion { get; set; }
@@ -295,6 +317,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <para>pc 端兼容的最低飞书版本</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：2.0</para>
+                /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("pc_min_lark_version")]
                 public string? PcMinLarkVersion { get; set; }
@@ -399,6 +422,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <para>主导航小程序版本号</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：1.0.0</para>
+                    /// <para>最小长度：1</para>
                     /// </summary>
                     [JsonPropertyName("version")]
                     public string? Version { get; set; }
@@ -451,6 +475,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <summary>
                 /// <para>国际化信息</para>
                 /// <para>必填：否</para>
+                /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("i18n")]
                 public CloudDocI18nInfo[]? I18ns { get; set; }
@@ -542,6 +567,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <summary>
                 /// <para>block 的国际化信息</para>
                 /// <para>必填：否</para>
+                /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("i18n")]
                 public BlockI18nInfo[]? I18ns { get; set; }
@@ -568,6 +594,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <para>名称</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：名称</para>
+                    /// <para>最小长度：1</para>
                     /// </summary>
                     [JsonPropertyName("name")]
                     public string? Name { get; set; }
@@ -621,6 +648,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// <summary>
                 /// <para>国际化信息</para>
                 /// <para>必填：否</para>
+                /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("i18n")]
                 public MessageActionI18nInfo[]? I18ns { get; set; }
@@ -647,6 +675,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                     /// <para>国际化名称</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：名称</para>
+                    /// <para>最小长度：1</para>
                     /// </summary>
                     [JsonPropertyName("name")]
                     public string? Name { get; set; }
@@ -772,6 +801,43 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 [JsonPropertyName("invisible_list")]
                 public AppVisibleList? InvisibleList { get; set; }
             }
+        }
+
+        /// <summary>
+        /// <para>应用已订阅事件详情列表</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("event_infos")]
+        public Event[]? EventInfos { get; set; }
+
+        /// <summary>
+        /// <para>应用已订阅事件详情列表</para>
+        /// </summary>
+        public record Event
+        {
+            /// <summary>
+            /// <para>事件类型，事件唯一标识</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：im.chat.updated_v1</para>
+            /// </summary>
+            [JsonPropertyName("event_type")]
+            public string? EventType { get; set; }
+
+            /// <summary>
+            /// <para>事件名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：群配置修改事件</para>
+            /// </summary>
+            [JsonPropertyName("event_name")]
+            public string? EventName { get; set; }
+
+            /// <summary>
+            /// <para>事件描述</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：群聊名称、头像、描述以及群编辑权限、群分享权限等被修改时推送事件</para>
+            /// </summary>
+            [JsonPropertyName("event_description")]
+            public string? EventDescription { get; set; }
         }
     }
 }

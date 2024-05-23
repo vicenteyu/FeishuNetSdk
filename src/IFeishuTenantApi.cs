@@ -13310,8 +13310,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="client_token">
     /// <para>必填：否</para>
-    /// <para>根据client_token是否一致来判断是否为同一请求</para>
-    /// <para>示例值：12454646</para>
+    /// <para>操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。</para>
+    /// <para>示例值："fe599b60-450f-46ff-b2ef-9f6675625b97"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
@@ -13331,9 +13331,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
-    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个 department_id 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门。</item>
+    /// <item>people_corehr_department_id：【飞书人事】用来标识「飞书人事」中的部门。</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -16704,8 +16704,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="client_token">
     /// <para>必填：否</para>
-    /// <para>根据client_token是否一致来判断是否为同一请求</para>
-    /// <para>示例值：12454646</para>
+    /// <para>操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。</para>
+    /// <para>示例值："fe599b60-450f-46ff-b2ef-9f6675625b97"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
@@ -16725,9 +16725,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
-    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个 department_id 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门。</item>
+    /// <item>people_corehr_department_id：【飞书人事】用来标识「飞书人事」中的部门。</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -30659,9 +30659,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <para>示例值：people_corehr_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
-    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门。</item>
+    /// <item>people_corehr_department_id：【飞书人事】用来标识「飞书人事」中的部门。</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -30788,5 +30788,136 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Corehr.PostCorehrV2JobGradesQueryBodyDto dto,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事】批量查询用户授权</para>
+    /// <para>接口ID：7372022997609906178</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/authorization/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>批量查询「飞书人事」-「权限设置」中的用户授权信息。</para>
+    /// </summary>
+    /// <param name="employment_id_list">
+    /// <para>必填：否</para>
+    /// <para>员工ID列表，最大100个（不传则默认查询全部员工）</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="role_id_list">
+    /// <para>必填：否</para>
+    /// <para>角色 ID 列表，最大 100 个</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6969864184272078374</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>每页获取记录数量，最大100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v1/authorizations/query")]
+    System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1AuthorizationsQueryResponseDto>> GetCorehrV1AuthorizationsQueryAsync(
+        [PathQuery] string[]? employment_id_list = null,
+        [PathQuery] string[]? role_id_list = null,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? user_id_type = "people_corehr_id");
+
+    /// <summary>
+    /// <para>【飞书人事】查询单个用户授权</para>
+    /// <para>接口ID：7372022997609922562</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/authorization/get_by_param</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询「飞书人事」-「权限设置」中的单个用户授权信息。</para>
+    /// </summary>
+    /// <param name="employment_id">
+    /// <para>必填：是</para>
+    /// <para>被授权用户的 ID，默认为飞书人事中的 ==employment_id==。你也可以使用 user_id_type 中声明的另外 3 种 ID。</para>
+    /// <para>&gt;</para>
+    /// <para>如果你需要使用工号，可以使用 [ID转换服务](https://open.larkoffice.com/document/server-docs/corehr-v1/common_data-id/search?appId=cli_9c04f2177d799101) 换取 ==employment_id==</para>
+    /// <para>示例值：67489937334909845</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v1/authorizations/get_by_param")]
+    System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1AuthorizationsGetByParamResponseDto>> GetCorehrV1AuthorizationsGetByParamAsync(
+        [PathQuery] string employment_id,
+        [PathQuery] string? user_id_type = "people_corehr_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】批量查询部门版本信息</para>
+    /// <para>接口ID：7372158581884911618</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/query_multi_timeline</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>批量查询部门版本信息</para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：people_corehr_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门。</item>
+    /// <item>people_corehr_department_id：【飞书人事】用来标识「飞书人事」中的部门。</item>
+    /// </list>
+    /// <para>默认值：people_corehr_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/departments/query_multi_timeline")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2DepartmentsQueryMultiTimelineResponseDto>> PostCorehrV2DepartmentsQueryMultiTimelineAsync(
+        [JsonContent] Corehr.PostCorehrV2DepartmentsQueryMultiTimelineBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "people_corehr_id",
+        [PathQuery] string? department_id_type = "people_corehr_department_id");
 }
 

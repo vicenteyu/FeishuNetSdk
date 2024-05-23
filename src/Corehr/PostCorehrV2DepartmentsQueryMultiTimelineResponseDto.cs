@@ -1,12 +1,12 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 查询指定生效日期的部门基本信息 响应体
-/// <para>查询指定生效的部门基本信息，含部门名称、上级、编码、负责人、是否启用、描述等信息</para>
-/// <para>接口ID：7351676067814096900</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/query_timeline</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fdepartment%2fquery_timeline</para>
+/// 批量查询部门版本信息 响应体
+/// <para>批量查询部门版本信息</para>
+/// <para>接口ID：7372158581884911618</para>
+/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/query_multi_timeline</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fdepartment%2fquery_multi_timeline</para>
 /// </summary>
-public record PostCorehrV2DepartmentsQueryTimelineResponseDto
+public record PostCorehrV2DepartmentsQueryMultiTimelineResponseDto
 {
     /// <summary>
     /// <para>部门信息</para>
@@ -184,4 +184,20 @@ public record PostCorehrV2DepartmentsQueryTimelineResponseDto
             public string Value { get; set; } = string.Empty;
         }
     }
+
+    /// <summary>
+    /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// </summary>
+    [JsonPropertyName("page_token")]
+    public string? PageToken { get; set; }
+
+    /// <summary>
+    /// <para>是否还有更多项</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：true</para>
+    /// </summary>
+    [JsonPropertyName("has_more")]
+    public bool? HasMore { get; set; }
 }

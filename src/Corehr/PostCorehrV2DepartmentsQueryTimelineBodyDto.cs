@@ -9,7 +9,7 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2DepartmentsQueryTimelineBodyDto
 {
     /// <summary>
-    /// <para>部门 ID 列表</para>
+    /// <para>部门 ID 列表，可请求[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)获取。</para>
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>
