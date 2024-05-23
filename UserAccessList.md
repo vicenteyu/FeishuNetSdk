@@ -951,9 +951,9 @@
 <tr><td colspan="3">GetDriveV1PermissionsByTokenPublic</td></tr>
 <tr><td rowspan="2">476</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
 <tr><td colspan="3">PatchDriveV1PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">477</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
+<tr><td rowspan="2">477</td><td rowspan="2">2024-05-21</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
 <tr><td colspan="3">GetDriveV2PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">478</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
+<tr><td rowspan="2">478</td><td rowspan="2">2024-05-21</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
 <tr><td colspan="3">PatchDriveV2PermissionsByTokenPublic</td></tr>
 <tr><td rowspan="2">479</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>获取云文档所有评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenComments</td></tr>

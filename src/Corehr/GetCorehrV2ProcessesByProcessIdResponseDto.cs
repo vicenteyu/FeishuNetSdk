@@ -598,4 +598,16 @@ public record GetCorehrV2ProcessesByProcessIdResponseDto
         [JsonPropertyName("node_definition_id")]
         public string? NodeDefinitionId { get; set; }
     }
+
+    /// <summary>
+    /// <para>普通流程或撤销流程等</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：1</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>1：普通流程</item>
+    /// <item>2：撤销流程</item>
+    /// </list></para>
+    /// </summary>
+    [JsonPropertyName("properties")]
+    public int? Properties { get; set; }
 }
