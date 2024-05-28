@@ -324,7 +324,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="room_ids">
     /// <para>必填：是</para>
     /// <para>会议室 ID。你可以通过[查询会议室列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/list)或[搜索会议室](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/search)接口获取指定会议室 ID。</para>
-    /// <para>GET 请求中传入多个会议室 ID 的格式示例为 `room_ids=omm_83d09ad4f6896e02029a6a075f71xxxx&amp;room_ids=omm_eada1d61a550955240c28757e7dexxxx`。</para>
+    /// <para>1. room_ids个数不要超过20。</para>
+    /// <para>2. GET 请求中传入多个会议室 ID 的格式示例为 `room_ids=omm_83d09ad4f6896e02029a6a075f71xxxx&amp;room_ids=omm_eada1d61a550955240c28757e7dexxxx`。</para>
     /// </param>
     /// <param name="time_min">
     /// <para>必填：是</para>

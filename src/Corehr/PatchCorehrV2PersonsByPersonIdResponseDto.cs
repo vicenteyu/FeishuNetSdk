@@ -465,14 +465,21 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
             public string? FormattedPhoneNumber { get; set; }
 
             /// <summary>
-            /// <para>设备类型</para>
+            /// <para>设备类型，可选值如下：</para>
+            /// <para>- mobile_phone：手机</para>
+            /// <para>- landline：座机</para>
+            /// <para>- fax：传真</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("device_type")]
             public Enum? DeviceType { get; set; }
 
             /// <summary>
-            /// <para>电话用途</para>
+            /// <para>电话用途，可选值如下：</para>
+            /// <para>- home：家庭</para>
+            /// <para>- work：工作</para>
+            /// <para>- emergency_contact：紧急联系人</para>
+            /// <para>- company：公司</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("phone_usage")]
@@ -700,14 +707,14 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
             public string? PostalCode { get; set; }
 
             /// <summary>
-            /// <para>地址类型</para>
+            /// <para>地址类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地址类型（address_type）枚举定义部分获得</para>
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("address_type_list")]
             public Enum[] AddressTypeLists { get; set; } = Array.Empty<Enum>();
 
             /// <summary>
-            /// <para>地址类型</para>
+            /// <para>地址类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地址类型（address_type）枚举定义部分获得</para>
             /// </summary>
             public record Enum
             {
@@ -1200,7 +1207,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
             public Enum? FieldOfStudyName { get; set; }
 
             /// <summary>
-            /// <para>国家地区ID</para>
+            /// <para>国家地区 ID，可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
@@ -1408,7 +1415,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
             public Enum? BankAccountType { get; set; }
 
             /// <summary>
-            /// <para>货币id</para>
+            /// <para>货币 ID，可通过[【查询货币信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)接口查询获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：12QueryCountryRegionSubdivisionDataReq</para>
             /// </summary>
@@ -2251,14 +2258,21 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                 public string? FormattedPhoneNumber { get; set; }
 
                 /// <summary>
-                /// <para>设备类型</para>
+                /// <para>设备类型，可选值如下：</para>
+                /// <para>- mobile_phone：手机</para>
+                /// <para>- landline：座机</para>
+                /// <para>- fax：传真</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("device_type")]
                 public Enum? DeviceType { get; set; }
 
                 /// <summary>
-                /// <para>电话用途</para>
+                /// <para>电话用途，可选值如下：</para>
+                /// <para>- home：家庭</para>
+                /// <para>- work：工作</para>
+                /// <para>- emergency_contact：紧急联系人</para>
+                /// <para>- company：公司</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("phone_usage")]
@@ -2486,14 +2500,14 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                 public string? PostalCode { get; set; }
 
                 /// <summary>
-                /// <para>地址类型</para>
+                /// <para>地址类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地址类型（address_type）枚举定义部分获得</para>
                 /// <para>必填：是</para>
                 /// </summary>
                 [JsonPropertyName("address_type_list")]
                 public Enum[] AddressTypeLists { get; set; } = Array.Empty<Enum>();
 
                 /// <summary>
-                /// <para>地址类型</para>
+                /// <para>地址类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地址类型（address_type）枚举定义部分获得</para>
                 /// </summary>
                 public record Enum
                 {
@@ -2631,7 +2645,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
             public record File
             {
                 /// <summary>
-                /// <para>上传文件ID</para>
+                /// <para>上传文件 ID，可通过[【上传文件】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/upload)接口获得</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200</para>
                 /// </summary>
@@ -3027,14 +3041,21 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                 public string? FormattedPhoneNumber { get; set; }
 
                 /// <summary>
-                /// <para>设备类型</para>
+                /// <para>设备类型，可选值如下：</para>
+                /// <para>- mobile_phone：手机</para>
+                /// <para>- landline：座机</para>
+                /// <para>- fax：传真</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("device_type")]
                 public Enum? DeviceType { get; set; }
 
                 /// <summary>
-                /// <para>电话用途</para>
+                /// <para>电话用途，可选值如下：</para>
+                /// <para>- home：家庭</para>
+                /// <para>- work：工作</para>
+                /// <para>- emergency_contact：紧急联系人</para>
+                /// <para>- company：公司</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("phone_usage")]
@@ -3056,6 +3077,13 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                 [JsonPropertyName("is_public")]
                 public bool? IsPublic { get; set; }
             }
+
+            /// <summary>
+            /// <para>电话</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("phone_list")]
+            public Phone[]? PhoneLists { get; set; }
 
             /// <summary>
             /// <para>法定姓名</para>
@@ -3261,7 +3289,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
             public record File
             {
                 /// <summary>
-                /// <para>上传文件ID</para>
+                /// <para>上传文件 ID，可通过[【上传文件】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/upload)接口获得</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200</para>
                 /// </summary>
@@ -3279,7 +3307,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
         }
 
         /// <summary>
-        /// <para>籍贯 ID</para>
+        /// <para>籍贯 ID，详细信息可通过[【查询省份/行政区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：6863326262618752111</para>
         /// </summary>
@@ -3462,14 +3490,14 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
             public string YearResidentTax { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>-| 居民身份，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
+            /// <para>居民身份，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("resident_status")]
             public Enum? ResidentStatus { get; set; }
 
             /// <summary>
-            /// <para>-| 居民身份，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
+            /// <para>居民身份，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
             /// </summary>
             public record Enum
             {

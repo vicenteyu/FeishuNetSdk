@@ -200,6 +200,15 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
                 public string? JoinMeetingPermission { get; set; }
 
                 /// <summary>
+                /// <para>设置会议密码，仅支持 4-9 位数字</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：971024</para>
+                /// <para>最大长度：9</para>
+                /// </summary>
+                [JsonPropertyName("password")]
+                public string? Password { get; set; }
+
+                /// <summary>
                 /// <para>主持人的用户 ID 信息。</para>
                 /// <para>必填：否</para>
                 /// </summary>
@@ -494,5 +503,50 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// </summary>
         [JsonPropertyName("app_link")]
         public string? AppLink { get; set; }
+
+        /// <summary>
+        /// <para>日程附件</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("attachments")]
+        public Attachment[]? Attachments { get; set; }
+
+        /// <summary>
+        /// <para>日程附件</para>
+        /// </summary>
+        public record Attachment
+        {
+            /// <summary>
+            /// <para>附件token</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：xAAAAA</para>
+            /// </summary>
+            [JsonPropertyName("file_token")]
+            public string? FileToken { get; set; }
+
+            /// <summary>
+            /// <para>附件大小</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2345</para>
+            /// </summary>
+            [JsonPropertyName("file_size")]
+            public string? FileSize { get; set; }
+
+            /// <summary>
+            /// <para>是否删除附件</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：false</para>
+            /// </summary>
+            [JsonPropertyName("is_deleted")]
+            public bool? IsDeleted { get; set; }
+
+            /// <summary>
+            /// <para>附件名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：附件.jpeg</para>
+            /// </summary>
+            [JsonPropertyName("name")]
+            public string? Name { get; set; }
+        }
     }
 }

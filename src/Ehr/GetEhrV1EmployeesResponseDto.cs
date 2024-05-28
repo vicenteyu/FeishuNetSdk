@@ -1,4 +1,4 @@
-namespace FeishuNetSdk.Ehr.Spec;
+namespace FeishuNetSdk.Ehr;
 /// <summary>
 /// 批量获取员工花名册信息 响应体
 /// <para>根据员工飞书用户 ID / 员工状态 / 雇员类型等搜索条件 ，批量获取员工花名册字段信息。字段包括「系统标准字段 / system_fields」和「自定义字段 / custom_fields」。</para>
@@ -15,7 +15,9 @@ public record GetEhrV1EmployeesResponseDto
     [JsonPropertyName("items")]
     public Employee[]? Items { get; set; }
 
-    /// <summary></summary>
+    /// <summary>
+    /// <para>员工列表</para>
+    /// </summary>
     public record Employee
     {
         /// <summary>
@@ -25,6 +27,7 @@ public record GetEhrV1EmployeesResponseDto
         /// <para>user_id_type 为 union_id 时返回 union_id；</para>
         /// <para>「待入职」和「已取消入职」的员工，此字段值为 null</para>
         /// <para>必填：否</para>
+        /// <para>示例值：ou_8ebd4f35d7101ffdeb4771d7c8ec517e</para>
         /// </summary>
         [JsonPropertyName("user_id")]
         public string? UserId { get; set; }
@@ -34,14 +37,17 @@ public record GetEhrV1EmployeesResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("system_fields")]
-        public SystemField? SystemFields { get; set; }
+        public EmployeeSystemFields? SystemFields { get; set; }
 
-        /// <summary></summary>
-        public record SystemField
+        /// <summary>
+        /// <para>系统字段</para>
+        /// </summary>
+        public record EmployeeSystemFields
         {
             /// <summary>
             /// <para>中文姓名</para>
             /// <para>必填：否</para>
+            /// <para>示例值：张三</para>
             /// </summary>
             [JsonPropertyName("name")]
             public string? Name { get; set; }
@@ -49,6 +55,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>英文姓名</para>
             /// <para>必填：否</para>
+            /// <para>示例值：Tony Zhang</para>
             /// </summary>
             [JsonPropertyName("en_name")]
             public string? EnName { get; set; }
@@ -56,6 +63,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>邮箱</para>
             /// <para>必填：否</para>
+            /// <para>示例值：a@b.com</para>
             /// </summary>
             [JsonPropertyName("email")]
             public string? Email { get; set; }
@@ -63,6 +71,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>手机号码</para>
             /// <para>必填：否</para>
+            /// <para>示例值：(+86) 13812345678</para>
             /// </summary>
             [JsonPropertyName("mobile")]
             public string? Mobile { get; set; }
@@ -70,6 +79,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>部门的飞书 open_department_id</para>
             /// <para>必填：否</para>
+            /// <para>示例值：od-4d551617a5da3cec26666d33175dc8ca</para>
             /// </summary>
             [JsonPropertyName("department_id")]
             public string? DepartmentId { get; set; }
@@ -79,14 +89,17 @@ public record GetEhrV1EmployeesResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("manager")]
-            public ManagerSuffix? Manager { get; set; }
+            public EmployeeSystemFieldsManager? Manager { get; set; }
 
-            /// <summary></summary>
-            public record ManagerSuffix
+            /// <summary>
+            /// <para>上级</para>
+            /// </summary>
+            public record EmployeeSystemFieldsManager
             {
                 /// <summary>
                 /// <para>上级的用户 ID（user_id）</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：ou_8ebd4f35d7101ffdeb4771d7c8ec517e</para>
                 /// </summary>
                 [JsonPropertyName("user_id")]
                 public string? UserId { get; set; }
@@ -94,6 +107,7 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>中文名</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：李四</para>
                 /// </summary>
                 [JsonPropertyName("name")]
                 public string? Name { get; set; }
@@ -101,6 +115,7 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>英文名</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：Tom Li</para>
                 /// </summary>
                 [JsonPropertyName("en_name")]
                 public string? EnName { get; set; }
@@ -111,14 +126,17 @@ public record GetEhrV1EmployeesResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("job")]
-            public JobSuffix? Job { get; set; }
+            public EmployeeSystemFieldsJob? Job { get; set; }
 
-            /// <summary></summary>
-            public record JobSuffix
+            /// <summary>
+            /// <para>职位</para>
+            /// </summary>
+            public record EmployeeSystemFieldsJob
             {
                 /// <summary>
                 /// <para>职位 ID</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：1695838220091399</para>
                 /// </summary>
                 [JsonPropertyName("id")]
                 public long? Id { get; set; }
@@ -126,6 +144,7 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>职位名称</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：测试工程师</para>
                 /// </summary>
                 [JsonPropertyName("name")]
                 public string? Name { get; set; }
@@ -136,14 +155,17 @@ public record GetEhrV1EmployeesResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("job_level")]
-            public JobLevelSuffix? JobLevel { get; set; }
+            public EmployeeSystemFieldsJobLevel? JobLevel { get; set; }
 
-            /// <summary></summary>
-            public record JobLevelSuffix
+            /// <summary>
+            /// <para>职级</para>
+            /// </summary>
+            public record EmployeeSystemFieldsJobLevel
             {
                 /// <summary>
                 /// <para>职级 ID</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：1695838220091399</para>
                 /// </summary>
                 [JsonPropertyName("id")]
                 public long? Id { get; set; }
@@ -151,6 +173,7 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>职级名称</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：CEO</para>
                 /// </summary>
                 [JsonPropertyName("name")]
                 public string? Name { get; set; }
@@ -161,14 +184,17 @@ public record GetEhrV1EmployeesResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("work_location")]
-            public WorkLocationSuffix? WorkLocation { get; set; }
+            public EmployeeSystemFieldsWorkLocation? WorkLocation { get; set; }
 
-            /// <summary></summary>
-            public record WorkLocationSuffix
+            /// <summary>
+            /// <para>工作地点</para>
+            /// </summary>
+            public record EmployeeSystemFieldsWorkLocation
             {
                 /// <summary>
                 /// <para>工作地点 ID</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：1695838220091399</para>
                 /// </summary>
                 [JsonPropertyName("id")]
                 public long? Id { get; set; }
@@ -176,6 +202,7 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>工作地点名称</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：武汉</para>
                 /// </summary>
                 [JsonPropertyName("name")]
                 public string? Name { get; set; }
@@ -183,9 +210,8 @@ public record GetEhrV1EmployeesResponseDto
 
             /// <summary>
             /// <para>性别</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:男,2:女</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：男</item>
             /// <item>2：女</item>
@@ -197,6 +223,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>出生日期</para>
             /// <para>必填：否</para>
+            /// <para>示例值：2020-01-01</para>
             /// </summary>
             [JsonPropertyName("birthday")]
             public string? Birthday { get; set; }
@@ -206,14 +233,17 @@ public record GetEhrV1EmployeesResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("native_region")]
-            public NativeRegionSuffix? NativeRegion { get; set; }
+            public EmployeeSystemFieldsNativeRegion? NativeRegion { get; set; }
 
-            /// <summary></summary>
-            public record NativeRegionSuffix
+            /// <summary>
+            /// <para>籍贯</para>
+            /// </summary>
+            public record EmployeeSystemFieldsNativeRegion
             {
                 /// <summary>
                 /// <para>ISO 编码</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：CHN-11</para>
                 /// </summary>
                 [JsonPropertyName("iso_code")]
                 public string? IsoCode { get; set; }
@@ -221,6 +251,7 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>名称</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：北京</para>
                 /// </summary>
                 [JsonPropertyName("name")]
                 public string? Name { get; set; }
@@ -228,9 +259,8 @@ public record GetEhrV1EmployeesResponseDto
 
             /// <summary>
             /// <para>民族</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:汉族,2:蒙古族,3:回族,4:藏族,5:维吾尔族,6:苗族,7:彝族,8:壮族,9:布依族,10:朝鲜族,11:满族,12:侗族,13:瑶族,14:白族,15:土家族,16:哈尼族,17:哈萨克族,18:傣族,19:黎族,20:傈僳族,21:佤族,22:畲族,23:高山族,24:拉祜族,25:水族,26:东乡族,27:纳西族,28:景颇族,29:阿昌族,30:柯尔克孜族,31:土族,32:达斡尔族,33:仫佬族,34:羌族,35:布朗族,36:撒拉族,37:毛南族,38:仡佬族,39:锡伯族,40:普米族,41:塔吉克族,42:怒族,43:乌孜别克族,44:俄罗斯族,45:鄂温克族,46:德昂族,47:保安族,48:裕固族,49:京族,50:塔塔尔族,51:独龙族,52:鄂伦春族,53:赫哲族,54:门巴族,55:珞巴族,56:基诺族,57:其他</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：汉族</item>
             /// <item>2：蒙古族</item>
@@ -296,9 +326,8 @@ public record GetEhrV1EmployeesResponseDto
 
             /// <summary>
             /// <para>婚姻状况</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:未婚,2:已婚,3:离异,4:其他</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：未婚</item>
             /// <item>2：已婚</item>
@@ -311,9 +340,8 @@ public record GetEhrV1EmployeesResponseDto
 
             /// <summary>
             /// <para>政治面貌</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:中共党员,2:中国农工民主党,3:中国国民党革命委员会,4:中国民主促进会会员,5:中国民主同盟成员,6:中国民主建国会,7:中国致公党党员,8:九三学社社员,9:共青团员,10:其它党派成员,11:民主人士,12:群众,13:台湾民主自治同盟盟员</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：中共党员</item>
             /// <item>2：中国农工民主党</item>
@@ -336,15 +364,15 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>参加工作日期</para>
             /// <para>必填：否</para>
+            /// <para>示例值：2020-01-01</para>
             /// </summary>
             [JsonPropertyName("entered_workforce_date")]
             public string? EnteredWorkforceDate { get; set; }
 
             /// <summary>
             /// <para>证件类型</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:居民身份证,2:港澳居民来往内地通行证,3:台湾居民来往大陆通行证,4:护照,5:其他</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：居民身份证</item>
             /// <item>2：港澳居民来往内地通行证</item>
@@ -359,15 +387,15 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>证件号</para>
             /// <para>必填：否</para>
+            /// <para>示例值：110122XXXXXX</para>
             /// </summary>
             [JsonPropertyName("id_number")]
             public string? IdNumber { get; set; }
 
             /// <summary>
             /// <para>户口类型</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:本市城镇,2:外埠城镇,3:本市农村,4:外埠农村</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：本市城镇</item>
             /// <item>2：外埠城镇</item>
@@ -381,6 +409,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>户口所在地</para>
             /// <para>必填：否</para>
+            /// <para>示例值：北京市海淀区XXXX</para>
             /// </summary>
             [JsonPropertyName("hukou_location")]
             public string? HukouLocation { get; set; }
@@ -388,6 +417,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>银行卡号</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1243253453</para>
             /// </summary>
             [JsonPropertyName("bank_account_number")]
             public string? BankAccountNumber { get; set; }
@@ -395,6 +425,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>开户行</para>
             /// <para>必填：否</para>
+            /// <para>示例值：招商银行</para>
             /// </summary>
             [JsonPropertyName("bank_name")]
             public string? BankName { get; set; }
@@ -402,6 +433,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>社保账号</para>
             /// <para>必填：否</para>
+            /// <para>示例值：123124124</para>
             /// </summary>
             [JsonPropertyName("social_security_account")]
             public string? SocialSecurityAccount { get; set; }
@@ -409,6 +441,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>公积金账号</para>
             /// <para>必填：否</para>
+            /// <para>示例值：123124235</para>
             /// </summary>
             [JsonPropertyName("provident_fund_account")]
             public string? ProvidentFundAccount { get; set; }
@@ -416,6 +449,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>工号</para>
             /// <para>必填：否</para>
+            /// <para>示例值：TM-00001</para>
             /// </summary>
             [JsonPropertyName("employee_no")]
             public string? EmployeeNo { get; set; }
@@ -423,9 +457,8 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>人员类型</para>
             /// <para>同时可读取到自定义员工类型的 int 值，可通过下方接口获取到该租户的自定义员工类型的名称，参见 [获取人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:正式,2:实习,3:顾问,4:外包,5:劳务</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：正式</item>
             /// <item>2：实习</item>
@@ -439,9 +472,8 @@ public record GetEhrV1EmployeesResponseDto
 
             /// <summary>
             /// <para>员工状态</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:待入职,2:在职,3:已取消入职,4:待离职,5:已离职</para>
             /// <para>必填：否</para>
+            /// <para>示例值：2</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：待入职</item>
             /// <item>2：在职</item>
@@ -456,6 +488,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>入职日期</para>
             /// <para>必填：否</para>
+            /// <para>示例值：2020-01-01</para>
             /// </summary>
             [JsonPropertyName("hire_date")]
             public string? HireDate { get; set; }
@@ -463,6 +496,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>试用期（月）</para>
             /// <para>必填：否</para>
+            /// <para>示例值：2</para>
             /// </summary>
             [JsonPropertyName("probation_months")]
             public float? ProbationMonths { get; set; }
@@ -470,15 +504,15 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>转正日期</para>
             /// <para>必填：否</para>
+            /// <para>示例值：2020-01-01</para>
             /// </summary>
             [JsonPropertyName("conversion_date")]
             public string? ConversionDate { get; set; }
 
             /// <summary>
             /// <para>转正申请</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:未申请,2:审批中,3:被驳回,4:已通过</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：未申请</item>
             /// <item>2：审批中</item>
@@ -491,9 +525,8 @@ public record GetEhrV1EmployeesResponseDto
 
             /// <summary>
             /// <para>转正状态</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:无需转正,2:待转正,3:已转正</para>
             /// <para>必填：否</para>
+            /// <para>示例值：3</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：无需转正</item>
             /// <item>2：待转正</item>
@@ -506,15 +539,15 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>离职日期</para>
             /// <para>必填：否</para>
+            /// <para>示例值：2020-01-01</para>
             /// </summary>
             [JsonPropertyName("last_day")]
             public string? LastDay { get; set; }
 
             /// <summary>
             /// <para>离职类型</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:主动,2:被动,3:其他</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：主动</item>
             /// <item>2：被动</item>
@@ -526,9 +559,8 @@ public record GetEhrV1EmployeesResponseDto
 
             /// <summary>
             /// <para>离职原因</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:身体、家庭原因,2:职业发展,3:薪资福利不满意,4:工作压力大,5:合同到期不续签,6:其他,7:无法胜任工作,8:组织业务调整和岗位优化,9:违反公司条例,10:试用期未通过,11:其他,12:不满意工作内容,13:不认可上级或管理层,14:对公司文化缺乏认同,15:组织架构调整（主动离职）,16:跳槽,17:转行,18:家庭原因,19:健康状况不佳,20:工作地点原因,21:意外,22:身故,23:解雇,24:工作产出低,25:违法,26:其他（其他）</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：身体、家庭原因</item>
             /// <item>2：职业发展</item>
@@ -564,6 +596,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>离职备注</para>
             /// <para>必填：否</para>
+            /// <para>示例值：世界那么大</para>
             /// </summary>
             [JsonPropertyName("departure_notes")]
             public string? DepartureNotes { get; set; }
@@ -573,14 +606,17 @@ public record GetEhrV1EmployeesResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("contract_company")]
-            public ContractCompanySuffix? ContractCompany { get; set; }
+            public EmployeeSystemFieldsContractCompany? ContractCompany { get; set; }
 
-            /// <summary></summary>
-            public record ContractCompanySuffix
+            /// <summary>
+            /// <para>合同公司</para>
+            /// </summary>
+            public record EmployeeSystemFieldsContractCompany
             {
                 /// <summary>
                 /// <para>公司 ID</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：1695838220091399</para>
                 /// </summary>
                 [JsonPropertyName("id")]
                 public long? Id { get; set; }
@@ -588,6 +624,7 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>公司名称</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：油条一号</para>
                 /// </summary>
                 [JsonPropertyName("name")]
                 public string? Name { get; set; }
@@ -595,9 +632,8 @@ public record GetEhrV1EmployeesResponseDto
 
             /// <summary>
             /// <para>合同类型</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:固定期限劳动合同,2:无固定期限劳动合同,3:实习协议,4:外包协议,5:劳务派遣合同,6:返聘协议,7:其他</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：固定期限劳动合同</item>
             /// <item>2：无固定期限劳动合同</item>
@@ -614,6 +650,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>合同开始日期</para>
             /// <para>必填：否</para>
+            /// <para>示例值：2020-01-01</para>
             /// </summary>
             [JsonPropertyName("contract_start_date")]
             public string? ContractStartDate { get; set; }
@@ -621,6 +658,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>合同到期日期</para>
             /// <para>必填：否</para>
+            /// <para>示例值：2020-01-01</para>
             /// </summary>
             [JsonPropertyName("contract_expiration_date")]
             public string? ContractExpirationDate { get; set; }
@@ -628,6 +666,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>劳动合同签订次数</para>
             /// <para>必填：否</para>
+            /// <para>示例值：2</para>
             /// </summary>
             [JsonPropertyName("contract_sign_times")]
             public int? ContractSignTimes { get; set; }
@@ -635,6 +674,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>个人邮箱</para>
             /// <para>必填：否</para>
+            /// <para>示例值：personal@email.com</para>
             /// </summary>
             [JsonPropertyName("personal_email")]
             public string? PersonalEmail { get; set; }
@@ -642,6 +682,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>家庭地址</para>
             /// <para>必填：否</para>
+            /// <para>示例值：北京市海淀区XXXXX</para>
             /// </summary>
             [JsonPropertyName("family_address")]
             public string? FamilyAddress { get; set; }
@@ -654,27 +695,22 @@ public record GetEhrV1EmployeesResponseDto
             public EmergencyContact? PrimaryEmergencyContact { get; set; }
 
             /// <summary>
-            /// <para>紧急联系人</para>
-            /// <para>必填：否</para>
+            /// <para>主要紧急联系人</para>
             /// </summary>
-            [JsonPropertyName("emergency_contact")]
-            public EmergencyContact[]? EmergencyContacts { get; set; }
-
-            /// <summary></summary>
             public record EmergencyContact
             {
                 /// <summary>
                 /// <para>紧急联系人姓名</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：张三</para>
                 /// </summary>
                 [JsonPropertyName("name")]
                 public string? Name { get; set; }
 
                 /// <summary>
                 /// <para>与紧急联系人的关系</para>
-                /// <para>**可选值有**：</para>
-                /// <para>1:父母,2:配偶,3:子女,4:兄弟姐妹,5:朋友,6:其他</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：1</para>
                 /// <para>可选值：<list type="bullet">
                 /// <item>1：父母</item>
                 /// <item>2：配偶</item>
@@ -690,10 +726,18 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>手机号</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：(+86) 13812345678</para>
                 /// </summary>
                 [JsonPropertyName("mobile")]
                 public string? Mobile { get; set; }
             }
+
+            /// <summary>
+            /// <para>紧急联系人</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("emergency_contact")]
+            public EmergencyContact[]? EmergencyContacts { get; set; }
 
             /// <summary>
             /// <para>最高学历</para>
@@ -703,20 +747,14 @@ public record GetEhrV1EmployeesResponseDto
             public Education? HighestLevelOfEdu { get; set; }
 
             /// <summary>
-            /// <para>教育经历</para>
-            /// <para>必填：否</para>
+            /// <para>最高学历</para>
             /// </summary>
-            [JsonPropertyName("education")]
-            public Education[]? Educations { get; set; }
-
-            /// <summary></summary>
             public record Education
             {
                 /// <summary>
                 /// <para>学历</para>
-                /// <para>**可选值有**：</para>
-                /// <para>1:小学,2:初中,3:高中,4:职业高级中学,5:中等专业学校,6:大专,7:本科,8:硕士,9:博士</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：7</para>
                 /// <para>可选值：<list type="bullet">
                 /// <item>1：小学</item>
                 /// <item>2：初中</item>
@@ -735,6 +773,7 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>毕业学校</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：XXXX大学</para>
                 /// </summary>
                 [JsonPropertyName("school")]
                 public string? School { get; set; }
@@ -742,15 +781,15 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>专业</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：XXX专业</para>
                 /// </summary>
                 [JsonPropertyName("major")]
                 public string? Major { get; set; }
 
                 /// <summary>
                 /// <para>学位</para>
-                /// <para>**可选值有**：</para>
-                /// <para>1:学士,2:硕士,3:博士</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：1</para>
                 /// <para>可选值：<list type="bullet">
                 /// <item>1：学士</item>
                 /// <item>2：硕士</item>
@@ -763,6 +802,7 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>开始日期</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：2020-01-01</para>
                 /// </summary>
                 [JsonPropertyName("start")]
                 public string? Start { get; set; }
@@ -770,10 +810,18 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>结束日期</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：2020-01-01</para>
                 /// </summary>
                 [JsonPropertyName("end")]
                 public string? End { get; set; }
             }
+
+            /// <summary>
+            /// <para>教育经历</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("education")]
+            public Education[]? Educations { get; set; }
 
             /// <summary>
             /// <para>前工作经历</para>
@@ -783,18 +831,14 @@ public record GetEhrV1EmployeesResponseDto
             public WorkExperience? FormerWorkExp { get; set; }
 
             /// <summary>
-            /// <para>工作经历</para>
-            /// <para>必填：否</para>
+            /// <para>前工作经历</para>
             /// </summary>
-            [JsonPropertyName("work_exp")]
-            public WorkExperience[]? WorkExp { get; set; }
-
-            /// <summary></summary>
             public record WorkExperience
             {
                 /// <summary>
                 /// <para>公司</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：XXXX公司</para>
                 /// </summary>
                 [JsonPropertyName("company")]
                 public string? Company { get; set; }
@@ -802,6 +846,7 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>部门</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：部门1</para>
                 /// </summary>
                 [JsonPropertyName("department")]
                 public string? Department { get; set; }
@@ -809,6 +854,7 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>职位</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：职位</para>
                 /// </summary>
                 [JsonPropertyName("job")]
                 public string? Job { get; set; }
@@ -816,6 +862,7 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>开始日期</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：2020-01-01</para>
                 /// </summary>
                 [JsonPropertyName("start")]
                 public string? Start { get; set; }
@@ -823,6 +870,7 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>截止日期</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：2020-01-01</para>
                 /// </summary>
                 [JsonPropertyName("end")]
                 public string? End { get; set; }
@@ -830,69 +878,114 @@ public record GetEhrV1EmployeesResponseDto
                 /// <summary>
                 /// <para>工作描述</para>
                 /// <para>必填：否</para>
+                /// <para>示例值：工作描述</para>
                 /// </summary>
                 [JsonPropertyName("description")]
                 public string? Description { get; set; }
             }
 
             /// <summary>
+            /// <para>工作经历</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("work_exp")]
+            public WorkExperience[]? WorkExps { get; set; }
+
+            /// <summary>
             /// <para>身份证照片（人像面）</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("id_photo_po_side")]
-            public Attachment[]? IdPhotoPoSide { get; set; }
+            public Attachment[]? IdPhotoPoSides { get; set; }
+
+            /// <summary>
+            /// <para>身份证照片（人像面）</para>
+            /// </summary>
+            public record Attachment
+            {
+                /// <summary>
+                /// <para>下载文件所需要的 Token</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：c7273e07ed9e40a394f88c7dccb49212</para>
+                /// </summary>
+                [JsonPropertyName("id")]
+                public string? Id { get; set; }
+
+                /// <summary>
+                /// <para>文件类型</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：png</para>
+                /// </summary>
+                [JsonPropertyName("mime_type")]
+                public string? MimeType { get; set; }
+
+                /// <summary>
+                /// <para>名称</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：Custom Code.png</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public string? Name { get; set; }
+
+                /// <summary>
+                /// <para>大小</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：57380</para>
+                /// </summary>
+                [JsonPropertyName("size")]
+                public long? Size { get; set; }
+            }
 
             /// <summary>
             /// <para>身份证照片（国徽面）</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("id_photo_em_side")]
-            public Attachment[]? IdPhotoEmSide { get; set; }
+            public Attachment[]? IdPhotoEmSides { get; set; }
 
             /// <summary>
             /// <para>证件照</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("id_photo")]
-            public Attachment[]? IdPhoto { get; set; }
+            public Attachment[]? IdPhotos { get; set; }
 
             /// <summary>
             /// <para>学位证书</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("diploma_photo")]
-            public Attachment[]? DiplomaPhoto { get; set; }
+            public Attachment[]? DiplomaPhotos { get; set; }
 
             /// <summary>
             /// <para>毕业证书</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("graduation_cert")]
-            public Attachment[]? GraduationCert { get; set; }
+            public Attachment[]? GraduationCerts { get; set; }
 
             /// <summary>
             /// <para>奖励证明</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("cert_of_merit")]
-            public Attachment[]? CertOfMerit { get; set; }
+            public Attachment[]? CertOfMerits { get; set; }
 
             /// <summary>
             /// <para>离职证明</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("offboarding_file")]
-            public Attachment[]? OffboardingFile { get; set; }
+            public Attachment[]? OffboardingFiles { get; set; }
 
             /// <summary>
             /// <para>取消入职原因</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:个人原因,2:原单位留任,3:接受其他 Offer,4:其他</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：个人原因</item>
             /// <item>2：原单位留任</item>
-            /// <item>3：接受其他Offer</item>
+            /// <item>3：接受其他 Offer</item>
             /// <item>4：其他</item>
             /// </list></para>
             /// </summary>
@@ -902,15 +995,15 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>取消入职备注</para>
             /// <para>必填：否</para>
+            /// <para>示例值：个人原因</para>
             /// </summary>
             [JsonPropertyName("cancel_onboarding_notes")]
             public string? CancelOnboardingNotes { get; set; }
 
             /// <summary>
             /// <para>入职登记表状态</para>
-            /// <para>**可选值有**：</para>
-            /// <para>1:未发送,2:待提交,3:已提交</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：未发送</item>
             /// <item>2：待提交</item>
@@ -923,49 +1016,18 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>创建时间</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1608690517811</para>
             /// </summary>
             [JsonPropertyName("create_time")]
-            public int? CreateTime { get; set; }
+            public long? CreateTime { get; set; }
 
             /// <summary>
             /// <para>更新时间</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1608690517811</para>
             /// </summary>
             [JsonPropertyName("update_time")]
-            public int? UpdateTime { get; set; }
-
-            /// <summary></summary>
-            public record Attachment
-            {
-                /// <summary>
-                /// <para>下载文件所需要的 Token</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("id")]
-                public string? Id { get; set; }
-
-                /// <summary>
-                /// <para>文件类型</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("mime_type")]
-                public string? MimeType { get; set; }
-
-                /// <summary>
-                /// <para>名称</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("name")]
-                public string? Name { get; set; }
-
-                /// <summary>
-                /// <para>大小</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("size")]
-                public long? Size { get; set; }
-
-            }
+            public long? UpdateTime { get; set; }
         }
 
         /// <summary>
@@ -975,12 +1037,15 @@ public record GetEhrV1EmployeesResponseDto
         [JsonPropertyName("custom_fields")]
         public CustomField[]? CustomFields { get; set; }
 
-        /// <summary></summary>
+        /// <summary>
+        /// <para>自定义字段</para>
+        /// </summary>
         public record CustomField
         {
             /// <summary>
             /// <para>自定义字段key</para>
             /// <para>必填：否</para>
+            /// <para>示例值：field_xxxxxxxx</para>
             /// </summary>
             [JsonPropertyName("key")]
             public string? Key { get; set; }
@@ -988,18 +1053,18 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>自定义字段名称</para>
             /// <para>必填：否</para>
+            /// <para>示例值：自定义字段 1</para>
             /// </summary>
             [JsonPropertyName("label")]
             public string? Label { get; set; }
 
             /// <summary>
             /// <para>自定义字段类型</para>
-            /// <para>**可选值有**：</para>
-            /// <para>text:文本类型,date:日期类型，如 2020-01-01,option:枚举类型,file:附件类型</para>
             /// <para>必填：否</para>
+            /// <para>示例值：text</para>
             /// <para>可选值：<list type="bullet">
             /// <item>text：文本类型</item>
-            /// <item>date：日期类型，如2020-01-01</item>
+            /// <item>date：日期类型，如 2020-01-01</item>
             /// <item>option：枚举类型</item>
             /// <item>file：附件类型</item>
             /// </list></para>
@@ -1010,6 +1075,7 @@ public record GetEhrV1EmployeesResponseDto
             /// <summary>
             /// <para>根据 type 不同，结构不同，不同 type 对应的数据结构在 type 的枚举值中有描述</para>
             /// <para>必填：否</para>
+            /// <para>示例值：文本</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string? Value { get; set; }
@@ -1019,6 +1085,7 @@ public record GetEhrV1EmployeesResponseDto
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
     /// </summary>
     [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
@@ -1026,6 +1093,7 @@ public record GetEhrV1EmployeesResponseDto
     /// <summary>
     /// <para>是否还有更多项</para>
     /// <para>必填：否</para>
+    /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }

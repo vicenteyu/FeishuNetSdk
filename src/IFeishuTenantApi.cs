@@ -612,7 +612,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="room_ids">
     /// <para>必填：是</para>
     /// <para>会议室 ID。你可以通过[查询会议室列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/list)或[搜索会议室](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/search)接口获取指定会议室 ID。</para>
-    /// <para>GET 请求中传入多个会议室 ID 的格式示例为 `room_ids=omm_83d09ad4f6896e02029a6a075f71xxxx&amp;room_ids=omm_eada1d61a550955240c28757e7dexxxx`。</para>
+    /// <para>1. room_ids个数不要超过20。</para>
+    /// <para>2. GET 请求中传入多个会议室 ID 的格式示例为 `room_ids=omm_83d09ad4f6896e02029a6a075f71xxxx&amp;room_ids=omm_eada1d61a550955240c28757e7dexxxx`。</para>
     /// </param>
     /// <param name="time_min">
     /// <para>必填：是</para>
@@ -3844,10 +3845,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="view">
     /// <para>必填：否</para>
-    /// <para>返回数据类型</para>
-    /// <para>**示例值**："basic"</para>
-    /// <para>**可选值有**：</para>
-    /// <para>basic:概览，只返回 id、name 等基本信息,full:明细，返回系统标准字段和自定义字段集合</para>
+    /// <para>返回数据类型，不传值默认为 basic。</para>
+    /// <para>示例值：basic</para>
     /// <list type="bullet">
     /// <item>basic：概览，只返回 id、name 等基本信息</item>
     /// <item>full：明细，返回系统标准字段和自定义字段集合</item>
@@ -3859,59 +3858,36 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>员工状态，不传代表查询所有员工状态</para>
     /// <para>实际在职 = 2&amp;4</para>
     /// <para>可同时查询多个状态的记录，如 status=2&amp;status=4</para>
-    /// <para>**示例值**：2</para>
-    /// <para>**可选值有**：</para>
-    /// <para>1:待入职,2:在职,3:已取消入职,4:待离职,5:已离职</para>
-    /// <list type="bullet">
-    /// <item>1：待入职</item>
-    /// <item>2：在职</item>
-    /// <item>3：已取消入职</item>
-    /// <item>4：待离职</item>
-    /// <item>5：已离职</item>
-    /// </list>
+    /// <para>示例值：2</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：否</para>
     /// <para>人员类型，不传代表查询所有人员类型</para>
     /// <para>同时可使用自定义员工类型的 int 值进行查询，可通过下方接口获取到该租户的自定义员工类型的名称，参见 [获取人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)</para>
-    /// <para>**示例值**：1</para>
-    /// <para>**可选值有**：</para>
-    /// <para>1:全职,2:实习,3:顾问,4:外包,5:劳务</para>
-    /// <list type="bullet">
-    /// <item>1：全职</item>
-    /// <item>2：实习</item>
-    /// <item>3：顾问</item>
-    /// <item>4：外包</item>
-    /// <item>5：劳务</item>
-    /// </list>
+    /// <para>示例值：1</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="start_time">
     /// <para>必填：否</para>
-    /// <para>查询开始时间（创建时间 &amp;gt;= 此时间）</para>
-    /// <para>**示例值**："1608690517811"</para>
+    /// <para>查询开始时间（创建时间 &gt;= 此时间）</para>
+    /// <para>示例值：1608690517811</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：否</para>
-    /// <para>查询结束时间（创建时间 &amp;lt;= 此时间）</para>
-    /// <para>**示例值**："1608690517811"</para>
+    /// <para>查询结束时间（创建时间 &lt;= 此时间）</para>
+    /// <para>示例值：1608690517811</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
-    /// <para>**示例值**："open_id"</para>
-    /// <para>**可选值有**：</para>
-    /// <para>open_id:标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid),union_id:标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id),user_id:标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</para>
-    /// <para>**默认值**：`open_id`</para>
-    /// <para>**当值为 `user_id`，字段权限要求**：</para>
-    /// <para>&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</para>
+    /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](/ssl</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](/ssl</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](/ssl</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -3921,27 +3897,23 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如果传入的值不是 open_id，需要一并传入 user_id_type 参数。</para>
     /// <para>可一次查询多个 id 的用户，例如：user_ids=ou_8ebd4f35d7101ffdeb4771d7c8ec517e&amp;user_ids=ou_7abc4f35d7101ffdeb4771dabcde</para>
     /// <para>[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
-    /// <para>**示例值**：ou_8ebd4f35d7101ffdeb4771d7c8ec517e</para>
-    /// <para>**数据校验规则**：</para>
-    /// <para>- 最大长度：`100`</para>
+    /// <para>示例值：ou_8ebd4f35d7101ffdeb4771d7c8ec517e</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>**示例值**："10"</para>
+    /// <para>示例值：10</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
-    /// <para>**示例值**：10</para>
-    /// <para>**数据校验规则**：</para>
-    /// <para>- 最大值：`100`</para>
+    /// <para>分页大小，取值范围 1~100，默认 10</para>
+    /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
     [HttpGet("/open-apis/ehr/v1/employees")]
-    System.Threading.Tasks.Task<FeishuResponse<Ehr.Spec.GetEhrV1EmployeesResponseDto>> GetEhrV1EmployeesAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ehr.GetEhrV1EmployeesResponseDto>> GetEhrV1EmployeesAsync(
         [PathQuery] string? view = null,
         [PathQuery] int[]? status = null,
         [PathQuery] int[]? type = null,

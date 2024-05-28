@@ -9,7 +9,7 @@ namespace FeishuNetSdk.Ccm;
 public record PostDriveV1MediasUploadAllBodyDto
 {
     /// <summary>
-    /// <para>要上传的素材的名称。</para>
+    /// <para>要上传的素材的名称</para>
     /// <para>必填：是</para>
     /// <para>示例值：demo.jpeg</para>
     /// <para>最大长度：250</para>
@@ -39,14 +39,14 @@ public record PostDriveV1MediasUploadAllBodyDto
     public string ParentType { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>上传点的 token，即要上传的云文档的 token，用于指定素材将要上传到的云文档或位置。参考 [素材概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction) 了解上传点类型与上传点 token 的对应关系</para>
+    /// <para>上传点的 token，即要上传的云文档的 token，用于指定素材将要上传到的云文档或位置。参考[素材概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)了解上传点类型与上传点 token 的对应关系</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("parent_node")]
     public string ParentNode { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>文件的大小，单位为字节。可通过查看文件的属性获取。</para>
+    /// <para>文件的大小，单位为字节</para>
     /// <para>必填：是</para>
     /// <para>示例值：1024</para>
     /// <para>最大值：20971520</para>
@@ -63,7 +63,7 @@ public record PostDriveV1MediasUploadAllBodyDto
     public string? Checksum { get; set; }
 
     /// <summary>
-    /// <para>其它扩展信息</para>
+    /// <para>其它扩展信息。详情参考[素材概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。如果需要跨域路由，需要填写路由的云文档 token，格式为 `{"drive_route_token":"需要路由的云文档的 token"}`</para>
     /// <para>必填：否</para>
     /// <para>示例值：{"test":"test"}</para>
     /// </summary>

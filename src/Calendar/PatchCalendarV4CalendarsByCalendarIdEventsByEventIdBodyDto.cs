@@ -450,4 +450,43 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto
         [JsonPropertyName("app_link")]
         public string? AppLink { get; set; }
     }
+
+    /// <summary>
+    /// <para>日程附件</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("attachments")]
+    public Attachment[]? Attachments { get; set; }
+
+    /// <summary>
+    /// <para>日程附件</para>
+    /// </summary>
+    public record Attachment
+    {
+        /// <summary>
+        /// <para>附件token，参考[上传素材](https://open.larkoffice.com/document/server-docs/docs/drive-v1/media/upload_all)获取file_token</para>
+        /// <para>**注意**：</para>
+        /// <para>- parent_type传入固定值 "calendar"</para>
+        /// <para>- parent_node传入日历ID且与本接口日历ID保持一致</para>
+        /// <para>**附件校验规则**:</para>
+        /// <para>- 附件总大小不超过25MB</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：xAAAAA</para>
+        /// </summary>
+        [JsonPropertyName("file_token")]
+        public string? FileToken { get; set; }
+
+        /// <summary>
+        /// <para>是否删除附件</para>
+        /// <para>**默认值**：</para>
+        /// <para>- false: 不删除附件</para>
+        /// <para>**可选值有**：</para>
+        /// <para>- true: 删除附件</para>
+        /// <para>- false: 不删除附件</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_deleted")]
+        public bool? IsDeleted { get; set; }
+    }
 }

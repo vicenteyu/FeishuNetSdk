@@ -301,6 +301,51 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchResponseDto
         /// </summary>
         [JsonPropertyName("app_link")]
         public string? AppLink { get; set; }
+
+        /// <summary>
+        /// <para>日程附件</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("attachments")]
+        public Attachment[]? Attachments { get; set; }
+
+        /// <summary>
+        /// <para>日程附件</para>
+        /// </summary>
+        public record Attachment
+        {
+            /// <summary>
+            /// <para>附件token</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：xAAAAA</para>
+            /// </summary>
+            [JsonPropertyName("file_token")]
+            public string? FileToken { get; set; }
+
+            /// <summary>
+            /// <para>附件大小</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2345</para>
+            /// </summary>
+            [JsonPropertyName("file_size")]
+            public string? FileSize { get; set; }
+
+            /// <summary>
+            /// <para>是否删除附件</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("is_deleted")]
+            public bool? IsDeleted { get; set; }
+
+            /// <summary>
+            /// <para>附件名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：附件.jpeg</para>
+            /// </summary>
+            [JsonPropertyName("name")]
+            public string? Name { get; set; }
+        }
     }
 
     /// <summary>
