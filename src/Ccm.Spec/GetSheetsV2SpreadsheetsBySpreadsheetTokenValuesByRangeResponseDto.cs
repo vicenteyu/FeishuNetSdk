@@ -27,7 +27,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRangeResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("valueRange")]
-    public string? ValueRange { get; set; }
+    public ValueRangeSuffix? ValueRange { get; set; }
 
     /// <summary></summary>
     public record ValueRangeSuffix
