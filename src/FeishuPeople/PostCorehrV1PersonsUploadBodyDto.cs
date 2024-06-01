@@ -9,10 +9,10 @@ namespace FeishuNetSdk.FeishuPeople;
 public record PostCorehrV1PersonsUploadBodyDto
 {
     /// <summary>
-    /// <para>文件名称</para>
+    /// <para>文件名称（需带有文件后缀）</para>
     /// <para>必填：是</para>
-    /// <para>示例值：个人信息</para>
+    /// <para>示例值：个人信息.xlsx</para>
     /// </summary>
-    [System.Text.Json.Serialization.JsonPropertyName("file_name")]
+    [JsonPropertyName("file_name")]
     public string FileName { get; set; } = string.Empty;
 }

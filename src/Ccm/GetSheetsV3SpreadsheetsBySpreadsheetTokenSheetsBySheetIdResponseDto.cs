@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 查询工作表 响应体
-/// <para>该接口用于通过工作表ID查询工作表属性信息。</para>
+/// <para>根据工作表 ID 查询工作表属性信息，包括工作表的标题、索引位置、是否被隐藏等。</para>
 /// <para>接口ID：7120425077330935836</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/sheets-v3/spreadsheet-sheet/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fsheets-v3%2fspreadsheet-sheet%2fget</para>
@@ -21,7 +21,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
     public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDtoSheet
     {
         /// <summary>
-        /// <para>工作表id</para>
+        /// <para>工作表 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：sxj5ws</para>
         /// </summary>
@@ -31,7 +31,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
         /// <summary>
         /// <para>工作表标题</para>
         /// <para>必填：否</para>
-        /// <para>示例值：title</para>
+        /// <para>示例值：Sheet1</para>
         /// </summary>
         [JsonPropertyName("title")]
         public string? Title { get; set; }
@@ -46,8 +46,8 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
 
         /// <summary>
         /// <para>工作表是否被隐藏</para>
-        /// <para>- `true`：表示被隐藏</para>
-        /// <para>- `false`：表示未被隐藏</para>
+        /// <para>- `true`：被隐藏</para>
+        /// <para>- `false`：未被隐藏</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
@@ -55,14 +55,14 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
         public bool? Hidden { get; set; }
 
         /// <summary>
-        /// <para>单元格属性，仅当 `resource_type=sheet` 时返回</para>
+        /// <para>单元格属性，仅当 `resource_type` 为 `sheet` 即工作表类型为电子表格时返回</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("grid_properties")]
         public GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDtoSheetGridProperties? GridProperties { get; set; }
 
         /// <summary>
-        /// <para>单元格属性，仅当 `resource_type=sheet` 时返回</para>
+        /// <para>单元格属性，仅当 `resource_type` 为 `sheet` 即工作表类型为电子表格时返回</para>
         /// </summary>
         public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDtoSheetGridProperties
         {
@@ -102,7 +102,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
         /// <summary>
         /// <para>工作表类型</para>
         /// <para>- `sheet`：工作表</para>
-        /// <para>- `bitable`：多维表格，[多维表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)</para>
+        /// <para>- `bitable`：多维表格。详情参考[多维表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)</para>
         /// <para>- `#UNSUPPORTED_TYPE`：不支持的类型</para>
         /// <para>必填：否</para>
         /// <para>示例值：sheet</para>
@@ -111,19 +111,19 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
         public string? ResourceType { get; set; }
 
         /// <summary>
-        /// <para>合并单元格的相关信息</para>
+        /// <para>合并单元格的相关信息。没有合并单元格则不返回</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("merges")]
         public MergeRange[]? Merges { get; set; }
 
         /// <summary>
-        /// <para>合并单元格的相关信息</para>
+        /// <para>合并单元格的相关信息。没有合并单元格则不返回</para>
         /// </summary>
         public record MergeRange
         {
             /// <summary>
-            /// <para>起始行</para>
+            /// <para>起始行，从 0 开始计数</para>
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
@@ -131,7 +131,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
             public int? StartRowIndex { get; set; }
 
             /// <summary>
-            /// <para>结束行</para>
+            /// <para>结束行，从 0 开始计数</para>
             /// <para>必填：否</para>
             /// <para>示例值：-</para>
             /// </summary>
@@ -139,7 +139,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
             public int? EndRowIndex { get; set; }
 
             /// <summary>
-            /// <para>起始列</para>
+            /// <para>起始列，从 0 开始计数</para>
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
@@ -147,7 +147,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
             public int? StartColumnIndex { get; set; }
 
             /// <summary>
-            /// <para>结束列</para>
+            /// <para>结束列，从 0 开始计数</para>
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>

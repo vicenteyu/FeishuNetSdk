@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 操作工作表 请求体
-/// <para>该接口用于根据 spreadsheetToken 操作表格，如增加工作表，复制工作表、删除工作表。</para>
+/// <para>根据电子表格的 token 对工作表进行操作，包括增加工作表、复制工作表、删除工作表。</para>
 /// <para>该接口和 [更新工作表属性](https://open.feishu.cn/document/ukTMukTMukTM/ugjMzUjL4IzM14COyMTN) 的请求地址相同，但参数不同，调用前请仔细阅读文档。</para>
 /// <para>接口ID：6907569745299439618</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/sheets-v3/spreadsheet-sheet/operate-sheets</para>
@@ -10,7 +10,7 @@ namespace FeishuNetSdk.Ccm.Spec;
 public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
 {
     /// <summary>
-    /// <para>请求操作，支持增、删、复制工作表 ，三个操作选一个</para>
+    /// <para>支持增加、复制、和删除工作表。一次请求可以同时进行多个操作。</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("requests")]
@@ -20,11 +20,11 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
     public record Request
     {
         /// <summary>
-        /// <para>增加工作表</para>
+        /// <para>增加工作表。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("addSheet")]
-        public AddsheetSuffix? Addsheet { get; set; }
+        public AddsheetSuffix? AddSheet { get; set; }
 
         /// <summary></summary>
         public record AddsheetSuffix
@@ -40,14 +40,14 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
             public record Property
             {
                 /// <summary>
-                /// <para>工作表标题</para>
+                /// <para>新增工作表的标题</para>
                 /// <para>必填：是</para>
                 /// </summary>
                 [JsonPropertyName("title")]
                 public string Title { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>新增工作表的位置，不填默认往前增加工作表</para>
+                /// <para>新增工作表的位置。不填默认在工作表的第 0 索引位置增加工作表。</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("index")]
@@ -56,11 +56,11 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
         }
 
         /// <summary>
-        /// <para>复制工作表</para>
+        /// <para>复制工作表。复制的新工作表位于源工作表索引位置之后。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("copySheet")]
-        public CopysheetSuffix? Copysheet { get; set; }
+        public CopysheetSuffix? CopySheet { get; set; }
 
         /// <summary></summary>
         public record CopysheetSuffix
@@ -73,7 +73,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
             public Sheet Source { get; set; } = new();
 
             /// <summary>
-            /// <para>工作表 的属性</para>
+            /// <para>新工作表的属性</para>
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("destination")]
@@ -83,17 +83,15 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
             public record DestinationSuffix
             {
                 /// <summary>
-                /// <para>目标工作表名称。不填为 old_title(副本_0)</para>
+                /// <para>新工作表名称。不填默认为“源工作表名称”+“(副本_源工作表的 `index` 值)”，如 “Sheet1(副本_0)”。</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("title")]
                 public string? Title { get; set; }
             }
         }
-
-
         /// <summary>
-        /// <para>删除 sheet</para>
+        /// <para>删除工作表。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("deleteSheet")]
@@ -103,7 +101,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto
         public record Sheet
         {
             /// <summary>
-            /// <para>sheetId</para>
+            /// <para>要删除的工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID</para>
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("sheetId")]

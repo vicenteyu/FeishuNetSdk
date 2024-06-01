@@ -36,4 +36,11 @@ public record PostAuthV3AppAccessTokenInternalResponseDto
     /// </summary>
     [JsonPropertyName("expire")]
     public long Expire { get; set; }
+
+    /// <summary>
+    /// <para>租户访问凭证。了解不同的访问凭证，参见[访问凭证介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMTNz4yM1MjLzUzM)。</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("tenant_access_token")]
+    public string? TenantAccessToken { get; set; }
 }

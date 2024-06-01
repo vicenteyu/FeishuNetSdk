@@ -9,7 +9,7 @@ namespace FeishuNetSdk.FeishuPeople;
 public record PostCorehrV1LeaveGrantingRecordsBodyDto
 {
     /// <summary>
-    /// <para>假期类型 ID，枚举值可通过【获取假期类型列表】接口获取（若假期类型下存在假期子类，此处仅支持传入假期子类的 ID）</para>
+    /// <para>假期类型 ID，枚举值可通过[获取假期类型列表](https://open.larkoffice.com/document/server-docs/corehr-v1/leave/leave_types)接口获取（若假期类型下存在假期子类，此处仅支持传入假期子类的 ID）</para>
     /// <para>必填：是</para>
     /// <para>示例值：7111688079785723436</para>
     /// </summary>
@@ -17,7 +17,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     public string LeaveTypeId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>员工 ID</para>
+    /// <para>员工 ID，飞书人事的雇员id</para>
     /// <para>必填：是</para>
     /// <para>示例值：6982509313466189342</para>
     /// </summary>
@@ -25,7 +25,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     public string EmploymentId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>发放数量</para>
+    /// <para>发放数量（小数位数不能超过6位，授予数量范围为-9999~9999）</para>
     /// <para>必填：是</para>
     /// <para>示例值：0.5</para>
     /// </summary>
@@ -50,6 +50,22 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     /// </summary>
     [JsonPropertyName("effective_date")]
     public string EffectiveDate { get; set; } = string.Empty;
+
+    /// <summary>
+    /// <para>失效时间</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：2022-01-01</para>
+    /// </summary>
+    [JsonPropertyName("expiration_date")]
+    public string? ExpirationDate { get; set; }
+
+    /// <summary>
+    /// <para>是否参与折算（1不参与折算，2参与折算）</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：1</para>
+    /// </summary>
+    [JsonPropertyName("section_type")]
+    public int? SectionType { get; set; }
 
     /// <summary>
     /// <para>发放原因</para>

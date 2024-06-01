@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 获取文档访问记录 响应体
-/// <para>获取文档的历史访问记录</para>
+/// 获取文件访问记录 响应体
+/// <para>获取文档、电子表格、多维表格等文件的历史访问记录，包括访问者的 ID、姓名、头像和最近访问时间。</para>
 /// <para>接口ID：7232207479622074371</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/file-view_record/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-view_record%2flist</para>
@@ -29,7 +29,7 @@ public record GetDriveV1FilesByFileTokenViewRecordsResponseDto
         public string? ViewerId { get; set; }
 
         /// <summary>
-        /// <para>访问者名称</para>
+        /// <para>访问者姓名</para>
         /// <para>必填：否</para>
         /// <para>示例值：zhangsan</para>
         /// </summary>
@@ -37,7 +37,7 @@ public record GetDriveV1FilesByFileTokenViewRecordsResponseDto
         public string? Name { get; set; }
 
         /// <summary>
-        /// <para>访问者头像 URL</para>
+        /// <para>访问者头像的 URL</para>
         /// <para>必填：否</para>
         /// <para>示例值：https://foo.icon.com/xxxx</para>
         /// </summary>
@@ -45,7 +45,7 @@ public record GetDriveV1FilesByFileTokenViewRecordsResponseDto
         public string? AvatarUrl { get; set; }
 
         /// <summary>
-        /// <para>最近访问时间，秒级时间戳</para>
+        /// <para>最近访问时间。Unix 时间戳，单位为秒。</para>
         /// <para>必填：否</para>
         /// <para>示例值：1679284285</para>
         /// </summary>

@@ -1,6 +1,6 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 移动文件/文件夹 请求体
+/// 移动文件或文件夹 请求体
 /// <para>将文件或者文件夹移动到用户云空间的其他位置。</para>
 /// <para>接口ID：7080903916725993474</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/move</para>
@@ -9,7 +9,7 @@ namespace FeishuNetSdk.Ccm;
 public record PostDriveV1FilesByFileTokenMoveBodyDto
 {
     /// <summary>
-    /// <para>文件类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。</para>
+    /// <para>文件类型。该参数为必填，请忽略左侧必填列的“否”。如果该值为空或者与文件实际类型不匹配，接口会返回失败。</para>
     /// <para>必填：否</para>
     /// <para>示例值：file</para>
     /// <para>可选值：<list type="bullet">
@@ -27,7 +27,7 @@ public record PostDriveV1FilesByFileTokenMoveBodyDto
     public string? Type { get; set; }
 
     /// <summary>
-    /// <para>目标文件夹token</para>
+    /// <para>目标文件夹的 token。了解如何获取文件夹 token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。</para>
     /// <para>必填：否</para>
     /// <para>示例值：fldbcO1UuPz8VwnpPx5a92abcef</para>
     /// </summary>

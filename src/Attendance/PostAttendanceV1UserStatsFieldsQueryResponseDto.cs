@@ -97,7 +97,7 @@ public record PostAttendanceV1UserStatsFieldsQueryResponseDto
                 public string Title { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>时间单位</para>
+                /// <para>时间单位(该字段已停止使用)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值："Minute"</para>
                 /// </summary>

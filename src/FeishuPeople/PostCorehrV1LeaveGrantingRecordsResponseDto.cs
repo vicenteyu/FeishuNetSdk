@@ -151,5 +151,13 @@ public record PostCorehrV1LeaveGrantingRecordsResponseDto
         /// </summary>
         [JsonPropertyName("updated_by")]
         public string UpdatedBy { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>是否参与折算</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("section_type")]
+        public int? SectionType { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using FeishuNetSdk;
-using FeishuNetSdk.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using WebApiClientCore.Extensions.OAuths;
@@ -41,7 +40,7 @@ namespace Microsoft.Extensions.DependencyInjection
         private static IServiceCollection AddFeishuNetSdk(this IServiceCollection services,
             FeishuNetSdkOptions options)
         {
-            services.AddWebApiClient().UseSourceGeneratorHttpApiActivator();
+            services.AddWebApiClient();
             services.AddHttpApi<IFeishuApi>();
             services.AddHttpApi<IFeishuAppApi>();
             services.AddHttpApi<IFeishuTenantApi>(option => option.KeyValueSerializeOptions.IgnoreNullValues = true);

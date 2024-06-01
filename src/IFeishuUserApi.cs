@@ -125,18 +125,16 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Ccm.Spec.PostDrivePermissionMemberListBodyDto dto);
 
     /// <summary>
-    /// <para>【云文档】文档搜索</para>
+    /// <para>【云文档】搜索文件</para>
     /// <para>接口ID：6907569523177439233</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugDM4UjL4ADO14COwgTN</para>
-    /// <para>Authorization：user_access_token</para>
-    /// <para>该接口用于根据搜索条件进行文档搜索。</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于根据搜索关键词（search_key）对当前用户可见的文件进行搜索。</para>
     /// </summary>
-    /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/suite/docs-api/search/object")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSuiteDocsApiSearchObjectResponseDto>> PostSuiteDocsApiSearchObjectAsync(
-        UserAccessToken access_token,
-        [JsonContent] Ccm.Spec.PostSuiteDocsApiSearchObjectBodyDto dto);
+        UserAccessToken access_token);
 
     /// <summary>
     /// <para>【云文档】获取云文档权限设置V2</para>
@@ -153,16 +151,16 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Ccm.Spec.PostDrivePermissionV2PublicBodyDto dto);
 
     /// <summary>
-    /// <para>【云文档】获取文件夹元信息</para>
+    /// <para>【云文档】获取文件夹元数据</para>
     /// <para>接口ID：6907569524099989505</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uAjNzUjLwYzM14CM2MTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 folderToken 获取该文件夹的元信息。</para>
+    /// <para>该接口用于根据文件夹 token 获取该文件夹的元数据，包括文件夹的 ID、名称、创建者 ID 等。</para>
     /// </summary>
     /// <param name="folderToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件夹 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
+    /// <para>文件夹 token。了解如何获取文件夹 token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/explorer/v2/folder/{folderToken}/meta")]
@@ -226,12 +224,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569524100382721</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ucjMzUjL3IzM14yNyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 和维度信息删除行/列 。单次删除最大5000行/列。</para>
+    /// <para>该接口用于删除电子表格中的指定行或列。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet的token，详见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -364,12 +364,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569742383562754</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYjMzUjL2IzM14iNyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 和维度信息更新隐藏行列、单元格大小、行高列宽；单次操作不超过5000行或列。</para>
+    /// <para>该接口用于更新设置电子表格中行列的属性，包括是否隐藏行列和设置行高列宽。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -600,34 +602,41 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569743419473922</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugjMzUjL4IzM14COyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>更新电子表格中的工作表。支持更新工作表的标题、位置，和隐藏、冻结、保护等属性。</para>
     /// <para>该接口和 [操作工作表](https://open.feishu.cn/document/ukTMukTMukTM/uYTMzUjL2EzM14iNxMTN) 的请求地址相同，但参数不同，调用前请仔细阅读文档。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型。默认值为 `open_id`。可选值有：</para>
+    /// <para>- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。了解更多：[如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
+    /// <para>- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。了解更多：[如何获取 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
+    /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/sheets_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse> PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateAsync(
         UserAccessToken access_token,
-        [PathQuery] string spreadsheetToken);
+        [PathQuery] string spreadsheetToken,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【云文档】新建在线文档</para>
+    /// <para>【云文档】新建文件</para>
     /// <para>接口ID：6907569743419932674</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQTNzUjL0UzM14CN1MTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>在用户云空间指定文件夹中创建旧版文档、电子表格或者多维表格。如果目标文件夹是「我的空间」，则新建的文档会在「我的空间」的「归我所有」列表里。</para>
-    /// <para>- 云空间中文件夹单层节点上限是 1500 个，超过此限制接口将会返回失败。如有创建大量节点的需求，可以考虑将文档新建到不同文件夹下；</para>
-    /// <para>- 我们对创建类接口进行了更细粒度的拆分和升级：</para>
-    /// <para>- 本接口不支持创建[新版文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)，如需创建新版文档，请调用[创建新版文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create)接口；</para>
-    /// <para>- 如需创建电子表格，也可以调用[创建表格](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create)接口。</para>
+    /// <para>该接口用于在云空间指定文件夹中创建电子表格或者多维表格。</para>
     /// </summary>
     /// <param name="folderToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件夹 token，用于在此文件夹下新建文档，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
+    /// <para>指定新建文件所属的文件夹或云空间根目录的 token。了解如何获取文件夹 token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -642,13 +651,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569743420194818</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQjMzUjL0IzM14CNyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 和维度信息 插入空行/列。</para>
-    /// <para>如 startIndex=3， endIndex=7，则从第 4 行开始开始插入行列，一直到第 7 行，共插入 4 行；单次操作不超过5000行或列。</para>
+    /// <para>该接口用于在电子表格的指定位置插入空白行或列。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -758,12 +768,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569744333864961</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUjMzUjL1IzM14SNyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 和长度，在末尾增加空行/列；单次操作不超过5000行或列。</para>
+    /// <para>该接口用于在电子表格中增加空白行或列。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，详见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -798,13 +810,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569745299439618</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYTMzUjL2EzM14iNxMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 操作表格，如增加工作表，复制工作表、删除工作表。</para>
+    /// <para>根据电子表格的 token 对工作表进行操作，包括增加工作表、复制工作表、删除工作表。</para>
     /// <para>该接口和 [更新工作表属性](https://open.feishu.cn/document/ukTMukTMukTM/ugjMzUjL4IzM14COyMTN) 的请求地址相同，但参数不同，调用前请仔细阅读文档。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Ios7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -4986,19 +5000,21 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6969403095454416924</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于移动行列，行列被移动到目标位置后，原本在目标位置的行列会对应右移或下移。</para>
+    /// <para>该接口用于移动行或列。行或列被移动到目标位置后，原本在目标位置的行列会对应右移或下移。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA\*****yGehy8"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>**示例值**："0b\**12"</para>
+    /// <para>工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID</para>
+    /// <para>示例值：2jm6f6</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -5007,14 +5023,14 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimensionBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimensionBodyDto dto);
 
     /// <summary>
-    /// <para>【云文档】创建表格</para>
+    /// <para>【云文档】创建电子表格</para>
     /// <para>接口ID：6969763153149476865</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>在指定目录下创建表格</para>
+    /// <para>在云空间指定目录下创建电子表格。可自定义表格标题。不支持带内容创建表格。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -5680,11 +5696,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string spreadsheetToken);
 
     /// <summary>
-    /// <para>【云文档】获取我的空间（root folder）元信息</para>
+    /// <para>【云文档】获取我的空间（root folder）元数据</para>
     /// <para>接口ID：6979502797244170243</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/get-root-folder-meta</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于获取 "我的空间" 的元信息</para>
+    /// <para>该接口用于获取用户“我的空间”（root folder）的元数据，包括文件夹的 token、ID 和文件夹所有者的 ID。</para>
     /// </summary>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/explorer/v2/root_folder/meta")]
@@ -5692,11 +5708,11 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token);
 
     /// <summary>
-    /// <para>【云文档】分片上传文件（完成上传）</para>
+    /// <para>【云文档】分片上传文件-完成上传</para>
     /// <para>接口ID：6979562676003766300</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>触发完成上传。</para>
+    /// <para>调用[上传分片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part)接口将分片全部上传完毕后，你需调用本接口触发完成上传。否则将上传失败。了解完整的上传文件流程，参考[上传文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -5706,11 +5722,11 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Ccm.PostDriveV1FilesUploadFinishBodyDto dto);
 
     /// <summary>
-    /// <para>【云文档】分片上传文件（预上传）</para>
+    /// <para>【云文档】分片上传文件-预上传</para>
     /// <para>接口ID：6979562676003815452</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。</para>
+    /// <para>发送初始化请求，以获取上传事务 ID 和分片策略，为[上传分片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part)做准备。平台固定以 4MB 的大小对文件进行分片。了解完整的上传文件流程，参考[上传文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -5757,12 +5773,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6979562676003864604</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>向云空间指定目录下上传一个小文件。</para>
+    /// <para>将指定文件上传至云空间指定目录中。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
-    /// <para>文件二进制内容。</para>
+    /// <para>文件的二进制内容</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/upload_all")]
@@ -5857,16 +5873,16 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? extra = null);
 
     /// <summary>
-    /// <para>【云文档】分片上传文件（上传分片）</para>
+    /// <para>【云文档】分片上传文件-上传分片</para>
     /// <para>接口ID：6979562676003930140</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>上传对应的文件块。</para>
+    /// <para>根据 [预上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare)接口返回的上传事务 ID 和分片策略上传对应的文件分片。上传完成后，你需调用[分片上传文件（完成上传）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish)触发完成上传。了解完整的上传文件流程，参考[分片上传文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
-    /// <para>文件分片二进制内容。</para>
+    /// <para>文件分片的二进制内容</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/upload_part")]
@@ -5880,7 +5896,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6979562676003946524</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>下载云空间中的文件，如 PDF 文件。不包含飞书文档、电子表格以及多维表格等在线文档。该接口支持通过在请求头添加`Range` 参数分片下载部分文件。</para>
+    /// <para>下载云空间中的文件，如 PDF 文件。不包含飞书文档、电子表格以及多维表格等在线文档。该接口支持通过在请求头添加 `Range` 参数分片下载部分文件。</para>
     /// </summary>
     /// <param name="range">
     /// <para>通过指定 HTTP 请求头的Range来下载素材的部分内容，单位是byte，即字节。</para>
@@ -5889,7 +5905,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token，获取方式见 [云文档常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs-faq)。</para>
+    /// <para>文件的 token，获取方式见[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。</para>
     /// <para>示例值：boxcnabCdefgabcef</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
@@ -6631,21 +6647,21 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Ccm.PostDriveV1ImportTasksBodyDto dto);
 
     /// <summary>
-    /// <para>【云文档】获取文档统计信息</para>
+    /// <para>【云文档】获取文件统计信息</para>
     /// <para>接口ID：6989584844481544196</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-statistics/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>此接口用于获取文档统计信息，包括文档阅读人数、次数和点赞数。</para>
+    /// <para>此接口用于获取各类文件的流量统计信息和互动信息，包括阅读人数、阅读次数和点赞数。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文档 token</para>
+    /// <para>文件 token。了解如何获取文件 token，参考[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。</para>
     /// <para>示例值：doccnfYZzTlvXqZIGTdAHKabcef</para>
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>文件类型</para>
     /// <para>示例值：doc</para>
     /// <list type="bullet">
     /// <item>doc：旧版文档</item>
@@ -7849,16 +7865,18 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? obj_type = "wiki");
 
     /// <summary>
-    /// <para>【云文档】删除文件/文件夹</para>
+    /// <para>【云文档】删除文件或文件夹</para>
     /// <para>接口ID：7029475705897828354</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除用户在云空间内的文件或者文件夹。文件或者文件夹被删除后，会进入用户回收站里。</para>
+    /// <para>删除用户在云空间内的文件或者文件夹。文件或文件夹被删除后，会进入回收站中。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>需要删除的文件token</para>
+    /// <para>需要删除的文件或文件夹 token。</para>
+    /// <para>了解如何获取文件 token，参考[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。</para>
+    /// <para>了解如何获取文件夹 token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。</para>
     /// <para>示例值：boxcnrHpsg1QDqXAAAyachabcef</para>
     /// </param>
     /// <param name="type">
@@ -8821,7 +8839,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? lang = 0);
 
     /// <summary>
-    /// <para>【云文档】移动文件/文件夹</para>
+    /// <para>【云文档】移动文件或文件夹</para>
     /// <para>接口ID：7080903916725993474</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -8830,7 +8848,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>需要移动的文件token</para>
+    /// <para>需要移动的文件或文件夹 token。</para>
+    /// <para>了解如何获取文件 token，参考[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。</para>
+    /// <para>了解如何获取文件夹 token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。</para>
     /// <para>示例值：boxcnrHpsg1QDqXAAAyachabcef</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -8933,7 +8953,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7086652480830914563</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>在用户云空间的指定文件夹中创建一个新的空文件夹。</para>
+    /// <para>该接口用于在用户云空间指定文件夹中创建一个空文件夹。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -8947,13 +8967,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7087776630140157955</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>将文件复制到用户云空间的其他文件夹中。不支持复制文件夹。</para>
-    /// <para>如果目标文件夹是我的空间，则复制的文件会在「**我的空间**」的「**归我所有**」列表里。</para>
+    /// <para>该接口用于将用户云空间中的文件复制至其它文件夹下。不支持复制文件夹。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>被复制的文件token</para>
+    /// <para>被复制的源文件的 token。了解如何获取文件 token，参考[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。</para>
     /// <para>示例值：doccngpahSdXrFPIBD4XdIabcef</para>
     /// </param>
     /// <param name="user_id_type">
@@ -9115,12 +9134,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7094912924435021826</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>查询删除文件夹等异步任务的状态信息。</para>
+    /// <para>查询异步任务的状态信息。目前支持查询删除文件夹和移动文件夹的异步任务。</para>
     /// </summary>
     /// <param name="task_id">
     /// <para>必填：是</para>
-    /// <para>文件相关异步任务id</para>
-    /// <para>示例值：12345</para>
+    /// <para>异步任务的 ID。目前支持查询删除文件夹和移动文件夹的异步任务。可通过调用[删除文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)或[移动文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move)获取任务 ID</para>
+    /// <para>示例值：7360595374803812356</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/files/task_check")]
@@ -9470,11 +9489,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【云文档】获取文档元数据</para>
+    /// <para>【云文档】获取文件元数据</para>
     /// <para>接口ID：7106040876741345308</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据 Token 获取各类文档的元数据。</para>
+    /// <para>该接口用于根据文件 token 获取其元数据，包括标题、所有者、创建时间、密级、访问链接等数据。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -9496,15 +9515,15 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【云文档】获取文件夹下的清单</para>
+    /// <para>【云文档】获取文件夹中的文件清单</para>
     /// <para>接口ID：7108600920377016348</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取用户云空间中指定文件夹下的文件清单。清单类型包括文件、各种在线文档（文档、电子表格、多维表格、思维笔记）、文件夹和快捷方式。该接口支持分页，但是不会递归获取子文件夹的清单。</para>
+    /// <para>该接口用于获取用户云空间指定文件夹中文件信息清单。文件的信息包括名称、类型、token、创建时间、所有者 ID 等。</para>
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>指定每页显示的数据项的数量。若获取根目录下的清单，将返回全部数据，不支持分页</para>
     /// <para>示例值：50</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -9516,27 +9535,27 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="folder_token">
     /// <para>必填：否</para>
-    /// <para>文件夹的token（若不填写该参数或填写空字符串，则默认获取用户云空间下的清单，且不支持分页）</para>
+    /// <para>文件夹的 token。不填写或填空字符串，将获取用户云空间根目录下的清单，且不支持分页。了解如何获取文件夹 token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。</para>
     /// <para>示例值：fldbcO1UuPz8VwnpPx5a9abcef</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="order_by">
     /// <para>必填：否</para>
-    /// <para>排序规则</para>
+    /// <para>定义清单中文件的排序方式</para>
     /// <para>示例值：EditedTime</para>
     /// <list type="bullet">
-    /// <item>EditedTime：编辑时间排序</item>
-    /// <item>CreatedTime：创建时间排序</item>
+    /// <item>EditedTime：按编辑时间排序</item>
+    /// <item>CreatedTime：按创建时间排序</item>
     /// </list>
     /// <para>默认值：EditedTime</para>
     /// </param>
     /// <param name="direction">
     /// <para>必填：否</para>
-    /// <para>升序降序</para>
+    /// <para>定义清单中文件的排序规则</para>
     /// <para>示例值：DESC</para>
     /// <list type="bullet">
-    /// <item>ASC：升序</item>
-    /// <item>DESC：降序</item>
+    /// <item>ASC：按升序排序</item>
+    /// <item>DESC：按降序排序</item>
     /// </list>
     /// <para>默认值：DESC</para>
     /// </param>
@@ -10010,13 +10029,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7120425077330903068</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于修改电子表格的属性</para>
+    /// <para>该接口用于修改电子表格的属性。目前支持修改电子表格标题。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格的token</para>
-    /// <para>**示例值**："shtxxxxxxxxxxxxxxx"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -10024,20 +10045,22 @@ public interface IFeishuUserApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PatchSheetsV3SpreadsheetsBySpreadsheetTokenAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
-        [JsonContent] Ccm.Spec.PatchSheetsV3SpreadsheetsBySpreadsheetTokenBodyDto dto);
+        [JsonContent] Ccm.PatchSheetsV3SpreadsheetsBySpreadsheetTokenBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取电子表格信息</para>
     /// <para>接口ID：7120425077330919452</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于获取电子表格的基础信息。</para>
+    /// <para>根据电子表格 token 获取电子表格的基础信息，包括电子表格的所有者、URL 链接等。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格的token</para>
-    /// <para>示例值：shtxxxxxxxxxxxxxxx</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -10062,18 +10085,20 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7120425077330935836</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于通过工作表ID查询工作表属性信息。</para>
+    /// <para>根据工作表 ID 查询工作表属性信息，包括工作表的标题、索引位置、是否被隐藏等。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)</para>
-    /// <para>示例值：shtxxxxxxxxxxxxxxx</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)</para>
+    /// <para>工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID</para>
     /// <para>示例值：giDk9k</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -10088,13 +10113,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7120425077330952220</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于获取电子表格下所有工作表及其属性。</para>
+    /// <para>根据电子表格 token 获取表格中所有工作表及其属性信息，包括工作表 ID、标题、索引位置、是否被隐藏等。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>电子表格的token</para>
-    /// <para>示例值：shtxxxxxxxxxxxxxxxx</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/query")]
@@ -11186,7 +11213,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <list type="bullet">
     /// <item>1：进行中</item>
     /// <item>2：已结束</item>
-    /// <item>3：待召开</item>
+    /// <item>3：待召开。该枚举值只读，请求时不支持选择。</item>
     /// </list>
     /// <para>默认值：null</para>
     /// </param>
@@ -11585,7 +11612,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7216001760515112961</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_shortcut</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>创建指定文件的快捷方式到云空间的其它文件夹中。此接口不支持在同一个文件夹下并发创建多个快捷方式。</para>
+    /// <para>创建指定文件的快捷方式到云空间的其它文件夹中。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -11885,16 +11912,16 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Ccm.PatchDriveV2PermissionsByTokenPublicBodyDto dto);
 
     /// <summary>
-    /// <para>【云文档】获取文档访问记录</para>
+    /// <para>【云文档】获取文件访问记录</para>
     /// <para>接口ID：7232207479622074371</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-view_record/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取文档的历史访问记录</para>
+    /// <para>获取文档、电子表格、多维表格等文件的历史访问记录，包括访问者的 ID、姓名、头像和最近访问时间。</para>
     /// </summary>
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文档 token</para>
+    /// <para>文件 token。获取方式参考[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。</para>
     /// <para>示例值：XIHSdYSI7oMEU1xrsnxc8fabcef</para>
     /// </param>
     /// <param name="page_size">
@@ -11911,7 +11938,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>文件类型</para>
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>doc：旧版文档</item>
@@ -11925,7 +11952,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="viewer_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的访问者 ID 的类型。</para>
+    /// <para>返回的访问者 ID 的类型。</para>
     /// <para>**当值为`user_id`时，字段权限要求**：</para>
     /// <para>&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</para>
     /// <para>示例值：open_id</para>
@@ -14894,6 +14921,58 @@ public interface IFeishuUserApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Board.GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto>> GetBoardV1WhiteboardsByWhiteboardIdNodesAsync(
         UserAccessToken access_token,
         [PathQuery] string whiteboard_id);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】员工入职</para>
+    /// <para>接口ID：7350663854198161410</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>支持在单个接口中进行人员全信息添加，包括人员基本信息，雇佣信息，任职记录及其他分组信息；</para>
+    /// </summary>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。</para>
+    /// <para>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="rehire">
+    /// <para>必填：否</para>
+    /// <para>是否为离职重聘</para>
+    /// <para>- false：系统直接标为非离职重聘人员，不再做重复判断</para>
+    /// <para>- true：要求 rehire_employment_id</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="rehire_employment_id">
+    /// <para>必填：否</para>
+    /// <para>离职重聘员工雇佣 ID</para>
+    /// <para>示例值：7140964208476371111</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="force_submit">
+    /// <para>必填：否</para>
+    /// <para>是否强制提交</para>
+    /// <para>超编等场景需要用户确认影响才能提交</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：false</para>
+    /// </param>
+    /// <param name="ignore_working_hours_type_rule">
+    /// <para>必填：否</para>
+    /// <para>是否忽略工时制度自动生成规则</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：false</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/corehr/v2/employees")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2EmployeesResponseDto>> PostCorehrV2EmployeesAsync(
+        UserAccessToken access_token,
+        [JsonContent] Corehr.PostCorehrV2EmployeesBodyDto dto,
+        [PathQuery] string? client_token = null,
+        [PathQuery] bool? rehire = null,
+        [PathQuery] string? rehire_employment_id = null,
+        [PathQuery] bool? force_submit = false,
+        [PathQuery] bool? ignore_working_hours_type_rule = false);
 
     /// <summary>
     /// <para>【智能伙伴创建平台】获取消息</para>

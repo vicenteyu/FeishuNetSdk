@@ -1,8 +1,7 @@
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 插入行列 请求体
-/// <para>该接口用于根据 spreadsheetToken 和维度信息 插入空行/列。</para>
-/// <para>如 startIndex=3， endIndex=7，则从第 4 行开始开始插入行列，一直到第 7 行，共插入 4 行；单次操作不超过5000行或列。</para>
+/// <para>该接口用于在电子表格的指定位置插入空白行或列。</para>
 /// <para>接口ID：6907569743420194818</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/sheets-v3/sheet-rowcol/insert-rows-or-columns</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuQjMzUjL0IzM14CNyMTN</para>
@@ -20,28 +19,31 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRangeBody
     public record DimensionSuffix
     {
         /// <summary>
-        /// <para>sheet 的 Id</para>
+        /// <para>电子表格工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("sheetId")]
         public string SheetId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>默认 ROWS ，可选 ROWS、COLUMNS</para>
-        /// <para>必填：否</para>
+        /// <para>要更新的维度。可选值：</para>
+        /// <para>- `ROWS`：行</para>
+        /// <para>- `COLUMNS`：列</para>
+        /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("majorDimension")]
-        public string? MajorDimension { get; set; }
+        public string MajorDimension { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>开始的位置</para>
+        /// <para>插入的行或列的起始位置。从 0 开始计数。若 `startIndex` 为 3，则从第 4 行或列开始插入空行或列。包含第 4 行或列。</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("startIndex")]
         public int StartIndex { get; set; }
 
         /// <summary>
-        /// <para>结束的位置</para>
+        /// <para>插入的行或列结束的位置。从 0 开始计数。若 `endIndex` 为 7，则从第 8 行结束插入行。第 8 行不再插入空行。</para>
+        /// <para>示例：当 `majorDimension`为 `ROWS`、 `startIndex` 为 3、`endIndex ` 为 7 时，则在第 4、5、6、7 行插入空白行，共插入 4 行。</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("endIndex")]
@@ -49,7 +51,9 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRangeBody
     }
 
     /// <summary>
-    /// <para>BEFORE 或 AFTER，不填为不继承 style</para>
+    /// <para>插入的空白行或列是否继承表中的单元格样式。不填或设置为空即不继承任何样式，为默认空白样式。可选值：</para>
+    /// <para>- `BEFORE`：继承起始位置的单元格的样式</para>
+    /// <para>- `AFTER`：继承结束位置的单元格的样式</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("inheritStyle")]
