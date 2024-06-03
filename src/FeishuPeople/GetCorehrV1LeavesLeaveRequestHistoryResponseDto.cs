@@ -179,6 +179,151 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         /// </summary>
         [JsonPropertyName("notes")]
         public string Notes { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>审批通过日期</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2022-09-09</para>
+        /// </summary>
+        [JsonPropertyName("approval_date")]
+        public string? ApprovalDate { get; set; }
+
+        /// <summary>
+        /// <para>是否带薪</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("is_deducted")]
+        public bool? IsDeducted { get; set; }
+
+        /// <summary>
+        /// <para>请假详情</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("details")]
+        public LeaveRequestDetail[]? Details { get; set; }
+
+        /// <summary>
+        /// <para>请假详情</para>
+        /// </summary>
+        public record LeaveRequestDetail
+        {
+            /// <summary>
+            /// <para>请假记录id</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：4718803945687580505</para>
+            /// </summary>
+            [JsonPropertyName("leave_request_id")]
+            public string LeaveRequestId { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>假期发生日期</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：2022-07-07</para>
+            /// </summary>
+            [JsonPropertyName("leave_date")]
+            public string LeaveDate { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>假期时长</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：1</para>
+            /// </summary>
+            [JsonPropertyName("leave_duration")]
+            public string LeaveDuration { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>假期时长单位，1：天，2：小时</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：1</para>
+            /// </summary>
+            [JsonPropertyName("leave_duration_unit")]
+            public int LeaveDurationUnit { get; set; }
+
+            /// <summary>
+            /// <para>是否影响算薪，1：不参与算薪计算, 非对应的日期类型或者无对应的假期计划，2：影响算薪，3：不影响算薪</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：1</para>
+            /// </summary>
+            [JsonPropertyName("paid_type")]
+            public int PaidType { get; set; }
+        }
+
+        /// <summary>
+        /// <para>假期类型枚举</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：Annual Leave</para>
+        /// </summary>
+        [JsonPropertyName("leave_type_code")]
+        public string? LeaveTypeCode { get; set; }
+
+        /// <summary>
+        /// <para>实际结束日期</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2022-08-02</para>
+        /// </summary>
+        [JsonPropertyName("actual_end_date")]
+        public string? ActualEndDate { get; set; }
+
+        /// <summary>
+        /// <para>预估结束日期</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2022-08-02</para>
+        /// </summary>
+        [JsonPropertyName("estimated_end_date")]
+        public string? EstimatedEndDate { get; set; }
+
+        /// <summary>
+        /// <para>时区</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：Asia/Shanghai</para>
+        /// </summary>
+        [JsonPropertyName("time_zone")]
+        public string? TimeZone { get; set; }
+
+        /// <summary>
+        /// <para>请假记录数据来源</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("data_source")]
+        public int? DataSource { get; set; }
+
+        /// <summary>
+        /// <para>请假申请流程ID</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("leave_process_id")]
+        public string[]? LeaveProcessId { get; set; }
+
+        /// <summary>
+        /// <para>请假更正流程ID</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("leave_correct_process_id")]
+        public string[]? LeaveCorrectProcessId { get; set; }
+
+        /// <summary>
+        /// <para>请假取消流程ID</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("leave_cancel_process_id")]
+        public string[]? LeaveCancelProcessId { get; set; }
+
+        /// <summary>
+        /// <para>请假返岗流程ID</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("leave_return_process_id")]
+        public string[]? LeaveReturnProcessId { get; set; }
+
+        /// <summary>
+        /// <para>workDay算薪类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("wd_paid_type")]
+        public int? WdPaidType { get; set; }
     }
 
     /// <summary>
@@ -192,7 +337,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
-    /// <para>示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</para>
+    /// <para>示例值：[1712932008000,\"7356863257632491046\"]</para>
     /// </summary>
     [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }

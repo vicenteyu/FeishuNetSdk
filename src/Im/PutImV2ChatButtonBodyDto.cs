@@ -58,14 +58,14 @@ public record PutImV2ChatButtonBodyDto
         public record OpenAppFeedCardButton
         {
             /// <summary>
-            /// <para>跳转 URL</para>
+            /// <para>跳转 URL（仅支持 https 协议）</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("multi_url")]
             public OpenAppFeedCardUrl? MultiUrl { get; set; }
 
             /// <summary>
-            /// <para>跳转 URL</para>
+            /// <para>跳转 URL（仅支持 https 协议）</para>
             /// </summary>
             public record OpenAppFeedCardUrl
             {

@@ -20974,13 +20974,20 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
+    /// <param name="time_zone">
+    /// <para>必填：否</para>
+    /// <para>查询时区</para>
+    /// <para>示例值：Asia/Shanghai</para>
+    /// <para>默认值：null</para>
+    /// </param>
     [HttpGet("/open-apis/corehr/v1/leaves/leave_balances")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1LeavesLeaveBalancesResponseDto>> GetCorehrV1LeavesLeaveBalancesAsync(
         [PathQuery] string? page_token = null,
         [PathQuery] int page_size = 10,
         [PathQuery] string? as_of_date = null,
         [PathQuery] string[]? employment_id_list = null,
-        [PathQuery] string? user_id_type = "people_corehr_id");
+        [PathQuery] string? user_id_type = "people_corehr_id",
+        [PathQuery] string? time_zone = null);
 
     /// <summary>
     /// <para>【飞书人事】获取假期类型列表</para>
@@ -21142,6 +21149,60 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：2022-10-24 10:00:00</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="return_detail">
+    /// <para>必填：否</para>
+    /// <para>是否返回请假详情，若为true，将在每条请假记录的details字段返回请假详情</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：false</para>
+    /// </param>
+    /// <param name="leave_term_type">
+    /// <para>必填：否</para>
+    /// <para>指定过滤长/短假类型，0表示不过滤，1表示仅获取短假，2表示仅获取长假, 默认0</para>
+    /// <para>示例值：1</para>
+    /// <para>默认值：0</para>
+    /// </param>
+    /// <param name="time_zone">
+    /// <para>必填：否</para>
+    /// <para>请假记录所在时区</para>
+    /// <para>示例值：Asia/Shanghai</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="data_source">
+    /// <para>必填：否</para>
+    /// <para>请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤</para>
+    /// <para>示例值：1</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="db_update_time_min">
+    /// <para>必填：否</para>
+    /// <para>请假记录DB更新时间晚于等于的时间</para>
+    /// <para>示例值：2022-10-24 10:00:00</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="db_update_time_max">
+    /// <para>必填：否</para>
+    /// <para>请假记录DB更新时间早于等于的时间</para>
+    /// <para>示例值：2022-10-24 10:00:00</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="wd_need_amount_zero_records">
+    /// <para>必填：否</para>
+    /// <para>WorkDay专用 是否返回0值的请假记录，若为true，将返回0值的请假记录</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：false</para>
+    /// </param>
+    /// <param name="wd_need_denied_and_canceled_record">
+    /// <para>必填：否</para>
+    /// <para>WorkDay专用 是否拒绝和取消的请假记录，若为true，将返回拒绝和取消的请假记录</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：false</para>
+    /// </param>
+    /// <param name="wd_paid_type">
+    /// <para>必填：否</para>
+    /// <para>WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪</para>
+    /// <para>示例值：1</para>
+    /// <para>默认值：null</para>
+    /// </param>
     [HttpGet("/open-apis/corehr/v1/leaves/leave_request_history")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1LeavesLeaveRequestHistoryResponseDto>> GetCorehrV1LeavesLeaveRequestHistoryAsync(
         [PathQuery] string? page_token = null,
@@ -21158,7 +21219,16 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? leave_submit_date_max = null,
         [PathQuery] string? user_id_type = "people_corehr_id",
         [PathQuery] string? leave_update_time_min = null,
-        [PathQuery] string? leave_update_time_max = null);
+        [PathQuery] string? leave_update_time_max = null,
+        [PathQuery] bool? return_detail = false,
+        [PathQuery] int? leave_term_type = 0,
+        [PathQuery] string? time_zone = null,
+        [PathQuery] int? data_source = null,
+        [PathQuery] string? db_update_time_min = null,
+        [PathQuery] string? db_update_time_max = null,
+        [PathQuery] bool? wd_need_amount_zero_records = false,
+        [PathQuery] bool? wd_need_denied_and_canceled_record = false,
+        [PathQuery] int? wd_paid_type = null);
 
     /// <summary>
     /// <para>【飞书人事】删除假期发放记录</para>

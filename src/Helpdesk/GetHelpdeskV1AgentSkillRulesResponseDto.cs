@@ -36,7 +36,7 @@ public record GetHelpdeskV1AgentSkillRulesResponseDto
         public int[]? OperatorOptions { get; set; }
 
         /// <summary>
-        /// <para>rule 操作数的值</para>
+        /// <para>rule 操作数的值。该参数类型为泛型，会指向多类型。</para>
         /// <para>必填：否</para>
         /// <para>示例值：{\"selected_departments\":[{\"id\":\"部门ID\",\"name\":\"IT\"}]}</para>
         /// </summary>

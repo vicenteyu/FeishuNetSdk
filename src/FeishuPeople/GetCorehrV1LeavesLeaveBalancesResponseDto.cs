@@ -11,6 +11,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
     /// <summary>
     /// <para>员工假期余额信息列表</para>
     /// <para>必填：否</para>
+    /// <para>示例值：0</para>
     /// </summary>
     [JsonPropertyName("employment_leave_balance_list")]
     public EmploymentLeaveBalance[]? EmploymentLeaveBalanceLists { get; set; }
@@ -170,7 +171,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
-    /// <para>示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</para>
+    /// <para>示例值：{\"eu_nc\":\"[\\\"6994333322503669260\\\"]\"}</para>
     /// </summary>
     [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }

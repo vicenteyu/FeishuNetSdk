@@ -54,7 +54,7 @@ public record PostCorehrV1OffboardingsSubmitResponseDto
     /// <para>示例值：false</para>
     /// </summary>
     [JsonPropertyName("add_block_list")]
-    public string? AddBlockList { get; set; }
+    public bool? AddBlockList { get; set; }
 
     /// <summary>
     /// <para>屏蔽原因</para>
@@ -67,7 +67,7 @@ public record PostCorehrV1OffboardingsSubmitResponseDto
     /// <summary>
     /// <para>屏蔽原因说明</para>
     /// <para>必填：否</para>
-    /// <para>示例值：xx年xx月xx日因xx原因红线</para>
+    /// <para>示例值：xx 年 xx 月 xx 日因 xx 原因红线</para>
     /// </summary>
     [JsonPropertyName("block_reason_explanation")]
     public string? BlockReasonExplanation { get; set; }
@@ -75,7 +75,7 @@ public record PostCorehrV1OffboardingsSubmitResponseDto
     /// <summary>
     /// <para>创建时间</para>
     /// <para>必填：否</para>
-    /// <para>示例值：2022-05-0917:50:17</para>
+    /// <para>示例值：2022-05-09 17:50:17</para>
     /// </summary>
     [JsonPropertyName("created_time")]
     public string? CreatedTime { get; set; }

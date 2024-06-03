@@ -139,14 +139,14 @@ public record PutImV2AppFeedCardBatchBodyDto
                 public record OpenAppFeedCardButton
                 {
                     /// <summary>
-                    /// <para>跳转 URL</para>
+                    /// <para>跳转 URL（仅支持 https 协议）</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("multi_url")]
                     public OpenAppFeedCardUrl? MultiUrl { get; set; }
 
                     /// <summary>
-                    /// <para>跳转 URL</para>
+                    /// <para>跳转 URL（仅支持 https 协议）</para>
                     /// </summary>
                     public record OpenAppFeedCardUrl
                     {
@@ -259,7 +259,7 @@ public record PutImV2AppFeedCardBatchBodyDto
             public record OpenAppFeedLink
             {
                 /// <summary>
-                /// <para>链接</para>
+                /// <para>链接（仅支持 https 协议）</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.feishu.cn/</para>
                 /// <para>最大长度：700</para>
