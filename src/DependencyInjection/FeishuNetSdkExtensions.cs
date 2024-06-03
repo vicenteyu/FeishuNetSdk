@@ -1,8 +1,6 @@
 ﻿using FeishuNetSdk;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
-using WebApiClientCore.Extensions.OAuths;
-using WebApiClientCore.Extensions.OAuths.Exceptions;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -46,44 +44,14 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddHttpApi<IFeishuTenantApi>(option => option.KeyValueSerializeOptions.IgnoreNullValues = true);
             services.AddHttpApi<IFeishuUserApi>(option => option.KeyValueSerializeOptions.IgnoreNullValues = true);
 
-            services.AddTokenProvider<IFeishuTenantApi>(async provider =>
+            services.AddTokenProvider<IFeishuTenantApi, TenantAccessTokenProvider>(serviceProvider =>
             {
-                var token = await provider.GetRequiredService<IFeishuApi>()
-                    .PostAuthV3TenantAccessTokenInternalAsync(
-                        new FeishuNetSdk.Auth.Spec
-                            .PostAuthV3TenantAccessTokenInternalBodyDto
-                        {
-                            AppId = options.AppId,
-                            AppSecret = options.AppSecret
-                        });
-                //当返回码异常，抛出异常
-                if (token.Code != 0)
-                    throw new TokenException(token.Msg);
-                return new TokenResult
-                {
-                    Access_token = token.TenantAccessToken,
-                    Expires_in = token.Expire
-                };
+                return new TenantAccessTokenProvider(serviceProvider, options);
             });
 
-            services.AddTokenProvider<IFeishuAppApi>(async provider =>
+            services.AddTokenProvider<IFeishuAppApi, UserAccessTokenProvider>(serviceProvider =>
             {
-                var token = await provider.GetRequiredService<IFeishuApi>()
-                    .PostAuthV3AppAccessTokenInternalAsync(
-                        new FeishuNetSdk.Auth.Spec
-                            .PostAuthV3AppAccessTokenInternalBodyDto
-                        {
-                            AppId = options.AppId,
-                            AppSecret = options.AppSecret
-                        });
-                //当返回码异常，抛出异常
-                if (token.Code != 0)
-                    throw new TokenException(token.Msg);
-                return new TokenResult
-                {
-                    Access_token = token.AppAccessToken,
-                    Expires_in = token.Expire
-                };
+                return new UserAccessTokenProvider(serviceProvider, options);
             });
 
             return services;
