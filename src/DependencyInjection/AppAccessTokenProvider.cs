@@ -5,10 +5,10 @@ using WebApiClientCore.Extensions.OAuths.TokenProviders;
 
 namespace FeishuNetSdk
 {
-    internal class UserAccessTokenProvider : TokenProvider
+    internal class AppAccessTokenProvider : TokenProvider
     {
         private readonly FeishuNetSdkOptions _options;
-        public UserAccessTokenProvider(IServiceProvider services, FeishuNetSdkOptions options) : base(services)
+        public AppAccessTokenProvider(IServiceProvider services, FeishuNetSdkOptions options) : base(services)
         {
             _options = options;
         }

@@ -49,9 +49,9 @@ namespace Microsoft.Extensions.DependencyInjection
                 return new TenantAccessTokenProvider(serviceProvider, options);
             });
 
-            services.AddTokenProvider<IFeishuAppApi, UserAccessTokenProvider>(serviceProvider =>
+            services.AddTokenProvider<IFeishuAppApi, AppAccessTokenProvider>(serviceProvider =>
             {
-                return new UserAccessTokenProvider(serviceProvider, options);
+                return new AppAccessTokenProvider(serviceProvider, options);
             });
 
             return services;
