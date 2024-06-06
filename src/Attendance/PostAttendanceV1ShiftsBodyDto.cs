@@ -107,7 +107,7 @@ public record PostAttendanceV1ShiftsBodyDto
         /// <summary>
         /// <para>下班时间</para>
         /// <para>必填：是</para>
-        /// <para>示例值：18:00，第二天凌晨2点，26:00</para>
+        /// <para>示例值：18:00， 第二天凌晨2点， 26:00</para>
         /// </summary>
         [JsonPropertyName("off_time")]
         public string OffTime { get; set; } = string.Empty;
@@ -129,7 +129,7 @@ public record PostAttendanceV1ShiftsBodyDto
         public int LateMinutesAsLack { get; set; }
 
         /// <summary>
-        /// <para>最早多久可打上班卡</para>
+        /// <para>最早多久可打上班卡。最大值为 720</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -153,7 +153,7 @@ public record PostAttendanceV1ShiftsBodyDto
         public int EarlyMinutesAsLack { get; set; }
 
         /// <summary>
-        /// <para>最晚多久可打下班卡</para>
+        /// <para>最晚多久可打下班卡。最大值为 960</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>

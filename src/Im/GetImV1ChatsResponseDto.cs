@@ -83,6 +83,19 @@ public record GetImV1ChatsResponseDto
         /// </summary>
         [JsonPropertyName("tenant_key")]
         public string? TenantKey { get; set; }
+
+        /// <summary>
+        /// <para>群状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：normal</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>normal：正常</item>
+        /// <item>dissolved：解散</item>
+        /// <item>dissolved_save：解散并保留</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("chat_status")]
+        public string? ChatStatus { get; set; }
     }
 
     /// <summary>

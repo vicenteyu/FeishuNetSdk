@@ -187,6 +187,7 @@ public record PatchCorehrV1JobDatasByJobDataIdBodyDto
 
     /// <summary>
     /// <para>成本中心分摊信息</para>
+    /// <para>当 version_id 不为空时，暂不支持更新该字段值</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("cost_center_rate")]
@@ -194,6 +195,7 @@ public record PatchCorehrV1JobDatasByJobDataIdBodyDto
 
     /// <summary>
     /// <para>成本中心分摊信息</para>
+    /// <para>当 version_id 不为空时，暂不支持更新该字段值</para>
     /// </summary>
     public record SupportCostCenterItem
     {

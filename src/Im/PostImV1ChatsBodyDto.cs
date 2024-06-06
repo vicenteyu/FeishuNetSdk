@@ -274,4 +274,16 @@ public record PostImV1ChatsBodyDto
     /// </summary>
     [JsonPropertyName("edit_permission")]
     public string? EditPermission { get; set; }
+
+    /// <summary>
+    /// <para>隐藏群成员人数设置</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：all_members</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>all_members：所有群成员可见</item>
+    /// <item>only_owner：仅群主群管理员可见</item>
+    /// </list></para>
+    /// </summary>
+    [JsonPropertyName("hide_member_count_setting")]
+    public string? HideMemberCountSetting { get; set; }
 }

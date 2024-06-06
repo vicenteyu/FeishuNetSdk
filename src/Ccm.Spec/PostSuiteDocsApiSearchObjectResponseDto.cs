@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
-/// 搜索文件 响应体
-/// <para>该接口用于根据搜索关键词（search_key）对当前用户可见的文件进行搜索。</para>
+/// 搜索云文档 响应体
+/// <para>该接口用于根据搜索关键词（search_key）对当前用户可见的云文档进行搜索。</para>
 /// <para>接口ID：6907569523177439233</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/search/document-search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fugDM4UjL4ADO14COwgTN</para>
@@ -9,7 +9,7 @@ namespace FeishuNetSdk.Ccm.Spec;
 public record PostSuiteDocsApiSearchObjectResponseDto
 {
     /// <summary>
-    /// <para>搜索匹配文档列表</para>
+    /// <para>包含搜索关键词的文件列表。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("docs_entities")]
@@ -52,7 +52,7 @@ public record PostSuiteDocsApiSearchObjectResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public string? HasMore { get; set; }
+    public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>包含搜索关键词的文件总数量。</para>

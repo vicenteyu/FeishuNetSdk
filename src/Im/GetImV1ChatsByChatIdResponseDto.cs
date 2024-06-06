@@ -366,4 +366,29 @@ public record GetImV1ChatsByChatIdResponseDto
     /// </summary>
     [JsonPropertyName("video_conference_setting")]
     public string? VideoConferenceSetting { get; set; }
+
+    /// <summary>
+    /// <para>隐藏群成员人数设置</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：all_members</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>all_members：所有群成员可见</item>
+    /// <item>only_owner：仅群主群管理员可见</item>
+    /// </list></para>
+    /// </summary>
+    [JsonPropertyName("hide_member_count_setting")]
+    public string? HideMemberCountSetting { get; set; }
+
+    /// <summary>
+    /// <para>群状态</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：normal</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>normal：正常</item>
+    /// <item>dissolved：解散</item>
+    /// <item>dissolved_save：解散并保留</item>
+    /// </list></para>
+    /// </summary>
+    [JsonPropertyName("chat_status")]
+    public string? ChatStatus { get; set; }
 }

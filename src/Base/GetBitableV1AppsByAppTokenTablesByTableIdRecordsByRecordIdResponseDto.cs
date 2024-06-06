@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 检索记录 响应体
-/// <para>该接口用于根据 record_id 的值检索现有记录</para>
+/// <para>该接口用于根据 record_id 的值检索现有记录。</para>
 /// <para>接口ID：6952707657162588162</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-record/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-record%2fget</para>
@@ -69,7 +69,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
             /// <summary>
             /// <para>用户的英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：XiaodouHuang</para>
+            /// <para>示例值：Xiaodou Huang</para>
             /// </summary>
             [JsonPropertyName("en_name")]
             public string? EnName { get; set; }
@@ -97,7 +97,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
         /// <para>示例值：1678799280000</para>
         /// </summary>
         [JsonPropertyName("created_time")]
-        public int? CreatedTime { get; set; }
+        public long? CreatedTime { get; set; }
 
         /// <summary>
         /// <para>该记录最新一次更新的修改人</para>
@@ -112,6 +112,6 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
         /// <para>示例值：1678799280000</para>
         /// </summary>
         [JsonPropertyName("last_modified_time")]
-        public int? LastModifiedTime { get; set; }
+        public long? LastModifiedTime { get; set; }
     }
 }

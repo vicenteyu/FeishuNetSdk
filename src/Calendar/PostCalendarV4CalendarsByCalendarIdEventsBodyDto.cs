@@ -18,8 +18,8 @@ public record PostCalendarV4CalendarsByCalendarIdEventsBodyDto
     public string? Summary { get; set; }
 
     /// <summary>
-    /// <para>日程描述。</para>
-    /// <para>**注意**：目前 API 方式不支持编辑富文本描述。如果日程描述通过客户端编辑为富文本内容，则使用 API 更新描述会导致富文本格式丢失。</para>
+    /// <para>日程描述。支持解析Html标签。</para>
+    /// <para>**注意**：可以通过Html标签来实现部分富文本格式，但是客户端生成的富文本格式并不是通过Html标签实现，如果通过客户端生成富文本描述后，再通过API更新描述，会导致客户端原来的富文本格式丢失。</para>
     /// <para>必填：否</para>
     /// <para>示例值：日程描述</para>
     /// <para>最大长度：40960</para>
