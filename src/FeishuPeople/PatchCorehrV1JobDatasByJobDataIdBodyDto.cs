@@ -12,6 +12,7 @@ public record PatchCorehrV1JobDatasByJobDataIdBodyDto
     /// <para>任职记录版本 ID</para>
     /// <para>- ID 不为空时，将更新指定版本的任职记录内容</para>
     /// <para>- ID 为空时，将新增一个版本</para>
+    /// <para>功能灰度中，若需要更新指定版本请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
     /// <para>必填：否</para>
     /// <para>示例值：6890452208593372697</para>
     /// </summary>

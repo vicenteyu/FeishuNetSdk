@@ -36,7 +36,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     public string Status { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>审批实例扩展 JSON。单据编号通过传business_key字段来实现。以下示例值为转义，使用时请注意转义。你可查看请求体示例中的转义后示例</para>
+    /// <para>审批实例扩展 JSON。单据编号通过传business_key字段来实现。以下示例值未转义，使用时请注意转义。你可查看请求体示例中转义后的 extra 示例值</para>
     /// <para>必填：否</para>
     /// <para>示例值：{\"xxx\":\"xxx\",\"business_key\":\"xxx\"}</para>
     /// </summary>

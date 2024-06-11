@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 搜索离职信息 请求体
-/// <para>搜索离职信息，该接口会按照应用拥有的「员工数据」的权限范围返回数据，请确定在「开发者后台 - 权限管理 - 数据权限」中有申请「员工资源」权限范围</para>
+/// <para>搜索离职信息，该接口会按照应用拥有的「员工数据」的权限范围返回数据，请确定在「开发者后台 - 权限管理 - 数据权限」中申请了「员工资源」权限范围。</para>
 /// <para>接口ID：7211423970042183684</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/offboarding/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2foffboarding%2fsearch</para>

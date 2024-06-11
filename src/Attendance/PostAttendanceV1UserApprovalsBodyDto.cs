@@ -410,7 +410,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
         }
 
         /// <summary>
-        /// <para>计算时间所用的时区信息，为空是0时区</para>
+        /// <para>此字段不再使用，以用户匹配的考勤组时区为准</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>

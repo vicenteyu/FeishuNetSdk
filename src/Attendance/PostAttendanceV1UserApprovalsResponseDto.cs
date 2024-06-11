@@ -472,9 +472,9 @@ public record PostAttendanceV1UserApprovalsResponseDto
         }
 
         /// <summary>
-        /// <para>计算时间所用的时区信息，为空是0时区</para>
+        /// <para>计算时间所用的时区信息</para>
         /// <para>必填：否</para>
-        /// <para>示例值：0</para>
+        /// <para>示例值：Asia/Shanghai</para>
         /// </summary>
         [JsonPropertyName("time_zone")]
         public string? TimeZone { get; set; }

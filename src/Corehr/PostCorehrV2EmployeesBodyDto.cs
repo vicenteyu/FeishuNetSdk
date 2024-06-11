@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 员工入职 请求体
-/// <para>支持在单个接口中进行人员全信息添加，包括人员基本信息，雇佣信息，任职记录及其他分组信息；</para>
+/// 添加人员 请求体
+/// <para>支持在单个接口中进行人员全信息添加，包括人员基本信息，雇佣信息，任职记录及其他分组信息</para>
 /// <para>接口ID：7350663854198161410</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2femployee%2fcreate</para>
@@ -57,6 +57,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>国家 / 地区 ID</para>
+                /// <para>可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6862995757234914824</para>
                 /// </summary>
@@ -233,7 +234,8 @@ public record PostCorehrV2EmployeesBodyDto
             public string? Gender { get; set; }
 
             /// <summary>
-            /// <para>国籍ID</para>
+            /// <para>国籍 ID</para>
+            /// <para>可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914826</para>
             /// </summary>
@@ -373,6 +375,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>籍贯（省份/行政区 ID）</para>
+            /// <para>可通过[【查询省份/行政区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914827</para>
             /// </summary>
@@ -429,7 +432,7 @@ public record PostCorehrV2EmployeesBodyDto
                 /// <para>字段值</para>
                 /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：["custom_enum_0__c"]</para>
+                /// <para>示例值：123</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string? Value { get; set; }
@@ -542,6 +545,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>国家 / 地区 ID</para>
+                /// <para>可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6862995757234914824</para>
                 /// </summary>
@@ -550,6 +554,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>主要行政区 ID</para>
+                /// <para>可通过[【查询省份/行政区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6863326815667095047</para>
                 /// </summary>
@@ -574,6 +579,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>城市V2 ID</para>
+                /// <para>可通过[【查询城市信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6862995757234914829</para>
                 /// </summary>
@@ -614,6 +620,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>区/县 V2 ID</para>
+                /// <para>可通过[【查询区/县信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)接口获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6862995757234914831</para>
                 /// </summary>
@@ -799,7 +806,7 @@ public record PostCorehrV2EmployeesBodyDto
                 /// <para>字段值</para>
                 /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：["custom_enum_0__c"]</para>
+                /// <para>示例值：123</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string? Value { get; set; }
@@ -822,6 +829,7 @@ public record PostCorehrV2EmployeesBodyDto
         {
             /// <summary>
             /// <para>国家 / 地区 ID</para>
+            /// <para>可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914824</para>
             /// </summary>
@@ -886,6 +894,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>银行 ID</para>
+            /// <para>可通过[【查询银行信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914832</para>
             /// </summary>
@@ -894,6 +903,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>银行支行 ID</para>
+            /// <para>可通过[【查询支行信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank_branch/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914833</para>
             /// </summary>
@@ -916,7 +926,8 @@ public record PostCorehrV2EmployeesBodyDto
         public record ProfileSettingNational
         {
             /// <summary>
-            /// <para>国家/地区 ID</para>
+            /// <para>国家 / 地区 ID</para>
+            /// <para>可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914824</para>
             /// </summary>
@@ -925,6 +936,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>国家证件类型 ID</para>
+            /// <para>可通过[【批量查询国家证件类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/list)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6863330041896371725</para>
             /// </summary>
@@ -989,7 +1001,7 @@ public record PostCorehrV2EmployeesBodyDto
                 /// <para>字段值</para>
                 /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：["custom_enum_0__c"]</para>
+                /// <para>示例值：123</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string? Value { get; set; }
@@ -1019,7 +1031,8 @@ public record PostCorehrV2EmployeesBodyDto
             public string? YearResidentTax { get; set; }
 
             /// <summary>
-            /// <para>国家 / 地区ID</para>
+            /// <para>国家 / 地区 ID</para>
+            /// <para>可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914824</para>
             /// </summary>
@@ -1063,7 +1076,7 @@ public record PostCorehrV2EmployeesBodyDto
                 /// <para>字段值</para>
                 /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：["custom_enum_0__c"]</para>
+                /// <para>示例值：123</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string? Value { get; set; }
@@ -1178,6 +1191,7 @@ public record PostCorehrV2EmployeesBodyDto
             {
                 /// <summary>
                 /// <para>文件 ID</para>
+                /// <para>可通过[【上传文件】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/upload)接口获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200</para>
                 /// </summary>
@@ -1251,7 +1265,7 @@ public record PostCorehrV2EmployeesBodyDto
                 /// <para>字段值</para>
                 /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：["custom_enum_0__c"]</para>
+                /// <para>示例值：123</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string? Value { get; set; }
@@ -1282,6 +1296,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>国家 / 地区 ID</para>
+                /// <para>可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6862995757234914824</para>
                 /// </summary>
@@ -1290,6 +1305,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>主要行政区 ID</para>
+                /// <para>可通过[【查询省份/行政区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6863326815667095047</para>
                 /// </summary>
@@ -1314,6 +1330,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>城市 V2 ID</para>
+                /// <para>可通过[【查询城市信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6862995757234914829</para>
                 /// </summary>
@@ -1354,6 +1371,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>区/县 V2 ID</para>
+                /// <para>可通过[【查询区/县信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)接口获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6862995757234914831</para>
                 /// </summary>
@@ -1571,7 +1589,7 @@ public record PostCorehrV2EmployeesBodyDto
                 /// <para>字段值</para>
                 /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：["custom_enum_0__c"]</para>
+                /// <para>示例值：123</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string? Value { get; set; }
@@ -1605,6 +1623,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>国家 / 地区 ID</para>
+            /// <para>可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914824</para>
             /// </summary>
@@ -1613,6 +1632,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>主要行政区 ID</para>
+            /// <para>可通过[【查询省份/行政区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6863326815667095047</para>
             /// </summary>
@@ -1637,6 +1657,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>城市 V2 ID</para>
+            /// <para>可通过[【查询城市信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914829</para>
             /// </summary>
@@ -1677,6 +1698,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>区/县 V2 ID</para>
+            /// <para>可通过[【查询区/县信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914831</para>
             /// </summary>
@@ -1898,7 +1920,7 @@ public record PostCorehrV2EmployeesBodyDto
                     /// <para>字段值</para>
                     /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：["custom_enum_0__c"]</para>
+                    /// <para>示例值：123</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string? Value { get; set; }
@@ -2038,7 +2060,7 @@ public record PostCorehrV2EmployeesBodyDto
                 /// <para>字段值</para>
                 /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：["custom_enum_0__c"]</para>
+                /// <para>示例值：123</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string? Value { get; set; }
@@ -2096,6 +2118,7 @@ public record PostCorehrV2EmployeesBodyDto
         {
             /// <summary>
             /// <para>人员类型 ID</para>
+            /// <para>可通过[【查询单个人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372679</para>
             /// </summary>
@@ -2104,6 +2127,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>部门 ID</para>
+            /// <para>可通过[【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372679</para>
             /// </summary>
@@ -2111,7 +2135,8 @@ public record PostCorehrV2EmployeesBodyDto
             public string? Department { get; set; }
 
             /// <summary>
-            /// <para>实线主管雇佣 ID</para>
+            /// <para>直属上级雇佣 ID</para>
+            /// <para>可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6893014062142064135</para>
             /// </summary>
@@ -2120,6 +2145,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>工时制度 ID</para>
+            /// <para>可通过[【查询单个工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/get)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372600</para>
             /// </summary>
@@ -2160,7 +2186,7 @@ public record PostCorehrV2EmployeesBodyDto
             }
 
             /// <summary>
-            /// <para>实线主管入职日期</para>
+            /// <para>直属上级入职日期</para>
             /// <para>必填：否</para>
             /// <para>示例值：2020-01-01</para>
             /// </summary>
@@ -2168,7 +2194,8 @@ public record PostCorehrV2EmployeesBodyDto
             public string? DirectManagerEffectiveTime { get; set; }
 
             /// <summary>
-            /// <para>虚线主管雇佣 ID</para>
+            /// <para>虚线上级雇佣 ID</para>
+            /// <para>可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6893014062142064136</para>
             /// </summary>
@@ -2176,7 +2203,7 @@ public record PostCorehrV2EmployeesBodyDto
             public string? DottedLineManager { get; set; }
 
             /// <summary>
-            /// <para>虚线主管入职日期</para>
+            /// <para>虚线上级入职日期</para>
             /// <para>必填：否</para>
             /// <para>示例值：2020-01-01</para>
             /// </summary>
@@ -2185,6 +2212,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>职务 ID</para>
+            /// <para>可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372679</para>
             /// </summary>
@@ -2192,7 +2220,8 @@ public record PostCorehrV2EmployeesBodyDto
             public string? Job { get; set; }
 
             /// <summary>
-            /// <para>职务序列 ID</para>
+            /// <para>序列 ID</para>
+            /// <para>可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372680</para>
             /// </summary>
@@ -2200,7 +2229,8 @@ public record PostCorehrV2EmployeesBodyDto
             public string? JobFamily { get; set; }
 
             /// <summary>
-            /// <para>职务级别 ID</para>
+            /// <para>职级 ID</para>
+            /// <para>可通过[【查询单个职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372681</para>
             /// </summary>
@@ -2209,6 +2239,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>职等 ID</para>
+            /// <para>可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372682</para>
             /// </summary>
@@ -2217,6 +2248,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>工作地点 ID</para>
+            /// <para>可通过[【查询单个地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372683</para>
             /// </summary>
@@ -2364,7 +2396,7 @@ public record PostCorehrV2EmployeesBodyDto
                     /// <para>字段值</para>
                     /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：["custom_enum_0__c"]</para>
+                    /// <para>示例值：123</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string? Value { get; set; }
@@ -2501,7 +2533,7 @@ public record PostCorehrV2EmployeesBodyDto
                 /// <para>字段值</para>
                 /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：["custom_enum_0__c"]</para>
+                /// <para>示例值：123</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string? Value { get; set; }
@@ -2614,7 +2646,7 @@ public record PostCorehrV2EmployeesBodyDto
                 /// <para>字段值</para>
                 /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：["custom_enum_0__c"]</para>
+                /// <para>示例值：123</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string? Value { get; set; }
@@ -2683,7 +2715,7 @@ public record PostCorehrV2EmployeesBodyDto
                     /// <para>字段值</para>
                     /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：["custom_enum_0__c"]</para>
+                    /// <para>示例值：123</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string? Value { get; set; }
@@ -2745,6 +2777,7 @@ public record PostCorehrV2EmployeesBodyDto
             {
                 /// <summary>
                 /// <para>文件 ID</para>
+                /// <para>可通过[【上传文件】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/upload)接口获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200</para>
                 /// </summary>
@@ -2847,7 +2880,7 @@ public record PostCorehrV2EmployeesBodyDto
                     /// <para>字段值</para>
                     /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：["custom_enum_0__c"]</para>
+                    /// <para>示例值：123</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string? Value { get; set; }

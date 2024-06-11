@@ -31,7 +31,7 @@ public record GetCorehrV1ContractsByContractIdResponseDto
         /// <summary>
         /// <para>合同开始日期</para>
         /// <para>必填：是</para>
-        /// <para>示例值：2050-01-0100:00:00</para>
+        /// <para>示例值：2050-01-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("effective_time")]
         public string EffectiveTime { get; set; } = string.Empty;
@@ -39,7 +39,7 @@ public record GetCorehrV1ContractsByContractIdResponseDto
         /// <summary>
         /// <para>实际结束日期</para>
         /// <para>必填：否</para>
-        /// <para>示例值：9999-12-3123:59:59</para>
+        /// <para>示例值：9999-12-31 23:59:59</para>
         /// </summary>
         [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }
@@ -177,5 +177,27 @@ public record GetCorehrV1ContractsByContractIdResponseDto
         /// </summary>
         [JsonPropertyName("signing_type")]
         public Enum? SigningType { get; set; }
+
+        /// <summary>
+        /// <para>合同协议状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)合同协议状态（contract_status）枚举定义部分获得</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("contract_status")]
+        public Enum? ContractStatus { get; set; }
+
+        /// <summary>
+        /// <para>续签状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)续签状态（renewal_status）枚举定义部分获得</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("renewal_status")]
+        public Enum? RenewalStatus { get; set; }
+
+        /// <summary>
+        /// <para>第几次签署</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("signing_times")]
+        public int? SigningTimes { get; set; }
     }
 }

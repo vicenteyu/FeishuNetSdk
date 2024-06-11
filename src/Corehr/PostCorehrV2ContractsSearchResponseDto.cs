@@ -31,7 +31,7 @@ public record PostCorehrV2ContractsSearchResponseDto
         /// <summary>
         /// <para>合同开始日期</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2023-01-0100:00:00</para>
+        /// <para>示例值：2023-01-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("effective_time")]
         public string? EffectiveTime { get; set; }
@@ -47,7 +47,7 @@ public record PostCorehrV2ContractsSearchResponseDto
         /// <summary>
         /// <para>实际结束日期</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2023-11-0100:00:00</para>
+        /// <para>示例值：2023-11-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }
@@ -61,14 +61,14 @@ public record PostCorehrV2ContractsSearchResponseDto
         public string? EmploymentId { get; set; }
 
         /// <summary>
-        /// <para>合同类型，枚举值可通过文档【飞书人事枚举常量】合同类型（contract_type）枚举定义部分获得</para>
+        /// <para>合同类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)合同类型（contract_type）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("contract_type")]
         public Enum? ContractType { get; set; }
 
         /// <summary>
-        /// <para>合同类型，枚举值可通过文档【飞书人事枚举常量】合同类型（contract_type）枚举定义部分获得</para>
+        /// <para>合同类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)合同类型（contract_type）枚举定义部分获得</para>
         /// </summary>
         public record Enum
         {
@@ -127,7 +127,7 @@ public record PostCorehrV2ContractsSearchResponseDto
         public string? PersonId { get; set; }
 
         /// <summary>
-        /// <para>期限类型，枚举值可通过文档【飞书人事枚举常量】合同期限类型（duration_type）枚举定义部分获得</para>
+        /// <para>期限类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)合同期限类型（duration_type）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("duration_type")]
@@ -142,11 +142,33 @@ public record PostCorehrV2ContractsSearchResponseDto
         public string? ContractNumber { get; set; }
 
         /// <summary>
-        /// <para>签订类型，枚举值可通过文档【飞书人事枚举常量】签订类型（signing_type）枚举定义部分获得</para>
+        /// <para>签订类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)签订类型（signing_type）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("signing_type")]
         public Enum? SigningType { get; set; }
+
+        /// <summary>
+        /// <para>合同协议状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)合同协议状态（contract_status）枚举定义部分获得</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("contract_status")]
+        public Enum? ContractStatus { get; set; }
+
+        /// <summary>
+        /// <para>续签状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)续签状态（renewal_status）枚举定义部分获得</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("renewal_status")]
+        public Enum? RenewalStatus { get; set; }
+
+        /// <summary>
+        /// <para>第几次签署</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("signing_times")]
+        public int? SigningTimes { get; set; }
     }
 
     /// <summary>

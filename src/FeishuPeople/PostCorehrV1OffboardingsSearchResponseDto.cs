@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 搜索离职信息 响应体
-/// <para>搜索离职信息，该接口会按照应用拥有的「员工数据」的权限范围返回数据，请确定在「开发者后台 - 权限管理 - 数据权限」中有申请「员工资源」权限范围</para>
+/// <para>搜索离职信息，该接口会按照应用拥有的「员工数据」的权限范围返回数据，请确定在「开发者后台 - 权限管理 - 数据权限」中申请了「员工资源」权限范围。</para>
 /// <para>接口ID：7211423970042183684</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/offboarding/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2foffboarding%2fsearch</para>
@@ -67,7 +67,7 @@ public record PostCorehrV1OffboardingsSearchResponseDto
             /// <summary>
             /// <para>离职申请流程发起时间</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2022-02-0311:22:33</para>
+            /// <para>示例值：2022-02-03 11:22:33</para>
             /// </summary>
             [JsonPropertyName("apply_initiating_time")]
             public string? ApplyInitiatingTime { get; set; }
@@ -75,7 +75,7 @@ public record PostCorehrV1OffboardingsSearchResponseDto
             /// <summary>
             /// <para>离职申请流程结束时间</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2022-02-0311:22:33</para>
+            /// <para>示例值：2022-02-03 11:22:33</para>
             /// </summary>
             [JsonPropertyName("apply_finish_time")]
             public string? ApplyFinishTime { get; set; }
@@ -223,7 +223,7 @@ public record PostCorehrV1OffboardingsSearchResponseDto
             /// <summary>
             /// <para>屏蔽原因说明</para>
             /// <para>必填：否</para>
-            /// <para>示例值：xx年xx月xx日因xx原因红线</para>
+            /// <para>示例值：xx 年 xx 月 xx 日因 xx 原因红线</para>
             /// </summary>
             [JsonPropertyName("block_reason_explanation")]
             public string? BlockReasonExplanation { get; set; }
@@ -271,7 +271,7 @@ public record PostCorehrV1OffboardingsSearchResponseDto
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：CustomName</para>
+                    /// <para>示例值：Custom Name</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -323,7 +323,7 @@ public record PostCorehrV1OffboardingsSearchResponseDto
             /// <summary>
             /// <para>离职流转开始时间</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2022-02-0311:22:33</para>
+            /// <para>示例值：2022-02-03 11:22:33</para>
             /// </summary>
             [JsonPropertyName("checklist_start_time")]
             public string? ChecklistStartTime { get; set; }
@@ -331,7 +331,7 @@ public record PostCorehrV1OffboardingsSearchResponseDto
             /// <summary>
             /// <para>离职流转结束时间</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2022-02-0311:22:33</para>
+            /// <para>示例值：2022-02-03 11:22:33</para>
             /// </summary>
             [JsonPropertyName("checklist_finish_time")]
             public string? ChecklistFinishTime { get; set; }
