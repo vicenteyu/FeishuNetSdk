@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FeishuNetSdk.Dtos
+﻿namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
     /// 卡片内容
     /// </summary>
-    public record ElementsCardDto
+    public record ElementsCard
     {
         /// <summary>
         /// 卡片标题

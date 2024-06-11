@@ -1,4 +1,4 @@
-﻿namespace FeishuNetSdk.Dtos
+﻿namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
     /// 元素

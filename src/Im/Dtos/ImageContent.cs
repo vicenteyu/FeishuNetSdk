@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FeishuNetSdk.Dtos
+﻿namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
     /// 图片消息
     /// </summary>
-    public record ImageContent : MessageContent
+    public record ImageContent : IHasMessageType
     {
+        /// <summary>
+        /// 消息类型
+        /// </summary>
+        [JsonIgnore]
+        public string MessageType => "image";
+
         /// <summary>
         /// 其中image key需要通过上传图片接口取得
         /// </summary>

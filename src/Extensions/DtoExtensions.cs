@@ -45,5 +45,42 @@
             this Approval.GetApprovalV4ApprovalsByApprovalCodeResponseDto? Dto)
                 => Dto is null ? null
                     : System.Text.Json.JsonSerializer.Deserialize<Approval.Dtos.FromControl[]>(Dto.Form);
+
+        /// <summary>
+        /// 设置消息卡片内容
+        /// </summary>
+        /// <param name="Dto">延时更新消息卡片 请求体</param>
+        /// <param name="CardObject">消息卡片的描述内容</param>
+        public static void SetCardObject(
+            this Im.Spec.PostInteractiveV1CardUpdateBodyDto Dto,
+            Im.Dtos.IHasOpenIds CardObject)
+                => Dto.Card = CardObject;
+
+        /// <summary>
+        /// 设置消息内容
+        /// </summary>
+        /// <param name="Dto">发送消息 请求体</param>
+        /// <param name="Content">消息对象
+        /// <list type="bullet">
+        /// <item>TextContent</item>
+        /// <item>PostContent</item>
+        /// <item>ImageContent</item>
+        /// <item>FileContent</item>
+        /// <item>AudioContent</item>
+        /// <item>MediaContent</item>
+        /// <item>StickerContent</item>
+        /// <item>InteractiveElementContent</item>
+        /// <item>InteractiveTemplateContent</item>
+        /// <item>ShareChatContent</item>
+        /// <item>ShareUserContent</item>
+        /// </list>
+        /// </param>
+        public static void SetContent(
+            this Im.PostImV1MessagesBodyDto Dto,
+            Im.Dtos.IHasMessageType Content)
+        {
+            Dto.MsgType = Content.MessageType;
+            Dto.Content = System.Text.Json.JsonSerializer.Serialize(Content, Content.GetType());
+        }
     }
 }

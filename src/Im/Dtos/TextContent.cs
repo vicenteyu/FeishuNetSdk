@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FeishuNetSdk.Dtos
+﻿namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
     /// 文本消息
     /// </summary>
-    public record TextContent : MessageContent
+    public record TextContent : IHasMessageType
     {
+        /// <summary>
+        /// 消息类型
+        /// </summary>
+        [JsonIgnore]
+        public string MessageType => "text";
+
         /// <summary>
         /// 文本消息
         /// </summary>

@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-
-namespace FeishuNetSdk.Dtos
+﻿namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
     /// 卡片模板
     /// </summary>
-    public record TemplateCardDto
+    public record TemplateCard
     {
         /// <summary>
         /// 如果使用卡片模板，请填写此项，固定值为：template
@@ -45,6 +38,6 @@ namespace FeishuNetSdk.Dtos
         /// <summary>
         /// 输出格式化字符串
         /// </summary>
-        public override string ToString() => JsonSerializer.Serialize(this);
+        public override string ToString() => System.Text.Json.JsonSerializer.Serialize(this);
     }
 }

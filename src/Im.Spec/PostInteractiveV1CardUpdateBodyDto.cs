@@ -17,35 +17,9 @@ public record PostInteractiveV1CardUpdateBodyDto
 
     /// <summary>
     /// <para>消息卡片的描述内容，具体参考[卡片结构](https://open.feishu.cn/document/ukTMukTMukTM/uEjNwUjLxYDM14SM2ATN)</para>
-    /// <para>可用类型：ElementCard / TemplateCard</para>
+    /// <para>可用扩展方法：SetCardObject(ElementsCardObject / TemplateCardObject)</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("card")]
     public object Card { get; set; } = new();
-
-    /// <summary>
-    /// 卡片内容
-    /// </summary>
-    public record ElementsCard : Dtos.ElementsCardDto
-    {
-        /// <summary>
-        /// <para>指定需要更新的用户，共享卡片默认更新所有人卡片，无需填写该字段。推荐使用 OpenID，获取方式可参考文档[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("open_ids")]
-        public string[]? OpenIds { get; set; }
-    }
-
-    /// <summary>
-    /// 卡片模板
-    /// </summary>
-    public record TemplateCard : Dtos.TemplateCardDto
-    {
-        /// <summary>
-        /// <para>指定需要更新的用户，共享卡片默认更新所有人卡片，无需填写该字段。推荐使用 OpenID，获取方式可参考文档[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("open_ids")]
-        public string[]? OpenIds { get; set; }
-    }
 }

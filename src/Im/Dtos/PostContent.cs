@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FeishuNetSdk.Dtos
+﻿namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
     /// 富文本消息
     /// </summary>
-    public record PostContent : MessageContent
+    public record PostContent : IHasMessageType
     {
+        /// <summary>
+        /// 消息类型
+        /// </summary>
+        [JsonIgnore]
+        public string MessageType => "post";
+
         /// <summary>
         /// 富文本消息。post content格式请参见发送消息Content
         /// </summary>
@@ -48,31 +48,21 @@ namespace FeishuNetSdk.Dtos
             /// <para>一个富文本可分多个段落（由多个[]组成），每个段落可由多个元素组成，每个元素由tag和相应的字段描述组成。主要图片元素必须是独立的一个段落。</para>
             /// </summary>
             [JsonPropertyName("content")]
-            public RichTextSuffix[][] Content { get; set; } = Array.Empty<RichTextSuffix[]>();
+            public object[][] Content { get; set; } = Array.Empty<object[]>();
         }
 
         /// <summary>
         /// 富文本消息
         /// </summary>
-        public abstract record RichTextSuffix
-        {
-            /// <summary>
-            /// 标签
-            /// </summary>
-            [JsonPropertyName("tag")]
-            public virtual string Tag { get; } = string.Empty;
-        }
+        /// <param name="Tag">标签</param>
+        public record TagBaseSuffix([property: JsonPropertyName("tag")] string Tag);
 
         /// <summary>
         /// 文本消息
         /// </summary>
-        public record TagTextSuffix : RichTextSuffix
+        /// <param name="Tag">标签</param>
+        public record TagTextSuffix(string Tag = "text") : TagBaseSuffix(Tag)
         {
-            /// <summary>
-            /// 标签
-            /// </summary>
-            public override string Tag => "text";
-
             /// <summary>
             /// 文本内容
             /// </summary>
@@ -95,13 +85,9 @@ namespace FeishuNetSdk.Dtos
         /// <summary>
         /// 链接消息
         /// </summary>
-        public record TagLinkSuffix : RichTextSuffix
+        /// <param name="Tag">标签</param>
+        public record TagLinkSuffix(string Tag = "a") : TagBaseSuffix(Tag)
         {
-            /// <summary>
-            /// 标签
-            /// </summary>
-            public override string Tag => "a";
-
             /// <summary>
             /// 文本内容
             /// </summary>
@@ -124,13 +110,9 @@ namespace FeishuNetSdk.Dtos
         /// <summary>
         /// At 消息
         /// </summary>
-        public record TagAtSuffix : RichTextSuffix
+        /// <param name="Tag">标签</param>
+        public record TagAtSuffix(string Tag = "at") : TagBaseSuffix(Tag)
         {
-            /// <summary>
-            /// 标签
-            /// </summary>
-            public override string Tag => "at";
-
             /// <summary>
             /// 用户的open_id，union_id 或 user_id，请参考如何获取 User ID、Open ID 和 Union ID。
             /// <para>注意: @单个用户时，user_id字段必须是有效值；@所有人填"all"。</para>
@@ -148,13 +130,9 @@ namespace FeishuNetSdk.Dtos
         /// <summary>
         /// 图片消息
         /// </summary>
-        public record TagImgSuffix : RichTextSuffix
+        /// <param name="Tag">标签</param>
+        public record TagImgSuffix(string Tag = "img") : TagBaseSuffix(Tag)
         {
-            /// <summary>
-            /// 标签
-            /// </summary>
-            public override string Tag => "img";
-
             /// <summary>
             /// 图片的唯一标识，可通过 上传图片 接口获取image_key。
             /// </summary>
@@ -165,13 +143,9 @@ namespace FeishuNetSdk.Dtos
         /// <summary>
         /// 媒体消息
         /// </summary>
-        public record TagMediaSuffix : RichTextSuffix
+        /// <param name="Tag">标签</param>
+        public record TagMediaSuffix(string Tag = "media") : TagBaseSuffix(Tag)
         {
-            /// <summary>
-            /// 标签
-            /// </summary>
-            public override string Tag => "media";
-
             /// <summary>
             /// 视频文件的唯一标识，可通过 上传文件 接口获取file_key。
             /// </summary>
@@ -186,20 +160,76 @@ namespace FeishuNetSdk.Dtos
         }
 
         /// <summary>
-        /// 图片消息
+        /// 表情消息
         /// </summary>
-        public record TagEmotionSuffix : RichTextSuffix
+        /// <param name="Tag">标签</param>
+        public record TagEmotionSuffix(string Tag = "emotion") : TagBaseSuffix(Tag)
         {
-            /// <summary>
-            /// 标签
-            /// </summary>
-            public override string Tag => "emotion";
-
             /// <summary>
             /// 表情类型，部分可选值请参见表情文案。
             /// </summary>
             [JsonPropertyName("emoji_type")]
             public string EmojiType { get; set; } = string.Empty;
+        }
+
+        /// <summary>
+        /// 表示一条分割线
+        /// </summary>
+        /// <param name="Tag">标签</param>
+        public record TagHrSuffix(string Tag = "hr") : TagBaseSuffix(Tag);
+
+        /// <summary>
+        /// markdown 内容
+        /// </summary>
+        /// <param name="Tag">标签</param>
+        public record TagMdSuffix(string Tag = "md") : TagBaseSuffix(Tag)
+        {
+            /// <summary>
+            /// markdown 内容
+            /// </summary>
+            [JsonPropertyName("text")]
+            public string Text { get; set; } = string.Empty;
+        }
+
+        /// <summary>
+        /// 代码块
+        /// </summary>
+        /// <param name="Tag">标签</param>
+        public record TagCodeBlockSuffix(string Tag = "code_block") : TagBaseSuffix(Tag)
+        {
+            /// <summary>
+            /// 代码块内容
+            /// </summary>
+            [JsonPropertyName("text")]
+            public string Text { get; set; } = string.Empty;
+
+            /// <summary>
+            /// 代码块语言，不填为文本类型，可选值有：，不区分大小写
+            /// <list type="bullet">
+            /// <item>PYTHON</item>
+            /// <item>C</item>
+            /// <item>CPP</item>
+            /// <item>GO</item>
+            /// <item>JAVA</item>
+            /// <item>KOTLIN</item>
+            /// <item>SWIFT</item>
+            /// <item>PHP</item>
+            /// <item>RUBY</item>
+            /// <item>RUST</item>
+            /// <item>JAVASCRIPT</item>
+            /// <item>TYPESCRIPT</item>
+            /// <item>BASH</item>
+            /// <item>SHELL</item>
+            /// <item>SQL</item>
+            /// <item>JSON</item>
+            /// <item>XML</item>
+            /// <item>YAML</item>
+            /// <item>HTML</item>
+            /// <item>THRIFT</item>
+            /// </list>
+            /// </summary>
+            [JsonPropertyName("language")]
+            public string? Language { get; set; }
         }
     }
 }
