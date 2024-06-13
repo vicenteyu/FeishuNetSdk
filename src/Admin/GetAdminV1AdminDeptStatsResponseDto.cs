@@ -237,7 +237,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         public int? VcDau { get; set; }
 
         /// <summary>
-        /// <para>会议时长：企业内员工参与通话与会议的总时长（分钟）</para>
+        /// <para>会议时长：企业内员工参与通话与会议的总时长（分钟,不包括会议室的时长）</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -245,7 +245,7 @@ public record GetAdminV1AdminDeptStatsResponseDto
         public int? VcDuration { get; set; }
 
         /// <summary>
-        /// <para>人均会议时长（分钟）</para>
+        /// <para>人均会议时长（分钟，不包含会议室的时长）</para>
         /// <para>必填：否</para>
         /// <para>示例值：0.00</para>
         /// </summary>
@@ -339,5 +339,37 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// </summary>
         [JsonPropertyName("email_receive_in_count")]
         public string? EmailReceiveInCount { get; set; }
+
+        /// <summary>
+        /// <para>大搜搜索活跃人数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7</para>
+        /// </summary>
+        [JsonPropertyName("search_active_dau")]
+        public string? SearchActiveDau { get; set; }
+
+        /// <summary>
+        /// <para>总搜索次数（在飞书主端搜索框发起过搜索请求的会话数）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7</para>
+        /// </summary>
+        [JsonPropertyName("total_search_count")]
+        public string? TotalSearchCount { get; set; }
+
+        /// <summary>
+        /// <para>综搜次数（在飞书主端搜索框的综合搜索发起过搜索请求的会话数）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7</para>
+        /// </summary>
+        [JsonPropertyName("quick_search_count")]
+        public string? QuickSearchCount { get; set; }
+
+        /// <summary>
+        /// <para>垂搜次数（在飞书主端搜索框的垂类搜索tab（例如消息tab、云文档tab）发起过搜索请求的会话数）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7</para>
+        /// </summary>
+        [JsonPropertyName("tab_search_count")]
+        public string? TabSearchCount { get; set; }
     }
 }

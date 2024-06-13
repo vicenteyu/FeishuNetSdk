@@ -55,7 +55,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <summary>
         /// <para>用户名</para>
         /// <para>必填：否</para>
-        /// <para>示例值：ZhangSan</para>
+        /// <para>示例值：Zhang San</para>
         /// </summary>
         [JsonPropertyName("user_name")]
         public string? UserName { get; set; }
@@ -79,7 +79,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <summary>
         /// <para>账号创建时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2020-09-0411:17:55</para>
+        /// <para>示例值：2020-09-04 11:17:55</para>
         /// </summary>
         [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
@@ -99,7 +99,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <summary>
         /// <para>激活时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2020-09-0411:18:32</para>
+        /// <para>示例值：2020-09-04 11:18:32</para>
         /// </summary>
         [JsonPropertyName("register_time")]
         public string? RegisterTime { get; set; }
@@ -119,7 +119,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <summary>
         /// <para>最近活跃时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2020-12-2122:21:28</para>
+        /// <para>示例值：2020-12-21 22:21:28</para>
         /// </summary>
         [JsonPropertyName("last_active_time")]
         public string? LastActiveTime { get; set; }
@@ -200,7 +200,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         public int? VcActiveFlag { get; set; }
 
         /// <summary>
-        /// <para>会议时长（分钟）</para>
+        /// <para>会议时长（分钟，不包含会议室的时长）</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -210,7 +210,7 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// <summary>
         /// <para>活跃设备</para>
         /// <para>必填：否</para>
-        /// <para>示例值：'ios14.2,-','ios14.2,feishu3.40.0-alpha'</para>
+        /// <para>示例值：'ios 14.2,-','ios 14.2,feishu 3.40.0-alpha'</para>
         /// </summary>
         [JsonPropertyName("active_os")]
         public string? ActiveOs { get; set; }
@@ -294,5 +294,37 @@ public record GetAdminV1AdminUserStatsResponseDto
         /// </summary>
         [JsonPropertyName("email_receive_in_count")]
         public string? EmailReceiveInCount { get; set; }
+
+        /// <summary>
+        /// <para>是否使用了大搜（0：未使用，1：有使用）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("search_active_flag")]
+        public int? SearchActiveFlag { get; set; }
+
+        /// <summary>
+        /// <para>总搜索次数（在飞书主端搜索框发起过搜索请求的会话数）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7</para>
+        /// </summary>
+        [JsonPropertyName("total_search_count")]
+        public string? TotalSearchCount { get; set; }
+
+        /// <summary>
+        /// <para>综搜次数（在飞书主端搜索框的综合搜索发起过搜索请求的会话数）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7</para>
+        /// </summary>
+        [JsonPropertyName("quick_search_count")]
+        public string? QuickSearchCount { get; set; }
+
+        /// <summary>
+        /// <para>垂搜次数（在飞书主端搜索框的垂类搜索tab（例如消息tab、云文档tab）发起过搜索请求的会话数）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7</para>
+        /// </summary>
+        [JsonPropertyName("tab_search_count")]
+        public string? TabSearchCount { get; set; }
     }
 }

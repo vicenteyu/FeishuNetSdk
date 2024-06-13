@@ -661,7 +661,7 @@
 <tr><td colspan="3">PostAttendanceV1UserDailyShiftsQuery</td></tr>
 <tr><td rowspan="2">331</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>更新统计设置</td></tr>
 <tr><td colspan="3">PutAttendanceV1UserStatsViewsByUserStatsViewId</td></tr>
-<tr><td rowspan="2">332</td><td rowspan="2">2024-05-28</td><td>&#10003;</td><td>考勤打卡</td><td>查询统计表头</td></tr>
+<tr><td rowspan="2">332</td><td rowspan="2">2024-06-12</td><td>&#10003;</td><td>考勤打卡</td><td>查询统计表头</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserStatsFieldsQuery</td></tr>
 <tr><td rowspan="2">333</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>查询统计设置</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserStatsViewsQuery</td></tr>
@@ -673,7 +673,7 @@
 <tr><td colspan="3">GetContactV3Unit</td></tr>
 <tr><td rowspan="2">337</td><td rowspan="2">2024-06-05</td><td>&#10003;</td><td>考勤打卡</td><td>获取审批通过数据</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserApprovalsQuery</td></tr>
-<tr><td rowspan="2">338</td><td rowspan="2">2024-06-06</td><td>&#10003;</td><td>考勤打卡</td><td>写入审批结果</td></tr>
+<tr><td rowspan="2">338</td><td rowspan="2">2024-06-13</td><td>&#10003;</td><td>考勤打卡</td><td>写入审批结果</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserApprovals</td></tr>
 <tr><td rowspan="2">339</td><td rowspan="2">2023-11-14</td><td>&#10003;</td><td>考勤打卡</td><td>通知审批状态更新</td></tr>
 <tr><td colspan="3">PostAttendanceV1ApprovalInfosProcess</td></tr>
@@ -687,7 +687,7 @@
 <tr><td colspan="3">PostAttendanceV1UserFlowsBatchCreate</td></tr>
 <tr><td rowspan="2">344</td><td rowspan="2">2024-01-08</td><td>&#10003;</td><td>考勤打卡</td><td>查询打卡流水</td></tr>
 <tr><td colspan="3">GetAttendanceV1UserFlowsByUserFlowId</td></tr>
-<tr><td rowspan="2">345</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>批量查询打卡流水</td></tr>
+<tr><td rowspan="2">345</td><td rowspan="2">2024-06-12</td><td>&#10003;</td><td>考勤打卡</td><td>批量查询打卡流水</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserFlowsQuery</td></tr>
 <tr><td rowspan="2">346</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>考勤打卡</td><td>查询打卡结果</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserTasksQuery</td></tr>
@@ -1091,7 +1091,7 @@
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxId</td></tr>
 <tr><td rowspan="2">546</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>创建序列</td></tr>
 <tr><td colspan="3">PostContactV3JobFamilies</td></tr>
-<tr><td rowspan="2">547</td><td rowspan="2">2023-07-04</td><td>&#10003;</td><td>邮箱</td><td>创建用户邮箱别名</td></tr>
+<tr><td rowspan="2">547</td><td rowspan="2">2024-06-12</td><td>&#10003;</td><td>邮箱</td><td>创建用户邮箱别名</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdAliases</td></tr>
 <tr><td rowspan="2">548</td><td rowspan="2">2023-07-04</td><td>&#10003;</td><td>邮箱</td><td>删除用户邮箱别名</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdAliasesByAliasId</td></tr>
@@ -1119,7 +1119,7 @@
 <tr><td colspan="3">PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackList</td></tr>
 <tr><td rowspan="2">560</td><td rowspan="2">2022-03-01</td><td>&#10003;</td><td>应用信息</td><td>获取企业安装的应用</td></tr>
 <tr><td colspan="3">GetApplicationV3AppList</td></tr>
-<tr><td rowspan="2">561</td><td rowspan="2">2023-09-14</td><td>&#10003;</td><td>应用信息</td><td>更新应用可用范围</td></tr>
+<tr><td rowspan="2">561</td><td rowspan="2">2024-06-11</td><td>&#10003;</td><td>应用信息</td><td>更新应用可用范围</td></tr>
 <tr><td colspan="3">PatchApplicationV6ApplicationsByAppIdVisibility</td></tr>
 <tr><td rowspan="2">562</td><td rowspan="2">2022-08-09</td><td>&#10003;</td><td>通讯录</td><td>查询应用管理员列表</td></tr>
 <tr><td colspan="3">GetUserV4AppAdminUserList</td></tr>
@@ -1249,9 +1249,9 @@
 <tr><td colspan="3">GetContactV3WorkCitiesByWorkCityId</td></tr>
 <tr><td rowspan="2">625</td><td rowspan="2">2023-03-30</td><td>&#10003;</td><td>管理后台</td><td>重置用户的企业邮箱密码</td></tr>
 <tr><td colspan="3">PostAdminV1PasswordReset</td></tr>
-<tr><td rowspan="2">626</td><td rowspan="2">2024-04-12</td><td>&#10003;</td><td>管理后台</td><td>获取部门维度的用户活跃和功能使用数据</td></tr>
+<tr><td rowspan="2">626</td><td rowspan="2">2024-06-12</td><td>&#10003;</td><td>管理后台</td><td>获取部门维度的用户活跃和功能使用数据</td></tr>
 <tr><td colspan="3">GetAdminV1AdminDeptStats</td></tr>
-<tr><td rowspan="2">627</td><td rowspan="2">2024-04-12</td><td>&#10003;</td><td>管理后台</td><td>获取用户维度的用户活跃和功能使用数据</td></tr>
+<tr><td rowspan="2">627</td><td rowspan="2">2024-06-12</td><td>&#10003;</td><td>管理后台</td><td>获取用户维度的用户活跃和功能使用数据</td></tr>
 <tr><td colspan="3">GetAdminV1AdminUserStats</td></tr>
 <tr><td rowspan="2">628</td><td rowspan="2">2023-05-16</td><td>&#10003;</td><td>管理后台</td><td>创建勋章</td></tr>
 <tr><td colspan="3">PostAdminV1Badges</td></tr>
@@ -1787,9 +1787,9 @@
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
 <tr><td rowspan="2">894</td><td rowspan="2">2024-04-26</td><td>&#10003;</td><td>安全合规</td><td>获取OpenAPI审计日志数据</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV1OpenapiLogsListData</td></tr>
-<tr><td rowspan="2">895</td><td rowspan="2">2024-06-05</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">895</td><td rowspan="2">2024-06-11</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">896</td><td rowspan="2">2024-06-05</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">896</td><td rowspan="2">2024-06-11</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">897</td><td rowspan="2">2023-06-29</td><td>&#10003;</td><td>工作台</td><td>获取工作台访问数据</td></tr>
 <tr><td colspan="3">PostWorkplaceV1WorkplaceAccessDataSearch</td></tr>
@@ -1801,7 +1801,7 @@
 <tr><td colspan="3">GetApplicationV6AppRecommendRules</td></tr>
 <tr><td rowspan="2">901</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>主数据</td><td>用户数据维度绑定</td></tr>
 <tr><td colspan="3">PostMdmV1UserAuthDataRelationsBind</td></tr>
-<tr><td rowspan="2">902</td><td rowspan="2">2024-06-07</td><td>&#10003;</td><td>消息与群组</td><td>发送仅特定人可见的消息卡片</td></tr>
+<tr><td rowspan="2">902</td><td rowspan="2">2024-06-11</td><td>&#10003;</td><td>消息与群组</td><td>发送仅特定人可见的消息卡片</td></tr>
 <tr><td colspan="3">PostEphemeralV1Send</td></tr>
 <tr><td rowspan="2">903</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>主数据</td><td>用户数据维度解绑</td></tr>
 <tr><td colspan="3">PostMdmV1UserAuthDataRelationsUnbind</td></tr>

@@ -1,7 +1,8 @@
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 更新应用可用范围 请求体
-/// <para>该接口用于更新当前企业内自建应用或已安装的商店应用的可见范围，包括可用人员与禁用人员。更新后对线上立即生效。</para>
+/// <para>该接口用于更新当前企业内自建应用或发起该 API 调用的自建应用所在企业已安装的商店应用的可见范围，包括可用人员</para>
+/// <para>与禁用人员。该接口仅支持被自建应用调用。范围更新后对线上立即生效。</para>
 /// <para>接口ID：7278520881743740931</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-visibility/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication-visibility%2fpatch</para>

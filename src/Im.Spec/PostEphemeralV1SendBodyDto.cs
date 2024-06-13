@@ -17,22 +17,25 @@ public record PostEphemeralV1SendBodyDto
     public string ChatId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>指定发送临时消息卡片的用户，其他人将无法看到临时消息卡片；只需要填 open_id、email、user_id中的一个即可，推荐使用 OpenID，获取方式可参考文档[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid) （服务端依次读取字段的顺序为 **open_id** &gt; **user_id** &gt; **email**）</para>
-    /// <para>必填：是</para>
+    /// <para>发送临时消息卡片用户的 Open ID。仅触发临时卡片的用户自己可见该临时卡片。参考[如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid) 获取。</para>
+    /// <para>**注意**：你仅需填写 `open_id`、`email`、或 `user_id` 其中之一，且三个字段不可同时为空。若填写多个，字段生效的顺序为 `open_id` &gt; `user_id` &gt; `email`。 推荐使用 `open_id` 字段。</para>
+    /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("open_id")]
     public string? OpenId { get; set; }
 
     /// <summary>
-    /// <para>指定发送临时消息卡片的用户，其他人将无法看到临时消息卡片；只需要填 open_id、email、user_id中的一个即可，推荐使用 OpenID，获取方式可参考文档[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid) （服务端依次读取字段的顺序为 **open_id** &gt; **user_id** &gt; **email**）</para>
-    /// <para>必填：是</para>
+    /// <para>发送临时消息卡片用户的 User ID。仅触发临时卡片的用户自己可见该临时卡片。参考[如何获取 User ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取。</para>
+    /// <para>**注意**：你仅需填写 `open_id`、`email`、或 `user_id` 其中之一，且三个字段不可同时为空。若填写多个，字段生效的顺序为 `open_id` &gt; `user_id` &gt; `email`。 推荐使用 `open_id` 字段。</para>
+    /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("user_id")]
     public string? UserId { get; set; }
 
     /// <summary>
-    /// <para>指定发送临时消息卡片的用户，其他人将无法看到临时消息卡片；只需要填 open_id、email、user_id中的一个即可，推荐使用 OpenID，获取方式可参考文档[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid) （服务端依次读取字段的顺序为 **open_id** &gt; **user_id** &gt; **email**）</para>
-    /// <para>必填：是</para>
+    /// <para>发送临时消息卡片用户的邮箱地址。仅触发临时卡片的用户自己可见该临时卡片。</para>
+    /// <para>**注意**：你仅需填写 `open_id`、`email`、或 `user_id` 其中之一，且三个字段不可同时为空。若填写多个，字段生效的顺序为 `open_id` &gt; `user_id` &gt; `email`。 推荐使用 `open_id` 字段。</para>
+    /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("email")]
     public string? Email { get; set; }

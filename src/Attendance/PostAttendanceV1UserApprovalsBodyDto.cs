@@ -148,6 +148,14 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// </summary>
             [JsonPropertyName("reason")]
             public string Reason { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>外出记录的唯一幂等键，用于避免外出记录重复创建，可以填入三方的外出记录id</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1233432312</para>
+            /// </summary>
+            [JsonPropertyName("idempotent_id")]
+            public string? IdempotentId { get; set; }
         }
 
         /// <summary>
@@ -266,6 +274,14 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// </summary>
             [JsonPropertyName("reason")]
             public string Reason { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>请假记录的唯一幂等键，用于避免请假记录重复创建，可以填入三方的请假记录id</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1233432312</para>
+            /// </summary>
+            [JsonPropertyName("idempotent_id")]
+            public string? IdempotentId { get; set; }
         }
 
         /// <summary>
@@ -352,6 +368,14 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// </summary>
             [JsonPropertyName("reason")]
             public string? Reason { get; set; }
+
+            /// <summary>
+            /// <para>加班记录的唯一幂等键，用于避免加班记录重复创建，可以填入三方的加班记录id</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1233432312</para>
+            /// </summary>
+            [JsonPropertyName("idempotent_id")]
+            public string? IdempotentId { get; set; }
         }
 
         /// <summary>
@@ -407,6 +431,14 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// </summary>
             [JsonPropertyName("approve_apply_time")]
             public string ApproveApplyTime { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>出差记录的唯一幂等键，用于避免出差记录重复创建，可以填入三方的出差记录id</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1233432312</para>
+            /// </summary>
+            [JsonPropertyName("idempotent_id")]
+            public string? IdempotentId { get; set; }
         }
 
         /// <summary>

@@ -126,9 +126,9 @@ public record PostAttendanceV1UserFlowsQueryResponseDto
         public string[]? PhotoUrls { get; set; }
 
         /// <summary>
-        /// <para>打卡结果</para>
+        /// <para>打卡结果，目前仅支持PendingApproval待生效</para>
         /// <para>必填：否</para>
-        /// <para>示例值：Invalid</para>
+        /// <para>示例值：PendingApproval</para>
         /// <para>可选值：<list type="bullet">
         /// <item>NoNeedCheck：无需打卡</item>
         /// <item>SystemCheck：系统打卡</item>

@@ -33,9 +33,9 @@ public record PostAttendanceV1UserStatsFieldsQueryResponseDto
         public string StatsType { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>用户 ID</para>
+        /// <para>用户 ID，字段已废弃</para>
         /// <para>必填：是</para>
-        /// <para>示例值："ec8ddg56"</para>
+        /// <para>示例值：""</para>
         /// </summary>
         [JsonPropertyName("user_id")]
         public string UserId { get; set; } = string.Empty;
