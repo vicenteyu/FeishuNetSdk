@@ -3,12 +3,7 @@
     /// <summary>
     /// 分享个人名片消息
     /// </summary>
-    public record ShareUserContent(string MessageType = "share_user") : MessageContent(MessageType)
-    {
-        /// <summary>
-        /// 个人名片Id
-        /// </summary>
-        [JsonPropertyName("user_id")]
-        public string UserId { get; set; } = string.Empty;
-    }
+    /// <param name="UserId">个人名片Id</param>
+    public record ShareUserContent([property: JsonPropertyName("user_id")] string UserId = "") : MessageContent("share_user");
+
 }

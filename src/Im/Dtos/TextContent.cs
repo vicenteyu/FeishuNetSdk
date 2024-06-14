@@ -3,12 +3,7 @@
     /// <summary>
     /// 文本消息
     /// </summary>
-    public record TextContent(string MessageType = "text") : MessageContent(MessageType)
-    {
-        /// <summary>
-        /// 文本消息
-        /// </summary>
-        [JsonPropertyName("text")]
-        public string Text { get; set; } = string.Empty;
-    }
+    /// <param name="Text">文本消息</param>
+    public record TextContent([property: JsonPropertyName("text")] string Text = "") : MessageContent("text");
+
 }

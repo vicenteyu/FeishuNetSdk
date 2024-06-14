@@ -3,12 +3,7 @@
     /// <summary>
     /// 分享群名片消息
     /// </summary>
-    public record ShareChatContent(string MessageType = "share_chat") : MessageContent(MessageType)
-    {
-        /// <summary>
-        /// 群名片Id
-        /// </summary>
-        [JsonPropertyName("share_chat_id")]
-        public string ShareChatId { get; set; } = string.Empty;
-    }
+    /// <param name="ShareChatId">群名片Id</param>
+    public record ShareChatContent([property: JsonPropertyName("share_chat_id")] string ShareChatId = "") : MessageContent("share_chat");
+
 }

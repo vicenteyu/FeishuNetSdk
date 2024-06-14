@@ -1,66 +1,60 @@
 ﻿namespace FeishuNetSdk.Approval.Dtos
 {
     /// <summary>
+    /// 审批实例控件抽象类
+    /// </summary>
+    public abstract record BaseFormControl(string Type)
+    {
+        /// <summary>
+        /// 控件类型
+        /// </summary>
+        [JsonPropertyName("type")]
+        public string Type { get; } = Type;
+
+        /// <summary>
+        /// 控件ID
+        /// </summary>
+        [JsonPropertyName("id")]
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+    }
+
+    /// <summary>
     /// 单行文本
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record InputFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] string Value,
-        [property: JsonPropertyName("type")] string Type = "input");
+    public record InputFormControl([property: JsonPropertyName("value")] string Value) : BaseFormControl("input");
 
     /// <summary>
     /// 多行文本
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record TextareaFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] string Value,
-        [property: JsonPropertyName("type")] string Type = "textarea");
+    public record TextareaFormControl([property: JsonPropertyName("value")] string Value) : BaseFormControl("textarea");
 
     /// <summary>
     /// 数字
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record NumberFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] string Value,
-        [property: JsonPropertyName("type")] string Type = "number");
+    public record NumberFormControl([property: JsonPropertyName("value")] string Value) : BaseFormControl("number");
 
     /// <summary>
     /// 金额
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
     /// <param name="Currency">货币</param>
-    /// <param name="Type">控件类型</param>
-    public record AmountFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] decimal Value,
-        [property: JsonPropertyName("currency")] string Currency,
-        [property: JsonPropertyName("type")] string Type = "amount");
+    public record AmountFormControl([property: JsonPropertyName("value")] decimal Value,
+        [property: JsonPropertyName("currency")] string Currency) : BaseFormControl("amount");
 
     /// <summary>
     /// 日期
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record DateFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] DateTime Value,
-        [property: JsonPropertyName("type")] string Type = "date");
+    public record DateFormControl([property: JsonPropertyName("value")] DateTime Value) : BaseFormControl("date");
 
     /// <summary>
     /// 日期区间
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record DateIntervalFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] DateIntervalFormControl.ValueDto Value,
-        [property: JsonPropertyName("type")] string Type = "dateInterval")
+    public record DateIntervalFormControl([property: JsonPropertyName("value")] DateIntervalFormControl.ValueDto Value) : BaseFormControl("dateInterval")
     {
         /// <summary>
         /// 控件值类型
@@ -76,105 +70,66 @@
     /// <summary>
     /// 计算公式
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record FormulaFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] decimal Value,
-        [property: JsonPropertyName("type")] string Type = "formula");
+    public record FormulaFormControl([property: JsonPropertyName("value")] decimal Value) : BaseFormControl("formula");
 
     /// <summary>
     /// 附件
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record AttachmentFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] string[] Value,
-        [property: JsonPropertyName("type")] string Type = "attachmentV2");
+    public record AttachmentFormControl([property: JsonPropertyName("value")] string[] Value) : BaseFormControl("attachmentV2");
 
     /// <summary>
     /// 图片
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record ImageFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] string[] Value,
-        [property: JsonPropertyName("type")] string Type = "image");
+    public record ImageFormControl([property: JsonPropertyName("value")] string[] Value) : BaseFormControl("image");
 
     /// <summary>
     /// 联系人
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
     /// <param name="OpenIds">OpenId</param>
-    /// <param name="Type">控件类型</param>
-    public record ContactFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] string[] Value,
-        [property: JsonPropertyName("open_ids")] string[] OpenIds,
-        [property: JsonPropertyName("type")] string Type = "contact");
+    public record ContactFormControl([property: JsonPropertyName("value")] string[] Value,
+        [property: JsonPropertyName("open_ids")] string[] OpenIds) : BaseFormControl("contact");
 
     /// <summary>
     /// 关联审批
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record ConnectFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] string[] Value,
-        [property: JsonPropertyName("type")] string Type = "connect");
+    public record ConnectFormControl([property: JsonPropertyName("value")] string[] Value) : BaseFormControl("connect");
 
     /// <summary>
     /// 单选
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record RadioFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] string Value,
-        [property: JsonPropertyName("type")] string Type = "radioV2");
+    public record RadioFormControl([property: JsonPropertyName("value")] string Value) : BaseFormControl("radioV2");
 
     /// <summary>
     /// 多选
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record CheckboxFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] string[] Value,
-        [property: JsonPropertyName("type")] string Type = "checkboxV2");
+    public record CheckboxFormControl([property: JsonPropertyName("value")] string[] Value) : BaseFormControl("checkboxV2");
 
     /// <summary>
     /// 明细
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record FieldListFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] FieldListFormControl.ValueDto[][] Value,
-        [property: JsonPropertyName("type")] string Type = "fieldList")
+    public record FieldListFormControl([property: JsonPropertyName("value")] FieldListFormControl.ValueDto[][] Value) : BaseFormControl("fieldList")
     {
         /// <summary>
         /// 控件值类型
         /// </summary>
-        /// <param name="Id">控件ID</param>
         /// <param name="Value">控件值</param>
         /// <param name="Type">控件类型</param>
-        public record ValueDto([property: JsonPropertyName("id")] string Id,
-            [property: JsonPropertyName("value")] string[] Value,
-            [property: JsonPropertyName("type")] string Type);
+        public record ValueDto([property: JsonPropertyName("value")] string[] Value, string Type) : BaseFormControl(Type);
     }
 
     /// <summary>
     /// 部门
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record DepartmentFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] DepartmentFormControl.ValueDto[] Value,
-        [property: JsonPropertyName("type")] string Type = "department")
+    public record DepartmentFormControl([property: JsonPropertyName("value")] DepartmentFormControl.ValueDto[] Value) : BaseFormControl("department")
     {
         /// <summary>
         /// 控件值类型
@@ -186,14 +141,9 @@
     /// <summary>
     /// 电话
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record TelephoneFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] TelephoneFormControl.ValueDto Value,
-        [property: JsonPropertyName("type")] string Type = "telephone")
+    public record TelephoneFormControl([property: JsonPropertyName("value")] TelephoneFormControl.ValueDto Value) : BaseFormControl("telephone")
     {
-
         /// <summary>
         /// 控件值类型
         /// </summary>
@@ -207,12 +157,8 @@
     /// <summary>
     /// 换班控件组
     /// </summary>
-    /// <param name="Id">控件ID</param>
     /// <param name="Value">控件值</param>
-    /// <param name="Type">控件类型</param>
-    public record ShiftGroupFormControl([property: JsonPropertyName("id")] string Id,
-        [property: JsonPropertyName("value")] ShiftGroupFormControl.ValueDto Value,
-        [property: JsonPropertyName("type")] string Type = "shiftGroup")
+    public record ShiftGroupFormControl([property: JsonPropertyName("value")] ShiftGroupFormControl.ValueDto Value) : BaseFormControl("shiftGroup")
     {
         /// <summary>
         /// 控件值类型

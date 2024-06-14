@@ -79,7 +79,7 @@ public class TestController : ControllerBase
 
 ### 扩展方法的用法（2024.6.14 新增）
 
-扩展方法主要针对复杂参数的设置，提高易用性。
+主要针对复杂参数的扩展，提高易用性。（使用元素拼接卡片/消息本身就很复杂，优化可能性很低，这种推荐用模板）
 
 1. 实例化请求体
 1. 调用扩展方法
@@ -88,15 +88,15 @@ public class TestController : ControllerBase
 **（0）创建审批实例 请求体 设置控件**
 
 ```csharp
-var dto1 = new FeishuNetSdk.Approval.PostApprovalV4InstancesBodyDto(); 
-dto1.SetFormControls(new object[] { //更多对象位于 Approval.Dtos 空间下
-        new InputFormControl("id1", "value1"),
-        new DateFormControl("id2", new DateTime(2019,1,1)),
-        new AmountFormControl("id3", 10.03m, "USD"),
-        new DateIntervalFormControl("id4", new(new DateTime(2024,1,1), new DateTime(2024,1,2), 3)),
-        new ContactFormControl("id5", ["value2","value3"], ["id1","id2"]),
+var dto1 = new FeishuNetSdk.Approval.PostApprovalV4InstancesBodyDto();
+dto1.SetFormControls(new object[] { //更多对象位于 Approval.Dtos 空间下，ID默认使用Guid，也可以自定义。
+        new InputFormControl("value1"){ Id = "fixed id" }, // <== 自定义Id
+        new DateFormControl(new DateTime(2019,1,1)),
+        new AmountFormControl(10.03m, "USD"),
+        new DateIntervalFormControl(new(new DateTime(2024,1,1), new DateTime(2024,1,2), 3)),
+        new ContactFormControl( ["value2","value3"], ["id1","id2"]),
     });
-await tenantApi.PostApprovalV4InstancesAsync(dto1); 
+await tenantApi.PostApprovalV4InstancesAsync(dto1);
 ```
 
 **（1）发送消息 请求体 设置消息类型及内容**
@@ -162,6 +162,14 @@ dto4.SetCardObject(new TemplateCardWithOpenIds //支持的另一个对象名：E
     }
 });
 await tenantApi.PostInteractiveV1CardUpdateAsync(dto4);
+```
+
+**（4）查看指定审批定义 响应体 获取序列化的控件信息**
+
+```csharp
+var approval = await tenantApi.GetApprovalV4ApprovalsByApprovalCodeAsync("07CE295D-8FB9-****-886C-E8086E0F9F92");
+if (approval.IsSuccess)
+    Console.WriteLine(approval.Data.GetFormControls());
 ```
 
 

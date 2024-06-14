@@ -3,12 +3,6 @@
     /// <summary>
     /// 图片消息
     /// </summary>
-    public record ImageContent(string MessageType = "image") : MessageContent(MessageType)
-    {
-        /// <summary>
-        /// 其中image key需要通过上传图片接口取得
-        /// </summary>
-        [JsonPropertyName("image_key")]
-        public string ImageKey { get; set; } = string.Empty;
-    }
+    /// <param name="ImageKey">ImageKey需要先通过上传图片接口取得</param>
+    public record ImageContent([property: JsonPropertyName("image_key")] string ImageKey = "") : MessageContent("image");
 }

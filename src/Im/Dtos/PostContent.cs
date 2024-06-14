@@ -3,14 +3,9 @@
     /// <summary>
     /// 富文本消息
     /// </summary>
-    public record PostContent(string MessageType = "post") : MessageContent(MessageType)
+    /// <param name="Post">富文本消息。post content格式请参见发送消息Content</param>
+    public record PostContent([property: JsonPropertyName("post")] PostContent.PostSuffix Post = default!) : MessageContent("post")
     {
-        /// <summary>
-        /// 富文本消息。post content格式请参见发送消息Content
-        /// </summary>
-        [JsonPropertyName("post")]
-        public PostSuffix Post { get; set; } = new();
-
         /// <summary></summary>
         public record PostSuffix
         {

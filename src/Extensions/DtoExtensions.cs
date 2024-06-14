@@ -31,18 +31,20 @@
         /// <item>ShiftGroupFormControl</item>
         /// </list>
         /// </param>
-        public static void SetFormControls(
-            this Approval.PostApprovalV4InstancesBodyDto Dto,
+        public static Approval.PostApprovalV4InstancesBodyDto SetFormControls(this Approval.PostApprovalV4InstancesBodyDto Dto,
             object[] FormControls)
-                => Dto.Form = System.Text.Json.JsonSerializer.Serialize(FormControls);
+        {
+            Dto.Form = System.Text.Json.JsonSerializer.Serialize(FormControls);
+
+            return Dto;
+        }
 
         /// <summary>
         /// 获取序列化的控件信息
         /// </summary>
         /// <param name="Dto">查看指定审批定义 响应体</param>
         /// <returns>序列化的控件数组</returns>
-        public static Approval.Dtos.FromControl[]? GetFormControls(
-            this Approval.GetApprovalV4ApprovalsByApprovalCodeResponseDto? Dto)
+        public static Approval.Dtos.FromControl[]? GetFormControls(this Approval.GetApprovalV4ApprovalsByApprovalCodeResponseDto? Dto)
                 => Dto is null ? null
                     : System.Text.Json.JsonSerializer.Deserialize<Approval.Dtos.FromControl[]>(Dto.Form);
 
@@ -56,10 +58,13 @@
         /// <item>TemplateCardWithOpenIds</item>
         /// </list>
         /// </param>
-        public static void SetCardObject(
-            this Im.Spec.PostInteractiveV1CardUpdateBodyDto Dto,
+        public static Im.Spec.PostInteractiveV1CardUpdateBodyDto SetCardObject(this Im.Spec.PostInteractiveV1CardUpdateBodyDto Dto,
             Im.Dtos.IHasOpenIds CardObject)
-                => Dto.Card = CardObject;
+        {
+            Dto.Card = CardObject;
+
+            return Dto;
+        }
 
         /// <summary>
         /// 设置消息类型及内容
@@ -80,12 +85,14 @@
         /// <item>TemplateCardDto</item>
         /// </list>
         /// </param>
-        public static void SetContent(
+        public static Im.PostImV1MessagesBodyDto SetContent(
             this Im.PostImV1MessagesBodyDto Dto,
             Im.Dtos.IHasMessageType CardOrContent)
         {
             Dto.MsgType = CardOrContent.MessageType;
             Dto.Content = System.Text.Json.JsonSerializer.Serialize(CardOrContent, CardOrContent.GetType());
+
+            return Dto;
         }
 
         /// <summary>
@@ -107,7 +114,7 @@
         /// <item>TemplateCardDto</item>
         /// </list>
         /// </param>
-        public static void SetCardOrContent(this Im.Spec.PostMessageV4BatchSendBodyDto Dto,
+        public static Im.Spec.PostMessageV4BatchSendBodyDto SetCardOrContent(this Im.Spec.PostMessageV4BatchSendBodyDto Dto,
             Im.Dtos.IHasMessageType CardOrContent)
         {
             Dto.MsgType = CardOrContent.MessageType;
@@ -120,6 +127,8 @@
                 Dto.Content = CardOrContent;
             }
             else throw new Exceptions.MessageTypeNotSupportedException($"{nameof(CardOrContent)}不受支持！");
+
+            return Dto;
         }
     }
 }
