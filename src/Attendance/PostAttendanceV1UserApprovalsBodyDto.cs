@@ -50,8 +50,8 @@ public record PostAttendanceV1UserApprovalsBodyDto
         public record UserOut
         {
             /// <summary>
-            /// <para>外出类型唯一 ID，代表一种假期类型，长度小于 14</para>
-            /// <para>* 此ID对应假期类型(即: i18n_names)，因此需要保证唯一</para>
+            /// <para>外出类型唯一 ID，代表一种外出类型，长度小于 14</para>
+            /// <para>* 如何获取？可以选择填入三方的外出类型id。如市内外出、市外外出的id</para>
             /// <para>必填：是</para>
             /// <para>示例值：9496E43696967658A512969523E89870</para>
             /// </summary>
@@ -172,7 +172,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
         {
             /// <summary>
             /// <para>假期类型唯一 ID，代表一种假期类型，长度小于 14</para>
-            /// <para>* 此ID对应假期类型(即: i18n_names)，因此需要保证唯一</para>
+            /// <para>* 此ID对应假期类型(即: i18n_names)，因此需要保证唯一。可通过获取[获取假期类型](https://open.larkoffice.com/document/server-docs/corehr-v1/leave/leave_types)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6852582717813440527</para>
             /// </summary>

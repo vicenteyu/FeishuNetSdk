@@ -56,6 +56,7 @@ public record GetWikiV2SpacesGetNodeResponseDto
         /// <item>bitable：多维表格</item>
         /// <item>file：文件</item>
         /// <item>docx：新版文档</item>
+        /// <item>slides：幻灯片</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("obj_type")]
@@ -138,7 +139,7 @@ public record GetWikiV2SpacesGetNodeResponseDto
         public string? NodeCreateTime { get; set; }
 
         /// <summary>
-        /// <para>节点创建者</para>
+        /// <para>文档创建者</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_xxxxx</para>
         /// </summary>
@@ -146,11 +147,19 @@ public record GetWikiV2SpacesGetNodeResponseDto
         public string? Creator { get; set; }
 
         /// <summary>
-        /// <para>节点所有者</para>
+        /// <para>文档所有者</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_xxxxx</para>
         /// </summary>
         [JsonPropertyName("owner")]
         public string? Owner { get; set; }
+
+        /// <summary>
+        /// <para>节点创建者</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：ou_xxxxx</para>
+        /// </summary>
+        [JsonPropertyName("node_creator")]
+        public string? NodeCreator { get; set; }
     }
 }

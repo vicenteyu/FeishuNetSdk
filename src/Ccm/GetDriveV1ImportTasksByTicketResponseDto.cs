@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 查询导入任务结果 响应体
-/// <para>根据创建导入任务返回的`ticket`轮询导入结果，调用方式可参考[导入使用指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)。</para>
+/// <para>根据[创建导入任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create)返回的导入任务 ID（ticket）轮询导入结果。了解完整的导入文件步骤，参考[导入文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)。</para>
 /// <para>接口ID：6987581325629931521</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/import_task/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fimport_task%2fget</para>
@@ -21,15 +21,15 @@ public record GetDriveV1ImportTasksByTicketResponseDto
     public record ImportTask
     {
         /// <summary>
-        /// <para>任务ID</para>
+        /// <para>导入任务 ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6990281865xxxxxxxx7843</para>
+        /// <para>示例值：7369583175086912356</para>
         /// </summary>
         [JsonPropertyName("ticket")]
         public string? Ticket { get; set; }
 
         /// <summary>
-        /// <para>导入目标云文档格式</para>
+        /// <para>导入的在线云文档类型</para>
         /// <para>必填：是</para>
         /// <para>示例值：sheet</para>
         /// </summary>
@@ -37,11 +37,11 @@ public record GetDriveV1ImportTasksByTicketResponseDto
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>任务状态</para>
+        /// <para>任务的状态</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>0：成功</item>
+        /// <item>0：导入成功。但需关注是否有 extra 参数返回。如果源文件内容超过系统上限，将被系统截断，此时将返回 extra 参数，进行额外提示。extra 参数说明见本文末尾。</item>
         /// <item>1：初始化</item>
         /// <item>2：处理中</item>
         /// <item>3：内部错误</item>
@@ -76,7 +76,7 @@ public record GetDriveV1ImportTasksByTicketResponseDto
         public int? JobStatus { get; set; }
 
         /// <summary>
-        /// <para>任务失败原因</para>
+        /// <para>任务失败的原因</para>
         /// <para>必填：否</para>
         /// <para>示例值：success</para>
         /// </summary>
@@ -84,23 +84,23 @@ public record GetDriveV1ImportTasksByTicketResponseDto
         public string? JobErrorMsg { get; set; }
 
         /// <summary>
-        /// <para>导入云文档Token</para>
+        /// <para>导入云文档的 token</para>
         /// <para>必填：否</para>
-        /// <para>示例值：shtcnVBTG6SuxxxxxxxkM2tUX</para>
+        /// <para>示例值：Fm7osyjtMh5o7Ktrv32c73abcef</para>
         /// </summary>
         [JsonPropertyName("token")]
         public string? Token { get; set; }
 
         /// <summary>
-        /// <para>导入云文档URL</para>
+        /// <para>导入云文档的 URL</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://example.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX</para>
+        /// <para>示例值：https://example.feishu.cn/sheets/Fm7osyjtMh5o7Ktrv32c73abcef</para>
         /// </summary>
         [JsonPropertyName("url")]
         public string? Url { get; set; }
 
         /// <summary>
-        /// <para>任务成功后的提示信息</para>
+        /// <para>导入成功的额外提示。详情参考下文。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("extra")]

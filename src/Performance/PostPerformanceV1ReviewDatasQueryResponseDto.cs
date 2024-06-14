@@ -29,6 +29,30 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public string? Id { get; set; }
 
         /// <summary>
+        /// <para>年份</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2024</para>
+        /// </summary>
+        [JsonPropertyName("year")]
+        public int? Year { get; set; }
+
+        /// <summary>
+        /// <para>类型分组</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：Month</para>
+        /// </summary>
+        [JsonPropertyName("type_group")]
+        public string? TypeGroup { get; set; }
+
+        /// <summary>
+        /// <para>类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：June</para>
+        /// </summary>
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
+
+        /// <summary>
         /// <para>绩效评估周期名称</para>
         /// <para>必填：否</para>
         /// </summary>
@@ -51,7 +75,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <summary>
             /// <para>英文</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Interactiveexperience</para>
+            /// <para>示例值：Interactive experience</para>
             /// </summary>
             [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
@@ -72,6 +96,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// </summary>
         [JsonPropertyName("end_time")]
         public string? EndTime { get; set; }
+
+        /// <summary>
+        /// <para>绩效评估周期创建时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1625068800000</para>
+        /// </summary>
+        [JsonPropertyName("create_time")]
+        public string? CreateTime { get; set; }
     }
 
     /// <summary>
@@ -117,7 +149,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <summary>
             /// <para>英文</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Interactiveexperience</para>
+            /// <para>示例值：Interactive experience</para>
             /// </summary>
             [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
@@ -175,7 +207,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <summary>
             /// <para>英文</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Interactiveexperience</para>
+            /// <para>示例值：Interactive experience</para>
             /// </summary>
             [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
@@ -224,7 +256,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 /// <summary>
                 /// <para>英文</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Interactiveexperience</para>
+                /// <para>示例值：Interactive experience</para>
                 /// </summary>
                 [JsonPropertyName("en-US")]
                 public string? EnUS { get; set; }
@@ -283,7 +315,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <summary>
             /// <para>英文</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Interactiveexperience</para>
+            /// <para>示例值：Interactive experience</para>
             /// </summary>
             [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
@@ -341,7 +373,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <summary>
             /// <para>英文</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Interactiveexperience</para>
+            /// <para>示例值：Interactive experience</para>
             /// </summary>
             [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
@@ -391,7 +423,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             /// <summary>
             /// <para>英文</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Interactiveexperience</para>
+            /// <para>示例值：Interactive experience</para>
             /// </summary>
             [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
@@ -610,6 +642,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 /// </summary>
                 [JsonPropertyName("text")]
                 public string? Text { get; set; }
+
+                /// <summary>
+                /// <para>绩效系数值</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：3.0</para>
+                /// </summary>
+                [JsonPropertyName("perf_coefficient_result")]
+                public string? PerfCoefficientResult { get; set; }
             }
         }
     }

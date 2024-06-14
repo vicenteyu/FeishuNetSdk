@@ -15,4 +15,49 @@ public record PatchHireV1NotesByNoteIdBodyDto
     /// </summary>
     [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
+
+    /// <summary>
+    /// <para>更新人 ID</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：ou_f476cb099ac9227c9bae09ce46112579</para>
+    /// </summary>
+    [JsonPropertyName("operator_id")]
+    public string? OperatorId { get; set; }
+
+    /// <summary>
+    /// <para>是否通知被@的用户</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：false</para>
+    /// </summary>
+    [JsonPropertyName("notify_mentioned_user")]
+    public bool? NotifyMentionedUser { get; set; }
+
+    /// <summary>
+    /// <para>被@用户列表</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("mention_entity_list")]
+    public MentionEntity[]? MentionEntityLists { get; set; }
+
+    /// <summary>
+    /// <para>被@用户列表</para>
+    /// </summary>
+    public record MentionEntity
+    {
+        /// <summary>
+        /// <para>被@人在 content 中的偏移量</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：3</para>
+        /// </summary>
+        [JsonPropertyName("offset")]
+        public int Offset { get; set; }
+
+        /// <summary>
+        /// <para>被@人的 user id，请传入与user_id_type相匹配的ID</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：on_94a1ee5551019f18cd73d9f111898cf2</para>
+        /// </summary>
+        [JsonPropertyName("user_id")]
+        public string UserId { get; set; } = string.Empty;
+    }
 }

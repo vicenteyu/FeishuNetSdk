@@ -29,6 +29,30 @@ public record GetPerformanceV1SemestersResponseDto
         public string? Id { get; set; }
 
         /// <summary>
+        /// <para>绩效评估周期 年份</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2024</para>
+        /// </summary>
+        [JsonPropertyName("year")]
+        public int? Year { get; set; }
+
+        /// <summary>
+        /// <para>绩效评估周期 类型分组</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：Month</para>
+        /// </summary>
+        [JsonPropertyName("type_group")]
+        public string? TypeGroup { get; set; }
+
+        /// <summary>
+        /// <para>绩效评估周期 类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：June</para>
+        /// </summary>
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
+
+        /// <summary>
         /// <para>绩效评估周期的名称</para>
         /// <para>必填：否</para>
         /// </summary>
@@ -51,7 +75,7 @@ public record GetPerformanceV1SemestersResponseDto
             /// <summary>
             /// <para>英文</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Interactiveexperience</para>
+            /// <para>示例值：Interactive experience</para>
             /// </summary>
             [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }

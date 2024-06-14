@@ -39,10 +39,10 @@ public record GetDriveV1ExportTasksByTicketResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：doc</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>doc：旧版飞书文档。支持导出扩展名为 docx 和 pdf 的文件。</item>
-        /// <item>sheet：飞书电子表格。支持导出扩展名为 xlsx 和 csv 的文件。</item>
-        /// <item>bitable：飞书多维表格。支持导出扩展名为 xlsx 和 csv 格式的文件。</item>
-        /// <item>docx：新版飞书文档。支持导出扩展名为 docx 和 pdf 格式的文件。</item>
+        /// <item>doc：旧版飞书文档。支持导出扩展名为 docx 和 pdf 的文件。已不推荐使用。</item>
+        /// <item>sheet：飞书电子表格。支持导出扩展名为 xlsx 和 csv 的文件</item>
+        /// <item>bitable：飞书多维表格。支持导出扩展名为 xlsx 和 csv 格式的文件</item>
+        /// <item>docx：新版飞书文档。支持导出扩展名为 docx 和 pdf 格式的文件</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("type")]

@@ -89,7 +89,7 @@ public class TestController : ControllerBase
 
 ```csharp
 var dto1 = new FeishuNetSdk.Approval.PostApprovalV4InstancesBodyDto(); 
-dto1.SetFormControls(new object[] { //更多对象均位于 Approval.Dto 空间下
+dto1.SetFormControls(new object[] { //更多对象位于 Approval.Dtos 空间下
         new InputFormControl("id1", "value1"),
         new DateFormControl("id2", new DateTime(2019,1,1)),
         new AmountFormControl("id3", 10.03m, "USD"),
@@ -103,7 +103,7 @@ await tenantApi.PostApprovalV4InstancesAsync(dto1);
 
 ```csharp
 var dto2 = new FeishuNetSdk.Im.PostImV1MessagesBodyDto() { ReceiveId = "ou_3c5beeexxxxxx6ce936414bb0d13d386" }; // <== 接收人Id
-dto2.SetContent(new PostContent //富文本消息对象，另外还有文本、消息卡片、群名片、个人名片、图片、视频、音频、文件、表情包，均位于 Im.Dtos 空间下。
+dto2.SetContent(new PostContent //富文本消息对象，另外还有文本、消息卡片、群名片、个人名片、图片、视频、音频、文件、表情包，位于 Im.Dtos 空间下。
 {
     Post = new()
     {

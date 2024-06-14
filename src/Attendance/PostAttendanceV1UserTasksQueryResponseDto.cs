@@ -53,7 +53,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
         public int Day { get; set; }
 
         /// <summary>
-        /// <para>考勤组 ID</para>
+        /// <para>考勤组 ID（特别说明：1代表未加入考勤组）</para>
         /// <para>必填：是</para>
         /// <para>示例值：6737202939523236110</para>
         /// </summary>
@@ -61,7 +61,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
         public string GroupId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>班次 ID</para>
+        /// <para>班次 ID（特别说明：9代表默认班次）</para>
         /// <para>必填：是</para>
         /// <para>示例值：6753520403404030215</para>
         /// </summary>

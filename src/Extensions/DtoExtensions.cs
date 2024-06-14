@@ -10,7 +10,7 @@
         /// </summary>
         /// <param name="Dto">创建审批实例 请求体</param>
         /// <param name="FormControls">
-        /// <para>支持的控件明细参见：FeishuNetSdk.Approval.Dto 命名空间下：</para>
+        /// <para>支持的控件明细参见：Approval.Dtos 命名空间下：</para>
         /// <list type="bullet">
         /// <item>InputFormControl</item>
         /// <item>TextareaFormControl</item>
