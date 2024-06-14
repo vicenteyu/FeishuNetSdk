@@ -3,7 +3,7 @@
     /// <summary>
     /// 卡片模板
     /// </summary>
-    public record TemplateCard
+    public record TemplateCardDto : MessageCard
     {
         /// <summary>
         /// 如果使用卡片模板，请填写此项，固定值为：template

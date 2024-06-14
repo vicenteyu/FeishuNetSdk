@@ -3,14 +3,8 @@
     /// <summary>
     /// 视频消息
     /// </summary>
-    public record MediaContent : IHasMessageType
+    public record MediaContent(string MessageType = "media") : MessageContent(MessageType)
     {
-        /// <summary>
-        /// 消息类型
-        /// </summary>
-        [JsonIgnore]
-        public string MessageType => "media";
-
         /// <summary>
         /// 视频文件Key，可通过上传文件接口获取文件的 file_key。
         /// </summary>

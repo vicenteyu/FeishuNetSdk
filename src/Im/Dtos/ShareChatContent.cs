@@ -3,14 +3,8 @@
     /// <summary>
     /// 分享群名片消息
     /// </summary>
-    public record ShareChatContent : IHasMessageType
+    public record ShareChatContent(string MessageType = "share_chat") : MessageContent(MessageType)
     {
-        /// <summary>
-        /// 消息类型
-        /// </summary>
-        [JsonIgnore]
-        public string MessageType => "share_chat";
-
         /// <summary>
         /// 群名片Id
         /// </summary>

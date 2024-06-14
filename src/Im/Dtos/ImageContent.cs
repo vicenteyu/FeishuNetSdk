@@ -3,14 +3,8 @@
     /// <summary>
     /// 图片消息
     /// </summary>
-    public record ImageContent : IHasMessageType
+    public record ImageContent(string MessageType = "image") : MessageContent(MessageType)
     {
-        /// <summary>
-        /// 消息类型
-        /// </summary>
-        [JsonIgnore]
-        public string MessageType => "image";
-
         /// <summary>
         /// 其中image key需要通过上传图片接口取得
         /// </summary>

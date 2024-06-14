@@ -3,14 +3,8 @@
     /// <summary>
     /// 富文本消息
     /// </summary>
-    public record PostContent : IHasMessageType
+    public record PostContent(string MessageType = "post") : MessageContent(MessageType)
     {
-        /// <summary>
-        /// 消息类型
-        /// </summary>
-        [JsonIgnore]
-        public string MessageType => "post";
-
         /// <summary>
         /// 富文本消息。post content格式请参见发送消息Content
         /// </summary>
@@ -24,17 +18,17 @@
             /// 中文消息
             /// </summary>
             [JsonPropertyName("zh_cn")]
-            public PostLanguageSuffix? ZhCn { get; set; }
+            public PostLanguage? ZhCn { get; set; }
 
             /// <summary>
             /// 英文消息
             /// </summary>
             [JsonPropertyName("en_us")]
-            public PostLanguageSuffix? EnUs { get; set; }
+            public PostLanguage? EnUs { get; set; }
         }
 
         /// <summary></summary>
-        public record PostLanguageSuffix
+        public record PostLanguage
         {
             /// <summary>
             /// 标题
@@ -55,13 +49,13 @@
         /// 富文本消息
         /// </summary>
         /// <param name="Tag">标签</param>
-        public record TagBaseSuffix([property: JsonPropertyName("tag")] string Tag);
+        public record TagBase([property: JsonPropertyName("tag")] string Tag);
 
         /// <summary>
         /// 文本消息
         /// </summary>
         /// <param name="Tag">标签</param>
-        public record TagTextSuffix(string Tag = "text") : TagBaseSuffix(Tag)
+        public record TagText(string Tag = "text") : TagBase(Tag)
         {
             /// <summary>
             /// 文本内容
@@ -86,7 +80,7 @@
         /// 链接消息
         /// </summary>
         /// <param name="Tag">标签</param>
-        public record TagLinkSuffix(string Tag = "a") : TagBaseSuffix(Tag)
+        public record TagLink(string Tag = "a") : TagBase(Tag)
         {
             /// <summary>
             /// 文本内容
@@ -111,7 +105,7 @@
         /// At 消息
         /// </summary>
         /// <param name="Tag">标签</param>
-        public record TagAtSuffix(string Tag = "at") : TagBaseSuffix(Tag)
+        public record TagAt(string Tag = "at") : TagBase(Tag)
         {
             /// <summary>
             /// 用户的open_id，union_id 或 user_id，请参考如何获取 User ID、Open ID 和 Union ID。
@@ -131,7 +125,7 @@
         /// 图片消息
         /// </summary>
         /// <param name="Tag">标签</param>
-        public record TagImgSuffix(string Tag = "img") : TagBaseSuffix(Tag)
+        public record TagImg(string Tag = "img") : TagBase(Tag)
         {
             /// <summary>
             /// 图片的唯一标识，可通过 上传图片 接口获取image_key。
@@ -144,7 +138,7 @@
         /// 媒体消息
         /// </summary>
         /// <param name="Tag">标签</param>
-        public record TagMediaSuffix(string Tag = "media") : TagBaseSuffix(Tag)
+        public record TagMedia(string Tag = "media") : TagBase(Tag)
         {
             /// <summary>
             /// 视频文件的唯一标识，可通过 上传文件 接口获取file_key。
@@ -163,7 +157,7 @@
         /// 表情消息
         /// </summary>
         /// <param name="Tag">标签</param>
-        public record TagEmotionSuffix(string Tag = "emotion") : TagBaseSuffix(Tag)
+        public record TagEmotion(string Tag = "emotion") : TagBase(Tag)
         {
             /// <summary>
             /// 表情类型，部分可选值请参见表情文案。
@@ -176,13 +170,13 @@
         /// 表示一条分割线
         /// </summary>
         /// <param name="Tag">标签</param>
-        public record TagHrSuffix(string Tag = "hr") : TagBaseSuffix(Tag);
+        public record TagHr(string Tag = "hr") : TagBase(Tag);
 
         /// <summary>
         /// markdown 内容
         /// </summary>
         /// <param name="Tag">标签</param>
-        public record TagMdSuffix(string Tag = "md") : TagBaseSuffix(Tag)
+        public record TagMd(string Tag = "md") : TagBase(Tag)
         {
             /// <summary>
             /// markdown 内容
@@ -195,7 +189,7 @@
         /// 代码块
         /// </summary>
         /// <param name="Tag">标签</param>
-        public record TagCodeBlockSuffix(string Tag = "code_block") : TagBaseSuffix(Tag)
+        public record TagCodeBlock(string Tag = "code_block") : TagBase(Tag)
         {
             /// <summary>
             /// 代码块内容

@@ -3,14 +3,8 @@
     /// <summary>
     /// 文本消息
     /// </summary>
-    public record TextContent : IHasMessageType
+    public record TextContent(string MessageType = "text") : MessageContent(MessageType)
     {
-        /// <summary>
-        /// 消息类型
-        /// </summary>
-        [JsonIgnore]
-        public string MessageType => "text";
-
         /// <summary>
         /// 文本消息
         /// </summary>

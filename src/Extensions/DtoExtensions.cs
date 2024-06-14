@@ -50,17 +50,22 @@
         /// 设置消息卡片内容
         /// </summary>
         /// <param name="Dto">延时更新消息卡片 请求体</param>
-        /// <param name="CardObject">消息卡片的描述内容</param>
+        /// <param name="CardObject">消息卡片对象，包括以下：
+        /// <list type="bullet">
+        /// <item>ElementsCardWithOpenIds</item>
+        /// <item>TemplateCardWithOpenIds</item>
+        /// </list>
+        /// </param>
         public static void SetCardObject(
             this Im.Spec.PostInteractiveV1CardUpdateBodyDto Dto,
             Im.Dtos.IHasOpenIds CardObject)
                 => Dto.Card = CardObject;
 
         /// <summary>
-        /// 设置消息内容
+        /// 设置消息类型及内容
         /// </summary>
         /// <param name="Dto">发送消息 请求体</param>
-        /// <param name="Content">消息对象
+        /// <param name="CardOrContent">消息对象，包括以下：
         /// <list type="bullet">
         /// <item>TextContent</item>
         /// <item>PostContent</item>
@@ -69,18 +74,52 @@
         /// <item>AudioContent</item>
         /// <item>MediaContent</item>
         /// <item>StickerContent</item>
-        /// <item>InteractiveElementContent</item>
-        /// <item>InteractiveTemplateContent</item>
         /// <item>ShareChatContent</item>
         /// <item>ShareUserContent</item>
+        /// <item>ElementsCardDto</item>
+        /// <item>TemplateCardDto</item>
         /// </list>
         /// </param>
         public static void SetContent(
             this Im.PostImV1MessagesBodyDto Dto,
-            Im.Dtos.IHasMessageType Content)
+            Im.Dtos.IHasMessageType CardOrContent)
         {
-            Dto.MsgType = Content.MessageType;
-            Dto.Content = System.Text.Json.JsonSerializer.Serialize(Content, Content.GetType());
+            Dto.MsgType = CardOrContent.MessageType;
+            Dto.Content = System.Text.Json.JsonSerializer.Serialize(CardOrContent, CardOrContent.GetType());
+        }
+
+        /// <summary>
+        /// 设置消息类型及内容
+        /// </summary>
+        /// <param name="Dto">批量发送消息 请求体</param>
+        /// <param name="CardOrContent">消息对象，包括以下：
+        /// <list type="bullet">
+        /// <item>TextContent</item>
+        /// <item>PostContent</item>
+        /// <item>ImageContent</item>
+        /// <item>FileContent</item>
+        /// <item>AudioContent</item>
+        /// <item>MediaContent</item>
+        /// <item>StickerContent</item>
+        /// <item>ShareChatContent</item>
+        /// <item>ShareUserContent</item>
+        /// <item>ElementsCardDto</item>
+        /// <item>TemplateCardDto</item>
+        /// </list>
+        /// </param>
+        public static void SetCardOrContent(this Im.Spec.PostMessageV4BatchSendBodyDto Dto,
+            Im.Dtos.IHasMessageType CardOrContent)
+        {
+            Dto.MsgType = CardOrContent.MessageType;
+            if (CardOrContent is Im.Dtos.MessageCard)
+            {
+                Dto.Card = CardOrContent;
+            }
+            else if (CardOrContent is Im.Dtos.MessageContent)
+            {
+                Dto.Content = CardOrContent;
+            }
+            else throw new Exceptions.MessageTypeNotSupportedException($"{nameof(CardOrContent)}不受支持！");
         }
     }
 }

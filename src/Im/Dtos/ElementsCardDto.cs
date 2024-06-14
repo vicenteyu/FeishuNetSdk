@@ -3,7 +3,7 @@
     /// <summary>
     /// 卡片内容
     /// </summary>
-    public record ElementsCard
+    public record ElementsCardDto : MessageCard
     {
         /// <summary>
         /// 卡片标题
@@ -27,7 +27,7 @@
         /// 元素集合
         /// </summary>
         [JsonPropertyName("elements")]
-        public Element[] Elements { get; set; } = Array.Empty<Element>();
+        public object[] Elements { get; set; } = Array.Empty<Element>();
 
         /// <summary>
         /// 用于指定卡片整体的跳转链接。
@@ -210,7 +210,6 @@
                 /// </summary>
                 [JsonPropertyName("color")]
                 public string? Color { get; }
-
             }
         }
 

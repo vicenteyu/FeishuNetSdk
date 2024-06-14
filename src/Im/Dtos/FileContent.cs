@@ -3,14 +3,8 @@
     /// <summary>
     /// 文件消息
     /// </summary>
-    public record FileContent : IHasMessageType
+    public record FileContent(string MessageType = "file") : MessageContent(MessageType)
     {
-        /// <summary>
-        /// 消息类型
-        /// </summary>
-        [JsonIgnore]
-        public string MessageType => "file";
-
         /// <summary>
         /// 文件Key，可通过上传文件接口获取文件的 file_key。
         /// </summary>

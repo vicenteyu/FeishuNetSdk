@@ -22,7 +22,7 @@ PM> Install-Package FeishuNetSdk
 ```
 
 ### 2、服务注册
-**输入`应用凭证`的方式**
+**（1）输入`应用凭证`的方式**
 ```csharp
 builder.Services.AddFeishuNetSdk(options =>
 {
@@ -32,7 +32,7 @@ builder.Services.AddFeishuNetSdk(options =>
     //options.IgnoreStatusException = true; //忽略状态异常错误（true = 忽略， false = 启用， 默认 = 忽略）
 });
 ```
-**使用`配置文件`的方式**
+**（2）使用`配置文件`的方式**
 ```csharp
 builder.Services.AddFeishuNetSdk(builder.Configuration.GetSection("FeishuNetSdk"));
 ```
@@ -77,6 +77,94 @@ public class TestController : ControllerBase
 
 ## 示例：
 
+### 扩展方法的用法（2024.6.14 新增）
+
+扩展方法主要针对复杂参数的设置，提高易用性。
+
+1. 实例化请求体
+1. 调用扩展方法
+1. 调用接口
+
+**（0）创建审批实例 请求体 设置控件**
+
+```csharp
+var dto1 = new FeishuNetSdk.Approval.PostApprovalV4InstancesBodyDto(); 
+dto1.SetFormControls(new object[] { //更多对象均位于 Approval.Dto 空间下
+        new InputFormControl("id1", "value1"),
+        new DateFormControl("id2", new DateTime(2019,1,1)),
+        new AmountFormControl("id3", 10.03m, "USD"),
+        new DateIntervalFormControl("id4", new(new DateTime(2024,1,1), new DateTime(2024,1,2), 3)),
+        new ContactFormControl("id5", ["value2","value3"], ["id1","id2"]),
+    });
+await tenantApi.PostApprovalV4InstancesAsync(dto1); 
+```
+
+**（1）发送消息 请求体 设置消息类型及内容**
+
+```csharp
+var dto2 = new FeishuNetSdk.Im.PostImV1MessagesBodyDto() { ReceiveId = "ou_3c5beeexxxxxx6ce936414bb0d13d386" }; // <== 接收人Id
+dto2.SetContent(new PostContent //富文本消息对象，另外还有文本、消息卡片、群名片、个人名片、图片、视频、音频、文件、表情包，均位于 Im.Dtos 空间下。
+{
+    Post = new()
+    {
+        ZhCn = new()
+        {
+            Content = new object[][] { new object[] {
+                new PostContent.TagAt{  UserId="123" },
+                new PostContent.TagEmotion{ EmojiType="SMILE" },
+            },
+                new object[]{ new PostContent.TagHr{  }}
+            },
+            Title = "title"
+        }
+    }
+});
+await tenantApi.PostImV1MessagesAsync("open_id", dto2);
+
+```
+
+**（2）批量发送消息 请求体 设置消息类型及内容**
+
+```csharp
+var dto3 = new FeishuNetSdk.Im.Spec.PostMessageV4BatchSendBodyDto() { OpenIds = ["ou_18eac85dyyyyyyy9317ad4f02e8bbbb"] }; // <== 接收人Id
+dto3.SetCardOrContent(new TemplateCardDto //支持所有 MessageContent 子类或 MessageCard 子类，会自动判断card或content以及消息类型。
+{
+    Data = new()
+    {
+        TemplateId = "ctp_xx0123456789",  // <== 模板Id
+        TemplateVariable = new()          // <== 模板变量
+        {
+            { "aa", "Aa" },
+            { "bb", "Bb" },
+            { "cc", "Cc" }
+        }
+    }
+});
+await tenantApi.PostMessageV4BatchSendAsync(dto3);
+```
+
+**（3）延时更新消息卡片 请求体 设置消息卡片内容**
+
+```csharp
+var dto4 = new FeishuNetSdk.Im.Spec.PostInteractiveV1CardUpdateBodyDto() { Token = "此处是用于更新卡片的token，不是tenant_access_token" };
+dto4.SetCardObject(new TemplateCardWithOpenIds //支持的另一个对象名：ElementsCardWithOpenIds
+{
+    OpenIds = ["ou_18eac85dyyyyyyy9317ad4f02e8bbbb"], // <== 模板Id
+    Data = new()
+    {
+        TemplateId = "ctp_xx0123456789",  // <== 模板Id
+        TemplateVariable = new()          // <== 模板变量
+        {
+            { "aa", "Aa" },
+            { "bb", "Bb" },
+            { "cc", "Cc" }
+        }
+    }
+});
+await tenantApi.PostInteractiveV1CardUpdateAsync(dto4);
+```
+
+
 ### 消息卡片（模板消息）
 
 ```csharp
@@ -100,7 +188,7 @@ public async Task<IResult> GetT2Async()
         new FeishuNetSdk.Im.PostImV1MessagesBodyDto
         {
             MsgType = "interactive",
-            ReceiveId = "ou_3c5beeexxxxxx6ce936414bb0d13d386",
+            ReceiveId = "ou_3c5beeexxxxxx6ce936414bb0d13d386", // <== 接收人Id
             Content = dto.ToString(),
         });
 }

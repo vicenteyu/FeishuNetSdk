@@ -17,7 +17,7 @@ public record PostInteractiveV1CardUpdateBodyDto
 
     /// <summary>
     /// <para>消息卡片的描述内容，具体参考[卡片结构](https://open.feishu.cn/document/ukTMukTMukTM/uEjNwUjLxYDM14SM2ATN)</para>
-    /// <para>可用扩展方法：SetCardObject(ElementsCardObject / TemplateCardObject)</para>
+    /// <para>可用扩展方法：SetCardObject(ElementsCardWithOpenIds / TemplateCardWithOpenIds)</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("card")]
