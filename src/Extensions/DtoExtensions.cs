@@ -130,5 +130,31 @@
 
             return Dto;
         }
+
+        /// <summary>
+        /// 添加元素节点
+        /// </summary>
+        /// <param name="Dto">富文本消息</param>
+        /// <param name="Elements">元素节点
+        /// 支持的元素清单如下：位于 Im.Dtos 空间下
+        /// <list type="bullet">
+        /// <item>TextElement</item>
+        /// <item>LinkElement</item>
+        /// <item>AtElement</item>
+        /// <item>ImgElement</item>
+        /// <item>MediaElement</item>
+        /// <item>EmotionElement</item>
+        /// <item>HrElement</item>
+        /// <item>MdElement</item>
+        /// <item>CodeBlockElement</item>
+        /// </list>
+        /// </param>
+        /// <returns>富文本消息</returns>
+        public static Im.Dtos.PostContent.PostLanguage AddContent(this Im.Dtos.PostContent.PostLanguage Dto, Im.Dtos.Element[] Elements)
+        {
+            Dto.Content = Dto.Content.Append(Elements).ToArray();
+
+            return Dto;
+        }
     }
 }

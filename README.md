@@ -107,16 +107,10 @@ dto2.SetContent(new PostContent //富文本消息对象，另外还有文本、�
 {
     Post = new()
     {
-        ZhCn = new()
-        {
-            Content = new object[][] { new object[] {
-                new PostContent.TagAt{  UserId="123" },
-                new PostContent.TagEmotion{ EmojiType="SMILE" },
-            },
-                new object[]{ new PostContent.TagHr{  }}
-            },
-            Title = "title"
-        }
+        ZhCn = new PostContent.PostLanguage() { Title = "title" }
+            .AddContent([new TextElement(Text: "测试消息"), new AtElement(UserId: "ou_111222333")])
+            .AddContent([new HrElement()])
+            .AddContent([new LinkElement("链接地址", "https://123")])
     }
 });
 await tenantApi.PostImV1MessagesAsync("open_id", dto2);
