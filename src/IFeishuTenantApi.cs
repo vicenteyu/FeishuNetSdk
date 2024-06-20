@@ -1148,9 +1148,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。了解更多：[如何获取 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/sheets_batch_update")]
-    System.Threading.Tasks.Task<FeishuResponse> PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2ResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2Async(
         [PathQuery] string spreadsheetToken,
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2BodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>

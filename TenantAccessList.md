@@ -234,7 +234,7 @@
 <tr><td rowspan="2">117</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>操作工作表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate</td></tr>
 <tr><td rowspan="2">118</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>更新工作表属性</td></tr>
-<tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate</td></tr>
+<tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2</td></tr>
 <tr><td rowspan="2">119</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>增加行列</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRange</td></tr>
 <tr><td rowspan="2">120</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>插入行列</td></tr>
