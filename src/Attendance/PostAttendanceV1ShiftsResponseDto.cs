@@ -127,7 +127,7 @@ public record PostAttendanceV1ShiftsResponseDto
             /// <summary>
             /// <para>下班时间</para>
             /// <para>必填：是</para>
-            /// <para>示例值：18:00，第二天凌晨2点，26:00</para>
+            /// <para>示例值：18:00， 第二天凌晨2点， 26:00</para>
             /// </summary>
             [JsonPropertyName("off_time")]
             public string OffTime { get; set; } = string.Empty;
@@ -187,6 +187,22 @@ public record PostAttendanceV1ShiftsResponseDto
             /// </summary>
             [JsonPropertyName("late_minutes_as_serious_late")]
             public int? LateMinutesAsSeriousLate { get; set; }
+
+            /// <summary>
+            /// <para>是否不需要打上班卡</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("no_need_on")]
+            public bool? NoNeedOn { get; set; }
+
+            /// <summary>
+            /// <para>是否不需要打下班卡（优先级高于data.shift.no_need_off）</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("no_need_off")]
+            public bool? NoNeedOff { get; set; }
         }
 
         /// <summary>
@@ -277,11 +293,101 @@ public record PostAttendanceV1ShiftsResponseDto
         }
 
         /// <summary>
-        /// <para>是否允许在非打卡时段申请打卡</para>
+        /// <para>日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1</para>
         /// <para>必填：否</para>
-        /// <para>示例值：false</para>
+        /// <para>示例值：1</para>
         /// </summary>
-        [JsonPropertyName("allow_punch_approval")]
-        public bool? AllowPunchApproval { get; set; }
+        [JsonPropertyName("day_type")]
+        public int? DayType { get; set; }
+
+        /// <summary>
+        /// <para>班外休息规则</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("overtime_rest_time_rule")]
+        public RestRule[]? OvertimeRestTimeRules { get; set; }
+
+        /// <summary>
+        /// <para>晚到多久记为严重迟到（优先级高于data.shift.punch_time_rule.late_minutes_as_serious_late）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：40</para>
+        /// </summary>
+        [JsonPropertyName("late_minutes_as_serious_late")]
+        public int? LateMinutesAsSeriousLate { get; set; }
+
+        /// <summary>
+        /// <para>半天分割规则</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("shift_middle_time_rule")]
+        public PostAttendanceV1ShiftsResponseDtoShiftShiftMiddleTimeRule? ShiftMiddleTimeRule { get; set; }
+
+        /// <summary>
+        /// <para>半天分割规则</para>
+        /// </summary>
+        public record PostAttendanceV1ShiftsResponseDtoShiftShiftMiddleTimeRule
+        {
+            /// <summary>
+            /// <para>半天分割类型</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>0：按全天班次时长（含休息）的中点分割</item>
+            /// <item>1：按全天班次时长（不含休息）的中点分割</item>
+            /// <item>2：按休息时间分割</item>
+            /// <item>3：按固定时间点分割</item>
+            /// </list></para>
+            /// <para>默认值：0</para>
+            /// </summary>
+            [JsonPropertyName("middle_time_type")]
+            public int? MiddleTimeType { get; set; }
+
+            /// <summary>
+            /// <para>固定分割时间点（middle_time_type 为 3 时有效）</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：12:00</para>
+            /// </summary>
+            [JsonPropertyName("fixed_middle_time")]
+            public string? FixedMiddleTime { get; set; }
+        }
+
+        /// <summary>
+        /// <para>晚走次日晚到配置规则</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("late_off_late_on_setting")]
+        public PostAttendanceV1ShiftsResponseDtoShiftLateOffLateOnSetting? LateOffLateOnSetting { get; set; }
+
+        /// <summary>
+        /// <para>晚走次日晚到配置规则</para>
+        /// </summary>
+        public record PostAttendanceV1ShiftsResponseDtoShiftLateOffLateOnSetting
+        {
+            /// <summary>
+            /// <para>当日晚走时间计算规则</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>0：弹性规则</item>
+            /// <item>1：固定规则</item>
+            /// </list></para>
+            /// <para>默认值：0</para>
+            /// </summary>
+            [JsonPropertyName("late_off_base_on_time_type")]
+            public int? LateOffBaseOnTimeType { get; set; }
+
+            /// <summary>
+            /// <para>次日晚到时间计算规则</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>0：固定规则</item>
+            /// <item>1：弹性规则</item>
+            /// </list></para>
+            /// <para>默认值：0</para>
+            /// </summary>
+            [JsonPropertyName("late_on_base_on_time_type")]
+            public int? LateOnBaseOnTimeType { get; set; }
+        }
     }
 }

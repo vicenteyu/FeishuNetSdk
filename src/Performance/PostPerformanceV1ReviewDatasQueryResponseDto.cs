@@ -604,7 +604,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 }
 
                 /// <summary>
-                /// <para>最后提交时间</para>
+                /// <para>最后提交时间，毫秒级时间戳</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1627977114000</para>
                 /// </summary>

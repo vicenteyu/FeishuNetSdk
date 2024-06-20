@@ -87,7 +87,7 @@ public record PostCorehrV1CompaniesBodyDto
         public bool Active { get; set; }
 
         /// <summary>
-        /// <para>生效时间</para>
+        /// <para>生效时间。该参数为公共参数，若对象为公司则为必填。</para>
         /// <para>必填：否</para>
         /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>

@@ -131,10 +131,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：user_access_token</para>
     /// <para>该接口用于根据搜索关键词（search_key）对当前用户可见的云文档进行搜索。</para>
     /// </summary>
+    /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/suite/docs-api/search/object")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSuiteDocsApiSearchObjectResponseDto>> PostSuiteDocsApiSearchObjectAsync(
-        UserAccessToken access_token);
+        UserAccessToken access_token,
+        [JsonContent] Ccm.Spec.PostSuiteDocsApiSearchObjectBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取云文档权限设置V2</para>
@@ -614,7 +616,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
-    /// <para>用户 ID 类型。默认值为 `open_id`。可选值有：</para>
+    /// <para>用户 ID 类型。默认为 `lark_id`，建议选择 `open_id` 或 `union_id`。了解更多，参考[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。可选值：</para>
     /// <para>- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。了解更多：[如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
     /// <para>- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。了解更多：[如何获取 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
     /// <para>默认值：open_id</para>
@@ -768,7 +770,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569744333864961</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUjMzUjL1IzM14SNyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于在电子表格中增加空白行或列。</para>
+    /// <para>该接口用于在电子表格工作表中增加空白行或列。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
@@ -10103,7 +10105,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID</para>
+    /// <para>工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。</para>
     /// <para>示例值：giDk9k</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>

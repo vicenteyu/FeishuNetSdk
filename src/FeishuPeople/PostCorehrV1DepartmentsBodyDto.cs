@@ -9,14 +9,14 @@ namespace FeishuNetSdk.FeishuPeople;
 public record PostCorehrV1DepartmentsBodyDto
 {
     /// <summary>
-    /// <para>子类型，通过[请求接口](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=department；custom_api_name=subtype。</para>
+    /// <para>部门类型，通过[请求接口](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=department；custom_api_name=subtype。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("sub_type")]
     public Enum? SubType { get; set; }
 
     /// <summary>
-    /// <para>子类型，通过[请求接口](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=department；custom_api_name=subtype。</para>
+    /// <para>部门类型，通过[请求接口](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=department；custom_api_name=subtype。</para>
     /// </summary>
     public record Enum
     {

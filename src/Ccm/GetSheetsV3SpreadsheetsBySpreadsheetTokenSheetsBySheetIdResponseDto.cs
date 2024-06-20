@@ -55,14 +55,14 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
         public bool? Hidden { get; set; }
 
         /// <summary>
-        /// <para>单元格属性，仅当 `resource_type` 为 `sheet` 即工作表类型为电子表格时返回</para>
+        /// <para>单元格属性，仅当 `resource_type` 为 `sheet` 即工作表类型为电子表格时返回。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("grid_properties")]
         public GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDtoSheetGridProperties? GridProperties { get; set; }
 
         /// <summary>
-        /// <para>单元格属性，仅当 `resource_type` 为 `sheet` 即工作表类型为电子表格时返回</para>
+        /// <para>单元格属性，仅当 `resource_type` 为 `sheet` 即工作表类型为电子表格时返回。</para>
         /// </summary>
         public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDtoSheetGridProperties
         {
@@ -111,19 +111,19 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
         public string? ResourceType { get; set; }
 
         /// <summary>
-        /// <para>合并单元格的相关信息。没有合并单元格则不返回</para>
+        /// <para>合并单元格的相关信息。没有合并单元格则不返回。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("merges")]
         public MergeRange[]? Merges { get; set; }
 
         /// <summary>
-        /// <para>合并单元格的相关信息。没有合并单元格则不返回</para>
+        /// <para>合并单元格的相关信息。没有合并单元格则不返回。</para>
         /// </summary>
         public record MergeRange
         {
             /// <summary>
-            /// <para>起始行，从 0 开始计数</para>
+            /// <para>起始行，从 0 开始计数。</para>
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
@@ -131,7 +131,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
             public int? StartRowIndex { get; set; }
 
             /// <summary>
-            /// <para>结束行，从 0 开始计数</para>
+            /// <para>结束行，从 0 开始计数。</para>
             /// <para>必填：否</para>
             /// <para>示例值：-</para>
             /// </summary>
@@ -139,7 +139,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
             public int? EndRowIndex { get; set; }
 
             /// <summary>
-            /// <para>起始列，从 0 开始计数</para>
+            /// <para>起始列，从 0 开始计数。</para>
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
@@ -147,7 +147,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDt
             public int? StartColumnIndex { get; set; }
 
             /// <summary>
-            /// <para>结束列，从 0 开始计数</para>
+            /// <para>结束列，从 0 开始计数。</para>
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>

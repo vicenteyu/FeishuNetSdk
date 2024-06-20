@@ -33,6 +33,13 @@ public record PostAttendanceV1ShiftsQueryResponseDto
     public int PunchTimes { get; set; }
 
     /// <summary>
+    /// <para>排班组子负责人id列表，返回员工id或工号（仅飞书人事企业版可用）</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("sub_shift_leader_ids")]
+    public string[]? SubShiftLeaderIds { get; set; }
+
+    /// <summary>
     /// <para>是否弹性打卡</para>
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
@@ -108,7 +115,7 @@ public record PostAttendanceV1ShiftsQueryResponseDto
         /// <summary>
         /// <para>下班时间</para>
         /// <para>必填：是</para>
-        /// <para>示例值：18:00，第二天凌晨2点，26:00</para>
+        /// <para>示例值：18:00， 第二天凌晨2点， 26:00</para>
         /// </summary>
         [JsonPropertyName("off_time")]
         public string OffTime { get; set; } = string.Empty;
@@ -171,14 +178,14 @@ public record PostAttendanceV1ShiftsQueryResponseDto
     }
 
     /// <summary>
-    /// <para>晚走晚到规则</para>
+    /// <para>晚走晚到规则（仅飞书人事企业版可用）</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("late_off_late_on_rule")]
     public LateOffLateOnRule[]? LateOffLateOnRules { get; set; }
 
     /// <summary>
-    /// <para>晚走晚到规则</para>
+    /// <para>晚走晚到规则（仅飞书人事企业版可用）</para>
     /// </summary>
     public record LateOffLateOnRule
     {
@@ -229,19 +236,19 @@ public record PostAttendanceV1ShiftsQueryResponseDto
     }
 
     /// <summary>
-    /// <para>打卡规则</para>
+    /// <para>加班时段（仅飞书人事企业版可用）</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("overtime_rule")]
     public OvertimeRule[]? OvertimeRules { get; set; }
 
     /// <summary>
-    /// <para>打卡规则</para>
+    /// <para>加班时段（仅飞书人事企业版可用）</para>
     /// </summary>
     public record OvertimeRule
     {
         /// <summary>
-        /// <para>上班时间</para>
+        /// <para>开始时间</para>
         /// <para>必填：是</para>
         /// <para>示例值：9:00</para>
         /// </summary>
@@ -249,11 +256,19 @@ public record PostAttendanceV1ShiftsQueryResponseDto
         public string OnOvertime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>下班时间</para>
+        /// <para>结束时间</para>
         /// <para>必填：是</para>
         /// <para>示例值：18:00</para>
         /// </summary>
         [JsonPropertyName("off_overtime")]
         public string OffOvertime { get; set; } = string.Empty;
     }
+
+    /// <summary>
+    /// <para>是否允许在非打卡时段申请打卡</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：false</para>
+    /// </summary>
+    [JsonPropertyName("allow_punch_approval")]
+    public bool? AllowPunchApproval { get; set; }
 }

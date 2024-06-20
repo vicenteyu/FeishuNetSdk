@@ -85,7 +85,7 @@ public record PostPerformanceV1ReviewDatasQueryBodyDto
     public string[] RevieweeUserIdList { get; set; } = Array.Empty<string>();
 
     /// <summary>
-    /// <para>环节更新时间晚于，可筛选出在此时间之后，有内容提交的环节数据</para>
+    /// <para>环节更新时间晚于，毫秒级时间戳，可筛选出在此时间之后，有内容提交的环节数据</para>
     /// <para>必填：否</para>
     /// <para>示例值：1630425599999</para>
     /// </summary>

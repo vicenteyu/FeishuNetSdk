@@ -77,7 +77,7 @@ public class TestController : ControllerBase
 
 ## 示例：
 
-### 扩展方法的用法（2024.6.14 新增）
+### 扩展方法的用法（v2.2.9 新增）
 
 主要针对复杂参数的扩展，提高易用性。（使用元素拼接卡片/消息本身就很复杂，优化可能性很低，这种推荐用模板）
 
@@ -143,7 +143,7 @@ await tenantApi.PostMessageV4BatchSendAsync(dto3);
 var dto4 = new FeishuNetSdk.Im.Spec.PostInteractiveV1CardUpdateBodyDto() { Token = "此处是用于更新卡片的token，不是tenant_access_token" };
 dto4.SetCardObject(new TemplateCardWithOpenIds //支持的另一个对象名：ElementsCardWithOpenIds
 {
-    OpenIds = ["ou_18eac85dyyyyyyy9317ad4f02e8bbbb"], // <== 模板Id
+    OpenIds = ["ou_18eac85dyyyyyyy9317ad4f02e8bbbb"], // <== 接收人Id
     Data = new()
     {
         TemplateId = "ctp_xx0123456789",  // <== 模板Id

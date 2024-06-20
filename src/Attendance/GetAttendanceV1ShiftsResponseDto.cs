@@ -45,6 +45,13 @@ public record GetAttendanceV1ShiftsResponseDto
         public int PunchTimes { get; set; }
 
         /// <summary>
+        /// <para>排班组子负责人id列表，返回员工id或工号（仅飞书人事企业版可用）</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("sub_shift_leader_ids")]
+        public string[]? SubShiftLeaderIds { get; set; }
+
+        /// <summary>
         /// <para>是否弹性打卡</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
@@ -120,7 +127,7 @@ public record GetAttendanceV1ShiftsResponseDto
             /// <summary>
             /// <para>下班时间</para>
             /// <para>必填：是</para>
-            /// <para>示例值：18:00，第二天凌晨2点，26:00</para>
+            /// <para>示例值：18:00， 第二天凌晨2点， 26:00</para>
             /// </summary>
             [JsonPropertyName("off_time")]
             public string OffTime { get; set; } = string.Empty;
@@ -180,17 +187,33 @@ public record GetAttendanceV1ShiftsResponseDto
             /// </summary>
             [JsonPropertyName("late_minutes_as_serious_late")]
             public int? LateMinutesAsSeriousLate { get; set; }
+
+            /// <summary>
+            /// <para>不需要打上班卡</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("no_need_on")]
+            public bool? NoNeedOn { get; set; }
+
+            /// <summary>
+            /// <para>不需要打下班卡（优先级比原有字段高）</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("no_need_off")]
+            public bool? NoNeedOff { get; set; }
         }
 
         /// <summary>
-        /// <para>晚走晚到规则</para>
+        /// <para>晚走晚到规则（仅飞书人事企业版可用）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("late_off_late_on_rule")]
         public LateOffLateOnRule[]? LateOffLateOnRules { get; set; }
 
         /// <summary>
-        /// <para>晚走晚到规则</para>
+        /// <para>晚走晚到规则（仅飞书人事企业版可用）</para>
         /// </summary>
         public record LateOffLateOnRule
         {
@@ -241,19 +264,19 @@ public record GetAttendanceV1ShiftsResponseDto
         }
 
         /// <summary>
-        /// <para>打卡规则</para>
+        /// <para>加班时段（仅飞书人事企业版可用）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("overtime_rule")]
         public OvertimeRule[]? OvertimeRules { get; set; }
 
         /// <summary>
-        /// <para>打卡规则</para>
+        /// <para>加班时段（仅飞书人事企业版可用）</para>
         /// </summary>
         public record OvertimeRule
         {
             /// <summary>
-            /// <para>上班时间</para>
+            /// <para>开始时间</para>
             /// <para>必填：是</para>
             /// <para>示例值：9:00</para>
             /// </summary>
@@ -261,12 +284,110 @@ public record GetAttendanceV1ShiftsResponseDto
             public string OnOvertime { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>下班时间</para>
+            /// <para>结束时间</para>
             /// <para>必填：是</para>
             /// <para>示例值：18:00</para>
             /// </summary>
             [JsonPropertyName("off_overtime")]
             public string OffOvertime { get; set; } = string.Empty;
+        }
+
+        /// <summary>
+        /// <para>日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("day_type")]
+        public int? DayType { get; set; }
+
+        /// <summary>
+        /// <para>班外休息规则</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("overtime_rest_time_rule")]
+        public RestRule[]? OvertimeRestTimeRules { get; set; }
+
+        /// <summary>
+        /// <para>晚到多久记为严重迟到（优先级比原有字段高）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：40</para>
+        /// </summary>
+        [JsonPropertyName("late_minutes_as_serious_late")]
+        public int? LateMinutesAsSeriousLate { get; set; }
+
+        /// <summary>
+        /// <para>半天分割规则（仅飞书人事企业版可用）</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("shift_middle_time_rule")]
+        public ShiftShiftMiddleTimeRule? ShiftMiddleTimeRule { get; set; }
+
+        /// <summary>
+        /// <para>半天分割规则（仅飞书人事企业版可用）</para>
+        /// </summary>
+        public record ShiftShiftMiddleTimeRule
+        {
+            /// <summary>
+            /// <para>半天分割类型</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>0：按全天班次时长（含休息）的中点分割</item>
+            /// <item>1：按全天班次时长（不含休息）的中点分割</item>
+            /// <item>2：按休息时间分割</item>
+            /// <item>3：按固定时间点分割</item>
+            /// </list></para>
+            /// <para>默认值：0</para>
+            /// </summary>
+            [JsonPropertyName("middle_time_type")]
+            public int? MiddleTimeType { get; set; }
+
+            /// <summary>
+            /// <para>固定分割时间点（middle_time_type 为 3 时有效）</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：12:00</para>
+            /// </summary>
+            [JsonPropertyName("fixed_middle_time")]
+            public string? FixedMiddleTime { get; set; }
+        }
+
+        /// <summary>
+        /// <para>晚走次日晚到配置规则</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("late_off_late_on_setting")]
+        public ShiftLateOffLateOnSetting? LateOffLateOnSetting { get; set; }
+
+        /// <summary>
+        /// <para>晚走次日晚到配置规则</para>
+        /// </summary>
+        public record ShiftLateOffLateOnSetting
+        {
+            /// <summary>
+            /// <para>当日晚走时间计算规则</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>0：弹性规则</item>
+            /// <item>1：固定规则</item>
+            /// </list></para>
+            /// <para>默认值：0</para>
+            /// </summary>
+            [JsonPropertyName("late_off_base_on_time_type")]
+            public int? LateOffBaseOnTimeType { get; set; }
+
+            /// <summary>
+            /// <para>次日晚到时间计算规则</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>0：固定规则</item>
+            /// <item>1：弹性规则</item>
+            /// </list></para>
+            /// <para>默认值：0</para>
+            /// </summary>
+            [JsonPropertyName("late_on_base_on_time_type")]
+            public int? LateOnBaseOnTimeType { get; set; }
         }
     }
 
