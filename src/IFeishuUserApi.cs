@@ -33,12 +33,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907568073252585474</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDNxYjL1QTM24SN0EjN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 和 range 向单个格子写入图片。</para>
+    /// <para>向电子表格某个工作表的单个指定单元格写入图片，支持传入图片的二进制流，支持多种图片格式。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet的token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -70,12 +73,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569523176783873</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukjMzUjL5IzM14SOyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 、range 和样式信息更新单元格样式；单次写入不超过5000行，100列。建议在设置边框样式时，每次更新的单元格数量不要超过30000个。</para>
+    /// <para>设置单元格中数据的样式。支持设置字体、背景、边框等样式。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，详见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -175,12 +181,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569524100055041</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATNzUjLwUzM14CM1MTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 和维度信息拆分单元格；单次操作不超过5000行，100列。</para>
+    /// <para>拆分电子表格工作表中的单元格。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -266,16 +274,21 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569524100857857</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMjMzUjLzIzM14yMyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于在已有数据的末尾追加写入给定的数据。该接口会从给定的range中的起始行列开始向下寻找（如range为"sheet1!A1:B2",将会依次寻找A1、A2、A3...），找到第一个空白位置后将数据写入到该区域。单次写入不得超过5000行，100列，每个格子不得超过5万字符。</para>
+    /// <para>在电子表格工作表的指定范围中，在空白位置中追加数据。例如，若指定范围参数 `range` 为 `6e5ed3!A1:B2`，该接口将会依次寻找 A1、A2、A3...单元格，在找到的第一个空白位置中写入数据。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="insertDataOption">
     /// <para>必填：否</para>
-    /// <para>遇到空行追加，默认 OVERWRITE，若空行的数量小于追加数据的行数，则会覆盖已有数据；可选 INSERT_ROWS ，会在插入足够数量的行后再进行数据追加</para>
+    /// <para>指定追加数据的方式，默认值为 OVERWRITE，即若空行数量小于追加数据的行数，则会覆盖已有数据。可选值：</para>
+    /// <para>- OVERWRITE：若空行的数量小于追加数据的行数，则会覆盖已有数据</para>
+    /// <para>- INSERT_ROWS：插入足够数量的行后再进行数据追加</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -410,12 +423,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569742383923202</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uAzMzUjLwMzM14CMzMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 、range和样式信息 批量更新单元格样式；单次写入不超过5000行，100列。建议在设置边框样式时，每次更新的单元格数量不要超过30000个。一个区域被多个range覆盖时，仅最后一个样式会被应用。</para>
+    /// <para>批量设置单元格中数据的样式。支持设置字体、背景、边框等样式。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -475,12 +490,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569742384381954</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uEjMzUjLxIzM14SMyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 和 range 向多个范围写入数据，若范围内有数据，将被更新覆盖；单次写入不超过5000行，100列，每个格子不超过5万字符。</para>
+    /// <para>向电子表格某个工作表的多个指定范围中写入数据。若指定范围已内有数据，将被新写入的数据覆盖。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -495,13 +513,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569742384398338</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uIjMzUjLyIzM14iMyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据 [SpreadsheetToken](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview#6d80ef81) 在其**特定工作表的指定范围**的开始位置上方增加若干行，并填充相应的数据。这里的工作表和范围是通过接口请求体中的`range`属性来确定的，例如：</para>
-    /// <para>"range": "8fe9d6!A2:B2"</para>
+    /// <para>在电子表格工作表的指定范围的起始位置上方增加若干行，并在该范围中填充数据。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>sheet的token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -516,39 +536,45 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569742384529410</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugTMzUjL4EzM14COxMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 和 range 读取表格单个范围的值，返回数据限制为10M。</para>
+    /// <para>读取电子表格中单个指定范围的数据。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，详见电子表格[概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="range">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>查询范围，包含 sheetId 与单元格范围两部分，详见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。若查询范围中使用形如 `&amp;lt;sheetId&amp;gt;!&amp;lt;开始单元格&amp;gt;:&amp;lt;结束列&amp;gt;`的范围时，仅支持获取100列数据</para>
+    /// <para>查询范围。格式为 `&lt;sheetId&gt;!&lt;开始位置&gt;:&lt;结束位置&gt;`。其中：</para>
+    /// <para>- `sheetId` 为工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取</para>
+    /// <para>- `&lt;开始位置&gt;:&lt;结束位置&gt;` 为工作表中单元格的范围，数字表示行索引，字母表示列索引。如 `A2:B2` 表示该工作表第 2 行的 A 列到 B 列。`range`支持四种写法，详情参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>**注意**：若使用 `&lt;sheetId&gt;!&lt;开始单元格&gt;:&lt;结束列&gt;` 和 `&lt;sheetId&gt;!&lt;开始列&gt;:&lt;结束列&gt;` 的写法时，仅支持获取 100 列数据。</para>
     /// </param>
     /// <param name="valueRenderOption">
     /// <para>必填：否</para>
-    /// <para>指定单元格数据的格式。可选值为如下所示。当参数缺省时，默认不进行公式计算，返回公式本身；数值不进行数字格式化。</para>
-    /// <para>- valueRenderOption=ToString：返回纯文本的值（数值类型除外）</para>
-    /// <para>- valueRenderOption=FormattedValue：计算并格式化单元格</para>
-    /// <para>- valueRenderOption=Formula：单元格中含有公式时，返回公式本身</para>
-    /// <para>- valueRenderOption=UnformattedValue：计算但不对单元格进行格式化</para>
+    /// <para>指定单元格数据的格式。可选值如下所示。当参数缺省时，默认不进行公式计算，返回公式本身，且单元格为数值格式。</para>
+    /// <para>- ToString：返回纯文本的值（数值类型除外）</para>
+    /// <para>- Formula：单元格中含有公式时，返回公式本身</para>
+    /// <para>- FormattedValue：计算并格式化单元格</para>
+    /// <para>- UnformattedValue：计算但不对单元格进行格式化</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dateTimeRenderOption">
     /// <para>必填：否</para>
     /// <para>指定数据类型为日期、时间、或时间日期的单元格数据的格式。</para>
-    /// <para>- 当参数缺省时，默认返回浮点数值，整数部分为自 1899 年 12 月 30 日以来的天数；小数部分为该时间占 24 小时的份额。例如：若时间为 1900 年 1 月 1 日中午 12 点，则默认返回 2.5。其中，2 表示 1900 年 1 月 1 日为 1899 年12 月 30 日之后的 2 天；0.5 表示 12 点占 24 小时的二分之一，即 12/24=0.5。</para>
-    /// <para>- dateTimeRenderOption=FormattedString：计算并对时间、日期类型数据进行格式化，但不会对数字进行格式化。将返回格式化后的字符串。详见[电子表格常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/guide/sheets-faq)</para>
+    /// <para>- 若不传值，默认返回浮点数值，整数部分为自 1899 年 12 月 30 日以来的天数；小数部分为该时间占 24 小时的份额。例如：若时间为 1900 年 1 月 1 日中午 12 点，则默认返回 2.5。其中，2 表示 1900 年 1 月 1 日为 1899 年12 月 30 日之后的 2 天；0.5 表示 12 点占 24 小时的二分之一，即 12/24=0.5。</para>
+    /// <para>- 可选值为 FormattedString，此时接口将计算并对日期、时间、或时间日期类型的数据格式化并返回格式化后的字符串，但不会对数字进行格式化。</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
-    /// <para>当单元格中包含@用户等涉及用户信息的元素时，该参数可指定返回的用户 ID 类型。默认为 lark_id，建议选择 open_id 或 union_id。了解更多，参考[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。</para>
-    /// <para>- open_id：用户在应用内的身份。 同一个 user_id 在不同应用中的 open_id 不同，其值统一以 ou_ 为前缀，如`ou_c99c5f35d542efc7ee492afe11af19ef`。</para>
-    /// <para>- union_id：用户在同一应用服务商提供的多个应用间的统一身份。</para>
+    /// <para>当单元格中包含@用户等涉及用户信息的元素时，该参数可指定返回的用户 ID 类型。默认为 `lark_id`，建议选择 `open_id` 或 `union_id`。了解更多，参考[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。可选值：</para>
+    /// <para>- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。了解更多：[如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
+    /// <para>- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。了解更多：[如何获取 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -584,12 +610,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569742387707906</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukDNzUjL5QzM14SO0MTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 和维度信息合并单元格；单次操作不超过5000行，100列。</para>
+    /// <para>合并电子表格工作表中的单元格。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -677,18 +705,55 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569743420325890</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukTMzUjL5EzM14SOxMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 和 ranges 读取表格多个范围的值，返回数据限制为10M。</para>
+    /// <para>读取电子表格中多个指定范围的数据。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
+    /// </param>
+    /// <param name="ranges">
+    /// <para>必填：是</para>
+    /// <para>多个查询范围，范围之间使用逗号分隔，如 `Q7PlXT!A2:B6,0b6377!B1:C8`。range 的格式为 `&lt;sheetId&gt;!&lt;开始位置&gt;:&lt;结束位置&gt;`。其中：</para>
+    /// <para>- `sheetId` 为工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取</para>
+    /// <para>- `&lt;开始位置&gt;:&lt;结束位置&gt;` 为工作表中单元格的范围，数字表示行索引，字母表示列索引。如 `A2:B2` 表示该工作表第 2 行的 A 列到 B 列。`range`支持四种写法，详情参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>**注意**：若使用 `&lt;sheetId&gt;!&lt;开始单元格&gt;:&lt;结束列&gt;` 的写法时，仅支持获取 100 列数据。</para>
+    /// </param>
+    /// <param name="valueRenderOption">
+    /// <para>必填：否</para>
+    /// <para>指定单元格数据的格式。可选值如下所示。当参数缺省时，默认不进行公式计算，返回公式本身，且单元格为数值格式。</para>
+    /// <para>- ToString：返回纯文本的值（数值类型除外）</para>
+    /// <para>- Formula：单元格中含有公式时，返回公式本身</para>
+    /// <para>- FormattedValue：计算并格式化单元格</para>
+    /// <para>- UnformattedValue：计算但不对单元格进行格式化</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dateTimeRenderOption">
+    /// <para>必填：否</para>
+    /// <para>指定数据类型为日期、时间、或时间日期的单元格数据的格式。</para>
+    /// <para>- 若不传值，默认返回浮点数值，整数部分为自 1899 年 12 月 30 日以来的天数；小数部分为该时间占 24 小时的份额。例如：若时间为 1900 年 1 月 1 日中午 12 点，则默认返回 2.5。其中，2 表示 1900 年 1 月 1 日为 1899 年12 月 30 日之后的 2 天；0.5 表示 12 点占 24 小时的二分之一，即 12/24=0.5。</para>
+    /// <para>- 可选值为 FormattedString，此时接口将计算并对日期、时间、或时间日期类型的数据格式化并返回格式化后的字符串，但不会对数字进行格式化。</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>当单元格中包含@用户等涉及用户信息的元素时，该参数可指定返回的用户 ID 类型。默认为 `lark_id`，建议选择 `open_id` 或 `union_id`。了解更多，参考[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。可选值：</para>
+    /// <para>- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。了解更多：[如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
+    /// <para>- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。了解更多：[如何获取 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
+    /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchGetResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchGetAsync(
         UserAccessToken access_token,
-        [PathQuery] string spreadsheetToken);
+        [PathQuery] string spreadsheetToken,
+        [PathQuery] string ranges,
+        [PathQuery] string? valueRenderOption = null,
+        [PathQuery] string? dateTimeRenderOption = null,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【云文档】获取元数据</para>
@@ -794,12 +859,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569745298980866</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uAjMzUjLwIzM14CMyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 和 range 向单个范围写入数据，若范围内有数据，将被更新覆盖；单次写入不超过5000行，100列，每个格子不超过5万字符。</para>
+    /// <para>向电子表格某个工作表的单个指定范围中写入数据。若指定范围已内有数据，将被新写入的数据覆盖。</para>
     /// </summary>
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet的token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -5956,14 +6024,16 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)</para>
-    /// <para>示例值：shtcnmBA*****yGehy8</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)</para>
-    /// <para>示例值：0b**12</para>
+    /// <para>工作表的 ID，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)。</para>
+    /// <para>示例值：PNIfrm</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -5979,19 +6049,21 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6982374372208607234</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/replace</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>按照指定的条件查找子表的某个范围内的数据符合条件的单元格并替换值，返回替换成功的单元格位置。一次请求最多允许替换5000个单元格，如果超过请将range缩小范围再操作。请求体中的 range、find、replacement 字段必填。</para>
+    /// <para>在指定范围内，查找并替换符合查找条件的单元格。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>Spreadsheet token</para>
-    /// <para>示例值：shtcnmBA*****yGehy8</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>Sheet id</para>
-    /// <para>示例值：0b**12</para>
+    /// <para>工作表的 ID，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)。</para>
+    /// <para>示例值：PNIfrm</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>

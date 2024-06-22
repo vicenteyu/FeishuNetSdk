@@ -23,7 +23,7 @@ public record PostSuiteDocsApiSearchObjectBodyDto
     public int? Count { get; set; }
 
     /// <summary>
-    /// <para>指定搜索的偏移量，该参数最小为 0，即不偏移。该参数的值与返回的文件数量之和不得小于或等于 200（即 offset + count &amp;lt; 200）。</para>
+    /// <para>指定搜索的偏移量，该参数最小为 0，即不偏移。该参数的值与返回的文件数量之和不得小于或等于 200（即 offset + count &lt; 200）。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("offset")]

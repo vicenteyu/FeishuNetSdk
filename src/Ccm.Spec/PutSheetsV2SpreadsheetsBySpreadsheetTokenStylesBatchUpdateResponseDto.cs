@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 批量设置单元格样式  响应体
-/// <para>该接口用于根据 spreadsheetToken 、range和样式信息 批量更新单元格样式；单次写入不超过5000行，100列。建议在设置边框样式时，每次更新的单元格数量不要超过30000个。一个区域被多个range覆盖时，仅最后一个样式会被应用。</para>
+/// <para>批量设置单元格中数据的样式。支持设置字体、背景、边框等样式。</para>
 /// <para>接口ID：6907569742383923202</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/sheets-v3/data-operation/batch-set-cell-style</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuAzMzUjLwMzM14CMzMTN</para>
@@ -9,7 +9,7 @@ namespace FeishuNetSdk.Ccm.Spec;
 public record PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateResponseDto
 {
     /// <summary>
-    /// <para>spreadsheet 的 token</para>
+    /// <para>电子表格的 token</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("spreadsheetToken")]
@@ -37,7 +37,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateResponse
     public int? TotalUpdatedCells { get; set; }
 
     /// <summary>
-    /// <para>sheet 的版本号</para>
+    /// <para>工作表的版本号。从 0 开始计数，更新一次版本号加一。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("revision")]
@@ -54,7 +54,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateResponse
     public record Response
     {
         /// <summary>
-        /// <para>spreadsheet 的 token</para>
+        /// <para>电子表格的 token</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("spreadsheetToken")]
@@ -82,7 +82,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateResponse
         public int? UpdatedColumns { get; set; }
 
         /// <summary>
-        /// <para>设置样式的单元格数</para>
+        /// <para>设置样式的单元格总数</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("updatedCells")]

@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 拆分单元格 请求体
-/// <para>该接口用于根据 spreadsheetToken 和维度信息拆分单元格；单次操作不超过5000行，100列。</para>
+/// <para>拆分电子表格工作表中的单元格。</para>
 /// <para>接口ID：6907569524100055041</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/sheets-v3/data-operation/split-cells</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuATNzUjLwUzM14CM1MTN</para>
@@ -9,7 +9,9 @@ namespace FeishuNetSdk.Ccm.Spec;
 public record PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsBodyDto
 {
     /// <summary>
-    /// <para>查询范围，包含 sheetId 与单元格范围两部分，目前支持四种索引方式，详见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>要拆分的单元格的范围，格式为 `&lt;sheetId&gt;!&lt;开始位置&gt;:&lt;结束位置&gt;`。其中：</para>
+    /// <para>- `sheetId` 为工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取</para>
+    /// <para>- `&lt;开始位置&gt;:&lt;结束位置&gt;` 为工作表中单元格的范围，数字表示行索引，字母表示列索引。如 `A2:B2` 表示该工作表第 2 行的 A 列到 B 列。`range`支持四种写法，详情参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("range")]

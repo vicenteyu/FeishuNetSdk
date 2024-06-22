@@ -1,7 +1,7 @@
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 向多个范围写入数据 响应体
-/// <para>该接口用于根据 spreadsheetToken 和 range 向多个范围写入数据，若范围内有数据，将被更新覆盖；单次写入不超过5000行，100列，每个格子不超过5万字符。</para>
+/// <para>向电子表格某个工作表的多个指定范围中写入数据。若指定范围已内有数据，将被新写入的数据覆盖。</para>
 /// <para>接口ID：6907569742384381954</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/sheets-v3/data-operation/write-data-to-multiple-ranges</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuEjMzUjLxIzM14SMyMTN</para>
@@ -9,7 +9,7 @@ namespace FeishuNetSdk.Ccm.Spec;
 public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateResponseDto
 {
     /// <summary>
-    /// <para>响应</para>
+    /// <para>所有写入数据的范围</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("responses")]
@@ -19,7 +19,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateRespons
     public record Response
     {
         /// <summary>
-        /// <para>spreadsheet 的 token</para>
+        /// <para>电子表格的 token</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("spreadsheetToken")]
@@ -55,14 +55,14 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateRespons
     }
 
     /// <summary>
-    /// <para>sheet 的版本号</para>
+    /// <para>工作表的版本号。从 0 开始计数，更新一次版本号加一。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("revision")]
     public int? Revision { get; set; }
 
     /// <summary>
-    /// <para>spreadsheet 的 token</para>
+    /// <para>电子表格的 token</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("spreadsheetToken")]
