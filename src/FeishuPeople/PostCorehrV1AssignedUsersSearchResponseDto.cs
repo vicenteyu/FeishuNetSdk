@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostCorehrV1AssignedUsersSearchResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取组织类角色授权列表 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取组织类角色授权列表 响应体

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostWorkplaceV1CustomWorkplaceAccessDataSearchResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取定制工作台访问数据 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Workplace;
 /// <summary>
 /// 获取定制工作台访问数据 响应体

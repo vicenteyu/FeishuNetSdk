@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostAuthV3AppTicketResendBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>重新获取 app_ticket 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Auth.Spec;
 /// <summary>
 /// 重新获取 app_ticket 请求体

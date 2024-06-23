@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostMeetingRoomBuildingUpdateBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>更新建筑物 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 更新建筑物 请求体

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>更新表单元数据 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新表单元数据 请求体

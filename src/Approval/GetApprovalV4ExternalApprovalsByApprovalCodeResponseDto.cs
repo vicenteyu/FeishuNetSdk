@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>查看指定三方审批定义 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 查看指定三方审批定义 响应体

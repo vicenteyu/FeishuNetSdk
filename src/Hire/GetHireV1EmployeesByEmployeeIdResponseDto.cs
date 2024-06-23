@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetHireV1EmployeesByEmployeeIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>通过员工 ID 获取入职信息 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 通过员工 ID 获取入职信息 响应体

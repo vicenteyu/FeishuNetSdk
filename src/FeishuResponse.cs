@@ -1,6 +1,18 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="FeishuResponse.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>响应体</summary>
+// ************************************************************************
 global using System.Text.Json.Serialization;
 namespace FeishuNetSdk;
-
 /// <summary>
 /// 响应体
 /// </summary>

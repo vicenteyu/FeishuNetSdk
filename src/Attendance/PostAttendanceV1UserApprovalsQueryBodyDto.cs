@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostAttendanceV1UserApprovalsQueryBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取审批通过数据 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 获取审批通过数据 请求体

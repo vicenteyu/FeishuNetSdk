@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostHelpdeskV1StartServiceResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>创建服务台对话 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 创建服务台对话 响应体

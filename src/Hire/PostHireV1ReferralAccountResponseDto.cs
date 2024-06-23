@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostHireV1ReferralAccountResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>注册外部系统内推账户 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 注册外部系统内推账户 响应体

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostHelpdeskV1MessageResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>服务台机器人向工单绑定的群内发送消息 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 服务台机器人向工单绑定的群内发送消息 响应体

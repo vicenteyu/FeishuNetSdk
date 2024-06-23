@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostHireV1EcoBackgroundChecksUpdateResultBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>回传背调订单的最终结果 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 回传背调订单的最终结果 请求体

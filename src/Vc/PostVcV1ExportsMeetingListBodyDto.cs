@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostVcV1ExportsMeetingListBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>导出会议明细 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 导出会议明细 请求体

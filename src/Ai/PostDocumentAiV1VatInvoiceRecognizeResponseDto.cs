@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostDocumentAiV1VatInvoiceRecognizeResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>识别文件中的增值税发票 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 识别文件中的增值税发票 响应体

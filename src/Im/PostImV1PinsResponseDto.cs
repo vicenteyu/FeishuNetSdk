@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostImV1PinsResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>Pin 消息 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// Pin 消息 响应体

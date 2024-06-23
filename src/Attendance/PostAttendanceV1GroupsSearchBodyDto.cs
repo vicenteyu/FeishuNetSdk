@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostAttendanceV1GroupsSearchBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>按名称查询考勤组 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 按名称查询考勤组 请求体

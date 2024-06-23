@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostDocV2CreateResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>创建旧版文档 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 创建旧版文档 响应体

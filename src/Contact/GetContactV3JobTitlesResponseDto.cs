@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetContactV3JobTitlesResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取租户职务列表 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取租户职务列表 响应体

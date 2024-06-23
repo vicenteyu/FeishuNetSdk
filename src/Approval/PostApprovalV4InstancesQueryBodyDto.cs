@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostApprovalV4InstancesQueryBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>查询实例列表 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 查询实例列表 请求体

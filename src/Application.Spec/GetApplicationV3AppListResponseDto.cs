@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetApplicationV3AppListResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取企业安装的应用 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Application.Spec;
 /// <summary>
 /// 获取企业安装的应用 响应体

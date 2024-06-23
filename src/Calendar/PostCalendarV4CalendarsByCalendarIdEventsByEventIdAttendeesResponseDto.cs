@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>添加日程参与人 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 添加日程参与人 响应体

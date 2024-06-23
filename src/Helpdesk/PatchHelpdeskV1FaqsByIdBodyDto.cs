@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PatchHelpdeskV1FaqsByIdBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>修改知识库 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 修改知识库 请求体

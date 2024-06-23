@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetEventV1OutboundIpResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取事件出口 IP 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Event;
 /// <summary>
 /// 获取事件出口 IP 响应体

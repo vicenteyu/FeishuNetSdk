@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostMessageV4BatchSendResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>批量发送消息 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Im.Spec;
 /// <summary>
 /// 批量发送消息 响应体

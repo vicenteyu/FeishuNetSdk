@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostBitableV1AppsByAppTokenTablesBatchCreateBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>新增多个数据表 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增多个数据表 请求体

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>移动云空间文档至知识空间 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 移动云空间文档至知识空间 响应体

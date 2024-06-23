@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostBaikeV1EntitiesSearchResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>模糊搜索词条 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Baike;
 /// <summary>
 /// 模糊搜索词条 响应体

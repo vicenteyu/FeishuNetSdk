@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PatchCorehrV2PreHiresByPreHireIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>更新待入职信息（推荐） 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 更新待入职信息（推荐） 响应体

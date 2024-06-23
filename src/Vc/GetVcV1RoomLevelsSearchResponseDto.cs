@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetVcV1RoomLevelsSearchResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>搜索会议室层级 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 搜索会议室层级 响应体

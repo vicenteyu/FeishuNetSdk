@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取可补卡时间 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 获取可补卡时间 响应体

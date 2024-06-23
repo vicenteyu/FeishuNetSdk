@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>检索记录 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 检索记录 响应体

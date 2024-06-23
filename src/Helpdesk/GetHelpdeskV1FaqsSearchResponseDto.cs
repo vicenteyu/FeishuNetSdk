@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetHelpdeskV1FaqsSearchResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>搜索知识库 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 搜索知识库 响应体

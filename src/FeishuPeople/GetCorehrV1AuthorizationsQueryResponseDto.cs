@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetCorehrV1AuthorizationsQueryResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>批量查询用户授权 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量查询用户授权 响应体

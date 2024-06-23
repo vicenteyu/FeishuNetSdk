@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="DeleteImV2AppFeedCardBatchBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>删除应用消息流卡片 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 删除应用消息流卡片 请求体

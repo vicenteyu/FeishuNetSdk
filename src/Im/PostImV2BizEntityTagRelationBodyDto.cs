@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostImV2BizEntityTagRelationBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>绑定标签到群 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 绑定标签到群 请求体

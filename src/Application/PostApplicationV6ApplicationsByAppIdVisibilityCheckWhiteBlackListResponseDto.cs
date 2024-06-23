@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostApplicationV6ApplicationsByAppIdVisibilityCheckWhiteBlackListResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>查询用户或部门是否在应用的可用或禁用名单 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 查询用户或部门是否在应用的可用或禁用名单 响应体

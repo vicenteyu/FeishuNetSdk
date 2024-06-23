@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>查询工作表 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 查询工作表 响应体

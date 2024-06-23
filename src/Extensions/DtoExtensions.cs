@@ -1,4 +1,17 @@
-﻿namespace FeishuNetSdk
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="DtoExtensions.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary></summary>
+// ************************************************************************
+namespace FeishuNetSdk
 {
     /// <summary>
     /// DTO扩展方法

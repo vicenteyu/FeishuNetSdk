@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostDriveV1MediasUploadPartBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>分片上传素材-上传分片 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 分片上传素材-上传分片 请求体

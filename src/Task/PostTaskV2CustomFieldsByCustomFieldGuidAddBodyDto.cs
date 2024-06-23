@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostTaskV2CustomFieldsByCustomFieldGuidAddBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>将自定义字段加入资源 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Task;
 /// <summary>
 /// 将自定义字段加入资源 请求体

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostMinaV2TokenLoginValidateBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取 user_access_token（小程序） 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Auth.Spec;
 /// <summary>
 /// 获取 user_access_token（小程序） 请求体

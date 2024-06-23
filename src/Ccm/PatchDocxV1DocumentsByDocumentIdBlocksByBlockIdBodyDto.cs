@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PatchDocxV1DocumentsByDocumentIdBlocksByBlockIdBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>更新块的内容 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 更新块的内容 请求体

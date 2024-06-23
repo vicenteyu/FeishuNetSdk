@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetAttendanceV1GroupsResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>查询所有考勤组 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询所有考勤组 响应体

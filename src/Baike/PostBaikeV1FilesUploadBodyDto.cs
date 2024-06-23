@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostBaikeV1FilesUploadBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>上传图片 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Baike;
 /// <summary>
 /// 上传图片 请求体

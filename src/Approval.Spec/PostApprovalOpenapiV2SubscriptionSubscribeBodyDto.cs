@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostApprovalOpenapiV2SubscriptionSubscribeBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>订阅审批事件 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 订阅审批事件 请求体

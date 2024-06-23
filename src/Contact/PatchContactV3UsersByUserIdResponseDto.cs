@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PatchContactV3UsersByUserIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>修改用户部分信息 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 修改用户部分信息 响应体

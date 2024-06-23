@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetCorehrV2ProcessesByProcessIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取单个流程详情 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 获取单个流程详情 响应体

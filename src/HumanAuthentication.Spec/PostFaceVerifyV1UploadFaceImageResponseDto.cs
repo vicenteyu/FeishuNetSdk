@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostFaceVerifyV1UploadFaceImageResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>上传人脸基准图片 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.HumanAuthentication.Spec;
 /// <summary>
 /// 上传人脸基准图片 响应体

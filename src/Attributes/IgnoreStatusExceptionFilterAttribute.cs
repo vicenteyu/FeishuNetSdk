@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="IgnoreStatusExceptionFilterAttribute.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>忽略状态异常</summary>
+// ************************************************************************
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System.Text.Json;

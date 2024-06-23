@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetImV1ChatsByChatIdChatTabsListTabsResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>拉取会话标签页 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 拉取会话标签页 响应体

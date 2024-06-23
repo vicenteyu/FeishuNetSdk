@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetDriveV1MediasBatchGetTmpDownloadUrlResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取素材临时下载链接 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取素材临时下载链接 响应体

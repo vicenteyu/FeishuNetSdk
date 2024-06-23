@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetDocV2ByDocTokenContentResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取旧版文档富文本内容 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取旧版文档富文本内容 响应体

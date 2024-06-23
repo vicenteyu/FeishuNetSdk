@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostSearchV2SchemasResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>创建数据范式 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Search.Spec;
 /// <summary>
 /// 创建数据范式 响应体

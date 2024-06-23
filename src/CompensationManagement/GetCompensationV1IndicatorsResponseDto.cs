@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetCompensationV1IndicatorsResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>批量查询薪资统计指标 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.CompensationManagement;
 /// <summary>
 /// 批量查询薪资统计指标 响应体

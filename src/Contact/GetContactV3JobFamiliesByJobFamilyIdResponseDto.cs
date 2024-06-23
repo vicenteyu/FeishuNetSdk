@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetContactV3JobFamiliesByJobFamilyIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取单个序列信息 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取单个序列信息 响应体

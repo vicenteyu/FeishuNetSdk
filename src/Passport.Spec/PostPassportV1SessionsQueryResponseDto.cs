@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostPassportV1SessionsQueryResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>批量获取脱敏的用户登录信息 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Passport.Spec;
 /// <summary>
 /// 批量获取脱敏的用户登录信息 响应体

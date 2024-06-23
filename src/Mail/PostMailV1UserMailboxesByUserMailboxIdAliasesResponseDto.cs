@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostMailV1UserMailboxesByUserMailboxIdAliasesResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>创建用户邮箱别名 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 创建用户邮箱别名 响应体

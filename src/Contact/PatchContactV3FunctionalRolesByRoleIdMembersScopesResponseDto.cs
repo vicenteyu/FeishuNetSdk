@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PatchContactV3FunctionalRolesByRoleIdMembersScopesResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>批量设置角色成员管理范围 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 批量设置角色成员管理范围 响应体

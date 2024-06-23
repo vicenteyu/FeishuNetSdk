@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostApprovalOpenapiV2ApprovalGetResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>查看审批定义 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 查看审批定义 响应体

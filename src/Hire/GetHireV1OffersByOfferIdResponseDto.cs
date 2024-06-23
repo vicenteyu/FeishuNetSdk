@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetHireV1OffersByOfferIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取 Offer 详情 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取 Offer 详情 响应体

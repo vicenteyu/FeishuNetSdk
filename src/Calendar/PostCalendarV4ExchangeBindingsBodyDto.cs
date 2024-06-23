@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostCalendarV4ExchangeBindingsBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>将 Exchange 账户绑定到飞书账户 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 将 Exchange 账户绑定到飞书账户 请求体

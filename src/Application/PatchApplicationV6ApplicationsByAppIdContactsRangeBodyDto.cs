@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PatchApplicationV6ApplicationsByAppIdContactsRangeBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>更新应用通讯录权限范围配置 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 更新应用通讯录权限范围配置 请求体

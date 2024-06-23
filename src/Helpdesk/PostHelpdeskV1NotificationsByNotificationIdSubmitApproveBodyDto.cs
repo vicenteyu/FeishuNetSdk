@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostHelpdeskV1NotificationsByNotificationIdSubmitApproveBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>提交审核 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 提交审核 请求体

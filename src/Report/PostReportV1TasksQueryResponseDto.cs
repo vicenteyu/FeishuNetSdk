@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostReportV1TasksQueryResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>查询任务 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Report;
 /// <summary>
 /// 查询任务 响应体

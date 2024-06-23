@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetImV1ChatsSearchResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>搜索对用户或机器人可见的群列表 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 搜索对用户或机器人可见的群列表 响应体

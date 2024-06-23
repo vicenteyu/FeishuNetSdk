@@ -1,4 +1,17 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="TenantAccessTokenProvider.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary></summary>
+// ************************************************************************
+using Microsoft.Extensions.DependencyInjection;
 using WebApiClientCore.Extensions.OAuths;
 using WebApiClientCore.Extensions.OAuths.Exceptions;
 using WebApiClientCore.Extensions.OAuths.TokenProviders;

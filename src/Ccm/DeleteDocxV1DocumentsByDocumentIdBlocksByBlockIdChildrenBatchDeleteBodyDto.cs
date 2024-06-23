@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDeleteBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>删除块 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 删除块 请求体

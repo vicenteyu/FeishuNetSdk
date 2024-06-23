@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetDocxV1DocumentsByDocumentIdRawContentResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取文档纯文本内容 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取文档纯文本内容 响应体

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostOkrV1ImagesUploadResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>上传进展记录图片 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Okr;
 /// <summary>
 /// 上传进展记录图片 响应体

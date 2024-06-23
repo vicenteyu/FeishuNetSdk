@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>更新回复的内容 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 更新回复的内容 请求体

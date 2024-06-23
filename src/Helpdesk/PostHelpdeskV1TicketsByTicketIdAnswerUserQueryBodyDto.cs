@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostHelpdeskV1TicketsByTicketIdAnswerUserQueryBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>回复用户在工单里的提问 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 回复用户在工单里的提问 请求体

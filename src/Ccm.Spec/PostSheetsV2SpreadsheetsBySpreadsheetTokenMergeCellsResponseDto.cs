@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>合并单元格 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 合并单元格 响应体

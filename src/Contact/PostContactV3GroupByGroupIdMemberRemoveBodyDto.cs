@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostContactV3GroupByGroupIdMemberRemoveBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>移除用户组成员 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 移除用户组成员 请求体

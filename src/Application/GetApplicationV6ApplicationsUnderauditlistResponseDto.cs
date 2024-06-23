@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetApplicationV6ApplicationsUnderauditlistResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>查看待审核的应用列表 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 查看待审核的应用列表 响应体

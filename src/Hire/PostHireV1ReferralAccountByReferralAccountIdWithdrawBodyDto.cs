@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostHireV1ReferralAccountByReferralAccountIdWithdrawBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>全额提取内推账号余额 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 全额提取内推账号余额 请求体

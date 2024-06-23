@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PatchImV1MessagesByMessageIdUrgentPhoneBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>发送电话加急 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 发送电话加急 请求体

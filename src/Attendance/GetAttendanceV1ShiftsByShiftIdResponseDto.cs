@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetAttendanceV1ShiftsByShiftIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>按 ID 查询班次 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 按 ID 查询班次 响应体

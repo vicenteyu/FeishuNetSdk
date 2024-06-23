@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostCorehrV1JobLevelsBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>创建职级 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 创建职级 请求体

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetMailV1MailgroupsByMailgroupIdPermissionMembersResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>批量获取邮件组权限成员 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 批量获取邮件组权限成员 响应体

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetContactV3GroupMemberBelongResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>查询用户所属用户组 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 查询用户所属用户组 响应体

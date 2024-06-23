@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostCalendarV4FreebusyListBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>查询主日历日程忙闲信息 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 查询主日历日程忙闲信息 请求体

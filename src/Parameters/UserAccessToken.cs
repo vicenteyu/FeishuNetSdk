@@ -1,4 +1,17 @@
-﻿using System.Net.Http.Headers;
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="UserAccessToken.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>用户凭证</summary>
+// ************************************************************************
+using System.Net.Http.Headers;
 using WebApiClientCore;
 
 namespace FeishuNetSdk.Parameters

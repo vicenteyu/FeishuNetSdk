@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetAdminV1AdminDeptStatsResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取部门维度的用户活跃和功能使用数据 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Admin;
 /// <summary>
 /// 获取部门维度的用户活跃和功能使用数据 响应体

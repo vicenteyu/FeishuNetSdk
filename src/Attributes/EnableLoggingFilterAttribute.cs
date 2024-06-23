@@ -1,4 +1,17 @@
-﻿using FeishuNetSdk;
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="EnableLoggingFilterAttribute.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>启用日志</summary>
+// ************************************************************************
+using FeishuNetSdk;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 

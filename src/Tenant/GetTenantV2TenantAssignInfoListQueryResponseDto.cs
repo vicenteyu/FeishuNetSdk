@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetTenantV2TenantAssignInfoListQueryResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取企业席位信息接口 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tenant;
 /// <summary>
 /// 获取企业席位信息接口 响应体

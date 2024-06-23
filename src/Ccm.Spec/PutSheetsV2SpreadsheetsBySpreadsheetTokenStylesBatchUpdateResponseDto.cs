@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>批量设置单元格样式  响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 批量设置单元格样式  响应体

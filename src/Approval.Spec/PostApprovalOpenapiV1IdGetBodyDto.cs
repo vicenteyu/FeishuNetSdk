@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostApprovalOpenapiV1IdGetBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>查询审批 ID（专用） 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 查询审批 ID（专用） 请求体

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostWikiV1NodesSearchBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>搜索 Wiki 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 搜索 Wiki 请求体

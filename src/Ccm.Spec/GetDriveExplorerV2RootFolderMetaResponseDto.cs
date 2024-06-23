@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetDriveExplorerV2RootFolderMetaResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取我的空间（root folder）元数据 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取我的空间（root folder）元数据 响应体

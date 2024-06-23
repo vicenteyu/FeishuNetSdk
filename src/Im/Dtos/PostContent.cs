@@ -1,4 +1,17 @@
-﻿namespace FeishuNetSdk.Im.Dtos
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostContent.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>富文本消息</summary>
+// ************************************************************************
+namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
     /// 富文本消息

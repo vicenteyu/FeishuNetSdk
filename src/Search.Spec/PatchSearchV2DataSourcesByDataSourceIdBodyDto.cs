@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PatchSearchV2DataSourcesByDataSourceIdBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>修改数据源 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Search.Spec;
 /// <summary>
 /// 修改数据源 请求体

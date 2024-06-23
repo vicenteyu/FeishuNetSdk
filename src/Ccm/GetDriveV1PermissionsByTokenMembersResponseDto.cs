@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetDriveV1PermissionsByTokenMembersResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取协作者列表（新版本） 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取协作者列表（新版本） 响应体

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetApplicationV2AppVisibilityResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取应用在企业内的可用范围 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Application.Spec;
 /// <summary>
 /// 获取应用在企业内的可用范围 响应体

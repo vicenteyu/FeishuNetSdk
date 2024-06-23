@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="GetEhrV1EmployeesResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>批量获取员工花名册信息 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Ehr;
 /// <summary>
 /// 批量获取员工花名册信息 响应体

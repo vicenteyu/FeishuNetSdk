@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostSearchV2DataSourcesByDataSourceIdItemsBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>为指定数据项创建索引 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Search.Spec;
 /// <summary>
 /// 为指定数据项创建索引 请求体

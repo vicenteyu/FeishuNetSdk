@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取多部门应用使用概览 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Application;
 /// <summary>
 /// 获取多部门应用使用概览 响应体

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostMeetingRoomInstanceReplyBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>回复会议室日程实例 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 回复会议室日程实例 请求体

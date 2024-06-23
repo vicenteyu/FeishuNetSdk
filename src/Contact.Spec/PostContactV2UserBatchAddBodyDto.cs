@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostContactV2UserBatchAddBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>批量新增用户 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 批量新增用户 请求体

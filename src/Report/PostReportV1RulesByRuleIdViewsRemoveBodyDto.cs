@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-24
+// ************************************************************************
+// <copyright file="PostReportV1RulesByRuleIdViewsRemoveBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>移除规则看板 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Report;
 /// <summary>
 /// 移除规则看板 请求体
