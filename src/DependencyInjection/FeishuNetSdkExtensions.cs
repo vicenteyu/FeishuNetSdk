@@ -38,7 +38,8 @@ namespace Microsoft.Extensions.DependencyInjection
         private static IServiceCollection AddFeishuNetSdk(this IServiceCollection services,
             FeishuNetSdkOptions options)
         {
-            services.AddWebApiClient();
+            services.AddWebApiClient()
+                .UseJsonFirstApiActionDescriptor();
 
             services.AddHttpApi<IFeishuApi>();
             services.AddHttpApi<IFeishuAppApi>();
