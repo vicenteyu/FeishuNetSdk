@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="PostHireV1ExternalBackgroundChecksResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -74,7 +74,7 @@ public record PostHireV1ExternalBackgroundChecksResponseDto
         public string? Result { get; set; }
 
         /// <summary>
-        /// <para>背调附件ID列表</para>
+        /// <para>背调附件ID列表 (已弃用）</para>
         /// <para>必填：否</para>
         /// <para>示例值：6989181065243969836</para>
         /// </summary>

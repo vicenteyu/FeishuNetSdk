@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="PostHireV1JobsByJobIdCombinedUpdateResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新职位 响应体
-/// <para>更新职位信息，该接口为全量更新，若字段没有返回值，则原有值将会被清空。字段的是否必填，将以系统中的「职位字段管理」中的设置为准。</para>
+/// <para>更新职位信息。</para>
 /// <para>接口ID：7012986483075497985</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/job/combined_update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fjob%2fcombined_update</para>
@@ -304,7 +304,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
             /// <summary>
             /// <para>职位亮点英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Positiveteamatmosphere</para>
+            /// <para>示例值：Positive team atmosphere</para>
             /// </summary>
             [JsonPropertyName("en_name")]
             public string? EnName { get; set; }
@@ -417,7 +417,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
         public string? CreateUserId { get; set; }
 
         /// <summary>
-        /// <para>创建时间 请使用create_timestamp</para>
+        /// <para>创建时间，此字段已废弃，请使用create_timestamp</para>
         /// <para>必填：否</para>
         /// <para>示例值：1617170925462</para>
         /// </summary>
@@ -425,7 +425,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
         public int? CreateTime { get; set; }
 
         /// <summary>
-        /// <para>更新时间 请使用update_timestamp</para>
+        /// <para>更新时间，此字段已废弃，请使用update_timestamp</para>
         /// <para>必填：否</para>
         /// <para>示例值：1617170925462</para>
         /// </summary>
@@ -489,14 +489,14 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
             public string? ObjectId { get; set; }
 
             /// <summary>
-            /// <para>字段名称</para>
+            /// <para>自定义字段名称</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
-            /// <para>字段名称</para>
+            /// <para>自定义字段名称</para>
             /// </summary>
             public record I18n
             {
@@ -675,7 +675,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
         public record IdNameObject
         {
             /// <summary>
-            /// <para>ID</para>
+            /// <para>职能ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：1213213123123</para>
             /// </summary>
@@ -683,19 +683,19 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>职能名称</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>职能名称</para>
             /// </summary>
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>职能名称中文</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：测试</para>
                 /// </summary>
@@ -703,7 +703,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>职能名称英文</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：test</para>
                 /// </summary>
@@ -746,7 +746,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
         public int? Experience { get; set; }
 
         /// <summary>
-        /// <para>到期日期 请使用expiry_timestamp</para>
+        /// <para>到期日期，此字段已废弃，请使用expiry_timestamp</para>
         /// <para>必填：否</para>
         /// <para>示例值：1622484739955</para>
         /// </summary>
@@ -754,7 +754,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
         public int? ExpiryTime { get; set; }
 
         /// <summary>
-        /// <para>最低薪资，单位:k</para>
+        /// <para>最低薪资，单位:k，即千</para>
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// </summary>
@@ -774,7 +774,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>1：JuniorMiddleSchoolEducation</item>
+        /// <item>1：小学及以上</item>
         /// <item>2：初中及以上</item>
         /// <item>3：专职及以上</item>
         /// <item>4：高中及以上</item>
@@ -887,7 +887,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
         public record TargetMajorInfo
         {
             /// <summary>
-            /// <para>目标专业ID，「0」 为不限专业，其他情况可通过[「根据主数据编码批量获取专业」](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v3/batch_major/get)获取专业详情</para>
+            /// <para>目标专业ID，「0」 为不限专业，其他情况可通过[根据主数据编码批量获取专业](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v3/batch_major/get)获取专业详情</para>
             /// <para>必填：否</para>
             /// <para>示例值：6930815272790114324</para>
             /// </summary>
@@ -933,7 +933,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>招聘负责人 ID，仅一位，可通过用户相关接口获取用户 ID</para>
+        /// <para>招聘负责人 ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：ou_efk39117c300506837def50545420c6a</para>
         /// </summary>
@@ -958,14 +958,14 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
     }
 
     /// <summary>
-    /// <para>面试登记表</para>
+    /// <para>面试登记表（废弃）</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("interview_registration_schema_info")]
     public RegistrationSchemaInfo? InterviewRegistrationSchemaInfo { get; set; }
 
     /// <summary>
-    /// <para>面试登记表</para>
+    /// <para>面试登记表（废弃）</para>
     /// </summary>
     public record RegistrationSchemaInfo
     {
@@ -987,26 +987,26 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
     }
 
     /// <summary>
-    /// <para>入职登记表</para>
+    /// <para>入职登记表（废弃）</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("onboard_registration_schema_info")]
     public RegistrationSchemaInfo? OnboardRegistrationSchemaInfo { get; set; }
 
     /// <summary>
-    /// <para>目标专业</para>
+    /// <para>目标专业（废弃）</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("target_major_list")]
     public TargetMajorInfo[]? TargetMajorLists { get; set; }
 
     /// <summary>
-    /// <para>目标专业</para>
+    /// <para>目标专业（废弃）</para>
     /// </summary>
     public record TargetMajorInfo
     {
         /// <summary>
-        /// <para>目标专业ID，「0」 为不限专业，其他情况可通过[「根据主数据编码批量获取专业」](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v3/batch_major/get)获取专业详情</para>
+        /// <para>目标专业ID，「0」 为不限专业，其他情况可通过[根据主数据编码批量获取专业](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v3/batch_major/get)获取专业详情</para>
         /// <para>必填：否</para>
         /// <para>示例值：6930815272790114324</para>
         /// </summary>

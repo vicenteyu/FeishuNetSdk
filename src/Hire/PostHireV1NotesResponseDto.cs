@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="PostHireV1NotesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建备注 响应体
-/// <para>创建备注信息。</para>
+/// <para>为人才创建备注信息，支持在备注中@其他用户</para>
 /// <para>接口ID：6950213983267274756</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/note/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fnote%2fcreate</para>
@@ -82,7 +82,7 @@ public record PostHireV1NotesResponseDto
         public int? ModifyTime { get; set; }
 
         /// <summary>
-        /// <para>创建人ID</para>
+        /// <para>创建人ID，与入参中`user_id_type`类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_f476cb099ac9227c9bae09ce46112579</para>
         /// </summary>
@@ -90,48 +90,11 @@ public record PostHireV1NotesResponseDto
         public string? CreatorId { get; set; }
 
         /// <summary>
-        /// <para>内容</para>
+        /// <para>备注内容</para>
         /// <para>必填：是</para>
         /// <para>示例值：测试</para>
         /// </summary>
         [JsonPropertyName("content")]
         public string Content { get; set; } = string.Empty;
-
-        /// <summary>
-        /// <para>是否通知被@的用户</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：false</para>
-        /// </summary>
-        [JsonPropertyName("notify_mentioned_user")]
-        public bool? NotifyMentionedUser { get; set; }
-
-        /// <summary>
-        /// <para>被@用户列表</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("mention_entity_list")]
-        public MentionEntity[]? MentionEntityLists { get; set; }
-
-        /// <summary>
-        /// <para>被@用户列表</para>
-        /// </summary>
-        public record MentionEntity
-        {
-            /// <summary>
-            /// <para>被@人在 content 中的偏移量</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：3</para>
-            /// </summary>
-            [JsonPropertyName("offset")]
-            public int Offset { get; set; }
-
-            /// <summary>
-            /// <para>被@人的 user id，与传入的user_id_type相匹配</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：on_94a1ee5551019f18cd73d9f111898cf2</para>
-            /// </summary>
-            [JsonPropertyName("user_id")]
-            public string UserId { get; set; } = string.Empty;
-        }
     }
 }

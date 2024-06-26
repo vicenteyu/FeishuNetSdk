@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="GetHireV1TalentsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取人才列表 响应体
-/// <para>根据更新时间获取人才列表，仅支持获取默认字段信息，获取详细信息可调用「获取人才详细」接口。</para>
+/// <para>根据更新时间获取人才列表，仅支持获取摘要信息，获取详细信息可调用「获取人才详细」接口。</para>
 /// <para>接口ID：7001051759612936195</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent%2flist</para>

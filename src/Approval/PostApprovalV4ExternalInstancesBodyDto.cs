@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="PostApprovalV4ExternalInstancesBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -320,7 +320,8 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>- add_pre：前加签（添加新审批人，在我之前审批）</para>
         /// <para>- add_post：后加签（添加新审批人，在我之后审批）</para>
         /// <para>- delete_assignee：减签</para>
-        /// <para>- forward_resign：转交（转给其他人审批）</para>
+        /// <para>- forward: 手动转交</para>
+        /// <para>- forward_resign：离职自动转交</para>
         /// <para>- recall：撤销（撤回单据，单据失效）</para>
         /// <para>- delete ：删除审批单</para>
         /// <para>- admin_forward：管理员在后台操作转交</para>

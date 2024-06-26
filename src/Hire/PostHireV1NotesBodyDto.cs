@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="PostHireV1NotesBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建备注 请求体
-/// <para>创建备注信息。</para>
+/// <para>为人才创建备注信息，支持在备注中@其他用户</para>
 /// <para>接口ID：6950213983267274756</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/note/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fnote%2fcreate</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1NotesBodyDto
 {
     /// <summary>
-    /// <para>人才ID</para>
+    /// <para>人才ID，可通过[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：6916472453069883661</para>
     /// </summary>
@@ -30,7 +30,7 @@ public record PostHireV1NotesBodyDto
     public string TalentId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>投递ID</para>
+    /// <para>投递ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：6891565253964859661</para>
     /// </summary>
@@ -38,7 +38,7 @@ public record PostHireV1NotesBodyDto
     public string? ApplicationId { get; set; }
 
     /// <summary>
-    /// <para>创建人ID</para>
+    /// <para>创建人ID，请传入与`user_id_type`相匹配的ID</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_f476cb099ac9227c9bae09ce46112579</para>
     /// </summary>
@@ -46,9 +46,9 @@ public record PostHireV1NotesBodyDto
     public string? CreatorId { get; set; }
 
     /// <summary>
-    /// <para>内容</para>
+    /// <para>备注内容</para>
     /// <para>必填：是</para>
-    /// <para>示例值：测试</para>
+    /// <para>示例值：这是一个备注</para>
     /// </summary>
     [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
@@ -61,6 +61,7 @@ public record PostHireV1NotesBodyDto
     /// <item>1：私密</item>
     /// <item>2：公开</item>
     /// </list></para>
+    /// <para>默认值：2</para>
     /// </summary>
     [JsonPropertyName("privacy")]
     public int? Privacy { get; set; }
@@ -86,7 +87,7 @@ public record PostHireV1NotesBodyDto
     public record MentionEntity
     {
         /// <summary>
-        /// <para>被@人在 content 中的偏移量</para>
+        /// <para>被@用户在 content 中的偏移量</para>
         /// <para>必填：是</para>
         /// <para>示例值：3</para>
         /// </summary>

@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="GetAttendanceV1GroupsByGroupIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 按 ID 查询考勤组 响应体
-/// <para>通过考勤组 ID 获取考勤组详情。</para>
+/// <para>通过考勤组 ID 获取考勤组详情。包含基本信息、考勤班次、考勤方式、考勤设置信息</para>
 /// <para>接口ID：7044467124773371905</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/group/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fgroup%2fget</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Attendance;
 public record GetAttendanceV1GroupsByGroupIdResponseDto
 {
     /// <summary>
-    /// <para>考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId</para>
+    /// <para>考勤组 ID</para>
     /// <para>必填：否</para>
     /// <para>示例值：6919358128597097404</para>
     /// </summary>

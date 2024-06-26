@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="PostHireV1TalentsAddToFolderBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -22,19 +22,20 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1TalentsAddToFolderBodyDto
 {
     /// <summary>
-    /// <para>人才 ID 列表</para>
+    /// <para>人才 ID 列表，可通过[获取人才列表](https://open.larkoffice.com/document/server-docs/hire-v1/candidate-management/talent/list)接口查询ID</para>
     /// <para>必填：否</para>
     /// <para>示例值：6039620186502138151</para>
     /// <para>最大长度：50</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("talent_id_list")]
     public string[]? TalentIdList { get; set; }
 
     /// <summary>
-    /// <para>文件夹 ID</para>
-    /// <para>必填：否</para>
+    /// <para>文件夹 ID，可通过[获取人才文件夹信息](https://open.larkoffice.com/document/server-docs/hire-v1/candidate-management/talent/list-2)接口查询ID</para>
+    /// <para>必填：是</para>
     /// <para>示例值：7039620186502138156</para>
     /// </summary>
     [JsonPropertyName("folder_id")]
-    public string? FolderId { get; set; }
+    public string FolderId { get; set; } = string.Empty;
 }

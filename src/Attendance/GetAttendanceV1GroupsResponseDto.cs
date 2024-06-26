@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="GetAttendanceV1GroupsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询所有考勤组 响应体
-/// <para>翻页获取所有考勤组列表。</para>
+/// <para>翻页获取所有考勤组列表。包含考勤组名称和考勤组id</para>
 /// <para>接口ID：7098332552943697922</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/group/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fgroup%2flist</para>

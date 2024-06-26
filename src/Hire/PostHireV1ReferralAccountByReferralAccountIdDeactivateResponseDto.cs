@@ -1,19 +1,19 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="PostHireV1ReferralAccountByReferralAccountIdDeactivateResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>停用外部系统内推账户 响应体</summary>
+// <summary>停用内推账户 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 停用外部系统内推账户 响应体
+/// 停用内推账户 响应体
 /// <para>停用后，对应的内推账号信息将无法通过接口[「内推账户余额变更事件」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/events/assets_update)、[「提取内推账号余额」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/withdraw)获取、修改</para>
 /// <para>接口ID：7252281835550867458</para>
 /// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/deactivate</para>

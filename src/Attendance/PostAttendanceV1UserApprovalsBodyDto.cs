@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="PostAttendanceV1UserApprovalsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -35,7 +35,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
     public record PostAttendanceV1UserApprovalsBodyDtoUserApproval
     {
         /// <summary>
-        /// <para>审批提交人 ID</para>
+        /// <para>审批提交人 ID。传入的ID类型需要与employee_type的取值一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
@@ -393,7 +393,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
 
         /// <summary>
         /// <para>出差信息。</para>
-        /// <para>目前仅支持全天出差（未满全天则按全天计入）。如果你需要支持半天出差，请咨询飞书技术支持。</para>
+        /// <para>目前仅支持全天出差（未满全天则按全天计入）。如果你需要支持半天出差，请咨询[技术支持](https://applink.feishu.cn/TLJpeNdW)。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("trips")]
@@ -401,7 +401,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
 
         /// <summary>
         /// <para>出差信息。</para>
-        /// <para>目前仅支持全天出差（未满全天则按全天计入）。如果你需要支持半天出差，请咨询飞书技术支持。</para>
+        /// <para>目前仅支持全天出差（未满全天则按全天计入）。如果你需要支持半天出差，请咨询[技术支持](https://applink.feishu.cn/TLJpeNdW)。</para>
         /// </summary>
         public record UserTrip
         {

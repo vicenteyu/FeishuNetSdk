@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="PostAttendanceV1UserTaskRemedysQueryBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Attendance;
 public record PostAttendanceV1UserTaskRemedysQueryBodyDto
 {
     /// <summary>
-    /// <para>employee_no 或 employee_id 列表</para>
+    /// <para>employee_no 或 employee_id 列表。传入的ID类型需要与employee_type的取值一致</para>
     /// <para>必填：是</para>
     /// <para>示例值：["abd754f7"]</para>
     /// </summary>

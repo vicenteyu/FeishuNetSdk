@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="GetHireV1NotesByNoteIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -82,7 +82,7 @@ public record GetHireV1NotesByNoteIdResponseDto
         public int? ModifyTime { get; set; }
 
         /// <summary>
-        /// <para>创建人ID</para>
+        /// <para>创建人ID，与入参中`user_id_type`类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_f476cb099ac9227c9bae09ce46112579</para>
         /// </summary>
@@ -90,9 +90,9 @@ public record GetHireV1NotesByNoteIdResponseDto
         public string? CreatorId { get; set; }
 
         /// <summary>
-        /// <para>内容</para>
+        /// <para>备注内容</para>
         /// <para>必填：是</para>
-        /// <para>示例值：测试</para>
+        /// <para>示例值：这是一个备注</para>
         /// </summary>
         [JsonPropertyName("content")]
         public string Content { get; set; } = string.Empty;

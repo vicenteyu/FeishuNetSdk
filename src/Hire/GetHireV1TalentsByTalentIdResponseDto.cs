@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="GetHireV1TalentsByTalentIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -624,6 +624,14 @@ public record GetHireV1TalentsByTalentIdResponseDto
             public string? EndTime { get; set; }
 
             /// <summary>
+            /// <para>结束时间-新，无「至今」传值。建议使用此字段，避免模糊的毕业时间影响候选人筛选</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1687180087000</para>
+            /// </summary>
+            [JsonPropertyName("end_time_v2")]
+            public string? EndTimeV2 { get; set; }
+
+            /// <summary>
             /// <para>学历类型</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
@@ -736,6 +744,8 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>可选值：<list type="bullet">
             /// <item>1：实习经历</item>
             /// <item>2：工作经历</item>
+            /// <item>3：兼职经历</item>
+            /// <item>4：其他经历</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("career_type")]

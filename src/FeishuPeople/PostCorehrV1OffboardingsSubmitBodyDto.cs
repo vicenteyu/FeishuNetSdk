@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="PostCorehrV1OffboardingsSubmitBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -33,7 +33,7 @@ public record PostCorehrV1OffboardingsSubmitBodyDto
     public int OffboardingMode { get; set; }
 
     /// <summary>
-    /// <para>雇员 id</para>
+    /// <para>雇员 ID。ID 类型与查询参数 user_id_type 的取值一致。</para>
     /// <para>必填：是</para>
     /// <para>示例值：6982509313466189342</para>
     /// </summary>
@@ -92,7 +92,7 @@ public record PostCorehrV1OffboardingsSubmitBodyDto
     /// <summary>
     /// <para>屏蔽原因说明</para>
     /// <para>必填：否</para>
-    /// <para>示例值：xx年xx月xx日因xx原因红线</para>
+    /// <para>示例值：xx 年 xx 月 xx 日因 xx 原因红线</para>
     /// </summary>
     [JsonPropertyName("block_reason_explanation")]
     public string? BlockReasonExplanation { get; set; }

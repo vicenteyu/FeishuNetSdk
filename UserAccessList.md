@@ -73,15 +73,15 @@
 <tr><td colspan="3">GetContactV3WorkCitiesByWorkCityId</td></tr>
 <tr><td rowspan="2">37</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>读取单个范围</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRange</td></tr>
-<tr><td rowspan="2">38</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>向单个范围写入数据</td></tr>
+<tr><td rowspan="2">38</td><td rowspan="2">2024-06-26</td><td>&#10003;</td><td>云文档</td><td>向单个范围写入数据</td></tr>
 <tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenValues</td></tr>
-<tr><td rowspan="2">39</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>读取多个范围</td></tr>
+<tr><td rowspan="2">39</td><td rowspan="2">2024-06-26</td><td>&#10003;</td><td>云文档</td><td>读取多个范围</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchGet</td></tr>
 <tr><td rowspan="2">40</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>向多个范围写入数据</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdate</td></tr>
 <tr><td rowspan="2">41</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>设置单元格样式 </td></tr>
 <tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenStyle</td></tr>
-<tr><td rowspan="2">42</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>批量设置单元格样式 </td></tr>
+<tr><td rowspan="2">42</td><td rowspan="2">2024-06-26</td><td>&#10003;</td><td>云文档</td><td>批量设置单元格样式 </td></tr>
 <tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdate</td></tr>
 <tr><td rowspan="2">43</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>写入图片</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImage</td></tr>
@@ -763,9 +763,9 @@
 <tr><td colspan="3">PostLingoV1FilesUpload</td></tr>
 <tr><td rowspan="2">382</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>下载图片</td></tr>
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
-<tr><td rowspan="2">383</td><td rowspan="2">2024-06-17</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">383</td><td rowspan="2">2024-06-24</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">384</td><td rowspan="2">2024-06-17</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">384</td><td rowspan="2">2024-06-24</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">385</td><td rowspan="2">2023-04-07</td><td>&#10003;</td><td>应用信息</td><td>获取用户自定义常用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV5ApplicationsFavourite</td></tr>

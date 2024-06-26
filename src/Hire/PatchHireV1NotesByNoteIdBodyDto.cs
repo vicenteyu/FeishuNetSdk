@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="PatchHireV1NotesByNoteIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -24,13 +24,13 @@ public record PatchHireV1NotesByNoteIdBodyDto
     /// <summary>
     /// <para>备注内容</para>
     /// <para>必填：是</para>
-    /// <para>示例值：111</para>
+    /// <para>示例值：这是一个备注</para>
     /// </summary>
     [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>更新人 ID</para>
+    /// <para>更新人 ID，请传入与`user_id_type`相匹配的ID</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_f476cb099ac9227c9bae09ce46112579</para>
     /// </summary>
@@ -41,6 +41,7 @@ public record PatchHireV1NotesByNoteIdBodyDto
     /// <para>是否通知被@的用户</para>
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
+    /// <para>默认值：false</para>
     /// </summary>
     [JsonPropertyName("notify_mentioned_user")]
     public bool? NotifyMentionedUser { get; set; }
@@ -58,7 +59,7 @@ public record PatchHireV1NotesByNoteIdBodyDto
     public record MentionEntity
     {
         /// <summary>
-        /// <para>被@人在 content 中的偏移量</para>
+        /// <para>被@用户在 content 中的偏移量</para>
         /// <para>必填：是</para>
         /// <para>示例值：3</para>
         /// </summary>
@@ -66,7 +67,7 @@ public record PatchHireV1NotesByNoteIdBodyDto
         public int Offset { get; set; }
 
         /// <summary>
-        /// <para>被@人的 user id，请传入与user_id_type相匹配的ID</para>
+        /// <para>被@人的 user id，请传入与`user_id_type`相匹配的ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：on_94a1ee5551019f18cd73d9f111898cf2</para>
         /// </summary>

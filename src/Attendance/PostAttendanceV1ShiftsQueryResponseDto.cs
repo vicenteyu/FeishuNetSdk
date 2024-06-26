@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="PostAttendanceV1ShiftsQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 按名称查询班次 响应体
-/// <para>通过班次的名称查询班次信息。</para>
+/// <para>飞书人事管理后台中假勤设置-班次配置中的搜索班次名称功能，展示班次名称、打卡规则、弹性班次规则、休息规则等</para>
 /// <para>接口ID：7044467124773634049</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/shift/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fshift%2fquery</para>

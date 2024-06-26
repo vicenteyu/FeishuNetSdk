@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-26
 // ************************************************************************
 // <copyright file="GetHireV1TalentFoldersResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取人才文件夹信息 响应体
-/// <para>用于获取招聘系统中人才文件夹信息。</para>
+/// <para>获取招聘系统中人才文件夹信息列表，包括文件夹 ID、文件夹名称、文件夹所有者 ID。</para>
 /// <para>接口ID：7054018845564796956</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent/list-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent_folder%2flist</para>
@@ -50,7 +50,7 @@ public record GetHireV1TalentFoldersResponseDto
     public record TalentFolderForList
     {
         /// <summary>
-        /// <para>文件夹ID</para>
+        /// <para>文件夹 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：7041806543797995820</para>
         /// </summary>
@@ -58,7 +58,7 @@ public record GetHireV1TalentFoldersResponseDto
         public string? FolderId { get; set; }
 
         /// <summary>
-        /// <para>名字</para>
+        /// <para>文件夹名字</para>
         /// <para>必填：是</para>
         /// <para>示例值：人才文件夹A1</para>
         /// </summary>
@@ -66,7 +66,7 @@ public record GetHireV1TalentFoldersResponseDto
         public string FolderName { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>所有者ID</para>
+        /// <para>所有者 ID，与查询参数中user_id_type的类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_85bb308c57f597471cd2bb5b4f580245</para>
         /// </summary>
