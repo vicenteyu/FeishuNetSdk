@@ -11,7 +11,7 @@
 // </copyright>
 // <summary>国际化内容节点</summary>
 // ************************************************************************
-namespace FeishuNetSdk.Im.Dtos
+namespace FeishuNetSdk
 {
     /// <summary>
     /// 国际化内容节点
@@ -82,7 +82,7 @@ namespace FeishuNetSdk.Im.Dtos
         /// 韩语
         /// </summary>
         [JsonPropertyName("ko_kr")]
-        public T? KrKr { get; set; }
+        public T? KoKr { get; set; }
 
         /// <summary>
         /// 德语
