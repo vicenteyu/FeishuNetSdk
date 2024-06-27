@@ -390,7 +390,7 @@ public record GetHireV1ApplicationsByApplicationIdResponseDto
         public int? TerminationType { get; set; }
 
         /// <summary>
-        /// <para>终止的具体原因的id列表</para>
+        /// <para>终止的具体原因的id列表，详细信息请参考[获取终止投递原因](https://open.larkoffice.com/document/server-docs/hire-v1/candidate-management/delivery-process-management/application/list-2)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("termination_reason_list")]

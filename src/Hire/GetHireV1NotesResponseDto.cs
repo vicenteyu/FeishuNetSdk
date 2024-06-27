@@ -66,7 +66,7 @@ public record GetHireV1NotesResponseDto
         public bool? IsPrivate { get; set; }
 
         /// <summary>
-        /// <para>创建时间</para>
+        /// <para>创建时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1618209327096</para>
         /// </summary>
@@ -74,7 +74,7 @@ public record GetHireV1NotesResponseDto
         public int? CreateTime { get; set; }
 
         /// <summary>
-        /// <para>更新时间</para>
+        /// <para>更新时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1618209327096</para>
         /// </summary>

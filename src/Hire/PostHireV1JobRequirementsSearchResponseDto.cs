@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取招聘需求信息 响应体
-/// <para>根据「招聘需求ID」获取招聘需求信息，支持批量查询，限制最大的查询量为100条</para>
+/// <para>根据「招聘需求ID」获取招聘需求信息，支持批量查询</para>
 /// <para>接口ID：7218888199548633092</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/job_requirement/list_by_id</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fjob_requirement%2flist_by_id</para>
@@ -82,19 +82,19 @@ public record PostHireV1JobRequirementsSearchResponseDto
         public int? HeadCount { get; set; }
 
         /// <summary>
-        /// <para>职位性质 ，可在「招聘枚举常量」文档中查看枚举值，推荐使用「employee_type」字段</para>
+        /// <para>职位性质 ，可在[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)文档中查看枚举值，即将下线字段，不建议使用，推荐使用「employee_type」字段</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("recruitment_type")]
         public IdNameObject? RecruitmentType { get; set; }
 
         /// <summary>
-        /// <para>职位性质 ，可在「招聘枚举常量」文档中查看枚举值，推荐使用「employee_type」字段</para>
+        /// <para>职位性质 ，可在[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)文档中查看枚举值，即将下线字段，不建议使用，推荐使用「employee_type」字段</para>
         /// </summary>
         public record IdNameObject
         {
             /// <summary>
-            /// <para>ID</para>
+            /// <para>职位性质 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：1213213123123</para>
             /// </summary>
@@ -102,29 +102,29 @@ public record PostHireV1JobRequirementsSearchResponseDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>职位性质名称</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>职位性质名称</para>
             /// </summary>
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>职位性质中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：测试</para>
+                /// <para>示例值：实习</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>职位性质英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：test</para>
+                /// <para>示例值：practice</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -132,7 +132,7 @@ public record PostHireV1JobRequirementsSearchResponseDto
         }
 
         /// <summary>
-        /// <para>人员类型，通过[「获取员工类型列表」](https://open.feishu.cn/document/server-docs/people_admin-v1/employee_type/list?appId=cli_9f35d6759a7f500c)接口获取详情。使用前请咨询招聘团队，确保已经在相关的灰度内</para>
+        /// <para>人员类型</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("employee_type")]
@@ -248,7 +248,7 @@ public record PostHireV1JobRequirementsSearchResponseDto
         public int? RequiredDegree { get; set; }
 
         /// <summary>
-        /// <para>最高薪资</para>
+        /// <para>最高薪资，单位：千</para>
         /// <para>必填：否</para>
         /// <para>示例值：123</para>
         /// </summary>
@@ -256,7 +256,7 @@ public record PostHireV1JobRequirementsSearchResponseDto
         public string? MaxSalary { get; set; }
 
         /// <summary>
-        /// <para>最低薪资</para>
+        /// <para>最低薪资，单位：千</para>
         /// <para>必填：否</para>
         /// <para>示例值：11</para>
         /// </summary>
@@ -311,17 +311,17 @@ public record PostHireV1JobRequirementsSearchResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>字段中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：测试</para>
+                /// <para>示例值：单行文本</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>字段英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：test</para>
+                /// <para>示例值：single line of text</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -401,17 +401,17 @@ public record PostHireV1JobRequirementsSearchResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>中文</para>
+                        /// <para>选项中文名称</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：测试</para>
+                        /// <para>示例值：单行文本</para>
                         /// </summary>
                         [JsonPropertyName("zh_cn")]
                         public string? ZhCn { get; set; }
 
                         /// <summary>
-                        /// <para>英文</para>
+                        /// <para>选项英文名称</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：test</para>
+                        /// <para>示例值：single line of text</para>
                         /// </summary>
                         [JsonPropertyName("en_us")]
                         public string? EnUs { get; set; }
@@ -548,5 +548,21 @@ public record PostHireV1JobRequirementsSearchResponseDto
             [JsonPropertyName("parent_id")]
             public string? ParentId { get; set; }
         }
+
+        /// <summary>
+        /// <para>创建时间，毫秒级时间戳</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1718856006000</para>
+        /// </summary>
+        [JsonPropertyName("create_time")]
+        public string? CreateTime { get; set; }
+
+        /// <summary>
+        /// <para>创建人ID，与入参`user_id_type`类型一致</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：ou_e2fc714c4727ee9395f324cd2e7f331f</para>
+        /// </summary>
+        [JsonPropertyName("creator_id")]
+        public string? CreatorId { get; set; }
     }
 }

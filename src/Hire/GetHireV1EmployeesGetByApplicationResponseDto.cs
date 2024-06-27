@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 通过投递 ID 获取入职信息 响应体
-/// <para>通过投递 ID 获取入职信息。</para>
+/// <para>通过投递 ID 获取员工入职信息。</para>
 /// <para>接口ID：6959374328975867906</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/onboard/get_by_application</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2femployee%2fget_by_application</para>
@@ -74,7 +74,7 @@ public record GetHireV1EmployeesGetByApplicationResponseDto
         public int? ConversionStatus { get; set; }
 
         /// <summary>
-        /// <para>实际入职时间</para>
+        /// <para>实际入职时间，毫秒级时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1637596800000</para>
         /// </summary>
@@ -82,7 +82,7 @@ public record GetHireV1EmployeesGetByApplicationResponseDto
         public int? OnboardTime { get; set; }
 
         /// <summary>
-        /// <para>预期转正时间</para>
+        /// <para>预期转正时间，毫秒级时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1637596800000</para>
         /// </summary>
@@ -90,7 +90,7 @@ public record GetHireV1EmployeesGetByApplicationResponseDto
         public int? ExpectedConversionTime { get; set; }
 
         /// <summary>
-        /// <para>实际转正时间</para>
+        /// <para>实际转正时间，毫秒级时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1637596800000</para>
         /// </summary>
@@ -98,7 +98,7 @@ public record GetHireV1EmployeesGetByApplicationResponseDto
         public int? ActualConversionTime { get; set; }
 
         /// <summary>
-        /// <para>离职时间</para>
+        /// <para>离职时间，毫秒级时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1637596800000</para>
         /// </summary>
@@ -114,7 +114,7 @@ public record GetHireV1EmployeesGetByApplicationResponseDto
         public string? OverboardNote { get; set; }
 
         /// <summary>
-        /// <para>办公地点</para>
+        /// <para>办公地点Code码</para>
         /// <para>必填：否</para>
         /// <para>示例值：CT_2</para>
         /// </summary>
@@ -130,7 +130,7 @@ public record GetHireV1EmployeesGetByApplicationResponseDto
         public string? Department { get; set; }
 
         /// <summary>
-        /// <para>直属上级</para>
+        /// <para>直属上级 ID，与入参`user_id_type`类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou-xxx</para>
         /// </summary>
@@ -138,7 +138,7 @@ public record GetHireV1EmployeesGetByApplicationResponseDto
         public string? Leader { get; set; }
 
         /// <summary>
-        /// <para>序列</para>
+        /// <para>序列 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6937934036379650311</para>
         /// </summary>
@@ -146,7 +146,7 @@ public record GetHireV1EmployeesGetByApplicationResponseDto
         public string? Sequence { get; set; }
 
         /// <summary>
-        /// <para>职级</para>
+        /// <para>职级 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：7006234385490345986</para>
         /// </summary>
@@ -154,11 +154,19 @@ public record GetHireV1EmployeesGetByApplicationResponseDto
         public string? Level { get; set; }
 
         /// <summary>
-        /// <para>员工类型</para>
+        /// <para>员工类型 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
         [JsonPropertyName("employee_type")]
         public string? EmployeeType { get; set; }
+
+        /// <summary>
+        /// <para>招聘需求ID，详情请查看：[获取招聘需求信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/list_by_id)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：123123123213</para>
+        /// </summary>
+        [JsonPropertyName("job_requirement_id")]
+        public string? JobRequirementId { get; set; }
     }
 }

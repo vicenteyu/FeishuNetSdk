@@ -70,7 +70,7 @@ public record GetHireV1OffersResponseDto
         public record OfferJobInfo
         {
             /// <summary>
-            /// <para>Offer 职位 ID</para>
+            /// <para>Offer 职位 ID，获取职位详情请参考[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)</para>
             /// <para>必填：否</para>
             /// <para>示例值：7080891505426925854</para>
             /// </summary>
@@ -104,14 +104,14 @@ public record GetHireV1OffersResponseDto
         /// <item>3：审批已撤回</item>
         /// <item>4：审批通过</item>
         /// <item>5：审批不通过</item>
-        /// <item>6：Offer已发出</item>
+        /// <item>6：Offer 已发出</item>
         /// <item>7：候选人已接受</item>
         /// <item>8：候选人已拒绝</item>
-        /// <item>9：Offer已失效</item>
+        /// <item>9：Offer 已失效</item>
         /// <item>10：未审批</item>
-        /// <item>11：实习待入职（仅实习Offer具有）</item>
-        /// <item>12：实习已入职（仅实习Offer具有）</item>
-        /// <item>13：实习已离职（仅实习Offer具有）</item>
+        /// <item>11：实习待入职（仅实习 Offer 具有）</item>
+        /// <item>12：实习已入职（仅实习 Offer 具有）</item>
+        /// <item>13：实习已离职（仅实习 Offer 具有）</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("offer_status")]
@@ -122,8 +122,8 @@ public record GetHireV1OffersResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>1：正式Offer</item>
-        /// <item>2：实习Offer</item>
+        /// <item>1：正式 Offer</item>
+        /// <item>2：实习 Offer</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("offer_type")]
@@ -142,7 +142,7 @@ public record GetHireV1OffersResponseDto
         public record BaseBilingualWithId
         {
             /// <summary>
-            /// <para>ID</para>
+            /// <para>Offer 人员类型 ID，该人员类型由[创建人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/create)创建</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
@@ -167,7 +167,7 @@ public record GetHireV1OffersResponseDto
         }
 
         /// <summary>
-        /// <para>Offer 投递 ID</para>
+        /// <para>Offer 投递 ID，获取投递信息请参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：7096358713330272526</para>
         /// </summary>

@@ -7931,8 +7931,9 @@ public interface IFeishuUserApi : IHttpApi
     /// </summary>
     /// <param name="token">
     /// <para>必填：是</para>
-    /// <para>文档的token。</para>
-    /// <para>使用文档token查询时，需要obj_type参数传入文档对应的类型。</para>
+    /// <para>知识库或文档的 token。了解如何获取 token，请参考[文档常见问题-如何获取云文档资源相关 token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。</para>
+    /// <para>**注意**：</para>
+    /// <para>使用文档 token 查询时，需要对 obj_type 参数传入文档对应的类型。</para>
     /// <para>示例值：wikcnKQ1k3p******8Vabcef</para>
     /// </param>
     /// <param name="obj_type">
@@ -14621,7 +14622,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小。最大值为 500</para>
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>

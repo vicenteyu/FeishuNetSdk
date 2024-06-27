@@ -60,6 +60,7 @@ public record PatchHireV1NotesByNoteIdBodyDto
     {
         /// <summary>
         /// <para>被@用户在 content 中的偏移量</para>
+        /// <para>- 取值范围：0 ~ content.length</para>
         /// <para>必填：是</para>
         /// <para>示例值：3</para>
         /// </summary>
@@ -67,7 +68,7 @@ public record PatchHireV1NotesByNoteIdBodyDto
         public int Offset { get; set; }
 
         /// <summary>
-        /// <para>被@人的 user id，请传入与`user_id_type`相匹配的ID</para>
+        /// <para>被@用户的 ID，请传入与 `user_id_type` 类型相匹配的 ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：on_94a1ee5551019f18cd73d9f111898cf2</para>
         /// </summary>

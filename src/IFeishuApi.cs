@@ -65,7 +65,7 @@ public interface IFeishuApi : IHttpApi
     /// <para>【身份验证】重新获取 app_ticket</para>
     /// <para>接口ID：6995779366223757316</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/auth-v3/auth/app_ticket_resend</para>
-    /// <para>飞书开放平台每隔 1 小时会给应用推送一次最新的 `app_ticket`，应用也可以主动调用此接口，触发飞书开放平台进行即时推送。</para>
+    /// <para>开放平台每隔 1 小时会向应用推送 app_ticket 事件，事件体内包含了 app_ticket。应用也可以主动调用此接口，触发开放平台即时推送 app_ticket 事件。了解事件信息可参见[app_ticket 事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/app_ticket-events)。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/auth/v3/app_ticket/resend")]
@@ -77,7 +77,9 @@ public interface IFeishuApi : IHttpApi
     /// <para>接口ID：6995779366223822852</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/auth-v3/auth/app_access_token_internal</para>
     /// <para>自建应用通过此接口获取`app_access_token`。</para>
-    /// <para>**说明：** `app_access_token` 的最大有效期是 2 小时。如果在有效期小于 30 分钟的情况下，调用本接口，会返回一个新的 `app_access_token`，这会同时存在两个有效的 `app_access_token`。</para>
+    /// <para>**说明：** `app_access_token` 的最大有效期是 2 小时。</para>
+    /// <para>- 如果在有效期小于 30 分钟的情况下，调用本接口，会返回一个新的 `app_access_token`，这会同时存在两个有效的 `app_access_token`。</para>
+    /// <para>- 如果在有效期大于等于 30 分钟的情况下，调用本接口，会返回原有的 `app_access_token`。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/auth/v3/app_access_token/internal")]

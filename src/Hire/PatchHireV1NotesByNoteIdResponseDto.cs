@@ -66,7 +66,7 @@ public record PatchHireV1NotesByNoteIdResponseDto
         public bool? IsPrivate { get; set; }
 
         /// <summary>
-        /// <para>创建时间</para>
+        /// <para>创建时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1618209327096</para>
         /// </summary>
@@ -74,7 +74,7 @@ public record PatchHireV1NotesByNoteIdResponseDto
         public int? CreateTime { get; set; }
 
         /// <summary>
-        /// <para>更新时间</para>
+        /// <para>更新时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1618209327096</para>
         /// </summary>
@@ -82,7 +82,7 @@ public record PatchHireV1NotesByNoteIdResponseDto
         public int? ModifyTime { get; set; }
 
         /// <summary>
-        /// <para>创建人ID，与入参`user_id_type`类型一致</para>
+        /// <para>创建人ID，与入参 `user_id_type` 类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_f476cb099ac9227c9bae09ce46112579</para>
         /// </summary>
@@ -92,7 +92,7 @@ public record PatchHireV1NotesByNoteIdResponseDto
         /// <summary>
         /// <para>备注内容</para>
         /// <para>必填：是</para>
-        /// <para>示例值：这是一个测试</para>
+        /// <para>示例值：这是一个备注</para>
         /// </summary>
         [JsonPropertyName("content")]
         public string Content { get; set; } = string.Empty;

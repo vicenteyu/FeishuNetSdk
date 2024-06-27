@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建 Offer 请求体
-/// <para>创建 Offer 时，需传入本文档中标注为必传的参数，其余参数是否必传参考「获取 Offer 申请表模板信息」的参数定义。</para>
+/// <para>传入 Offer 基本信息，创建 Offer。</para>
 /// <para>接口ID：7085174536488697857</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/offer/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2foffer%2fcreate</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1OffersBodyDto
 {
     /// <summary>
-    /// <para>投递 ID</para>
+    /// <para>投递 ID，详情请参考：[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)</para>
     /// <para>必填：是</para>
     /// <para>示例值：7013552389293279532</para>
     /// </summary>
@@ -30,20 +30,20 @@ public record PostHireV1OffersBodyDto
     public string ApplicationId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>Offer 申请表模板 ID，用于描述申请表单结构的元数据定义，即对申请表内容的描述。用户每一次更改 Offer 申请表模板信息，都会生成新的 schema_id，创建 Offer 时应传入最新的 schema_id，可先从职位设置中拿到offer申请表ID，再从「获取Offer申请表模板信息」接口中获取最新的模板ID</para>
-    /// <para>必填：是</para>
+    /// <para>Offer 申请表模板 ID，用于描述申请表单结构的元数据定义，即对申请表内容的描述。用户每一次更改 Offer 申请表模板信息，都会生成新的 schema_id，创建 Offer 时应传入最新的 schema_id，可先从[获取职位设置](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/config)中拿到offer申请表ID，再从[获取 Offer 申请表模板信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)接口中获取最新的模板ID。不填则会自动填充最新模版ID。</para>
+    /// <para>必填：否</para>
     /// <para>示例值：7013318077945596204</para>
     /// </summary>
     [JsonPropertyName("schema_id")]
-    public string SchemaId { get; set; } = string.Empty;
+    public string? SchemaId { get; set; }
 
     /// <summary>
     /// <para>Offer 类型</para>
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// <para>可选值：<list type="bullet">
-    /// <item>1：正式Offer</item>
-    /// <item>2：实习Offer</item>
+    /// <item>1：正式 Offer</item>
+    /// <item>2：实习 Offer</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("offer_type")]
@@ -62,7 +62,7 @@ public record PostHireV1OffersBodyDto
     public record OfferBasicInfo
     {
         /// <summary>
-        /// <para>部门 ID</para>
+        /// <para>部门 ID，与入参中的`department_id_type`类型一致，详情请查看：[获取部门信息列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/list)</para>
         /// <para>必填：是</para>
         /// <para>示例值：od-6b394871807047c7023ebfc1ff37cd3a</para>
         /// </summary>
@@ -70,7 +70,7 @@ public record PostHireV1OffersBodyDto
         public string DepartmentId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>直属上级 ID</para>
+        /// <para>直属上级 ID，与入参`user_id_type`类型一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
         /// </summary>
@@ -78,23 +78,23 @@ public record PostHireV1OffersBodyDto
         public string LeaderUserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>职务 ID</para>
+        /// <para>职务 ID，详情请查看：[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/list)</para>
         /// <para>必填：否</para>
-        /// <para>示例值：123</para>
+        /// <para>示例值：6807407987381831949</para>
         /// </summary>
         [JsonPropertyName("employment_job_id")]
         public string? EmploymentJobId { get; set; }
 
         /// <summary>
-        /// <para>人员类型 ID</para>
+        /// <para>人员类型 ID，详情请查看：[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2</para>
+        /// <para>示例值：6807407987381831949</para>
         /// </summary>
         [JsonPropertyName("employee_type_id")]
         public string? EmployeeTypeId { get; set; }
 
         /// <summary>
-        /// <para>职位序列 ID</para>
+        /// <para>职位序列 ID，通过[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：6807407987381831949</para>
         /// </summary>
@@ -102,7 +102,7 @@ public record PostHireV1OffersBodyDto
         public string? JobFamilyId { get; set; }
 
         /// <summary>
-        /// <para>职位级别 ID</para>
+        /// <para>职位级别 ID，通过[获取租户职级列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：6807407987381881101</para>
         /// </summary>
@@ -110,7 +110,7 @@ public record PostHireV1OffersBodyDto
         public string? JobLevelId { get; set; }
 
         /// <summary>
-        /// <para>试用期</para>
+        /// <para>试用期（月）</para>
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
@@ -153,13 +153,15 @@ public record PostHireV1OffersBodyDto
             /// <para>合同时长</para>
             /// <para>必填：是</para>
             /// <para>示例值：3</para>
+            /// <para>最大值：100</para>
+            /// <para>最小值：0</para>
             /// </summary>
             [JsonPropertyName("period")]
             public int Period { get; set; }
         }
 
         /// <summary>
-        /// <para>预计入职日期</para>
+        /// <para>预计入职日期。以下示例值未转义，使用时请注意转义</para>
         /// <para>必填：否</para>
         /// <para>示例值：{\"date\":\"2022-04-07\"}</para>
         /// </summary>
@@ -167,7 +169,7 @@ public record PostHireV1OffersBodyDto
         public string? ExpectedOnboardDate { get; set; }
 
         /// <summary>
-        /// <para>入职地点 ID</para>
+        /// <para>入职地点 ID，详情请参考：[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6897079709306259719</para>
         /// </summary>
@@ -175,7 +177,7 @@ public record PostHireV1OffersBodyDto
         public string? OnboardAddressId { get; set; }
 
         /// <summary>
-        /// <para>办公地点 ID</para>
+        /// <para>办公地点 ID，详情请参考：[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6897079709306259719</para>
         /// </summary>
@@ -183,7 +185,7 @@ public record PostHireV1OffersBodyDto
         public string? WorkAddressId { get; set; }
 
         /// <summary>
-        /// <para>Offer负责人 ID</para>
+        /// <para>Offer负责人 ID，与入参`user_id_type`类型一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
         /// </summary>
@@ -199,7 +201,7 @@ public record PostHireV1OffersBodyDto
         public string? RecommendedWords { get; set; }
 
         /// <summary>
-        /// <para>招聘需求 ID</para>
+        /// <para>招聘需求 ID，详情请查看：[获取招聘需求列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/list)</para>
         /// <para>必填：否</para>
         /// <para>示例值：2342352224</para>
         /// </summary>
@@ -207,7 +209,7 @@ public record PostHireV1OffersBodyDto
         public string? JobRequirementId { get; set; }
 
         /// <summary>
-        /// <para>招聘流程类型 ID</para>
+        /// <para>招聘流程类型 ID，详情请查看：[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
@@ -215,7 +217,7 @@ public record PostHireV1OffersBodyDto
         public int? JobProcessTypeId { get; set; }
 
         /// <summary>
-        /// <para>附件ID列表</para>
+        /// <para>附件ID列表，详情请查看：[「创建附件」](https://open.larkoffice.com/document/server-docs/hire-v1/attachment/create_attachment)</para>
         /// <para>必填：否</para>
         /// <para>示例值：["7081582717280831752"]</para>
         /// </summary>
@@ -231,7 +233,7 @@ public record PostHireV1OffersBodyDto
         public string? AttachmentDescription { get; set; }
 
         /// <summary>
-        /// <para>Offer操作人 ID</para>
+        /// <para>Offer操作人 ID，与入参`user_id_type`类型一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
         /// </summary>

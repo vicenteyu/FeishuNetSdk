@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建备注 响应体
-/// <para>为人才创建备注信息，支持在备注中@其他用户</para>
+/// <para>为人才创建备注信息，支持在备注中@其他用户。</para>
 /// <para>接口ID：6950213983267274756</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/note/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fnote%2fcreate</para>

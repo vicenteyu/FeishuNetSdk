@@ -273,7 +273,7 @@
 <tr><td colspan="3">GetImV1Pins</td></tr>
 <tr><td rowspan="2">137</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>创建知识空间节点</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodes</td></tr>
-<tr><td rowspan="2">138</td><td rowspan="2">2024-06-13</td><td>&#10003;</td><td>云文档</td><td>获取知识空间节点信息</td></tr>
+<tr><td rowspan="2">138</td><td rowspan="2">2024-06-26</td><td>&#10003;</td><td>云文档</td><td>获取知识空间节点信息</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesGetNode</td></tr>
 <tr><td rowspan="2">139</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>获取知识空间子节点列表</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdNodes</td></tr>
@@ -515,7 +515,7 @@
 <tr><td colspan="3">DeleteHelpdeskV1FaqsById</td></tr>
 <tr><td rowspan="2">258</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>消息与群组</td><td>指定群管理员</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdManagersAddManagers</td></tr>
-<tr><td rowspan="2">259</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>修改知识库</td></tr>
+<tr><td rowspan="2">259</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>服务台</td><td>修改知识库</td></tr>
 <tr><td colspan="3">PatchHelpdeskV1FaqsById</td></tr>
 <tr><td rowspan="2">260</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>创建知识库分类</td></tr>
 <tr><td colspan="3">PostHelpdeskV1Categories</td></tr>
@@ -987,7 +987,7 @@
 <tr><td colspan="3">DeleteAcsV1VisitorsByVisitorId</td></tr>
 <tr><td rowspan="2">494</td><td rowspan="2">2024-04-10</td><td>&#10003;</td><td>日历</td><td>查询日程视图</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
-<tr><td rowspan="2">495</td><td rowspan="2">2024-04-24</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
+<tr><td rowspan="2">495</td><td rowspan="2">2024-06-26</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
 <tr><td rowspan="2">496</td><td rowspan="2">2024-02-27</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>

@@ -92,7 +92,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public int? ExpireTime { get; set; }
 
             /// <summary>
-            /// <para>Offer 负责人 ID</para>
+            /// <para>Offer 负责人 ID，与入参`user_id_type`类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_99be8e24ad1ad390b6cd3b8916940df1</para>
             /// </summary>
@@ -100,7 +100,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public string? OwnerUserId { get; set; }
 
             /// <summary>
-            /// <para>Offer 创建人 ID</para>
+            /// <para>Offer 创建人 ID，与入参`user_id_type`类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_99be8e24ad1ad390b6cd3b8916940df1</para>
             /// </summary>
@@ -120,7 +120,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public record BaseBilingualWithId
             {
                 /// <summary>
-                /// <para>ID</para>
+                /// <para>人员类型 ID</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
@@ -128,7 +128,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                 public string? Id { get; set; }
 
                 /// <summary>
-                /// <para>中文名称</para>
+                /// <para>人员类型中文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：正式</para>
                 /// </summary>
@@ -136,7 +136,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                 public string? ZhName { get; set; }
 
                 /// <summary>
-                /// <para>英文名称</para>
+                /// <para>人员类型英文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：Regular</para>
                 /// </summary>
@@ -153,7 +153,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public string? CreateTime { get; set; }
 
             /// <summary>
-            /// <para>直属上级 ID</para>
+            /// <para>直属上级 ID，与入参`user_id_type`类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_99be8e24ad1ad390b6cd3b8916940df1</para>
             /// </summary>
@@ -169,7 +169,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public string? OnboardDate { get; set; }
 
             /// <summary>
-            /// <para>入职部门</para>
+            /// <para>入职部门，与入参中的`department_id_type`类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：od-6b394871807047c7023ebfc1ff37cd3a</para>
             /// </summary>
@@ -261,7 +261,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public record BaseAddress
             {
                 /// <summary>
-                /// <para>ID</para>
+                /// <para>入职地点 ID</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6932753007915206919</para>
                 /// </summary>
@@ -269,7 +269,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                 public string? Id { get; set; }
 
                 /// <summary>
-                /// <para>中文名称</para>
+                /// <para>入职地点中文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：名字</para>
                 /// </summary>
@@ -277,7 +277,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                 public string? ZhName { get; set; }
 
                 /// <summary>
-                /// <para>英文名称</para>
+                /// <para>入职地点英文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：name</para>
                 /// </summary>
@@ -297,7 +297,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                 public record BaseDistrict
                 {
                     /// <summary>
-                    /// <para>中文名称</para>
+                    /// <para>区域中文名称</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：伦敦</para>
                     /// </summary>
@@ -305,7 +305,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                     public string? ZhName { get; set; }
 
                     /// <summary>
-                    /// <para>英文名称</para>
+                    /// <para>区域英文名称</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：London</para>
                     /// </summary>
@@ -313,7 +313,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                     public string? EnName { get; set; }
 
                     /// <summary>
-                    /// <para>编码</para>
+                    /// <para>区域编码</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：400700</para>
                     /// </summary>
@@ -342,7 +342,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                 public record BaseCity
                 {
                     /// <summary>
-                    /// <para>中文名称</para>
+                    /// <para>城市中文名称</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：中文</para>
                     /// </summary>
@@ -350,7 +350,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                     public string? ZhName { get; set; }
 
                     /// <summary>
-                    /// <para>英文名称</para>
+                    /// <para>城市英文名称</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：eng</para>
                     /// </summary>
@@ -358,7 +358,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                     public string? EnName { get; set; }
 
                     /// <summary>
-                    /// <para>编码</para>
+                    /// <para>城市编码</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：400700</para>
                     /// </summary>
@@ -370,11 +370,11 @@ public record GetHireV1OffersByOfferIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：1</para>
                     /// <para>可选值：<list type="bullet">
-                    /// <item>1：COUNTRY</item>
-                    /// <item>2：STATE</item>
-                    /// <item>3：CITY</item>
-                    /// <item>4：DISTRICT</item>
-                    /// <item>5：ADDRESS</item>
+                    /// <item>1：COUNTRY（国家）</item>
+                    /// <item>2：STATE（省份/州）</item>
+                    /// <item>3：CITY（市）</item>
+                    /// <item>4：DISTRICT（区/县）</item>
+                    /// <item>5：ADDRESS（地址）</item>
                     /// </list></para>
                     /// </summary>
                     [JsonPropertyName("location_type")]
@@ -401,7 +401,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                 public record BaseCountry
                 {
                     /// <summary>
-                    /// <para>中文名称</para>
+                    /// <para>国家中文名称</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：中文</para>
                     /// </summary>
@@ -409,7 +409,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                     public string? ZhName { get; set; }
 
                     /// <summary>
-                    /// <para>英文名称</para>
+                    /// <para>国家英文名称</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：eng</para>
                     /// </summary>
@@ -417,7 +417,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                     public string? EnName { get; set; }
 
                     /// <summary>
-                    /// <para>编码</para>
+                    /// <para>国家编码</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：400700</para>
                     /// </summary>
@@ -429,11 +429,11 @@ public record GetHireV1OffersByOfferIdResponseDto
                     /// <para>必填：否</para>
                     /// <para>示例值：1</para>
                     /// <para>可选值：<list type="bullet">
-                    /// <item>1：COUNTRY</item>
-                    /// <item>2：STATE</item>
-                    /// <item>3：CITY</item>
-                    /// <item>4：DISTRICT</item>
-                    /// <item>5：ADDRESS</item>
+                    /// <item>1：COUNTRY（国家）</item>
+                    /// <item>2：STATE（省份/州）</item>
+                    /// <item>3：CITY（市）</item>
+                    /// <item>4：DISTRICT（区/县）</item>
+                    /// <item>5：ADDRESS（地址）</item>
                     /// </list></para>
                     /// </summary>
                     [JsonPropertyName("location_type")]
@@ -502,7 +502,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                 public record MasterLocationInfo
                 {
                     /// <summary>
-                    /// <para>地点ID</para>
+                    /// <para>地点 ID</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：6930815272790114324</para>
                     /// </summary>
@@ -510,7 +510,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                     public string? Id { get; set; }
 
                     /// <summary>
-                    /// <para>中文名称</para>
+                    /// <para>地点中文名称</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：北京</para>
                     /// </summary>
@@ -518,7 +518,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                     public string? ZhName { get; set; }
 
                     /// <summary>
-                    /// <para>英文名称</para>
+                    /// <para>地点英文名称</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：Beijing</para>
                     /// </summary>
@@ -556,7 +556,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public string? Currency { get; set; }
 
             /// <summary>
-            /// <para>基本薪资，为JSON 格式，amount 代表基本薪资的金额，peroid 代表基本薪资的周期单位，如："{\"amount\":\"10000\",\"period\":2}"</para>
+            /// <para>基本薪资，为JSON 格式，amount 代表基本薪资的金额，peroid 代表基本薪资的周期单位，如：`"{\"amount\":\"10000\",\"period\":2}"`</para>
             /// <para>必填：否</para>
             /// <para>示例值：{\"amount\":\"10000\",\"period\":2}</para>
             /// </summary>
@@ -762,5 +762,13 @@ public record GetHireV1OffersByOfferIdResponseDto
                 public string? CustomizeValue { get; set; }
             }
         }
+
+        /// <summary>
+        /// <para>招聘需求ID，详情请查看：[获取招聘需求信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/list_by_id)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1231231232312312</para>
+        /// </summary>
+        [JsonPropertyName("job_requirement_id")]
+        public string? JobRequirementId { get; set; }
     }
 }

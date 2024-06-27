@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建 Offer 响应体
-/// <para>创建 Offer 时，需传入本文档中标注为必传的参数，其余参数是否必传参考「获取 Offer 申请表模板信息」的参数定义。</para>
+/// <para>传入 Offer 基本信息，创建 Offer。</para>
 /// <para>接口ID：7085174536488697857</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/offer/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2foffer%2fcreate</para>
@@ -50,8 +50,8 @@ public record PostHireV1OffersResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// <para>可选值：<list type="bullet">
-    /// <item>1：正式Offer</item>
-    /// <item>2：实习Offer</item>
+    /// <item>1：正式 Offer</item>
+    /// <item>2：实习 Offer</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("offer_type")]
@@ -78,7 +78,7 @@ public record PostHireV1OffersResponseDto
         public string? DepartmentId { get; set; }
 
         /// <summary>
-        /// <para>直属上级 ID</para>
+        /// <para>直属上级 ID，与入参`user_id_type`类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
         /// </summary>
@@ -102,7 +102,7 @@ public record PostHireV1OffersResponseDto
         public string? EmployeeTypeId { get; set; }
 
         /// <summary>
-        /// <para>职位序列 ID</para>
+        /// <para>职位序列 ID，通过[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：6807407987381831949</para>
         /// </summary>
@@ -161,6 +161,8 @@ public record PostHireV1OffersResponseDto
             /// <para>合同时长</para>
             /// <para>必填：是</para>
             /// <para>示例值：3</para>
+            /// <para>最大值：100</para>
+            /// <para>最小值：0</para>
             /// </summary>
             [JsonPropertyName("period")]
             public int Period { get; set; }
@@ -191,7 +193,7 @@ public record PostHireV1OffersResponseDto
         public string? WorkAddressId { get; set; }
 
         /// <summary>
-        /// <para>Offer负责人 ID</para>
+        /// <para>Offer负责人 ID，与入参`user_id_type`类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
         /// </summary>
@@ -215,7 +217,7 @@ public record PostHireV1OffersResponseDto
         public string? JobRequirementId { get; set; }
 
         /// <summary>
-        /// <para>招聘流程类型 ID</para>
+        /// <para>招聘流程类型 ID，详情请查看：[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)</para>
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
@@ -239,7 +241,7 @@ public record PostHireV1OffersResponseDto
         public string? AttachmentDescription { get; set; }
 
         /// <summary>
-        /// <para>Offer操作人 ID</para>
+        /// <para>Offer操作人 ID，与入参`user_id_type`类型一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
         /// </summary>

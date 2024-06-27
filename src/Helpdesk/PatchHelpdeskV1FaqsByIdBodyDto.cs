@@ -60,10 +60,32 @@ public record PatchHelpdeskV1FaqsByIdBodyDto
         /// <summary>
         /// <para>富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)</para>
         /// <para>必填：否</para>
-        /// <para>示例值：{\"content\":\"这只是一个测试，医保问题\",\"type\":\"text\"}</para>
+        /// <para>示例值：[{"content":"答案","type":"text"},{"content":"\n","type":"text"}]</para>
         /// </summary>
         [JsonPropertyName("answer_richtext")]
-        public string? AnswerRichtext { get; set; }
+        public Richtext[]? AnswerRichtexts { get; set; }
+
+        /// <summary>
+        /// <para>富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)</para>
+        /// </summary>
+        public record Richtext
+        {
+            /// <summary>
+            /// <para>内容</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：这是一个答案</para>
+            /// </summary>
+            [JsonPropertyName("content")]
+            public string? Content { get; set; }
+
+            /// <summary>
+            /// <para>内容类型。可选值：text、hyperlink、img、line break</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：text</para>
+            /// </summary>
+            [JsonPropertyName("type")]
+            public string? Type { get; set; }
+        }
 
         /// <summary>
         /// <para>相似问题</para>

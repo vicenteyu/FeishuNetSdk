@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建备注 请求体
-/// <para>为人才创建备注信息，支持在备注中@其他用户</para>
+/// <para>为人才创建备注信息，支持在备注中@其他用户。</para>
 /// <para>接口ID：6950213983267274756</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/note/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fnote%2fcreate</para>
@@ -88,6 +88,7 @@ public record PostHireV1NotesBodyDto
     {
         /// <summary>
         /// <para>被@用户在 content 中的偏移量</para>
+        /// <para>- 取值范围：0 ~ content.length</para>
         /// <para>必填：是</para>
         /// <para>示例值：3</para>
         /// </summary>
@@ -95,7 +96,7 @@ public record PostHireV1NotesBodyDto
         public int Offset { get; set; }
 
         /// <summary>
-        /// <para>被@人的 user id，请传入与user_id_type相匹配的ID</para>
+        /// <para>被@用户的 ID，请传入与 `user_id_type` 类型相匹配的 ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：on_94a1ee5551019f18cd73d9f111898cf2</para>
         /// </summary>

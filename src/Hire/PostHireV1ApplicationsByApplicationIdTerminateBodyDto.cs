@@ -35,7 +35,7 @@ public record PostHireV1ApplicationsByApplicationIdTerminateBodyDto
     public int TerminationType { get; set; }
 
     /// <summary>
-    /// <para>终止的具体原因的id列表，详细信息请参考[获取终止投递原因](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/termination_reason/list)</para>
+    /// <para>终止的具体原因的id列表，可通过[获取终止投递原因](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/termination_reason/list)接口获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：["6891560630172518670"]</para>
     /// </summary>
