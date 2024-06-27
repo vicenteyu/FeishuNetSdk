@@ -17,25 +17,17 @@ namespace FeishuNetSdk.Im.Dtos
     /// 富文本消息
     /// </summary>
     /// <param name="Post">富文本消息。post content格式请参见发送消息Content</param>
-    public record PostContent([property: JsonPropertyName("post")] PostContent.PostSuffix Post = default!) : MessageContent("post")
+    public record PostContent([property: JsonPropertyName("post")] I18nLanguage<PostContent.PostLanguage> Post = default!)
+        : MessageContent("post")
     {
-        /// <summary></summary>
-        public record PostSuffix
-        {
-            /// <summary>
-            /// 中文消息
-            /// </summary>
-            [JsonPropertyName("zh_cn")]
-            public PostLanguage? ZhCn { get; set; }
-
-            /// <summary>
-            /// 英文消息
-            /// </summary>
-            [JsonPropertyName("en_us")]
-            public PostLanguage? EnUs { get; set; }
-        }
-
-        /// <summary></summary>
+        /// <summary>
+        /// 富文本消息
+        /// <para>扩展方法：
+        /// <list type="bullet">
+        /// AddContent：添加富文本元素节点
+        /// </list>
+        /// </para>
+        /// </summary>
         public record PostLanguage
         {
             /// <summary>
