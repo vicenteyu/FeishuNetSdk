@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-27
 // ************************************************************************
 // <copyright file="PatchTaskV1TasksByTaskIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -308,20 +308,20 @@ public record PatchTaskV1TasksByTaskIdBodyDto
 
     /// <summary>
     /// <para>指定需要更新的任务字段。可以更新的字段包括：</para>
-    /// <para>&lt;md-enum&gt;</para>
-    /// <para>&lt;md-enum-item key="summary" &gt;任务标题（普通文本）&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="rich_summary" &gt;任务标题（富文本）&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="description" &gt;任务描述（普通文本）&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="rich_description" &gt;任务描述（富文本）&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="due" &gt;任务截止时间&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="extra" &gt;任务附属信息&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="custom" &gt;任务自定义完成规则&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="follower_ids" &gt;任务关注人ID列表&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="collaborator_ids" &gt;任务执行者ID列表&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="repeat_rule" &gt;任务重复规则&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;/md-enum&gt;</para>
     /// <para>必填：是</para>
     /// <para>示例值：["summary"]</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>summary：任务标题（普通文本）</item>
+    /// <item>rich_summary：任务标题（富文本）</item>
+    /// <item>description：任务描述（普通文本）</item>
+    /// <item>rich_description：任务描述（富文本）</item>
+    /// <item>due：任务截止时间</item>
+    /// <item>extra：任务附属信息</item>
+    /// <item>custom：任务自定义完成规则</item>
+    /// <item>follower_ids：任务关注人ID列表</item>
+    /// <item>collaborator_ids：任务执行者ID列表</item>
+    /// <item>repeat_rule：任务重复规则</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("update_fields")]
     public string[] UpdateFields { get; set; } = Array.Empty<string>();

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-27
 // ************************************************************************
 // <copyright file="PostTaskV2TasklistsByTasklistGuidRemoveMembersBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -28,6 +28,7 @@ public record PostTaskV2TasklistsByTasklistGuidRemoveMembersBodyDto
     /// <para>要移除的member列表。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 如何表示任务和清单的成员？”章节。</para>
     /// <para>必填：是</para>
     /// <para>最大长度：500</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("members")]
     public Member[] Members { get; set; } = Array.Empty<Member>();
@@ -47,14 +48,14 @@ public record PostTaskV2TasklistsByTasklistGuidRemoveMembersBodyDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>成员的类型，支持：</para>
-        /// <para>&lt;md-enum&gt;</para>
-        /// <para>&lt;md-enum-item key="user" &gt;普通用户，此时member的id是一个表示用户的ID，比如open_id。具体格式取决于user_id_type参数&lt;/md-enum-item&gt;</para>
-        /// <para>&lt;md-enum-item key="chat" &gt;群组，此时member的id是一个Open Chat ID&lt;/md-enum-item&gt;</para>
-        /// <para>&lt;md-enum-item key="app" &gt;应用，此时member的id是一个应用的ID&lt;/md-enum-item&gt;</para>
-        /// <para>&lt;/md-enum&gt;</para>
+        /// <para>成员的类型</para>
         /// <para>必填：否</para>
         /// <para>示例值：user</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>user：普通用户，此时member的id是一个表示用户的ID，比如open_id。具体格式取决于user_id_type参数</item>
+        /// <item>chat：群组，此时member的id是一个Open Chat ID</item>
+        /// <item>app：应用，此时member的id是一个应用的ID</item>
+        /// </list></para>
         /// <para>默认值：user</para>
         /// </summary>
         [JsonPropertyName("type")]

@@ -142,7 +142,7 @@ public record GetHireV1OffersResponseDto
         public record BaseBilingualWithId
         {
             /// <summary>
-            /// <para>Offer 人员类型 ID，该人员类型由[创建人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/create)创建</para>
+            /// <para>Offer 人员类型 ID，详情请参考[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>

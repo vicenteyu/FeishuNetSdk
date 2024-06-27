@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-27
 // ************************************************************************
 // <copyright file="PatchTaskV2TasksByTaskGuidBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -219,7 +219,7 @@ public record PatchTaskV2TasksByTaskGuidBodyDto
                     /// <summary>
                     /// <para>法语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：Tabledetravail</para>
+                    /// <para>示例值：Table de travail</para>
                     /// </summary>
                     [JsonPropertyName("fr_fr")]
                     public string? FrFr { get; set; }
@@ -227,7 +227,7 @@ public record PatchTaskV2TasksByTaskGuidBodyDto
                     /// <summary>
                     /// <para>意大利语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：bancodilavoro</para>
+                    /// <para>示例值：banco di lavoro</para>
                     /// </summary>
                     [JsonPropertyName("it_it")]
                     public string? ItIt { get; set; }
@@ -259,7 +259,7 @@ public record PatchTaskV2TasksByTaskGuidBodyDto
                     /// <summary>
                     /// <para>西班牙语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：bancodetrabajo</para>
+                    /// <para>示例值：banco de trabajo</para>
                     /// </summary>
                     [JsonPropertyName("es_es")]
                     public string? EsEs { get; set; }
@@ -322,6 +322,8 @@ public record PatchTaskV2TasksByTaskGuidBodyDto
         /// <para>任务的完成模式。1 - 会签任务；2 - 或签任务</para>
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
+        /// <para>最大值：2</para>
+        /// <para>最小值：1</para>
         /// </summary>
         [JsonPropertyName("mode")]
         public int? Mode { get; set; }
@@ -446,22 +448,20 @@ public record PatchTaskV2TasksByTaskGuidBodyDto
 
     /// <summary>
     /// <para>设置需要修改的字段</para>
-    /// <para>&lt;md-enum&gt;</para>
-    /// <para>&lt;md-enum-item key="summary" &gt;任务标题&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="description" &gt;任务描&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="start" &gt;任务开始时间&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="due" &gt;任务截止时间&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="completed_at" &gt;任务完成时间&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="extra" &gt;任务附属自定义数据&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="custom_complete" &gt;任务自定义完成规则&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="repeat_rule" &gt;任务重复规则&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="mode" &gt;任务完成模式&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="is_milestone" &gt;是否是里程碑任务</para>
-    /// <para>&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key=custom_fields" &gt;自定义字段值</para>
-    /// <para>&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;/md-enum&gt;</para>
     /// <para>必填：是</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>summary：任务标题</item>
+    /// <item>description：任务描</item>
+    /// <item>start：任务开始时间</item>
+    /// <item>due：任务截止时间</item>
+    /// <item>completed_at：任务完成时间</item>
+    /// <item>extra：任务附属自定义数据</item>
+    /// <item>custom_complete：任务自定义完成规则</item>
+    /// <item>repeat_rule：任务重复规则</item>
+    /// <item>mode：任务完成模式</item>
+    /// <item>is_milestone：是否是里程碑任务</item>
+    /// <item>custom_fields：自定义字段值</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("update_fields")]
     public string[] UpdateFields { get; set; } = Array.Empty<string>();

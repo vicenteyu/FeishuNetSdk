@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2024-06-24
-//
-// Last Modified By : yxr
-// Last Modified On : 2024-06-24
-// ************************************************************************
-// <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary></summary>
-// ************************************************************************
 using FeishuNetSdk.Attributes;
 using FeishuNetSdk.Parameters;
 using WebApiClientCore;
@@ -4984,19 +4971,21 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6966945328390651906</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取子表的详细筛选信息</para>
+    /// <para>获取电子表格中工作表的详细筛选信息，包括筛选的应用范围、筛选条件、被筛选条件过滤掉的行。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>示例值：shtcnmBA\*****yGehy8</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>示例值：0b\**12</para>
+    /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
+    /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter")]
@@ -5010,19 +4999,21 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6966945328390668290</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>在子表内创建筛选。</para>
+    /// <para>在电子表格工作表的指定范围内，设置筛选条件，创建筛选。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA\*****yGehy8"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>**示例值**："0b\**12"</para>
+    /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
+    /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -5031,26 +5022,28 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】更新筛选</para>
     /// <para>接口ID：6966945328390684674</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>更新子表筛选范围中的列筛选条件。</para>
+    /// <para>在电子表格工作表筛选范围中，更新指定列的筛选条件。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA\*****yGehy8"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>**示例值**："0b\**12"</para>
+    /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
+    /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -5059,26 +5052,28 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonContent] Ccm.Spec.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBodyDto dto);
+        [JsonContent] Ccm.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】删除筛选</para>
     /// <para>接口ID：6966945328390701058</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除子表的筛选</para>
+    /// <para>删除电子表格中指定工作表的所有筛选。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA\*****yGehy8"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>**示例值**："0b\**12"</para>
+    /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
+    /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter")]
@@ -5136,71 +5131,75 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6970504825797541891</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>更新筛选视图范围的某列的筛选条件，condition id 即为列的字母号。</para>
+    /// <para>更新筛选视图指定列的筛选条件，包括筛选的类型、比较类型、筛选参数等。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
+    /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="filter_view_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>筛选视图 id</para>
-    /// <para>**示例值**："pH9hbVcCXA"</para>
+    /// <para>筛选视图 ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。</para>
+    /// <para>示例值：pH9hbVcCXA</para>
     /// </param>
     /// <param name="condition_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>列字母号</para>
-    /// <para>**示例值**："E"</para>
+    /// <para>要更新的筛选视图的列的索引，用字母表示</para>
+    /// <para>示例值：E</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}/conditions/{condition_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdResponseDto>> PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdResponseDto>> PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
         [PathQuery] string filter_view_id,
         [PathQuery] string condition_id,
-        [JsonContent] Ccm.Spec.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdBodyDto dto);
+        [JsonContent] Ccm.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取筛选视图</para>
     /// <para>接口ID：6970504825797558275</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取指定筛选视图 id 的名字和筛选范围。</para>
+    /// <para>获取指定筛选视图的信息，包括 ID、名称和筛选范围。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
+    /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="filter_view_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>筛选视图 id</para>
-    /// <para>**示例值**："pH9hbVcCXA"</para>
+    /// <para>筛选视图 ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。</para>
+    /// <para>示例值：pH9hbVcCXA</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
@@ -5211,23 +5210,25 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6970504825797574659</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>查询子表内所有的筛选视图基本信息，包括 id、name 和 range</para>
+    /// <para>查询电子表格指定工作表的所有筛选视图及其基本信息，包括视图 ID、视图名称和筛选范围。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
+    /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/query")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsQueryResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsQueryAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsQueryResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsQueryAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id);
@@ -5237,64 +5238,68 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6970504825797591043</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>更新筛选视图的名字或者筛选范围。名字长度不超过100，不能重复即子表内唯一；筛选范围不超过子表的最大范围。</para>
+    /// <para>更新筛选视图的名称或筛选范围。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
+    /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="filter_view_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>筛选视图 id</para>
-    /// <para>**示例值**："pH9hbVcCXA"</para>
+    /// <para>筛选视图 ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。</para>
+    /// <para>示例值：pH9hbVcCXA</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdResponseDto>> PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdResponseDto>> PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
         [PathQuery] string filter_view_id,
-        [JsonContent] Ccm.Spec.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdBodyDto dto);
+        [JsonContent] Ccm.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】查询筛选条件</para>
     /// <para>接口ID：6970504825797607427</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>查询一个筛选视图的所有筛选条件，返回筛选视图的筛选范围内的筛选条件。</para>
+    /// <para>查询指定筛选视图的所有筛选条件，包括筛选的类型、比较类型、筛选参数等。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
+    /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="filter_view_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>筛选视图 id</para>
-    /// <para>**示例值**："pH9hbVcCXA"</para>
+    /// <para>筛选视图 ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。</para>
+    /// <para>示例值：pH9hbVcCXA</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}/conditions/query")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsQueryResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsQueryAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsQueryResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsQueryAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
@@ -5305,35 +5310,37 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6970504825797623811</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取筛选视图某列的筛选条件信息。</para>
+    /// <para>获取筛选视图某列的筛选条件，包括筛选的类型、比较类型、筛选参数等。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
+    /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="filter_view_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>筛选视图 id</para>
-    /// <para>**示例值**："pH9hbVcCXA"</para>
+    /// <para>筛选视图 ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。</para>
+    /// <para>示例值：pH9hbVcCXA</para>
     /// </param>
     /// <param name="condition_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>需要查询筛选条件的列字母号</para>
-    /// <para>**示例值**："E"</para>
+    /// <para>要查询的筛选视图的列</para>
+    /// <para>示例值：E</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}/conditions/{condition_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
@@ -5345,31 +5352,33 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6970504825797640195</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除筛选视图的筛选范围某一列的筛选条件。</para>
+    /// <para>删除筛选视图指定列的所有筛选条件。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
+    /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="filter_view_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>筛选视图 id</para>
-    /// <para>**示例值**："pH9hbVcCXA"</para>
+    /// <para>筛选视图 ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。</para>
+    /// <para>示例值：pH9hbVcCXA</para>
     /// </param>
     /// <param name="condition_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>筛选范围内的某列字母号</para>
-    /// <para>**示例值**："E"</para>
+    /// <para>要删除所有筛选条件的列，用字母表示。</para>
+    /// <para>示例值：E</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}/conditions/{condition_id}")]
@@ -5385,53 +5394,57 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6970504825797672963</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据传入的参数创建一个筛选视图。Id 和 名字可选，不填的话会默认生成；range 必填。Id 长度为10，由 0-9、a-z、A-Z 组合生成。名字长度不超过100。单个子表内的筛选视图个数不超过 150。</para>
+    /// <para>指定电子表格工作表的筛选范围，创建一个筛选视图。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
+    /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】删除筛选视图</para>
     /// <para>接口ID：6970504825797689347</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除指定 id 对应的筛选视图。</para>
+    /// <para>删除指定筛选视图。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
+    /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="filter_view_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>筛选视图 id</para>
-    /// <para>**示例值**："pH9hbVcCXA"</para>
+    /// <para>筛选视图 ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。</para>
+    /// <para>示例值：pH9hbVcCXA</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}")]
@@ -5446,35 +5459,37 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6970504825797705731</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>在筛选视图的筛选范围的某一列创建筛选条件。</para>
+    /// <para>在筛选视图的指定列创建筛选条件，包括筛选的类型、比较类型、筛选参数等。</para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
+    /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="filter_view_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>筛选视图 id</para>
-    /// <para>**示例值**："pH9hbVcCXA"</para>
+    /// <para>筛选视图 ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。</para>
+    /// <para>示例值：pH9hbVcCXA</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}/conditions")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
         [PathQuery] string filter_view_id,
-        [JsonContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsBodyDto dto);
 
     /// <summary>
     /// <para>【服务台】更新客服信息</para>

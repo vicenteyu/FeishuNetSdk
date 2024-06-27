@@ -79,7 +79,7 @@ public record GetCorehrV1SecurityGroupsResponseDto
         }
 
         /// <summary>
-        /// <para>状态，1 = Inactive / 停用，</para>
+        /// <para>状态，1 = Inactive / 停用</para>
         /// <para>2 = Active / 启用，3 = TobeActivated / 待启用</para>
         /// <para>必填：是</para>
         /// <para>示例值：1</para>

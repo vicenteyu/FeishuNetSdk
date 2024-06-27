@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-27
 // ************************************************************************
 // <copyright file="PostTaskV2CustomFieldsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -223,16 +223,16 @@ public record PostTaskV2CustomFieldsBodyDto
     {
         /// <summary>
         /// <para>日期时间格式，支持</para>
-        /// <para>&lt;md-enum&gt;</para>
-        /// <para>&lt;md-enum-item key="yyyy-mm-dd" &gt;以短横分隔的年月日，例如2023-08-24&lt;/md-enum-item&gt;</para>
-        /// <para>&lt;md-enum-item key="yyyy/mm/dd" &gt;以斜杠分隔的年月日，例如2023/08/04&lt;/md-enum-item&gt;</para>
-        /// <para>&lt;md-enum-item key="mm/dd/yyyy" &gt;以斜杠分隔的月日年，例如08/24/2023&lt;/md-enum-item&gt;</para>
-        /// <para>&lt;md-enum-item key="dd/mm/yyyy" &gt;以斜杠分隔的日月年，例如24/08/2023&lt;/md-enum-item&gt;</para>
-        /// <para>&lt;/md-enum&gt;</para>
         /// <para>默认为"yyyy-mm-dd"。</para>
         /// <para>注意本设置仅影响App中的时间日期类型字段的字段值的显示格式，并不会影响openapi输入/输出的字段值的格式。</para>
         /// <para>必填：否</para>
         /// <para>示例值：yyyy/mm/dd</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>yyyy-mm-dd：以短横分隔的年月日，例如2023-08-24</item>
+        /// <item>yyyy/mm/dd：以斜杠分隔的年月日，例如2023/08/04</item>
+        /// <item>mm/dd/yyyy：以斜杠分隔的月日年，例如08/24/2023</item>
+        /// <item>dd/mm/yyyy：以斜杠分隔的日月年，例如24/08/2023</item>
+        /// </list></para>
         /// </summary>
         [JsonPropertyName("format")]
         public string? Format { get; set; }

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-27
 // ************************************************************************
 // <copyright file="PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -105,7 +105,7 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResp
         public ApplicationAppUsage[]? Webapps { get; set; }
 
         /// <summary>
-        /// <para>机器人使用情况，没有机器人形态时为null，</para>
+        /// <para>机器人使用情况，没有机器人形态时为null</para>
         /// <para>指标值包括：uv（机器人的活跃用户数）</para>
         /// <para>必填：否</para>
         /// <para>最大长度：10</para>

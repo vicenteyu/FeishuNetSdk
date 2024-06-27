@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-27
 // ************************************************************************
 // <copyright file="GetVcV1ReserveConfigsReserveScopeResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -154,7 +154,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>说明：</para>
         /// <para>- 不填写时，默认更新为 0 ，此时填写的 end_time 不得小于 30。</para>
         /// <para>- 当 start_time 与</para>
-        /// <para>end_time 均填写时，</para>
+        /// <para>end_time 均填写时</para>
         /// <para>end_time 至少超过</para>
         /// <para>start_time 30 。</para>
         /// <para>- 如果填写的值不是 60 的倍数，则自动会更新为离其最近的 60 整数倍的值。</para>
@@ -170,7 +170,7 @@ public record GetVcV1ReserveConfigsReserveScopeResponseDto
         /// <para>- 不填写时，默认更新为 86400 ，此时填写的</para>
         /// <para>start_time 不得大于等于 86370 。</para>
         /// <para>- 当 start_time 与</para>
-        /// <para>end_time 均填写时，</para>
+        /// <para>end_time 均填写时</para>
         /// <para>end_time 至少要超过</para>
         /// <para>start_time 30。</para>
         /// <para>- 如果填写的值不是 60 的倍数，则自动会更新为离其最近的 60 整数倍的值。</para>

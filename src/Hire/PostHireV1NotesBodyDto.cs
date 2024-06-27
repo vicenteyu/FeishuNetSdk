@@ -70,6 +70,7 @@ public record PostHireV1NotesBodyDto
     /// <para>是否通知被@的用户</para>
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
+    /// <para>默认值：false</para>
     /// </summary>
     [JsonPropertyName("notify_mentioned_user")]
     public bool? NotifyMentionedUser { get; set; }

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-27
 // ************************************************************************
 // <copyright file="PatchTaskV2TasklistsByTasklistGuidBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -92,11 +92,12 @@ public record PatchTaskV2TasklistsByTasklistGuidBodyDto
 
     /// <summary>
     /// <para>要更新的字段名，支持</para>
-    /// <para>&lt;md-enum&gt;</para>
-    /// <para>&lt;md-enum-item key="name" &gt;更新清单名&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;md-enum-item key="owner" &gt;更新清单所有者&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;/md-enum&gt;</para>
     /// <para>必填：是</para>
+    /// <para>最小长度：1</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>name：更新清单名</item>
+    /// <item>owner：更新清单所有者</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("update_fields")]
     public string[] UpdateFields { get; set; } = Array.Empty<string>();

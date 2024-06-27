@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-27
 // ************************************************************************
 // <copyright file="PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -221,6 +221,8 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto
             /// <para>保留小数位数。输入的数字值的小数位数如果比该设置多，多余的位数将被四舍五入后舍弃。如果`format`为"percentage"，表示变为百分数之后的小数位数。</para>
             /// <para>必填：否</para>
             /// <para>示例值：2</para>
+            /// <para>最大值：6</para>
+            /// <para>最小值：0</para>
             /// <para>默认值：0</para>
             /// </summary>
             [JsonPropertyName("decimal_count")]
@@ -263,14 +265,14 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto
         {
             /// <summary>
             /// <para>日期显示格式。支持</para>
-            /// <para>&lt;md-enum&gt;</para>
-            /// <para>&lt;md-enum-item key="yyyy-mm-dd" &gt;以短横分隔的年月日，例如2023-08-24&lt;/md-enum-item&gt;</para>
-            /// <para>&lt;md-enum-item key="yyyy/mm/dd" &gt;以斜杠分隔的年月日，例如2023/08/04&lt;/md-enum-item&gt;</para>
-            /// <para>&lt;md-enum-item key="mm/dd/yyyy" &gt;以斜杠分隔的月日年，例如08/24/2023&lt;/md-enum-item&gt;</para>
-            /// <para>&lt;md-enum-item key="dd/mm/yyyy" &gt;以斜杠分隔的日月年，例如24/08/2023&lt;/md-enum-item&gt;</para>
-            /// <para>&lt;/md-enum&gt;</para>
             /// <para>必填：否</para>
             /// <para>示例值：yyyy/mm/dd</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>yyyy-mm-dd：以短横分隔的年月日，例如2023-08-24</item>
+            /// <item>yyyy/mm/dd：以斜杠分隔的年月日，例如2023/08/04</item>
+            /// <item>mm/dd/yyyy：以斜杠分隔的月日年，例如08/24/2023</item>
+            /// <item>dd/mm/yyyy：以斜杠分隔的日月年，例如24/08/2023</item>
+            /// </list></para>
             /// </summary>
             [JsonPropertyName("format")]
             public string? Format { get; set; }
@@ -292,6 +294,7 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto
             /// <para>选项</para>
             /// <para>必填：否</para>
             /// <para>最大长度：100</para>
+            /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("options")]
             public Option[]? Options { get; set; }
@@ -321,6 +324,8 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto
                 /// <para>选项的颜色索引值，可以是0～54中的一个数字。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
+                /// <para>最大值：54</para>
+                /// <para>最小值：0</para>
                 /// </summary>
                 [JsonPropertyName("color_index")]
                 public int? ColorIndex { get; set; }

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-27
 // ************************************************************************
 // <copyright file="PatchTaskV2CommentsByCommentIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -47,10 +47,10 @@ public record PatchTaskV2CommentsByCommentIdBodyDto
 
     /// <summary>
     /// <para>要更新的字段，支持</para>
-    /// <para>&lt;md-enum&gt;</para>
-    /// <para>&lt;md-enum-item key="content" &gt;评论内容&lt;/md-enum-item&gt;</para>
-    /// <para>&lt;/md-enum&gt;</para>
     /// <para>必填：是</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>content：评论内容</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("update_fields")]
     public string[] UpdateFields { get; set; } = Array.Empty<string>();

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-27
 // ************************************************************************
 // <copyright file="PostApprovalV4ApprovalsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -169,7 +169,7 @@ public record PostApprovalV4ApprovalsBodyDto
         public record ApprovalApproverCcer
         {
             /// <summary>
-            /// <para>审批/抄送人类型，</para>
+            /// <para>审批/抄送人类型</para>
             /// <para>1. 当 type 为 Supervisor、SupervisorTopDown、DepartmentManager 、DepartmentManagerTopDown 这 4 种时，需要在 level 中填写对应的级数，例如：由下往上三级主管审批，level = 3；</para>
             /// <para>2. 当 type 为 Personal 时，需要填写对应的user_id ，用于指定用户；</para>
             /// <para>3. 当 type 为 Free 发起人自选时，不需要指定 user_id 和level；</para>

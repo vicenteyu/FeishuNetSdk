@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-27
 // ************************************************************************
 // <copyright file="PostApprovalV4ExternalInstancesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -394,14 +394,13 @@ public record PostApprovalV4ExternalInstancesResponseDto
             {
                 /// <summary>
                 /// <para>操作类型，每个任务都可以配置2个操作，会展示审批列表中，当用户操作时，回调请求会带上该字段，表示用户进行了同意操作还是拒绝操作</para>
-                /// <para>**可选值有**：</para>
-                /// <para>&lt;md-enum&gt;</para>
-                /// <para>&lt;md-enum-item key="APPROVE" &gt;同意&lt;/md-enum-item&gt;</para>
-                /// <para>&lt;md-enum-item key="REJECT" &gt;拒绝&lt;/md-enum-item&gt;</para>
-                /// <para>&lt;md-enum-item key="{KEY}" &gt;任意字符串，如果使用任意字符串，则需要提供 action_name&lt;/md-enum-item&gt;</para>
-                /// <para>&lt;/md-enum&gt;</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：APPROVE</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>APPROVE：同意</item>
+                /// <item>REJECT：拒绝</item>
+                /// <item>{KEY}：任意字符串，如果使用任意字符串，则需要提供 action_name</item>
+                /// </list></para>
                 /// </summary>
                 [JsonPropertyName("action_type")]
                 public string ActionType { get; set; } = string.Empty;

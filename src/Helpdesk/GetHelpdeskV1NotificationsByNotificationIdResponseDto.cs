@@ -24,7 +24,7 @@ public record GetHelpdeskV1NotificationsByNotificationIdResponseDto
     /// <summary>
     /// <para>push任务详情</para>
     /// <para>必填：否</para>
-    /// <para>示例值：{"approval_app_link":"","notification":{"chat_list":null,"create_user":{"avatar_url":"","name":"","user_id":"ou_7277fd1262bfafc363d5b2a1f9c2ac90"},"created_at":"1626329642000","department_list":null,"ext":"","helpdesk_id":"6969495102523703316","id":"6985032626234982420","instance_code":"","job_name":"apipushcreatetest","new_staff_scope_department_list":null,"new_staff_scope_type":null,"push_content":"{\n\"config\":{\n\"wide_screen_mode\":true\n},\n\"elements\":[\n{\n\"tag\":\"div\",\n\"text\":{\n\"tag\":\"lark_md\",\n\"content\":\"[飞书](https://www.feishu.cn)整合即时沟通、日历、音视频会议、云文档、云盘、工作台等功能于一体，成就组织和个人，更高效、更愉悦。\"\n}\n}\n]\n}",":0,"send_at":"","sent_user_count":0,"status":0,"target_user_count":7814,"tenant_id":"1","update_user":{"avatar_url":"","name":"","user_id":"ou_7277fd1262bfafc363d5b2a1f9c2ac90"},"updated_at":"","user_list":null}}</para>
+    /// <para>示例值：{"approval_app_link":"","notification":{"chat_list":null,"create_user":{"avatar_url":"","name":"","user_id":"ou_7277fd1262bfafc363d5b2a1f9c2ac90"},"created_at":"1626329642000","department_list":null,"ext":"","helpdesk_id":"6969495102523703316","id":"6985032626234982420","instance_code":"","job_name":"api push create test","new_staff_scope_department_list":null,"new_staff_scope_type":null,"push_content":"{\n \"config\": {\n \"wide_screen_mode\": true\n },\n \"elements\": [\n {\n \"tag\": \"div\",\n \"text\": {\n \"tag\": \"lark_md\",\n \"content\": \"[飞书](https://www.feishu.cn)整合即时沟通、日历、音视频会议、云文档、云盘、工作台等功能于一体，成就组织和个人，更高效、更愉悦。\"\n }\n }\n ]\n}",":0,"send_at":"","sent_user_count":0,"status":0,"target_user_count":7814,"tenant_id":"1","update_user":{"avatar_url":"","name":"","user_id":"ou_7277fd1262bfafc363d5b2a1f9c2ac90"},"updated_at":"","user_list":null}}</para>
     /// </summary>
     [JsonPropertyName("notification")]
     public GetHelpdeskV1NotificationsByNotificationIdResponseDtoNotification? Notification { get; set; }
@@ -155,13 +155,13 @@ public record GetHelpdeskV1NotificationsByNotificationIdResponseDto
         /// <summary>
         /// <para>必填，推送内容，详见：https://open.feishu.cn/tool/cardbuilder?from=howtoguide</para>
         /// <para>必填：否</para>
-        /// <para>示例值：{\"config\":{\"wide_screen_mode\":true},\"elements\":[{\"tag\":\"div\",\"text\":{\"tag\":\"lark_md\",\"content\":\"[飞书](https://www.feishu.cn)整合即时沟通、日历、音视频会议、云文档、云盘、工作台等功能于一体，成就组织和个人，更高效、更愉悦。\"}}]}</para>
+        /// <para>示例值：{ \"config\": { \"wide_screen_mode\": true }, \"elements\": [ { \"tag\": \"div\", \"text\": { \"tag\": \"lark_md\", \"content\": \"[飞书](https://www.feishu.cn)整合即时沟通、日历、音视频会议、云文档、云盘、工作台等功能于一体，成就组织和个人，更高效、更愉悦。\" } } ] }</para>
         /// </summary>
         [JsonPropertyName("push_content")]
         public string? PushContent { get; set; }
 
         /// <summary>
-        /// <para>必填，</para>
+        /// <para>必填</para>
         /// <para>0（定时推送：push_scope不能等于3） 1（新人入职推送：push_scope必须等于1或者3；new_staff_scope_type不能为空）</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
@@ -170,7 +170,7 @@ public record GetHelpdeskV1NotificationsByNotificationIdResponseDto
         public int? PushType { get; set; }
 
         /// <summary>
-        /// <para>必填，</para>
+        /// <para>必填</para>
         /// <para>推送范围（服务台私信） 0：组织内全部成员（user_list和department_list必须为空） 1：不推送任何成员（user_list和department_list必须为空，chat_list不可为空） 2：推送到部分成员（user_list或department_list不能为空） 3：入职新人 以上四种状态，chat_list都相对独立，只有在推送范围为1时，必须需要设置chat_list</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
@@ -179,7 +179,7 @@ public record GetHelpdeskV1NotificationsByNotificationIdResponseDto
         public int? PushScopeType { get; set; }
 
         /// <summary>
-        /// <para>非必填，</para>
+        /// <para>非必填</para>
         /// <para>新人入职范围类型（push_type为1时生效） 0：组织内所有新人 1：组织内特定的部门（new_staff_scope_department_list 字段不能为空）</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
