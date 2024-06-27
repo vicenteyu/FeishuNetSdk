@@ -1,4 +1,17 @@
-﻿namespace FeishuNetSdk.Im.Dtos
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-27
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-27
+// ************************************************************************
+// <copyright file="I18nLanguage.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>国际化内容节点</summary>
+// ************************************************************************
+namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
     /// 国际化内容节点

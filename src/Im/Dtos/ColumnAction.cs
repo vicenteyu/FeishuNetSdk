@@ -6,16 +6,17 @@
 // Last Modified By : yxr
 // Last Modified On : 2024-06-27
 // ************************************************************************
-// <copyright file="StickerContent.cs" company="Vicente Yu">
+// <copyright file="ColumnAction.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>表情包消息</summary>
+// <summary>设置点击分栏时的交互配置。</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
-    /// 表情包消息
+    /// 设置点击分栏时的交互配置。
+    /// <para>当前仅支持跳转交互。如果布局容器内有交互组件，则优先响应交互组件定义的交互。</para>
     /// </summary>
-    /// <param name="FileKey">表情包文件Key，目前仅支持发送机器人收到的表情包，可通过接收消息事件的推送获取表情包 file_key。</param>
-    public record StickerContent([property: JsonPropertyName("file_key")] string FileKey = "") : MessageContent("sticker");
+    /// <param name="MultiUrl">配置各个端的链接地址。</param>
+    public record ColumnAction([property: JsonPropertyName("multi_url")] UrlLink? MultiUrl = null);
 }

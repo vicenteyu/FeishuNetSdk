@@ -1,21 +1,21 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-27
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-27
 // ************************************************************************
-// <copyright file="TextContent.cs" company="Vicente Yu">
+// <copyright file="MdElement.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>文本消息</summary>
+// <summary>markdown 内容</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
-    /// 文本消息
+    /// markdown 内容
     /// </summary>
-    /// <param name="Text">文本消息</param>
-    public record TextContent([property: JsonPropertyName("text")] string Text = "") : MessageContent("text");
+    /// <param name="Text">markdown 内容</param>
+    public record MdElement([property: JsonPropertyName("text")] string Text = "") : Element("md");
 }

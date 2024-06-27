@@ -1,10 +1,10 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-06-27
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-27
 // ************************************************************************
 // <copyright file="DtoExtensions.cs" company="Vicente Yu">
 //     MIT
@@ -378,7 +378,8 @@ namespace FeishuNetSdk
 
         /// <summary>
         /// 添加行对象
-        /// <para>请注意：建议在所有 ⌈列对象⌋ 添加完成之后再使用本方法进行添加行对象。本方法的重要特性是会自动根据 ⌈列对象⌋ 过滤未定义的 ⌈列数据⌋，避免接口报错。同时还可以复用数据源，简化使用难度。</para>
+        /// <para>请注意：建议在所有 ⌈列对象⌋ 添加完成之后再使用本方法进行添加行对象。</para>
+        /// <para>本方法的重要特性是会自动根据 ⌈列对象⌋ 过滤未定义的 ⌈列数据⌋，避免接口报错。同时还可以复用数据源，简化使用难度。</para>
         /// </summary>
         /// <param name="Dto">表格组件</param>
         /// <param name="Rows">行对象</param>

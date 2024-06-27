@@ -1,4 +1,17 @@
-﻿namespace FeishuNetSdk.Im.Dtos
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-27
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-27
+// ************************************************************************
+// <copyright file="ChartElement.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>图表组件</summary>
+// ************************************************************************
+namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
     /// 图表组件
@@ -44,14 +57,14 @@
     /// </param>
     /// <param name="ChartSpec">基于 VChart 的图表定义。详细用法参考 VChart 官方文档。
     /// </param>
-    public record ChartElement([property: JsonPropertyName("aspect_ratio")] string? AspectRatio = null,
+    public partial record ChartElement([property: JsonPropertyName("aspect_ratio")] string? AspectRatio = null,
         [property: JsonPropertyName("color_theme")] string? ColorTheme = null,
         [property: JsonPropertyName("height")] string? Height = null,
         [property: JsonPropertyName("preview")] bool? Preview = null,
         [property: JsonPropertyName("chart_spec")] object? ChartSpec = null) : Element("chart")
     {
         /// <summary>
-        /// 
+        /// 图表数据定义
         /// </summary>
         /// <param name="Id"></param>
         /// <param name="Values"></param>
@@ -59,7 +72,7 @@
             [property: JsonPropertyName("values")] Dictionary<string, object>[] Values = default!);
 
         /// <summary>
-        /// 
+        /// 标签
         /// </summary>
         /// <param name="Visible"></param>
         /// <param name="Style"></param>
@@ -67,7 +80,7 @@
             [property: JsonPropertyName("style")] Style? Style = null);
 
         /// <summary>
-        /// 
+        /// 范围
         /// </summary>
         /// <param name="Min"></param>
         /// <param name="Max"></param>
@@ -75,7 +88,7 @@
             [property: JsonPropertyName("max")] decimal? Max = null);
 
         /// <summary>
-        /// 
+        /// 样式
         /// </summary>
         /// <param name="TextAlign"></param>
         /// <param name="OuterPadding"></param>
@@ -91,7 +104,7 @@
         public record DomainLine([property: JsonPropertyName("visible")] bool Visible = false);
 
         /// <summary>
-        /// 
+        /// 标题
         /// </summary>
         /// <param name="Text"></param>
         /// <param name="Subtext"></param>
@@ -101,7 +114,7 @@
             [property: JsonPropertyName("visible")] bool? Visible = null);
 
         /// <summary>
-        /// 
+        /// 内边距
         /// </summary>
         /// <param name="Left"></param>
         /// <param name="Top"></param>
@@ -129,7 +142,7 @@
             [property: JsonPropertyName("range")] Range? Range = null);
 
         /// <summary>
-        /// 
+        /// 图例
         /// </summary>
         /// <param name="Visible"></param>
         /// <param name="Position"></param>
@@ -141,7 +154,7 @@
             [property: JsonPropertyName("title")] Title? Title = null);
 
         /// <summary>
-        /// 
+        /// 系列
         /// </summary>
         /// <param name="Type"></param>
         /// <param name="DataIndex"></param>
@@ -155,7 +168,7 @@
             [property: JsonPropertyName("label")] Label? Label = null) : XFieldSpec(Type);
 
         /// <summary>
-        /// 
+        /// 图表抽象基类
         /// </summary>
         /// <param name="Type"></param>
         /// <param name="Title"></param>
@@ -172,7 +185,7 @@
         }
 
         /// <summary>
-        /// 
+        /// 含Y轴图表
         /// </summary>
         /// <param name="Type"></param>
         /// <param name="YField"></param>
@@ -181,214 +194,12 @@
             : Spec(Type);
 
         /// <summary>
-        /// 
+        /// 含X、Y轴图表
         /// </summary>
         /// <param name="Type"></param>
         /// <param name="XField"></param>
         public abstract record XFieldSpec(string Type,
             [property: JsonPropertyName("xField")] string[]? XField = null)
             : YFieldSpec(Type);
-
-        /// <summary>
-        /// 折线图
-        /// </summary>
-        public record LineSpec() : XFieldSpec("line");
-
-        /// <summary>
-        /// 面积图
-        /// </summary>
-        public record AreaSpec() : XFieldSpec("area");
-
-        /// <summary>
-        /// 柱状图
-        /// </summary>
-        /// <param name="SeriesField"></param>
-        /// <param name="Legends"></param>
-        public record BarYSpec([property: JsonPropertyName("seriesField")] string SeriesField = "",
-            [property: JsonPropertyName("legends")] Legends? Legends = null) : XFieldSpec("bar");
-
-        /// <summary>
-        /// 条形图
-        /// </summary>
-        /// <param name="Direction"></param>
-        public record BarXSpec([property: JsonPropertyName("direction")] string Direction = "") : XFieldSpec("bar");
-
-        /// <summary>
-        /// 环图
-        /// </summary>
-        /// <param name="OuterRadius"></param>
-        /// <param name="InnerRadius"></param>
-        /// <param name="CategoryField"></param>
-        /// <param name="ValueField"></param>
-        /// <param name="Legends"></param>
-        /// <param name="Label"></param>
-        public record PieESpec([property: JsonPropertyName("outerRadius")] decimal OuterRadius = default,
-            [property: JsonPropertyName("innerRadius")] decimal InnerRadius = default,
-            [property: JsonPropertyName("categoryField")] string CategoryField = "",
-            [property: JsonPropertyName("valueField")] string ValueField = "",
-            [property: JsonPropertyName("legends")] Legends? Legends = null,
-            [property: JsonPropertyName("label")] Label? Label = null) : Spec("pie");
-
-        /// <summary>
-        /// 饼图
-        /// </summary>
-        /// <param name="OuterRadius"></param>
-        /// <param name="CategoryField"></param>
-        /// <param name="ValueField"></param>
-        /// <param name="Legends"></param>
-        /// <param name="Label"></param>
-        /// <param name="Padding"></param>
-        public record PieFSpec([property: JsonPropertyName("outerRadius")] decimal OuterRadius = default,
-            [property: JsonPropertyName("categoryField")] string CategoryField = "",
-            [property: JsonPropertyName("valueField")] string ValueField = "",
-            [property: JsonPropertyName("legends")] Legends? Legends = null,
-            [property: JsonPropertyName("label")] Label? Label = null,
-            [property: JsonPropertyName("padding")] Padding? Padding = null) : Spec("pie");
-
-        /// <summary>
-        /// 组合图
-        /// </summary>
-        /// <param name="Series"></param>
-        /// <param name="Axes"></param>
-        /// <param name="Legends"></param>
-        public record CommonSpec([property: JsonPropertyName("series")] Series[]? Series = null,
-            [property: JsonPropertyName("axes")] Axes[]? Axes = null,
-            [property: JsonPropertyName("legends")] Legends? Legends = null) : Spec("common");
-
-        /// <summary>
-        /// 漏斗图
-        /// </summary>
-        /// <param name="CategoryField"></param>
-        /// <param name="ValueField"></param>
-        /// <param name="IsTransform"></param>
-        /// <param name="TransformLabel"></param>
-        /// <param name="OuterLabel"></param>
-        /// <param name="Label"></param>
-        public record FunnelSpec([property: JsonPropertyName("categoryField")] string CategoryField = "",
-            [property: JsonPropertyName("valueField")] string ValueField = "",
-            [property: JsonPropertyName("isTransform")] bool IsTransform = true,
-            [property: JsonPropertyName("transformLabel")] FunnelSpec.TransformLabelSuffix TransformLabel = default!,
-            [property: JsonPropertyName("outerLabel")] FunnelSpec.OuterLabelSuffix OuterLabel = default!,
-            [property: JsonPropertyName("label")] Label? Label = null) : Spec("funnel")
-        {
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="Visible"></param>
-            public record TransformLabelSuffix([property: JsonPropertyName("visible")] bool Visible = true);
-
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="Visible"></param>
-            public record OuterLabelSuffix([property: JsonPropertyName("visible")] bool Visible = true);
-        }
-
-        /// <summary>
-        /// 散点图
-        /// </summary>
-        /// <param name="Axes"></param>
-        public record ScatterSpec([property: JsonPropertyName("axes")] Axes[]? Axes = null) : XFieldSpec("scatter");
-
-        /// <summary>
-        /// 雷达图
-        /// </summary>
-        /// <param name="CategoryField"></param>
-        /// <param name="ValueField"></param>
-        /// <param name="Area"></param>
-        /// <param name="OuterRadius"></param>
-        /// <param name="Axes"></param>
-        public record RadarSpec([property: JsonPropertyName("categoryField")] string CategoryField = "",
-            [property: JsonPropertyName("valueField")] string ValueField = "",
-            [property: JsonPropertyName("area")] RadarSpec.AreaSuffix? Area = null,
-            [property: JsonPropertyName("outerRadius")] decimal OuterRadius = default,
-            [property: JsonPropertyName("axes")] Axes[]? Axes = null) : Spec("radar")
-        {
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="Visible"></param>
-            public record AreaSuffix([property: JsonPropertyName("visible")] bool Visible = true);
-        }
-
-        /// <summary>
-        /// 条形进度图
-        /// </summary>
-        /// <param name="Direction"></param>
-        /// <param name="SeriesField"></param>
-        /// <param name="Axes"></param>
-        public record LinearProgressSpec([property: JsonPropertyName("direction")] string Direction = "",
-            [property: JsonPropertyName("seriesField")] string SeriesField = "",
-            [property: JsonPropertyName("axes")] Axes[]? Axes = null) : XFieldSpec("linearProgress");
-
-        /// <summary>
-        /// 环形进度图
-        /// </summary>
-        /// <param name="CategoryField"></param>
-        /// <param name="ValueField"></param>
-        /// <param name="SeriesField"></param>
-        /// <param name="Radius"></param>
-        /// <param name="InnerRadius"></param>
-        /// <param name="CornerRadius"></param>
-        /// <param name="Progress"></param>
-        /// <param name="Indicator"></param>
-        /// <param name="Legends"></param>
-        public record CircularProgressSpec([property: JsonPropertyName("categoryField")] string CategoryField = "",
-            [property: JsonPropertyName("valueField")] string ValueField = "",
-            [property: JsonPropertyName("seriesField")] string SeriesField = "",
-            [property: JsonPropertyName("radius")] decimal Radius = default,
-            [property: JsonPropertyName("innerRadius")] decimal InnerRadius = default,
-            [property: JsonPropertyName("cornerRadius")] decimal CornerRadius = default,
-            [property: JsonPropertyName("progress")] CircularProgressSpec.ProgressSuffix Progress = default!,
-            [property: JsonPropertyName("indicator")] CircularProgressSpec.IndicatorSuffix Indicator = default!,
-            [property: JsonPropertyName("legends")] Legends? Legends = null) : Spec("circularProgress")
-        {
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="Style"></param>
-            public record ProgressSuffix([property: JsonPropertyName("style")] Style Style = default!);
-
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="Title"></param>
-            /// <param name="Content"></param>
-            /// <param name="Trigger"></param>
-            /// <param name="Visible"></param>
-            public record IndicatorSuffix([property: JsonPropertyName("title")] IndicatorSuffix.TitleSuffix Title = default!,
-                [property: JsonPropertyName("content")] IndicatorSuffix.ContentSuffix[] Content = default!,
-                [property: JsonPropertyName("trigger")] string Trigger = "",
-                [property: JsonPropertyName("visible")] bool Visible = true)
-            {
-                /// <summary>
-                /// 
-                /// </summary>
-                /// <param name="Field"></param>
-                /// <param name="Visible"></param>
-                /// <param name="AutoLimit"></param>
-                public record TitleSuffix([property: JsonPropertyName("field")] string Field = "",
-                    [property: JsonPropertyName("visible")] bool Visible = true,
-                    [property: JsonPropertyName("autoLimit")] bool AutoLimit = true);
-
-                /// <summary>
-                /// 
-                /// </summary>
-                /// <param name="Field"></param>
-                /// <param name="Visible"></param>
-                public record ContentSuffix([property: JsonPropertyName("field")] string Field = "",
-                    [property: JsonPropertyName("visible")] bool Visible = true);
-            }
-        }
-
-        /// <summary>
-        /// 词云
-        /// </summary>
-        /// <param name="NameField"></param>
-        /// <param name="ValueField"></param>
-        /// <param name="SeriesField"></param>
-        public record WordCloudSpec([property: JsonPropertyName("nameField")] string NameField = "",
-            [property: JsonPropertyName("valueField")] string ValueField = "",
-            [property: JsonPropertyName("seriesField")] string SeriesField = "") : Spec("wordCloud");
     }
 }

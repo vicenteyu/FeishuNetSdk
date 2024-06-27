@@ -1,4 +1,17 @@
-﻿namespace FeishuNetSdk.Im.Dtos
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-27
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-27
+// ************************************************************************
+// <copyright file="UrlLink.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>全局跳转链接</summary>
+// ************************************************************************
+namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
     /// 全局跳转链接

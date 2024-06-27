@@ -75,17 +75,17 @@ public class TestController : ControllerBase
 1. 使用`IFeishuUserApi`，调用接口。`user_access_token`默认为第一参数。
 
 
-## 示例：
+## 部分示例：
 
-### 扩展方法的用法（v2.2.9 新增）
+### 扩展方法（v2.2.9 新增）
 
-主要针对复杂参数的扩展，提高易用性。（使用元素拼接卡片/消息本身就很复杂，优化可能性很低，这种推荐用模板）
+主要针对复杂参数的扩展，例如元素组合卡片等，可以提高易用性。
 
 1. 实例化请求体
 1. 调用扩展方法
 1. 调用接口
 
-**（0）创建审批实例 请求体 设置控件**
+**（1）创建审批实例 请求体 设置控件: SetFormControls**
 
 ```csharp
 var dto1 = new FeishuNetSdk.Approval.PostApprovalV4InstancesBodyDto();
@@ -99,7 +99,7 @@ dto1.SetFormControls(new object[] { //更多对象位于 Approval.Dtos 空间下
 await tenantApi.PostApprovalV4InstancesAsync(dto1);
 ```
 
-**（1）发送消息 请求体 设置消息类型及内容**
+**（2）发送消息 请求体 设置消息类型及内容: SetContent**
 
 ```csharp
 var dto2 = new FeishuNetSdk.Im.PostImV1MessagesBodyDto() { ReceiveId = "ou_3c5beeexxxxxx6ce936414bb0d13d386" }; // <== 接收人Id
@@ -114,14 +114,19 @@ dto2.SetContent(new PostContent //富文本消息对象，另外还有文本、�
     }
 });
 await tenantApi.PostImV1MessagesAsync("open_id", dto2);
-
 ```
 
-**（2）批量发送消息 请求体 设置消息类型及内容**
+**类似方法：**
+
+1. 回复消息 请求体 PostImV1MessagesByMessageIdReplyBodyDto
+1. 编辑消息 请求体 PutImV1MessagesByMessageIdBodyDto
+
+
+**（3）批量发送消息 请求体 设置消息类型及内容: SetCardOrContent**
 
 ```csharp
 var dto3 = new FeishuNetSdk.Im.Spec.PostMessageV4BatchSendBodyDto() { OpenIds = ["ou_18eac85dyyyyyyy9317ad4f02e8bbbb"] }; // <== 接收人Id
-dto3.SetCardOrContent(new TemplateCardDto //支持所有 MessageContent 子类或 MessageCard 子类，会自动判断card或content以及消息类型。
+dto3.SetCardOrContent(new TemplateCardDto //支持的类型详见 参数说明。
 {
     Data = new()
     {
@@ -137,28 +142,13 @@ dto3.SetCardOrContent(new TemplateCardDto //支持所有 MessageContent 子类�
 await tenantApi.PostMessageV4BatchSendAsync(dto3);
 ```
 
-**（3）延时更新消息卡片 请求体 设置消息卡片内容**
+**类似方法：**
 
-```csharp
-var dto4 = new FeishuNetSdk.Im.Spec.PostInteractiveV1CardUpdateBodyDto() { Token = "此处是用于更新卡片的token，不是tenant_access_token" };
-dto4.SetCardObject(new TemplateCardWithOpenIds //支持的另一个对象名：ElementsCardWithOpenIds
-{
-    OpenIds = ["ou_18eac85dyyyyyyy9317ad4f02e8bbbb"], // <== 接收人Id
-    Data = new()
-    {
-        TemplateId = "ctp_xx0123456789",  // <== 模板Id
-        TemplateVariable = new()          // <== 模板变量
-        {
-            { "aa", "Aa" },
-            { "bb", "Bb" },
-            { "cc", "Cc" }
-        }
-    }
-});
-await tenantApi.PostInteractiveV1CardUpdateAsync(dto4);
-```
+1. 延时更新消息卡片 请求体 PostInteractiveV1CardUpdateBodyDto
+1. 更新应用发送的消息卡片 请求体 PatchImV1MessagesByMessageIdBodyDto
 
-**（4）查看指定审批定义 响应体 获取序列化的控件信息**
+
+**（4）查看指定审批定义 响应体 获取序列化的控件信息: GetFormControls**
 
 ```csharp
 var approval = await tenantApi.GetApprovalV4ApprovalsByApprovalCodeAsync("07CE295D-8FB9-****-886C-E8086E0F9F92");
@@ -166,35 +156,39 @@ if (approval.IsSuccess)
     Console.WriteLine(approval.Data.GetFormControls());
 ```
 
-
-### 消息卡片（模板消息）
+**（5）元素组合卡片（支持图表、表格、表单容器等复杂卡片，详见 Im.Dtos 命名空间）**
 
 ```csharp
-[HttpGet("t2")]
-public async Task<IResult> GetT2Async()
+//初始化图表数据
+var d1 = new ChartElement.Data(Values: [new () { { "time", "2:00" }, { "value", 8 } },new () { { "time", "4:00" }, { "value", 9 } }, new () { { "time", "6:00" }, { "value", 11 } }, new () { { "time", "8:00" }, { "value", 14 } }, new () { { "time", "10:00" }, { "value", 16 } }, new () { { "time", "12:00" }, { "value", 17 } }, new () { { "time", "14:00" }, { "value", 17 } }, new () { { "time", "16:00" }, { "value", 16 } }, new () { { "time", "18:00" }, { "value", 15 } }, ]);
+
+//初始化图表
+var element = new ChartElement()// <== 定义图表
 {
-    var dto = new TemplateCardDto
+    AspectRatio = "16:9",
+    
+    ChartSpec = new ChartElement.LineSpec() // <== 定义拆线图，另外还有 面积图、柱状图、条形图、环图、饼图、组合图、漏斗图、散点图、雷达图、条形进度图、环形进度图、词云。
     {
-        Data = new()
-        {
-            TemplateId = "ctp_xx0123456789",  // <== 模板Id
-            TemplateVariable = new()          // <== 模板变量
-            {
-                { "aa", Aa },
-                { "bb", Bb },
-                { "cc", Cc }
-            }
-        }
-    };
-    var result = await _feishuApi.PostImV1MessagesAsync("open_id",
-        new FeishuNetSdk.Im.PostImV1MessagesBodyDto
-        {
-            MsgType = "interactive",
-            ReceiveId = "ou_3c5beeexxxxxx6ce936414bb0d13d386", // <== 接收人Id
-            Content = dto.ToString(),
-        });
-}
+        Title = new("折线图"),
+        XField = ["time"],
+        YField = "value",
+        Data = [d1]
+    }
+};
+
+//初始化 请求体
+var dto5 = new FeishuNetSdk.Im.PostImV1MessagesBodyDto() { ReceiveId = "ou_e588d*************9264e4c03fd928f" }
+.SetContent(new ElementsCardDto() // <== ElementsCardDto 是元素组合卡片，TemplateCardDto 是模板卡片。
+{
+    Header = new() { Title = new() { Content = "测试图表" } }, // <== 卡片标题
+    Elements = [element] // <== 卡片元素组合：[ element1, element2 …… ]，如果是表单容器组件，还支持链式调用组件：elements.AddElement(element1).AddElement(element2)……。
+});
+
+//发送请求
+await tenantApi.PostImV1MessagesAsync("open_id", dto5);
+
 ```
+
 
 ### 文件上传示例
 参数类型 `FormDataFile` 支持 `filePath`、`FileInfo`、`byte[]`、`Stream`。

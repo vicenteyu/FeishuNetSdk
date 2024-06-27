@@ -6,18 +6,18 @@
 // Last Modified By : yxr
 // Last Modified On : 2024-06-27
 // ************************************************************************
-// <copyright file="HeaderTextTagElement.cs" company="Vicente Yu">
+// <copyright file="StandardIconElement.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>标题文本标签元素</summary>
+// <summary>文本前缀图标</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
-    /// 标题文本标签元素
+    /// 文本前缀图标
     /// </summary>
-    /// <param name="Text">标题标签的内容。基于文本组件的 plain_text 模式定义内容。</param>
-    /// <param name="Color">标题标签的颜色，默认为蓝色（blue）。可选值与示例效果参见下文的 标签样式表。
+    /// <param name="Token">图标库中图标的 token。</param>
+    /// <param name="Color">图标的颜色。支持设置线性和面性图标（即 token 末尾为 outlined 或 filled 的图标）的颜色。枚举值参见颜色枚举值。
     /// <list type="bullet">
     /// <item>blue</item>
     /// <item>wathet</item>
@@ -34,9 +34,6 @@ namespace FeishuNetSdk.Im.Dtos
     /// <item>default</item>
     /// </list>
     /// </param>
-    public record HeaderTextTagElement([property: JsonPropertyName("text")] PlainTextElement? Text = null,
-        [property: JsonPropertyName("color")] string? Color = null) : Element("text_tag");
-
-
-
+    public record StandardIconElement([property: JsonPropertyName("token")] string? Token = null,
+        [property: JsonPropertyName("color")] string? Color = null) : Element("standard_icon"), IAmDivIconElement, IAmNoteElement;
 }
