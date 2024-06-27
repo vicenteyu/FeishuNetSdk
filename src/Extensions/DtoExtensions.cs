@@ -62,9 +62,9 @@ namespace FeishuNetSdk
         /// </summary>
         /// <param name="Dto">查看指定审批定义 响应体</param>
         /// <returns>序列化的控件数组</returns>
-        public static Approval.Dtos.FromControl[]? GetFormControls(this Approval.GetApprovalV4ApprovalsByApprovalCodeResponseDto? Dto)
+        public static Approval.Dtos.FormControlDto[]? GetFormControls(this Approval.GetApprovalV4ApprovalsByApprovalCodeResponseDto? Dto)
                 => Dto is null ? null
-                    : System.Text.Json.JsonSerializer.Deserialize<Approval.Dtos.FromControl[]>(Dto.Form);
+                    : System.Text.Json.JsonSerializer.Deserialize<Approval.Dtos.FormControlDto[]>(Dto.Form);
 
         /// <summary>
         /// 设置消息卡片内容
