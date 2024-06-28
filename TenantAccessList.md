@@ -1589,7 +1589,7 @@
 <tr><td colspan="3">PostHireV1ExternalBackgroundChecks</td></tr>
 <tr><td rowspan="2">795</td><td rowspan="2">2024-06-26</td><td>&#10003;</td><td>招聘</td><td>将人才加入指定文件夹</td></tr>
 <tr><td colspan="3">PostHireV1TalentsAddToFolder</td></tr>
-<tr><td rowspan="2">796</td><td rowspan="2">2024-06-26</td><td>&#10003;</td><td>招聘</td><td>获取人才文件夹信息</td></tr>
+<tr><td rowspan="2">796</td><td rowspan="2">2024-06-28</td><td>&#10003;</td><td>招聘</td><td>获取人才文件夹列表</td></tr>
 <tr><td colspan="3">GetHireV1TalentFolders</td></tr>
 <tr><td rowspan="2">797</td><td rowspan="2">2024-03-05</td><td>&#10003;</td><td>招聘</td><td>通过手机号或邮箱获取人才 ID</td></tr>
 <tr><td colspan="3">PostHireV1TalentsBatchGetId</td></tr>
@@ -1699,7 +1699,7 @@
 <tr><td colspan="3">PostHireV1ReferralAccountReconciliation</td></tr>
 <tr><td rowspan="2">850</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>获取附件信息</td></tr>
 <tr><td colspan="3">GetHireV1AttachmentsByAttachmentId</td></tr>
-<tr><td rowspan="2">851</td><td rowspan="2">2024-06-26</td><td>&#10003;</td><td>招聘</td><td>获取附件预览信息</td></tr>
+<tr><td rowspan="2">851</td><td rowspan="2">2024-06-28</td><td>&#10003;</td><td>招聘</td><td>获取附件预览信息</td></tr>
 <tr><td colspan="3">GetHireV1AttachmentsByAttachmentIdPreview</td></tr>
 <tr><td rowspan="2">852</td><td rowspan="2">2023-07-03</td><td>&#10003;</td><td>OKR</td><td>获取 OKR 周期列表</td></tr>
 <tr><td colspan="3">GetOkrV1Periods</td></tr>
@@ -2141,4 +2141,10 @@
 <tr><td colspan="3">GetHireV1RolesByRoleId</td></tr>
 <tr><td rowspan="2">1071</td><td rowspan="2">2024-06-25</td><td>&#10003;</td><td>招聘</td><td>获取终止投递原因</td></tr>
 <tr><td colspan="3">GetHireV1TerminationReasons</td></tr>
+<tr><td rowspan="2">1072</td><td rowspan="2">2024-06-28</td><td>新增</td><td>飞书应用引擎</td><td>执行函数</td></tr>
+<tr><td colspan="3">PostApaasV1ApplicationsByNamespaceFunctionsByFunctionApiNameInvoke</td></tr>
+<tr><td rowspan="2">1073</td><td rowspan="2">2024-06-28</td><td>新增</td><td>飞书应用引擎</td><td>查询环境变量列表</td></tr>
+<tr><td colspan="3">PostApaasV1ApplicationsByNamespaceEnvironmentVariablesQuery</td></tr>
+<tr><td rowspan="2">1074</td><td rowspan="2">2024-06-28</td><td>新增</td><td>飞书应用引擎</td><td>查询环境变量详情</td></tr>
+<tr><td colspan="3">GetApaasV1ApplicationsByNamespaceEnvironmentVariablesByEnvironmentVariableApiName</td></tr>
 </tbody></table>

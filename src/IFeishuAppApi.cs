@@ -9,7 +9,7 @@
 // <copyright file="IFeishuAppApi.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary></summary>
+// <summary>获取用户凭证（AppAccessToken）的接口</summary>
 // ************************************************************************
 using FeishuNetSdk.Attributes;
 using WebApiClientCore;

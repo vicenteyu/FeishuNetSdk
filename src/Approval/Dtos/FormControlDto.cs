@@ -6,7 +6,7 @@
 // Last Modified By : yxr
 // Last Modified On : 2024-06-28
 // ************************************************************************
-// <copyright file="FromControlDto.cs" company="Vicente Yu">
+// <copyright file="FormControlDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
 // <summary>序列化的控件信息</summary>
@@ -27,6 +27,7 @@ namespace FeishuNetSdk.Approval.Dtos
     /// <param name="Printable">是否允许打印</param>
     /// <param name="Required">是否必填</param>
     /// <param name="Visible">是否可见</param>
+    /// <param name="CustomId">	控件自定义 ID</param>
     /// <param name="Option"></param>
     /// <param name="Options"></param>
     public record FormControlDto(
@@ -41,6 +42,7 @@ namespace FeishuNetSdk.Approval.Dtos
         [property: JsonPropertyName("printable")] bool Printable,
         [property: JsonPropertyName("required")] bool Required,
         [property: JsonPropertyName("visible")] bool Visible,
+        [property: JsonPropertyName("custom_id")] string? CustomId = null,
         [property: JsonPropertyName("option")] object? Option = null,
         [property: JsonPropertyName("options")] object? Options = null);
 

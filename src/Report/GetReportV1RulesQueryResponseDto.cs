@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-28
 // ************************************************************************
 // <copyright file="GetReportV1RulesQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -63,7 +63,7 @@ public record GetReportV1RulesQueryResponseDto
         /// <para>示例值：1622427266</para>
         /// </summary>
         [JsonPropertyName("created_at")]
-        public int? CreatedAt { get; set; }
+        public long? CreatedAt { get; set; }
 
         /// <summary>
         /// <para>创建人ID</para>

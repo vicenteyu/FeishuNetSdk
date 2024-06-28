@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-28
+// ************************************************************************
+// <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>适用于自建应用租户凭证（TenantAccessToken）的接口</summary>
+// ************************************************************************
 using FeishuNetSdk.Attributes;
 using WebApiClientCore;
 using WebApiClientCore.Attributes;
@@ -8831,12 +8844,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6964631863168647171</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/preview</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据人才简历附件 ID 获取附件预览信息。</para>
+    /// <para>根据附件 ID 获取附件预览信息。</para>
     /// </summary>
     /// <param name="attachment_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>附件id，可通过[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口返回数据中获取人才相关附件id</para>
+    /// <para>附件 ID，可通过[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口返回数据中获取人才相关附件 ID</para>
     /// <para>示例值：64352523512563462</para>
     /// </param>
     [HttpGet("/open-apis/hire/v1/attachments/{attachment_id}/preview")]
@@ -16218,7 +16231,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
-    /// <para>【招聘】获取人才文件夹信息</para>
+    /// <para>【招聘】获取人才文件夹列表</para>
     /// <para>接口ID：7054018845564796956</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_folder/list</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -31250,5 +31263,74 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "people_corehr_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id");
+
+    /// <summary>
+    /// <para>【飞书应用引擎】执行函数</para>
+    /// <para>接口ID：7385474062586281986</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-function/invoke</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>执行基于飞书应用引擎开发的应用的自定义函数</para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="function_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>函数 API 名称</para>
+    /// <para>示例值：printParam</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/applications/{namespace}/functions/{function_api_name}/invoke")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1ApplicationsByNamespaceFunctionsByFunctionApiNameInvokeResponseDto>> PostApaasV1ApplicationsByNamespaceFunctionsByFunctionApiNameInvokeAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string function_api_name,
+        [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceFunctionsByFunctionApiNameInvokeBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书应用引擎】查询环境变量列表</para>
+    /// <para>接口ID：7385474062586298370</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-environment_variable/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询基于飞书应用引擎开发的应用的环境变量列表</para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/applications/{namespace}/environment_variables/query")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1ApplicationsByNamespaceEnvironmentVariablesQueryResponseDto>> PostApaasV1ApplicationsByNamespaceEnvironmentVariablesQueryAsync(
+        [PathQuery] string @namespace,
+        [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceEnvironmentVariablesQueryBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书应用引擎】查询环境变量详情</para>
+    /// <para>接口ID：7385474062586314754</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-environment_variable/get</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询基于飞书应用引擎开发的应用的环境变量详情，包括名称、描述、变量值等</para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="environment_variable_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>环境变量 API 名称</para>
+    /// <para>示例值：globalParam_0b410b17704</para>
+    /// </param>
+    [HttpGet("/open-apis/apaas/v1/applications/{namespace}/environment_variables/{environment_variable_api_name}")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1ApplicationsByNamespaceEnvironmentVariablesByEnvironmentVariableApiNameResponseDto>> GetApaasV1ApplicationsByNamespaceEnvironmentVariablesByEnvironmentVariableApiNameAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string environment_variable_api_name);
 }
 

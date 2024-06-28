@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-28
 // ************************************************************************
 // <copyright file="GetHelpdeskV1TicketsByTicketIdMessagesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -63,12 +63,12 @@ public record GetHelpdeskV1TicketsByTicketIdMessagesResponseDto
         /// <para>示例值：1617960686000</para>
         /// </summary>
         [JsonPropertyName("created_at")]
-        public int? CreatedAt { get; set; }
+        public long? CreatedAt { get; set; }
 
         /// <summary>
         /// <para>内容</para>
         /// <para>必填：是</para>
-        /// <para>示例值：{\"content\":\"进入人工服务。@李宁为你提供服务，开始聊起来吧~\",\"msg_type\":\"text\"}</para>
+        /// <para>示例值：{\"content\":\"进入人工服务。 @李宁 为你提供服务，开始聊起来吧~\",\"msg_type\":\"text\"}</para>
         /// </summary>
         [JsonPropertyName("content")]
         public string Content { get; set; } = string.Empty;

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-06-28
 // ************************************************************************
 // <copyright file="GetHelpdeskV1TicketsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -154,7 +154,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <para>示例值：1690970837624</para>
             /// </summary>
             [JsonPropertyName("created_at")]
-            public int? CreatedAt { get; set; }
+            public long? CreatedAt { get; set; }
 
             /// <summary>
             /// <para>备注ID</para>
@@ -260,7 +260,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <summary>
             /// <para>英文描述</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Idon'tunderstand</para>
+            /// <para>示例值：I don't understand</para>
             /// </summary>
             [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
@@ -355,7 +355,7 @@ public record GetHelpdeskV1TicketsResponseDto
             /// <summary>
             /// <para>展示名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：displayname</para>
+            /// <para>示例值：display name</para>
             /// </summary>
             [JsonPropertyName("display_name")]
             public string? DisplayName { get; set; }

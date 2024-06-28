@@ -13,7 +13,7 @@
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 获取人才文件夹信息 响应体
+/// 获取人才文件夹列表 响应体
 /// <para>获取招聘系统中人才文件夹信息列表，包括文件夹 ID、文件夹名称、文件夹所有者 ID。</para>
 /// <para>接口ID：7054018845564796956</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent/list-2</para>

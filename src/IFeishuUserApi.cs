@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-06-28
+// ************************************************************************
+// <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>适用于自建应用用户凭证（UserAccessToken）的接口</summary>
+// ************************************************************************
 using FeishuNetSdk.Attributes;
 using FeishuNetSdk.Parameters;
 using WebApiClientCore;
