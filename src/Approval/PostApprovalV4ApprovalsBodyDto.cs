@@ -406,7 +406,9 @@ public record PostApprovalV4ApprovalsBodyDto
     }
 
     /// <summary>
-    /// <para>审批图标枚举，详见下方说明，默认为 0</para>
+    /// <para>审批图标枚举，默认为 0。</para>
+    /// <para>下图从左至右，从上到下依次为 0-24 号图标。</para>
+    /// <para>![icon.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/2c60da4397e18c0ae1fdf6bf50b36ad4_l5Cgo4M9lo.png?height=1080&amp;lazyload=true&amp;maxWidth=200&amp;width=1066)</para>
     /// <para>必填：否</para>
     /// <para>示例值：0</para>
     /// <para>默认值：0</para>

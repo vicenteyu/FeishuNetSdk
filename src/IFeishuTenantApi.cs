@@ -16711,7 +16711,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7072577767343718401</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>创建人员的雇佣信息，需要先[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create。</para>
+    /// <para>创建人员的雇佣信息，需要先[创建个人信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)。</para>
     /// </summary>
     /// <param name="client_token">
     /// <para>必填：否</para>
@@ -30997,6 +30997,121 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string role_id);
 
     /// <summary>
+    /// <para>【绩效】获取项目配置</para>
+    /// <para>接口ID：7351374599659765764</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/activity/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取项目的信息，如项目名称、项目模式等</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/performance/v2/activity/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2ActivityQueryResponseDto>> PostPerformanceV2ActivityQueryAsync(
+        [JsonContent] Performance.PostPerformanceV2ActivityQueryBodyDto dto);
+
+    /// <summary>
+    /// <para>【绩效】获取评估模板配置</para>
+    /// <para>接口ID：7351374599659782148</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/review_template/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取评估模板配置信息，包括模版名称、执行角色、填写项类型等</para>
+    /// </summary>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：30</para>
+    /// <para>默认值：20</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/performance/v2/review_templates/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2ReviewTemplatesQueryResponseDto>> PostPerformanceV2ReviewTemplatesQueryAsync(
+        [JsonContent] Performance.PostPerformanceV2ReviewTemplatesQueryBodyDto dto,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 20);
+
+    /// <summary>
+    /// <para>【绩效】获取评估项配置</para>
+    /// <para>接口ID：7351374599659798532</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取评估项配置信息，包括评估题名称、评估项类型、评估等级配置等</para>
+    /// </summary>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：30</para>
+    /// <para>默认值：20</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/performance/v2/indicators/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2IndicatorsQueryResponseDto>> PostPerformanceV2IndicatorsQueryAsync(
+        [JsonContent] Performance.PostPerformanceV2IndicatorsQueryBodyDto dto,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 20);
+
+    /// <summary>
+    /// <para>【绩效】获取标签填写题配置</para>
+    /// <para>接口ID：7351374599659814916</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/question/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取标签填写题配置信息，包括标签填写题名称、标签列表等</para>
+    /// </summary>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：30</para>
+    /// <para>默认值：20</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/performance/v2/questions/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2QuestionsQueryResponseDto>> PostPerformanceV2QuestionsQueryAsync(
+        [JsonContent] Performance.PostPerformanceV2QuestionsQueryBodyDto dto,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 20);
+
+    /// <summary>
+    /// <para>【绩效】获取绩效详情数据</para>
+    /// <para>接口ID：7351374599659847684</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/review_data/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取被评估人各环节的绩效评估详情（不包含校准环节），如环节评估数据、环节提交状态等</para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/performance/v2/review_datas/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2ReviewDatasQueryResponseDto>> PostPerformanceV2ReviewDatasQueryAsync(
+        [JsonContent] Performance.PostPerformanceV2ReviewDatasQueryBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
     /// <para>【飞书人事（企业版）】查询指定生效日期的部门基本信息</para>
     /// <para>接口ID：7351676067814096900</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/query_timeline</para>
@@ -31324,6 +31439,192 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "people_corehr_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id");
+
+    /// <summary>
+    /// <para>【绩效】获取指标库信息</para>
+    /// <para>接口ID：7380276358332661761</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_lib/query</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指标库的信息</para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：30</para>
+    /// <para>默认值：20</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/performance/v2/metric_libs/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2MetricLibsQueryResponseDto>> PostPerformanceV2MetricLibsQueryAsync(
+        [JsonContent] Performance.PostPerformanceV2MetricLibsQueryBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 20);
+
+    /// <summary>
+    /// <para>【绩效】获取被评估人信息</para>
+    /// <para>接口ID：7380276358332678145</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/reviewee/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取绩效周期中被圈定到项目中的被评估人信息，包括未启动的项目。</para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：30</para>
+    /// <para>默认值：20</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/performance/v2/reviewees/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2RevieweesQueryResponseDto>> PostPerformanceV2RevieweesQueryAsync(
+        [JsonContent] Performance.PostPerformanceV2RevieweesQueryBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 20);
+
+    /// <summary>
+    /// <para>【绩效】批量录入指定周期被评估人的关键指标详情</para>
+    /// <para>接口ID：7380276358332694529</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_detail/import</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>批量录入指定周期中被评估人的关键指标详情</para>
+    /// </summary>
+    /// <param name="client_token">
+    /// <para>必填：是</para>
+    /// <para>根据 client_token 是否一致来判断是否为同一请求</para>
+    /// <para>示例值：12454646</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/performance/v2/metric_details/import")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2MetricDetailsImportResponseDto>> PostPerformanceV2MetricDetailsImportAsync(
+        [JsonContent] Performance.PostPerformanceV2MetricDetailsImportBodyDto dto,
+        [PathQuery] string client_token,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【绩效】获取指标模板信息</para>
+    /// <para>接口ID：7380276358332710913</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_template/query</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指标模板的信息</para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：30</para>
+    /// <para>默认值：20</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/performance/v2/metric_templates/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2MetricTemplatesQueryResponseDto>> PostPerformanceV2MetricTemplatesQueryAsync(
+        [JsonContent] Performance.PostPerformanceV2MetricTemplatesQueryBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 20);
+
+    /// <summary>
+    /// <para>【绩效】获取指标字段信息</para>
+    /// <para>接口ID：7380276358332727297</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_field/query</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指标的字段基础信息</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/performance/v2/metric_fields/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2MetricFieldsQueryResponseDto>> PostPerformanceV2MetricFieldsQueryAsync(
+        [JsonContent] Performance.PostPerformanceV2MetricFieldsQueryBodyDto dto);
+
+    /// <summary>
+    /// <para>【绩效】批量获取指定周期被评估人的关键指标详情</para>
+    /// <para>接口ID：7380276358332743681</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_detail/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>批量获取指定周期中被评估人的关键指标详情</para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/performance/v2/metric_details/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2MetricDetailsQueryResponseDto>> PostPerformanceV2MetricDetailsQueryAsync(
+        [JsonContent] Performance.PostPerformanceV2MetricDetailsQueryBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【飞书应用引擎】执行函数</para>

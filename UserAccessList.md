@@ -1017,4 +1017,10 @@
 <tr><td colspan="3">PostCompensationV1ArchivesQuery</td></tr>
 <tr><td rowspan="2">509</td><td rowspan="2">2024-06-07</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
 <tr><td colspan="3">PostCorehrV2Employees</td></tr>
+<tr><td rowspan="2">510</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取指标库信息</td></tr>
+<tr><td colspan="3">PostPerformanceV2MetricLibsQuery</td></tr>
+<tr><td rowspan="2">511</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取指标模板信息</td></tr>
+<tr><td colspan="3">PostPerformanceV2MetricTemplatesQuery</td></tr>
+<tr><td rowspan="2">512</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取指标字段信息</td></tr>
+<tr><td colspan="3">PostPerformanceV2MetricFieldsQuery</td></tr>
 </tbody></table>

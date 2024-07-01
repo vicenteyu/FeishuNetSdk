@@ -705,7 +705,7 @@
 <tr><td colspan="3">GetAttendanceV1LeaveEmployExpireRecordsByLeaveId</td></tr>
 <tr><td rowspan="2">353</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>修改发放记录</td></tr>
 <tr><td colspan="3">PatchAttendanceV1LeaveAccrualRecordByLeaveId</td></tr>
-<tr><td rowspan="2">354</td><td rowspan="2">2024-05-17</td><td>&#10003;</td><td>审批</td><td>创建审批定义</td></tr>
+<tr><td rowspan="2">354</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>审批</td><td>创建审批定义</td></tr>
 <tr><td colspan="3">PostApprovalV4Approvals</td></tr>
 <tr><td rowspan="2">355</td><td rowspan="2">2024-03-01</td><td>&#10003;</td><td>审批</td><td>查看指定审批定义</td></tr>
 <tr><td colspan="3">GetApprovalV4ApprovalsByApprovalCode</td></tr>
@@ -2153,4 +2153,26 @@
 <tr><td colspan="3">PostCorehrV1CommonDataMetaDataEditEnumOption</td></tr>
 <tr><td rowspan="2">1077</td><td rowspan="2">2024-06-29</td><td>新增</td><td>飞书人事</td><td>增加字段枚举值选项</td></tr>
 <tr><td colspan="3">PostCorehrV1CommonDataMetaDataAddEnumOption</td></tr>
+<tr><td rowspan="2">1078</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取项目配置</td></tr>
+<tr><td colspan="3">PostPerformanceV2ActivityQuery</td></tr>
+<tr><td rowspan="2">1079</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取评估模板配置</td></tr>
+<tr><td colspan="3">PostPerformanceV2ReviewTemplatesQuery</td></tr>
+<tr><td rowspan="2">1080</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取评估项配置</td></tr>
+<tr><td colspan="3">PostPerformanceV2IndicatorsQuery</td></tr>
+<tr><td rowspan="2">1081</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取标签填写题配置</td></tr>
+<tr><td colspan="3">PostPerformanceV2QuestionsQuery</td></tr>
+<tr><td rowspan="2">1082</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取绩效详情数据</td></tr>
+<tr><td colspan="3">PostPerformanceV2ReviewDatasQuery</td></tr>
+<tr><td rowspan="2">1083</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取指标库信息</td></tr>
+<tr><td colspan="3">PostPerformanceV2MetricLibsQuery</td></tr>
+<tr><td rowspan="2">1084</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取被评估人信息</td></tr>
+<tr><td colspan="3">PostPerformanceV2RevieweesQuery</td></tr>
+<tr><td rowspan="2">1085</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>批量录入指定周期被评估人的关键指标详情</td></tr>
+<tr><td colspan="3">PostPerformanceV2MetricDetailsImport</td></tr>
+<tr><td rowspan="2">1086</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取指标模板信息</td></tr>
+<tr><td colspan="3">PostPerformanceV2MetricTemplatesQuery</td></tr>
+<tr><td rowspan="2">1087</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取指标字段信息</td></tr>
+<tr><td colspan="3">PostPerformanceV2MetricFieldsQuery</td></tr>
+<tr><td rowspan="2">1088</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>批量获取指定周期被评估人的关键指标详情</td></tr>
+<tr><td colspan="3">PostPerformanceV2MetricDetailsQuery</td></tr>
 </tbody></table>
