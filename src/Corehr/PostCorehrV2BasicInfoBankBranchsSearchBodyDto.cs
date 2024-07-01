@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2BasicInfoBankBranchsSearchBodyDto
 {
     /// <summary>
-    /// <para>银行 ID 列表</para>
+    /// <para>银行 ID 列表，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)列举，或从[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段中获取</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -30,7 +30,7 @@ public record PostCorehrV2BasicInfoBankBranchsSearchBodyDto
     public string[]? BankIdList { get; set; }
 
     /// <summary>
-    /// <para>支行 ID 列表</para>
+    /// <para>支行 ID 列表，可通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_branch_id_v2` 字段获取</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -57,7 +57,7 @@ public record PostCorehrV2BasicInfoBankBranchsSearchBodyDto
     /// <summary>
     /// <para>最早更新时间</para>
     /// <para>必填：否</para>
-    /// <para>示例值：2024-01-01 00:00:00</para>
+    /// <para>示例值：2020-01-01 00:00:00</para>
     /// </summary>
     [JsonPropertyName("update_start_time")]
     public string? UpdateStartTime { get; set; }

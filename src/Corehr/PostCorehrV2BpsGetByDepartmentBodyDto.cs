@@ -22,7 +22,9 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2BpsGetByDepartmentBodyDto
 {
     /// <summary>
-    /// <para>部门 ID</para>
+    /// <para>部门 ID，ID类型与department_id_type的取值意义一致。</para>
+    /// <para>&gt;</para>
+    /// <para>可以使用 [ID转换服务](https://open.larkoffice.com/document/server-docs/corehr-v1/common_data-id/search?appId=cli_9c04f2177d799101) 换取 ==department_id==</para>
     /// <para>必填：是</para>
     /// <para>示例值：6893014062142064111</para>
     /// </summary>

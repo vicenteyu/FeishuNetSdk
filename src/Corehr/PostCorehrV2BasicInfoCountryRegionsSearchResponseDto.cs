@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 查询国家/地区信息 响应体
-/// <para>根据国家/地区 ID、状态批量查询国家/地区信息</para>
+/// <para>根据国家/地区 ID、状态，批量查询国家/地区信息</para>
 /// <para>接口ID：7301516605753229315</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbasic_info-country_region%2fsearch</para>
@@ -22,21 +22,21 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2BasicInfoCountryRegionsSearchResponseDto
 {
     /// <summary>
-    /// <para>查询的国家/地区信息</para>
+    /// <para>查询到的国家/地区列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public CountryRegion[]? Items { get; set; }
 
     /// <summary>
-    /// <para>查询的国家/地区信息</para>
+    /// <para>查询到的国家/地区列表</para>
     /// </summary>
     public record CountryRegion
     {
         /// <summary>
         /// <para>国家/地区 ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6893114062122064111</para>
+        /// <para>示例值：6862995757234914824</para>
         /// </summary>
         [JsonPropertyName("country_region_id")]
         public string? CountryRegionId { get; set; }
@@ -54,7 +54,7 @@ public record PostCorehrV2BasicInfoCountryRegionsSearchResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言编码（IETF BCP 47）</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -62,9 +62,9 @@ public record PostCorehrV2BasicInfoCountryRegionsSearchResponseDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>文本内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：中国</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -78,7 +78,7 @@ public record PostCorehrV2BasicInfoCountryRegionsSearchResponseDto
         public I18n[]? FullNames { get; set; }
 
         /// <summary>
-        /// <para>国家地区二字码</para>
+        /// <para>国家/地区两位字母编码（ISO 3166-1）</para>
         /// <para>必填：否</para>
         /// <para>示例值：CN</para>
         /// </summary>
@@ -86,7 +86,7 @@ public record PostCorehrV2BasicInfoCountryRegionsSearchResponseDto
         public string? Alpha2Code { get; set; }
 
         /// <summary>
-        /// <para>国家地区三字码</para>
+        /// <para>国家/地区三位字母编码（ISO 3166-1）</para>
         /// <para>必填：否</para>
         /// <para>示例值：CHN</para>
         /// </summary>
@@ -117,7 +117,7 @@ public record PostCorehrV2BasicInfoCountryRegionsSearchResponseDto
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
-    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>示例值：6862995772275688974</para>
     /// </summary>
     [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }

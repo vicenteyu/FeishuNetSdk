@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 查询国籍信息 请求体
-/// <para>根据国家 ID、国籍 ID 查询国籍信息</para>
+/// <para>根据国籍 ID、国家 ID，查询国籍信息</para>
 /// <para>接口ID：7301516605753180163</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbasic_info-nationality%2fsearch</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2BasicInfoNationalitiesSearchBodyDto
 {
     /// <summary>
-    /// <para>国籍 ID 列表</para>
+    /// <para>国籍 ID 列表，可从[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口返回的 `person_info.nationality_id_v2` 等字段中获取，不填则返回全部</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -30,7 +30,7 @@ public record PostCorehrV2BasicInfoNationalitiesSearchBodyDto
     public string[]? NationalityIdList { get; set; }
 
     /// <summary>
-    /// <para>国家 / 地区 ID 列表，可通过[查询国家 / 地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询</para>
+    /// <para>国家 / 地区 ID 列表，可通过[查询国家 / 地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询，不填则返回全部</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>

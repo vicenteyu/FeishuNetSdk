@@ -630,7 +630,7 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
                 /// <summary>
                 /// <para>参与人名称。</para>
                 /// <para>必填：否</para>
-                /// <para>示例值："zhangsan"</para>
+                /// <para>示例值：zhangsan</para>
                 /// </summary>
                 [JsonPropertyName("display_name")]
                 public string? DisplayName { get; set; }

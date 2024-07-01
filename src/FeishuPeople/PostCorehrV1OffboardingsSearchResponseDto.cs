@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 搜索离职信息 响应体
-/// <para>搜索离职信息，该接口会按照应用拥有的「员工数据」的权限范围返回数据，请确定在「开发者后台 - 权限管理 - 数据权限」中申请了「员工资源」权限范围。</para>
+/// <para>该接口支持员工ID、离职审批发起时间和离职日期等字段搜索离职信息，可获取包括离职日期、离职原因、离职状态和流程审批状态等信息。</para>
 /// <para>接口ID：7211423970042183684</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/offboarding/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2foffboarding%2fsearch</para>
@@ -34,7 +34,10 @@ public record PostCorehrV1OffboardingsSearchResponseDto
     public record Offboarding
     {
         /// <summary>
-        /// <para>离职发起类型，包括：</para>
+        /// <para>离职发起类型，可选项包括：</para>
+        /// <para>-offboarding_initiated_by_self：员工申请离职</para>
+        /// <para>-offboarding_initiated_by_others：代发起离职申请</para>
+        /// <para>-offboarding_directly：直接离职</para>
         /// <para>必填：否</para>
         /// <para>示例值：offboarding_directly</para>
         /// </summary>
@@ -70,7 +73,7 @@ public record PostCorehrV1OffboardingsSearchResponseDto
         public record OffboardingApplicationInfo
         {
             /// <summary>
-            /// <para>离职审批发起人的雇佣 ID</para>
+            /// <para>离职审批发起人的雇佣 ID。ID 类型与查询参数 user_id_type 的取值一致。例如，当user_id_type为user_id时，该字段取员工的user_id，若user_id_type为people_corehr_id时，则取该员工的人事雇佣ID。</para>
             /// <para>必填：否</para>
             /// <para>示例值：6838119494196871234</para>
             /// </summary>
@@ -94,7 +97,7 @@ public record PostCorehrV1OffboardingsSearchResponseDto
             public string? ApplyFinishTime { get; set; }
 
             /// <summary>
-            /// <para>流程 ID</para>
+            /// <para>流程 ID。可用于[查询流程相关信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)，例如：作为[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)的process_id查询流程详情。</para>
             /// <para>必填：否</para>
             /// <para>示例值：6838119494196871234</para>
             /// </summary>
@@ -115,7 +118,7 @@ public record PostCorehrV1OffboardingsSearchResponseDto
         public record OffboardingOffboardingInfo
         {
             /// <summary>
-            /// <para>离职员工的雇佣 ID</para>
+            /// <para>离职员工的雇佣 ID。ID 类型与查询参数 user_id_type 的取值一致。例如，当user_id_type为user_id时，该字段取员工的user_id，若user_id_type为people_corehr_id时，则取该员工的人事雇佣ID。</para>
             /// <para>必填：否</para>
             /// <para>示例值：6893014062142064135</para>
             /// </summary>
@@ -123,7 +126,7 @@ public record PostCorehrV1OffboardingsSearchResponseDto
             public string? EmploymentId { get; set; }
 
             /// <summary>
-            /// <para>员工的 hrbp 列表，所有的 hrbp</para>
+            /// <para>员工的 hrbp 列表，所有的 hrbp。ID 类型与查询参数 user_id_type 的取值一致。例如，当user_id_type为user_id时，该字段取员工的user_id，若user_id_type为people_corehr_id时，则取该员工的人事雇佣ID。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("hrbp_id")]
@@ -219,7 +222,9 @@ public record PostCorehrV1OffboardingsSearchResponseDto
             public string? EmployeeReasonExplanation { get; set; }
 
             /// <summary>
-            /// <para>是否加入离职屏蔽名单</para>
+            /// <para>是否加入离职屏蔽名单。注意：该字段为字符类型。可选值有：</para>
+            /// <para>-true：是</para>
+            /// <para>-false：否</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
@@ -254,7 +259,7 @@ public record PostCorehrV1OffboardingsSearchResponseDto
             public record CustomFieldData
             {
                 /// <summary>
-                /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
+                /// <para>自定义字段的唯一标识</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：name</para>
                 /// </summary>
@@ -291,7 +296,15 @@ public record PostCorehrV1OffboardingsSearchResponseDto
                 }
 
                 /// <summary>
-                /// <para>自定义字段类型</para>
+                /// <para>自定义字段类型。可选值有：</para>
+                /// <para>-1：文本类型，包括超链接字段</para>
+                /// <para>-2：布尔类型</para>
+                /// <para>-3：数字类型</para>
+                /// <para>-4：枚举类型</para>
+                /// <para>-5：Lookup类型，如离职人员、竞业公司等</para>
+                /// <para>-8：时间类型</para>
+                /// <para>-9：附件类型</para>
+                /// <para>注意：不支持的字段类型未给出说明。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
@@ -301,7 +314,7 @@ public record PostCorehrV1OffboardingsSearchResponseDto
                 /// <summary>
                 /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）</para>
                 /// <para>必填：是</para>
-                /// <para>示例值："231"</para>
+                /// <para>示例值：231</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
@@ -350,7 +363,7 @@ public record PostCorehrV1OffboardingsSearchResponseDto
             public string? ChecklistFinishTime { get; set; }
 
             /// <summary>
-            /// <para>离职流转流程实例 ID</para>
+            /// <para>离职流转流程实例 ID。可用于[查询流程相关信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)，例如：作为[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)的process_id查询流程详情。</para>
             /// <para>必填：否</para>
             /// <para>示例值：6838119494196871234</para>
             /// </summary>

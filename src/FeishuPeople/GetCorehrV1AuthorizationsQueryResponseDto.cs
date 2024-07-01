@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量查询用户授权 响应体
-/// <para>批量查询「飞书人事」-「权限设置」中的用户授权信息。</para>
+/// <para>批量查询[飞书人事管理后台](https://people.feishu.cn/people/) -「设置」-「权限设置」中的用户授权信息。授权列表信息中包括员工ID、被授权的角色等信息。</para>
 /// <para>接口ID：7372022997609906178</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/authorization/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fauthorization%2fquery</para>
@@ -34,7 +34,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto
     public record RoleAuthorization
     {
         /// <summary>
-        /// <para>雇员 ID</para>
+        /// <para>员工 ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：6967639606963471902</para>
         /// </summary>
@@ -182,14 +182,14 @@ public record GetCorehrV1AuthorizationsQueryResponseDto
             }
 
             /// <summary>
-            /// <para>指定管理对象列表，如果该值为null，则使用设置数据权限</para>
+            /// <para>指定管理对象列表，如果该值为null，则使用设置数据权限(grantor_rule_list)</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("assigned_organization_list")]
             public AssignedOrganization[][]? AssignedOrganizationLists { get; set; }
 
             /// <summary>
-            /// <para>指定管理对象列表，如果该值为null，则使用设置数据权限</para>
+            /// <para>指定管理对象列表，如果该值为null，则使用设置数据权限(grantor_rule_list)</para>
             /// </summary>
             public record AssignedOrganization
             {
@@ -239,14 +239,14 @@ public record GetCorehrV1AuthorizationsQueryResponseDto
             }
 
             /// <summary>
-            /// <para>设置数据权限，如果该值为null，则使用指定管理对象列表</para>
+            /// <para>设置数据权限，如果该值为null，则使用指定管理对象列表(assigned_organization_list)</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("grantor_rule_list")]
             public PermissionSecurityGroup[]? GrantorRuleLists { get; set; }
 
             /// <summary>
-            /// <para>设置数据权限，如果该值为null，则使用指定管理对象列表</para>
+            /// <para>设置数据权限，如果该值为null，则使用指定管理对象列表(assigned_organization_list)</para>
             /// </summary>
             public record PermissionSecurityGroup
             {
@@ -302,6 +302,10 @@ public record GetCorehrV1AuthorizationsQueryResponseDto
 
                 /// <summary>
                 /// <para>管理类型</para>
+                /// <para>- 0：无数据权限</para>
+                /// <para>- 1：全部数据权限</para>
+                /// <para>- 2：被授权的用户自己</para>
+                /// <para>- 3：按规则指定范围</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
@@ -418,7 +422,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto
             }
 
             /// <summary>
-            /// <para>更新时间</para>
+            /// <para>更新时间(时间戳，单位：s)</para>
             /// <para>必填：否</para>
             /// <para>示例值：1641883226867361</para>
             /// </summary>

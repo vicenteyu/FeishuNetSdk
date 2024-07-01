@@ -13,8 +13,8 @@
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 查询省份/行政区信息 响应体
-/// <para>根据省份/行政区 ID、状态批量查询行政区、省份、州等数据</para>
+/// 查询省份/主要行政区信息 响应体
+/// <para>根据国家/地区 ID、省份/主要行政区 ID、状态，批量查询国家/地区下辖的一级行政区（如省份、直辖市、自治区、州等）数据</para>
 /// <para>接口ID：7301516605753245699</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbasic_info-country_region_subdivision%2fsearch</para>
@@ -22,39 +22,39 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchResponseDto
 {
     /// <summary>
-    /// <para>查询的省份/行政区信息</para>
+    /// <para>查询的省份/主要行政区信息</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public CountryRegionSubdivision[]? Items { get; set; }
 
     /// <summary>
-    /// <para>查询的省份/行政区信息</para>
+    /// <para>查询的省份/主要行政区信息</para>
     /// </summary>
     public record CountryRegionSubdivision
     {
         /// <summary>
-        /// <para>省份/行政区 ID</para>
+        /// <para>省份/主要行政区 ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6822114062122064111</para>
+        /// <para>示例值：6863326571462133262</para>
         /// </summary>
         [JsonPropertyName("country_region_subdivision_id")]
         public string? CountryRegionSubdivisionId { get; set; }
 
         /// <summary>
-        /// <para>省份/行政区名称</para>
+        /// <para>省份/主要行政区名称</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("name")]
         public I18n[]? Names { get; set; }
 
         /// <summary>
-        /// <para>省份/行政区名称</para>
+        /// <para>省份/主要行政区名称</para>
         /// </summary>
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言编码（IETF BCP 47）</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -62,9 +62,9 @@ public record PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchResponseDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>文本内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：中文示例</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -73,27 +73,27 @@ public record PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchResponseDto
         /// <summary>
         /// <para>所属国家/地区 ID，详细信息可通过[查询国家 / 地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6822114062122062211</para>
+        /// <para>示例值：6862995791674344967</para>
         /// </summary>
         [JsonPropertyName("country_region_id")]
         public string? CountryRegionId { get; set; }
 
         /// <summary>
-        /// <para>行政区类型，枚举值可通过文档[枚举常量](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)行政区类型（subdivision_type）枚举定义部分获得</para>
+        /// <para>行政区类型，枚举值可通过[枚举常量介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant#402ea9a0)文档中行政区类型（subdivision_type）定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("subdivision_type")]
         public Enum? SubdivisionType { get; set; }
 
         /// <summary>
-        /// <para>行政区类型，枚举值可通过文档[枚举常量](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)行政区类型（subdivision_type）枚举定义部分获得</para>
+        /// <para>行政区类型，枚举值可通过[枚举常量介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant#402ea9a0)文档中行政区类型（subdivision_type）定义部分获得</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：governorate</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -111,7 +111,7 @@ public record PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>语言</para>
+                /// <para>语言编码（IETF BCP 47）</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
@@ -119,9 +119,9 @@ public record PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchResponseDto
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>内容</para>
+                /// <para>文本内容</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：张三</para>
+                /// <para>示例值：中文示例</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
@@ -129,9 +129,9 @@ public record PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchResponseDto
         }
 
         /// <summary>
-        /// <para>省份/行政区三字码</para>
+        /// <para>省份/主要行政区编码（ISO 3166-2）</para>
         /// <para>必填：否</para>
-        /// <para>示例值：PEK</para>
+        /// <para>示例值：PSE-GZA</para>
         /// </summary>
         [JsonPropertyName("iso_code")]
         public string? IsoCode { get; set; }
@@ -152,7 +152,7 @@ public record PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchResponseDto
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
-    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>示例值：6891251722631890445</para>
     /// </summary>
     [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 创建个人信息 响应体
-/// <para>创建员工的个人信息</para>
+/// <para>创建员工的个人信息，包括姓名、个人电话、邮箱、联系地址、政治面貌、户口信息等</para>
 /// <para>接口ID：7225452763517108227</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/employee/person/create-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fperson%2fcreate</para>
@@ -1680,7 +1680,7 @@ public record PostCorehrV2PersonsResponseDto
                 public string? LocalFirstName { get; set; }
 
                 /// <summary>
-                /// <para>国家 / 地区</para>
+                /// <para>国家/地区</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：6862995757234914824</para>
                 /// </summary>

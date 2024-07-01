@@ -15,7 +15,7 @@ namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 获取流程表单数据 响应体
 /// <para>根据流程实例 id（process_id）获取流程表单字段数据，包括表单里的业务字段和自定义字段。仅支持飞书人事、假勤相关业务流程。</para>
-/// <para>注：旧版 API 文档已移动到【历史版本】目录。</para>
+/// <para>注：[旧版 API](https://open.larkoffice.com/document/server-docs/corehr-v1/process-form_variable_data/get) 文档已移动到【历史版本】目录。</para>
 /// <para>接口ID：7362022982036717571</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-form_variable_data/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess-form_variable_data%2fget</para>
@@ -120,7 +120,8 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
             public string? EnumValue { get; set; }
 
             /// <summary>
-            /// <para>从 1970 开始的天数</para>
+            /// <para>日期值，单位：天。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的天数</para>
+            /// <para>**示例值**：19688</para>
             /// <para>必填：否</para>
             /// <para>示例值：19838</para>
             /// </summary>
@@ -128,7 +129,8 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
             public string? DateValue { get; set; }
 
             /// <summary>
-            /// <para>时间戳，毫秒</para>
+            /// <para>时间值，单位：ms。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的毫秒数</para>
+            /// <para>**示例值**：1719549169735</para>
             /// <para>必填：否</para>
             /// <para>示例值：1714013877512</para>
             /// </summary>
@@ -165,7 +167,7 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
             }
 
             /// <summary>
-            /// <para>对象值，包括对象 id 和对象类型</para>
+            /// <para>对象值</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
@@ -173,12 +175,12 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
             public FieldVariableValueToObject? ObjectValue { get; set; }
 
             /// <summary>
-            /// <para>对象值，包括对象 id 和对象类型</para>
+            /// <para>对象值</para>
             /// </summary>
             public record FieldVariableValueToObject
             {
                 /// <summary>
-                /// <para>飞书人事 Wukong 元数据的对象唯一标识</para>
+                /// <para>飞书主数据对象唯一标识。（可通过[飞书主数据概述](https://open.larkoffice.com/document/server-docs/mdm-v1/summary)了解更多信息。）</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6863326263210149383</para>
                 /// </summary>
@@ -186,7 +188,7 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 public string? WkId { get; set; }
 
                 /// <summary>
-                /// <para>飞书人事 Wukong 元数据唯一标识</para>
+                /// <para>飞书元数据对象的唯一标识。可基于该字段，通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取更多相关字段的详情。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：country_region_subdivision</para>
                 /// </summary>
@@ -195,7 +197,7 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
             }
 
             /// <summary>
-            /// <para>用户 id，根据 user_type 选择对应的用户 id</para>
+            /// <para>用户 id，根据查询参数 user_id_type 选择对应的用户 id</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_c57053dad6eea0aea4696c48433d8562</para>
             /// </summary>
@@ -203,7 +205,7 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
             public string? UserValue { get; set; }
 
             /// <summary>
-            /// <para>部门 id，根据入参选择对应的部门 id</para>
+            /// <para>部门 id，根据查询参数 department_id_type 选择对应的部门 id</para>
             /// <para>必填：否</para>
             /// <para>示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f</para>
             /// </summary>
@@ -232,7 +234,7 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 public string? VariableApiName { get; set; }
 
                 /// <summary>
-                /// <para>变量值，对应 subValues 中的 key</para>
+                /// <para>变量值，对应 sub_values 中的 key</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：key1</para>
                 /// </summary>
@@ -249,7 +251,7 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
             public string? EmploymentValue { get; set; }
 
             /// <summary>
-            /// <para>数组类型值，里面包含多个值，每个元素都对应 subValues 中的数组下标</para>
+            /// <para>数组类型值，里面包含多个值，每个元素都对应 sub_values 中的数组下标</para>
             /// <para>必填：否</para>
             /// <para>最大长度：10000</para>
             /// <para>最小长度：0</para>
@@ -325,7 +327,7 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 public string? EnumValue { get; set; }
 
                 /// <summary>
-                /// <para>从 1970 开始的天数</para>
+                /// <para>日期值，单位：天。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的天数</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：19838</para>
                 /// </summary>
@@ -333,7 +335,8 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 public string? DateValue { get; set; }
 
                 /// <summary>
-                /// <para>时间戳，毫秒</para>
+                /// <para>时间值，单位：ms。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的毫秒数</para>
+                /// <para>**示例值**：1719549169735</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1714013877512</para>
                 /// </summary>
@@ -370,7 +373,7 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 }
 
                 /// <summary>
-                /// <para>对象值，包括对象 id 和对象类型</para>
+                /// <para>对象值</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
@@ -378,12 +381,12 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 public FieldVariableValueToObject? ObjectValue { get; set; }
 
                 /// <summary>
-                /// <para>对象值，包括对象 id 和对象类型</para>
+                /// <para>对象值</para>
                 /// </summary>
                 public record FieldVariableValueToObject
                 {
                     /// <summary>
-                    /// <para>飞书人事 Wukong 元数据的对象唯一标识</para>
+                    /// <para>飞书主数据对象唯一标识。（可通过[飞书主数据概述](https://open.larkoffice.com/document/server-docs/mdm-v1/summary)了解更多信息。）</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：6863326263210149383</para>
                     /// </summary>
@@ -400,7 +403,7 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 }
 
                 /// <summary>
-                /// <para>用户 id，根据 user_type 选择对应的用户 id</para>
+                /// <para>用户 id，根据查询参数 user_id_type 选择对应的用户 id</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：ou_c57053dad6eea0aea4696c48433d8562</para>
                 /// </summary>
@@ -408,7 +411,7 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 public string? UserValue { get; set; }
 
                 /// <summary>
-                /// <para>部门 id，根据入参选择对应的部门 id</para>
+                /// <para>部门 id，根据查询参数 department_id_type 选择对应的部门 id</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f</para>
                 /// </summary>
@@ -437,7 +440,7 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                     public string? VariableApiName { get; set; }
 
                     /// <summary>
-                    /// <para>变量值，对应 subValues 中的 key</para>
+                    /// <para>变量值，对应 sub_values 中的 key</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：key1</para>
                     /// </summary>
@@ -454,7 +457,7 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 public string? EmploymentValue { get; set; }
 
                 /// <summary>
-                /// <para>数组类型值，里面包含多个值，每个元素都对应 subValues 中的数组下标</para>
+                /// <para>数组类型值，里面包含多个值，每个元素都对应 sub_values 中的数组下标</para>
                 /// <para>必填：否</para>
                 /// <para>最大长度：10000</para>
                 /// <para>最小长度：0</para>

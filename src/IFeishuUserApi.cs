@@ -2867,7 +2867,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="anchor_time">
     /// <para>必填：否</para>
     /// <para>时间锚点，Unix 时间戳（秒）。anchor_time用于设置一个时间点，以便直接拉取该时间点之后的日程数据，从而避免拉取全量日程数据。你可以使用page_token或sync_token进行分页或增量拉取anchor_time之后的所有日程数据。</para>
-    /// <para>- 不可与start_time和end_time一起使用。</para>
+    /// <para>**注意**：该参数不可与start_time和end_time一起使用。</para>
     /// <para>**默认值**：空</para>
     /// <para>示例值：1609430400</para>
     /// <para>默认值：null</para>
@@ -2888,8 +2888,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="start_time">
     /// <para>必填：否</para>
     /// <para>时间区间的开始时间， Unix 时间戳（秒），与end_time搭配使用，用于拉取指定时间区间内的日程数据.</para>
+    /// <para>**注意**：</para>
     /// <para>- 该方式只能一次性返回数据，无法进行分页。一次性返回的数据大小受page_size限制，超过限制的数据将被截断。</para>
-    /// <para>- 在使用start_time和end_time时不能与page_token或sync_token一起使用。</para>
+    /// <para>- 在使用start_time和end_time时，不能与page_token或sync_token一起使用。</para>
+    /// <para>- 在使用start_time和end_time时，不能与anchor_time一起使用。</para>
     /// <para>**默认值**：空</para>
     /// <para>示例值：1631777271</para>
     /// <para>默认值：null</para>
@@ -2897,8 +2899,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="end_time">
     /// <para>必填：否</para>
     /// <para>时间区间的结束时间， Unix 时间戳（秒）。与start_time搭配使用，用于拉取指定时间区间内的日程数据.</para>
+    /// <para>**注意**：</para>
     /// <para>- 该方式只能一次性返回数据，无法进行分页。一次性返回的数据大小受page_size限制，超过限制的数据将被截断。</para>
     /// <para>- 在使用start_time和end_time时不能与page_token或sync_token一起使用。</para>
+    /// <para>- 在使用start_time和end_time时，不能与anchor_time一起使用。</para>
     /// <para>**默认值**：空</para>
     /// <para>示例值：1631777271</para>
     /// <para>默认值：null</para>

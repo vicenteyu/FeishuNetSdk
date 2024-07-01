@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 创建雇佣信息 请求体
-/// <para>创建人员的雇佣信息。</para>
+/// <para>创建人员的雇佣信息，需要先[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create。</para>
 /// <para>接口ID：7072577767343718401</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/employee/employment/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2femployment%2fcreate</para>
@@ -30,7 +30,7 @@ public record PostCorehrV1EmploymentsBodyDto
     public string? SeniorityDate { get; set; }
 
     /// <summary>
-    /// <para>员工编号</para>
+    /// <para>员工编号（工号），不传该参数时由系统自动生成；由数字或字母组成，请勿使用特殊字符；请保证唯一</para>
     /// <para>必填：否</para>
     /// <para>示例值：1000000</para>
     /// </summary>
@@ -40,28 +40,28 @@ public record PostCorehrV1EmploymentsBodyDto
     /// <summary>
     /// <para>入职日期</para>
     /// <para>必填：是</para>
-    /// <para>示例值：2020-01-0100:00:00</para>
+    /// <para>示例值：2020-01-01 00:00:00</para>
     /// </summary>
     [JsonPropertyName("effective_time")]
     public string EffectiveTime { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>离职日期</para>
+    /// <para>离职日期，不能早于入职日期</para>
     /// <para>必填：否</para>
-    /// <para>示例值：2021-01-01</para>
+    /// <para>示例值：2020-01-01 00:00:00</para>
     /// </summary>
     [JsonPropertyName("expiration_time")]
     public string? ExpirationTime { get; set; }
 
     /// <summary>
-    /// <para>雇佣类型</para>
+    /// <para>雇佣类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)雇佣类型（employment_type）枚举定义获得</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("employment_type")]
     public Enum EmploymentType { get; set; } = new();
 
     /// <summary>
-    /// <para>雇佣类型</para>
+    /// <para>雇佣类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)雇佣类型（employment_type）枚举定义获得</para>
     /// </summary>
     public record Enum
     {
@@ -75,7 +75,7 @@ public record PostCorehrV1EmploymentsBodyDto
     }
 
     /// <summary>
-    /// <para>人员信息，引用Person的ID</para>
+    /// <para>个人信息ID，由[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)时生成</para>
     /// <para>必填：是</para>
     /// <para>示例值：6919733936050406926</para>
     /// </summary>
@@ -91,21 +91,21 @@ public record PostCorehrV1EmploymentsBodyDto
     public bool PrimaryEmployment { get; set; }
 
     /// <summary>
-    /// <para>雇员状态</para>
+    /// <para>雇员状态，可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)雇员状态（employment_status）枚举定义获得</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("employment_status")]
     public Enum? EmploymentStatus { get; set; }
 
     /// <summary>
-    /// <para>自定义字段</para>
+    /// <para>自定义字段，不传时为空</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("custom_fields")]
     public ObjectFieldData[]? CustomFields { get; set; }
 
     /// <summary>
-    /// <para>自定义字段</para>
+    /// <para>自定义字段，不传时为空</para>
     /// </summary>
     public record ObjectFieldData
     {
@@ -127,20 +127,20 @@ public record PostCorehrV1EmploymentsBodyDto
     }
 
     /// <summary>
-    /// <para>工作邮箱列表，只有当邮箱下面所有条件时，才在个人信息页面可见：</para>
+    /// <para>工作邮箱列表，只有当满足下面所有条件时，才在个人信息页面可见：</para>
     /// <para>- is_primary = "true"</para>
     /// <para>- is_public = "true"</para>
-    /// <para>- email_usage = "work"</para>
+    /// <para>- email_usage = "work"；不传时为空</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("work_email_list")]
     public Email[]? WorkEmailLists { get; set; }
 
     /// <summary>
-    /// <para>工作邮箱列表，只有当邮箱下面所有条件时，才在个人信息页面可见：</para>
+    /// <para>工作邮箱列表，只有当满足下面所有条件时，才在个人信息页面可见：</para>
     /// <para>- is_primary = "true"</para>
     /// <para>- is_public = "true"</para>
-    /// <para>- email_usage = "work"</para>
+    /// <para>- email_usage = "work"；不传时为空</para>
     /// </summary>
     public record Email
     {
@@ -220,7 +220,7 @@ public record PostCorehrV1EmploymentsBodyDto
     }
 
     /// <summary>
-    /// <para>离职原因</para>
+    /// <para>离职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)离职原因（reason_for_offboarding）枚举定义部分获得</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("reason_for_offboarding")]
@@ -247,7 +247,7 @@ public record PostCorehrV1EmploymentsBodyDto
     public Enum? Rehire { get; set; }
 
     /// <summary>
-    /// <para>历史雇佣信息 ID</para>
+    /// <para>历史雇佣信息 ID，可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获得；类型不跟随 user_id_type</para>
     /// <para>必填：否</para>
     /// <para>示例值：7051837122449425964</para>
     /// </summary>

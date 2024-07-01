@@ -34,7 +34,7 @@ public record PostCorehrV2BpsGetByDepartmentResponseDto
     public record DepartmentHrbp
     {
         /// <summary>
-        /// <para>部门 ID</para>
+        /// <para>部门 ID，ID类型与department_id_type的取值意义一致。</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719456877659520852</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record PostCorehrV2BpsGetByDepartmentResponseDto
         public string? DepartmentId { get; set; }
 
         /// <summary>
-        /// <para>部门 HRBP 雇佣 ID</para>
+        /// <para>部门 HRBP 员工 ID，ID类型与user_id_type的取值意义一致。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("hrbp_ids")]

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 获取 HRBP 列表 响应体
-/// <para>获取 HRBP 列表。</para>
+/// <para>获取 HRBP 列表。列表中包含HRBP的ID以及部门ID信息。</para>
 /// <para>接口ID：7261860942295564290</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/bp/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbp%2flist</para>

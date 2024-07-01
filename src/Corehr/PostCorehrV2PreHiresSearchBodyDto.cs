@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-01
 // ************************************************************************
 // <copyright file="PostCorehrV2PreHiresSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 搜索待入职人员信息 请求体
-/// <para>搜索待入职人员信息。</para>
+/// <para>该接口用于根据工号/待入职人员 ID /入职地点等查询条件搜索待入职人员信息。</para>
 /// <para>接口ID：7263303427627270148</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpre_hire%2fsearch</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2PreHiresSearchBodyDto
 {
     /// <summary>
-    /// <para>待入职人员工号列表</para>
+    /// <para>待入职人员工号列表，如果不填写，则不根据工号过滤待入职数据。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -30,7 +30,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string[]? WorkerIds { get; set; }
 
     /// <summary>
-    /// <para>待入职人员 ID 列表</para>
+    /// <para>待入职人员 ID 列表，如果不填写，则搜索全部待入职。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -38,7 +38,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string[]? PreHireIds { get; set; }
 
     /// <summary>
-    /// <para>入职日期-搜索范围开始，需要与搜索范围结束一同使用</para>
+    /// <para>入职日期（搜索的起始时间），需要与入职日期（搜索的结束时间）一同使用，不填写则不根据入职日期过滤。</para>
     /// <para>必填：否</para>
     /// <para>示例值：2006-01-02</para>
     /// </summary>
@@ -46,7 +46,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string? OnboardingDateStart { get; set; }
 
     /// <summary>
-    /// <para>入职日期-搜索范围结束</para>
+    /// <para>入职日期（搜索的结束时间），需要与入职日期（搜索的起始时间）一同使用，不填写则不根据入职日期过滤。</para>
     /// <para>必填：否</para>
     /// <para>示例值：2006-01-02</para>
     /// </summary>
@@ -54,7 +54,23 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string? OnboardingDateEnd { get; set; }
 
     /// <summary>
-    /// <para>入职地点 ID 列表</para>
+    /// <para>待入职数据更新时间（搜索的起始时间），需要与更新时间（搜索的结束时间）一同使用，不填写则不根据数据更新时间过滤。</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：2006-01-02</para>
+    /// </summary>
+    [JsonPropertyName("updated_date_start")]
+    public string? UpdatedDateStart { get; set; }
+
+    /// <summary>
+    /// <para>待入职数据更新时间（搜索的结束时间），需要与更新时间（搜索的起始时间）一同使用，不填写则不根据数据更新时间过滤。</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：2006-01-02</para>
+    /// </summary>
+    [JsonPropertyName("updated_date_end")]
+    public string? UpdatedDateEnd { get; set; }
+
+    /// <summary>
+    /// <para>入职地点 ID 列表，可通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -62,7 +78,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string[]? OnboardingLocationIds { get; set; }
 
     /// <summary>
-    /// <para>入职状态</para>
+    /// <para>入职状态，不填写则搜索全部入职状态的数据。</para>
     /// <para>必填：否</para>
     /// <para>示例值：preboarding</para>
     /// <para>可选值：<list type="bullet">
@@ -77,7 +93,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string? OnboardingStatus { get; set; }
 
     /// <summary>
-    /// <para>部门 ID 列表</para>
+    /// <para>部门 ID 列表，ID类型与查询参数 department_id_type的取值保持一致，ID值可以通过[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口获取</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -85,7 +101,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string[]? DepartmentIds { get; set; }
 
     /// <summary>
-    /// <para>直接上级的雇佣 ID 列表</para>
+    /// <para>直接上级的雇佣 ID 列表，ID类型与查询参数user_id_type的取值保持一致，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -93,7 +109,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string[]? DirectManagerIds { get; set; }
 
     /// <summary>
-    /// <para>人员类型 ID 列表</para>
+    /// <para>人员类型 ID 列表，可以通过接口[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -101,7 +117,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string[]? EmployeeTypeIds { get; set; }
 
     /// <summary>
-    /// <para>序列 ID 列表</para>
+    /// <para>序列 ID 列表，可以通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口获取</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -109,7 +125,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string[]? JobFamilyIds { get; set; }
 
     /// <summary>
-    /// <para>搜索关键字，支持对常用名模糊搜索 + 工号精确搜索</para>
+    /// <para>搜索关键字，支持对常用名模糊搜索 + 工号精确搜索，不填写则搜索全部数据。</para>
     /// <para>必填：否</para>
     /// <para>示例值：张三</para>
     /// </summary>
@@ -117,9 +133,9 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string? KeyWord { get; set; }
 
     /// <summary>
-    /// <para>是否离职重聘</para>
+    /// <para>是否离职重聘，不填写则搜索全部数据。</para>
     /// <para>必填：否</para>
-    /// <para>示例值：张三</para>
+    /// <para>示例值：to_be_confirmed</para>
     /// <para>可选值：<list type="bullet">
     /// <item>to_be_confirmed：待确认，系统会判断该员工是否存在历史雇佣记录，如果存在且需要二次确认时会调用失败，并返回历史雇佣记录</item>
     /// <item>no：否，系统直接标为非离职重聘人员，不再做重复判断</item>

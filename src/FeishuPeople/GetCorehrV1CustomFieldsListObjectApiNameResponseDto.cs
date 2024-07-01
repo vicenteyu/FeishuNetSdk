@@ -72,8 +72,6 @@ public record GetCorehrV1CustomFieldsListObjectApiNameResponseDto
 
         /// <summary>
         /// <para>是否启用</para>
-        /// <para>True 为已启用</para>
-        /// <para>False 为未启用</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
@@ -108,7 +106,7 @@ public record GetCorehrV1CustomFieldsListObjectApiNameResponseDto
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
-    /// <para>示例值：1234452132</para>
+    /// <para>示例值：3</para>
     /// </summary>
     [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }

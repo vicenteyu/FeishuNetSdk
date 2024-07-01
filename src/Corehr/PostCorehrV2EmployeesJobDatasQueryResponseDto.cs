@@ -337,7 +337,7 @@ public record PostCorehrV2EmployeesJobDatasQueryResponseDto
             public Enum? CompensationType { get; set; }
 
             /// <summary>
-            /// <para>任职公司</para>
+            /// <para>任职公司，枚举值及详细信息可通过[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)接口查询获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372680</para>
             /// </summary>

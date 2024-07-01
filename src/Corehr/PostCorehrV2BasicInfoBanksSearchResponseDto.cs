@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 查询银行信息 响应体
-/// <para>根据银行 ID 、银行名称查询银行信息</para>
+/// <para>根据银行 ID 、银行名称，查询银行信息</para>
 /// <para>接口ID：7301516605753196547</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbasic_info-bank%2fsearch</para>
@@ -22,21 +22,21 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2BasicInfoBanksSearchResponseDto
 {
     /// <summary>
-    /// <para>查询的银行信息</para>
+    /// <para>查询到的银行列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public Bank[]? Items { get; set; }
 
     /// <summary>
-    /// <para>查询的银行信息</para>
+    /// <para>查询到的银行列表</para>
     /// </summary>
     public record Bank
     {
         /// <summary>
         /// <para>银行 ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6893014062142064135</para>
+        /// <para>示例值：MDBH00000080</para>
         /// </summary>
         [JsonPropertyName("bank_id")]
         public string? BankId { get; set; }
@@ -54,7 +54,7 @@ public record PostCorehrV2BasicInfoBanksSearchResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言编码（IETF BCP 47）</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -62,9 +62,9 @@ public record PostCorehrV2BasicInfoBanksSearchResponseDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>文本内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：中文示例</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -73,7 +73,7 @@ public record PostCorehrV2BasicInfoBanksSearchResponseDto
         /// <summary>
         /// <para>总行代码</para>
         /// <para>必填：否</para>
-        /// <para>示例值：BKCH</para>
+        /// <para>示例值：CMB</para>
         /// </summary>
         [JsonPropertyName("bank_code")]
         public string? BankCode { get; set; }
@@ -81,7 +81,7 @@ public record PostCorehrV2BasicInfoBanksSearchResponseDto
         /// <summary>
         /// <para>国家 / 地区 ID ，可通过[查询国家 / 地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search) 接口查询</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6893014062142064133</para>
+        /// <para>示例值：6862995757234914824</para>
         /// </summary>
         [JsonPropertyName("country_region_id")]
         public string? CountryRegionId { get; set; }
@@ -101,7 +101,7 @@ public record PostCorehrV2BasicInfoBanksSearchResponseDto
         /// <summary>
         /// <para>创建时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2024-01-01 00:00:00</para>
+        /// <para>示例值：2020-01-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }

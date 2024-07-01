@@ -22,21 +22,21 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2BasicInfoCurrenciesSearchResponseDto
 {
     /// <summary>
-    /// <para>查询的货币信息</para>
+    /// <para>查询到的货币信息列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public Currency[]? Items { get; set; }
 
     /// <summary>
-    /// <para>查询的货币信息</para>
+    /// <para>查询到的货币信息列表</para>
     /// </summary>
     public record Currency
     {
         /// <summary>
         /// <para>货币 ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6893114062142064111</para>
+        /// <para>示例值：6863329932261459464</para>
         /// </summary>
         [JsonPropertyName("currency_id")]
         public string? CurrencyId { get; set; }
@@ -61,7 +61,7 @@ public record PostCorehrV2BasicInfoCurrenciesSearchResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言编码（IETF BCP 47）</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -69,16 +69,16 @@ public record PostCorehrV2BasicInfoCurrenciesSearchResponseDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>文本内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：中文示例</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
         /// <summary>
-        /// <para>数字代码</para>
+        /// <para>数字代码（ISO 4217）</para>
         /// <para>必填：否</para>
         /// <para>示例值：156</para>
         /// </summary>
@@ -86,7 +86,7 @@ public record PostCorehrV2BasicInfoCurrenciesSearchResponseDto
         public int? NumericCode { get; set; }
 
         /// <summary>
-        /// <para>三位字母代码</para>
+        /// <para>三位字母代码（ISO 4217）</para>
         /// <para>必填：否</para>
         /// <para>示例值：CNY</para>
         /// </summary>
@@ -109,7 +109,7 @@ public record PostCorehrV2BasicInfoCurrenciesSearchResponseDto
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
-    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>示例值：6863329958782043655</para>
     /// </summary>
     [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }

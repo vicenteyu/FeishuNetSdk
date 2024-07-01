@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 查询国籍信息 响应体
-/// <para>根据国家 ID、国籍 ID 查询国籍信息</para>
+/// <para>根据国籍 ID、国家 ID，查询国籍信息</para>
 /// <para>接口ID：7301516605753180163</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbasic_info-nationality%2fsearch</para>
@@ -22,21 +22,21 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2BasicInfoNationalitiesSearchResponseDto
 {
     /// <summary>
-    /// <para>查询的国籍信息</para>
+    /// <para>查询到的国籍列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public Nationality[]? Items { get; set; }
 
     /// <summary>
-    /// <para>查询的国籍信息</para>
+    /// <para>查询到的国籍列表</para>
     /// </summary>
     public record Nationality
     {
         /// <summary>
-        /// <para>国籍 ID（对应其他查询结果的 nationality_id_v2 字段）</para>
+        /// <para>国籍 ID，对应[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口返回的 `person_info.nationality_id_v2` 字段</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6893014062142064135</para>
+        /// <para>示例值：7075702736045475372</para>
         /// </summary>
         [JsonPropertyName("nationality_id")]
         public string? NationalityId { get; set; }
@@ -54,7 +54,7 @@ public record PostCorehrV2BasicInfoNationalitiesSearchResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言编码（IETF BCP 47）</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -62,16 +62,16 @@ public record PostCorehrV2BasicInfoNationalitiesSearchResponseDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>文本内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：中文示例</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
         /// <summary>
-        /// <para>二字码</para>
+        /// <para>国家/地区两位字母编码（ISO 3166-1）</para>
         /// <para>必填：否</para>
         /// <para>示例值：CN</para>
         /// </summary>
@@ -79,7 +79,7 @@ public record PostCorehrV2BasicInfoNationalitiesSearchResponseDto
         public string? Alpha2Code { get; set; }
 
         /// <summary>
-        /// <para>三字码</para>
+        /// <para>国家/地区三位字母编码（ISO 3166-1）</para>
         /// <para>必填：否</para>
         /// <para>示例值：CHN</para>
         /// </summary>
@@ -97,7 +97,7 @@ public record PostCorehrV2BasicInfoNationalitiesSearchResponseDto
         /// <summary>
         /// <para>国家 / 地区 ID ，可通过[查询国家 / 地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6893014061142064135</para>
+        /// <para>示例值：6862995757234914824</para>
         /// </summary>
         [JsonPropertyName("country_region_id")]
         public string? CountryRegionId { get; set; }
@@ -118,7 +118,7 @@ public record PostCorehrV2BasicInfoNationalitiesSearchResponseDto
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
-    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>示例值：7075702743846897196</para>
     /// </summary>
     [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
