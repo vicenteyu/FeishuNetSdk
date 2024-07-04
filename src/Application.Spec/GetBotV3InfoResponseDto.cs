@@ -20,20 +20,13 @@ namespace FeishuNetSdk.Application.Spec;
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuAjMxEjLwITMx4CMyETM</para>
 /// </summary>
 public record GetBotV3InfoResponseDto
+    : FeishuResponse<GetBotV3InfoResponseDto.BotInfo>
 {
     /// <summary>
-    /// <para>错误码，非 0 取值表示失败</para>
-    /// <para>必填：否</para>
+    /// 业务数据
     /// </summary>
-    [JsonPropertyName("code")]
-    public int? Code { get; set; }
-
-    /// <summary>
-    /// <para>错误描述</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("msg")]
-    public string? Msg { get; set; }
+    [JsonIgnore]
+    public override BotInfo? Data => Bot;
 
     /// <summary>
     /// <para>机器人信息</para>

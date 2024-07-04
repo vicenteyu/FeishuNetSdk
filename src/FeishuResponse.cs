@@ -34,7 +34,7 @@ public record FeishuResponse<T>
     /// 业务数据
     /// </summary>
     [JsonPropertyName("data")]
-    public T? Data { get; set; }
+    public virtual T? Data { get; set; }
 
     /// <summary>
     /// 响应结果
