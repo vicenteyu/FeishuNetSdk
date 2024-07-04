@@ -1,67 +1,68 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-07-04
 //
 // Last Modified By : yxr
 // Last Modified On : 2024-07-04
 // ************************************************************************
-// <copyright file="PutDriveV1PermissionsByTokenMembersByMemberIdResponseDto.cs" company="Vicente Yu">
+// <copyright file="PostDriveV1PermissionsByTokenMembersBatchCreateResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>更新协作者权限 响应体</summary>
+// <summary>批量增加协作者权限 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 更新协作者权限 响应体
-/// <para>该接口用于根据文件的 token 更新文档协作者的权限。</para>
-/// <para>接口ID：6998069547745230876</para>
-/// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/update</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-member%2fupdate</para>
+/// 批量增加协作者权限 响应体
+/// <para>该接口可根据云文档 token 批量将用户添加为云文档的协作者。</para>
+/// <para>接口ID：7281248568152981507</para>
+/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/batch_create</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-member%2fbatch_create</para>
 /// </summary>
-public record PutDriveV1PermissionsByTokenMembersByMemberIdResponseDto
+public record PostDriveV1PermissionsByTokenMembersBatchCreateResponseDto
 {
     /// <summary>
-    /// <para>本次更新权限的用户信息</para>
+    /// <para>增加成功的协作者列表</para>
+    /// <para>**注意**：当只有部分成功时，`members` 会返回成功的部分，在不同场景下，部分成功返回的错误码可能不同，请不要依赖错误码去判断是否为部分成功</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonPropertyName("member")]
-    public BaseMember? Member { get; set; }
+    [JsonPropertyName("members")]
+    public BaseMember[]? Members { get; set; }
 
     /// <summary>
-    /// <para>本次更新权限的用户信息</para>
+    /// <para>增加成功的协作者列表</para>
+    /// <para>**注意**：当只有部分成功时，`members` 会返回成功的部分，在不同场景下，部分成功返回的错误码可能不同，请不要依赖错误码去判断是否为部分成功</para>
     /// </summary>
     public record BaseMember
     {
         /// <summary>
-        /// <para>协作者 ID 类型，与协作者 ID 需要对应</para>
+        /// <para>增加成功的协作者 ID 类型</para>
         /// <para>必填：是</para>
         /// <para>示例值：openid</para>
         /// <para>可选值：<list type="bullet">
         /// <item>email：飞书邮箱</item>
         /// <item>openid：开放平台 ID</item>
-        /// <item>unionid：开放平台 UnionID</item>
+        /// <item>unionid：开放平台UnionID</item>
         /// <item>openchat：开放平台群组 ID</item>
         /// <item>opendepartmentid：开放平台部门 ID</item>
         /// <item>userid：用户自定义 ID</item>
         /// <item>groupid：自定义用户组 ID</item>
-        /// <item>wikispaceid：知识空间 ID</item>
+        /// <item>wikispaceid：知识空间的唯一标识</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("member_type")]
         public string MemberType { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>协作者 ID，与协作者 ID 类型需要对应</para>
+        /// <para>增加成功的协作者 ID，与协作者 ID 类型相对应</para>
         /// <para>必填：是</para>
-        /// <para>示例值：ou_67e5ecb64ce1c0bd94612c17999db411</para>
+        /// <para>示例值：string</para>
         /// </summary>
         [JsonPropertyName("member_id")]
         public string MemberId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>协作者对应的权限角色</para>
-        /// <para>**注意：** 妙记还不支持可管理角色</para>
+        /// <para>增加成功的的权限角色</para>
         /// <para>必填：是</para>
         /// <para>示例值：view</para>
         /// <para>可选值：<list type="bullet">

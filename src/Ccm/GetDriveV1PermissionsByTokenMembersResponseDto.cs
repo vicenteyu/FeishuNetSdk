@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-04
 // ************************************************************************
 // <copyright file="GetDriveV1PermissionsByTokenMembersResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -13,7 +13,7 @@
 // ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 获取协作者列表（新版本） 响应体
+/// 获取协作者列表（新版） 响应体
 /// <para>该接口用于根据文件的 token 查询协作者。</para>
 /// <para>接口ID：7121656165336367106</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/list</para>
@@ -71,6 +71,18 @@ public record GetDriveV1PermissionsByTokenMembersResponseDto
         /// </summary>
         [JsonPropertyName("perm")]
         public string Perm { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>协作者的权限角色类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：container</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>container：当前页面及子页面</item>
+        /// <item>single_page：仅当前页面，当且仅当在知识库文档中该参数有效</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("perm_type")]
+        public string? PermType { get; set; }
 
         /// <summary>
         /// <para>协作者的类型</para>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-01
+// Last Modified On : 2024-07-04
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -8677,13 +8677,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6964286393804898332</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据人才简历附件 ID 获取招聘系统中附件的元信息，比如文件名、创建时间、文件 URL 等。,可通过[获取人才信息接口](https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent/get)获取人才的简历附件</para>
+    /// <para>根据附件 ID 和附件类型获取招聘系统中附件的信息，比如附件名称、附件创建时间、附件下载地址等。</para>
     /// </summary>
     /// <param name="attachment_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>附件id</para>
-    /// <para>示例值：6435242341238</para>
+    /// <para>附件 ID，可通过[获取人才信息 V1](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口获取人才的简历附件 ID/作品附件 ID/自定义字段附件 ID。</para>
+    /// <para>示例值：6960663240925956555</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：否</para>
@@ -8844,16 +8844,16 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
-    /// <para>【招聘】获取附件预览信息</para>
+    /// <para>【招聘】获取附件 PDF 格式下载链接</para>
     /// <para>接口ID：6964631863168647171</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/preview</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据附件 ID 获取附件预览信息。</para>
+    /// <para>对于飞书招聘系统所支持转换为 PDF 文件的附件，可根据附件 ID 获取该附件对应的 PDF 文件的下载地址。</para>
     /// </summary>
     /// <param name="attachment_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>附件 ID，可通过[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口返回数据中获取人才相关附件 ID</para>
+    /// <para>附件 ID，可通过[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口返回数据中获取人才相关附件 ID。</para>
     /// <para>示例值：64352523512563462</para>
     /// </param>
     [HttpGet("/open-apis/hire/v1/attachments/{attachment_id}/preview")]
@@ -20761,7 +20761,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【云文档】获取协作者列表（新版本）</para>
+    /// <para>【云文档】获取协作者列表（新版）</para>
     /// <para>接口ID：7121656165336367106</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -20804,11 +20804,22 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：*</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="perm_type">
+    /// <para>必填：否</para>
+    /// <para>协作者的权限角色类型</para>
+    /// <para>示例值：container</para>
+    /// <list type="bullet">
+    /// <item>container：当前页面及子页面</item>
+    /// <item>single_page：仅当前页面，当且仅当在知识库文档中该参数有效</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
     [HttpGet("/open-apis/drive/v1/permissions/{token}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1PermissionsByTokenMembersResponseDto>> GetDriveV1PermissionsByTokenMembersAsync(
         [PathQuery] string token,
         [PathQuery] string type,
-        [PathQuery] string? fields = null);
+        [PathQuery] string? fields = null,
+        [PathQuery] string? perm_type = null);
 
     /// <summary>
     /// <para>【通讯录】恢复已删除用户</para>
@@ -29420,6 +29431,50 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
+    /// <para>【云文档】批量增加协作者权限</para>
+    /// <para>接口ID：7281248568152981507</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/batch_create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口可根据云文档 token 批量将用户添加为云文档的协作者。</para>
+    /// </summary>
+    /// <param name="token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>云文档的 token</para>
+    /// <para>示例值：docxnBKgoMyY5OMbUG6FioTXuBe</para>
+    /// </param>
+    /// <param name="type">
+    /// <para>必填：是</para>
+    /// <para>云文档的类型</para>
+    /// <para>示例值：docx</para>
+    /// <list type="bullet">
+    /// <item>doc：旧版文档</item>
+    /// <item>sheet：电子表格</item>
+    /// <item>file：云空间文件</item>
+    /// <item>wiki：知识库节点</item>
+    /// <item>bitable：多维表格</item>
+    /// <item>docx：新版文档</item>
+    /// <item>folder：文件夹 - **注意**：使用 &lt;md-tag mode="inline" type="token-tenant"&gt;tenant_access_token&lt;/md-tag&gt; 调用时，仅支持所有者为该应用的文件夹</item>
+    /// <item>mindnote：思维笔记</item>
+    /// <item>minutes：妙记 - **注意**：目前妙记还不支持 `full_access` 权限角色</item>
+    /// <item>slides：幻灯片</item>
+    /// </list>
+    /// </param>
+    /// <param name="need_notification">
+    /// <para>必填：否</para>
+    /// <para>仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时有效，添加权限后是否通知对方</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：false</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/drive/v1/permissions/{token}/members/batch_create")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1PermissionsByTokenMembersBatchCreateResponseDto>> PostDriveV1PermissionsByTokenMembersBatchCreateAsync(
+        [PathQuery] string token,
+        [PathQuery] string type,
+        [JsonContent] Ccm.PostDriveV1PermissionsByTokenMembersBatchCreateBodyDto dto,
+        [PathQuery] bool? need_notification = false);
+
+    /// <summary>
     /// <para>【安全合规】获取OpenAPI审计日志数据</para>
     /// <para>接口ID：7283168587871223810</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/security_and_compliance-v1/openapi_log/list_data</para>
@@ -31529,7 +31584,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>根据 client_token 是否一致来判断是否为同一请求</para>
     /// <para>示例值：12454646</para>
-    /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -31546,8 +31600,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/performance/v2/metric_details/import")]
     System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2MetricDetailsImportResponseDto>> PostPerformanceV2MetricDetailsImportAsync(
-        [JsonContent] Performance.PostPerformanceV2MetricDetailsImportBodyDto dto,
         [PathQuery] string client_token,
+        [JsonContent] Performance.PostPerformanceV2MetricDetailsImportBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>

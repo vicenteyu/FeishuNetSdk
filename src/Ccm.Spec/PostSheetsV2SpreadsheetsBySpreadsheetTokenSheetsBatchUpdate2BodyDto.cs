@@ -60,7 +60,9 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2BodyDt
                 public string SheetId { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>工作表的标题</para>
+                /// <para>工作表的标题。更新的标题需符合以下规则：</para>
+                /// <para>- 长度不超过 100 个字符</para>
+                /// <para>- 不包含这些特殊字符：`/ \ ? * [ ] :`</para>
                 /// <para>必填：是</para>
                 /// </summary>
                 [JsonPropertyName("title")]

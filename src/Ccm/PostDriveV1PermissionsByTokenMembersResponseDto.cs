@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-04
 // ************************************************************************
 // <copyright file="PostDriveV1PermissionsByTokenMembersResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -72,6 +72,19 @@ public record PostDriveV1PermissionsByTokenMembersResponseDto
         /// </summary>
         [JsonPropertyName("perm")]
         public string Perm { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>协作者的权限角色类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：container</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>container：当前页面及子页面</item>
+        /// <item>single_page：仅当前页面，当且仅当在知识库文档中该参数有效</item>
+        /// </list></para>
+        /// <para>默认值：container</para>
+        /// </summary>
+        [JsonPropertyName("perm_type")]
+        public string? PermType { get; set; }
 
         /// <summary>
         /// <para>协作者类型</para>

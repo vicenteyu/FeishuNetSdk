@@ -53,7 +53,7 @@
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQuery</td></tr>
 <tr><td rowspan="2">27</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>操作工作表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate</td></tr>
-<tr><td rowspan="2">28</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>更新工作表属性</td></tr>
+<tr><td rowspan="2">28</td><td rowspan="2">2024-07-04</td><td>&#10003;</td><td>云文档</td><td>更新工作表属性</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2</td></tr>
 <tr><td rowspan="2">29</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>增加行列</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRange</td></tr>
@@ -839,7 +839,7 @@
 <tr><td colspan="3">GetDriveExplorerV2FolderByFolderTokenChildren</td></tr>
 <tr><td rowspan="2">420</td><td rowspan="2">2022-05-07</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 新建文件夹</td></tr>
 <tr><td colspan="3">PostDriveExplorerV2FolderByFolderToken</td></tr>
-<tr><td rowspan="2">421</td><td rowspan="2">2022-07-18</td><td>&#10003;</td><td>云文档</td><td>判断协作者是否有某权限</td></tr>
+<tr><td rowspan="2">421</td><td rowspan="2">2024-07-02</td><td>&#10003;</td><td>云文档</td><td>判断协作者是否有某权限</td></tr>
 <tr><td colspan="3">PostDrivePermissionMemberPermitted</td></tr>
 <tr><td rowspan="2">422</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>云文档</td><td>转移拥有者</td></tr>
 <tr><td colspan="3">PostDrivePermissionMemberTransfer</td></tr>
@@ -929,17 +929,17 @@
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersTransferOwner</td></tr>
 <tr><td rowspan="2">465</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>判断当前用户是否有某权限</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembersAuth</td></tr>
-<tr><td rowspan="2">466</td><td rowspan="2">2024-05-29</td><td>&#10003;</td><td>云文档</td><td>获取协作者列表（新版本）</td></tr>
+<tr><td rowspan="2">466</td><td rowspan="2">2024-07-02</td><td>&#10003;</td><td>云文档</td><td>获取协作者列表（新版）</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembers</td></tr>
 <tr><td rowspan="2">467</td><td rowspan="2">2024-04-17</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 获取协作者列表</td></tr>
 <tr><td colspan="3">PostDrivePermissionMemberList</td></tr>
-<tr><td rowspan="2">468</td><td rowspan="2">2024-05-29</td><td>&#10003;</td><td>云文档</td><td>增加协作者权限</td></tr>
+<tr><td rowspan="2">468</td><td rowspan="2">2024-07-02</td><td>&#10003;</td><td>云文档</td><td>增加协作者权限</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembers</td></tr>
-<tr><td rowspan="2">469</td><td rowspan="2">2024-04-01</td><td>&#10003;</td><td>云文档</td><td>更新协作者权限</td></tr>
+<tr><td rowspan="2">469</td><td rowspan="2">2024-07-02</td><td>&#10003;</td><td>云文档</td><td>更新协作者权限</td></tr>
 <tr><td colspan="3">PutDriveV1PermissionsByTokenMembersByMemberId</td></tr>
 <tr><td rowspan="2">470</td><td rowspan="2">2023-07-17</td><td>&#10003;</td><td>通讯录</td><td>获取父部门信息</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsParent</td></tr>
-<tr><td rowspan="2">471</td><td rowspan="2">2024-04-01</td><td>&#10003;</td><td>云文档</td><td>移除协作者权限</td></tr>
+<tr><td rowspan="2">471</td><td rowspan="2">2024-07-02</td><td>&#10003;</td><td>云文档</td><td>移除协作者权限</td></tr>
 <tr><td colspan="3">DeleteDriveV1PermissionsByTokenMembersByMemberId</td></tr>
 <tr><td rowspan="2">472</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>开启密码</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenPublicPassword</td></tr>
@@ -1015,12 +1015,14 @@
 <tr><td colspan="3">PostAilyV1Sessions</td></tr>
 <tr><td rowspan="2">508</td><td rowspan="2">2024-05-15</td><td>&#10003;</td><td>薪酬管理</td><td>批量查询员工薪资档案</td></tr>
 <tr><td colspan="3">PostCompensationV1ArchivesQuery</td></tr>
-<tr><td rowspan="2">509</td><td rowspan="2">2024-06-07</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
+<tr><td rowspan="2">509</td><td rowspan="2">2024-07-03</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
 <tr><td colspan="3">PostCorehrV2Employees</td></tr>
-<tr><td rowspan="2">510</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取指标库信息</td></tr>
+<tr><td rowspan="2">510</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>绩效</td><td>获取指标库信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricLibsQuery</td></tr>
-<tr><td rowspan="2">511</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取指标模板信息</td></tr>
+<tr><td rowspan="2">511</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>绩效</td><td>获取指标模板信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricTemplatesQuery</td></tr>
-<tr><td rowspan="2">512</td><td rowspan="2">2024-07-01</td><td>新增</td><td>绩效</td><td>获取指标字段信息</td></tr>
+<tr><td rowspan="2">512</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>绩效</td><td>获取指标字段信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricFieldsQuery</td></tr>
+<tr><td rowspan="2">513</td><td rowspan="2">2024-07-02</td><td>新增</td><td>云文档</td><td>批量增加协作者权限</td></tr>
+<tr><td colspan="3">PostDriveV1PermissionsByTokenMembersBatchCreate</td></tr>
 </tbody></table>

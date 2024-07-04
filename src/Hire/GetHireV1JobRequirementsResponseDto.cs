@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-04
 // ************************************************************************
 // <copyright file="GetHireV1JobRequirementsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -580,5 +580,13 @@ public record GetHireV1JobRequirementsResponseDto
         /// </summary>
         [JsonPropertyName("creator_id")]
         public string? CreatorId { get; set; }
+
+        /// <summary>
+        /// <para>更新时间，毫秒级时间戳</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1718856006000</para>
+        /// </summary>
+        [JsonPropertyName("update_time")]
+        public string? UpdateTime { get; set; }
     }
 }

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-04
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesJobDatasBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -101,6 +101,14 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             /// </summary>
             [JsonPropertyName("department_id")]
             public string? DepartmentId { get; set; }
+
+            /// <summary>
+            /// <para>岗位 ID，枚举值及详细信息可通过【查询单个岗位】接口查询获得</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6890452208593372679</para>
+            /// </summary>
+            [JsonPropertyName("position_id")]
+            public string? PositionId { get; set; }
 
             /// <summary>
             /// <para>职务 ID，枚举值及详细信息可通过[查询单个职务](https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job/get)接口查询获得</para>
@@ -216,7 +224,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>语言</para>
+                    /// <para>语言编码（IETF BCP 47）</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
@@ -224,9 +232,9 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
                     public string Lang { get; set; } = string.Empty;
 
                     /// <summary>
-                    /// <para>内容</para>
+                    /// <para>文本内容</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
+                    /// <para>示例值：中文示例</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
@@ -343,6 +351,14 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             /// </summary>
             [JsonPropertyName("service_company")]
             public string? ServiceCompany { get; set; }
+
+            /// <summary>
+            /// <para>创建时间</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2020-05-02 00:00:00</para>
+            /// </summary>
+            [JsonPropertyName("created_at")]
+            public string? CreatedAt { get; set; }
         }
     }
 }

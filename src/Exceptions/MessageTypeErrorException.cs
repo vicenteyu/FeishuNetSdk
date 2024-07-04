@@ -9,12 +9,12 @@
 // <copyright file="MessageTypeErrorException.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary></summary>
+// <summary>消息类型不支持的异常</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Exceptions
 {
     /// <summary>
-    /// 消息类型不支持
+    /// 消息类型不支持的异常
     /// </summary>
     public class MessageTypeNotSupportedException : Exception
     {

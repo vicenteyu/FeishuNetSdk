@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-04
 // ************************************************************************
 // <copyright file="PostCorehrV1OffboardingsSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -370,6 +370,14 @@ public record PostCorehrV1OffboardingsSearchResponseDto
             [JsonPropertyName("checklist_process_id")]
             public string? ChecklistProcessId { get; set; }
         }
+
+        /// <summary>
+        /// <para>离职唯一标识</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7298499290417251879</para>
+        /// </summary>
+        [JsonPropertyName("offboarding_id")]
+        public string? OffboardingId { get; set; }
     }
 
     /// <summary>

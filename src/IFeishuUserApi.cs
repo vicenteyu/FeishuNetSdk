@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-28
+// Last Modified On : 2024-07-04
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -10257,7 +10257,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string spreadsheet_token);
 
     /// <summary>
-    /// <para>【云文档】获取协作者列表（新版本）</para>
+    /// <para>【云文档】获取协作者列表（新版）</para>
     /// <para>接口ID：7121656165336367106</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -10300,13 +10300,24 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：*</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="perm_type">
+    /// <para>必填：否</para>
+    /// <para>协作者的权限角色类型</para>
+    /// <para>示例值：container</para>
+    /// <list type="bullet">
+    /// <item>container：当前页面及子页面</item>
+    /// <item>single_page：仅当前页面，当且仅当在知识库文档中该参数有效</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/permissions/{token}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1PermissionsByTokenMembersResponseDto>> GetDriveV1PermissionsByTokenMembersAsync(
         UserAccessToken access_token,
         [PathQuery] string token,
         [PathQuery] string type,
-        [PathQuery] string? fields = null);
+        [PathQuery] string? fields = null,
+        [PathQuery] string? perm_type = null);
 
     /// <summary>
     /// <para>【云文档】批量获取评论</para>
@@ -14280,6 +14291,52 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string task_guid,
         [JsonContent] Task.PostTaskV2TasksByTaskGuidAddDependenciesBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】批量增加协作者权限</para>
+    /// <para>接口ID：7281248568152981507</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/batch_create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口可根据云文档 token 批量将用户添加为云文档的协作者。</para>
+    /// </summary>
+    /// <param name="token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>云文档的 token</para>
+    /// <para>示例值：docxnBKgoMyY5OMbUG6FioTXuBe</para>
+    /// </param>
+    /// <param name="type">
+    /// <para>必填：是</para>
+    /// <para>云文档的类型</para>
+    /// <para>示例值：docx</para>
+    /// <list type="bullet">
+    /// <item>doc：旧版文档</item>
+    /// <item>sheet：电子表格</item>
+    /// <item>file：云空间文件</item>
+    /// <item>wiki：知识库节点</item>
+    /// <item>bitable：多维表格</item>
+    /// <item>docx：新版文档</item>
+    /// <item>folder：文件夹 - **注意**：使用 &lt;md-tag mode="inline" type="token-tenant"&gt;tenant_access_token&lt;/md-tag&gt; 调用时，仅支持所有者为该应用的文件夹</item>
+    /// <item>mindnote：思维笔记</item>
+    /// <item>minutes：妙记 - **注意**：目前妙记还不支持 `full_access` 权限角色</item>
+    /// <item>slides：幻灯片</item>
+    /// </list>
+    /// </param>
+    /// <param name="need_notification">
+    /// <para>必填：否</para>
+    /// <para>仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时有效，添加权限后是否通知对方</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：false</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/drive/v1/permissions/{token}/members/batch_create")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1PermissionsByTokenMembersBatchCreateResponseDto>> PostDriveV1PermissionsByTokenMembersBatchCreateAsync(
+        UserAccessToken access_token,
+        [PathQuery] string token,
+        [PathQuery] string type,
+        [JsonContent] Ccm.PostDriveV1PermissionsByTokenMembersBatchCreateBodyDto dto,
+        [PathQuery] bool? need_notification = false);
 
     /// <summary>
     /// <para>【任务】列取动态订阅</para>

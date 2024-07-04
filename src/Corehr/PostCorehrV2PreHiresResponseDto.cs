@@ -24,7 +24,7 @@ public record PostCorehrV2PreHiresResponseDto
     /// <summary>
     /// <para>待入职 ID</para>
     /// <para>必填：否</para>
-    /// <para>示例值：6966234786251671053</para>
+    /// <para>示例值：6966234786251671054</para>
     /// </summary>
     [JsonPropertyName("pre_hire_id")]
     public string? PreHireId { get; set; }
