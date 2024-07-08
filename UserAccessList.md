@@ -1,9 +1,9 @@
 <table><thead><tr><th>序号</th><th>更新日期</th><th>可用</th><th>类别</th><th>说明</th></tr></thead><tbody>
 <tr><td rowspan="2">1</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>身份验证</td><td>获取登录用户信息</td></tr>
 <tr><td colspan="3">GetAuthenV1UserInfo</td></tr>
-<tr><td rowspan="2">2</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
+<tr><td rowspan="2">2</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
 <tr><td colspan="3">PatchContactV3UsersByUserId</td></tr>
-<tr><td rowspan="2">3</td><td rowspan="2">2023-06-26</td><td>&#10003;</td><td>通讯录</td><td>搜索部门</td></tr>
+<tr><td rowspan="2">3</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>搜索部门</td></tr>
 <tr><td colspan="3">PostContactV3DepartmentsSearch</td></tr>
 <tr><td rowspan="2">4</td><td rowspan="2">2024-03-13</td><td>&#10003;</td><td>云文档</td><td>获取全文评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
@@ -25,7 +25,7 @@
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocks</td></tr>
 <tr><td rowspan="2">13</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>创建文档</td></tr>
 <tr><td colspan="3">PostDocxV1Documents</td></tr>
-<tr><td rowspan="2">14</td><td rowspan="2">2023-07-18</td><td>&#10003;</td><td>通讯录</td><td>获取单个职务信息</td></tr>
+<tr><td rowspan="2">14</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单个职务信息</td></tr>
 <tr><td colspan="3">GetContactV3JobTitlesByJobTitleId</td></tr>
 <tr><td rowspan="2">15</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>云文档</td><td>获取块的内容</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocksByBlockId</td></tr>
@@ -47,7 +47,7 @@
 <tr><td colspan="3">PostSheetsV3Spreadsheets</td></tr>
 <tr><td rowspan="2">24</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>查询工作表</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetId</td></tr>
-<tr><td rowspan="2">25</td><td rowspan="2">2023-07-18</td><td>&#10003;</td><td>通讯录</td><td>获取租户职务列表</td></tr>
+<tr><td rowspan="2">25</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取租户职务列表</td></tr>
 <tr><td colspan="3">GetContactV3JobTitles</td></tr>
 <tr><td rowspan="2">26</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>获取工作表</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQuery</td></tr>
@@ -69,7 +69,7 @@
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrepend</td></tr>
 <tr><td rowspan="2">35</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>追加数据</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppend</td></tr>
-<tr><td rowspan="2">36</td><td rowspan="2">2023-07-19</td><td>&#10003;</td><td>通讯录</td><td>获取单个工作城市信息</td></tr>
+<tr><td rowspan="2">36</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单个工作城市信息</td></tr>
 <tr><td colspan="3">GetContactV3WorkCitiesByWorkCityId</td></tr>
 <tr><td rowspan="2">37</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>读取单个范围</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRange</td></tr>
@@ -91,7 +91,7 @@
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCells</td></tr>
 <tr><td rowspan="2">46</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>查找单元格</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFind</td></tr>
-<tr><td rowspan="2">47</td><td rowspan="2">2023-07-18</td><td>&#10003;</td><td>通讯录</td><td>获取租户工作城市列表</td></tr>
+<tr><td rowspan="2">47</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取租户工作城市列表</td></tr>
 <tr><td colspan="3">GetContactV3WorkCities</td></tr>
 <tr><td rowspan="2">48</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>替换单元格</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdReplace</td></tr>
@@ -223,7 +223,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreate</td></tr>
 <tr><td rowspan="2">112</td><td rowspan="2">2024-04-24</td><td>&#10003;</td><td>多维表格</td><td>更新多条记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdate</td></tr>
-<tr><td rowspan="2">113</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>通讯录</td><td>获取单个用户信息</td></tr>
+<tr><td rowspan="2">113</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单个用户信息</td></tr>
 <tr><td colspan="3">GetContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">114</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>消息与群组</td><td>Pin 消息</td></tr>
 <tr><td colspan="3">PostImV1Pins</td></tr>
@@ -445,7 +445,7 @@
 <tr><td colspan="3">GetVcV1RoomsByRoomId</td></tr>
 <tr><td rowspan="2">223</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>批量查询会议室详情</td></tr>
 <tr><td colspan="3">PostVcV1RoomsMget</td></tr>
-<tr><td rowspan="2">224</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>通讯录</td><td>批量获取用户信息</td></tr>
+<tr><td rowspan="2">224</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>批量获取用户信息</td></tr>
 <tr><td colspan="3">GetContactV3UsersBatch</td></tr>
 <tr><td rowspan="2">225</td><td rowspan="2">2024-06-05</td><td>&#10003;</td><td>消息与群组</td><td>搜索对用户或机器人可见的群列表</td></tr>
 <tr><td colspan="3">GetImV1ChatsSearch</td></tr>
@@ -667,7 +667,7 @@
 <tr><td colspan="3">GetTaskV2Comments</td></tr>
 <tr><td rowspan="2">334</td><td rowspan="2">2023-11-06</td><td>&#10003;</td><td>任务</td><td>上传附件</td></tr>
 <tr><td colspan="3">PostTaskV2AttachmentsUpload</td></tr>
-<tr><td rowspan="2">335</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>通讯录</td><td>获取部门直属用户列表</td></tr>
+<tr><td rowspan="2">335</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取部门直属用户列表</td></tr>
 <tr><td colspan="3">GetContactV3UsersFindByDepartment</td></tr>
 <tr><td rowspan="2">336</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>消息与群组</td><td>更新群公告信息</td></tr>
 <tr><td colspan="3">PatchImV1ChatsByChatIdAnnouncement</td></tr>
@@ -763,9 +763,9 @@
 <tr><td colspan="3">PostLingoV1FilesUpload</td></tr>
 <tr><td rowspan="2">382</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>下载图片</td></tr>
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
-<tr><td rowspan="2">383</td><td rowspan="2">2024-06-29</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">383</td><td rowspan="2">2024-07-08</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">384</td><td rowspan="2">2024-06-29</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">384</td><td rowspan="2">2024-07-08</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">385</td><td rowspan="2">2023-04-07</td><td>&#10003;</td><td>应用信息</td><td>获取用户自定义常用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV5ApplicationsFavourite</td></tr>
@@ -849,8 +849,8 @@
 <tr><td colspan="3">GetDriveV1Files</td></tr>
 <tr><td rowspan="2">425</td><td rowspan="2">2024-05-29</td><td>&#10003;</td><td>云文档</td><td>获取文件夹元数据</td></tr>
 <tr><td colspan="3">GetDriveExplorerV2FolderByFolderTokenMeta</td></tr>
-<tr><td rowspan="2">426</td><td rowspan="2">2024-04-22</td><td>&#10003;</td><td>通讯录</td><td>搜索用户</td></tr>
-<tr><td colspan="3">GetSearchV1User</td></tr>
+<tr><td rowspan="2">426</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>搜索用户</td></tr>
+<tr><td colspan="3">GetHttpsbyOpenLarkofficeComSearchV1User</td></tr>
 <tr><td rowspan="2">427</td><td rowspan="2">2024-05-31</td><td>&#10003;</td><td>云文档</td><td>新建文件夹</td></tr>
 <tr><td colspan="3">PostDriveV1FilesCreateFolder</td></tr>
 <tr><td rowspan="2">428</td><td rowspan="2">2024-05-29</td><td>&#10003;</td><td>云文档</td><td>获取文件元数据</td></tr>
@@ -871,7 +871,7 @@
 <tr><td colspan="3">GetDriveV1FilesTaskCheck</td></tr>
 <tr><td rowspan="2">436</td><td rowspan="2">2024-06-06</td><td>&#10003;</td><td>云文档</td><td>上传素材</td></tr>
 <tr><td colspan="3">PostDriveV1MediasUploadAll</td></tr>
-<tr><td rowspan="2">437</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>通讯录</td><td>获取单个部门信息</td></tr>
+<tr><td rowspan="2">437</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单个部门信息</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsByDepartmentId</td></tr>
 <tr><td rowspan="2">438</td><td rowspan="2">2024-06-06</td><td>&#10003;</td><td>云文档</td><td>下载素材</td></tr>
 <tr><td colspan="3">GetDriveV1MediasByFileTokenDownload</td></tr>
@@ -893,7 +893,7 @@
 <tr><td colspan="3">PostSuiteDocsApiSearchObject</td></tr>
 <tr><td rowspan="2">447</td><td rowspan="2">2024-05-29</td><td>&#10003;</td><td>云文档</td><td>上传文件</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadAll</td></tr>
-<tr><td rowspan="2">448</td><td rowspan="2">2023-09-04</td><td>&#10003;</td><td>通讯录</td><td>批量获取部门信息</td></tr>
+<tr><td rowspan="2">448</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>批量获取部门信息</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsBatch</td></tr>
 <tr><td rowspan="2">449</td><td rowspan="2">2024-05-29</td><td>&#10003;</td><td>云文档</td><td>分片上传文件-预上传</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadPrepare</td></tr>
@@ -915,7 +915,7 @@
 <tr><td colspan="3">GetDriveV1ExportTasksFileByFileTokenDownload</td></tr>
 <tr><td rowspan="2">458</td><td rowspan="2">2024-05-29</td><td>&#10003;</td><td>云文档</td><td>获取文件访问记录</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenViewRecords</td></tr>
-<tr><td rowspan="2">459</td><td rowspan="2">2024-05-11</td><td>&#10003;</td><td>通讯录</td><td>获取子部门列表</td></tr>
+<tr><td rowspan="2">459</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取子部门列表</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsByDepartmentIdChildren</td></tr>
 <tr><td rowspan="2">460</td><td rowspan="2">2024-03-25</td><td>&#10003;</td><td>云文档</td><td>创建文档版本</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenVersions</td></tr>
@@ -937,7 +937,7 @@
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembers</td></tr>
 <tr><td rowspan="2">469</td><td rowspan="2">2024-07-02</td><td>&#10003;</td><td>云文档</td><td>更新协作者权限</td></tr>
 <tr><td colspan="3">PutDriveV1PermissionsByTokenMembersByMemberId</td></tr>
-<tr><td rowspan="2">470</td><td rowspan="2">2023-07-17</td><td>&#10003;</td><td>通讯录</td><td>获取父部门信息</td></tr>
+<tr><td rowspan="2">470</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取父部门信息</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsParent</td></tr>
 <tr><td rowspan="2">471</td><td rowspan="2">2024-07-02</td><td>&#10003;</td><td>云文档</td><td>移除协作者权限</td></tr>
 <tr><td colspan="3">DeleteDriveV1PermissionsByTokenMembersByMemberId</td></tr>
@@ -1023,6 +1023,6 @@
 <tr><td colspan="3">PostPerformanceV2MetricTemplatesQuery</td></tr>
 <tr><td rowspan="2">512</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>绩效</td><td>获取指标字段信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricFieldsQuery</td></tr>
-<tr><td rowspan="2">513</td><td rowspan="2">2024-07-02</td><td>新增</td><td>云文档</td><td>批量增加协作者权限</td></tr>
+<tr><td rowspan="2">513</td><td rowspan="2">2024-07-02</td><td>&#10003;</td><td>云文档</td><td>批量增加协作者权限</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersBatchCreate</td></tr>
 </tbody></table>

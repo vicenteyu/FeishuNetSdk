@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 修改角色名称 请求体
-/// <para>通过本接口可以修改角色名称</para>
+/// <para>调用本接口修改指定角色的角色名称。</para>
 /// <para>接口ID：7200215886841085980</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/functional_role/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2ffunctional_role%2fupdate</para>
@@ -22,10 +22,11 @@ namespace FeishuNetSdk.Contact;
 public record PutContactV3FunctionalRolesByRoleIdBodyDto
 {
     /// <summary>
-    /// <para>修改的角色名称，在单租户下唯一</para>
+    /// <para>角色名称。在同一租户下角色名称唯一，不能重复。</para>
     /// <para>必填：是</para>
     /// <para>示例值：考勤管理员</para>
     /// <para>最大长度：50</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("role_name")]
     public string RoleName { get; set; } = string.Empty;

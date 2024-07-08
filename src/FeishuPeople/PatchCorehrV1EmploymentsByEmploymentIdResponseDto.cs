@@ -34,7 +34,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
     public record PatchCorehrV1EmploymentsByEmploymentIdResponseDtoEmployment
     {
         /// <summary>
-        /// <para>待入职ID</para>
+        /// <para>待入职ID，可通过[【查询单个待入职】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/pre_hire/get)获取详细信息</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         public string? PrehireId { get; set; }
 
         /// <summary>
-        /// <para>人员类型</para>
+        /// <para>人员类型，可通过[【查询单个人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)获取详细信息</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
@@ -58,7 +58,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         public string? Tenure { get; set; }
 
         /// <summary>
-        /// <para>部门 ID，详细信息可通过【查询单个部门】接口获得</para>
+        /// <para>部门 ID，可通过[【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息；类型与 department_id_type 一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -66,7 +66,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         public string? DepartmentId { get; set; }
 
         /// <summary>
-        /// <para>职级 ID，详细信息可通过【查询单个职务级别】接口获得</para>
+        /// <para>职级 ID，可通过[【查询单个职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)获取详细信息</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -74,7 +74,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         public string? JobLevelId { get; set; }
 
         /// <summary>
-        /// <para>工作地点 ID，详细信息可通过【查询单个地点】接口获得</para>
+        /// <para>工作地点 ID，可通过[【查询单个地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)获取详细信息</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -82,7 +82,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         public string? WorkLocationId { get; set; }
 
         /// <summary>
-        /// <para>序列 ID，详细信息可通过【查询单个职务序列】接口获得</para>
+        /// <para>职务序列 ID，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -90,7 +90,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         public string? JobFamilyId { get; set; }
 
         /// <summary>
-        /// <para>职务 ID，详细信息可通过【查询单个职务】接口获得</para>
+        /// <para>职务 ID，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详细信息</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -98,7 +98,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         public string? JobId { get; set; }
 
         /// <summary>
-        /// <para>法人主体 ID，详细信息可通过【查询单个公司】接口获得</para>
+        /// <para>法人主体 ID，可通过[【查询单个公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)获取详细信息</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -106,7 +106,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         public string? CompanyId { get; set; }
 
         /// <summary>
-        /// <para>工时制度 ID，详细信息可通过【查询单个工时制度】接口获得</para>
+        /// <para>工时制度 ID，可通过[【查询单个工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/get)获取详细信息</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -114,7 +114,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         public string? WorkingHoursTypeId { get; set; }
 
         /// <summary>
-        /// <para>雇员ID</para>
+        /// <para>雇员ID；可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取更多信息；类型与 user_id_type 一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -140,7 +140,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         /// <summary>
         /// <para>入职日期</para>
         /// <para>必填：是</para>
-        /// <para>示例值：2020-01-0100:00:00</para>
+        /// <para>示例值：2020-01-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("effective_time")]
         public string EffectiveTime { get; set; } = string.Empty;
@@ -148,7 +148,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         /// <summary>
         /// <para>离职日期，即员工的最后一个工作日，最后一个工作日时员工的雇佣状态仍为“在职”，次日凌晨将更改为“离职”</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2021-01-0100:00:00</para>
+        /// <para>示例值：2021-01-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }
@@ -204,7 +204,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         }
 
         /// <summary>
-        /// <para>个人信息 ID，详细信息可通过【查询单个个人信息】接口获得</para>
+        /// <para>个人信息ID，可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取详细信息</para>
         /// <para>必填：是</para>
         /// <para>示例值：6919733936050406926</para>
         /// </summary>
@@ -433,7 +433,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         public record JobDataCostCenter
         {
             /// <summary>
-            /// <para>成本中心id，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息</para>
+            /// <para>成本中心id，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获取详细信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：6950635856373745165</para>
             /// </summary>

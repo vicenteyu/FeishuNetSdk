@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 查询用户组成员列表 响应体
-/// <para>通过该接口可查询某个用户组的成员列表（支持查询成员中的用户和部门）, 本接口支持普通用户组和动态用户组。如果应用的通讯录权限范围是“全部员工”，则可查询企业内任何用户组的成员列表。如果应用的通讯录权限范围不是“全部员工”，则仅可查询通讯录权限范围中的用户组的成员列表，[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+/// <para>调用该接口查询指定用户组内的成员列表，列表内主要包括成员 ID 信息。</para>
 /// <para>接口ID：7008085931593072643</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/group-member/simplelist</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fgroup-member%2fsimplelist</para>
@@ -22,19 +22,19 @@ namespace FeishuNetSdk.Contact;
 public record GetContactV3GroupByGroupIdMemberSimplelistResponseDto
 {
     /// <summary>
-    /// <para>成员列表</para>
+    /// <para>成员列表。</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("memberlist")]
     public Memberlist[] Memberlists { get; set; } = Array.Empty<Memberlist>();
 
     /// <summary>
-    /// <para>成员列表</para>
+    /// <para>成员列表。</para>
     /// </summary>
     public record Memberlist
     {
         /// <summary>
-        /// <para>成员ID</para>
+        /// <para>成员 ID。ID 类型与请求时设置的 member_id_type 取值保持一致。</para>
         /// <para>必填：是</para>
         /// <para>示例值：u287xj12</para>
         /// </summary>
@@ -42,7 +42,10 @@ public record GetContactV3GroupByGroupIdMemberSimplelistResponseDto
         public string MemberId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>用户组成员的类型，取值为 user或department。</para>
+        /// <para>用户组成员的类型。</para>
+        /// <para>**可能值有：**</para>
+        /// <para>- user：用户类型</para>
+        /// <para>- department：部门类型</para>
         /// <para>必填：是</para>
         /// <para>示例值：user</para>
         /// </summary>
@@ -50,7 +53,7 @@ public record GetContactV3GroupByGroupIdMemberSimplelistResponseDto
         public string MemberType { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>当member_type为user时，member_id_type表示user_id_type，可选值为open_id, union_id, user_id。仅在请求参数中有效，响应体中不会返回此参数。</para>
+        /// <para>成员 ID 类型。该参数仅在请求参数中有效，作为响应体参数时不会返回。</para>
         /// <para>必填：否</para>
         /// <para>示例值：user_id</para>
         /// </summary>

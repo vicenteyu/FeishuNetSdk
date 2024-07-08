@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取企业自定义用户字段 响应体
-/// <para>获取企业自定义的用户字段配置信息</para>
+/// <para>调用该接口查询当前企业内自定义用户字段的配置信息。</para>
 /// <para>接口ID：6986108081861476354</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/custom_attr/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fcustom_attr%2flist</para>
@@ -22,19 +22,19 @@ namespace FeishuNetSdk.Contact;
 public record GetContactV3CustomAttrsResponseDto
 {
     /// <summary>
-    /// <para>自定义字段定义</para>
+    /// <para>自定义字段信息集合。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public CustomAttr[]? Items { get; set; }
 
     /// <summary>
-    /// <para>自定义字段定义</para>
+    /// <para>自定义字段信息集合。</para>
     /// </summary>
     public record CustomAttr
     {
         /// <summary>
-        /// <para>自定义字段id</para>
+        /// <para>自定义字段 ID。</para>
         /// <para>必填：是</para>
         /// <para>示例值：C-6965457429001748507</para>
         /// </summary>
@@ -42,12 +42,14 @@ public record GetContactV3CustomAttrsResponseDto
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>自定义字段类型，可选值有:</para>
-        /// <para>- `TEXT`：纯文本，用于纯文本描述人员，如备注</para>
-        /// <para>- `HREF`：静态 URL，用于人员 Profile 跳转链接</para>
-        /// <para>- `ENUMERATION`：枚举，用于结构化描述人员，如民族</para>
-        /// <para>- `GENERIC_USER`：用户，用于描述人和人关系，如 HRBP</para>
-        /// <para>- `PICTURE_ENUM`：枚举图片，以结构化的图片描述人员，如在人员 Profile 展示荣誉徽章</para>
+        /// <para>自定义字段类型。</para>
+        /// <para>**可能值有：**</para>
+        /// <para>- `TEXT`：文本类型</para>
+        /// <para>- `HREF`：网页类型</para>
+        /// <para>- `ENUMERATION`：枚举类型</para>
+        /// <para>- `GENERIC_USER`：用户类型</para>
+        /// <para>- `PICTURE_ENUM`：图片类型</para>
+        /// <para>关于自定义字段类型的更多信息，可参见[自定义用户字段资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/custom_attr/overview)。</para>
         /// <para>必填：是</para>
         /// <para>示例值：TEXT</para>
         /// </summary>
@@ -55,7 +57,7 @@ public record GetContactV3CustomAttrsResponseDto
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>选项定义，当type为`ENUMERATION`或者`PICTURE_ENUM`时此项有值，列举所有可选项</para>
+        /// <para>选项定义，当 type 为 `ENUMERATION` 或者 `PICTURE_ENUM` 时此项有值，将列举所有可选项。</para>
         /// <para>必填：否</para>
         /// <para>示例值：{}</para>
         /// </summary>
@@ -63,12 +65,12 @@ public record GetContactV3CustomAttrsResponseDto
         public CustomAttrOptions? Options { get; set; }
 
         /// <summary>
-        /// <para>选项定义，当type为`ENUMERATION`或者`PICTURE_ENUM`时此项有值，列举所有可选项</para>
+        /// <para>选项定义，当 type 为 `ENUMERATION` 或者 `PICTURE_ENUM` 时此项有值，将列举所有可选项。</para>
         /// </summary>
         public record CustomAttrOptions
         {
             /// <summary>
-            /// <para>默认选项id</para>
+            /// <para>默认选项 ID。</para>
             /// <para>必填：否</para>
             /// <para>示例值：qasdefgr</para>
             /// </summary>
@@ -76,7 +78,7 @@ public record GetContactV3CustomAttrsResponseDto
             public string? DefaultOptionId { get; set; }
 
             /// <summary>
-            /// <para>选项类型</para>
+            /// <para>选项类型。</para>
             /// <para>必填：是</para>
             /// <para>示例值：TEXT</para>
             /// <para>可选值：<list type="bullet">
@@ -88,7 +90,7 @@ public record GetContactV3CustomAttrsResponseDto
             public string OptionType { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>选项列表</para>
+            /// <para>选项列表。</para>
             /// <para>必填：是</para>
             /// <para>示例值：[]</para>
             /// </summary>
@@ -96,12 +98,12 @@ public record GetContactV3CustomAttrsResponseDto
             public CustomAttrOption[] Options { get; set; } = Array.Empty<CustomAttrOption>();
 
             /// <summary>
-            /// <para>选项列表</para>
+            /// <para>选项列表。</para>
             /// </summary>
             public record CustomAttrOption
             {
                 /// <summary>
-                /// <para>枚举类型选项id</para>
+                /// <para>枚举类型选项 ID。</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：qasdefgr</para>
                 /// </summary>
@@ -109,7 +111,9 @@ public record GetContactV3CustomAttrsResponseDto
                 public string Id { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>枚举选项值，当option_type为`TEXT`为文本值，当option_type为`PICTURE`时为图片链接</para>
+                /// <para>选项值。</para>
+                /// <para>- 当 option_type 为 `TEXT` 时，取值为文本值。</para>
+                /// <para>- 当 option_type 为 `PICTURE` 时，取值为图片链接。</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：Option</para>
                 /// </summary>
@@ -117,7 +121,7 @@ public record GetContactV3CustomAttrsResponseDto
                 public string Value { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>名称，仅option_type为PICTURE时有效</para>
+                /// <para>图片名称，仅 option_type 为 PICTURE 时有效。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：Name</para>
                 /// </summary>
@@ -127,7 +131,7 @@ public record GetContactV3CustomAttrsResponseDto
         }
 
         /// <summary>
-        /// <para>自定义字段的字段名称</para>
+        /// <para>自定义字段的字段名称。</para>
         /// <para>必填：否</para>
         /// <para>示例值：{}</para>
         /// </summary>
@@ -135,12 +139,16 @@ public record GetContactV3CustomAttrsResponseDto
         public I18nContent[]? I18nNames { get; set; }
 
         /// <summary>
-        /// <para>自定义字段的字段名称</para>
+        /// <para>自定义字段的字段名称。</para>
         /// </summary>
         public record I18nContent
         {
             /// <summary>
-            /// <para>语言版本</para>
+            /// <para>语言版本。</para>
+            /// <para>**可能值有：**</para>
+            /// <para>- zh_cn：中文</para>
+            /// <para>- en_us：英文</para>
+            /// <para>- ja_jp：日文</para>
             /// <para>必填：否</para>
             /// <para>示例值：zh_cn</para>
             /// </summary>
@@ -148,7 +156,7 @@ public record GetContactV3CustomAttrsResponseDto
             public string? Locale { get; set; }
 
             /// <summary>
-            /// <para>字段名</para>
+            /// <para>语言版本对应的字段名称。</para>
             /// <para>必填：否</para>
             /// <para>示例值：多语言内容</para>
             /// </summary>

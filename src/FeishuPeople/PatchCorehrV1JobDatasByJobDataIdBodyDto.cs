@@ -74,6 +74,7 @@ public record PatchCorehrV1JobDatasByJobDataIdBodyDto
 
     /// <summary>
     /// <para>部门 ID，枚举值及详细信息可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询获得</para>
+    /// <para>与 department_id_type 类型一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：6890452208593372679</para>
     /// </summary>
@@ -114,6 +115,7 @@ public record PatchCorehrV1JobDatasByJobDataIdBodyDto
 
     /// <summary>
     /// <para>雇佣 ID，详细信息可以通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口查询获得</para>
+    /// <para>与 user_id_type 类型一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：6893014062142064135</para>
     /// </summary>

@@ -34,7 +34,7 @@ public record PostCorehrV1JobDatasResponseDto
     public record PostCorehrV1JobDatasResponseDtoJobData
     {
         /// <summary>
-        /// <para>任职信息 ID</para>
+        /// <para>任职信息 ID，用于后续更新和查询</para>
         /// <para>必填：否</para>
         /// <para>示例值：6890452208593372679</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record PostCorehrV1JobDatasResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>任职记录版本 ID</para>
+        /// <para>任职记录版本 ID，可用于指定版本更新</para>
         /// <para>必填：否</para>
         /// <para>示例值：6890452208593372697</para>
         /// </summary>
@@ -91,6 +91,7 @@ public record PostCorehrV1JobDatasResponseDto
 
         /// <summary>
         /// <para>部门 ID，枚举值及详细信息可通过[【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口查询获得</para>
+        /// <para>与 department_id_type 类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：6890452208593372679</para>
         /// </summary>
@@ -131,6 +132,7 @@ public record PostCorehrV1JobDatasResponseDto
 
         /// <summary>
         /// <para>雇佣 ID，详细信息可以通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口查询获得</para>
+        /// <para>与 user_id_type 类型一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>

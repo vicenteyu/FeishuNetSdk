@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取单个职级信息 响应体
-/// <para>该接口可以获取单个职级的信息。</para>
+/// <para>调用该接口获取指定职级的信息，包括职级名称、描述、排序、状态以及多语言等。</para>
 /// <para>接口ID：7194273512282472452</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/job_level/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fjob_level%2fget</para>
@@ -22,28 +22,29 @@ namespace FeishuNetSdk.Contact;
 public record GetContactV3JobLevelsByJobLevelIdResponseDto
 {
     /// <summary>
-    /// <para>职级信息</para>
+    /// <para>职级信息。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("job_level")]
     public GetContactV3JobLevelsByJobLevelIdResponseDtoJobLevel? JobLevel { get; set; }
 
     /// <summary>
-    /// <para>职级信息</para>
+    /// <para>职级信息。</para>
     /// </summary>
     public record GetContactV3JobLevelsByJobLevelIdResponseDtoJobLevel
     {
         /// <summary>
-        /// <para>职级名称</para>
+        /// <para>职级名称。</para>
         /// <para>必填：否</para>
         /// <para>示例值：高级专家</para>
         /// <para>最大长度：255</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// <para>职级描述</para>
+        /// <para>职级描述。</para>
         /// <para>必填：否</para>
         /// <para>示例值：公司内部中高级职称，有一定专业技术能力的人员</para>
         /// </summary>
@@ -51,15 +52,20 @@ public record GetContactV3JobLevelsByJobLevelIdResponseDto
         public string? Description { get; set; }
 
         /// <summary>
-        /// <para>职级的排序，可填入自然数100-100000的数值，系统按照数值大小从小到大排序。不填写该字段时，默认新增排序在当前职级列表中最后位（最大值）</para>
+        /// <para>职级排序。数值越小，排序越靠前。</para>
         /// <para>必填：否</para>
         /// <para>示例值：200</para>
+        /// <para>最大值：100000</para>
+        /// <para>最小值：100</para>
         /// </summary>
         [JsonPropertyName("order")]
         public int? Order { get; set; }
 
         /// <summary>
-        /// <para>是否启用</para>
+        /// <para>是否启用职级。</para>
+        /// <para>**可能值有**：</para>
+        /// <para>- true：启用</para>
+        /// <para>- false：不启用</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -67,7 +73,7 @@ public record GetContactV3JobLevelsByJobLevelIdResponseDto
         public bool? Status { get; set; }
 
         /// <summary>
-        /// <para>职级ID</para>
+        /// <para>职级 ID。后续可通过该 ID 删除、更新、查询职级。</para>
         /// <para>必填：否</para>
         /// <para>示例值：mga5oa8ayjlp9rb</para>
         /// </summary>
@@ -75,19 +81,19 @@ public record GetContactV3JobLevelsByJobLevelIdResponseDto
         public string? JobLevelId { get; set; }
 
         /// <summary>
-        /// <para>多语言名称</para>
+        /// <para>多语言名称。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("i18n_name")]
         public I18nContent[]? I18nNames { get; set; }
 
         /// <summary>
-        /// <para>多语言名称</para>
+        /// <para>多语言名称。</para>
         /// </summary>
         public record I18nContent
         {
             /// <summary>
-            /// <para>语言版本</para>
+            /// <para>语言版本。</para>
             /// <para>必填：否</para>
             /// <para>示例值：zh_cn</para>
             /// </summary>
@@ -95,7 +101,7 @@ public record GetContactV3JobLevelsByJobLevelIdResponseDto
             public string? Locale { get; set; }
 
             /// <summary>
-            /// <para>字段名</para>
+            /// <para>语言版本对应的名称。</para>
             /// <para>必填：否</para>
             /// <para>示例值：多语言内容</para>
             /// </summary>
@@ -104,7 +110,7 @@ public record GetContactV3JobLevelsByJobLevelIdResponseDto
         }
 
         /// <summary>
-        /// <para>多语言描述</para>
+        /// <para>多语言描述。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("i18n_description")]

@@ -30,7 +30,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
     public string? SeniorityDate { get; set; }
 
     /// <summary>
-    /// <para>员工编号</para>
+    /// <para>员工编号，由数字或字母组成，请勿使用特殊字符；请保证唯一</para>
     /// <para>必填：否</para>
     /// <para>示例值：1000000</para>
     /// </summary>
@@ -59,7 +59,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
     }
 
     /// <summary>
-    /// <para>个人信息 ID，详细信息可通过【查询单个个人信息】接口获得</para>
+    /// <para>个人信息 ID，由[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)时生成</para>
     /// <para>必填：否</para>
     /// <para>示例值：6919733936050406926</para>
     /// </summary>
@@ -107,7 +107,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
     /// <para>工作邮箱列表，只有当邮箱下面所有条件时，才在个人信息页面可见：</para>
     /// <para>- is_primary = "true"</para>
     /// <para>- is_public = "true"</para>
-    /// <para>- email_usage = "work"</para>
+    /// <para>- email_usage = "work"；不传时为空</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("work_email_list")]
@@ -117,7 +117,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
     /// <para>工作邮箱列表，只有当邮箱下面所有条件时，才在个人信息页面可见：</para>
     /// <para>- is_primary = "true"</para>
     /// <para>- is_public = "true"</para>
-    /// <para>- email_usage = "work"</para>
+    /// <para>- email_usage = "work"；不传时为空</para>
     /// </summary>
     public record Email
     {

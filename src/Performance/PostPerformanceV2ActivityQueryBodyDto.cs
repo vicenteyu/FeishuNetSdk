@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Performance;
 public record PostPerformanceV2ActivityQueryBodyDto
 {
     /// <summary>
-    /// <para>评估周期 ID 列表，获取指定评估周期的项目 ID，semester_id 可通过[【获取周期】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)获得，如果同时传了「activity_ids」，则优先以「activity_ids」进行查询</para>
+    /// <para>评估周期 ID 列表，获取指定评估周期的项目 ID，semester_id 可通过[【获取周期】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)获得。如果同时传了「activity_ids」，则优先以「activity_ids」进行查询。当没有传「semester_ids」和「activity_ids」，则返回空数据。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：10</para>
     /// <para>最小长度：0</para>
@@ -31,7 +31,7 @@ public record PostPerformanceV2ActivityQueryBodyDto
     public string[]? SemesterIds { get; set; }
 
     /// <summary>
-    /// <para>项目 ID 列表，如果同时传了「semester_ids」，则优先以「activity_ids」进行查询</para>
+    /// <para>项目 ID 列表。如果同时传了「semester_ids」，则优先以「activity_ids」进行查询。当没有传「semester_ids」和「activity_ids」，则返回空数据。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：50</para>
     /// <para>最小长度：0</para>

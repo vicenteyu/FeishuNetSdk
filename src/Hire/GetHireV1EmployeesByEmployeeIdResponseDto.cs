@@ -114,7 +114,7 @@ public record GetHireV1EmployeesByEmployeeIdResponseDto
         public string? OverboardNote { get; set; }
 
         /// <summary>
-        /// <para>办公地点Code码</para>
+        /// <para>办公地点Code码，详情请查看[「查询地点列表」](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)接口</para>
         /// <para>必填：否</para>
         /// <para>示例值：CT_2</para>
         /// </summary>
@@ -138,7 +138,7 @@ public record GetHireV1EmployeesByEmployeeIdResponseDto
         public string? Leader { get; set; }
 
         /// <summary>
-        /// <para>序列 ID</para>
+        /// <para>序列 ID，与入参`job_family_id_type `类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：6937934036379650311</para>
         /// </summary>
@@ -146,7 +146,7 @@ public record GetHireV1EmployeesByEmployeeIdResponseDto
         public string? Sequence { get; set; }
 
         /// <summary>
-        /// <para>职级 ID</para>
+        /// <para>职级 ID，与入参`job_level_id_type `类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：7006234385490345986</para>
         /// </summary>
@@ -154,7 +154,7 @@ public record GetHireV1EmployeesByEmployeeIdResponseDto
         public string? Level { get; set; }
 
         /// <summary>
-        /// <para>员工类型</para>
+        /// <para>员工类型 ID，与入参`employee_type_id_type `类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>

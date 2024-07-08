@@ -14,8 +14,7 @@
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取通讯录授权范围 响应体
-/// <para>该接口用于获取应用被授权可访问的通讯录范围，包括可访问的部门列表、用户列表和用户组列表。</para>
-/// <para>授权范围为全员时，返回的部门列表为该企业所有的一级部门；否则返回的部门为管理员在设置授权范围时勾选的部门（不包含勾选部门的子部门）。</para>
+/// <para>调用该接口获取当前应用被授权可访问的通讯录范围，包括可访问的部门列表、用户列表和用户组列表。</para>
 /// <para>接口ID：7026591401610543108</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/scope/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fscope%2flist</para>
@@ -23,7 +22,7 @@ namespace FeishuNetSdk.Contact;
 public record GetContactV3ScopesResponseDto
 {
     /// <summary>
-    /// <para>已授权部门列表，授权范围为全员可见时返回的是当前企业的所有一级部门列表</para>
+    /// <para>已授权的部门列表。列表内的部门 ID 类型与查询参数 department_id_type 的取值一致。</para>
     /// <para>必填：否</para>
     /// <para>示例值：od-8756c536552a91988b1b64559356c5a4</para>
     /// </summary>
@@ -31,7 +30,9 @@ public record GetContactV3ScopesResponseDto
     public string[]? DepartmentIds { get; set; }
 
     /// <summary>
-    /// <para>已授权用户列表，应用申请了获取用户user_id 权限时返回；当授权范围为全员可见时返回的是当前企业所有顶级部门用户列表</para>
+    /// <para>已授权的用户列表。列表内的用户 ID 类型与查询参数 user_id_type 的取值一致。</para>
+    /// <para>应用申请以下权限后才会返回该值。</para>
+    /// <para>&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_5f3e2df282bf5aaeeaa2ea71ab9f1229</para>
     /// </summary>
@@ -39,7 +40,7 @@ public record GetContactV3ScopesResponseDto
     public string[]? UserIds { get; set; }
 
     /// <summary>
-    /// <para>已授权的用户组，授权范围为全员可见时返回的是当前企业所有用户组</para>
+    /// <para>已授权的用户组。</para>
     /// <para>必填：否</para>
     /// <para>示例值：["g193821"]</para>
     /// </summary>

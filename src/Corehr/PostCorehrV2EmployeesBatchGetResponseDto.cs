@@ -417,7 +417,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         }
 
         /// <summary>
-        /// <para>岗位 ID，详细信息可通过【查询单个岗位】接口获得</para>
+        /// <para>岗位 ID，详细信息可通过【查询岗位】接口获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -437,7 +437,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         public record EmployeePosition
         {
             /// <summary>
-            /// <para>岗位 ID</para>
+            /// <para>岗位 ID，详细信息可通过【查询岗位】接口获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：4692446793125560154</para>
             /// </summary>
@@ -501,14 +501,16 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public bool Active { get; set; }
 
             /// <summary>
-            /// <para>序列</para>
+            /// <para>序列，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)</para>
+            /// <para>查询详细信息</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("job_family_id_list")]
             public string[]? JobFamilyIdList { get; set; }
 
             /// <summary>
-            /// <para>成本中心</para>
+            /// <para>成本中心，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)</para>
+            /// <para>查询详细信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719519211875096301</para>
             /// </summary>
@@ -516,7 +518,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public string? CostCenterId { get; set; }
 
             /// <summary>
-            /// <para>职务</para>
+            /// <para>职务，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详细信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719519211875096302</para>
             /// </summary>
@@ -524,35 +526,36 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public string? JobId { get; set; }
 
             /// <summary>
-            /// <para>职级</para>
+            /// <para>职级，可通过[【查询单个职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)获取详细信息</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("job_level_id_list")]
             public string[]? JobLevelIdList { get; set; }
 
             /// <summary>
-            /// <para>人员类型</para>
+            /// <para>人员类型，可通过[【查询单个人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)查询详细信息</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("employee_type_id_list")]
             public string[]? EmployeeTypeIdList { get; set; }
 
             /// <summary>
-            /// <para>职等</para>
+            /// <para>职等，可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)查询详细信息</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("job_grade_id_list")]
             public string[]? JobGradeIdList { get; set; }
 
             /// <summary>
-            /// <para>工作地点</para>
+            /// <para>工作地点，可通过[【查询单个地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)</para>
+            /// <para>查询详细信息</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("work_location_id_list")]
             public string[]? WorkLocationIdList { get; set; }
 
             /// <summary>
-            /// <para>工时制度</para>
+            /// <para>工时制度，可通过[【查询单个工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/get)查询详细信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719519211875096301</para>
             /// </summary>
@@ -568,7 +571,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public string DepartmentId { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>直属上级岗位</para>
+            /// <para>直属上级岗位，详细信息可通过【查询岗位】接口获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719519211875096301</para>
             /// </summary>
@@ -576,7 +579,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public string? DirectLeaderId { get; set; }
 
             /// <summary>
-            /// <para>虚线上级岗位</para>
+            /// <para>虚线上级岗位，详细信息可通过【查询岗位】接口获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719519211875096301</para>
             /// </summary>
@@ -1204,7 +1207,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public string? LocalFirstName { get; set; }
 
                 /// <summary>
-                /// <para>国家 / 地区</para>
+                /// <para>国家/地区，可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获取</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：6862995757234914824</para>
                 /// </summary>
@@ -1212,14 +1215,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public string CountryRegionId { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>姓名类型</para>
+                /// <para>姓名类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)姓名类型（name_type）枚举定义获得</para>
                 /// <para>必填：是</para>
                 /// </summary>
                 [JsonPropertyName("name_type")]
                 public Enum NameType { get; set; } = new();
 
                 /// <summary>
-                /// <para>姓名类型</para>
+                /// <para>姓名类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)姓名类型（name_type）枚举定义获得</para>
                 /// </summary>
                 public record Enum
                 {
@@ -1278,7 +1281,9 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public string? LocalPrimary2 { get; set; }
 
                 /// <summary>
-                /// <para>补充姓名类型</para>
+                /// <para>补充姓名类型，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
+                /// <para>- custom_api_name：additional_name_type</para>
+                /// <para>- object_api_name：person_name</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("additional_name_type")]
@@ -1349,7 +1354,9 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public string? Secondary { get; set; }
 
                 /// <summary>
-                /// <para>尊称</para>
+                /// <para>尊称，可通过 [【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+                /// <para>- custom_api_name：social</para>
+                /// <para>- object_api_name：person_name</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：王大帅</para>
                 /// </summary>
@@ -1365,7 +1372,9 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public string? Tertiary { get; set; }
 
                 /// <summary>
-                /// <para>头衔</para>
+                /// <para>头衔，可通过 [【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+                /// <para>- custom_api_name：social</para>
+                /// <para>- object_api_name：person_name</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：王</para>
                 /// </summary>
@@ -1498,14 +1507,18 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public record Phone
             {
                 /// <summary>
-                /// <para>国家区号</para>
+                /// <para>国家区号，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，按如下参数查询即可：</para>
+                /// <para>- custom_api_name：international_area_code</para>
+                /// <para>- object_api_name：phone</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("international_area_code")]
                 public Enum? InternationalAreaCode { get; set; }
 
                 /// <summary>
-                /// <para>国家区号</para>
+                /// <para>国家区号，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，按如下参数查询即可：</para>
+                /// <para>- custom_api_name：international_area_code</para>
+                /// <para>- object_api_name：phone</para>
                 /// </summary>
                 public record Enum
                 {
@@ -1564,14 +1577,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public string? FormattedPhoneNumber { get; set; }
 
                 /// <summary>
-                /// <para>设备类型</para>
+                /// <para>设备类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)设备类型（device_type）枚举定义获得</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("device_type")]
                 public Enum? DeviceType { get; set; }
 
                 /// <summary>
-                /// <para>电话用途</para>
+                /// <para>电话用途，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电话用途（phone_usage）枚举定义获得</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("phone_usage")]
@@ -1623,7 +1636,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public string? FullAddressWesternScript { get; set; }
 
                 /// <summary>
-                /// <para>地址 ID</para>
+                /// <para>地址 ID，用于[【更新个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/patch)联系地址</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6989822217869624863</para>
                 /// </summary>
@@ -1631,7 +1644,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public string? AddressId { get; set; }
 
                 /// <summary>
-                /// <para>国家 / 地区</para>
+                /// <para>国家/地区，可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获取</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：6862995757234914824</para>
                 /// </summary>
@@ -2205,14 +2218,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 }
 
                 /// <summary>
-                /// <para>学历</para>
+                /// <para>学历，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)学历（level_of_education）枚举定义获得</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("level_of_education")]
                 public Enum? LevelOfEducation { get; set; }
 
                 /// <summary>
-                /// <para>学历</para>
+                /// <para>学历，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)学历（level_of_education）枚举定义获得</para>
                 /// </summary>
                 public record Enum
                 {
@@ -2278,28 +2291,32 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public I18n[]? FieldOfStuies { get; set; }
 
                 /// <summary>
-                /// <para>学位</para>
+                /// <para>学位，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)学位（degree）枚举定义获得</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("degree")]
                 public Enum? Degree { get; set; }
 
                 /// <summary>
-                /// <para>学校名称</para>
+                /// <para>学校名称，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
+                /// <para>- custom_api_name：school_name</para>
+                /// <para>- object_api_name：education</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("school_name")]
                 public Enum? SchoolName { get; set; }
 
                 /// <summary>
-                /// <para>专业名称</para>
+                /// <para>专业名称，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
+                /// <para>- custom_api_name：field_of_study_name</para>
+                /// <para>- object_api_name：education</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("field_of_study_name")]
                 public Enum? FieldOfStudyName { get; set; }
 
                 /// <summary>
-                /// <para>国家地区ID</para>
+                /// <para>国家/地区，可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
@@ -2602,7 +2619,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public record NationalId
             {
                 /// <summary>
-                /// <para>国家证件类型</para>
+                /// <para>国家证件类型，可通过[【查询单个国家证件类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/get)获取详细信息</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：6863330041896371725</para>
                 /// </summary>
@@ -2634,7 +2651,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public string? ExpirationDate { get; set; }
 
                 /// <summary>
-                /// <para>国家 / 地区</para>
+                /// <para>国家/地区，可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获取</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：6862995757234914824</para>
                 /// </summary>
@@ -2757,7 +2774,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? LocalFirstName { get; set; }
 
                     /// <summary>
-                    /// <para>国家 / 地区</para>
+                    /// <para>国家/地区，可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获取</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：6862995757234914824</para>
                     /// </summary>
@@ -2765,14 +2782,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string CountryRegionId { get; set; } = string.Empty;
 
                     /// <summary>
-                    /// <para>姓名类型</para>
+                    /// <para>姓名类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)姓名类型（name_type）枚举定义获得</para>
                     /// <para>必填：是</para>
                     /// </summary>
                     [JsonPropertyName("name_type")]
                     public Enum NameType { get; set; } = new();
 
                     /// <summary>
-                    /// <para>姓名类型</para>
+                    /// <para>姓名类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)姓名类型（name_type）枚举定义获得</para>
                     /// </summary>
                     public record Enum
                     {
@@ -2902,7 +2919,9 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? Secondary { get; set; }
 
                     /// <summary>
-                    /// <para>尊称</para>
+                    /// <para>尊称，可通过 [【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+                    /// <para>- custom_api_name：social</para>
+                    /// <para>- object_api_name：person_name</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：王大帅</para>
                     /// </summary>
@@ -2918,7 +2937,9 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? Tertiary { get; set; }
 
                     /// <summary>
-                    /// <para>头衔</para>
+                    /// <para>头衔，可通过 [【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+                    /// <para>- custom_api_name：social</para>
+                    /// <para>- object_api_name：person_name</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：王</para>
                     /// </summary>
@@ -2967,14 +2988,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 }
 
                 /// <summary>
-                /// <para>关系</para>
+                /// <para>关系，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)亲属关系（relationship）枚举定义获得</para>
                 /// <para>必填：是</para>
                 /// </summary>
                 [JsonPropertyName("relationship")]
                 public Enum Relationship { get; set; } = new();
 
                 /// <summary>
-                /// <para>关系</para>
+                /// <para>关系，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)亲属关系（relationship）枚举定义获得</para>
                 /// </summary>
                 public record Enum
                 {
@@ -3017,7 +3038,9 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 }
 
                 /// <summary>
-                /// <para>性别</para>
+                /// <para>性别，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+                /// <para>- custom_api_name：gender</para>
+                /// <para>- object_api_name：person</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("gender")]
@@ -3052,7 +3075,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public record NationalId
                 {
                     /// <summary>
-                    /// <para>国家证件类型</para>
+                    /// <para>国家证件类型，可通过[【查询单个国家证件类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/get)获取详细信息</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：6863330041896371725</para>
                     /// </summary>
@@ -3084,7 +3107,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? ExpirationDate { get; set; }
 
                     /// <summary>
-                    /// <para>国家 / 地区</para>
+                    /// <para>国家/地区，可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获取</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：6862995757234914824</para>
                     /// </summary>
@@ -3167,7 +3190,9 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 }
 
                 /// <summary>
-                /// <para>配偶工作状态</para>
+                /// <para>配偶工作状态，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
+                /// <para>- custom_api_name：spouses_working_status</para>
+                /// <para>- object_api_name：dependent</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("spouses_working_status")]
@@ -3292,14 +3317,18 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public record DependentPhone
                 {
                     /// <summary>
-                    /// <para>国家区号</para>
+                    /// <para>国家区号，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，按如下参数查询即可：</para>
+                    /// <para>- custom_api_name：international_area_code</para>
+                    /// <para>- object_api_name：phone</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("international_area_code")]
                     public Enum? InternationalAreaCode { get; set; }
 
                     /// <summary>
-                    /// <para>国家区号</para>
+                    /// <para>国家区号，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，按如下参数查询即可：</para>
+                    /// <para>- custom_api_name：international_area_code</para>
+                    /// <para>- object_api_name：phone</para>
                     /// </summary>
                     public record Enum
                     {
@@ -3358,14 +3387,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? FormattedPhoneNumber { get; set; }
 
                     /// <summary>
-                    /// <para>设备类型</para>
+                    /// <para>设备类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)设备类型（device_type）枚举定义获得</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("device_type")]
                     public Enum? DeviceType { get; set; }
 
                     /// <summary>
-                    /// <para>电话用途</para>
+                    /// <para>电话用途，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电话用途（phone_usage）枚举定义获得</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("phone_usage")]
@@ -3425,7 +3454,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? AddressId { get; set; }
 
                     /// <summary>
-                    /// <para>国家 / 地区</para>
+                    /// <para>国家/地区，可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获取</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：6862995757234914824</para>
                     /// </summary>
@@ -3593,14 +3622,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? PostalCode { get; set; }
 
                     /// <summary>
-                    /// <para>地址类型</para>
+                    /// <para>地址类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地址类型（address_type）枚举定义部分获得</para>
                     /// <para>必填：是</para>
                     /// </summary>
                     [JsonPropertyName("address_type_list")]
                     public Enum[] AddressTypeLists { get; set; } = Array.Empty<Enum>();
 
                     /// <summary>
-                    /// <para>地址类型</para>
+                    /// <para>地址类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地址类型（address_type）枚举定义部分获得</para>
                     /// </summary>
                     public record Enum
                     {
@@ -3796,7 +3825,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? LocalFirstName { get; set; }
 
                     /// <summary>
-                    /// <para>国家 / 地区</para>
+                    /// <para>国家/地区，可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获取</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：6862995757234914824</para>
                     /// </summary>
@@ -3804,14 +3833,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string CountryRegionId { get; set; } = string.Empty;
 
                     /// <summary>
-                    /// <para>姓名类型</para>
+                    /// <para>姓名类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)姓名类型（name_type）枚举定义获得</para>
                     /// <para>必填：是</para>
                     /// </summary>
                     [JsonPropertyName("name_type")]
                     public Enum NameType { get; set; } = new();
 
                     /// <summary>
-                    /// <para>姓名类型</para>
+                    /// <para>姓名类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)姓名类型（name_type）枚举定义获得</para>
                     /// </summary>
                     public record Enum
                     {
@@ -3870,7 +3899,9 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? LocalPrimary2 { get; set; }
 
                     /// <summary>
-                    /// <para>补充姓名类型</para>
+                    /// <para>补充姓名类型，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
+                    /// <para>- custom_api_name：additional_name_type</para>
+                    /// <para>- object_api_name：person_name</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("additional_name_type")]
@@ -3941,7 +3972,9 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? Secondary { get; set; }
 
                     /// <summary>
-                    /// <para>尊称</para>
+                    /// <para>尊称，可通过 [【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+                    /// <para>- custom_api_name：social</para>
+                    /// <para>- object_api_name：person_name</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：王大帅</para>
                     /// </summary>
@@ -3957,7 +3990,9 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? Tertiary { get; set; }
 
                     /// <summary>
-                    /// <para>头衔</para>
+                    /// <para>头衔，可通过 [【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+                    /// <para>- custom_api_name：social</para>
+                    /// <para>- object_api_name：person_name</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：王</para>
                     /// </summary>
@@ -4006,14 +4041,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 }
 
                 /// <summary>
-                /// <para>关系</para>
+                /// <para>关系，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)亲属关系（relationship）枚举定义获取</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("relationship")]
                 public Enum? Relationship { get; set; }
 
                 /// <summary>
-                /// <para>关系</para>
+                /// <para>关系，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)亲属关系（relationship）枚举定义获取</para>
                 /// </summary>
                 public record Enum
                 {
@@ -4068,14 +4103,18 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public record Phone
                 {
                     /// <summary>
-                    /// <para>国家区号</para>
+                    /// <para>国家区号，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，按如下参数查询即可：</para>
+                    /// <para>- custom_api_name：international_area_code</para>
+                    /// <para>- object_api_name：phone</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("international_area_code")]
                     public Enum? InternationalAreaCode { get; set; }
 
                     /// <summary>
-                    /// <para>国家区号</para>
+                    /// <para>国家区号，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，按如下参数查询即可：</para>
+                    /// <para>- custom_api_name：international_area_code</para>
+                    /// <para>- object_api_name：phone</para>
                     /// </summary>
                     public record Enum
                     {
@@ -4134,14 +4173,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? FormattedPhoneNumber { get; set; }
 
                     /// <summary>
-                    /// <para>设备类型</para>
+                    /// <para>设备类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)设备类型（device_type）枚举定义获得</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("device_type")]
                     public Enum? DeviceType { get; set; }
 
                     /// <summary>
-                    /// <para>电话用途</para>
+                    /// <para>电话用途，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电话用途（phone_usage）枚举定义获得</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("phone_usage")]
@@ -4313,14 +4352,18 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public record PersonalProfile
             {
                 /// <summary>
-                /// <para>资料类型</para>
+                /// <para>资料类型，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
+                /// <para>- custom_api_name：profile_type</para>
+                /// <para>- object_api_name：personal_profile</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("personal_profile_type")]
                 public Enum? PersonalProfileType { get; set; }
 
                 /// <summary>
-                /// <para>资料类型</para>
+                /// <para>资料类型，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
+                /// <para>- custom_api_name：profile_type</para>
+                /// <para>- object_api_name：personal_profile</para>
                 /// </summary>
                 public record Enum
                 {
@@ -4375,7 +4418,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public record File
                 {
                     /// <summary>
-                    /// <para>上传文件ID</para>
+                    /// <para>上传文件ID，可用于[【下载文件】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/file/get)</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200</para>
                     /// </summary>
@@ -4393,7 +4436,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             }
 
             /// <summary>
-            /// <para>籍贯 ID</para>
+            /// <para>籍贯 ID，可通过[【查询省份/主要行政区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6863326262618752111</para>
             /// </summary>
@@ -4423,7 +4466,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public Enum[]? PoliticalAffiliations { get; set; }
 
             /// <summary>
-            /// <para>人才 ID</para>
+            /// <para>人才 ID，用于[【获取人才信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6863326262618752123</para>
             /// </summary>
@@ -4582,14 +4625,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public string YearResidentTax { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>-| 居民身份，枚举值 api_name 可通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
+                /// <para>居民身份，枚举值 api_name 可通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("resident_status")]
                 public Enum? ResidentStatus { get; set; }
 
                 /// <summary>
-                /// <para>-| 居民身份，枚举值 api_name 可通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
+                /// <para>居民身份，枚举值 api_name 可通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
                 /// </summary>
                 public record Enum
                 {
@@ -4632,7 +4675,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 }
 
                 /// <summary>
-                /// <para>国家/地区，可通过[查询国家/地区信息v2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询</para>
+                /// <para>国家/地区，可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：中国</para>
                 /// </summary>
@@ -4877,7 +4920,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         public int? TimesEmployed { get; set; }
 
         /// <summary>
-        /// <para>招聘来源，枚举值 api_name 可通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口查询</para>
+        /// <para>招聘来源，枚举值可通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口查询</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("recruitment_type")]
@@ -5095,7 +5138,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         public string? TimeZone { get; set; }
 
         /// <summary>
-        /// <para>任职公司</para>
+        /// <para>任职公司，可通过[【查询单个公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)查询详细信息</para>
         /// <para>必填：否</para>
         /// <para>示例值：7174374910734141112</para>
         /// </summary>
@@ -5103,14 +5146,18 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         public string? ServiceCompany { get; set; }
 
         /// <summary>
-        /// <para>薪资类型</para>
+        /// <para>薪资类型，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+        /// <para>- object_api_name = "job_data"</para>
+        /// <para>- custom_api_name = "compensation_type"</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("compensation_type")]
         public Enum? CompensationType { get; set; }
 
         /// <summary>
-        /// <para>排班类型</para>
+        /// <para>排班类型，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+        /// <para>- object_api_name = "job_data"</para>
+        /// <para>- custom_api_name = "work_shift"</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("work_shift")]

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 查询用户所属用户组 响应体
-/// <para>通过该接口可查询该用户所属的用户组列表，可分别查询普通用户组和动态用户组。如果应用的通讯录权限范围是“全部员工”，则可获取该员工所属的全部用户组列表。如果应用的通讯录权限范围不是“全部员工”，则仅可获取通讯录权限范围内该员工所属的用户组。[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+/// <para>调用该接口查询指定用户所属的用户组列表。</para>
 /// <para>接口ID：7106501358249885699</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/group/member_belong</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fgroup%2fmember_belong</para>
@@ -22,7 +22,8 @@ namespace FeishuNetSdk.Contact;
 public record GetContactV3GroupMemberBelongResponseDto
 {
     /// <summary>
-    /// <para>用户组ID列表</para>
+    /// <para>用户组 ID 列表。</para>
+    /// <para>**说明**：你可以调用[查询指定用户组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/get)接口，通过用户组 ID 获取用户组的详细信息。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("group_list")]

@@ -22,9 +22,11 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2EmployeesJobDatasBatchGetBodyDto
 {
     /// <summary>
-    /// <para>员工雇佣 ID 列表</para>
+    /// <para>员工雇佣 ID 列表，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取</para>
+    /// <para>应与 user_id_type 类型一致</para>
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("employment_ids")]
     public string[] EmploymentIds { get; set; } = Array.Empty<string>();

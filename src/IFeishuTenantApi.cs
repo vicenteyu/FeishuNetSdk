@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-04
+// Last Modified On : 2024-07-09
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -2430,7 +2430,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6943913881476775963</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用来递归获取部门父部门的信息，并按照由子到父的顺序返回有权限的父部门信息列表（不包含根部门）。</para>
+    /// <para>调用该接口递归获取指定部门的父部门信息，包括部门名称、ID、负责人以及状态等。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -2445,17 +2445,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
+    /// <para>**默认值**：open_department_id</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="department_id">
     /// <para>必填：是</para>
-    /// <para>部门ID</para>
+    /// <para>部门 ID。ID 类型需要与查询参数 department_id_type 的取值保持一致。</para>
+    /// <para>当你在创建部门时，可从返回结果中获取到部门 ID 信息，你也可以调用[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)接口，获取所需的部门 ID。</para>
     /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
     /// </param>
     /// <param name="page_token">
@@ -2466,7 +2468,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -2483,12 +2485,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6943913881476792347</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于更新通讯录中用户的字段，未传递的参数不会更新。</para>
+    /// <para>调用该接口更新通讯录中指定用户的信息，包括名称、邮箱、手机号、所属部门以及自定义字段等信息。</para>
     /// </summary>
     /// <param name="user_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户ID，需要与查询参数中的user_id_type类型保持一致。</para>
+    /// <para>用户 ID，ID 类型需要与查询参数中的 user_id_type 类型保持一致。</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </param>
     /// <param name="user_id_type">
@@ -2504,11 +2506,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>此次调用中使用的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：以自定义department_id来标识部门</item>
-    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 od-，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -2567,7 +2569,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6943913881476857883</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于向通讯录中创建部门。</para>
+    /// <para>调用该接口在通讯录内创建一个部门。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -2582,18 +2584,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
-    /// <para>不同 ID 的说明参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
+    /// <para>**默认值**：open_department_id</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="client_token">
     /// <para>必填：否</para>
-    /// <para>用于幂等判断是否为同一请求，避免重复创建。字符串类型，自行生成。</para>
+    /// <para>用于幂等判断是否为同一请求，避免重复请求。字符串类型，需要你自行生成参数值。</para>
+    /// <para>**默认值**：空</para>
     /// <para>示例值：473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -2662,12 +2665,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6943913881476907035</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于从通讯录删除一个用户信息，可以理解为员工离职。</para>
+    /// <para>调用该接口从通讯录内删除一个指定用户（该动作可以理解为员工离职），删除时可通过请求参数将用户所有的群组、文档、日程和应用等数据转让至他人。</para>
     /// </summary>
     /// <param name="user_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户ID，需要与查询参数中的user_id_type类型保持一致。</para>
+    /// <para>用户 ID。ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </param>
     /// <param name="user_id_type">
@@ -2693,13 +2696,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6943913881476923419</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/patch</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于更新通讯录中部门的信息。</para>
+    /// <para>调用该接口更新指定部门的部分信息，包括名称、父部门、排序以及负责人等。</para>
     /// </summary>
     /// <param name="department_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>部门ID，需要与查询参数中传入的department_id_type类型保持一致。</para>
-    /// <para>注意：除需要满足正则规则外，同时不能以od-开头</para>
+    /// <para>部门 ID，ID 类型需要与查询参数 department_id_type 的取值保持一致。ID 获取方式说明：</para>
+    /// <para>- 调用[创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)接口后，可从返回结果中获取到部门 ID 信息。</para>
+    /// <para>- 部门 API 提供了多种获取其他部门 ID 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的 API 进行查询。</para>
     /// <para>示例值：D096</para>
     /// </param>
     /// <param name="user_id_type">
@@ -2715,11 +2719,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -2736,7 +2740,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6943913881476939803</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>使用该接口向通讯录创建一个用户，可以理解为员工入职。创建用户后只返回有数据权限的数据。具体的数据权限的与字段的对应关系请参照[应用权限](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)。</para>
+    /// <para>调用该接口向通讯录创建一个用户（该动作可以理解为员工入职）。成功创建用户后，系统会以短信或邮件的形式向用户发送邀请，用户在同意邀请后方可访问企业或团队。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -2751,19 +2755,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型。</para>
-    /// <para>不同 ID 的说明参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：以自定义department_id来标识部门</item>
-    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="client_token">
     /// <para>必填：否</para>
-    /// <para>用于幂等判断是否为同一请求，避免重复创建。字符串类型，自行生成。</para>
-    /// <para>示例值：xxxx-xxxxx-xxx</para>
+    /// <para>用于幂等判断是否为同一请求，避免重复创建。请参考参数示例值，传入自定义的 client_token。</para>
+    /// <para>**默认值**：空，表示不进行幂等判断</para>
+    /// <para>示例值：abcd-12345-e6f</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -2779,14 +2783,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6943913881476956187</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于获取通讯录中单个用户的信息。</para>
+    /// <para>调用该接口获取通讯录中某一用户的信息，包括用户 ID、名称、邮箱、手机号、状态以及所属部门等信息。</para>
     /// </summary>
     /// <param name="user_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户ID，类型需要与查询参数中的user_id_type保持一致。</para>
-    /// <para>例如user_id_type=open_id，user_id的类型需为open_id</para>
-    /// <para>不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
+    /// <para>用户ID。ID 类型与查询参数 `user_id_type` 保持一致。</para>
     /// <para>示例值：7be5fg9a</para>
     /// </param>
     /// <param name="user_id_type">
@@ -2802,12 +2804,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
-    /// <para>不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：以自定义department_id来标识部门</item>
-    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 od-，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -2887,13 +2888,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6943913881476988955</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于向通讯录获取单个部门信息。</para>
+    /// <para>调用该接口获取单个部门信息，包括部门名称、ID、父部门、负责人、状态以及成员个数等。</para>
     /// </summary>
     /// <param name="department_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>需要获取的部门ID</para>
-    /// <para>不同 ID 的说明及获取方式 参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
+    /// <para>部门 ID，ID 类型需要与查询参数 department_id_type 的取值保持一致。ID 获取方式说明：</para>
+    /// <para>- 调用[创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)接口后，可从返回结果中获取到部门 ID 信息。</para>
+    /// <para>- 部门 API 提供了多种获取其他部门 ID 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的 API 进行查询。</para>
     /// <para>示例值：D096</para>
     /// </param>
     /// <param name="user_id_type">
@@ -2909,12 +2911,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
-    /// <para>不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -2929,21 +2930,23 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6943913881477005339</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于从通讯录中删除部门。</para>
+    /// <para>调用该接口从通讯录中删除指定的部门。</para>
     /// </summary>
     /// <param name="department_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>部门ID，需要与查询参数中传入的department_id_type类型保持一致。</para>
+    /// <para>部门 ID，ID 类型需要与查询参数 department_id_type 的取值保持一致。ID 获取方式说明：</para>
+    /// <para>- 调用[创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)接口后，可从返回结果中获取到部门 ID 信息。</para>
+    /// <para>- 部门 API 提供了多种获取其他部门 ID 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的 API 进行查询。</para>
     /// <para>示例值：D096</para>
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -2957,13 +2960,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6943913881477021723</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于更新当前部门所有信息。</para>
+    /// <para>调用该接口更新指定部门的信息，包括名称、父部门以及负责人等信息。</para>
     /// </summary>
     /// <param name="department_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>部门ID，需要与查询参数中传入的department_id_type类型保持一致。</para>
-    /// <para>注意：除需要满足正则规则外，同时不能以od-开头</para>
+    /// <para>部门 ID，ID 类型需要与查询参数 department_id_type 的取值保持一致。ID 获取方式说明：</para>
+    /// <para>- 调用[创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)接口后，可从返回结果中获取到部门 ID 信息。</para>
+    /// <para>- 部门 API 提供了多种获取其他部门 ID 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的 API 进行查询。</para>
     /// <para>示例值：D096</para>
     /// </param>
     /// <param name="user_id_type">
@@ -2979,11 +2983,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -10108,12 +10112,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6985055606752460828</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新自定义人员类型。</para>
+    /// <para>调用该接口更新指定的自定义人员类型信息。</para>
     /// </summary>
     /// <param name="enum_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>枚举值id</para>
+    /// <para>自定义人员类型的选项 ID。你可以在新建人员类型时从返回值中获取，你也可以调用[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)接口，获取选项的 ID。</para>
     /// <para>示例值：exGeIjow7zIqWMy+ONkFxA==</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -10127,12 +10131,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6985055606752477212</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除自定义人员类型。</para>
+    /// <para>调用该接口删除指定的自定义人员类型。</para>
     /// </summary>
     /// <param name="enum_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>枚举值id</para>
+    /// <para>自定义人员类型的选项 ID。你可以在新建人员类型时从返回值中获取，你也可以调用[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)接口，获取选项的 ID。</para>
     /// <para>示例值：exGeIjow7zIqWMy+ONkFxA==</para>
     /// </param>
     [HttpDelete("/open-apis/contact/v3/employee_type_enums/{enum_id}")]
@@ -10144,7 +10148,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6985055606752559132</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于获取员工的人员类型。</para>
+    /// <para>调用该接口查询当前租户下所有的人员类型信息，包括选项 ID、类型、编号以及内容等。</para>
     /// </summary>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -10154,7 +10158,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求返回的条目数。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -10168,7 +10172,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6985055606752575516</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>新增自定义人员类型。</para>
+    /// <para>调用该接口新增一个自定义的人员类型。人员类型是用户属性之一，用于灵活标记用户的身份类型。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/employee_type_enums")]
@@ -10620,11 +10624,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6986108081861476354</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/custom_attr/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取企业自定义的用户字段配置信息</para>
+    /// <para>调用该接口查询当前企业内自定义用户字段的配置信息。</para>
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -11232,37 +11236,37 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="page_token">
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>示例值：xx</para>
+    /// <para>示例值：eyJiaXpfdGltZSI6MTcxMDAzNjAwMDAwMCwiaWQiOiI3MzQzMDI3OTMyODE4NjcxOTE2In0</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="application_id">
     /// <para>必填：否</para>
-    /// <para>投递 ID</para>
+    /// <para>投递 ID，值可通过[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/create)接口获取（不允许 application_id、interview_id、start_time、end_time 同时为空）</para>
     /// <para>示例值：6134134355464633</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="interview_id">
     /// <para>必填：否</para>
-    /// <para>面试 ID</para>
+    /// <para>面试 ID，可通过[获取人才面试信息](https://open.larkoffice.com/document/server-docs/hire-v1/candidate-management/delivery-process-management/interview/get_by_talent)获取，（不允许 application_id、interview_id、start_time、end_time 同时为空）</para>
     /// <para>示例值：6888217964693309704</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="start_time">
     /// <para>必填：否</para>
-    /// <para>最早开始时间，格式为时间戳</para>
+    /// <para>最早开始时间，毫秒时间戳，必须大于 0（不允许 application_id、interview_id、start_time、end_time 同时为空）</para>
     /// <para>示例值：1609489908000</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：否</para>
-    /// <para>最晚开始时间，格式为时间戳</para>
+    /// <para>最晚开始时间，毫秒时间戳，必须大于 0（不允许 application_id、interview_id、start_time、end_time 同时为空）</para>
     /// <para>示例值：1610489908000</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="job_level_id_type">
     /// <para>必填：否</para>
     /// <para>此次调用中使用的「职级 ID」的类型</para>
-    /// <para>示例值：6942778198054125570</para>
+    /// <para>示例值：people_admin_hob_level_id</para>
     /// <list type="bullet">
     /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
     /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过[「获取租户职级列表」](https://open.feishu.cn/document/server-docs/contact-v3/job_level/list)接口获取</item>
@@ -12558,12 +12562,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7008085931593007107</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/patch</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>使用该接口更新用户组信息，请注意更新用户组时应用的通讯录权限范围需为“全部员工”，否则会更新失败。[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>调用该接口更新指定用户组的名称或描述。</para>
     /// </summary>
     /// <param name="group_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户组ID</para>
+    /// <para>用户组 ID。</para>
+    /// <para>用户组 ID 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的 ID。</para>
     /// <para>示例值：g187131</para>
     /// </param>
     /// <param name="user_id_type">
@@ -12579,11 +12584,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：以自定义department_id来标识部门</item>
-    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -12600,12 +12605,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7008085931593023491</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据用户组 ID 查询某个用户组的基本信息，支持查询普通用户组和动态用户组。请确保应用的通讯录权限范围里包括该用户组或者是“全部员工”，[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>调用该接口通过用户组 ID 查询指定用户组的基本信息，包括用户组名称、成员数量和类型等。</para>
     /// </summary>
     /// <param name="group_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户组ID</para>
+    /// <para>用户组 ID。</para>
+    /// <para>用户组 ID 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的 ID。</para>
     /// <para>示例值：g193821</para>
     /// </param>
     /// <param name="user_id_type">
@@ -12621,11 +12627,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以自定义department_id来标识部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -12640,11 +12646,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7008085931593039875</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过该接口可查询企业的用户组列表，可分别查询普通用户组或动态用户组。如果应用的通讯录权限范围是“全部员工”，则可获取企业全部用户组列表。如果应用的通讯录权限范围不是“全部员工”，则仅可获取通讯录权限范围内的用户组。[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>调用该接口查询当前租户下的用户组列表，列表内包含用户组的 ID、名字、成员数量和类型等信息。</para>
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。</para>
     /// <para>示例值：50</para>
     /// <para>默认值：50</para>
     /// </param>
@@ -12656,7 +12662,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="type">
     /// <para>必填：否</para>
-    /// <para>用户组类型</para>
+    /// <para>用户组类型。</para>
     /// <para>示例值：1</para>
     /// <list type="bullet">
     /// <item>1：普通用户组</item>
@@ -12675,12 +12681,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7008085931593056259</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/add</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>向用户组中添加成员(目前成员仅支持用户，未来会支持部门)，如果应用的通讯录权限范围是“全部员工”，则可将任何成员添加到任何用户组。如果应用的通讯录权限范围不是“全部员工”，则仅可将通讯录权限范围中的成员添加到通讯录权限范围的用户组中，[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>调用该接口向指定的普通用户组内添加成员。</para>
     /// </summary>
     /// <param name="group_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户组ID</para>
+    /// <para>用户组 ID。</para>
+    /// <para>用户组 ID 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的 ID。</para>
     /// <para>示例值：g281721</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -12694,17 +12701,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7008085931593072643</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/simplelist</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过该接口可查询某个用户组的成员列表（支持查询成员中的用户和部门）, 本接口支持普通用户组和动态用户组。如果应用的通讯录权限范围是“全部员工”，则可查询企业内任何用户组的成员列表。如果应用的通讯录权限范围不是“全部员工”，则仅可查询通讯录权限范围中的用户组的成员列表，[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>调用该接口查询指定用户组内的成员列表，列表内主要包括成员 ID 信息。</para>
     /// </summary>
     /// <param name="group_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户组ID</para>
+    /// <para>用户组 ID。</para>
+    /// <para>用户组 ID 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的 ID。</para>
     /// <para>示例值：g128187</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求返回的最大条目数。</para>
     /// <para>示例值：50</para>
     /// <para>默认值：50</para>
     /// </param>
@@ -12716,25 +12724,25 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="member_id_type">
     /// <para>必填：否</para>
-    /// <para>欲获取成员ID类型。</para>
-    /// <para>当member_type=user时候，member_id_type表示user_id_type，枚举值open_id, union_id和user_id。</para>
-    /// <para>当member_type=department时候，member_id_type表示department_id_type，枚举值open_id和department_id。</para>
+    /// <para>用户组成员 ID 类型。</para>
+    /// <para>- 当 `member_type` 取值为 `user`时，该参数表示用户 ID 类型，包括 open_id、union_id、user_id。</para>
+    /// <para>- 当 `member_type` 取值为 `department`时，该参数表示部门 ID 类型，包括 department_id、open_department_id。</para>
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>open_id：member_type =user时候，表示用户的open_id</item>
-    /// <item>union_id：member_type =user时候，表示用户的union_id</item>
-    /// <item>user_id：member_type =user时候，表示用户的user_id</item>
-    /// <item>department_id：member_type=department时候，表示部门的department_id</item>
+    /// <item>open_id：当 `member_type` 取值为 `user`时，表示用户的 open_id。 当 `member_type` 取值为 `department`时，表示部门的 open_department_id。</item>
+    /// <item>union_id：当 `member_type` 取值为 `user`时，表示用户的 union_id。</item>
+    /// <item>user_id：当 `member_type` 取值为 `user`时，表示用户的 user_id。</item>
+    /// <item>department_id：当 `member_type` 取值为 `department`时，表示部门的 department_id。</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="member_type">
     /// <para>必填：否</para>
-    /// <para>欲获取的用户组成员类型。</para>
+    /// <para>用户组成员类型。</para>
     /// <para>示例值：user</para>
     /// <list type="bullet">
-    /// <item>user：用户。返回归属于该用户组的用户列表</item>
-    /// <item>department：部门。返回归属于该用户组的部门列表</item>
+    /// <item>user：用户，表示仅查询用户组内的用户类型成员。</item>
+    /// <item>department：部门，表示仅查询用户组内的部门类型成员。</item>
     /// </list>
     /// <para>默认值：user</para>
     /// </param>
@@ -12751,7 +12759,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7008085931593089027</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>使用该接口创建用户组，请注意创建用户组时应用的通讯录权限范围需为“全部员工”，否则会创建失败，[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>调用该接口创建一个用户组。用户组是飞书通讯录中基础实体之一，在用户组内可添加用户或部门资源。各类业务权限管控可以与用户组关联，从而实现高效便捷的成员权限管控。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -12766,11 +12774,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以自定义department_id来标识部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -12786,12 +12794,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7008085931593105411</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过该接口可删除企业中的用户组，请注意删除用户组时应用的通讯录权限范围需为“全部员工”，否则会删除失败，[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>调用该接口删除指定用户组。</para>
     /// </summary>
     /// <param name="group_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>需删除的用户组ID</para>
+    /// <para>需删除的用户组 ID。</para>
+    /// <para>用户组 ID 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的 ID。</para>
     /// <para>示例值：g1837191</para>
     /// </param>
     [HttpDelete("/open-apis/contact/v3/group/{group_id}")]
@@ -12803,12 +12812,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7008085931593138179</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/remove</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>从用户组中移除成员 (目前成员仅支持用户，未来会支持部门)，如果应用的通讯录权限范围是“全部员工”，则可将任何成员移出任何用户组。如果应用的通讯录权限范围不是“全部员工”，则仅可将通讯录权限范围中的成员从通讯录权限范围的用户组中移除， [点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>调用该接口移除指定普通用户组内的某一成员。</para>
     /// </summary>
     /// <param name="group_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户组ID</para>
+    /// <para>用户组 ID。</para>
+    /// <para>用户组 ID 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的 ID。</para>
     /// <para>示例值：g198123</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -13760,6 +13770,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="employment_id">
     /// <para>必填：否</para>
     /// <para>雇佣 ID</para>
+    /// <para>与 user_id_type 类型一致</para>
     /// <para>示例值：7072306364927985196</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -13772,6 +13783,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="department_id">
     /// <para>必填：否</para>
     /// <para>部门 ID</para>
+    /// <para>应与 department_id_type 类型一致</para>
     /// <para>示例值：6887868781834536462</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -14558,7 +14570,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7023995901275242499</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于创建单位。注意：单位功能属于旗舰版付费功能，企业需开通对应版本才可以创建单位，不同版本请参考[飞书版本对比](https://www.feishu.cn/service)。</para>
+    /// <para>调用该接口创建一个单位。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/unit")]
@@ -14570,12 +14582,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7023995901275258883</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/patch</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>调用该接口，需要有更新单位的权限。注意：单位功能属于旗舰版付费功能，企业需开通对应版本才可以修改单位。</para>
+    /// <para>调用该接口修改指定单位的名字。</para>
     /// </summary>
     /// <param name="unit_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>单位ID</para>
+    /// <para>单位 ID。</para>
+    /// <para>当你在创建单位时，可以在返回结果中获取单位 ID。你也可以调用[获取单位列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/list)接口，获取单位 ID。</para>
     /// <para>示例值：BU121</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -14589,31 +14602,31 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7023995901275275267</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>使用该接口删除单位，需要有更新单位的权限。注意：如果单位的单位类型被其它的业务使用，不允许删除。</para>
+    /// <para>调用该接口删除指定单位。</para>
     /// </summary>
     /// <param name="unit_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>单位ID</para>
+    /// <para>单位 ID。</para>
+    /// <para>当你在创建单位时，可以在返回结果中获取单位 ID。你也可以调用[获取单位列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/list)接口，获取单位 ID。</para>
     /// <para>示例值：BU121</para>
     /// </param>
-    /// <param name="dto">请求体</param>
     [HttpDelete("/open-apis/contact/v3/unit/{unit_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteContactV3UnitByUnitIdAsync(
-        [PathQuery] string unit_id,
-        [JsonContent] Contact.DeleteContactV3UnitByUnitIdBodyDto dto);
+        [PathQuery] string unit_id);
 
     /// <summary>
     /// <para>【通讯录】获取单位信息</para>
     /// <para>接口ID：7023995901275291651</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于获取单位信息。</para>
+    /// <para>调用该接口获取指定单位的信息，包括单位 ID、名字、类型。</para>
     /// </summary>
     /// <param name="unit_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>单位ID</para>
+    /// <para>单位 ID。</para>
+    /// <para>当你在创建单位时，可以在返回结果中获取单位 ID。你也可以调用[获取单位列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/list)接口，获取单位 ID。</para>
     /// <para>示例值：BU121</para>
     /// </param>
     [HttpGet("/open-apis/contact/v3/unit/{unit_id}")]
@@ -14625,11 +14638,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7023995901275308035</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过该接口获取企业的单位列表，需获取单位的权限。</para>
+    /// <para>调用该接口获取当前租户内的单位列表。列表内主要包含各单位的 ID、名字、类型信息。</para>
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。</para>
     /// <para>示例值：50</para>
     /// <para>默认值：50</para>
     /// </param>
@@ -14649,7 +14662,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7023995901275324419</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/bind_department</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过该接口建立部门与单位的绑定关系。由于单位是旗舰版付费功能，企业需开通相关版本，否则会绑定失败，不同版本请参考[飞书版本对比](https://www.feishu.cn/service)。</para>
+    /// <para>调用该接口建立部门与单位的绑定关系。一个部门同时只能绑定一个单位。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/unit/bind_department")]
@@ -14661,7 +14674,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7023995901275340803</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/unbind_department</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过该接口解除部门与单位的绑定关系，需更新单位的权限，需对应部门的通讯录权限。由于单位是旗舰版付费功能，企业需开通相关功能，否则会解绑失败。</para>
+    /// <para>调用该接口解除部门与单位的绑定关系。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/unit/unbind_department")]
@@ -14673,20 +14686,21 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7023995901275357187</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/list_department</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过该接口获取单位绑定的部门列表，需具有获取单位的权限。</para>
+    /// <para>调用该接口获取指定单位绑定的部门列表。</para>
     /// </summary>
     /// <param name="unit_id">
     /// <para>必填：是</para>
-    /// <para>单位ID</para>
+    /// <para>单位 ID。</para>
+    /// <para>当你在创建单位时，可以在返回结果中获取单位 ID。你也可以调用[获取单位列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/list)接口，获取单位 ID。</para>
     /// <para>示例值：BU121</para>
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中预获取的部门ID的类型</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：以自定义department_id来标识部门</item>
-    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -14698,7 +14712,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。</para>
     /// <para>示例值：50</para>
     /// <para>默认值：50</para>
     /// </param>
@@ -14765,7 +14779,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7026591401610526724</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过该接口，可使用手机号/邮箱获取用户的 ID 信息，具体获取支持的 ID 类型包括 open_id、user_id、union_id，可通过查询参数指定。</para>
+    /// <para>调用该接口通过手机号或邮箱获取一个或多个用户的 ID （包括 user_id、open_id、union_id）与状态信息。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -14789,8 +14803,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7026591401610543108</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/scope/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于获取应用被授权可访问的通讯录范围，包括可访问的部门列表、用户列表和用户组列表。</para>
-    /// <para>授权范围为全员时，返回的部门列表为该企业所有的一级部门；否则返回的部门为管理员在设置授权范围时勾选的部门（不包含勾选部门的子部门）。</para>
+    /// <para>调用该接口获取当前应用被授权可访问的通讯录范围，包括可访问的部门列表、用户列表和用户组列表。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -14805,11 +14818,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>返回值的部门ID的类型</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：以自定义department_id来标识部门</item>
-    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -14821,7 +14834,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小，返回值所有列表长度之和不超过这个值</para>
+    /// <para>分页大小，用于设置一次调用的返回值列表长度。</para>
+    /// <para>**注意**：分页查询时，返回的所有资源列表长度之和不会大于 page_size 值，列表内的资源返回顺序为：先返回 user_ids、然后返回 department_ids、最后返回 group_ids。</para>
     /// <para>示例值：50</para>
     /// <para>默认值：50</para>
     /// </param>
@@ -14873,7 +14887,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7033365649318789148</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>基于部门ID获取部门直属用户列表。</para>
+    /// <para>调用该接口获取指定部门直属的用户信息列表。用户信息包括用户 ID、名称、邮箱、手机号以及状态等信息。</para>
     /// </summary>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -14888,25 +14902,25 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
-    /// <para>部门ID类型的区别参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
+    /// <para>此次调用中使用的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：以自定义department_id来标识部门</item>
-    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="department_id">
     /// <para>必填：是</para>
-    /// <para>填写该字段表示获取该部门下用户，必填。根部门的部门ID为0。</para>
-    /// <para>ID值与查询参数中的department_id_type 对应。</para>
-    /// <para>不同 ID 的说明与department_id的获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
+    /// <para>部门 ID，ID 类型与 department_id_type 的取值保持一致。</para>
+    /// <para>**说明**：</para>
+    /// <para>- 根部门的部门 ID 为 0。</para>
+    /// <para>- 你可以调用[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)接口，通过部门名称关键词获取对应的部门 ID。</para>
     /// <para>示例值：od-xxxxxxxxxxxxx</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，即本次请求所返回的用户信息列表内的最大条目数。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -14929,13 +14943,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7033365649318805532</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>通过部门ID获取部门的子部门列表。</para>
+    /// <para>调用该接口查询指定部门下的子部门列表，列表内包含部门的名称、ID、父部门、负责人以及状态等信息。</para>
     /// </summary>
     /// <param name="department_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>部门ID，根部门的部门ID 为0</para>
-    /// <para>department_id的获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
+    /// <para>部门 ID。</para>
+    /// <para>**说明：**</para>
+    /// <para>- ID 类型需要与查询参数 department_id_type 的取值保持一致。</para>
+    /// <para>- 当你在创建部门时，可从返回结果中获取到部门 ID 信息，你也可以调用[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)接口，获取所需的部门 ID。</para>
+    /// <para>- 根部门的部门 ID 为 0。</para>
     /// <para>示例值：D096</para>
     /// </param>
     /// <param name="user_id_type">
@@ -14951,24 +14968,26 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
-    /// <para>不同 ID 的说明与department_id的获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="fetch_child">
     /// <para>必填：否</para>
-    /// <para>是否递归获取子部门</para>
+    /// <para>是否递归获取子部门。取值为 true 时，接口会递归查询当前部门下所有层级的子部门信息。</para>
+    /// <para>**可选值有：**</para>
+    /// <para>- true：是</para>
+    /// <para>- false（默认值）：否</para>
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -16664,15 +16683,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7069758645957836801</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/unbind_department_chat</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过该接口将部门群转为普通群。</para>
+    /// <para>调用该接口将指定部门的部门群转为普通群。</para>
     /// </summary>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型，默认为"open_department_id"</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
+    /// <para>**默认值**：open_department_id</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：用来标识租户内一个唯一的部门</item>
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -16791,7 +16811,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="employment_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>雇员ID</para>
+    /// <para>雇员ID，类型应与 user_id_type 一致</para>
     /// <para>示例值：1616161616</para>
     /// </param>
     /// <param name="client_token">
@@ -17599,7 +17619,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     /// <param name="file_content">
     /// <para>必填：是</para>
-    /// <para>文件二进制内容</para>
+    /// <para>文件二进制内容，大小不超过50M</para>
     /// </param>
     [HttpPost("/open-apis/corehr/v1/persons/upload")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1PersonsUploadResponseDto>> PostCorehrV1PersonsUploadAsync(
@@ -18384,7 +18404,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7098332552943697922</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>翻页获取所有考勤组列表。包含考勤组名称和考勤组id</para>
+    /// <para>翻页获取所有考勤组列表。列表中的数据为考勤组信息，字段包含考勤组名称和考勤组id</para>
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
@@ -19156,12 +19176,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7106501358249852931</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/batch_add</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>向普通用户组中批量添加成员(目前仅支持添加用户，暂不支持添加部门），如果应用的通讯录权限范围是“全部员工”，则可将任何成员添加到任何用户组。如果应用的通讯录权限范围不是“全部员工”，则仅可将通讯录权限范围中的成员添加到通讯录权限范围的用户组中，[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>调用该接口向指定的普通用户组内添加一个或多个成员。</para>
     /// </summary>
     /// <param name="group_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户组ID</para>
+    /// <para>用户组 ID。</para>
+    /// <para>用户组 ID 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的 ID。</para>
     /// <para>示例值：test_group</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -19175,12 +19196,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7106501358249869315</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/batch_remove</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>从普通用户组中批量移除成员 (目前仅支持移除用户，暂不支持移除部门）。如果应用的通讯录权限范围是“全部员工”，则可将任何成员移出任何用户组。如果应用的通讯录权限范围不是“全部员工”，则仅可将通讯录权限范围中的成员从通讯录权限范围的用户组中移除， [点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>调用该接口从指定普通用户组内移除一个或多个成员。</para>
     /// </summary>
     /// <param name="group_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户组ID</para>
+    /// <para>用户组 ID。</para>
+    /// <para>用户组 ID 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的 ID。</para>
     /// <para>示例值：test_group</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -19194,27 +19216,27 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7106501358249885699</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/member_belong</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过该接口可查询该用户所属的用户组列表，可分别查询普通用户组和动态用户组。如果应用的通讯录权限范围是“全部员工”，则可获取该员工所属的全部用户组列表。如果应用的通讯录权限范围不是“全部员工”，则仅可获取通讯录权限范围内该员工所属的用户组。[点击了解通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>调用该接口查询指定用户所属的用户组列表。</para>
     /// </summary>
     /// <param name="member_id">
     /// <para>必填：是</para>
-    /// <para>成员ID</para>
+    /// <para>成员 ID。ID 类型与 member_id_type 取值保持一致。</para>
     /// <para>示例值：u287xj12</para>
     /// </param>
     /// <param name="member_id_type">
     /// <para>必填：否</para>
-    /// <para>成员ID类型</para>
+    /// <para>成员 ID 类型。</para>
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>open_id：member_id_type为user时，表示用户的open_id</item>
-    /// <item>union_id：member_id_type为user时，表示用户的union_id</item>
-    /// <item>user_id：member_id_type为user时，表示用户的user_id</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="group_type">
     /// <para>必填：否</para>
-    /// <para>欲获取的用户组类型</para>
+    /// <para>用户组类型。</para>
     /// <para>示例值：1</para>
     /// <list type="bullet">
     /// <item>1：普通用户组</item>
@@ -19224,7 +19246,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页查询大小</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。</para>
     /// <para>示例值：500</para>
     /// <para>默认值：500</para>
     /// </param>
@@ -20826,12 +20848,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7122710137048399875</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/resurrect</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于恢复已删除用户（已离职的成员），仅自建应用可申请，应用商店应用无权调用接口。</para>
+    /// <para>该接口用于恢复已删除用户（已离职的成员）。</para>
     /// </summary>
     /// <param name="user_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户ID，需要与查询参数中的user_id_type类型保持一致。</para>
+    /// <para>用户 ID。ID 类型需要与查询参数中的 user_id_type类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </param>
     /// <param name="user_id_type">
@@ -20847,11 +20869,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>部门ID类型</para>
+    /// <para>此次调用中使用的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：以自定义department_id来标识部门</item>
-    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 od-，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -23496,12 +23518,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7194273512282390532</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于删除职级。</para>
+    /// <para>调用该接口删除指定的职级。</para>
     /// </summary>
     /// <param name="job_level_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>职级ID</para>
+    /// <para>职级 ID。获取方式：</para>
+    /// <para>- 创建职级时，可以从返回结果中获取职级 ID。</para>
+    /// <para>- 调用[获取租户职级列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list)接口，查找指定职级的 ID 信息。</para>
     /// <para>示例值：mga5oa8ayjlp9rb</para>
     /// </param>
     [HttpDelete("/open-apis/contact/v3/job_levels/{job_level_id}")]
@@ -23513,12 +23537,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7194273512282406916</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于更新租户序列的信息。</para>
+    /// <para>调用该接口更新指定序列的信息。</para>
     /// </summary>
     /// <param name="job_family_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>序列ID</para>
+    /// <para>序列 ID。获取方式：</para>
+    /// <para>- [创建序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/create)时可以从返回结果中获取（job_family_id）。</para>
+    /// <para>- 调用[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口获取序列 ID。</para>
     /// <para>示例值：mga5oa8ayjlpkzy</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -23532,7 +23558,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7194273512282423300</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口可以创建职级。</para>
+    /// <para>调用该接口创建一个职级。职级是用户属性之一，用于标识用户的职位级别，例如 P1、P2、P3、P4。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/job_levels")]
@@ -23544,12 +23570,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7194273512282439684</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于更新职级信息。</para>
+    /// <para>调用该接口更新指定职级的信息。</para>
     /// </summary>
     /// <param name="job_level_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>职级ID</para>
+    /// <para>职级 ID。获取方式：</para>
+    /// <para>- 创建职级时，可以从返回结果中获取职级 ID。</para>
+    /// <para>- 调用[获取租户职级列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list)接口，查找指定职级的 ID 信息。</para>
     /// <para>示例值：mga5oa8ayjlp9rb</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -23563,12 +23591,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7194273512282456068</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于获取单个序列信息。</para>
+    /// <para>调用该接口获取指定序列的信息，包括序列的名称、描述、启用状态以及 ID 等。</para>
     /// </summary>
     /// <param name="job_family_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>序列ID</para>
+    /// <para>序列 ID。获取方式：</para>
+    /// <para>- [创建序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/create)时可以从返回结果中获取（job_family_id）。</para>
+    /// <para>- 调用[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口获取序列 ID。</para>
     /// <para>示例值：mga5oa8ayjlp9rb</para>
     /// </param>
     [HttpGet("/open-apis/contact/v3/job_families/{job_family_id}")]
@@ -23580,12 +23610,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7194273512282472452</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口可以获取单个职级的信息。</para>
+    /// <para>调用该接口获取指定职级的信息，包括职级名称、描述、排序、状态以及多语言等。</para>
     /// </summary>
     /// <param name="job_level_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>职级ID</para>
+    /// <para>职级 ID。获取方式：</para>
+    /// <para>- 创建职级时，可以从返回结果中获取职级 ID。</para>
+    /// <para>- 调用[获取租户职级列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list)接口，查找指定职级的 ID 信息。</para>
     /// <para>示例值：mga5oa8ayjlp9rb</para>
     /// </param>
     [HttpGet("/open-apis/contact/v3/job_levels/{job_level_id}")]
@@ -23597,11 +23629,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7194273514093379588</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口可以获取租户职级列表。</para>
+    /// <para>调用该接口获取当前租户下的职级信息，包括职级名称、描述、排序、状态以及多语言等。</para>
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -23613,8 +23645,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="name">
     /// <para>必填：否</para>
-    /// <para>传入该字段时，可查询指定职级名称对应的职级信息。</para>
-    /// <para>示例值：高级</para>
+    /// <para>职级名称。</para>
+    /// <para>- 传入该字段时，可查询指定职级名称对应的职级信息（不支持模糊查询）。</para>
+    /// <para>- 不传入该字段时，查询当前租户下所以职级的信息。</para>
+    /// <para>示例值：高级专家</para>
     /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/contact/v3/job_levels")]
@@ -23628,11 +23662,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7194273514093395972</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于获取租户序列列表。</para>
+    /// <para>调用该接口获取当前租户下的序列信息，包含序列的名称、描述、启用状态以及 ID 等。</para>
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -23644,8 +23678,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="name">
     /// <para>必填：否</para>
-    /// <para>序列名称，传入该字段时，可查询指定序列名称对应的序列信息</para>
-    /// <para>示例值：2-2</para>
+    /// <para>序列名称。</para>
+    /// <para>- 传入该字段时，可查询指定序列名称对应的序列信息（不支持模糊查询）。</para>
+    /// <para>- 不传入该字段时，查询当前租户下所有序列的信息。</para>
+    /// <para>示例值：产品</para>
     /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/contact/v3/job_families")]
@@ -23659,7 +23695,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7194273514093412356</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于创建租户内的序列信息。</para>
+    /// <para>调用该接口创建一个序列。序列是用户属性之一，用来定义用户的工作类型，例如产品、研发、运营等。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/job_families")]
@@ -23671,12 +23707,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7194273514093428740</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于删除租户内的序列。</para>
+    /// <para>调用该接口删除指定序列。</para>
     /// </summary>
     /// <param name="job_family_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>序列ID</para>
+    /// <para>序列 ID。获取方式：</para>
+    /// <para>- [创建序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/create)时可以从返回结果中获取（job_family_id）。</para>
+    /// <para>- 调用[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口获取序列 ID。</para>
     /// <para>示例值：mga5oa8ayjlp9rb</para>
     /// </param>
     [HttpDelete("/open-apis/contact/v3/job_families/{job_family_id}")]
@@ -24347,17 +24385,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7200215886840987676</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role-member/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过本接口可以查询角色ID下的成员信息（含成员ID及其管理范围）</para>
+    /// <para>调用本接口查询指定角色内的所有成员信息，包括成员的用户 ID、管理范围。</para>
     /// </summary>
     /// <param name="role_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>角色的唯一标识，单租户下唯一</para>
+    /// <para>角色 ID。获取方式：</para>
+    /// <para>- 在[创建角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role/create)时，可从返回结果中获取。</para>
+    /// <para>- 企业管理员可以在 [管理后台](https://feishu.cn/admin) &gt; **组织架构** &gt; **角色管理** 页面，在角色名称右侧获取角色 ID。</para>
     /// <para>示例值：7vrj3vk70xk7v5r</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求返回的数据条目数。</para>
     /// <para>示例值：50</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -24380,11 +24420,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：以自定义department_id来标识部门</item>
-    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -24401,12 +24441,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7200215886841020444</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过本接口可以删除某个角色</para>
+    /// <para>调用该接口删除指定角色。</para>
     /// </summary>
     /// <param name="role_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>角色的唯一标识，单租户下唯一</para>
+    /// <para>角色 ID。获取方式：</para>
+    /// <para>- 在创建角色时，可从返回结果中获取。</para>
+    /// <para>- 企业管理员可以在 [管理后台](https://feishu.cn/admin) &gt; **组织架构** &gt; **角色管理** 页面，在角色名称右侧获取角色 ID。</para>
     /// <para>示例值：7vrj3vk70xk7v5r</para>
     /// </param>
     [HttpDelete("/open-apis/contact/v3/functional_roles/{role_id}")]
@@ -24418,12 +24460,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7200215886841053212</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role-member/batch_create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过”批量添加角色成员“接口可批量添加成员，成员信息同步展示至租户的管理后台-角色管理模块。</para>
+    /// <para>调用该接口在指定角色内添加一个或多个成员。</para>
     /// </summary>
     /// <param name="role_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>角色的唯一标识，单租户下唯一</para>
+    /// <para>角色 ID。获取方式：</para>
+    /// <para>- 在[创建角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role/create)时，可从返回结果中获取。</para>
+    /// <para>- 企业管理员可以在 [管理后台](https://feishu.cn/admin) &gt; **组织架构** &gt; **角色管理** 页面，在角色名称右侧获取角色 ID。</para>
     /// <para>示例值：7vrj3vk70xk7v5r</para>
     /// </param>
     /// <param name="user_id_type">
@@ -24449,18 +24493,20 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7200215886841069596</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role-member/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过本接口可以查询某个成员的管理范围</para>
+    /// <para>调用本接口查询指定角色内的指定成员的管理范围。</para>
     /// </summary>
     /// <param name="role_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>角色的唯一标识，单租户下唯一</para>
+    /// <para>角色 ID。获取方式：</para>
+    /// <para>- 在[创建角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role/create)时，可从返回结果中获取。</para>
+    /// <para>- 企业管理员可以在 [管理后台](https://feishu.cn/admin) &gt; **组织架构** &gt; **角色管理** 页面，在角色名称右侧获取角色 ID。</para>
     /// <para>示例值：7vrj3vk70xk7v5r</para>
     /// </param>
     /// <param name="member_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>要查询的角色内成员ID</para>
+    /// <para>角色成员的用户 ID，ID 类型需要和查询参数 user_id_type 的取值保持一致。</para>
     /// <para>示例值：od-123456</para>
     /// </param>
     /// <param name="user_id_type">
@@ -24476,11 +24522,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：以自定义department_id来标识部门</item>
-    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -24496,12 +24542,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7200215886841085980</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role/update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过本接口可以修改角色名称</para>
+    /// <para>调用本接口修改指定角色的角色名称。</para>
     /// </summary>
     /// <param name="role_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>角色的唯一标识，单租户下唯一</para>
+    /// <para>角色 ID。获取方式：</para>
+    /// <para>- 在创建角色时，可从返回结果中获取。</para>
+    /// <para>- 企业管理员可以在 [管理后台](https://feishu.cn/admin) &gt; **组织架构** &gt; **角色管理** 页面，在角色名称右侧获取角色 ID。</para>
     /// <para>示例值：7vrj3vk70xk7v5r</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -24515,12 +24563,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7200215886841102364</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role-member/batch_delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过本接口可以删除角色下的某个/些成员</para>
+    /// <para>调用该接口在指定角色内删除一个或多个成员。</para>
     /// </summary>
     /// <param name="role_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>角色的唯一标识，单租户下唯一</para>
+    /// <para>角色 ID。获取方式：</para>
+    /// <para>- 在[创建角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role/create)时，可从返回结果中获取。</para>
+    /// <para>- 企业管理员可以在 [管理后台](https://feishu.cn/admin) &gt; **组织架构** &gt; **角色管理** 页面，在角色名称右侧获取角色 ID。</para>
     /// <para>示例值：7vrj3vk70xk7v5r</para>
     /// </param>
     /// <param name="user_id_type">
@@ -24546,12 +24596,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7200215886841118748</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role-member/scopes</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过该接口可设置本租户下角色成员的管理范围，以便在审批等场景中应用。</para>
+    /// <para>调用该接口为指定角色内的一个或多个角色成员设置管理范围。管理范围是指角色成员可以管理的部门范围。</para>
     /// </summary>
     /// <param name="role_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>角色的唯一标识，单租户下唯一</para>
+    /// <para>角色 ID。获取方式：</para>
+    /// <para>- 在[创建角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role/create)时，可从返回结果中获取。</para>
+    /// <para>- 企业管理员可以在 [管理后台](https://feishu.cn/admin) &gt; **组织架构** &gt; **角色管理** 页面，在角色名称右侧获取角色 ID。</para>
     /// <para>示例值：7vrj3vk70xk7v5r</para>
     /// </param>
     /// <param name="user_id_type">
@@ -24567,11 +24619,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：以自定义department_id来标识部门</item>
-    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -24588,7 +24640,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7200215886841135132</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过”创建角色“接口可批量完成角色创建，新增角色同步展示至租户的管理后台-角色管理模块。</para>
+    /// <para>调用该接口创建一个角色。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/contact/v3/functional_roles")]
@@ -25660,7 +25712,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="no_need_query">
     /// <para>必填：否</para>
-    /// <para>根据no_need_query判断更新后是否返回更新后个人信息，若填写为 “true”则只返回更新结果信息。</para>
+    /// <para>根据no_need_query判断更新后是否返回更新后个人信息，若填写为 “true”则 data 为空。</para>
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -26036,18 +26088,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7243624444425502748</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于批量获取通讯录用户的信息。</para>
+    /// <para>调用该接口获取通讯录内一个或多个用户的信息，包括用户 ID、名称、邮箱、手机号、状态以及所属部门等信息。</para>
     /// </summary>
     /// <param name="user_ids">
     /// <para>必填：是</para>
-    /// <para>用户ID，类型需要与查询参数中的user_id_type保持一致。</para>
-    /// <para>例如user_id_type=open_id，user_id的类型需为open_id</para>
-    /// <para>不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
-    /// <para>如需一次查询多个用户ID，可通过将同一参数名多次传递，并且每次传递不同的参数值。例如：</para>
-    /// <para>`https://{url}?user_ids={user_id1}&amp;user_ids={user_id2}`。单次最大请求ID数量为50。</para>
-    /// <para>其中：</para>
-    /// <para>* `user_ids`是参数名，可以多次传递</para>
-    /// <para>* `user_id1`和`user_id2`是参数值</para>
+    /// <para>用户ID。ID 类型与查询参数 `user_id_type` 保持一致。</para>
+    /// <para>如需一次查询多个用户ID，可多次传递同一参数名，并且每次传递不同的参数值。例如：</para>
+    /// <para>`https://{url}?user_ids={user_id1}&amp;user_ids={user_id2}`。</para>
+    /// <para>**说明**：</para>
+    /// <para>- 单次最大请求可设置的用户 ID 数量上限为 50。</para>
+    /// <para>- 如上例子中的 `user_ids`是参数名，可以多次传递。`{user_id1}`和`{user_id2}`是每次传入的参数值。</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -26062,11 +26112,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>指定查询结果中用户关联的部门ID类型</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以open_department_id来标识部门</item>
-    /// <item>department_id：以自定义department_id来标识部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -26081,26 +26131,27 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7243624444425519132</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/batch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于从通讯录批量获取部门信息。</para>
+    /// <para>调用该接口获取一个或多个部门的信息，包括部门名称、ID、父部门、负责人、状态以及成员个数等。</para>
     /// </summary>
     /// <param name="department_ids">
     /// <para>必填：是</para>
-    /// <para>查询的部门ID列表，类型需要与department_id_type对应。</para>
-    /// <para>不同 ID 的说明及获取方式 参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
-    /// <para>如需一次查询多个部门ID，可通过将同一参数名多次传递，并且每次传递不同的参数值。例如：</para>
-    /// <para>`https://{url}?department_ids={department_id1}&amp;department_ids={department_id2}`。单次最大请求ID数量为50。</para>
-    /// <para>其中：</para>
-    /// <para>* department_ids是参数名，可以多次传递</para>
-    /// <para>* department_id1和department_id2是参数值</para>
+    /// <para>部门 ID，ID 类型需要与查询参数 department_id_type 的取值保持一致。ID 获取方式说明：</para>
+    /// <para>- 调用[创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)接口后，可从返回结果中获取到部门 ID 信息。</para>
+    /// <para>- 部门 API 提供了多种获取其他部门 ID 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的 API 进行查询。</para>
+    /// <para>**注意：**</para>
+    /// <para>- 单次最大请求的 ID 数量为 50。</para>
+    /// <para>- 如需一次查询多个部门，可将同一参数名多次传递，并且每次传递不同的部门 ID 进行查询。GET 请求示例：</para>
+    /// <para>`https://{url}?department_ids={department_id1}&amp;department_ids={department_id2}`。其中：</para>
+    /// <para>- `department_ids` 是参数名，可以多次传递。</para>
+    /// <para>- `department_id1`和`department_id2`是不同的参数值。</para>
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>说明请求中department_ids参数所使用的部门ID类型</para>
-    /// <para>不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
-    /// <item>department_id：用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -27900,12 +27951,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7256700963174989828</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口可以获取单个职务的信息。</para>
+    /// <para>调用该接口获取指定职务的信息，包括职务的 ID、名称、多语言名称以及启用状态。</para>
     /// </summary>
     /// <param name="job_title_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>职务ID</para>
+    /// <para>职务 ID。你可以调用[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/list)接口获取职务 ID。</para>
     /// <para>示例值：dd39369b19b9</para>
     /// </param>
     [HttpGet("/open-apis/contact/v3/job_titles/{job_title_id}")]
@@ -27917,11 +27968,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7256700963175006212</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>此接口可用于获取租户下职务列表信息。</para>
+    /// <para>调用该接口获取当前租户下的职务信息，包括职务的 ID、名称、多语言名称以及启用状态。</para>
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -27941,12 +27992,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7256700963175022596</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/work_city/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>此接口可用于获取单个工作城市信息。</para>
+    /// <para>调用该接口获取指定工作城市的信息，包括工作城市的 ID、名称、多语言名称以及启用状态。</para>
     /// </summary>
     /// <param name="work_city_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>工作城市ID</para>
+    /// <para>工作城市 ID。你可以调用[获取租户工作城市列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/work_city/list)接口，获取工作城市 ID。</para>
     /// <para>示例值：dd39369b19b9</para>
     /// </param>
     [HttpGet("/open-apis/contact/v3/work_cities/{work_city_id}")]
@@ -27958,11 +28009,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7256700963175038980</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/work_city/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>此接口可用于获取租户下工作城市列表信息。</para>
+    /// <para>调用该接口获取当前租户下所有工作城市信息，包括工作城市的 ID、名称、多语言名称以及启用状态。</para>
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -27978,16 +28029,16 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
-    /// <para>【通讯录】更新用户ID</para>
+    /// <para>【通讯录】更新用户 ID</para>
     /// <para>接口ID：7257363132833300482</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/update_user_id</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>此接口可用于更新用户ID(user_id)。新的用户ID(user_id)需要保证企业内未被占用。</para>
+    /// <para>调用该接口更新用户的 user_id。</para>
     /// </summary>
     /// <param name="user_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户ID，ID类型与user_id_type一致</para>
+    /// <para>用户 ID，ID 类型与查询参数 user_id_type 的取值保持一致。</para>
     /// <para>示例值：ou-938e3e4fdc5e1993bee01250076f0cc2</para>
     /// </param>
     /// <param name="user_id_type">
@@ -28009,25 +28060,28 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【通讯录】更新部门ID</para>
+    /// <para>【通讯录】更新部门 ID</para>
     /// <para>接口ID：7257363132833546242</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/update_department_id</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>此接口可用户更新部门ID(department_id)。新的部门ID(department_id)需要确认在企业内未被占用。</para>
+    /// <para>调用该接口可以更新部门的自定义 ID，即 department_id。</para>
     /// </summary>
     /// <param name="department_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>需要更新的部门ID，ID类型与department_id_type中一致</para>
+    /// <para>需要更新自定义 ID 的部门 ID，该 ID 类型需要与查询参数 department_id_type 的取值一致。ID 获取方式说明：</para>
+    /// <para>- 调用[创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)接口后，可从返回结果中获取到部门 ID 信息。</para>
+    /// <para>- 部门 API 提供了多种获取其他部门 ID 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的 API 进行查询。</para>
     /// <para>示例值：od-d6b83d25c129775723a36f52495c4f81</para>
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
+    /// <para>**默认值**：open_department_id</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：以自定义department_id来标识部门</item>
-    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -31359,6 +31413,88 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Corehr.PostCorehrV2JobGradesQueryBodyDto dto,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【绩效】批量删除补充信息</para>
+    /// <para>接口ID：7371009404255600644</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_informations-batch/delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>可批量删除被评估人的补充信息。</para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpDelete("/open-apis/performance/v2/additional_informations/batch")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.DeletePerformanceV2AdditionalInformationsBatchResponseDto>> DeletePerformanceV2AdditionalInformationsBatchAsync(
+        [JsonContent] Performance.DeletePerformanceV2AdditionalInformationsBatchBodyDto dto);
+
+    /// <summary>
+    /// <para>【绩效】批量查询补充信息</para>
+    /// <para>接口ID：7371009404255617028</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>可批量查询被评估人的补充信息。</para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小 示例值：30 默认值：20 数据校验规则：最大值：50</para>
+    /// <para>示例值：30</para>
+    /// <para>默认值：20</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/performance/v2/additional_informations/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2AdditionalInformationsQueryResponseDto>> PostPerformanceV2AdditionalInformationsQueryAsync(
+        [JsonContent] Performance.PostPerformanceV2AdditionalInformationsQueryBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 20);
+
+    /// <summary>
+    /// <para>【绩效】批量导入补充信息</para>
+    /// <para>接口ID：7371009404255633412</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/import</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>可批量导入被评估人的补充信息作为评估参考（包括新增和更新场景）。</para>
+    /// </summary>
+    /// <param name="client_token">
+    /// <para>必填：是</para>
+    /// <para>根据 client_token 是否一致来判断是否为同一请求</para>
+    /// <para>示例值：12454646</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/performance/v2/additional_informations/import")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2AdditionalInformationsImportResponseDto>> PostPerformanceV2AdditionalInformationsImportAsync(
+        [PathQuery] string client_token,
+        [JsonContent] Performance.PostPerformanceV2AdditionalInformationsImportBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【飞书人事】批量查询用户授权</para>

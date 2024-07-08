@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取单个职务信息 响应体
-/// <para>该接口可以获取单个职务的信息。</para>
+/// <para>调用该接口获取指定职务的信息，包括职务的 ID、名称、多语言名称以及启用状态。</para>
 /// <para>接口ID：7256700963174989828</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fjob_title%2fget</para>
@@ -22,19 +22,19 @@ namespace FeishuNetSdk.Contact;
 public record GetContactV3JobTitlesByJobTitleIdResponseDto
 {
     /// <summary>
-    /// <para>职务信息</para>
+    /// <para>职务信息。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("job_title")]
     public GetContactV3JobTitlesByJobTitleIdResponseDtoJobTitle? JobTitle { get; set; }
 
     /// <summary>
-    /// <para>职务信息</para>
+    /// <para>职务信息。</para>
     /// </summary>
     public record GetContactV3JobTitlesByJobTitleIdResponseDtoJobTitle
     {
         /// <summary>
-        /// <para>职务ID</para>
+        /// <para>职务 ID。</para>
         /// <para>必填：否</para>
         /// <para>示例值：b5565c46b749</para>
         /// </summary>
@@ -42,28 +42,32 @@ public record GetContactV3JobTitlesByJobTitleIdResponseDto
         public string? JobTitleId { get; set; }
 
         /// <summary>
-        /// <para>职务名称。1-100字符，支持中、英文及符号</para>
+        /// <para>职务名称。</para>
         /// <para>必填：否</para>
         /// <para>示例值：高级工程师</para>
         /// <para>最大长度：100</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// <para>多语言职务名称</para>
+        /// <para>多语言职务名称。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("i18n_name")]
         public I18nContent[]? I18nNames { get; set; }
 
         /// <summary>
-        /// <para>多语言职务名称</para>
+        /// <para>多语言职务名称。</para>
         /// </summary>
         public record I18nContent
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言版本。例如：</para>
+            /// <para>- zh_cn：中文</para>
+            /// <para>- en_us：英语</para>
+            /// <para>- ja_jp：日语</para>
             /// <para>必填：否</para>
             /// <para>示例值：zh_cn</para>
             /// </summary>
@@ -71,7 +75,7 @@ public record GetContactV3JobTitlesByJobTitleIdResponseDto
             public string? Locale { get; set; }
 
             /// <summary>
-            /// <para>多语言内容</para>
+            /// <para>多语言版本对应的值。</para>
             /// <para>必填：否</para>
             /// <para>示例值：专家</para>
             /// </summary>
@@ -80,9 +84,12 @@ public record GetContactV3JobTitlesByJobTitleIdResponseDto
         }
 
         /// <summary>
-        /// <para>是否启用</para>
+        /// <para>是否启用职务。</para>
+        /// <para>**可能值有**：</para>
+        /// <para>- true：启用</para>
+        /// <para>- false：禁用</para>
         /// <para>必填：否</para>
-        /// <para>示例值：true表示启用,false表示未启用</para>
+        /// <para>示例值：true</para>
         /// </summary>
         [JsonPropertyName("status")]
         public bool? Status { get; set; }

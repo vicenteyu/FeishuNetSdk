@@ -76,7 +76,7 @@ public record PostCorehrV2PersonsBodyDto
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：legal_name</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -239,7 +239,7 @@ public record PostCorehrV2PersonsBodyDto
         /// <summary>
         /// <para>枚举值</para>
         /// <para>必填：是</para>
-        /// <para>示例值：phone_type</para>
+        /// <para>示例值：male</para>
         /// </summary>
         [JsonPropertyName("enum_name")]
         public string EnumName { get; set; } = string.Empty;
@@ -314,7 +314,7 @@ public record PostCorehrV2PersonsBodyDto
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：86_china</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -346,7 +346,7 @@ public record PostCorehrV2PersonsBodyDto
     public record Address
     {
         /// <summary>
-        /// <para>地址 ID</para>
+        /// <para>地址 ID，首次创建可不填</para>
         /// <para>必填：否</para>
         /// <para>示例值：6989822217869624863</para>
         /// </summary>
@@ -523,6 +523,7 @@ public record PostCorehrV2PersonsBodyDto
 
         /// <summary>
         /// <para>地址类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地址类型（address_type）枚举定义获得</para>
+        /// <para>默认：home_address</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("address_type_list")]
@@ -530,20 +531,21 @@ public record PostCorehrV2PersonsBodyDto
 
         /// <summary>
         /// <para>地址类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地址类型（address_type）枚举定义获得</para>
+        /// <para>默认：home_address</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：home_address</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
         }
 
         /// <summary>
-        /// <para>主要地址</para>
+        /// <para>主要地址，默认 false</para>
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -551,7 +553,7 @@ public record PostCorehrV2PersonsBodyDto
         public bool IsPrimary { get; set; }
 
         /// <summary>
-        /// <para>公开地址</para>
+        /// <para>公开地址，默认 true</para>
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -613,7 +615,7 @@ public record PostCorehrV2PersonsBodyDto
         public string EmailSuffix { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>是否为主要邮箱</para>
+        /// <para>是否为主要邮箱，默认 true</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -621,7 +623,7 @@ public record PostCorehrV2PersonsBodyDto
         public bool? IsPrimary { get; set; }
 
         /// <summary>
-        /// <para>是否为公开邮箱</para>
+        /// <para>是否为公开邮箱，默认 true</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -630,6 +632,7 @@ public record PostCorehrV2PersonsBodyDto
 
         /// <summary>
         /// <para>邮箱用途，可通过[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
+        /// <para>默认emergency_contact</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("email_usage")]
@@ -637,13 +640,14 @@ public record PostCorehrV2PersonsBodyDto
 
         /// <summary>
         /// <para>邮箱用途，可通过[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
+        /// <para>默认emergency_contact</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：home</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -822,7 +826,7 @@ public record PostCorehrV2PersonsBodyDto
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：phd</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -1009,7 +1013,7 @@ public record PostCorehrV2PersonsBodyDto
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：payment</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -1171,21 +1175,21 @@ public record PostCorehrV2PersonsBodyDto
     public record Dependent
     {
         /// <summary>
-        /// <para>关系</para>
+        /// <para>亲属关系，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)亲属关系（relationship）枚举定义获得</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("relationship")]
         public Enum Relationship { get; set; } = new();
 
         /// <summary>
-        /// <para>关系</para>
+        /// <para>亲属关系，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)亲属关系（relationship）枚举定义获得</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：parent</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -1413,7 +1417,7 @@ public record PostCorehrV2PersonsBodyDto
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：86_china</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -1441,7 +1445,7 @@ public record PostCorehrV2PersonsBodyDto
         public record DependentAddress
         {
             /// <summary>
-            /// <para>地址 ID</para>
+            /// <para>地址 ID，在[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)、[【更新个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/patch)时可获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：6989822217869624863</para>
             /// </summary>
@@ -1659,7 +1663,7 @@ public record PostCorehrV2PersonsBodyDto
         public record File
         {
             /// <summary>
-            /// <para>上传文件ID</para>
+            /// <para>上传文件ID，可通过[【上传文件】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/upload)获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200</para>
             /// </summary>
@@ -1735,7 +1739,7 @@ public record PostCorehrV2PersonsBodyDto
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：legal_name</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -1890,7 +1894,7 @@ public record PostCorehrV2PersonsBodyDto
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：parent</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -1927,7 +1931,7 @@ public record PostCorehrV2PersonsBodyDto
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：86_china</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -2004,7 +2008,7 @@ public record PostCorehrV2PersonsBodyDto
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：example</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -2189,7 +2193,7 @@ public record PostCorehrV2PersonsBodyDto
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：example</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;

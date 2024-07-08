@@ -131,6 +131,7 @@ public record PatchCorehrV1JobDatasByJobDataIdResponseDto
 
         /// <summary>
         /// <para>雇佣 ID，详细信息可以通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口查询获得</para>
+        /// <para>与 user_id_type 类型一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -290,21 +291,26 @@ public record PatchCorehrV1JobDatasByJobDataIdResponseDto
         public float? WeeklyWorkingHoursV2 { get; set; }
 
         /// <summary>
-        /// <para>排班类型</para>
+        /// <para>排班类型，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+        /// <para>- object_api_name = "job_data"</para>
+        /// <para>- custom_api_name = "work_shift"</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("work_shift")]
         public Enum? WorkShift { get; set; }
 
         /// <summary>
-        /// <para>薪资类型</para>
+        /// <para>薪资类型，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+        /// <para>- object_api_name = "job_data"</para>
+        /// <para>- custom_api_name = "compensation_type"</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("compensation_type")]
         public Enum? CompensationType { get; set; }
 
         /// <summary>
-        /// <para>任职公司</para>
+        /// <para>任职公司，可通过[【查询单个公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)</para>
+        /// <para>查询详细信息</para>
         /// <para>必填：否</para>
         /// <para>示例值：6890452208593372680</para>
         /// </summary>

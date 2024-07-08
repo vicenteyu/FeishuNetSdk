@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 恢复已删除用户 请求体
-/// <para>该接口用于恢复已删除用户（已离职的成员），仅自建应用可申请，应用商店应用无权调用接口。</para>
+/// <para>该接口用于恢复已删除用户（已离职的成员）。</para>
 /// <para>接口ID：7122710137048399875</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/user/resurrect</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fuser%2fresurrect</para>
@@ -22,7 +22,8 @@ namespace FeishuNetSdk.Contact;
 public record PostContactV3UsersByUserIdResurrectBodyDto
 {
     /// <summary>
-    /// <para>部门</para>
+    /// <para>用户排序信息。用户可能存在多个部门中，且有不同的排序，该参数用于设置用户部门排序。</para>
+    /// <para>**说明**：如果请求时不传入 departments 参数，则用户将恢复至原部门。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：50</para>
     /// </summary>
@@ -30,12 +31,14 @@ public record PostContactV3UsersByUserIdResurrectBodyDto
     public UserDepartmentInfo[]? Departments { get; set; }
 
     /// <summary>
-    /// <para>部门</para>
+    /// <para>用户排序信息。用户可能存在多个部门中，且有不同的排序，该参数用于设置用户部门排序。</para>
+    /// <para>**说明**：如果请求时不传入 departments 参数，则用户将恢复至原部门。</para>
     /// </summary>
     public record UserDepartmentInfo
     {
         /// <summary>
-        /// <para>对应的部门ID，需要与查询参数中的department_id_type类型保持一致。</para>
+        /// <para>排序信息对应的部门 ID。表示用户所在的、且需要排序的部门。部门 ID 类型与查询参数 `department_id_type` 保持一致。</para>
+        /// <para>了解不同类型的部门 ID 以及获取部门 ID 的方式，可参见 [部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
         /// <para>必填：是</para>
         /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
         /// </summary>
@@ -43,7 +46,7 @@ public record PostContactV3UsersByUserIdResurrectBodyDto
         public string DepartmentId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>用户在部门内的排序</para>
+        /// <para>用户在其直属部门内的排序。数值越大，排序越靠前。</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -51,7 +54,7 @@ public record PostContactV3UsersByUserIdResurrectBodyDto
         public int? UserOrder { get; set; }
 
         /// <summary>
-        /// <para>用户的部门间的排序</para>
+        /// <para>用户所属的多个部门之间的排序。数值越大，排序越靠前。</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -60,7 +63,10 @@ public record PostContactV3UsersByUserIdResurrectBodyDto
     }
 
     /// <summary>
-    /// <para>指定恢复后分配的席位，需开通“分配用户席位”权限</para>
+    /// <para>如果用户正常状态时分配了席位，则可以通过该参数指定恢复后分配的席位 ID。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 当在[混合license模式](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)下，该字段为必填。</para>
+    /// <para>- 该字段需开通 **分配用户席位** 权限。</para>
     /// <para>必填：否</para>
     /// <para>示例值：["7179609168571645971"]</para>
     /// </summary>
