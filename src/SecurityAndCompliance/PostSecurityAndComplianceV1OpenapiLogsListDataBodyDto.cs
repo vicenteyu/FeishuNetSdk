@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-09
 // ************************************************************************
 // <copyright file="PostSecurityAndComplianceV1OpenapiLogsListDataBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -35,7 +35,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataBodyDto
     /// <para>示例值：1610613336</para>
     /// </summary>
     [JsonPropertyName("start_time")]
-    public int? StartTime { get; set; }
+    public long? StartTime { get; set; }
 
     /// <summary>
     /// <para>以秒为单位的终止时间戳</para>
@@ -43,7 +43,7 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataBodyDto
     /// <para>示例值：1610613336</para>
     /// </summary>
     [JsonPropertyName("end_time")]
-    public int? EndTime { get; set; }
+    public long? EndTime { get; set; }
 
     /// <summary>
     /// <para>调用OpenAPI的应用唯一标识，可以前往 [开发者后台](https://open.feishu.cn/app) &gt; 应用详情页 &gt; 凭证与基础信息中获取 app_id</para>
@@ -57,6 +57,8 @@ public record PostSecurityAndComplianceV1OpenapiLogsListDataBodyDto
     /// <para>分页大小</para>
     /// <para>必填：否</para>
     /// <para>示例值：20</para>
+    /// <para>最大值：100</para>
+    /// <para>最小值：1</para>
     /// </summary>
     [JsonPropertyName("page_size")]
     public int? PageSize { get; set; }

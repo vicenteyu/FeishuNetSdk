@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 搜索待入职人员信息 响应体
-/// <para>该接口用于根据工号/待入职人员 ID /入职地点等查询条件搜索待入职人员信息。</para>
+/// <para>该接口用于根据工号/待入职人员 ID /入职地点等查询条件搜索待入职人员信息。查询的待入职数量及字段越多，耗时越久，使用时建议细化指定需要的字段</para>
 /// <para>接口ID：7263303427627270148</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpre_hire%2fsearch</para>
@@ -3653,9 +3653,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
             public bool? IsOldAlone { get; set; }
 
             /// <summary>
-            /// <para>居民身份，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-            /// <para>- custom_api_name：political_affiliation</para>
-            /// <para>- object_api_name：person_info_chn</para>
+            /// <para>纳税身份信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：6863326262618752123</para>
             /// </summary>
@@ -3663,9 +3661,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
             public ResidentTax[]? ResidentTaxes { get; set; }
 
             /// <summary>
-            /// <para>居民身份，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-            /// <para>- custom_api_name：political_affiliation</para>
-            /// <para>- object_api_name：person_info_chn</para>
+            /// <para>纳税身份信息</para>
             /// </summary>
             public record ResidentTax
             {
@@ -4138,7 +4134,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
             public string? WorkingHoursType { get; set; }
 
             /// <summary>
-            /// <para>周工作时长v2（单位：小时）</para>
+            /// <para>周工作时长v2（单位：小时）浮点类型</para>
             /// <para>必填：否</para>
             /// <para>示例值：8.5</para>
             /// </summary>
@@ -4597,7 +4593,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
             }
 
             /// <summary>
-            /// <para>岗位 ID</para>
+            /// <para>岗位 ID，如需获取具体值，请联系人员档案管理员</para>
             /// <para>必填：否</para>
             /// <para>示例值：6977976735715373452</para>
             /// </summary>

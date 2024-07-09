@@ -426,6 +426,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
 
         /// <summary>
         /// <para>岗位</para>
+        /// <para>- 功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("position")]
@@ -433,6 +434,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
 
         /// <summary>
         /// <para>岗位</para>
+        /// <para>- 功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
         /// </summary>
         public record EmployeePosition
         {
@@ -779,7 +781,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public string[]? JobLevelIdList { get; set; }
 
             /// <summary>
-            /// <para>工时制度，引用WorkingHoursType的ID</para>
+            /// <para>工时制度，可通过[【查询单个工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/get)查询详细信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372679</para>
             /// </summary>
@@ -1132,6 +1134,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         {
             /// <summary>
             /// <para>个人信息 ID</para>
+            /// <para>- 可用于 [【更新个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/patch)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6919733936050406926</para>
             /// </summary>
@@ -1423,14 +1426,18 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             }
 
             /// <summary>
-            /// <para>性别，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person</para>
+            /// <para>性别，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+            /// <para>- custom_api_name：gender</para>
+            /// <para>- object_api_name：person</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("gender")]
             public Enum? Gender { get; set; }
 
             /// <summary>
-            /// <para>性别，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person</para>
+            /// <para>性别，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+            /// <para>- custom_api_name：gender</para>
+            /// <para>- object_api_name：person</para>
             /// </summary>
             public record Enum
             {
@@ -1481,14 +1488,18 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public string? DateOfBirth { get; set; }
 
             /// <summary>
-            /// <para>民族 / 种族，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person</para>
+            /// <para>民族 / 种族，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+            /// <para>- custom_api_name：ethnicity_race</para>
+            /// <para>- object_api_name：person</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("race")]
             public Enum? Race { get; set; }
 
             /// <summary>
-            /// <para>婚姻状况，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person</para>
+            /// <para>婚姻状况，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+            /// <para>- custom_api_name：marital_status</para>
+            /// <para>- object_api_name：person</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("marital_status")]

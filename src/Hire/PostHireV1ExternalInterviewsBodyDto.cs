@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-09
 // ************************************************************************
 // <copyright file="PostHireV1ExternalInterviewsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -56,7 +56,7 @@ public record PostHireV1ExternalInterviewsBodyDto
     /// <para>示例值：1618500278638</para>
     /// </summary>
     [JsonPropertyName("begin_time")]
-    public int? BeginTime { get; set; }
+    public long? BeginTime { get; set; }
 
     /// <summary>
     /// <para>结束时间</para>
@@ -64,5 +64,5 @@ public record PostHireV1ExternalInterviewsBodyDto
     /// <para>示例值：1618500278639</para>
     /// </summary>
     [JsonPropertyName("end_time")]
-    public int? EndTime { get; set; }
+    public long? EndTime { get; set; }
 }

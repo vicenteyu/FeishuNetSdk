@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询所有班次 响应体
-/// <para>翻页查询所有班次数据，包含班次名称、打卡规则、弹性班次规则、休息规则等</para>
+/// <para>飞书人事管理后台中假勤设置-[班次配置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)中的翻页查询所有班次功能，展示班次名称、打卡规则、弹性班次规则、休息规则等</para>
 /// <para>接口ID：7098332552943681538</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/shift/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fshift%2flist</para>

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 搜索待入职人员信息 请求体
-/// <para>该接口用于根据工号/待入职人员 ID /入职地点等查询条件搜索待入职人员信息。</para>
+/// <para>该接口用于根据工号/待入职人员 ID /入职地点等查询条件搜索待入职人员信息。查询的待入职数量及字段越多，耗时越久，使用时建议细化指定需要的字段</para>
 /// <para>接口ID：7263303427627270148</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpre_hire%2fsearch</para>
@@ -38,7 +38,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string[]? PreHireIds { get; set; }
 
     /// <summary>
-    /// <para>入职日期（搜索的起始时间），需要与入职日期（搜索的结束时间）一同使用，不填写则不根据入职日期过滤。</para>
+    /// <para>入职日期（搜索的起始时间），需要与入职日期（onboarding_date_end）一同使用，不填写则不根据入职日期过滤。</para>
     /// <para>必填：否</para>
     /// <para>示例值：2006-01-02</para>
     /// </summary>
@@ -46,7 +46,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string? OnboardingDateStart { get; set; }
 
     /// <summary>
-    /// <para>入职日期（搜索的结束时间），需要与入职日期（搜索的起始时间）一同使用，不填写则不根据入职日期过滤。</para>
+    /// <para>入职日期（搜索的结束时间），需要与入职日期（onboarding_date_start）一同使用，不填写则不根据入职日期过滤。</para>
     /// <para>必填：否</para>
     /// <para>示例值：2006-01-02</para>
     /// </summary>
@@ -54,7 +54,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string? OnboardingDateEnd { get; set; }
 
     /// <summary>
-    /// <para>待入职数据更新时间（搜索的起始时间），需要与更新时间（搜索的结束时间）一同使用，不填写则不根据数据更新时间过滤。</para>
+    /// <para>待入职数据更新时间（搜索的起始时间），需要与更新时间（updated_date_end）一同使用，不填写则不根据数据更新时间过滤。</para>
     /// <para>必填：否</para>
     /// <para>示例值：2006-01-02</para>
     /// </summary>
@@ -62,7 +62,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
     public string? UpdatedDateStart { get; set; }
 
     /// <summary>
-    /// <para>待入职数据更新时间（搜索的结束时间），需要与更新时间（搜索的起始时间）一同使用，不填写则不根据数据更新时间过滤。</para>
+    /// <para>待入职数据更新时间（搜索的结束时间），需要与更新时间（updated_date_start）一同使用，不填写则不根据数据更新时间过滤。</para>
     /// <para>必填：否</para>
     /// <para>示例值：2006-01-02</para>
     /// </summary>
@@ -137,9 +137,9 @@ public record PostCorehrV2PreHiresSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：to_be_confirmed</para>
     /// <para>可选值：<list type="bullet">
-    /// <item>to_be_confirmed：待确认，系统会判断该员工是否存在历史雇佣记录，如果存在且需要二次确认时会调用失败，并返回历史雇佣记录</item>
-    /// <item>no：否，系统直接标为非离职重聘人员，不再做重复判断</item>
-    /// <item>yes：是，要求历史雇佣信息 ID 必填</item>
+    /// <item>to_be_confirmed：待确认</item>
+    /// <item>no：否</item>
+    /// <item>yes：是</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("rehire")]

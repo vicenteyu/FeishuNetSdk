@@ -266,6 +266,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
 
         /// <summary>
         /// <para>会中使用的能力</para>
+        /// <para>**注意**：仅当使用应用身份（tenant_access_token）调用该接口，且查询参数 with_meeting_ability 取值为 true 时，该参数会有返回值。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("ability")]
@@ -273,6 +274,7 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
 
         /// <summary>
         /// <para>会中使用的能力</para>
+        /// <para>**注意**：仅当使用应用身份（tenant_access_token）调用该接口，且查询参数 with_meeting_ability 取值为 true 时，该参数会有返回值。</para>
         /// </summary>
         public record MeetingAbility
         {
