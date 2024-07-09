@@ -1,0 +1,54 @@
+﻿@page
+@inject FeishuNetSdk.IFeishuAppApi feishuAppApi
+@inject FeishuNetSdk.IFeishuUserApi feishuUserApi
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+ 
+    var code = ViewData["code"] as string;
+    var state = ViewData["state"] as string;
+
+    var redirect_url = System.Web.HttpUtility.UrlEncode("https://localhost:7233/index"); //<== 运行前需要先将此URL添加到 飞书开发者后台 - 安全设置 - 重定向URL 中
+    var app_id = "cli_a609xxxxxxxxxxx900e";
+    var scopes = System.Web.HttpUtility.UrlEncode(string.Join(" ", ["contact:user:search", "contact:user.employee_id:readonly"]));
+}
+
+@if (!string.IsNullOrEmpty(code))
+{
+    <div>
+        Code: @code
+    </div>
+    <div>
+        State: @state
+    </div>
+
+    var gettoken = await feishuAppApi.PostAuthenV1OidcAccessTokenAsync(new() { Code = code, GrantType = "authorization_code" });
+    if (gettoken.IsSuccess && gettoken.Data != null)
+    {
+        <div>
+            Token: @System.Text.Json.JsonSerializer.Serialize(gettoken.Data)
+        </div>
+
+        var getresult = await feishuUserApi.GetHttpsbyOpenLarkofficeComSearchV1UserAsync(gettoken.Data.AccessToken, query: "胡");
+        if (getresult.IsSuccess && getresult.Data != null)
+        {
+            <div>
+                搜索用户：
+                @foreach (var item in getresult.Data.Users ?? [])
+                {
+                    <div><span>@item.Name </span>     <span> @item.OpenId</span>          <span>@string.Join(";", item.DepartmentIds??[])</span>         </div>
+                }
+            </div>
+        }
+    }
+    else
+    {
+        <div>
+            Error: @gettoken.Msg
+        </div>
+    }
+}
+
+<div class="card-body">
+    <a href="@($"https://open.feishu.cn/open-apis/authen/v1/authorize?app_id={app_id}&redirect_uri={redirect_url}&scope={scopes}&state={Guid.NewGuid()}")">使用飞书帐号授权</a>
+</div>

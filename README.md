@@ -70,10 +70,10 @@ public class TestController : ControllerBase
 
 ### 4、UserAccessToken 接口使用方法
 
-1. 跳转登录页面，获取`登录预授权码`:`code`。
+1. 跳转授权页面，获取`登录预授权码`:`code`。
 1. 使用`IFeishuAppApi`，根据`code`获取`user_access_token`。
 1. 使用`IFeishuUserApi`，调用接口。`user_access_token`默认为第一参数。
-
+1. 详见完整示例：samples/WebApplication1
 
 ## 部分示例：
 
