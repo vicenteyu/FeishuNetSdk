@@ -15867,7 +15867,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773437441</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>导入授权内员工的打卡流水记录。导入后，会根据员工所在的考勤组班次规则，计算最终的打卡状态与结果。</para>
+    /// <para>导入授权内员工的打卡流水记录。导入后，会根据员工所在的考勤组班次规则，计算最终的打卡状态与结果。可在打卡管理-[打卡记录](https://example.feishu.cn/people/workforce-management/manage/statistics/flow)中查询</para>
     /// </summary>
     /// <param name="employee_type">
     /// <para>必填：是</para>
@@ -15978,7 +15978,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773568513</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_data/query</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>查询日度统计或月度统计的统计数据。</para>
+    /// <para>查询日度统计或月度统计的统计数据。字段包含基本信息、考勤组信息、出勤统计、异常统计、请假统计、加班统计、打卡时间、考勤结果和自定义字段。具体报表可在考勤统计-[报表](https://example.feishu.cn/people/workforce-management/manage/statistics/report)中找到</para>
     /// </summary>
     /// <param name="employee_type">
     /// <para>必填：是</para>
@@ -16022,7 +16022,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773601281</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>班次是描述一次考勤任务时间规则的统称，比如一天打多少次卡，每次卡的上下班时间，晚到多长时间算迟到，晚到多长时间算缺卡等。</para>
+    /// <para>班次是描述一次考勤任务时间规则的统称，比如一天打多少次卡，每次卡的上下班时间，晚到多长时间算迟到，晚到多长时间算缺卡等。在假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)中点击班次名称可以进行班次详情查看</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/attendance/v1/shifts")]

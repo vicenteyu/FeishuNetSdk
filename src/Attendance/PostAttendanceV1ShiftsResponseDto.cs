@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 创建班次 响应体
-/// <para>班次是描述一次考勤任务时间规则的统称，比如一天打多少次卡，每次卡的上下班时间，晚到多长时间算迟到，晚到多长时间算缺卡等。</para>
+/// <para>班次是描述一次考勤任务时间规则的统称，比如一天打多少次卡，每次卡的上下班时间，晚到多长时间算迟到，晚到多长时间算缺卡等。在假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)中点击班次名称可以进行班次详情查看</para>
 /// <para>接口ID：7044467124773601281</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/shift/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fshift%2fcreate</para>
@@ -58,7 +58,7 @@ public record PostAttendanceV1ShiftsResponseDto
         public int PunchTimes { get; set; }
 
         /// <summary>
-        /// <para>排班组子负责人id列表</para>
+        /// <para>暂不开启使用</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("sub_shift_leader_ids")]
@@ -194,7 +194,7 @@ public record PostAttendanceV1ShiftsResponseDto
             public int OffDelayMinutes { get; set; }
 
             /// <summary>
-            /// <para>晚到多久记为严重迟到</para>
+            /// <para>晚到多久记为严重迟到。单位：分钟</para>
             /// <para>必填：否</para>
             /// <para>示例值：40</para>
             /// </summary>
@@ -306,7 +306,7 @@ public record PostAttendanceV1ShiftsResponseDto
         }
 
         /// <summary>
-        /// <para>日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1</para>
+        /// <para>日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日” 可选值：1：工作日 2：休息日。默认值：1</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
@@ -321,7 +321,7 @@ public record PostAttendanceV1ShiftsResponseDto
         public RestRule[]? OvertimeRestTimeRules { get; set; }
 
         /// <summary>
-        /// <para>晚到多久记为严重迟到（优先级高于data.shift.punch_time_rule.late_minutes_as_serious_late）</para>
+        /// <para>晚到多久记为严重迟到。单位：分钟（优先级高于data.shift.punch_time_rule.late_minutes_as_serious_late）</para>
         /// <para>必填：否</para>
         /// <para>示例值：40</para>
         /// </summary>

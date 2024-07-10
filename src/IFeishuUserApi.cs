@@ -3234,14 +3234,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6952888507002929179</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/setting/generate_caldav_conf</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>用于为当前用户生成一个CalDAV账号密码，用于将飞书日历信息同步到本地设备日历。</para>
+    /// <para>调用该接口为当前用户生成一个 CalDAV 账号密码，用于将飞书日历信息同步到本地设备日历。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/settings/generate_caldav_conf")]
-    System.Threading.Tasks.Task<FeishuResponse<Calendar.Spec.PostCalendarV4SettingsGenerateCaldavConfResponseDto>> PostCalendarV4SettingsGenerateCaldavConfAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4SettingsGenerateCaldavConfResponseDto>> PostCalendarV4SettingsGenerateCaldavConfAsync(
         UserAccessToken access_token,
-        [JsonContent] Calendar.Spec.PostCalendarV4SettingsGenerateCaldavConfBodyDto dto);
+        [JsonContent] Calendar.PostCalendarV4SettingsGenerateCaldavConfBodyDto dto);
 
     /// <summary>
     /// <para>【日历】删除访问控制</para>

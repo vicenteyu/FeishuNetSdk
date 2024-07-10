@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-10
 // ************************************************************************
 // <copyright file="PostAttendanceV1UserFlowsBatchCreateResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 导入打卡流水 响应体
-/// <para>导入授权内员工的打卡流水记录。导入后，会根据员工所在的考勤组班次规则，计算最终的打卡状态与结果。</para>
+/// <para>导入授权内员工的打卡流水记录。导入后，会根据员工所在的考勤组班次规则，计算最终的打卡状态与结果。可在打卡管理-[打卡记录](https://example.feishu.cn/people/workforce-management/manage/statistics/flow)中查询</para>
 /// <para>接口ID：7044467124773437441</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_task/batch_create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_flow%2fbatch_create</para>
@@ -116,7 +116,7 @@ public record PostAttendanceV1UserFlowsBatchCreateResponseDto
         /// <summary>
         /// <para>记录生成方式</para>
         /// <para>必填：否</para>
-        /// <para>示例值：在开放平台调用时，此参数无效，内部值始终是7</para>
+        /// <para>示例值：7</para>
         /// <para>可选值：<list type="bullet">
         /// <item>0：用户打卡</item>
         /// <item>1：管理员修改</item>
@@ -138,6 +138,14 @@ public record PostAttendanceV1UserFlowsBatchCreateResponseDto
         /// </summary>
         [JsonPropertyName("photo_urls")]
         public string[]? PhotoUrls { get; set; }
+
+        /// <summary>
+        /// <para>打卡设备ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：（只支持小程序打卡，导入时无效）99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d</para>
+        /// </summary>
+        [JsonPropertyName("device_id")]
+        public string? DeviceId { get; set; }
 
         /// <summary>
         /// <para>打卡结果</para>
@@ -166,5 +174,13 @@ public record PostAttendanceV1UserFlowsBatchCreateResponseDto
         /// </summary>
         [JsonPropertyName("external_id")]
         public string? ExternalId { get; set; }
+
+        /// <summary>
+        /// <para>唯一幂等键</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：****_***</para>
+        /// </summary>
+        [JsonPropertyName("idempotent_id")]
+        public string? IdempotentId { get; set; }
     }
 }

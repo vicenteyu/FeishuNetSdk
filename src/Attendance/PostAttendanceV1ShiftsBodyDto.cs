@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 创建班次 请求体
-/// <para>班次是描述一次考勤任务时间规则的统称，比如一天打多少次卡，每次卡的上下班时间，晚到多长时间算迟到，晚到多长时间算缺卡等。</para>
+/// <para>班次是描述一次考勤任务时间规则的统称，比如一天打多少次卡，每次卡的上下班时间，晚到多长时间算迟到，晚到多长时间算缺卡等。在假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)中点击班次名称可以进行班次详情查看</para>
 /// <para>接口ID：7044467124773601281</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/shift/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fshift%2fcreate</para>
@@ -38,14 +38,14 @@ public record PostAttendanceV1ShiftsBodyDto
     public int PunchTimes { get; set; }
 
     /// <summary>
-    /// <para>排班组子负责人id列表，返回员工id或工号（仅飞书人事企业版可用）</para>
+    /// <para>暂不开启使用</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("sub_shift_leader_ids")]
     public string[]? SubShiftLeaderIds { get; set; }
 
     /// <summary>
-    /// <para>是否弹性打卡</para>
+    /// <para>是否弹性打卡，默认为false，不开启</para>
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
@@ -53,7 +53,7 @@ public record PostAttendanceV1ShiftsBodyDto
     public bool? IsFlexible { get; set; }
 
     /// <summary>
-    /// <para>弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效</para>
+    /// <para>弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间。仅当未设置 flexible_rule 参数时，该参数生效。如果设置了 flexible_rule 参数，则该参数不生效</para>
     /// <para>必填：否</para>
     /// <para>示例值：60</para>
     /// </summary>
@@ -90,7 +90,7 @@ public record PostAttendanceV1ShiftsBodyDto
     }
 
     /// <summary>
-    /// <para>不需要打下班卡</para>
+    /// <para>true为不需要打下班卡。默认为false，需要下班打卡</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -118,15 +118,15 @@ public record PostAttendanceV1ShiftsBodyDto
         public string OnTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>下班时间</para>
+        /// <para>下班时间。如果下班时间跨天，则需要在 24 小时的基础上累加时间。例如，第二天凌晨 2 点取值为 26:00</para>
         /// <para>必填：是</para>
-        /// <para>示例值：18:00， 第二天凌晨2点， 26:00</para>
+        /// <para>示例值：18:00</para>
         /// </summary>
         [JsonPropertyName("off_time")]
         public string OffTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>晚到多久记为迟到</para>
+        /// <para>晚到多久记为迟到。单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：30</para>
         /// </summary>
@@ -134,7 +134,7 @@ public record PostAttendanceV1ShiftsBodyDto
         public int LateMinutesAsLate { get; set; }
 
         /// <summary>
-        /// <para>晚到多久记为缺卡</para>
+        /// <para>晚到多久记为缺卡。单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -142,7 +142,7 @@ public record PostAttendanceV1ShiftsBodyDto
         public int LateMinutesAsLack { get; set; }
 
         /// <summary>
-        /// <para>最早多久可打上班卡。最大值为 720</para>
+        /// <para>最早多久可打上班卡。最大值为 720。单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -150,7 +150,7 @@ public record PostAttendanceV1ShiftsBodyDto
         public int OnAdvanceMinutes { get; set; }
 
         /// <summary>
-        /// <para>早退多久记为早退</para>
+        /// <para>早退多久记为早退。单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：30</para>
         /// </summary>
@@ -158,7 +158,7 @@ public record PostAttendanceV1ShiftsBodyDto
         public int EarlyMinutesAsEarly { get; set; }
 
         /// <summary>
-        /// <para>早退多久记为缺卡</para>
+        /// <para>早退多久记为缺卡。单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -166,7 +166,7 @@ public record PostAttendanceV1ShiftsBodyDto
         public int EarlyMinutesAsLack { get; set; }
 
         /// <summary>
-        /// <para>最晚多久可打下班卡。最大值为 960</para>
+        /// <para>最晚多久可打下班卡。最大值为 960。单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -174,7 +174,7 @@ public record PostAttendanceV1ShiftsBodyDto
         public int OffDelayMinutes { get; set; }
 
         /// <summary>
-        /// <para>晚到多久记为严重迟到</para>
+        /// <para>晚到多久记为严重迟到。单位：分钟</para>
         /// <para>必填：否</para>
         /// <para>示例值：40</para>
         /// </summary>
@@ -182,7 +182,7 @@ public record PostAttendanceV1ShiftsBodyDto
         public int? LateMinutesAsSeriousLate { get; set; }
 
         /// <summary>
-        /// <para>是否不需要打上班卡</para>
+        /// <para>是否不需要打上班卡，这里需要特别注意，第一段打卡规则须为true。后续可按需配置</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -190,7 +190,7 @@ public record PostAttendanceV1ShiftsBodyDto
         public bool? NoNeedOn { get; set; }
 
         /// <summary>
-        /// <para>是否不需要打下班卡（优先级高于data.shift.no_need_off）</para>
+        /// <para>true为不需要打下班卡。默认为false，需要下班打卡（优先级高于data.shift.no_need_off）</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -211,7 +211,7 @@ public record PostAttendanceV1ShiftsBodyDto
     public record LateOffLateOnRule
     {
         /// <summary>
-        /// <para>晚走多久</para>
+        /// <para>晚走多久。单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -219,7 +219,7 @@ public record PostAttendanceV1ShiftsBodyDto
         public int LateOffMinutes { get; set; }
 
         /// <summary>
-        /// <para>晚到多久</para>
+        /// <para>晚到多久。单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：30</para>
         /// </summary>
@@ -286,7 +286,7 @@ public record PostAttendanceV1ShiftsBodyDto
     }
 
     /// <summary>
-    /// <para>日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1</para>
+    /// <para>日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日” 可选值：1：工作日 2：休息日。默认值：1</para>
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
@@ -301,7 +301,7 @@ public record PostAttendanceV1ShiftsBodyDto
     public RestRule[]? OvertimeRestTimeRules { get; set; }
 
     /// <summary>
-    /// <para>晚到多久记为严重迟到（优先级高于data.shift.punch_time_rule.late_minutes_as_serious_late）</para>
+    /// <para>晚到多久记为严重迟到。单位：分钟（优先级高于data.shift.punch_time_rule.late_minutes_as_serious_late）</para>
     /// <para>必填：否</para>
     /// <para>示例值：40</para>
     /// </summary>

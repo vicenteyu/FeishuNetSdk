@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询统计数据 响应体
-/// <para>查询日度统计或月度统计的统计数据。</para>
+/// <para>查询日度统计或月度统计的统计数据。字段包含基本信息、考勤组信息、出勤统计、异常统计、请假统计、加班统计、打卡时间、考勤结果和自定义字段。具体报表可在考勤统计-[报表](https://example.feishu.cn/people/workforce-management/manage/statistics/report)中找到</para>
 /// <para>接口ID：7044467124773568513</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_stats_data/query-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_stats_data%2fquery</para>
@@ -72,7 +72,7 @@ public record PostAttendanceV1UserStatsDatasQueryResponseDto
             /// <summary>
             /// <para>数据值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：无需打卡(-),无需打卡(-)</para>
+            /// <para>示例值：无需打卡(-), 无需打卡(-)</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
