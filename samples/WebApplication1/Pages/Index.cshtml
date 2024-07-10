@@ -6,7 +6,7 @@
     ViewData["Title"] = "Home page";
  
     var code = ViewData["code"] as string;
-    var state = ViewData["state"] as string;
+    var state = ViewData["state"] as string; // <==在正式环境下需要验证state的合法性，注意防范CSRF攻击。
 
     var redirect_url = System.Web.HttpUtility.UrlEncode("https://localhost:7233/index"); //<== 运行前需要先将此URL添加到 飞书开发者后台 - 安全设置 - 重定向URL 中
     var app_id = "cli_a609xxxxxxxxxxx900e";
