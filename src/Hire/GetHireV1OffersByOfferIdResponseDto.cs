@@ -42,7 +42,7 @@ public record GetHireV1OffersByOfferIdResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>投递 ID</para>
+        /// <para>投递 ID，详情请查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：1231231232312312</para>
         /// </summary>
@@ -66,10 +66,10 @@ public record GetHireV1OffersByOfferIdResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
-            /// <item>1：社招offer</item>
-            /// <item>2：校招offer</item>
-            /// <item>3：实习offer</item>
-            /// <item>4：实习生转正offer，商业化租户无此选项</item>
+            /// <item>1：社招 Offer</item>
+            /// <item>2：校招 Offer</item>
+            /// <item>3：实习 Offer</item>
+            /// <item>4：实习生转正 Offer</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("offer_type")]
@@ -84,12 +84,12 @@ public record GetHireV1OffersByOfferIdResponseDto
             public string? Remark { get; set; }
 
             /// <summary>
-            /// <para>Offer 过期时间</para>
+            /// <para>Offer 过期时间，毫秒级时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1653383498000</para>
             /// </summary>
             [JsonPropertyName("expire_time")]
-            public int? ExpireTime { get; set; }
+            public long? ExpireTime { get; set; }
 
             /// <summary>
             /// <para>Offer 负责人 ID，与入参`user_id_type`类型一致</para>
@@ -120,7 +120,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public record BaseBilingualWithId
             {
                 /// <summary>
-                /// <para>人员类型 ID</para>
+                /// <para>人员类型 ID，与入参`employee_type_id_type` 类型一致</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
@@ -145,7 +145,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             }
 
             /// <summary>
-            /// <para>创建时间</para>
+            /// <para>创建时间，毫秒级时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1628512038000</para>
             /// </summary>
@@ -161,7 +161,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public string? LeaderUserId { get; set; }
 
             /// <summary>
-            /// <para>入职日期</para>
+            /// <para>入职日期，毫秒级时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：2021-05-20</para>
             /// </summary>
@@ -185,7 +185,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public int? ProbationMonth { get; set; }
 
             /// <summary>
-            /// <para>合同期(年)，推荐使用「contract_period」，如果Offer申请表中「合同期(年)」字段已停用，则不可使用该字段</para>
+            /// <para>合同期（年），推荐使用「contract_period」</para>
             /// <para>必填：否</para>
             /// <para>示例值：3</para>
             /// </summary>
@@ -261,7 +261,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public record BaseAddress
             {
                 /// <summary>
-                /// <para>入职地点 ID</para>
+                /// <para>入职地点 ID，详情请参考：[获取地址列表](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/location/list)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6932753007915206919</para>
                 /// </summary>
@@ -321,9 +321,9 @@ public record GetHireV1OffersByOfferIdResponseDto
                     public string? Code { get; set; }
 
                     /// <summary>
-                    /// <para>地址类型</para>
+                    /// <para>地址类型，值固定为`4`：DISTRICT（区/县）</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：1</para>
+                    /// <para>示例值：4</para>
                     /// </summary>
                     [JsonPropertyName("location_type")]
                     public int? LocationType { get; set; }
@@ -366,9 +366,9 @@ public record GetHireV1OffersByOfferIdResponseDto
                     public string? Code { get; set; }
 
                     /// <summary>
-                    /// <para>地址类型</para>
+                    /// <para>地址类型，值固定为`3`：CITY（市）</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：1</para>
+                    /// <para>示例值：3</para>
                     /// <para>可选值：<list type="bullet">
                     /// <item>1：COUNTRY（国家）</item>
                     /// <item>2：STATE（省份/州）</item>
@@ -425,7 +425,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                     public string? Code { get; set; }
 
                     /// <summary>
-                    /// <para>地址类型</para>
+                    /// <para>地址类型，值固定为`1`：COUNTRY（国家）</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：1</para>
                     /// <para>可选值：<list type="bullet">
@@ -461,7 +461,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public record ApplicationOfferCustomValue
             {
                 /// <summary>
-                /// <para>自定义字段 ID</para>
+                /// <para>自定义字段 ID，详情请参考：[获取 Offer 申请表模版信息](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/offer-settings/offer_application_form/get)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：key</para>
                 /// </summary>
@@ -588,7 +588,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public string? OptionShares { get; set; }
 
             /// <summary>
-            /// <para>季度奖金额</para>
+            /// <para>季度奖金额，单位元、支持小数点后两位</para>
             /// <para>必填：否</para>
             /// <para>示例值：11111</para>
             /// </summary>
@@ -596,7 +596,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public string? QuarterlyBonus { get; set; }
 
             /// <summary>
-            /// <para>半年奖金额</para>
+            /// <para>半年奖金额，单位元、支持小数点后两位</para>
             /// <para>必填：否</para>
             /// <para>示例值：11111</para>
             /// </summary>
@@ -604,7 +604,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public string? HalfYearBonus { get; set; }
 
             /// <summary>
-            /// <para>年度现金总额(数量，非公式)</para>
+            /// <para>年度现金总额(数量，非公式)，单位元、支持小数点后两位</para>
             /// <para>必填：否</para>
             /// <para>示例值：11111</para>
             /// </summary>
@@ -624,7 +624,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public record ApplicationOfferCustomValue
             {
                 /// <summary>
-                /// <para>自定义字段 ID</para>
+                /// <para>自定义字段 ID，详情请参考：[获取 Offer 申请表模版信息](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/offer-settings/offer_application_form/get)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：key</para>
                 /// </summary>
@@ -714,19 +714,19 @@ public record GetHireV1OffersByOfferIdResponseDto
         }
 
         /// <summary>
-        /// <para>offer自定义模块列表</para>
+        /// <para>Offer 自定义模块列表</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_module_list")]
         public ApplicationOfferCustomModule[]? CustomizedModuleLists { get; set; }
 
         /// <summary>
-        /// <para>offer自定义模块列表</para>
+        /// <para>Offer 自定义模块列表</para>
         /// </summary>
         public record ApplicationOfferCustomModule
         {
             /// <summary>
-            /// <para>自定义模块ID</para>
+            /// <para>自定义模块 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：6930815272790114324</para>
             /// </summary>
@@ -746,7 +746,7 @@ public record GetHireV1OffersByOfferIdResponseDto
             public record ApplicationOfferCustomValue
             {
                 /// <summary>
-                /// <para>自定义字段ID</para>
+                /// <para>自定义字段 ID，详情请参考：[获取 Offer 申请表模版信息](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/offer-settings/offer_application_form/get)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6930815272790114324</para>
                 /// </summary>
@@ -754,7 +754,7 @@ public record GetHireV1OffersByOfferIdResponseDto
                 public string? ObjectId { get; set; }
 
                 /// <summary>
-                /// <para>自定义字段Value</para>
+                /// <para>自定义字段 Value</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：value</para>
                 /// </summary>

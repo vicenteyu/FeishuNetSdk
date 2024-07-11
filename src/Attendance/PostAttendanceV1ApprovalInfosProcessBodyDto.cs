@@ -30,7 +30,12 @@ public record PostAttendanceV1ApprovalInfosProcessBodyDto
     public string ApprovalId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>审批类型，leave：请假，out：外出，overtime：加班，trip：出差，remedy：补卡</para>
+    /// <para>审批类型</para>
+    /// <para>- `leave`：请假</para>
+    /// <para>- `out`：外出</para>
+    /// <para>- `overtime`：加班</para>
+    /// <para>- `trip`：出差</para>
+    /// <para>- `remedy`：补卡</para>
     /// <para>必填：是</para>
     /// <para>示例值：remedy</para>
     /// </summary>

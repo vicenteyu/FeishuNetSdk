@@ -87,7 +87,7 @@ public record GetHireV1OffersResponseDto
         }
 
         /// <summary>
-        /// <para>创建时间</para>
+        /// <para>创建时间戳（单位：毫秒）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1628512038000</para>
         /// </summary>
@@ -142,7 +142,7 @@ public record GetHireV1OffersResponseDto
         public record BaseBilingualWithId
         {
             /// <summary>
-            /// <para>Offer 人员类型 ID，详情请参考[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)</para>
+            /// <para>Offer 人员类型 ID，与入参 `employee_type_id_type` 类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
@@ -150,7 +150,7 @@ public record GetHireV1OffersResponseDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>中文名称</para>
+            /// <para>Offer 人员类型中文名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：正式</para>
             /// </summary>
@@ -158,7 +158,7 @@ public record GetHireV1OffersResponseDto
             public string? ZhName { get; set; }
 
             /// <summary>
-            /// <para>英文名称</para>
+            /// <para>Offer 人员类型英文名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：Regular</para>
             /// </summary>

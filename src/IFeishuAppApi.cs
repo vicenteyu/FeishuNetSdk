@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-11
 // ************************************************************************
 // <copyright file="IFeishuAppApi.cs" company="Vicente Yu">
 //     MIT
@@ -54,6 +54,12 @@ public interface IFeishuAppApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/refresh_access_token/create</para>
     /// <para>Authorization：app_access_token</para>
     /// <para>user_access_token 的最大有效期是 2小时左右。当 user_access_token 过期时，可以调用本接口获取新的 user_access_token。</para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.email:readonly</item>
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>contact:user.employee:readonly</item>
+    /// <item>contact:user.phone:readonly</item>
+    /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [Obsolete("历史版本")]
@@ -67,6 +73,12 @@ public interface IFeishuAppApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/access_token/create</para>
     /// <para>Authorization：app_access_token</para>
     /// <para>根据[登录预授权码](https://open.feishu.cn/document/ukTMukTMukTM/ukzN4UjL5cDO14SO3gTN) code 获取 `user_access_token`。</para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.email:readonly</item>
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>contact:user.employee:readonly</item>
+    /// <item>contact:user.phone:readonly</item>
+    /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [Obsolete("历史版本")]

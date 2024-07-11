@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-12
 // ************************************************************************
 // <copyright file="PostHireV1ExternalApplicationsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -101,7 +101,7 @@ public record PostHireV1ExternalApplicationsBodyDto
     /// <para>示例值：1618500278645</para>
     /// </summary>
     [JsonPropertyName("modify_time")]
-    public int? ModifyTime { get; set; }
+    public long? ModifyTime { get; set; }
 
     /// <summary>
     /// <para>投递在外部系统创建时间</para>
@@ -109,7 +109,7 @@ public record PostHireV1ExternalApplicationsBodyDto
     /// <para>示例值：1618500278644</para>
     /// </summary>
     [JsonPropertyName("create_time")]
-    public int? CreateTime { get; set; }
+    public long? CreateTime { get; set; }
 
     /// <summary>
     /// <para>终止类型</para>

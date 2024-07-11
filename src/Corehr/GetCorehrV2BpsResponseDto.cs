@@ -35,6 +35,7 @@ public record GetCorehrV2BpsResponseDto
     {
         /// <summary>
         /// <para>部门 ID</para>
+        /// <para>如想获取部门详细信息，可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719456877659520852</para>
         /// </summary>
@@ -43,6 +44,7 @@ public record GetCorehrV2BpsResponseDto
 
         /// <summary>
         /// <para>部门 HRBP 的雇佣 ID，不包括上级部门的 HRBP</para>
+        /// <para>如想获取员工详细信息，可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)接口获取。</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719456877659520852</para>
         /// </summary>

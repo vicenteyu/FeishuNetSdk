@@ -13,8 +13,8 @@
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 更新待入职信息（推荐） 响应体
-/// <para>更新待入职对象指定字段的值</para>
+/// 更新待入职信息 响应体
+/// <para>通过指定系统字段和自定义字段以更新待入职数据</para>
 /// <para>接口ID：7357756972752715778</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpre_hire%2fpatch</para>

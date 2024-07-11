@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire.Spec;
 /// <summary>
 /// 创建附件 响应体
-/// <para>在招聘系统中上传附件文件。</para>
+/// <para>在招聘系统中上传附件文件，上传的附件为通用附件。</para>
 /// <para>接口ID：6921988678870040577</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/attachment/create_attachment</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuIDN1YjLyQTN24iM0UjN%2fcreate_attachment</para>

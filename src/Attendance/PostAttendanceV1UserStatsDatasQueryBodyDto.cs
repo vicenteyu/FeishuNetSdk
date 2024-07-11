@@ -47,7 +47,7 @@ public record PostAttendanceV1UserStatsDatasQueryBodyDto
     public string StatsType { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>开始时间</para>
+    /// <para>开始时间，格式yyyyMMdd</para>
     /// <para>必填：是</para>
     /// <para>示例值：20210316</para>
     /// </summary>
@@ -55,7 +55,7 @@ public record PostAttendanceV1UserStatsDatasQueryBodyDto
     public int StartDate { get; set; }
 
     /// <summary>
-    /// <para>结束时间</para>
+    /// <para>结束时间，格式yyyyMMdd</para>
     /// <para>（时间间隔不超过 31 天）</para>
     /// <para>必填：是</para>
     /// <para>示例值：20210323</para>
@@ -74,7 +74,7 @@ public record PostAttendanceV1UserStatsDatasQueryBodyDto
     public string[]? UserIds { get; set; }
 
     /// <summary>
-    /// <para>是否需要历史数据，默认为false，不需要历史数据</para>
+    /// <para>是否包含离职人员和转出人员，默认为false不包含</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -82,7 +82,9 @@ public record PostAttendanceV1UserStatsDatasQueryBodyDto
     public bool? NeedHistory { get; set; }
 
     /// <summary>
-    /// <para>只展示当前考勤组，默认为false，展示所有考勤组</para>
+    /// <para>* `true`：只展示员工当前所属考勤组数据</para>
+    /// <para>* `false`：展示员工所有考勤组数据</para>
+    /// <para>默认值：false</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>

@@ -180,7 +180,10 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
             public record FieldVariableValueToObject
             {
                 /// <summary>
-                /// <para>飞书主数据对象唯一标识。（可通过[飞书主数据概述](https://open.larkoffice.com/document/server-docs/mdm-v1/summary)了解更多信息。）</para>
+                /// <para>飞书人事主数据对象唯一标识。</para>
+                /// <para>例如：</para>
+                /// <para>wk_api_name为"job"时，wk_id代表职务ID。详请可参考[查询单个职务（V2）](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)</para>
+                /// <para>wk_api_name为"job_level"时，wk_id代表职级ID。详情可参考[查询单个职级](https://open.larkoffice.com/document/server-docs/corehr-v1/job-management/job_level/get)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6863326263210149383</para>
                 /// </summary>
@@ -188,7 +191,10 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 public string? WkId { get; set; }
 
                 /// <summary>
-                /// <para>飞书元数据对象的唯一标识。可基于该字段，通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取更多相关字段的详情。</para>
+                /// <para>飞书人事元数据对象的唯一标识。</para>
+                /// <para>例如：</para>
+                /// <para>职务的wk_api_name为"job"；职级的wk_api_name为"job_level"；</para>
+                /// <para>如需获取更多对象信息，可查询[获取飞书人事对象列表](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/list_object_api_name)接口</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：country_region_subdivision</para>
                 /// </summary>
@@ -205,7 +211,8 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
             public string? UserValue { get; set; }
 
             /// <summary>
-            /// <para>部门 id，根据查询参数 department_id_type 选择对应的部门 id</para>
+            /// <para>部门id，根据查询参数department_id_type类型选择对应的部门id。</para>
+            /// <para>可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search) 或 [批量查询部门（ V2）](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询详情。</para>
             /// <para>必填：否</para>
             /// <para>示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f</para>
             /// </summary>
@@ -243,7 +250,8 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
             }
 
             /// <summary>
-            /// <para>员工类型字段值，为用户 id，根据入参选择返回的用户 id</para>
+            /// <para>员工类型字段值，为用户id，根据入参选择的user_id_type类型返回的用户id。</para>
+            /// <para>可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search) 或 [批量查询员工信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询详情。</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_c57053dad6eea0aea4696c48433d8562</para>
             /// </summary>
@@ -386,7 +394,10 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 public record FieldVariableValueToObject
                 {
                     /// <summary>
-                    /// <para>飞书主数据对象唯一标识。（可通过[飞书主数据概述](https://open.larkoffice.com/document/server-docs/mdm-v1/summary)了解更多信息。）</para>
+                    /// <para>飞书人事主数据对象唯一标识。</para>
+                    /// <para>例如：</para>
+                    /// <para>wk_api_name为"job"时，wk_id代表职务ID。详请可参考[查询单个职务（V2）](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)</para>
+                    /// <para>wk_api_name为"job_level"时，wk_id代表职级ID。详情可参考[查询单个职级](https://open.larkoffice.com/document/server-docs/corehr-v1/job-management/job_level/get)</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：6863326263210149383</para>
                     /// </summary>
@@ -394,7 +405,10 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                     public string? WkId { get; set; }
 
                     /// <summary>
-                    /// <para>飞书人事 Wukong 元数据唯一标识</para>
+                    /// <para>飞书人事元数据对象的唯一标识。</para>
+                    /// <para>例如：</para>
+                    /// <para>职务的wk_api_name为"job"；职级的wk_api_name为"job_level"；</para>
+                    /// <para>如需获取更多对象信息，可查询[获取飞书人事对象列表](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/list_object_api_name)接口</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：country_region_subdivision</para>
                     /// </summary>
@@ -411,7 +425,8 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 public string? UserValue { get; set; }
 
                 /// <summary>
-                /// <para>部门 id，根据查询参数 department_id_type 选择对应的部门 id</para>
+                /// <para>部门id，根据查询参数department_id_type类型选择对应的部门id。</para>
+                /// <para>可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search) 或 [批量查询部门（ V2）](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询详情。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f</para>
                 /// </summary>
@@ -449,7 +464,8 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 }
 
                 /// <summary>
-                /// <para>员工类型字段值，为用户 id，根据入参选择返回的用户 id</para>
+                /// <para>员工类型字段值，为用户id，根据入参选择的user_id_type类型返回的用户id。</para>
+                /// <para>可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search) 或 [批量查询员工信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询详情。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：ou_c57053dad6eea0aea4696c48433d8562</para>
                 /// </summary>

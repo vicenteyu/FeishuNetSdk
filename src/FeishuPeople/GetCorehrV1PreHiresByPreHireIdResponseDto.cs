@@ -13,7 +13,7 @@
 // ************************************************************************
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
-/// 查询单个待入职人员 响应体
+/// 查询单个待入职信息 响应体
 /// <para>根据 ID 查询单个待入职人员。</para>
 /// <para>接口ID：7017707615191089155</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/pre_hire/get</para>
@@ -34,7 +34,7 @@ public record GetCorehrV1PreHiresByPreHireIdResponseDto
     public record GetCorehrV1PreHiresByPreHireIdResponseDtoPreHire
     {
         /// <summary>
-        /// <para>招聘投递 ID ，详细信息可以通过招聘的【获取投递信息】接口查询获得</para>
+        /// <para>招聘投递 ID ，详细信息可以通过招聘的【获取投递信息】接口查询获得（该接口仅部分租户可用）</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719168654814483759</para>
         /// </summary>

@@ -13,8 +13,8 @@
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 创建待入职人员 请求体
-/// <para>创建待入职人员。</para>
+/// 直接创建待入职 请求体
+/// <para>使用指定数据创建一个待入职人员。</para>
 /// <para>接口ID：7160511371865014276</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/pre_hire/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpre_hire%2fcreate</para>
@@ -34,14 +34,14 @@ public record PostCorehrV2PreHiresBodyDto
     public record PostCorehrV2PreHiresBodyDtoBasicInfo
     {
         /// <summary>
-        /// <para>描述</para>
+        /// <para>常用名</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("name")]
         public PostCorehrV2PreHiresBodyDtoBasicInfoName? Name { get; set; }
 
         /// <summary>
-        /// <para>描述</para>
+        /// <para>常用名</para>
         /// </summary>
         public record PostCorehrV2PreHiresBodyDtoBasicInfoName
         {
@@ -147,7 +147,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <summary>
         /// <para>个人邮箱</para>
         /// <para>必填：否</para>
-        /// <para>示例值：xx@xx.com</para>
+        /// <para>示例值：1234567@bytedance.com</para>
         /// </summary>
         [JsonPropertyName("email")]
         public string? Email { get; set; }
@@ -195,8 +195,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? GenderId { get; set; }
 
         /// <summary>
-        /// <para>国籍（新），可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)</para>
-        /// <para>[Search nationality information]接口获得</para>
+        /// <para>国籍（新），可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：6862995757234914824</para>
         /// </summary>
@@ -204,8 +203,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? NationalityV2Id { get; set; }
 
         /// <summary>
-        /// <para>其他国籍，可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)</para>
-        /// <para>[Search nationality information]接口获得</para>
+        /// <para>其他国籍，可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：[6862995757234914824]</para>
         /// </summary>
@@ -213,7 +211,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string[]? AdditionalNationalityIdList { get; set; }
 
         /// <summary>
-        /// <para>公民身份</para>
+        /// <para>公民身份，如需获取具体值，请联系人员档案管理员</para>
         /// <para>必填：否</para>
         /// <para>示例值：[6862995757234914824]</para>
         /// </summary>
@@ -221,7 +219,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string[]? CitizenshipStatusIdList { get; set; }
 
         /// <summary>
-        /// <para>家庭地址</para>
+        /// <para>家庭地址（待废弃）</para>
         /// <para>必填：否</para>
         /// <para>示例值：home addr</para>
         /// </summary>
@@ -231,13 +229,15 @@ public record PostCorehrV2PreHiresBodyDto
         /// <summary>
         /// <para>人员编号</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6862995757234914824</para>
+        /// <para>示例值：DDD00001</para>
         /// </summary>
         [JsonPropertyName("worker_id")]
         public string? WorkerId { get; set; }
 
         /// <summary>
-        /// <para>数据驻留地</para>
+        /// <para>数据驻留地，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+        /// <para>- object_api_name = pre_hire</para>
+        /// <para>- custom_api_name = user_geo</para>
         /// <para>必填：否</para>
         /// <para>示例值：cn</para>
         /// </summary>
@@ -313,7 +313,7 @@ public record PostCorehrV2PreHiresBodyDto
             public string? LocalPrimary { get; set; }
 
             /// <summary>
-            /// <para>国家 / 地区</para>
+            /// <para>国家 / 地区，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914824</para>
             /// </summary>
@@ -350,7 +350,7 @@ public record PostCorehrV2PreHiresBodyDto
         public record ResidentTaxForUpdate
         {
             /// <summary>
-            /// <para>国家 / 地区ID</para>
+            /// <para>国家 / 地区ID，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914824</para>
             /// </summary>
@@ -358,7 +358,9 @@ public record PostCorehrV2PreHiresBodyDto
             public string? TaxCountryRegion { get; set; }
 
             /// <summary>
-            /// <para>居民身份</para>
+            /// <para>居民身份，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+            /// <para>- object_api_name = resident_tax</para>
+            /// <para>- custom_api_name = resident_status</para>
             /// <para>必填：否</para>
             /// <para>示例值：tax_residence</para>
             /// </summary>
@@ -378,7 +380,7 @@ public record PostCorehrV2PreHiresBodyDto
             public record AddressForUpdate
             {
                 /// <summary>
-                /// <para>国家 / 地区</para>
+                /// <para>国家 / 地区，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：6862995757234914824</para>
                 /// </summary>
@@ -386,7 +388,7 @@ public record PostCorehrV2PreHiresBodyDto
                 public string CountryRegionId { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>主要行政区</para>
+                /// <para>主要行政区，可以通过接口[查询省份/行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)获得</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6863326815667095047</para>
                 /// </summary>
@@ -396,7 +398,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 1（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：丹佛测试地址-纽埃时区</para>
+                /// <para>示例值：北京市海淀区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line1")]
                 public string? LocalAddressLine1 { get; set; }
@@ -404,7 +406,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 2（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：PoewH</para>
+                /// <para>示例值：上海市杨浦区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line2")]
                 public string? LocalAddressLine2 { get; set; }
@@ -412,7 +414,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 3（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：PoewH</para>
+                /// <para>示例值：北京市房山区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line3")]
                 public string? LocalAddressLine3 { get; set; }
@@ -420,7 +422,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 4（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：天津滨海高新区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line4")]
                 public string? LocalAddressLine4 { get; set; }
@@ -428,7 +430,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 5（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：成都市成华区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line5")]
                 public string? LocalAddressLine5 { get; set; }
@@ -436,7 +438,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 6（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：深圳市南山区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line6")]
                 public string? LocalAddressLine6 { get; set; }
@@ -444,7 +446,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 7（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：南京市鼓楼区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line7")]
                 public string? LocalAddressLine7 { get; set; }
@@ -452,7 +454,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 8（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：rafSu</para>
+                /// <para>示例值：杭州市滨江区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line8")]
                 public string? LocalAddressLine8 { get; set; }
@@ -460,7 +462,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 9（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：McPRG</para>
+                /// <para>示例值：郑州市中原区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line9")]
                 public string? LocalAddressLine9 { get; set; }
@@ -502,7 +504,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <summary>
             /// <para>居民纳税身份说明</para>
             /// <para>必填：否</para>
-            /// <para>示例值：xxx</para>
+            /// <para>示例值：文本内容，对纳税身份的补充说明信息</para>
             /// </summary>
             [JsonPropertyName("resident_status_specification")]
             public string? ResidentStatusSpecification { get; set; }
@@ -535,7 +537,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <summary>
         /// <para>残疾证号</para>
         /// <para>必填：否</para>
-        /// <para>示例值：xxx</para>
+        /// <para>示例值：身份证号+残疾类型（1-7）+ 残疾程度分级（1-4）+[补发编号]</para>
         /// </summary>
         [JsonPropertyName("disable_card_number")]
         public string? DisableCardNumber { get; set; }
@@ -559,7 +561,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <summary>
         /// <para>烈属证号</para>
         /// <para>必填：否</para>
-        /// <para>示例值：xxx</para>
+        /// <para>示例值：00001</para>
         /// </summary>
         [JsonPropertyName("martyr_card_number")]
         public string? MartyrCardNumber { get; set; }
@@ -815,7 +817,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 1（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：丹佛测试地址-纽埃时区</para>
+                /// <para>示例值：北京市海淀区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line1")]
                 public string? LocalAddressLine1 { get; set; }
@@ -823,7 +825,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 2（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：PoewH</para>
+                /// <para>示例值：上海市杨浦区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line2")]
                 public string? LocalAddressLine2 { get; set; }
@@ -831,7 +833,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 3（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：PoewH</para>
+                /// <para>示例值：北京市房山区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line3")]
                 public string? LocalAddressLine3 { get; set; }
@@ -839,7 +841,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 4（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：天津滨海高新区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line4")]
                 public string? LocalAddressLine4 { get; set; }
@@ -847,7 +849,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 5（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：成都市成华区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line5")]
                 public string? LocalAddressLine5 { get; set; }
@@ -855,7 +857,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 6（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：深圳市南山区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line6")]
                 public string? LocalAddressLine6 { get; set; }
@@ -863,7 +865,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 7（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：南京市鼓楼区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line7")]
                 public string? LocalAddressLine7 { get; set; }
@@ -871,7 +873,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 8（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：rafSu</para>
+                /// <para>示例值：杭州市滨江区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line8")]
                 public string? LocalAddressLine8 { get; set; }
@@ -879,7 +881,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 9（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：McPRG</para>
+                /// <para>示例值：郑州市中原区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line9")]
                 public string? LocalAddressLine9 { get; set; }
@@ -944,9 +946,7 @@ public record PostCorehrV2PreHiresBodyDto
         public record BankAccountForUpdate
         {
             /// <summary>
-            /// <para>银行名称：</para>
-            /// <para>- 当填入 bank_id 时，自动填入 bank 的名称</para>
-            /// <para>- 未填入 bank_id ，取传入的银行名称</para>
+            /// <para>银行名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：中国农业银行</para>
             /// </summary>
@@ -954,7 +954,7 @@ public record PostCorehrV2PreHiresBodyDto
             public string? BankName { get; set; }
 
             /// <summary>
-            /// <para>支行名称，仅当支行为手动输入时该字段才需要填入</para>
+            /// <para>支行名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：中国农业银行支行</para>
             /// </summary>
@@ -1008,14 +1008,14 @@ public record PostCorehrV2PreHiresBodyDto
         }
 
         /// <summary>
-        /// <para>证件账号</para>
+        /// <para>国家证件</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("national_id_list")]
         public NationalIdForUpdate[]? NationalIdLists { get; set; }
 
         /// <summary>
-        /// <para>证件账号</para>
+        /// <para>国家证件</para>
         /// </summary>
         public record NationalIdForUpdate
         {
@@ -1244,7 +1244,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 1（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：丹佛测试地址-纽埃时区</para>
+                /// <para>示例值：北京市海淀区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line1")]
                 public string? LocalAddressLine1 { get; set; }
@@ -1252,7 +1252,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 2（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：PoewH</para>
+                /// <para>示例值：上海市杨浦区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line2")]
                 public string? LocalAddressLine2 { get; set; }
@@ -1260,7 +1260,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 3（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：PoewH</para>
+                /// <para>示例值：北京市房山区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line3")]
                 public string? LocalAddressLine3 { get; set; }
@@ -1268,7 +1268,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 4（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：天津滨海高新区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line4")]
                 public string? LocalAddressLine4 { get; set; }
@@ -1276,7 +1276,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 5（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：成都市成华区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line5")]
                 public string? LocalAddressLine5 { get; set; }
@@ -1284,7 +1284,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 6（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：深圳市南山区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line6")]
                 public string? LocalAddressLine6 { get; set; }
@@ -1292,7 +1292,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 7（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：南京市鼓楼区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line7")]
                 public string? LocalAddressLine7 { get; set; }
@@ -1300,7 +1300,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 8（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：rafSu</para>
+                /// <para>示例值：杭州市滨江区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line8")]
                 public string? LocalAddressLine8 { get; set; }
@@ -1308,7 +1308,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <summary>
                 /// <para>地址行 9（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：McPRG</para>
+                /// <para>示例值：郑州市中原区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line9")]
                 public string? LocalAddressLine9 { get; set; }
@@ -1428,7 +1428,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <summary>
             /// <para>地址行 1（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：丹佛测试地址-纽埃时区</para>
+            /// <para>示例值：北京市海淀区</para>
             /// </summary>
             [JsonPropertyName("local_address_line1")]
             public string? LocalAddressLine1 { get; set; }
@@ -1436,7 +1436,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <summary>
             /// <para>地址行 2（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：PoewH</para>
+            /// <para>示例值：上海市杨浦区</para>
             /// </summary>
             [JsonPropertyName("local_address_line2")]
             public string? LocalAddressLine2 { get; set; }
@@ -1444,7 +1444,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <summary>
             /// <para>地址行 3（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：PoewH</para>
+            /// <para>示例值：北京市房山区</para>
             /// </summary>
             [JsonPropertyName("local_address_line3")]
             public string? LocalAddressLine3 { get; set; }
@@ -1452,7 +1452,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <summary>
             /// <para>地址行 4（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
+            /// <para>示例值：天津滨海高新区</para>
             /// </summary>
             [JsonPropertyName("local_address_line4")]
             public string? LocalAddressLine4 { get; set; }
@@ -1460,7 +1460,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <summary>
             /// <para>地址行 5（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
+            /// <para>示例值：成都市成华区</para>
             /// </summary>
             [JsonPropertyName("local_address_line5")]
             public string? LocalAddressLine5 { get; set; }
@@ -1468,7 +1468,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <summary>
             /// <para>地址行 6（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
+            /// <para>示例值：深圳市南山区</para>
             /// </summary>
             [JsonPropertyName("local_address_line6")]
             public string? LocalAddressLine6 { get; set; }
@@ -1476,7 +1476,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <summary>
             /// <para>地址行 7（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
+            /// <para>示例值：南京市鼓楼区</para>
             /// </summary>
             [JsonPropertyName("local_address_line7")]
             public string? LocalAddressLine7 { get; set; }
@@ -1484,7 +1484,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <summary>
             /// <para>地址行 8（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：rafSu</para>
+            /// <para>示例值：杭州市滨江区</para>
             /// </summary>
             [JsonPropertyName("local_address_line8")]
             public string? LocalAddressLine8 { get; set; }
@@ -1492,7 +1492,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <summary>
             /// <para>地址行 9（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：McPRG</para>
+            /// <para>示例值：郑州市中原区</para>
             /// </summary>
             [JsonPropertyName("local_address_line9")]
             public string? LocalAddressLine9 { get; set; }
@@ -1574,20 +1574,20 @@ public record PostCorehrV2PreHiresBodyDto
         /// <summary>
         /// <para>户口所在地</para>
         /// <para>必填：否</para>
-        /// <para>示例值：户口所在地文本</para>
+        /// <para>示例值：北京市海淀区北三环西路</para>
         /// </summary>
         [JsonPropertyName("hukou_location")]
         public string? HukouLocation { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>person对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>person对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得</para>
         /// </summary>
         public record ObjectFieldData
         {
@@ -1622,7 +1622,7 @@ public record PostCorehrV2PreHiresBodyDto
     public record PostCorehrV2PreHiresBodyDtoOfferInfo
     {
         /// <summary>
-        /// <para>Offer ID，仅支持飞书招聘 ID，可以通过飞书招聘[获取Offer列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/list)接口获取</para>
+        /// <para>Offer ID，仅支持飞书招聘 ID，可以通过飞书招聘[获取Offer列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/list)接口获取，如果未使用飞书招聘请置空</para>
         /// <para>必填：否</para>
         /// <para>示例值：7032210902531327521</para>
         /// </summary>
@@ -1880,7 +1880,7 @@ public record PostCorehrV2PreHiresBodyDto
             public string? CostCenterId { get; set; }
 
             /// <summary>
-            /// <para>分摊比例</para>
+            /// <para>分摊比例，大于0小于等于100的正整数</para>
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
@@ -1897,14 +1897,14 @@ public record PostCorehrV2PreHiresBodyDto
         public string? JobGradeId { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>pre_hire对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>pre_hire对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得</para>
         /// </summary>
         public record ObjectFieldData
         {
@@ -1962,7 +1962,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? WorkLocationId { get; set; }
 
         /// <summary>
-        /// <para>入职地址id</para>
+        /// <para>入职地址ID，可以通过[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：6977976687350924833</para>
         /// </summary>
@@ -1970,7 +1970,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? OnboardingAddressId { get; set; }
 
         /// <summary>
-        /// <para>办公地址id</para>
+        /// <para>办公地址ID，，可以通过[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：6977976687350924833</para>
         /// </summary>
@@ -1978,7 +1978,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? OfficeAddressId { get; set; }
 
         /// <summary>
-        /// <para>岗位id</para>
+        /// <para>岗位ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6977976687350924833</para>
         /// </summary>
@@ -1986,7 +1986,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? PositionId { get; set; }
 
         /// <summary>
-        /// <para>工作日历id</para>
+        /// <para>工作日历ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6977976687350924833</para>
         /// </summary>

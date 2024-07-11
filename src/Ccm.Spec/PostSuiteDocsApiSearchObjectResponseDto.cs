@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Ccm.Spec;
 public record PostSuiteDocsApiSearchObjectResponseDto
 {
     /// <summary>
-    /// <para>包含搜索关键词的文件列表。</para>
+    /// <para>包含搜索关键词的文件列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("docs_entities")]
@@ -32,28 +32,28 @@ public record PostSuiteDocsApiSearchObjectResponseDto
     public record DocsEntitie
     {
         /// <summary>
-        /// <para>文件的 token。</para>
+        /// <para>文件的 token</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("docs_token")]
         public string? DocsToken { get; set; }
 
         /// <summary>
-        /// <para>文件的类型。</para>
+        /// <para>文件的类型</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("docs_type")]
         public string? DocsType { get; set; }
 
         /// <summary>
-        /// <para>文件的标题。</para>
+        /// <para>文件的标题</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
-        /// <para>文件的所有者。</para>
+        /// <para>文件的所有者</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("owner_id")]
@@ -61,14 +61,14 @@ public record PostSuiteDocsApiSearchObjectResponseDto
     }
 
     /// <summary>
-    /// <para>结果列表后是否还有数据。</para>
+    /// <para>结果列表后是否还有数据</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
 
     /// <summary>
-    /// <para>包含搜索关键词的文件总数量。</para>
+    /// <para>包含搜索关键词的文件总数量</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("total")]

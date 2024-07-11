@@ -122,7 +122,7 @@ public record GetHireV1EmployeesByEmployeeIdResponseDto
         public string? OnboardCityCode { get; set; }
 
         /// <summary>
-        /// <para>入职部门 ID</para>
+        /// <para>入职部门 ID，入职部门 ID，与入参`department_id_type `类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：6966123381141866028</para>
         /// </summary>

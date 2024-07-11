@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 导入打卡流水 响应体
-/// <para>导入授权内员工的打卡流水记录。导入后，会根据员工所在的考勤组班次规则，计算最终的打卡状态与结果。可在打卡管理-[打卡记录](https://example.feishu.cn/people/workforce-management/manage/statistics/flow)中查询</para>
+/// <para>导入员工的打卡流水记录。导入后，会根据员工所在的考勤组班次规则，计算最终的打卡状态与结果。可在打卡管理-[打卡记录](https://example.feishu.cn/people/workforce-management/manage/statistics/flow)中查询</para>
 /// <para>接口ID：7044467124773437441</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_task/batch_create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_flow%2fbatch_create</para>
@@ -76,7 +76,7 @@ public record PostAttendanceV1UserFlowsBatchCreateResponseDto
         /// <summary>
         /// <para>打卡记录 ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：考勤内部的打卡记录ID, 6709359313699356941（导入时此参数无效）</para>
+        /// <para>示例值：6709359313699356941</para>
         /// </summary>
         [JsonPropertyName("record_id")]
         public string? RecordId { get; set; }
@@ -140,9 +140,9 @@ public record PostAttendanceV1UserFlowsBatchCreateResponseDto
         public string[]? PhotoUrls { get; set; }
 
         /// <summary>
-        /// <para>打卡设备ID</para>
+        /// <para>打卡设备ID（只支持小程序打卡，导入时无效）</para>
         /// <para>必填：否</para>
-        /// <para>示例值：（只支持小程序打卡，导入时无效）99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d</para>
+        /// <para>示例值：99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d</para>
         /// </summary>
         [JsonPropertyName("device_id")]
         public string? DeviceId { get; set; }

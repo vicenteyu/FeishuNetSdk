@@ -13,8 +13,8 @@
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 更新待入职信息（推荐） 请求体
-/// <para>更新待入职对象指定字段的值</para>
+/// 更新待入职信息 请求体
+/// <para>通过指定系统字段和自定义字段以更新待入职数据</para>
 /// <para>接口ID：7357756972752715778</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpre_hire%2fpatch</para>
@@ -253,8 +253,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         }
 
         /// <summary>
-        /// <para>国籍，可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)</para>
-        /// <para>[Search nationality information]接口获取</para>
+        /// <para>国籍，可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：6862995757234914824</para>
         /// </summary>
@@ -262,8 +261,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public string? NationalityV2Id { get; set; }
 
         /// <summary>
-        /// <para>其他国籍，可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)</para>
-        /// <para>[Search nationality information]接口获取</para>
+        /// <para>其他国籍，可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：[6862995757234914824]</para>
         /// </summary>
@@ -329,7 +327,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 1（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：丹佛测试地址-纽埃时区</para>
+                /// <para>示例值：北京市海淀区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line1")]
                 public string? LocalAddressLine1 { get; set; }
@@ -337,7 +335,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 2（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：PoewH</para>
+                /// <para>示例值：上海市杨浦区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line2")]
                 public string? LocalAddressLine2 { get; set; }
@@ -345,7 +343,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 3（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：PoewH</para>
+                /// <para>示例值：北京市房山区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line3")]
                 public string? LocalAddressLine3 { get; set; }
@@ -353,7 +351,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 4（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：天津滨海高新区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line4")]
                 public string? LocalAddressLine4 { get; set; }
@@ -361,7 +359,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 5（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：成都市成华区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line5")]
                 public string? LocalAddressLine5 { get; set; }
@@ -369,7 +367,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 6（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：深圳市南山区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line6")]
                 public string? LocalAddressLine6 { get; set; }
@@ -377,7 +375,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 7（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：南京市鼓楼区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line7")]
                 public string? LocalAddressLine7 { get; set; }
@@ -385,7 +383,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 8（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：rafSu</para>
+                /// <para>示例值：杭州市滨江区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line8")]
                 public string? LocalAddressLine8 { get; set; }
@@ -393,7 +391,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 9（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：McPRG</para>
+                /// <para>示例值：郑州市中原区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line9")]
                 public string? LocalAddressLine9 { get; set; }
@@ -437,7 +435,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <summary>
             /// <para>居民纳税身份说明</para>
             /// <para>必填：否</para>
-            /// <para>示例值：xxx</para>
+            /// <para>示例值：文本内容，对纳税身份的补充说明信息</para>
             /// </summary>
             [JsonPropertyName("resident_status_specification")]
             public string? ResidentStatusSpecification { get; set; }
@@ -470,7 +468,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         /// <summary>
         /// <para>残疾证号</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6862995757234914824</para>
+        /// <para>示例值：身份证号+残疾类型（1-7）+ 残疾程度分级（1-4）+[补发编号]</para>
         /// </summary>
         [JsonPropertyName("disable_card_number")]
         public string? DisableCardNumber { get; set; }
@@ -494,7 +492,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         /// <summary>
         /// <para>烈属证号</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6862995757234914824</para>
+        /// <para>示例值：00001</para>
         /// </summary>
         [JsonPropertyName("martyr_card_number")]
         public string? MartyrCardNumber { get; set; }
@@ -750,7 +748,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 1（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：丹佛测试地址-纽埃时区</para>
+                /// <para>示例值：北京市海淀区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line1")]
                 public string? LocalAddressLine1 { get; set; }
@@ -758,7 +756,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 2（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：PoewH</para>
+                /// <para>示例值：上海市杨浦区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line2")]
                 public string? LocalAddressLine2 { get; set; }
@@ -766,7 +764,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 3（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：PoewH</para>
+                /// <para>示例值：北京市房山区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line3")]
                 public string? LocalAddressLine3 { get; set; }
@@ -774,7 +772,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 4（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：天津滨海高新区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line4")]
                 public string? LocalAddressLine4 { get; set; }
@@ -782,7 +780,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 5（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：成都市成华区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line5")]
                 public string? LocalAddressLine5 { get; set; }
@@ -790,7 +788,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 6（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：深圳市南山区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line6")]
                 public string? LocalAddressLine6 { get; set; }
@@ -798,7 +796,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 7（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：南京市鼓楼区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line7")]
                 public string? LocalAddressLine7 { get; set; }
@@ -806,7 +804,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 8（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：rafSu</para>
+                /// <para>示例值：杭州市滨江区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line8")]
                 public string? LocalAddressLine8 { get; set; }
@@ -814,7 +812,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 9（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：McPRG</para>
+                /// <para>示例值：郑州市中原区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line9")]
                 public string? LocalAddressLine9 { get; set; }
@@ -879,9 +877,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public record BankAccountForUpdate
         {
             /// <summary>
-            /// <para>银行名称：</para>
-            /// <para>- 当填入 bank_id 时，自动填入 bank 的名称</para>
-            /// <para>- 未填入 bank_id ，取传入的银行名称</para>
+            /// <para>银行名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：中国农业银行</para>
             /// </summary>
@@ -889,7 +885,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             public string? BankName { get; set; }
 
             /// <summary>
-            /// <para>支行名称，仅当支行为手动输入时该字段才需要填入</para>
+            /// <para>支行名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：中国农业银行支行</para>
             /// </summary>
@@ -963,7 +959,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             public string CountryRegionId { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>国家证件类型</para>
+            /// <para>国家证件类型，可以通过[批量查询国家证件类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/list)接口获得</para>
             /// <para>必填：是</para>
             /// <para>示例值：6863330041896371725</para>
             /// </summary>
@@ -1179,7 +1175,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 1（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：丹佛测试地址-纽埃时区</para>
+                /// <para>示例值：北京市海淀区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line1")]
                 public string? LocalAddressLine1 { get; set; }
@@ -1187,7 +1183,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 2（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：PoewH</para>
+                /// <para>示例值：上海市杨浦区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line2")]
                 public string? LocalAddressLine2 { get; set; }
@@ -1195,7 +1191,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 3（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：PoewH</para>
+                /// <para>示例值：北京市房山区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line3")]
                 public string? LocalAddressLine3 { get; set; }
@@ -1203,7 +1199,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 4（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：天津滨海高新区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line4")]
                 public string? LocalAddressLine4 { get; set; }
@@ -1211,7 +1207,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 5（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：成都市成华区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line5")]
                 public string? LocalAddressLine5 { get; set; }
@@ -1219,7 +1215,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 6（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：深圳市南山区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line6")]
                 public string? LocalAddressLine6 { get; set; }
@@ -1227,7 +1223,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 7（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：jmwJc</para>
+                /// <para>示例值：南京市鼓楼区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line7")]
                 public string? LocalAddressLine7 { get; set; }
@@ -1235,7 +1231,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 8（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：rafSu</para>
+                /// <para>示例值：杭州市滨江区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line8")]
                 public string? LocalAddressLine8 { get; set; }
@@ -1243,7 +1239,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>地址行 9（非拉丁语系的本地文字）</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：McPRG</para>
+                /// <para>示例值：郑州市中原区</para>
                 /// </summary>
                 [JsonPropertyName("local_address_line9")]
                 public string? LocalAddressLine9 { get; set; }
@@ -1363,7 +1359,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <summary>
             /// <para>地址行 1（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：丹佛测试地址-纽埃时区</para>
+            /// <para>示例值：北京市海淀区</para>
             /// </summary>
             [JsonPropertyName("local_address_line1")]
             public string? LocalAddressLine1 { get; set; }
@@ -1371,7 +1367,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <summary>
             /// <para>地址行 2（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：PoewH</para>
+            /// <para>示例值：上海市杨浦区</para>
             /// </summary>
             [JsonPropertyName("local_address_line2")]
             public string? LocalAddressLine2 { get; set; }
@@ -1379,7 +1375,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <summary>
             /// <para>地址行 3（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：PoewH</para>
+            /// <para>示例值：北京市房山区</para>
             /// </summary>
             [JsonPropertyName("local_address_line3")]
             public string? LocalAddressLine3 { get; set; }
@@ -1387,7 +1383,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <summary>
             /// <para>地址行 4（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
+            /// <para>示例值：天津滨海高新区</para>
             /// </summary>
             [JsonPropertyName("local_address_line4")]
             public string? LocalAddressLine4 { get; set; }
@@ -1395,7 +1391,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <summary>
             /// <para>地址行 5（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
+            /// <para>示例值：成都市成华区</para>
             /// </summary>
             [JsonPropertyName("local_address_line5")]
             public string? LocalAddressLine5 { get; set; }
@@ -1403,7 +1399,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <summary>
             /// <para>地址行 6（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
+            /// <para>示例值：深圳市南山区</para>
             /// </summary>
             [JsonPropertyName("local_address_line6")]
             public string? LocalAddressLine6 { get; set; }
@@ -1411,7 +1407,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <summary>
             /// <para>地址行 7（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jmwJc</para>
+            /// <para>示例值：南京市鼓楼区</para>
             /// </summary>
             [JsonPropertyName("local_address_line7")]
             public string? LocalAddressLine7 { get; set; }
@@ -1419,7 +1415,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <summary>
             /// <para>地址行 8（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：rafSu</para>
+            /// <para>示例值：杭州市滨江区</para>
             /// </summary>
             [JsonPropertyName("local_address_line8")]
             public string? LocalAddressLine8 { get; set; }
@@ -1427,7 +1423,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <summary>
             /// <para>地址行 9（非拉丁语系的本地文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：McPRG</para>
+            /// <para>示例值：郑州市中原区</para>
             /// </summary>
             [JsonPropertyName("local_address_line9")]
             public string? LocalAddressLine9 { get; set; }
@@ -1469,9 +1465,11 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         }
 
         /// <summary>
-        /// <para>婚姻状况</para>
+        /// <para>婚姻状况，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+        /// <para>- object_api_name：person</para>
+        /// <para>- custom_api_name：marital_status</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6862995757234914824</para>
+        /// <para>示例值：single</para>
         /// </summary>
         [JsonPropertyName("marital_status")]
         public string? MaritalStatus { get; set; }
@@ -1516,7 +1514,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         }
 
         /// <summary>
-        /// <para>籍贯</para>
+        /// <para>籍贯，可以通过[查询省份/行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：6862995757234914824</para>
         /// </summary>
@@ -1536,7 +1534,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         /// <summary>
         /// <para>户口所在地</para>
         /// <para>必填：否</para>
-        /// <para>示例值：户口所在地文本</para>
+        /// <para>示例值：北京市海淀区北三环西路</para>
         /// </summary>
         [JsonPropertyName("hukou_location")]
         public string? HukouLocation { get; set; }
@@ -1690,7 +1688,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             public string? CostCenterId { get; set; }
 
             /// <summary>
-            /// <para>分摊比例</para>
+            /// <para>分摊比例，大于0小于等于100的正整数</para>
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
@@ -1808,7 +1806,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         /// <summary>
         /// <para>工号</para>
         /// <para>必填：否</para>
-        /// <para>示例值：xxx</para>
+        /// <para>示例值：DDD00001</para>
         /// </summary>
         [JsonPropertyName("worker_id")]
         public string? WorkerId { get; set; }
@@ -1870,7 +1868,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public string? CompensationType { get; set; }
 
         /// <summary>
-        /// <para>薪资组</para>
+        /// <para>薪资组，如需获取具体值，请联系人员档案管理员</para>
         /// <para>必填：否</para>
         /// <para>示例值：6977976687350924833</para>
         /// </summary>
@@ -1928,7 +1926,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         /// <summary>
         /// <para>直属上级，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取</para>
         /// <para>必填：否</para>
-        /// <para>示例值：xxx</para>
+        /// <para>示例值：7032210902531327521</para>
         /// </summary>
         [JsonPropertyName("direct_leader_id")]
         public string? DirectLeaderId { get; set; }
@@ -1958,9 +1956,9 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public string? WorkLocationId { get; set; }
 
         /// <summary>
-        /// <para>工作日历</para>
+        /// <para>工作日历，可以通过[查询日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得</para>
         /// <para>必填：否</para>
-        /// <para>示例值：xxx</para>
+        /// <para>示例值：6890452208593372141</para>
         /// </summary>
         [JsonPropertyName("working_calendar")]
         public string? WorkingCalendar { get; set; }
@@ -1986,9 +1984,8 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
     public string[]? StandardUpdateFields { get; set; }
 
     /// <summary>
-    /// <para>指定需要更新的PreHire对象上的自定义字段，格式如下：</para>
-    /// <para>- custom_field1__c</para>
-    /// <para>注意，如果指定了要更新的自定义字段但是没有在结构体中传对应的值，那么就会清空该字段的值</para>
+    /// <para>指定需要更新的pre_hire对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得</para>
+    /// <para>注意：如果指定了要更新的自定义字段但是没有在结构体中传对应的值，那么就会清空该字段的值</para>
     /// <para>必填：否</para>
     /// <para>示例值：\["custom_field1__c","custom_field2__c"\]</para>
     /// </summary>
@@ -1996,8 +1993,8 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
     public string[]? CustomUpdateFields { get; set; }
 
     /// <summary>
-    /// <para>指定需要更新的Person对象上的自定义字段，格式如下：</para>
-    /// <para>- custom_field1__c</para>
+    /// <para>指定需要更新的person对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得</para>
+    /// <para>注意：如果指定了要更新的自定义字段但是没有在结构体中传对应的值，那么就会清空该字段的值</para>
     /// <para>必填：否</para>
     /// <para>示例值：\["custom_field1__c","custom_field2__c"\]</para>
     /// </summary>

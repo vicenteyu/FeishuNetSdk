@@ -13,8 +13,8 @@
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 创建待入职人员 响应体
-/// <para>创建待入职人员。</para>
+/// 直接创建待入职 响应体
+/// <para>使用指定数据创建一个待入职人员。</para>
 /// <para>接口ID：7160511371865014276</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/pre_hire/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpre_hire%2fcreate</para>

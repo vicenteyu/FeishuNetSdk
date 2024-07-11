@@ -13,8 +13,10 @@
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 搜索待入职人员信息 响应体
-/// <para>该接口用于根据工号/待入职人员 ID /入职地点等查询条件搜索待入职人员信息。查询的待入职数量及字段越多，耗时越久，使用时建议细化指定需要的字段</para>
+/// 搜索待入职信息 响应体
+/// <para>该接口用于根据工号/待入职人员 ID /入职地点等查询条件搜索待入职人员信息。</para>
+/// <para>- 查询的待入职数量及字段越多，耗时越久，使用时建议细化指定需要的字段。</para>
+/// <para>- 创建待入职后，会有5秒内的数据延迟导致搜索不到数据</para>
 /// <para>接口ID：7263303427627270148</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpre_hire%2fsearch</para>
@@ -1007,7 +1009,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                 public I18n[]? Departments { get; set; }
 
                 /// <summary>
-                /// <para>岗位</para>
+                /// <para>工作描述</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("job")]
@@ -2265,7 +2267,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                 public string? Employer { get; set; }
 
                 /// <summary>
-                /// <para>岗位</para>
+                /// <para>工作描述</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：保安</para>
                 /// </summary>

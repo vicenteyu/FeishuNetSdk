@@ -95,7 +95,7 @@ public record GetPerformanceV1SemestersResponseDto
         }
 
         /// <summary>
-        /// <para>绩效评估周期的开始时间</para>
+        /// <para>绩效评估周期的开始时间，毫秒级时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1625068800000</para>
         /// </summary>
@@ -103,7 +103,7 @@ public record GetPerformanceV1SemestersResponseDto
         public string? StartTime { get; set; }
 
         /// <summary>
-        /// <para>绩效评估周期的结束时间</para>
+        /// <para>绩效评估周期的结束时间，毫秒级时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1640966399999</para>
         /// </summary>
@@ -111,7 +111,7 @@ public record GetPerformanceV1SemestersResponseDto
         public string? EndTime { get; set; }
 
         /// <summary>
-        /// <para>绩效评估周期的创建时间</para>
+        /// <para>绩效评估周期的创建时间，毫秒级时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1625068800000</para>
         /// </summary>

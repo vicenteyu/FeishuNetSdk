@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取组织类角色授权列表 响应体
-/// <para>查询组织类角色的授权信息。</para>
+/// <para>查询组织类角色的授权信息，返回的授权列表中包含被授权的用户ID和被授权的管理维度等信息。</para>
 /// <para>接口ID：7141207412454998019</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/authorization/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fassigned_user%2fsearch</para>
@@ -35,6 +35,7 @@ public record PostCorehrV1AssignedUsersSearchResponseDto
     {
         /// <summary>
         /// <para>员工 ID</para>
+        /// <para>如想获取员工详细信息，可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)接口获取。</para>
         /// <para>必填：是</para>
         /// <para>示例值：6967639606963471902</para>
         /// </summary>

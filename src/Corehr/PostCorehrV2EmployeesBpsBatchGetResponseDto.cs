@@ -35,6 +35,7 @@ public record PostCorehrV2EmployeesBpsBatchGetResponseDto
     {
         /// <summary>
         /// <para>员工雇佣 ID</para>
+        /// <para>可以使用[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)接口获取员工其他信息。</para>
         /// <para>必填：否</para>
         /// <para>示例值：6863326262618752123</para>
         /// </summary>

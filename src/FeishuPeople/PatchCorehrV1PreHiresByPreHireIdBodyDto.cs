@@ -13,8 +13,8 @@
 // ************************************************************************
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
-/// 更新待入职信息 请求体
-/// <para>更新待入职信息。</para>
+/// 更新待入职信息（不推荐） 请求体
+/// <para>更新待入职信息接口，本接口只是会更新待入职数据，不会校验数据规则，推荐使用新接口[【更新待入职信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/patch)。</para>
 /// <para>接口ID：7072977543561461762</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/pre_hire/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fpre_hire%2fpatch</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.FeishuPeople;
 public record PatchCorehrV1PreHiresByPreHireIdBodyDto
 {
     /// <summary>
-    /// <para>招聘投递 ID ，详细信息可以通过招聘的【获取投递信息】接口查询获得</para>
+    /// <para>招聘投递 ID ，详细信息可以通过招聘的【获取投递信息】接口查询获得（仅部分租户可用）</para>
     /// <para>必填：否</para>
     /// <para>示例值：4719168654814483759</para>
     /// </summary>

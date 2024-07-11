@@ -66,7 +66,7 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsResponseDto
         public string? JobCode { get; set; }
 
         /// <summary>
-        /// <para>职位过期时间，「null」代表「长期有效」</para>
+        /// <para>职位过期时间，「null」代表「长期有效」，毫秒级时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1111</para>
         /// </summary>
@@ -98,14 +98,14 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsResponseDto
         public int? JobProcessType { get; set; }
 
         /// <summary>
-        /// <para>职位雇佣类型</para>
+        /// <para>职位雇佣类型,，详情请参考：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「职位性质/雇佣类型（recruitment_type）枚举定义」</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_recruitment_type")]
         public IdNameObject? JobRecruitmentType { get; set; }
 
         /// <summary>
-        /// <para>职位雇佣类型</para>
+        /// <para>职位雇佣类型,，详情请参考：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「职位性质/雇佣类型（recruitment_type）枚举定义」</para>
         /// </summary>
         public record IdNameObject
         {
@@ -155,7 +155,7 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsResponseDto
         public IdNameObject? JobDepartment { get; set; }
 
         /// <summary>
-        /// <para>职位类型</para>
+        /// <para>职位类型，详情请参考：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_type")]
@@ -176,14 +176,14 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsResponseDto
         public IdNameObject? MaxJobLevel { get; set; }
 
         /// <summary>
-        /// <para>职位地址</para>
+        /// <para>职位地址，详情请参考：[获取地址列表](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/location/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("address")]
         public CommonAddress? Address { get; set; }
 
         /// <summary>
-        /// <para>职位地址</para>
+        /// <para>职位地址，详情请参考：[获取地址列表](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/location/list)</para>
         /// </summary>
         public record CommonAddress
         {
@@ -388,7 +388,7 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsResponseDto
         public IdNameObject? Creator { get; set; }
 
         /// <summary>
-        /// <para>创建时间</para>
+        /// <para>创建时间，毫秒级时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1111</para>
         /// </summary>
@@ -396,7 +396,7 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsResponseDto
         public string? CreateTime { get; set; }
 
         /// <summary>
-        /// <para>修改时间</para>
+        /// <para>修改时间，毫秒级时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：222</para>
         /// </summary>
@@ -562,7 +562,7 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsResponseDto
                 public record WebsiteJobPostCustomizedTimeRange
                 {
                     /// <summary>
-                    /// <para>开始时间</para>
+                    /// <para>开始时间，毫秒级时间戳</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：AA</para>
                     /// </summary>
@@ -570,7 +570,7 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsResponseDto
                     public string? StartTime { get; set; }
 
                     /// <summary>
-                    /// <para>结束时间</para>
+                    /// <para>结束时间，毫秒级时间戳</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：AA</para>
                     /// </summary>
@@ -597,7 +597,7 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsResponseDto
         }
 
         /// <summary>
-        /// <para>职位地址列表</para>
+        /// <para>职位地址列表，详情请参考：[获取地址列表](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/location/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("address_list")]

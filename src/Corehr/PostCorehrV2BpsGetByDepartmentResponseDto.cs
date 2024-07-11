@@ -35,6 +35,7 @@ public record PostCorehrV2BpsGetByDepartmentResponseDto
     {
         /// <summary>
         /// <para>部门 ID，ID类型与department_id_type的取值意义一致。</para>
+        /// <para>如想获取部门详细信息，可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719456877659520852</para>
         /// </summary>
@@ -43,6 +44,7 @@ public record PostCorehrV2BpsGetByDepartmentResponseDto
 
         /// <summary>
         /// <para>部门 HRBP 员工 ID，ID类型与user_id_type的取值意义一致。</para>
+        /// <para>如想获取员工详细信息，可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)接口获取。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("hrbp_ids")]

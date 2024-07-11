@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Attendance;
 public record PostAttendanceV1ShiftsBodyDto
 {
     /// <summary>
-    /// <para>班次名称</para>
+    /// <para>班次名称，不可重复</para>
     /// <para>必填：是</para>
     /// <para>示例值：早班</para>
     /// </summary>
@@ -38,7 +38,7 @@ public record PostAttendanceV1ShiftsBodyDto
     public int PunchTimes { get; set; }
 
     /// <summary>
-    /// <para>暂不开启使用</para>
+    /// <para>无效字段，请勿使用</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("sub_shift_leader_ids")]
@@ -53,7 +53,7 @@ public record PostAttendanceV1ShiftsBodyDto
     public bool? IsFlexible { get; set; }
 
     /// <summary>
-    /// <para>弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间。仅当未设置 flexible_rule 参数时，该参数生效。如果设置了 flexible_rule 参数，则该参数不生效</para>
+    /// <para>弹性打卡时间，单位：分钟，设置【上班最多可晚到】与【下班最多可早走】时间。仅当未设置 flexible_rule 参数时，该参数生效。如果设置了 flexible_rule 参数，则该参数不生效</para>
     /// <para>必填：否</para>
     /// <para>示例值：60</para>
     /// </summary>
@@ -73,7 +73,7 @@ public record PostAttendanceV1ShiftsBodyDto
     public record FlexibleRule
     {
         /// <summary>
-        /// <para>下班最多可早走（上班早到几分钟，下班可早走几分钟）</para>
+        /// <para>下班最多可早走，单位：分钟（上班早到几分钟，下班可早走几分钟）</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -81,7 +81,7 @@ public record PostAttendanceV1ShiftsBodyDto
         public int FlexibleEarlyMinutes { get; set; }
 
         /// <summary>
-        /// <para>上班最多可晚到（上班晚到几分钟，下班须晚走几分钟）</para>
+        /// <para>上班最多可晚到，单位：分钟（上班晚到几分钟，下班须晚走几分钟）</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>

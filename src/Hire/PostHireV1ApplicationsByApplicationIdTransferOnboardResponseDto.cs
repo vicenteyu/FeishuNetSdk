@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-11
 // ************************************************************************
 // <copyright file="PostHireV1ApplicationsByApplicationIdTransferOnboardResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -160,5 +160,13 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardResponseDto
         /// </summary>
         [JsonPropertyName("employee_type")]
         public string? EmployeeType { get; set; }
+
+        /// <summary>
+        /// <para>招聘需求ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：123123123213</para>
+        /// </summary>
+        [JsonPropertyName("job_requirement_id")]
+        public string? JobRequirementId { get; set; }
     }
 }

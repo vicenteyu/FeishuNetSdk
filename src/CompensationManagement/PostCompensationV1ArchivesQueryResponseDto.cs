@@ -34,7 +34,7 @@ public record PostCompensationV1ArchivesQueryResponseDto
     public record ArchiveDetail
     {
         /// <summary>
-        /// <para>员工ID</para>
+        /// <para>员工ID，返回的ID类型与查询参数中的「user_id_type」的取值一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：344325234123</para>
         /// </summary>

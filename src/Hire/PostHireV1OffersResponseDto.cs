@@ -126,7 +126,7 @@ public record PostHireV1OffersResponseDto
         public int? ProbationMonth { get; set; }
 
         /// <summary>
-        /// <para>合同期(年)，推荐使用「contract_period」，如果Offer申请表中「合同期(年)」字段已停用，则不可使用该字段</para>
+        /// <para>合同期(年)，推荐使用「contract_period」</para>
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>

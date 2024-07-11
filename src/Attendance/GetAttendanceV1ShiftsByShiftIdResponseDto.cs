@@ -46,7 +46,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
     public int PunchTimes { get; set; }
 
     /// <summary>
-    /// <para>排班组子负责人id列表</para>
+    /// <para>无效字段，请勿使用</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("sub_shift_leader_ids")]
@@ -118,7 +118,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
     public record PunchTimeRule
     {
         /// <summary>
-        /// <para>上班时间</para>
+        /// <para>上班时间，格式为hh:mm</para>
         /// <para>必填：是</para>
         /// <para>示例值：9:00</para>
         /// </summary>
@@ -126,9 +126,9 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         public string OnTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>下班时间</para>
+        /// <para>下班时间，格式为hh:mm。如果是第二天凌晨2点， 则为26:00</para>
         /// <para>必填：是</para>
-        /// <para>示例值：18:00，第二天凌晨2点，26:00</para>
+        /// <para>示例值：18:00， 第二天凌晨2点， 26:00</para>
         /// </summary>
         [JsonPropertyName("off_time")]
         public string OffTime { get; set; } = string.Empty;

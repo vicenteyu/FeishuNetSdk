@@ -49,7 +49,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     public string[]? FolderIdList { get; set; }
 
     /// <summary>
-    /// <para>创建人 ID，和入参`user_id_type` 类型保持一致</para>
+    /// <para>创建人 ID，和入参 `user_id_type` 类型保持一致，默认为系统用户 ID，当创建人类型为「系统」时无需填写该字段</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_84aad35d084aa403a838cf73ee18467</para>
     /// </summary>
@@ -69,7 +69,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     public int? CreatorAccountType { get; set; }
 
     /// <summary>
-    /// <para>简历附件 ID，如何创建附件请参考[创建附件](https://open.larkoffice.com/document/server-docs/hire-v1/attachment/create_attachment)</para>
+    /// <para>简历附件 ID，如何创建附件请参考[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)</para>
     /// <para>必填：否</para>
     /// <para>示例值：7383906146040678700</para>
     /// </summary>
@@ -212,14 +212,14 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? HometownCityCode { get; set; }
 
         /// <summary>
-        /// <para>自定义字段列表</para>
+        /// <para>自定义字段列表，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>自定义字段列表</para>
+        /// <para>自定义字段列表，无效字段，请勿使用</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -278,7 +278,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     public record TalentCombinedEducationInfo
     {
         /// <summary>
-        /// <para>教育经历 ID</para>
+        /// <para>教育经历 ID，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// <para>示例值：6891560630172518670</para>
         /// </summary>
@@ -368,14 +368,14 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public int? AcademicRanking { get; set; }
 
         /// <summary>
-        /// <para>教育经历自定义字段</para>
+        /// <para>教育经历自定义字段，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>教育经历自定义字段</para>
+        /// <para>教育经历自定义字段，无效字段，请勿使用</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -434,7 +434,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     public record TalentCombinedCareerInfo
     {
         /// <summary>
-        /// <para>工作经历 ID</para>
+        /// <para>工作经历 ID，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// <para>示例值：6891560630172518670</para>
         /// </summary>
@@ -494,14 +494,14 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public int? CareerType { get; set; }
 
         /// <summary>
-        /// <para>工作经历自定义字段</para>
+        /// <para>工作经历自定义字段，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>工作经历自定义字段</para>
+        /// <para>工作经历自定义字段，无效字段，请勿使用</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -560,7 +560,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     public record TalentCombinedProjectInfo
     {
         /// <summary>
-        /// <para>项目经历 ID</para>
+        /// <para>项目经历 ID，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// <para>示例值：6891560630172518670</para>
         /// </summary>
@@ -616,14 +616,14 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? EndTime { get; set; }
 
         /// <summary>
-        /// <para>项目自定义字段</para>
+        /// <para>项目自定义字段，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>项目自定义字段</para>
+        /// <para>项目自定义字段，无效字段，请勿使用</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -682,7 +682,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     public record TalentCombinedWorkInfo
     {
         /// <summary>
-        /// <para>作品 ID</para>
+        /// <para>作品 ID，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// <para>示例值：6891560630172518670</para>
         /// </summary>
@@ -714,14 +714,14 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? AttachmentId { get; set; }
 
         /// <summary>
-        /// <para>作品自定义字段</para>
+        /// <para>作品自定义字段，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>作品自定义字段</para>
+        /// <para>作品自定义字段，无效字段，请勿使用</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -780,7 +780,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     public record TalentCombinedAwardInfo
     {
         /// <summary>
-        /// <para>获奖 ID</para>
+        /// <para>获奖 ID，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// <para>示例值：6891560630172518670</para>
         /// </summary>
@@ -812,14 +812,14 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? Desc { get; set; }
 
         /// <summary>
-        /// <para>获奖自定义字段</para>
+        /// <para>获奖自定义字段，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>获奖自定义字段</para>
+        /// <para>获奖自定义字段，无效字段，请勿使用</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -878,7 +878,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     public record TalentCombinedLanguageInfo
     {
         /// <summary>
-        /// <para>语言能力 ID</para>
+        /// <para>语言能力 ID，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// <para>示例值：6891560630172518670</para>
         /// </summary>
@@ -940,14 +940,14 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public int? Proficiency { get; set; }
 
         /// <summary>
-        /// <para>语言能力自定义字段</para>
+        /// <para>语言能力自定义字段，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>语言能力自定义字段</para>
+        /// <para>语言能力自定义字段，无效字段，请勿使用</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -1006,7 +1006,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     public record TalentCombinedSnsInfo
     {
         /// <summary>
-        /// <para>社交账号 ID</para>
+        /// <para>社交账号 ID，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// <para>示例值：6891560630172518670</para>
         /// </summary>
@@ -1043,14 +1043,14 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? Link { get; set; }
 
         /// <summary>
-        /// <para>社交账号自定义字段</para>
+        /// <para>社交账号自定义字段，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>社交账号自定义字段</para>
+        /// <para>社交账号自定义字段，无效字段，请勿使用</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -1117,7 +1117,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     public record TalentSelfEvaluation
     {
         /// <summary>
-        /// <para>自我评价 ID</para>
+        /// <para>自我评价 ID，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// <para>示例值：6891560630172518670</para>
         /// </summary>
@@ -1133,14 +1133,14 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? Content { get; set; }
 
         /// <summary>
-        /// <para>自我评价自定义字段</para>
+        /// <para>自我评价自定义字段，无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>自我评价自定义字段</para>
+        /// <para>自我评价自定义字段，无效字段，请勿使用</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -1198,7 +1198,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     public record TalentCustomizedDataObjectValue
     {
         /// <summary>
-        /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
+        /// <para>自定义模块 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
         /// <para>接口获取。</para>
         /// <para>必填：否</para>
         /// <para>示例值：6934193211960330504</para>

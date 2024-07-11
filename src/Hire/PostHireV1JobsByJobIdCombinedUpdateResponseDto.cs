@@ -4,7 +4,7 @@
 // Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-26
+// Last Modified On : 2024-07-12
 // ************************************************************************
 // <copyright file="PostHireV1JobsByJobIdCombinedUpdateResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -422,7 +422,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
         /// <para>示例值：1617170925462</para>
         /// </summary>
         [JsonPropertyName("create_time")]
-        public int? CreateTime { get; set; }
+        public long? CreateTime { get; set; }
 
         /// <summary>
         /// <para>更新时间，此字段已废弃，请使用update_timestamp</para>

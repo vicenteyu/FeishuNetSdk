@@ -22,7 +22,7 @@ namespace FeishuNetSdk.CompensationManagement;
 public record PostCompensationV1ArchivesQueryBodyDto
 {
     /// <summary>
-    /// <para>用户ID列表</para>
+    /// <para>用户ID列表，获取方式可参考查询参数中的「user_id_type」字段</para>
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：1</para>

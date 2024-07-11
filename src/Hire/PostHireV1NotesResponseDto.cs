@@ -4,7 +4,7 @@
 // Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-26
+// Last Modified On : 2024-07-12
 // ************************************************************************
 // <copyright file="PostHireV1NotesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -71,7 +71,7 @@ public record PostHireV1NotesResponseDto
         /// <para>示例值：1618209327096</para>
         /// </summary>
         [JsonPropertyName("create_time")]
-        public int? CreateTime { get; set; }
+        public long? CreateTime { get; set; }
 
         /// <summary>
         /// <para>更新时间</para>
@@ -79,7 +79,7 @@ public record PostHireV1NotesResponseDto
         /// <para>示例值：1618209327096</para>
         /// </summary>
         [JsonPropertyName("modify_time")]
-        public int? ModifyTime { get; set; }
+        public long? ModifyTime { get; set; }
 
         /// <summary>
         /// <para>创建人ID，与入参中`user_id_type`类型一致</para>

@@ -14,7 +14,9 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取员工薪资标准 响应体
-/// <para>根据员工获取匹配的薪资标准信息。</para>
+/// <para>- 调用此接口来获取员工匹配的薪资标准信息</para>
+/// <para>- 请求时，可选传递员工的部门 ID、职级 ID 、序列 ID 等筛选条件，用于匹配薪资标准</para>
+/// <para>- 此接口将返回员工可匹配到的薪资标准全部信息，包括薪资标准表 ID、薪级薪等、薪资带宽、薪资标准值等</para>
 /// <para>接口ID：7182538601166028802</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/compensation_standard/match</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fcompensation_standard%2fmatch</para>
@@ -94,7 +96,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
                 public string? ApiName { get; set; }
 
                 /// <summary>
-                /// <para>值列表 例如部门ID</para>
+                /// <para>值列表 例如薪资项和薪资统计指标ID</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：7156853394442044972</para>
                 /// </summary>
@@ -179,7 +181,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
         public record CpstCurrency
         {
             /// <summary>
-            /// <para>币种ID</para>
+            /// <para>币种ID，可通过接口[【查询货币信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6863329932261459464</para>
             /// </summary>
@@ -217,7 +219,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
                 /// <summary>
                 /// <para>英文</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：englishname</para>
+                /// <para>示例值：english name</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -247,7 +249,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
             /// <summary>
             /// <para>英文</para>
             /// <para>必填：否</para>
-            /// <para>示例值：englishname</para>
+            /// <para>示例值：english name</para>
             /// </summary>
             [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
@@ -255,7 +257,7 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
     }
 
     /// <summary>
-    /// <para>生效时间</para>
+    /// <para>生效时间（毫秒级时间戳）</para>
     /// <para>必填：否</para>
     /// <para>示例值：1660924800000</para>
     /// </summary>

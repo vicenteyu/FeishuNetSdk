@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-12
 // ************************************************************************
 // <copyright file="GetHelpdeskV1FaqsSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -124,7 +124,7 @@ public record GetHelpdeskV1FaqsSearchResponseDto
         /// <para>示例值：1626604715</para>
         /// </summary>
         [JsonPropertyName("create_time")]
-        public int? CreateTime { get; set; }
+        public long? CreateTime { get; set; }
 
         /// <summary>
         /// <para>修改时间</para>
@@ -208,7 +208,7 @@ public record GetHelpdeskV1FaqsSearchResponseDto
         /// <para>示例值：1631243057</para>
         /// </summary>
         [JsonPropertyName("expire_time")]
-        public int? ExpireTime { get; set; }
+        public long? ExpireTime { get; set; }
 
         /// <summary>
         /// <para>更新用户</para>

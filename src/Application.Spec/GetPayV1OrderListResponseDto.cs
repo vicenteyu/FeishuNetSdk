@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Application.Spec;
 /// <summary>
 /// 查询租户购买的付费方案 响应体
 /// <para>该接口用于分页查询应用租户下的已付费订单，每次购买对应一个唯一的订单，订单会记录购买的套餐的相关信息，业务方需要自行处理套餐的有效期和付费方案的升级。</para>
-/// <para>&gt; 备注：免费模式的应用不会产生订单，仅收费应用会产生订单 (含免费版)。</para>
+/// <para>备注：免费模式的应用不会产生订单，仅收费应用会产生订单 (含免费版)。</para>
 /// <para>接口ID：6907569742384988162</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/application-v6/appstore-paid-info/query-an-app-tenant’s-paid-orders</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuETNwUjLxUDM14SM1ATN</para>
@@ -49,7 +49,7 @@ public record GetPayV1OrderListResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("order_list")]
-    public string? OrderList { get; set; }
+    public Order[]? OrderList { get; set; }
 
     /// <summary></summary>
     public record Order

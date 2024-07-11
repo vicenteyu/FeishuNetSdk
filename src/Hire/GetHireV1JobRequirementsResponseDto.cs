@@ -98,14 +98,14 @@ public record GetHireV1JobRequirementsResponseDto
         public int? HeadCount { get; set; }
 
         /// <summary>
-        /// <para>职位性质 ，可在「招聘枚举常量」文档中查看枚举值，即将下线字段，不建议使用，推荐使用「employee_type」字段</para>
+        /// <para>职位性质 ，详情请参考：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「职位性质/雇佣类型（recruitment_type）枚举定义」，即将下线字段，不建议使用，推荐使用「employee_type」字段</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("recruitment_type")]
         public IdNameObject? RecruitmentType { get; set; }
 
         /// <summary>
-        /// <para>职位性质 ，可在「招聘枚举常量」文档中查看枚举值，即将下线字段，不建议使用，推荐使用「employee_type」字段</para>
+        /// <para>职位性质 ，详情请参考：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「职位性质/雇佣类型（recruitment_type）枚举定义」，即将下线字段，不建议使用，推荐使用「employee_type」字段</para>
         /// </summary>
         public record IdNameObject
         {
@@ -148,28 +148,28 @@ public record GetHireV1JobRequirementsResponseDto
         }
 
         /// <summary>
-        /// <para>人员类型，通过[「获取员工类型列表」](https://open.feishu.cn/document/server-docs/people_admin-v1/employee_type/list)接口获取详情。使用前请咨询招聘团队，确保已经在相关的灰度内</para>
+        /// <para>人员类型</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("employee_type")]
         public IdNameObject? EmployeeType { get; set; }
 
         /// <summary>
-        /// <para>最高职级</para>
+        /// <para>最高职级，与入参`job_level_id_type` 类型一致</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("max_level")]
         public IdNameObject? MaxLevel { get; set; }
 
         /// <summary>
-        /// <para>最低职级</para>
+        /// <para>最低职级，与入参`job_level_id_type` 类型一致</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("min_level")]
         public IdNameObject? MinLevel { get; set; }
 
         /// <summary>
-        /// <para>职位序列</para>
+        /// <para>职位序列，与入参`job_family_id_type` 类型一致</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("sequence")]
@@ -508,14 +508,14 @@ public record GetHireV1JobRequirementsResponseDto
         public int? ProcessType { get; set; }
 
         /// <summary>
-        /// <para>职位类别</para>
+        /// <para>职位类别，[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_type")]
         public JobTypeInfo? JobType { get; set; }
 
         /// <summary>
-        /// <para>职位类别</para>
+        /// <para>职位类别，[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)</para>
         /// </summary>
         public record JobTypeInfo
         {

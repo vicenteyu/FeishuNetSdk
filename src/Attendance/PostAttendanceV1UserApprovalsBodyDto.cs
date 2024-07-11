@@ -43,7 +43,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>审批作用日期</para>
+        /// <para>审批作用日期，格式为yyyyMMdd</para>
         /// <para>必填：是</para>
         /// <para>示例值：20210104</para>
         /// </summary>
@@ -86,9 +86,9 @@ public record PostAttendanceV1UserApprovalsBodyDto
             public int Unit { get; set; }
 
             /// <summary>
-            /// <para>外出时长（单位：秒）</para>
+            /// <para>关联审批单外出时长，单位为秒，与unit无关</para>
             /// <para>必填：是</para>
-            /// <para>示例值：28800</para>
+            /// <para>示例值：3600</para>
             /// </summary>
             [JsonPropertyName("interval")]
             public int Interval { get; set; }
@@ -207,9 +207,9 @@ public record PostAttendanceV1UserApprovalsBodyDto
             public int Unit { get; set; }
 
             /// <summary>
-            /// <para>假期时长（单位：秒），暂未开放提供，待后续提供</para>
+            /// <para>关联审批单假期时长，单位为秒，与unit无关</para>
             /// <para>必填：是</para>
-            /// <para>示例值：28800</para>
+            /// <para>示例值：3600</para>
             /// </summary>
             [JsonPropertyName("interval")]
             public int Interval { get; set; }

@@ -30,7 +30,7 @@ public record PostHireV1OffersBodyDto
     public string ApplicationId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>Offer 申请表模板 ID，用于描述申请表单结构的元数据定义，即对申请表内容的描述。用户每一次更改 Offer 申请表模板信息，都会生成新的 schema_id，创建 Offer 时应传入最新的 schema_id，可先从[获取职位设置](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/config)中拿到offer申请表ID，再从[获取 Offer 申请表模板信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)接口中获取最新的模板ID。不填则会自动填充最新模版ID。</para>
+    /// <para>Offer 申请表模板 ID，用于描述申请表单结构的元数据定义，即对申请表内容的描述。用户每一次更改 Offer 申请表模板信息，都会生成新的 schema_id，创建 Offer 时应传入最新的 schema_id，可先从[获取职位设置](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/config)中拿到offer申请表ID，再从[获取 Offer 申请表模板信息](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/offer-settings/offer_application_form/get)接口中获取最新的模板ID。不填则会自动填充最新模版ID。</para>
     /// <para>必填：否</para>
     /// <para>示例值：7013318077945596204</para>
     /// </summary>
@@ -86,7 +86,7 @@ public record PostHireV1OffersBodyDto
         public string? EmploymentJobId { get; set; }
 
         /// <summary>
-        /// <para>人员类型 ID，详情请查看：[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)</para>
+        /// <para>人员类型 ID，与入参`employee_type_id_type` 类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：6807407987381831949</para>
         /// </summary>
@@ -118,7 +118,7 @@ public record PostHireV1OffersBodyDto
         public int? ProbationMonth { get; set; }
 
         /// <summary>
-        /// <para>合同期(年)，推荐使用「contract_period」，如果Offer申请表中「合同期(年)」字段已停用，则不可使用该字段</para>
+        /// <para>合同期(年)，推荐使用「contract_period」</para>
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
@@ -169,7 +169,7 @@ public record PostHireV1OffersBodyDto
         public string? ExpectedOnboardDate { get; set; }
 
         /// <summary>
-        /// <para>入职地点 ID，详情请参考：[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)</para>
+        /// <para>入职地点 ID，详情请参考：[获取地址列表](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/location/list)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6897079709306259719</para>
         /// </summary>
@@ -177,7 +177,7 @@ public record PostHireV1OffersBodyDto
         public string? OnboardAddressId { get; set; }
 
         /// <summary>
-        /// <para>办公地点 ID，详情请参考：[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)</para>
+        /// <para>办公地点 ID，详情请参考：[获取地址列表](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/location/list)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6897079709306259719</para>
         /// </summary>
@@ -209,7 +209,7 @@ public record PostHireV1OffersBodyDto
         public string? JobRequirementId { get; set; }
 
         /// <summary>
-        /// <para>招聘流程类型 ID，详情请查看：[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)</para>
+        /// <para>招聘流程类型 ID，可选值：「1:社招，2:校招」</para>
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// </summary>
@@ -270,7 +270,7 @@ public record PostHireV1OffersBodyDto
         public string? BasicSalary { get; set; }
 
         /// <summary>
-        /// <para>试用期百分比</para>
+        /// <para>试用期薪资百分比</para>
         /// <para>必填：否</para>
         /// <para>示例值：0.8</para>
         /// </summary>
@@ -294,7 +294,7 @@ public record PostHireV1OffersBodyDto
         public string? OptionShares { get; set; }
 
         /// <summary>
-        /// <para>季度奖金额</para>
+        /// <para>季度奖金额，单位元、支持小数点后两位</para>
         /// <para>必填：否</para>
         /// <para>示例值：3000</para>
         /// </summary>
@@ -302,7 +302,7 @@ public record PostHireV1OffersBodyDto
         public string? QuarterlyBonus { get; set; }
 
         /// <summary>
-        /// <para>半年奖金额</para>
+        /// <para>半年奖金额，单位元、支持小数点后两位</para>
         /// <para>必填：否</para>
         /// <para>示例值：10000</para>
         /// </summary>

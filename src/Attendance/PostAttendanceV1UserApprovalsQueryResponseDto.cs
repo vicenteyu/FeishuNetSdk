@@ -34,7 +34,7 @@ public record PostAttendanceV1UserApprovalsQueryResponseDto
     public record UserApproval
     {
         /// <summary>
-        /// <para>审批用户 ID</para>
+        /// <para>审批用户 ID，类型与employee_type的取值一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
@@ -71,7 +71,7 @@ public record PostAttendanceV1UserApprovalsQueryResponseDto
 
             /// <summary>
             /// <para>外出类型唯一 ID，代表一种假期类型，长度小于 14</para>
-            /// <para>* 此ID对应假期类型(即: i18n_names)，因此需要保证唯一</para>
+            /// <para>* 此ID对应外出类型(即: i18n_names)，因此需要保证唯一</para>
             /// <para>必填：是</para>
             /// <para>示例值：9496E43696967658A512969523E89870</para>
             /// </summary>
@@ -93,9 +93,9 @@ public record PostAttendanceV1UserApprovalsQueryResponseDto
             public int Unit { get; set; }
 
             /// <summary>
-            /// <para>外出时长（单位：秒）</para>
+            /// <para>外出时长</para>
             /// <para>必填：是</para>
-            /// <para>示例值：28800</para>
+            /// <para>示例值：8</para>
             /// </summary>
             [JsonPropertyName("interval")]
             public int Interval { get; set; }
@@ -172,7 +172,7 @@ public record PostAttendanceV1UserApprovalsQueryResponseDto
             public string Reason { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>审批通过时间</para>
+            /// <para>审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss</para>
             /// <para>必填：否</para>
             /// <para>示例值：2021-01-04 12:00:00</para>
             /// </summary>
@@ -180,7 +180,7 @@ public record PostAttendanceV1UserApprovalsQueryResponseDto
             public string? ApprovePassTime { get; set; }
 
             /// <summary>
-            /// <para>审批申请时间</para>
+            /// <para>审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss</para>
             /// <para>必填：否</para>
             /// <para>示例值：2021-01-04 11:00:00</para>
             /// </summary>
@@ -232,9 +232,9 @@ public record PostAttendanceV1UserApprovalsQueryResponseDto
             public int Unit { get; set; }
 
             /// <summary>
-            /// <para>假期时长（单位：秒），暂未开放提供，待后续提供</para>
+            /// <para>假期时长</para>
             /// <para>必填：是</para>
-            /// <para>示例值：28800</para>
+            /// <para>示例值：8</para>
             /// </summary>
             [JsonPropertyName("interval")]
             public int Interval { get; set; }

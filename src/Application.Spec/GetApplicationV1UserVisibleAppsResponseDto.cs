@@ -47,7 +47,7 @@ public record GetApplicationV1UserVisibleAppsResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public string? HasMore { get; set; }
+    public int? HasMore { get; set; }
 
     /// <summary>
     /// <para>当前选择的版本语言</para>

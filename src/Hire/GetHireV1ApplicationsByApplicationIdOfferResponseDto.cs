@@ -84,12 +84,12 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
             public string? Remark { get; set; }
 
             /// <summary>
-            /// <para>Offer 过期时间</para>
+            /// <para>Offer 过期时间，毫秒级时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1653383498000</para>
             /// </summary>
             [JsonPropertyName("expire_time")]
-            public int? ExpireTime { get; set; }
+            public long? ExpireTime { get; set; }
 
             /// <summary>
             /// <para>Offer 负责人 ID，与入参`user_id_type`类型一致</para>
@@ -120,7 +120,7 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
             public record BaseBilingualWithId
             {
                 /// <summary>
-                /// <para>人员类型 ID</para>
+                /// <para>人员类型 ID，与入参`employee_type_id_type` 类型一致</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
@@ -145,7 +145,7 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
             }
 
             /// <summary>
-            /// <para>创建时间</para>
+            /// <para>创建时间，毫秒级时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1628512038000</para>
             /// </summary>
@@ -185,7 +185,7 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
             public int? ProbationMonth { get; set; }
 
             /// <summary>
-            /// <para>合同期(年)，推荐使用「contract_period」，如果Offer申请表中「合同期(年)」字段已停用，则不可使用该字段</para>
+            /// <para>合同期(年)，推荐使用「contract_period」</para>
             /// <para>必填：否</para>
             /// <para>示例值：3</para>
             /// </summary>
@@ -261,7 +261,7 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
             public record BaseAddress
             {
                 /// <summary>
-                /// <para>入职地点 ID</para>
+                /// <para>入职地点 ID，详情请参考：[获取地址列表](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/location/list)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6932753007915206919</para>
                 /// </summary>

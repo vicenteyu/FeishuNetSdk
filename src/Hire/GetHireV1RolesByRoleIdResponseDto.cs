@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-11
 // ************************************************************************
 // <copyright file="GetHireV1RolesByRoleIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -76,6 +76,39 @@ public record GetHireV1RolesByRoleIdResponseDto
         /// </summary>
         [JsonPropertyName("description")]
         public I18n? Description { get; set; }
+
+        /// <summary>
+        /// <para>更新时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1716535727510</para>
+        /// </summary>
+        [JsonPropertyName("modify_time")]
+        public string? ModifyTime { get; set; }
+
+        /// <summary>
+        /// <para>停启用状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：启用</item>
+        /// <item>2：停用</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("role_status")]
+        public int? RoleStatus { get; set; }
+
+        /// <summary>
+        /// <para>角色类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：系统内置角色</item>
+        /// <item>2：普通用户</item>
+        /// <item>5：自定义角色</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("role_type")]
+        public int? RoleType { get; set; }
 
         /// <summary>
         /// <para>适用范围</para>

@@ -66,7 +66,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         public string? JobCode { get; set; }
 
         /// <summary>
-        /// <para>职位过期时间，「null」代表「长期有效」</para>
+        /// <para>职位过期时间，「null」代表「长期有效」，毫秒级时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1111</para>
         /// </summary>
@@ -98,14 +98,14 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         public int? JobProcessType { get; set; }
 
         /// <summary>
-        /// <para>职位雇佣类型</para>
+        /// <para>职位雇佣类型，详情请参考：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「职位性质/雇佣类型（recruitment_type）枚举定义」</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_recruitment_type")]
         public IdNameObject? JobRecruitmentType { get; set; }
 
         /// <summary>
-        /// <para>职位雇佣类型</para>
+        /// <para>职位雇佣类型，详情请参考：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「职位性质/雇佣类型（recruitment_type）枚举定义」</para>
         /// </summary>
         public record IdNameObject
         {
@@ -155,7 +155,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         public IdNameObject? JobDepartment { get; set; }
 
         /// <summary>
-        /// <para>职位类型</para>
+        /// <para>职位类型，详情请参考：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_type")]
@@ -176,14 +176,14 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         public IdNameObject? MaxJobLevel { get; set; }
 
         /// <summary>
-        /// <para>职位地址</para>
+        /// <para>职位地址，详情请参考：[获取地址列表](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/location/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("address")]
         public CommonAddress? Address { get; set; }
 
         /// <summary>
-        /// <para>职位地址</para>
+        /// <para>职位地址，详情请参考：[获取地址列表](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/location/list)</para>
         /// </summary>
         public record CommonAddress
         {
@@ -358,7 +358,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         public int? Headcount { get; set; }
 
         /// <summary>
-        /// <para>职位亮点</para>
+        /// <para>职位亮点，详情请参考：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「职位亮枚举定义」</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("high_light_list")]
@@ -388,7 +388,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         public IdNameObject? Creator { get; set; }
 
         /// <summary>
-        /// <para>创建时间</para>
+        /// <para>创建时间，毫秒级时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1715867075246</para>
         /// </summary>
@@ -396,7 +396,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         public string? CreateTime { get; set; }
 
         /// <summary>
-        /// <para>修改时间</para>
+        /// <para>修改时间，毫秒级时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1715867075246</para>
         /// </summary>
@@ -416,7 +416,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         public record WebsiteJobPostCustomizedData
         {
             /// <summary>
-            /// <para>自定义字段 ID</para>
+            /// <para>自定义字段 ID，详情请参考：[获取职位模版](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/job/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：xxxx</para>
             /// </summary>
@@ -562,7 +562,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
                 public record WebsiteJobPostCustomizedTimeRange
                 {
                     /// <summary>
-                    /// <para>开始时间</para>
+                    /// <para>开始时间，毫秒级时间戳</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：AA</para>
                     /// </summary>
@@ -570,7 +570,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
                     public string? StartTime { get; set; }
 
                     /// <summary>
-                    /// <para>结束时间</para>
+                    /// <para>结束时间，毫秒级时间戳</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：AA</para>
                     /// </summary>
@@ -597,21 +597,21 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         }
 
         /// <summary>
-        /// <para>职能分类</para>
+        /// <para>职能分类，详情请参考：[获取职能分类列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_function/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_function")]
         public IdNameObject? JobFunction { get; set; }
 
         /// <summary>
-        /// <para>职位项目</para>
+        /// <para>职位项目，详情请参考：[获取项目列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/subject/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("subject")]
         public IdNameObject? Subject { get; set; }
 
         /// <summary>
-        /// <para>职位地址列表</para>
+        /// <para>职位地址列表，详情请参考：[获取地址列表](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/location/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("address_list")]

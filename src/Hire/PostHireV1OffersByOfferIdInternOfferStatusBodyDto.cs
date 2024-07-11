@@ -35,19 +35,22 @@ public record PostHireV1OffersByOfferIdInternOfferStatusBodyDto
     public string Operation { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>入职表单信息（当 operation 为 confirm_onboarding 时，该字段必填）</para>
+    /// <para>入职表单信息</para>
+    /// <para>**注意**：当 operation 为 `confirm_onboarding` 时，该字段必填</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("onboarding_info")]
     public InternOfferOnboardingInfo? OnboardingInfo { get; set; }
 
     /// <summary>
-    /// <para>入职表单信息（当 operation 为 confirm_onboarding 时，该字段必填）</para>
+    /// <para>入职表单信息</para>
+    /// <para>**注意**：当 operation 为 `confirm_onboarding` 时，该字段必填</para>
     /// </summary>
     public record InternOfferOnboardingInfo
     {
         /// <summary>
         /// <para>实际入职日期</para>
+        /// <para>**值格式**："YYYY-MM-DD"</para>
         /// <para>必填：是</para>
         /// <para>示例值：2022-01-01</para>
         /// </summary>
@@ -56,19 +59,23 @@ public record PostHireV1OffersByOfferIdInternOfferStatusBodyDto
     }
 
     /// <summary>
-    /// <para>离职表单信息（当 operation 为 offboard 时，该字段必填）</para>
+    /// <para>离职表单信息</para>
+    /// <para>**注意**：当 operation 为 `offboard` 时，该字段必填</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("offboarding_info")]
     public InternOfferOffboardingInfo? OffboardingInfo { get; set; }
 
     /// <summary>
-    /// <para>离职表单信息（当 operation 为 offboard 时，该字段必填）</para>
+    /// <para>离职表单信息</para>
+    /// <para>**注意**：当 operation 为 `offboard` 时，该字段必填</para>
     /// </summary>
     public record InternOfferOffboardingInfo
     {
         /// <summary>
-        /// <para>实际离职日期（实际离职日期需晚于实际入职日期）</para>
+        /// <para>实际离职日期</para>
+        /// <para>**注意**：实际离职日期需晚于实际入职日期</para>
+        /// <para>**值格式**："YYYY-MM-DD"</para>
         /// <para>必填：是</para>
         /// <para>示例值：2022-03-02</para>
         /// </summary>

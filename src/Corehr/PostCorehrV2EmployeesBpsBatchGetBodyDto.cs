@@ -23,8 +23,7 @@ public record PostCorehrV2EmployeesBpsBatchGetBodyDto
 {
     /// <summary>
     /// <para>员工ID，ID类型与user_id_type的取值意义一致。</para>
-    /// <para>&gt;</para>
-    /// <para>如果你需要使用工号，可以使用 [ID转换服务](https://open.larkoffice.com/document/server-docs/corehr-v1/common_data-id/search?appId=cli_9c04f2177d799101) 换取 ==employment_id==</para>
+    /// <para>如果你需要不同类型的ID进行转换，可以使用 [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert) 换取 ==employment_id==</para>
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：1</para>

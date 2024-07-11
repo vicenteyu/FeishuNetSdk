@@ -13,8 +13,8 @@
 // ************************************************************************
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
-/// 批量查询待入职人员 响应体
-/// <para>批量查询待入职人员。</para>
+/// 批量查询待入职信息 响应体
+/// <para>可通过本接口批量查询待入职人员信息，本接口和[搜索接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)相比较无延迟问题。</para>
 /// <para>接口ID：7017707615190958083</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/pre_hire/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fpre_hire%2flist</para>

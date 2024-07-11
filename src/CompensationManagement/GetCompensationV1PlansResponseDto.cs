@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.CompensationManagement;
 /// <summary>
 /// 批量查询薪资方案 响应体
-/// <para>批量查询薪资方案</para>
+/// <para>- 此接口将返回全部薪资方案信息，包括薪资方案 ID、生效日期、薪资项/薪资统计指标等</para>
 /// <para>接口ID：7314129756769812484</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcompensation-v1%2fplan%2flist</para>
@@ -66,7 +66,7 @@ public record GetCompensationV1PlansResponseDto
         public string Description { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>薪资方案生效时间</para>
+        /// <para>薪资方案生效时间（毫秒级时间戳）</para>
         /// <para>必填：是</para>
         /// <para>示例值：2022-10-20</para>
         /// </summary>
@@ -144,13 +144,16 @@ public record GetCompensationV1PlansResponseDto
                 public int? Operator { get; set; }
 
                 /// <summary>
-                /// <para>部门ID，详细信息可以通过[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询获得</para>
-                /// <para>工作地点ID，详细信息可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口查询获得</para>
-                /// <para>成本中心ID，详细信息可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>
-                /// <para>职务ID，详细信息可以通过[批量查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口查询获得</para>
-                /// <para>职级ID，详细信息可以通过[通过职级 ID 批量获取职级信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)接口查询获得</para>
-                /// <para>序列ID，详细信息可以通过[通过序列 ID 批量获取序列信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)接口查询获得</para>
-                /// <para>人员类型ID，详细信息可以通过[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口查询获得</para>
+                /// <para>- 适用范围左值为：部门、部门（包含下级部门），返回：部门ID，详细信息可以通过[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询获得</para>
+                /// <para>- 适用范围左值为：工作地点、工作地点（包含下级工作地点），返回：工作地点ID，详细信息可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口查询获得</para>
+                /// <para>- 适用范围左值为：公司、公司（包含下级公司），返回：公司ID，详细信息可以通过[通过公司 ID 批量获取公司信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get)接口查询获得</para>
+                /// <para>- 适用范围左值为：序列、序列（包含子序列），返回：序列ID，详细信息可以通过[通过序列 ID 批量获取序列信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)接口查询获得</para>
+                /// <para>- 适用范围左值为：职务，返回：职务ID，详细信息可以通过[批量查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口查询获得</para>
+                /// <para>- 适用范围左值为：职级，返回：职级ID，详细信息可以通过[通过职级 ID 批量获取职级信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)接口查询获得</para>
+                /// <para>- 适用范围左值为：人员类型，返回：人员类型ID，详细信息可以通过[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口查询获得</para>
+                /// <para>- 适用范围左值为：招聘类型，返回：招聘类型</para>
+                /// <para>- 适用范围左值为：国家/地区，返回：国家/地区</para>
+                /// <para>- 适用范围左值为：职等，返回：职等ID，详细信息可以通过[查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口查询获得</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：21341234</para>
                 /// </summary>
@@ -160,7 +163,7 @@ public record GetCompensationV1PlansResponseDto
         }
 
         /// <summary>
-        /// <para>币种ID</para>
+        /// <para>币种ID，可通过接口[【查询货币信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：341324121</para>
         /// </summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-07-09
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-09
+// Last Modified On : 2024-07-11
 // ************************************************************************
 // <copyright file="PostHireV1WebsitesByWebsiteIdJobPostsSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -31,7 +31,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchBodyDto
     public string[]? JobTypeIdList { get; set; }
 
     /// <summary>
-    /// <para>职位城市列表</para>
+    /// <para>职位城市列表，详情请参考：[查询地点列表](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)</para>
     /// <para>必填：否</para>
     /// <para>示例值：CT_1</para>
     /// <para>最大长度：100</para>
@@ -40,7 +40,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchBodyDto
     public string[]? CityCodeList { get; set; }
 
     /// <summary>
-    /// <para>职能分类列表</para>
+    /// <para>职能分类列表，详情请参考：[获取职能分类列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_function/list)</para>
     /// <para>必填：否</para>
     /// <para>示例值：6916472453069883661</para>
     /// <para>最大长度：100</para>
@@ -49,7 +49,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchBodyDto
     public string[]? JobFunctionIdList { get; set; }
 
     /// <summary>
-    /// <para>职位项目列表</para>
+    /// <para>职位项目列表，详情请参考：[获取项目列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/subject/list)</para>
     /// <para>必填：否</para>
     /// <para>示例值：6916472453069883661</para>
     /// <para>最大长度：100</para>
@@ -71,7 +71,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchBodyDto
     /// <para>示例值：1618500278663</para>
     /// </summary>
     [JsonPropertyName("update_start_time")]
-    public long? UpdateStartTime { get; set; }
+    public string? UpdateStartTime { get; set; }
 
     /// <summary>
     /// <para>最晚更新时间，毫秒级时间戳</para>
@@ -79,7 +79,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchBodyDto
     /// <para>示例值：1618500278663</para>
     /// </summary>
     [JsonPropertyName("update_end_time")]
-    public long? UpdateEndTime { get; set; }
+    public string? UpdateEndTime { get; set; }
 
     /// <summary>
     /// <para>最早创建时间，毫秒级时间戳</para>
@@ -87,7 +87,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchBodyDto
     /// <para>示例值：1618500278663</para>
     /// </summary>
     [JsonPropertyName("create_start_time")]
-    public long? CreateStartTime { get; set; }
+    public string? CreateStartTime { get; set; }
 
     /// <summary>
     /// <para>最晚创建时间，毫秒级时间戳</para>
@@ -95,5 +95,5 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchBodyDto
     /// <para>示例值：1618500278663</para>
     /// </summary>
     [JsonPropertyName("create_end_time")]
-    public long? CreateEndTime { get; set; }
+    public string? CreateEndTime { get; set; }
 }

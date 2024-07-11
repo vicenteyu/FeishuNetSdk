@@ -46,7 +46,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     public string TimeZone { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>绑定的部门 ID（与「need_punch_members」同时使用时，以当前字段为准）</para>
+    /// <para>绑定的部门 ID（与「need_punch_members」同时使用时，以当前字段为准）。对应dept_type</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("bind_dept_ids")]
@@ -60,28 +60,28 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     public string[]? ExceptDeptIds { get; set; }
 
     /// <summary>
-    /// <para>绑定的用户 ID（与「need_punch_members」同时使用时，以当前字段为准）</para>
+    /// <para>绑定的用户 ID（与「need_punch_members」同时使用时，以当前字段为准），对应employee_type</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("bind_user_ids")]
     public string[]? BindUserIds { get; set; }
 
     /// <summary>
-    /// <para>排除的用户 ID（该字段已下线）</para>
+    /// <para>排除的用户 ID（该字段已下线），对应employee_type</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("except_user_ids")]
     public string[]? ExceptUserIds { get; set; }
 
     /// <summary>
-    /// <para>考勤主负责人 ID 列表，必选字段（需至少拥有考勤组管理员权限）</para>
+    /// <para>考勤主负责人 ID 列表，必选字段（需至少拥有考勤组管理员权限），对应employee_type</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("group_leader_ids")]
     public string[] GroupLeaderIds { get; set; } = Array.Empty<string>();
 
     /// <summary>
-    /// <para>考勤子负责人 ID 列表</para>
+    /// <para>考勤子负责人 ID 列表，对应employee_type</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("sub_group_leader_ids")]
@@ -327,7 +327,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     public record Location
     {
         /// <summary>
-        /// <para>地址 ID</para>
+        /// <para>地址 ID，系统ID只透传，暂时无用</para>
         /// <para>必填：否</para>
         /// <para>示例值：6921213751454744578</para>
         /// </summary>
@@ -471,7 +471,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         public string FreeEndTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>打卡的时间，为 7 位数字，每一位依次代表周一到周日，0 为不上班，1 为上班</para>
+        /// <para>打卡的时间，为 7 位数字，每一位依次代表周一到周日，0 为不上班，1 为上班。例如示例值1111100，代表从周一到周五上班，周六周日休息</para>
         /// <para>必填：是</para>
         /// <para>示例值：1111100</para>
         /// </summary>
@@ -532,7 +532,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         public int PunchDay { get; set; }
 
         /// <summary>
-        /// <para>班次 ID</para>
+        /// <para>班次 ID，可使用此id查询[班次详情](https://open.larkoffice.com/document/server-docs/attendance-v1/shift/get)</para>
         /// <para>必填：是</para>
         /// <para>示例值：6919668827865513935</para>
         /// </summary>
@@ -556,9 +556,11 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     public bool? WorkDayNoPunchAsLack { get; set; }
 
     /// <summary>
-    /// <para>补卡周期类型</para>
+    /// <para>补卡周期类型。1为按自然月，2为自定义周期</para>
+    /// <para>* 1：MONTH</para>
+    /// <para>* 2：CUSTOM</para>
     /// <para>必填：否</para>
-    /// <para>示例值：0</para>
+    /// <para>示例值：1</para>
     /// </summary>
     [JsonPropertyName("remedy_period_type")]
     public int? RemedyPeriodType { get; set; }
@@ -673,19 +675,19 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     public bool? LeaveNeedPunch { get; set; }
 
     /// <summary>
-    /// <para>请假离岗或返岗打卡规则</para>
+    /// <para>请假离岗或返岗打卡规则，单位：分钟</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("leave_need_punch_cfg")]
     public GetAttendanceV1GroupsByGroupIdResponseDtoLeaveNeedPunchCfg? LeaveNeedPunchCfg { get; set; }
 
     /// <summary>
-    /// <para>请假离岗或返岗打卡规则</para>
+    /// <para>请假离岗或返岗打卡规则，单位：分钟</para>
     /// </summary>
     public record GetAttendanceV1GroupsByGroupIdResponseDtoLeaveNeedPunchCfg
     {
         /// <summary>
-        /// <para>晚到超过多久记为迟到</para>
+        /// <para>晚到超过多久记为迟到，单位：分钟</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -693,7 +695,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         public int? LateMinutesAsLate { get; set; }
 
         /// <summary>
-        /// <para>晚到超过多久记为缺卡</para>
+        /// <para>晚到超过多久记为缺卡，单位：分钟</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -701,7 +703,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         public int? LateMinutesAsLack { get; set; }
 
         /// <summary>
-        /// <para>早走超过多久记为早退</para>
+        /// <para>早走超过多久记为早退，单位：分钟</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -709,7 +711,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         public int? EarlyMinutesAsEarly { get; set; }
 
         /// <summary>
-        /// <para>早走超过多久记为缺卡</para>
+        /// <para>早走超过多久记为缺卡，单位：分钟</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -726,19 +728,19 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     public int? GoOutNeedPunch { get; set; }
 
     /// <summary>
-    /// <para>外出期间打卡规则</para>
+    /// <para>外出期间打卡规则，单位：分钟</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("go_out_need_punch_cfg")]
     public LeaveNeedPunchCfgSuffix? GoOutNeedPunchCfg { get; set; }
 
     /// <summary>
-    /// <para>外出期间打卡规则</para>
+    /// <para>外出期间打卡规则，单位：分钟</para>
     /// </summary>
     public record LeaveNeedPunchCfgSuffix
     {
         /// <summary>
-        /// <para>晚到超过多久记为迟到</para>
+        /// <para>晚到超过多久记为迟到，单位：分钟</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -746,7 +748,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         public int? LateMinutesAsLate { get; set; }
 
         /// <summary>
-        /// <para>晚到超过多久记为缺卡</para>
+        /// <para>晚到超过多久记为缺卡，单位：分钟</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -754,7 +756,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         public int? LateMinutesAsLack { get; set; }
 
         /// <summary>
-        /// <para>早走超过多久记为早退</para>
+        /// <para>早走超过多久记为早退，单位：分钟</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -762,7 +764,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         public int? EarlyMinutesAsEarly { get; set; }
 
         /// <summary>
-        /// <para>早走超过多久记为缺卡</para>
+        /// <para>早走超过多久记为缺卡，单位：分钟</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -779,7 +781,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     public int? TravelNeedPunch { get; set; }
 
     /// <summary>
-    /// <para>出差期间打卡规则</para>
+    /// <para>出差期间打卡规则，单位：分钟</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("travel_need_punch_cfg")]
@@ -842,6 +844,14 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
 
             /// <summary>
             /// <para>范围类型（是否包含）</para>
+            /// <para>* 1: 包含</para>
+            /// <para>* 2: 不包含</para>
+            /// <para>* 3: 相等</para>
+            /// <para>* 4: 小于等于</para>
+            /// <para>* 5: 大于等于</para>
+            /// <para>* 6: 大于</para>
+            /// <para>* 7: 小于</para>
+            /// <para>* 8: 不相等</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
@@ -928,14 +938,14 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     public bool? OrgChangeAutoAdjust { get; set; }
 
     /// <summary>
-    /// <para>参与无需打卡的部门 ID 列表（与「no_need_punch_members」同时使用时，以当前字段为准）</para>
+    /// <para>参与无需打卡的部门 ID 列表（与「no_need_punch_members」同时使用时，以当前字段为准）。对应dept_type</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("bind_default_dept_ids")]
     public string[]? BindDefaultDeptIds { get; set; }
 
     /// <summary>
-    /// <para>参与无需打卡的人员 ID 列表（与「no_need_punch_members」同时使用时，以当前字段为准）</para>
+    /// <para>参与无需打卡的人员 ID 列表（与「no_need_punch_members」同时使用时，以当前字段为准）。对应employee_type</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("bind_default_user_ids")]

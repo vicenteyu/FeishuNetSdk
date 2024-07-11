@@ -35,6 +35,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto
     {
         /// <summary>
         /// <para>员工 ID</para>
+        /// <para>可以使用[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)接口获取员工其他信息。</para>
         /// <para>必填：是</para>
         /// <para>示例值：6967639606963471902</para>
         /// </summary>
@@ -152,7 +153,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto
                 public record OrgTruncation
                 {
                     /// <summary>
-                    /// <para>组织名称</para>
+                    /// <para>组织管理维度名称</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：department</para>
                     /// </summary>
@@ -161,6 +162,8 @@ public record GetCorehrV1AuthorizationsQueryResponseDto
 
                     /// <summary>
                     /// <para>下钻类型</para>
+                    /// <para>- 0 = 对当前管理维度及下级管理维度均有权限</para>
+                    /// <para>- 1 = 只对当前管理维度有权限，不包含其下级管理维度</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：0</para>
                     /// <para>最大值：100</para>
@@ -351,7 +354,11 @@ public record GetCorehrV1AuthorizationsQueryResponseDto
                         public record FilterRuleValue
                         {
                             /// <summary>
-                            /// <para>规则值类型</para>
+                            /// <para>规则值类型（value的类型）</para>
+                            /// <para>- 0 = 字符串</para>
+                            /// <para>- 1 = 数字</para>
+                            /// <para>- 2 = 字符串数组</para>
+                            /// <para>- 3 = 数字数组</para>
                             /// <para>必填：否</para>
                             /// <para>示例值：1</para>
                             /// </summary>
@@ -402,6 +409,8 @@ public record GetCorehrV1AuthorizationsQueryResponseDto
 
                         /// <summary>
                         /// <para>右值类型</para>
+                        /// <para>- 1 = 指定值</para>
+                        /// <para>- 2 = 引用</para>
                         /// <para>必填：否</para>
                         /// <para>示例值：1</para>
                         /// <para>最大值：100</para>
@@ -424,7 +433,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto
             /// <summary>
             /// <para>更新时间(时间戳，单位：s)</para>
             /// <para>必填：否</para>
-            /// <para>示例值：1641883226867361</para>
+            /// <para>示例值：1720584039</para>
             /// </summary>
             [JsonPropertyName("update_time")]
             public string? UpdateTime { get; set; }

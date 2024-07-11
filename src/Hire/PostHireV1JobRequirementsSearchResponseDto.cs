@@ -264,7 +264,7 @@ public record PostHireV1JobRequirementsSearchResponseDto
         public string? MinSalary { get; set; }
 
         /// <summary>
-        /// <para>工作地点</para>
+        /// <para>工作地点，详情请参考：[获取地址列表](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/location/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("address")]
@@ -473,7 +473,7 @@ public record PostHireV1JobRequirementsSearchResponseDto
         }
 
         /// <summary>
-        /// <para>关联职位 ID</para>
+        /// <para>关联职位 ID，详情请参考：[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_id_list")]
@@ -492,14 +492,14 @@ public record PostHireV1JobRequirementsSearchResponseDto
         public int? ProcessType { get; set; }
 
         /// <summary>
-        /// <para>职位类别</para>
+        /// <para>职位类别，详情请参考：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_type")]
         public JobTypeInfo? JobType { get; set; }
 
         /// <summary>
-        /// <para>职位类别</para>
+        /// <para>职位类别，详情请参考：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)</para>
         /// </summary>
         public record JobTypeInfo
         {

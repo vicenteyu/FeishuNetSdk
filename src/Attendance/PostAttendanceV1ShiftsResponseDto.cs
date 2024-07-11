@@ -34,7 +34,7 @@ public record PostAttendanceV1ShiftsResponseDto
     public record PostAttendanceV1ShiftsResponseDtoShift
     {
         /// <summary>
-        /// <para>班次 ID</para>
+        /// <para>班次 ID，调用本接口系统自动生成</para>
         /// <para>必填：是</para>
         /// <para>示例值：6919358778597097404</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record PostAttendanceV1ShiftsResponseDto
         public string ShiftId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>班次名称</para>
+        /// <para>班次名称，对应入参的班次名称</para>
         /// <para>必填：是</para>
         /// <para>示例值：早班</para>
         /// </summary>
@@ -58,7 +58,7 @@ public record PostAttendanceV1ShiftsResponseDto
         public int PunchTimes { get; set; }
 
         /// <summary>
-        /// <para>暂不开启使用</para>
+        /// <para>无效字段，请勿使用</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("sub_shift_leader_ids")]
@@ -73,7 +73,7 @@ public record PostAttendanceV1ShiftsResponseDto
         public bool? IsFlexible { get; set; }
 
         /// <summary>
-        /// <para>弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效</para>
+        /// <para>弹性打卡时间，单位：分钟，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效</para>
         /// <para>必填：否</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -93,7 +93,7 @@ public record PostAttendanceV1ShiftsResponseDto
         public record FlexibleRule
         {
             /// <summary>
-            /// <para>下班最多可早走（上班早到几分钟，下班可早走几分钟）</para>
+            /// <para>下班最多可早走，单位：分钟（上班早到几分钟，下班可早走几分钟）</para>
             /// <para>必填：是</para>
             /// <para>示例值：60</para>
             /// </summary>
@@ -101,7 +101,7 @@ public record PostAttendanceV1ShiftsResponseDto
             public int FlexibleEarlyMinutes { get; set; }
 
             /// <summary>
-            /// <para>上班最多可晚到（上班晚到几分钟，下班须晚走几分钟）</para>
+            /// <para>上班最多可晚到，单位：分钟（上班晚到几分钟，下班须晚走几分钟）</para>
             /// <para>必填：是</para>
             /// <para>示例值：60</para>
             /// </summary>
@@ -146,7 +146,7 @@ public record PostAttendanceV1ShiftsResponseDto
             public string OffTime { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>晚到多久记为迟到</para>
+            /// <para>晚到多久记为迟到，单位：分钟</para>
             /// <para>必填：是</para>
             /// <para>示例值：30</para>
             /// </summary>
@@ -154,7 +154,7 @@ public record PostAttendanceV1ShiftsResponseDto
             public int LateMinutesAsLate { get; set; }
 
             /// <summary>
-            /// <para>晚到多久记为缺卡</para>
+            /// <para>晚到多久记为缺卡，单位：分钟</para>
             /// <para>必填：是</para>
             /// <para>示例值：60</para>
             /// </summary>
@@ -162,7 +162,7 @@ public record PostAttendanceV1ShiftsResponseDto
             public int LateMinutesAsLack { get; set; }
 
             /// <summary>
-            /// <para>最早多久可打上班卡</para>
+            /// <para>最早多久可打上班卡，单位：分钟</para>
             /// <para>必填：是</para>
             /// <para>示例值：60</para>
             /// </summary>
@@ -170,7 +170,7 @@ public record PostAttendanceV1ShiftsResponseDto
             public int OnAdvanceMinutes { get; set; }
 
             /// <summary>
-            /// <para>早退多久记为早退</para>
+            /// <para>早退多久记为早退，单位：分钟</para>
             /// <para>必填：是</para>
             /// <para>示例值：30</para>
             /// </summary>
@@ -178,7 +178,7 @@ public record PostAttendanceV1ShiftsResponseDto
             public int EarlyMinutesAsEarly { get; set; }
 
             /// <summary>
-            /// <para>早退多久记为缺卡</para>
+            /// <para>早退多久记为缺卡，单位：分钟</para>
             /// <para>必填：是</para>
             /// <para>示例值：60</para>
             /// </summary>
@@ -186,7 +186,7 @@ public record PostAttendanceV1ShiftsResponseDto
             public int EarlyMinutesAsLack { get; set; }
 
             /// <summary>
-            /// <para>最晚多久可打下班卡</para>
+            /// <para>最晚多久可打下班卡，单位：分钟</para>
             /// <para>必填：是</para>
             /// <para>示例值：60</para>
             /// </summary>
@@ -231,7 +231,7 @@ public record PostAttendanceV1ShiftsResponseDto
         public record LateOffLateOnRule
         {
             /// <summary>
-            /// <para>晚走多久</para>
+            /// <para>晚走多久，单位：分钟</para>
             /// <para>必填：是</para>
             /// <para>示例值：60</para>
             /// </summary>
@@ -239,7 +239,7 @@ public record PostAttendanceV1ShiftsResponseDto
             public int LateOffMinutes { get; set; }
 
             /// <summary>
-            /// <para>晚到多久</para>
+            /// <para>晚到多久，单位：分钟</para>
             /// <para>必填：是</para>
             /// <para>示例值：30</para>
             /// </summary>

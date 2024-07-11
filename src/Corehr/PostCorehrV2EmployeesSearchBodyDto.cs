@@ -22,7 +22,9 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2EmployeesSearchBodyDto
 {
     /// <summary>
-    /// <para>返回数据的字段列表，为空时不返回任何字段</para>
+    /// <para>需要查询的字段列表</para>
+    /// <para>- 可参考响应体的结构，选择需要查询的字段填入</para>
+    /// <para>- 为空时不返回任何字段</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -31,13 +33,14 @@ public record PostCorehrV2EmployeesSearchBodyDto
 
     /// <summary>
     /// <para>雇佣 ID 列表</para>
+    /// <para>- ID类型应于 user_id_type 一致</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("employment_id_list")]
     public string[]? EmploymentIdList { get; set; }
 
     /// <summary>
-    /// <para>工号列表</para>
+    /// <para>工号列表，是在[【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create)时主动传递的或者自动生成的工号</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("employee_number_list")]
@@ -82,7 +85,8 @@ public record PostCorehrV2EmployeesSearchBodyDto
     public string? EmploymentStatus { get; set; }
 
     /// <summary>
-    /// <para>人员类型 ID</para>
+    /// <para>人员类型 ID，可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)</para>
+    /// <para>接口获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：6971090097697521314</para>
     /// </summary>
@@ -90,7 +94,8 @@ public record PostCorehrV2EmployeesSearchBodyDto
     public string? EmployeeTypeId { get; set; }
 
     /// <summary>
-    /// <para>部门 ID，根据员工主职的直接部门查询，可以通过【查询部门】API 获取 部门 ID</para>
+    /// <para>部门 ID，根据员工主职的直接部门查询，可以通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) API 获取 部门 ID</para>
+    /// <para>- ID 类型应与 open_departemtn_id 一致</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("department_id_list")]
@@ -98,6 +103,9 @@ public record PostCorehrV2EmployeesSearchBodyDto
 
     /// <summary>
     /// <para>直接上级的雇佣 ID，根据员工主职的直接上级查询</para>
+    /// <para>- 可基于当前接口获取员工的直属上级雇佣ID</para>
+    /// <para>- 可基于[【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create)时返回的雇佣ID</para>
+    /// <para>- ID 类型应与 user_id_type 一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：7027024823985447820</para>
     /// </summary>
@@ -106,6 +114,10 @@ public record PostCorehrV2EmployeesSearchBodyDto
 
     /// <summary>
     /// <para>虚线上级的雇佣 ID，根据员工主职的虚线上级查询</para>
+    /// <para>- 可基于当前接口获取员工的虚线上级雇佣ID</para>
+    /// <para>- 可基于[【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create)时返回的雇佣ID</para>
+    /// <para>- 可基于当前接口获取员工的虚线上级雇佣ID</para>
+    /// <para>- ID 类型应与 user_id_type 一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：7027024823985117820</para>
     /// </summary>
@@ -146,6 +158,8 @@ public record PostCorehrV2EmployeesSearchBodyDto
 
     /// <summary>
     /// <para>工作地点 ID 列表，查询属于该工作地点及下级工作地点的员工</para>
+    /// <para>- 可通过 [【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)</para>
+    /// <para>接口获取</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -194,6 +208,9 @@ public record PostCorehrV2EmployeesSearchBodyDto
 
     /// <summary>
     /// <para>部门 ID 列表，查询属于该部门及下级部门的员工</para>
+    /// <para>- 可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)</para>
+    /// <para>获取</para>
+    /// <para>- ID 类型应与 open_department_id 一致</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>

@@ -50,14 +50,14 @@ public record PostAttendanceV1UserStatsDatasQueryResponseDto
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>用户的统计数据</para>
+        /// <para>用户的统计数据，code信息对应[查询统计表头](https://open.larkoffice.com/document/server-docs/attendance-v1/user_stats_data/query-2)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("datas")]
         public UserStatsDataCell[]? Datas { get; set; }
 
         /// <summary>
-        /// <para>用户的统计数据</para>
+        /// <para>用户的统计数据，code信息对应[查询统计表头](https://open.larkoffice.com/document/server-docs/attendance-v1/user_stats_data/query-2)</para>
         /// </summary>
         public record UserStatsDataCell
         {
@@ -118,7 +118,7 @@ public record PostAttendanceV1UserStatsDatasQueryResponseDto
     }
 
     /// <summary>
-    /// <para>无权限获取的用户列表</para>
+    /// <para>无权限获取的用户列表，与employee_type对应</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("invalid_user_list")]

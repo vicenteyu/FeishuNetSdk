@@ -31,7 +31,7 @@ public record PatchHireV1EhrImportTasksByEhrImportTaskIdBodyDto
     public string? FailReason { get; set; }
 
     /// <summary>
-    /// <para>跳转链接，若需返回跳转链接，请前往飞书招聘」-「设置」-「生态对接」- 「e-HR / OA 办公系统」 - 『导入 e-HR』功能设置」中开启「支持对接的 e-HR / OA 系统返回外部链接」开关</para>
+    /// <para>跳转链接，若需返回跳转链接，请前往「飞书招聘」-「设置」-「生态对接」- 「e-HR / OA 办公系统」 - 「导入 e-HR」功能设置中开启「支持对接的 e-HR / OA 系统返回外部链接」开关</para>
     /// <para>必填：否</para>
     /// <para>示例值：https://example.com</para>
     /// </summary>

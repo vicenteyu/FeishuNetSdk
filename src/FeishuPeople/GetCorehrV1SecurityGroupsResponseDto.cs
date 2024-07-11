@@ -139,7 +139,7 @@ public record GetCorehrV1SecurityGroupsResponseDto
         public record OrgTruncation
         {
             /// <summary>
-            /// <para>组织名称</para>
+            /// <para>组织管理维度名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：department</para>
             /// </summary>
@@ -148,6 +148,8 @@ public record GetCorehrV1SecurityGroupsResponseDto
 
             /// <summary>
             /// <para>下钻类型</para>
+            /// <para>- 0 = 对当前管理维度及下级管理维度均有权限</para>
+            /// <para>- 1 = 只对当前管理维度有权限，不包含其下级管理维度</para>
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// <para>最大值：100</para>

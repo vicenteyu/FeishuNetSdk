@@ -30,7 +30,7 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
     public string[] UserIds { get; set; } = Array.Empty<string>();
 
     /// <summary>
-    /// <para>查询的起始工作日。最大值为当前日期加 1</para>
+    /// <para>查询的起始日期。格式yyyyMMdd</para>
     /// <para>必填：是</para>
     /// <para>示例值：20190817</para>
     /// </summary>
@@ -38,7 +38,7 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
     public int CheckDateFrom { get; set; }
 
     /// <summary>
-    /// <para>查询的结束工作日，与 check_date_from 的时间间隔不超过 30 天</para>
+    /// <para>查询的结束日期，与 check_date_from 的时间间隔不超过 30 天。格式yyyyMMdd</para>
     /// <para>必填：是</para>
     /// <para>示例值：20190820</para>
     /// </summary>
