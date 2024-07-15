@@ -63,6 +63,8 @@ public record PostImV1ChatsByChatIdChatTabsUpdateTabsBodyDto
         /// <item>chat_announcement：群公告</item>
         /// <item>url：URL</item>
         /// <item>file：文件</item>
+        /// <item>files_resources：合并类型, 包含文件、Doc文档、URL链接</item>
+        /// <item>images_videos：合并类型，包含图片、视频</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("tab_type")]

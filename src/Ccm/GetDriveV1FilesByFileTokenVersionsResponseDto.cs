@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取文档版本列表 响应体
-/// <para>获取文档所有版本。</para>
+/// <para>获取文档或电子表格的版本列表。</para>
 /// <para>接口ID：7156062028484984836</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/file-version/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-version%2flist</para>
@@ -34,31 +34,31 @@ public record GetDriveV1FilesByFileTokenVersionsResponseDto
     public record Version
     {
         /// <summary>
-        /// <para>版本文档标题</para>
+        /// <para>版本文档的标题</para>
         /// <para>必填：否</para>
-        /// <para>示例值：文档标题</para>
+        /// <para>示例值：项目文档 第1版</para>
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// <para>版本文档版本号</para>
+        /// <para>版本文档的版本标识</para>
         /// <para>必填：否</para>
-        /// <para>示例值：version1</para>
+        /// <para>示例值：fnJfyX</para>
         /// </summary>
         [JsonPropertyName("version")]
         public string? VersionSuffix { get; set; }
 
         /// <summary>
-        /// <para>创建版本的文档Token，如何获取文档Token可以参考[如何获取云文档相关token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
+        /// <para>当前版本对应的源文档的 token</para>
         /// <para>必填：否</para>
-        /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb</para>
+        /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJabcef</para>
         /// </summary>
         [JsonPropertyName("parent_token")]
         public string? ParentToken { get; set; }
 
         /// <summary>
-        /// <para>版本文档所有者id，user_id</para>
+        /// <para>版本文档的所有者的 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：694699009591869450</para>
         /// </summary>
@@ -66,7 +66,7 @@ public record GetDriveV1FilesByFileTokenVersionsResponseDto
         public string? OwnerId { get; set; }
 
         /// <summary>
-        /// <para>版本文档创建者id， user_id</para>
+        /// <para>版本文档的创建者的 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：694699009591869451</para>
         /// </summary>
@@ -74,7 +74,7 @@ public record GetDriveV1FilesByFileTokenVersionsResponseDto
         public string? CreatorId { get; set; }
 
         /// <summary>
-        /// <para>版本文档创建时间</para>
+        /// <para>版本文档的创建时间，Unix 时间戳，单位为秒</para>
         /// <para>必填：否</para>
         /// <para>示例值：1660708537</para>
         /// </summary>
@@ -82,7 +82,7 @@ public record GetDriveV1FilesByFileTokenVersionsResponseDto
         public string? CreateTime { get; set; }
 
         /// <summary>
-        /// <para>版本文档更新时间</para>
+        /// <para>版本文档的更新时间</para>
         /// <para>必填：否</para>
         /// <para>示例值：1660708537</para>
         /// </summary>
@@ -90,7 +90,7 @@ public record GetDriveV1FilesByFileTokenVersionsResponseDto
         public string? UpdateTime { get; set; }
 
         /// <summary>
-        /// <para>版本文档状态</para>
+        /// <para>版本文档的状态</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// <para>可选值：<list type="bullet">
@@ -103,7 +103,7 @@ public record GetDriveV1FilesByFileTokenVersionsResponseDto
         public string? Status { get; set; }
 
         /// <summary>
-        /// <para>版本文档类型</para>
+        /// <para>版本文档的类型</para>
         /// <para>必填：否</para>
         /// <para>示例值：docx</para>
         /// <para>可选值：<list type="bullet">
@@ -115,7 +115,7 @@ public record GetDriveV1FilesByFileTokenVersionsResponseDto
         public string? ObjType { get; set; }
 
         /// <summary>
-        /// <para>源文档类型</para>
+        /// <para>源文档的类型</para>
         /// <para>必填：否</para>
         /// <para>示例值：docx</para>
         /// <para>可选值：<list type="bullet">
@@ -130,7 +130,7 @@ public record GetDriveV1FilesByFileTokenVersionsResponseDto
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
-    /// <para>示例值：1665739380</para>
+    /// <para>示例值：CISAiM6u8vGzZhCTj5+zBhgB</para>
     /// </summary>
     [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }

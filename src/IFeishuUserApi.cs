@@ -12722,7 +12722,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7156062028484984836</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-version/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取文档所有版本。</para>
+    /// <para>获取文档或电子表格的版本列表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive:version</item>
     /// <item>drive:drive:version:readonly</item>
@@ -12734,8 +12734,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>源文档token，如何获取文档Token可以参考[如何获取云文档相关token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb</para>
+    /// <para>源文档的 token。获取方式参考 [如何获取云文档相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJabcef</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：是</para>
@@ -12751,7 +12751,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="obj_type">
     /// <para>必填：是</para>
-    /// <para>原文档类型</para>
+    /// <para>源文档的类型</para>
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>docx：新版文档</item>
@@ -12780,11 +12780,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【云文档】获取文档版本</para>
+    /// <para>【云文档】获取文档版本信息</para>
     /// <para>接口ID：7156062028485001220</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-version/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取文档版本。</para>
+    /// <para>该接口用于获取文档或电子表格指定版本的信息，包括标题、标识、创建者、创建时间等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive:version</item>
     /// <item>drive:drive:version:readonly</item>
@@ -12796,18 +12796,18 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>源文档token</para>
-    /// <para>示例值：shtbcqqoXZJaKYrfN5IHQg4sVFZ</para>
+    /// <para>源文档的 token。获取方式参考 [如何获取云文档相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：shtbcqqoXZJaKYrfN5IHQgabcef</para>
     /// </param>
     /// <param name="version_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>版本文档版本号</para>
-    /// <para>示例值：file_version</para>
+    /// <para>版本文档的版本标识</para>
+    /// <para>示例值：fnJfyX</para>
     /// </param>
     /// <param name="obj_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>源文档的类型</para>
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>docx：新版文档</item>
@@ -12839,7 +12839,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7156062028485017604</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-version/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除文档版本。</para>
+    /// <para>删除基于在线文档或电子表格创建的版本。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive:version</item>
     /// </list></para>
@@ -12850,18 +12850,18 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>版本文档token，如何获取文档Token可以参考[如何获取云文档相关token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb</para>
+    /// <para>当前版本对应的源文档的 token。获取方式参考[如何获取云文档相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJabcef</para>
     /// </param>
     /// <param name="version_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>版本文档版本号</para>
-    /// <para>示例值：file_version</para>
+    /// <para>版本文档版本标识</para>
+    /// <para>示例值：fnJfyX</para>
     /// </param>
     /// <param name="obj_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>源文档的类型</para>
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>docx：新版文档</item>
@@ -12893,7 +12893,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7156062028485033988</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-version/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>创建文档版本。</para>
+    /// <para>创建文档版本。文档支持在线文档或电子表格。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive:version</item>
     /// </list></para>
@@ -12904,8 +12904,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>源文档token，如何获取文档Token可以参考[如何获取云文档相关token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb</para>
+    /// <para>源文档的 token，获取方式参考 [如何获取云文档相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJabcef</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 创建或修改排班表 请求体
-/// <para>班表是用来描述考勤组内人员每天按哪个班次进行上班。目前班表支持按一个整月对一位或多位人员进行排班。</para>
+/// <para>班表是用来描述考勤组内人员每天按哪个班次进行上班。目前班表支持按一个整月对一位或多位人员进行排班。当用户的排班数据不存在时会进行创建，当用户的排班数据存在时会按照入参信息进行修改。注意：每人每天只能在一个考勤组中。</para>
 /// <para>接口ID：7044467124773388289</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_daily_shift/batch_create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_daily_shift%2fbatch_create</para>
@@ -58,7 +58,7 @@ public record PostAttendanceV1UserDailyShiftsBatchCreateBodyDto
         public int Month { get; set; }
 
         /// <summary>
-        /// <para>用户 ID</para>
+        /// <para>用户 ID，与employee_type对应</para>
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
@@ -75,7 +75,7 @@ public record PostAttendanceV1UserDailyShiftsBatchCreateBodyDto
     }
 
     /// <summary>
-    /// <para>操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段</para>
+    /// <para>操作人uid，与employee_type对应。如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段</para>
     /// <para>必填：否</para>
     /// <para>示例值：dd31248a</para>
     /// </summary>

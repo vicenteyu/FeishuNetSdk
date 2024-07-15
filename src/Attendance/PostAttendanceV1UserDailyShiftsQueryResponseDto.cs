@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询排班表 响应体
-/// <para>支持查询多个用户的排班情况，查询的时间跨度不能超过 30 天。</para>
+/// <para>支持查询多个用户的排班情况，注意此接口返回的是用户维度的排班结果，与页面功能并不对应。可以通过返回结果中的group_id查询考勤组[按 ID 查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/get) ，shift_id查询班次[按 ID 查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/get) 。查询的时间跨度不能超过 30 天。</para>
 /// <para>接口ID：7044467124773552129</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_daily_shift/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_daily_shift%2fquery</para>
@@ -34,7 +34,7 @@ public record PostAttendanceV1UserDailyShiftsQueryResponseDto
     public record UserDailyShift
     {
         /// <summary>
-        /// <para>考勤组 ID，获取方式：1）[创建或修改考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create) 2）[按名称查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search) 3）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)</para>
+        /// <para>考勤组 ID，可用于[按 ID 查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/get)</para>
         /// <para>必填：是</para>
         /// <para>示例值：6737202939523236110</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record PostAttendanceV1UserDailyShiftsQueryResponseDto
         public string GroupId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>班次 ID，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)</para>
+        /// <para>班次 ID，可用于[按 ID 查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/get)</para>
         /// <para>必填：是</para>
         /// <para>示例值：6753520403404030215</para>
         /// </summary>
@@ -58,7 +58,7 @@ public record PostAttendanceV1UserDailyShiftsQueryResponseDto
         public int Month { get; set; }
 
         /// <summary>
-        /// <para>用户 ID</para>
+        /// <para>用户 ID，与employee_type对应</para>
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
@@ -66,7 +66,7 @@ public record PostAttendanceV1UserDailyShiftsQueryResponseDto
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>日期</para>
+        /// <para>月内日期，最多31天</para>
         /// <para>必填：是</para>
         /// <para>示例值：21</para>
         /// </summary>

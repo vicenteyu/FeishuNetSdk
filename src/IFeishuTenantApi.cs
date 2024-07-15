@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-12
+// Last Modified On : 2024-07-15
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -18566,14 +18566,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773388289</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/batch_create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>班表是用来描述考勤组内人员每天按哪个班次进行上班。目前班表支持按一个整月对一位或多位人员进行排班。</para>
+    /// <para>班表是用来描述考勤组内人员每天按哪个班次进行上班。目前班表支持按一个整月对一位或多位人员进行排班。当用户的排班数据不存在时会进行创建，当用户的排班数据存在时会按照入参信息进行修改。注意：每人每天只能在一个考勤组中。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:rule</item>
     /// </list></para>
     /// </summary>
     /// <param name="employee_type">
     /// <para>必填：是</para>
-    /// <para>请求体和响应体中的 user_id 的员工工号类型</para>
+    /// <para>请求体和响应体中的 user_id 的员工ID类型</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
     /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
@@ -18758,18 +18758,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773552129</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/query</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>支持查询多个用户的排班情况，查询的时间跨度不能超过 30 天。</para>
+    /// <para>支持查询多个用户的排班情况，注意此接口返回的是用户维度的排班结果，与页面功能并不对应。可以通过返回结果中的group_id查询考勤组[按 ID 查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/get) ，shift_id查询班次[按 ID 查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/get) 。查询的时间跨度不能超过 30 天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:task:readonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="employee_type">
     /// <para>必填：是</para>
-    /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工工号类型</para>
+    /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即飞书管理后台 &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
-    /// <item>employee_no：员工工号，即飞书管理后台 &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -26205,7 +26205,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7156062028484984836</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-version/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取文档所有版本。</para>
+    /// <para>获取文档或电子表格的版本列表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive:version</item>
     /// <item>drive:drive:version:readonly</item>
@@ -26217,8 +26217,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>源文档token，如何获取文档Token可以参考[如何获取云文档相关token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb</para>
+    /// <para>源文档的 token。获取方式参考 [如何获取云文档相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJabcef</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：是</para>
@@ -26234,7 +26234,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="obj_type">
     /// <para>必填：是</para>
-    /// <para>原文档类型</para>
+    /// <para>源文档的类型</para>
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>docx：新版文档</item>
@@ -26261,11 +26261,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【云文档】获取文档版本</para>
+    /// <para>【云文档】获取文档版本信息</para>
     /// <para>接口ID：7156062028485001220</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-version/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取文档版本。</para>
+    /// <para>该接口用于获取文档或电子表格指定版本的信息，包括标题、标识、创建者、创建时间等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive:version</item>
     /// <item>drive:drive:version:readonly</item>
@@ -26277,18 +26277,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>源文档token</para>
-    /// <para>示例值：shtbcqqoXZJaKYrfN5IHQg4sVFZ</para>
+    /// <para>源文档的 token。获取方式参考 [如何获取云文档相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：shtbcqqoXZJaKYrfN5IHQgabcef</para>
     /// </param>
     /// <param name="version_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>版本文档版本号</para>
-    /// <para>示例值：file_version</para>
+    /// <para>版本文档的版本标识</para>
+    /// <para>示例值：fnJfyX</para>
     /// </param>
     /// <param name="obj_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>源文档的类型</para>
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>docx：新版文档</item>
@@ -26318,7 +26318,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7156062028485017604</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-version/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除文档版本。</para>
+    /// <para>删除基于在线文档或电子表格创建的版本。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive:version</item>
     /// </list></para>
@@ -26329,18 +26329,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>版本文档token，如何获取文档Token可以参考[如何获取云文档相关token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb</para>
+    /// <para>当前版本对应的源文档的 token。获取方式参考[如何获取云文档相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJabcef</para>
     /// </param>
     /// <param name="version_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>版本文档版本号</para>
-    /// <para>示例值：file_version</para>
+    /// <para>版本文档版本标识</para>
+    /// <para>示例值：fnJfyX</para>
     /// </param>
     /// <param name="obj_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>源文档的类型</para>
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>docx：新版文档</item>
@@ -26370,7 +26370,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7156062028485033988</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-version/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>创建文档版本。</para>
+    /// <para>创建文档版本。文档支持在线文档或电子表格。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive:version</item>
     /// </list></para>
@@ -26381,8 +26381,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>源文档token，如何获取文档Token可以参考[如何获取云文档相关token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb</para>
+    /// <para>源文档的 token，获取方式参考 [如何获取云文档相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doxbcyvqZlSc9WlHvQMlSJabcef</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -36810,6 +36810,89 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string start_time,
         [PathQuery] string end_time,
         [PathQuery] int? page_size = 50,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【Payroll】查询成本分摊报表汇总数据</para>
+    /// <para>接口ID：7319164056023253020</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/cost_allocation_report/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据算薪期间和成本分摊方案id获取成本分摊汇总数据。调用接口前，需在payroll 系统中打开「财务过账」开关，并且完成发布成本分摊报表。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>payroll:cost_allocation_report:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：50</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6823630319749592415</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cost_allocation_plan_id">
+    /// <para>必填：是</para>
+    /// <para>成本分摊方案ID，通过[批量查询成本分摊方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/cost_allocation_plan/list)获取</para>
+    /// <para>示例值：6823630319749580304</para>
+    /// </param>
+    /// <param name="pay_period">
+    /// <para>必填：是</para>
+    /// <para>期间，成本分摊数据对应的年月，格式 为yyyy-MM</para>
+    /// <para>示例值：2023-11</para>
+    /// </param>
+    /// <param name="report_type">
+    /// <para>必填：是</para>
+    /// <para>报表类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>0：默认，表示没有开通计提和实发功能时的报表类型，开通计提和实发之后，该类型报表将无法发布。</item>
+    /// <item>1：计提</item>
+    /// <item>2：实发</item>
+    /// </list>
+    /// </param>
+    [HttpGet("/open-apis/payroll/v1/cost_allocation_reports")]
+    System.Threading.Tasks.Task<FeishuResponse<Payroll.GetPayrollV1CostAllocationReportsResponseDto>> GetPayrollV1CostAllocationReportsAsync(
+        [PathQuery] string cost_allocation_plan_id,
+        [PathQuery] string pay_period,
+        [PathQuery] int report_type,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【Payroll】批量查询成本分摊方案</para>
+    /// <para>接口ID：7319164056023269404</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/cost_allocation_plan/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据期间分页批量查询成本分摊方案，仅返回期间内生效的方案列表。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>payroll:cost_allocation_plan:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：50</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6823630319749592024</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="pay_period">
+    /// <para>必填：是</para>
+    /// <para>期间，生成成本分摊报表对应的年月。格式为 yyyy-MM</para>
+    /// <para>示例值：2023-11</para>
+    /// </param>
+    [HttpGet("/open-apis/payroll/v1/cost_allocation_plans")]
+    System.Threading.Tasks.Task<FeishuResponse<Payroll.GetPayrollV1CostAllocationPlansResponseDto>> GetPayrollV1CostAllocationPlansAsync(
+        [PathQuery] string pay_period,
+        [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null);
 
     /// <summary>
