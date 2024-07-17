@@ -32,7 +32,7 @@ public record GetAuthenV1UserInfoResponseDto
     /// <summary>
     /// <para>用户英文名称</para>
     /// <para>必填：否</para>
-    /// <para>示例值：Three Zhang</para>
+    /// <para>示例值：zhangsan</para>
     /// </summary>
     [JsonPropertyName("en_name")]
     public string? EnName { get; set; }

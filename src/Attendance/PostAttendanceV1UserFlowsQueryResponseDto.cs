@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-18
 // ************************************************************************
 // <copyright file="PostAttendanceV1UserFlowsQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,16 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 批量查询打卡流水 响应体
-/// <para>批量查询授权内员工的实际打卡流水记录。例如，企业给一个员工设定的班次是上午 9 点和下午 6 点各打一次上下班卡，但是该员工在这期间打了多次卡，该接口会把所有的打卡记录都返回。</para>
+/// <para>通过打卡记录 ID 获取用户的打卡流水记录。返回信息主要包含：</para>
+/// <para>* 用户id和创建者id</para>
+/// <para>* 记录信息</para>
+/// <para>* 打卡位置信息、时间信息</para>
+/// <para>* 打卡方式信息</para>
+/// <para>* GPS 打卡：location_name（定位地址信息）</para>
+/// <para>* Wi-Fi 打卡：ssid（wifi名称）、bssid（mac地址）</para>
+/// <para>* 考勤机打卡：device_id（考勤机设备id）</para>
+/// <para>* 打卡结果</para>
+/// <para>对应页面功能打卡管理-[打卡记录](https://example.feishu.cn/people/workforce-management/manage/statistics/flow)</para>
 /// <para>接口ID：7044467124773617665</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_task/query-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_flow%2fquery</para>
@@ -34,7 +43,7 @@ public record PostAttendanceV1UserFlowsQueryResponseDto
     public record UserFlow
     {
         /// <summary>
-        /// <para>用户 ID</para>
+        /// <para>用户 ID，对应employee_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
@@ -42,7 +51,7 @@ public record PostAttendanceV1UserFlowsQueryResponseDto
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>记录创建者 ID</para>
+        /// <para>记录创建者 ID，对应employee_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
@@ -58,7 +67,7 @@ public record PostAttendanceV1UserFlowsQueryResponseDto
         public string LocationName { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>打卡时间，精确到秒的时间戳</para>
+        /// <para>打卡时间，秒级时间戳</para>
         /// <para>必填：是</para>
         /// <para>示例值：1611476284</para>
         /// </summary>
@@ -74,7 +83,7 @@ public record PostAttendanceV1UserFlowsQueryResponseDto
         public string Comment { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>打卡记录 ID</para>
+        /// <para>对应打卡流水记录ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6709359313699356941</para>
         /// </summary>
@@ -114,7 +123,7 @@ public record PostAttendanceV1UserFlowsQueryResponseDto
         public bool? IsWifi { get; set; }
 
         /// <summary>
-        /// <para>记录生成方式</para>
+        /// <para>记录生成方式，在开放平台调用时，此参数无效，内部值始终是7</para>
         /// <para>必填：否</para>
         /// <para>示例值：7</para>
         /// <para>可选值：<list type="bullet">
@@ -139,6 +148,14 @@ public record PostAttendanceV1UserFlowsQueryResponseDto
         public string[]? PhotoUrls { get; set; }
 
         /// <summary>
+        /// <para>打卡设备ID（只支持小程序打卡，导入时无效）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d</para>
+        /// </summary>
+        [JsonPropertyName("device_id")]
+        public string? DeviceId { get; set; }
+
+        /// <summary>
         /// <para>打卡结果，目前仅支持PendingApproval待生效</para>
         /// <para>必填：否</para>
         /// <para>示例值：PendingApproval</para>
@@ -157,5 +174,21 @@ public record PostAttendanceV1UserFlowsQueryResponseDto
         /// </summary>
         [JsonPropertyName("check_result")]
         public string? CheckResult { get; set; }
+
+        /// <summary>
+        /// <para>用户导入的外部打卡记录ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：record_123</para>
+        /// </summary>
+        [JsonPropertyName("external_id")]
+        public string? ExternalId { get; set; }
+
+        /// <summary>
+        /// <para>唯一幂等键</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：****_***</para>
+        /// </summary>
+        [JsonPropertyName("idempotent_id")]
+        public string? IdempotentId { get; set; }
     }
 }

@@ -231,9 +231,9 @@
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetId</td></tr>
 <tr><td rowspan="2">116</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>获取工作表</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQuery</td></tr>
-<tr><td rowspan="2">117</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>操作工作表</td></tr>
+<tr><td rowspan="2">117</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>操作工作表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate</td></tr>
-<tr><td rowspan="2">118</td><td rowspan="2">2024-07-04</td><td>&#10003;</td><td>云文档</td><td>更新工作表属性</td></tr>
+<tr><td rowspan="2">118</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>更新工作表属性</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2</td></tr>
 <tr><td rowspan="2">119</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>增加行列</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRange</td></tr>
@@ -305,23 +305,23 @@
 <tr><td colspan="3">PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionId</td></tr>
 <tr><td rowspan="2">153</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>删除筛选条件</td></tr>
 <tr><td colspan="3">DeleteSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionId</td></tr>
-<tr><td rowspan="2">154</td><td rowspan="2">2024-01-15</td><td>&#10003;</td><td>云文档</td><td>增加保护范围</td></tr>
+<tr><td rowspan="2">154</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>增加保护范围</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimension</td></tr>
-<tr><td rowspan="2">155</td><td rowspan="2">2024-01-15</td><td>&#10003;</td><td>云文档</td><td>获取保护范围</td></tr>
+<tr><td rowspan="2">155</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>获取保护范围</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGet</td></tr>
-<tr><td rowspan="2">156</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>修改保护范围</td></tr>
+<tr><td rowspan="2">156</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>修改保护范围</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdate</td></tr>
-<tr><td rowspan="2">157</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>删除保护范围</td></tr>
+<tr><td rowspan="2">157</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>删除保护范围</td></tr>
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDel</td></tr>
 <tr><td rowspan="2">158</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>删除部门</td></tr>
 <tr><td colspan="3">DeleteContactV3DepartmentsByDepartmentId</td></tr>
-<tr><td rowspan="2">159</td><td rowspan="2">2023-07-13</td><td>&#10003;</td><td>云文档</td><td>查询下拉列表设置</td></tr>
+<tr><td rowspan="2">159</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>查询下拉列表设置</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
-<tr><td rowspan="2">160</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>设置下拉列表</td></tr>
+<tr><td rowspan="2">160</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>设置下拉列表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
-<tr><td rowspan="2">161</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>更新下拉列表设置</td></tr>
+<tr><td rowspan="2">161</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>更新下拉列表设置</td></tr>
 <tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationId</td></tr>
-<tr><td rowspan="2">162</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>删除下拉列表设置</td></tr>
+<tr><td rowspan="2">162</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>删除下拉列表设置</td></tr>
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
 <tr><td rowspan="2">163</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>获取条件格式</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormats</td></tr>
@@ -465,57 +465,57 @@
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodesMoveDocsToWiki</td></tr>
 <tr><td rowspan="2">233</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>获取任务结果</td></tr>
 <tr><td colspan="3">GetWikiV2TasksByTaskId</td></tr>
-<tr><td rowspan="2">234</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>创建共享日历</td></tr>
+<tr><td rowspan="2">234</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>创建共享日历</td></tr>
 <tr><td colspan="3">PostCalendarV4Calendars</td></tr>
-<tr><td rowspan="2">235</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>删除共享日历</td></tr>
+<tr><td rowspan="2">235</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>删除共享日历</td></tr>
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarId</td></tr>
 <tr><td rowspan="2">236</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取父部门信息</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsParent</td></tr>
-<tr><td rowspan="2">237</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>查询主日历信息</td></tr>
+<tr><td rowspan="2">237</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询主日历信息</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsPrimary</td></tr>
-<tr><td rowspan="2">238</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>查询主日历日程忙闲信息</td></tr>
+<tr><td rowspan="2">238</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询主日历日程忙闲信息</td></tr>
 <tr><td colspan="3">PostCalendarV4FreebusyList</td></tr>
-<tr><td rowspan="2">239</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>查询日历信息</td></tr>
+<tr><td rowspan="2">239</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询日历信息</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarId</td></tr>
-<tr><td rowspan="2">240</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>查询日历列表</td></tr>
+<tr><td rowspan="2">240</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询日历列表</td></tr>
 <tr><td colspan="3">GetCalendarV4Calendars</td></tr>
-<tr><td rowspan="2">241</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>更新日历信息</td></tr>
+<tr><td rowspan="2">241</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>更新日历信息</td></tr>
 <tr><td colspan="3">PatchCalendarV4CalendarsByCalendarId</td></tr>
-<tr><td rowspan="2">242</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>搜索日历</td></tr>
+<tr><td rowspan="2">242</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>搜索日历</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsSearch</td></tr>
-<tr><td rowspan="2">243</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>订阅日历</td></tr>
+<tr><td rowspan="2">243</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>订阅日历</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdSubscribe</td></tr>
-<tr><td rowspan="2">244</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>取消订阅日历</td></tr>
+<tr><td rowspan="2">244</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>取消订阅日历</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdUnsubscribe</td></tr>
-<tr><td rowspan="2">245</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>创建访问控制</td></tr>
+<tr><td rowspan="2">245</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>创建访问控制</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdAcls</td></tr>
-<tr><td rowspan="2">246</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>删除访问控制</td></tr>
+<tr><td rowspan="2">246</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>删除访问控制</td></tr>
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarIdAclsByAclId</td></tr>
 <tr><td rowspan="2">247</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>更新部门 ID</td></tr>
 <tr><td colspan="3">PatchContactV3DepartmentsByDepartmentIdUpdateDepartmentId</td></tr>
-<tr><td rowspan="2">248</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>获取访问控制列表</td></tr>
+<tr><td rowspan="2">248</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取访问控制列表</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdAcls</td></tr>
-<tr><td rowspan="2">249</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>创建日程</td></tr>
+<tr><td rowspan="2">249</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>创建日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEvents</td></tr>
-<tr><td rowspan="2">250</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>删除日程</td></tr>
+<tr><td rowspan="2">250</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>删除日程</td></tr>
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
-<tr><td rowspan="2">251</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>更新日程</td></tr>
+<tr><td rowspan="2">251</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>更新日程</td></tr>
 <tr><td colspan="3">PatchCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
-<tr><td rowspan="2">252</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>获取日程</td></tr>
+<tr><td rowspan="2">252</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取日程</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
-<tr><td rowspan="2">253</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>获取日程列表</td></tr>
+<tr><td rowspan="2">253</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取日程列表</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEvents</td></tr>
-<tr><td rowspan="2">254</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>搜索日程</td></tr>
+<tr><td rowspan="2">254</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>搜索日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsSearch</td></tr>
-<tr><td rowspan="2">255</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>解绑会议群</td></tr>
+<tr><td rowspan="2">255</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>解绑会议群</td></tr>
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChat</td></tr>
-<tr><td rowspan="2">256</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>创建会议群</td></tr>
+<tr><td rowspan="2">256</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>创建会议群</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChat</td></tr>
-<tr><td rowspan="2">257</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>创建请假日程</td></tr>
+<tr><td rowspan="2">257</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>创建请假日程</td></tr>
 <tr><td colspan="3">PostCalendarV4TimeoffEvents</td></tr>
 <tr><td rowspan="2">258</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>创建单位</td></tr>
 <tr><td colspan="3">PostContactV3Unit</td></tr>
-<tr><td rowspan="2">259</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>删除请假日程</td></tr>
+<tr><td rowspan="2">259</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>删除请假日程</td></tr>
 <tr><td colspan="3">DeleteCalendarV4TimeoffEventsByTimeoffEventId</td></tr>
 <tr><td rowspan="2">260</td><td rowspan="2">2024-04-10</td><td>&#10003;</td><td>会议室</td><td>查询会议室日程主题和会议详情</td></tr>
 <tr><td colspan="3">PostMeetingRoomSummaryBatchGet</td></tr>
@@ -523,13 +523,13 @@
 <tr><td colspan="3">GetMeetingRoomFreebusyBatchGet</td></tr>
 <tr><td rowspan="2">262</td><td rowspan="2">2024-04-30</td><td>&#10003;</td><td>会议室</td><td>回复会议室日程实例</td></tr>
 <tr><td colspan="3">PostMeetingRoomInstanceReply</td></tr>
-<tr><td rowspan="2">263</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>添加日程参与人</td></tr>
+<tr><td rowspan="2">263</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>添加日程参与人</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendees</td></tr>
-<tr><td rowspan="2">264</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>删除日程参与人</td></tr>
+<tr><td rowspan="2">264</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>删除日程参与人</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDelete</td></tr>
-<tr><td rowspan="2">265</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>获取日程参与人列表</td></tr>
+<tr><td rowspan="2">265</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取日程参与人列表</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendees</td></tr>
-<tr><td rowspan="2">266</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>获取日程参与群成员列表</td></tr>
+<tr><td rowspan="2">266</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取日程参与群成员列表</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttendeeIdChatMembers</td></tr>
 <tr><td rowspan="2">267</td><td rowspan="2">2024-05-20</td><td>&#10003;</td><td>视频会议</td><td>预约会议</td></tr>
 <tr><td colspan="3">PostVcV1ReservesApply</td></tr>
@@ -649,15 +649,15 @@
 <tr><td colspan="3">GetContactV3UnitByUnitId</td></tr>
 <tr><td rowspan="2">325</td><td rowspan="2">2024-07-08</td><td>&#10003;</td><td>考勤打卡</td><td>删除考勤组</td></tr>
 <tr><td colspan="3">DeleteAttendanceV1GroupsByGroupId</td></tr>
-<tr><td rowspan="2">326</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>考勤打卡</td><td>按 ID 查询考勤组</td></tr>
+<tr><td rowspan="2">326</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>考勤打卡</td><td>按 ID 查询考勤组</td></tr>
 <tr><td colspan="3">GetAttendanceV1GroupsByGroupId</td></tr>
 <tr><td rowspan="2">327</td><td rowspan="2">2024-07-08</td><td>&#10003;</td><td>考勤打卡</td><td>按名称查询考勤组</td></tr>
 <tr><td colspan="3">PostAttendanceV1GroupsSearch</td></tr>
 <tr><td rowspan="2">328</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>考勤打卡</td><td>查询所有考勤组</td></tr>
 <tr><td colspan="3">GetAttendanceV1Groups</td></tr>
-<tr><td rowspan="2">329</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改排班表</td></tr>
+<tr><td rowspan="2">329</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改排班表</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserDailyShiftsBatchCreate</td></tr>
-<tr><td rowspan="2">330</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>考勤打卡</td><td>查询排班表</td></tr>
+<tr><td rowspan="2">330</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>考勤打卡</td><td>查询排班表</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserDailyShiftsQuery</td></tr>
 <tr><td rowspan="2">331</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>更新统计设置</td></tr>
 <tr><td colspan="3">PutAttendanceV1UserStatsViewsByUserStatsViewId</td></tr>
@@ -665,15 +665,15 @@
 <tr><td colspan="3">PostAttendanceV1UserStatsFieldsQuery</td></tr>
 <tr><td rowspan="2">333</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>查询统计设置</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserStatsViewsQuery</td></tr>
-<tr><td rowspan="2">334</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>考勤打卡</td><td>查询统计数据</td></tr>
+<tr><td rowspan="2">334</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>考勤打卡</td><td>查询统计数据</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserStatsDatasQuery</td></tr>
 <tr><td rowspan="2">335</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>删除用户</td></tr>
 <tr><td colspan="3">DeleteContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">336</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单位列表</td></tr>
 <tr><td colspan="3">GetContactV3Unit</td></tr>
-<tr><td rowspan="2">337</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>考勤打卡</td><td>获取审批通过数据</td></tr>
+<tr><td rowspan="2">337</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>考勤打卡</td><td>获取审批通过数据</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserApprovalsQuery</td></tr>
-<tr><td rowspan="2">338</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>考勤打卡</td><td>写入审批结果</td></tr>
+<tr><td rowspan="2">338</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>考勤打卡</td><td>写入审批结果</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserApprovals</td></tr>
 <tr><td rowspan="2">339</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>考勤打卡</td><td>通知审批状态更新</td></tr>
 <tr><td colspan="3">PostAttendanceV1ApprovalInfosProcess</td></tr>
@@ -681,21 +681,21 @@
 <tr><td colspan="3">PostAttendanceV1UserTaskRemedys</td></tr>
 <tr><td rowspan="2">341</td><td rowspan="2">2024-07-08</td><td>&#10003;</td><td>考勤打卡</td><td>获取可补卡时间</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedys</td></tr>
-<tr><td rowspan="2">342</td><td rowspan="2">2024-07-08</td><td>&#10003;</td><td>考勤打卡</td><td>获取补卡记录</td></tr>
+<tr><td rowspan="2">342</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>考勤打卡</td><td>获取补卡记录</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserTaskRemedysQuery</td></tr>
-<tr><td rowspan="2">343</td><td rowspan="2">2024-07-11</td><td>&#10003;</td><td>考勤打卡</td><td>导入打卡流水</td></tr>
+<tr><td rowspan="2">343</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>考勤打卡</td><td>导入打卡流水</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserFlowsBatchCreate</td></tr>
-<tr><td rowspan="2">344</td><td rowspan="2">2024-07-08</td><td>&#10003;</td><td>考勤打卡</td><td>查询打卡流水</td></tr>
+<tr><td rowspan="2">344</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>考勤打卡</td><td>查询打卡流水</td></tr>
 <tr><td colspan="3">GetAttendanceV1UserFlowsByUserFlowId</td></tr>
-<tr><td rowspan="2">345</td><td rowspan="2">2024-06-12</td><td>&#10003;</td><td>考勤打卡</td><td>批量查询打卡流水</td></tr>
+<tr><td rowspan="2">345</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>考勤打卡</td><td>批量查询打卡流水</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserFlowsQuery</td></tr>
-<tr><td rowspan="2">346</td><td rowspan="2">2024-07-08</td><td>&#10003;</td><td>考勤打卡</td><td>查询打卡结果</td></tr>
+<tr><td rowspan="2">346</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>考勤打卡</td><td>查询打卡结果</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserTasksQuery</td></tr>
 <tr><td rowspan="2">347</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>添加用户组成员</td></tr>
 <tr><td colspan="3">PostContactV3GroupByGroupIdMemberAdd</td></tr>
 <tr><td rowspan="2">348</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>修改用户人脸识别信息</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserSettingsModify</td></tr>
-<tr><td rowspan="2">349</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>考勤打卡</td><td>批量查询用户人脸识别信息</td></tr>
+<tr><td rowspan="2">349</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>考勤打卡</td><td>批量查询用户人脸识别信息</td></tr>
 <tr><td colspan="3">GetAttendanceV1UserSettingsQuery</td></tr>
 <tr><td rowspan="2">350</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>考勤打卡</td><td>上传用户人脸识别照片</td></tr>
 <tr><td colspan="3">PostAttendanceV1FilesUpload</td></tr>
@@ -999,105 +999,105 @@
 <tr><td colspan="3">PostTaskV2CustomFieldsByCustomFieldGuidOptions</td></tr>
 <tr><td rowspan="2">500</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>任务</td><td>更新自定义字段选项</td></tr>
 <tr><td colspan="3">PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuid</td></tr>
-<tr><td rowspan="2">501</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组</td></tr>
+<tr><td rowspan="2">501</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组</td></tr>
 <tr><td colspan="3">PostMailV1Mailgroups</td></tr>
 <tr><td rowspan="2">502</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>删除职级</td></tr>
 <tr><td colspan="3">DeleteContactV3JobLevelsByJobLevelId</td></tr>
-<tr><td rowspan="2">503</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>删除邮件组</td></tr>
+<tr><td rowspan="2">503</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>删除邮件组</td></tr>
 <tr><td colspan="3">DeleteMailV1MailgroupsByMailgroupId</td></tr>
-<tr><td rowspan="2">504</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>修改邮件组部分信息</td></tr>
+<tr><td rowspan="2">504</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>修改邮件组部分信息</td></tr>
 <tr><td colspan="3">PatchMailV1MailgroupsByMailgroupId</td></tr>
-<tr><td rowspan="2">505</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>修改邮件组全部信息</td></tr>
+<tr><td rowspan="2">505</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>修改邮件组全部信息</td></tr>
 <tr><td colspan="3">PutMailV1MailgroupsByMailgroupId</td></tr>
-<tr><td rowspan="2">506</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>查询指定邮件组</td></tr>
+<tr><td rowspan="2">506</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>查询指定邮件组</td></tr>
 <tr><td colspan="3">GetMailV1MailgroupsByMailgroupId</td></tr>
-<tr><td rowspan="2">507</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件组</td></tr>
+<tr><td rowspan="2">507</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件组</td></tr>
 <tr><td colspan="3">GetMailV1Mailgroups</td></tr>
-<tr><td rowspan="2">508</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>批量创建邮件组管理员</td></tr>
+<tr><td rowspan="2">508</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>批量创建邮件组管理员</td></tr>
 <tr><td colspan="3">PostMailV1MailgroupsByMailgroupIdManagersBatchCreate</td></tr>
-<tr><td rowspan="2">509</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>批量删除邮件组管理员</td></tr>
+<tr><td rowspan="2">509</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>批量删除邮件组管理员</td></tr>
 <tr><td colspan="3">PostMailV1MailgroupsByMailgroupIdManagersBatchDelete</td></tr>
-<tr><td rowspan="2">510</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件组管理员</td></tr>
+<tr><td rowspan="2">510</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件组管理员</td></tr>
 <tr><td colspan="3">GetMailV1MailgroupsByMailgroupIdManagers</td></tr>
-<tr><td rowspan="2">511</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组成员</td></tr>
+<tr><td rowspan="2">511</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组成员</td></tr>
 <tr><td colspan="3">PostMailV1MailgroupsByMailgroupIdMembers</td></tr>
-<tr><td rowspan="2">512</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>删除邮件组成员</td></tr>
+<tr><td rowspan="2">512</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>删除邮件组成员</td></tr>
 <tr><td colspan="3">DeleteMailV1MailgroupsByMailgroupIdMembersByMemberId</td></tr>
 <tr><td rowspan="2">513</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>更新职级</td></tr>
 <tr><td colspan="3">PutContactV3JobLevelsByJobLevelId</td></tr>
-<tr><td rowspan="2">514</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>查询指定邮件组成员</td></tr>
+<tr><td rowspan="2">514</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>查询指定邮件组成员</td></tr>
 <tr><td colspan="3">GetMailV1MailgroupsByMailgroupIdMembersByMemberId</td></tr>
-<tr><td rowspan="2">515</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>获取所有邮件组成员</td></tr>
+<tr><td rowspan="2">515</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>获取所有邮件组成员</td></tr>
 <tr><td colspan="3">GetMailV1MailgroupsByMailgroupIdMembers</td></tr>
-<tr><td rowspan="2">516</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>批量创建邮件组成员</td></tr>
+<tr><td rowspan="2">516</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>批量创建邮件组成员</td></tr>
 <tr><td colspan="3">PostMailV1MailgroupsByMailgroupIdMembersBatchCreate</td></tr>
-<tr><td rowspan="2">517</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>批量删除邮件组成员</td></tr>
+<tr><td rowspan="2">517</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>批量删除邮件组成员</td></tr>
 <tr><td colspan="3">DeleteMailV1MailgroupsByMailgroupIdMembersBatchDelete</td></tr>
-<tr><td rowspan="2">518</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组别名</td></tr>
+<tr><td rowspan="2">518</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组别名</td></tr>
 <tr><td colspan="3">PostMailV1MailgroupsByMailgroupIdAliases</td></tr>
-<tr><td rowspan="2">519</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>删除邮件组别名</td></tr>
+<tr><td rowspan="2">519</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>删除邮件组别名</td></tr>
 <tr><td colspan="3">DeleteMailV1MailgroupsByMailgroupIdAliasesByAliasId</td></tr>
-<tr><td rowspan="2">520</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>获取邮件组所有别名</td></tr>
+<tr><td rowspan="2">520</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>获取邮件组所有别名</td></tr>
 <tr><td colspan="3">GetMailV1MailgroupsByMailgroupIdAliases</td></tr>
-<tr><td rowspan="2">521</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组权限成员</td></tr>
+<tr><td rowspan="2">521</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组权限成员</td></tr>
 <tr><td colspan="3">PostMailV1MailgroupsByMailgroupIdPermissionMembers</td></tr>
-<tr><td rowspan="2">522</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>删除邮件组权限成员</td></tr>
+<tr><td rowspan="2">522</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>删除邮件组权限成员</td></tr>
 <tr><td colspan="3">DeleteMailV1MailgroupsByMailgroupIdPermissionMembersByPermissionMemberId</td></tr>
-<tr><td rowspan="2">523</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>获取邮件组权限成员</td></tr>
+<tr><td rowspan="2">523</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>获取邮件组权限成员</td></tr>
 <tr><td colspan="3">GetMailV1MailgroupsByMailgroupIdPermissionMembersByPermissionMemberId</td></tr>
 <tr><td rowspan="2">524</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单个职级信息</td></tr>
 <tr><td colspan="3">GetContactV3JobLevelsByJobLevelId</td></tr>
-<tr><td rowspan="2">525</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件组权限成员</td></tr>
+<tr><td rowspan="2">525</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件组权限成员</td></tr>
 <tr><td colspan="3">GetMailV1MailgroupsByMailgroupIdPermissionMembers</td></tr>
-<tr><td rowspan="2">526</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>批量创建邮件组权限成员</td></tr>
+<tr><td rowspan="2">526</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>批量创建邮件组权限成员</td></tr>
 <tr><td colspan="3">PostMailV1MailgroupsByMailgroupIdPermissionMembersBatchCreate</td></tr>
-<tr><td rowspan="2">527</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>批量删除邮件组权限成员</td></tr>
+<tr><td rowspan="2">527</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>批量删除邮件组权限成员</td></tr>
 <tr><td colspan="3">DeleteMailV1MailgroupsByMailgroupIdPermissionMembersBatchDelete</td></tr>
-<tr><td rowspan="2">528</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>创建公共邮箱</td></tr>
+<tr><td rowspan="2">528</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>创建公共邮箱</td></tr>
 <tr><td colspan="3">PostMailV1PublicMailboxes</td></tr>
-<tr><td rowspan="2">529</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>修改公共邮箱部分信息</td></tr>
+<tr><td rowspan="2">529</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>修改公共邮箱部分信息</td></tr>
 <tr><td colspan="3">PatchMailV1PublicMailboxesByPublicMailboxId</td></tr>
-<tr><td rowspan="2">530</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>修改公共邮箱全部信息</td></tr>
+<tr><td rowspan="2">530</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>修改公共邮箱全部信息</td></tr>
 <tr><td colspan="3">PutMailV1PublicMailboxesByPublicMailboxId</td></tr>
-<tr><td rowspan="2">531</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>查询指定公共邮箱</td></tr>
+<tr><td rowspan="2">531</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>查询指定公共邮箱</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxesByPublicMailboxId</td></tr>
-<tr><td rowspan="2">532</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
+<tr><td rowspan="2">532</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxes</td></tr>
-<tr><td rowspan="2">533</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>永久删除公共邮箱</td></tr>
+<tr><td rowspan="2">533</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>永久删除公共邮箱</td></tr>
 <tr><td colspan="3">DeleteMailV1PublicMailboxesByPublicMailboxId</td></tr>
-<tr><td rowspan="2">534</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>添加公共邮箱成员</td></tr>
+<tr><td rowspan="2">534</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>添加公共邮箱成员</td></tr>
 <tr><td colspan="3">PostMailV1PublicMailboxesByPublicMailboxIdMembers</td></tr>
 <tr><td rowspan="2">535</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取租户职级列表</td></tr>
 <tr><td colspan="3">GetContactV3JobLevels</td></tr>
-<tr><td rowspan="2">536</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>删除公共邮箱单个成员</td></tr>
+<tr><td rowspan="2">536</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>删除公共邮箱单个成员</td></tr>
 <tr><td colspan="3">DeleteMailV1PublicMailboxesByPublicMailboxIdMembersByMemberId</td></tr>
-<tr><td rowspan="2">537</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>删除公共邮箱所有成员</td></tr>
+<tr><td rowspan="2">537</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>删除公共邮箱所有成员</td></tr>
 <tr><td colspan="3">PostMailV1PublicMailboxesByPublicMailboxIdMembersClear</td></tr>
-<tr><td rowspan="2">538</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>查询指定公共邮箱成员信息</td></tr>
+<tr><td rowspan="2">538</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>查询指定公共邮箱成员信息</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxesByPublicMailboxIdMembersByMemberId</td></tr>
-<tr><td rowspan="2">539</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱成员信息</td></tr>
+<tr><td rowspan="2">539</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱成员信息</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxesByPublicMailboxIdMembers</td></tr>
-<tr><td rowspan="2">540</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>批量添加公共邮箱成员</td></tr>
+<tr><td rowspan="2">540</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>批量添加公共邮箱成员</td></tr>
 <tr><td colspan="3">PostMailV1PublicMailboxesByPublicMailboxIdMembersBatchCreate</td></tr>
-<tr><td rowspan="2">541</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>批量删除公共邮箱成员</td></tr>
+<tr><td rowspan="2">541</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>批量删除公共邮箱成员</td></tr>
 <tr><td colspan="3">DeleteMailV1PublicMailboxesByPublicMailboxIdMembersBatchDelete</td></tr>
-<tr><td rowspan="2">542</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>创建公共邮箱别名</td></tr>
+<tr><td rowspan="2">542</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>创建公共邮箱别名</td></tr>
 <tr><td colspan="3">PostMailV1PublicMailboxesByPublicMailboxIdAliases</td></tr>
-<tr><td rowspan="2">543</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>删除公共邮箱别名</td></tr>
+<tr><td rowspan="2">543</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>删除公共邮箱别名</td></tr>
 <tr><td colspan="3">DeleteMailV1PublicMailboxesByPublicMailboxIdAliasesByAliasId</td></tr>
-<tr><td rowspan="2">544</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>查询公共邮箱的所有别名</td></tr>
+<tr><td rowspan="2">544</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>查询公共邮箱的所有别名</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxesByPublicMailboxIdAliases</td></tr>
-<tr><td rowspan="2">545</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>从回收站删除用户邮箱地址</td></tr>
+<tr><td rowspan="2">545</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>从回收站删除用户邮箱地址</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxId</td></tr>
 <tr><td rowspan="2">546</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>创建序列</td></tr>
 <tr><td colspan="3">PostContactV3JobFamilies</td></tr>
-<tr><td rowspan="2">547</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>创建用户邮箱别名</td></tr>
+<tr><td rowspan="2">547</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>创建用户邮箱别名</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdAliases</td></tr>
-<tr><td rowspan="2">548</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>删除用户邮箱别名</td></tr>
+<tr><td rowspan="2">548</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>删除用户邮箱别名</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdAliasesByAliasId</td></tr>
-<tr><td rowspan="2">549</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>获取用户邮箱所有别名</td></tr>
+<tr><td rowspan="2">549</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>获取用户邮箱所有别名</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdAliases</td></tr>
-<tr><td rowspan="2">550</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>查询邮箱地址状态</td></tr>
+<tr><td rowspan="2">550</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>查询邮箱地址状态</td></tr>
 <tr><td colspan="3">PostMailV1UsersQuery</td></tr>
 <tr><td rowspan="2">551</td><td rowspan="2">2022-03-15</td><td>&#10003;</td><td>应用信息</td><td>校验应用管理员</td></tr>
 <tr><td colspan="3">GetApplicationV3IsUserAdmin</td></tr>
@@ -1235,7 +1235,7 @@
 <tr><td colspan="3">PostDocumentAiV1ContractFieldExtraction</td></tr>
 <tr><td rowspan="2">618</td><td rowspan="2">2023-10-31</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的名片</td></tr>
 <tr><td colspan="3">PostDocumentAiV1BusinessCardRecognize</td></tr>
-<tr><td rowspan="2">619</td><td rowspan="2">2022-12-27</td><td>&#10003;</td><td>AI 能力</td><td>识别图片中的文字</td></tr>
+<tr><td rowspan="2">619</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>AI 能力</td><td>识别图片中的文字</td></tr>
 <tr><td colspan="3">PostOpticalCharRecognitionV1ImageBasicRecognize</td></tr>
 <tr><td rowspan="2">620</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>AI 能力</td><td>识别语音文件</td></tr>
 <tr><td colspan="3">PostSpeechToTextV1SpeechFileRecognize</td></tr>
@@ -1339,9 +1339,9 @@
 <tr><td colspan="3">PutImV1MessagesByMessageId</td></tr>
 <tr><td rowspan="2">670</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>批量查询货币信息</td></tr>
 <tr><td colspan="3">GetCorehrV1Currencies</td></tr>
-<tr><td rowspan="2">671</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询员工信息</td></tr>
+<tr><td rowspan="2">671</td><td rowspan="2">2024-07-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询员工信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesBatchGet</td></tr>
-<tr><td rowspan="2">672</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工信息</td></tr>
+<tr><td rowspan="2">672</td><td rowspan="2">2024-07-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesSearch</td></tr>
 <tr><td rowspan="2">673</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>飞书人事</td><td>创建雇佣信息</td></tr>
 <tr><td colspan="3">PostCorehrV1Employments</td></tr>
@@ -1369,9 +1369,9 @@
 <tr><td colspan="3">PatchCorehrV1JobDatasByJobDataId</td></tr>
 <tr><td rowspan="2">685</td><td rowspan="2">2024-07-08</td><td>&#10003;</td><td>飞书人事</td><td>查询单个任职信息</td></tr>
 <tr><td colspan="3">GetCorehrV1JobDatasByJobDataId</td></tr>
-<tr><td rowspan="2">686</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取任职信息列表</td></tr>
+<tr><td rowspan="2">686</td><td rowspan="2">2024-07-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取任职信息列表</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesJobDatasQuery</td></tr>
-<tr><td rowspan="2">687</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询员工任职信息</td></tr>
+<tr><td rowspan="2">687</td><td rowspan="2">2024-07-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询员工任职信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesJobDatasBatchGet</td></tr>
 <tr><td rowspan="2">688</td><td rowspan="2">2024-07-08</td><td>&#10003;</td><td>飞书人事</td><td>批量查询任职信息</td></tr>
 <tr><td colspan="3">GetCorehrV1JobDatas</td></tr>
@@ -1455,15 +1455,15 @@
 <tr><td colspan="3">GetCorehrV1JobsByJobId</td></tr>
 <tr><td rowspan="2">728</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事</td><td>批量查询职务</td></tr>
 <tr><td colspan="3">GetCorehrV1Jobs</td></tr>
-<tr><td rowspan="2">729</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>直接创建待入职</td></tr>
+<tr><td rowspan="2">729</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>直接创建待入职</td></tr>
 <tr><td colspan="3">PostCorehrV2PreHires</td></tr>
 <tr><td rowspan="2">730</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>飞书人事</td><td><span style="color:red;">[不推荐]</span> 更新待入职信息（不推荐）</td></tr>
 <tr><td colspan="3">PatchCorehrV1PreHiresByPreHireId</td></tr>
 <tr><td rowspan="2">731</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>飞书人事</td><td>删除待入职（不推荐）</td></tr>
 <tr><td colspan="3">DeleteCorehrV1PreHiresByPreHireId</td></tr>
-<tr><td rowspan="2">732</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>飞书人事</td><td>查询单个待入职信息</td></tr>
+<tr><td rowspan="2">732</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>飞书人事</td><td><span style="color:red;">[不推荐]</span> 查询单个待入职信息</td></tr>
 <tr><td colspan="3">GetCorehrV1PreHiresByPreHireId</td></tr>
-<tr><td rowspan="2">733</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>飞书人事</td><td>批量查询待入职信息</td></tr>
+<tr><td rowspan="2">733</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>飞书人事</td><td><span style="color:red;">[不推荐]</span> 批量查询待入职信息</td></tr>
 <tr><td colspan="3">GetCorehrV1PreHires</td></tr>
 <tr><td rowspan="2">734</td><td rowspan="2">2024-06-07</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索合同</td></tr>
 <tr><td colspan="3">PostCorehrV2ContractsSearch</td></tr>
@@ -1479,7 +1479,7 @@
 <tr><td colspan="3">GetCorehrV1ContractsByContractId</td></tr>
 <tr><td rowspan="2">740</td><td rowspan="2">2024-06-07</td><td>&#10003;</td><td>飞书人事</td><td>批量查询合同</td></tr>
 <tr><td colspan="3">GetCorehrV1Contracts</td></tr>
-<tr><td rowspan="2">741</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索试用期信息</td></tr>
+<tr><td rowspan="2">741</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索试用期信息</td></tr>
 <tr><td colspan="3">PostCorehrV2ProbationSearch</td></tr>
 <tr><td rowspan="2">742</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>启用/停用试用期考核功能</td></tr>
 <tr><td colspan="3">PostCorehrV2ProbationEnableDisableAssessment</td></tr>
@@ -1495,15 +1495,15 @@
 <tr><td colspan="3">GetCorehrV1TransferReasonsQuery</td></tr>
 <tr><td rowspan="2">748</td><td rowspan="2">2024-03-07</td><td>&#10003;</td><td>飞书人事</td><td>获取异动类型列表</td></tr>
 <tr><td colspan="3">GetCorehrV1TransferTypesQuery</td></tr>
-<tr><td rowspan="2">749</td><td rowspan="2">2024-03-07</td><td>&#10003;</td><td>飞书人事</td><td>发起员工异动</td></tr>
+<tr><td rowspan="2">749</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>飞书人事</td><td>发起员工异动</td></tr>
 <tr><td colspan="3">PostCorehrV1JobChanges</td></tr>
-<tr><td rowspan="2">750</td><td rowspan="2">2024-03-07</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工异动信息</td></tr>
+<tr><td rowspan="2">750</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工异动信息</td></tr>
 <tr><td colspan="3">PostCorehrV2JobChangesSearch</td></tr>
-<tr><td rowspan="2">751</td><td rowspan="2">2024-06-29</td><td>&#10003;</td><td>飞书人事</td><td>查询员工离职原因列表</td></tr>
+<tr><td rowspan="2">751</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>飞书人事</td><td>查询员工离职原因列表</td></tr>
 <tr><td colspan="3">PostCorehrV1OffboardingsQuery</td></tr>
-<tr><td rowspan="2">752</td><td rowspan="2">2024-07-03</td><td>&#10003;</td><td>飞书人事</td><td>操作员工离职</td></tr>
+<tr><td rowspan="2">752</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>飞书人事</td><td>操作员工离职</td></tr>
 <tr><td colspan="3">PostCorehrV1OffboardingsSubmit</td></tr>
-<tr><td rowspan="2">753</td><td rowspan="2">2024-07-03</td><td>&#10003;</td><td>飞书人事</td><td>搜索离职信息</td></tr>
+<tr><td rowspan="2">753</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>飞书人事</td><td>搜索离职信息</td></tr>
 <tr><td colspan="3">PostCorehrV1OffboardingsSearch</td></tr>
 <tr><td rowspan="2">754</td><td rowspan="2">2024-05-30</td><td>&#10003;</td><td>飞书人事</td><td>创建假期发放记录</td></tr>
 <tr><td colspan="3">PostCorehrV1LeaveGrantingRecords</td></tr>
@@ -1625,7 +1625,7 @@
 <tr><td colspan="3">GetHireV1Offers</td></tr>
 <tr><td rowspan="2">813</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>消息与群组</td><td>查询批量消息推送和阅读人数</td></tr>
 <tr><td colspan="3">GetImV1BatchMessagesByBatchMessageIdReadUser</td></tr>
-<tr><td rowspan="2">814</td><td rowspan="2">2024-07-11</td><td>&#10003;</td><td>招聘</td><td>更新 Offer 状态</td></tr>
+<tr><td rowspan="2">814</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>招聘</td><td>更新 Offer 状态</td></tr>
 <tr><td colspan="3">PatchHireV1OffersByOfferIdOfferStatus</td></tr>
 <tr><td rowspan="2">815</td><td rowspan="2">2024-07-11</td><td>&#10003;</td><td>招聘</td><td>更新实习 Offer 入/离职状态</td></tr>
 <tr><td colspan="3">PostHireV1OffersByOfferIdInternOfferStatus</td></tr>
@@ -1649,7 +1649,7 @@
 <tr><td colspan="3">GetImV1BatchMessagesByBatchMessageIdGetProgress</td></tr>
 <tr><td rowspan="2">825</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>招聘</td><td>获取备注列表</td></tr>
 <tr><td colspan="3">GetHireV1Notes</td></tr>
-<tr><td rowspan="2">826</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>招聘</td><td>获取简历来源列表</td></tr>
+<tr><td rowspan="2">826</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>招聘</td><td>获取简历来源列表</td></tr>
 <tr><td colspan="3">GetHireV1ResumeSources</td></tr>
 <tr><td rowspan="2">827</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>招聘</td><td>创建账号自定义字段</td></tr>
 <tr><td colspan="3">PostHireV1EcoAccountCustomFields</td></tr>
@@ -1787,9 +1787,9 @@
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
 <tr><td rowspan="2">894</td><td rowspan="2">2024-04-26</td><td>&#10003;</td><td>安全合规</td><td>获取OpenAPI审计日志数据</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV1OpenapiLogsListData</td></tr>
-<tr><td rowspan="2">895</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">895</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">896</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">896</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">897</td><td rowspan="2">2023-06-29</td><td>&#10003;</td><td>工作台</td><td>获取工作台访问数据</td></tr>
 <tr><td colspan="3">PostWorkplaceV1WorkplaceAccessDataSearch</td></tr>
@@ -2011,9 +2011,9 @@
 <tr><td colspan="3">PostCorehrV2BasicInfoDistrictsSearch</td></tr>
 <tr><td rowspan="2">1006</td><td rowspan="2">2024-06-29</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询货币信息</td></tr>
 <tr><td colspan="3">PostCorehrV2BasicInfoCurrenciesSearch</td></tr>
-<tr><td rowspan="2">1007</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>回复日程</td></tr>
+<tr><td rowspan="2">1007</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>回复日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdReply</td></tr>
-<tr><td rowspan="2">1008</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>获取重复日程实例</td></tr>
+<tr><td rowspan="2">1008</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取重复日程实例</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstances</td></tr>
 <tr><td rowspan="2">1009</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的机动车发票</td></tr>
 <tr><td colspan="3">PostDocumentAiV1VehicleInvoiceRecognize</td></tr>
@@ -2049,7 +2049,7 @@
 <tr><td colspan="3">PatchOkrV1PeriodsByPeriodId</td></tr>
 <tr><td rowspan="2">1025</td><td rowspan="2">2024-06-06</td><td>&#10003;</td><td>消息与群组</td><td>转发话题</td></tr>
 <tr><td colspan="3">PostImV1ThreadsByThreadIdForward</td></tr>
-<tr><td rowspan="2">1026</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>查询日程视图</td></tr>
+<tr><td rowspan="2">1026</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询日程视图</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
 <tr><td rowspan="2">1027</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>招聘</td><td>获取职位列表</td></tr>
 <tr><td colspan="3">GetHireV1Jobs</td></tr>
@@ -2101,7 +2101,7 @@
 <tr><td colspan="3">PostImV2UrlPreviewsBatchUpdate</td></tr>
 <tr><td rowspan="2">1051</td><td rowspan="2">2024-05-23</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询指定生效日期的部门基本信息</td></tr>
 <tr><td colspan="3">PostCorehrV2DepartmentsQueryTimeline</td></tr>
-<tr><td rowspan="2">1052</td><td rowspan="2">2024-07-11</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>更新待入职信息</td></tr>
+<tr><td rowspan="2">1052</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>更新待入职信息</td></tr>
 <tr><td colspan="3">PatchCorehrV2PreHiresByPreHireId</td></tr>
 <tr><td rowspan="2">1053</td><td rowspan="2">2024-07-11</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取流程表单数据</td></tr>
 <tr><td colspan="3">GetCorehrV2ProcessesByProcessIdFormVariableData</td></tr>
@@ -2135,7 +2135,7 @@
 <tr><td colspan="3">PostCorehrV2DepartmentsQueryMultiTimeline</td></tr>
 <tr><td rowspan="2">1068</td><td rowspan="2">2024-05-29</td><td><span style="color:red;">删除</span></td><td>云文档</td><td>搜索文件</td></tr>
 <tr><td colspan="3">PostSuiteDocsApiSearchObject</td></tr>
-<tr><td rowspan="2">1069</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
+<tr><td rowspan="2">1069</td><td rowspan="2">2024-07-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
 <tr><td colspan="3">PostCorehrV2Employees</td></tr>
 <tr><td rowspan="2">1070</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>招聘</td><td>获取角色详情</td></tr>
 <tr><td colspan="3">GetHireV1RolesByRoleId</td></tr>
@@ -2201,13 +2201,13 @@
 <tr><td colspan="3">DeleteHireV1NotesByNoteId</td></tr>
 <tr><td rowspan="2">1101</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>招聘</td><td>获取角色列表</td></tr>
 <tr><td colspan="3">GetHireV1Roles</td></tr>
-<tr><td rowspan="2">1102</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>招聘</td><td>获取招聘官网推广渠道列表</td></tr>
+<tr><td rowspan="2">1102</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>招聘</td><td>获取招聘官网推广渠道列表</td></tr>
 <tr><td colspan="3">GetHireV1WebsitesByWebsiteIdChannels</td></tr>
-<tr><td rowspan="2">1103</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>招聘</td><td>删除招聘官网推广渠道</td></tr>
+<tr><td rowspan="2">1103</td><td rowspan="2">2024-07-17</td><td>&#10003;</td><td>招聘</td><td>删除招聘官网推广渠道</td></tr>
 <tr><td colspan="3">DeleteHireV1WebsitesByWebsiteIdChannelsByChannelId</td></tr>
-<tr><td rowspan="2">1104</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>招聘</td><td>新建招聘官网推广渠道</td></tr>
+<tr><td rowspan="2">1104</td><td rowspan="2">2024-07-17</td><td>&#10003;</td><td>招聘</td><td>新建招聘官网推广渠道</td></tr>
 <tr><td colspan="3">PostHireV1WebsitesByWebsiteIdChannels</td></tr>
-<tr><td rowspan="2">1105</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>招聘</td><td>更新招聘官网推广渠道</td></tr>
+<tr><td rowspan="2">1105</td><td rowspan="2">2024-07-17</td><td>&#10003;</td><td>招聘</td><td>更新招聘官网推广渠道</td></tr>
 <tr><td colspan="3">PutHireV1WebsitesByWebsiteIdChannelsByChannelId</td></tr>
 <tr><td rowspan="2">1106</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>消息与群组</td><td>添加跟随气泡</td></tr>
 <tr><td colspan="3">PostImV1MessagesByMessageIdPushFollowUp</td></tr>
@@ -2229,4 +2229,22 @@
 <tr><td colspan="3">GetPayrollV1CostAllocationReports</td></tr>
 <tr><td rowspan="2">1115</td><td rowspan="2">2024-07-15</td><td>新增</td><td>Payroll</td><td>批量查询成本分摊方案</td></tr>
 <tr><td colspan="3">GetPayrollV1CostAllocationPlans</td></tr>
+<tr><td rowspan="2">1116</td><td rowspan="2">2024-07-17</td><td>新增</td><td>招聘</td><td>新建招聘官网用户</td></tr>
+<tr><td colspan="3">PostHireV1WebsitesByWebsiteIdSiteUsers</td></tr>
+<tr><td rowspan="2">1117</td><td rowspan="2">2024-07-18</td><td>新增</td><td>招聘</td><td>获取招聘官网列表</td></tr>
+<tr><td colspan="3">GetHireV1Websites</td></tr>
+<tr><td rowspan="2">1118</td><td rowspan="2">2024-07-15</td><td>新增</td><td>飞书人事（企业版）</td><td>发起转正</td></tr>
+<tr><td colspan="3">PostCorehrV2ProbationSubmit</td></tr>
+<tr><td rowspan="2">1119</td><td rowspan="2">2024-07-15</td><td>新增</td><td>飞书人事（企业版）</td><td>撤销转正</td></tr>
+<tr><td colspan="3">PostCorehrV2ProbationWithdraw</td></tr>
+<tr><td rowspan="2">1120</td><td rowspan="2">2024-07-16</td><td>新增</td><td>日历</td><td>创建会议纪要</td></tr>
+<tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingMinute</td></tr>
+<tr><td rowspan="2">1121</td><td rowspan="2">2024-07-15</td><td>新增</td><td>飞书人事（企业版）</td><td>操作员工完成入职</td></tr>
+<tr><td colspan="3">PostCorehrV2PreHiresByPreHireIdComplete</td></tr>
+<tr><td rowspan="2">1122</td><td rowspan="2">2024-07-15</td><td>新增</td><td>飞书人事（企业版）</td><td>流转入职任务</td></tr>
+<tr><td colspan="3">PostCorehrV2PreHiresByPreHireIdTransitTask</td></tr>
+<tr><td rowspan="2">1123</td><td rowspan="2">2024-07-15</td><td>新增</td><td>飞书人事（企业版）</td><td>查询待入职信息</td></tr>
+<tr><td colspan="3">PostCorehrV2PreHiresQuery</td></tr>
+<tr><td rowspan="2">1124</td><td rowspan="2">2024-07-18</td><td>新增</td><td>招聘</td><td>职位发布至官网</td></tr>
+<tr><td colspan="3">PostHireV1AdvertisementsByAdvertisementIdPublish</td></tr>
 </tbody></table>

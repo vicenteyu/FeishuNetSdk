@@ -2185,6 +2185,8 @@ public record PostCorehrV2EmployeesSearchResponseDto
             {
                 /// <summary>
                 /// <para>学校</para>
+                /// <para>- 自定义名称时返回该字段</para>
+                /// <para>- 下拉框选择的返回 school_name 字段</para>
                 /// <para>必填：是</para>
                 /// </summary>
                 [JsonPropertyName("school")]
@@ -2192,6 +2194,8 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>学校</para>
+                /// <para>- 自定义名称时返回该字段</para>
+                /// <para>- 下拉框选择的返回 school_name 字段</para>
                 /// </summary>
                 public record I18n
                 {
@@ -2280,6 +2284,8 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>专业</para>
+                /// <para>- 自定义名称时返回该字段</para>
+                /// <para>- 下拉框选择的返回 field_of_study_name 字段</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("field_of_study")]
@@ -2294,6 +2300,11 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>学校名称</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
+                /// <para>- custom_api_name：school_name</para>
+                /// <para>- object_api_name：education</para>
+                /// <para>- 自定义名称时返回 school 字段</para>
+                /// <para>- 下拉框选择的返回该字段</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("school_name")]
@@ -2301,6 +2312,11 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>专业名称</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
+                /// <para>- custom_api_name：field_of_study_name</para>
+                /// <para>- object_api_name：education</para>
+                /// <para>- 自定义名称时返回 field_of_study 字段</para>
+                /// <para>- 下拉框选择的返回该字段</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("field_of_study_name")]

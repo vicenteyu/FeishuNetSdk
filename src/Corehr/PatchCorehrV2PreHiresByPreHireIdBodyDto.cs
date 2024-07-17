@@ -643,7 +643,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             public string? Employer { get; set; }
 
             /// <summary>
-            /// <para>岗位</para>
+            /// <para>岗位信息描述</para>
             /// <para>必填：否</para>
             /// <para>示例值：保安</para>
             /// </summary>
@@ -1505,7 +1505,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])</para>
+            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05)</para>
             /// <para>必填：是</para>
             /// <para>示例值：Sandy</para>
             /// </summary>
@@ -1668,14 +1668,14 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         }
 
         /// <summary>
-        /// <para>成本中心分摊信息,只支持商业化租户</para>
+        /// <para>成本中心分摊信息（仅支持部门开通成本中心功能的租户）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("cost_center_rates")]
         public JobDataCostCenter[]? CostCenterRates { get; set; }
 
         /// <summary>
-        /// <para>成本中心分摊信息,只支持商业化租户</para>
+        /// <para>成本中心分摊信息（仅支持部门开通成本中心功能的租户）</para>
         /// </summary>
         public record JobDataCostCenter
         {
@@ -1742,7 +1742,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public int? ProbationPeriod { get; set; }
 
         /// <summary>
-        /// <para>试用期开始日期</para>
+        /// <para>试用期开始日期，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022-07-29</para>
         /// </summary>
@@ -1750,7 +1750,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public string? ProbationStartDate { get; set; }
 
         /// <summary>
-        /// <para>试用期结束日期</para>
+        /// <para>试用期结束日期，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2023-04-07</para>
         /// </summary>
@@ -1758,7 +1758,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public string? ProbationEndDate { get; set; }
 
         /// <summary>
-        /// <para>合同开始日期</para>
+        /// <para>合同开始日期，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022-10-08</para>
         /// </summary>
@@ -1766,7 +1766,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public string? ContractStartDate { get; set; }
 
         /// <summary>
-        /// <para>合同结束日期</para>
+        /// <para>合同结束日期，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2025-10-07</para>
         /// </summary>
@@ -1812,7 +1812,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public string? WorkerId { get; set; }
 
         /// <summary>
-        /// <para>签到日期</para>
+        /// <para>签到日期，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2024-12-31</para>
         /// </summary>
@@ -1876,7 +1876,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public string? PayGroupId { get; set; }
 
         /// <summary>
-        /// <para>Offer HR ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取</para>
+        /// <para>Offer HR 雇佣ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：7032210902531327521</para>
         /// </summary>

@@ -22,19 +22,20 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
 {
     /// <summary>
-    /// <para>查询的雇佣信息</para>
+    /// <para>查询的任职信息</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public EmployeeJobData[]? Items { get; set; }
 
     /// <summary>
-    /// <para>查询的雇佣信息</para>
+    /// <para>查询的任职信息</para>
     /// </summary>
     public record EmployeeJobData
     {
         /// <summary>
-        /// <para>Employment ID</para>
+        /// <para>员工雇佣ID，可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取详细信息</para>
+        /// <para>- 与 user_id_type 类型一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -42,7 +43,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
         public string EmploymentId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>实体在 CoreHR 内部的唯一键</para>
+        /// <para>任职记录</para>
         /// <para>必填：否</para>
         /// <para>示例值：6890452208593372679</para>
         /// </summary>
@@ -50,7 +51,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
         public JobData[]? JobDatas { get; set; }
 
         /// <summary>
-        /// <para>实体在 CoreHR 内部的唯一键</para>
+        /// <para>任职记录</para>
         /// </summary>
         public record JobData
         {
@@ -71,7 +72,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? VersionId { get; set; }
 
             /// <summary>
-            /// <para>人员类型 ID，枚举值及详细信息可通过[查询单个人员类型](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/employee_type/get)接口查询获得</para>
+            /// <para>人员类型 ID，可通过[【查询单个人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)获取详细信息</para>
             /// <para>必填：是</para>
             /// <para>示例值：6890452208593372679</para>
             /// </summary>
@@ -79,7 +80,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string EmployeeTypeId { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>工时制度 ID，枚举值及详细信息可通过[查询单个工时制度](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/working_hours_type/get)接口查询获得</para>
+            /// <para>工时制度 ID，可通过[【查询单个工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/get)获取详细信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372679</para>
             /// </summary>
@@ -87,7 +88,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? WorkingHoursTypeId { get; set; }
 
             /// <summary>
-            /// <para>工作地点 ID，枚举值及详细信息可通过[查询单个地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/get)接口查询获得</para>
+            /// <para>工作地点 ID，可通过[【查询单个地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)获取详细信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372679</para>
             /// </summary>
@@ -95,8 +96,8 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? WorkLocationId { get; set; }
 
             /// <summary>
-            /// <para>部门 ID，枚举值及详细信息可通过[查询单个部门](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/department/get)接口查询获得</para>
-            /// <para>与 department_id_type 类型一致</para>
+            /// <para>部门 ID，可通过[【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息</para>
+            /// <para>- 与 department_id_type 类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372679</para>
             /// </summary>
@@ -104,8 +105,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? DepartmentId { get; set; }
 
             /// <summary>
-            /// <para>岗位 ID，详细信息可通过【查询岗位】</para>
-            /// <para>接口查询获得</para>
+            /// <para>岗位 ID，功能灰度中，如有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372679</para>
             /// </summary>
@@ -113,7 +113,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? PositionId { get; set; }
 
             /// <summary>
-            /// <para>职务 ID，枚举值及详细信息可通过[查询单个职务](https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job/get)接口查询获得</para>
+            /// <para>职务 ID，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详细信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372679</para>
             /// </summary>
@@ -121,7 +121,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? JobId { get; set; }
 
             /// <summary>
-            /// <para>职级 ID，枚举值及详细信息可通过[查询单个职级](https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_level/get)接口查询获得</para>
+            /// <para>职级 ID，可通过[【查询单个职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)获取详细信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372679</para>
             /// </summary>
@@ -129,7 +129,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? JobLevelId { get; set; }
 
             /// <summary>
-            /// <para>职等 ID</para>
+            /// <para>职等 ID，可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取详细信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372679</para>
             /// </summary>
@@ -137,7 +137,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? JobGradeId { get; set; }
 
             /// <summary>
-            /// <para>序列 ID，枚举值及详细信息可通过[查询单个序列](https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_family/get)接口查询获得</para>
+            /// <para>序列 ID，可通过[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)获取详细信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：1245678</para>
             /// </summary>
@@ -170,7 +170,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
 
             /// <summary>
             /// <para>雇佣 ID，可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取详细信息</para>
-            /// <para>与 user_id_type 类型一致</para>
+            /// <para>- 与 user_id_type 类型一致</para>
             /// <para>必填：是</para>
             /// <para>示例值：6893014062142064135</para>
             /// </summary>
@@ -194,7 +194,8 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? ExpirationTime { get; set; }
 
             /// <summary>
-            /// <para>任职原因，枚举值可通过文档[枚举常量介绍](https://open.feishu.cn/document/server-docs/corehr-v1/feishu-people-enum-constant)任职原因（assignment_start_reason）枚举定义部分获得</para>
+            /// <para>任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)</para>
+            /// <para>任职原因（assignment_start_reason）枚举定义部分获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：onboarding</para>
             /// </summary>
@@ -202,14 +203,15 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public Enum? AssignmentStartReason { get; set; }
 
             /// <summary>
-            /// <para>任职原因，枚举值可通过文档[枚举常量介绍](https://open.feishu.cn/document/server-docs/corehr-v1/feishu-people-enum-constant)任职原因（assignment_start_reason）枚举定义部分获得</para>
+            /// <para>任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)</para>
+            /// <para>任职原因（assignment_start_reason）枚举定义部分获得</para>
             /// </summary>
             public record Enum
             {
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：onboarding</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -253,7 +255,8 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? ProbationExpectedEndDate { get; set; }
 
             /// <summary>
-            /// <para>试用期结果，枚举值可通过文档[枚举常量介绍](https://open.feishu.cn/document/server-docs/corehr-v1/feishu-people-enum-constant)试用期结果（probation_outcome）枚举定义部分获得</para>
+            /// <para>试用期结果，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)</para>
+            /// <para>试用期结果（probation_outcome）枚举定义部分获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：passed</para>
             /// </summary>
@@ -283,7 +286,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
 
                 /// <summary>
                 /// <para>雇佣 ID，可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取详细信息</para>
-                /// <para>与 user_id_type 类型一致</para>
+                /// <para>- 与 user_id_type 类型一致</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6893014062142064135</para>
                 /// </summary>
@@ -319,7 +322,9 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public record JobDataCostCenter
             {
                 /// <summary>
-                /// <para>成本中心 ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/cost_center/search)接口获取对应的成本中心信息</para>
+                /// <para>成本中心 ID，可以通过</para>
+                /// <para>[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)</para>
+                /// <para>接口获取对应的成本中心信息</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6950635856373745165</para>
                 /// </summary>
@@ -362,7 +367,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? ServiceCompany { get; set; }
 
             /// <summary>
-            /// <para>创建时间</para>
+            /// <para>创建时间，格式：2020-05-02 00:00:00</para>
             /// <para>必填：否</para>
             /// <para>示例值：2020-05-02 00:00:00</para>
             /// </summary>

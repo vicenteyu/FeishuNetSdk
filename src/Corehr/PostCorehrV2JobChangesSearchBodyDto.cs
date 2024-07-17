@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-18
 // ************************************************************************
 // <copyright file="PostCorehrV2JobChangesSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2JobChangesSearchBodyDto
 {
     /// <summary>
-    /// <para>雇员 ID 列表</para>
+    /// <para>雇员 ID 列表，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取</para>
     /// <para>必填：否</para>
     /// <para>最大长度：30</para>
     /// </summary>
@@ -30,7 +30,9 @@ public record PostCorehrV2JobChangesSearchBodyDto
     public string[]? EmploymentIds { get; set; }
 
     /// <summary>
-    /// <para>异动记录 ID 列表</para>
+    /// <para>异动记录 ID 列表，可通过接口</para>
+    /// <para>[搜索异动信息</para>
+    /// <para>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/search)获取详细信息</para>
     /// <para>必填：否</para>
     /// <para>最大长度：10</para>
     /// </summary>
@@ -47,7 +49,7 @@ public record PostCorehrV2JobChangesSearchBodyDto
     public string[]? Statuses { get; set; }
 
     /// <summary>
-    /// <para>异动生效日期-搜索范围开始，需要与搜索范围结束一同使用</para>
+    /// <para>异动生效日期 - 搜索范围开始，需要与搜索范围结束一同使用，格式："YYYY-MM-DD"</para>
     /// <para>必填：否</para>
     /// <para>示例值：2022-01-01</para>
     /// </summary>
@@ -55,10 +57,26 @@ public record PostCorehrV2JobChangesSearchBodyDto
     public string? EffectiveDateStart { get; set; }
 
     /// <summary>
-    /// <para>异动生效日期 - 搜索范围结束</para>
+    /// <para>异动生效日期 - 搜索范围结束，格式："YYYY-MM-DD"</para>
     /// <para>必填：否</para>
     /// <para>示例值：2022-01-01</para>
     /// </summary>
     [JsonPropertyName("effective_date_end")]
     public string? EffectiveDateEnd { get; set; }
+
+    /// <summary>
+    /// <para>异动更新时间 - 搜索范围开始，需要与搜索范围结束一同使用，格式："YYYY-MM-DD"</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：1704084635000</para>
+    /// </summary>
+    [JsonPropertyName("updated_time_start")]
+    public string? UpdatedTimeStart { get; set; }
+
+    /// <summary>
+    /// <para>异动更新时间 - 搜索范围结束，格式："YYYY-MM-DD"</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：1704084635000</para>
+    /// </summary>
+    [JsonPropertyName("updated_time_end")]
+    public string? UpdatedTimeEnd { get; set; }
 }

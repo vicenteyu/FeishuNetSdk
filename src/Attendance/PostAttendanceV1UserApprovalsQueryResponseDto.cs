@@ -42,7 +42,7 @@ public record PostAttendanceV1UserApprovalsQueryResponseDto
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>审批作用日期</para>
+        /// <para>审批作用日期，格式yyyyMMdd</para>
         /// <para>必填：是</para>
         /// <para>示例值：20210104</para>
         /// </summary>

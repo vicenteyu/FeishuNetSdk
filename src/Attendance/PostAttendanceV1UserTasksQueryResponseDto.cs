@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-18
 // ************************************************************************
 // <copyright file="PostAttendanceV1UserTasksQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,23 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 查询打卡结果 响应体
-/// <para>获取企业内员工的实际打卡结果，包括上班打卡结果和下班打卡结果。</para>
+/// <para>获取企业内员工的实际打卡结果，包括：</para>
+/// <para>* 打卡任务列表</para>
+/// <para>* 打卡记录id</para>
+/// <para>* 用户信息</para>
+/// <para>* 考勤组id</para>
+/// <para>* 班次id</para>
+/// <para>* 考勤记录</para>
+/// <para>* 上班记录</para>
+/// <para>* 下班记录</para>
+/// <para>* 上班打卡结果</para>
+/// <para>* 下班打卡结果</para>
+/// <para>* 上班打卡结果补充</para>
+/// <para>* 下班打卡结果补充</para>
+/// <para>* 上班打卡时间</para>
+/// <para>* 下班打卡时间</para>
+/// <para>* 无效用户id列表</para>
+/// <para>* 没有权限用户ID列表</para>
 /// <para>接口ID：7044467124773421057</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_task/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_task%2fquery</para>
@@ -42,7 +58,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
         public string ResultId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>用户 ID</para>
+        /// <para>用户 ID，对应employee_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
@@ -58,7 +74,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
         public string EmployeeName { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>日期</para>
+        /// <para>日期，格式为yyyyMMdd</para>
         /// <para>必填：是</para>
         /// <para>示例值：20190819</para>
         /// </summary>
@@ -66,7 +82,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
         public int Day { get; set; }
 
         /// <summary>
-        /// <para>考勤组 ID（特别说明：1代表未加入考勤组）</para>
+        /// <para>考勤组 ID（特别说明：1代表未加入考勤组），可用于[按 ID 查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/get)</para>
         /// <para>必填：是</para>
         /// <para>示例值：6737202939523236110</para>
         /// </summary>
@@ -74,7 +90,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
         public string GroupId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>班次 ID（特别说明：9代表默认班次）</para>
+        /// <para>班次 ID（特别说明：9代表默认班次），可用于[按 ID 查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/get)</para>
         /// <para>必填：是</para>
         /// <para>示例值：6753520403404030215</para>
         /// </summary>
@@ -114,7 +130,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
             public record UserFlow
             {
                 /// <summary>
-                /// <para>用户 ID</para>
+                /// <para>用户 ID，对应employee_type</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：abd754f7</para>
                 /// </summary>
@@ -122,7 +138,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 public string UserId { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>记录创建者 ID</para>
+                /// <para>记录创建者 ID，对应employee_type</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：abd754f7</para>
                 /// </summary>
@@ -154,7 +170,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 public string Comment { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>打卡记录 ID</para>
+                /// <para>考勤内部的打卡记录ID（导入时此参数无效）</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6709359313699356941</para>
                 /// </summary>
@@ -219,6 +235,14 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 public string[]? PhotoUrls { get; set; }
 
                 /// <summary>
+                /// <para>打卡设备ID（只支持小程序打卡，导入时无效）</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：99e0609ee053448596502691a81428654d7ded64c7bd85acd982d26b3636c37d</para>
+                /// </summary>
+                [JsonPropertyName("device_id")]
+                public string? DeviceId { get; set; }
+
+                /// <summary>
                 /// <para>打卡结果</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：Invalid</para>
@@ -237,6 +261,22 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 /// </summary>
                 [JsonPropertyName("check_result")]
                 public string? CheckResult { get; set; }
+
+                /// <summary>
+                /// <para>用户导入的外部打卡记录ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：record_123</para>
+                /// </summary>
+                [JsonPropertyName("external_id")]
+                public string? ExternalId { get; set; }
+
+                /// <summary>
+                /// <para>唯一幂等键</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：****_***</para>
+                /// </summary>
+                [JsonPropertyName("idempotent_id")]
+                public string? IdempotentId { get; set; }
             }
 
             /// <summary>
@@ -325,7 +365,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
             public string CheckOutResultSupplement { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>上班打卡时间</para>
+            /// <para>上班打卡时间，秒级时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1609722000</para>
             /// </summary>
@@ -333,7 +373,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
             public string? CheckInShiftTime { get; set; }
 
             /// <summary>
-            /// <para>下班打卡时间</para>
+            /// <para>下班打卡时间，秒级时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1609754400</para>
             /// </summary>
@@ -351,14 +391,14 @@ public record PostAttendanceV1UserTasksQueryResponseDto
     }
 
     /// <summary>
-    /// <para>无效用户 ID 列表</para>
+    /// <para>无效用户 ID 列表，对应employee_type</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("invalid_user_ids")]
     public string[]? InvalidUserIds { get; set; }
 
     /// <summary>
-    /// <para>没有权限用户 ID 列表</para>
+    /// <para>没有权限用户 ID 列表，对应employee_type</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("unauthorized_user_ids")]

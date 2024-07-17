@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 获取补卡记录 响应体
-/// <para>获取授权内员工的补卡记录。</para>
+/// <para>补卡：用户通过审批的方式，在某一次上/下班的打卡时间范围内，补充一条打卡记录，用以修正用户的考勤结果。本接口专用于获取员工的补卡记录（无页面功能对应）</para>
 /// <para>接口ID：7044467124773666817</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_task_remedy/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_task_remedy%2fquery</para>
@@ -34,7 +34,7 @@ public record PostAttendanceV1UserTaskRemedysQueryResponseDto
     public record UserTaskRemedy
     {
         /// <summary>
-        /// <para>用户 ID</para>
+        /// <para>用户 ID，对应employee_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record PostAttendanceV1UserTaskRemedysQueryResponseDto
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>补卡日期</para>
+        /// <para>补卡日期，格式为yyyyMMdd</para>
         /// <para>必填：是</para>
         /// <para>示例值：20210701</para>
         /// </summary>
@@ -58,7 +58,7 @@ public record PostAttendanceV1UserTaskRemedysQueryResponseDto
         public int PunchNo { get; set; }
 
         /// <summary>
-        /// <para>上班 / 下班，1：上班，2：下班，自由班制填 0</para>
+        /// <para>上班 / 下班，1：上班，2：下班，自由班制为 1</para>
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>
@@ -66,7 +66,7 @@ public record PostAttendanceV1UserTaskRemedysQueryResponseDto
         public int WorkType { get; set; }
 
         /// <summary>
-        /// <para>审批 ID</para>
+        /// <para>审批 ID，可用于[通知审批状态更新](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/approval_info/process)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6737202939523236113</para>
         /// </summary>
@@ -76,7 +76,7 @@ public record PostAttendanceV1UserTaskRemedysQueryResponseDto
         /// <summary>
         /// <para>补卡时间，时间格式为 yyyy-MM-dd HH:mm</para>
         /// <para>必填：是</para>
-        /// <para>示例值：2021-07-0108:00</para>
+        /// <para>示例值：2021-07-01 08:00</para>
         /// </summary>
         [JsonPropertyName("remedy_time")]
         public string RemedyTime { get; set; } = string.Empty;

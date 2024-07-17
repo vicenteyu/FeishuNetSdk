@@ -100,6 +100,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukjMzUjL5IzM14SOyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>设置单元格中数据的样式。支持设置字体、背景、边框等样式。</para>
+    /// <para>使用限制：- 单次设置的范围不可超过 5,000 行 100 列。</para>
+    /// <para>- 在设置边框样式时，单次更新的单元格数量不可超过 30,000 个。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -247,6 +249,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATNzUjLwUzM14CM1MTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>拆分电子表格工作表中的单元格。</para>
+    /// <para>使用限制：</para>
+    /// <para>单次操作范围不可超过 5,000 行、100 列。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -273,6 +277,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMTM4UjLzEDO14yMxgTN</para>
     /// <para>Authorization：user_access_token</para>
     /// <para>调用该接口通过用户名关键词搜索其他用户的信息，包括用户头像、用户名、用户所在部门、用户 user_id 以及 open_id。</para>
+    /// <para>注意事项：</para>
+    /// <para>- 仅支持通过用户身份（user_access_token）调用该接口。</para>
+    /// <para>- 无法搜索到外部企业或已离职的用户。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:user:search</item>
     /// </list></para>
@@ -311,6 +318,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ucjMzUjL3IzM14yNyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于删除电子表格中的指定行或列。</para>
+    /// <para>使用限制：</para>
+    /// <para>- 单次调用该接口，最多支持删除 5000 行或列。</para>
+    /// <para>- 一个工作表最少需有一行一列。你无法删除所有行或列。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -362,6 +372,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMjMzUjLzIzM14yMyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>在电子表格工作表的指定范围中，在空白位置中追加数据。例如，若指定范围参数 `range` 为 `6e5ed3!A1:B2`，该接口将会依次寻找 A1、A2、A3...单元格，在找到的第一个空白位置中写入数据。</para>
+    /// <para>使用限制：</para>
+    /// <para>- 单次写入范围不可超过 5,000 行、100 列。</para>
+    /// <para>- 每个单元格不超过 50,000 字符，由于服务端会增加控制字符，因此推荐每个单元格不超过 40,000 字符。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -487,6 +500,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYjMzUjL2IzM14iNyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于更新设置电子表格中行列的属性，包括是否隐藏行列和设置行高列宽。</para>
+    /// <para>使用限制：单次调用该接口，最多支持设置 5000 行或列。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -539,6 +553,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uAzMzUjLwMzM14CMzMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>批量设置单元格中数据的样式。支持设置字体、背景、边框等样式。</para>
+    /// <para>使用限制：- 单次设置的范围不可超过 5,000 行 100 列。</para>
+    /// <para>- 在设置边框样式时，单次更新的单元格数量不可超过 30,000 个。</para>
+    /// <para>注意事项：</para>
+    /// <para>在批量设置单元格时，当单元格在多个范围中时，单元格将应用请求体的最后一个样式。例如，对 A1:B2、B2:C3 分别设置样式，B2 单元格将应用 B2:C3 区域的样式。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -564,28 +582,36 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6907569742383988738</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugDNzUjL4QzM14CO0MTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 spreadsheetToken 和维度信息增加多个保护范围；单次操作不超过5000行或列。</para>
-    /// <para>仅支持设置保护行或保护列，暂不支持设置保护单元格</para>
+    /// <para>在电子表格工作表中设置多个保护范围，支持对行或列设置保护范围。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
     /// </list></para>
     /// </summary>
-    /// <param name="spreadsheetToken">
+    /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
-    /// <para>请求的用户id类型，可选open_id,union_id</para>
+    /// <para>指定请求体中 users 字段对应的用户 ID 类型。可选值如下所示。了解更多，参考[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。可选值：</para>
+    /// <para>- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。了解更多：[如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
+    /// <para>- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。了解更多：[如何获取 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
+    /// <para>**注意**：</para>
+    /// <para>若要在请求体中传入 users 参数，user_id_type 参数必填。</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
-    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_dimension")]
-    System.Threading.Tasks.Task<FeishuResponse> PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimensionAsync(
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/protected_dimension")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimensionResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimensionAsync(
         UserAccessToken access_token,
-        [PathQuery] string spreadsheetToken,
+        [PathQuery] string spreadsheet_token,
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimensionBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -618,6 +644,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uEjMzUjLxIzM14SMyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>向电子表格某个工作表的多个指定范围中写入数据。若指定范围已内有数据，将被新写入的数据覆盖。</para>
+    /// <para>使用限制：- 单次写入数据不得超过 5000 行、100列。</para>
+    /// <para>- 每个单元格不超过 50,000 字符，由于服务端会增加控制字符，因此推荐每个单元格不超过 40,000 字符。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -645,6 +673,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uIjMzUjLyIzM14iMyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>在电子表格工作表的指定范围的起始位置上方增加若干行，并在该范围中填充数据。</para>
+    /// <para>使用限制：</para>
+    /// <para>- 单次写入数据不可超过 5,000 行、100 列。</para>
+    /// <para>- 每个单元格不可超过 50,000 字符，由于服务端会增加控制字符，因此推荐每个单元格不超过 40,000 字符。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -672,6 +703,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugTMzUjL4EzM14COxMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>读取电子表格中单个指定范围的数据。</para>
+    /// <para>使用限制：</para>
+    /// <para>- 该接口返回数据的最大限制为 10 MB。</para>
+    /// <para>- 该接口不支持获取跨表引用和数组公式的计算结果。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -758,6 +792,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukDNzUjL5QzM14SO0MTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>合并电子表格工作表中的单元格。</para>
+    /// <para>使用限制：</para>
+    /// <para>单次操作范围不可超过 5,000 行、100 列。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -790,7 +826,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>sheets:spreadsheet</item>
     /// </list></para>
     /// </summary>
-    /// <param name="spreadsheetToken">
+    /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
@@ -806,10 +842,10 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
-    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/sheets_batch_update")]
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/sheets_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2ResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2Async(
         UserAccessToken access_token,
-        [PathQuery] string spreadsheetToken,
+        [PathQuery] string spreadsheet_token,
         [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2BodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
@@ -819,6 +855,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQTNzUjL0UzM14CN1MTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于在云空间指定文件夹中创建电子表格或者多维表格。</para>
+    /// <para>使用限制：</para>
+    /// <para>- 云空间中根目录或文件夹的单层节点上限为 1500 个。超过此限制时，接口将返回 1062507 错误码。可通过将文件新建到不同文件夹中解决。</para>
+    /// <para>- 云空间中所有层级的节点总和的上限为 40 万个。</para>
+    /// <para>- 该接口不支持并发调用，且调用频率上限为 5QPS 且 10000次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>- 该接口不支持创建[文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)（文档类型为 `docx`），如需创建文档，请调用[创建文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create)接口。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>drive:drive</item>
@@ -844,6 +885,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQjMzUjL0IzM14CNyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于在电子表格的指定位置插入空白行或列。</para>
+    /// <para>使用限制：</para>
+    /// <para>单次调用该接口，最多支持插入 5000 行或列。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -870,6 +913,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukTMzUjL5EzM14SOxMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>读取电子表格中多个指定范围的数据。</para>
+    /// <para>使用限制：</para>
+    /// <para>- 该接口返回数据的最大限制为 10 MB。</para>
+    /// <para>- 该接口不支持获取跨表引用和数组公式的计算结果。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -1030,6 +1076,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUjMzUjL1IzM14SNyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于在电子表格工作表中增加空白行或列。</para>
+    /// <para>使用限制：</para>
+    /// <para>- 单次调用该接口，最多支持增加 5000 行或列。</para>
+    /// <para>- 该接口仅支持在工作表的行末尾或列末尾新增行列。要在指定位置新增行列，你需使用[插入行列](https://open.feishu.cn/document/ukTMukTMukTM/uQjMzUjL0IzM14CNyMTN)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -1056,6 +1105,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uAjMzUjLwIzM14CMyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>向电子表格某个工作表的单个指定范围中写入数据。若指定范围已内有数据，将被新写入的数据覆盖。</para>
+    /// <para>使用限制：- 单次写入数据不得超过 5000 行、100列。</para>
+    /// <para>- 每个单元格不超过 50,000 字符，由于服务端会增加控制字符，因此推荐每个单元格不超过 40,000 字符。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -1089,7 +1140,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>sheets:spreadsheet</item>
     /// </list></para>
     /// </summary>
-    /// <param name="spreadsheetToken">
+    /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
@@ -1098,10 +1149,10 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
-    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/sheets_batch_update")]
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/sheets_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateAsync(
         UserAccessToken access_token,
-        [PathQuery] string spreadsheetToken,
+        [PathQuery] string spreadsheet_token,
         [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto dto);
 
     /// <summary>
@@ -1374,9 +1425,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6923123667871596572</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uQTM5YjL0ETO24CNxkjN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据保护范围ID查询详细的保护行列信息，最多支持同时查询5个ID。</para>
-    /// <para>1. 仅支持获取保护行或保护列，暂不支持获取保护单元格</para>
-    /// <para>2. 不支持获取包含多个区域的保护范围</para>
+    /// <para>获取电子表格工作表中指定保护范围的信息，包括保护的行列索引、支持编辑的用户 ID、保护范围的备注等。</para>
+    /// <para>使用限制：</para>
+    /// <para>- 单次调用该接口，最多支持获取 5 个保护范围的信息。</para>
+    /// <para>- 不支持获取包含多个区域的保护范围。即如果一个保护范围中添加了多个区域，例如 B22:B26 和 C26:C28，则不支持调用该接口获取。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -1385,15 +1437,22 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="protectIds">
     /// <para>必填：是</para>
-    /// <para>保护范围ID，可以通过[获取表格元数据](https://open.feishu.cn/document/ukTMukTMukTM/uETMzUjLxEzM14SMxMTN)接口获取，多个ID用逗号分隔，如xxxID1,xxxID2</para>
+    /// <para>保护范围的 ID，可通过[获取表格元数据](https://open.feishu.cn/document/ukTMukTMukTM/uETMzUjLxEzM14SMxMTN)接口获取。多个 ID 之间用逗号分隔。最多可传入 5 个 ID。</para>
+    /// <para>**示例值**："7379738014546812456,7379738014546812456"</para>
     /// </param>
     /// <param name="memberType">
     /// <para>必填：否</para>
-    /// <para>返回的用户类型，可选userId,openId,unionId,默认使用userId</para>
+    /// <para>返回的用户 ID 的类型。默认为 `userId`，建议选择 `openId`。了解更多，参考[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。可选值：</para>
+    /// <para>- `userId`：即 `lark_id`，为全局 ID，标识用户的物理用户身份。</para>
+    /// <para>- `openId`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。了解更多：[如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
+    /// <para>- `unionId`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。了解更多：[如何获取 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -1409,7 +1468,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6923123667871612956</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUTM5YjL1ETO24SNxkjN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据保护范围ID修改保护范围，单次最多支持同时修改10个ID。</para>
+    /// <para>修改电子表格工作表中指定的保护范围。</para>
+    /// <para>使用限制：单次调用该接口，最多支持修改 10 个保护范围。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -1418,7 +1478,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>sheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -1433,7 +1496,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6923123667871629340</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYTM5YjL2ETO24iNxkjN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据保护范围ID删除保护范围，最多支持同时删除10个ID。</para>
+    /// <para>根据保护范围 ID 删除保护范围。</para>
+    /// <para>注意事项：单次调用该接口，最多支持删除 10 个保护范围。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -1442,7 +1506,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>sheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -2069,7 +2136,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6943917246700257282</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/datavalidation/delete-datavalidation</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口根据 spreadsheetToken 、range 移除选定数据范围单元格的下拉列表设置，但保留选项文本。单个删除范围不超过5000单元格。单次请求range最大数量100个。</para>
+    /// <para>删除电子表格工作表指定范围中下拉列表的设置，但仍保留选项文本。</para>
+    /// <para>使用限制：单次删除请求可指定多个范围，单个范围指定的单元格不可超过 5,000 个，范围的总数不可超过 100 个。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -2078,7 +2146,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -2093,7 +2163,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6943917246700290050</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/datavalidation/set-dropdown</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口根据 spreadsheetToken 、range 和下拉列表属性给单元格设置下拉列表规则；单次设置范围不超过5000行，100列。当一个数据区域中已有数据，支持将有效数据直接转为选项。</para>
+    /// <para>在电子表格工作表中为指定区域添加下拉列表选项，并设置下拉列表的属性，包括是否支持多选、设置下拉选项样式等。若一个数据区域中已有数据，支持将有效数据直接转为下拉列表中的选项。</para>
+    /// <para>使用限制：</para>
+    /// <para>单次调用该接口，最多支持为 5,000 行、100 列设置下拉列表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -2102,12 +2174,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
-    System.Threading.Tasks.Task<FeishuResponse> PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
         [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto dto);
@@ -2117,7 +2191,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6943917246700306434</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/datavalidation/query-datavalidation</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口根据 spreadsheetToken 、range 查询range内的下拉列表设置信息；单次查询范围不超过5000行，100列。</para>
+    /// <para>查询电子表格工作表中指定范围的下拉列表的设置信息。</para>
+    /// <para>使用限制：</para>
+    /// <para>单次查询范围不得超过 5000 行、100列。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -2126,15 +2202,19 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="range">
     /// <para>必填：是</para>
-    /// <para>查询范围，包含 sheetId 与单元格范围两部分，目前支持四种索引方式，详见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>查询范围。格式为 `&lt;sheetId&gt;!&lt;开始位置&gt;:&lt;结束位置&gt;`。其中：</para>
+    /// <para>- `sheetId` 为工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取</para>
+    /// <para>- `&lt;开始位置&gt;:&lt;结束位置&gt;` 为工作表中单元格的范围，数字表示行索引，字母表示列索引。如 `A2:B2` 表示该工作表第 2 行的 A 列到 B 列。`range`支持四种写法，详情参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
     /// <param name="dataValidationType">
     /// <para>必填：是</para>
-    /// <para>固定为"list"，表示下拉列表</para>
+    /// <para>数据验证类型。取固定值 "list"，表示下拉列表。</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
@@ -2149,7 +2229,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6943917246700322818</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/datavalidation/update-datavalidation</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口根据 spreadsheetToken 、sheetId、dataValidationId 更新下拉列表的属性。</para>
+    /// <para>更新电子表格工作表中单个下拉列表的设置，支持更新下拉列表的选项和属性，包括是否支持多选、下拉选项的样式等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -2158,17 +2238,19 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="spreadsheetToken">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="sheetId">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子sheet唯一识别参数</para>
+    /// <para>电子表格工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。</para>
     /// </param>
     /// <param name="dataValidationId">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>sheet中下拉列表的唯一标示id</para>
+    /// <para>电子表格工作表中下拉列表的 ID。调用[查询下拉列表](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/datavalidation/query-datavalidation)获取 ID。</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -3319,6 +3401,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar:readonly</item>
+    /// <item>calendar:calendar.event:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -3396,6 +3479,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar:readonly</item>
+    /// <item>calendar:calendar.event:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="calendar_id">
@@ -3418,6 +3502,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）订阅指定的日历。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar:subscribe</item>
     /// </list></para>
     /// </summary>
     /// <param name="calendar_id">
@@ -3445,6 +3530,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar:readonly</item>
+    /// <item>calendar:calendar.event:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -3537,6 +3623,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）为指定日历添加访问控制，即日历成员权限。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar.acl:create</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -3580,6 +3667,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）删除指定日程的一个或多个参与人。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar.event:update</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -3630,6 +3718,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar:readonly</item>
+    /// <item>calendar:calendar.event:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -3699,6 +3788,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口通过关键字搜索日历，搜索结果为标题或描述包含关键字的公共日历或用户主日历。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar:read</item>
     /// <item>calendar:calendar:readonly</item>
     /// </list></para>
     /// </summary>
@@ -3731,6 +3821,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口分页查询当前身份（应用或用户）的日历列表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar:read</item>
     /// <item>calendar:calendar:readonly</item>
     /// </list></para>
     /// </summary>
@@ -3770,6 +3861,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar:readonly</item>
+    /// <item>calendar:calendar.event:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -3843,6 +3935,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar:readonly</item>
+    /// <item>calendar:calendar.free_busy:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -3893,6 +3986,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）删除指定日历内的某一访问控制，即成员权限。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar.acl:delete</item>
     /// </list></para>
     /// </summary>
     /// <param name="calendar_id">
@@ -3927,6 +4021,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）删除指定日历上的一个日程。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar.event:delete</item>
     /// </list></para>
     /// </summary>
     /// <param name="calendar_id">
@@ -3971,6 +4066,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）查询指定日历的信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar:read</item>
     /// <item>calendar:calendar:readonly</item>
     /// </list></para>
     /// </summary>
@@ -3998,6 +4094,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）删除某一指定的共享日历。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar:delete</item>
     /// </list></para>
     /// </summary>
     /// <param name="calendar_id">
@@ -4025,6 +4122,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar:readonly</item>
+    /// <item>calendar:calendar.acl:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="calendar_id">
@@ -4051,6 +4149,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）更新指定日历上的一个日程，包括日程标题、描述、开始与结束时间、视频会议以及日程地点等信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar.event:update</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -4100,6 +4199,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口为当前用户身份订阅[日历变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/events/changed)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar:read</item>
     /// <item>calendar:calendar:readonly</item>
     /// </list></para>
     /// </summary>
@@ -4116,6 +4216,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口为当前身份（应用或用户）创建一个共享日历。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar:create</item>
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -4133,6 +4234,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）取消指定日历的订阅状态。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar:subscribe</item>
     /// </list></para>
     /// </summary>
     /// <param name="calendar_id">
@@ -4160,6 +4262,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar:readonly</item>
+    /// <item>calendar:calendar.event:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -4213,6 +4316,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）为指定日程添加一个或多个参与人，参与人类型包括用户、群组、会议室以及邮箱。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar.event:update</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -4262,6 +4366,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）修改指定日历的标题、描述、公开范围等信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar:update</item>
     /// </list></para>
     /// </summary>
     /// <param name="calendar_id">
@@ -4291,6 +4396,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar:readonly</item>
+    /// <item>calendar:calendar.acl:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -8070,6 +8176,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）在指定日历上创建一个日程。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar.event:create</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -10041,6 +10148,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口获取当前身份（应用或用户）的主日历信息。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>calendar:calendar:read</item>
     /// <item>calendar:calendar:readonly</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
@@ -12467,6 +12575,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口为当前用户身份取消订阅[日历变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/events/changed)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar:read</item>
     /// <item>calendar:calendar:readonly</item>
     /// </list></para>
     /// </summary>
@@ -12484,6 +12593,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar:readonly</item>
+    /// <item>calendar:calendar.acl:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="calendar_id">
@@ -12511,6 +12621,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar:readonly</item>
+    /// <item>calendar:calendar.event:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="calendar_id">
@@ -13092,6 +13203,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：user_access_token</para>
     /// <para>通过 `user_access_token` 获取登录用户的信息。</para>
     /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:contact:access_as_app</item>
+    /// <item>contact:contact:readonly</item>
+    /// <item>contact:contact:readonly_as_app</item>
     /// <item>contact:user.email:readonly</item>
     /// <item>contact:user.employee_id:readonly</item>
     /// <item>contact:user.employee:readonly</item>
@@ -16139,6 +16253,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）为日程解绑已创建的会议群。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar.event:update</item>
     /// </list></para>
     /// </summary>
     /// <param name="calendar_id">
@@ -16174,6 +16289,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）为指定日程创建一个会议群。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar.event:update</item>
     /// </list></para>
     /// </summary>
     /// <param name="calendar_id">
@@ -16194,6 +16310,36 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}/meeting_chat")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChatResponseDto>> PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChatAsync(
+        UserAccessToken access_token,
+        [PathQuery] string calendar_id,
+        [PathQuery] string event_id);
+
+    /// <summary>
+    /// <para>【日历】创建会议纪要</para>
+    /// <para>接口ID：7263360328350760964</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-meeting_minute/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>调用该接口为指定的日程创建会议纪要。纪要以文档形式展示，成功创建后会返回纪要文档 URL。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar.event:update</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="calendar_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>日历 ID。调用[查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary)接口，获取当前身份的主日历 ID。</para>
+    /// <para>示例值：feishu.cn_xxx@group.calendar.feishu.cn</para>
+    /// </param>
+    /// <param name="event_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>日程 ID。调用[搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)接口，在指定日历内搜索日程并获取日程 ID。</para>
+    /// <para>示例值：75d28f9b-e35c-4230-8a83-123_0</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}/meeting_minute")]
+    System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingMinuteResponseDto>> PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingMinuteAsync(
         UserAccessToken access_token,
         [PathQuery] string calendar_id,
         [PathQuery] string event_id);
@@ -17267,6 +17413,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>调用该接口以当前身份（应用或用户）回复日程。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar.event:reply</item>
     /// <item>calendar:calendar.event:writeonly</item>
     /// </list></para>
     /// </summary>
@@ -17303,6 +17450,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar:readonly</item>
+    /// <item>calendar:calendar.event:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="calendar_id">
@@ -17591,6 +17739,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar:readonly</item>
+    /// <item>calendar:calendar.event:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>

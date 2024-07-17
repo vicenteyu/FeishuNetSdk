@@ -23,7 +23,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetBodyDto
 {
     /// <summary>
     /// <para>员工雇佣 ID 列表，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取</para>
-    /// <para>应与 user_id_type 类型一致</para>
+    /// <para>- 应与 user_id_type 类型一致</para>
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：1</para>
@@ -32,7 +32,10 @@ public record PostCorehrV2EmployeesJobDatasBatchGetBodyDto
     public string[] EmploymentIds { get; set; } = Array.Empty<string>();
 
     /// <summary>
-    /// <para>是否获取所有任职记录，true 为获取员工所有版本的任职记录，false 为仅获取当前生效的任职记录，默认为 false</para>
+    /// <para>是否获取所有版本的任职记录</para>
+    /// <para>- true 为获取员工所有版本的任职记录</para>
+    /// <para>- false 为仅获取当前生效的任职记录</para>
+    /// <para>- 默认为 false</para>
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
@@ -41,6 +44,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetBodyDto
 
     /// <summary>
     /// <para>生效日期 - 搜索范围开始</para>
+    /// <para>- 默认为空</para>
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
@@ -49,6 +53,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetBodyDto
 
     /// <summary>
     /// <para>生效日期 - 搜索范围结束</para>
+    /// <para>- 默认为空</para>
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
@@ -56,7 +61,8 @@ public record PostCorehrV2EmployeesJobDatasBatchGetBodyDto
     public string? EffectiveDateEnd { get; set; }
 
     /// <summary>
-    /// <para>查看数据日期，默认为今天</para>
+    /// <para>查看数据日期</para>
+    /// <para>- 默认为当天</para>
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>

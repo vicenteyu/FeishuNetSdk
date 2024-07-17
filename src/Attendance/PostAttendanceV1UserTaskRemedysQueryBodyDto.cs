@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 获取补卡记录 请求体
-/// <para>获取授权内员工的补卡记录。</para>
+/// <para>补卡：用户通过审批的方式，在某一次上/下班的打卡时间范围内，补充一条打卡记录，用以修正用户的考勤结果。本接口专用于获取员工的补卡记录（无页面功能对应）</para>
 /// <para>接口ID：7044467124773666817</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_task_remedy/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_task_remedy%2fquery</para>
@@ -52,7 +52,7 @@ public record PostAttendanceV1UserTaskRemedysQueryBodyDto
     /// <para>可选值：<list type="bullet">
     /// <item>PeriodTime：单据作用时间</item>
     /// <item>CreateTime：单据创建时间（目前暂不支持）</item>
-    /// <item>UpdateTime：单据状态更新时间（新增字段，对特定租户生效）</item>
+    /// <item>UpdateTime：单据状态更新时间（灰度中，暂不开放）</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("check_date_type")]

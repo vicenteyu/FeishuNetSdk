@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 查询单个待入职信息 响应体
-/// <para>根据 ID 查询单个待入职人员。</para>
+/// <para>根据 ID 查询单个待入职人员，本接口不再推荐使用（个人信息相关数据不完整），请使用[查询待入职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/query)接口获取更完整信息。</para>
 /// <para>接口ID：7017707615191089155</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/pre_hire/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fpre_hire%2fget</para>
@@ -34,7 +34,7 @@ public record GetCorehrV1PreHiresByPreHireIdResponseDto
     public record GetCorehrV1PreHiresByPreHireIdResponseDtoPreHire
     {
         /// <summary>
-        /// <para>招聘投递 ID ，详细信息可以通过招聘的【获取投递信息】接口查询获得（该接口仅部分租户可用）</para>
+        /// <para>招聘投递 ID ，可以通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719168654814483759</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record GetCorehrV1PreHiresByPreHireIdResponseDto
         public string? AtsApplicationId { get; set; }
 
         /// <summary>
-        /// <para>待入职ID</para>
+        /// <para>待入职ID，可从[待入职列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：154545454</para>
         /// </summary>
@@ -50,7 +50,7 @@ public record GetCorehrV1PreHiresByPreHireIdResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>入职日期</para>
+        /// <para>入职日期，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2020-01-01</para>
         /// </summary>
@@ -58,14 +58,14 @@ public record GetCorehrV1PreHiresByPreHireIdResponseDto
         public string? HireDate { get; set; }
 
         /// <summary>
-        /// <para>雇佣类型</para>
+        /// <para>人员类型</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("employee_type")]
         public Enum EmployeeType { get; set; } = new();
 
         /// <summary>
-        /// <para>雇佣类型</para>
+        /// <para>人员类型</para>
         /// </summary>
         public record Enum
         {
@@ -116,7 +116,7 @@ public record GetCorehrV1PreHiresByPreHireIdResponseDto
         public string? WorkerId { get; set; }
 
         /// <summary>
-        /// <para>雇佣类型</para>
+        /// <para>人员类型，可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口获取</para>
         /// <para>必填：是</para>
         /// <para>示例值：正式</para>
         /// </summary>
@@ -124,7 +124,7 @@ public record GetCorehrV1PreHiresByPreHireIdResponseDto
         public string EmployeeTypeId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>引用Person ID</para>
+        /// <para>个人信息ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：656464648662</para>
         /// </summary>
@@ -173,7 +173,7 @@ public record GetCorehrV1PreHiresByPreHireIdResponseDto
         public record SupportCostCenterItem
         {
             /// <summary>
-            /// <para>支持的成本中心id</para>
+            /// <para>支持的成本中心id，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：6950635856373745165</para>
             /// </summary>

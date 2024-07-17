@@ -33,6 +33,8 @@ public record PostCorehrV2EmployeesSearchBodyDto
 
     /// <summary>
     /// <para>雇佣 ID 列表</para>
+    /// <para>- 在 [【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create)</para>
+    /// <para>返回的 ID</para>
     /// <para>- ID类型应于 user_id_type 一致</para>
     /// <para>必填：否</para>
     /// </summary>

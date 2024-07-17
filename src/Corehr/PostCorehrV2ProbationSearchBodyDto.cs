@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 搜索试用期信息 请求体
-/// <para>搜索试用期信息</para>
+/// <para>搜索试用期信息，创建试用期后立刻搜索，可能会存在 5s 左右延迟</para>
 /// <para>接口ID：7254814386694553602</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/probation/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprobation%2fsearch</para>
@@ -22,21 +22,21 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2ProbationSearchBodyDto
 {
     /// <summary>
-    /// <para>雇佣 ID 列表</para>
+    /// <para>雇佣 ID 列表，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("employment_ids")]
     public string[]? EmploymentIds { get; set; }
 
     /// <summary>
-    /// <para>部门 ID 列表</para>
+    /// <para>部门 ID 列表，可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("department_ids")]
     public string[]? DepartmentIds { get; set; }
 
     /// <summary>
-    /// <para>试用期开始日期 - 搜索范围开始，需要与搜索范围结束一同使用</para>
+    /// <para>试用期开始日期 - 搜索范围开始，需要与搜索范围结束一同使用，格式："YYYY-MM-DD"</para>
     /// <para>必填：否</para>
     /// <para>示例值：2022-05-18</para>
     /// </summary>
@@ -44,7 +44,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     public string? ProbationStartDateStart { get; set; }
 
     /// <summary>
-    /// <para>试用期开始日期 - 搜索范围结束</para>
+    /// <para>试用期开始日期 - 搜索范围结束，格式："YYYY-MM-DD"</para>
     /// <para>必填：否</para>
     /// <para>示例值：2022-05-20</para>
     /// </summary>
@@ -52,7 +52,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     public string? ProbationStartDateEnd { get; set; }
 
     /// <summary>
-    /// <para>试用期预计结束日期 - 搜索范围开始，需要与搜索范围结束一同使用</para>
+    /// <para>试用期预计结束日期 - 搜索范围开始，需要与搜索范围结束一同使用，格式："YYYY-MM-DD"</para>
     /// <para>必填：否</para>
     /// <para>示例值：2022-06-20</para>
     /// </summary>
@@ -60,7 +60,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     public string? ProbationExpectedEndDateStart { get; set; }
 
     /// <summary>
-    /// <para>试用期预计结束日期 - 搜索范围结束</para>
+    /// <para>试用期预计结束日期 - 搜索范围结束，格式："YYYY-MM-DD"</para>
     /// <para>必填：否</para>
     /// <para>示例值：2022-07-20</para>
     /// </summary>
@@ -68,7 +68,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     public string? ProbationExpectedEndDateEnd { get; set; }
 
     /// <summary>
-    /// <para>试用期实际结束日期 - 搜索范围开始，需要与搜索范围结束一同使用</para>
+    /// <para>试用期实际结束日期 - 搜索范围开始，需要与搜索范围结束一同使用，格式："YYYY-MM-DD"</para>
     /// <para>必填：否</para>
     /// <para>示例值：2022-08-20</para>
     /// </summary>
@@ -76,7 +76,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     public string? ActualProbationEndDateStart { get; set; }
 
     /// <summary>
-    /// <para>试用期实际结束日期 - 搜索范围结束</para>
+    /// <para>试用期实际结束日期 - 搜索范围结束，格式："YYYY-MM-DD"</para>
     /// <para>必填：否</para>
     /// <para>示例值：2022-09-20</para>
     /// </summary>
@@ -84,7 +84,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     public string? ActualProbationEndDateEnd { get; set; }
 
     /// <summary>
-    /// <para>转正发起日期 - 搜索范围开始，需要与搜索范围结束一同使用</para>
+    /// <para>转正发起日期 - 搜索范围开始，需要与搜索范围结束一同使用，格式："YYYY-MM-DD"</para>
     /// <para>必填：否</para>
     /// <para>示例值：2022-10-20</para>
     /// </summary>
@@ -92,7 +92,7 @@ public record PostCorehrV2ProbationSearchBodyDto
     public string? InitiatingTimeStart { get; set; }
 
     /// <summary>
-    /// <para>转正发起日期 - 搜索范围结束</para>
+    /// <para>转正发起日期 - 搜索范围结束，格式："YYYY-MM-DD"</para>
     /// <para>必填：否</para>
     /// <para>示例值：2022-11-20</para>
     /// </summary>

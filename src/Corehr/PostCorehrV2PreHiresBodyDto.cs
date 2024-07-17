@@ -177,9 +177,9 @@ public record PostCorehrV2PreHiresBodyDto
         public string? PersonalIdType { get; set; }
 
         /// <summary>
-        /// <para>参加工作日期</para>
+        /// <para>参加工作日期，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2100-09-09</para>
+        /// <para>示例值：2010-09-09</para>
         /// </summary>
         [JsonPropertyName("date_entered_workforce")]
         public string? DateEnteredWorkforce { get; set; }
@@ -235,7 +235,8 @@ public record PostCorehrV2PreHiresBodyDto
         public string? WorkerId { get; set; }
 
         /// <summary>
-        /// <para>数据驻留地，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+        /// <para>数据驻留地（部分租户开通此功能），枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取。</para>
+        /// <para>按如下参数查询即可：</para>
         /// <para>- object_api_name = pre_hire</para>
         /// <para>- custom_api_name = user_geo</para>
         /// <para>必填：否</para>
@@ -645,7 +646,7 @@ public record PostCorehrV2PreHiresBodyDto
                 public string NationalIdNumber { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>证件签发日期</para>
+                /// <para>证件签发日期，格式："YYYY-MM-DD"</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：2020-04-01</para>
                 /// </summary>
@@ -653,7 +654,7 @@ public record PostCorehrV2PreHiresBodyDto
                 public string? IssueDate { get; set; }
 
                 /// <summary>
-                /// <para>证件到期日期</para>
+                /// <para>证件到期日期，格式："YYYY-MM-DD"</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：2020-05-21</para>
                 /// </summary>
@@ -712,7 +713,7 @@ public record PostCorehrV2PreHiresBodyDto
             public string? Employer { get; set; }
 
             /// <summary>
-            /// <para>岗位</para>
+            /// <para>岗位信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：保安</para>
             /// </summary>
@@ -1630,7 +1631,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? OfferId { get; set; }
 
         /// <summary>
-        /// <para>Offer HR ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取</para>
+        /// <para>Offer HR 雇佣 ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：7032210902531327521</para>
         /// </summary>
@@ -1686,7 +1687,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? JobTitle { get; set; }
 
         /// <summary>
-        /// <para>试用期开始日期</para>
+        /// <para>试用期开始日期，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022-07-29</para>
         /// </summary>
@@ -1694,7 +1695,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? ProbationStartDate { get; set; }
 
         /// <summary>
-        /// <para>试用期结束日期</para>
+        /// <para>试用期结束日期，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2023-04-07</para>
         /// </summary>
@@ -1702,7 +1703,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? ProbationEndDate { get; set; }
 
         /// <summary>
-        /// <para>合同开始日期</para>
+        /// <para>合同开始日期，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022-10-08</para>
         /// </summary>
@@ -1710,7 +1711,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? ContractStartDate { get; set; }
 
         /// <summary>
-        /// <para>合同结束日期</para>
+        /// <para>合同结束日期，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2025-10-07</para>
         /// </summary>
@@ -1736,7 +1737,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? DurationUnit { get; set; }
 
         /// <summary>
-        /// <para>入职日期</para>
+        /// <para>入职日期，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022-10-08</para>
         /// </summary>
@@ -2018,7 +2019,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? FlowId { get; set; }
 
         /// <summary>
-        /// <para>签到日期</para>
+        /// <para>签到日期，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2024-12-31</para>
         /// </summary>
@@ -2067,7 +2068,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? Education { get; set; }
 
         /// <summary>
-        /// <para>开始时间</para>
+        /// <para>开始时间，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2017-04-01</para>
         /// </summary>
@@ -2075,7 +2076,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? StartTime { get; set; }
 
         /// <summary>
-        /// <para>结束时间</para>
+        /// <para>结束时间，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2018-04-01</para>
         /// </summary>
@@ -2112,7 +2113,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? CompanyName { get; set; }
 
         /// <summary>
-        /// <para>开始时间</para>
+        /// <para>开始时间，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2015-02-01</para>
         /// </summary>
@@ -2120,7 +2121,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? StartTime { get; set; }
 
         /// <summary>
-        /// <para>结束时间</para>
+        /// <para>结束时间，格式："YYYY-MM-DD"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2017-02-01</para>
         /// </summary>

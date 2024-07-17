@@ -25,16 +25,16 @@ public record PostDriveV1FilesByFileTokenVersionsBodyDto
     /// <para>创建的版本文档的标题。</para>
     /// <para>最大长度 1024 个 Unicode 码点。通常情况下，一个英文或中文字符对应一个码点，但是某些特殊符号可能会对应多个码点。例如，家庭组合「👨‍👩‍👧」这个表情符号对应 5 个码点。</para>
     /// <para>**注意**：该参数必填，请忽略左侧必填列显示的“否”。</para>
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
     /// <para>示例值：项目文档 第 1 版</para>
     /// </summary>
     [JsonPropertyName("name")]
-    public string? Name { get; set; }
+    public string Name { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>源文档的类型</para>
     /// <para>**注意**：该参数必填，请忽略左侧必填列显示的“否”。</para>
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
     /// <para>示例值：docx</para>
     /// <para>可选值：<list type="bullet">
     /// <item>docx：新版文档</item>
@@ -42,5 +42,5 @@ public record PostDriveV1FilesByFileTokenVersionsBodyDto
     /// </list></para>
     /// </summary>
     [JsonPropertyName("obj_type")]
-    public string? ObjType { get; set; }
+    public string ObjType { get; set; } = string.Empty;
 }

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取招聘官网推广渠道列表 响应体
-/// <para>根据官网 ID 分页获取推广渠道列表。</para>
+/// <para>根据官网 ID 获取推广渠道列表，支持分页查询。</para>
 /// <para>接口ID：7097130725263441921</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/website/list-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fwebsite-channel%2flist</para>
@@ -60,7 +60,7 @@ public record GetHireV1WebsitesByWebsiteIdChannelsResponseDto
         /// <summary>
         /// <para>推广渠道名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值：官网</para>
+        /// <para>示例值：微信推广渠道</para>
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; set; }

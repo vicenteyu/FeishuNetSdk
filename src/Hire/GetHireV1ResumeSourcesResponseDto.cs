@@ -34,15 +34,15 @@ public record GetHireV1ResumeSourcesResponseDto
     public record ResumeSource
     {
         /// <summary>
-        /// <para>来源 ID</para>
+        /// <para>简历来源 ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1111</para>
+        /// <para>示例值：10000</para>
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>中文名</para>
+        /// <para>简历来源中文名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：内推</para>
         /// </summary>
@@ -50,7 +50,7 @@ public record GetHireV1ResumeSourcesResponseDto
         public string? ZhName { get; set; }
 
         /// <summary>
-        /// <para>英文名</para>
+        /// <para>简历来源英文名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：referral</para>
         /// </summary>
@@ -72,7 +72,7 @@ public record GetHireV1ResumeSourcesResponseDto
         /// <summary>
         /// <para>来源类型</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1</para>
+        /// <para>示例值：10001</para>
         /// <para>可选值：<list type="bullet">
         /// <item>10000：内推</item>
         /// <item>10001：猎头</item>

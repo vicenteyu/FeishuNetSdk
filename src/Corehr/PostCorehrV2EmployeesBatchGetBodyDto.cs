@@ -22,7 +22,9 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2EmployeesBatchGetBodyDto
 {
     /// <summary>
-    /// <para>期望获取到的字段列表，填写方式：为空时默认仅返回 employment id；可基于响应体 json 路径传递。</para>
+    /// <para>需要查询的字段列表</para>
+    /// <para>- 可参考响应体的结构，选择需要查询的字段填入</para>
+    /// <para>- 为空时仅返回 employment_id</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>

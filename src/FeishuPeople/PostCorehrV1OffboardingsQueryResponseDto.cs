@@ -89,7 +89,7 @@ public record PostCorehrV1OffboardingsQueryResponseDto
         public string? ParentOffboardingReasonUniqueIdentifier { get; set; }
 
         /// <summary>
-        /// <para>创建时间</para>
+        /// <para>创建时间，格式："YYYY-MM-DD HH-mm-ss"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2021-08-20 20:28:23</para>
         /// </summary>
@@ -97,7 +97,7 @@ public record PostCorehrV1OffboardingsQueryResponseDto
         public string? CreatedTime { get; set; }
 
         /// <summary>
-        /// <para>更新时间</para>
+        /// <para>更新时间，格式："YYYY-MM-DD HH-mm-ss"</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022-01-07 17:21:06</para>
         /// </summary>

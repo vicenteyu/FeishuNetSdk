@@ -236,6 +236,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesRespons
             /// <summary>
             /// <para>每个配置的选项。</para>
             /// <para>必填：否</para>
+            /// <para>示例值：无</para>
             /// </summary>
             [JsonPropertyName("options")]
             public CustomizationOption[]? Options { get; set; }

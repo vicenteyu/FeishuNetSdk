@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 搜索离职信息 响应体
-/// <para>该接口支持员工ID、离职审批发起时间和离职日期等字段搜索离职信息，可获取包括离职日期、离职原因、离职状态和流程审批状态等信息。</para>
+/// <para>该接口支持根据员工ID、离职审批发起时间和离职日期等字段搜索离职信息，可获取包括离职日期、离职原因、离职状态和流程审批状态等信息。</para>
 /// <para>接口ID：7211423970042183684</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/offboarding/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2foffboarding%2fsearch</para>
@@ -232,7 +232,11 @@ public record PostCorehrV1OffboardingsSearchResponseDto
             public string? AddBlockList { get; set; }
 
             /// <summary>
-            /// <para>屏蔽原因</para>
+            /// <para>屏蔽原因，枚举值可查询</para>
+            /// <para>[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取,按如下参数查</para>
+            /// <para>询即可:</para>
+            /// <para>object_api_name= "offboarding_info"</para>
+            /// <para>custom_api_name= "block_reason"</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("block_reason")]

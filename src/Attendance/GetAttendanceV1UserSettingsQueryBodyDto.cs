@@ -14,7 +14,8 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 批量查询用户人脸识别信息 请求体
-/// <para>批量查询授权内员工的用户设置信息，包括人脸照片文件 ID、人脸照片更新时间。</para>
+/// <para>批量查询授权内员工的用户设置信息，包括人脸照片文件 ID、人脸照片更新时间。对应页面假勤设置-[人脸识别](https://example.feishu.cn/people/workforce-management/setting/group/security)。根据返回的face_key可以下载人脸信息[下载用户人脸识别照片</para>
+/// <para>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/download)</para>
 /// <para>接口ID：7044467124773584897</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_setting/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_setting%2fquery</para>
@@ -22,7 +23,7 @@ namespace FeishuNetSdk.Attendance;
 public record GetAttendanceV1UserSettingsQueryBodyDto
 {
     /// <summary>
-    /// <para>employee_no 或 employee_id 列表</para>
+    /// <para>employee_no 或 employee_id 列表，对应employee_type</para>
     /// <para>必填：是</para>
     /// <para>示例值：["abd754f7"]</para>
     /// <para>最大长度：100</para>

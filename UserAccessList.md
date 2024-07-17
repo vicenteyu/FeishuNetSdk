@@ -1,5 +1,5 @@
 <table><thead><tr><th>序号</th><th>更新日期</th><th>可用</th><th>类别</th><th>说明</th></tr></thead><tbody>
-<tr><td rowspan="2">1</td><td rowspan="2">2023-11-16</td><td>&#10003;</td><td>身份验证</td><td>获取登录用户信息</td></tr>
+<tr><td rowspan="2">1</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>身份验证</td><td>获取登录用户信息</td></tr>
 <tr><td colspan="3">GetAuthenV1UserInfo</td></tr>
 <tr><td rowspan="2">2</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
 <tr><td colspan="3">PatchContactV3UsersByUserId</td></tr>
@@ -51,9 +51,9 @@
 <tr><td colspan="3">GetContactV3JobTitles</td></tr>
 <tr><td rowspan="2">26</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>获取工作表</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQuery</td></tr>
-<tr><td rowspan="2">27</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>操作工作表</td></tr>
+<tr><td rowspan="2">27</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>操作工作表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate</td></tr>
-<tr><td rowspan="2">28</td><td rowspan="2">2024-07-04</td><td>&#10003;</td><td>云文档</td><td>更新工作表属性</td></tr>
+<tr><td rowspan="2">28</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>更新工作表属性</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2</td></tr>
 <tr><td rowspan="2">29</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>增加行列</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRange</td></tr>
@@ -125,23 +125,23 @@
 <tr><td colspan="3">PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionId</td></tr>
 <tr><td rowspan="2">63</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>删除筛选条件</td></tr>
 <tr><td colspan="3">DeleteSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionId</td></tr>
-<tr><td rowspan="2">64</td><td rowspan="2">2024-01-15</td><td>&#10003;</td><td>云文档</td><td>增加保护范围</td></tr>
+<tr><td rowspan="2">64</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>增加保护范围</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimension</td></tr>
-<tr><td rowspan="2">65</td><td rowspan="2">2024-01-15</td><td>&#10003;</td><td>云文档</td><td>获取保护范围</td></tr>
+<tr><td rowspan="2">65</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>获取保护范围</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGet</td></tr>
-<tr><td rowspan="2">66</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>修改保护范围</td></tr>
+<tr><td rowspan="2">66</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>修改保护范围</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdate</td></tr>
-<tr><td rowspan="2">67</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>删除保护范围</td></tr>
+<tr><td rowspan="2">67</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>删除保护范围</td></tr>
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDel</td></tr>
-<tr><td rowspan="2">68</td><td rowspan="2">2023-07-13</td><td>&#10003;</td><td>云文档</td><td>查询下拉列表设置</td></tr>
+<tr><td rowspan="2">68</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>查询下拉列表设置</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
 <tr><td rowspan="2">69</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>消息与群组</td><td>更新应用发送的消息卡片</td></tr>
 <tr><td colspan="3">PatchImV1MessagesByMessageId</td></tr>
-<tr><td rowspan="2">70</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>设置下拉列表</td></tr>
+<tr><td rowspan="2">70</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>设置下拉列表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
-<tr><td rowspan="2">71</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>更新下拉列表设置</td></tr>
+<tr><td rowspan="2">71</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>更新下拉列表设置</td></tr>
 <tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationId</td></tr>
-<tr><td rowspan="2">72</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>删除下拉列表设置</td></tr>
+<tr><td rowspan="2">72</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>删除下拉列表设置</td></tr>
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
 <tr><td rowspan="2">73</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>获取条件格式</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormats</td></tr>
@@ -297,75 +297,75 @@
 <tr><td colspan="3">PostDriveV1FilesByFileTokenSubscriptions</td></tr>
 <tr><td rowspan="2">149</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>更新订阅状态</td></tr>
 <tr><td colspan="3">PatchDriveV1FilesByFileTokenSubscriptionsBySubscriptionId</td></tr>
-<tr><td rowspan="2">150</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>创建共享日历</td></tr>
+<tr><td rowspan="2">150</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>创建共享日历</td></tr>
 <tr><td colspan="3">PostCalendarV4Calendars</td></tr>
-<tr><td rowspan="2">151</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>删除共享日历</td></tr>
+<tr><td rowspan="2">151</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>删除共享日历</td></tr>
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarId</td></tr>
-<tr><td rowspan="2">152</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>查询主日历信息</td></tr>
+<tr><td rowspan="2">152</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询主日历信息</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsPrimary</td></tr>
-<tr><td rowspan="2">153</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>查询主日历日程忙闲信息</td></tr>
+<tr><td rowspan="2">153</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询主日历日程忙闲信息</td></tr>
 <tr><td colspan="3">PostCalendarV4FreebusyList</td></tr>
-<tr><td rowspan="2">154</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>查询日历信息</td></tr>
+<tr><td rowspan="2">154</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询日历信息</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarId</td></tr>
-<tr><td rowspan="2">155</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>查询日历列表</td></tr>
+<tr><td rowspan="2">155</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询日历列表</td></tr>
 <tr><td colspan="3">GetCalendarV4Calendars</td></tr>
-<tr><td rowspan="2">156</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>更新日历信息</td></tr>
+<tr><td rowspan="2">156</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>更新日历信息</td></tr>
 <tr><td colspan="3">PatchCalendarV4CalendarsByCalendarId</td></tr>
-<tr><td rowspan="2">157</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>搜索日历</td></tr>
+<tr><td rowspan="2">157</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>搜索日历</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsSearch</td></tr>
 <tr><td rowspan="2">158</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>消息与群组</td><td>更新群信息</td></tr>
 <tr><td colspan="3">PutImV1ChatsByChatId</td></tr>
-<tr><td rowspan="2">159</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>订阅日历</td></tr>
+<tr><td rowspan="2">159</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>订阅日历</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdSubscribe</td></tr>
-<tr><td rowspan="2">160</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>取消订阅日历</td></tr>
+<tr><td rowspan="2">160</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>取消订阅日历</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdUnsubscribe</td></tr>
-<tr><td rowspan="2">161</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>订阅日历变更事件</td></tr>
+<tr><td rowspan="2">161</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>订阅日历变更事件</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsSubscription</td></tr>
-<tr><td rowspan="2">162</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>取消订阅日历变更事件</td></tr>
+<tr><td rowspan="2">162</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>取消订阅日历变更事件</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsUnsubscription</td></tr>
-<tr><td rowspan="2">163</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>创建访问控制</td></tr>
+<tr><td rowspan="2">163</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>创建访问控制</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdAcls</td></tr>
-<tr><td rowspan="2">164</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>删除访问控制</td></tr>
+<tr><td rowspan="2">164</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>删除访问控制</td></tr>
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarIdAclsByAclId</td></tr>
-<tr><td rowspan="2">165</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>获取访问控制列表</td></tr>
+<tr><td rowspan="2">165</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取访问控制列表</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdAcls</td></tr>
-<tr><td rowspan="2">166</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>订阅日历访问控制变更事件</td></tr>
+<tr><td rowspan="2">166</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>订阅日历访问控制变更事件</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdAclsSubscription</td></tr>
-<tr><td rowspan="2">167</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>日历</td><td>取消订阅日历访问控制变更事件</td></tr>
+<tr><td rowspan="2">167</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>取消订阅日历访问控制变更事件</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdAclsUnsubscription</td></tr>
-<tr><td rowspan="2">168</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>创建日程</td></tr>
+<tr><td rowspan="2">168</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>创建日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEvents</td></tr>
 <tr><td rowspan="2">169</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>消息与群组</td><td>更新群发言权限</td></tr>
 <tr><td colspan="3">PutImV1ChatsByChatIdModeration</td></tr>
-<tr><td rowspan="2">170</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>删除日程</td></tr>
+<tr><td rowspan="2">170</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>删除日程</td></tr>
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
-<tr><td rowspan="2">171</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>更新日程</td></tr>
+<tr><td rowspan="2">171</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>更新日程</td></tr>
 <tr><td colspan="3">PatchCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
-<tr><td rowspan="2">172</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>获取日程</td></tr>
+<tr><td rowspan="2">172</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取日程</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
-<tr><td rowspan="2">173</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>获取日程列表</td></tr>
+<tr><td rowspan="2">173</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取日程列表</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEvents</td></tr>
-<tr><td rowspan="2">174</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>搜索日程</td></tr>
+<tr><td rowspan="2">174</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>搜索日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsSearch</td></tr>
-<tr><td rowspan="2">175</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>订阅日程变更事件</td></tr>
+<tr><td rowspan="2">175</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>订阅日程变更事件</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsSubscription</td></tr>
-<tr><td rowspan="2">176</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>取消订阅日程变更事件</td></tr>
+<tr><td rowspan="2">176</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>取消订阅日程变更事件</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsUnsubscription</td></tr>
-<tr><td rowspan="2">177</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>解绑会议群</td></tr>
+<tr><td rowspan="2">177</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>解绑会议群</td></tr>
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChat</td></tr>
-<tr><td rowspan="2">178</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>创建会议群</td></tr>
+<tr><td rowspan="2">178</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>创建会议群</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChat</td></tr>
 <tr><td rowspan="2">179</td><td rowspan="2">2024-05-24</td><td>&#10003;</td><td>会议室</td><td>查询会议室忙闲</td></tr>
 <tr><td colspan="3">GetMeetingRoomFreebusyBatchGet</td></tr>
 <tr><td rowspan="2">180</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>消息与群组</td><td>获取群信息</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatId</td></tr>
-<tr><td rowspan="2">181</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>添加日程参与人</td></tr>
+<tr><td rowspan="2">181</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>添加日程参与人</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendees</td></tr>
-<tr><td rowspan="2">182</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>删除日程参与人</td></tr>
+<tr><td rowspan="2">182</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>删除日程参与人</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDelete</td></tr>
-<tr><td rowspan="2">183</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>获取日程参与人列表</td></tr>
+<tr><td rowspan="2">183</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取日程参与人列表</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendees</td></tr>
-<tr><td rowspan="2">184</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>获取日程参与群成员列表</td></tr>
+<tr><td rowspan="2">184</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取日程参与群成员列表</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttendeeIdChatMembers</td></tr>
 <tr><td rowspan="2">185</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>日历</td><td>生成 CalDAV 配置</td></tr>
 <tr><td colspan="3">PostCalendarV4SettingsGenerateCaldavConf</td></tr>
@@ -707,7 +707,7 @@
 <tr><td colspan="3">PostTaskV2CustomFieldsByCustomFieldGuidOptions</td></tr>
 <tr><td rowspan="2">354</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>任务</td><td>更新自定义字段选项</td></tr>
 <tr><td colspan="3">PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuid</td></tr>
-<tr><td rowspan="2">355</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
+<tr><td rowspan="2">355</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxes</td></tr>
 <tr><td rowspan="2">356</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>搜索</td><td>搜索消息</td></tr>
 <tr><td colspan="3">PostSearchV2Message</td></tr>
@@ -763,9 +763,9 @@
 <tr><td colspan="3">PostLingoV1FilesUpload</td></tr>
 <tr><td rowspan="2">382</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>下载图片</td></tr>
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
-<tr><td rowspan="2">383</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">383</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">384</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">384</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">385</td><td rowspan="2">2023-04-07</td><td>&#10003;</td><td>应用信息</td><td>获取用户自定义常用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV5ApplicationsFavourite</td></tr>
@@ -965,9 +965,9 @@
 <tr><td colspan="3">DeleteLingoV1EntitiesByEntityId</td></tr>
 <tr><td rowspan="2">483</td><td rowspan="2">2024-05-23</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
 <tr><td colspan="3">PatchCorehrV1CompaniesByCompanyId</td></tr>
-<tr><td rowspan="2">484</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>回复日程</td></tr>
+<tr><td rowspan="2">484</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>回复日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdReply</td></tr>
-<tr><td rowspan="2">485</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>获取重复日程实例</td></tr>
+<tr><td rowspan="2">485</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取重复日程实例</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstances</td></tr>
 <tr><td rowspan="2">486</td><td rowspan="2">2024-01-03</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的机动车发票</td></tr>
 <tr><td colspan="3">PostDocumentAiV1VehicleInvoiceRecognize</td></tr>
@@ -985,7 +985,7 @@
 <tr><td colspan="3">PostAcsV1RuleExternal</td></tr>
 <tr><td rowspan="2">493</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>智能门禁</td><td>删除访客</td></tr>
 <tr><td colspan="3">DeleteAcsV1VisitorsByVisitorId</td></tr>
-<tr><td rowspan="2">494</td><td rowspan="2">2024-07-01</td><td>&#10003;</td><td>日历</td><td>查询日程视图</td></tr>
+<tr><td rowspan="2">494</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询日程视图</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
 <tr><td rowspan="2">495</td><td rowspan="2">2024-06-26</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
@@ -1015,7 +1015,7 @@
 <tr><td colspan="3">PostAilyV1Sessions</td></tr>
 <tr><td rowspan="2">508</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>薪酬管理</td><td>批量查询员工薪资档案</td></tr>
 <tr><td colspan="3">PostCompensationV1ArchivesQuery</td></tr>
-<tr><td rowspan="2">509</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
+<tr><td rowspan="2">509</td><td rowspan="2">2024-07-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
 <tr><td colspan="3">PostCorehrV2Employees</td></tr>
 <tr><td rowspan="2">510</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>绩效</td><td>获取指标库信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricLibsQuery</td></tr>
@@ -1025,4 +1025,6 @@
 <tr><td colspan="3">PostPerformanceV2MetricFieldsQuery</td></tr>
 <tr><td rowspan="2">513</td><td rowspan="2">2024-07-02</td><td>&#10003;</td><td>云文档</td><td>批量增加协作者权限</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersBatchCreate</td></tr>
+<tr><td rowspan="2">514</td><td rowspan="2">2024-07-16</td><td>新增</td><td>日历</td><td>创建会议纪要</td></tr>
+<tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingMinute</td></tr>
 </tbody></table>
