@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 更新雇佣信息 响应体
-/// <para>更新雇佣信息。</para>
+/// <para>更新雇佣信息，包括工号、任职原因等</para>
 /// <para>接口ID：7072588598729981980</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/employee/employment/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2femployment%2fpatch</para>
@@ -168,7 +168,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：type_1</para>
+            /// <para>示例值：employee</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -284,20 +284,14 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         }
 
         /// <summary>
-        /// <para>工作邮箱列表，只有当邮箱下面所有条件时，才在个人信息页面可见：</para>
-        /// <para>- is_primary = "true"</para>
-        /// <para>- is_public = "true"</para>
-        /// <para>- email_usage = "work"</para>
+        /// <para>工作邮箱列表</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("work_email_list")]
         public Email[]? WorkEmailLists { get; set; }
 
         /// <summary>
-        /// <para>工作邮箱列表，只有当邮箱下面所有条件时，才在个人信息页面可见：</para>
-        /// <para>- is_primary = "true"</para>
-        /// <para>- is_public = "true"</para>
-        /// <para>- email_usage = "work"</para>
+        /// <para>工作邮箱列表</para>
         /// </summary>
         public record Email
         {
@@ -340,7 +334,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：type_1</para>
+                /// <para>示例值：work</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -433,7 +427,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdResponseDto
         public record JobDataCostCenter
         {
             /// <summary>
-            /// <para>成本中心id，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获取详细信息</para>
+            /// <para>成本中心 ID，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获取详细信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：6950635856373745165</para>
             /// </summary>

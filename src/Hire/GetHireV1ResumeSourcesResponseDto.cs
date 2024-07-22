@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-22
 // ************************************************************************
 // <copyright file="GetHireV1ResumeSourcesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -87,7 +87,7 @@ public record GetHireV1ResumeSourcesResponseDto
         /// </list></para>
         /// </summary>
         [JsonPropertyName("resume_source_type")]
-        public int? ResumeSourceType { get; set; }
+        public string? ResumeSourceType { get; set; }
     }
 
     /// <summary>

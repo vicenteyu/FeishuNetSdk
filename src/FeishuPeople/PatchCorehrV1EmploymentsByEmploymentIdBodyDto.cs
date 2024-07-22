@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 更新雇佣信息 请求体
-/// <para>更新雇佣信息。</para>
+/// <para>更新雇佣信息，包括工号、任职原因等</para>
 /// <para>接口ID：7072588598729981980</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/employee/employment/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2femployment%2fpatch</para>
@@ -30,7 +30,11 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
     public string? SeniorityDate { get; set; }
 
     /// <summary>
-    /// <para>员工编号，由数字或字母组成，请勿使用特殊字符；请保证唯一</para>
+    /// <para>员工编号（工号）</para>
+    /// <para>- 开启自动编码时不可以主动更新</para>
+    /// <para>- 未开启自动编码，可主动更新：</para>
+    /// <para>- 由数字或字母组成，请勿使用特殊字符</para>
+    /// <para>- 请保证唯一</para>
     /// <para>必填：否</para>
     /// <para>示例值：1000000</para>
     /// </summary>
@@ -52,7 +56,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
         /// <summary>
         /// <para>枚举值</para>
         /// <para>必填：是</para>
-        /// <para>示例值：type_1</para>
+        /// <para>示例值：employee</para>
         /// </summary>
         [JsonPropertyName("enum_name")]
         public string EnumName { get; set; } = string.Empty;
@@ -104,20 +108,22 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
     }
 
     /// <summary>
-    /// <para>工作邮箱列表，只有当邮箱下面所有条件时，才在个人信息页面可见：</para>
+    /// <para>工作邮箱列表</para>
+    /// <para>- 只有满足下面所有条件时，才在工作信息页面可见：</para>
     /// <para>- is_primary = "true"</para>
     /// <para>- is_public = "true"</para>
-    /// <para>- email_usage = "work"；不传时为空</para>
+    /// <para>- email_usage = "work"</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("work_email_list")]
     public Email[]? WorkEmailLists { get; set; }
 
     /// <summary>
-    /// <para>工作邮箱列表，只有当邮箱下面所有条件时，才在个人信息页面可见：</para>
+    /// <para>工作邮箱列表</para>
+    /// <para>- 只有满足下面所有条件时，才在工作信息页面可见：</para>
     /// <para>- is_primary = "true"</para>
     /// <para>- is_public = "true"</para>
-    /// <para>- email_usage = "work"；不传时为空</para>
+    /// <para>- email_usage = "work"</para>
     /// </summary>
     public record Email
     {
@@ -147,6 +153,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
 
         /// <summary>
         /// <para>邮箱用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
+        /// <para>- 请勿填写 home 枚举</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("email_usage")]
@@ -154,13 +161,14 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
 
         /// <summary>
         /// <para>邮箱用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
+        /// <para>- 请勿填写 home 枚举</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：type_1</para>
+            /// <para>示例值：work</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;

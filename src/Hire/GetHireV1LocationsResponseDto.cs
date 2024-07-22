@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取地址列表 响应体
-/// <para>获取地址列表</para>
+/// <para>获取地址列表，可查询到的信息包括地址与地点信息，可应用在职位地点、面试地点、人才意向工作城市等场景。</para>
 /// <para>接口ID：6990661791098683395</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/location/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2flocation%2flist</para>
@@ -22,14 +22,14 @@ namespace FeishuNetSdk.Hire;
 public record GetHireV1LocationsResponseDto
 {
     /// <summary>
-    /// <para>列表</para>
+    /// <para>地址和地点信息列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public Location[]? Items { get; set; }
 
     /// <summary>
-    /// <para>列表</para>
+    /// <para>地址和地点信息列表</para>
     /// </summary>
     public record Location
     {
@@ -85,7 +85,7 @@ public record GetHireV1LocationsResponseDto
             /// <summary>
             /// <para>区编码</para>
             /// <para>必填：否</para>
-            /// <para>示例值：DS_70</para>
+            /// <para>示例值：MDCA00009061</para>
             /// </summary>
             [JsonPropertyName("code")]
             public string? Code { get; set; }
@@ -105,7 +105,7 @@ public record GetHireV1LocationsResponseDto
                 /// <summary>
                 /// <para>区中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：大观区</para>
+                /// <para>示例值：高新区</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
@@ -113,7 +113,7 @@ public record GetHireV1LocationsResponseDto
                 /// <summary>
                 /// <para>区英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：DaGuanQu</para>
+                /// <para>示例值：Gaoxin</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -142,7 +142,7 @@ public record GetHireV1LocationsResponseDto
         public CodeNameObject? Country { get; set; }
 
         /// <summary>
-        /// <para>启用状态</para>
+        /// <para>地址启用状态</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">

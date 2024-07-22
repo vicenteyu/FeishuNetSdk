@@ -30,7 +30,11 @@ public record PostCorehrV1EmploymentsBodyDto
     public string? SeniorityDate { get; set; }
 
     /// <summary>
-    /// <para>员工编号（工号），不传该参数时由系统自动生成；由数字或字母组成，请勿使用特殊字符；请保证唯一</para>
+    /// <para>员工编号（工号）</para>
+    /// <para>- 开启自动编码时由系统自动生成，填写值不生效</para>
+    /// <para>- 未开启自动编码，请主动传递：</para>
+    /// <para>- 由数字或字母组成，请勿使用特殊字符</para>
+    /// <para>- 请保证唯一</para>
     /// <para>必填：否</para>
     /// <para>示例值：1000000</para>
     /// </summary>
@@ -68,7 +72,7 @@ public record PostCorehrV1EmploymentsBodyDto
         /// <summary>
         /// <para>枚举值</para>
         /// <para>必填：是</para>
-        /// <para>示例值：type_1</para>
+        /// <para>示例值：employee</para>
         /// </summary>
         [JsonPropertyName("enum_name")]
         public string EnumName { get; set; } = string.Empty;
@@ -127,20 +131,22 @@ public record PostCorehrV1EmploymentsBodyDto
     }
 
     /// <summary>
-    /// <para>工作邮箱列表，只有当满足下面所有条件时，才在个人信息页面可见：</para>
+    /// <para>工作邮箱列表</para>
+    /// <para>- 只有当满足下面所有条件时，才在工作信息页面可见：</para>
     /// <para>- is_primary = "true"</para>
     /// <para>- is_public = "true"</para>
-    /// <para>- email_usage = "work"；不传时为空</para>
+    /// <para>- email_usage = "work"</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("work_email_list")]
     public Email[]? WorkEmailLists { get; set; }
 
     /// <summary>
-    /// <para>工作邮箱列表，只有当满足下面所有条件时，才在个人信息页面可见：</para>
+    /// <para>工作邮箱列表</para>
+    /// <para>- 只有当满足下面所有条件时，才在工作信息页面可见：</para>
     /// <para>- is_primary = "true"</para>
     /// <para>- is_public = "true"</para>
-    /// <para>- email_usage = "work"；不传时为空</para>
+    /// <para>- email_usage = "work"</para>
     /// </summary>
     public record Email
     {
@@ -170,6 +176,7 @@ public record PostCorehrV1EmploymentsBodyDto
 
         /// <summary>
         /// <para>邮箱用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
+        /// <para>- 请勿填写 home 枚举</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("email_usage")]
@@ -177,13 +184,14 @@ public record PostCorehrV1EmploymentsBodyDto
 
         /// <summary>
         /// <para>邮箱用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
+        /// <para>- 请勿填写 home 枚举</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：type_1</para>
+            /// <para>示例值：work</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;

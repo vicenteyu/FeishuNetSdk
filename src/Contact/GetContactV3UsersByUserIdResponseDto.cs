@@ -441,7 +441,7 @@ public record GetContactV3UsersByUserIdResponseDto
                 public string? PcUrl { get; set; }
 
                 /// <summary>
-                /// <para>枚举类型中选项的选项值。</para>
+                /// <para>枚举类型中选项的选项值。当返回该值时，还会返回 option_id 参数，取值为枚举值的 ID。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：option</para>
                 /// </summary>

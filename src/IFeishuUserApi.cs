@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-11
+// Last Modified On : 2024-07-22
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -9382,8 +9382,6 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>此接口用于获取有权限访问的知识空间列表。</para>
-    /// <para>此接口为分页接口。由于权限过滤，可能返回列表为空，但分页标记（has_more）为true，可以继续分页请求。</para>
-    /// <para>对于知识空间各项属性描述请参阅[获取知识空间信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>wiki:wiki</item>
     /// <item>wiki:wiki:readonly</item>
@@ -9393,7 +9391,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>分页大小</para>
     /// <para>示例值：10</para>
-    /// <para>默认值：10</para>
+    /// <para>默认值：20</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -9401,25 +9399,44 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：1565676577122621</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="lang">
+    /// <para>必填：否</para>
+    /// <para>当查询个人文档库时，指定返回的文档库名称展示语言。</para>
+    /// <para>示例值：zh</para>
+    /// <list type="bullet">
+    /// <item>zh：简体中文</item>
+    /// <item>id：印尼语</item>
+    /// <item>de：德语</item>
+    /// <item>en：英语</item>
+    /// <item>es：西班牙语</item>
+    /// <item>fr：法语</item>
+    /// <item>it：意大利语</item>
+    /// <item>pt：葡萄牙语</item>
+    /// <item>vi：越南语</item>
+    /// <item>ru：俄语</item>
+    /// <item>hi：印地语</item>
+    /// <item>th：泰语</item>
+    /// <item>ko：韩语</item>
+    /// <item>ja：日语</item>
+    /// <item>zh-HK：繁体中文（中国香港）</item>
+    /// <item>zh-TW：繁体中文（中国台湾）</item>
+    /// </list>
+    /// <para>默认值：en</para>
+    /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/wiki/v2/spaces")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetWikiV2SpacesResponseDto>> GetWikiV2SpacesAsync(
         UserAccessToken access_token,
-        [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] int? page_size = 20,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? lang = "en");
 
     /// <summary>
     /// <para>【云文档】获取知识空间信息</para>
     /// <para>接口ID：7023947709203857412</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>此接口用于根据知识空间ID来查询知识空间的信息。</para>
-    /// <para>空间类型（type）：</para>
-    /// <para>- 个人空间：归个人管理。一人仅可拥有一个个人空间，无法添加其他管理员。</para>
-    /// <para>- 团队空间：归团队（多人)管理，可添加多个管理员。</para>
-    /// <para>空间可见性（visibility）：</para>
-    /// <para>- 公开空间：租户所有用户可见，默认为成员权限。无法额外添加成员，但可以添加管理员。</para>
-    /// <para>- 私有空间：仅对知识空间管理员、成员可见，需要手动添加管理员、成员。</para>
+    /// <para>此接口用于根据知识空间 ID 查询知识空间的信息，包括空间的类型、可见性、分享状态等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>wiki:wiki</item>
     /// <item>wiki:wiki:readonly</item>
@@ -9428,14 +9445,41 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="space_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>知识空间id</para>
+    /// <para>知识空间 ID。可通过以下两种方式获取。了解更多，参考[知识库概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)。</para>
+    /// <para>- 调用 [获取知识空间列表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list)获取</para>
+    /// <para>- 如果你是知识库管理员，可以进入知识库设置页面，复制地址栏的数字部分：https://sample.feishu.cn/wiki/settings/==6870403571079249922==</para>
     /// <para>示例值：6870403571079249922</para>
+    /// </param>
+    /// <param name="lang">
+    /// <para>必填：否</para>
+    /// <para>当查询个人文档库时，指定返回的文档库名称展示语言。</para>
+    /// <para>示例值：zh</para>
+    /// <list type="bullet">
+    /// <item>zh：简体中文</item>
+    /// <item>id：印尼语</item>
+    /// <item>de：德语</item>
+    /// <item>en：英语</item>
+    /// <item>es：西班牙语</item>
+    /// <item>fr：法语</item>
+    /// <item>it：意大利语</item>
+    /// <item>pt：葡萄牙语</item>
+    /// <item>vi：越南语</item>
+    /// <item>ru：俄语</item>
+    /// <item>hi：印地语</item>
+    /// <item>th：泰语</item>
+    /// <item>ko：韩语</item>
+    /// <item>ja：日语</item>
+    /// <item>zh-HK：繁体中文（中国香港）</item>
+    /// <item>zh-TW：繁体中文（中国台湾）</item>
+    /// </list>
+    /// <para>默认值：en</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/wiki/v2/spaces/{space_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetWikiV2SpacesBySpaceIdResponseDto>> GetWikiV2SpacesBySpaceIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string space_id);
+        [PathQuery] string space_id,
+        [PathQuery] string? lang = "en");
 
     /// <summary>
     /// <para>【云文档】创建知识空间节点</para>
@@ -11011,7 +11055,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7094878915034464284</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口仅支持**文档拥有者**和**文档管理者**订阅文档的通知事件（但目前文档管理者仅能接收到**文件编辑**事件）。可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，目前已支持的事件类型请参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
+    /// <para>该接口用于订阅云文档的各类通知事件。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。了解云文档支持的事件类型，参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>drive:drive</item>
@@ -11021,24 +11065,24 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文档token</para>
-    /// <para>示例值：doccnxxxxxxxxxxxxxxxxxxxxxx</para>
+    /// <para>云文档的 token。了解如何获取各类云文档的 token，参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)。</para>
+    /// <para>示例值：doccnfYZzTlvXqZIGTdAHKabcef</para>
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档。已不推荐使用</item>
     /// <item>docx：新版文档</item>
-    /// <item>sheet：表格</item>
+    /// <item>sheet：电子表格</item>
     /// <item>bitable：多维表格</item>
     /// <item>folder：文件夹</item>
     /// </list>
     /// </param>
     /// <param name="event_type">
     /// <para>必填：否</para>
-    /// <para>事件类型，订阅为folder类型时必填</para>
+    /// <para>事件类型，`file_type` 为 `folder `（文件夹）时必填 `file.created_in_folder_v1`</para>
     /// <para>示例值：file.created_in_folder_v1</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -11072,6 +11116,70 @@ public interface IFeishuUserApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesTaskCheckResponseDto>> GetDriveV1FilesTaskCheckAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id);
+
+    /// <summary>
+    /// <para>【招聘】获取待办列表</para>
+    /// <para>接口ID：7096463887449325596</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/todo/list</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取待办列表。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:todo:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>每页获取记录数量，最大100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="user_id">
+    /// <para>必填：否</para>
+    /// <para>用户 ID，当 token 为租户 token 时，必须传入该字段，当 token 为用户 token 时，不传该字段</para>
+    /// <para>示例值：ou_xxx</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以 people_admin_id 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_admin_id</para>
+    /// </param>
+    /// <param name="type">
+    /// <para>必填：是</para>
+    /// <para>待办类型</para>
+    /// <para>示例值：interview</para>
+    /// <list type="bullet">
+    /// <item>evaluation：评估待办</item>
+    /// <item>offer：Offer 待办</item>
+    /// <item>exam：笔试待办</item>
+    /// <item>interview：面试待办</item>
+    /// </list>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/hire/v1/todos")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1TodosResponseDto>> GetHireV1TodosAsync(
+        UserAccessToken access_token,
+        [PathQuery] string type,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? user_id = null,
+        [PathQuery] string? user_id_type = "people_admin_id");
 
     /// <summary>
     /// <para>【云文档】批量更新块的内容</para>
@@ -16160,7 +16268,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7259592279886233628</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete_subscribe</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口仅支持**文档拥有者**和**文档管理者**取消订阅文档的通知事件（但目前文档管理者仅能接收到**文件编辑**事件）。可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。暂时无法指定取消的具体事件类型，事件类型以开发者后台为准。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
+    /// <para>该接口用于取消订阅云文档的通知事件。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。了解云文档支持的事件类型，参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>drive:drive</item>
@@ -16170,17 +16278,17 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文档token</para>
-    /// <para>示例值：doccnxxxxxxxxxxxxxxxxxxxxxx</para>
+    /// <para>云文档的 token。了解如何获取各类云文档的token，参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)。</para>
+    /// <para>示例值：doccnfYZzTlvXqZIGTdAHKabcef</para>
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
-    /// <item>docx：doc</item>
-    /// <item>sheet：表格</item>
+    /// <item>doc：旧版文档。已不推荐使用</item>
+    /// <item>docx：新版文档</item>
+    /// <item>sheet：电子表格</item>
     /// <item>bitable：多维表格</item>
     /// <item>file：文件</item>
     /// <item>folder：文件夹</item>
@@ -16188,7 +16296,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="event_type">
     /// <para>必填：否</para>
-    /// <para>事件类型，订阅为folder类型时必填</para>
+    /// <para>事件类型，`file_type` 为 `folder`（文件夹）时必填 `file.created_in_folder_v1`</para>
     /// <para>示例值：file.created_in_folder_v1</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -16205,7 +16313,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7259592279886250012</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/get_subscribe</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口仅支持**文档拥有者**和**文档管理者**查询文档的订阅状态（但目前文档管理者仅能接收到**文件编辑**事件）。可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
+    /// <para>该接口用于查询云文档事件的订阅状态。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。了解云文档支持的事件类型，参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>drive:drive</item>
@@ -16215,17 +16323,17 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文档token</para>
-    /// <para>示例值：doccnxxxxxxxxxxxxxxxxxxxxxx</para>
+    /// <para>云文档的 token。了解如何获取各类云文档的 token，参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)。</para>
+    /// <para>示例值：doccnfYZzTlvXqZIGTdAHKabcef</para>
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
     /// <para>文档类型</para>
-    /// <para>示例值：doc</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
-    /// <item>docx：docx文档</item>
-    /// <item>sheet：表格</item>
+    /// <item>doc：旧版文档。已不推荐使用</item>
+    /// <item>docx：新版文档</item>
+    /// <item>sheet：电子表格</item>
     /// <item>bitable：多维表格</item>
     /// <item>file：文件</item>
     /// <item>folder：文件夹</item>
@@ -16233,7 +16341,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="event_type">
     /// <para>必填：否</para>
-    /// <para>事件类型，订阅为folder类型时必填</para>
+    /// <para>事件类型，`file_type` 为 `folder `（文件夹）时必填 `file.created_in_folder_v1`</para>
     /// <para>示例值：file.created_in_folder_v1</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -18276,5 +18384,45 @@ public interface IFeishuUserApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2MetricFieldsQueryResponseDto>> PostPerformanceV2MetricFieldsQueryAsync(
         UserAccessToken access_token,
         [JsonContent] Performance.PostPerformanceV2MetricFieldsQueryBodyDto dto);
+
+    /// <summary>
+    /// <para>【多维表格】批量获取记录</para>
+    /// <para>接口ID：7386702252390268956</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/batch_get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过多个记录 ID 查询记录信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>bitable:app</item>
+    /// <item>bitable:app:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:contact:access_as_app</item>
+    /// <item>contact:contact:readonly</item>
+    /// <item>contact:contact:readonly_as_app</item>
+    /// <item>contact:user.base:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>多维表格的 token。可通过以下两种方式获取。了解更多，参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)。</para>
+    /// <para>- 多维表格的 URL：https://sample.feishu.cn/base/==NQRxbRkBMa6OnZsjtERcxhabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：NQRxbRkBMa6OnZsjtERcxhabcef</para>
+    /// </param>
+    /// <param name="table_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>多维表格中的数据表 ID。调用[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)获取 ID。</para>
+    /// <para>示例值：tbl0xe5g8PPabcef</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_get")]
+    System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGetResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGetAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_token,
+        [PathQuery] string table_id,
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGetBodyDto dto);
 }
 
