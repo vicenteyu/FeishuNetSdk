@@ -31,7 +31,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchBodyDto
     public string[]? JobTypeIdList { get; set; }
 
     /// <summary>
-    /// <para>职位城市列表，详情请参考：[查询地点列表](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)</para>
+    /// <para>职位城市列表，详情请参考：[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)</para>
     /// <para>必填：否</para>
     /// <para>示例值：CT_1</para>
     /// <para>最大长度：100</para>

@@ -381,7 +381,7 @@ public record PostApprovalV4TasksSearchResponseDto
             public string? UpdateTime { get; set; }
 
             /// <summary>
-            /// <para>三方审批扩展 ID</para>
+            /// <para>三方审批扩展 任务ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：123123daddf21313</para>
             /// </summary>

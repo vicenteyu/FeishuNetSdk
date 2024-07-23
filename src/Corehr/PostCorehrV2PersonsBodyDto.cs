@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2PersonsBodyDto
 {
     /// <summary>
-    /// <para>姓名列表，当不为离职重聘员工时，该字段必填</para>
+    /// <para>姓名列表，当用于[【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create) 的离职重聘时，该字段必填</para>
     /// <para>字段权限要求：</para>
     /// <para>读写法定姓名信息(corehr:person.legal_name:write)</para>
     /// <para>必填：否</para>
@@ -31,7 +31,7 @@ public record PostCorehrV2PersonsBodyDto
     public PersonName[]? NameLists { get; set; }
 
     /// <summary>
-    /// <para>姓名列表，当不为离职重聘员工时，该字段必填</para>
+    /// <para>姓名列表，当用于[【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create) 的离职重聘时，该字段必填</para>
     /// <para>字段权限要求：</para>
     /// <para>读写法定姓名信息(corehr:person.legal_name:write)</para>
     /// </summary>
@@ -632,7 +632,8 @@ public record PostCorehrV2PersonsBodyDto
 
         /// <summary>
         /// <para>邮箱用途，可通过[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
-        /// <para>默认emergency_contact</para>
+        /// <para>- 请勿填写 work 枚举，工作邮箱在雇佣信息中操作</para>
+        /// <para>- 默认：emergency_contact</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("email_usage")]
@@ -640,14 +641,15 @@ public record PostCorehrV2PersonsBodyDto
 
         /// <summary>
         /// <para>邮箱用途，可通过[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
-        /// <para>默认emergency_contact</para>
+        /// <para>- 请勿填写 work 枚举，工作邮箱在雇佣信息中操作</para>
+        /// <para>- 默认：emergency_contact</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：home</para>
+            /// <para>示例值：emergency_contact</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;

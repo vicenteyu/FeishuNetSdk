@@ -303,7 +303,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         public int? DataSource { get; set; }
 
         /// <summary>
-        /// <para>请假申请流程ID</para>
+        /// <para>请假申请流程ID。注意：导入的请假不会返回leave_process_id</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("leave_process_id")]

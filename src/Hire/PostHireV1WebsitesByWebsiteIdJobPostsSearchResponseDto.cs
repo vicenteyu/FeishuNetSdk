@@ -36,7 +36,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         /// <summary>
         /// <para>职位广告 ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1213213123123</para>
+        /// <para>示例值：7392894182636144946</para>
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; set; }
@@ -112,7 +112,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
             /// <summary>
             /// <para>职位雇佣类型 ID</para>
             /// <para>必填：否</para>
-            /// <para>示例值：1213213123123</para>
+            /// <para>示例值：101</para>
             /// </summary>
             [JsonPropertyName("id")]
             public string? Id { get; set; }
@@ -176,14 +176,14 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         public IdNameObject? MaxJobLevel { get; set; }
 
         /// <summary>
-        /// <para>职位地址，详情请参考：[获取地址列表](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/location/list)</para>
+        /// <para>职位地址，详情请参考：[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("address")]
         public CommonAddress? Address { get; set; }
 
         /// <summary>
-        /// <para>职位地址，详情请参考：[获取地址列表](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/location/list)</para>
+        /// <para>职位地址，详情请参考：[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)</para>
         /// </summary>
         public record CommonAddress
         {
@@ -239,7 +239,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
                 /// <summary>
                 /// <para>区域编码</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：1111</para>
+                /// <para>示例值：MDCA00009061</para>
                 /// </summary>
                 [JsonPropertyName("code")]
                 public string? Code { get; set; }
@@ -299,7 +299,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         /// <summary>
         /// <para>月薪范围-最低薪资，单位：千</para>
         /// <para>必填：否</para>
-        /// <para>示例值：5000</para>
+        /// <para>示例值：5</para>
         /// </summary>
         [JsonPropertyName("min_salary")]
         public string? MinSalary { get; set; }
@@ -307,7 +307,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         /// <summary>
         /// <para>月薪范围-最高薪资，单位：千</para>
         /// <para>必填：否</para>
-        /// <para>示例值：10000</para>
+        /// <para>示例值：10</para>
         /// </summary>
         [JsonPropertyName("max_salary")]
         public string? MaxSalary { get; set; }
@@ -416,9 +416,9 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         public record WebsiteJobPostCustomizedData
         {
             /// <summary>
-            /// <para>自定义字段 ID，详情请参考：[获取职位模版](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/job/list)</para>
+            /// <para>自定义字段 ID，详情请参考：[获取职位模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_schema/list)</para>
             /// <para>必填：否</para>
-            /// <para>示例值：xxxx</para>
+            /// <para>示例值：6949805467799537964</para>
             /// </summary>
             [JsonPropertyName("object_id")]
             public string? ObjectId { get; set; }
@@ -446,7 +446,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
                 /// <summary>
                 /// <para>字段英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：集团化</para>
+                /// <para>示例值：collectivize</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -611,7 +611,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         public IdNameObject? Subject { get; set; }
 
         /// <summary>
-        /// <para>职位地址列表，详情请参考：[获取地址列表](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/location/list)</para>
+        /// <para>职位地址列表，详情请参考：[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("address_list")]

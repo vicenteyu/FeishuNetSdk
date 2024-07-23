@@ -34,7 +34,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeResponseDto
     public record WebsiteDeliveryDto
     {
         /// <summary>
-        /// <para>投递 ID</para>
+        /// <para>招聘投递 ID，可通过[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)获取详细信息</para>
         /// <para>必填：否</para>
         /// <para>示例值：6960663240925956657</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeResponseDto
         public string? ApplicationId { get; set; }
 
         /// <summary>
-        /// <para>ID</para>
+        /// <para>官网投递ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6960663240925956655</para>
         /// </summary>
@@ -66,7 +66,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeResponseDto
         public string? JobPostId { get; set; }
 
         /// <summary>
-        /// <para>官网简历 ID</para>
+        /// <para>简历 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6960663240925956660</para>
         /// </summary>
@@ -82,7 +82,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeResponseDto
         public string? UserId { get; set; }
 
         /// <summary>
-        /// <para>人才 ID</para>
+        /// <para>人才 ID，详情可参考[获取人才信息 ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：7095600054216542508</para>
         /// </summary>

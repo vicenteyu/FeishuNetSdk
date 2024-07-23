@@ -4,7 +4,7 @@
 // Created          : 2024-07-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-22
+// Last Modified On : 2024-07-24
 // ************************************************************************
 // <copyright file="PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
 {
     /// <summary>
-    /// <para>职位广告 ID</para>
+    /// <para>职位广告 ID，可通过[搜索招聘官网下的职位广告列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/search)或者[获取招聘官网下的职位广告列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/list)获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：6960663240925956636</para>
     /// </summary>
@@ -54,15 +54,15 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
         public record WebsiteDeliveryInternship
         {
             /// <summary>
-            /// <para>描述</para>
+            /// <para>实习经历描述</para>
             /// <para>必填：否</para>
-            /// <para>示例值：这是一家创业公司，非常不错</para>
+            /// <para>示例值：在抖音工作实习3个月，表现优秀</para>
             /// </summary>
             [JsonPropertyName("desc")]
             public string? Desc { get; set; }
 
             /// <summary>
-            /// <para>结束时间, 如果是至今传值 -1</para>
+            /// <para>结束时间，毫秒时间戳，如果是「至今」可传值 -1</para>
             /// <para>必填：否</para>
             /// <para>示例值：1618500278667</para>
             /// </summary>
@@ -70,7 +70,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public long? EndTime { get; set; }
 
             /// <summary>
-            /// <para>开始时间</para>
+            /// <para>开始时间，毫秒时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1609430400000</para>
             /// </summary>
@@ -86,9 +86,9 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public string? Title { get; set; }
 
             /// <summary>
-            /// <para>公司</para>
+            /// <para>公司名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：字节跳动</para>
+            /// <para>示例值：抖音公司</para>
             /// </summary>
             [JsonPropertyName("company")]
             public string? Company { get; set; }
@@ -106,7 +106,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public record WebsiteDeliveryCustomizedData
             {
                 /// <summary>
-                /// <para>自定义字段 ID</para>
+                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956649</para>
                 /// </summary>
@@ -114,7 +114,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
                 public string? ObjectId { get; set; }
 
                 /// <summary>
-                /// <para>自定义字段 value，格式见接口说明</para>
+                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：AA</para>
                 /// </summary>
@@ -136,20 +136,20 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
         public record WebsiteDeliveryBasicInfo
         {
             /// <summary>
-            /// <para>国籍，可从「获取地址码」查询</para>
+            /// <para>国家码，可通过[查询地点列表](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取</para>
             /// <para>必填：否</para>
-            /// <para>示例值：CN_112</para>
+            /// <para>示例值：CN_1</para>
             /// </summary>
             [JsonPropertyName("nationality_id")]
             public string? NationalityId { get; set; }
 
             /// <summary>
-            /// <para>起始工作时间</para>
+            /// <para>起始工作时间，毫秒时间戳</para>
             /// <para>必填：否</para>
-            /// <para>示例值：1625648596</para>
+            /// <para>示例值：1609430400000</para>
             /// </summary>
             [JsonPropertyName("start_work_time")]
-            public int? StartWorkTime { get; set; }
+            public long? StartWorkTime { get; set; }
 
             /// <summary>
             /// <para>家庭住址</para>
@@ -160,7 +160,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public string? CurrentHomeAddress { get; set; }
 
             /// <summary>
-            /// <para>家乡，可从「获取地址码」查询</para>
+            /// <para>家乡，可通过[查询地点列表](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：CT_159</para>
             /// </summary>
@@ -168,7 +168,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public string? HometownCityCode { get; set; }
 
             /// <summary>
-            /// <para>电话国际区号，可从「获取地址码」查询</para>
+            /// <para>手机国家代码，可通过[查询地点列表](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：CN_1</para>
             /// </summary>
@@ -234,7 +234,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public string? Mobile { get; set; }
 
             /// <summary>
-            /// <para>所在城市，可从「获取地址码」查询</para>
+            /// <para>所在城市，可通过[查询地点列表](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：CT_11</para>
             /// </summary>
@@ -254,21 +254,21 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
-            /// <item>1：Male</item>
-            /// <item>2：Female</item>
-            /// <item>3：Other</item>
+            /// <item>1：男</item>
+            /// <item>2：女</item>
+            /// <item>3：其他</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("gender")]
             public int? Gender { get; set; }
 
             /// <summary>
-            /// <para>出生日期</para>
+            /// <para>出生日期，毫秒时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1609430400000</para>
             /// </summary>
             [JsonPropertyName("birthday")]
-            public int? Birthday { get; set; }
+            public long? Birthday { get; set; }
 
             /// <summary>
             /// <para>姓名</para>
@@ -279,7 +279,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public string Name { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>意向城市，可从「获取地址码」查询</para>
+            /// <para>意向城市列表，可通过[查询地点列表](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：意向城市</para>
             /// </summary>
@@ -287,7 +287,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public string[]? PreferredCityCodeList { get; set; }
 
             /// <summary>
-            /// <para>简历来源，可从「获取简历来源列表」查询</para>
+            /// <para>简历来源，可通过[获取简历来源列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/resume_source/list)获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6982104077248219436</para>
             /// </summary>
@@ -315,7 +315,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public record WebsiteDeliveryCustomizedData
             {
                 /// <summary>
-                /// <para>自定义字段 ID</para>
+                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956649</para>
                 /// </summary>
@@ -323,7 +323,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
                 public string? ObjectId { get; set; }
 
                 /// <summary>
-                /// <para>自定义字段 value，格式见接口说明</para>
+                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：AA</para>
                 /// </summary>
@@ -368,8 +368,8 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public int? EducationType { get; set; }
 
             /// <summary>
-            /// <para>结束时间 ,如果是至今传值 -1</para>
-            /// <para>传输「至今」，投递进入系统后可正常查看字段，但进入编辑态后需要修改为一个具体时间</para>
+            /// <para>结束时间 ，毫秒时间戳，如果是「至今」可传值 -1。请注意：若传值-1</para>
+            /// <para>投递创建成功后在系统中可正常查看，但若编辑则需要填一个具体时间</para>
             /// <para>必填：否</para>
             /// <para>示例值：1618500278663</para>
             /// </summary>
@@ -377,13 +377,13 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public long? EndTime { get; set; }
 
             /// <summary>
-            /// <para>结束时间-新，无「至今」传值。</para>
+            /// <para>结束时间（新），毫秒时间戳，无「至今」传值。</para>
             /// <para>建议使用此字段，避免模糊的毕业时间影响候选人筛选</para>
             /// <para>必填：否</para>
             /// <para>示例值：1618500278663</para>
             /// </summary>
             [JsonPropertyName("end_time_v2")]
-            public int? EndTimeV2 { get; set; }
+            public long? EndTimeV2 { get; set; }
 
             /// <summary>
             /// <para>专业</para>
@@ -402,7 +402,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public string? School { get; set; }
 
             /// <summary>
-            /// <para>开始时间</para>
+            /// <para>开始时间，毫秒时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1609430400000</para>
             /// </summary>
@@ -438,7 +438,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public record WebsiteDeliveryCustomizedData
             {
                 /// <summary>
-                /// <para>自定义字段 ID</para>
+                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956649</para>
                 /// </summary>
@@ -446,7 +446,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
                 public string? ObjectId { get; set; }
 
                 /// <summary>
-                /// <para>自定义字段 value，格式见接口说明</para>
+                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：AA</para>
                 /// </summary>
@@ -487,7 +487,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
         public record WebsiteDeliverySelfEvaluation
         {
             /// <summary>
-            /// <para>内容</para>
+            /// <para>评价内容</para>
             /// <para>必填：否</para>
             /// <para>示例值：自我评价：平常心</para>
             /// </summary>
@@ -507,7 +507,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public record WebsiteDeliveryCustomizedData
             {
                 /// <summary>
-                /// <para>自定义字段 ID</para>
+                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956649</para>
                 /// </summary>
@@ -515,7 +515,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
                 public string? ObjectId { get; set; }
 
                 /// <summary>
-                /// <para>自定义字段 value，格式见接口说明</para>
+                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：AA</para>
                 /// </summary>
@@ -537,15 +537,15 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
         public record WebsiteDeliveryCareer
         {
             /// <summary>
-            /// <para>描述</para>
+            /// <para>工作经历描述</para>
             /// <para>必填：否</para>
-            /// <para>示例值：这是一家创业公司，非常不错</para>
+            /// <para>示例值：在抖音公司工作了5年，表现优秀</para>
             /// </summary>
             [JsonPropertyName("desc")]
             public string? Desc { get; set; }
 
             /// <summary>
-            /// <para>结束时间, 如果是至今传值 -1</para>
+            /// <para>结束时间, 毫秒时间戳，如果是「至今」可传值 -1</para>
             /// <para>必填：否</para>
             /// <para>示例值：1618500278667</para>
             /// </summary>
@@ -553,7 +553,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public long? EndTime { get; set; }
 
             /// <summary>
-            /// <para>开始时间</para>
+            /// <para>开始时间，毫秒时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1609430400000</para>
             /// </summary>
@@ -563,7 +563,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             /// <summary>
             /// <para>职位名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：后端研发实习生</para>
+            /// <para>示例值：后端研发工程师</para>
             /// </summary>
             [JsonPropertyName("title")]
             public string? Title { get; set; }
@@ -571,7 +571,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             /// <summary>
             /// <para>公司</para>
             /// <para>必填：否</para>
-            /// <para>示例值：字节跳动</para>
+            /// <para>示例值：抖音公司</para>
             /// </summary>
             [JsonPropertyName("company")]
             public string? Company { get; set; }
@@ -589,7 +589,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public record WebsiteDeliveryCustomizedData
             {
                 /// <summary>
-                /// <para>自定义字段 ID</para>
+                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956649</para>
                 /// </summary>
@@ -597,7 +597,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
                 public string? ObjectId { get; set; }
 
                 /// <summary>
-                /// <para>自定义字段 value，格式见接口说明</para>
+                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：AA</para>
                 /// </summary>
@@ -619,7 +619,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
         public record WebsiteDeliveryCustomizedDataParent
         {
             /// <summary>
-            /// <para>自定义字段 ID</para>
+            /// <para>自定义模块ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6960663240925956651</para>
             /// </summary>
@@ -627,19 +627,19 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public string? ObjectId { get; set; }
 
             /// <summary>
-            /// <para>模块下的字段</para>
+            /// <para>字段列表</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("children")]
             public WebsiteDeliveryCustomizedData[]? Childrens { get; set; }
 
             /// <summary>
-            /// <para>模块下的字段</para>
+            /// <para>字段列表</para>
             /// </summary>
             public record WebsiteDeliveryCustomizedData
             {
                 /// <summary>
-                /// <para>自定义字段 ID</para>
+                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956649</para>
                 /// </summary>
@@ -647,7 +647,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
                 public string? ObjectId { get; set; }
 
                 /// <summary>
-                /// <para>自定义字段 value，格式见接口说明</para>
+                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：AA</para>
                 /// </summary>
@@ -657,7 +657,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
         }
 
         /// <summary>
-        /// <para>简历附件ID，使用「创建附件」生成</para>
+        /// <para>简历附件ID，需通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)生成</para>
         /// <para>必填：否</para>
         /// <para>示例值：6960663240925956654</para>
         /// </summary>
@@ -710,7 +710,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public record WebsiteDeliveryCustomizedData
             {
                 /// <summary>
-                /// <para>自定义字段 ID</para>
+                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956649</para>
                 /// </summary>
@@ -718,7 +718,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
                 public string? ObjectId { get; set; }
 
                 /// <summary>
-                /// <para>自定义字段 value，格式见接口说明</para>
+                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：AA</para>
                 /// </summary>
@@ -727,9 +727,9 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             }
 
             /// <summary>
-            /// <para>链接</para>
+            /// <para>社交账号链接</para>
             /// <para>必填：否</para>
-            /// <para>示例值：toutiao.com</para>
+            /// <para>示例值：www.toutiao.com</para>
             /// </summary>
             [JsonPropertyName("link")]
             public string? Link { get; set; }
@@ -750,7 +750,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             /// <summary>
             /// <para>作品描述</para>
             /// <para>必填：否</para>
-            /// <para>示例值：作品描述：xxxx</para>
+            /// <para>示例值：作品描述：研究生阶段发表了顶刊论文</para>
             /// </summary>
             [JsonPropertyName("desc")]
             public string? Desc { get; set; }
@@ -776,7 +776,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public record WebsiteDeliveryWorksAttachment
             {
                 /// <summary>
-                /// <para>文件ID，使用「创建附件」生成</para>
+                /// <para>文件ID，需通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)生成</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6982104077248219436</para>
                 /// </summary>
@@ -797,7 +797,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public record WebsiteDeliveryCustomizedData
             {
                 /// <summary>
-                /// <para>自定义字段 ID</para>
+                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956649</para>
                 /// </summary>
@@ -805,7 +805,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
                 public string? ObjectId { get; set; }
 
                 /// <summary>
-                /// <para>自定义字段 value，格式见接口说明</para>
+                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：AA</para>
                 /// </summary>
@@ -839,7 +839,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public record WebsiteDeliveryCustomizedData
             {
                 /// <summary>
-                /// <para>自定义字段 ID</para>
+                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956649</para>
                 /// </summary>
@@ -847,7 +847,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
                 public string? ObjectId { get; set; }
 
                 /// <summary>
-                /// <para>自定义字段 value，格式见接口说明</para>
+                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：AA</para>
                 /// </summary>
@@ -856,7 +856,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             }
 
             /// <summary>
-            /// <para>描述</para>
+            /// <para>获奖描述</para>
             /// <para>必填：否</para>
             /// <para>示例值：ACM国际大学生程序设计竞赛</para>
             /// </summary>
@@ -872,12 +872,12 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public string? Title { get; set; }
 
             /// <summary>
-            /// <para>获奖时间</para>
+            /// <para>获奖时间，毫秒时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1609430400000</para>
             /// </summary>
             [JsonPropertyName("award_time")]
-            public int? AwardTime { get; set; }
+            public long? AwardTime { get; set; }
         }
 
         /// <summary>
@@ -905,7 +905,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public record WebsiteDeliveryCustomizedData
             {
                 /// <summary>
-                /// <para>自定义字段 ID</para>
+                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956649</para>
                 /// </summary>
@@ -913,7 +913,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
                 public string? ObjectId { get; set; }
 
                 /// <summary>
-                /// <para>自定义字段 value，格式见接口说明</para>
+                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：AA</para>
                 /// </summary>
@@ -922,15 +922,15 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             }
 
             /// <summary>
-            /// <para>描述</para>
+            /// <para>项目描述</para>
             /// <para>必填：否</para>
-            /// <para>示例值：项目描述：xxxx</para>
+            /// <para>示例值：项目描述：课程管理系统</para>
             /// </summary>
             [JsonPropertyName("desc")]
             public string? Desc { get; set; }
 
             /// <summary>
-            /// <para>结束时间, 如果是至今传值-1</para>
+            /// <para>结束时间，毫秒时间戳，如果是「至今」可传值-1</para>
             /// <para>必填：否</para>
             /// <para>示例值：1618500278669</para>
             /// </summary>
@@ -948,21 +948,21 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             /// <summary>
             /// <para>项目名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：XXX项目重构</para>
+            /// <para>示例值：大学生课程设计</para>
             /// </summary>
             [JsonPropertyName("name")]
             public string? Name { get; set; }
 
             /// <summary>
-            /// <para>角色</para>
+            /// <para>项目角色</para>
             /// <para>必填：否</para>
-            /// <para>示例值：项目经理</para>
+            /// <para>示例值：核心开发</para>
             /// </summary>
             [JsonPropertyName("role")]
             public string? Role { get; set; }
 
             /// <summary>
-            /// <para>开始时间</para>
+            /// <para>开始时间，毫秒时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1609430400000</para>
             /// </summary>
@@ -995,7 +995,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
             public record WebsiteDeliveryCustomizedData
             {
                 /// <summary>
-                /// <para>自定义字段 ID</para>
+                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956649</para>
                 /// </summary>
@@ -1003,7 +1003,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
                 public string? ObjectId { get; set; }
 
                 /// <summary>
-                /// <para>自定义字段 value，格式见接口说明</para>
+                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：AA</para>
                 /// </summary>
@@ -1064,7 +1064,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
     }
 
     /// <summary>
-    /// <para>官网用户 ID</para>
+    /// <para>官网用户 ID，需通过[新建招聘官网用户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-site_user/create)生成</para>
     /// <para>必填：是</para>
     /// <para>示例值：6960663240925956634</para>
     /// </summary>
@@ -1072,7 +1072,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取</para>
+    /// <para>意向投递城市列表，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：CT_11</para>
     /// </summary>
@@ -1080,7 +1080,7 @@ public record PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResumeBodyDto
     public string[]? ApplicationPreferredCityCodeList { get; set; }
 
     /// <summary>
-    /// <para>官网推广渠道 ID</para>
+    /// <para>官网推广渠道 ID，可通过[获取招聘官网推广渠道列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-channel/list)获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：6891560630172518670</para>
     /// </summary>

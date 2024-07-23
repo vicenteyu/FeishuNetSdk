@@ -105,7 +105,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? Mobile { get; set; }
 
         /// <summary>
-        /// <para>手机国家代码，通过[「查询地点列表」](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)接口获得</para>
+        /// <para>手机国家代码，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：CN_1</para>
         /// </summary>
@@ -159,7 +159,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         }
 
         /// <summary>
-        /// <para>开始工作时间戳（单位：毫秒）</para>
+        /// <para>开始工作时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1686832459000</para>
         /// </summary>
@@ -167,7 +167,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? StartWorkTime { get; set; }
 
         /// <summary>
-        /// <para>出生日期时间戳（单位：毫秒）</para>
+        /// <para>出生日期时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1293016767159</para>
         /// </summary>
@@ -188,7 +188,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public int? Gender { get; set; }
 
         /// <summary>
-        /// <para>国籍编码，通过[「查询地点列表」](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)接口获得</para>
+        /// <para>国籍编码，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：CN_112</para>
         /// </summary>
@@ -196,7 +196,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? NationalityId { get; set; }
 
         /// <summary>
-        /// <para>所在地点编码，通过[「查询地点列表」](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)接口获得</para>
+        /// <para>所在地点编码，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：CT_159</para>
         /// </summary>
@@ -204,7 +204,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? CurrentCityCode { get; set; }
 
         /// <summary>
-        /// <para>家乡编码，通过[「查询地点列表」](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)接口获得</para>
+        /// <para>家乡编码，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：CT_159</para>
         /// </summary>
@@ -286,7 +286,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>教育经历学历</para>
+        /// <para>学历</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
@@ -321,7 +321,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? FieldOfStudy { get; set; }
 
         /// <summary>
-        /// <para>教育经历开始时间戳（单位：毫秒）</para>
+        /// <para>教育经历开始时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1655644087000</para>
         /// </summary>
@@ -329,7 +329,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? StartTime { get; set; }
 
         /// <summary>
-        /// <para>教育经历结束时间戳（单位：毫秒）</para>
+        /// <para>教育经历结束时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1687180087000</para>
         /// </summary>
@@ -466,7 +466,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? Desc { get; set; }
 
         /// <summary>
-        /// <para>工作经历开始时间戳（单位：毫秒）</para>
+        /// <para>工作经历开始时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1655644087000</para>
         /// </summary>
@@ -474,7 +474,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? StartTime { get; set; }
 
         /// <summary>
-        /// <para>工作经历结束时间戳（单位：毫秒）</para>
+        /// <para>工作经历结束时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1687180087000</para>
         /// </summary>
@@ -600,7 +600,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? Desc { get; set; }
 
         /// <summary>
-        /// <para>项目开始时间戳（单位：毫秒）</para>
+        /// <para>项目开始时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1655644087000</para>
         /// </summary>
@@ -608,7 +608,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? StartTime { get; set; }
 
         /// <summary>
-        /// <para>项目结束时间戳（单位：毫秒）</para>
+        /// <para>项目结束时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1687180087000</para>
         /// </summary>
@@ -796,7 +796,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? Title { get; set; }
 
         /// <summary>
-        /// <para>获奖时间戳（单位：毫秒）</para>
+        /// <para>获奖时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1687180087000</para>
         /// </summary>

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 搜索合同 响应体
-/// <para>搜索合同信息</para>
+/// <para>该接口可用于搜索合同信息，包括合同开始时间、合同预计结束时间、合同实际结束时间、合同公司主体等信息</para>
 /// <para>接口ID：7248868628551303172</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/contract/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fcontract%2fsearch</para>
@@ -66,7 +66,7 @@ public record PostCorehrV2ContractsSearchResponseDto
         public string? ExpirationTime { get; set; }
 
         /// <summary>
-        /// <para>雇佣 ID</para>
+        /// <para>雇佣 ID，详细信息可通过[【查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -88,7 +88,7 @@ public record PostCorehrV2ContractsSearchResponseDto
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：labor_contract</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -116,7 +116,7 @@ public record PostCorehrV2ContractsSearchResponseDto
                 /// <summary>
                 /// <para>内容</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：张三</para>
+                /// <para>示例值：劳动合同</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
@@ -124,7 +124,7 @@ public record PostCorehrV2ContractsSearchResponseDto
         }
 
         /// <summary>
-        /// <para>合同主体, 引用 Company 的 ID，枚举值及详细信息可通过【批量查询公司】接口查询获得</para>
+        /// <para>合同主体, 详细信息可通过[【查询公司详情接口】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：7091599096804394540</para>
         /// </summary>
@@ -132,7 +132,7 @@ public record PostCorehrV2ContractsSearchResponseDto
         public string? FirstPartyCompanyId { get; set; }
 
         /// <summary>
-        /// <para>Person ID，枚举值及详细信息可通过【批量查询个人信息】接口查询获得</para>
+        /// <para>合同签约人员ID，详细信息可通过[【查询个人信息接口】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/get)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：7088589447189022252</para>
         /// </summary>

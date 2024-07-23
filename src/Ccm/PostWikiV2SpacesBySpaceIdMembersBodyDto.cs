@@ -22,31 +22,31 @@ namespace FeishuNetSdk.Ccm;
 public record PostWikiV2SpacesBySpaceIdMembersBodyDto
 {
     /// <summary>
-    /// <para>“openchat” - 群id</para>
-    /// <para>“userid” - 用户id</para>
-    /// <para>“email” - 邮箱</para>
-    /// <para>“opendepartmentid” - 部门id</para>
-    /// <para>“openid” - 应用openid</para>
-    /// <para>“unionid” - [unionid](/:ssltoken/home/user-identity-introduction/union-id</para>
-    /// <para>)</para>
+    /// <para>要添加的成员或管理员的身份类型。可选值：</para>
+    /// <para>- openchat：群组 ID。参考[群 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)获取</para>
+    /// <para>- userid：用户 ID。详情参考[如何获取 User ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</para>
+    /// <para>- email：用户邮箱</para>
+    /// <para>- opendepartmentid：部门 ID。参考[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)获取</para>
+    /// <para>- openid：用户的 Open ID。详情参考[如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
+    /// <para>- unionid：用户的 Union ID。详情参考[如何获取 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
     /// <para>必填：是</para>
-    /// <para>示例值：userid</para>
+    /// <para>示例值：openid</para>
     /// </summary>
     [JsonPropertyName("member_type")]
     public string MemberType { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>用户id，值的类型由上面的 member_type 参数决定</para>
+    /// <para>成员或管理员的 ID，值的类型由 member_type 参数决定。参考 member_type 的描述获取不同类型的 ID。</para>
     /// <para>必填：是</para>
-    /// <para>示例值：1565676577122621</para>
+    /// <para>示例值：ou_449b53ad6aee526f7ed311b216aabcef</para>
     /// </summary>
     [JsonPropertyName("member_id")]
     public string MemberId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>角色:</para>
-    /// <para>“admin” - 管理员</para>
-    /// <para>“member” - 成员</para>
+    /// <para>成员的角色类型。可选值:</para>
+    /// <para>- admin：管理员</para>
+    /// <para>- member：成员</para>
     /// <para>必填：是</para>
     /// <para>示例值：admin</para>
     /// </summary>

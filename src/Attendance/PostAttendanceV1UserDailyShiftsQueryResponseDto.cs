@@ -50,7 +50,7 @@ public record PostAttendanceV1UserDailyShiftsQueryResponseDto
         public string ShiftId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>月份</para>
+        /// <para>月份，格式yyyyMM</para>
         /// <para>必填：是</para>
         /// <para>示例值：202101</para>
         /// </summary>

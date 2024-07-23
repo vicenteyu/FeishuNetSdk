@@ -74,7 +74,8 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         public string? EmployeeTypeId { get; set; }
 
         /// <summary>
-        /// <para>部门 ID，详细信息可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得；类型与 department_id_type 一致</para>
+        /// <para>部门 ID，详细信息可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得</para>
+        /// <para>- 类型与 department_id_type 一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -568,7 +569,8 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public string? WorkingHoursTypeId { get; set; }
 
             /// <summary>
-            /// <para>部门</para>
+            /// <para>部门 ID，详细信息可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得</para>
+            /// <para>- 类型与 department_id_type 一致</para>
             /// <para>必填：是</para>
             /// <para>示例值：4719519211875096301</para>
             /// </summary>
@@ -5044,7 +5046,8 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         public record BasicDepartment
         {
             /// <summary>
-            /// <para>部门 ID，类型与 department_id_type 一致</para>
+            /// <para>部门 ID，详细信息可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得</para>
+            /// <para>- 类型与 department_id_type 一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719456877659520852</para>
             /// </summary>

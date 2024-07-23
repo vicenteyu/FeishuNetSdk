@@ -1398,7 +1398,7 @@ public record PostCorehrV2PersonsResponseDto
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：checking</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -2242,7 +2242,7 @@ public record PostCorehrV2PersonsResponseDto
                     /// <summary>
                     /// <para>枚举值</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：phone_type</para>
+                    /// <para>示例值：86_china</para>
                     /// </summary>
                     [JsonPropertyName("enum_name")]
                     public string EnumName { get; set; } = string.Empty;

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-07-24
 // ************************************************************************
 // <copyright file="PostAttendanceV1UserStatsDatasQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -114,6 +114,59 @@ public record PostAttendanceV1UserStatsDatasQueryResponseDto
             /// </summary>
             [JsonPropertyName("title")]
             public string? Title { get; set; }
+
+            /// <summary>
+            /// <para>时长，这个字段是一个map，key位时间单位，value为对应的时长值</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("duration_num")]
+            public UserStatsDataDuration? DurationNum { get; set; }
+
+            /// <summary>
+            /// <para>时长，这个字段是一个map，key位时间单位，value为对应的时长值</para>
+            /// </summary>
+            public record UserStatsDataDuration
+            {
+                /// <summary>
+                /// <para>天</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// </summary>
+                [JsonPropertyName("day")]
+                public string? Day { get; set; }
+
+                /// <summary>
+                /// <para>半天</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// </summary>
+                [JsonPropertyName("half_day")]
+                public string? HalfDay { get; set; }
+
+                /// <summary>
+                /// <para>小时</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// </summary>
+                [JsonPropertyName("hour")]
+                public string? Hour { get; set; }
+
+                /// <summary>
+                /// <para>半小时</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// </summary>
+                [JsonPropertyName("half_hour")]
+                public string? HalfHour { get; set; }
+
+                /// <summary>
+                /// <para>分钟</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// </summary>
+                [JsonPropertyName("minute")]
+                public string? Minute { get; set; }
+            }
         }
     }
 

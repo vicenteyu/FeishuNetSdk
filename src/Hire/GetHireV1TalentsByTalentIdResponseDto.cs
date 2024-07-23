@@ -4,7 +4,7 @@
 // Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-26
+// Last Modified On : 2024-07-24
 // ************************************************************************
 // <copyright file="GetHireV1TalentsByTalentIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -265,7 +265,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>示例值：1687872017</para>
             /// </summary>
             [JsonPropertyName("birthday")]
-            public int? Birthday { get; set; }
+            public long? Birthday { get; set; }
 
             /// <summary>
             /// <para>创建人</para>
@@ -303,6 +303,239 @@ public record GetHireV1TalentsByTalentIdResponseDto
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
 
             /// <summary>
+            /// <para>自定义字段</para>
+            /// </summary>
+            public record TalentCustomizedDataChild
+            {
+                /// <summary>
+                /// <para>自定义字段 ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：xxxx</para>
+                /// </summary>
+                [JsonPropertyName("object_id")]
+                public string? ObjectId { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public I18n? Name { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// </summary>
+                public record I18n
+                {
+                    /// <summary>
+                    /// <para>中文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：测试</para>
+                    /// </summary>
+                    [JsonPropertyName("zh_cn")]
+                    public string? ZhCn { get; set; }
+
+                    /// <summary>
+                    /// <para>英文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：test</para>
+                    /// </summary>
+                    [JsonPropertyName("en_us")]
+                    public string? EnUs { get; set; }
+                }
+
+                /// <summary>
+                /// <para>字段类型</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：单行文本</item>
+                /// <item>2：多行文本</item>
+                /// <item>3：单选</item>
+                /// <item>4：多选</item>
+                /// <item>5：日期</item>
+                /// <item>6：月份选择</item>
+                /// <item>7：年份选择</item>
+                /// <item>8：时间段</item>
+                /// <item>9：数字</item>
+                /// <item>10：默认字段</item>
+                /// <item>11：模块</item>
+                /// <item>13：附件</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("object_type")]
+                public int? ObjectType { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public TalentCustomizedValue? Value { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// </summary>
+                public record TalentCustomizedValue
+                {
+                    /// <summary>
+                    /// <para>当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：text</para>
+                    /// </summary>
+                    [JsonPropertyName("content")]
+                    public string? Content { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option")]
+                    public TalentCustomizedOption? Option { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedOption
+                    {
+                        /// <summary>
+                        /// <para>选项 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：AA</para>
+                        /// </summary>
+                        [JsonPropertyName("key")]
+                        public string? Key { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// <para>必填：否</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public I18n? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// </summary>
+                        public record I18n
+                        {
+                            /// <summary>
+                            /// <para>中文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：测试</para>
+                            /// </summary>
+                            [JsonPropertyName("zh_cn")]
+                            public string? ZhCn { get; set; }
+
+                            /// <summary>
+                            /// <para>英文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：test</para>
+                            /// </summary>
+                            [JsonPropertyName("en_us")]
+                            public string? EnUs { get; set; }
+                        }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为多选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option_list")]
+                    public TalentCustomizedOption[]? OptionLists { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("time_range")]
+                    public TalentCustomizedTimeRange? TimeRange { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedTimeRange
+                    {
+                        /// <summary>
+                        /// <para>开始时间</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625456721</para>
+                        /// </summary>
+                        [JsonPropertyName("start_time")]
+                        public string? StartTime { get; set; }
+
+                        /// <summary>
+                        /// <para>结束时间，当值为至今时，返回「-」</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625656721</para>
+                        /// </summary>
+                        [JsonPropertyName("end_time")]
+                        public string? EndTime { get; set; }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是秒级时间戳</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1625456721</para>
+                    /// </summary>
+                    [JsonPropertyName("time")]
+                    public string? Time { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为数字时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：111</para>
+                    /// </summary>
+                    [JsonPropertyName("number")]
+                    public string? Number { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("customized_attachment")]
+                    public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedAttachment
+                    {
+                        /// <summary>
+                        /// <para>附件 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：7140517838785481004</para>
+                        /// </summary>
+                        [JsonPropertyName("file_id")]
+                        public string? FileId { get; set; }
+
+                        /// <summary>
+                        /// <para>附件名称</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1.13测试1的面试记录.pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public string? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>附件类型</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：application/pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("content_type")]
+                        public string? ContentType { get; set; }
+
+                        /// <summary>
+                        /// <para>附件大小</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：16615</para>
+                        /// </summary>
+                        [JsonPropertyName("file_size")]
+                        public int? FileSize { get; set; }
+                    }
+                }
+            }
+
+            /// <summary>
             /// <para>修改时间</para>
             /// <para>必填：否</para>
             /// <para>示例值：1634801678103</para>
@@ -317,239 +550,6 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// </summary>
             [JsonPropertyName("hukou_location_code")]
             public string? HukouLocationCode { get; set; }
-        }
-
-        /// <summary>
-        /// <para>自定义字段</para>
-        /// </summary>
-        public record TalentCustomizedDataChild
-        {
-            /// <summary>
-            /// <para>自定义字段 ID</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：xxxx</para>
-            /// </summary>
-            [JsonPropertyName("object_id")]
-            public string? ObjectId { get; set; }
-
-            /// <summary>
-            /// <para>字段名称</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("name")]
-            public I18n? Name { get; set; }
-
-            /// <summary>
-            /// <para>字段名称</para>
-            /// </summary>
-            public record I18n
-            {
-                /// <summary>
-                /// <para>中文</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：测试</para>
-                /// </summary>
-                [JsonPropertyName("zh_cn")]
-                public string? ZhCn { get; set; }
-
-                /// <summary>
-                /// <para>英文</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：test</para>
-                /// </summary>
-                [JsonPropertyName("en_us")]
-                public string? EnUs { get; set; }
-            }
-
-            /// <summary>
-            /// <para>字段类型</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：1</para>
-            /// <para>可选值：<list type="bullet">
-            /// <item>1：单行文本</item>
-            /// <item>2：多行文本</item>
-            /// <item>3：单选</item>
-            /// <item>4：多选</item>
-            /// <item>5：日期</item>
-            /// <item>6：月份选择</item>
-            /// <item>7：年份选择</item>
-            /// <item>8：时间段</item>
-            /// <item>9：数字</item>
-            /// <item>10：默认字段</item>
-            /// <item>11：模块</item>
-            /// <item>13：附件</item>
-            /// </list></para>
-            /// </summary>
-            [JsonPropertyName("object_type")]
-            public int? ObjectType { get; set; }
-
-            /// <summary>
-            /// <para>自定义字段值</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("value")]
-            public TalentCustomizedValue? Value { get; set; }
-
-            /// <summary>
-            /// <para>自定义字段值</para>
-            /// </summary>
-            public record TalentCustomizedValue
-            {
-                /// <summary>
-                /// <para>当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：text</para>
-                /// </summary>
-                [JsonPropertyName("content")]
-                public string? Content { get; set; }
-
-                /// <summary>
-                /// <para>当字段类型为单选时，从此字段取值</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("option")]
-                public TalentCustomizedOption? Option { get; set; }
-
-                /// <summary>
-                /// <para>当字段类型为单选时，从此字段取值</para>
-                /// </summary>
-                public record TalentCustomizedOption
-                {
-                    /// <summary>
-                    /// <para>选项 ID</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：AA</para>
-                    /// </summary>
-                    [JsonPropertyName("key")]
-                    public string? Key { get; set; }
-
-                    /// <summary>
-                    /// <para>选项名称</para>
-                    /// <para>必填：否</para>
-                    /// </summary>
-                    [JsonPropertyName("name")]
-                    public I18n? Name { get; set; }
-
-                    /// <summary>
-                    /// <para>选项名称</para>
-                    /// </summary>
-                    public record I18n
-                    {
-                        /// <summary>
-                        /// <para>中文</para>
-                        /// <para>必填：否</para>
-                        /// <para>示例值：测试</para>
-                        /// </summary>
-                        [JsonPropertyName("zh_cn")]
-                        public string? ZhCn { get; set; }
-
-                        /// <summary>
-                        /// <para>英文</para>
-                        /// <para>必填：否</para>
-                        /// <para>示例值：test</para>
-                        /// </summary>
-                        [JsonPropertyName("en_us")]
-                        public string? EnUs { get; set; }
-                    }
-                }
-
-                /// <summary>
-                /// <para>当字段类型为多选时，从此字段取值</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("option_list")]
-                public TalentCustomizedOption[]? OptionLists { get; set; }
-
-                /// <summary>
-                /// <para>当字段类型为时间段时，从此字段取值</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("time_range")]
-                public TalentCustomizedTimeRange? TimeRange { get; set; }
-
-                /// <summary>
-                /// <para>当字段类型为时间段时，从此字段取值</para>
-                /// </summary>
-                public record TalentCustomizedTimeRange
-                {
-                    /// <summary>
-                    /// <para>开始时间</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：1625456721</para>
-                    /// </summary>
-                    [JsonPropertyName("start_time")]
-                    public string? StartTime { get; set; }
-
-                    /// <summary>
-                    /// <para>结束时间，当值为至今时，返回「-」</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：1625656721</para>
-                    /// </summary>
-                    [JsonPropertyName("end_time")]
-                    public string? EndTime { get; set; }
-                }
-
-                /// <summary>
-                /// <para>当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是秒级时间戳</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：1625456721</para>
-                /// </summary>
-                [JsonPropertyName("time")]
-                public string? Time { get; set; }
-
-                /// <summary>
-                /// <para>当字段类型为数字时，从此字段取值</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：111</para>
-                /// </summary>
-                [JsonPropertyName("number")]
-                public string? Number { get; set; }
-
-                /// <summary>
-                /// <para>当字段类型为附件时，从此字段取值</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("customized_attachment")]
-                public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
-
-                /// <summary>
-                /// <para>当字段类型为附件时，从此字段取值</para>
-                /// </summary>
-                public record TalentCustomizedAttachment
-                {
-                    /// <summary>
-                    /// <para>附件 ID</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：7140517838785481004</para>
-                    /// </summary>
-                    [JsonPropertyName("file_id")]
-                    public string? FileId { get; set; }
-
-                    /// <summary>
-                    /// <para>附件名称</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：1.13测试1的面试记录.pdf</para>
-                    /// </summary>
-                    [JsonPropertyName("name")]
-                    public string? Name { get; set; }
-
-                    /// <summary>
-                    /// <para>附件类型</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：application/pdf</para>
-                    /// </summary>
-                    [JsonPropertyName("content_type")]
-                    public string? ContentType { get; set; }
-
-                    /// <summary>
-                    /// <para>附件大小</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：16615</para>
-                    /// </summary>
-                    [JsonPropertyName("file_size")]
-                    public int? FileSize { get; set; }
-                }
-            }
         }
 
         /// <summary>
@@ -675,6 +675,239 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// </summary>
             [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// </summary>
+            public record TalentCustomizedDataChild
+            {
+                /// <summary>
+                /// <para>自定义字段 ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：xxxx</para>
+                /// </summary>
+                [JsonPropertyName("object_id")]
+                public string? ObjectId { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public I18n? Name { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// </summary>
+                public record I18n
+                {
+                    /// <summary>
+                    /// <para>中文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：测试</para>
+                    /// </summary>
+                    [JsonPropertyName("zh_cn")]
+                    public string? ZhCn { get; set; }
+
+                    /// <summary>
+                    /// <para>英文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：test</para>
+                    /// </summary>
+                    [JsonPropertyName("en_us")]
+                    public string? EnUs { get; set; }
+                }
+
+                /// <summary>
+                /// <para>字段类型</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：单行文本</item>
+                /// <item>2：多行文本</item>
+                /// <item>3：单选</item>
+                /// <item>4：多选</item>
+                /// <item>5：日期</item>
+                /// <item>6：月份选择</item>
+                /// <item>7：年份选择</item>
+                /// <item>8：时间段</item>
+                /// <item>9：数字</item>
+                /// <item>10：默认字段</item>
+                /// <item>11：模块</item>
+                /// <item>13：附件</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("object_type")]
+                public int? ObjectType { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public TalentCustomizedValue? Value { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// </summary>
+                public record TalentCustomizedValue
+                {
+                    /// <summary>
+                    /// <para>当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：text</para>
+                    /// </summary>
+                    [JsonPropertyName("content")]
+                    public string? Content { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option")]
+                    public TalentCustomizedOption? Option { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedOption
+                    {
+                        /// <summary>
+                        /// <para>选项 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：AA</para>
+                        /// </summary>
+                        [JsonPropertyName("key")]
+                        public string? Key { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// <para>必填：否</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public I18n? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// </summary>
+                        public record I18n
+                        {
+                            /// <summary>
+                            /// <para>中文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：测试</para>
+                            /// </summary>
+                            [JsonPropertyName("zh_cn")]
+                            public string? ZhCn { get; set; }
+
+                            /// <summary>
+                            /// <para>英文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：test</para>
+                            /// </summary>
+                            [JsonPropertyName("en_us")]
+                            public string? EnUs { get; set; }
+                        }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为多选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option_list")]
+                    public TalentCustomizedOption[]? OptionLists { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("time_range")]
+                    public TalentCustomizedTimeRange? TimeRange { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedTimeRange
+                    {
+                        /// <summary>
+                        /// <para>开始时间</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625456721</para>
+                        /// </summary>
+                        [JsonPropertyName("start_time")]
+                        public string? StartTime { get; set; }
+
+                        /// <summary>
+                        /// <para>结束时间，当值为至今时，返回「-」</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625656721</para>
+                        /// </summary>
+                        [JsonPropertyName("end_time")]
+                        public string? EndTime { get; set; }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是秒级时间戳</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1625456721</para>
+                    /// </summary>
+                    [JsonPropertyName("time")]
+                    public string? Time { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为数字时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：111</para>
+                    /// </summary>
+                    [JsonPropertyName("number")]
+                    public string? Number { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("customized_attachment")]
+                    public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedAttachment
+                    {
+                        /// <summary>
+                        /// <para>附件 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：7140517838785481004</para>
+                        /// </summary>
+                        [JsonPropertyName("file_id")]
+                        public string? FileId { get; set; }
+
+                        /// <summary>
+                        /// <para>附件名称</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1.13测试1的面试记录.pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public string? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>附件类型</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：application/pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("content_type")]
+                        public string? ContentType { get; set; }
+
+                        /// <summary>
+                        /// <para>附件大小</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：16615</para>
+                        /// </summary>
+                        [JsonPropertyName("file_size")]
+                        public int? FileSize { get; set; }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -764,6 +997,239 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// </summary>
             [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// </summary>
+            public record TalentCustomizedDataChild
+            {
+                /// <summary>
+                /// <para>自定义字段 ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：xxxx</para>
+                /// </summary>
+                [JsonPropertyName("object_id")]
+                public string? ObjectId { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public I18n? Name { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// </summary>
+                public record I18n
+                {
+                    /// <summary>
+                    /// <para>中文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：测试</para>
+                    /// </summary>
+                    [JsonPropertyName("zh_cn")]
+                    public string? ZhCn { get; set; }
+
+                    /// <summary>
+                    /// <para>英文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：test</para>
+                    /// </summary>
+                    [JsonPropertyName("en_us")]
+                    public string? EnUs { get; set; }
+                }
+
+                /// <summary>
+                /// <para>字段类型</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：单行文本</item>
+                /// <item>2：多行文本</item>
+                /// <item>3：单选</item>
+                /// <item>4：多选</item>
+                /// <item>5：日期</item>
+                /// <item>6：月份选择</item>
+                /// <item>7：年份选择</item>
+                /// <item>8：时间段</item>
+                /// <item>9：数字</item>
+                /// <item>10：默认字段</item>
+                /// <item>11：模块</item>
+                /// <item>13：附件</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("object_type")]
+                public int? ObjectType { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public TalentCustomizedValue? Value { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// </summary>
+                public record TalentCustomizedValue
+                {
+                    /// <summary>
+                    /// <para>当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：text</para>
+                    /// </summary>
+                    [JsonPropertyName("content")]
+                    public string? Content { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option")]
+                    public TalentCustomizedOption? Option { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedOption
+                    {
+                        /// <summary>
+                        /// <para>选项 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：AA</para>
+                        /// </summary>
+                        [JsonPropertyName("key")]
+                        public string? Key { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// <para>必填：否</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public I18n? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// </summary>
+                        public record I18n
+                        {
+                            /// <summary>
+                            /// <para>中文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：测试</para>
+                            /// </summary>
+                            [JsonPropertyName("zh_cn")]
+                            public string? ZhCn { get; set; }
+
+                            /// <summary>
+                            /// <para>英文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：test</para>
+                            /// </summary>
+                            [JsonPropertyName("en_us")]
+                            public string? EnUs { get; set; }
+                        }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为多选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option_list")]
+                    public TalentCustomizedOption[]? OptionLists { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("time_range")]
+                    public TalentCustomizedTimeRange? TimeRange { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedTimeRange
+                    {
+                        /// <summary>
+                        /// <para>开始时间</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625456721</para>
+                        /// </summary>
+                        [JsonPropertyName("start_time")]
+                        public string? StartTime { get; set; }
+
+                        /// <summary>
+                        /// <para>结束时间，当值为至今时，返回「-」</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625656721</para>
+                        /// </summary>
+                        [JsonPropertyName("end_time")]
+                        public string? EndTime { get; set; }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是秒级时间戳</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1625456721</para>
+                    /// </summary>
+                    [JsonPropertyName("time")]
+                    public string? Time { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为数字时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：111</para>
+                    /// </summary>
+                    [JsonPropertyName("number")]
+                    public string? Number { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("customized_attachment")]
+                    public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedAttachment
+                    {
+                        /// <summary>
+                        /// <para>附件 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：7140517838785481004</para>
+                        /// </summary>
+                        [JsonPropertyName("file_id")]
+                        public string? FileId { get; set; }
+
+                        /// <summary>
+                        /// <para>附件名称</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1.13测试1的面试记录.pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public string? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>附件类型</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：application/pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("content_type")]
+                        public string? ContentType { get; set; }
+
+                        /// <summary>
+                        /// <para>附件大小</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：16615</para>
+                        /// </summary>
+                        [JsonPropertyName("file_size")]
+                        public int? FileSize { get; set; }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -840,6 +1306,239 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// </summary>
             [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// </summary>
+            public record TalentCustomizedDataChild
+            {
+                /// <summary>
+                /// <para>自定义字段 ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：xxxx</para>
+                /// </summary>
+                [JsonPropertyName("object_id")]
+                public string? ObjectId { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public I18n? Name { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// </summary>
+                public record I18n
+                {
+                    /// <summary>
+                    /// <para>中文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：测试</para>
+                    /// </summary>
+                    [JsonPropertyName("zh_cn")]
+                    public string? ZhCn { get; set; }
+
+                    /// <summary>
+                    /// <para>英文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：test</para>
+                    /// </summary>
+                    [JsonPropertyName("en_us")]
+                    public string? EnUs { get; set; }
+                }
+
+                /// <summary>
+                /// <para>字段类型</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：单行文本</item>
+                /// <item>2：多行文本</item>
+                /// <item>3：单选</item>
+                /// <item>4：多选</item>
+                /// <item>5：日期</item>
+                /// <item>6：月份选择</item>
+                /// <item>7：年份选择</item>
+                /// <item>8：时间段</item>
+                /// <item>9：数字</item>
+                /// <item>10：默认字段</item>
+                /// <item>11：模块</item>
+                /// <item>13：附件</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("object_type")]
+                public int? ObjectType { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public TalentCustomizedValue? Value { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// </summary>
+                public record TalentCustomizedValue
+                {
+                    /// <summary>
+                    /// <para>当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：text</para>
+                    /// </summary>
+                    [JsonPropertyName("content")]
+                    public string? Content { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option")]
+                    public TalentCustomizedOption? Option { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedOption
+                    {
+                        /// <summary>
+                        /// <para>选项 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：AA</para>
+                        /// </summary>
+                        [JsonPropertyName("key")]
+                        public string? Key { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// <para>必填：否</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public I18n? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// </summary>
+                        public record I18n
+                        {
+                            /// <summary>
+                            /// <para>中文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：测试</para>
+                            /// </summary>
+                            [JsonPropertyName("zh_cn")]
+                            public string? ZhCn { get; set; }
+
+                            /// <summary>
+                            /// <para>英文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：test</para>
+                            /// </summary>
+                            [JsonPropertyName("en_us")]
+                            public string? EnUs { get; set; }
+                        }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为多选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option_list")]
+                    public TalentCustomizedOption[]? OptionLists { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("time_range")]
+                    public TalentCustomizedTimeRange? TimeRange { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedTimeRange
+                    {
+                        /// <summary>
+                        /// <para>开始时间</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625456721</para>
+                        /// </summary>
+                        [JsonPropertyName("start_time")]
+                        public string? StartTime { get; set; }
+
+                        /// <summary>
+                        /// <para>结束时间，当值为至今时，返回「-」</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625656721</para>
+                        /// </summary>
+                        [JsonPropertyName("end_time")]
+                        public string? EndTime { get; set; }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是秒级时间戳</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1625456721</para>
+                    /// </summary>
+                    [JsonPropertyName("time")]
+                    public string? Time { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为数字时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：111</para>
+                    /// </summary>
+                    [JsonPropertyName("number")]
+                    public string? Number { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("customized_attachment")]
+                    public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedAttachment
+                    {
+                        /// <summary>
+                        /// <para>附件 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：7140517838785481004</para>
+                        /// </summary>
+                        [JsonPropertyName("file_id")]
+                        public string? FileId { get; set; }
+
+                        /// <summary>
+                        /// <para>附件名称</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1.13测试1的面试记录.pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public string? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>附件类型</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：application/pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("content_type")]
+                        public string? ContentType { get; set; }
+
+                        /// <summary>
+                        /// <para>附件大小</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：16615</para>
+                        /// </summary>
+                        [JsonPropertyName("file_size")]
+                        public int? FileSize { get; set; }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -892,6 +1591,239 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// </summary>
             [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// </summary>
+            public record TalentCustomizedDataChild
+            {
+                /// <summary>
+                /// <para>自定义字段 ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：xxxx</para>
+                /// </summary>
+                [JsonPropertyName("object_id")]
+                public string? ObjectId { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public I18n? Name { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// </summary>
+                public record I18n
+                {
+                    /// <summary>
+                    /// <para>中文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：测试</para>
+                    /// </summary>
+                    [JsonPropertyName("zh_cn")]
+                    public string? ZhCn { get; set; }
+
+                    /// <summary>
+                    /// <para>英文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：test</para>
+                    /// </summary>
+                    [JsonPropertyName("en_us")]
+                    public string? EnUs { get; set; }
+                }
+
+                /// <summary>
+                /// <para>字段类型</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：单行文本</item>
+                /// <item>2：多行文本</item>
+                /// <item>3：单选</item>
+                /// <item>4：多选</item>
+                /// <item>5：日期</item>
+                /// <item>6：月份选择</item>
+                /// <item>7：年份选择</item>
+                /// <item>8：时间段</item>
+                /// <item>9：数字</item>
+                /// <item>10：默认字段</item>
+                /// <item>11：模块</item>
+                /// <item>13：附件</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("object_type")]
+                public int? ObjectType { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public TalentCustomizedValue? Value { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// </summary>
+                public record TalentCustomizedValue
+                {
+                    /// <summary>
+                    /// <para>当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：text</para>
+                    /// </summary>
+                    [JsonPropertyName("content")]
+                    public string? Content { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option")]
+                    public TalentCustomizedOption? Option { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedOption
+                    {
+                        /// <summary>
+                        /// <para>选项 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：AA</para>
+                        /// </summary>
+                        [JsonPropertyName("key")]
+                        public string? Key { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// <para>必填：否</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public I18n? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// </summary>
+                        public record I18n
+                        {
+                            /// <summary>
+                            /// <para>中文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：测试</para>
+                            /// </summary>
+                            [JsonPropertyName("zh_cn")]
+                            public string? ZhCn { get; set; }
+
+                            /// <summary>
+                            /// <para>英文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：test</para>
+                            /// </summary>
+                            [JsonPropertyName("en_us")]
+                            public string? EnUs { get; set; }
+                        }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为多选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option_list")]
+                    public TalentCustomizedOption[]? OptionLists { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("time_range")]
+                    public TalentCustomizedTimeRange? TimeRange { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedTimeRange
+                    {
+                        /// <summary>
+                        /// <para>开始时间</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625456721</para>
+                        /// </summary>
+                        [JsonPropertyName("start_time")]
+                        public string? StartTime { get; set; }
+
+                        /// <summary>
+                        /// <para>结束时间，当值为至今时，返回「-」</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625656721</para>
+                        /// </summary>
+                        [JsonPropertyName("end_time")]
+                        public string? EndTime { get; set; }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是秒级时间戳</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1625456721</para>
+                    /// </summary>
+                    [JsonPropertyName("time")]
+                    public string? Time { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为数字时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：111</para>
+                    /// </summary>
+                    [JsonPropertyName("number")]
+                    public string? Number { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("customized_attachment")]
+                    public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedAttachment
+                    {
+                        /// <summary>
+                        /// <para>附件 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：7140517838785481004</para>
+                        /// </summary>
+                        [JsonPropertyName("file_id")]
+                        public string? FileId { get; set; }
+
+                        /// <summary>
+                        /// <para>附件名称</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1.13测试1的面试记录.pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public string? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>附件类型</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：application/pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("content_type")]
+                        public string? ContentType { get; set; }
+
+                        /// <summary>
+                        /// <para>附件大小</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：16615</para>
+                        /// </summary>
+                        [JsonPropertyName("file_size")]
+                        public int? FileSize { get; set; }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -944,6 +1876,239 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// </summary>
             [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// </summary>
+            public record TalentCustomizedDataChild
+            {
+                /// <summary>
+                /// <para>自定义字段 ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：xxxx</para>
+                /// </summary>
+                [JsonPropertyName("object_id")]
+                public string? ObjectId { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public I18n? Name { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// </summary>
+                public record I18n
+                {
+                    /// <summary>
+                    /// <para>中文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：测试</para>
+                    /// </summary>
+                    [JsonPropertyName("zh_cn")]
+                    public string? ZhCn { get; set; }
+
+                    /// <summary>
+                    /// <para>英文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：test</para>
+                    /// </summary>
+                    [JsonPropertyName("en_us")]
+                    public string? EnUs { get; set; }
+                }
+
+                /// <summary>
+                /// <para>字段类型</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：单行文本</item>
+                /// <item>2：多行文本</item>
+                /// <item>3：单选</item>
+                /// <item>4：多选</item>
+                /// <item>5：日期</item>
+                /// <item>6：月份选择</item>
+                /// <item>7：年份选择</item>
+                /// <item>8：时间段</item>
+                /// <item>9：数字</item>
+                /// <item>10：默认字段</item>
+                /// <item>11：模块</item>
+                /// <item>13：附件</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("object_type")]
+                public int? ObjectType { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public TalentCustomizedValue? Value { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// </summary>
+                public record TalentCustomizedValue
+                {
+                    /// <summary>
+                    /// <para>当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：text</para>
+                    /// </summary>
+                    [JsonPropertyName("content")]
+                    public string? Content { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option")]
+                    public TalentCustomizedOption? Option { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedOption
+                    {
+                        /// <summary>
+                        /// <para>选项 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：AA</para>
+                        /// </summary>
+                        [JsonPropertyName("key")]
+                        public string? Key { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// <para>必填：否</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public I18n? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// </summary>
+                        public record I18n
+                        {
+                            /// <summary>
+                            /// <para>中文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：测试</para>
+                            /// </summary>
+                            [JsonPropertyName("zh_cn")]
+                            public string? ZhCn { get; set; }
+
+                            /// <summary>
+                            /// <para>英文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：test</para>
+                            /// </summary>
+                            [JsonPropertyName("en_us")]
+                            public string? EnUs { get; set; }
+                        }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为多选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option_list")]
+                    public TalentCustomizedOption[]? OptionLists { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("time_range")]
+                    public TalentCustomizedTimeRange? TimeRange { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedTimeRange
+                    {
+                        /// <summary>
+                        /// <para>开始时间</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625456721</para>
+                        /// </summary>
+                        [JsonPropertyName("start_time")]
+                        public string? StartTime { get; set; }
+
+                        /// <summary>
+                        /// <para>结束时间，当值为至今时，返回「-」</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625656721</para>
+                        /// </summary>
+                        [JsonPropertyName("end_time")]
+                        public string? EndTime { get; set; }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是秒级时间戳</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1625456721</para>
+                    /// </summary>
+                    [JsonPropertyName("time")]
+                    public string? Time { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为数字时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：111</para>
+                    /// </summary>
+                    [JsonPropertyName("number")]
+                    public string? Number { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("customized_attachment")]
+                    public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedAttachment
+                    {
+                        /// <summary>
+                        /// <para>附件 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：7140517838785481004</para>
+                        /// </summary>
+                        [JsonPropertyName("file_id")]
+                        public string? FileId { get; set; }
+
+                        /// <summary>
+                        /// <para>附件名称</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1.13测试1的面试记录.pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public string? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>附件类型</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：application/pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("content_type")]
+                        public string? ContentType { get; set; }
+
+                        /// <summary>
+                        /// <para>附件大小</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：16615</para>
+                        /// </summary>
+                        [JsonPropertyName("file_size")]
+                        public int? FileSize { get; set; }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -1022,6 +2187,239 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// </summary>
             [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// </summary>
+            public record TalentCustomizedDataChild
+            {
+                /// <summary>
+                /// <para>自定义字段 ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：xxxx</para>
+                /// </summary>
+                [JsonPropertyName("object_id")]
+                public string? ObjectId { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public I18n? Name { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// </summary>
+                public record I18n
+                {
+                    /// <summary>
+                    /// <para>中文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：测试</para>
+                    /// </summary>
+                    [JsonPropertyName("zh_cn")]
+                    public string? ZhCn { get; set; }
+
+                    /// <summary>
+                    /// <para>英文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：test</para>
+                    /// </summary>
+                    [JsonPropertyName("en_us")]
+                    public string? EnUs { get; set; }
+                }
+
+                /// <summary>
+                /// <para>字段类型</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：单行文本</item>
+                /// <item>2：多行文本</item>
+                /// <item>3：单选</item>
+                /// <item>4：多选</item>
+                /// <item>5：日期</item>
+                /// <item>6：月份选择</item>
+                /// <item>7：年份选择</item>
+                /// <item>8：时间段</item>
+                /// <item>9：数字</item>
+                /// <item>10：默认字段</item>
+                /// <item>11：模块</item>
+                /// <item>13：附件</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("object_type")]
+                public int? ObjectType { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public TalentCustomizedValue? Value { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// </summary>
+                public record TalentCustomizedValue
+                {
+                    /// <summary>
+                    /// <para>当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：text</para>
+                    /// </summary>
+                    [JsonPropertyName("content")]
+                    public string? Content { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option")]
+                    public TalentCustomizedOption? Option { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedOption
+                    {
+                        /// <summary>
+                        /// <para>选项 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：AA</para>
+                        /// </summary>
+                        [JsonPropertyName("key")]
+                        public string? Key { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// <para>必填：否</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public I18n? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// </summary>
+                        public record I18n
+                        {
+                            /// <summary>
+                            /// <para>中文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：测试</para>
+                            /// </summary>
+                            [JsonPropertyName("zh_cn")]
+                            public string? ZhCn { get; set; }
+
+                            /// <summary>
+                            /// <para>英文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：test</para>
+                            /// </summary>
+                            [JsonPropertyName("en_us")]
+                            public string? EnUs { get; set; }
+                        }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为多选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option_list")]
+                    public TalentCustomizedOption[]? OptionLists { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("time_range")]
+                    public TalentCustomizedTimeRange? TimeRange { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedTimeRange
+                    {
+                        /// <summary>
+                        /// <para>开始时间</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625456721</para>
+                        /// </summary>
+                        [JsonPropertyName("start_time")]
+                        public string? StartTime { get; set; }
+
+                        /// <summary>
+                        /// <para>结束时间，当值为至今时，返回「-」</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625656721</para>
+                        /// </summary>
+                        [JsonPropertyName("end_time")]
+                        public string? EndTime { get; set; }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是秒级时间戳</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1625456721</para>
+                    /// </summary>
+                    [JsonPropertyName("time")]
+                    public string? Time { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为数字时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：111</para>
+                    /// </summary>
+                    [JsonPropertyName("number")]
+                    public string? Number { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("customized_attachment")]
+                    public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedAttachment
+                    {
+                        /// <summary>
+                        /// <para>附件 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：7140517838785481004</para>
+                        /// </summary>
+                        [JsonPropertyName("file_id")]
+                        public string? FileId { get; set; }
+
+                        /// <summary>
+                        /// <para>附件名称</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1.13测试1的面试记录.pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public string? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>附件类型</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：application/pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("content_type")]
+                        public string? ContentType { get; set; }
+
+                        /// <summary>
+                        /// <para>附件大小</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：16615</para>
+                        /// </summary>
+                        [JsonPropertyName("file_size")]
+                        public int? FileSize { get; set; }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -1079,6 +2477,239 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// </summary>
             [JsonPropertyName("customized_data_list")]
             public TalentCustomizedDataChild[]? CustomizedDataLists { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// </summary>
+            public record TalentCustomizedDataChild
+            {
+                /// <summary>
+                /// <para>自定义字段 ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：xxxx</para>
+                /// </summary>
+                [JsonPropertyName("object_id")]
+                public string? ObjectId { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public I18n? Name { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// </summary>
+                public record I18n
+                {
+                    /// <summary>
+                    /// <para>中文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：测试</para>
+                    /// </summary>
+                    [JsonPropertyName("zh_cn")]
+                    public string? ZhCn { get; set; }
+
+                    /// <summary>
+                    /// <para>英文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：test</para>
+                    /// </summary>
+                    [JsonPropertyName("en_us")]
+                    public string? EnUs { get; set; }
+                }
+
+                /// <summary>
+                /// <para>字段类型</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：单行文本</item>
+                /// <item>2：多行文本</item>
+                /// <item>3：单选</item>
+                /// <item>4：多选</item>
+                /// <item>5：日期</item>
+                /// <item>6：月份选择</item>
+                /// <item>7：年份选择</item>
+                /// <item>8：时间段</item>
+                /// <item>9：数字</item>
+                /// <item>10：默认字段</item>
+                /// <item>11：模块</item>
+                /// <item>13：附件</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("object_type")]
+                public int? ObjectType { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public TalentCustomizedValue? Value { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// </summary>
+                public record TalentCustomizedValue
+                {
+                    /// <summary>
+                    /// <para>当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：text</para>
+                    /// </summary>
+                    [JsonPropertyName("content")]
+                    public string? Content { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option")]
+                    public TalentCustomizedOption? Option { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedOption
+                    {
+                        /// <summary>
+                        /// <para>选项 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：AA</para>
+                        /// </summary>
+                        [JsonPropertyName("key")]
+                        public string? Key { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// <para>必填：否</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public I18n? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// </summary>
+                        public record I18n
+                        {
+                            /// <summary>
+                            /// <para>中文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：测试</para>
+                            /// </summary>
+                            [JsonPropertyName("zh_cn")]
+                            public string? ZhCn { get; set; }
+
+                            /// <summary>
+                            /// <para>英文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：test</para>
+                            /// </summary>
+                            [JsonPropertyName("en_us")]
+                            public string? EnUs { get; set; }
+                        }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为多选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option_list")]
+                    public TalentCustomizedOption[]? OptionLists { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("time_range")]
+                    public TalentCustomizedTimeRange? TimeRange { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedTimeRange
+                    {
+                        /// <summary>
+                        /// <para>开始时间</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625456721</para>
+                        /// </summary>
+                        [JsonPropertyName("start_time")]
+                        public string? StartTime { get; set; }
+
+                        /// <summary>
+                        /// <para>结束时间，当值为至今时，返回「-」</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625656721</para>
+                        /// </summary>
+                        [JsonPropertyName("end_time")]
+                        public string? EndTime { get; set; }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是秒级时间戳</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1625456721</para>
+                    /// </summary>
+                    [JsonPropertyName("time")]
+                    public string? Time { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为数字时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：111</para>
+                    /// </summary>
+                    [JsonPropertyName("number")]
+                    public string? Number { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("customized_attachment")]
+                    public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedAttachment
+                    {
+                        /// <summary>
+                        /// <para>附件 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：7140517838785481004</para>
+                        /// </summary>
+                        [JsonPropertyName("file_id")]
+                        public string? FileId { get; set; }
+
+                        /// <summary>
+                        /// <para>附件名称</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1.13测试1的面试记录.pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public string? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>附件类型</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：application/pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("content_type")]
+                        public string? ContentType { get; set; }
+
+                        /// <summary>
+                        /// <para>附件大小</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：16615</para>
+                        /// </summary>
+                        [JsonPropertyName("file_size")]
+                        public int? FileSize { get; set; }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -1290,6 +2921,239 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// </summary>
             [JsonPropertyName("children")]
             public TalentCustomizedDataChild[]? Childrens { get; set; }
+
+            /// <summary>
+            /// <para>模块下的字段</para>
+            /// </summary>
+            public record TalentCustomizedDataChild
+            {
+                /// <summary>
+                /// <para>自定义字段 ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：xxxx</para>
+                /// </summary>
+                [JsonPropertyName("object_id")]
+                public string? ObjectId { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public I18n? Name { get; set; }
+
+                /// <summary>
+                /// <para>字段名称</para>
+                /// </summary>
+                public record I18n
+                {
+                    /// <summary>
+                    /// <para>中文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：测试</para>
+                    /// </summary>
+                    [JsonPropertyName("zh_cn")]
+                    public string? ZhCn { get; set; }
+
+                    /// <summary>
+                    /// <para>英文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：test</para>
+                    /// </summary>
+                    [JsonPropertyName("en_us")]
+                    public string? EnUs { get; set; }
+                }
+
+                /// <summary>
+                /// <para>字段类型</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：单行文本</item>
+                /// <item>2：多行文本</item>
+                /// <item>3：单选</item>
+                /// <item>4：多选</item>
+                /// <item>5：日期</item>
+                /// <item>6：月份选择</item>
+                /// <item>7：年份选择</item>
+                /// <item>8：时间段</item>
+                /// <item>9：数字</item>
+                /// <item>10：默认字段</item>
+                /// <item>11：模块</item>
+                /// <item>13：附件</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("object_type")]
+                public int? ObjectType { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public TalentCustomizedValue? Value { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段值</para>
+                /// </summary>
+                public record TalentCustomizedValue
+                {
+                    /// <summary>
+                    /// <para>当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：text</para>
+                    /// </summary>
+                    [JsonPropertyName("content")]
+                    public string? Content { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option")]
+                    public TalentCustomizedOption? Option { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为单选时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedOption
+                    {
+                        /// <summary>
+                        /// <para>选项 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：AA</para>
+                        /// </summary>
+                        [JsonPropertyName("key")]
+                        public string? Key { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// <para>必填：否</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public I18n? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>选项名称</para>
+                        /// </summary>
+                        public record I18n
+                        {
+                            /// <summary>
+                            /// <para>中文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：测试</para>
+                            /// </summary>
+                            [JsonPropertyName("zh_cn")]
+                            public string? ZhCn { get; set; }
+
+                            /// <summary>
+                            /// <para>英文</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：test</para>
+                            /// </summary>
+                            [JsonPropertyName("en_us")]
+                            public string? EnUs { get; set; }
+                        }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为多选时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("option_list")]
+                    public TalentCustomizedOption[]? OptionLists { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("time_range")]
+                    public TalentCustomizedTimeRange? TimeRange { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为时间段时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedTimeRange
+                    {
+                        /// <summary>
+                        /// <para>开始时间</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625456721</para>
+                        /// </summary>
+                        [JsonPropertyName("start_time")]
+                        public string? StartTime { get; set; }
+
+                        /// <summary>
+                        /// <para>结束时间，当值为至今时，返回「-」</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1625656721</para>
+                        /// </summary>
+                        [JsonPropertyName("end_time")]
+                        public string? EndTime { get; set; }
+                    }
+
+                    /// <summary>
+                    /// <para>当字段类型为日期选择、月份选择、年份选择时，从此字段取值，该字段是秒级时间戳</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1625456721</para>
+                    /// </summary>
+                    [JsonPropertyName("time")]
+                    public string? Time { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为数字时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：111</para>
+                    /// </summary>
+                    [JsonPropertyName("number")]
+                    public string? Number { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("customized_attachment")]
+                    public TalentCustomizedAttachment[]? CustomizedAttachments { get; set; }
+
+                    /// <summary>
+                    /// <para>当字段类型为附件时，从此字段取值</para>
+                    /// </summary>
+                    public record TalentCustomizedAttachment
+                    {
+                        /// <summary>
+                        /// <para>附件 ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：7140517838785481004</para>
+                        /// </summary>
+                        [JsonPropertyName("file_id")]
+                        public string? FileId { get; set; }
+
+                        /// <summary>
+                        /// <para>附件名称</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1.13测试1的面试记录.pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("name")]
+                        public string? Name { get; set; }
+
+                        /// <summary>
+                        /// <para>附件类型</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：application/pdf</para>
+                        /// </summary>
+                        [JsonPropertyName("content_type")]
+                        public string? ContentType { get; set; }
+
+                        /// <summary>
+                        /// <para>附件大小</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：16615</para>
+                        /// </summary>
+                        [JsonPropertyName("file_size")]
+                        public int? FileSize { get; set; }
+                    }
+                }
+            }
         }
 
         /// <summary>

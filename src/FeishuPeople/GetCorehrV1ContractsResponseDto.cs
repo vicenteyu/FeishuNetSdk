@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量查询合同 响应体
-/// <para>批量查询合同。</para>
+/// <para>通过接口可以批量查询合同列表信息，目前暂不支持其他筛选条件且一次查询最多支持50条数据。</para>
 /// <para>接口ID：7017707615191121923</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/contract/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fcontract%2flist</para>
@@ -58,7 +58,7 @@ public record GetCorehrV1ContractsResponseDto
         public string? ExpirationTime { get; set; }
 
         /// <summary>
-        /// <para>雇员 ID，枚举值及详细信息可通过【批量查询雇佣信息】接口查询获得</para>
+        /// <para>雇佣 ID，详细信息可通过[【查询员工信息接口】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取</para>
         /// <para>必填：是</para>
         /// <para>示例值：6893013238632416776</para>
         /// </summary>
@@ -80,7 +80,7 @@ public record GetCorehrV1ContractsResponseDto
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：type_1</para>
+            /// <para>示例值：labor_contract</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -108,7 +108,7 @@ public record GetCorehrV1ContractsResponseDto
                 /// <summary>
                 /// <para>名称信息的内容</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：张三</para>
+                /// <para>示例值：劳动合同</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
@@ -116,7 +116,7 @@ public record GetCorehrV1ContractsResponseDto
         }
 
         /// <summary>
-        /// <para>甲方, 引用Company的ID，枚举值及详细信息可通过【批量查询公司】接口查询获得</para>
+        /// <para>合同主体ID, 详细信息可通过[【查询公司详情接口】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)接口查询获得</para>
         /// <para>必填：是</para>
         /// <para>示例值：6892686614112241165</para>
         /// </summary>
@@ -124,7 +124,7 @@ public record GetCorehrV1ContractsResponseDto
         public string FirstPartyCompanyId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>Person ID，枚举值及详细信息可通过【批量查询个人信息】接口查询获得</para>
+        /// <para>Person ID，详细信息可通过接口文档[【查询个人信息接口】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/get)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：151515151</para>
         /// </summary>
@@ -154,7 +154,7 @@ public record GetCorehrV1ContractsResponseDto
             /// <summary>
             /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
             /// <para>必填：是</para>
-            /// <para>示例值：\"Sandy\"</para>
+            /// <para>示例值：Sandy</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -192,14 +192,14 @@ public record GetCorehrV1ContractsResponseDto
         public Enum? SigningType { get; set; }
 
         /// <summary>
-        /// <para>合同协议状态，枚举值可通过文档【飞书人事枚举常量】合同协议状态（contract_status）枚举定义部分获得</para>
+        /// <para>合同协议状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)合同协议状态（contract_status）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("contract_status")]
         public Enum? ContractStatus { get; set; }
 
         /// <summary>
-        /// <para>续签状态，枚举值可通过文档【飞书人事枚举常量】续签状态（renewal_status）枚举定义部分获得</para>
+        /// <para>续签状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)续签状态（renewal_status）枚举定义部分获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("renewal_status")]

@@ -13,7 +13,7 @@
 // ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 获取协作者列表（新版） 响应体
+/// 获取协作者列表 响应体
 /// <para>该接口用于根据文件的 token 查询协作者。</para>
 /// <para>接口ID：7121656165336367106</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/list</para>

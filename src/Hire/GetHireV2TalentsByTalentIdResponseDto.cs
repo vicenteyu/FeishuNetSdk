@@ -4,7 +4,7 @@
 // Created          : 2024-07-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-22
+// Last Modified On : 2024-07-24
 // ************************************************************************
 // <copyright file="GetHireV2TalentsByTalentIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -172,7 +172,7 @@ public record GetHireV2TalentsByTalentIdResponseDto
         /// <para>示例值：293016767159</para>
         /// </summary>
         [JsonPropertyName("birthday")]
-        public int? Birthday { get; set; }
+        public long? Birthday { get; set; }
 
         /// <summary>
         /// <para>婚姻状况</para>

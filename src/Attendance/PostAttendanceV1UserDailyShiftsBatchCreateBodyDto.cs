@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 创建或修改排班表 请求体
-/// <para>班表是用来描述考勤组内人员每天按哪个班次进行上班。目前班表支持按一个整月对一位或多位人员进行排班。当用户的排班数据不存在时会进行创建，当用户的排班数据存在时会按照入参信息进行修改。注意：每人每天只能在一个考勤组中。</para>
+/// <para>排班表是用来描述考勤组内人员每天按哪个班次进行上班。目前排班表支持按一个整月对一位或多位人员进行排班。当用户的排班数据不存在时会进行创建，当用户的排班数据存在时会按照入参信息进行修改。注意：每人每天只能在一个考勤组中。</para>
 /// <para>接口ID：7044467124773388289</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_daily_shift/batch_create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_daily_shift%2fbatch_create</para>
@@ -22,14 +22,14 @@ namespace FeishuNetSdk.Attendance;
 public record PostAttendanceV1UserDailyShiftsBatchCreateBodyDto
 {
     /// <summary>
-    /// <para>班表信息列表（数量限制50以内）</para>
+    /// <para>排班表信息列表（数量限制50以内）</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("user_daily_shifts")]
     public UserDailyShift[] UserDailyShifts { get; set; } = Array.Empty<UserDailyShift>();
 
     /// <summary>
-    /// <para>班表信息列表（数量限制50以内）</para>
+    /// <para>排班表信息列表（数量限制50以内）</para>
     /// </summary>
     public record UserDailyShift
     {
@@ -50,7 +50,7 @@ public record PostAttendanceV1UserDailyShiftsBatchCreateBodyDto
         public string ShiftId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>月份</para>
+        /// <para>月份，格式yyyyMM</para>
         /// <para>必填：是</para>
         /// <para>示例值：202101</para>
         /// </summary>

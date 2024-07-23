@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-22
+// Last Modified On : 2024-07-24
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -9519,7 +9519,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="space_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>知识空间id</para>
+    /// <para>知识空间 ID。可通过以下两种方式获取。了解更多，参考[知识库概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)。</para>
+    /// <para>- 调用 [获取知识空间列表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list)获取</para>
+    /// <para>- 如果你是知识库管理员，可以进入知识库设置页面，复制地址栏的数字部分：https://sample.feishu.cn/wiki/settings/==6870403571079249922==</para>
     /// <para>示例值：1565676577122621</para>
     /// </param>
     /// <param name="need_notification">
@@ -12300,7 +12302,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string spreadsheet_token);
 
     /// <summary>
-    /// <para>【云文档】获取协作者列表（新版）</para>
+    /// <para>【云文档】获取协作者列表</para>
     /// <para>接口ID：7121656165336367106</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -13756,7 +13758,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7194805625628065795</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/resource_reservation_list/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>查询会议室预定数据，，具体权限要求请参考「资源介绍」。</para>
+    /// <para>查询会议室预定数据，具体权限要求请参考「资源介绍」。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>vc:room:readonly</item>
     /// </list></para>
@@ -13784,7 +13786,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="room_ids">
     /// <para>必填：是</para>
-    /// <para>待筛选的会议室id列表</para>
+    /// <para>待筛选的会议室ID列表；如需要传递多个会议室ID，需要通过room_ids=aaaa&amp;room_ids=bbbb&amp;room_ids=cccc的形式传递</para>
     /// <para>示例值：["omm_12443435556"]</para>
     /// </param>
     /// <param name="is_exclude">
@@ -18267,6 +18269,60 @@ public interface IFeishuUserApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1SessionsResponseDto>> PostAilyV1SessionsAsync(
         UserAccessToken access_token,
         [JsonContent] Aily.PostAilyV1SessionsBodyDto dto);
+
+    /// <summary>
+    /// <para>【考勤打卡】查询归档报表表头</para>
+    /// <para>接口ID：7368679915980898306</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/user_stats_fields_query</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>查询归档报表表头，对应后台假勤管理-考勤统计-报表-[归档报表](https://example.feishu.cn/people/workforce-management/manage/statistics/report)中一个归档报表的表头信息。归档报表支持引用系统报表，可设置归档时间和数据归档周期，并且支持根据部门/人员、国家/地区、人员类型、工作地点、职级、序列、职务进行人员圈选。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>attendance:task</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_type">
+    /// <para>必填：是</para>
+    /// <para>响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
+    /// <para>* `员工 employee ID`即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</para>
+    /// <para>* `员工工号`即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</para>
+    /// <para>示例值：employee_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/attendance/v1/archive_rule/user_stats_fields_query")]
+    System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1ArchiveRuleUserStatsFieldsQueryResponseDto>> PostAttendanceV1ArchiveRuleUserStatsFieldsQueryAsync(
+        UserAccessToken access_token,
+        [PathQuery] string employee_type,
+        [JsonContent] Attendance.PostAttendanceV1ArchiveRuleUserStatsFieldsQueryBodyDto dto);
+
+    /// <summary>
+    /// <para>【考勤打卡】查询所有归档规则</para>
+    /// <para>接口ID：7368679915980947458</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>查询所有归档规则，对应后台假勤管理-考勤统计-报表-[归档报表](https://example.feishu.cn/people/workforce-management/manage/statistics/report)功能</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>attendance:task:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，必填参数</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：xxx</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/attendance/v1/archive_rule")]
+    System.Threading.Tasks.Task<FeishuResponse<Attendance.GetAttendanceV1ArchiveRuleResponseDto>> GetAttendanceV1ArchiveRuleAsync(
+        UserAccessToken access_token,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null);
 
     /// <summary>
     /// <para>【绩效】获取指标库信息</para>

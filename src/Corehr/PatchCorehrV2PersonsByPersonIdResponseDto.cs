@@ -132,7 +132,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：legal_name</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -344,7 +344,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
             /// <summary>
             /// <para>枚举值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：male</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -444,7 +444,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：86_china</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -731,21 +731,21 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
             public string? PostalCode { get; set; }
 
             /// <summary>
-            /// <para>地址类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地址类型（address_type）枚举定义获得；请选择一个使用，不支持同时多个类型</para>
+            /// <para>地址类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地址类型（address_type）枚举定义获得</para>
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("address_type_list")]
             public Enum[] AddressTypeLists { get; set; } = Array.Empty<Enum>();
 
             /// <summary>
-            /// <para>地址类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地址类型（address_type）枚举定义获得；请选择一个使用，不支持同时多个类型</para>
+            /// <para>地址类型，可通过[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)地址类型（address_type）枚举定义获得</para>
             /// </summary>
             public record Enum
             {
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：home_address</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -914,7 +914,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：home</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -1151,7 +1151,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：phd</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -1400,7 +1400,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：payment</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -1707,7 +1707,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                     /// <summary>
                     /// <para>枚举值</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：phone_type</para>
+                    /// <para>示例值：legal_name</para>
                     /// </summary>
                     [JsonPropertyName("enum_name")]
                     public string EnumName { get; set; } = string.Empty;
@@ -1915,7 +1915,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：parent</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -2248,7 +2248,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                     /// <summary>
                     /// <para>枚举值</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：phone_type</para>
+                    /// <para>示例值：86_china</para>
                     /// </summary>
                     [JsonPropertyName("enum_name")]
                     public string EnumName { get; set; } = string.Empty;
@@ -2549,7 +2549,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                     /// <summary>
                     /// <para>枚举值</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：phone_type</para>
+                    /// <para>示例值：home_address</para>
                     /// </summary>
                     [JsonPropertyName("enum_name")]
                     public string EnumName { get; set; } = string.Empty;
@@ -2760,7 +2760,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                     /// <summary>
                     /// <para>枚举值</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：phone_type</para>
+                    /// <para>示例值：legal_name</para>
                     /// </summary>
                     [JsonPropertyName("enum_name")]
                     public string EnumName { get; set; } = string.Empty;
@@ -2968,7 +2968,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：parent</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -3034,7 +3034,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                     /// <summary>
                     /// <para>枚举值</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：phone_type</para>
+                    /// <para>示例值：86_china</para>
                     /// </summary>
                     [JsonPropertyName("enum_name")]
                     public string EnumName { get; set; } = string.Empty;
@@ -3283,7 +3283,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：example</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -3532,21 +3532,25 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
             public string YearResidentTax { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>居民身份，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
+            /// <para>居民身份，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+            /// <para>- object_api_name = "resident_tax"</para>
+            /// <para>- custom_api_name = "resident_status"</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("resident_status")]
             public Enum? ResidentStatus { get; set; }
 
             /// <summary>
-            /// <para>居民身份，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下： - object_api_name = "resident_tax" - custom_api_name = "resident_status"</para>
+            /// <para>居民身份，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+            /// <para>- object_api_name = "resident_tax"</para>
+            /// <para>- custom_api_name = "resident_status"</para>
             /// </summary>
             public record Enum
             {
                 /// <summary>
-                /// <para>枚举值</para>
+                /// <para>example</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：example</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;

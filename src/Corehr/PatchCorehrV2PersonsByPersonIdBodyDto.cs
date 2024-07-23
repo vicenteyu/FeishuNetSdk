@@ -616,7 +616,8 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
         /// <summary>
         /// <para>邮箱用途，可通过[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
-        /// <para>默认：emergency_contact</para>
+        /// <para>- 请勿填写 work 枚举，工作邮箱在雇佣信息中操作</para>
+        /// <para>- 默认：emergency_contact</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("email_usage")]
@@ -624,7 +625,8 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
         /// <summary>
         /// <para>邮箱用途，可通过[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)邮箱用途（email_usage）枚举定义获得</para>
-        /// <para>默认：emergency_contact</para>
+        /// <para>- 请勿填写 work 枚举，工作邮箱在雇佣信息中操作</para>
+        /// <para>- 默认：emergency_contact</para>
         /// </summary>
         public record Enum
         {

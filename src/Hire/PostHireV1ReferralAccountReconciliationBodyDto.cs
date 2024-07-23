@@ -9,12 +9,12 @@
 // <copyright file="PostHireV1ReferralAccountReconciliationBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>内推账号提现对账接口 请求体</summary>
+// <summary>内推账户提现数据对账 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 内推账号提现对账接口 请求体
-/// <para>定时将时间段内的账户充值信息同步到招聘，与招聘实际提取金额做对比，保证系统异常或其他意外情况发生时，双方系统可及时监控到充值异常等错误</para>
+/// 内推账户提现数据对账 请求体
+/// <para>对一段时间内的内推账户积分提现数据进行对账，调用方需传入调用方系统的内推账户积分变动信息。</para>
 /// <para>接口ID：7252281835550900226</para>
 /// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/reconciliation</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2freferral_account%2freconciliation</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1ReferralAccountReconciliationBodyDto
 {
     /// <summary>
-    /// <para>按时间范围进行对账时 时间段的起始交易时间</para>
+    /// <para>对账时段的起始交易时间，毫秒时间戳</para>
     /// <para>必填：否</para>
     /// <para>示例值：1685416831621</para>
     /// </summary>
@@ -30,7 +30,7 @@ public record PostHireV1ReferralAccountReconciliationBodyDto
     public string? StartTransTime { get; set; }
 
     /// <summary>
-    /// <para>按时间范围进行对账时 时间段的截止交易时间</para>
+    /// <para>对账时段的截止交易时间，毫秒时间戳</para>
     /// <para>必填：否</para>
     /// <para>示例值：1685416831622</para>
     /// </summary>
@@ -38,19 +38,19 @@ public record PostHireV1ReferralAccountReconciliationBodyDto
     public string? EndTransTime { get; set; }
 
     /// <summary>
-    /// <para>交易信息</para>
+    /// <para>账户积分变动信息</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("trade_details")]
     public TradeDetail[]? TradeDetails { get; set; }
 
     /// <summary>
-    /// <para>交易信息</para>
+    /// <para>账户积分变动信息</para>
     /// </summary>
     public record TradeDetail
     {
         /// <summary>
-        /// <para>账户ID</para>
+        /// <para>内推账户ID，通过[注册内推账户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create)生成</para>
         /// <para>必填：是</para>
         /// <para>示例值：6930815272790114324</para>
         /// </summary>
@@ -58,19 +58,19 @@ public record PostHireV1ReferralAccountReconciliationBodyDto
         public string AccountId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>时间段内该账户在积分商城的实际充值金额</para>
+        /// <para>时段内该账户发生在调用方系统的积分之和</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("total_recharge_reward_info")]
         public BonusAmount? TotalRechargeRewardInfo { get; set; }
 
         /// <summary>
-        /// <para>时间段内该账户在积分商城的实际充值金额</para>
+        /// <para>时段内该账户发生在调用方系统的积分之和</para>
         /// </summary>
         public record BonusAmount
         {
             /// <summary>
-            /// <para>积分奖励</para>
+            /// <para>变动的积分数量</para>
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
