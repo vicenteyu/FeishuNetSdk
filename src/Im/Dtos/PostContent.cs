@@ -11,12 +11,16 @@
 // </copyright>
 // <summary>富文本消息</summary>
 // ************************************************************************
+
+using System.Text.Json;
+
 namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
     /// 富文本消息
     /// </summary>
     /// <param name="Post">富文本消息。post content格式请参见发送消息Content</param>
+    [JsonConverter(typeof(PostContentJsonConverter))]
     public record PostContent([property: JsonPropertyName("post")] I18nLanguage<PostContent.PostLanguage> Post = default!)
         : MessageContent("post")
     {
@@ -55,6 +59,20 @@ namespace FeishuNetSdk.Im.Dtos
             /// </summary>
             [JsonPropertyName("content")]
             public object[][] Content { get; set; } = Array.Empty<object[]>();
+        }
+    }
+
+    internal class PostContentJsonConverter : JsonConverter<PostContent>
+    {
+        public override PostContent Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            var postLanguage = JsonSerializer.Deserialize<I18nLanguage<PostContent.PostLanguage>>(ref reader, options);
+            return new PostContent(postLanguage);
+        }
+
+        public override void Write(Utf8JsonWriter writer, PostContent value, JsonSerializerOptions options)
+        {
+            JsonSerializer.Serialize(writer, value.Post, options);
         }
     }
 }
