@@ -122,6 +122,34 @@ namespace FeishuNetSdk
         }
 
         /// <summary>
+        /// 由于发送单人与批量的消息结构不一致，需要针对单人的消息进行特殊处理。目前已确认：富文本消息。
+        /// <para>只能发现一个，处理一个。</para>
+        /// </summary>
+        /// <param name="CardOrContent">消息对象，包括以下：
+        /// <list type="bullet">
+        /// <item>TextContent</item>
+        /// <item>PostContent</item>
+        /// <item>ImageContent</item>
+        /// <item>FileContent</item>
+        /// <item>AudioContent</item>
+        /// <item>MediaContent</item>
+        /// <item>StickerContent</item>
+        /// <item>ShareChatContent</item>
+        /// <item>ShareUserContent</item>
+        /// <item>ElementsCardDto</item>
+        /// <item>TemplateCardDto</item>
+        /// </list>
+        /// </param>
+        private static string SerializeSingleReceiverContent(Im.Dtos.IHasMessageType CardOrContent)
+        {
+            return CardOrContent switch
+            {
+                Im.Dtos.PostContent post => System.Text.Json.JsonSerializer.Serialize(post.Post, options),
+                _ => System.Text.Json.JsonSerializer.Serialize(CardOrContent, CardOrContent.GetType(), options)
+            };
+        }
+
+        /// <summary>
         /// 设置消息类型及内容
         /// </summary>
         /// <param name="Dto">发送消息 请求体</param>
@@ -144,7 +172,7 @@ namespace FeishuNetSdk
             Im.Dtos.IHasMessageType CardOrContent)
         {
             Dto.MsgType = CardOrContent.MessageType;
-            Dto.Content = System.Text.Json.JsonSerializer.Serialize(CardOrContent, CardOrContent.GetType(), options);
+            Dto.Content = SerializeSingleReceiverContent(CardOrContent);
 
             return Dto;
         }
@@ -172,7 +200,7 @@ namespace FeishuNetSdk
             Im.Dtos.IHasMessageType CardOrContent)
         {
             Dto.MsgType = CardOrContent.MessageType;
-            Dto.Content = System.Text.Json.JsonSerializer.Serialize(CardOrContent, CardOrContent.GetType(), options);
+            Dto.Content = SerializeSingleReceiverContent(CardOrContent);
 
             return Dto;
         }
@@ -200,7 +228,7 @@ namespace FeishuNetSdk
             Im.Dtos.IHasMessageType CardOrContent)
         {
             Dto.MsgType = CardOrContent.MessageType;
-            Dto.Content = System.Text.Json.JsonSerializer.Serialize(CardOrContent, CardOrContent.GetType(), options);
+            Dto.Content = SerializeSingleReceiverContent(CardOrContent);
 
             return Dto;
         }
