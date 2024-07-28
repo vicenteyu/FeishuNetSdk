@@ -9,7 +9,7 @@
 // <copyright file="PostCorehrV2PreHiresResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>创建待入职人员 响应体</summary>
+// <summary>直接创建待入职 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
@@ -24,7 +24,7 @@ public record PostCorehrV2PreHiresResponseDto
     /// <summary>
     /// <para>待入职 ID</para>
     /// <para>必填：否</para>
-    /// <para>示例值：6966234786251671054</para>
+    /// <para>示例值：6966234786251671056</para>
     /// </summary>
     [JsonPropertyName("pre_hire_id")]
     public string? PreHireId { get; set; }

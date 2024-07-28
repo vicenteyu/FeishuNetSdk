@@ -23,19 +23,19 @@ public record PostHireV1ReferralAccountReconciliationBodyDto
 {
     /// <summary>
     /// <para>对账时段的起始交易时间，毫秒时间戳</para>
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
     /// <para>示例值：1685416831621</para>
     /// </summary>
     [JsonPropertyName("start_trans_time")]
-    public string? StartTransTime { get; set; }
+    public string StartTransTime { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>对账时段的截止交易时间，毫秒时间戳</para>
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
     /// <para>示例值：1685416831622</para>
     /// </summary>
     [JsonPropertyName("end_trans_time")]
-    public string? EndTransTime { get; set; }
+    public string EndTransTime { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>账户积分变动信息</para>

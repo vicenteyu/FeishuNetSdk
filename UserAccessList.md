@@ -707,7 +707,7 @@
 <tr><td colspan="3">PostTaskV2CustomFieldsByCustomFieldGuidOptions</td></tr>
 <tr><td rowspan="2">354</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>任务</td><td>更新自定义字段选项</td></tr>
 <tr><td colspan="3">PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuid</td></tr>
-<tr><td rowspan="2">355</td><td rowspan="2">2024-07-18</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
+<tr><td rowspan="2">355</td><td rowspan="2">2024-07-25</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxes</td></tr>
 <tr><td rowspan="2">356</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>搜索</td><td>搜索消息</td></tr>
 <tr><td colspan="3">PostSearchV2Message</td></tr>
@@ -1025,14 +1025,14 @@
 <tr><td colspan="3">PostPerformanceV2MetricFieldsQuery</td></tr>
 <tr><td rowspan="2">513</td><td rowspan="2">2024-07-02</td><td>&#10003;</td><td>云文档</td><td>批量增加协作者权限</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersBatchCreate</td></tr>
-<tr><td rowspan="2">514</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>创建会议纪要</td></tr>
+<tr><td rowspan="2">514</td><td rowspan="2">2024-07-25</td><td>&#10003;</td><td>日历</td><td>创建会议纪要</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingMinute</td></tr>
-<tr><td rowspan="2">515</td><td rowspan="2">2024-07-22</td><td>&#10003;</td><td>招聘</td><td>获取待办列表</td></tr>
+<tr><td rowspan="2">515</td><td rowspan="2">2024-07-26</td><td>&#10003;</td><td>招聘</td><td>获取待办列表</td></tr>
 <tr><td colspan="3">GetHireV1Todos</td></tr>
 <tr><td rowspan="2">516</td><td rowspan="2">2024-07-22</td><td>&#10003;</td><td>多维表格</td><td>批量获取记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGet</td></tr>
-<tr><td rowspan="2">517</td><td rowspan="2">2024-07-23</td><td>新增</td><td>考勤打卡</td><td>查询归档报表表头</td></tr>
+<tr><td rowspan="2">517</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>考勤打卡</td><td>查询归档报表表头</td></tr>
 <tr><td colspan="3">PostAttendanceV1ArchiveRuleUserStatsFieldsQuery</td></tr>
-<tr><td rowspan="2">518</td><td rowspan="2">2024-07-23</td><td>新增</td><td>考勤打卡</td><td>查询所有归档规则</td></tr>
+<tr><td rowspan="2">518</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>考勤打卡</td><td>查询所有归档规则</td></tr>
 <tr><td colspan="3">GetAttendanceV1ArchiveRule</td></tr>
 </tbody></table>

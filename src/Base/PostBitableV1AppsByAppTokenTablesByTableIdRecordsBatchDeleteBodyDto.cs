@@ -24,7 +24,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDeleteBodyDt
     /// <summary>
     /// <para>删除的多条记录id列表</para>
     /// <para>必填：是</para>
-    /// <para>示例值：[ "recIcJBbvC", "recvmiCORa" ]</para>
+    /// <para>示例值：[ "recIcJBbvC", "recvmiCORa"]</para>
     /// </summary>
     [JsonPropertyName("records")]
     public string[] Records { get; set; } = Array.Empty<string>();

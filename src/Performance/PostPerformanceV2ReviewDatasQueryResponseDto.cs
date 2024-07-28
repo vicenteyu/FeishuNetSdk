@@ -620,14 +620,14 @@ public record PostPerformanceV2ReviewDatasQueryResponseDto
                 }
 
                 /// <summary>
-                /// <para>项目上级评估记录信息</para>
+                /// <para>合作项目中上级的评估记录信息，仅在「项目直属上级环节」有值</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("direct_project_leader_record_info")]
                 public ReviewRecordDirectProjectLeaderRecordInfo? DirectProjectLeaderRecordInfo { get; set; }
 
                 /// <summary>
-                /// <para>项目上级评估记录信息</para>
+                /// <para>合作项目中上级的评估记录信息，仅在「项目直属上级环节」有值</para>
                 /// </summary>
                 public record ReviewRecordDirectProjectLeaderRecordInfo
                 {
@@ -707,6 +707,76 @@ public record PostPerformanceV2ReviewDatasQueryResponseDto
                             /// </summary>
                             [JsonPropertyName("en_us")]
                             public string? EnUs { get; set; }
+                        }
+
+                        /// <summary>
+                        /// <para>合作项目角色</para>
+                        /// <para>必填：否</para>
+                        /// </summary>
+                        [JsonPropertyName("roles")]
+                        public CooperationRole[]? Roles { get; set; }
+
+                        /// <summary>
+                        /// <para>合作项目角色</para>
+                        /// </summary>
+                        public record CooperationRole
+                        {
+                            /// <summary>
+                            /// <para>评估人在合作项目中的角色。在未配置合作项目角色情况下，该字段为空值。</para>
+                            /// <para>必填：否</para>
+                            /// </summary>
+                            [JsonPropertyName("reviewer_role")]
+                            public CooperationUserRole? ReviewerRole { get; set; }
+
+                            /// <summary>
+                            /// <para>评估人在合作项目中的角色。在未配置合作项目角色情况下，该字段为空值。</para>
+                            /// </summary>
+                            public record CooperationUserRole
+                            {
+                                /// <summary>
+                                /// <para>合作项目角色 ID</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：7213434603057807379</para>
+                                /// </summary>
+                                [JsonPropertyName("role_id")]
+                                public string? RoleId { get; set; }
+
+                                /// <summary>
+                                /// <para>名称</para>
+                                /// <para>必填：否</para>
+                                /// </summary>
+                                [JsonPropertyName("name")]
+                                public I18n? Name { get; set; }
+
+                                /// <summary>
+                                /// <para>名称</para>
+                                /// </summary>
+                                public record I18n
+                                {
+                                    /// <summary>
+                                    /// <para>中文</para>
+                                    /// <para>必填：否</para>
+                                    /// <para>示例值：体验</para>
+                                    /// </summary>
+                                    [JsonPropertyName("zh_cn")]
+                                    public string? ZhCn { get; set; }
+
+                                    /// <summary>
+                                    /// <para>英文</para>
+                                    /// <para>必填：否</para>
+                                    /// <para>示例值：Interactive experience</para>
+                                    /// </summary>
+                                    [JsonPropertyName("en_us")]
+                                    public string? EnUs { get; set; }
+                                }
+                            }
+
+                            /// <summary>
+                            /// <para>被评估人在合作项目中的项目角色。在未配置合作项目角色情况下，该字段为空值。</para>
+                            /// <para>必填：否</para>
+                            /// </summary>
+                            [JsonPropertyName("reviewee_role")]
+                            public CooperationUserRole? RevieweeRole { get; set; }
                         }
                     }
                 }

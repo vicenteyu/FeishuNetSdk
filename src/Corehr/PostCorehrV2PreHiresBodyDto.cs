@@ -4,12 +4,12 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-04
+// Last Modified On : 2024-07-28
 // ************************************************************************
 // <copyright file="PostCorehrV2PreHiresBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>创建待入职人员 请求体</summary>
+// <summary>直接创建待入职 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
@@ -2160,4 +2160,12 @@ public record PostCorehrV2PreHiresBodyDto
     /// </summary>
     [JsonPropertyName("ats_application_id")]
     public string? AtsApplicationId { get; set; }
+
+    /// <summary>
+    /// <para>外部业务唯一编码，用于支持幂等创建</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：7140946969586010376</para>
+    /// </summary>
+    [JsonPropertyName("out_biz_id")]
+    public string? OutBizId { get; set; }
 }

@@ -16,6 +16,7 @@ namespace FeishuNetSdk.Attendance;
 /// 创建或修改考勤组 响应体
 /// <para>考勤组，是对部门或者员工在某个特定场所及特定时间段内的出勤情况（包括上下班、迟到、早退、病假、婚假、丧假、公休、工作时间、加班情况等）的一种规则设定。</para>
 /// <para>通过设置考勤组，可以从部门、员工两个维度，来设定考勤方式、考勤时间、考勤地点等考勤规则。</para>
+/// <para>对应功能同设置-假勤设置-[考勤组](https://example.feishu.cn/people/workforce-management/setting/group/list)的“新建”功能</para>
 /// <para>接口ID：7044467124773683201</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/group/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fgroup%2fcreate</para>
@@ -35,7 +36,7 @@ public record PostAttendanceV1GroupsResponseDto
     public record PostAttendanceV1GroupsResponseDtoGroup
     {
         /// <summary>
-        /// <para>考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId</para>
+        /// <para>考勤组 ID，可用于[按 ID 查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6919358128597097404</para>
         /// </summary>
@@ -59,7 +60,7 @@ public record PostAttendanceV1GroupsResponseDto
         public string TimeZone { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>绑定的部门 ID（与「need_punch_members」同时使用时，以当前字段为准）</para>
+        /// <para>绑定的部门 ID（与「need_punch_members」同时使用时，以当前字段为准）。对应dept_type</para>
         /// <para>必填：否</para>
         /// <para>示例值：od-fcb45c28a45311afd440b7869541fce8</para>
         /// </summary>
@@ -75,7 +76,7 @@ public record PostAttendanceV1GroupsResponseDto
         public string[]? ExceptDeptIds { get; set; }
 
         /// <summary>
-        /// <para>绑定的用户 ID（与「need_punch_members」同时使用时，以当前字段为准）</para>
+        /// <para>绑定的用户 ID（与「need_punch_members」同时使用时，以当前字段为准），对应employee_type</para>
         /// <para>必填：否</para>
         /// <para>示例值：52aa1fa1</para>
         /// </summary>
@@ -91,7 +92,7 @@ public record PostAttendanceV1GroupsResponseDto
         public string[]? ExceptUserIds { get; set; }
 
         /// <summary>
-        /// <para>考勤主负责人 ID 列表，必选字段（需至少拥有考勤组管理员权限）</para>
+        /// <para>考勤主负责人 ID 列表，必选字段（需至少拥有考勤组管理员权限），对应employee_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：2bg4a9be</para>
         /// </summary>
@@ -99,7 +100,7 @@ public record PostAttendanceV1GroupsResponseDto
         public string[] GroupLeaderIds { get; set; } = Array.Empty<string>();
 
         /// <summary>
-        /// <para>考勤子负责人 ID 列表</para>
+        /// <para>考勤子负责人 ID 列表，对应employee_type</para>
         /// <para>必填：否</para>
         /// <para>示例值：52aa1fa1</para>
         /// </summary>
@@ -456,7 +457,7 @@ public record PostAttendanceV1GroupsResponseDto
         public int GroupType { get; set; }
 
         /// <summary>
-        /// <para>固定班制必须填</para>
+        /// <para>固定班制返回，可用于[按 ID 查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/get)</para>
         /// <para>必填：是</para>
         /// <para>示例值：6921319402260496386</para>
         /// </summary>
@@ -560,7 +561,7 @@ public record PostAttendanceV1GroupsResponseDto
             public int PunchDay { get; set; }
 
             /// <summary>
-            /// <para>班次 ID</para>
+            /// <para>班次 ID，可用于[按 ID 查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/get)</para>
             /// <para>必填：是</para>
             /// <para>示例值：6919668827865513935</para>
             /// </summary>
@@ -715,14 +716,14 @@ public record PostAttendanceV1GroupsResponseDto
         public bool? LeaveNeedPunch { get; set; }
 
         /// <summary>
-        /// <para>请假离岗或返岗打卡规则</para>
+        /// <para>请假离岗或返岗打卡规则，单位：分钟</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("leave_need_punch_cfg")]
         public PostAttendanceV1GroupsResponseDtoGroupLeaveNeedPunchCfg? LeaveNeedPunchCfg { get; set; }
 
         /// <summary>
-        /// <para>请假离岗或返岗打卡规则</para>
+        /// <para>请假离岗或返岗打卡规则，单位：分钟</para>
         /// </summary>
         public record PostAttendanceV1GroupsResponseDtoGroupLeaveNeedPunchCfg
         {
@@ -768,14 +769,14 @@ public record PostAttendanceV1GroupsResponseDto
         public int? GoOutNeedPunch { get; set; }
 
         /// <summary>
-        /// <para>外出期间打卡规则</para>
+        /// <para>外出期间打卡规则，单位：分钟</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("go_out_need_punch_cfg")]
         public LeaveNeedPunchCfgSuffix? GoOutNeedPunchCfg { get; set; }
 
         /// <summary>
-        /// <para>外出期间打卡规则</para>
+        /// <para>外出期间打卡规则，单位：分钟</para>
         /// </summary>
         public record LeaveNeedPunchCfgSuffix
         {
@@ -821,7 +822,7 @@ public record PostAttendanceV1GroupsResponseDto
         public int? TravelNeedPunch { get; set; }
 
         /// <summary>
-        /// <para>出差期间打卡规则</para>
+        /// <para>出差期间打卡规则，单位：分钟</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("travel_need_punch_cfg")]
@@ -880,6 +881,14 @@ public record PostAttendanceV1GroupsResponseDto
 
                 /// <summary>
                 /// <para>范围类型（是否包含）</para>
+                /// <para>* 1: 包含</para>
+                /// <para>* 2: 不包含</para>
+                /// <para>* 3: 相等</para>
+                /// <para>* 4: 小于等于</para>
+                /// <para>* 5: 大于等于</para>
+                /// <para>* 6: 大于</para>
+                /// <para>* 7: 小于</para>
+                /// <para>* 8: 不相等</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
@@ -966,14 +975,14 @@ public record PostAttendanceV1GroupsResponseDto
         public bool? OrgChangeAutoAdjust { get; set; }
 
         /// <summary>
-        /// <para>参与无需打卡的部门 ID 列表（与「no_need_punch_members」同时使用时，以当前字段为准）</para>
+        /// <para>参与无需打卡的部门 ID 列表（与「no_need_punch_members」同时使用时，以当前字段为准），对应dept_type</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("bind_default_dept_ids")]
         public string[]? BindDefaultDeptIds { get; set; }
 
         /// <summary>
-        /// <para>参与无需打卡的人员 ID 列表（与「no_need_punch_members」同时使用时，以当前字段为准）</para>
+        /// <para>参与无需打卡的人员 ID 列表（与「no_need_punch_members」同时使用时，以当前字段为准），对应employee_type</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("bind_default_user_ids")]

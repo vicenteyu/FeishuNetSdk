@@ -23,8 +23,7 @@ public record PostCorehrV1JobChangesResponseDto
 {
     /// <summary>
     /// <para>异动记录 id，可通过接口</para>
-    /// <para>[搜索异动信息</para>
-    /// <para>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/search)获取详细信息</para>
+    /// <para>[搜索异动信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/search)获取详细信息</para>
     /// <para>必填：否</para>
     /// <para>示例值：6991776076699549697</para>
     /// </summary>
@@ -56,8 +55,7 @@ public record PostCorehrV1JobChangesResponseDto
 
     /// <summary>
     /// <para>异动类型唯一标识，，可通过接口</para>
-    /// <para>[获取异动类型列表</para>
-    /// <para>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取详细信息</para>
+    /// <para>[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取详细信息</para>
     /// <para>必填：否</para>
     /// <para>示例值：direct_leader_change</para>
     /// </summary>
@@ -66,8 +64,7 @@ public record PostCorehrV1JobChangesResponseDto
 
     /// <summary>
     /// <para>异动原因唯一标识，可通过接口</para>
-    /// <para>[获取异动原因列表</para>
-    /// <para>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_reason/query)获取详细信息</para>
+    /// <para>[获取异动原因列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_reason/query)获取详细信息</para>
     /// <para>必填：否</para>
     /// <para>示例值：involuntary_transfer</para>
     /// </summary>

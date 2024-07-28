@@ -82,7 +82,7 @@ public record PostAttendanceV1UserTaskRemedysQueryResponseDto
         public string RemedyTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>补卡状态（默认为审批中）</para>
+        /// <para>补卡状态</para>
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// <para>可选值：<list type="bullet">

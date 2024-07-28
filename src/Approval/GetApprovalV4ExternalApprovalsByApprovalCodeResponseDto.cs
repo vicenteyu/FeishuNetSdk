@@ -146,8 +146,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         public bool? EnableQuickOperate { get; set; }
 
         /// <summary>
-        /// <para>三方系统的操作回调 url，【待审批】列表的任务审批人点同意或拒绝操作后，审批中心调用该地址通知三方系统，回调地址相关信息可参考：[三方快捷审批回调</para>
-        /// <para>](https://open.feishu.cn/document/ukTMukTMukTM/ukjNyYjL5YjM24SO2IjN/quick-approval-callback)</para>
+        /// <para>三方系统的操作回调 url，【待审批】列表的任务审批人点同意或拒绝操作后，审批中心调用该地址通知三方系统，回调地址相关信息可参考：[三方快捷审批回调](https://open.feishu.cn/document/ukTMukTMukTM/ukjNyYjL5YjM24SO2IjN/quick-approval-callback)</para>
         /// <para>必填：否</para>
         /// <para>示例值：http://www.feishu.cn/approval/openapi/instanceOperate</para>
         /// </summary>
@@ -258,7 +257,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <summary>
         /// <para>文案 key, value, i18n key 以 @i18n@ 开头； 该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语音环境使用对应的文案，如果没有传用户当前的语音环境文案，则会使用默认的语言文案</para>
         /// <para>必填：是</para>
-        /// <para>示例值：{"@i18n@1":"权限申请","@i18n@2":"OA审批","@i18n@3":"Permission"}</para>
+        /// <para>示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }</para>
         /// </summary>
         [JsonPropertyName("texts")]
         public I18nResourceText[] Texts { get; set; } = Array.Empty<I18nResourceText>();

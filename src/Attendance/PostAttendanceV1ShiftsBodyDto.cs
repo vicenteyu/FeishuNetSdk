@@ -30,7 +30,7 @@ public record PostAttendanceV1ShiftsBodyDto
     public string ShiftName { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>打卡次数</para>
+    /// <para>打卡次数（历史字段，已无用，以punch_time_rule为准）</para>
     /// <para>必填：是</para>
     /// <para>示例值：1</para>
     /// </summary>
@@ -182,7 +182,7 @@ public record PostAttendanceV1ShiftsBodyDto
         public int? LateMinutesAsSeriousLate { get; set; }
 
         /// <summary>
-        /// <para>是否不需要打上班卡，这里需要特别注意，第一段打卡规则须为true。后续可按需配置</para>
+        /// <para>true为不需要打上班卡，这里需要特别注意，第一段打卡规则须为false。后续可按需配置</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>

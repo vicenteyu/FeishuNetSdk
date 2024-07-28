@@ -16420,7 +16420,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="job_data_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>任职信息 ID</para>
+    /// <para>任职信息 ID，可通过[【创建任职信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/create)、[【批量查询员工任职信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)等接口获取</para>
     /// <para>示例值：151515</para>
     /// </param>
     /// <param name="user_id_type">
@@ -16879,7 +16879,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017707615190941699</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>批量查询人员的任职信息。</para>
+    /// <para>批量查询员工的任职信息</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
@@ -16907,33 +16907,39 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="employment_id">
     /// <para>必填：否</para>
-    /// <para>雇佣 ID</para>
-    /// <para>与 user_id_type 类型一致</para>
+    /// <para>雇佣 ID，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取</para>
+    /// <para>- 应与 user_id_type 类型一致</para>
     /// <para>示例值：7072306364927985196</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="job_data_id_list">
     /// <para>必填：否</para>
-    /// <para>任职信息 ID 列表，最大 100 个（不传则默认查询全部任职信息）</para>
+    /// <para>任职信息 ID 列表</para>
+    /// <para>- 默认查询全部任职信息</para>
     /// <para>示例值：["6919733291281024526", "6919733291281024527"]</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="department_id">
     /// <para>必填：否</para>
     /// <para>部门 ID</para>
-    /// <para>应与 department_id_type 类型一致</para>
+    /// <para>- 应与 department_id_type 类型一致</para>
+    /// <para>- 默认为空</para>
     /// <para>示例值：6887868781834536462</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="job_id">
     /// <para>必填：否</para>
     /// <para>职务 ID</para>
+    /// <para>- 默认为空</para>
     /// <para>示例值：6893014062142064135</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="get_all_version">
     /// <para>必填：否</para>
-    /// <para>是否获取所有任职记录，true 为获取员工所有版本的任职记录，false 为仅获取当前生效的任职记录，默认为 false</para>
+    /// <para>是否获取所有版本的任职记录</para>
+    /// <para>- true 为获取员工所有版本的任职记录</para>
+    /// <para>- false 为仅获取当前生效的任职记录</para>
+    /// <para>- 默认为 false</para>
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -19283,18 +19289,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773404673</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/modify</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>修改授权内员工的用户设置信息，包括人脸照片文件 ID。</para>
+    /// <para>修改授权内员工的用户设置信息，包括人脸照片文件 ID。修改用户人脸识别信息目前只支持 API 方式修改，管理后台已无法修改。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:rule</item>
     /// </list></para>
     /// </summary>
     /// <param name="employee_type">
     /// <para>必填：是</para>
-    /// <para>请求体和响应体中的 user_id 的员工工号类型</para>
+    /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即飞书管理后台 &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
-    /// <item>employee_no：员工工号，即飞书管理后台 &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -19413,7 +19419,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773486593</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过班次 ID 获取班次详情。</para>
+    /// <para>通过班次 ID 获取班次详情。对应功能为假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)班次列表中的具体班次，班次信息可以点击班次名称查看</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:rule</item>
     /// <item>attendance:rule:readonly</item>
@@ -19442,7 +19448,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>* GPS 打卡：location_name（定位地址信息）</para>
     /// <para>* Wi-Fi 打卡：ssid（wifi名称）、bssid（mac地址）</para>
     /// <para>* 考勤机打卡：device_id（考勤机设备id）</para>
-    /// <para>* 打卡结果</para>
     /// <para>对应页面功能打卡管理-[打卡记录](https://example.feishu.cn/people/workforce-management/manage/statistics/flow)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:task</item>
@@ -19526,8 +19531,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773584897</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/query</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>批量查询授权内员工的用户设置信息，包括人脸照片文件 ID、人脸照片更新时间。对应页面假勤设置-[人脸识别](https://example.feishu.cn/people/workforce-management/setting/group/security)。根据返回的face_key可以下载人脸信息[下载用户人脸识别照片</para>
-    /// <para>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/download)</para>
+    /// <para>批量查询授权内员工的用户设置信息，包括人脸照片文件 ID、人脸照片更新时间。对应页面假勤设置-[人脸识别](https://example.feishu.cn/people/workforce-management/setting/group/security)。根据返回的face_key可以下载人脸信息[下载用户人脸识别照片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/download)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:rule:readonly</item>
     /// </list></para>
@@ -19567,7 +19571,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773617665</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过打卡记录 ID 获取用户的打卡流水记录。返回信息主要包含：</para>
+    /// <para>通过用户 ID 获取用户的打卡流水记录。返回信息主要包含：</para>
     /// <para>* 用户id和创建者id</para>
     /// <para>* 记录信息</para>
     /// <para>* 打卡位置信息、时间信息</para>
@@ -19575,7 +19579,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>* GPS 打卡：location_name（定位地址信息）</para>
     /// <para>* Wi-Fi 打卡：ssid（wifi名称）、bssid（mac地址）</para>
     /// <para>* 考勤机打卡：device_id（考勤机设备id）</para>
-    /// <para>* 打卡结果</para>
     /// <para>对应页面功能打卡管理-[打卡记录](https://example.feishu.cn/people/workforce-management/manage/statistics/flow)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:task:readonly</item>
@@ -19686,13 +19689,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>考勤组，是对部门或者员工在某个特定场所及特定时间段内的出勤情况（包括上下班、迟到、早退、病假、婚假、丧假、公休、工作时间、加班情况等）的一种规则设定。</para>
     /// <para>通过设置考勤组，可以从部门、员工两个维度，来设定考勤方式、考勤时间、考勤地点等考勤规则。</para>
+    /// <para>对应功能同设置-假勤设置-[考勤组](https://example.feishu.cn/people/workforce-management/setting/group/list)的“新建”功能</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:rule</item>
     /// </list></para>
     /// </summary>
     /// <param name="employee_type">
     /// <para>必填：是</para>
-    /// <para>用户 ID 的类型</para>
+    /// <para>响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
     /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
@@ -19704,7 +19708,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>部门 ID 的类型</para>
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>open_id：暂时只支持部门的 openid</item>
+    /// <item>open_id：暂时只支持部门的 openid。具体概念请参考[部门资源介绍](https://open.larkoffice.com/document/server-docs/contact-v3/department/field-overview)中的open_department_id</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -19719,7 +19723,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773699585</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过班次 ID 删除班次。</para>
+    /// <para>通过班次 ID 删除班次。对应设置-假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)操作列的删除功能</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:rule</item>
     /// </list></para>
@@ -19764,7 +19768,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773732353</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/download</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过文件 ID 下载指定的文件。</para>
+    /// <para>通过文件 ID 下载用户的头像照片文件。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:rule:readonly</item>
     /// </list></para>
@@ -19772,7 +19776,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="file_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件 ID</para>
+    /// <para>文件 ID，可通过[批量查询用户人脸识别信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/query)获取</para>
     /// <para>示例值：xxxxxb306842b1c189bc5212eefxxxxx</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
@@ -19785,7 +19789,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773765121</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>上传文件并获取文件 ID，可用于“修改用户设置”接口中的 face_key 参数。</para>
+    /// <para>上传用户人脸照片并获取文件 ID，对应小程序端的人脸录入功能</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:rule</item>
     /// </list></para>
@@ -19809,7 +19813,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773781505</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>按考勤组名称查询考勤组摘要信息。查询条件支持名称精确匹配和模糊匹配两种方式。查询结果按考勤组修改时间 desc 排序，且最大记录数为 10 条。</para>
+    /// <para>按考勤组名称查询考勤组摘要信息。查询条件支持名称精确匹配和模糊匹配两种方式。查询结果按考勤组修改时间 desc 排序，且最大记录数为 10 条。对应页面设置-假勤设置-[考勤组](https://example.feishu.cn/people/workforce-management/setting/group/list)的名称搜索功能</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:rule</item>
     /// <item>attendance:rule:readonly</item>
@@ -19825,7 +19829,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773797889</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过班次 ID 删除班次。</para>
+    /// <para>通过班次 ID 删除班次。对应功能为假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)班次列表中操作栏的删除按钮。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:rule</item>
     /// </list></para>
@@ -38138,7 +38142,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>三方协议ID</para>
-    /// <para>示例值：6942778198054125570</para>
+    /// <para>示例值：6930815272790114324</para>
     /// </param>
     [HttpDelete("/open-apis/hire/v1/tripartite_agreements/{tripartite_agreement_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteHireV1TripartiteAgreementsByTripartiteAgreementIdAsync(
@@ -39637,8 +39641,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="external_referral_reward_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>内推奖励ID</para>
-    /// <para>示例值：6942778198054125570</para>
+    /// <para>外部内推奖励ID</para>
+    /// <para>示例值：6930815272790114324</para>
     /// </param>
     [HttpDelete("/open-apis/hire/v1/external_referral_rewards/{external_referral_reward_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteHireV1ExternalReferralRewardsByExternalReferralRewardIdAsync(

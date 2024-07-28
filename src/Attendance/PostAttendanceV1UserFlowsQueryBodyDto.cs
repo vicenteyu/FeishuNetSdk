@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 批量查询打卡流水 请求体
-/// <para>通过打卡记录 ID 获取用户的打卡流水记录。返回信息主要包含：</para>
+/// <para>通过用户 ID 获取用户的打卡流水记录。返回信息主要包含：</para>
 /// <para>* 用户id和创建者id</para>
 /// <para>* 记录信息</para>
 /// <para>* 打卡位置信息、时间信息</para>
@@ -22,7 +22,6 @@ namespace FeishuNetSdk.Attendance;
 /// <para>* GPS 打卡：location_name（定位地址信息）</para>
 /// <para>* Wi-Fi 打卡：ssid（wifi名称）、bssid（mac地址）</para>
 /// <para>* 考勤机打卡：device_id（考勤机设备id）</para>
-/// <para>* 打卡结果</para>
 /// <para>对应页面功能打卡管理-[打卡记录](https://example.feishu.cn/people/workforce-management/manage/statistics/flow)</para>
 /// <para>接口ID：7044467124773617665</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_task/query-2</para>

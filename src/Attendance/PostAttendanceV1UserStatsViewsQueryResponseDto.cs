@@ -110,13 +110,7 @@ public record PostAttendanceV1UserStatsViewsQueryResponseDto
                 public string Code { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>开关字段，0：关闭，1：开启（非开关字段场景：code = 51501 可选值为1-6）</para>
-                /// <para>`51501`：第 1 次 ~ 第$上下班</para>
-                /// <para>`51502`：打卡时间</para>
-                /// <para>`51503`：打卡结果</para>
-                /// <para>`51504`：打卡原始记录</para>
-                /// <para>`51505`：打卡地址</para>
-                /// <para>`51506`：打卡备注</para>
+                /// <para>开关字段，0：关闭，1：开启</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：0</para>
                 /// </summary>

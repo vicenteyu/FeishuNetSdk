@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 按 ID 查询班次 响应体
-/// <para>通过班次 ID 获取班次详情。</para>
+/// <para>通过班次 ID 获取班次详情。对应功能为假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)班次列表中的具体班次，班次信息可以点击班次名称查看</para>
 /// <para>接口ID：7044467124773486593</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/shift/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fshift%2fget</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Attendance;
 public record GetAttendanceV1ShiftsByShiftIdResponseDto
 {
     /// <summary>
-    /// <para>班次 ID</para>
+    /// <para>班次 ID，对应入参中的班次ID</para>
     /// <para>必填：是</para>
     /// <para>示例值：6919358778597097404</para>
     /// </summary>
@@ -61,7 +61,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
     public bool? IsFlexible { get; set; }
 
     /// <summary>
-    /// <para>弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效</para>
+    /// <para>弹性打卡时间,单位：分钟，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效</para>
     /// <para>必填：否</para>
     /// <para>示例值：60</para>
     /// </summary>
@@ -81,7 +81,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
     public record FlexibleRule
     {
         /// <summary>
-        /// <para>下班最多可早走（上班早到几分钟，下班可早走几分钟）</para>
+        /// <para>下班最多可早走，单位：分钟（上班早到几分钟，下班可早走几分钟）</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -89,7 +89,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         public int FlexibleEarlyMinutes { get; set; }
 
         /// <summary>
-        /// <para>上班最多可晚到（上班晚到几分钟，下班须晚走几分钟）</para>
+        /// <para>上班最多可晚到，单位：分钟（上班晚到几分钟，下班须晚走几分钟）</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -134,7 +134,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         public string OffTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>晚到多久记为迟到</para>
+        /// <para>晚到多久记为迟到，单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：30</para>
         /// </summary>
@@ -142,7 +142,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         public int LateMinutesAsLate { get; set; }
 
         /// <summary>
-        /// <para>晚到多久记为缺卡</para>
+        /// <para>晚到多久记为缺卡，单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -150,7 +150,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         public int LateMinutesAsLack { get; set; }
 
         /// <summary>
-        /// <para>最早多久可打上班卡</para>
+        /// <para>最早多久可打上班卡，单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -158,7 +158,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         public int OnAdvanceMinutes { get; set; }
 
         /// <summary>
-        /// <para>早退多久记为早退</para>
+        /// <para>早退多久记为早退，单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：30</para>
         /// </summary>
@@ -166,7 +166,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         public int EarlyMinutesAsEarly { get; set; }
 
         /// <summary>
-        /// <para>早退多久记为缺卡</para>
+        /// <para>早退多久记为缺卡，单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -174,7 +174,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         public int EarlyMinutesAsLack { get; set; }
 
         /// <summary>
-        /// <para>最晚多久可打下班卡</para>
+        /// <para>最晚多久可打下班卡，单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -182,7 +182,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         public int OffDelayMinutes { get; set; }
 
         /// <summary>
-        /// <para>晚到多久记为严重迟到</para>
+        /// <para>晚到多久记为严重迟到，单位：分钟</para>
         /// <para>必填：否</para>
         /// <para>示例值：40</para>
         /// </summary>
@@ -191,19 +191,19 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
     }
 
     /// <summary>
-    /// <para>晚走晚到规则</para>
+    /// <para>晚走晚到规则（仅飞书人事企业版可用）</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("late_off_late_on_rule")]
     public LateOffLateOnRule[]? LateOffLateOnRules { get; set; }
 
     /// <summary>
-    /// <para>晚走晚到规则</para>
+    /// <para>晚走晚到规则（仅飞书人事企业版可用）</para>
     /// </summary>
     public record LateOffLateOnRule
     {
         /// <summary>
-        /// <para>晚走多久</para>
+        /// <para>晚走多久，单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：60</para>
         /// </summary>
@@ -211,7 +211,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         public int LateOffMinutes { get; set; }
 
         /// <summary>
-        /// <para>晚到多久</para>
+        /// <para>晚到多久，单位：分钟</para>
         /// <para>必填：是</para>
         /// <para>示例值：30</para>
         /// </summary>
@@ -232,7 +232,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
     public record RestRule
     {
         /// <summary>
-        /// <para>休息开始</para>
+        /// <para>休息开始，格式为mm:ss</para>
         /// <para>必填：是</para>
         /// <para>示例值：13:00</para>
         /// </summary>
@@ -240,7 +240,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         public string RestBeginTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>休息结束</para>
+        /// <para>休息结束，格式为mm:ss</para>
         /// <para>必填：是</para>
         /// <para>示例值：14:00</para>
         /// </summary>
@@ -249,19 +249,19 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
     }
 
     /// <summary>
-    /// <para>加班规则</para>
+    /// <para>加班规则（仅飞书人事企业版可用）</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("overtime_rule")]
     public OvertimeRule[]? OvertimeRules { get; set; }
 
     /// <summary>
-    /// <para>加班规则</para>
+    /// <para>加班规则（仅飞书人事企业版可用）</para>
     /// </summary>
     public record OvertimeRule
     {
         /// <summary>
-        /// <para>上班时间</para>
+        /// <para>上班时间，格式为mm:ss</para>
         /// <para>必填：是</para>
         /// <para>示例值：9:00</para>
         /// </summary>
@@ -269,7 +269,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         public string OnOvertime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>下班时间</para>
+        /// <para>下班时间，格式为mm:ss</para>
         /// <para>必填：是</para>
         /// <para>示例值：18:00</para>
         /// </summary>

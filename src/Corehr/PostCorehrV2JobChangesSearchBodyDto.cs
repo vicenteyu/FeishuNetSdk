@@ -31,8 +31,7 @@ public record PostCorehrV2JobChangesSearchBodyDto
 
     /// <summary>
     /// <para>异动记录 ID 列表，可通过接口</para>
-    /// <para>[搜索异动信息</para>
-    /// <para>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/search)获取详细信息</para>
+    /// <para>[搜索异动信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/search)获取详细信息</para>
     /// <para>必填：否</para>
     /// <para>最大长度：10</para>
     /// </summary>

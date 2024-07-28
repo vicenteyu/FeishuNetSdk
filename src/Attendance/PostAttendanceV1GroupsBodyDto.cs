@@ -16,6 +16,7 @@ namespace FeishuNetSdk.Attendance;
 /// 创建或修改考勤组 请求体
 /// <para>考勤组，是对部门或者员工在某个特定场所及特定时间段内的出勤情况（包括上下班、迟到、早退、病假、婚假、丧假、公休、工作时间、加班情况等）的一种规则设定。</para>
 /// <para>通过设置考勤组，可以从部门、员工两个维度，来设定考勤方式、考勤时间、考勤地点等考勤规则。</para>
+/// <para>对应功能同设置-假勤设置-[考勤组](https://example.feishu.cn/people/workforce-management/setting/group/list)的“新建”功能</para>
 /// <para>接口ID：7044467124773683201</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/group/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fgroup%2fcreate</para>
@@ -35,7 +36,7 @@ public record PostAttendanceV1GroupsBodyDto
     public record PostAttendanceV1GroupsBodyDtoGroup
     {
         /// <summary>
-        /// <para>考勤组 ID（仅修改时提供）， 需要从“获取打卡结果”的接口中获取 groupId</para>
+        /// <para>考勤组 ID（仅修改时提供）， 需要从[按名称查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search)或[查询所有考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/list)接口中获取 groupId。如果不填的话，会创建新的考勤组。</para>
         /// <para>必填：否</para>
         /// <para>示例值：6919358128597097404</para>
         /// </summary>
@@ -59,7 +60,7 @@ public record PostAttendanceV1GroupsBodyDto
         public string TimeZone { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>绑定的部门 ID（与「need_punch_members」同时使用时，以当前字段为准）</para>
+        /// <para>绑定的部门 ID（与「need_punch_members」同时使用时，以当前字段为准）。对应dept_type</para>
         /// <para>必填：否</para>
         /// <para>示例值：od-fcb45c28a45311afd440b7869541fce8</para>
         /// </summary>
@@ -75,7 +76,7 @@ public record PostAttendanceV1GroupsBodyDto
         public string[]? ExceptDeptIds { get; set; }
 
         /// <summary>
-        /// <para>绑定的用户 ID（与「need_punch_members」同时使用时，以当前字段为准）</para>
+        /// <para>绑定的用户 ID（与「need_punch_members」同时使用时，以当前字段为准），对应employee_type</para>
         /// <para>必填：否</para>
         /// <para>示例值：52aa1fa1</para>
         /// </summary>
@@ -91,7 +92,7 @@ public record PostAttendanceV1GroupsBodyDto
         public string[]? ExceptUserIds { get; set; }
 
         /// <summary>
-        /// <para>考勤主负责人 ID 列表，必选字段（需至少拥有考勤组管理员权限）</para>
+        /// <para>考勤主负责人 ID 列表，必选字段（需至少拥有考勤组管理员权限），对应employee_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：2bg4a9be</para>
         /// </summary>
@@ -99,7 +100,7 @@ public record PostAttendanceV1GroupsBodyDto
         public string[] GroupLeaderIds { get; set; } = Array.Empty<string>();
 
         /// <summary>
-        /// <para>考勤子负责人 ID 列表</para>
+        /// <para>考勤子负责人 ID 列表，对应employee_type</para>
         /// <para>必填：否</para>
         /// <para>示例值：52aa1fa1</para>
         /// </summary>
@@ -107,7 +108,7 @@ public record PostAttendanceV1GroupsBodyDto
         public string[]? SubGroupLeaderIds { get; set; }
 
         /// <summary>
-        /// <para>是否允许外勤打卡</para>
+        /// <para>是否允许外勤打卡，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -115,7 +116,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? AllowOutPunch { get; set; }
 
         /// <summary>
-        /// <para>外勤打卡需审批（需要允许外勤打卡才能设置生效）</para>
+        /// <para>外勤打卡需审批（需要允许外勤打卡才能设置生效），默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -123,7 +124,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? OutPunchNeedApproval { get; set; }
 
         /// <summary>
-        /// <para>外勤打卡需填写备注（需要允许外勤打卡才能设置生效）</para>
+        /// <para>外勤打卡需填写备注（需要允许外勤打卡才能设置生效），默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -131,7 +132,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? OutPunchNeedRemark { get; set; }
 
         /// <summary>
-        /// <para>外勤打卡需拍照（需要允许外勤打卡才能设置生效）</para>
+        /// <para>外勤打卡需拍照（需要允许外勤打卡才能设置生效），默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -139,7 +140,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? OutPunchNeedPhoto { get; set; }
 
         /// <summary>
-        /// <para>外勤打卡允许员工隐藏详细地址（需要允许外勤打卡才能设置生效）</para>
+        /// <para>外勤打卡允许员工隐藏详细地址（需要允许外勤打卡才能设置生效），默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -147,7 +148,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? OutPunchAllowedHideAddr { get; set; }
 
         /// <summary>
-        /// <para>是否允许 PC 端打卡</para>
+        /// <para>是否允许 PC 端打卡，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -155,7 +156,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? AllowPcPunch { get; set; }
 
         /// <summary>
-        /// <para>是否限制补卡</para>
+        /// <para>是否限制补卡，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -163,7 +164,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? AllowRemedy { get; set; }
 
         /// <summary>
-        /// <para>是否限制补卡次数</para>
+        /// <para>是否限制补卡次数，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -171,7 +172,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? RemedyLimit { get; set; }
 
         /// <summary>
-        /// <para>补卡次数</para>
+        /// <para>补卡次数，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
@@ -179,7 +180,7 @@ public record PostAttendanceV1GroupsBodyDto
         public int? RemedyLimitCount { get; set; }
 
         /// <summary>
-        /// <para>是否限制补卡时间</para>
+        /// <para>是否限制补卡时间，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -187,7 +188,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? RemedyDateLimit { get; set; }
 
         /// <summary>
-        /// <para>补卡时间，几天内补卡</para>
+        /// <para>补卡时间，几天内补卡，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：3</para>
         /// </summary>
@@ -195,7 +196,7 @@ public record PostAttendanceV1GroupsBodyDto
         public int? RemedyDateNum { get; set; }
 
         /// <summary>
-        /// <para>允许缺卡补卡（需要允许补卡才能设置生效）</para>
+        /// <para>允许缺卡补卡（需要允许补卡才能设置生效），默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -203,7 +204,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? AllowRemedyTypeLack { get; set; }
 
         /// <summary>
-        /// <para>允许迟到补卡（需要允许补卡才能设置生效）</para>
+        /// <para>允许迟到补卡（需要允许补卡才能设置生效），默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -211,7 +212,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? AllowRemedyTypeLate { get; set; }
 
         /// <summary>
-        /// <para>允许早退补卡（需要允许补卡才能设置生效）</para>
+        /// <para>允许早退补卡（需要允许补卡才能设置生效），默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -219,7 +220,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? AllowRemedyTypeEarly { get; set; }
 
         /// <summary>
-        /// <para>允许正常补卡（需要允许补卡才能设置生效）</para>
+        /// <para>允许正常补卡（需要允许补卡才能设置生效），默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -227,7 +228,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? AllowRemedyTypeNormal { get; set; }
 
         /// <summary>
-        /// <para>是否展示累计时长</para>
+        /// <para>是否展示累计时长，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -235,7 +236,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? ShowCumulativeTime { get; set; }
 
         /// <summary>
-        /// <para>是否展示加班时长</para>
+        /// <para>是否展示加班时长，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -243,7 +244,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? ShowOverTime { get; set; }
 
         /// <summary>
-        /// <para>是否隐藏员工打卡详情</para>
+        /// <para>是否隐藏员工打卡详情，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -251,7 +252,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? HideStaffPunchTime { get; set; }
 
         /// <summary>
-        /// <para>是否开启人脸识别打卡</para>
+        /// <para>是否开启人脸识别打卡，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -259,7 +260,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? FacePunch { get; set; }
 
         /// <summary>
-        /// <para>人脸识别打卡规则</para>
+        /// <para>人脸识别打卡规则，默认为空</para>
         /// <para>**可选值有：**</para>
         /// <para>* 1：每次打卡均需人脸识别</para>
         /// <para>* 2：疑似作弊打卡时需要人脸识别</para>
@@ -270,7 +271,7 @@ public record PostAttendanceV1GroupsBodyDto
         public int? FacePunchCfg { get; set; }
 
         /// <summary>
-        /// <para>人脸打卡规则</para>
+        /// <para>人脸打卡规则，默认为空</para>
         /// <para>**可选值有：**</para>
         /// <para>* false：表示开启活体验证</para>
         /// <para>* true：表示动作验证，仅在 face_punch_cfg = 1 时有效</para>
@@ -281,7 +282,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? FaceLiveNeedAction { get; set; }
 
         /// <summary>
-        /// <para>人脸识别失败时是否允许普通拍照打卡</para>
+        /// <para>人脸识别失败时是否允许普通拍照打卡，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -289,7 +290,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? FaceDowngrade { get; set; }
 
         /// <summary>
-        /// <para>人脸识别失败时是否允许替换基准图片</para>
+        /// <para>人脸识别失败时是否允许替换基准图片，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -326,7 +327,7 @@ public record PostAttendanceV1GroupsBodyDto
         }
 
         /// <summary>
-        /// <para>GPS 打卡的有效范围（不建议使用）</para>
+        /// <para>GPS 打卡的有效范围（历史无效字段）</para>
         /// <para>必填：否</para>
         /// <para>示例值：300</para>
         /// </summary>
@@ -430,7 +431,7 @@ public record PostAttendanceV1GroupsBodyDto
             public string? Feature { get; set; }
 
             /// <summary>
-            /// <para>GPS 打卡的有效范围</para>
+            /// <para>GPS 打卡的有效范围（历史无效字段）</para>
             /// <para>必填：否</para>
             /// <para>示例值：300</para>
             /// </summary>
@@ -441,17 +442,17 @@ public record PostAttendanceV1GroupsBodyDto
         /// <summary>
         /// <para>考勤类型</para>
         /// <para>**可选值有：**</para>
-        /// <para>* 0：固定班制</para>
+        /// <para>* 1：固定班制</para>
         /// <para>* 2：排班制</para>
         /// <para>* 3：自由班制</para>
         /// <para>必填：是</para>
-        /// <para>示例值：0</para>
+        /// <para>示例值：1</para>
         /// </summary>
         [JsonPropertyName("group_type")]
         public int GroupType { get; set; }
 
         /// <summary>
-        /// <para>固定班制必须填</para>
+        /// <para>固定班制必须填，且必须填够7个（从周一至周日）。班次id可以通过[查询所有班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/list) 和[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 获取</para>
         /// <para>必填：是</para>
         /// <para>示例值：6921319402260496386</para>
         /// </summary>
@@ -471,7 +472,7 @@ public record PostAttendanceV1GroupsBodyDto
         public record PostAttendanceV1GroupsBodyDtoGroupFreePunchCfg
         {
             /// <summary>
-            /// <para>自由班制打卡开始时间</para>
+            /// <para>自由班制打卡开始时间，格式为x点x分，注意这里小时如果小于10点，是不需要补零的</para>
             /// <para>必填：是</para>
             /// <para>示例值：7:00</para>
             /// </summary>
@@ -479,7 +480,7 @@ public record PostAttendanceV1GroupsBodyDto
             public string FreeStartTime { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>自由班制打卡结束时间</para>
+            /// <para>自由班制打卡结束时间，格式为x点x分，注意这里小时如果小于10点，是不需要补零的</para>
             /// <para>必填：是</para>
             /// <para>示例值：18:00</para>
             /// </summary>
@@ -495,7 +496,7 @@ public record PostAttendanceV1GroupsBodyDto
             public int PunchDay { get; set; }
 
             /// <summary>
-            /// <para>工作日不打卡是否记为缺卡</para>
+            /// <para>工作日不打卡是否记为缺卡，默认为空</para>
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
@@ -503,7 +504,7 @@ public record PostAttendanceV1GroupsBodyDto
             public bool? WorkDayNoPunchAsLack { get; set; }
 
             /// <summary>
-            /// <para>工作日出勤是否需满足时长要求</para>
+            /// <para>工作日出勤是否需满足时长要求，默认为空</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
@@ -511,7 +512,7 @@ public record PostAttendanceV1GroupsBodyDto
             public bool? WorkHoursDemand { get; set; }
 
             /// <summary>
-            /// <para>每日工作时长（分钟),范围[0,1440]</para>
+            /// <para>每日工作时长（分钟），范围[0,1440]</para>
             /// <para>必填：否</para>
             /// <para>示例值：480</para>
             /// </summary>
@@ -547,7 +548,7 @@ public record PostAttendanceV1GroupsBodyDto
         public record PunchSpecialDateShift
         {
             /// <summary>
-            /// <para>打卡日期</para>
+            /// <para>打卡日期，格式为yyyyMMdd</para>
             /// <para>必填：是</para>
             /// <para>示例值：20190101</para>
             /// </summary>
@@ -555,7 +556,8 @@ public record PostAttendanceV1GroupsBodyDto
             public int PunchDay { get; set; }
 
             /// <summary>
-            /// <para>班次 ID</para>
+            /// <para>班次 ID，可根据[查询所有班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/list)</para>
+            /// <para>和[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 获得</para>
             /// <para>必填：是</para>
             /// <para>示例值：6919668827865513935</para>
             /// </summary>
@@ -571,7 +573,7 @@ public record PostAttendanceV1GroupsBodyDto
         public PunchSpecialDateShift[]? NoNeedPunchSpecialDays { get; set; }
 
         /// <summary>
-        /// <para>自由班制下工作日不打卡是否记为缺卡</para>
+        /// <para>自由班制下工作日不打卡是否记为缺卡，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -588,14 +590,16 @@ public record PostAttendanceV1GroupsBodyDto
 
         /// <summary>
         /// <para>补卡周期类型</para>
+        /// <para>* 1：按月</para>
+        /// <para>* 2：自定义</para>
         /// <para>必填：否</para>
-        /// <para>示例值：0</para>
+        /// <para>示例值：1</para>
         /// </summary>
         [JsonPropertyName("remedy_period_type")]
         public int? RemedyPeriodType { get; set; }
 
         /// <summary>
-        /// <para>补卡自定义周期起始日期</para>
+        /// <para>补卡自定义周期起始日期，范围0-28号</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
@@ -617,7 +621,7 @@ public record PostAttendanceV1GroupsBodyDto
         public int? PunchType { get; set; }
 
         /// <summary>
-        /// <para>休息日打卡需审批。当设置 `rest_clockIn_need_approval=true` 时，休息日一天开始时间会被重置为 4:00。</para>
+        /// <para>休息日打卡需审批。当设置 `rest_clockIn_need_approval=true` 时，休息日一天开始时间会被重置为 4:00。默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -625,7 +629,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? RestClockInNeedApproval { get; set; }
 
         /// <summary>
-        /// <para>每次打卡均需拍照</para>
+        /// <para>每次打卡均需拍照，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -645,7 +649,7 @@ public record PostAttendanceV1GroupsBodyDto
         public record PostAttendanceV1GroupsBodyDtoGroupMemberStatusChange
         {
             /// <summary>
-            /// <para>是否入职日上班无需打卡</para>
+            /// <para>是否入职日上班无需打卡，默认为空</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
@@ -653,7 +657,7 @@ public record PostAttendanceV1GroupsBodyDto
             public bool? OnboardingOnNoNeedPunch { get; set; }
 
             /// <summary>
-            /// <para>是否入职日下班无需打卡</para>
+            /// <para>是否入职日下班无需打卡，默认为空</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
@@ -661,7 +665,7 @@ public record PostAttendanceV1GroupsBodyDto
             public bool? OnboardingOffNoNeedPunch { get; set; }
 
             /// <summary>
-            /// <para>是否离职日上班无需打卡</para>
+            /// <para>是否离职日上班无需打卡，默认为空</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
@@ -669,7 +673,7 @@ public record PostAttendanceV1GroupsBodyDto
             public bool? OffboardingOnNoNeedPunch { get; set; }
 
             /// <summary>
-            /// <para>是否离职日下班无需打卡</para>
+            /// <para>是否离职日下班无需打卡，默认为空</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
@@ -678,7 +682,7 @@ public record PostAttendanceV1GroupsBodyDto
         }
 
         /// <summary>
-        /// <para>请假离岗或返岗是否需打卡</para>
+        /// <para>请假离岗或返岗是否需打卡，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
@@ -686,14 +690,14 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? LeaveNeedPunch { get; set; }
 
         /// <summary>
-        /// <para>请假离岗或返岗打卡规则</para>
+        /// <para>请假离岗或返岗打卡规则，单位：分钟</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("leave_need_punch_cfg")]
         public PostAttendanceV1GroupsBodyDtoGroupLeaveNeedPunchCfg? LeaveNeedPunchCfg { get; set; }
 
         /// <summary>
-        /// <para>请假离岗或返岗打卡规则</para>
+        /// <para>请假离岗或返岗打卡规则，单位：分钟</para>
         /// </summary>
         public record PostAttendanceV1GroupsBodyDtoGroupLeaveNeedPunchCfg
         {
@@ -731,7 +735,7 @@ public record PostAttendanceV1GroupsBodyDto
         }
 
         /// <summary>
-        /// <para>外出期间是否需打卡</para>
+        /// <para>外出期间是否需打卡，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -739,14 +743,14 @@ public record PostAttendanceV1GroupsBodyDto
         public int? GoOutNeedPunch { get; set; }
 
         /// <summary>
-        /// <para>外出期间打卡规则</para>
+        /// <para>外出期间打卡规则，单位：分钟</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("go_out_need_punch_cfg")]
         public LeaveNeedPunchCfgSuffix? GoOutNeedPunchCfg { get; set; }
 
         /// <summary>
-        /// <para>外出期间打卡规则</para>
+        /// <para>外出期间打卡规则，单位：分钟</para>
         /// </summary>
         public record LeaveNeedPunchCfgSuffix
         {
@@ -784,7 +788,7 @@ public record PostAttendanceV1GroupsBodyDto
         }
 
         /// <summary>
-        /// <para>出差期间是否需打卡</para>
+        /// <para>出差期间是否需打卡，默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -792,7 +796,7 @@ public record PostAttendanceV1GroupsBodyDto
         public int? TravelNeedPunch { get; set; }
 
         /// <summary>
-        /// <para>出差期间打卡规则</para>
+        /// <para>出差期间打卡规则，单位：分钟</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("travel_need_punch_cfg")]
@@ -811,7 +815,10 @@ public record PostAttendanceV1GroupsBodyDto
         public record PunchMember
         {
             /// <summary>
-            /// <para>圈人方式：0 无 1全部 2自定义</para>
+            /// <para>圈人方式：</para>
+            /// <para>* `0`：无</para>
+            /// <para>* `1`：全部</para>
+            /// <para>* `2`：自定义</para>
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// <para>默认值：0</para>
@@ -851,6 +858,14 @@ public record PostAttendanceV1GroupsBodyDto
 
                 /// <summary>
                 /// <para>范围类型（是否包含）</para>
+                /// <para>* 1: 包含</para>
+                /// <para>* 2: 不包含</para>
+                /// <para>* 3: 相等</para>
+                /// <para>* 4: 小于等于</para>
+                /// <para>* 5: 大于等于</para>
+                /// <para>* 6: 大于</para>
+                /// <para>* 7: 小于</para>
+                /// <para>* 8: 不相等</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
@@ -894,7 +909,7 @@ public record PostAttendanceV1GroupsBodyDto
                 public string[]? MemberIds { get; set; }
 
                 /// <summary>
-                /// <para>企业版自定义字段唯一键 ID, 需要从飞书人事获取</para>
+                /// <para>企业版自定义字段唯一键 ID, 需要从飞书人事获取（暂不支持）</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：123213123</para>
                 /// </summary>
@@ -902,7 +917,7 @@ public record PostAttendanceV1GroupsBodyDto
                 public string? CustomFieldID { get; set; }
 
                 /// <summary>
-                /// <para>企业版自定义字段对象类型</para>
+                /// <para>企业版自定义字段对象类型（暂不支持）</para>
                 /// <para>* "Employment": 主数据对象，员工雇佣信息</para>
                 /// <para>* "Person": 主数据对象，个人</para>
                 /// <para>必填：否</para>
@@ -929,7 +944,7 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? SaveAutoChanges { get; set; }
 
         /// <summary>
-        /// <para>当有新员工入职或人员异动，符合条件的人员是否自动加入考勤组</para>
+        /// <para>当有新员工入职或人员异动，符合条件的人员是否自动加入考勤组。默认为空</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
@@ -937,14 +952,14 @@ public record PostAttendanceV1GroupsBodyDto
         public bool? OrgChangeAutoAdjust { get; set; }
 
         /// <summary>
-        /// <para>参与无需打卡的部门 ID 列表（与「no_need_punch_members」同时使用时，以当前字段为准）</para>
+        /// <para>参与无需打卡的部门 ID 列表（与「no_need_punch_members」同时使用时，以当前字段为准），对应dept_type</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("bind_default_dept_ids")]
         public string[]? BindDefaultDeptIds { get; set; }
 
         /// <summary>
-        /// <para>参与无需打卡的人员 ID 列表（与「no_need_punch_members」同时使用时，以当前字段为准）</para>
+        /// <para>参与无需打卡的人员 ID 列表（与「no_need_punch_members」同时使用时，以当前字段为准），对应employee_type</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("bind_default_user_ids")]
@@ -952,7 +967,7 @@ public record PostAttendanceV1GroupsBodyDto
     }
 
     /// <summary>
-    /// <para>操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段</para>
+    /// <para>操作人uid，对应employee_type，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段</para>
     /// <para>必填：否</para>
     /// <para>示例值：dd31248a</para>
     /// </summary>

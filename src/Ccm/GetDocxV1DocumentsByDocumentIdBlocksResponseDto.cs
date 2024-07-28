@@ -4698,8 +4698,7 @@ public record GetDocxV1DocumentsByDocumentIdBlocksResponseDto
         public record BlockTask
         {
             /// <summary>
-            /// <para>任务 ID，查询具体任务详情见[获取任务详情</para>
-            /// <para>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get)</para>
+            /// <para>任务 ID，查询具体任务详情见[获取任务详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get)</para>
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("task_id")]

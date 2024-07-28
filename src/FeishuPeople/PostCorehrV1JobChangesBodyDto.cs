@@ -45,8 +45,7 @@ public record PostCorehrV1JobChangesBodyDto
 
     /// <summary>
     /// <para>异动类型唯一标识，可通过接口</para>
-    /// <para>[获取异动类型列表</para>
-    /// <para>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取</para>
+    /// <para>[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：internal_transfer</para>
     /// </summary>
@@ -55,8 +54,7 @@ public record PostCorehrV1JobChangesBodyDto
 
     /// <summary>
     /// <para>关联流程唯一标识符，可通过接口</para>
-    /// <para>[获取异动类型列表</para>
-    /// <para>](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取</para>
+    /// <para>[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取</para>
     /// <para>注意：当异动方式为2时，该字段为必填</para>
     /// <para>必填：否</para>
     /// <para>示例值：people_6963913041981490725_6983885526583627531</para>

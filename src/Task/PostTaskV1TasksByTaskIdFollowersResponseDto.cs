@@ -44,7 +44,7 @@ public record PostTaskV1TasksByTaskIdFollowersResponseDto
         /// <summary>
         /// <para>要删除的关注人ID列表</para>
         /// <para>必填：否</para>
-        /// <para>示例值：[ "ou_550cc75233d8b7b9fcbdad65f34433f4", "ou_d1e9d27cf3235b40ca9a67c67ef088b0" ]</para>
+        /// <para>示例值：[ "ou_550cc75233d8b7b9fcbdad65f34433f4", "ou_d1e9d27cf3235b40ca9a67c67ef088b0"]</para>
         /// </summary>
         [JsonPropertyName("id_list")]
         public string[]? IdList { get; set; }
