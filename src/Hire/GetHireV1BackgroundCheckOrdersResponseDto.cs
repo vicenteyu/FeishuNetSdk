@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取背调信息列表 响应体
-/// <para>根据投递 ID 或背调更新时间获取背调信息。</para>
+/// <para>根据投递 ID 或背调更新时间批量获取背调订单信息。</para>
 /// <para>接口ID：7049722392477958145</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/background_check_order/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fbackground_check_order%2flist</para>
@@ -38,19 +38,19 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
     public string? PageToken { get; set; }
 
     /// <summary>
-    /// <para>背调信息列表</para>
+    /// <para>背调订单列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public BackgroundCheckOrder[]? Items { get; set; }
 
     /// <summary>
-    /// <para>背调信息列表</para>
+    /// <para>背调订单列表</para>
     /// </summary>
     public record BackgroundCheckOrder
     {
         /// <summary>
-        /// <para>背调 ID</para>
+        /// <para>背调订单 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：7037986982531778860</para>
         /// </summary>
@@ -79,19 +79,21 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
         public int? OrderStatus { get; set; }
 
         /// <summary>
-        /// <para>供应商名称</para>
+        /// <para>供应商类型</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
         /// <item>1：八方锦程</item>
         /// <item>2：i背调</item>
+        /// <item>3：轩渡</item>
+        /// <item>127：自定义供应商</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("account_third_type")]
         public int? AccountThirdType { get; set; }
 
         /// <summary>
-        /// <para>背调套餐</para>
+        /// <para>背调套餐名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：基础版</para>
         /// </summary>
@@ -99,7 +101,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
         public string? Package { get; set; }
 
         /// <summary>
-        /// <para>背调名称（仅手动录入的背调结果具有）</para>
+        /// <para>背调名称（仅用户手动录入的背调结果支持返回该字段）</para>
         /// <para>必填：否</para>
         /// <para>示例值：录入的背调</para>
         /// </summary>
@@ -107,19 +109,19 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
         public string? Name { get; set; }
 
         /// <summary>
-        /// <para>背调报告信息</para>
+        /// <para>背调报告列表，按照报告创建时间降序排列。可通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)更新报告</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("feedback_info_list")]
         public BackgroundCheckOrderFeedbackInfo[]? FeedbackInfoLists { get; set; }
 
         /// <summary>
-        /// <para>背调报告信息</para>
+        /// <para>背调报告列表，按照报告创建时间降序排列。可通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)更新报告</para>
         /// </summary>
         public record BackgroundCheckOrderFeedbackInfo
         {
             /// <summary>
-            /// <para>背调报告ID</para>
+            /// <para>背调报告 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：6930815272790114324</para>
             /// </summary>
@@ -143,7 +145,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
             public string? ReportPreviewUrl { get; set; }
 
             /// <summary>
-            /// <para>背调结果：红灯、黄灯、绿灯</para>
+            /// <para>背调结果。招聘系统预置的背调结果有 红灯、黄灯、蓝灯、绿灯，也可以是更新背调进度时推送的状态。</para>
             /// <para>必填：否</para>
             /// <para>示例值：红灯</para>
             /// </summary>
@@ -180,14 +182,14 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
         }
 
         /// <summary>
-        /// <para>进度</para>
+        /// <para>背调进度列表，按照更新时间降序排列。可通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)更新进度</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("process_info_list")]
         public BackgroundCheckOrderProcessInfo[]? ProcessInfoLists { get; set; }
 
         /// <summary>
-        /// <para>进度</para>
+        /// <para>背调进度列表，按照更新时间降序排列。可通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)更新进度</para>
         /// </summary>
         public record BackgroundCheckOrderProcessInfo
         {
@@ -217,7 +219,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
         }
 
         /// <summary>
-        /// <para>录入时间（仅手动录入的背调结果具有）</para>
+        /// <para>录入时间毫秒时间戳（仅用户手动录入的背调结果支持返回该字段）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1662476247755</para>
         /// </summary>
@@ -290,7 +292,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
         public record BackgroundCheckOrderCreator
         {
             /// <summary>
-            /// <para>创建人ID</para>
+            /// <para>发起人 ID，与入参 user_id_type 类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：6930815272790114324</para>
             /// </summary>
@@ -322,7 +324,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
         public string? EndTime { get; set; }
 
         /// <summary>
-        /// <para>背调结论</para>
+        /// <para>背调结论。为最后一次背调报告的结果</para>
         /// <para>必填：否</para>
         /// <para>示例值：绿灯</para>
         /// </summary>
@@ -362,7 +364,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>供应商中文名称</para>
+                /// <para>中文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：测试供应商</para>
                 /// </summary>
@@ -370,7 +372,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>供应商英文名称</para>
+                /// <para>英文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：test provider</para>
                 /// </summary>
@@ -380,14 +382,14 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
         }
 
         /// <summary>
-        /// <para>自定义字段模板</para>
+        /// <para>自定义字段模板。数据来源于[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_field_list")]
         public EcoBackgroundCheckCustomFieldData[]? CustomFieldLists { get; set; }
 
         /// <summary>
-        /// <para>自定义字段模板</para>
+        /// <para>自定义字段模板。数据来源于[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)</para>
         /// </summary>
         public record EcoBackgroundCheckCustomFieldData
         {
@@ -431,17 +433,17 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：测试</para>
+                /// <para>示例值：其他备注</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：test</para>
+                /// <para>示例值：Other remark</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -495,17 +497,17 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>中文</para>
+                    /// <para>中文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：测试</para>
+                    /// <para>示例值：选项A</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
-                    /// <para>英文</para>
+                    /// <para>英文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：test</para>
+                    /// <para>示例值：A</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -526,7 +528,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
         public record BackgroundCheckCustomFieldDataValue
         {
             /// <summary>
-            /// <para>对应模板字段的Key</para>
+            /// <para>对应前文 *自定义字段模板* 的 key</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
@@ -534,23 +536,23 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
             public string? Key { get; set; }
 
             /// <summary>
-            /// <para>对应模板字段的value</para>
+            /// <para>用户填入的值</para>
             /// <para>必填：否</para>
-            /// <para>示例值：text</para>
+            /// <para>示例值：user input value</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string? Value { get; set; }
         }
 
         /// <summary>
-        /// <para>背调调查附加项</para>
+        /// <para>背调调查附加项列表。数据来源于[创建背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("ext_item_info_list")]
         public BackgroundCheckItemInfo[]? ExtItemInfoLists { get; set; }
 
         /// <summary>
-        /// <para>背调调查附加项</para>
+        /// <para>背调调查附加项列表。数据来源于[创建背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create)</para>
         /// </summary>
         public record BackgroundCheckItemInfo
         {
@@ -594,7 +596,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
         public string? Geo { get; set; }
 
         /// <summary>
-        /// <para>国家城市编码</para>
+        /// <para>预计入职地点的编码，详见[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)</para>
         /// <para>必填：否</para>
         /// <para>示例值：CN_1</para>
         /// </summary>

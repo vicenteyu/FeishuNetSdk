@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-01
+// Last Modified On : 2024-07-30
 // ************************************************************************
 // <copyright file="GetCorehrV1SecurityGroupsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -117,6 +117,26 @@ public record GetCorehrV1SecurityGroupsResponseDto
             [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
+
+        /// <summary>
+        /// <para>角色类型</para>
+        /// <para>- 3 = 组织类角色</para>
+        /// <para>- 7 = 非组织类角色</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("group_type")]
+        public int GroupType { get; set; }
+
+        /// <summary>
+        /// <para>创建人</para>
+        /// <para>- 返回"sys"时，表示角色是系统创建角色</para>
+        /// <para>- 返回用户ID时，表示是角色是用户自定义角色，可以使用 [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert) 换取 飞书人事的employment_id</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：6967639606963471902</para>
+        /// </summary>
+        [JsonPropertyName("created_by")]
+        public string CreatedBy { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>更新时间</para>

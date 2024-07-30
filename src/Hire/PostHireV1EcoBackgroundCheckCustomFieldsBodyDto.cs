@@ -9,12 +9,12 @@
 // <copyright file="PostHireV1EcoBackgroundCheckCustomFieldsBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>推送背调自定义字段 请求体</summary>
+// <summary>创建背调自定义字段 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 推送背调自定义字段 请求体
-/// <para>定制用户在发起背调时的自定义字段， 此接口为覆盖更新，多次调用时最后一次调用推送的自定义字段生效。</para>
+/// 创建背调自定义字段 请求体
+/// <para>创建用户在发起背调时展示的表单自定义字段。自定义字段支持多种类型如单行文本、单选等，可以设置为必填或非必填。</para>
 /// <para>接口ID：7195815979079450625</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/ecological-docking/eco_background_check_custom_field/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2feco_background_check_custom_field%2fcreate</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1EcoBackgroundCheckCustomFieldsBodyDto
 {
     /// <summary>
-    /// <para>背调账号 ID，可在「账号绑定」事件中获取</para>
+    /// <para>背调账号 ID，可在[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件中获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：6995842370159937061</para>
     /// </summary>
@@ -44,7 +44,7 @@ public record PostHireV1EcoBackgroundCheckCustomFieldsBodyDto
         /// <summary>
         /// <para>自定义字段类型</para>
         /// <para>必填：是</para>
-        /// <para>示例值：text</para>
+        /// <para>示例值：select</para>
         /// <para>可选值：<list type="bullet">
         /// <item>text：单行文本，最多100个汉字</item>
         /// <item>textarea：多行文本，最多200个汉字</item>
@@ -63,7 +63,7 @@ public record PostHireV1EcoBackgroundCheckCustomFieldsBodyDto
         /// <summary>
         /// <para>自定义字段的标识，在同一账号内唯一</para>
         /// <para>必填：是</para>
-        /// <para>示例值：candidate_resume</para>
+        /// <para>示例值：candidate_degree</para>
         /// </summary>
         [JsonPropertyName("key")]
         public string Key { get; set; } = string.Empty;
@@ -81,17 +81,17 @@ public record PostHireV1EcoBackgroundCheckCustomFieldsBodyDto
         public record I18n
         {
             /// <summary>
-            /// <para>中文</para>
+            /// <para>中文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：测试</para>
+            /// <para>示例值：候选人学历</para>
             /// </summary>
             [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
-            /// <para>英文</para>
+            /// <para>英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：test</para>
+            /// <para>示例值：Candidate degree</para>
             /// </summary>
             [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
@@ -106,28 +106,28 @@ public record PostHireV1EcoBackgroundCheckCustomFieldsBodyDto
         public bool IsRequired { get; set; }
 
         /// <summary>
-        /// <para>自定义字段的描述，如果是输入控件，为用户在安排背调表单看到的 placeholder 或 提示文字</para>
+        /// <para>自定义字段的描述。如果是输入控件（type=text 或 type=textarea），为用户在安排背调表单看到的 placeholder 或 提示文字</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("description")]
         public I18n? Description { get; set; }
 
         /// <summary>
-        /// <para>type 为 select 或 multiselect 时必填，单选或多选的选项</para>
+        /// <para>type 为`select`或`multiselect`时必填，单选或多选的选项</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("options")]
         public EcoBackgroundCheckCustomFieldDataOption[]? Options { get; set; }
 
         /// <summary>
-        /// <para>type 为 select 或 multiselect 时必填，单选或多选的选项</para>
+        /// <para>type 为`select`或`multiselect`时必填，单选或多选的选项</para>
         /// </summary>
         public record EcoBackgroundCheckCustomFieldDataOption
         {
             /// <summary>
-            /// <para>选项的 key</para>
+            /// <para>选项的唯一标识</para>
             /// <para>必填：是</para>
-            /// <para>示例值：A</para>
+            /// <para>示例值：bachelor</para>
             /// </summary>
             [JsonPropertyName("key")]
             public string Key { get; set; } = string.Empty;
@@ -145,17 +145,17 @@ public record PostHireV1EcoBackgroundCheckCustomFieldsBodyDto
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：测试</para>
+                /// <para>示例值：本科</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：test</para>
+                /// <para>示例值：Bachelor</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }

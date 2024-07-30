@@ -14,10 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新 Offer 申请表自定义字段 请求体
-/// <para>- 本文档支持通过接口更新「飞书招聘」-「设置」-「Offer 申请表设置」中 Offer 申请表的自定义字段配置；</para>
-/// <para>- 当前修改申请表信息（包括更新自定义字段）后，所有申请表的 schema_id 均会更新，即所有申请表均会新增一个版本，申请表的 schema_id 会在创建 offer、更新 offer 中使用；</para>
-/// <para>- 「飞书招聘」中 Offer 申请表自定义字段创建后，不支持修改字段类型，本接口亦不支持更新字段类型；</para>
-/// <para>- 当前字段类型为「公式」的，不支持通过接口更新。</para>
+/// <para>本接口支持修改 Offer 申请表的自定义字段，Offer 申请表的定义可参考「飞书招聘」-「设置」-「Offer 申请表设置」中的内容。</para>
 /// <para>接口ID：7109767413990866947</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/offer-settings/offer_application_form/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2foffer_custom_field%2fupdate</para>
@@ -37,52 +34,52 @@ public record PutHireV1OfferCustomFieldsByOfferCustomFieldIdBodyDto
     public record I18n
     {
         /// <summary>
-        /// <para>中文</para>
+        /// <para>字段中文名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值：测试</para>
+        /// <para>示例值：就职状态</para>
         /// </summary>
         [JsonPropertyName("zh_cn")]
         public string? ZhCn { get; set; }
 
         /// <summary>
-        /// <para>英文</para>
+        /// <para>字段英文名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值：test</para>
+        /// <para>示例值：Employment status</para>
         /// </summary>
         [JsonPropertyName("en_us")]
         public string? EnUs { get; set; }
     }
 
     /// <summary>
-    /// <para>自定义字段配置信息，仅字段类型为「单选」、「多选」时需传配置选项信息</para>
+    /// <para>自定义字段配置信息</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("config")]
     public OfferCustomFieldConfig? Config { get; set; }
 
     /// <summary>
-    /// <para>自定义字段配置信息，仅字段类型为「单选」、「多选」时需传配置选项信息</para>
+    /// <para>自定义字段配置信息</para>
     /// </summary>
     public record OfferCustomFieldConfig
     {
         /// <summary>
-        /// <para>选项信息</para>
+        /// <para>选项列表，仅字段类型为「单选」、「多选」时需传配置选项信息。字段类型可通过接口[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)获取</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("options")]
         public OfferCustomFieldConfigOption[]? Options { get; set; }
 
         /// <summary>
-        /// <para>选项信息</para>
+        /// <para>选项列表，仅字段类型为「单选」、「多选」时需传配置选项信息。字段类型可通过接口[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)获取</para>
         /// </summary>
         public record OfferCustomFieldConfigOption
         {
             /// <summary>
             /// <para>选项名称，zh_cn和en_us必填其一</para>
-            /// <para>必填：否</para>
+            /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("name")]
-            public I18n? Name { get; set; }
+            public I18n Name { get; set; } = new();
 
             /// <summary>
             /// <para>选项名称，zh_cn和en_us必填其一</para>
@@ -90,17 +87,17 @@ public record PutHireV1OfferCustomFieldsByOfferCustomFieldIdBodyDto
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>选项中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：测试</para>
+                /// <para>示例值：无业</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>选项英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：test</para>
+                /// <para>示例值：Unemployed</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }

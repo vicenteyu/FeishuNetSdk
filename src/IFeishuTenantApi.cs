@@ -15362,7 +15362,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7002055120885219331</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取 Offer 申请表列表。</para>
+    /// <para>获取 Offer 申请表列表，可获取的信息包括申请表名称、创建时间等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:offer_schema:readonly</item>
     /// </list></para>
@@ -19465,7 +19465,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>响应体中的 user_id 和 creator_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>open_id：开放 openID，[如何获取不同的用户 ID]((https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/home/user-identity-introduction/open-id))</item>
     /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
     /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
@@ -20103,7 +20102,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7049722392477958145</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/background_check_order/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据投递 ID 或背调更新时间获取背调信息。</para>
+    /// <para>根据投递 ID 或背调更新时间批量获取背调订单信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// <item>hire:background_check_order:readonly</item>
@@ -20137,19 +20136,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="application_id">
     /// <para>必填：否</para>
-    /// <para>投递 ID</para>
+    /// <para>投递 ID。可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取</para>
     /// <para>示例值：6985833807195212076</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_start_time">
     /// <para>必填：否</para>
-    /// <para>最早更新时间，毫秒级时间戳</para>
+    /// <para>最早更新时间。毫秒时间戳</para>
     /// <para>示例值：1638848468868</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_end_time">
     /// <para>必填：否</para>
-    /// <para>最晚更新时间，毫秒级时间戳</para>
+    /// <para>最晚更新时间。毫秒时间戳</para>
     /// <para>示例值：1638848468869</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -22786,11 +22785,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【招聘】获取员工笔试阅卷任务</para>
+    /// <para>【招聘】获取笔试阅卷任务列表</para>
     /// <para>接口ID：7096308827411120129</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/exam_marking_task/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>查询员工笔试阅卷任务。根据 page_token 与 page_size 进行游标分页查询，能查询到的信息包括：笔试ID、职位ID、人才ID、投递ID、任务状态。查询到的信息可应用于提醒员工完成笔试阅卷任务等场景</para>
+    /// <para>根据阅卷人ID查询员工笔试阅卷任务列表，能查询到的信息包括：笔试阅卷任务ID、投递ID、任务状态等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:exam:readonly</item>
     /// </list></para>
@@ -22800,7 +22799,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小, 默认10，不能超过 20</para>
+    /// <para>分页大小</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -22812,12 +22811,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="user_id">
     /// <para>必填：是</para>
-    /// <para>用户 ID</para>
+    /// <para>阅卷人 ID，需要与user_id_type类型保持一致</para>
     /// <para>示例值：ou_e6139117c300506837def50545420c6a</para>
     /// </param>
     /// <param name="activity_status">
     /// <para>必填：否</para>
-    /// <para>任务状态</para>
+    /// <para>任务状态，不传则查询全部记录</para>
     /// <para>示例值：1</para>
     /// <list type="bullet">
     /// <item>1：待阅卷</item>
@@ -22846,11 +22845,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【招聘】获取员工评估任务</para>
+    /// <para>【招聘】获取简历评估任务列表</para>
     /// <para>接口ID：7096308846932295682</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/evaluation_task/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取员工评估任务。</para>
+    /// <para>根据评估人ID查询评估任务列表，可以查询到的信息包括：评估ID、投递ID、任务状态等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:evaluation:readonly</item>
     /// </list></para>
@@ -22860,7 +22859,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小, 默认10，不能超过 20</para>
+    /// <para>分页大小</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -22872,12 +22871,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="user_id">
     /// <para>必填：是</para>
-    /// <para>用户 ID</para>
+    /// <para>评估人 ID，需要与user_id_type类型保持一致</para>
     /// <para>示例值：ou_e6139117c300506837def50545420c6a</para>
     /// </param>
     /// <param name="activity_status">
     /// <para>必填：否</para>
-    /// <para>任务状态</para>
+    /// <para>任务状态，不传则查询全部记录</para>
     /// <para>示例值：1</para>
     /// <list type="bullet">
     /// <item>1：待评估</item>
@@ -24576,10 +24575,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7109767413990866947</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_custom_field/update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>- 本文档支持通过接口更新「飞书招聘」-「设置」-「Offer 申请表设置」中 Offer 申请表的自定义字段配置；</para>
-    /// <para>- 当前修改申请表信息（包括更新自定义字段）后，所有申请表的 schema_id 均会更新，即所有申请表均会新增一个版本，申请表的 schema_id 会在创建 offer、更新 offer 中使用；</para>
-    /// <para>- 「飞书招聘」中 Offer 申请表自定义字段创建后，不支持修改字段类型，本接口亦不支持更新字段类型；</para>
-    /// <para>- 当前字段类型为「公式」的，不支持通过接口更新。</para>
+    /// <para>本接口支持修改 Offer 申请表的自定义字段，Offer 申请表的定义可参考「飞书招聘」-「设置」-「Offer 申请表设置」中的内容。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:offer_selection_object</item>
     /// </list></para>
@@ -24587,7 +24583,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="offer_custom_field_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>Offer 申请表自定义字段 ID，可通过接口「获取 Offer 申请表模板信息」获取</para>
+    /// <para>Offer 申请表自定义字段 ID，可通过接口[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)获取</para>
     /// <para>示例值：6906755946257615112</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -30205,7 +30201,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815976042512386</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>定制指定帐号可用的背调套餐和附加调查项信息。</para>
+    /// <para>在指定背调帐号下创建可用的背调套餐列表和附加调查项信息列表。该接口为增量创建，每次调用会在原有的套餐列表和附加调查项列表基础上新增。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// </list></para>
@@ -30220,7 +30216,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815976042528770</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除指定帐号的指定背调套餐和附加调查项信息，删除不会影响已创建的背调。</para>
+    /// <para>删除背调帐号下的背调套餐和附加调查项信息。删除操作不会影响已创建的背调。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// </list></para>
@@ -30281,7 +30277,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815976042594306</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新用户在发起背调时的自定义字段。更新操作不支持更新自定义字段类型，只允许更新字段名称，且将影响已发起的背调表单展示。</para>
+    /// <para>更新用户在发起背调时展示的表单自定义字段。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// </list></para>
@@ -30331,11 +30327,11 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Hire.PatchHireV1EcoAccountCustomFieldsBatchUpdateBodyDto dto);
 
     /// <summary>
-    /// <para>【招聘】推送背调自定义字段</para>
+    /// <para>【招聘】创建背调自定义字段</para>
     /// <para>接口ID：7195815979079450625</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>定制用户在发起背调时的自定义字段， 此接口为覆盖更新，多次调用时最后一次调用推送的自定义字段生效。</para>
+    /// <para>创建用户在发起背调时展示的表单自定义字段。自定义字段支持多种类型如单行文本、单选等，可以设置为必填或非必填。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// </list></para>
@@ -30373,7 +30369,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815979079483393</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新指定背调的进展信息和阶段报告， 进度信息将会被展示在背调卡片上，用以推送背调进度、阶段报告。用以告知用户目前系统订单的流转状态。 当订单状态已完成时，将无法通过此接口更新阶段报告、更新进度事件信息。</para>
+    /// <para>更新指定背调订单的进度信息和阶段性报告，进度信息将会被展示在「飞书招聘」-「投递详情页」-「背调卡片」上，告知用户目前背调订单的流转状态。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// </list></para>
@@ -30388,7 +30384,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815979079499777</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_result</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>回传背调的最终结果，终版报告。 回传背调结果后，若租户未启用报告审批功能，则背调订单状态将会变成已完成。 若启用报告审批功能，则在管理员审批通过终版报告后，订单状态流转为已完成。</para>
+    /// <para>回传背调的最终结果和终版报告。回传后，若租户未启用背调报告审批功能，则背调订单状态将会直接变成「已完成」。若启用背调报告审批功能，则在管理员审批通过后，订单状态流转为「已完成」。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// </list></para>
@@ -30418,7 +30414,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815979079548929</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新帐号下指定背调套餐和附加调查项信息，更新将影响已发起背调的表单项展示。如需新增背调套餐、附加项需使用创建接口进行添加</para>
+    /// <para>更新指定背调帐号下的背调套餐和附加调查项信息。如需新增背调套餐、附加调查项请使用[创建背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create)进行添加。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// </list></para>
@@ -30433,7 +30429,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815979079565313</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除用户在发起背调时的自定义字段，删除不影响已创建的背调，删除后对应的自定义字段的 key 不能再复用。</para>
+    /// <para>删除用户在发起背调时展示的表单自定义字段。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// </list></para>
@@ -30464,7 +30460,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815979079598081</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/cancel</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>调用此接口将会将系统订单状态变成已终止， 已终止订单将不会响应[「更新背调进度」](https://open.feishu.cn/document/server-docs/hire-v1/ecological-docking/eco_background_check/update_progress)和[「回传背调订单的最终结果」](https://open.feishu.cn/document/server-docs/hire-v1/ecological-docking/eco_background_check/update_result)。 建议在回调终止背调订单之前，推送账号进度为「已终止」</para>
+    /// <para>调用此接口将会将背调订单状态变成已终止，已终止订单将将无法通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)和[回传背调订单的最终结果](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_result)修改订单进度和最终结果。 建议在回调终止背调订单之前，推送订单进度为「已终止」。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// </list></para>
@@ -39895,9 +39891,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="employee_type">
     /// <para>必填：是</para>
-    /// <para>响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
-    /// <para>* `员工 employee ID`即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</para>
-    /// <para>* `员工工号`即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</para>
+    /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
+    /// <para>* `employee_id `：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</para>
+    /// <para>* `employee_no`：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</para>
     /// <para>示例值：employee_id</para>
     /// </param>
     /// <param name="dto">请求体</param>

@@ -9,12 +9,12 @@
 // <copyright file="GetHireV1EvaluationTasksResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取员工评估任务 响应体</summary>
+// <summary>获取简历评估任务列表 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 获取员工评估任务 响应体
-/// <para>获取员工评估任务。</para>
+/// 获取简历评估任务列表 响应体
+/// <para>根据评估人ID查询评估任务列表，可以查询到的信息包括：评估ID、投递ID、任务状态等。</para>
 /// <para>接口ID：7096308846932295682</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/recruitment-process-follow-up/list-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fevaluation_task%2flist</para>
@@ -38,19 +38,19 @@ public record GetHireV1EvaluationTasksResponseDto
     public string? PageToken { get; set; }
 
     /// <summary>
-    /// <para>列表</para>
+    /// <para>评估任务列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public EvaluationTask[]? Items { get; set; }
 
     /// <summary>
-    /// <para>列表</para>
+    /// <para>评估任务列表</para>
     /// </summary>
     public record EvaluationTask
     {
         /// <summary>
-        /// <para>评估 ID</para>
+        /// <para>评估 ID，详情请查看：[获取简历评估信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/evaluation/list)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6989202908470446380</para>
         /// </summary>
@@ -58,7 +58,7 @@ public record GetHireV1EvaluationTasksResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>职位 ID</para>
+        /// <para>职位 ID，详情请查看：[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6897921873523247373</para>
         /// </summary>
@@ -66,7 +66,7 @@ public record GetHireV1EvaluationTasksResponseDto
         public string? JobId { get; set; }
 
         /// <summary>
-        /// <para>人才 ID</para>
+        /// <para>人才 ID，详情请查看：[获取人才信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：7046263097923537196</para>
         /// </summary>
@@ -74,7 +74,7 @@ public record GetHireV1EvaluationTasksResponseDto
         public string? TalentId { get; set; }
 
         /// <summary>
-        /// <para>投递 ID</para>
+        /// <para>投递 ID，详情请查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：7046315599510833452</para>
         /// </summary>

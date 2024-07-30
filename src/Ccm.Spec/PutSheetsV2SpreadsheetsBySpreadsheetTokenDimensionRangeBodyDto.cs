@@ -48,15 +48,15 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
         public string MajorDimension { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>要更新的行或列的起始位置。从 1 开始计数。若 `startIndex` 为 3，则从第 4 行或列开始更新属性。包含第 4 行或列。</para>
+        /// <para>要更新的行或列的起始位置。从 1 开始计数。若 `startIndex` 为 3，则从第 3 行或列开始更新属性。包含第 3 行或列。</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("startIndex")]
         public int StartIndex { get; set; }
 
         /// <summary>
-        /// <para>要更新的行或列结束的位置。从 1 开始计数。若 `endIndex` 为 7，则更新至第 8 行结束。不包含第 8 行。</para>
-        /// <para>示例：当 `majorDimension`为 `ROWS`、 `startIndex` 为 3、`endIndex ` 为 7 时，则更新第 4、5、6、7 行的属性，共更新 4 行。</para>
+        /// <para>要更新的行或列结束的位置。从 1 开始计数。若 `endIndex` 为 7，则更新至第 7 行结束。包含第 7 行。</para>
+        /// <para>示例：当 `majorDimension`为 `ROWS`、 `startIndex` 为 3、`endIndex ` 为 7 时，则更新第 3、4、5、6、7 行的属性，共更新 5 行。</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("endIndex")]

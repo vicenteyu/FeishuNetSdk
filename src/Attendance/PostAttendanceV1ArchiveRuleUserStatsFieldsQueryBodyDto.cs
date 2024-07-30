@@ -4,7 +4,7 @@
 // Created          : 2024-07-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-24
+// Last Modified On : 2024-07-30
 // ************************************************************************
 // <copyright file="PostAttendanceV1ArchiveRuleUserStatsFieldsQueryBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -34,26 +34,26 @@ public record PostAttendanceV1ArchiveRuleUserStatsFieldsQueryBodyDto
     public string? Locale { get; set; }
 
     /// <summary>
-    /// <para>月份，日期格式为yyyyMM。注意此字段应为必填字段</para>
-    /// <para>必填：否</para>
+    /// <para>月份，日期格式为yyyyMM</para>
+    /// <para>必填：是</para>
     /// <para>示例值：202409</para>
     /// </summary>
     [JsonPropertyName("month")]
-    public string? Month { get; set; }
+    public string Month { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>归档规则id，可根据[查询所有归档规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/list)获得。注意此字段应为必填字段</para>
-    /// <para>必填：否</para>
+    /// <para>归档规则id，可根据[查询所有归档规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/list)获得</para>
+    /// <para>必填：是</para>
     /// <para>示例值：1</para>
     /// </summary>
     [JsonPropertyName("archive_rule_id")]
-    public string? ArchiveRuleId { get; set; }
+    public string ArchiveRuleId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>操作者id，对应employee_type。注意此字段应为必填字段</para>
-    /// <para>必填：否</para>
+    /// <para>操作者id，对应employee_type</para>
+    /// <para>必填：是</para>
     /// <para>示例值：ax8ud</para>
     /// </summary>
     [JsonPropertyName("operator_id")]
-    public string? OperatorId { get; set; }
+    public string OperatorId { get; set; } = string.Empty;
 }

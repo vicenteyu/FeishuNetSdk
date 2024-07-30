@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建背调套餐和附加调查项 请求体
-/// <para>定制指定帐号可用的背调套餐和附加调查项信息。</para>
+/// <para>在指定背调帐号下创建可用的背调套餐列表和附加调查项信息列表。该接口为增量创建，每次调用会在原有的套餐列表和附加调查项列表基础上新增。</para>
 /// <para>接口ID：7195815976042512386</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/ecological-docking/eco_background_check_package/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2feco_background_check_package%2fcreate</para>
@@ -22,9 +22,9 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1EcoBackgroundCheckPackagesBodyDto
 {
     /// <summary>
-    /// <para>背调账号 ID，可在「账号绑定」事件中获取</para>
+    /// <para>背调账号 ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取</para>
     /// <para>必填：是</para>
-    /// <para>示例值：ord_id</para>
+    /// <para>示例值：6995842370159937061</para>
     /// </summary>
     [JsonPropertyName("account_id")]
     public string AccountId { get; set; } = string.Empty;
@@ -42,7 +42,8 @@ public record PostHireV1EcoBackgroundCheckPackagesBodyDto
     public record EcoBackgroundCheckPackageData
     {
         /// <summary>
-        /// <para>套餐 ID</para>
+        /// <para>套餐 ID。由调用方自定义</para>
+        /// <para>**注意**：长度不超过`36`字符</para>
         /// <para>必填：是</para>
         /// <para>示例值：pkg001</para>
         /// </summary>
@@ -50,10 +51,10 @@ public record PostHireV1EcoBackgroundCheckPackagesBodyDto
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>背调名称</para>
+        /// <para>套餐名称</para>
         /// <para>必填：是</para>
         /// <para>示例值：基础套餐</para>
-        /// <para>最大长度：36</para>
+        /// <para>最大长度：100</para>
         /// </summary>
         [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
@@ -80,7 +81,8 @@ public record PostHireV1EcoBackgroundCheckPackagesBodyDto
     public record EcoBackgroundCheckPackageAdditionalItem
     {
         /// <summary>
-        /// <para>附件调查项 ID</para>
+        /// <para>附件调查项 ID。由调用方自定义</para>
+        /// <para>**注意**：长度不超过`36`字符</para>
         /// <para>必填：是</para>
         /// <para>示例值：ext001</para>
         /// </summary>

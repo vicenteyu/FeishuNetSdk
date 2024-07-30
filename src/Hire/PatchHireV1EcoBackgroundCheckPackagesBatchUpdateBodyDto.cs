@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新背调套餐和附加调查项 请求体
-/// <para>更新帐号下指定背调套餐和附加调查项信息，更新将影响已发起背调的表单项展示。如需新增背调套餐、附加项需使用创建接口进行添加</para>
+/// <para>更新指定背调帐号下的背调套餐和附加调查项信息。如需新增背调套餐、附加调查项请使用[创建背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create)进行添加。</para>
 /// <para>接口ID：7195815979079548929</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/ecological-docking/eco_background_check_package/batch_update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2feco_background_check_package%2fbatch_update</para>
@@ -22,9 +22,9 @@ namespace FeishuNetSdk.Hire;
 public record PatchHireV1EcoBackgroundCheckPackagesBatchUpdateBodyDto
 {
     /// <summary>
-    /// <para>背调账号 ID，可在「账号绑定」事件中获取</para>
+    /// <para>背调账号 ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取</para>
     /// <para>必填：是</para>
-    /// <para>示例值：ord_id</para>
+    /// <para>示例值：6995842370159937061</para>
     /// </summary>
     [JsonPropertyName("account_id")]
     public string AccountId { get; set; } = string.Empty;
@@ -42,7 +42,7 @@ public record PatchHireV1EcoBackgroundCheckPackagesBatchUpdateBodyDto
     public record EcoBackgroundCheckPackageData
     {
         /// <summary>
-        /// <para>套餐 ID</para>
+        /// <para>账号下已有的套餐 ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：pkg001</para>
         /// </summary>
@@ -50,10 +50,10 @@ public record PatchHireV1EcoBackgroundCheckPackagesBatchUpdateBodyDto
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>背调名称</para>
+        /// <para>套餐名称</para>
         /// <para>必填：是</para>
         /// <para>示例值：基础套餐</para>
-        /// <para>最大长度：36</para>
+        /// <para>最大长度：100</para>
         /// </summary>
         [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
@@ -68,19 +68,19 @@ public record PatchHireV1EcoBackgroundCheckPackagesBatchUpdateBodyDto
     }
 
     /// <summary>
-    /// <para>附加项列表</para>
+    /// <para>附加调查项列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("additional_item_list")]
     public EcoBackgroundCheckPackageAdditionalItem[]? AdditionalItemLists { get; set; }
 
     /// <summary>
-    /// <para>附加项列表</para>
+    /// <para>附加调查项列表</para>
     /// </summary>
     public record EcoBackgroundCheckPackageAdditionalItem
     {
         /// <summary>
-        /// <para>附件调查项 ID</para>
+        /// <para>账号下已有的附加调查项 ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：ext001</para>
         /// </summary>

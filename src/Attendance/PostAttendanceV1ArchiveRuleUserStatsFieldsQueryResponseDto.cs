@@ -50,7 +50,7 @@ public record PostAttendanceV1ArchiveRuleUserStatsFieldsQueryResponseDto
         public string? Title { get; set; }
 
         /// <summary>
-        /// <para>一级表头名字</para>
+        /// <para>表头名称层级路径</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("upper_titles")]
