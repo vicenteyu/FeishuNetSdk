@@ -57,8 +57,6 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
             /// <para>中文</para>
             /// <para>必填：否</para>
             /// <para>示例值：体验</para>
-            /// <para>最大长度：999999999</para>
-            /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
@@ -67,8 +65,6 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
             /// <para>英文</para>
             /// <para>必填：否</para>
             /// <para>示例值：Interactive experience</para>
-            /// <para>最大长度：999999999</para>
-            /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
@@ -174,8 +170,6 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
                 /// <para>中文</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：体验</para>
-                /// <para>最大长度：999999999</para>
-                /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
@@ -184,8 +178,6 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
                 /// <para>英文</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：Interactive experience</para>
-                /// <para>最大长度：999999999</para>
-                /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }

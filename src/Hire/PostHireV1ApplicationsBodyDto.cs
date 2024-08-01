@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建投递 请求体
-/// <para>根据人才 ID 和职位 ID 创建投递。</para>
+/// <para>为人才在特定职位上创建投递。</para>
 /// <para>接口ID：6964286393804816412</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/application/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fapplication%2fcreate</para>
@@ -22,23 +22,25 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1ApplicationsBodyDto
 {
     /// <summary>
-    /// <para>人才ID</para>
+    /// <para>人才 ID，可通过[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)获取</para>
     /// <para>必填：是</para>
-    /// <para>示例值：12312312312</para>
+    /// <para>示例值：6889020179456689671</para>
     /// </summary>
     [JsonPropertyName("talent_id")]
     public string TalentId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>职位ID</para>
+    /// <para>职位 ID，可通过[获取职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/list)获取</para>
     /// <para>必填：是</para>
-    /// <para>示例值：12312312312</para>
+    /// <para>示例值：6889330484657424647</para>
     /// </summary>
     [JsonPropertyName("job_id")]
     public string JobId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>人员ID，仅在投递来源为属于「员工转岗」或「实习生转正」时，需传入该字段。校验数据无误后，会成为招聘方维护的一条人才、员工关联关系记录；创建其他来源投递时，不会进行人员与人才绑定</para>
+    /// <para>人员 ID，与入参 `user_id_type` 类型一致。</para>
+    /// <para>**注意**：</para>
+    /// <para>若投递来源为属于「员工转岗」或「实习生转正」时必填，创建投递成功后会将该员工和对应人才进行绑定；创建其他来源投递时，不会进行人员与人才绑定。</para>
     /// <para>必填：否</para>
     /// <para>示例值：6930815272790114324</para>
     /// </summary>
@@ -46,7 +48,7 @@ public record PostHireV1ApplicationsBodyDto
     public string? UserId { get; set; }
 
     /// <summary>
-    /// <para>简历来源 ID，可通过「获取简历来源」接口查询。若简历来源类型属于「员工转岗」或「实习生转正」，人才需处于已入职状态。</para>
+    /// <para>简历来源 ID，可通过[获取简历来源列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/resume_source/list)获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：7115289562569591070</para>
     /// </summary>
@@ -54,7 +56,8 @@ public record PostHireV1ApplicationsBodyDto
     public string? ResumeSourceId { get; set; }
 
     /// <summary>
-    /// <para>意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取</para>
+    /// <para>意向投递城市列表，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)</para>
+    /// <para>获取到对应的城市编码</para>
     /// <para>必填：否</para>
     /// <para>示例值：["CT_1"]</para>
     /// </summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-24
+// Last Modified On : 2024-08-01
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -6657,22 +6657,22 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>示例值：shtcnmBA*****yGehy8</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>示例值：0b**12</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/float_images")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonContent] Ccm.Spec.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】获取浮动图片</para>
@@ -6691,23 +6691,23 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>示例值：shtcnmBA*****yGehy8</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>示例值：0b**12</para>
     /// </param>
     /// <param name="float_image_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>浮动图片 id</para>
-    /// <para>**示例值**："ye06SS14ph"</para>
+    /// <para>示例值：ye06SS14ph</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/float_images/{float_image_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
@@ -6730,17 +6730,17 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>示例值：shtcnmBA*****yGehy8</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>示例值：0b**12</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/float_images/query")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesQueryResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesQueryAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesQueryResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesQueryAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id);
@@ -6760,29 +6760,29 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>示例值：shtcnmBA*****yGehy8</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>示例值：0b**12</para>
     /// </param>
     /// <param name="float_image_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>浮动图片 id</para>
-    /// <para>**示例值**："ye06SS14ph"</para>
+    /// <para>示例值：ye06SS14ph</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/float_images/{float_image_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdResponseDto>> PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdResponseDto>> PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
         [PathQuery] string float_image_id,
-        [JsonContent] Ccm.Spec.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdBodyDto dto);
+        [JsonContent] Ccm.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】删除浮动图片</para>
@@ -6799,19 +6799,19 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 token</para>
-    /// <para>**示例值**："shtcnmBA*****yGehy8"</para>
+    /// <para>示例值：shtcnmBA*****yGehy8</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>子表 id</para>
-    /// <para>**示例值**："0b**12"</para>
+    /// <para>示例值：0b**12</para>
     /// </param>
     /// <param name="float_image_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>浮动图片 id</para>
-    /// <para>**示例值**："ye06SS14ph"</para>
+    /// <para>示例值：ye06SS14ph</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/float_images/{float_image_id}")]
@@ -9291,6 +9291,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>此接口用于分页获取Wiki节点的子节点列表。</para>
     /// <para>此接口为分页接口。由于权限过滤，可能返回列表为空，但分页标记（has_more）为true，可以继续分页请求。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:node:retrieve</item>
     /// <item>wiki:wiki</item>
     /// <item>wiki:wiki:readonly</item>
     /// </list></para>
@@ -9335,6 +9336,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口允许移动云空间文档至知识空间，并挂载在指定位置</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:node:move</item>
     /// <item>wiki:wiki</item>
     /// </list></para>
     /// </summary>
@@ -9359,6 +9361,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据space_id更新知识空间公共设置</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:setting:write_only</item>
     /// <item>wiki:wiki</item>
     /// </list></para>
     /// </summary>
@@ -9383,6 +9386,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>此接口用于获取有权限访问的知识空间列表。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:space:retrieve</item>
     /// <item>wiki:wiki</item>
     /// <item>wiki:wiki:readonly</item>
     /// </list></para>
@@ -9438,6 +9442,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>此接口用于根据知识空间 ID 查询知识空间的信息，包括空间的类型、可见性、分享状态等。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:space:read</item>
     /// <item>wiki:wiki</item>
     /// <item>wiki:wiki:readonly</item>
     /// </list></para>
@@ -9488,6 +9493,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>此接口用于在知识节点里创建[节点](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)到指定位置。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:node:create</item>
     /// <item>wiki:wiki</item>
     /// </list></para>
     /// </summary>
@@ -9513,6 +9519,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>添加知识空间成员或管理员。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:member:create</item>
     /// <item>wiki:wiki</item>
     /// </list></para>
     /// </summary>
@@ -9546,6 +9553,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：user_access_token</para>
     /// <para>此接口用于创建知识空间</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:space:write_only</item>
     /// <item>wiki:wiki</item>
     /// </list></para>
     /// </summary>
@@ -9563,6 +9571,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取知识空间节点信息</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:node:read</item>
     /// <item>wiki:wiki</item>
     /// <item>wiki:wiki:readonly</item>
     /// </list></para>
@@ -9815,6 +9824,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该方法用于获取wiki异步任务的结果</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:space:read</item>
     /// <item>wiki:wiki</item>
     /// <item>wiki:wiki:readonly</item>
     /// </list></para>
@@ -9847,6 +9857,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>此接口用于删除知识空间成员或管理员。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:member:update</item>
     /// <item>wiki:wiki</item>
     /// </list></para>
     /// </summary>
@@ -9878,6 +9889,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>此方法用于在Wiki内移动节点，支持跨知识空间移动。如果有子节点，会携带子节点一起移动。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:node:move</item>
     /// <item>wiki:wiki</item>
     /// <item>wiki:wiki:readonly</item>
     /// </list></para>
@@ -10318,6 +10330,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>创建文档类型为 docx 的文档。你可选择传入文档标题和文件夹。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docx:document</item>
+    /// <item>docx:document:create</item>
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -11676,6 +11689,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>此接口用于更新节点标题</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:node:update</item>
     /// <item>wiki:wiki</item>
     /// </list></para>
     /// </summary>
@@ -11707,6 +11721,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>此接口用于在知识空间创建节点副本到指定位置。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:node:copy</item>
     /// <item>wiki:wiki</item>
     /// </list></para>
     /// </summary>
@@ -18296,6 +18311,56 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Attendance.PostAttendanceV1ArchiveRuleUserStatsFieldsQueryBodyDto dto);
 
     /// <summary>
+    /// <para>【考勤打卡】写入归档报表结果</para>
+    /// <para>接口ID：7368679915980914690</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/upload_report</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>写入归档报表结果，对应假勤管理-考勤统计-报表-[归档报表](https://example.feishu.cn/people/workforce-management/manage/statistics/report)页签，点击报表名称进入后的导入功能。可以将数据直接写入归档报表。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>attendance:task</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_type">
+    /// <para>必填：是</para>
+    /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
+    /// <para>* `employee_id `：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</para>
+    /// <para>* `employee_no`：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</para>
+    /// <para>示例值：employee_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/attendance/v1/archive_rule/upload_report")]
+    System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1ArchiveRuleUploadReportResponseDto>> PostAttendanceV1ArchiveRuleUploadReportAsync(
+        UserAccessToken access_token,
+        [PathQuery] string employee_type,
+        [JsonContent] Attendance.PostAttendanceV1ArchiveRuleUploadReportBodyDto dto);
+
+    /// <summary>
+    /// <para>【考勤打卡】删除归档报表行数据</para>
+    /// <para>接口ID：7368679915980931074</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/del_report</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>按月份、用户和归档规则ID直接删除归档报表行数据</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>attendance:task</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_type">
+    /// <para>必填：是</para>
+    /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
+    /// <para>* `employee_id `：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</para>
+    /// <para>* `employee_no`：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</para>
+    /// <para>示例值：employee_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/attendance/v1/archive_rule/del_report")]
+    System.Threading.Tasks.Task<FeishuResponse> PostAttendanceV1ArchiveRuleDelReportAsync(
+        UserAccessToken access_token,
+        [PathQuery] string employee_type,
+        [JsonContent] Attendance.PostAttendanceV1ArchiveRuleDelReportBodyDto dto);
+
+    /// <summary>
     /// <para>【考勤打卡】查询所有归档规则</para>
     /// <para>接口ID：7368679915980947458</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/list</para>
@@ -18323,123 +18388,6 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null);
-
-    /// <summary>
-    /// <para>【绩效】获取指标库信息</para>
-    /// <para>接口ID：7380276358332661761</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_lib/query</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取指标库的信息</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>performance:metric_lib:read</item>
-    /// <item>performance:metric:read</item>
-    /// <item>performance:metric:write</item>
-    /// </list></para>
-    /// <para>字段权限要求：<list type="bullet">
-    /// <item>contact:user.employee_id:readonly</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="user_id_type">
-    /// <para>必填：否</para>
-    /// <para>用户 ID 类型</para>
-    /// <para>示例值：open_id</para>
-    /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_admin_id：以people_admin_id来识别用户</item>
-    /// </list>
-    /// <para>默认值：open_id</para>
-    /// </param>
-    /// <param name="page_token">
-    /// <para>必填：否</para>
-    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
-    /// <para>默认值：null</para>
-    /// </param>
-    /// <param name="page_size">
-    /// <para>必填：否</para>
-    /// <para>分页大小</para>
-    /// <para>示例值：30</para>
-    /// <para>默认值：20</para>
-    /// </param>
-    /// <param name="dto">请求体</param>
-    /// <param name="access_token">用户凭证</param>
-    [HttpPost("/open-apis/performance/v2/metric_libs/query")]
-    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2MetricLibsQueryResponseDto>> PostPerformanceV2MetricLibsQueryAsync(
-        UserAccessToken access_token,
-        [JsonContent] Performance.PostPerformanceV2MetricLibsQueryBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
-
-    /// <summary>
-    /// <para>【绩效】获取指标模板信息</para>
-    /// <para>接口ID：7380276358332710913</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_template/query</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取指标模板的信息</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>performance:metric_lib:read</item>
-    /// <item>performance:metric:read</item>
-    /// <item>performance:metric:write</item>
-    /// </list></para>
-    /// <para>字段权限要求：<list type="bullet">
-    /// <item>contact:user.employee_id:readonly</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="user_id_type">
-    /// <para>必填：否</para>
-    /// <para>用户 ID 类型</para>
-    /// <para>示例值：open_id</para>
-    /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// <item>people_admin_id：以people_admin_id来识别用户</item>
-    /// </list>
-    /// <para>默认值：open_id</para>
-    /// </param>
-    /// <param name="page_token">
-    /// <para>必填：否</para>
-    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
-    /// <para>默认值：null</para>
-    /// </param>
-    /// <param name="page_size">
-    /// <para>必填：否</para>
-    /// <para>分页大小</para>
-    /// <para>示例值：30</para>
-    /// <para>默认值：20</para>
-    /// </param>
-    /// <param name="dto">请求体</param>
-    /// <param name="access_token">用户凭证</param>
-    [HttpPost("/open-apis/performance/v2/metric_templates/query")]
-    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2MetricTemplatesQueryResponseDto>> PostPerformanceV2MetricTemplatesQueryAsync(
-        UserAccessToken access_token,
-        [JsonContent] Performance.PostPerformanceV2MetricTemplatesQueryBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
-
-    /// <summary>
-    /// <para>【绩效】获取指标字段信息</para>
-    /// <para>接口ID：7380276358332727297</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_field/query</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取指标的字段基础信息</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>performance:metric_lib:read</item>
-    /// <item>performance:metric:read</item>
-    /// <item>performance:metric:write</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="dto">请求体</param>
-    /// <param name="access_token">用户凭证</param>
-    [HttpPost("/open-apis/performance/v2/metric_fields/query")]
-    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2MetricFieldsQueryResponseDto>> PostPerformanceV2MetricFieldsQueryAsync(
-        UserAccessToken access_token,
-        [JsonContent] Performance.PostPerformanceV2MetricFieldsQueryBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】批量获取记录</para>
@@ -18480,5 +18428,43 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGetBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】获取知识空间成员列表</para>
+    /// <para>接口ID：7386702252390449180</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-member/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取知识空间的成员与管理员列表。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>wiki:member:retrieve</item>
+    /// <item>wiki:wiki</item>
+    /// <item>wiki:wiki:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="space_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>知识空间 ID</para>
+    /// <para>示例值：7375263209671884820</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：1</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：NzA0NDg5NjIzMDA3MzE3MTk3Ml83MzYzMjE4NDkzNDI1NzI5NTM4</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/wiki/v2/spaces/{space_id}/members")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetWikiV2SpacesBySpaceIdMembersResponseDto>> GetWikiV2SpacesBySpaceIdMembersAsync(
+        UserAccessToken access_token,
+        [PathQuery] string space_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null);
 }
 

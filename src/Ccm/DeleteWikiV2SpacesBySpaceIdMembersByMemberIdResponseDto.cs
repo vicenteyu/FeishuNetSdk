@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-01
 // ************************************************************************
 // <copyright file="DeleteWikiV2SpacesBySpaceIdMembersByMemberIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -64,5 +64,18 @@ public record DeleteWikiV2SpacesBySpaceIdMembersByMemberIdResponseDto
         /// </summary>
         [JsonPropertyName("member_role")]
         public string MemberRole { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>知识库协作者类型（暂不支持）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：user</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>user：用户</item>
+        /// <item>chat：群组</item>
+        /// <item>department：组织架构</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
     }
 }

@@ -32,6 +32,7 @@ public record PostWikiV2SpacesBySpaceIdNodesBodyDto
     /// <item>bitable：多维表格</item>
     /// <item>file：文件</item>
     /// <item>docx：新版文档</item>
+    /// <item>slides：幻灯片</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("obj_type")]

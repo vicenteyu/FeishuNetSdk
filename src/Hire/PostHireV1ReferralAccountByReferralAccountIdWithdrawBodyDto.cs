@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-01
 // ************************************************************************
 // <copyright file="PostHireV1ReferralAccountByReferralAccountIdWithdrawBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -23,10 +23,10 @@ public record PostHireV1ReferralAccountByReferralAccountIdWithdrawBodyDto
 {
     /// <summary>
     /// <para>提取的奖励类型，当前仅支持积分（1）提取</para>
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("withdraw_bonus_type")]
-    public int[]? WithdrawBonusType { get; set; }
+    public int[] WithdrawBonusType { get; set; } = Array.Empty<int>();
 
     /// <summary>
     /// <para>外部提取单 ID，由请求方提供，用于保证接口的幂等性，需要保证唯一。传入重复 ID 会返回原 ID 对应的提取详情</para>

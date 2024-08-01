@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-01
 // ************************************************************************
 // <copyright file="GetWikiV2SpacesBySpaceIdNodesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -70,6 +70,7 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// <item>bitable：多维表格</item>
         /// <item>file：文件</item>
         /// <item>docx：新版文档</item>
+        /// <item>slides：幻灯片</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("obj_type")]
@@ -166,6 +167,14 @@ public record GetWikiV2SpacesBySpaceIdNodesResponseDto
         /// </summary>
         [JsonPropertyName("owner")]
         public string? Owner { get; set; }
+
+        /// <summary>
+        /// <para>节点创建者</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：ou_xxxxx</para>
+        /// </summary>
+        [JsonPropertyName("node_creator")]
+        public string? NodeCreator { get; set; }
     }
 
     /// <summary>

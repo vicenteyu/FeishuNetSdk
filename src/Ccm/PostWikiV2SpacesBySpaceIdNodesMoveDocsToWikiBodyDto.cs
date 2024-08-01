@@ -41,6 +41,7 @@ public record PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiBodyDto
     /// <item>mindnote：思维导图</item>
     /// <item>docx：新版文档</item>
     /// <item>file：文件</item>
+    /// <item>slides：slides（幻灯片）</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("obj_type")]

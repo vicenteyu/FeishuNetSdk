@@ -4,7 +4,7 @@
 // Created          : 2024-07-02
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-02
+// Last Modified On : 2024-08-01
 // ************************************************************************
 // <copyright file="PostPerformanceV2MetricLibsQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -58,6 +58,60 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
         public string? TypeId { get; set; }
 
         /// <summary>
+        /// <para>所属的标签</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：999999</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("tags")]
+        public MetricTag[]? Tags { get; set; }
+
+        /// <summary>
+        /// <para>所属的标签</para>
+        /// </summary>
+        public record MetricTag
+        {
+            /// <summary>
+            /// <para>标签 ID，更多标签详情可通过【[获取指标标签信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_tag/list)】接口获取</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7302271694582841364</para>
+            /// <para>最大长度：999999</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("tag_id")]
+            public string? TagId { get; set; }
+
+            /// <summary>
+            /// <para>标签名称</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("tag_name")]
+            public I18n? TagName { get; set; }
+
+            /// <summary>
+            /// <para>标签名称</para>
+            /// </summary>
+            public record I18n
+            {
+                /// <summary>
+                /// <para>中文</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：体验</para>
+                /// </summary>
+                [JsonPropertyName("zh_cn")]
+                public string? ZhCn { get; set; }
+
+                /// <summary>
+                /// <para>英文</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：Interactive experience</para>
+                /// </summary>
+                [JsonPropertyName("en_us")]
+                public string? EnUs { get; set; }
+            }
+        }
+
+        /// <summary>
         /// <para>指标字段信息</para>
         /// <para>必填：否</para>
         /// <para>最大长度：10000</para>
@@ -106,12 +160,55 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：score_by_formula</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>socre_manually：手动评分</item>
+        /// <item>score_manually：手动评分</item>
         /// <item>score_by_formula：公式评分</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("scoring_setting_type")]
         public string? ScoringSettingType { get; set; }
+
+        /// <summary>
+        /// <para>评分公式</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("scoring_formula")]
+        public Formula? ScoringFormula { get; set; }
+
+        /// <summary>
+        /// <para>评分公式</para>
+        /// </summary>
+        public record Formula
+        {
+            /// <summary>
+            /// <para>公式 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7302271694582841364</para>
+            /// <para>最大长度：999999</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("formula_id")]
+            public string? FormulaId { get; set; }
+
+            /// <summary>
+            /// <para>公式名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：示例公式</para>
+            /// <para>最大长度：999999</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("formula_name")]
+            public string? FormulaName { get; set; }
+
+            /// <summary>
+            /// <para>公式详情</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1 + 1</para>
+            /// <para>最大长度：999999</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("formula_details")]
+            public string? FormulaDetails { get; set; }
+        }
 
         /// <summary>
         /// <para>数据源录入人 ID</para>

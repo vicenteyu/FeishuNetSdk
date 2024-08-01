@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-01
 // ************************************************************************
 // <copyright file="PostWikiV2SpacesBySpaceIdMembersResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -34,7 +34,7 @@ public record PostWikiV2SpacesBySpaceIdMembersResponseDto
     public record PostWikiV2SpacesBySpaceIdMembersResponseDtoMember
     {
         /// <summary>
-        /// <para>要添加的成员或管理员的身份类型。可选值：</para>
+        /// <para>要添加的成员或管理员的身份类型。枚举值：</para>
         /// <para>- openchat：群组 ID。参考[群 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)获取</para>
         /// <para>- userid：用户 ID。详情参考[如何获取 User ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</para>
         /// <para>- email：用户邮箱</para>
@@ -64,5 +64,18 @@ public record PostWikiV2SpacesBySpaceIdMembersResponseDto
         /// </summary>
         [JsonPropertyName("member_role")]
         public string MemberRole { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>知识库协作者类型（未来支持）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：user</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>user：用户</item>
+        /// <item>chat：群组</item>
+        /// <item>department：组织架构</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
     }
 }

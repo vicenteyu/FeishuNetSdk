@@ -26,6 +26,8 @@ public record PostWikiV2SpacesBySpaceIdNodesByNodeTokenCopyBodyDto
     /// <para>- 目标知识空间 ID 与目标父节点 Token 不可同时为空。</para>
     /// <para>必填：否</para>
     /// <para>示例值：wikcnKQ1k3p******8Vabce</para>
+    /// <para>最大长度：999</para>
+    /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("target_parent_token")]
     public string? TargetParentToken { get; set; }

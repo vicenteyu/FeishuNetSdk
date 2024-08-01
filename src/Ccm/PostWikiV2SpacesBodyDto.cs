@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-01
 // ************************************************************************
 // <copyright file="PostWikiV2SpacesBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -36,4 +36,18 @@ public record PostWikiV2SpacesBodyDto
     /// </summary>
     [JsonPropertyName("description")]
     public string? Description { get; set; }
+
+    /// <summary>
+    /// <para>表示知识空间的分享状态</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：open</para>
+    /// <para>最大长度：99</para>
+    /// <para>最小长度：0</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>open：打开</item>
+    /// <item>closed：关闭</item>
+    /// </list></para>
+    /// </summary>
+    [JsonPropertyName("open_sharing")]
+    public string? OpenSharing { get; set; }
 }

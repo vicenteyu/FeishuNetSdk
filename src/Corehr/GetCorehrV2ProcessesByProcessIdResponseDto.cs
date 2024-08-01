@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-01
 // ************************************************************************
 // <copyright file="GetCorehrV2ProcessesByProcessIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -623,4 +623,270 @@ public record GetCorehrV2ProcessesByProcessIdResponseDto
     /// </summary>
     [JsonPropertyName("properties")]
     public int? Properties { get; set; }
+
+    /// <summary>
+    /// <para>系统待办列表</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("system_todos")]
+    public ProcessSystemTodoItem[]? SystemTodos { get; set; }
+
+    /// <summary>
+    /// <para>系统待办列表</para>
+    /// </summary>
+    public record ProcessSystemTodoItem
+    {
+        /// <summary>
+        /// <para>单据ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7278949005675988535</para>
+        /// </summary>
+        [JsonPropertyName("approver_id")]
+        public string? ApproverId { get; set; }
+
+        /// <summary>
+        /// <para>单据类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：审批单</item>
+        /// <item>5：表单</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("type")]
+        public int? Type { get; set; }
+
+        /// <summary>
+        /// <para>单据地址</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("links")]
+        public ProcessLink? Links { get; set; }
+
+        /// <summary>
+        /// <para>单据地址</para>
+        /// </summary>
+        public record ProcessLink
+        {
+            /// <summary>
+            /// <para>web端单据详情页地址</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：http://xxxx.com/xxx/xxx?a=b</para>
+            /// </summary>
+            [JsonPropertyName("web_link")]
+            public string? WebLink { get; set; }
+
+            /// <summary>
+            /// <para>飞书pc端单据详情页地址</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx</para>
+            /// </summary>
+            [JsonPropertyName("pc_link")]
+            public string? PcLink { get; set; }
+
+            /// <summary>
+            /// <para>飞书移动端单据详情页地址</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx</para>
+            /// </summary>
+            [JsonPropertyName("mobile_link")]
+            public string? MobileLink { get; set; }
+        }
+
+        /// <summary>
+        /// <para>操作人姓名</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("operator_name")]
+        public DataengineI18n? OperatorName { get; set; }
+
+        /// <summary>
+        /// <para>操作人姓名</para>
+        /// </summary>
+        public record DataengineI18n
+        {
+            /// <summary>
+            /// <para>中文值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：中文</para>
+            /// </summary>
+            [JsonPropertyName("zh_cn")]
+            public string? ZhCn { get; set; }
+
+            /// <summary>
+            /// <para>英文值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：English</para>
+            /// </summary>
+            [JsonPropertyName("en_us")]
+            public string? EnUs { get; set; }
+        }
+
+        /// <summary>
+        /// <para>节点名称</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("node_name")]
+        public DataengineI18n? NodeName { get; set; }
+
+        /// <summary>
+        /// <para>创建时间，Unix毫秒时间戳</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1694769814036</para>
+        /// </summary>
+        [JsonPropertyName("create_time")]
+        public string? CreateTime { get; set; }
+
+        /// <summary>
+        /// <para>节点定义ID（注：在回退场景，同一个节点会对应多个节点实例）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：approval_d25b5eddfef</para>
+        /// </summary>
+        [JsonPropertyName("node_definition_id")]
+        public string? NodeDefinitionId { get; set; }
+    }
+
+    /// <summary>
+    /// <para>系统已办列表</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("system_done_list")]
+    public ProcessSystemDoneItem[]? SystemDoneLists { get; set; }
+
+    /// <summary>
+    /// <para>系统已办列表</para>
+    /// </summary>
+    public record ProcessSystemDoneItem
+    {
+        /// <summary>
+        /// <para>单据ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7278949005675988535</para>
+        /// </summary>
+        [JsonPropertyName("approver_id")]
+        public string? ApproverId { get; set; }
+
+        /// <summary>
+        /// <para>单据类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：审批单</item>
+        /// <item>5：表单</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("type")]
+        public int? Type { get; set; }
+
+        /// <summary>
+        /// <para>单据状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：3</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>3：已完成</item>
+        /// <item>2：拒绝</item>
+        /// <item>4：取消</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("status")]
+        public int? Status { get; set; }
+
+        /// <summary>
+        /// <para>单据地址</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("links")]
+        public ProcessLink? Links { get; set; }
+
+        /// <summary>
+        /// <para>单据地址</para>
+        /// </summary>
+        public record ProcessLink
+        {
+            /// <summary>
+            /// <para>web端单据详情页地址</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：http://xxxx.com/xxx/xxx?a=b</para>
+            /// </summary>
+            [JsonPropertyName("web_link")]
+            public string? WebLink { get; set; }
+
+            /// <summary>
+            /// <para>飞书pc端单据详情页地址</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx</para>
+            /// </summary>
+            [JsonPropertyName("pc_link")]
+            public string? PcLink { get; set; }
+
+            /// <summary>
+            /// <para>飞书移动端单据详情页地址</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx</para>
+            /// </summary>
+            [JsonPropertyName("mobile_link")]
+            public string? MobileLink { get; set; }
+        }
+
+        /// <summary>
+        /// <para>操作人姓名</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7124991993901827628</para>
+        /// </summary>
+        [JsonPropertyName("operator_name")]
+        public DataengineI18n? OperatorName { get; set; }
+
+        /// <summary>
+        /// <para>操作人姓名</para>
+        /// </summary>
+        public record DataengineI18n
+        {
+            /// <summary>
+            /// <para>中文值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：中文</para>
+            /// </summary>
+            [JsonPropertyName("zh_cn")]
+            public string? ZhCn { get; set; }
+
+            /// <summary>
+            /// <para>英文值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：English</para>
+            /// </summary>
+            [JsonPropertyName("en_us")]
+            public string? EnUs { get; set; }
+        }
+
+        /// <summary>
+        /// <para>节点名称</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("node_name")]
+        public DataengineI18n? NodeName { get; set; }
+
+        /// <summary>
+        /// <para>创建时间，Unix毫秒时间戳</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1694769814036</para>
+        /// </summary>
+        [JsonPropertyName("create_time")]
+        public string? CreateTime { get; set; }
+
+        /// <summary>
+        /// <para>完成时间，Unix毫秒时间戳</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1694769814036</para>
+        /// </summary>
+        [JsonPropertyName("complete_time")]
+        public string? CompleteTime { get; set; }
+
+        /// <summary>
+        /// <para>节点定义ID（注：在回退场景，同一个节点会对应多个节点实例）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：approval_d25b5eddfef</para>
+        /// </summary>
+        [JsonPropertyName("node_definition_id")]
+        public string? NodeDefinitionId { get; set; }
+    }
 }

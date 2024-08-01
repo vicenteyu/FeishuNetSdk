@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Base;
 public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGetBodyDto
 {
     /// <summary>
-    /// <para>记录 ID 列表。调用[列出记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/list)获取。</para>
+    /// <para>记录 ID 列表。调用[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)获取。</para>
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：1</para>

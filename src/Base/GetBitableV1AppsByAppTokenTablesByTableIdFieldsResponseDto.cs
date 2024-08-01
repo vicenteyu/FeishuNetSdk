@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-01
 // ************************************************************************
 // <copyright file="GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -50,12 +50,12 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
-    public AppTableField[]? Items { get; set; }
+    public AppTableFieldForList[]? Items { get; set; }
 
     /// <summary>
     /// <para>字段信息</para>
     /// </summary>
-    public record AppTableField
+    public record AppTableFieldForList
     {
         /// <summary>
         /// <para>多维表格字段名</para>
@@ -63,6 +63,8 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto
         /// <para>1. 名称中的首尾空格将会被去除。</para>
         /// <para>必填：是</para>
         /// <para>示例值：字段名称</para>
+        /// <para>最大长度：1000</para>
+        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("field_name")]
         public string FieldName { get; set; } = string.Empty;
@@ -70,7 +72,9 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto
         /// <summary>
         /// <para>多维表格字段类型</para>
         /// <para>必填：是</para>
-        /// <para>示例值：1（type值相同的时候，加上ui_type区分）</para>
+        /// <para>示例值：1</para>
+        /// <para>最大值：999999999</para>
+        /// <para>最小值：0</para>
         /// <para>可选值：<list type="bullet">
         /// <item>1：多行文本</item>
         /// <item>2：数字</item>
@@ -141,6 +145,8 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto
                 /// <para>选项颜色</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：0</para>
+                /// <para>最大值：54</para>
+                /// <para>最小值：0</para>
                 /// </summary>
                 [JsonPropertyName("color")]
                 public int? Color { get; set; }
@@ -245,7 +251,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto
                     /// <para>可选值：<list type="bullet">
                     /// <item>system_number：自增数字位,value范围1-9</item>
                     /// <item>fixed_text：固定字符，最大长度：20</item>
-                    /// <item>created_time：创建时间，支持格式"yyyyMMdd"、"yyyyMM"、"yyyy"、"MMdd"、"MM"、"dd"</item>
+                    /// <item>created_time：创建时间，支持格式 "yyyyMMdd"、"yyyyMM"、"yyyy"、"MMdd"、"MM"、"dd"</item>
                     /// </list></para>
                     /// </summary>
                     [JsonPropertyName("type")]
@@ -380,32 +386,10 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto
         /// <summary>
         /// <para>字段的描述</para>
         /// <para>必填：否</para>
+        /// <para>示例值：字段描述示例：该字段为日期类型字段</para>
         /// </summary>
         [JsonPropertyName("description")]
-        public AppTableFieldDescription? Description { get; set; }
-
-        /// <summary>
-        /// <para>字段的描述</para>
-        /// </summary>
-        public record AppTableFieldDescription
-        {
-            /// <summary>
-            /// <para>是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述（只在新增、修改字段时生效）</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：true</para>
-            /// <para>默认值：true</para>
-            /// </summary>
-            [JsonPropertyName("disable_sync")]
-            public bool? DisableSync { get; set; }
-
-            /// <summary>
-            /// <para>字段描述内容</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：请按name_id格式填写\n例如：“Alice_20202020”</para>
-            /// </summary>
-            [JsonPropertyName("text")]
-            public string? Text { get; set; }
-        }
+        public object? Description { get; set; }
 
         /// <summary>
         /// <para>是否是索引列</para>
@@ -419,6 +403,8 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto
         /// <para>多维表格字段 id</para>
         /// <para>必填：否</para>
         /// <para>示例值：fldWJyCkFQ</para>
+        /// <para>最大长度：20</para>
+        /// <para>最小长度：5</para>
         /// </summary>
         [JsonPropertyName("field_id")]
         public string? FieldId { get; set; }
@@ -427,6 +413,8 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto
         /// <para>字段在界面上的展示类型，例如进度字段是数字的一种展示形态</para>
         /// <para>必填：否</para>
         /// <para>示例值：Progress</para>
+        /// <para>最大长度：20</para>
+        /// <para>最小长度：1</para>
         /// <para>可选值：<list type="bullet">
         /// <item>Text：多行文本</item>
         /// <item>Barcode：条码</item>

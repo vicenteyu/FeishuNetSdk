@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-01
 // ************************************************************************
 // <copyright file="GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -266,6 +266,51 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
             /// </summary>
             [JsonPropertyName("list_values")]
             public string[]? ListValues { get; set; }
+
+            /// <summary>
+            /// <para>文件类型字段值，可通过主数据的[文件下载Open API](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/get-2)下载</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("file_value")]
+            public FieldVariableValueToFile? FileValue { get; set; }
+
+            /// <summary>
+            /// <para>文件类型字段值，可通过主数据的[文件下载Open API](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/get-2)下载</para>
+            /// </summary>
+            public record FieldVariableValueToFile
+            {
+                /// <summary>
+                /// <para>用于主数据[文件下载Open API](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/get-2)下载接口的入参id</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53</para>
+                /// </summary>
+                [JsonPropertyName("open_file_id")]
+                public string? OpenFileId { get; set; }
+
+                /// <summary>
+                /// <para>文件名称</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：file_name</para>
+                /// </summary>
+                [JsonPropertyName("file_name")]
+                public string? FileName { get; set; }
+
+                /// <summary>
+                /// <para>文件大小，单位：Byte</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：65535</para>
+                /// </summary>
+                [JsonPropertyName("length")]
+                public string? Length { get; set; }
+
+                /// <summary>
+                /// <para>文件类型，如`application/pdf`</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：application/pdf</para>
+                /// </summary>
+                [JsonPropertyName("mime_type")]
+                public string? MimeType { get; set; }
+            }
         }
 
         /// <summary>
@@ -480,6 +525,51 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 /// </summary>
                 [JsonPropertyName("list_values")]
                 public string[]? ListValues { get; set; }
+
+                /// <summary>
+                /// <para>文件类型字段值，可通过主数据的[文件下载Open API](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/get-2)下载</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("file_value")]
+                public FieldVariableValueToFile? FileValue { get; set; }
+
+                /// <summary>
+                /// <para>文件类型字段值，可通过主数据的[文件下载Open API](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/get-2)下载</para>
+                /// </summary>
+                public record FieldVariableValueToFile
+                {
+                    /// <summary>
+                    /// <para>用于主数据[文件下载Open API](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/get-2)接口的id</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53</para>
+                    /// </summary>
+                    [JsonPropertyName("open_file_id")]
+                    public string? OpenFileId { get; set; }
+
+                    /// <summary>
+                    /// <para>文件名称</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：file_name</para>
+                    /// </summary>
+                    [JsonPropertyName("file_name")]
+                    public string? FileName { get; set; }
+
+                    /// <summary>
+                    /// <para>文件大小，单位：Byte</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：65535</para>
+                    /// </summary>
+                    [JsonPropertyName("length")]
+                    public string? Length { get; set; }
+
+                    /// <summary>
+                    /// <para>文件类型，如`application/pdf`</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：application/pdf</para>
+                    /// </summary>
+                    [JsonPropertyName("mime_type")]
+                    public string? MimeType { get; set; }
+                }
             }
         }
     }

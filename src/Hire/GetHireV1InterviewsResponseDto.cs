@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取面试信息 响应体
-/// <para>根据投递 ID 或面试时间获取面试信息。</para>
+/// <para>获取面试信息。可通过「投递 ID」、「面试 ID」以及「面试开始时间」进行条件筛选，筛选条件不能同时为空。</para>
 /// <para>接口ID：6989078472837267459</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/interview/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2finterview%2flist</para>
@@ -34,7 +34,7 @@ public record GetHireV1InterviewsResponseDto
     public record InterviewExtend
     {
         /// <summary>
-        /// <para>面试 ID，可通过[获取人才面试信息](https://open.larkoffice.com/document/server-docs/hire-v1/candidate-management/delivery-process-management/interview/get_by_talent)获取</para>
+        /// <para>面试 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6949805467799537964</para>
         /// </summary>
@@ -94,7 +94,7 @@ public record GetHireV1InterviewsResponseDto
             public string? UserId { get; set; }
 
             /// <summary>
-            /// <para>系统预设题目内容，来自面试评价表中预设字段「记录」，详情参考[获取面试评价表信息](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)</para>
+            /// <para>系统预设题目内容，来自面试评价表中预设字段「记录」，详情参考[获取面试评价表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_record_template/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：符合要求，推荐录用</para>
             /// </summary>
@@ -141,7 +141,7 @@ public record GetHireV1InterviewsResponseDto
             public record InterviewRecordInterviewScore
             {
                 /// <summary>
-                /// <para>面试评分 ID</para>
+                /// <para>面试评分 ID，对应[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)接口返回数据中的 `data.items.modules.dimensions.option_items.id` 字段</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6949805467799537964</para>
                 /// </summary>
@@ -250,7 +250,7 @@ public record GetHireV1InterviewsResponseDto
         public int? FeedbackSubmitTime { get; set; }
 
         /// <summary>
-        /// <para>面试关联的投递阶段，详情参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/create)</para>
+        /// <para>面试关联的投递阶段，详情请查看：[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)</para>
         /// <para>必填：否</para>
         /// <para>示例值：634324253532232</para>
         /// </summary>
@@ -278,7 +278,7 @@ public record GetHireV1InterviewsResponseDto
         public record IdNameObject
         {
             /// <summary>
-            /// <para>投递阶段 ID，详情参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/create)</para>
+            /// <para>投递阶段 ID，详情请查看：[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：1213213123123</para>
             /// </summary>
@@ -464,7 +464,7 @@ public record GetHireV1InterviewsResponseDto
         public record InterviewAddress
         {
             /// <summary>
-            /// <para>地址 ID</para>
+            /// <para>地址 ID，可通过[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6949805467799537964</para>
             /// </summary>

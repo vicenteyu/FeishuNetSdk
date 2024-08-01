@@ -9,12 +9,12 @@
 // <copyright file="GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取 Offer 申请表模板信息 响应体</summary>
+// <summary>获取 Offer 申请表信息 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 获取 Offer 申请表模板信息 响应体
-/// <para>获取 Offer 申请表模板信息。</para>
+/// 获取 Offer 申请表信息 响应体
+/// <para>根据 Offer 申请表 ID 获取 Offer 申请表信息，可获取到的信息包括申请表名称、申请表模块、申请表字段等。</para>
 /// <para>接口ID：7081627245290651652</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/offer-settings/offer_application_form/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2foffer_application_form%2fget</para>
@@ -34,37 +34,37 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
     public record OfferApplyFormInfo
     {
         /// <summary>
-        /// <para>offer申请表 ID</para>
+        /// <para>Offer 申请表 ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：23746823748</para>
+        /// <para>示例值：7190465990618843431</para>
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>offer申请表名称</para>
+        /// <para>Offer 申请表名称</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("name")]
         public I18n? Name { get; set; }
 
         /// <summary>
-        /// <para>offer申请表名称</para>
+        /// <para>Offer 申请表名称</para>
         /// </summary>
         public record I18n
         {
             /// <summary>
-            /// <para>中文</para>
+            /// <para>中文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：测试</para>
+            /// <para>示例值：校招 Offer 申请表</para>
             /// </summary>
             [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
-            /// <para>英文</para>
+            /// <para>英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：test</para>
+            /// <para>示例值：campus offer application form</para>
             /// </summary>
             [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
@@ -105,7 +105,7 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                 /// <summary>
                 /// <para>模块 ID</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：23746823748</para>
+                /// <para>示例值：7230465990618843432</para>
                 /// </summary>
                 [JsonPropertyName("id")]
                 public string? Id { get; set; }
@@ -123,24 +123,24 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>中文</para>
+                    /// <para>中文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：测试</para>
+                    /// <para>示例值：基础信息模块</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
-                    /// <para>英文</para>
+                    /// <para>英文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：test</para>
+                    /// <para>示例值：basic info module</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
 
                 /// <summary>
-                /// <para>是否为自定义模块</para>
+                /// <para>是否为自定义模块，false代表系统预置模块</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
@@ -148,7 +148,7 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                 public bool? IsCustomized { get; set; }
 
                 /// <summary>
-                /// <para>模块状态是否启用</para>
+                /// <para>模块启用状态</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// <para>可选值：<list type="bullet">
@@ -181,7 +181,7 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     /// <summary>
                     /// <para>字段 ID</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：23847293234</para>
+                    /// <para>示例值：7260465990618843426</para>
                     /// </summary>
                     [JsonPropertyName("id")]
                     public string? Id { get; set; }
@@ -199,17 +199,17 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>中文</para>
+                        /// <para>中文名称</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：测试</para>
+                        /// <para>示例值：薪资总包字段</para>
                         /// </summary>
                         [JsonPropertyName("zh_cn")]
                         public string? ZhCn { get; set; }
 
                         /// <summary>
-                        /// <para>英文</para>
+                        /// <para>英文名称</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：test</para>
+                        /// <para>示例值：salary total package field</para>
                         /// </summary>
                         [JsonPropertyName("en_us")]
                         public string? EnUs { get; set; }
@@ -225,13 +225,13 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     /// <summary>
                     /// <para>所属模块 ID</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：23847293234</para>
+                    /// <para>示例值：7230465990618843432</para>
                     /// </summary>
                     [JsonPropertyName("module_id")]
                     public string? ModuleId { get; set; }
 
                     /// <summary>
-                    /// <para>是否为自定义字段</para>
+                    /// <para>是否为自定义字段，false代表系统预置字段</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：true</para>
                     /// </summary>
@@ -247,7 +247,7 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     public bool? IsRequired { get; set; }
 
                     /// <summary>
-                    /// <para>是否启用</para>
+                    /// <para>字段启用状态</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：1</para>
                     /// <para>可选值：<list type="bullet">
@@ -259,7 +259,7 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     public int? ActiveStatus { get; set; }
 
                     /// <summary>
-                    /// <para>是否修改后需审批</para>
+                    /// <para>修改后是否需要审批</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：true</para>
                     /// </summary>
@@ -267,7 +267,7 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     public bool? NeedApprove { get; set; }
 
                     /// <summary>
-                    /// <para>是否敏感</para>
+                    /// <para>是否敏感字段，敏感字段会在发起 Offer 审批时隐藏</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：false</para>
                     /// </summary>
@@ -275,7 +275,7 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     public bool? IsSensitive { get; set; }
 
                     /// <summary>
-                    /// <para>字段类型枚举</para>
+                    /// <para>字段类型</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：1</para>
                     /// <para>可选值：<list type="bullet">
@@ -296,33 +296,33 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     public int? ObjectType { get; set; }
 
                     /// <summary>
-                    /// <para>配置信息</para>
+                    /// <para>字段配置信息</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("config")]
                     public OfferApplyFormObjectConfigInfo? Config { get; set; }
 
                     /// <summary>
-                    /// <para>配置信息</para>
+                    /// <para>字段配置信息</para>
                     /// </summary>
                     public record OfferApplyFormObjectConfigInfo
                     {
                         /// <summary>
-                        /// <para>选项信息</para>
+                        /// <para>选项信息，仅在在字段类型object_type为单选、多选时有值</para>
                         /// <para>必填：否</para>
                         /// </summary>
                         [JsonPropertyName("options")]
                         public OfferApplyFormConfigOptionInfo[]? Options { get; set; }
 
                         /// <summary>
-                        /// <para>选项信息</para>
+                        /// <para>选项信息，仅在在字段类型object_type为单选、多选时有值</para>
                         /// </summary>
                         public record OfferApplyFormConfigOptionInfo
                         {
                             /// <summary>
                             /// <para>选项 ID</para>
                             /// <para>必填：否</para>
-                            /// <para>示例值：2378568265</para>
+                            /// <para>示例值：7551465990618843435</para>
                             /// </summary>
                             [JsonPropertyName("id")]
                             public string? Id { get; set; }
@@ -340,17 +340,17 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                             public record I18n
                             {
                                 /// <summary>
-                                /// <para>中文</para>
+                                /// <para>中文名称</para>
                                 /// <para>必填：否</para>
-                                /// <para>示例值：测试</para>
+                                /// <para>示例值：全年薪资选项</para>
                                 /// </summary>
                                 [JsonPropertyName("zh_cn")]
                                 public string? ZhCn { get; set; }
 
                                 /// <summary>
-                                /// <para>英文</para>
+                                /// <para>英文名称</para>
                                 /// <para>必填：否</para>
-                                /// <para>示例值：test</para>
+                                /// <para>示例值：annual salary option</para>
                                 /// </summary>
                                 [JsonPropertyName("en_us")]
                                 public string? EnUs { get; set; }
@@ -365,27 +365,27 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                         }
 
                         /// <summary>
-                        /// <para>公式信息</para>
+                        /// <para>公式信息，仅在在字段类型object_type为公式时有值</para>
                         /// <para>必填：否</para>
                         /// </summary>
                         [JsonPropertyName("formula")]
                         public OfferApplyFormConfigFormulaInfo? Formula { get; set; }
 
                         /// <summary>
-                        /// <para>公式信息</para>
+                        /// <para>公式信息，仅在在字段类型object_type为公式时有值</para>
                         /// </summary>
                         public record OfferApplyFormConfigFormulaInfo
                         {
                             /// <summary>
-                            /// <para>公式值</para>
+                            /// <para>计算公式。由薪资字段ID、运算符组成，薪资字段来源于offer申请表-薪资信息模块，公式中包含的薪资字段具体信息通过同级字段extra_map获取。示例："( [6872592813776914699] * 12 + 20 / 2 ) / [6872592813776914699] + 2000"，其中6872592813776914699为薪资字段ID</para>
                             /// <para>必填：否</para>
-                            /// <para>示例值：[object_id_1] + [object_id_2] * 12</para>
+                            /// <para>示例值：[object_id] * 12</para>
                             /// </summary>
                             [JsonPropertyName("value")]
                             public string? Value { get; set; }
 
                             /// <summary>
-                            /// <para>公式结果类型枚举</para>
+                            /// <para>计算结果显示格式</para>
                             /// <para>必填：否</para>
                             /// <para>示例值：1</para>
                             /// <para>可选值：<list type="bullet">
@@ -398,49 +398,49 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                             public int? Result { get; set; }
 
                             /// <summary>
-                            /// <para>公式额外描述</para>
+                            /// <para>公式字段信息</para>
                             /// <para>必填：否</para>
                             /// </summary>
                             [JsonPropertyName("extra_map")]
                             public OfferApplyFormFormulaExtraMapInfo[]? ExtraMaps { get; set; }
 
                             /// <summary>
-                            /// <para>公式额外描述</para>
+                            /// <para>公式字段信息</para>
                             /// </summary>
                             public record OfferApplyFormFormulaExtraMapInfo
                             {
                                 /// <summary>
-                                /// <para>object ID</para>
+                                /// <para>公式字段 ID，字段来源于Offer申请表 - 薪资信息模块。如value示例中的：6872592813776914699</para>
                                 /// <para>必填：否</para>
-                                /// <para>示例值：object_id_1</para>
+                                /// <para>示例值：object_id</para>
                                 /// </summary>
                                 [JsonPropertyName("key")]
                                 public string? Key { get; set; }
 
                                 /// <summary>
-                                /// <para>object 名称</para>
+                                /// <para>公式字段名称</para>
                                 /// <para>必填：否</para>
                                 /// </summary>
                                 [JsonPropertyName("value")]
                                 public I18n? Value { get; set; }
 
                                 /// <summary>
-                                /// <para>object 名称</para>
+                                /// <para>公式字段名称</para>
                                 /// </summary>
                                 public record I18n
                                 {
                                     /// <summary>
-                                    /// <para>中文</para>
+                                    /// <para>中文名称。如：基本工资</para>
                                     /// <para>必填：否</para>
-                                    /// <para>示例值：测试</para>
+                                    /// <para>示例值：月薪</para>
                                     /// </summary>
                                     [JsonPropertyName("zh_cn")]
                                     public string? ZhCn { get; set; }
 
                                     /// <summary>
-                                    /// <para>英文</para>
+                                    /// <para>英文名称。如：Basic salary</para>
                                     /// <para>必填：否</para>
-                                    /// <para>示例值：test</para>
+                                    /// <para>示例值：monthly income</para>
                                     /// </summary>
                                     [JsonPropertyName("en_us")]
                                     public string? EnUs { get; set; }
@@ -449,19 +449,19 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                         }
 
                         /// <summary>
-                        /// <para>级联配置信息</para>
+                        /// <para>字段显示条件配置</para>
                         /// <para>必填：否</para>
                         /// </summary>
                         [JsonPropertyName("object_display_config")]
                         public OfferApplyFormObjectDisplayConfigInfo? ObjectDisplayConfig { get; set; }
 
                         /// <summary>
-                        /// <para>级联配置信息</para>
+                        /// <para>字段显示条件配置</para>
                         /// </summary>
                         public record OfferApplyFormObjectDisplayConfigInfo
                         {
                             /// <summary>
-                            /// <para>展示条件枚举</para>
+                            /// <para>显示条件类型</para>
                             /// <para>必填：否</para>
                             /// <para>示例值：1</para>
                             /// <para>可选值：<list type="bullet">
@@ -473,27 +473,31 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                             public int? DisplayCondition { get; set; }
 
                             /// <summary>
-                            /// <para>字段条件配置</para>
+                            /// <para>条件列表。由字段 ID、运算符、字段值组合成一个条件。如：</para>
+                            /// <para>- 招聘类型（字段 ID 对应的字段）--等于--社招</para>
+                            /// <para>- 入职部门（字段 ID 对应的字段）--包含--人事部</para>
                             /// <para>必填：否</para>
                             /// </summary>
                             [JsonPropertyName("pre_object_config_list")]
                             public OfferApplyFormPreObjectConfigInfo[]? PreObjectConfigLists { get; set; }
 
                             /// <summary>
-                            /// <para>字段条件配置</para>
+                            /// <para>条件列表。由字段 ID、运算符、字段值组合成一个条件。如：</para>
+                            /// <para>- 招聘类型（字段 ID 对应的字段）--等于--社招</para>
+                            /// <para>- 入职部门（字段 ID 对应的字段）--包含--人事部</para>
                             /// </summary>
                             public record OfferApplyFormPreObjectConfigInfo
                             {
                                 /// <summary>
-                                /// <para>字段 ID</para>
+                                /// <para>字段 ID，字段来源于offer申请表</para>
                                 /// <para>必填：否</para>
-                                /// <para>示例值：687529575</para>
+                                /// <para>示例值：7560465990618843426</para>
                                 /// </summary>
                                 [JsonPropertyName("id")]
                                 public string? Id { get; set; }
 
                                 /// <summary>
-                                /// <para>运算符枚举</para>
+                                /// <para>运算符</para>
                                 /// <para>必填：否</para>
                                 /// <para>示例值：1</para>
                                 /// <para>可选值：<list type="bullet">

@@ -17,39 +17,39 @@
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyId</td></tr>
 <tr><td rowspan="2">9</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>解决/恢复评论</td></tr>
 <tr><td colspan="3">PatchDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
-<tr><td rowspan="2">10</td><td rowspan="2">2024-04-24</td><td>&#10003;</td><td>云文档</td><td>获取文档基本信息</td></tr>
+<tr><td rowspan="2">10</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取文档基本信息</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentId</td></tr>
-<tr><td rowspan="2">11</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>获取文档纯文本内容</td></tr>
+<tr><td rowspan="2">11</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取文档纯文本内容</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdRawContent</td></tr>
-<tr><td rowspan="2">12</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>云文档</td><td>获取文档所有块</td></tr>
+<tr><td rowspan="2">12</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取文档所有块</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocks</td></tr>
-<tr><td rowspan="2">13</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>创建文档</td></tr>
+<tr><td rowspan="2">13</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建文档</td></tr>
 <tr><td colspan="3">PostDocxV1Documents</td></tr>
 <tr><td rowspan="2">14</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单个职务信息</td></tr>
 <tr><td colspan="3">GetContactV3JobTitlesByJobTitleId</td></tr>
-<tr><td rowspan="2">15</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>云文档</td><td>获取块的内容</td></tr>
+<tr><td rowspan="2">15</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取块的内容</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocksByBlockId</td></tr>
-<tr><td rowspan="2">16</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>云文档</td><td>创建块</td></tr>
+<tr><td rowspan="2">16</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建块</td></tr>
 <tr><td colspan="3">PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildren</td></tr>
-<tr><td rowspan="2">17</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>云文档</td><td>更新块的内容</td></tr>
+<tr><td rowspan="2">17</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新块的内容</td></tr>
 <tr><td colspan="3">PatchDocxV1DocumentsByDocumentIdBlocksByBlockId</td></tr>
-<tr><td rowspan="2">18</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>云文档</td><td>批量更新块的内容</td></tr>
+<tr><td rowspan="2">18</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>批量更新块的内容</td></tr>
 <tr><td colspan="3">PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdate</td></tr>
-<tr><td rowspan="2">19</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>云文档</td><td>删除块</td></tr>
+<tr><td rowspan="2">19</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>删除块</td></tr>
 <tr><td colspan="3">DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDelete</td></tr>
-<tr><td rowspan="2">20</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>云文档</td><td>获取所有子块</td></tr>
+<tr><td rowspan="2">20</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取所有子块</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocksByBlockIdChildren</td></tr>
-<tr><td rowspan="2">21</td><td rowspan="2">2024-05-30</td><td>&#10003;</td><td>云文档</td><td>修改电子表格属性</td></tr>
+<tr><td rowspan="2">21</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>修改电子表格属性</td></tr>
 <tr><td colspan="3">PatchSheetsV3SpreadsheetsBySpreadsheetToken</td></tr>
-<tr><td rowspan="2">22</td><td rowspan="2">2024-05-30</td><td>&#10003;</td><td>云文档</td><td>获取电子表格信息</td></tr>
+<tr><td rowspan="2">22</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取电子表格信息</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetToken</td></tr>
-<tr><td rowspan="2">23</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>创建电子表格</td></tr>
+<tr><td rowspan="2">23</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建电子表格</td></tr>
 <tr><td colspan="3">PostSheetsV3Spreadsheets</td></tr>
-<tr><td rowspan="2">24</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>查询工作表</td></tr>
+<tr><td rowspan="2">24</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>查询工作表</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetId</td></tr>
 <tr><td rowspan="2">25</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取租户职务列表</td></tr>
 <tr><td colspan="3">GetContactV3JobTitles</td></tr>
-<tr><td rowspan="2">26</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>获取工作表</td></tr>
+<tr><td rowspan="2">26</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取工作表</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQuery</td></tr>
 <tr><td rowspan="2">27</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>操作工作表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate</td></tr>
@@ -61,7 +61,7 @@
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRange</td></tr>
 <tr><td rowspan="2">31</td><td rowspan="2">2024-07-30</td><td>&#10003;</td><td>云文档</td><td>更新行列</td></tr>
 <tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRange</td></tr>
-<tr><td rowspan="2">32</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>移动行列</td></tr>
+<tr><td rowspan="2">32</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>移动行列</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimension</td></tr>
 <tr><td rowspan="2">33</td><td rowspan="2">2024-06-19</td><td>&#10003;</td><td>云文档</td><td>删除行列</td></tr>
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRange</td></tr>
@@ -89,41 +89,41 @@
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCells</td></tr>
 <tr><td rowspan="2">45</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>拆分单元格</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCells</td></tr>
-<tr><td rowspan="2">46</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>查找单元格</td></tr>
+<tr><td rowspan="2">46</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>查找单元格</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFind</td></tr>
 <tr><td rowspan="2">47</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取租户工作城市列表</td></tr>
 <tr><td colspan="3">GetContactV3WorkCities</td></tr>
-<tr><td rowspan="2">48</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>云文档</td><td>替换单元格</td></tr>
+<tr><td rowspan="2">48</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>替换单元格</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdReplace</td></tr>
-<tr><td rowspan="2">49</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>获取筛选</td></tr>
+<tr><td rowspan="2">49</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取筛选</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilter</td></tr>
-<tr><td rowspan="2">50</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>创建筛选</td></tr>
+<tr><td rowspan="2">50</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建筛选</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilter</td></tr>
-<tr><td rowspan="2">51</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>更新筛选</td></tr>
+<tr><td rowspan="2">51</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新筛选</td></tr>
 <tr><td colspan="3">PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilter</td></tr>
-<tr><td rowspan="2">52</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>删除筛选</td></tr>
+<tr><td rowspan="2">52</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>删除筛选</td></tr>
 <tr><td colspan="3">DeleteSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilter</td></tr>
-<tr><td rowspan="2">53</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>获取筛选视图</td></tr>
+<tr><td rowspan="2">53</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取筛选视图</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewId</td></tr>
-<tr><td rowspan="2">54</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>查询筛选视图</td></tr>
+<tr><td rowspan="2">54</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>查询筛选视图</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsQuery</td></tr>
-<tr><td rowspan="2">55</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>创建筛选视图</td></tr>
+<tr><td rowspan="2">55</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建筛选视图</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViews</td></tr>
-<tr><td rowspan="2">56</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>更新筛选视图</td></tr>
+<tr><td rowspan="2">56</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新筛选视图</td></tr>
 <tr><td colspan="3">PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewId</td></tr>
-<tr><td rowspan="2">57</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>删除筛选视图</td></tr>
+<tr><td rowspan="2">57</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>删除筛选视图</td></tr>
 <tr><td colspan="3">DeleteSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewId</td></tr>
 <tr><td rowspan="2">58</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>消息与群组</td><td>撤回消息</td></tr>
 <tr><td colspan="3">DeleteImV1MessagesByMessageId</td></tr>
-<tr><td rowspan="2">59</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>获取筛选条件</td></tr>
+<tr><td rowspan="2">59</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取筛选条件</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionId</td></tr>
-<tr><td rowspan="2">60</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>查询筛选条件</td></tr>
+<tr><td rowspan="2">60</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>查询筛选条件</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsQuery</td></tr>
-<tr><td rowspan="2">61</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>创建筛选条件</td></tr>
+<tr><td rowspan="2">61</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建筛选条件</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditions</td></tr>
-<tr><td rowspan="2">62</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>更新筛选条件</td></tr>
+<tr><td rowspan="2">62</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新筛选条件</td></tr>
 <tr><td colspan="3">PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionId</td></tr>
-<tr><td rowspan="2">63</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>云文档</td><td>删除筛选条件</td></tr>
+<tr><td rowspan="2">63</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>删除筛选条件</td></tr>
 <tr><td colspan="3">DeleteSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionId</td></tr>
 <tr><td rowspan="2">64</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>增加保护范围</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimension</td></tr>
@@ -135,7 +135,7 @@
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDel</td></tr>
 <tr><td rowspan="2">68</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>查询下拉列表设置</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
-<tr><td rowspan="2">69</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>消息与群组</td><td>更新应用发送的消息卡片</td></tr>
+<tr><td rowspan="2">69</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>消息与群组</td><td>更新应用发送的消息卡片</td></tr>
 <tr><td colspan="3">PatchImV1MessagesByMessageId</td></tr>
 <tr><td rowspan="2">70</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>云文档</td><td>设置下拉列表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
@@ -151,17 +151,17 @@
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdate</td></tr>
 <tr><td rowspan="2">76</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>删除条件格式</td></tr>
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDelete</td></tr>
-<tr><td rowspan="2">77</td><td rowspan="2">2022-09-29</td><td>&#10003;</td><td>云文档</td><td>获取浮动图片</td></tr>
+<tr><td rowspan="2">77</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取浮动图片</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageId</td></tr>
-<tr><td rowspan="2">78</td><td rowspan="2">2022-09-29</td><td>&#10003;</td><td>云文档</td><td>查询浮动图片</td></tr>
+<tr><td rowspan="2">78</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>查询浮动图片</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesQuery</td></tr>
-<tr><td rowspan="2">79</td><td rowspan="2">2022-09-29</td><td>&#10003;</td><td>云文档</td><td>创建浮动图片</td></tr>
+<tr><td rowspan="2">79</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建浮动图片</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImages</td></tr>
 <tr><td rowspan="2">80</td><td rowspan="2">2024-06-05</td><td>&#10003;</td><td>消息与群组</td><td>添加消息表情回复</td></tr>
 <tr><td colspan="3">PostImV1MessagesByMessageIdReactions</td></tr>
-<tr><td rowspan="2">81</td><td rowspan="2">2022-09-29</td><td>&#10003;</td><td>云文档</td><td>更新浮动图片</td></tr>
+<tr><td rowspan="2">81</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新浮动图片</td></tr>
 <tr><td colspan="3">PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageId</td></tr>
-<tr><td rowspan="2">82</td><td rowspan="2">2022-10-19</td><td>&#10003;</td><td>云文档</td><td>删除浮动图片</td></tr>
+<tr><td rowspan="2">82</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>删除浮动图片</td></tr>
 <tr><td colspan="3">DeleteSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageId</td></tr>
 <tr><td rowspan="2">83</td><td rowspan="2">2023-11-07</td><td>&#10003;</td><td>多维表格</td><td>复制多维表格</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenCopy</td></tr>
@@ -209,9 +209,9 @@
 <tr><td colspan="3">PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldId</td></tr>
 <tr><td rowspan="2">105</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>多维表格</td><td>列出表单问题</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFields</td></tr>
-<tr><td rowspan="2">106</td><td rowspan="2">2024-07-30</td><td>&#10003;</td><td>多维表格</td><td>检索记录</td></tr>
+<tr><td rowspan="2">106</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>多维表格</td><td>检索记录</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordId</td></tr>
-<tr><td rowspan="2">107</td><td rowspan="2">2023-08-03</td><td>&#10003;</td><td>多维表格</td><td>列出记录</td></tr>
+<tr><td rowspan="2">107</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>多维表格</td><td>列出记录</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdRecords</td></tr>
 <tr><td rowspan="2">108</td><td rowspan="2">2024-07-29</td><td>&#10003;</td><td>多维表格</td><td>新增记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecords</td></tr>
@@ -229,7 +229,7 @@
 <tr><td colspan="3">PostImV1Pins</td></tr>
 <tr><td rowspan="2">115</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>多维表格</td><td>删除多条记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDelete</td></tr>
-<tr><td rowspan="2">116</td><td rowspan="2">2024-05-07</td><td>&#10003;</td><td>多维表格</td><td>列出字段</td></tr>
+<tr><td rowspan="2">116</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>多维表格</td><td>列出字段</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdFields</td></tr>
 <tr><td rowspan="2">117</td><td rowspan="2">2024-05-14</td><td>&#10003;</td><td>多维表格</td><td>新增字段</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFields</td></tr>
@@ -257,35 +257,35 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenRolesByRoleIdMembers</td></tr>
 <tr><td rowspan="2">129</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>多维表格</td><td>删除协作者</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenRolesByRoleIdMembersByMemberId</td></tr>
-<tr><td rowspan="2">130</td><td rowspan="2">2024-07-22</td><td>&#10003;</td><td>云文档</td><td>获取知识空间列表</td></tr>
+<tr><td rowspan="2">130</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取知识空间列表</td></tr>
 <tr><td colspan="3">GetWikiV2Spaces</td></tr>
-<tr><td rowspan="2">131</td><td rowspan="2">2024-07-22</td><td>&#10003;</td><td>云文档</td><td>获取知识空间信息</td></tr>
+<tr><td rowspan="2">131</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取知识空间信息</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceId</td></tr>
-<tr><td rowspan="2">132</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>创建知识空间</td></tr>
+<tr><td rowspan="2">132</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建知识空间</td></tr>
 <tr><td colspan="3">PostWikiV2Spaces</td></tr>
-<tr><td rowspan="2">133</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>添加知识空间成员</td></tr>
+<tr><td rowspan="2">133</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>添加知识空间成员</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdMembers</td></tr>
-<tr><td rowspan="2">134</td><td rowspan="2">2024-01-18</td><td>&#10003;</td><td>云文档</td><td>删除知识空间成员</td></tr>
+<tr><td rowspan="2">134</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>删除知识空间成员</td></tr>
 <tr><td colspan="3">DeleteWikiV2SpacesBySpaceIdMembersByMemberId</td></tr>
-<tr><td rowspan="2">135</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>更新知识空间设置</td></tr>
+<tr><td rowspan="2">135</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新知识空间设置</td></tr>
 <tr><td colspan="3">PutWikiV2SpacesBySpaceIdSetting</td></tr>
 <tr><td rowspan="2">136</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>消息与群组</td><td>获取群内 Pin 消息</td></tr>
 <tr><td colspan="3">GetImV1Pins</td></tr>
-<tr><td rowspan="2">137</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>创建知识空间节点</td></tr>
+<tr><td rowspan="2">137</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建知识空间节点</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodes</td></tr>
-<tr><td rowspan="2">138</td><td rowspan="2">2024-06-26</td><td>&#10003;</td><td>云文档</td><td>获取知识空间节点信息</td></tr>
+<tr><td rowspan="2">138</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取知识空间节点信息</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesGetNode</td></tr>
-<tr><td rowspan="2">139</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>获取知识空间子节点列表</td></tr>
+<tr><td rowspan="2">139</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取知识空间子节点列表</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdNodes</td></tr>
-<tr><td rowspan="2">140</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>移动知识空间节点</td></tr>
+<tr><td rowspan="2">140</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>移动知识空间节点</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodesByNodeTokenMove</td></tr>
-<tr><td rowspan="2">141</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>更新知识空间节点标题</td></tr>
+<tr><td rowspan="2">141</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新知识空间节点标题</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodesByNodeTokenUpdateTitle</td></tr>
-<tr><td rowspan="2">142</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>云文档</td><td>创建知识空间节点副本</td></tr>
+<tr><td rowspan="2">142</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建知识空间节点副本</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodesByNodeTokenCopy</td></tr>
-<tr><td rowspan="2">143</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>移动云空间文档至知识空间</td></tr>
+<tr><td rowspan="2">143</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>移动云空间文档至知识空间</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodesMoveDocsToWiki</td></tr>
-<tr><td rowspan="2">144</td><td rowspan="2">2023-07-27</td><td>&#10003;</td><td>云文档</td><td>获取任务结果</td></tr>
+<tr><td rowspan="2">144</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取任务结果</td></tr>
 <tr><td colspan="3">GetWikiV2TasksByTaskId</td></tr>
 <tr><td rowspan="2">145</td><td rowspan="2">2024-05-31</td><td>&#10003;</td><td>云文档</td><td>搜索 Wiki</td></tr>
 <tr><td colspan="3">PostWikiV1NodesSearch</td></tr>
@@ -817,7 +817,7 @@
 <tr><td colspan="3">GetDocV2ByDocTokenContent</td></tr>
 <tr><td rowspan="2">409</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>编辑旧版文档内容</td></tr>
 <tr><td colspan="3">PostDocV2ByDocTokenBatchUpdate</td></tr>
-<tr><td rowspan="2">410</td><td rowspan="2">2022-07-04</td><td>&#10003;</td><td>云文档</td><td>获取表格元数据</td></tr>
+<tr><td rowspan="2">410</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取表格元数据</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfo</td></tr>
 <tr><td rowspan="2">411</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td>更新表格属性</td></tr>
 <tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenProperties</td></tr>
@@ -903,13 +903,13 @@
 <tr><td colspan="3">PostDriveV1FilesUploadFinish</td></tr>
 <tr><td rowspan="2">452</td><td rowspan="2">2024-05-29</td><td>&#10003;</td><td>云文档</td><td>下载文件</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenDownload</td></tr>
-<tr><td rowspan="2">453</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>创建导入任务</td></tr>
+<tr><td rowspan="2">453</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建导入任务</td></tr>
 <tr><td colspan="3">PostDriveV1ImportTasks</td></tr>
-<tr><td rowspan="2">454</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>查询导入任务结果</td></tr>
+<tr><td rowspan="2">454</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>查询导入任务结果</td></tr>
 <tr><td colspan="3">GetDriveV1ImportTasksByTicket</td></tr>
-<tr><td rowspan="2">455</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>云文档</td><td>创建导出任务</td></tr>
+<tr><td rowspan="2">455</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建导出任务</td></tr>
 <tr><td colspan="3">PostDriveV1ExportTasks</td></tr>
-<tr><td rowspan="2">456</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>云文档</td><td>查询导出任务结果</td></tr>
+<tr><td rowspan="2">456</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>查询导出任务结果</td></tr>
 <tr><td colspan="3">GetDriveV1ExportTasksByTicket</td></tr>
 <tr><td rowspan="2">457</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>云文档</td><td>下载导出文件</td></tr>
 <tr><td colspan="3">GetDriveV1ExportTasksFileByFileTokenDownload</td></tr>
@@ -925,21 +925,21 @@
 <tr><td colspan="3">GetDriveV1FilesByFileTokenVersionsByVersionId</td></tr>
 <tr><td rowspan="2">463</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>云文档</td><td>获取文档版本列表</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenVersions</td></tr>
-<tr><td rowspan="2">464</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>转移所有者</td></tr>
+<tr><td rowspan="2">464</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>转移所有者</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersTransferOwner</td></tr>
 <tr><td rowspan="2">465</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>判断当前用户是否有某权限</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembersAuth</td></tr>
-<tr><td rowspan="2">466</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>获取协作者列表</td></tr>
+<tr><td rowspan="2">466</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取协作者列表</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembers</td></tr>
 <tr><td rowspan="2">467</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 获取协作者列表</td></tr>
 <tr><td colspan="3">PostDrivePermissionMemberList</td></tr>
-<tr><td rowspan="2">468</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>增加协作者权限</td></tr>
+<tr><td rowspan="2">468</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>增加协作者权限</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembers</td></tr>
-<tr><td rowspan="2">469</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>更新协作者权限</td></tr>
+<tr><td rowspan="2">469</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新协作者权限</td></tr>
 <tr><td colspan="3">PutDriveV1PermissionsByTokenMembersByMemberId</td></tr>
 <tr><td rowspan="2">470</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取父部门信息</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsParent</td></tr>
-<tr><td rowspan="2">471</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>移除协作者权限</td></tr>
+<tr><td rowspan="2">471</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>移除协作者权限</td></tr>
 <tr><td colspan="3">DeleteDriveV1PermissionsByTokenMembersByMemberId</td></tr>
 <tr><td rowspan="2">472</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>开启密码</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenPublicPassword</td></tr>
@@ -947,13 +947,13 @@
 <tr><td colspan="3">PutDriveV1PermissionsByTokenPublicPassword</td></tr>
 <tr><td rowspan="2">474</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>关闭密码</td></tr>
 <tr><td colspan="3">DeleteDriveV1PermissionsByTokenPublicPassword</td></tr>
-<tr><td rowspan="2">475</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
+<tr><td rowspan="2">475</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">476</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
+<tr><td rowspan="2">476</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
 <tr><td colspan="3">PatchDriveV1PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">477</td><td rowspan="2">2024-05-21</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
+<tr><td rowspan="2">477</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
 <tr><td colspan="3">GetDriveV2PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">478</td><td rowspan="2">2024-05-21</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
+<tr><td rowspan="2">478</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
 <tr><td colspan="3">PatchDriveV2PermissionsByTokenPublic</td></tr>
 <tr><td rowspan="2">479</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>获取云文档所有评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenComments</td></tr>
@@ -1017,11 +1017,11 @@
 <tr><td colspan="3">PostCompensationV1ArchivesQuery</td></tr>
 <tr><td rowspan="2">509</td><td rowspan="2">2024-07-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
 <tr><td colspan="3">PostCorehrV2Employees</td></tr>
-<tr><td rowspan="2">510</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>绩效</td><td>获取指标库信息</td></tr>
+<tr><td rowspan="2">510</td><td rowspan="2">2024-07-10</td><td><span style="color:red;">删除</span></td><td>绩效</td><td>获取指标库信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricLibsQuery</td></tr>
-<tr><td rowspan="2">511</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>绩效</td><td>获取指标模板信息</td></tr>
+<tr><td rowspan="2">511</td><td rowspan="2">2024-07-10</td><td><span style="color:red;">删除</span></td><td>绩效</td><td>获取指标模板信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricTemplatesQuery</td></tr>
-<tr><td rowspan="2">512</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>绩效</td><td>获取指标字段信息</td></tr>
+<tr><td rowspan="2">512</td><td rowspan="2">2024-07-10</td><td><span style="color:red;">删除</span></td><td>绩效</td><td>获取指标字段信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricFieldsQuery</td></tr>
 <tr><td rowspan="2">513</td><td rowspan="2">2024-07-02</td><td>&#10003;</td><td>云文档</td><td>批量增加协作者权限</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersBatchCreate</td></tr>
@@ -1029,10 +1029,16 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingMinute</td></tr>
 <tr><td rowspan="2">515</td><td rowspan="2">2024-07-26</td><td>&#10003;</td><td>招聘</td><td>获取待办列表</td></tr>
 <tr><td colspan="3">GetHireV1Todos</td></tr>
-<tr><td rowspan="2">516</td><td rowspan="2">2024-07-22</td><td>&#10003;</td><td>多维表格</td><td>批量获取记录</td></tr>
+<tr><td rowspan="2">516</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>多维表格</td><td>批量获取记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGet</td></tr>
 <tr><td rowspan="2">517</td><td rowspan="2">2024-07-30</td><td>&#10003;</td><td>考勤打卡</td><td>查询归档报表表头</td></tr>
 <tr><td colspan="3">PostAttendanceV1ArchiveRuleUserStatsFieldsQuery</td></tr>
 <tr><td rowspan="2">518</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>考勤打卡</td><td>查询所有归档规则</td></tr>
 <tr><td colspan="3">GetAttendanceV1ArchiveRule</td></tr>
+<tr><td rowspan="2">519</td><td rowspan="2">2024-08-01</td><td>新增</td><td>考勤打卡</td><td>写入归档报表结果</td></tr>
+<tr><td colspan="3">PostAttendanceV1ArchiveRuleUploadReport</td></tr>
+<tr><td rowspan="2">520</td><td rowspan="2">2024-08-01</td><td>新增</td><td>考勤打卡</td><td>删除归档报表行数据</td></tr>
+<tr><td colspan="3">PostAttendanceV1ArchiveRuleDelReport</td></tr>
+<tr><td rowspan="2">521</td><td rowspan="2">2024-07-31</td><td>新增</td><td>云文档</td><td>获取知识空间成员列表</td></tr>
+<tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
 </tbody></table>
