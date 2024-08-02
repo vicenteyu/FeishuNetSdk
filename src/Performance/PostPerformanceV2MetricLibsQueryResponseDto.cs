@@ -9,12 +9,12 @@
 // <copyright file="PostPerformanceV2MetricLibsQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取指标库信息 响应体</summary>
+// <summary>获取指标列表 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Performance;
 /// <summary>
-/// 获取指标库信息 响应体
-/// <para>获取指标库的信息</para>
+/// 获取指标列表 响应体
+/// <para>获取指标库中的指标信息，如指标名称、指标类型、指标标签和指标字段等信息。可通过指标启用状态、指标类型、指标可用范围等筛选条件获取指定范围的指标信息。</para>
 /// <para>接口ID：7380276358332661761</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_lib/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2fmetric_lib%2fquery</para>
@@ -58,7 +58,7 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
         public string? TypeId { get; set; }
 
         /// <summary>
-        /// <para>所属的标签</para>
+        /// <para>指标标签信息</para>
         /// <para>必填：否</para>
         /// <para>最大长度：999999</para>
         /// <para>最小长度：0</para>
@@ -67,12 +67,12 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
         public MetricTag[]? Tags { get; set; }
 
         /// <summary>
-        /// <para>所属的标签</para>
+        /// <para>指标标签信息</para>
         /// </summary>
         public record MetricTag
         {
             /// <summary>
-            /// <para>标签 ID，更多标签详情可通过【[获取指标标签信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_tag/list)】接口获取</para>
+            /// <para>指标标签 ID，详情可查看：[获取指标标签信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_tag/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：7302271694582841364</para>
             /// <para>最大长度：999999</para>
@@ -94,7 +94,7 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>标签中文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：体验</para>
                 /// </summary>
@@ -102,7 +102,7 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>标签英文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：Interactive experience</para>
                 /// </summary>
@@ -126,7 +126,7 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
         public record MetricFieldInLibrary
         {
             /// <summary>
-            /// <para>指标字段 ID。 系统预置的指标字段 ID 分别为：指标 1；权重 2；指标单位 3；目标值 4；完成值 5；完成说明 7。更多指标字段详情可通过【[获取指标字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_field/query)】接口获取</para>
+            /// <para>指标字段 ID，详情可查看：[获取指标字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_field/query)</para>
             /// <para>必填：否</para>
             /// <para>示例值：7296701873237786643</para>
             /// </summary>
@@ -134,7 +134,7 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
             public string? FieldId { get; set; }
 
             /// <summary>
-            /// <para>字段填写方式设置</para>
+            /// <para>指标字段填写设置类型</para>
             /// <para>必填：否</para>
             /// <para>示例值：admin</para>
             /// <para>可选值：<list type="bullet">
@@ -147,7 +147,7 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
             public string? InputSetting { get; set; }
 
             /// <summary>
-            /// <para>字段值</para>
+            /// <para>指标字段值</para>
             /// <para>必填：否</para>
             /// <para>示例值：90</para>
             /// </summary>
@@ -156,7 +156,7 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
         }
 
         /// <summary>
-        /// <para>评分设置类型</para>
+        /// <para>指标评分设置类型</para>
         /// <para>必填：否</para>
         /// <para>示例值：score_by_formula</para>
         /// <para>可选值：<list type="bullet">
@@ -168,14 +168,14 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
         public string? ScoringSettingType { get; set; }
 
         /// <summary>
-        /// <para>评分公式</para>
+        /// <para>指标评分公式</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("scoring_formula")]
         public Formula? ScoringFormula { get; set; }
 
         /// <summary>
-        /// <para>评分公式</para>
+        /// <para>指标评分公式</para>
         /// </summary>
         public record Formula
         {
@@ -211,7 +211,7 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
         }
 
         /// <summary>
-        /// <para>数据源录入人 ID</para>
+        /// <para>指标数据源录入人 ID</para>
         /// <para>必填：否</para>
         /// <para>最大长度：50</para>
         /// <para>最小长度：0</para>
@@ -220,12 +220,12 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
         public User[]? DataSourceInputters { get; set; }
 
         /// <summary>
-        /// <para>数据源录入人 ID</para>
+        /// <para>指标数据源录入人 ID</para>
         /// </summary>
         public record User
         {
             /// <summary>
-            /// <para>用户的 open_id</para>
+            /// <para>指标数据源录入人的 open_id</para>
             /// <para>必填：否</para>
             /// <para>示例值：od-asd2dasdasd</para>
             /// </summary>
@@ -233,7 +233,7 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
             public string? OpenId { get; set; }
 
             /// <summary>
-            /// <para>用户的 user_id，取值与user_id_type一致</para>
+            /// <para>指标数据源录入人的 user_id，取值与入参 `user_id_type` 类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou-ux987dsf6x</para>
             /// </summary>
@@ -242,7 +242,7 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
         }
 
         /// <summary>
-        /// <para>可用范围</para>
+        /// <para>指标可用范围</para>
         /// <para>必填：否</para>
         /// <para>示例值：admins_and_reviewees</para>
         /// <para>可选值：<list type="bullet">
@@ -254,7 +254,7 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
         public string? RangeOfAvailability { get; set; }
 
         /// <summary>
-        /// <para>状态是否为启用</para>
+        /// <para>指标状态是否为启用</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>

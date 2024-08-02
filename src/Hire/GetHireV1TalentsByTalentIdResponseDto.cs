@@ -4,7 +4,7 @@
 // Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-24
+// Last Modified On : 2024-08-02
 // ************************************************************************
 // <copyright file="GetHireV1TalentsByTalentIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -2777,7 +2777,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>示例值：1618494330932</para>
             /// </summary>
             [JsonPropertyName("registration_time")]
-            public int? RegistrationTime { get; set; }
+            public long? RegistrationTime { get; set; }
 
             /// <summary>
             /// <para>下载链接</para>
@@ -2814,7 +2814,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             /// <para>示例值：1618494330932</para>
             /// </summary>
             [JsonPropertyName("registration_time")]
-            public int? RegistrationTime { get; set; }
+            public long? RegistrationTime { get; set; }
 
             /// <summary>
             /// <para>下载链接</para>

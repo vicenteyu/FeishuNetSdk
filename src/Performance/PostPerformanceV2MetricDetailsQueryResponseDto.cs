@@ -9,12 +9,12 @@
 // <copyright file="PostPerformanceV2MetricDetailsQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>批量获取指定周期被评估人的关键指标详情 响应体</summary>
+// <summary>获取被评估人关键指标结果 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Performance;
 /// <summary>
-/// 批量获取指定周期被评估人的关键指标详情 响应体
-/// <para>批量获取指定周期中被评估人的关键指标详情</para>
+/// 获取被评估人关键指标结果 响应体
+/// <para>批量获取指定周期中被评估人的关键指标结果。</para>
 /// <para>接口ID：7380276358332743681</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_detail/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2fmetric_detail%2fquery</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Performance;
 public record PostPerformanceV2MetricDetailsQueryResponseDto
 {
     /// <summary>
-    /// <para>周期ID</para>
+    /// <para>周期 ID，详情可查看：[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)</para>
     /// <para>必填：否</para>
     /// <para>示例值：7291278856547794964</para>
     /// </summary>
@@ -62,7 +62,7 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
             public string? OpenId { get; set; }
 
             /// <summary>
-            /// <para>用户的 user_id，取值与user_id_type一致</para>
+            /// <para>用户的 user_id，与入参 `user_id_type` 类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou-ux987dsf6x</para>
             /// </summary>
@@ -71,7 +71,7 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
         }
 
         /// <summary>
-        /// <para>被评估人在该周期所属的指标模板 ID</para>
+        /// <para>指标模板 ID，详情可查看：[获取指标模板列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_template/query)</para>
         /// <para>必填：否</para>
         /// <para>示例值：7294570803306168339</para>
         /// </summary>
@@ -79,19 +79,19 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
         public string? MetricTemplateId { get; set; }
 
         /// <summary>
-        /// <para>被评估人在周期下的指标明细数据</para>
+        /// <para>指标详情</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("metric_details")]
         public MetricDetail? MetricDetails { get; set; }
 
         /// <summary>
-        /// <para>被评估人在周期下的指标明细数据</para>
+        /// <para>指标详情</para>
         /// </summary>
         public record MetricDetail
         {
             /// <summary>
-            /// <para>指标 ID</para>
+            /// <para>指标 ID，详情可查看：[获取指标列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_lib/query)</para>
             /// <para>必填：否</para>
             /// <para>示例值：7272581996315099155</para>
             /// </summary>
@@ -121,7 +121,7 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
             public record MetricFieldInDetails
             {
                 /// <summary>
-                /// <para>指标字段 ID。 系统预置的指标字段 ID 分别为：指标 1；权重 2；指标单位 3；目标值 4；完成值 5；完成说明 7。更多指标字段详情可通过【[获取指标字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_field/query)】接口获取</para>
+                /// <para>指标字段 ID，详情可查看：[获取指标字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_field/query)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：7296082067266207764</para>
                 /// </summary>
@@ -129,7 +129,7 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
                 public string? FieldId { get; set; }
 
                 /// <summary>
-                /// <para>字段值</para>
+                /// <para>指标字段值</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：90</para>
                 /// </summary>
@@ -138,7 +138,7 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
             }
 
             /// <summary>
-            /// <para>指标所属的指标维度 ID</para>
+            /// <para>指标维度 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：7303895818346430484</para>
             /// </summary>
@@ -158,9 +158,9 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>指标维度中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：体验</para>
+                /// <para>示例值：维度一</para>
                 /// <para>最大长度：999999999</para>
                 /// <para>最小长度：0</para>
                 /// </summary>
@@ -168,9 +168,9 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>指标维度英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Interactive experience</para>
+                /// <para>示例值：Dimension 1</para>
                 /// <para>最大长度：999999999</para>
                 /// <para>最小长度：0</para>
                 /// </summary>
@@ -179,7 +179,7 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
             }
 
             /// <summary>
-            /// <para>指标维度的维度权重，如果没有设置则返回为空</para>
+            /// <para>指标维度权重，如果没有设置则返回为空</para>
             /// <para>必填：否</para>
             /// <para>示例值：90%</para>
             /// </summary>

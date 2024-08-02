@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Performance;
 /// <summary>
 /// 获取周期任务（指定用户） 响应体
-/// <para>获取指定周期的指定用户的任务信息</para>
+/// <para>根据用户 ID 批量获取指定周期的任务信息。支持传入任务分类、任务截止时间参数删选周期内任务数据。</para>
 /// <para>接口ID：7275704938197221378</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/stage_task/find_by_user_list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v1%2fstage_task%2ffind_by_user_list</para>
@@ -34,7 +34,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
     public record SemesterBaseInfo
     {
         /// <summary>
-        /// <para>周期 ID</para>
+        /// <para>周期 ID，详情可查看[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)</para>
         /// <para>必填：否</para>
         /// <para>示例值：7263150499637264385</para>
         /// </summary>
@@ -54,7 +54,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>中文</para>
+            /// <para>周期中文名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：示例周期</para>
             /// </summary>
@@ -62,16 +62,16 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             public string? ZhCN { get; set; }
 
             /// <summary>
-            /// <para>英文</para>
+            /// <para>周期英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：DemoSemester</para>
+            /// <para>示例值：Demo Semester</para>
             /// </summary>
             [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
         }
 
         /// <summary>
-        /// <para>开始时间</para>
+        /// <para>周期开始时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1625068800000</para>
         /// </summary>
@@ -79,7 +79,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
         public string? StartTime { get; set; }
 
         /// <summary>
-        /// <para>结束时间</para>
+        /// <para>周期结束时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1625068800000</para>
         /// </summary>
@@ -100,7 +100,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
     public record StageTask
     {
         /// <summary>
-        /// <para>用户 ID</para>
+        /// <para>用户 ID，与入参 `user_id_type` 类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：6765375796711327240</para>
         /// </summary>
@@ -123,6 +123,8 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             /// <para>任务分类</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
+            /// <para>最大值：3</para>
+            /// <para>最小值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：待完成</item>
             /// <item>2：已完成</item>
@@ -136,6 +138,8 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             /// <para>环节任务数量</para>
             /// <para>必填：否</para>
             /// <para>示例值：4</para>
+            /// <para>最大值：99</para>
+            /// <para>最小值：0</para>
             /// </summary>
             [JsonPropertyName("stage_num")]
             public int? StageNum { get; set; }
@@ -174,15 +178,15 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>环节中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：360°确认</para>
+                /// <para>示例值：360° 确认</para>
                 /// </summary>
                 [JsonPropertyName("zh-CN")]
                 public string? ZhCN { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>环节英文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：confirm_invitation</para>
                 /// </summary>
@@ -191,7 +195,7 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             }
 
             /// <summary>
-            /// <para>环节截止时间</para>
+            /// <para>环节截止时间，毫秒时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1625068800000</para>
             /// </summary>
@@ -202,6 +206,8 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             /// <para>未完成的任务数量</para>
             /// <para>必填：否</para>
             /// <para>示例值：99</para>
+            /// <para>最大值：99999</para>
+            /// <para>最小值：0</para>
             /// </summary>
             [JsonPropertyName("need_todo_count")]
             public int? NeedTodoCount { get; set; }
@@ -232,6 +238,8 @@ public record PostPerformanceV1StageTasksFindByUserListResponseDto
             /// <para>任务分类</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
+            /// <para>最大值：3</para>
+            /// <para>最小值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：待完成</item>
             /// <item>2：已完成</item>

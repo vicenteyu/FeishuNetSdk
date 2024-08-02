@@ -4,7 +4,7 @@
 // Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-26
+// Last Modified On : 2024-08-02
 // ************************************************************************
 // <copyright file="PostHireV1JobsByJobIdCombinedUpdateBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -30,7 +30,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string? Id { get; set; }
 
     /// <summary>
-    /// <para>工作年限</para>
+    /// <para>工作经验要求</para>
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// <para>可选值：<list type="bullet">
@@ -53,7 +53,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     /// <para>示例值：1622484739</para>
     /// </summary>
     [JsonPropertyName("expiry_time")]
-    public int? ExpiryTime { get; set; }
+    public long? ExpiryTime { get; set; }
 
     /// <summary>
     /// <para>自定义字段</para>
@@ -68,7 +68,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public record CombinedJobObjectValueMap
     {
         /// <summary>
-        /// <para>自定义字段 ID</para>
+        /// <para>自定义字段 ID，详情请查看：[获取职位模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_schema/list)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6960663240925956549</para>
         /// </summary>
@@ -76,7 +76,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
         public string? ObjectId { get; set; }
 
         /// <summary>
-        /// <para>自定义字段的值</para>
+        /// <para>自定义字段值</para>
         /// <para>必填：否</para>
         /// <para>示例值：自定义内容</para>
         /// </summary>
@@ -85,7 +85,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     }
 
     /// <summary>
-    /// <para>最低职级ID，枚举通过接口「获取职级列表」获取</para>
+    /// <para>最低职级 ID，需与入参`job_level_id_type` 类型一致，可通过 [获取租户职级列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list) 接口获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956547</para>
     /// </summary>
@@ -93,7 +93,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string? MinLevelId { get; set; }
 
     /// <summary>
-    /// <para>最低薪资，单位：k，即千</para>
+    /// <para>最低薪资，单位：千</para>
     /// <para>必填：否</para>
     /// <para>示例值：1000</para>
     /// </summary>
@@ -109,19 +109,19 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string? Title { get; set; }
 
     /// <summary>
-    /// <para>职位的招聘团队</para>
+    /// <para>职位管理者列表</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("job_managers")]
     public JobManager JobManagers { get; set; } = new();
 
     /// <summary>
-    /// <para>职位的招聘团队</para>
+    /// <para>职位管理者列表</para>
     /// </summary>
     public record JobManager
     {
         /// <summary>
-        /// <para>职位 ID，可通过 [获取职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/list) 接口获取</para>
+        /// <para>职位 ID（废弃字段，请忽略）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1618209327096</para>
         /// </summary>
@@ -129,7 +129,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>招聘负责人 ID，仅一位，可通过用户相关接口获取用户 ID，如[搜索用户](https://open.feishu.cn/document/ukTMukTMukTM/uMTM4UjLzEDO14yMxgTN)</para>
+        /// <para>招聘负责人 ID，需与入参`user_id_type`类型一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：ou_efk39117c300506837def50545420c6a</para>
         /// </summary>
@@ -137,7 +137,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
         public string RecruiterId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>用人经理 ID 列表，可通过用户相关接口获取用户 ID，如[搜索用户](https://open.feishu.cn/document/ukTMukTMukTM/uMTM4UjLzEDO14yMxgTN)</para>
+        /// <para>用人经理 ID 列表，需与入参`user_id_type`类型一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：6960663240925956554</para>
         /// </summary>
@@ -145,7 +145,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
         public string[] HiringManagerIdList { get; set; } = Array.Empty<string>();
 
         /// <summary>
-        /// <para>协助人 ID 列表，可通过用户相关接口获取用户 ID，如[搜索用户](https://open.feishu.cn/document/ukTMukTMukTM/uMTM4UjLzEDO14yMxgTN)</para>
+        /// <para>协助人 ID 列表，需与入参`user_id_type`类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：6960663240925956554</para>
         /// </summary>
@@ -154,7 +154,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     }
 
     /// <summary>
-    /// <para>招聘流程，枚举通过接口[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list) 获取</para>
+    /// <para>招聘流程，可通过[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)接口获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956554</para>
     /// </summary>
@@ -162,7 +162,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string? JobProcessId { get; set; }
 
     /// <summary>
-    /// <para>项目ID，枚举通过「获取项目列表」接口</para>
+    /// <para>项目 ID，可通过[获取项目列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/subject/list)接口获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956555</para>
     /// </summary>
@@ -170,7 +170,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string? SubjectId { get; set; }
 
     /// <summary>
-    /// <para>职能分类ID，通过「获取职能分类」获取</para>
+    /// <para>职能分类ID，可通过[获取职能分类列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_function/list)接口获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956555</para>
     /// </summary>
@@ -178,7 +178,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string? JobFunctionId { get; set; }
 
     /// <summary>
-    /// <para>部门 ID，须传入open_department_id，格式为"od-xxxx"。可通过[获取部门信息列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/list) 获取</para>
+    /// <para>部门 ID，需与入参中的`department_id_type`类型一致，可通过[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/list)接口获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：od-b2fafdce6fc5800b574ba5b0e2798b36</para>
     /// </summary>
@@ -202,7 +202,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public bool IsNeverExpired { get; set; }
 
     /// <summary>
-    /// <para>最高薪资，单位：k，即千</para>
+    /// <para>最高薪资，单位：千</para>
     /// <para>必填：否</para>
     /// <para>示例值：2000</para>
     /// </summary>
@@ -226,7 +226,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string? Description { get; set; }
 
     /// <summary>
-    /// <para>职位亮点</para>
+    /// <para>职位亮点 ID 列表， 详情请查看：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「职位亮点枚举定义」</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956554</para>
     /// </summary>
@@ -234,7 +234,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string[]? HighlightList { get; set; }
 
     /// <summary>
-    /// <para>职位类别ID，枚举可通过 [获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list) 获取</para>
+    /// <para>职位类别ID，可通过[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)接口获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：6960663240925956551</para>
     /// </summary>
@@ -242,7 +242,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string JobTypeId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>最高职级ID，枚举通过接口「获取职级列表」获取</para>
+    /// <para>最高职级 ID，需与入参`job_level_id_type` 类型一致，可通过 [获取租户职级列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list) 接口获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956548</para>
     /// </summary>
@@ -269,7 +269,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public int? RequiredDegree { get; set; }
 
     /// <summary>
-    /// <para>序列ID，通过 [获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list) 接口获取</para>
+    /// <para>序列 ID，需与入参`job_family_id_type` 类型一致，可通过 [获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list) 接口获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956550</para>
     /// </summary>
@@ -277,7 +277,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string? JobCategoryId { get; set; }
 
     /// <summary>
-    /// <para>工作地点，枚举通过接口「获取地址列表」获取，选择地点用途为「职位地址」</para>
+    /// <para>工作地点 ID 列表，可通过[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)接口获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：7035374761602959660</para>
     /// </summary>
@@ -285,7 +285,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string[]? AddressIdList { get; set; }
 
     /// <summary>
-    /// <para>职位属性，1是实体职位，2是虚拟职位</para>
+    /// <para>职位属性</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956554</para>
     /// <para>可选值：<list type="bullet">
@@ -297,7 +297,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public int? JobAttribute { get; set; }
 
     /// <summary>
-    /// <para>到期日期的毫秒时间戳</para>
+    /// <para>到期时间，毫秒时间戳，如果`is_never_expired`字段选择true，则不会实际使用该字段的值，职位为长期有效</para>
     /// <para>必填：否</para>
     /// <para>示例值：1622484739955</para>
     /// </summary>
@@ -305,7 +305,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string? ExpiryTimestamp { get; set; }
 
     /// <summary>
-    /// <para>目标专业ID，枚举通过[分页批量查询专业](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v3/major/list)接口的返回值获取（返回值中的专业目录列表下的主数据编码），「0」 为不限专业</para>
+    /// <para>目标专业 ID 列表，可通过[「根据主数据编码批量获取专业」](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v3/batch_major/get)获取</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("target_major_id_list")]

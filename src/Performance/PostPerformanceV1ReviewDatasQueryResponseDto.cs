@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Performance;
 /// <summary>
 /// 获取绩效结果 响应体
-/// <para>获取绩效结果</para>
+/// <para>获取被评估人在指定周期、指定项目中各个环节的评估结果信息，包含绩效所在的周期、项目、评估项、评估模版以及各环节评估数据等信息。</para>
 /// <para>接口ID：7000193886257725441</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/performance-v1/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v1%2freview_data%2fquery</para>
@@ -22,19 +22,19 @@ namespace FeishuNetSdk.Performance;
 public record PostPerformanceV1ReviewDatasQueryResponseDto
 {
     /// <summary>
-    /// <para>绩效评估周期列表</para>
+    /// <para>周期列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("semesters")]
     public Semester[]? Semesters { get; set; }
 
     /// <summary>
-    /// <para>绩效评估周期列表</para>
+    /// <para>周期列表</para>
     /// </summary>
     public record Semester
     {
         /// <summary>
-        /// <para>绩效评估周期 ID</para>
+        /// <para>周期 ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6992035450862224940</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>年份</para>
+        /// <para>周期年份</para>
         /// <para>必填：否</para>
         /// <para>示例值：2024</para>
         /// </summary>
@@ -50,7 +50,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public int? Year { get; set; }
 
         /// <summary>
-        /// <para>类型分组</para>
+        /// <para>周期类型分组</para>
         /// <para>必填：否</para>
         /// <para>示例值：Month</para>
         /// </summary>
@@ -58,7 +58,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public string? TypeGroup { get; set; }
 
         /// <summary>
-        /// <para>类型</para>
+        /// <para>周期类型</para>
         /// <para>必填：否</para>
         /// <para>示例值：June</para>
         /// </summary>
@@ -66,36 +66,36 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public string? Type { get; set; }
 
         /// <summary>
-        /// <para>绩效评估周期名称</para>
+        /// <para>周期名称</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("name")]
         public I18n? Name { get; set; }
 
         /// <summary>
-        /// <para>绩效评估周期名称</para>
+        /// <para>周期名称</para>
         /// </summary>
         public record I18n
         {
             /// <summary>
-            /// <para>中文</para>
+            /// <para>周期中文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：体验</para>
+            /// <para>示例值：2024 全年周期</para>
             /// </summary>
             [JsonPropertyName("zh-CN")]
             public string? ZhCN { get; set; }
 
             /// <summary>
-            /// <para>英文</para>
+            /// <para>周期英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Interactive experience</para>
+            /// <para>示例值：2024 Full year semester</para>
             /// </summary>
             [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
         }
 
         /// <summary>
-        /// <para>绩效评估周期开始时间</para>
+        /// <para>周期开始时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1625068800000</para>
         /// </summary>
@@ -103,7 +103,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public string? StartTime { get; set; }
 
         /// <summary>
-        /// <para>绩效评估周期结束时间</para>
+        /// <para>周期结束时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1640966399999</para>
         /// </summary>
@@ -111,7 +111,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public string? EndTime { get; set; }
 
         /// <summary>
-        /// <para>绩效评估周期创建时间</para>
+        /// <para>周期创建时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1625068800000</para>
         /// </summary>
@@ -132,7 +132,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
     public record Activity
     {
         /// <summary>
-        /// <para>绩效评估项目 ID</para>
+        /// <para>项目 ID，可通过[获取项目列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/activity/query)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：6992035450862323244</para>
         /// </summary>
@@ -140,36 +140,36 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>绩效评估项目名称</para>
+        /// <para>项目名称</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("name")]
         public I18n? Name { get; set; }
 
         /// <summary>
-        /// <para>绩效评估项目名称</para>
+        /// <para>项目名称</para>
         /// </summary>
         public record I18n
         {
             /// <summary>
-            /// <para>中文</para>
+            /// <para>项目中文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：体验</para>
+            /// <para>示例值：项目一</para>
             /// </summary>
             [JsonPropertyName("zh-CN")]
             public string? ZhCN { get; set; }
 
             /// <summary>
-            /// <para>英文</para>
+            /// <para>项目英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Interactive experience</para>
+            /// <para>示例值：Activity 1</para>
             /// </summary>
             [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
         }
 
         /// <summary>
-        /// <para>绩效评估周期 ID</para>
+        /// <para>周期 ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6992035450862224940</para>
         /// </summary>
@@ -190,7 +190,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
     public record Indicator
     {
         /// <summary>
-        /// <para>评估项 ID</para>
+        /// <para>评估项 ID，详情可查看：[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6982759010081818159</para>
         /// </summary>
@@ -210,17 +210,17 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>中文</para>
+            /// <para>评估项中文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：体验</para>
+            /// <para>示例值：身高</para>
             /// </summary>
             [JsonPropertyName("zh-CN")]
             public string? ZhCN { get; set; }
 
             /// <summary>
-            /// <para>英文</para>
+            /// <para>评估项英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Interactive experience</para>
+            /// <para>示例值：height</para>
             /// </summary>
             [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
@@ -259,17 +259,17 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>等级中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：体验</para>
+                /// <para>示例值：等级一</para>
                 /// </summary>
                 [JsonPropertyName("zh-CN")]
                 public string? ZhCN { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>等级英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Interactive experience</para>
+                /// <para>示例值：Rank 1</para>
                 /// </summary>
                 [JsonPropertyName("en-US")]
                 public string? EnUS { get; set; }
@@ -298,7 +298,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
     public record Template
     {
         /// <summary>
-        /// <para>评估模板 ID</para>
+        /// <para>评估模板 ID，详情可查看：[获取评估模板](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/review_template/query)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6982759007063000610</para>
         /// </summary>
@@ -306,36 +306,36 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>评估模板所在环节名称</para>
+        /// <para>环节名称</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("name")]
         public I18n? Name { get; set; }
 
         /// <summary>
-        /// <para>评估模板所在环节名称</para>
+        /// <para>环节名称</para>
         /// </summary>
         public record I18n
         {
             /// <summary>
-            /// <para>中文</para>
+            /// <para>环节中文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：体验</para>
+            /// <para>示例值：自我评价</para>
             /// </summary>
             [JsonPropertyName("zh-CN")]
             public string? ZhCN { get; set; }
 
             /// <summary>
-            /// <para>英文</para>
+            /// <para>环节英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Interactive experience</para>
+            /// <para>示例值：Self evaluation</para>
             /// </summary>
             [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
         }
 
         /// <summary>
-        /// <para>评估模板环节类型</para>
+        /// <para>环节类型</para>
         /// <para>必填：否</para>
         /// <para>示例值：communication_and_open_result</para>
         /// </summary>
@@ -376,17 +376,17 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>中文</para>
+            /// <para>评估内容中文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：体验</para>
+            /// <para>示例值：还不错</para>
             /// </summary>
             [JsonPropertyName("zh-CN")]
             public string? ZhCN { get; set; }
 
             /// <summary>
-            /// <para>英文</para>
+            /// <para>评估内容英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Interactive experience</para>
+            /// <para>示例值：Not bad</para>
             /// </summary>
             [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
@@ -426,24 +426,24 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>中文</para>
+            /// <para>填写项中文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：体验</para>
+            /// <para>示例值：客户流失率</para>
             /// </summary>
             [JsonPropertyName("zh-CN")]
             public string? ZhCN { get; set; }
 
             /// <summary>
-            /// <para>英文</para>
+            /// <para>填写项英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Interactive experience</para>
+            /// <para>示例值：Customer churn rate</para>
             /// </summary>
             [JsonPropertyName("en-US")]
             public string? EnUS { get; set; }
         }
 
         /// <summary>
-        /// <para>评估项 ID</para>
+        /// <para>评估项 ID，详情可查看：[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6982759010081818159</para>
         /// </summary>
@@ -472,14 +472,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
     public record ReviewProfile
     {
         /// <summary>
-        /// <para>被评估人 ID</para>
+        /// <para>被评估人 ID，ID 类型请参考：[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("user_id")]
         public User? UserId { get; set; }
 
         /// <summary>
-        /// <para>被评估人 ID</para>
+        /// <para>被评估人 ID，ID 类型请参考：[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview)</para>
         /// </summary>
         public record User
         {
@@ -492,7 +492,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             public string? OpenId { get; set; }
 
             /// <summary>
-            /// <para>用户的 user_id，当 user_id_type 为 people_admin_id 时值为 saas_id，否则为飞书的 user_id</para>
+            /// <para>用户的 user_id，与入参 `user_id_type` 类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou-ux987dsf6x</para>
             /// </summary>
@@ -501,7 +501,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         }
 
         /// <summary>
-        /// <para>绩效评估周期 ID</para>
+        /// <para>周期 ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6992035450862224940</para>
         /// </summary>
@@ -509,7 +509,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public string? SemesterId { get; set; }
 
         /// <summary>
-        /// <para>绩效评估项目 ID</para>
+        /// <para>项目 ID，详情可查看：[获取项目列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/activity/query)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6992035450862323244</para>
         /// </summary>
@@ -517,14 +517,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public string? ActivityId { get; set; }
 
         /// <summary>
-        /// <para>本周期内各环节内容</para>
+        /// <para>环节信息</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("stages")]
         public ReviewStage[]? Stages { get; set; }
 
         /// <summary>
-        /// <para>本周期内各环节内容</para>
+        /// <para>环节信息</para>
         /// </summary>
         public record ReviewStage
         {
@@ -564,7 +564,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             public record ReviewDetail
             {
                 /// <summary>
-                /// <para>评估模板 ID</para>
+                /// <para>评估模板 ID，详情可查看：[获取评估模板](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/review_template/query)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6982759008972326447</para>
                 /// </summary>
@@ -580,7 +580,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 public string? UnitId { get; set; }
 
                 /// <summary>
-                /// <para>评估控件 ID</para>
+                /// <para>评估字段 ID</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6982759009698137641</para>
                 /// </summary>
@@ -588,14 +588,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 public string? FieldId { get; set; }
 
                 /// <summary>
-                /// <para>评估人 ID</para>
+                /// <para>评估人 ID，ID 类型请参考：[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview)</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("reviewer_user_id")]
                 public User? ReviewerUserId { get; set; }
 
                 /// <summary>
-                /// <para>评估人 ID</para>
+                /// <para>评估人 ID，ID 类型请参考：[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview)</para>
                 /// </summary>
                 public record User
                 {
@@ -608,7 +608,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                     public string? OpenId { get; set; }
 
                     /// <summary>
-                    /// <para>用户的 user_id，当 user_id_type 为 people_admin_id 时值为 saas_id，否则为飞书的 user_id</para>
+                    /// <para>用户的 user_id，与入参 `user_id_type` 类型一致</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：ou-ux987dsf6x</para>
                     /// </summary>
@@ -617,7 +617,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 }
 
                 /// <summary>
-                /// <para>最后提交时间，毫秒级时间戳</para>
+                /// <para>最后提交时间，毫秒时间戳</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1627977114000</para>
                 /// </summary>
@@ -625,7 +625,9 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 public string? SubmitTime { get; set; }
 
                 /// <summary>
-                /// <para>评估项 ID，option_id 或 score 有值的时候有值</para>
+                /// <para>评估项 ID，详情可查看：[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)</para>
+                /// <para> </para>
+                /// <para>**说明**：当 option_id 或 score 有值的时候有值</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6982759009698137641</para>
                 /// </summary>
@@ -633,7 +635,9 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 public string? IndicatorId { get; set; }
 
                 /// <summary>
-                /// <para>评估项结果等级 ID，有值表示当前数据是评级型评估项数据</para>
+                /// <para>评估项结果等级 ID</para>
+                /// <para> </para>
+                /// <para>**说明**：当前评估项是评级型评估项数据时有值</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6966127279593686572</para>
                 /// </summary>
@@ -641,7 +645,9 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 public string? OptionId { get; set; }
 
                 /// <summary>
-                /// <para>评分型评估项填写内容，有值表示当前数据是评分型评估项数据</para>
+                /// <para>评分型评估项填写内容</para>
+                /// <para> </para>
+                /// <para>**说明**：当前评估项是评分型评估项数据时有值</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：0.4</para>
                 /// </summary>
@@ -649,7 +655,8 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 public string? Score { get; set; }
 
                 /// <summary>
-                /// <para>填写项填写内容，有值表示当前数据是填写项数据</para>
+                /// <para>填写项填写内容 </para>
+                /// <para>**说明**：当前评估项是填写项数据时有值</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：与公司共同发展</para>
                 /// </summary>

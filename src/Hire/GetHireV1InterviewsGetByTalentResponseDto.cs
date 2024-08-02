@@ -4,7 +4,7 @@
 // Created          : 2024-07-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-22
+// Last Modified On : 2024-08-02
 // ************************************************************************
 // <copyright file="GetHireV1InterviewsGetByTalentResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -267,7 +267,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
             /// <para>示例值：1659318415000</para>
             /// </summary>
             [JsonPropertyName("feedback_submit_time")]
-            public int? FeedbackSubmitTime { get; set; }
+            public long? FeedbackSubmitTime { get; set; }
 
             /// <summary>
             /// <para>面试关联的投递阶段</para>

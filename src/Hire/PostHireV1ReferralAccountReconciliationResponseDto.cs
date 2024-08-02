@@ -42,14 +42,14 @@ public record PostHireV1ReferralAccountReconciliationResponseDto
         public string? AccountId { get; set; }
 
         /// <summary>
-        /// <para>飞书招聘系统内的账户积分提取数量</para>
+        /// <para>飞书招聘系统内的账户积分提取数量，若该时段内未发生任何提取记录，则该字段不返回</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("total_withdraw_reward_info")]
         public BonusAmount? TotalWithdrawRewardInfo { get; set; }
 
         /// <summary>
-        /// <para>飞书招聘系统内的账户积分提取数量</para>
+        /// <para>飞书招聘系统内的账户积分提取数量，若该时段内未发生任何提取记录，则该字段不返回</para>
         /// </summary>
         public record BonusAmount
         {

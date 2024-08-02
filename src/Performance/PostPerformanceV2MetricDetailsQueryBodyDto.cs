@@ -9,12 +9,12 @@
 // <copyright file="PostPerformanceV2MetricDetailsQueryBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>批量获取指定周期被评估人的关键指标详情 请求体</summary>
+// <summary>获取被评估人关键指标结果 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Performance;
 /// <summary>
-/// 批量获取指定周期被评估人的关键指标详情 请求体
-/// <para>批量获取指定周期中被评估人的关键指标详情</para>
+/// 获取被评估人关键指标结果 请求体
+/// <para>批量获取指定周期中被评估人的关键指标结果。</para>
 /// <para>接口ID：7380276358332743681</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_detail/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2fmetric_detail%2fquery</para>
@@ -30,7 +30,7 @@ public record PostPerformanceV2MetricDetailsQueryBodyDto
     public string SemesterId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>被评估人 ID 列表。如果不传则返回该周期所有参与的被评估人的关键指标详情</para>
+    /// <para>被评估人 ID 列表，与入参 `user_id_type` 类型一致</para>
     /// <para>必填：是</para>
     /// <para>最大长度：50</para>
     /// <para>最小长度：1</para>

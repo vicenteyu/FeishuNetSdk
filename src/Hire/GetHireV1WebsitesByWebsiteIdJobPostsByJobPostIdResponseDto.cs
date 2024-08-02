@@ -155,7 +155,7 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsByJobPostIdResponseDto
         public IdNameObject? JobDepartment { get; set; }
 
         /// <summary>
-        /// <para>职位类型，详情请参考：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)</para>
+        /// <para>职位类别，详情请参考：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_type")]
@@ -176,14 +176,14 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsByJobPostIdResponseDto
         public IdNameObject? MaxJobLevel { get; set; }
 
         /// <summary>
-        /// <para>职位地址列表，详情请参考：[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)</para>
+        /// <para>职位地址，废弃字段，请使用`address_list`</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("address")]
         public CommonAddress? Address { get; set; }
 
         /// <summary>
-        /// <para>职位地址列表，详情请参考：[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)</para>
+        /// <para>职位地址，废弃字段，请使用`address_list`</para>
         /// </summary>
         public record CommonAddress
         {
@@ -350,7 +350,7 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsByJobPostIdResponseDto
         public int? Experience { get; set; }
 
         /// <summary>
-        /// <para>数量</para>
+        /// <para>招聘数量</para>
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>

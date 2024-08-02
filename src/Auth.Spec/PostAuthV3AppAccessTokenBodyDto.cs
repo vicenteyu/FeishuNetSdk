@@ -39,7 +39,10 @@ public record PostAuthV3AppAccessTokenBodyDto
     public string AppSecret { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>平台定时推送给应用的临时凭证，通过事件监听机制获得。有关 `app_ticket` 的详细介绍，请参考[通用参数](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology)</para>
+    /// <para>平台定时推送给商店应用的临时凭证。该凭证的获取方式如下：</para>
+    /// <para>1. 创建商店应用后，需要为应用配置[事件订阅](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)，订阅 [app_ticket 事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/app_ticket-events)。</para>
+    /// <para>订阅后，飞书开放平台会以 1 次/小时的频率向接收事件的服务端自动推送 app_ticket。</para>
+    /// <para>2. （可选）调用[重新获取 app_ticket](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/auth-v3/auth/app_ticket_resend)接口，主动触发 [app_ticket 事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/app_ticket-events)。</para>
     /// <para>**示例值：** "dskLLdkasd"</para>
     /// <para>必填：是</para>
     /// </summary>

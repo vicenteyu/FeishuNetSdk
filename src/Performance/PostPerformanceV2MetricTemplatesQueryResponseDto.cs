@@ -9,12 +9,12 @@
 // <copyright file="PostPerformanceV2MetricTemplatesQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取指标模板信息 响应体</summary>
+// <summary>获取指标模板列表 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Performance;
 /// <summary>
-/// 获取指标模板信息 响应体
-/// <para>获取指标模板的信息</para>
+/// 获取指标模板列表 响应体
+/// <para>批量获取指标模板的信息。</para>
 /// <para>接口ID：7380276358332710913</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_template/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2fmetric_template%2fquery</para>
@@ -34,7 +34,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
     public record MetricTemplate
     {
         /// <summary>
-        /// <para>指标模板ID</para>
+        /// <para>指标模板 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：7296488199415660563</para>
         /// </summary>
@@ -54,7 +54,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>中文</para>
+            /// <para>模版中文名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：体验</para>
             /// </summary>
@@ -62,7 +62,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
             public string? ZhCn { get; set; }
 
             /// <summary>
-            /// <para>英文</para>
+            /// <para>模版英文名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：Interactive experience</para>
             /// </summary>
@@ -78,7 +78,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
         public I18n? Description { get; set; }
 
         /// <summary>
-        /// <para>状态</para>
+        /// <para>模版状态</para>
         /// <para>必填：否</para>
         /// <para>示例值：to_be_configured</para>
         /// <para>可选值：<list type="bullet">
@@ -92,7 +92,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
         public string? Status { get; set; }
 
         /// <summary>
-        /// <para>是否分人群设置指标</para>
+        /// <para>模版是否分人群设置指标</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -100,7 +100,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
         public bool? IsSetByGroup { get; set; }
 
         /// <summary>
-        /// <para>指标总分计算方式</para>
+        /// <para>模版指标总分计算方式</para>
         /// <para>必填：否</para>
         /// <para>示例值：weight</para>
         /// <para>可选值：<list type="bullet">
@@ -167,7 +167,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>指标维度中文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：体验</para>
                 /// </summary>
@@ -175,7 +175,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>指标维度英文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：Interactive experience</para>
                 /// </summary>
@@ -184,7 +184,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
             }
 
             /// <summary>
-            /// <para>每条指标的评估规则 ID</para>
+            /// <para>指标评估规则 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：7296701873237786643</para>
             /// </summary>
@@ -192,7 +192,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
             public string? EvaluationRuleIdForEachMetric { get; set; }
 
             /// <summary>
-            /// <para>维度权重，如果没有设置则返回为空（备注：和 0 区分）</para>
+            /// <para>维度权重，如果没有设置则返回为空（和设置为 0 进行区分）</para>
             /// <para>必填：否</para>
             /// <para>示例值：90</para>
             /// </summary>
@@ -231,7 +231,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
             public string? MetricId { get; set; }
 
             /// <summary>
-            /// <para>指标名称，指标在该模板中的名称</para>
+            /// <para>指标名称（指标在当前模板中的名称）</para>
             /// <para>必填：否</para>
             /// <para>示例值：销售额</para>
             /// </summary>
@@ -333,7 +333,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
                 public string? OpenId { get; set; }
 
                 /// <summary>
-                /// <para>用户的 user_id，取值与user_id_type一致</para>
+                /// <para>用户的 user_id，与入参 `user_id_type` 类型一致</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：ou-ux987dsf6x</para>
                 /// </summary>
@@ -357,7 +357,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
         public record MetricGroup
         {
             /// <summary>
-            /// <para>人群分组ID</para>
+            /// <para>人群分组 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：7296466589195436051</para>
             /// </summary>
@@ -365,9 +365,9 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
             public string? GroupId { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>人群分组名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：分组1</para>
+            /// <para>示例值：分组 1</para>
             /// </summary>
             [JsonPropertyName("name")]
             public string? Name { get; set; }

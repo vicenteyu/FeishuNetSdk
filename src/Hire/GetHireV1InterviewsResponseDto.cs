@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-09
+// Last Modified On : 2024-08-02
 // ************************************************************************
 // <copyright file="GetHireV1InterviewsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -247,7 +247,7 @@ public record GetHireV1InterviewsResponseDto
         /// <para>示例值：1659318415000</para>
         /// </summary>
         [JsonPropertyName("feedback_submit_time")]
-        public int? FeedbackSubmitTime { get; set; }
+        public long? FeedbackSubmitTime { get; set; }
 
         /// <summary>
         /// <para>面试关联的投递阶段，详情请查看：[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)</para>

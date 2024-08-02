@@ -9,12 +9,12 @@
 // <copyright file="PostPerformanceV2IndicatorsQueryBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取评估项配置 请求体</summary>
+// <summary>获取评估项列表 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Performance;
 /// <summary>
-/// 获取评估项配置 请求体
-/// <para>获取评估项配置信息，包括评估题名称、评估项类型、评估等级配置等</para>
+/// 获取评估项列表 请求体
+/// <para>批量获取评估项信息，如评估项名称、评估项类型、评估项等级配置等信息。</para>
 /// <para>接口ID：7351374599659798532</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2findicator%2fquery</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Performance;
 public record PostPerformanceV2IndicatorsQueryBodyDto
 {
     /// <summary>
-    /// <para>评估项 ID 列表，获取指定评估题的配置数据。如果不传则返回所有</para>
+    /// <para>评估项 ID 列表，填写时获取指定的评估项，不填时返回所有评估项</para>
     /// <para>必填：否</para>
     /// <para>最大长度：50</para>
     /// <para>最小长度：0</para>

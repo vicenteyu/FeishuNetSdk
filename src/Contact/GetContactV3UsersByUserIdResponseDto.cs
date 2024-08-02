@@ -58,7 +58,8 @@ public record GetContactV3UsersByUserIdResponseDto
         public string? OpenId { get; set; }
 
         /// <summary>
-        /// <para>用户名。</para>
+        /// <para>用户名称。</para>
+        /// <para>**注意**：用户名称分为默认名称和多语种版本的名称，该参数返回的是用户默认名称。</para>
         /// <para>必填：否</para>
         /// <para>示例值：张三</para>
         /// <para>最小长度：1</para>

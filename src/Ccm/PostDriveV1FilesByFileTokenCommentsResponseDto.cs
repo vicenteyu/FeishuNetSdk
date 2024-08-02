@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-12
+// Last Modified On : 2024-08-02
 // ************************************************************************
 // <copyright file="PostDriveV1FilesByFileTokenCommentsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -51,7 +51,7 @@ public record PostDriveV1FilesByFileTokenCommentsResponseDto
     /// <para>示例值：1610281603</para>
     /// </summary>
     [JsonPropertyName("update_time")]
-    public int? UpdateTime { get; set; }
+    public long? UpdateTime { get; set; }
 
     /// <summary>
     /// <para>是否已解决</para>
@@ -265,7 +265,7 @@ public record PostDriveV1FilesByFileTokenCommentsResponseDto
             /// <para>示例值：1610281603</para>
             /// </summary>
             [JsonPropertyName("update_time")]
-            public int? UpdateTime { get; set; }
+            public long? UpdateTime { get; set; }
 
             /// <summary>
             /// <para>回复的其他内容，图片 Token 等</para>

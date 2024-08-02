@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Performance;
 /// <summary>
 /// 获取周期任务（全部用户） 请求体
-/// <para>可按分页获取周期下所有用户的任务信息</para>
+/// <para>批量获取周期下所有用户的任务信息。支持传入任务分类、任务截止时间参数删选周期内任务数据。</para>
 /// <para>接口ID：7275704938197237762</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/stage_task/find_by_page</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v1%2fstage_task%2ffind_by_page</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Performance;
 public record PostPerformanceV1StageTasksFindByPageBodyDto
 {
     /// <summary>
-    /// <para>周期 ID。1 次只允许查询 1 个周期。可以通过「获取周期」接口获得周期 ID。</para>
+    /// <para>周期 ID，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：7033710017401751071</para>
     /// </summary>
@@ -30,10 +30,11 @@ public record PostPerformanceV1StageTasksFindByPageBodyDto
     public string SemesterId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>任务分类（不传默认包含所有）</para>
-    /// <para>1. 待完成</para>
-    /// <para>2. 已完成</para>
-    /// <para>3. 已逾期（仅当租户设置不允许逾期提交时才有此分类）</para>
+    /// <para>任务分类，填写则获取指定分类的任务</para>
+    /// <para>**可选项有**：</para>
+    /// <para>- `1`：待完成</para>
+    /// <para>- `2`：已完成</para>
+    /// <para>- `3`：已逾期（仅当租户设置不允许逾期提交时才有此分类）</para>
     /// <para>必填：否</para>
     /// <para>最大长度：3</para>
     /// </summary>
@@ -41,7 +42,7 @@ public record PostPerformanceV1StageTasksFindByPageBodyDto
     public int[]? TaskOptionLists { get; set; }
 
     /// <summary>
-    /// <para>查询在此时间之后截止的环节</para>
+    /// <para>任务截止时间最小值，毫秒时间戳，填写则查询在此时间之后截止的任务</para>
     /// <para>必填：否</para>
     /// <para>示例值：1630425599999</para>
     /// </summary>
@@ -49,7 +50,7 @@ public record PostPerformanceV1StageTasksFindByPageBodyDto
     public string? AfterTime { get; set; }
 
     /// <summary>
-    /// <para>查询早于当前时间截止的环节</para>
+    /// <para>任务截止时间最大值，毫秒时间戳，填写则查询在此时间之前截止的任务</para>
     /// <para>必填：否</para>
     /// <para>示例值：1630425599999</para>
     /// </summary>
@@ -68,6 +69,7 @@ public record PostPerformanceV1StageTasksFindByPageBodyDto
     /// <para>分页大小</para>
     /// <para>必填：否</para>
     /// <para>示例值：30</para>
+    /// <para>最大值：50</para>
     /// <para>默认值：20</para>
     /// </summary>
     [JsonPropertyName("page_size")]

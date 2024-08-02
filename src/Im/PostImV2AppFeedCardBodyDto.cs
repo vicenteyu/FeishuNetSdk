@@ -258,7 +258,10 @@ public record PostImV2AppFeedCardBodyDto
         public record OpenAppFeedLink
         {
             /// <summary>
-            /// <para>链接（仅支持 https 协议）</para>
+            /// <para>链接</para>
+            /// <para>**注意**：</para>
+            /// <para>- 仅支持 HTTPS 协议</para>
+            /// <para>- 暂不支持 Applink</para>
             /// <para>必填：否</para>
             /// <para>示例值：https://www.feishu.cn/</para>
             /// <para>最大长度：700</para>

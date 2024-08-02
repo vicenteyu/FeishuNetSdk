@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-12
+// Last Modified On : 2024-08-02
 // ************************************************************************
 // <copyright file="GetHireV1JobsByJobIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -409,7 +409,7 @@ public record GetHireV1JobsByJobIdResponseDto
         /// <para>示例值：1617170925462</para>
         /// </summary>
         [JsonPropertyName("update_time")]
-        public int? UpdateTime { get; set; }
+        public long? UpdateTime { get; set; }
 
         /// <summary>
         /// <para>招聘流程类型</para>
@@ -730,7 +730,7 @@ public record GetHireV1JobsByJobIdResponseDto
         /// <para>示例值：1622484739955</para>
         /// </summary>
         [JsonPropertyName("expiry_time")]
-        public int? ExpiryTime { get; set; }
+        public long? ExpiryTime { get; set; }
 
         /// <summary>
         /// <para>最低薪资，单位:k</para>

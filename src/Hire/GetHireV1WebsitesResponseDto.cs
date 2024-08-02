@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取招聘官网列表 响应体
-/// <para>获取招聘官网列表，返回信息包括官网名称、官网ID、职位渠道ID等。</para>
+/// <para>获取招聘官网列表，返回信息包括官网名称、官网ID、招聘渠道ID等。</para>
 /// <para>接口ID：6990661791098699779</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/website/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fwebsite%2flist</para>
@@ -80,7 +80,7 @@ public record GetHireV1WebsitesResponseDto
         public int[]? ProcessTypeList { get; set; }
 
         /// <summary>
-        /// <para>职位渠道ID，每个官网拥有唯一的职位渠道ID，可用于[职位发布至官网](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/advertisement/publish)</para>
+        /// <para>招聘渠道ID，每个官网拥有唯一的招聘渠道ID，可用于[职位发布至官网](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/advertisement/publish)</para>
         /// <para>必填：否</para>
         /// <para>示例值：1213213123123</para>
         /// </summary>

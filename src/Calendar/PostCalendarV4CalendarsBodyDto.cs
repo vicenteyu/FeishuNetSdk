@@ -58,6 +58,7 @@ public record PostCalendarV4CalendarsBodyDto
     /// <summary>
     /// <para>日历颜色，取值通过颜色 RGB 值的 int32 表示，其中，24 ~ 31 位为透明度，16 ~ 23 位为红，8 ~ 15 位为绿，0 ~ 7 位为蓝。例如，-11034625 表示 RGB 值 (87, 159, 255)。</para>
     /// <para>**注意**：</para>
+    /// <para>- 取值范围为 -2^31 ~ 2^31-1</para>
     /// <para>- 日历颜色会映射到飞书客户端色板上最接近的一种颜色进行展示。</para>
     /// <para>- 该颜色仅对当前身份生效。</para>
     /// <para>**默认值**：-14513409</para>

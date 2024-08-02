@@ -4,7 +4,7 @@
 // Created          : 2024-08-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-01
+// Last Modified On : 2024-08-02
 // ************************************************************************
 // <copyright file="PostAttendanceV1ArchiveRuleDelReportBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -23,11 +23,11 @@ public record PostAttendanceV1ArchiveRuleDelReportBodyDto
 {
     /// <summary>
     /// <para>月份，格式yyyyMM</para>
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
     /// <para>示例值：202409</para>
     /// </summary>
     [JsonPropertyName("month")]
-    public string? Month { get; set; }
+    public string Month { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>操作者ID，对应employee_type</para>
@@ -39,11 +39,11 @@ public record PostAttendanceV1ArchiveRuleDelReportBodyDto
 
     /// <summary>
     /// <para>归档规则id，可根据[查询所有归档规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/list)获得</para>
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
     /// <para>示例值：1</para>
     /// </summary>
     [JsonPropertyName("archive_rule_id")]
-    public string? ArchiveRuleId { get; set; }
+    public string ArchiveRuleId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>用户id，对应employee_type</para>

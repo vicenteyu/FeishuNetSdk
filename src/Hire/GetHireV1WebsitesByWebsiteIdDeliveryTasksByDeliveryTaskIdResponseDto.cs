@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取招聘官网投递任务结果 响应体
-/// <para>通过[根据简历附件创建招聘官网投递](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-delivery/create_by_attachment)接口创建的投递任务，可通过本接口获取投递任务结果。如果获取到的数据 data 为空，可继续轮询直到获取到的 data 不为空。</para>
+/// <para>通过[根据简历附件创建招聘官网投递](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-delivery/create_by_attachment)接口创建的投递任务，可通过本接口获取投递任务结果。如果获取到的数据 data 为空，可继续轮询（正常情况下不会超过1分钟）直到获取到的 data 不为空。</para>
 /// <para>接口ID：7097130726429179906</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/website/get-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fwebsite-delivery_task%2fget</para>
@@ -107,7 +107,6 @@ public record GetHireV1WebsitesByWebsiteIdDeliveryTasksByDeliveryTaskIdResponseD
     /// <summary>
     /// <para>状态信息，仅在任务状态（status）为失败（3）时返回</para>
     /// <para>必填：否</para>
-    /// <para>示例值：same application exist</para>
     /// </summary>
     [JsonPropertyName("status_msg")]
     public string? StatusMsg { get; set; }
@@ -115,7 +114,6 @@ public record GetHireV1WebsitesByWebsiteIdDeliveryTasksByDeliveryTaskIdResponseD
     /// <summary>
     /// <para>附加信息，在任务状态（status）为失败（3）时、且状态信息（status_msg）标识为重复投递时，返回重复投递的 ID</para>
     /// <para>必填：否</para>
-    /// <para>示例值：7100825663201052972</para>
     /// </summary>
     [JsonPropertyName("extra_info")]
     public string? ExtraInfo { get; set; }

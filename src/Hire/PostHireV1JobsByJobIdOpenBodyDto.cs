@@ -4,7 +4,7 @@
 // Created          : 2024-07-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-22
+// Last Modified On : 2024-08-02
 // ************************************************************************
 // <copyright file="PostHireV1JobsByJobIdOpenBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -27,7 +27,7 @@ public record PostHireV1JobsByJobIdOpenBodyDto
     /// <para>示例值：1598844859612</para>
     /// </summary>
     [JsonPropertyName("expiry_time")]
-    public int? ExpiryTime { get; set; }
+    public long? ExpiryTime { get; set; }
 
     /// <summary>
     /// <para>是否长期有效</para>

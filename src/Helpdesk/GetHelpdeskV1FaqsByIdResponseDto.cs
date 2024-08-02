@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-12
+// Last Modified On : 2024-08-02
 // ************************************************************************
 // <copyright file="GetHelpdeskV1FaqsByIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -116,7 +116,7 @@ public record GetHelpdeskV1FaqsByIdResponseDto
         /// <para>示例值：1596379008</para>
         /// </summary>
         [JsonPropertyName("update_time")]
-        public int? UpdateTime { get; set; }
+        public long? UpdateTime { get; set; }
 
         /// <summary>
         /// <para>分类</para>
