@@ -145,7 +145,7 @@ public record PostTaskV2TasksBodyDto
             /// <summary>
             /// <para>法语</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Tabledetravail</para>
+            /// <para>示例值：Table de travail</para>
             /// </summary>
             [JsonPropertyName("fr_fr")]
             public string? FrFr { get; set; }
@@ -153,7 +153,7 @@ public record PostTaskV2TasksBodyDto
             /// <summary>
             /// <para>意大利语</para>
             /// <para>必填：否</para>
-            /// <para>示例值：bancodilavoro</para>
+            /// <para>示例值：banco di lavoro</para>
             /// </summary>
             [JsonPropertyName("it_it")]
             public string? ItIt { get; set; }
@@ -185,7 +185,7 @@ public record PostTaskV2TasksBodyDto
             /// <summary>
             /// <para>西班牙语</para>
             /// <para>必填：否</para>
-            /// <para>示例值：bancodetrabajo</para>
+            /// <para>示例值：banco de trabajo</para>
             /// </summary>
             [JsonPropertyName("es_es")]
             public string? EsEs { get; set; }
@@ -213,9 +213,11 @@ public record PostTaskV2TasksBodyDto
         {
             /// <summary>
             /// <para>来源链接对应的地址，如填写必须以https://或者http://开头。</para>
+            /// <para>**说明**：如需调整 PC 端链接打开方式，可在飞书客户端的 **设置** &gt; **效率** &gt; **链接打开方式** 内调整。</para>
             /// <para>必填：否</para>
             /// <para>示例值：https://www.example.com</para>
             /// <para>最大长度：1024</para>
+            /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("url")]
             public string? Url { get; set; }
@@ -393,7 +395,7 @@ public record PostTaskV2TasksBodyDto
                 /// <summary>
                 /// <para>法语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Tabledetravail</para>
+                /// <para>示例值：Table de travail</para>
                 /// </summary>
                 [JsonPropertyName("fr_fr")]
                 public string? FrFr { get; set; }
@@ -401,7 +403,7 @@ public record PostTaskV2TasksBodyDto
                 /// <summary>
                 /// <para>意大利语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：bancodilavoro</para>
+                /// <para>示例值：banco di lavoro</para>
                 /// </summary>
                 [JsonPropertyName("it_it")]
                 public string? ItIt { get; set; }
@@ -433,7 +435,7 @@ public record PostTaskV2TasksBodyDto
                 /// <summary>
                 /// <para>西班牙语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：bancodetrabajo</para>
+                /// <para>示例值：banco de trabajo</para>
                 /// </summary>
                 [JsonPropertyName("es_es")]
                 public string? EsEs { get; set; }
@@ -498,6 +500,7 @@ public record PostTaskV2TasksBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7</para>
     /// <para>最大长度：100</para>
+    /// <para>最小长度：10</para>
     /// </summary>
     [JsonPropertyName("client_token")]
     public string? ClientToken { get; set; }
@@ -557,6 +560,8 @@ public record PostTaskV2TasksBodyDto
     /// <para>任务完成模式, 1 - 会签任务; 2 - 或签任务</para>
     /// <para>必填：否</para>
     /// <para>示例值：2</para>
+    /// <para>最大值：2</para>
+    /// <para>最小值：1</para>
     /// <para>默认值：2</para>
     /// </summary>
     [JsonPropertyName("mode")]

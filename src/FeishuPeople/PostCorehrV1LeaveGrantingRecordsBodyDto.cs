@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 创建假期发放记录 请求体
-/// <para>向飞书人事休假系统写入假期发放记录。</para>
+/// <para>向飞书人事休假系统写入假期发放记录。对应假勤管理-休假管理-[发放记录](https://example.feishu.cn/people/workforce-management/manage/leave/leave_admin/granting_record)的创建或者导入功能</para>
 /// <para>接口ID：7127187941650612227</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/leave/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fleave_granting_record%2fcreate</para>
@@ -30,7 +30,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     public string LeaveTypeId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>员工 ID，飞书人事的雇员id</para>
+    /// <para>员工 ID，飞书人事的雇员id。对应user_id_type</para>
     /// <para>必填：是</para>
     /// <para>示例值：6982509313466189342</para>
     /// </summary>
@@ -57,7 +57,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     public int GrantingUnit { get; set; }
 
     /// <summary>
-    /// <para>生效时间</para>
+    /// <para>生效时间，格式为yyyy-MM-dd</para>
     /// <para>必填：是</para>
     /// <para>示例值：2022-01-01</para>
     /// </summary>
@@ -65,7 +65,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     public string EffectiveDate { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>失效时间</para>
+    /// <para>失效时间，格式为yyyy-MM-dd</para>
     /// <para>必填：否</para>
     /// <para>示例值：2022-01-01</para>
     /// </summary>
@@ -73,7 +73,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     public string? ExpirationDate { get; set; }
 
     /// <summary>
-    /// <para>是否参与折算（1不参与折算，2参与折算）</para>
+    /// <para>是否参与折算（1不参与折算，2参与折算）。默认不折算</para>
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>

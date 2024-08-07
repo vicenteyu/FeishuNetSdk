@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-07
 // ************************************************************************
 // <copyright file="GetHireV1EmployeesByEmployeeIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -79,7 +79,7 @@ public record GetHireV1EmployeesByEmployeeIdResponseDto
         /// <para>示例值：1637596800000</para>
         /// </summary>
         [JsonPropertyName("onboard_time")]
-        public int? OnboardTime { get; set; }
+        public long? OnboardTime { get; set; }
 
         /// <summary>
         /// <para>预期转正时间，毫秒级时间戳</para>
@@ -87,7 +87,7 @@ public record GetHireV1EmployeesByEmployeeIdResponseDto
         /// <para>示例值：1637596800000</para>
         /// </summary>
         [JsonPropertyName("expected_conversion_time")]
-        public int? ExpectedConversionTime { get; set; }
+        public long? ExpectedConversionTime { get; set; }
 
         /// <summary>
         /// <para>实际转正时间，毫秒级时间戳</para>
@@ -95,7 +95,7 @@ public record GetHireV1EmployeesByEmployeeIdResponseDto
         /// <para>示例值：1637596800000</para>
         /// </summary>
         [JsonPropertyName("actual_conversion_time")]
-        public int? ActualConversionTime { get; set; }
+        public long? ActualConversionTime { get; set; }
 
         /// <summary>
         /// <para>离职时间，毫秒级时间戳</para>
@@ -103,7 +103,7 @@ public record GetHireV1EmployeesByEmployeeIdResponseDto
         /// <para>示例值：1637596800000</para>
         /// </summary>
         [JsonPropertyName("overboard_time")]
-        public int? OverboardTime { get; set; }
+        public long? OverboardTime { get; set; }
 
         /// <summary>
         /// <para>离职原因</para>

@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Attendance;
 public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysBodyDto
 {
     /// <summary>
-    /// <para>用户 ID</para>
+    /// <para>用户 ID，对应employee_type</para>
     /// <para>必填：是</para>
     /// <para>示例值：abd754f7</para>
     /// </summary>
@@ -30,7 +30,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysBodyDto
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>补卡日期</para>
+    /// <para>补卡日期，格式为yyyyMMdd</para>
     /// <para>必填：是</para>
     /// <para>示例值：20210104</para>
     /// </summary>

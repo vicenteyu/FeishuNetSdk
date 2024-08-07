@@ -34,7 +34,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
     public record UserTaskRemedy
     {
         /// <summary>
-        /// <para>用户 ID</para>
+        /// <para>用户 ID，对应employee_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>补卡日期</para>
+        /// <para>补卡日期，日期格式yyyyMMdd</para>
         /// <para>必填：是</para>
         /// <para>示例值：20210701</para>
         /// </summary>
@@ -66,7 +66,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         public int WorkType { get; set; }
 
         /// <summary>
-        /// <para>审批 ID</para>
+        /// <para>审批 ID，可用于[通知审批状态更新](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/approval_info/process)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6737202939523236113</para>
         /// </summary>
@@ -76,7 +76,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         /// <summary>
         /// <para>补卡时间，时间格式为 yyyy-MM-dd HH:mm</para>
         /// <para>必填：是</para>
-        /// <para>示例值：2021-07-0108:00</para>
+        /// <para>示例值：2021-07-01 08:00</para>
         /// </summary>
         [JsonPropertyName("remedy_time")]
         public string RemedyTime { get; set; } = string.Empty;

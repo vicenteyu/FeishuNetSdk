@@ -34,7 +34,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
     public record UserAllowedRemedy
     {
         /// <summary>
-        /// <para>用户 ID</para>
+        /// <para>用户 ID，对应employe_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>补卡日期</para>
+        /// <para>补卡日期，格式为yyyyMMdd</para>
         /// <para>必填：是</para>
         /// <para>示例值：20210104</para>
         /// </summary>
@@ -84,7 +84,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
         /// <summary>
         /// <para>正常的应打卡时间，时间格式为 yyyy-MM-dd HH:mm</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2021-07-0109:00</para>
+        /// <para>示例值：2021-07-01 09:00</para>
         /// </summary>
         [JsonPropertyName("normal_punch_time")]
         public string? NormalPunchTime { get; set; }
@@ -92,7 +92,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
         /// <summary>
         /// <para>可选的补卡时间的最小值，时间格式为 yyyy-MM-dd HH:mm</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2021-07-0108:00</para>
+        /// <para>示例值：2021-07-01 08:00</para>
         /// </summary>
         [JsonPropertyName("remedy_start_time")]
         public string? RemedyStartTime { get; set; }
@@ -100,7 +100,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
         /// <summary>
         /// <para>可选的补卡时间的最大值，时间格式为 yyyy-MM-dd HH:mm</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2021-07-0110:00</para>
+        /// <para>示例值：2021-07-01 10:00</para>
         /// </summary>
         [JsonPropertyName("remedy_end_time")]
         public string? RemedyEndTime { get; set; }

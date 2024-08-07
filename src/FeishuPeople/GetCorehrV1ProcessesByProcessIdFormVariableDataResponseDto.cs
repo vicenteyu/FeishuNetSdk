@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-07
 // ************************************************************************
 // <copyright file="GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -192,7 +192,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>示例值：1670227428803</para>
                 /// </summary>
                 [JsonPropertyName("value")]
-                public int? Value { get; set; }
+                public long? Value { get; set; }
 
                 /// <summary>
                 /// <para>时区，+08:00</para>
@@ -567,7 +567,7 @@ public record GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto
                         /// <para>示例值：1670227428803</para>
                         /// </summary>
                         [JsonPropertyName("value")]
-                        public int? Value { get; set; }
+                        public long? Value { get; set; }
 
                         /// <summary>
                         /// <para>时区，+08:00</para>

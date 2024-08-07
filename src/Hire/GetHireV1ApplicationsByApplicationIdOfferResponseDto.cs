@@ -161,7 +161,7 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
             public string? LeaderUserId { get; set; }
 
             /// <summary>
-            /// <para>入职日期</para>
+            /// <para>入职日期，格式为YYYY-MM-DD</para>
             /// <para>必填：否</para>
             /// <para>示例值：2021-05-20</para>
             /// </summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-07
 // ************************************************************************
 // <copyright file="PatchCorehrV2PersonsByPersonIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -244,14 +244,6 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     /// </summary>
     [JsonPropertyName("date_of_birth")]
     public string? DateOfBirth { get; set; }
-
-    /// <summary>
-    /// <para>国籍 ID，可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口查询</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：6862995757234914821</para>
-    /// </summary>
-    [JsonPropertyName("nationality_id_v2")]
-    public string? NationalityIdV2 { get; set; }
 
     /// <summary>
     /// <para>民族 / 种族，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，按如下参数查询即可：</para>
@@ -665,7 +657,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言编码（IETF BCP 47）</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -673,9 +665,9 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>文本内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：中文示例</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -773,7 +765,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言编码（IETF BCP 47）</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -781,9 +773,9 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>文本内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：中文示例</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -1657,6 +1649,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     {
         /// <summary>
         /// <para>姓名</para>
+        /// <para>- 该字段已弃用，请使用 legal_name</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("name")]
@@ -1664,6 +1657,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
         /// <summary>
         /// <para>姓名</para>
+        /// <para>- 该字段已弃用，请使用 legal_name</para>
         /// </summary>
         public record PersonName
         {
@@ -1920,6 +1914,35 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// </summary>
         [JsonPropertyName("legal_name")]
         public string? LegalName { get; set; }
+
+        /// <summary>
+        /// <para>自定义字段</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("custom_fields")]
+        public CustomFieldData[]? CustomFields { get; set; }
+
+        /// <summary>
+        /// <para>自定义字段</para>
+        /// </summary>
+        public record CustomFieldData
+        {
+            /// <summary>
+            /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：name</para>
+            /// </summary>
+            [JsonPropertyName("custom_api_name")]
+            public string CustomApiName { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：\"231\"</para>
+            /// </summary>
+            [JsonPropertyName("value")]
+            public string Value { get; set; } = string.Empty;
+        }
     }
 
     /// <summary>
@@ -2187,7 +2210,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])</para>
+            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
             /// <para>必填：是</para>
             /// <para>示例值：Sandy</para>
             /// </summary>

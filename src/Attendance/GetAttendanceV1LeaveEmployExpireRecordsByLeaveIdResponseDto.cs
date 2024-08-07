@@ -42,7 +42,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>员工ID</para>
+        /// <para>员工ID，对应employee_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：6982509313466189342</para>
         /// </summary>
@@ -82,7 +82,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         public int GrantingUnit { get; set; }
 
         /// <summary>
-        /// <para>生效日期，格式"2020-01-01"</para>
+        /// <para>生效日期，格式为yyyy-MM-dd</para>
         /// <para>必填：是</para>
         /// <para>示例值：2020-01-01</para>
         /// </summary>
@@ -90,7 +90,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         public string EffectiveDate { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>失效日期，格式"2020-01-01"</para>
+        /// <para>失效日期，格式为yyyy-MM-dd</para>
         /// <para>必填：是</para>
         /// <para>示例值：2020-01-01</para>
         /// </summary>

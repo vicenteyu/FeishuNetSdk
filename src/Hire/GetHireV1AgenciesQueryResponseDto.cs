@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 查询猎头供应商信息 响应体
-/// <para>根据猎头供应商名称查询猎头供应商信息。</para>
+/// <para>根据猎头供应商名称查询有合作关系的猎头供应商信息，包含猎头供应商ID、名称、联系人等。</para>
 /// <para>接口ID：6965472560995074050</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/agency/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fagency%2fquery</para>
@@ -22,14 +22,14 @@ namespace FeishuNetSdk.Hire;
 public record GetHireV1AgenciesQueryResponseDto
 {
     /// <summary>
-    /// <para>数据</para>
+    /// <para>猎头供应商信息</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public Agency[]? Items { get; set; }
 
     /// <summary>
-    /// <para>数据</para>
+    /// <para>猎头供应商信息</para>
     /// </summary>
     public record Agency
     {
@@ -50,7 +50,7 @@ public record GetHireV1AgenciesQueryResponseDto
         public string? Name { get; set; }
 
         /// <summary>
-        /// <para>供应商联系人唯一标识</para>
+        /// <para>猎头供应商联系人ID，与`user_id_type`类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_f476cb099ac9227c9bae09ce46112579</para>
         /// </summary>
@@ -58,29 +58,29 @@ public record GetHireV1AgenciesQueryResponseDto
         public string? ContactorId { get; set; }
 
         /// <summary>
-        /// <para>供应商联系人名称</para>
+        /// <para>猎头供应商联系人名称</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("contactor_name")]
         public I18n? ContactorName { get; set; }
 
         /// <summary>
-        /// <para>供应商联系人名称</para>
+        /// <para>猎头供应商联系人名称</para>
         /// </summary>
         public record I18n
         {
             /// <summary>
-            /// <para>中文</para>
+            /// <para>中文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：测试</para>
+            /// <para>示例值：张三</para>
             /// </summary>
             [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
-            /// <para>英文</para>
+            /// <para>英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：test</para>
+            /// <para>示例值：zhangsan</para>
             /// </summary>
             [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }

@@ -93,7 +93,7 @@ public record PostAttendanceV1UserApprovalsQueryResponseDto
             public int Unit { get; set; }
 
             /// <summary>
-            /// <para>外出时长</para>
+            /// <para>关联审批单外出时长，单位为秒，与unit无关</para>
             /// <para>必填：是</para>
             /// <para>示例值：8</para>
             /// </summary>
@@ -232,7 +232,7 @@ public record PostAttendanceV1UserApprovalsQueryResponseDto
             public int Unit { get; set; }
 
             /// <summary>
-            /// <para>假期时长</para>
+            /// <para>关联审批单休假时长，单位为秒，与unit无关</para>
             /// <para>必填：是</para>
             /// <para>示例值：8</para>
             /// </summary>

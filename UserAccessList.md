@@ -1,7 +1,7 @@
 <table><thead><tr><th>序号</th><th>更新日期</th><th>可用</th><th>类别</th><th>说明</th></tr></thead><tbody>
 <tr><td rowspan="2">1</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>身份验证</td><td>获取登录用户信息</td></tr>
 <tr><td colspan="3">GetAuthenV1UserInfo</td></tr>
-<tr><td rowspan="2">2</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
+<tr><td rowspan="2">2</td><td rowspan="2">2024-08-06</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
 <tr><td colspan="3">PatchContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">3</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>搜索部门</td></tr>
 <tr><td colspan="3">PostContactV3DepartmentsSearch</td></tr>
@@ -209,7 +209,7 @@
 <tr><td colspan="3">PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldId</td></tr>
 <tr><td rowspan="2">105</td><td rowspan="2">2023-07-28</td><td>&#10003;</td><td>多维表格</td><td>列出表单问题</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFields</td></tr>
-<tr><td rowspan="2">106</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>多维表格</td><td>检索记录</td></tr>
+<tr><td rowspan="2">106</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>多维表格</td><td><span style="color:red;">[不推荐]</span> 检索记录</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordId</td></tr>
 <tr><td rowspan="2">107</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>多维表格</td><td>列出记录</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdRecords</td></tr>
@@ -311,7 +311,7 @@
 <tr><td colspan="3">GetCalendarV4Calendars</td></tr>
 <tr><td rowspan="2">156</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>日历</td><td>更新日历信息</td></tr>
 <tr><td colspan="3">PatchCalendarV4CalendarsByCalendarId</td></tr>
-<tr><td rowspan="2">157</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>搜索日历</td></tr>
+<tr><td rowspan="2">157</td><td rowspan="2">2024-08-07</td><td>&#10003;</td><td>日历</td><td>搜索日历</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsSearch</td></tr>
 <tr><td rowspan="2">158</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>消息与群组</td><td>更新群信息</td></tr>
 <tr><td colspan="3">PutImV1ChatsByChatId</td></tr>
@@ -337,7 +337,7 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEvents</td></tr>
 <tr><td rowspan="2">169</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>消息与群组</td><td>更新群发言权限</td></tr>
 <tr><td colspan="3">PutImV1ChatsByChatIdModeration</td></tr>
-<tr><td rowspan="2">170</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>删除日程</td></tr>
+<tr><td rowspan="2">170</td><td rowspan="2">2024-08-06</td><td>&#10003;</td><td>日历</td><td>删除日程</td></tr>
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
 <tr><td rowspan="2">171</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>更新日程</td></tr>
 <tr><td colspan="3">PatchCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
@@ -403,7 +403,7 @@
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdRecordingStop</td></tr>
 <tr><td rowspan="2">202</td><td rowspan="2">2024-06-21</td><td>&#10003;</td><td>消息与群组</td><td>撤销群置顶</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdTopNoticeDeleteTopNotice</td></tr>
-<tr><td rowspan="2">203</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>视频会议</td><td>获取录制文件</td></tr>
+<tr><td rowspan="2">203</td><td rowspan="2">2024-08-07</td><td>&#10003;</td><td>视频会议</td><td>获取录制文件</td></tr>
 <tr><td colspan="3">GetVcV1MeetingsByMeetingIdRecording</td></tr>
 <tr><td rowspan="2">204</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>视频会议</td><td>授权录制文件</td></tr>
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdRecordingSetPermission</td></tr>
@@ -591,7 +591,7 @@
 <tr><td colspan="3">PostTaskV1TasksByTaskIdBatchDeleteCollaborator</td></tr>
 <tr><td rowspan="2">296</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>任务</td><td>获取执行者列表</td></tr>
 <tr><td colspan="3">GetTaskV1TasksByTaskIdCollaborators</td></tr>
-<tr><td rowspan="2">297</td><td rowspan="2">2023-10-12</td><td>&#10003;</td><td>任务</td><td>创建任务</td></tr>
+<tr><td rowspan="2">297</td><td rowspan="2">2024-08-07</td><td>&#10003;</td><td>任务</td><td>创建任务</td></tr>
 <tr><td colspan="3">PostTaskV2Tasks</td></tr>
 <tr><td rowspan="2">298</td><td rowspan="2">2023-10-12</td><td>&#10003;</td><td>任务</td><td>获取任务详情</td></tr>
 <tr><td colspan="3">GetTaskV2TasksByTaskGuid</td></tr>
@@ -707,7 +707,7 @@
 <tr><td colspan="3">PostTaskV2CustomFieldsByCustomFieldGuidOptions</td></tr>
 <tr><td rowspan="2">354</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>任务</td><td>更新自定义字段选项</td></tr>
 <tr><td colspan="3">PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuid</td></tr>
-<tr><td rowspan="2">355</td><td rowspan="2">2024-07-25</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
+<tr><td rowspan="2">355</td><td rowspan="2">2024-08-06</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxes</td></tr>
 <tr><td rowspan="2">356</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>搜索</td><td>搜索消息</td></tr>
 <tr><td colspan="3">PostSearchV2Message</td></tr>
@@ -763,47 +763,47 @@
 <tr><td colspan="3">PostLingoV1FilesUpload</td></tr>
 <tr><td rowspan="2">382</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>下载图片</td></tr>
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
-<tr><td rowspan="2">383</td><td rowspan="2">2024-07-29</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">383</td><td rowspan="2">2024-08-07</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">384</td><td rowspan="2">2024-07-29</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">384</td><td rowspan="2">2024-08-07</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">385</td><td rowspan="2">2023-04-07</td><td>&#10003;</td><td>应用信息</td><td>获取用户自定义常用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV5ApplicationsFavourite</td></tr>
 <tr><td rowspan="2">386</td><td rowspan="2">2023-04-07</td><td>&#10003;</td><td>应用信息</td><td>获取管理员推荐的应用</td></tr>
 <tr><td colspan="3">GetApplicationV5ApplicationsRecommend</td></tr>
-<tr><td rowspan="2">387</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>创建草稿</td></tr>
+<tr><td rowspan="2">387</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 创建草稿</td></tr>
 <tr><td colspan="3">PostBaikeV1Drafts</td></tr>
-<tr><td rowspan="2">388</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>更新草稿</td></tr>
+<tr><td rowspan="2">388</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 更新草稿</td></tr>
 <tr><td colspan="3">PutBaikeV1DraftsByDraftId</td></tr>
-<tr><td rowspan="2">389</td><td rowspan="2">2024-04-24</td><td>&#10003;</td><td>词典</td><td>创建免审词条</td></tr>
+<tr><td rowspan="2">389</td><td rowspan="2">2024-04-24</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 创建免审词条</td></tr>
 <tr><td colspan="3">PostBaikeV1Entities</td></tr>
-<tr><td rowspan="2">390</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>更新免审词条</td></tr>
+<tr><td rowspan="2">390</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 更新免审词条</td></tr>
 <tr><td colspan="3">PutBaikeV1EntitiesByEntityId</td></tr>
 <tr><td rowspan="2">391</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>消息与群组</td><td>会话标签页排序</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdChatTabsSortTabs</td></tr>
-<tr><td rowspan="2">392</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>获取词条详情</td></tr>
+<tr><td rowspan="2">392</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 获取词条详情</td></tr>
 <tr><td colspan="3">GetBaikeV1EntitiesByEntityId</td></tr>
-<tr><td rowspan="2">393</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>获取词条列表</td></tr>
+<tr><td rowspan="2">393</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 获取词条列表</td></tr>
 <tr><td colspan="3">GetBaikeV1Entities</td></tr>
-<tr><td rowspan="2">394</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>精准搜索词条</td></tr>
+<tr><td rowspan="2">394</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 精准搜索词条</td></tr>
 <tr><td colspan="3">PostBaikeV1EntitiesMatch</td></tr>
-<tr><td rowspan="2">395</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>模糊搜索词条</td></tr>
+<tr><td rowspan="2">395</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 模糊搜索词条</td></tr>
 <tr><td colspan="3">PostBaikeV1EntitiesSearch</td></tr>
-<tr><td rowspan="2">396</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>词条高亮</td></tr>
+<tr><td rowspan="2">396</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 词条高亮</td></tr>
 <tr><td colspan="3">PostBaikeV1EntitiesHighlight</td></tr>
-<tr><td rowspan="2">397</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>提取潜在的词条</td></tr>
+<tr><td rowspan="2">397</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 提取潜在的词条</td></tr>
 <tr><td colspan="3">PostBaikeV1EntitiesExtract</td></tr>
-<tr><td rowspan="2">398</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>获取词典分类</td></tr>
+<tr><td rowspan="2">398</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 获取词典分类</td></tr>
 <tr><td colspan="3">GetBaikeV1Classifications</td></tr>
-<tr><td rowspan="2">399</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>上传图片</td></tr>
+<tr><td rowspan="2">399</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 上传图片</td></tr>
 <tr><td colspan="3">PostBaikeV1FilesUpload</td></tr>
-<tr><td rowspan="2">400</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td>下载图片</td></tr>
+<tr><td rowspan="2">400</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 下载图片</td></tr>
 <tr><td colspan="3">GetBaikeV1FilesByFileTokenDownload</td></tr>
 <tr><td rowspan="2">401</td><td rowspan="2">2023-05-10</td><td>&#10003;</td><td>通讯录</td><td>获取用户列表</td></tr>
 <tr><td colspan="3">GetContactV3Users</td></tr>
 <tr><td rowspan="2">402</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>消息与群组</td><td>拉取会话标签页</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatIdChatTabsListTabs</td></tr>
-<tr><td rowspan="2">403</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>通讯录</td><td>获取部门信息列表</td></tr>
+<tr><td rowspan="2">403</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>通讯录</td><td><span style="color:red;">[不推荐]</span> 获取部门信息列表</td></tr>
 <tr><td colspan="3">GetContactV3Departments</td></tr>
 <tr><td rowspan="2">404</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 创建旧版文档</td></tr>
 <tr><td colspan="3">PostDocV2Create</td></tr>
@@ -1035,12 +1035,12 @@
 <tr><td colspan="3">PostAttendanceV1ArchiveRuleUserStatsFieldsQuery</td></tr>
 <tr><td rowspan="2">518</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>考勤打卡</td><td>查询所有归档规则</td></tr>
 <tr><td colspan="3">GetAttendanceV1ArchiveRule</td></tr>
-<tr><td rowspan="2">519</td><td rowspan="2">2024-08-01</td><td>新增</td><td>考勤打卡</td><td>写入归档报表结果</td></tr>
+<tr><td rowspan="2">519</td><td rowspan="2">2024-08-01</td><td>&#10003;</td><td>考勤打卡</td><td>写入归档报表结果</td></tr>
 <tr><td colspan="3">PostAttendanceV1ArchiveRuleUploadReport</td></tr>
-<tr><td rowspan="2">520</td><td rowspan="2">2024-08-01</td><td>新增</td><td>考勤打卡</td><td>删除归档报表行数据</td></tr>
+<tr><td rowspan="2">520</td><td rowspan="2">2024-08-01</td><td>&#10003;</td><td>考勤打卡</td><td>删除归档报表行数据</td></tr>
 <tr><td colspan="3">PostAttendanceV1ArchiveRuleDelReport</td></tr>
-<tr><td rowspan="2">521</td><td rowspan="2">2024-07-31</td><td>新增</td><td>云文档</td><td>获取知识空间成员列表</td></tr>
+<tr><td rowspan="2">521</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取知识空间成员列表</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
-<tr><td rowspan="2">522</td><td rowspan="2">2024-08-02</td><td>新增</td><td>画板</td><td>获取画板缩略图片</td></tr>
+<tr><td rowspan="2">522</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
 </tbody></table>

@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Attendance;
 public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto
 {
     /// <summary>
-    /// <para>员工ID</para>
+    /// <para>员工ID，对应employee_type</para>
     /// <para>必填：是</para>
     /// <para>示例值：6982509313466189342</para>
     /// </summary>
@@ -30,7 +30,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto
     public string EmploymentId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>假期类型ID</para>
+    /// <para>假期类型ID，可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：7111688079785723436</para>
     /// </summary>
@@ -38,7 +38,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto
     public string LeaveTypeId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>失效最早日期 2023-04-10 格式</para>
+    /// <para>失效最早日期，格式为yyyy-MM-dd</para>
     /// <para>必填：是</para>
     /// <para>示例值：2023-04-10</para>
     /// </summary>
@@ -46,7 +46,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto
     public string StartExpirationDate { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>失效最晚日期 2023-05-10 格式</para>
+    /// <para>失效最晚日期，格式为yyyy-MM-dd</para>
     /// <para>必填：是</para>
     /// <para>示例值：2023-05-10</para>
     /// </summary>

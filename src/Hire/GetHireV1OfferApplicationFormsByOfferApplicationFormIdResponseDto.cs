@@ -140,7 +140,9 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                 }
 
                 /// <summary>
-                /// <para>是否为自定义模块，false代表系统预置模块</para>
+                /// <para>是否为自定义模块：</para>
+                /// <para>- true：自定义模块</para>
+                /// <para>- false：系统预置模块</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
@@ -231,7 +233,9 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     public string? ModuleId { get; set; }
 
                     /// <summary>
-                    /// <para>是否为自定义字段，false代表系统预置字段</para>
+                    /// <para>是否为自定义字段：</para>
+                    /// <para>- true：自定义字段</para>
+                    /// <para>- false：系统预置字段</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：true</para>
                     /// </summary>
@@ -239,7 +243,9 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     public bool? IsCustomized { get; set; }
 
                     /// <summary>
-                    /// <para>是否必填</para>
+                    /// <para>是否必填：</para>
+                    /// <para>- true：必填</para>
+                    /// <para>- false：非必填</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：true</para>
                     /// </summary>
@@ -259,7 +265,9 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     public int? ActiveStatus { get; set; }
 
                     /// <summary>
-                    /// <para>修改后是否需要审批</para>
+                    /// <para>修改后是否需要审批：</para>
+                    /// <para>- true：需要审批</para>
+                    /// <para>- false：不需要审批</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：true</para>
                     /// </summary>
@@ -267,7 +275,9 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     public bool? NeedApprove { get; set; }
 
                     /// <summary>
-                    /// <para>是否敏感字段，敏感字段会在发起 Offer 审批时隐藏</para>
+                    /// <para>是否敏感字段（敏感字段会在发起 Offer 审批时隐藏）</para>
+                    /// <para>- true：敏感字段</para>
+                    /// <para>- false：非敏感字段</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：false</para>
                     /// </summary>

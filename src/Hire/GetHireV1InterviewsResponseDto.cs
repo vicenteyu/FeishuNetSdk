@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-02
+// Last Modified On : 2024-08-07
 // ************************************************************************
 // <copyright file="GetHireV1InterviewsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -66,19 +66,19 @@ public record GetHireV1InterviewsResponseDto
         public int? Round { get; set; }
 
         /// <summary>
-        /// <para>面试记录信息</para>
+        /// <para>面试评价信息</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("interview_record_list")]
         public InterviewRecord[]? InterviewRecordLists { get; set; }
 
         /// <summary>
-        /// <para>面试记录信息</para>
+        /// <para>面试评价信息</para>
         /// </summary>
         public record InterviewRecord
         {
             /// <summary>
-            /// <para>面试记录 ID</para>
+            /// <para>面试评价 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：6949805467799537964</para>
             /// </summary>
@@ -94,7 +94,7 @@ public record GetHireV1InterviewsResponseDto
             public string? UserId { get; set; }
 
             /// <summary>
-            /// <para>系统预设题目内容，来自面试评价表中预设字段「记录」，详情参考[获取面试评价表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_record_template/list)</para>
+            /// <para>系统预设题目内容，来自面试评价表中预设字段「记录」，详情参考[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：符合要求，推荐录用</para>
             /// </summary>
@@ -157,7 +157,7 @@ public record GetHireV1InterviewsResponseDto
                 public int? Level { get; set; }
 
                 /// <summary>
-                /// <para>面试记录中文名称</para>
+                /// <para>面试评分中文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：第一轮面试</para>
                 /// </summary>
@@ -165,7 +165,7 @@ public record GetHireV1InterviewsResponseDto
                 public string? ZhName { get; set; }
 
                 /// <summary>
-                /// <para>面试记录中文描述</para>
+                /// <para>面试评分中文描述</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：通过，能力达到要求， 建议录用</para>
                 /// </summary>
@@ -173,7 +173,7 @@ public record GetHireV1InterviewsResponseDto
                 public string? ZhDescription { get; set; }
 
                 /// <summary>
-                /// <para>面试记录英文名称</para>
+                /// <para>面试评分英文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：English name</para>
                 /// </summary>
@@ -181,7 +181,7 @@ public record GetHireV1InterviewsResponseDto
                 public string? EnName { get; set; }
 
                 /// <summary>
-                /// <para>面试记录英文描述</para>
+                /// <para>面试评分英文描述</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：Pass, ability to meet the requirements, suggest to hire</para>
                 /// </summary>
@@ -328,7 +328,7 @@ public record GetHireV1InterviewsResponseDto
         /// <para>示例值：1618999376474</para>
         /// </summary>
         [JsonPropertyName("biz_create_time")]
-        public int? BizCreateTime { get; set; }
+        public long? BizCreateTime { get; set; }
 
         /// <summary>
         /// <para>最近更新时间，毫秒时间戳</para>
@@ -336,7 +336,7 @@ public record GetHireV1InterviewsResponseDto
         /// <para>示例值：1618999376474</para>
         /// </summary>
         [JsonPropertyName("biz_modify_time")]
-        public int? BizModifyTime { get; set; }
+        public long? BizModifyTime { get; set; }
 
         /// <summary>
         /// <para>面试状态</para>
@@ -640,7 +640,7 @@ public record GetHireV1InterviewsResponseDto
         public record InterviewMeetingRoom
         {
             /// <summary>
-            /// <para>会议室 ID</para>
+            /// <para>会议室 ID，详情可查看：[查询会议室列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6949805467799537964</para>
             /// </summary>

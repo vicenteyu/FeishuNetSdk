@@ -2056,6 +2056,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：20</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("历史版本")]
     [HttpGet("/open-apis/contact/v3/departments")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3DepartmentsResponseDto>> GetContactV3DepartmentsAsync(
         UserAccessToken access_token,
@@ -3229,6 +3230,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("历史版本")]
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponseDto>> GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdAsync(
         UserAccessToken access_token,
@@ -4027,8 +4029,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="event_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日程 ID。</para>
-    /// <para>创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。</para>
+    /// <para>日程 ID。获取方式：</para>
+    /// <para>- [创建日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create)会返回日程 ID</para>
     /// <para>- [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)</para>
     /// <para>- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)</para>
     /// <para>示例值：xxxxxxxxx_0</para>
@@ -9039,6 +9041,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/draft/create")]
     [HttpPost("/open-apis/baike/v1/drafts")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1DraftsResponseDto>> PostBaikeV1DraftsAsync(
         UserAccessToken access_token,
@@ -9078,6 +9081,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/draft/update")]
     [HttpPut("/open-apis/baike/v1/drafts/{draft_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PutBaikeV1DraftsByDraftIdResponseDto>> PutBaikeV1DraftsByDraftIdAsync(
         UserAccessToken access_token,
@@ -9130,6 +9134,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/get")]
     [HttpGet("/open-apis/baike/v1/entities/{entity_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetBaikeV1EntitiesByEntityIdResponseDto>> GetBaikeV1EntitiesByEntityIdAsync(
         UserAccessToken access_token,
@@ -9183,6 +9188,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/list")]
     [HttpGet("/open-apis/baike/v1/entities")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetBaikeV1EntitiesResponseDto>> GetBaikeV1EntitiesAsync(
         UserAccessToken access_token,
@@ -9205,6 +9211,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/match")]
     [HttpPost("/open-apis/baike/v1/entities/match")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1EntitiesMatchResponseDto>> PostBaikeV1EntitiesMatchAsync(
         UserAccessToken access_token,
@@ -9250,6 +9257,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/search")]
     [HttpPost("/open-apis/baike/v1/entities/search")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1EntitiesSearchResponseDto>> PostBaikeV1EntitiesSearchAsync(
         UserAccessToken access_token,
@@ -9272,6 +9280,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/highlight")]
     [HttpPost("/open-apis/baike/v1/entities/highlight")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1EntitiesHighlightResponseDto>> PostBaikeV1EntitiesHighlightAsync(
         UserAccessToken access_token,
@@ -10806,6 +10815,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/create")]
     [HttpPost("/open-apis/baike/v1/entities")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1EntitiesResponseDto>> PostBaikeV1EntitiesAsync(
         UserAccessToken access_token,
@@ -10845,6 +10855,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/update")]
     [HttpPut("/open-apis/baike/v1/entities/{entity_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PutBaikeV1EntitiesByEntityIdResponseDto>> PutBaikeV1EntitiesByEntityIdAsync(
         UserAccessToken access_token,
@@ -10878,6 +10889,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/classification/list")]
     [HttpGet("/open-apis/baike/v1/classifications")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetBaikeV1ClassificationsResponseDto>> GetBaikeV1ClassificationsAsync(
         UserAccessToken access_token,
@@ -12772,6 +12784,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>二进制文件内容，高宽像素在 320-4096 像素之间，大小在 3KB-10MB 的图片</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/file/upload")]
     [HttpPost("/open-apis/baike/v1/files/upload")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1FilesUploadResponseDto>> PostBaikeV1FilesUploadAsync(
         UserAccessToken access_token,
@@ -12798,6 +12811,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <returns>返回文件二进制流</returns>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/file/download")]
     [HttpGet("/open-apis/baike/v1/files/{file_token}/download")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetBaikeV1FilesByFileTokenDownloadAsync(
         UserAccessToken access_token,
@@ -13171,6 +13185,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/extract")]
     [HttpPost("/open-apis/baike/v1/entities/extract")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1EntitiesExtractResponseDto>> PostBaikeV1EntitiesExtractAsync(
         UserAccessToken access_token,

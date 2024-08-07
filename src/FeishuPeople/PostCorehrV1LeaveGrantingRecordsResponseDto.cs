@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 创建假期发放记录 响应体
-/// <para>向飞书人事休假系统写入假期发放记录。</para>
+/// <para>向飞书人事休假系统写入假期发放记录。对应假勤管理-休假管理-[发放记录](https://example.feishu.cn/people/workforce-management/manage/leave/leave_admin/granting_record)的创建或者导入功能</para>
 /// <para>接口ID：7127187941650612227</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/leave/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fleave_granting_record%2fcreate</para>
@@ -34,7 +34,7 @@ public record PostCorehrV1LeaveGrantingRecordsResponseDto
     public record PostCorehrV1LeaveGrantingRecordsResponseDtoLeaveGrantingRecord
     {
         /// <summary>
-        /// <para>假期发放记录 ID</para>
+        /// <para>假期发放记录 ID，可用与[删除假期发放记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave_granting_record/delete)和[修改发放记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/leave_accrual_record/patch)</para>
         /// <para>必填：是</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record PostCorehrV1LeaveGrantingRecordsResponseDto
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>员工 ID</para>
+        /// <para>员工 ID，对应user_id_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -77,7 +77,7 @@ public record PostCorehrV1LeaveGrantingRecordsResponseDto
         public int GrantingUnit { get; set; }
 
         /// <summary>
-        /// <para>生效时间</para>
+        /// <para>生效时间，格式为yyyy-MM-dd</para>
         /// <para>必填：是</para>
         /// <para>示例值：2022-01-01</para>
         /// </summary>
@@ -85,7 +85,7 @@ public record PostCorehrV1LeaveGrantingRecordsResponseDto
         public string EffectiveDate { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>失效时间（根据休假规则自动计算）</para>
+        /// <para>失效时间（根据休假规则自动计算），格式为yyyy-MM-dd</para>
         /// <para>必填：是</para>
         /// <para>示例值：2022-01-01</para>
         /// </summary>
@@ -134,7 +134,7 @@ public record PostCorehrV1LeaveGrantingRecordsResponseDto
         }
 
         /// <summary>
-        /// <para>发放记录的创建时间</para>
+        /// <para>发放记录的创建时间，格式为时间戳</para>
         /// <para>必填：是</para>
         /// <para>示例值：1608725989000</para>
         /// </summary>
@@ -142,7 +142,7 @@ public record PostCorehrV1LeaveGrantingRecordsResponseDto
         public string CreatedAt { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发放记录的创建人，值为创建人的员工 ID</para>
+        /// <para>发放记录的创建人，值为创建人的员工 ID，对应user_id_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：646465654545</para>
         /// </summary>
@@ -150,7 +150,7 @@ public record PostCorehrV1LeaveGrantingRecordsResponseDto
         public string CreatedBy { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发放记录的更新时间</para>
+        /// <para>发放记录的更新时间，格式为时间戳</para>
         /// <para>必填：是</para>
         /// <para>示例值：1608725989000</para>
         /// </summary>
@@ -158,7 +158,7 @@ public record PostCorehrV1LeaveGrantingRecordsResponseDto
         public string UpdatedAt { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发放记录的更新人，值为更新人的员工 ID</para>
+        /// <para>发放记录的更新人，值为更新人的员工 ID，对应user_id_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：646465654545</para>
         /// </summary>
@@ -166,7 +166,7 @@ public record PostCorehrV1LeaveGrantingRecordsResponseDto
         public string UpdatedBy { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>是否参与折算</para>
+        /// <para>是否参与折算（1不参与折算，2参与折算）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>

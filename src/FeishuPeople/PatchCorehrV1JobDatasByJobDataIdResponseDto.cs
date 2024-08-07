@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 更新任职信息 响应体
-/// <para>更新任职信息</para>
+/// <para>默认为新增一条任职记录，包括职务、职级、序列、部门等信息。</para>
 /// <para>接口ID：7072642400195723292</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/employee/job_data/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_data%2fpatch</para>

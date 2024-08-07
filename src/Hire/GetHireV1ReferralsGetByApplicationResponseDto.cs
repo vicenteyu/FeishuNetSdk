@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取内推信息 响应体
-/// <para>根据投递 ID 获取内推信息。</para>
+/// <para>根据投递 ID 获取内推信息，包含内推人信息、内推创建时间等。</para>
 /// <para>接口ID：6964264269274595330</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/referral/get_by_application</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2freferral%2fget_by_application</para>
@@ -34,9 +34,9 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
     public record GetHireV1ReferralsGetByApplicationResponseDtoReferral
     {
         /// <summary>
-        /// <para>内推的 ID</para>
+        /// <para>内推 ID</para>
         /// <para>必填：是</para>
-        /// <para>示例值：6643786345878</para>
+        /// <para>示例值：7392247983414413606</para>
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
@@ -50,7 +50,7 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
         public string ApplicationId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>创建时间（ms）</para>
+        /// <para>创建时间，毫秒时间戳</para>
         /// <para>必填：是</para>
         /// <para>示例值：1618899376474</para>
         /// </summary>
@@ -58,9 +58,9 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
         public long CreateTime { get; set; }
 
         /// <summary>
-        /// <para>内推人的 ID</para>
+        /// <para>内推人 ID，与`user_id_type`类型一致</para>
         /// <para>必填：是</para>
-        /// <para>示例值：ou_xxxx</para>
+        /// <para>示例值：ou_669760b021dbd9edbf2f3dc11b3a25ed</para>
         /// </summary>
         [JsonPropertyName("referral_user_id")]
         public string ReferralUserId { get; set; } = string.Empty;
@@ -78,37 +78,37 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
         public record IdNameObject
         {
             /// <summary>
-            /// <para>ID</para>
+            /// <para>内推人ID，同`referral_user_id`，与`user_id_type`类型一致</para>
             /// <para>必填：否</para>
-            /// <para>示例值：1213213123123</para>
+            /// <para>示例值：ou_669760b021dbd9edbf2f3dc11b3a25ed</para>
             /// </summary>
             [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>内推人名称</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>内推人名称</para>
             /// </summary>
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：测试</para>
+                /// <para>示例值：张三</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：test</para>
+                /// <para>示例值：zhangsan</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }

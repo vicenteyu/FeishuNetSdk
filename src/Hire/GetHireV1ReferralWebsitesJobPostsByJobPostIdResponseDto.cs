@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取内推官网下职位广告详情 响应体
-/// <para>根据广告 ID 获取内推官网下的职位广告详情。</para>
+/// <para>根据职位广告 ID 获取内推官网下的职位广告详情，包含职位广告 ID 以及职位信息等。</para>
 /// <para>接口ID：7204730827112185860</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/referral/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2freferral_website-job_post%2fget</para>
@@ -36,15 +36,15 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
         /// <summary>
         /// <para>职位广告 ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1213213123123</para>
+        /// <para>示例值：7174316547413000195</para>
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>标题</para>
+        /// <para>职位广告名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值：测试</para>
+        /// <para>示例值：高级工程师招聘</para>
         /// </summary>
         [JsonPropertyName("title")]
         public string? Title { get; set; }
@@ -52,7 +52,7 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
         /// <summary>
         /// <para>职位 ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：xxx</para>
+        /// <para>示例值：7392894182636030258</para>
         /// </summary>
         [JsonPropertyName("job_id")]
         public string? JobId { get; set; }
@@ -60,15 +60,15 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
         /// <summary>
         /// <para>职位编码</para>
         /// <para>必填：否</para>
-        /// <para>示例值：007</para>
+        /// <para>示例值：A168688</para>
         /// </summary>
         [JsonPropertyName("job_code")]
         public string? JobCode { get; set; }
 
         /// <summary>
-        /// <para>职位过期时间，「null」代表「长期有效」</para>
+        /// <para>职位到期时间，毫秒时间戳，「null」代表「长期有效」</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1111</para>
+        /// <para>示例值：1722837278000</para>
         /// </summary>
         [JsonPropertyName("job_expire_time")]
         public string? JobExpireTime { get; set; }
@@ -98,49 +98,49 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
         public int? JobProcessType { get; set; }
 
         /// <summary>
-        /// <para>职位雇佣类型</para>
+        /// <para>职位雇佣类型，请参考[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_recruitment_type")]
         public IdNameObject? JobRecruitmentType { get; set; }
 
         /// <summary>
-        /// <para>职位雇佣类型</para>
+        /// <para>职位雇佣类型，请参考[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)</para>
         /// </summary>
         public record IdNameObject
         {
             /// <summary>
-            /// <para>ID</para>
+            /// <para>职位雇佣类型ID</para>
             /// <para>必填：否</para>
-            /// <para>示例值：1213213123123</para>
+            /// <para>示例值：101</para>
             /// </summary>
             [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>职位雇佣类型名称</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>职位雇佣类型名称</para>
             /// </summary>
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：测试</para>
+                /// <para>示例值：全职</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：test</para>
+                /// <para>示例值：Full-time</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -148,7 +148,7 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
         }
 
         /// <summary>
-        /// <para>职位部门</para>
+        /// <para>部门</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_department")]
@@ -176,19 +176,19 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
         public IdNameObject? MaxJobLevel { get; set; }
 
         /// <summary>
-        /// <para>职位地址</para>
+        /// <para>职位地址，废弃字段，请使用`address_list`字段</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("address")]
         public CommonAddress? Address { get; set; }
 
         /// <summary>
-        /// <para>职位地址</para>
+        /// <para>职位地址，废弃字段，请使用`address_list`字段</para>
         /// </summary>
         public record CommonAddress
         {
             /// <summary>
-            /// <para>ID</para>
+            /// <para>职位地址ID，详情请参考：[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6583482347283472832</para>
             /// </summary>
@@ -196,29 +196,29 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>职位地址名称</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>职位地址名称</para>
             /// </summary>
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：测试</para>
+                /// <para>示例值：抖音大厦</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：test</para>
+                /// <para>示例值：Douyin Building</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -237,37 +237,37 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
             public record CodeNameObject
             {
                 /// <summary>
-                /// <para>编码</para>
+                /// <para>区域编码</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：1111</para>
+                /// <para>示例值：DS_1000002</para>
                 /// </summary>
                 [JsonPropertyName("code")]
                 public string? Code { get; set; }
 
                 /// <summary>
-                /// <para>名称</para>
+                /// <para>区域名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
-                /// <para>名称</para>
+                /// <para>区域名称</para>
                 /// </summary>
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>中文</para>
+                    /// <para>中文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：测试</para>
+                    /// <para>示例值：大观区</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
-                    /// <para>英文</para>
+                    /// <para>英文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：test</para>
+                    /// <para>示例值：Daguan</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -282,7 +282,7 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
             public CodeNameObject? City { get; set; }
 
             /// <summary>
-            /// <para>省信息</para>
+            /// <para>省份信息</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("state")]
@@ -297,17 +297,17 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
         }
 
         /// <summary>
-        /// <para>月薪范围-最低薪资</para>
+        /// <para>月薪范围-最低薪资，单位：K</para>
         /// <para>必填：否</para>
-        /// <para>示例值：5000</para>
+        /// <para>示例值：5</para>
         /// </summary>
         [JsonPropertyName("min_salary")]
         public string? MinSalary { get; set; }
 
         /// <summary>
-        /// <para>月薪范围-最高薪资</para>
+        /// <para>月薪范围-最高薪资，单位：K</para>
         /// <para>必填：否</para>
-        /// <para>示例值：10000</para>
+        /// <para>示例值：20</para>
         /// </summary>
         [JsonPropertyName("max_salary")]
         public string? MaxSalary { get; set; }
@@ -332,7 +332,7 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
         public int? RequiredDegree { get; set; }
 
         /// <summary>
-        /// <para>经验</para>
+        /// <para>工作经验</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
@@ -350,7 +350,7 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
         public int? Experience { get; set; }
 
         /// <summary>
-        /// <para>数量</para>
+        /// <para>招聘数量</para>
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
@@ -358,7 +358,7 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
         public int? Headcount { get; set; }
 
         /// <summary>
-        /// <para>职位亮点</para>
+        /// <para>职位亮点列表，详情请参考：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("high_light_list")]
@@ -375,7 +375,7 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
         /// <summary>
         /// <para>职位要求</para>
         /// <para>必填：否</para>
-        /// <para>示例值：大专</para>
+        /// <para>示例值：有相关经验者优先</para>
         /// </summary>
         [JsonPropertyName("requirement")]
         public string? Requirement { get; set; }
@@ -388,37 +388,37 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
         public IdNameObject? Creator { get; set; }
 
         /// <summary>
-        /// <para>创建时间</para>
+        /// <para>创建时间，毫秒时间戳</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1111</para>
+        /// <para>示例值：1716791547691</para>
         /// </summary>
         [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
-        /// <para>修改时间</para>
+        /// <para>修改时间，毫秒时间戳</para>
         /// <para>必填：否</para>
-        /// <para>示例值：222</para>
+        /// <para>示例值：1716791547691</para>
         /// </summary>
         [JsonPropertyName("modify_time")]
         public string? ModifyTime { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段列表，详情可参考：[获取职位模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_schema/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data_list")]
         public WebsiteJobPostCustomizedData[]? CustomizedDataLists { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段列表，详情可参考：[获取职位模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_schema/list)</para>
         /// </summary>
         public record WebsiteJobPostCustomizedData
         {
             /// <summary>
             /// <para>自定义字段 ID</para>
             /// <para>必填：否</para>
-            /// <para>示例值：xxxx</para>
+            /// <para>示例值：7368811146881091852</para>
             /// </summary>
             [JsonPropertyName("object_id")]
             public string? ObjectId { get; set; }
@@ -436,17 +436,17 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：测试</para>
+                /// <para>示例值：集团数字化</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：test</para>
+                /// <para>示例值：group digitization</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -485,9 +485,9 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
             public record WebsiteJobPostCustomizedValue
             {
                 /// <summary>
-                /// <para>当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值</para>
+                /// <para>当字段类型为单行文本、多行文本、默认字段时，从此字段取值</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：text</para>
+                /// <para>示例值：集团数字化是大方向</para>
                 /// </summary>
                 [JsonPropertyName("content")]
                 public string? Content { get; set; }
@@ -507,7 +507,7 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
                     /// <summary>
                     /// <para>选项 ID</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：AA</para>
+                    /// <para>示例值：1</para>
                     /// </summary>
                     [JsonPropertyName("key")]
                     public string? Key { get; set; }
@@ -525,17 +525,17 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>中文</para>
+                        /// <para>中文名称</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：测试</para>
+                        /// <para>示例值：支持</para>
                         /// </summary>
                         [JsonPropertyName("zh_cn")]
                         public string? ZhCn { get; set; }
 
                         /// <summary>
-                        /// <para>英文</para>
+                        /// <para>英文名称</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：test</para>
+                        /// <para>示例值：support</para>
                         /// </summary>
                         [JsonPropertyName("en_us")]
                         public string? EnUs { get; set; }
@@ -562,17 +562,17 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
                 public record WebsiteJobPostCustomizedTimeRange
                 {
                     /// <summary>
-                    /// <para>开始时间</para>
+                    /// <para>开始时间，毫秒时间戳</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：AA</para>
+                    /// <para>示例值：1716791547691</para>
                     /// </summary>
                     [JsonPropertyName("start_time")]
                     public string? StartTime { get; set; }
 
                     /// <summary>
-                    /// <para>结束时间</para>
+                    /// <para>结束时间，毫秒时间戳</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：AA</para>
+                    /// <para>示例值：1716891547691</para>
                     /// </summary>
                     [JsonPropertyName("end_time")]
                     public string? EndTime { get; set; }
@@ -589,7 +589,7 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
                 /// <summary>
                 /// <para>当字段类型为数字时，从此字段取值</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：111</para>
+                /// <para>示例值：88</para>
                 /// </summary>
                 [JsonPropertyName("number")]
                 public string? Number { get; set; }
@@ -604,14 +604,14 @@ public record GetHireV1ReferralWebsitesJobPostsByJobPostIdResponseDto
         public IdNameObject? JobFunction { get; set; }
 
         /// <summary>
-        /// <para>职位项目</para>
+        /// <para>项目</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("subject")]
         public IdNameObject? Subject { get; set; }
 
         /// <summary>
-        /// <para>职位广告地址列表</para>
+        /// <para>职位地址列表</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("address_list")]

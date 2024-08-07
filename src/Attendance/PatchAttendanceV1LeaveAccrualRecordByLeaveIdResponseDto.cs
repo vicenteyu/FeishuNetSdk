@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 修改发放记录 响应体
-/// <para>仅可更新「发放数量」和「失效日期」</para>
+/// <para>更新发放记录的发放数量和失效日期，对应假勤管理-休假管理-[发放记录](https://example.feishu.cn/people/workforce-management/manage/leave/leave_admin/granting_record)</para>
 /// <para>接口ID：7239198678939713540</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/leave_accrual_record/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fleave_accrual_record%2fpatch</para>
@@ -42,7 +42,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdResponseDto
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>员工ID</para>
+        /// <para>员工ID，对应employee_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：6982509313466189342</para>
         /// </summary>
@@ -74,7 +74,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdResponseDto
         public int GrantingUnit { get; set; }
 
         /// <summary>
-        /// <para>生效日期，格式"2020-01-01"</para>
+        /// <para>生效日期，格式为yyyy-MM-dd</para>
         /// <para>必填：是</para>
         /// <para>示例值：2020-01-01</para>
         /// </summary>
@@ -82,7 +82,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdResponseDto
         public string EffectiveDate { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>失效日期，格式"2020-01-01"</para>
+        /// <para>失效日期，格式为yyyy-MM-dd</para>
         /// <para>必填：是</para>
         /// <para>示例值：2020-01-01</para>
         /// </summary>
@@ -135,7 +135,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdResponseDto
         public string CreatedAt { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发放记录的创建人的ID</para>
+        /// <para>发放记录的创建人的ID，对应employee_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：6982509313466189342</para>
         /// </summary>
@@ -151,7 +151,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdResponseDto
         public string UpdatedAt { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发放记录的更新人的ID</para>
+        /// <para>发放记录的更新人的ID，对应employee_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：6982509313466189342</para>
         /// </summary>

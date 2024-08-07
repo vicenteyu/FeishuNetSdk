@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 更新统计设置 响应体
-/// <para>更新开发者定制的日度统计或月度统计的统计报表表头设置信息。</para>
+/// <para>更新开发者定制的日度统计或月度统计的统计报表表头设置信息。报表的表头信息可以在考勤统计-[报表](https://example.feishu.cn/people/workforce-management/manage/statistics/report)中查询到具体的报表信息，此接口专门用于更新表头信息。</para>
 /// <para>接口ID：7044467124773650433</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_stats_data/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_stats_view%2fupdate</para>
@@ -54,7 +54,7 @@ public record PutAttendanceV1UserStatsViewsByUserStatsViewIdResponseDto
         public string StatsType { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>操作者的用户id</para>
+        /// <para>操作者的用户id，对应employee_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：ec8ddg56</para>
         /// </summary>
@@ -110,7 +110,7 @@ public record PutAttendanceV1UserStatsViewsByUserStatsViewIdResponseDto
                 public string Code { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>开关字段，0：关闭，1：开启（非开关字段场景：code = 51501 可选值为1-6）</para>
+                /// <para>开关字段，0：关闭，1：开启</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：0</para>
                 /// </summary>

@@ -145,7 +145,7 @@ public record PostContactV3UsersBodyDto
     /// <para>工作城市。字符长度上限为 100。</para>
     /// <para>**说明**：</para>
     /// <para>- 你可以调用[获取租户工作城市列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/work_city/list)接口获取当前租户内已有的工作城市名称。</para>
-    /// <para>- 如果你传入的工作城市名称不存在，则系统会自动生成该工作城市。</para>
+    /// <para>- 如果你传入的工作城市名称不存在，则系统会自动生成该工作城市。工作城市的枚举值数量上限为 10,000。</para>
     /// <para>**默认值**：空</para>
     /// <para>必填：否</para>
     /// <para>示例值：杭州</para>
@@ -394,9 +394,9 @@ public record PostContactV3UsersBodyDto
     public string? EnterpriseEmail { get; set; }
 
     /// <summary>
-    /// <para>职务名称。</para>
+    /// <para>职务名称。字符数量上限为 255。</para>
     /// <para>- 你可以调用[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/list)接口获取相应的职务名称。</para>
-    /// <para>- 如果传入的职务名称不存在，则系统会自动创建并使用该名称。</para>
+    /// <para>- 如果传入的职务名称不存在，则系统会自动创建并使用该名称。职务枚举值数量上限为 10,000。</para>
     /// <para>**默认值**：空</para>
     /// <para>必填：否</para>
     /// <para>示例值：xxxxx</para>

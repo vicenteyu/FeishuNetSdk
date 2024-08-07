@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Attendance;
 public record PostAttendanceV1UserTaskRemedysBodyDto
 {
     /// <summary>
-    /// <para>用户 ID</para>
+    /// <para>用户 ID，对应employee_type</para>
     /// <para>必填：是</para>
     /// <para>示例值：abd754f7</para>
     /// </summary>
@@ -30,7 +30,7 @@ public record PostAttendanceV1UserTaskRemedysBodyDto
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>补卡日期</para>
+    /// <para>补卡日期，日期格式yyyyMMdd</para>
     /// <para>必填：是</para>
     /// <para>示例值：20210701</para>
     /// </summary>
@@ -56,7 +56,7 @@ public record PostAttendanceV1UserTaskRemedysBodyDto
     /// <summary>
     /// <para>补卡时间，时间格式为 yyyy-MM-dd HH:mm</para>
     /// <para>必填：是</para>
-    /// <para>示例值：2021-07-0108:00</para>
+    /// <para>示例值：2021-07-01 08:00</para>
     /// </summary>
     [JsonPropertyName("remedy_time")]
     public string RemedyTime { get; set; } = string.Empty;
@@ -70,7 +70,7 @@ public record PostAttendanceV1UserTaskRemedysBodyDto
     public string Reason { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>补卡时间，精确到秒的时间戳</para>
+    /// <para>补卡时间，精确到秒的时间戳，不填默认为0</para>
     /// <para>必填：否</para>
     /// <para>示例值：1611476284</para>
     /// </summary>

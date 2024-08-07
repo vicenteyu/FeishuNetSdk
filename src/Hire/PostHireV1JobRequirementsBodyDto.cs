@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建招聘需求 请求体
-/// <para>创建招聘需求，除招聘需求编号为必填外，其他字段是否必填与飞书招聘「招聘需求字段管理」内设置一致。</para>
+/// <para>创建招聘需求，可指定招聘需求部门、招聘人数、需求描述等，具体可参考「飞书招聘」-「设置」-「招聘需求字段管理」，或者参考[获取招聘需求模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)。</para>
 /// <para>接口ID：6989078472837283843</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/job_requirement/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fjob_requirement%2fcreate</para>
@@ -22,9 +22,9 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1JobRequirementsBodyDto
 {
     /// <summary>
-    /// <para>招聘需求编号</para>
+    /// <para>招聘需求编号，需传入唯一的编号</para>
     /// <para>必填：是</para>
-    /// <para>示例值：xx1</para>
+    /// <para>示例值：R01905</para>
     /// </summary>
     [JsonPropertyName("short_code")]
     public string ShortCode { get; set; } = string.Empty;
@@ -32,7 +32,7 @@ public record PostHireV1JobRequirementsBodyDto
     /// <summary>
     /// <para>需求名称</para>
     /// <para>必填：是</para>
-    /// <para>示例值：test</para>
+    /// <para>示例值：HR部门春季招聘需求</para>
     /// </summary>
     [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
@@ -56,13 +56,14 @@ public record PostHireV1JobRequirementsBodyDto
     /// <summary>
     /// <para>需求人数</para>
     /// <para>必填：是</para>
-    /// <para>示例值：11</para>
+    /// <para>示例值：10</para>
     /// </summary>
     [JsonPropertyName("head_count")]
     public int HeadCount { get; set; }
 
     /// <summary>
-    /// <para>职位性质 ID，可在「招聘枚举常量」文档中查看枚举值，即将下线，请尽快切换至「employee_type_id」字段。与「employee_type_id」字段必填其一</para>
+    /// <para>职位性质 ID，可在[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)查阅枚举值。</para>
+    /// <para>- **注意**：该字段即将下线，请使用`employee_type_id`字段，与`employee_type_id`字段必填其一</para>
     /// <para>必填：否</para>
     /// <para>示例值：101</para>
     /// </summary>
@@ -70,8 +71,7 @@ public record PostHireV1JobRequirementsBodyDto
     public string? RecruitmentTypeId { get; set; }
 
     /// <summary>
-    /// <para>人员类型ID</para>
-    /// <para>获取枚举详情见本文档「查询参数」部分；使用该字段前，请联系招聘团队确认已在灰度内</para>
+    /// <para>人员类型ID，类型需与`employee_type_id_type`保持一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：6807409776231254285</para>
     /// </summary>
@@ -79,8 +79,7 @@ public record PostHireV1JobRequirementsBodyDto
     public string? EmployeeTypeId { get; set; }
 
     /// <summary>
-    /// <para>最高职级 ID</para>
-    /// <para>获取枚举详情见本文档「查询参数」部分</para>
+    /// <para>最高职级 ID，需与`job_level_id_type`类型保持一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：6807409776231254286</para>
     /// </summary>
@@ -88,8 +87,7 @@ public record PostHireV1JobRequirementsBodyDto
     public string? MaxLevelId { get; set; }
 
     /// <summary>
-    /// <para>最低职级 ID</para>
-    /// <para>获取枚举详情见本文档「查询参数」部分</para>
+    /// <para>最低职级 ID，需与`job_level_id_type`类型保持一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：6807409776231254287</para>
     /// </summary>
@@ -97,8 +95,7 @@ public record PostHireV1JobRequirementsBodyDto
     public string? MinLevelId { get; set; }
 
     /// <summary>
-    /// <para>职位序列 ID</para>
-    /// <para>获取枚举详情见本文档「查询参数」部分</para>
+    /// <para>职位序列 ID，需与`job_family_id_type`类型保持一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：6911957338526091536</para>
     /// </summary>
@@ -118,7 +115,7 @@ public record PostHireV1JobRequirementsBodyDto
     public int? Category { get; set; }
 
     /// <summary>
-    /// <para>需求部门的 open department id</para>
+    /// <para>需求部门ID，需与`department_id_type`类型一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
     /// </summary>
@@ -126,7 +123,7 @@ public record PostHireV1JobRequirementsBodyDto
     public string? DepartmentId { get; set; }
 
     /// <summary>
-    /// <para>需求负责人 ID 列表</para>
+    /// <para>需求负责人 ID 列表，需与`user_id_type`类型保持一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>
@@ -134,14 +131,14 @@ public record PostHireV1JobRequirementsBodyDto
     public string[]? RecruiterIdList { get; set; }
 
     /// <summary>
-    /// <para>需求用人经理 ID 列表</para>
+    /// <para>需求用人经理 ID 列表，需与`user_id_type`类型保持一致</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("jr_hiring_manager_id_list")]
     public string[]? JrHiringManagerIdList { get; set; }
 
     /// <summary>
-    /// <para>直属上级 ID</para>
+    /// <para>直属上级 ID，需与`user_id_type`类型保持一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </summary>
@@ -149,7 +146,7 @@ public record PostHireV1JobRequirementsBodyDto
     public string[]? DirectLeaderIdList { get; set; }
 
     /// <summary>
-    /// <para>开始日期，毫秒级时间戳</para>
+    /// <para>开始日期，毫秒时间戳</para>
     /// <para>必填：否</para>
     /// <para>示例值：1625729379000</para>
     /// </summary>
@@ -157,7 +154,7 @@ public record PostHireV1JobRequirementsBodyDto
     public string? StartTime { get; set; }
 
     /// <summary>
-    /// <para>预计完成日期，毫秒级时间戳</para>
+    /// <para>预计完成日期，毫秒时间戳</para>
     /// <para>必填：否</para>
     /// <para>示例值：1625729379000</para>
     /// </summary>
@@ -197,7 +194,7 @@ public record PostHireV1JobRequirementsBodyDto
     public int? RequiredDegree { get; set; }
 
     /// <summary>
-    /// <para>最高薪资，单位：千</para>
+    /// <para>最高薪资，单位：K</para>
     /// <para>必填：否</para>
     /// <para>示例值：10</para>
     /// </summary>
@@ -205,17 +202,17 @@ public record PostHireV1JobRequirementsBodyDto
     public string? MaxSalary { get; set; }
 
     /// <summary>
-    /// <para>最低薪资，单位：千</para>
+    /// <para>最低薪资，单位：K</para>
     /// <para>必填：否</para>
-    /// <para>示例值：15</para>
+    /// <para>示例值：5</para>
     /// </summary>
     [JsonPropertyName("min_salary")]
     public string? MinSalary { get; set; }
 
     /// <summary>
-    /// <para>工作地点 ID，枚举值可通过「获取地址列表」接口查询获得</para>
+    /// <para>工作地址ID，可通过[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)获取</para>
     /// <para>必填：否</para>
-    /// <para>示例值：11</para>
+    /// <para>示例值：7265901641899311105</para>
     /// </summary>
     [JsonPropertyName("address_id")]
     public string? AddressId { get; set; }
@@ -223,25 +220,25 @@ public record PostHireV1JobRequirementsBodyDto
     /// <summary>
     /// <para>需求描述</para>
     /// <para>必填：否</para>
-    /// <para>示例值：11</para>
+    /// <para>示例值：部门人力紧缺，需要招聘资深工程师10名</para>
     /// </summary>
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     /// <summary>
-    /// <para>自定义字段</para>
+    /// <para>自定义字段，可通过[获取招聘需求模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)获取自定义字段列表、类型等</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("customized_data_list")]
     public JobRequirementCustomizedData[]? CustomizedDataLists { get; set; }
 
     /// <summary>
-    /// <para>自定义字段</para>
+    /// <para>自定义字段，可通过[获取招聘需求模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)获取自定义字段列表、类型等</para>
     /// </summary>
     public record JobRequirementCustomizedData
     {
         /// <summary>
-        /// <para>自定义字段 ID</para>
+        /// <para>自定义字段 ID，可通过[获取招聘需求模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：1213213123123</para>
         /// </summary>
@@ -249,22 +246,25 @@ public record PostHireV1JobRequirementsBodyDto
         public string? ObjectId { get; set; }
 
         /// <summary>
-        /// <para>自定义字段 value，1. 对于自定义字段，若字段类型为单行文本/多行文本，传值格式为"这是一个文本"；2. 若字段类型为单选，传值内容为选项的 ID，格式为"6890840516938696974"；</para>
-        /// <para>3. 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\", \"6890840516938696975\" ]"；</para>
-        /// <para>4. 若字段类型为时间段，传值格式为"[\"1609430400000\", \"1612108800000\" ]"，单位是毫米级时间戳；</para>
-        /// <para>5. 若字段类型为年份选择，传值格式为"1609430400000"，单位是毫秒级时间戳；</para>
-        /// <para>6. 若字段类型为月份选择，传值格式为"1625068800000"，单位是毫秒级时间戳；</para>
-        /// <para>7. 若字段类型为数字，传值格式为"1";</para>
-        /// <para>8. 若字段为富文本，传值举例{\"0\":{\"ops\":[{\"insert\":\"测试富文本\",\"attributes\":{\"bold\":\"true\"}},{\"insert\":\"\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}</para>
+        /// <para>自定义字段 value</para>
+        /// <para>- 若字段类型为单行文本/多行文本，格式为"简单文本"；</para>
+        /// <para>- 若字段类型为单选，传值内容为选项的 ID，格式为"6890840516938696974"；</para>
+        /// <para>- 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\", \"6890840516938696975\" ]"；</para>
+        /// <para>- 若字段类型为时间，格式为"1609430400000"</para>
+        /// <para>- 若字段类型为时间段，格式为"["1609430400000", \"1612108800000\" ]"，单位是毫秒时间戳；</para>
+        /// <para>- 若字段类型为年份选择，格式为"1609430400000"，单位是毫秒时间戳；</para>
+        /// <para>- 若字段类型为月份选择，格式为"1625068800000"，单位是毫秒时间戳；</para>
+        /// <para>- 若字段类型为数字，传值格式为"1";</para>
+        /// <para>- 若字段类型为富文本，传值举例"富文本"</para>
         /// <para>必填：否</para>
-        /// <para>示例值：测试</para>
+        /// <para>示例值：简单文本</para>
         /// </summary>
         [JsonPropertyName("value")]
         public string? Value { get; set; }
     }
 
     /// <summary>
-    /// <para>招聘类型，是否必填以「获取招聘需求模板」中字段限制为准，通过招聘需求新建职位时会根据此字段回填职位招聘类型</para>
+    /// <para>招聘类型</para>
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// <para>可选值：<list type="bullet">
@@ -276,7 +276,7 @@ public record PostHireV1JobRequirementsBodyDto
     public int? ProcessType { get; set; }
 
     /// <summary>
-    /// <para>职位类别，枚举值通过「获取职位类别列表」接口获取，是否必填以「获取招聘需求模板」中字段限制为准，通过招聘需求新建职位时会根据此字段回填职位类别</para>
+    /// <para>职位类别，可通过[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：6930815272790114324</para>
     /// </summary>
