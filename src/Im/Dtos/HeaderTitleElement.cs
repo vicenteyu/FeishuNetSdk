@@ -9,12 +9,13 @@
 // <copyright file="HeaderTitleElement.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>标题元素。必须配置 content 或 i18n 两个属性的其中一个。如果同时配置仅生效 i18n。</summary>
+// <summary>标题元素。</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
-    /// 标题元素。必须配置 content 或 i18n 两个属性的其中一个。如果同时配置仅生效 i18n。
+    /// 标题元素。
+    /// <para>必须配置 content 或 i18n 两个属性的其中一个。如果同时配置仅生效 i18n。</para>
     /// </summary>
     /// <param name="Content">标题内容</param>
     /// <param name="I18n">多语言标题内容

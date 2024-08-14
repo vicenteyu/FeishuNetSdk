@@ -42,7 +42,7 @@ public record PostContactV3GroupByGroupIdMemberBatchAddResponseDto
         public string MemberId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>结果响应码，取值为 `0` 表示成功。</para>
+        /// <para>结果响应码，取值为 `0` 表示成功。取值非 `0` 表示当前的 member_id 存在问题，具体的错误码排查方案可参考本文的错误码列表或者[通用错误码](https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN)。</para>
         /// <para>必填：是</para>
         /// <para>示例值：0</para>
         /// </summary>

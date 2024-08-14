@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-08
+// Last Modified On : 2024-08-14
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -1899,7 +1899,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>sheets:spreadsheet</item>
     /// </list></para>
     /// </summary>
-    /// <param name="spreadsheetToken">
+    /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
@@ -1907,9 +1907,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
-    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dimension_range")]
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/dimension_range")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeAsync(
-        [PathQuery] string spreadsheetToken,
+        [PathQuery] string spreadsheet_token,
         [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
 
     /// <summary>
@@ -2858,55 +2858,63 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelBodyDto dto);
 
     /// <summary>
-    /// <para>【云文档】删除条件格式</para>
+    /// <para>【云文档】批量删除条件格式</para>
     /// <para>接口ID：6939784115499859996</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/conditionformat/condition-format-delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于删除已有的条件格式，单次最多支持删除10个条件格式，每个条件格式的删除会返回成功或者失败，失败的情况包括各种参数的校验。</para>
+    /// <para>删除已有的条件格式。支持跨工作表删除多个条件格式。</para>
+    /// <para>使用限制：单次调用该接口，最多支持删除 10 个条件格式。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
     /// </list></para>
     /// </summary>
-    /// <param name="spreadsheetToken">
+    /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>sheet 的 token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
-    [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats/batch_delete")]
+    [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/condition_formats/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteAsync(
-        [PathQuery] string spreadsheetToken,
+        [PathQuery] string spreadsheet_token,
         [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteBodyDto dto);
 
     /// <summary>
-    /// <para>【云文档】创建条件格式</para>
+    /// <para>【云文档】批量创建条件格式</para>
     /// <para>接口ID：6939784115499892764</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/conditionformat/condition-format-set</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于创建新的条件格式，单次最多支持增加10个条件格式，每个条件格式的设置会返回成功或者失败，失败的情况包括各种参数的校验。</para>
+    /// <para>在电子表格工作表的指定区域中，为满足指定条件的单元格和单元格中的数据设置样式。支持跨工作表创建多个条件格式。</para>
+    /// <para>使用限制：</para>
+    /// <para>- 单次调用该接口，最多支持创建 10 个条件格式。</para>
+    /// <para>- 单个工作表中最多支持 20 个条件格式。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
     /// </list></para>
     /// </summary>
-    /// <param name="spreadsheetToken">
+    /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
-    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats/batch_create")]
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/condition_formats/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateAsync(
-        [PathQuery] string spreadsheetToken,
+        [PathQuery] string spreadsheet_token,
         [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateBodyDto dto);
 
     /// <summary>
-    /// <para>【云文档】获取条件格式</para>
+    /// <para>【云文档】批量获取条件格式</para>
     /// <para>接口ID：6939784115499909148</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/conditionformat/condition-format-get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据sheetId查询详细的条件格式信息，最多支持同时查询10个sheetId。</para>
+    /// <para>根据工作表 ID 获取详细的条件格式信息，最多支持同时查询 10 个工作表的条件格式。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -2914,40 +2922,48 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>sheets:spreadsheet:readonly</item>
     /// </list></para>
     /// </summary>
-    /// <param name="spreadsheetToken">
+    /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="sheet_ids">
-    /// <para>必填：是</para>
-    /// <para>工作表ID，可以通过[获取表格元数据](https://open.feishu.cn/document/ukTMukTMukTM/uETMzUjLxEzM14SMxMTN)接口获取，多个ID用逗号分隔，如xxxID1,xxxID2</para>
+    /// <para>必填：否</para>
+    /// <para>电子表格工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。多个 ID 使用逗号分隔。</para>
+    /// <para>**示例值**：`xxxID1,xxxID2`</para>
+    /// <para>默认值：null</para>
     /// </param>
-    [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats")]
+    [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/condition_formats")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsAsync(
-        [PathQuery] string spreadsheetToken,
-        [PathQuery] string[] sheet_ids);
+        [PathQuery] string spreadsheet_token,
+        [PathQuery] string[]? sheet_ids = null);
 
     /// <summary>
-    /// <para>【云文档】更新条件格式</para>
+    /// <para>【云文档】批量更新条件格式</para>
     /// <para>接口ID：6939784115499925532</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/conditionformat/condition-format-update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于更新已有的条件格式，单次最多支持更新10个条件格式，每个条件格式的更新会返回成功或者失败，失败的情况包括各种参数的校验。</para>
+    /// <para>更新已有的条件格式。支持跨工作表更新多个条件格式。该接口为全量更新接口，若非必填参数不传值，将改变原有配置。</para>
+    /// <para>使用限制：</para>
+    /// <para>单次调用该接口，最多支持更新 10 个条件格式。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
     /// </list></para>
     /// </summary>
-    /// <param name="spreadsheetToken">
+    /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>sheet 的 token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
-    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats/batch_update")]
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/condition_formats/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateAsync(
-        [PathQuery] string spreadsheetToken,
+        [PathQuery] string spreadsheet_token,
         [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateBodyDto dto);
 
     /// <summary>
@@ -3955,7 +3971,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222929790386204</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/read_users</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>查询消息的已读信息。</para>
+    /// <para>查询指定消息是否已读。接口只返回已读用户的信息，不返回未读用户的信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:basic</item>
@@ -3968,8 +3984,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待查询的消息的ID，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
-    /// <para>**注意**：不支持查询批量消息</para>
+    /// <para>待查询的消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     /// <param name="user_id_type">
@@ -3985,7 +4003,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制单次请求所返回的数据条目数。</para>
     /// <para>示例值：20</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -4068,7 +4086,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222929790451740</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过 message_id 查询消息内容。</para>
+    /// <para>调用该接口通过消息的 `message_id` 查询消息内容。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:readonly</item>
@@ -4080,7 +4098,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待获取消息内容的消息的ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+    /// <para>消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     /// <param name="user_id_type">
@@ -4144,7 +4165,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222929790500892</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/reply</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>回复指定消息，支持文本、富文本、卡片、群名片、个人名片、图片、视频、文件等多种消息类型。</para>
+    /// <para>调用该接口回复指定消息。回复的内容支持文本、富文本、卡片、群名片、个人名片、图片、视频、文件等多种类型。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send</item>
@@ -4154,7 +4175,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待回复的消息的ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+    /// <para>待回复的消息的 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -4338,7 +4362,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222929790681116</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>机器人撤回机器人自己发送的消息或群主撤回群内消息。</para>
+    /// <para>调用该接口撤回指定消息。调用接口的身份不同（身份通过 Authorization 请求头参数指定），可实现的效果不同：</para>
+    /// <para>- 机器人可以撤回该机器人自己发送的消息。</para>
+    /// <para>- 群聊的群主可以撤回群内指定的消息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:recall</item>
@@ -4348,7 +4374,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待撤回的消息的ID</para>
+    /// <para>待撤回的消息 ID。</para>
+    /// <para>ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     [HttpDelete("/open-apis/im/v1/messages/{message_id}")]
@@ -4587,7 +4617,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222931479527425</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>给指定用户或者会话发送消息，支持文本、富文本、可交互的[消息卡片](https://open.feishu.cn/document/ukTMukTMukTM/uczM3QjL3MzN04yNzcDN)、群名片、个人名片、图片、视频、音频、文件、表情包。</para>
+    /// <para>调用该接口向指定用户或者群聊发送消息。支持发送的消息类型包括文本、富文本、卡片、群名片、个人名片、图片、视频、音频、文件以及表情包等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send</item>
@@ -4599,14 +4629,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="receive_id_type">
     /// <para>必填：是</para>
-    /// <para>消息接收者id类型 open_id/user_id/union_id/email/chat_id</para>
+    /// <para>消息接收者 ID 类型。支持 open_id/union_id/user_id/email/chat_id</para>
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。</item>
     /// <item>email：以用户的真实邮箱来标识用户。</item>
-    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)&lt;/md-enum-item&gt;</item>
+    /// <item>chat_id：以群 ID 来标识群聊。[了解更多：如何获取群 ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)&lt;/md-enum-item&gt;</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -4644,7 +4674,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222931479560193</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取会话（包括单聊、群组）的历史消息（聊天记录）。</para>
+    /// <para>获取指定会话（包括单聊、群组）内的历史消息（即聊天记录）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:readonly</item>
@@ -4653,38 +4683,38 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="container_id_type">
     /// <para>必填：是</para>
-    /// <para>容器类型</para>
+    /// <para>容器类型。</para>
     /// <para>**可选值有**：</para>
     /// <para>- `chat`：包含单聊（p2p）和群聊（group）</para>
-    /// <para>- `thread`: 话题</para>
+    /// <para>- `thread`：话题</para>
+    /// <para>**注意**：对于 **普通对话群** 中的话题消息，通过 `chat` 容器类型仅能获取到话题的根消息，你可通过指定容器类型为 `thread` 获取话题回复中的所有消息。</para>
     /// <para>示例值：chat</para>
     /// </param>
     /// <param name="container_id">
     /// <para>必填：是</para>
-    /// <para>容器的ID，可填写：</para>
-    /// <para>- chat_id，群聊或单聊的 ID，参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>- thread_id，话题 ID，参见[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)</para>
+    /// <para>容器 ID。ID 类型与 container_id_type 取值一致。</para>
+    /// <para>- 群聊或单聊的 ID 获取方式参见[群 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)。</para>
+    /// <para>- 话题 ID 获取参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)的 **如何获取 thread_id** 章节。</para>
     /// <para>示例值：oc_234jsi43d3ssi993d43545f</para>
     /// </param>
     /// <param name="start_time">
     /// <para>必填：否</para>
-    /// <para>历史信息的起始时间（秒级时间戳）</para>
-    /// <para>**注意：**</para>
-    /// <para>- thread 容器类型暂不支持获取指定时间范围内的消息</para>
+    /// <para>待查询历史信息的起始时间，秒级时间戳。</para>
+    /// <para>**注意**：`thread` 容器类型暂不支持获取指定时间范围内的消息。</para>
     /// <para>示例值：1608594809</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：否</para>
-    /// <para>历史信息的结束时间（秒级时间戳）</para>
-    /// <para>**注意：**</para>
-    /// <para>- thread 容器类型暂不支持获取指定时间范围内的消息</para>
+    /// <para>待查询历史信息的结束时间，秒级时间戳。</para>
+    /// <para>**注意**：`thread` 容器类型暂不支持获取指定时间范围内的消息。</para>
     /// <para>示例值：1609296809</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="sort_type">
     /// <para>必填：否</para>
-    /// <para>消息排序方式</para>
+    /// <para>消息排序方式。</para>
+    /// <para>**注意**：使用 `page_token` 分页请求时，排序方式（`sort_type`）均与第一次请求一致，不支持中途改换排序方式。</para>
     /// <para>示例值：ByCreateTimeAsc</para>
     /// <list type="bullet">
     /// <item>ByCreateTimeAsc：按消息创建时间升序排列</item>
@@ -4694,7 +4724,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，即单次请求所返回的数据条目数。</para>
     /// <para>示例值：20</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -4719,7 +4749,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222931479576577</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取消息中的资源文件，包括音频，视频，图片和文件，**暂不支持表情包资源下载**。当前仅支持 100M 以内的资源文件的下载。</para>
+    /// <para>获取指定消息内包含的资源文件，包括音频、视频、图片和文件。成功调用后，返回二进制文件流下载文件。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:readonly</item>
@@ -4729,22 +4759,25 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待查询资源对应的消息ID。</para>
+    /// <para>待查询的消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     /// <param name="file_key">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待查询资源的key。可以调用[获取指定消息的内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get)接口，通过消息ID查询消息内容中的资源Key。</para>
-    /// <para>**注意**：请求的 file_key 和 message_id 需要匹配</para>
+    /// <para>待查询资源的 Key。你可以调用[获取指定消息的内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get)接口，通过消息 ID 获取消息内容中的资源 Key。</para>
+    /// <para>**注意**：路径参数 `file_key` 和 `message_id` 需要匹配。</para>
     /// <para>示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
     /// <para>资源类型</para>
     /// <para>**可选值有：**</para>
-    /// <para>- `image`: 对应消息中的图片或富文本消息中的图片。</para>
-    /// <para>- `file`: 对应消息中的 文件、音频、视频（表情包除外）。</para>
+    /// <para>- `image`：对应消息中的图片或富文本消息中的图片。</para>
+    /// <para>- `file`：对应消息中的文件、音频、视频（表情包除外）。</para>
     /// <para>示例值：image</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
@@ -30452,7 +30485,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815976042594306</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/batch_update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新用户在发起背调时展示的表单自定义字段。</para>
+    /// <para>更新用户在发起背调时展示的表单自定义字段名称和描述。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// </list></para>
@@ -30635,7 +30668,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815979079598081</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/cancel</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>调用此接口将会将背调订单状态变成已终止，已终止订单将将无法通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)和[回传背调订单的最终结果](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_result)修改订单进度和最终结果。 建议在回调终止背调订单之前，推送订单进度为「已终止」。</para>
+    /// <para>调用此接口将会将背调订单状态变成已终止，已终止订单将将无法通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)和[回传背调订单的最终结果](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_result)修改订单进度和最终结果。 调用此接口前，建议先调用[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)接口将订单进度更新为「已终止」。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// </list></para>
@@ -31054,7 +31087,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>每页获取记录数量，最大10</para>
+    /// <para>每页获取记录数量</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -31143,7 +31176,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7210967154035621891</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/forward</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>向用户、群聊或话题转发一条指定消息。</para>
+    /// <para>调用该接口将一条指定的消息转发给用户、群聊或话题。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -31152,25 +31185,28 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>要转发的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+    /// <para>待转发的消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     /// <param name="receive_id_type">
     /// <para>必填：是</para>
-    /// <para>消息接收者id类型 open_id/user_id/union_id/email/chat_id/thread_id</para>
+    /// <para>消息接收者 ID 类型。</para>
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
     /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>email：以用户的真实邮箱来标识用户。</item>
-    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</item>
-    /// <item>thread_id：以话题ID来标识话题。了解更多：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction) &lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
+    /// <item>chat_id：以群 ID 来标识群聊。[了解更多：如何获取群 ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</item>
+    /// <item>thread_id：以话题 ID 来标识话题。了解更多：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction) &lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
     /// </list>
     /// </param>
     /// <param name="uuid">
     /// <para>必填：否</para>
-    /// <para>由开发者生成的唯一字符串序列，用于转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的转发只可成功一次。</para>
+    /// <para>自定义设置的唯一字符串序列，用于在转发消息时请求去重。持有相同 uuid 的请求，在 1 小时内向同一目标的转发只可成功一次。</para>
     /// <para>示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -31187,7 +31223,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7210967154035638275</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/merge_forward</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>将来自同一个群聊中的多条消息合并转发给指定用户、群聊或话题。</para>
+    /// <para>将来自同一个会话内的多条消息，合并转发给指定的用户、群聊或话题。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -31195,20 +31231,20 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="receive_id_type">
     /// <para>必填：是</para>
-    /// <para>消息接收者id类型 open_id/user_id/union_id/email/chat_id</para>
+    /// <para>消息接收者 ID 类型。</para>
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
     /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>email：以用户的真实邮箱来标识用户。</item>
-    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</item>
-    /// <item>thread_id：以话题ID来标识话题。了解更多：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction) &lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
+    /// <item>chat_id：以群 ID 来标识群聊。[了解更多：如何获取群 ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</item>
+    /// <item>thread_id：以话题 ID 来标识话题。了解更多：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction) &lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
     /// </list>
     /// </param>
     /// <param name="uuid">
     /// <para>必填：否</para>
-    /// <para>由开发者生成的唯一字符串序列，用于合并转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的合并转发只可成功一次。</para>
+    /// <para>自定义设置的唯一字符串序列，用于在合并转发消息时请求去重。持有相同 uuid 的请求，在 1 小时内向同一目标的合并转发只可成功一次。</para>
     /// <para>示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -32887,7 +32923,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7239186075281358852</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>编辑已发送的消息内容，当前支持编辑文本、富文本消息。如需更新消息卡片，请参考[更新应用发送的消息卡片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch)。</para>
+    /// <para>调用该接口编辑已发送的消息内容，支持编辑文本、富文本消息。如需编辑卡片消息，请使用[更新应用发送的消息卡片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch)接口。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -32897,7 +32933,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待编辑的消息的ID，仅支持文本（text）或富文本（post）消息，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+    /// <para>待编辑的消息 ID，仅支持编辑文本（text）、富文本（post）消息。</para>
+    /// <para>ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -38285,7 +38325,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7307160083569623043</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>租户打开「通过 api 同步三方协议」开关并在校招流程特定阶段配置「三方协议」时，可以为 Offer 办公地点在中国大陆的校招投递创建三方协议，通过投递 ID 创建三方协议与对应状态。</para>
+    /// <para>在投递上创建三方协议。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:tripartite_agreement</item>
     /// </list></para>
@@ -38300,7 +38340,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7307160083569639427</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过接口删除投递中的三方协议</para>
+    /// <para>删除投递的三方协议。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:tripartite_agreement</item>
     /// </list></para>
@@ -38308,7 +38348,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="tripartite_agreement_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>三方协议ID</para>
+    /// <para>三方协议 ID，由[创建三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/create)接口返回或通过[获取三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/list)获取</para>
     /// <para>示例值：6930815272790114324</para>
     /// </param>
     [HttpDelete("/open-apis/hire/v1/tripartite_agreements/{tripartite_agreement_id}")]
@@ -38336,8 +38376,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7307160083569672195</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据三方协议 ID 或 投递 ID 获取三方协议信息</para>
-    /// <para>默认按照 id 排序</para>
+    /// <para>根据三方协议 ID 或投递 ID 获取三方协议信息，如三方协议状态、创建时间等信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:tripartite_agreement</item>
     /// <item>hire:tripartite_agreement:readonly</item>
@@ -38357,13 +38396,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="application_id">
     /// <para>必填：否</para>
-    /// <para>投递 ID，必填投递 id 与三方协议 ID 其中之一</para>
+    /// <para>投递 ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取</para>
     /// <para>示例值：6930815272790114324</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="tripartite_agreement_id">
     /// <para>必填：否</para>
-    /// <para>三方协议 ID，必填投递 id 与三方协议 ID 其中之一</para>
+    /// <para>三方协议 ID，由[创建三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/create)接口返回</para>
     /// <para>示例值：6930815272790114325</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -38379,7 +38418,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7307160083569688579</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过接口更新投递中的三方协议</para>
+    /// <para>更新三方协议的状态及修改时间信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:tripartite_agreement</item>
     /// </list></para>
@@ -38387,7 +38426,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="tripartite_agreement_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>三方协议ID，由「创建三方协议」接口返回</para>
+    /// <para>三方协议 ID，可通过[获取三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/list)获取</para>
     /// <para>示例值：7084008015948283905</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -38992,35 +39031,37 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7322036039857700865</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/thread/forward</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>向用户、群聊或话题转发一个话题。</para>
+    /// <para>调用该接口将话题转发至指定的用户、群聊或话题。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="thread_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>要转发的话题ID，详见：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)</para>
-    /// <para>&lt;/md-enum-item&gt;</para>
+    /// <para>要转发的话题ID，获取方式参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)的 **如何获取 thread_id** 章节。</para>
     /// <para>示例值：omt_dc132645203</para>
     /// </param>
     /// <param name="receive_id_type">
     /// <para>必填：是</para>
-    /// <para>消息接收者id类型 open_id/user_id/union_id/email/chat_id/thread_id</para>
+    /// <para>消息接收者 ID 类型。</para>
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// <item>email：以用户的真实邮箱来标识用户。</item>
-    /// <item>chat_id：以群ID来标识群聊。[了解更多：如何获取群ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</item>
-    /// <item>thread_id：以话题ID来标识话题。了解更多：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction) &lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
+    /// <item>chat_id：以群 ID 来标识群聊。[了解更多：如何获取群 ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)。</item>
+    /// <item>thread_id：以话题 ID 来标识话题。了解更多：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction) &lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</item>
     /// </list>
     /// </param>
     /// <param name="uuid">
     /// <para>必填：否</para>
-    /// <para>由开发者生成的唯一字符串序列，用于转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的转发只可成功一次。</para>
+    /// <para>自定义设置的唯一字符串序列，用于在转发话题时请求去重。持有相同 uuid 的请求，在 1 小时内向同一目标的转发只可成功一次。</para>
     /// <para>示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -40410,7 +40451,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7377650885165268995</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/push_follow_up</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>展示在机器人消息下方的气泡，用户点击气泡或者新消息到达后，气泡消失</para>
+    /// <para>调用该接口在最新一条消息下方添加气泡样式的内容，当消息接收者点击气泡或者新消息到达后，气泡消失。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -40419,7 +40460,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>机器人发送的消息ID</para>
+    /// <para>机器人发送的消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_3210a18894e206715a4359115f4cf2f5</para>
     /// </param>
     /// <param name="dto">请求体</param>

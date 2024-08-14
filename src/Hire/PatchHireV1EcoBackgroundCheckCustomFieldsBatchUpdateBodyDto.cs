@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新背调自定义字段 请求体
-/// <para>更新用户在发起背调时展示的表单自定义字段。</para>
+/// <para>更新用户在发起背调时展示的表单自定义字段名称和描述。</para>
 /// <para>接口ID：7195815976042594306</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/ecological-docking/eco_background_check_custom_field/batch_update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2feco_background_check_custom_field%2fbatch_update</para>
@@ -30,14 +30,16 @@ public record PatchHireV1EcoBackgroundCheckCustomFieldsBatchUpdateBodyDto
     public string AccountId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>自定义字段列表</para>
+    /// <para>自定义字段列表。</para>
+    /// <para>**注意**：列表长度须与[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)时传入的一致</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("custom_field_list")]
     public EcoBackgroundCheckCustomFieldData[] CustomFieldLists { get; set; } = Array.Empty<EcoBackgroundCheckCustomFieldData>();
 
     /// <summary>
-    /// <para>自定义字段列表</para>
+    /// <para>自定义字段列表。</para>
+    /// <para>**注意**：列表长度须与[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)时传入的一致</para>
     /// </summary>
     public record EcoBackgroundCheckCustomFieldData
     {

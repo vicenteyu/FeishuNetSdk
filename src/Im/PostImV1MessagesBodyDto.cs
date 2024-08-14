@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 发送消息 请求体
-/// <para>给指定用户或者会话发送消息，支持文本、富文本、可交互的[消息卡片](https://open.feishu.cn/document/ukTMukTMukTM/uczM3QjL3MzN04yNzcDN)、群名片、个人名片、图片、视频、音频、文件、表情包。</para>
+/// <para>调用该接口向指定用户或者群聊发送消息。支持发送的消息类型包括文本、富文本、卡片、群名片、个人名片、图片、视频、音频、文件以及表情包等。</para>
 /// <para>接口ID：6946222931479527425</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fcreate</para>
@@ -22,7 +22,8 @@ namespace FeishuNetSdk.Im;
 public record PostImV1MessagesBodyDto
 {
     /// <summary>
-    /// <para>消息接收者的ID，ID类型应与查询参数==receive_id_type== 对应；推荐使用 OpenID，获取方式可参考文档[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
+    /// <para>消息接收者的 ID，ID 类型与查询参数 `receive_id_type` 的取值一致。</para>
+    /// <para>**说明**：如果消息接收者为用户，则推荐使用用户的 `open_id`。</para>
     /// <para>必填：是</para>
     /// <para>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs</para>
     /// </summary>
@@ -30,7 +31,20 @@ public record PostImV1MessagesBodyDto
     public string ReceiveId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)</para>
+    /// <para>消息类型。</para>
+    /// <para>**可选值有**：</para>
+    /// <para>- text：文本</para>
+    /// <para>- post：富文本</para>
+    /// <para>- image：图片</para>
+    /// <para>- file：文件</para>
+    /// <para>- audio：语音</para>
+    /// <para>- media：视频</para>
+    /// <para>- sticker：表情包</para>
+    /// <para>- interactive：卡片</para>
+    /// <para>- share_chat：分享群名片</para>
+    /// <para>- share_user：分享个人名片</para>
+    /// <para>- system：系统消息</para>
+    /// <para>不同消息类型的详细介绍，参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。</para>
     /// <para>必填：是</para>
     /// <para>示例值：text</para>
     /// </summary>
@@ -38,19 +52,25 @@ public record PostImV1MessagesBodyDto
     public string MsgType { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>消息内容，JSON结构序列化后的字符串。不同msg_type对应不同内容，具体格式说明参考：[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)</para>
+    /// <para>消息内容，JSON 结构序列化后的字符串。该参数的取值与 `msg_type` 对应，例如 `msg_type` 取值为 `text`，则该参数需要传入文本类型的内容。</para>
     /// <para>**注意：**</para>
-    /// <para>- JSON字符串需进行转义，如换行符转义后为`\\n`</para>
-    /// <para>- 文本消息请求体最大不能超过150KB</para>
-    /// <para>- 卡片及富文本消息请求体最大不能超过30KB</para>
+    /// <para>- JSON 字符串需进行转义。例如，换行符 `\n` 转义后为 `\\n`。</para>
+    /// <para>- 文本消息请求体最大不能超过 150 KB。</para>
+    /// <para>- 卡片消息、富文本消息请求体最大不能超过 30 KB。</para>
+    /// <para>- 如果使用卡片模板（template_id）发送消息，实际大小也包含模板对应的卡片数据大小。</para>
+    /// <para>- 如果消息中包含样式标签，会使实际消息体长度大于您输入的请求体长度。</para>
+    /// <para>- 图片需要先[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)，然后使用图片的 Key 发消息。</para>
+    /// <para>- 音频、视频、文件需要先[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)，然后使用文件的 Key 发消息。</para>
+    /// <para>了解不同类型的消息内容格式、使用限制，可参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。</para>
     /// <para>必填：是</para>
-    /// <para>示例值：`{\"text\":\"test content\"}`</para>
+    /// <para>示例值：{\"text\":\"test content\"}</para>
     /// </summary>
     [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>由开发者生成的唯一字符串序列，用于发送消息请求去重；持有相同uuid的请求1小时内至多成功发送一条消息</para>
+    /// <para>自定义设置的唯一字符串序列，用于在发送消息时请求去重。持有相同 uuid 的请求，在 1 小时内至多成功发送一条消息。</para>
+    /// <para>**注意**：你可以参考示例值自定义参数值。当发送不同的消息内容时，如果传入了该参数，则需要在每次请求时都更换该参数的取值。</para>
     /// <para>必填：否</para>
     /// <para>示例值：选填，每次调用前请更换，如a0d69e20-1dd1-458b-k525-dfeca4015204</para>
     /// <para>最大长度：50</para>

@@ -14,8 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取三方协议 响应体
-/// <para>根据三方协议 ID 或 投递 ID 获取三方协议信息</para>
-/// <para>默认按照 id 排序</para>
+/// <para>根据三方协议 ID 或投递 ID 获取三方协议信息，如三方协议状态、创建时间等信息。</para>
 /// <para>接口ID：7307160083569672195</para>
 /// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftripartite_agreement%2flist</para>
@@ -43,7 +42,7 @@ public record GetHireV1TripartiteAgreementsResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>投递ID</para>
+        /// <para>投递 ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6930815272790114325</para>
         /// </summary>

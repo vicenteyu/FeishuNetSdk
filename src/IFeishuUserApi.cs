@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-02
+// Last Modified On : 2024-08-14
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -1084,7 +1084,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>sheets:spreadsheet</item>
     /// </list></para>
     /// </summary>
-    /// <param name="spreadsheetToken">
+    /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
@@ -1093,10 +1093,10 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
-    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dimension_range")]
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/dimension_range")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeAsync(
         UserAccessToken access_token,
-        [PathQuery] string spreadsheetToken,
+        [PathQuery] string spreadsheet_token,
         [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
 
     /// <summary>
@@ -1547,59 +1547,67 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? page_size = 10);
 
     /// <summary>
-    /// <para>【云文档】删除条件格式</para>
+    /// <para>【云文档】批量删除条件格式</para>
     /// <para>接口ID：6939784115499859996</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/conditionformat/condition-format-delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于删除已有的条件格式，单次最多支持删除10个条件格式，每个条件格式的删除会返回成功或者失败，失败的情况包括各种参数的校验。</para>
+    /// <para>删除已有的条件格式。支持跨工作表删除多个条件格式。</para>
+    /// <para>使用限制：单次调用该接口，最多支持删除 10 个条件格式。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
     /// </list></para>
     /// </summary>
-    /// <param name="spreadsheetToken">
+    /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>sheet 的 token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
-    [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats/batch_delete")]
+    [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/condition_formats/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteAsync(
         UserAccessToken access_token,
-        [PathQuery] string spreadsheetToken,
+        [PathQuery] string spreadsheet_token,
         [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteBodyDto dto);
 
     /// <summary>
-    /// <para>【云文档】创建条件格式</para>
+    /// <para>【云文档】批量创建条件格式</para>
     /// <para>接口ID：6939784115499892764</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/conditionformat/condition-format-set</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于创建新的条件格式，单次最多支持增加10个条件格式，每个条件格式的设置会返回成功或者失败，失败的情况包括各种参数的校验。</para>
+    /// <para>在电子表格工作表的指定区域中，为满足指定条件的单元格和单元格中的数据设置样式。支持跨工作表创建多个条件格式。</para>
+    /// <para>使用限制：</para>
+    /// <para>- 单次调用该接口，最多支持创建 10 个条件格式。</para>
+    /// <para>- 单个工作表中最多支持 20 个条件格式。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
     /// </list></para>
     /// </summary>
-    /// <param name="spreadsheetToken">
+    /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
-    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats/batch_create")]
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/condition_formats/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateAsync(
         UserAccessToken access_token,
-        [PathQuery] string spreadsheetToken,
+        [PathQuery] string spreadsheet_token,
         [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateBodyDto dto);
 
     /// <summary>
-    /// <para>【云文档】获取条件格式</para>
+    /// <para>【云文档】批量获取条件格式</para>
     /// <para>接口ID：6939784115499909148</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/conditionformat/condition-format-get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据sheetId查询详细的条件格式信息，最多支持同时查询10个sheetId。</para>
+    /// <para>根据工作表 ID 获取详细的条件格式信息，最多支持同时查询 10 个工作表的条件格式。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -1607,44 +1615,52 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>sheets:spreadsheet:readonly</item>
     /// </list></para>
     /// </summary>
-    /// <param name="spreadsheetToken">
+    /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="sheet_ids">
-    /// <para>必填：是</para>
-    /// <para>工作表ID，可以通过[获取表格元数据](https://open.feishu.cn/document/ukTMukTMukTM/uETMzUjLxEzM14SMxMTN)接口获取，多个ID用逗号分隔，如xxxID1,xxxID2</para>
+    /// <para>必填：否</para>
+    /// <para>电子表格工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。多个 ID 使用逗号分隔。</para>
+    /// <para>**示例值**：`xxxID1,xxxID2`</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
-    [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats")]
+    [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/condition_formats")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsAsync(
         UserAccessToken access_token,
-        [PathQuery] string spreadsheetToken,
-        [PathQuery] string[] sheet_ids);
+        [PathQuery] string spreadsheet_token,
+        [PathQuery] string[]? sheet_ids = null);
 
     /// <summary>
-    /// <para>【云文档】更新条件格式</para>
+    /// <para>【云文档】批量更新条件格式</para>
     /// <para>接口ID：6939784115499925532</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/conditionformat/condition-format-update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于更新已有的条件格式，单次最多支持更新10个条件格式，每个条件格式的更新会返回成功或者失败，失败的情况包括各种参数的校验。</para>
+    /// <para>更新已有的条件格式。支持跨工作表更新多个条件格式。该接口为全量更新接口，若非必填参数不传值，将改变原有配置。</para>
+    /// <para>使用限制：</para>
+    /// <para>单次调用该接口，最多支持更新 10 个条件格式。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
     /// </list></para>
     /// </summary>
-    /// <param name="spreadsheetToken">
+    /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>sheet 的 token，获取方式见 [在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
-    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/condition_formats/batch_update")]
+    [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/condition_formats/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateAsync(
         UserAccessToken access_token,
-        [PathQuery] string spreadsheetToken,
+        [PathQuery] string spreadsheet_token,
         [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateBodyDto dto);
 
     /// <summary>
@@ -2509,7 +2525,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222929790681116</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>机器人撤回机器人自己发送的消息或群主撤回群内消息。</para>
+    /// <para>调用该接口撤回指定消息。调用接口的身份不同（身份通过 Authorization 请求头参数指定），可实现的效果不同：</para>
+    /// <para>- 机器人可以撤回该机器人自己发送的消息。</para>
+    /// <para>- 群聊的群主可以撤回群内指定的消息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:recall</item>
@@ -2519,7 +2537,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待撤回的消息的ID</para>
+    /// <para>待撤回的消息 ID。</para>
+    /// <para>ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>

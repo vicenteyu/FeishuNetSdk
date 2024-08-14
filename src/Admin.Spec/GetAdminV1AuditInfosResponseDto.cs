@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-08-07
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-08-07
+// ************************************************************************
+// <copyright file="GetAdminV1AuditInfosResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取行为审计日志数据 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Admin.Spec;
 /// <summary>
 /// 获取行为审计日志数据 响应体

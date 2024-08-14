@@ -4,7 +4,7 @@
 // Created          : 2024-07-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-02
+// Last Modified On : 2024-08-14
 // ************************************************************************
 // <copyright file="GetHireV2TalentsByTalentIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -2603,7 +2603,7 @@ public record GetHireV2TalentsByTalentIdResponseDto
         /// <para>示例值：1992-01</para>
         /// </summary>
         [JsonPropertyName("end_time")]
-        public long? EndTime { get; set; }
+        public string? EndTime { get; set; }
 
         /// <summary>
         /// <para>实习的开始日期，精确到月份</para>
@@ -2611,7 +2611,7 @@ public record GetHireV2TalentsByTalentIdResponseDto
         /// <para>示例值：1992-01</para>
         /// </summary>
         [JsonPropertyName("start_time")]
-        public long? StartTime { get; set; }
+        public string? StartTime { get; set; }
 
         /// <summary>
         /// <para>职称</para>

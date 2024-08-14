@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新三方协议 请求体
-/// <para>通过接口更新投递中的三方协议</para>
+/// <para>更新三方协议的状态及修改时间信息。</para>
 /// <para>接口ID：7307160083569688579</para>
 /// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftripartite_agreement%2fupdate</para>
@@ -41,7 +41,7 @@ public record PutHireV1TripartiteAgreementsByTripartiteAgreementIdBodyDto
     public int State { get; set; }
 
     /// <summary>
-    /// <para>三方协议修改时间戳，不可小于创建时间或者当前修改时间</para>
+    /// <para>三方协议修改时间，毫秒时间戳，不可小于创建时间或者当前修改时间</para>
     /// <para>必填：是</para>
     /// <para>示例值：1698292282661</para>
     /// </summary>

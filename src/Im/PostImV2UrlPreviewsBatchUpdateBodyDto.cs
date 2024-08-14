@@ -22,7 +22,8 @@ namespace FeishuNetSdk.Im;
 public record PostImV2UrlPreviewsBatchUpdateBodyDto
 {
     /// <summary>
-    /// <para>URL 预览的 token 列表。单个 token 限制更新频率为 1次/5秒</para>
+    /// <para>URL 预览的 preview_tokens 列表。需要通过[拉取链接预览数据](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/development-link-preview/pull-link-preview-data-callback-structure)回调获取 preview_tokens。</para>
+    /// <para>**注意**：单个 token 限制更新频率为 1次/5秒。</para>
     /// <para>必填：是</para>
     /// <para>最大长度：10</para>
     /// <para>最小长度：1</para>

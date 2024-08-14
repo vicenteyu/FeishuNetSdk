@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 编辑消息 响应体
-/// <para>编辑已发送的消息内容，当前支持编辑文本、富文本消息。如需更新消息卡片，请参考[更新应用发送的消息卡片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch)。</para>
+/// <para>调用该接口编辑已发送的消息内容，支持编辑文本、富文本消息。如需编辑卡片消息，请使用[更新应用发送的消息卡片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch)接口。</para>
 /// <para>接口ID：7239186075281358852</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fupdate</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Im;
 public record PutImV1MessagesByMessageIdResponseDto
 {
     /// <summary>
-    /// <para>消息id open_message_id</para>
+    /// <para>消息 ID。后续对消息的管理维护操作均需要使用该 ID。</para>
     /// <para>必填：否</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </summary>
@@ -30,7 +30,7 @@ public record PutImV1MessagesByMessageIdResponseDto
     public string? MessageId { get; set; }
 
     /// <summary>
-    /// <para>根消息id open_message_id</para>
+    /// <para>根消息 ID。在有多个回复的消息树中，`root_id` 为根消息的 `message_id`。关于 `root_id` 的更多说明，参见[消息管理概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro)。</para>
     /// <para>必填：否</para>
     /// <para>示例值：om_40eb06e7b84dc71c03e009ad3c754195</para>
     /// </summary>
@@ -38,7 +38,7 @@ public record PutImV1MessagesByMessageIdResponseDto
     public string? RootId { get; set; }
 
     /// <summary>
-    /// <para>父消息的id open_message_id</para>
+    /// <para>父消息 ID。在有多个回复的消息树中，`parent_id` 为当前消息上一层的消息 `message_id`。如果是某一话题内的消息，则 `parent_id` 始终为话题内根消息的 `message_id`。关于 `parent_id` 的更多说明，参见[消息管理概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro)。</para>
     /// <para>必填：否</para>
     /// <para>示例值：om_d4be107c616aed9c1da8ed8068570a9f</para>
     /// </summary>
@@ -46,7 +46,7 @@ public record PutImV1MessagesByMessageIdResponseDto
     public string? ParentId { get; set; }
 
     /// <summary>
-    /// <para>消息所属的话题 ID（不返回说明该消息非话题消息），说明参见：[话题介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)</para>
+    /// <para>消息所属的话题 ID（不返回说明该消息不是话题形式的消息）。了解话题可参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)。</para>
     /// <para>必填：否</para>
     /// <para>示例值：omt_d4be107c616a</para>
     /// </summary>
@@ -54,15 +54,18 @@ public record PutImV1MessagesByMessageIdResponseDto
     public string? ThreadId { get; set; }
 
     /// <summary>
-    /// <para>消息类型 text post card image等等</para>
+    /// <para>消息类型。</para>
+    /// <para>**可能值有**：</para>
+    /// <para>- text：文本</para>
+    /// <para>- post：富文本</para>
     /// <para>必填：否</para>
-    /// <para>示例值：card</para>
+    /// <para>示例值：text</para>
     /// </summary>
     [JsonPropertyName("msg_type")]
     public string? MsgType { get; set; }
 
     /// <summary>
-    /// <para>消息生成的时间戳(毫秒)</para>
+    /// <para>消息生成的时间戳。单位：毫秒</para>
     /// <para>必填：否</para>
     /// <para>示例值：1609296809</para>
     /// </summary>
@@ -70,7 +73,7 @@ public record PutImV1MessagesByMessageIdResponseDto
     public string? CreateTime { get; set; }
 
     /// <summary>
-    /// <para>消息更新的时间戳</para>
+    /// <para>消息更新的时间戳。单位：毫秒</para>
     /// <para>必填：否</para>
     /// <para>示例值：1609336806</para>
     /// </summary>
@@ -78,7 +81,7 @@ public record PutImV1MessagesByMessageIdResponseDto
     public string? UpdateTime { get; set; }
 
     /// <summary>
-    /// <para>消息是否被撤回</para>
+    /// <para>当前消息是否被撤回。编辑消息时只会返回 false，表示未被撤回。</para>
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
@@ -86,7 +89,7 @@ public record PutImV1MessagesByMessageIdResponseDto
     public bool? Deleted { get; set; }
 
     /// <summary>
-    /// <para>消息是否被更新</para>
+    /// <para>当前消息是否被更新。编辑消息时只会返回 false，表示未被更新。</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -94,7 +97,7 @@ public record PutImV1MessagesByMessageIdResponseDto
     public bool? Updated { get; set; }
 
     /// <summary>
-    /// <para>所属的群</para>
+    /// <para>消息所属的群 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，根据群 ID 获取群详情。</para>
     /// <para>必填：否</para>
     /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
     /// </summary>
@@ -102,7 +105,7 @@ public record PutImV1MessagesByMessageIdResponseDto
     public string? ChatId { get; set; }
 
     /// <summary>
-    /// <para>发送者，可以是用户或应用</para>
+    /// <para>消息发送者的信息。</para>
     /// <para>必填：否</para>
     /// <para>示例值：object</para>
     /// </summary>
@@ -110,12 +113,12 @@ public record PutImV1MessagesByMessageIdResponseDto
     public PutImV1MessagesByMessageIdResponseDtoSender? Sender { get; set; }
 
     /// <summary>
-    /// <para>发送者，可以是用户或应用</para>
+    /// <para>消息发送者的信息。</para>
     /// </summary>
     public record PutImV1MessagesByMessageIdResponseDtoSender
     {
         /// <summary>
-        /// <para>该字段标识发送者的id</para>
+        /// <para>发送者的 ID。</para>
         /// <para>必填：是</para>
         /// <para>示例值：cli_9f427eec54ae901b</para>
         /// </summary>
@@ -123,7 +126,10 @@ public record PutImV1MessagesByMessageIdResponseDto
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>该字段标识发送者的id类型</para>
+        /// <para>发送者的 ID 类型。</para>
+        /// <para>**可能值有：**</para>
+        /// <para>- `open_id`：表示发送者为用户，且返回的 ID 是用户的 open_id。</para>
+        /// <para>- `app_id`：表示发送者为应用，且返回的 ID 是应用的 app_id。</para>
         /// <para>必填：是</para>
         /// <para>示例值：app_id</para>
         /// </summary>
@@ -131,7 +137,12 @@ public record PutImV1MessagesByMessageIdResponseDto
         public string IdType { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>该字段标识发送者的类型</para>
+        /// <para>发送者的类型</para>
+        /// <para>**可能值有：**</para>
+        /// <para>- `user`: 用户</para>
+        /// <para>- `app`: 应用</para>
+        /// <para>- `anonymous`: 匿名</para>
+        /// <para>- `unknown`: 未知</para>
         /// <para>必填：是</para>
         /// <para>示例值：app</para>
         /// </summary>
@@ -139,7 +150,7 @@ public record PutImV1MessagesByMessageIdResponseDto
         public string SenderType { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>tenant key</para>
+        /// <para>租户唯一标识。该标识用来识别租户，也可以用来获取租户访问凭证（tenant_access_token）。</para>
         /// <para>必填：否</para>
         /// <para>示例值：736588c9260f175e</para>
         /// </summary>
@@ -148,7 +159,7 @@ public record PutImV1MessagesByMessageIdResponseDto
     }
 
     /// <summary>
-    /// <para>消息内容，JSON结构</para>
+    /// <para>通过 `body` 内的 `content` 参数，返回当前的消息内容。</para>
     /// <para>必填：否</para>
     /// <para>示例值：json结构</para>
     /// </summary>
@@ -156,12 +167,12 @@ public record PutImV1MessagesByMessageIdResponseDto
     public MessageBody? Body { get; set; }
 
     /// <summary>
-    /// <para>消息内容，JSON结构</para>
+    /// <para>通过 `body` 内的 `content` 参数，返回当前的消息内容。</para>
     /// </summary>
     public record MessageBody
     {
         /// <summary>
-        /// <para>消息内容，JSON字符串格式</para>
+        /// <para>消息内容，JSON 结构序列化后的字符串，不同消息类型（`msg_type`）对应不同内容。</para>
         /// <para>必填：是</para>
         /// <para>示例值：{\"text\":\"@_user_1 test content\"}</para>
         /// </summary>
@@ -170,19 +181,19 @@ public record PutImV1MessagesByMessageIdResponseDto
     }
 
     /// <summary>
-    /// <para>被艾特的人或应用的id</para>
+    /// <para>消息内被 @ 的用户列表。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("mentions")]
     public Mention[]? Mentions { get; set; }
 
     /// <summary>
-    /// <para>被艾特的人或应用的id</para>
+    /// <para>消息内被 @ 的用户列表。</para>
     /// </summary>
     public record Mention
     {
         /// <summary>
-        /// <para>mention key</para>
+        /// <para>被 @ 的用户序号。例如，第 3 个被 @ 到的成员，取值为 `@_user_3`。</para>
         /// <para>必填：是</para>
         /// <para>示例值：@_user_1</para>
         /// </summary>
@@ -190,7 +201,7 @@ public record PutImV1MessagesByMessageIdResponseDto
         public string Key { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>用户或机器人的 open_id</para>
+        /// <para>被 @ 的用户的 open_id。</para>
         /// <para>必填：是</para>
         /// <para>示例值：ou_155184d1e73cbfb8973e5a9e698e74f2</para>
         /// </summary>
@@ -198,7 +209,7 @@ public record PutImV1MessagesByMessageIdResponseDto
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>被@的用户或机器人 id 类型，目前仅支持 `open_id` ([什么是 Open ID？](https://open.feishu.cn/document/home/user-identity-introduction/open-id))</para>
+        /// <para>被 @ 的用户的 ID 类型，目前仅支持 `open_id` (了解[什么是 Open ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id))。</para>
         /// <para>必填：是</para>
         /// <para>示例值：open_id</para>
         /// </summary>
@@ -206,7 +217,7 @@ public record PutImV1MessagesByMessageIdResponseDto
         public string IdType { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>被at用户的姓名</para>
+        /// <para>被 @ 的用户姓名。</para>
         /// <para>必填：是</para>
         /// <para>示例值：Tom</para>
         /// </summary>
@@ -214,7 +225,7 @@ public record PutImV1MessagesByMessageIdResponseDto
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>tenant key</para>
+        /// <para>租户唯一标识。该标识用来识别被 @ 用户的租户，也可以用来获取租户访问凭证（tenant_access_token）。</para>
         /// <para>必填：否</para>
         /// <para>示例值：736588c9260f175e</para>
         /// </summary>
@@ -223,7 +234,7 @@ public record PutImV1MessagesByMessageIdResponseDto
     }
 
     /// <summary>
-    /// <para>合并消息的上一层级消息id open_message_id</para>
+    /// <para>合并转发消息中，上一层级的消息 ID，仅在合并转发场景会有返回值。了解 upper_message_id 可参见[消息管理概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro)。</para>
     /// <para>必填：否</para>
     /// <para>示例值：om_40eb06e7b84dc71c03e00ida3c754892</para>
     /// </summary>

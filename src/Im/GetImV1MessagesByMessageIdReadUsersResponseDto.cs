@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 查询消息已读信息 响应体
-/// <para>查询消息的已读信息。</para>
+/// <para>查询指定消息是否已读。接口只返回已读用户的信息，不返回未读用户的信息。</para>
 /// <para>接口ID：6946222929790386204</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message/read_users</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fread_users</para>
@@ -42,7 +42,7 @@ public record GetImV1MessagesByMessageIdReadUsersResponseDto
         public string UserIdType { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>用户id</para>
+        /// <para>用户 ID，ID 类型与查询参数 user_id_type 取值一致。</para>
         /// <para>必填：是</para>
         /// <para>示例值：ou_9b851f7b51a9d58d109982337c46f3de</para>
         /// </summary>
@@ -50,7 +50,7 @@ public record GetImV1MessagesByMessageIdReadUsersResponseDto
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>阅读时间</para>
+        /// <para>已读消息的时间，毫秒级时间戳。</para>
         /// <para>必填：是</para>
         /// <para>示例值：1609484183000</para>
         /// </summary>
@@ -58,7 +58,7 @@ public record GetImV1MessagesByMessageIdReadUsersResponseDto
         public string Timestamp { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>tenant key</para>
+        /// <para>租户唯一标识。该标识用来识别租户，也可以用来获取租户访问凭证（tenant_access_token）。</para>
         /// <para>必填：否</para>
         /// <para>示例值：736588c9260f175e</para>
         /// </summary>

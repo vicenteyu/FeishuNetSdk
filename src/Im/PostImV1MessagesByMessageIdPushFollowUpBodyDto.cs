@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 添加跟随气泡 请求体
-/// <para>展示在机器人消息下方的气泡，用户点击气泡或者新消息到达后，气泡消失</para>
+/// <para>调用该接口在最新一条消息下方添加气泡样式的内容，当消息接收者点击气泡或者新消息到达后，气泡消失。</para>
 /// <para>接口ID：7377650885165268995</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/push_follow_up</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fpush_follow_up</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Im;
 public record PostImV1MessagesByMessageIdPushFollowUpBodyDto
 {
     /// <summary>
-    /// <para>follow-up列表</para>
+    /// <para>跟随气泡列表。</para>
     /// <para>必填：是</para>
     /// <para>最大长度：3</para>
     /// <para>最小长度：1</para>
@@ -31,12 +31,12 @@ public record PostImV1MessagesByMessageIdPushFollowUpBodyDto
     public FollowUp[] FollowUps { get; set; } = Array.Empty<FollowUp>();
 
     /// <summary>
-    /// <para>follow-up列表</para>
+    /// <para>跟随气泡列表。</para>
     /// </summary>
     public record FollowUp
     {
         /// <summary>
-        /// <para>内容</para>
+        /// <para>气泡的内容。</para>
         /// <para>必填：是</para>
         /// <para>示例值：你好</para>
         /// <para>最大长度：200</para>
@@ -46,7 +46,7 @@ public record PostImV1MessagesByMessageIdPushFollowUpBodyDto
         public string Content { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>多语言内容</para>
+        /// <para>气泡的多语言内容。</para>
         /// <para>必填：否</para>
         /// <para>最大长度：50</para>
         /// <para>最小长度：0</para>
@@ -55,12 +55,12 @@ public record PostImV1MessagesByMessageIdPushFollowUpBodyDto
         public I18nContent[]? I18nContents { get; set; }
 
         /// <summary>
-        /// <para>多语言内容</para>
+        /// <para>气泡的多语言内容。</para>
         /// </summary>
         public record I18nContent
         {
             /// <summary>
-            /// <para>内容</para>
+            /// <para>`language` 参数对应的内容。</para>
             /// <para>必填：是</para>
             /// <para>示例值：hello</para>
             /// <para>最大长度：200</para>
@@ -70,9 +70,9 @@ public record PostImV1MessagesByMessageIdPushFollowUpBodyDto
             public string Content { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言类型。</para>
             /// <para>必填：是</para>
-            /// <para>示例值：zh_cn</para>
+            /// <para>示例值：en_us</para>
             /// <para>可选值：<list type="bullet">
             /// <item>en_us：英文</item>
             /// <item>zh_cn：简体中文</item>

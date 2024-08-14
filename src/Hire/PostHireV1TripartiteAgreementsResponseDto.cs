@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建三方协议 响应体
-/// <para>租户打开「通过 api 同步三方协议」开关并在校招流程特定阶段配置「三方协议」时，可以为 Offer 办公地点在中国大陆的校招投递创建三方协议，通过投递 ID 创建三方协议与对应状态。</para>
+/// <para>在投递上创建三方协议。</para>
 /// <para>接口ID：7307160083569623043</para>
 /// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftripartite_agreement%2fcreate</para>

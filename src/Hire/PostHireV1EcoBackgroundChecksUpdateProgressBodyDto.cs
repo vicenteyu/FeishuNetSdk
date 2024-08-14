@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1EcoBackgroundChecksUpdateProgressBodyDto
 {
     /// <summary>
-    /// <para>背调 ID。可通过[获取背调信息列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/background_check_order/list)获取</para>
+    /// <para>背调 ID。可通过[创建背调](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/events/created)事件获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：6931286400470354183</para>
     /// </summary>

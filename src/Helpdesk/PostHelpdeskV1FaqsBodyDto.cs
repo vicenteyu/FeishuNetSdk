@@ -58,9 +58,11 @@ public record PostHelpdeskV1FaqsBodyDto
         public string? Answer { get; set; }
 
         /// <summary>
-        /// <para>富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)</para>
+        /// <para>富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)。</para>
+        /// <para>**注意**：</para>
+        /// <para>以下示例值未转义，使用时请注意转义。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：{\"content\":\"这只是一个测试，医保问题\",\"type\":\"text\"}</para>
+        /// <para>示例值：[{\"content\":\"答案\",\"type\":\"text\"},{\"content\":\"这只是一个测试，医保问题\",\"type\":\"text\"}]</para>
         /// </summary>
         [JsonPropertyName("answer_richtext")]
         public string? AnswerRichtext { get; set; }
