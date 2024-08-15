@@ -15,6 +15,9 @@ namespace FeishuNetSdk.Im;
 /// <summary>
 /// 获取指定消息的内容 响应体
 /// <para>调用该接口通过消息的 `message_id` 查询消息内容。</para>
+/// <para>## 前提条件</para>
+/// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+/// <para>- 机器人必须在消息所属的群组内。</para>
 /// <para>接口ID：6946222929790451740</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fget</para>

@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 部门群转为普通群 请求体
 /// <para>调用该接口将指定部门的部门群转为普通群。</para>
+/// <para>## 注意事项</para>
+/// <para>应用的通讯录权限范围内需要包含当前操作的部门。了解权限范围，参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
 /// <para>接口ID：7069758645957836801</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/department/unbind_department_chat</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fdepartment%2funbind_department_chat</para>

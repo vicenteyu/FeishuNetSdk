@@ -15,6 +15,11 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 更新用户组 请求体
 /// <para>调用该接口更新指定用户组的名称或描述。</para>
+/// <para>## 注意事项</para>
+/// <para>- 应用的通讯录权限范围需要符合以下任一设置，才可以成功调用本接口。了解应用通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+/// <para>- 通讯录权限范围设置为 **全部员工**。</para>
+/// <para>- 由企业管理员在管理后台设置应用可见范围内包含当前待更新的用户组，然后应用的通讯录权限范围设置为 **与应用的可用范围一致**。</para>
+/// <para>- API 方式暂不支持更新动态用户组。</para>
 /// <para>接口ID：7008085931593007107</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/group/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fgroup%2fpatch</para>

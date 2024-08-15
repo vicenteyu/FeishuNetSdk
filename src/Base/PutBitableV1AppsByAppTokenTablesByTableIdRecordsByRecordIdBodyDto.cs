@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新记录 请求体
 /// <para>该接口用于更新数据表中的一条记录</para>
+/// <para>note</para>
+/// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
 /// <para>接口ID：6952707657162637314</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-record/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-record%2fupdate</para>

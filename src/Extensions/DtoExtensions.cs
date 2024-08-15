@@ -11,7 +11,9 @@
 // </copyright>
 // <summary></summary>
 // ************************************************************************
+#pragma warning disable IDE0130 // 命名空间与文件夹结构不匹配
 namespace FeishuNetSdk
+#pragma warning restore IDE0130 // 命名空间与文件夹结构不匹配
 {
     /// <summary>
     /// DTO扩展方法
@@ -123,7 +125,7 @@ namespace FeishuNetSdk
 
         /// <summary>
         /// 由于发送单人与批量的消息结构不一致，需要针对单人的消息进行特殊处理。目前已确认：富文本消息。
-        /// <para>只能发现一个，处理一个。</para>
+        /// <para>发现一个，处理一个。</para>
         /// </summary>
         /// <param name="CardOrContent">消息对象，包括以下：
         /// <list type="bullet">
@@ -136,6 +138,7 @@ namespace FeishuNetSdk
         /// <item>StickerContent</item>
         /// <item>ShareChatContent</item>
         /// <item>ShareUserContent</item>
+        /// <item>SystemDividerContent</item>
         /// <item>ElementsCardDto</item>
         /// <item>TemplateCardDto</item>
         /// </list>
@@ -164,6 +167,7 @@ namespace FeishuNetSdk
         /// <item>StickerContent</item>
         /// <item>ShareChatContent</item>
         /// <item>ShareUserContent</item>
+        /// <item>SystemDividerContent</item>
         /// <item>ElementsCardDto</item>
         /// <item>TemplateCardDto</item>
         /// </list>
@@ -192,6 +196,7 @@ namespace FeishuNetSdk
         /// <item>StickerContent</item>
         /// <item>ShareChatContent</item>
         /// <item>ShareUserContent</item>
+        /// <item>SystemDividerContent</item>
         /// <item>ElementsCardDto</item>
         /// <item>TemplateCardDto</item>
         /// </list>
@@ -220,6 +225,7 @@ namespace FeishuNetSdk
         /// <item>StickerContent</item>
         /// <item>ShareChatContent</item>
         /// <item>ShareUserContent</item>
+        /// <item>SystemDividerContent</item>
         /// <item>ElementsCardDto</item>
         /// <item>TemplateCardDto</item>
         /// </list>
@@ -248,6 +254,7 @@ namespace FeishuNetSdk
         /// <item>StickerContent</item>
         /// <item>ShareChatContent</item>
         /// <item>ShareUserContent</item>
+        /// <item>SystemDividerContent</item>
         /// <item>ElementsCardDto</item>
         /// <item>TemplateCardDto</item>
         /// </list>

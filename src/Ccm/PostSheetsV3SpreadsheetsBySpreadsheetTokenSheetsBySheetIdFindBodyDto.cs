@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 查找单元格 请求体
 /// <para>在指定范围内查找符合查找条件的单元格。</para>
+/// <para>## 注意事项</para>
+/// <para>请求参数 `range` 所指定的范围不可大于实际数据区域，否则将报错。例如，当工作表只有 200 行、而 `range` 参数的范围为 1 到 201 行时，接口将返回 1310202 错误码。</para>
 /// <para>接口ID：6982374372208590850</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/sheets-v3/data-operation/find</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fsheets-v3%2fspreadsheet-sheet%2ffind</para>

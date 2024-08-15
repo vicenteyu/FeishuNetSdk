@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取单个用户信息 响应体
 /// <para>调用该接口获取通讯录中某一用户的信息，包括用户 ID、名称、邮箱、手机号、状态以及所属部门等信息。</para>
+/// <para>## 注意事项</para>
+/// <para>使用应用身份（tenant_access_token）调用本接口时，响应结果中不会返回部门路径字段（department_path）。因此，如需获取部门路径字段值，请为应用申请 **获取成员所在部门路径** API 权限，并使用用户身份（user_access_token）调用接口。</para>
 /// <para>接口ID：6943913881476956187</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/user/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fuser%2fget</para>

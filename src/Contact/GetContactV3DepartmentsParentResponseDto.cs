@@ -15,6 +15,11 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取父部门信息 响应体
 /// <para>调用该接口递归获取指定部门的父部门信息，包括部门名称、ID、负责人以及状态等。</para>
+/// <para>## 注意事项</para>
+/// <para>- 使用应用身份（tenant_access_token）调用本接口时，该接口只返回应用通讯录可见范围内的父部门信息。例如有 A &gt; B &gt; C &gt; D 四层级部门关系，当前应用的通讯录权限内只包含了 B 部门，那么查询 D 部门的父部门信息时，只会返回 B、C 部门信息，不会返回 A 部门信息。了解权限范围参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+/// <para>- 使用用户身份（user_access_token）调用本接口时，只返回对当前用户有可见性的部门信息。用户的组织架构可见范围需要由企业管理员在[管理后台](https://feishu.cn/admin/index) &gt; **安全** &gt; **成员权限** &gt; **组织架构可见范围** 内调整。</para>
+/// <para>- 所能查询到的父部门不包括根部门。</para>
+/// <para>- 当返回列表内包含多个部门信息时，会按照由子部门到父部门的顺序进行展示。</para>
 /// <para>接口ID：6943913881476775963</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/department/parent</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fdepartment%2fparent</para>

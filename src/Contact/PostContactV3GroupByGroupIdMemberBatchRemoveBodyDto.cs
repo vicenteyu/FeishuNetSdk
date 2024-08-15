@@ -15,6 +15,9 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 批量移除用户组成员 请求体
 /// <para>调用该接口从指定普通用户组内移除一个或多个成员。</para>
+/// <para>## 注意事项</para>
+/// <para>- 目前仅支持移除用户类型的成员，暂不支持移除部门类型的成员。</para>
+/// <para>- 如果应用的通讯录权限范围是 **全部员工**，则可以将任何用户移除任何用户组。如果应用的通讯录权限范围不是 **全部员工**，则所要移除的用户以及对应的用户组，均需要在应用的通讯录权限范围内。了解通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
 /// <para>接口ID：7106501358249869315</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/group-member/batch_remove</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fgroup-member%2fbatch_remove</para>

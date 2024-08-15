@@ -15,6 +15,10 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取企业自定义用户字段 响应体
 /// <para>调用该接口查询当前企业内自定义用户字段的配置信息。</para>
+/// <para>## 使用限制</para>
+/// <para>- 仅当企业管理员在[管理后台](https://feishu.cn/admin/index) &gt; **组织架构** &gt; **字段管理** 页面添加了自定义用户字段，并且在 **API 调用设置** 中开启了 **允许开放平台通讯录 API 调用** 开关，当前接口才会获取到自定义用户字段数据。</para>
+/// <para>- 仅可获取字段来源为 **通用信息** 的自定义用户字段数据。如果字段来源为 **人事**，则无法通过该接口查询到对应的数据。</para>
+/// <para>- 仅可获取字段归属为 **成员** 的自定义字段数据。如果字段归属为 **部门**，则无法通过该接口查询到对应的数据。</para>
 /// <para>接口ID：6986108081861476354</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/custom_attr/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fcustom_attr%2flist</para>

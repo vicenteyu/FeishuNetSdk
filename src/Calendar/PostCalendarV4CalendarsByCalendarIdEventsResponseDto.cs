@@ -68,14 +68,6 @@ public record PostCalendarV4CalendarsByCalendarIdEventsResponseDto
         public string? Description { get; set; }
 
         /// <summary>
-        /// <para>更新日程是否给日程参与人发送 Bot 通知。</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：false</para>
-        /// </summary>
-        [JsonPropertyName("need_notification")]
-        public bool? NeedNotification { get; set; }
-
-        /// <summary>
         /// <para>日程开始时间。</para>
         /// <para>必填：是</para>
         /// </summary>

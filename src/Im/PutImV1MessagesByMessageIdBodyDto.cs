@@ -15,6 +15,14 @@ namespace FeishuNetSdk.Im;
 /// <summary>
 /// 编辑消息 请求体
 /// <para>调用该接口编辑已发送的消息内容，支持编辑文本、富文本消息。如需编辑卡片消息，请使用[更新应用发送的消息卡片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch)接口。</para>
+/// <para>## 前提条件</para>
+/// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+/// <para>- 编辑用户单聊内的消息时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。</para>
+/// <para>- 编辑群组内的消息时，机器人需要在该群组中，且拥有发言权限。</para>
+/// <para>## 使用限制</para>
+/// <para>- 一条消息最多可编辑 20 次。</para>
+/// <para>- 仅可编辑当前操作者自己发送的消息。</para>
+/// <para>- 不可编辑已撤回，已删除，超出可编辑时间的消息。可编辑时间由企业管理员设定，详情了解[管理员设置撤回和编辑消息权限](https://www.feishu.cn/hc/zh-CN/articles/325339752183)。</para>
 /// <para>接口ID：7239186075281358852</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fupdate</para>

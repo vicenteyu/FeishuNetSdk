@@ -23,7 +23,7 @@ public record PatchCalendarV4CalendarsByCalendarIdBodyDto
 {
     /// <summary>
     /// <para>日历标题。</para>
-    /// <para>**默认值**：空，表示不更新该字段。</para>
+    /// <para>- 不传表示不更新该字段。</para>
     /// <para>必填：否</para>
     /// <para>示例值：测试日历</para>
     /// <para>最大长度：255</para>
@@ -34,7 +34,7 @@ public record PatchCalendarV4CalendarsByCalendarIdBodyDto
 
     /// <summary>
     /// <para>日历描述。</para>
-    /// <para>**默认值**：空，表示不更新该字段。</para>
+    /// <para>- 不传表示不更新该字段。</para>
     /// <para>必填：否</para>
     /// <para>示例值：使用开放接口创建日历</para>
     /// <para>最大长度：255</para>
@@ -44,7 +44,7 @@ public record PatchCalendarV4CalendarsByCalendarIdBodyDto
 
     /// <summary>
     /// <para>日历公开范围。</para>
-    /// <para>**默认值**：空，表示不更新该字段。</para>
+    /// <para>- 不传表示不更新该字段。</para>
     /// <para>必填：否</para>
     /// <para>示例值：private</para>
     /// <para>可选值：<list type="bullet">
@@ -58,11 +58,11 @@ public record PatchCalendarV4CalendarsByCalendarIdBodyDto
 
     /// <summary>
     /// <para>日历颜色，取值通过颜色 RGB 值的 int32 表示，其中，24 ~ 31 位为透明度，16 ~ 23 位为红，8 ~ 15 位为绿，0 ~ 7 位为蓝。例如，-11034625 表示 RGB 值 (87, 159, 255)。</para>
+    /// <para>- 不传表示不更新该字段。</para>
     /// <para>**注意**：</para>
     /// <para>- 取值范围为 -2^31 ~ 2^31-1</para>
     /// <para>- 日历颜色会映射到飞书客户端色板上最接近的一种颜色进行展示。</para>
     /// <para>- 该颜色仅对当前身份生效。</para>
-    /// <para>**默认值**：空，表示不更新该字段。</para>
     /// <para>必填：否</para>
     /// <para>示例值：-1</para>
     /// </summary>
@@ -71,7 +71,7 @@ public record PatchCalendarV4CalendarsByCalendarIdBodyDto
 
     /// <summary>
     /// <para>日历备注名，设置该字段后（包括后续修改该字段）仅对当前身份生效。</para>
-    /// <para>**默认值**：空，表示不更新该字段。</para>
+    /// <para>- 不传表示不更新该字段。</para>
     /// <para>必填：否</para>
     /// <para>示例值：日历备注名</para>
     /// <para>最大长度：255</para>

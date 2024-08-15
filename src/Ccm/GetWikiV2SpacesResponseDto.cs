@@ -15,6 +15,9 @@ namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取知识空间列表 响应体
 /// <para>此接口用于获取有权限访问的知识空间列表。</para>
+/// <para>## 注意事项</para>
+/// <para>- 使用 tenant access token 调用时，请确认应用或机器人拥有部分知识空间的访问权限，否则返回列表为空。参阅[如何将应用添加为知识库管理员（成员）](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/wiki-qa#b5da330b)。</para>
+/// <para>- 此接口为分页接口。由于权限过滤，可能返回列表为空，但当分页标记（has_more）为 true 时，可以继续分页请求。</para>
 /// <para>接口ID：7023947709203841028</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/wiki-v2/space/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fwiki-v2%2fspace%2flist</para>

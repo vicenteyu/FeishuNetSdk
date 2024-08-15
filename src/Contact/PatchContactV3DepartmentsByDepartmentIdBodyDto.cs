@@ -15,6 +15,9 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 修改部门部分信息 请求体
 /// <para>调用该接口更新指定部门的部分信息，包括名称、父部门、排序以及负责人等。</para>
+/// <para>## 注意事项</para>
+/// <para>- 调用该接口更新部门信息时，所涉及的所有部门需要在应用的通讯录权限范围内，否则会调用失败，并报无权限错误。了解权限范围，参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+/// <para>- 本接口不是全量更新接口，如果某一请求参数不传值，则默认不会修改对应的部门信息（注意：leaders、department_hrbps 如果传入空数组，则会把原有值清空）。如果你需要使用全量更新接口，可参见[更新部门所有信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/update)。</para>
 /// <para>接口ID：6943913881476923419</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/department/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fdepartment%2fpatch</para>

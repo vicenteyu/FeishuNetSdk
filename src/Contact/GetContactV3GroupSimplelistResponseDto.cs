@@ -15,6 +15,9 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 查询用户组列表 响应体
 /// <para>调用该接口查询当前租户下的用户组列表，列表内包含用户组的 ID、名字、成员数量和类型等信息。</para>
+/// <para>## 注意事项</para>
+/// <para>- 如果应用的通讯录权限范围设置为 **全部员工**，则通过本接口可查询到租户内所有用户组的信息，否则，仅会查询到应用通讯录权限范围内的用户组信息。了解应用通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+/// <para>- 支持查询到普通用户组和动态用户组的信息。</para>
 /// <para>接口ID：7008085931593039875</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/group/simplelist</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fgroup%2fsimplelist</para>

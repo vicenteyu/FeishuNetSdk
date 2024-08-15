@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 删除角色下的成员 响应体
 /// <para>调用该接口在指定角色内删除一个或多个成员。</para>
+/// <para>## 注意事项</para>
+/// <para>待删除的角色成员，需要包含在当前应用的通讯录权限范围内，否则将会操作失败。如何设置通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
 /// <para>接口ID：7200215886841102364</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/functional_role-member/batch_delete</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2ffunctional_role-member%2fbatch_delete</para>

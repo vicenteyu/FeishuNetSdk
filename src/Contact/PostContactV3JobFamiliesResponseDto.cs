@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 创建序列 响应体
 /// <para>调用该接口创建一个序列。序列是用户属性之一，用来定义用户的工作类型，例如产品、研发、运营等。</para>
+/// <para>## 使用限制</para>
+/// <para>单租户内序列数量总数上限为 10,000，但需要注意，如果总数超过 4,000，则无法在[管理后台](https://feishu.cn/admin)打开序列列表。</para>
 /// <para>接口ID：7194273514093412356</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/job_family/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fjob_family%2fcreate</para>

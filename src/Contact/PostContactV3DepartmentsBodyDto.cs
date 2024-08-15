@@ -15,6 +15,13 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 创建部门 请求体
 /// <para>调用该接口在通讯录内创建一个部门。</para>
+/// <para>## 注意事项</para>
+/// <para>只可在应用的通讯录权限范围内的部门下创建部门。如果需要在根部门下创建子部门，则应用的通讯录权限范围需要设置为 **全部成员**。了解更多可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+/// <para>## 使用限制</para>
+/// <para>- 单租户内部门总数上限为 30,000。</para>
+/// <para>- 单租户内单个部门的直属成员数量上限为 10,000。</para>
+/// <para>- 单租户内单个部门的直属子部门数量上限为 1,000。</para>
+/// <para>- 部门层级上限为 25 层。</para>
 /// <para>接口ID：6943913881476857883</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/department/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fdepartment%2fcreate</para>

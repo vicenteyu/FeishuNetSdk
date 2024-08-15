@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建文件快捷方式 响应体
 /// <para>创建指定文件的快捷方式到云空间的其它文件夹中。</para>
+/// <para>## 使用限制</para>
+/// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
 /// <para>接口ID：7216001760515112961</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/create_shortcut</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile%2fcreate_shortcut</para>

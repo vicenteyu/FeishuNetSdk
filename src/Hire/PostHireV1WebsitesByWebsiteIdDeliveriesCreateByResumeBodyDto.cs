@@ -15,6 +15,9 @@ namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 新建招聘官网投递 请求体
 /// <para>新建招聘官网投递。</para>
+/// <para>## 注意事项</para>
+/// <para>- 请求参数中邮箱/电话等字段请在「飞书招聘」-「设置」-「招聘官网设置」-「申请表」中确认是否必填。</para>
+/// <para>- 请求参数中的时间字段 (start_time/end_time 等)，时间格式为毫秒时间戳，类型均为 bigint。</para>
 /// <para>接口ID：6990661791098716163</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/website/create_by_resume</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fwebsite-delivery%2fcreate_by_resume</para>

@@ -15,6 +15,9 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取通讯录授权范围 响应体
 /// <para>调用该接口获取当前应用被授权可访问的通讯录范围，包括可访问的部门列表、用户列表和用户组列表。</para>
+/// <para>## 注意事项</para>
+/// <para>- 当应用通讯录权限范围为全部成员时，该接口将返回根部门下的一级部门列表和直属用户列表，以及租户下所有用户组列表。</para>
+/// <para>- 当应用通讯录权限范围不为全部成员时，则只返回在通讯录权限范围内的部门列表（不包含部门内的子部门以及用户）、用户列表或用户组列表。</para>
 /// <para>接口ID：7026591401610543108</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/scope/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fscope%2flist</para>

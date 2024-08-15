@@ -15,6 +15,7 @@ namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取 Offer 申请表信息 响应体
 /// <para>根据 Offer 申请表 ID 获取 Offer 申请表信息，可获取到的信息包括申请表名称、申请表模块、申请表字段等。</para>
+/// <para>## Offer 申请表产品示意图</para>
 /// <para>接口ID：7081627245290651652</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/offer-settings/offer_application_form/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2foffer_application_form%2fget</para>

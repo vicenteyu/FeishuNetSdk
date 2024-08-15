@@ -15,6 +15,10 @@ namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 复制文件 响应体
 /// <para>该接口用于将用户云空间中的文件复制至其它文件夹下。不支持复制文件夹。</para>
+/// <para>## 使用限制</para>
+/// <para>- 云空间中根目录或文件夹的单层节点上限为 1500 个。超过此限制时，接口将返回 1062507 错误码。可通过将文件复制到不同文件夹中解决。</para>
+/// <para>- 云空间中所有层级的节点总和的上限为 40 万个。</para>
+/// <para>- 该接口不支持并发调用，且调用频率上限为 5QPS 且 10000次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
 /// <para>接口ID：7087776630140157955</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/copy</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile%2fcopy</para>

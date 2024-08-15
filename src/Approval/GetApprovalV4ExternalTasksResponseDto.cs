@@ -14,11 +14,13 @@
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 获取三方审批任务状态 响应体
-/// <para>该接口用于获取三方审批的状态。用户传入查询条件，接口返回满足条件的审批实例的状态。该接口支持多种参数的组合，包括如下组合：</para>
-/// <para>1.通过 instance_ids 获取指定实例的任务状态</para>
-/// <para>2.通过 user_ids 获取指定用户的任务状态</para>
-/// <para>3.通过 status 获取指定状态的所有任务</para>
-/// <para>4.通过page_token获取下一批数据</para>
+/// <para>该接口用于获取三方审批的状态。用户传入查询条件，接口返回满足条件的审批实例的状态。</para>
+/// <para>## 提示</para>
+/// <para>该接口支持多种参数的组合，具体请参考请求体示例：</para>
+/// <para>- 通过 instance_ids 获取指定实例的任务状态</para>
+/// <para>- 通过 user_ids 获取指定用户的任务状态</para>
+/// <para>- 通过 status 获取指定状态的所有任务</para>
+/// <para>- 通过page_token获取下一批数据</para>
 /// <para>接口ID：7117964632137170947</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/external_task/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2fexternal_task%2flist</para>
@@ -114,7 +116,7 @@ public record GetApprovalV4ExternalTasksResponseDto
             /// <item>APPROVED：审批流程结束，结果为同意</item>
             /// <item>REJECTED：审批流程结束，结果为拒绝</item>
             /// <item>TRANSFERRED：任务转交</item>
-            /// <item>DONE：任务通过但审批人未操作；审批人看不到这个任务,若想要看到,可以通过抄送该人.</item>
+            /// <item>DONE：任务通过但审批人未操作；审批人看不到这个任务, 若想要看到, 可以通过抄送该人.</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("status")]

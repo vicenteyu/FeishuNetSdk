@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 更新工单详情 请求体
 /// <para>该接口用于更新服务台工单详情。只会更新数据，不会触发相关操作。如修改工单状态到关单，不会关闭聊天页面。仅支持自建应用。要更新的工单字段必须至少输入一项。</para>
+/// <para>注意事项：</para>
+/// <para>user_access_token 访问，需要操作者有当前工单的权限，属于服务台的客服（并且具有该工单的权限）、管理员或所有者</para>
 /// <para>接口ID：6955768699895824386</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/helpdesk-v1/ticket-management/ticket/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fhelpdesk-v1%2fticket%2fupdate</para>

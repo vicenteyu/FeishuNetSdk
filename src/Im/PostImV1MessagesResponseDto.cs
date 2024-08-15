@@ -15,6 +15,13 @@ namespace FeishuNetSdk.Im;
 /// <summary>
 /// 发送消息 响应体
 /// <para>调用该接口向指定用户或者群聊发送消息。支持发送的消息类型包括文本、富文本、卡片、群名片、个人名片、图片、视频、音频、文件以及表情包等。</para>
+/// <para>## 前提条件</para>
+/// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+/// <para>- 给用户发送消息时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。</para>
+/// <para>- 给群组发送消息时，机器人需要在该群组中，且在群组内拥有发言权限。</para>
+/// <para>## 使用限制</para>
+/// <para>- 为避免消息发送频繁对用户造成打扰，向同一用户发送消息的限频为 ==5 QPS==、向同一群组发送消息的限频为群内机器人共享 ==5 QPS==。</para>
+/// <para>- 该接口仅支持在开发者后台创建的应用机器人调用，群自定义机器人无法调用该接口。了解群自定义机器人的使用方式，参见[自定义机器人使用指南](https://open.feishu.cn/document/ukTMukTMukTM/ucTM5YjL3ETO24yNxkjN)。</para>
 /// <para>接口ID：6946222931479527425</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fcreate</para>

@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新备注 响应体
 /// <para>根据备注 ID 更新备注信息。</para>
+/// <para>## 注意事项</para>
+/// <para>在备注中@其他用户时，会同时赋予该用户查看该人才的权限，即该用户有权限在「飞书招聘」产品中查看该人才。</para>
 /// <para>接口ID：6950644745484402715</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/note/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fnote%2fpatch</para>

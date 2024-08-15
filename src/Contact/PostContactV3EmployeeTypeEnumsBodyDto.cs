@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 新增人员类型 请求体
 /// <para>调用该接口新增一个自定义的人员类型。人员类型是用户属性之一，用于灵活标记用户的身份类型。</para>
+/// <para>## 使用限制</para>
+/// <para>自定义的人员类型数量上限为 255，其中创建后又删除的自定义人员类型也会计入数量限制内。</para>
 /// <para>接口ID：6985055606752575516</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/employee_type_enum/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2femployee_type_enum%2fcreate</para>

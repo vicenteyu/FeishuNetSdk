@@ -15,6 +15,10 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 修改用户部分信息 请求体
 /// <para>调用该接口更新通讯录中指定用户的信息，包括名称、邮箱、手机号、所属部门以及自定义字段等信息。</para>
+/// <para>## 注意事项</para>
+/// <para>- 发送请求时，未传递的参数不会更新。</para>
+/// <para>- 并发操作冻结用户时，因事务冲突会遇到概率性的接口调用失败。因此，请尝试降低请求速率或改为串行执行。</para>
+/// <para>- 更新 `department_ids`、`is_frozen` 时，限制调用频率为 1 QPS。</para>
 /// <para>接口ID：6943913881476792347</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/user/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fuser%2fpatch</para>

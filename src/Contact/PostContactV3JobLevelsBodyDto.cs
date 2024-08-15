@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 创建职级 请求体
 /// <para>调用该接口创建一个职级。职级是用户属性之一，用于标识用户的职位级别，例如 P1、P2、P3、P4。</para>
+/// <para>## 使用限制</para>
+/// <para>单租户内职级数量总数上限为 10,000，但需要注意，如果总数超过 4,000，则无法在[管理后台](https://feishu.cn/admin)打开职级列表。</para>
 /// <para>接口ID：7194273512282423300</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/job_level/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fjob_level%2fcreate</para>

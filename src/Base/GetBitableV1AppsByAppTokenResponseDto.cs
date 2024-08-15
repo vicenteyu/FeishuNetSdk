@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Base;
 /// <summary>
 /// 获取多维表格元数据 响应体
 /// <para>获取指定多维表格的元数据信息，包括多维表格名称，多维表格版本号，多维表格是否开启高级权限等。</para>
+/// <para>note</para>
+/// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
 /// <para>接口ID：6960166873968574467</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp%2fget</para>

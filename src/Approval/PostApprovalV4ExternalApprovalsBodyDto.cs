@@ -139,7 +139,7 @@ public record PostApprovalV4ExternalApprovalsBodyDto
         public bool? EnableMarkReaded { get; set; }
 
         /// <summary>
-        /// <para>是否支持快速操作</para>
+        /// <para>是否支持快速操作（该字段无效）</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>

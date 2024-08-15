@@ -15,6 +15,12 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 创建用户 响应体
 /// <para>调用该接口向通讯录创建一个用户（该动作可以理解为员工入职）。成功创建用户后，系统会以短信或邮件的形式向用户发送邀请，用户在同意邀请后方可访问企业或团队。</para>
+/// <para>## 注意事项</para>
+/// <para>- 创建用户时，所操作的所有部门均需要在当前应用的通讯录权限范围内，才能成功创建。如果需要在根部门下创建用户，则应用必须有全员权限。关于通讯录权限范围的具体说明可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+/// <para>- 发送请求后获取到的响应数据受接口的字段权限要求影响，接口只返回有权限的数据，因此你在调用前需要为应用申请必要的接口权限和字段权限。如何申请 API 权限可参见[申请 API 权限](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)。</para>
+/// <para>## 使用限制</para>
+/// <para>- 未认证企业的人数上限为 100。</para>
+/// <para>- 已认证企业的人数上限在不同飞书版本里不相同，具体参考[版本对比](https://www.feishu.cn/service)。</para>
 /// <para>接口ID：6943913881476939803</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/user/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fuser%2fcreate</para>

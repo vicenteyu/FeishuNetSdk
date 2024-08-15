@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 创建知识库 响应体
 /// <para>该接口用于创建知识库。</para>
+/// <para>注意事项：</para>
+/// <para>user_access_token 访问，需要操作者是当前服务台的客服、管理员或所有者</para>
 /// <para>接口ID：6955768699895791618</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/helpdesk-v1/faq-management/faq/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fhelpdesk-v1%2ffaq%2fcreate</para>

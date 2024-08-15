@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取招聘官网下的职位列表 响应体
 /// <para>获取招聘官网下的职位信息列表。</para>
+/// <para>## 注意事项</para>
+/// <para>该接口暂不支持获取自定义数据。你可使用「获取招聘官网下职位广告详情」接口获取。</para>
 /// <para>接口ID：6990661791098667011</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/website/list-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fwebsite-job_post%2flist</para>

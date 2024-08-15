@@ -15,6 +15,11 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 建立部门与单位的绑定关系 请求体
 /// <para>调用该接口建立部门与单位的绑定关系。一个部门同时只能绑定一个单位。</para>
+/// <para>## 注意事项</para>
+/// <para>操作的部门需要在应用的通讯录权限范围内。了解通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+/// <para>## 使用限制</para>
+/// <para>- 单个单位可关联的部门数量上限为 1,000。</para>
+/// <para>- 同一个部门只能关联一个单位。</para>
 /// <para>接口ID：7023995901275324419</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/unit/bind_department</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2funit%2fbind_department</para>

@@ -15,6 +15,9 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 删除用户 请求体
 /// <para>调用该接口从通讯录内删除一个指定用户（该动作可以理解为员工离职），删除时可通过请求参数将用户所有的群组、文档、日程和应用等数据转让至他人。</para>
+/// <para>## 注意事项</para>
+/// <para>- 调用该接口的应用的[通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)必须包含用户所属的部门。例如，待删除用户归属部门 A、部门 B，则应用的通讯录权限范围必须包括部门 A 和部门 B，这样才可以成功删除用户。</para>
+/// <para>- 删除用户后，你可以调用[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口，通过用户 ID 查询用户的状态（响应参数 status），从而确保用户已成功删除（对应已离职状态）。</para>
 /// <para>接口ID：6943913881476907035</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/user/delete</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fuser%2fdelete</para>

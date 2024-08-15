@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建 Offer 请求体
 /// <para>传入 Offer 基本信息，创建 Offer。</para>
+/// <para>## 注意事项</para>
+/// <para>创建 Offer 时，需传入本文档中标注为必传的参数，其余参数是否必传参考[获取 Offer 申请表模板信息](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/offer-settings/offer_application_form/get)的参数定义或在「飞书招聘-设置-offer设置-offer申请表设置」中进行查看。</para>
 /// <para>接口ID：7085174536488697857</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/offer/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2foffer%2fcreate</para>

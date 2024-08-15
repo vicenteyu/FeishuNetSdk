@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 查询导出任务结果 响应体
 /// <para>根据[创建导出任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create)返回的导出任务 ID（ticket）轮询导出任务结果，并返回导出文件的 token。你可使用该 token 继续调用[下载导出文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download)接口将导出的产物下载到本地。了解完整的导出文件步骤，参考[导出飞书云文档概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/export-user-guide)。</para>
+/// <para>## 注意事项</para>
+/// <para>调用该接口的用户或应用需与调用创建导出任务接口的用户或应用保持一致。</para>
 /// <para>接口ID：7089034521211207682</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/export_task/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fexport_task%2fget</para>

@@ -15,6 +15,12 @@ namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 添加知识空间成员 响应体
 /// <para>添加知识空间成员或管理员。</para>
+/// <para>## 前提条件</para>
+/// <para>调用此接口前，请确保调用身份对应的应用或用户为知识空间的管理员。</para>
+/// <para>## 注意事项</para>
+/// <para>- 使用 tenant access token 身份操作时，无法使用部门 ID (opendepartmentid) 添加知识空间成员。</para>
+/// <para>- 公开知识空间（即 visibility [可见性](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)为 public 的空间）对租户所有用户可见，因此不支持再添加成员，但可以添加管理员。</para>
+/// <para>- 个人知识空间 （即 type [类型](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)为 person 的空间）为个人管理的知识空间，不支持添加其他管理员（包括应用/机器人）。但可以添加成员。</para>
 /// <para>接口ID：7023947709203906564</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/wiki-v2/space-member/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fwiki-v2%2fspace-member%2fcreate</para>

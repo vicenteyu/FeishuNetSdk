@@ -3091,6 +3091,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口递归获取指定部门的父部门信息，包括部门名称、ID、负责人以及状态等。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 使用应用身份（tenant_access_token）调用本接口时，该接口只返回应用通讯录可见范围内的父部门信息。例如有 A &gt; B &gt; C &gt; D 四层级部门关系，当前应用的通讯录权限内只包含了 B 部门，那么查询 D 部门的父部门信息时，只会返回 B、C 部门信息，不会返回 A 部门信息。了解权限范围参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>- 使用用户身份（user_access_token）调用本接口时，只返回对当前用户有可见性的部门信息。用户的组织架构可见范围需要由企业管理员在[管理后台](https://feishu.cn/admin/index) &gt; **安全** &gt; **成员权限** &gt; **组织架构可见范围** 内调整。</para>
+    /// <para>- 所能查询到的父部门不包括根部门。</para>
+    /// <para>- 当返回列表内包含多个部门信息时，会按照由子部门到父部门的顺序进行展示。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact:access_as_app</item>
     /// <item>contact:contact:readonly</item>
@@ -3162,6 +3167,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口更新通讯录中指定用户的信息，包括名称、邮箱、手机号、所属部门以及自定义字段等信息。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 发送请求时，未传递的参数不会更新。</para>
+    /// <para>- 并发操作冻结用户时，因事务冲突会遇到概率性的接口调用失败。因此，请尝试降低请求速率或改为串行执行。</para>
+    /// <para>- 更新 `department_ids`、`is_frozen` 时，限制调用频率为 1 QPS。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// <item>contact:user.base</item>
@@ -3281,6 +3290,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口在通讯录内创建一个部门。</para>
+    /// <para>## 注意事项</para>
+    /// <para>只可在应用的通讯录权限范围内的部门下创建部门。如果需要在根部门下创建子部门，则应用的通讯录权限范围需要设置为 **全部成员**。了解更多可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 单租户内部门总数上限为 30,000。</para>
+    /// <para>- 单租户内单个部门的直属成员数量上限为 10,000。</para>
+    /// <para>- 单租户内单个部门的直属子部门数量上限为 1,000。</para>
+    /// <para>- 部门层级上限为 25 层。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// </list></para>
@@ -3409,6 +3425,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/delete</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口从通讯录内删除一个指定用户（该动作可以理解为员工离职），删除时可通过请求参数将用户所有的群组、文档、日程和应用等数据转让至他人。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 调用该接口的应用的[通讯录权限范围](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)必须包含用户所属的部门。例如，待删除用户归属部门 A、部门 B，则应用的通讯录权限范围必须包括部门 A 和部门 B，这样才可以成功删除用户。</para>
+    /// <para>- 删除用户后，你可以调用[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口，通过用户 ID 查询用户的状态（响应参数 status），从而确保用户已成功删除（对应已离职状态）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// </list></para>
@@ -3446,6 +3465,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/patch</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口更新指定部门的部分信息，包括名称、父部门、排序以及负责人等。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 调用该接口更新部门信息时，所涉及的所有部门需要在应用的通讯录权限范围内，否则会调用失败，并报无权限错误。了解权限范围，参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>- 本接口不是全量更新接口，如果某一请求参数不传值，则默认不会修改对应的部门信息（注意：leaders、department_hrbps 如果传入空数组，则会把原有值清空）。如果你需要使用全量更新接口，可参见[更新部门所有信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/update)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// </list></para>
@@ -3502,6 +3524,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口向通讯录创建一个用户（该动作可以理解为员工入职）。成功创建用户后，系统会以短信或邮件的形式向用户发送邀请，用户在同意邀请后方可访问企业或团队。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 创建用户时，所操作的所有部门均需要在当前应用的通讯录权限范围内，才能成功创建。如果需要在根部门下创建用户，则应用必须有全员权限。关于通讯录权限范围的具体说明可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>- 发送请求后获取到的响应数据受接口的字段权限要求影响，接口只返回有权限的数据，因此你在调用前需要为应用申请必要的接口权限和字段权限。如何申请 API 权限可参见[申请 API 权限](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 未认证企业的人数上限为 100。</para>
+    /// <para>- 已认证企业的人数上限在不同飞书版本里不相同，具体参考[版本对比](https://www.feishu.cn/service)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// </list></para>
@@ -3565,6 +3593,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口获取通讯录中某一用户的信息，包括用户 ID、名称、邮箱、手机号、状态以及所属部门等信息。</para>
+    /// <para>## 注意事项</para>
+    /// <para>使用应用身份（tenant_access_token）调用本接口时，响应结果中不会返回部门路径字段（department_path）。因此，如需获取部门路径字段值，请为应用申请 **获取成员所在部门路径** API 权限，并使用用户身份（user_access_token）调用接口。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact:access_as_app</item>
     /// <item>contact:contact:readonly</item>
@@ -3704,6 +3734,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口获取单个部门信息，包括部门名称、ID、父部门、负责人、状态以及成员个数等。</para>
+    /// <para>## 注意事项</para>
+    /// <para>使用不同身份调用本接口时，需要注意不同身份所需的不同权限范围。具体说明如下：</para>
+    /// <para>- 当你使用应用身份（tenant_access_token）调用本接口时，应用的通讯录权限范围内需要包含当前被查询的部门。如果需要查询根部门信息，则应用的通讯录权限范围需设置为 **全部成员**。了解权限范围参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>- 当你使用用户身份（user_access_token）调用本接口时，需要确保该用户身份拥有待查询部门的可见性。如果需要查询根部门信息，则用户需要可见所有人。用户的组织架构可见范围需要由企业管理员在[管理后台](https://feishu.cn/admin/index) &gt; **安全** &gt; **成员权限** &gt; **组织架构可见范围** 内调整。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact:access_as_app</item>
     /// <item>contact:contact:readonly</item>
@@ -3761,6 +3795,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/delete</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口从通讯录中删除指定的部门。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 应用需要同时拥有待删除部门及其父部门的通讯录权限范围。如何设置通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>- 待删除的部门下边不能包含用户或子部门。</para>
+    /// <para>- 你可以调用[获取部门直属用户列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department)接口，查看部门下的用户信息。如果有存量用户，可以根据实际情况调用[修改用户部分信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/patch)接口，修改这部分用户的所属部门，或者[删除用户](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/delete)。</para>
+    /// <para>- 你可以调用[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)接口，查看部门下的子部门信息。如果有存量子部门，可以根据实际情况调用[修改部门部分信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/patch)接口，修改子部门的父部门，或者[删除子部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/delete)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// </list></para>
@@ -3794,6 +3833,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/update</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口更新指定部门的信息，包括名称、父部门以及负责人等信息。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 调用该接口更新部门信息时，所涉及的所有部门需要在应用的通讯录权限范围内，否则会调用失败，并报无权限错误。了解权限范围，参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>- 本接口是全量更新接口，没有传值的请求参数默认会被置为空值（部门排序 order 参数除外）。如果你只需要更新部门的部分信息，可参见[修改部门部分信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/patch)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// </list></para>
@@ -3972,6 +4014,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/read_users</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>查询指定消息是否已读。接口只返回已读用户的信息，不返回未读用户的信息。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability) 。</para>
+    /// <para>- 查询消息已读信息时，机器人需要在待查询消息所在的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 只能查询由当前机器人自己发送的、发送时间不超过 7 天的消息已读信息。</para>
+    /// <para>- 一次请求只能查询一条消息，不支持批量查询。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:basic</item>
@@ -4087,6 +4135,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口通过消息的 `message_id` 查询消息内容。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 机器人必须在消息所属的群组内。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:readonly</item>
@@ -4166,6 +4217,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/reply</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口回复指定消息。回复的内容支持文本、富文本、卡片、群名片、个人名片、图片、视频、文件等多种类型。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 回复用户消息（即单聊消息）时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。</para>
+    /// <para>- 回复群消息时，机器人需要在群中，且拥有发言权限。</para>
+    /// <para>## 使用限制</para>
+    /// <para>为避免消息发送频繁对用户造成打扰，向同一用户发送消息的限频为 ==5 QPS==、向同一群组发送消息的限频为群内机器人共享 ==5 QPS==。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send</item>
@@ -4365,6 +4422,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>调用该接口撤回指定消息。调用接口的身份不同（身份通过 Authorization 请求头参数指定），可实现的效果不同：</para>
     /// <para>- 机器人可以撤回该机器人自己发送的消息。</para>
     /// <para>- 群聊的群主可以撤回群内指定的消息。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 撤回用户单聊内的消息时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。</para>
+    /// <para>- 撤回群组内的消息时，机器人需要在该群组中。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 无法撤回通过[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口发送的消息，撤回该接口发送的消息需要使用[批量撤回消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/delete)接口。</para>
+    /// <para>- 撤回的消息需要符合由企业管理员设置的撤回时限。详情了解[管理员设置撤回和编辑消息权限](https://www.feishu.cn/hc/zh-CN/articles/325339752183)。</para>
+    /// <para>- 在群聊内的机器人如需撤回他人发送的消息，则该机器人必须是该群的群主、管理员或者创建者，且消息发送时间不超过 1 年。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:recall</item>
@@ -4618,6 +4683,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口向指定用户或者群聊发送消息。支持发送的消息类型包括文本、富文本、卡片、群名片、个人名片、图片、视频、音频、文件以及表情包等。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 给用户发送消息时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。</para>
+    /// <para>- 给群组发送消息时，机器人需要在该群组中，且在群组内拥有发言权限。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 为避免消息发送频繁对用户造成打扰，向同一用户发送消息的限频为 ==5 QPS==、向同一群组发送消息的限频为群内机器人共享 ==5 QPS==。</para>
+    /// <para>- 该接口仅支持在开发者后台创建的应用机器人调用，群自定义机器人无法调用该接口。了解群自定义机器人的使用方式，参见[自定义机器人使用指南](https://open.feishu.cn/document/ukTMukTMukTM/ucTM5YjL3ETO24yNxkjN)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send</item>
@@ -4651,6 +4723,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>更新应用已发送的消息卡片内容。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 若以 user_access_token 更新消息，该操作用户必须是卡片消息的发送者。</para>
+    /// <para>- 仅支持更新未撤回的[共享卡片](ukTMukTMukTM/uAjNwUjLwYDM14CM2ATN)消息。你需在卡片的 config 属性中，显式声明 =="update_multi":true==。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 不支持更新批量消息。</para>
+    /// <para>- 仅支持更新 14 天内发送的消息。</para>
+    /// <para>- 更新的文本消息请求体不可超过 150 KB；卡片及富文本消息请求体不可超过 30 KB。</para>
+    /// <para>- 单条消息更新频控为 5 QPS。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -4675,6 +4757,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>获取指定会话（包括单聊、群组）内的历史消息（即聊天记录）。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 获取消息时，机器人必须在被查询的群组中。</para>
+    /// <para>## 注意事项</para>
+    /// <para>应用开启本接口默认所需的权限只能获取单聊（p2p）消息。如果你需要获取群组（group）消息，应用还必须开启 **获取群组中所有消息**（im:message.group_msg） 权限。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:readonly</item>
@@ -4750,6 +4837,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>获取指定消息内包含的资源文件，包括音频、视频、图片和文件。成功调用后，返回二进制文件流下载文件。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 机器人和待操作的消息需要在同一会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 仅支持下载 100 MB 以内的资源文件。</para>
+    /// <para>- 暂不支持获取表情包资源。</para>
+    /// <para>- 暂不支持获取合并转发消息中的子消息、卡片消息中的资源文件。</para>
+    /// <para>- 不支持在当前接口内调整文件格式，你可以获取资源文件后，在本地自行调整。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:readonly</item>
@@ -5149,6 +5244,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/optical_char_recognition-v1/image/basic_recognize</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>可识别图片中的文字，按图片中的区域划分，分段返回文本列表。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 单租户限流为 20QPS，即同租户下的应用共享本租户的 20 QPS 限流。</para>
+    /// <para>- 该接口不支持通过飞书个人版调试。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>optical_char_recognition:image</item>
     /// </list></para>
@@ -5209,6 +5307,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>为人才创建备注信息，支持在备注中@其他用户。</para>
+    /// <para>## 注意事项</para>
+    /// <para>在备注中@其他用户时，会同时赋予该用户查看该人才的权限，即该用户有权限在「飞书招聘」产品中查看该人才。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:note</item>
     /// </list></para>
@@ -5277,6 +5377,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/patch</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>根据备注 ID 更新备注信息。</para>
+    /// <para>## 注意事项</para>
+    /// <para>在备注中@其他用户时，会同时赋予该用户查看该人才的权限，即该用户有权限在「飞书招聘」产品中查看该人才。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:note</item>
     /// </list></para>
@@ -5454,6 +5556,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于在数据表中新增一条记录</para>
+    /// <para>note</para>
+    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// </list></para>
@@ -5591,6 +5695,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于列出数据表中的现有记录，单次最多列出 500 行记录，支持分页获取。</para>
+    /// <para>note</para>
+    /// <para>该接口为历史接口，已不推荐使用。你可使用[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)替代。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
@@ -5797,6 +5903,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/batch_create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于在数据表中新增多条记录，单次调用最多新增 500 条记录。</para>
+    /// <para>note</para>
+    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// </list></para>
@@ -5881,6 +5989,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于更新数据表中的一条记录</para>
+    /// <para>note</para>
+    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// </list></para>
@@ -9399,6 +9509,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于在数据表中新增一个字段</para>
+    /// <para>note</para>
+    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// </list></para>
@@ -9435,6 +9547,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>删除一个数据表，最后一张数据表不允许被删除。</para>
+    /// <para>note</para>
+    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// </list></para>
@@ -9462,6 +9576,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/batch_delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>删除多个数据表。</para>
+    /// <para>note</para>
+    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// </list></para>
@@ -9645,6 +9761,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>通过该接口，可以新增一个仅包含索引列的空数据表，也可以指定一部分初始字段。</para>
+    /// <para>note</para>
+    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// </list></para>
@@ -9704,6 +9822,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取指定多维表格的元数据信息，包括多维表格名称，多维表格版本号，多维表格是否开启高级权限等。</para>
+    /// <para>note</para>
+    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
@@ -9824,6 +9944,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取一个会议的录制文件。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 会议结束后并且收到了[录制完成](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/recording_ready)的事件方可获取录制文件。</para>
+    /// <para>- 请求头 Authorization 参数不同 Token 说明：</para>
+    /// <para>- 使用 user_access_token 时，只有会议归属人有权限获取录制文件。会议归属人是指[预约会议](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/apply)时，请求参数传入的归属人（owner_id）。</para>
+    /// <para>- 使用 tenant_access_token 时，可获取租户范围下的录制文件。</para>
+    /// <para>- 录制时间太短（小于 5s）有可能无法生成录制文件。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>vc:record:readonly</item>
     /// </list></para>
@@ -10662,6 +10788,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/preview</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>根据人才简历附件 ID 获取该简历附件对应的 PDF 文件的下载地址。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 本接口仅支持转换人才简历类型的附件，不支持作品附件和通用附件。</para>
+    /// <para>- 飞书招聘系统支持将文件后缀名为 `.doc`、`.docx`、`.ppt`、`.pptx` 和 `.txt`的人才简历附件转换为 PDF 格式。若转换 PDF 失败，该接口会返回附件原文件的下载地址。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:attachment</item>
     /// </list></para>
@@ -11334,6 +11463,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>指定电子表格工作表的筛选范围，创建一个筛选视图。</para>
+    /// <para>## 使用限制</para>
+    /// <para>单个工作表中的筛选视图数量不得超过 150 个。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -11769,6 +11900,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用[上传分片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part)接口将分片全部上传完毕后，你需调用本接口触发完成上传。否则将上传失败。了解完整的上传文件流程，参考[上传文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:file</item>
@@ -11786,6 +11919,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>发送初始化请求，以获取上传事务 ID 和分片策略，为[上传分片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part)做准备。平台固定以 4MB 的大小对文件进行分片。了解完整的上传文件流程，参考[上传文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>上传事务 ID 和上传进度在 24 小时内有效。请及时保存和恢复上传。</para>
+    /// <para>## 使用限制</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:file</item>
@@ -11803,6 +11940,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>将文件、图片、视频等素材上传到指定云文档中。素材将显示在对应云文档中，在云空间中不会显示。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 素材大小不得超过 20 MB。要上传大于 20 MB 的文件，你需使用分片上传素材相关接口。详情参考[素材概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。</para>
+    /// <para>- 该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>docs:doc</item>
@@ -11827,6 +11967,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>发送初始化请求，以获取上传事务 ID 和分片策略，为[上传素材分片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part)做准备。平台固定以 4MB 的大小对素材进行分片。了解完整的分片上传素材流程，参考[素材概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>上传事务 ID 和上传进度在 24 小时内有效。请及时保存和恢复上传。</para>
+    /// <para>## 使用限制</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>docs:doc</item>
@@ -11846,6 +11990,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>将指定文件上传至云空间指定目录中。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 文件大小不得超过 20 MB，且不可上传空文件。要上传大于 20 MB 的文件，你需使用分片上传文件相关接口。详情参考[上传文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。</para>
+    /// <para>- 该接口调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:file</item>
@@ -11868,6 +12015,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用[上传分片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part)接口将分片全部上传完毕后，你需调用本接口触发完成上传。了解完整的分片上传素材流程，参考[素材概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>docs:doc</item>
@@ -11887,6 +12036,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于获取云文档中素材的临时下载链接。链接的有效期为 24 小时，过期失效。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口之前，你需确保应用已拥有素材的下载权限。否则接口将返回 403 的 HTTP 状态码。参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)第五点了解如何分享素材的下载权限给应用。更多云文档接口权限问题，参考[云文档常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>本接口仅支持下载云文档而非云空间中的资源文件。如要下载云空间中的资源文件，需调用[下载文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download)接口。</para>
+    /// <para>## 使用限制</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
@@ -11931,6 +12086,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>下载各类云文档中的素材，例如电子表格中的图片。该接口支持通过在请求头添加`Range` 参数分片下载素材。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口之前，你需确保应用已拥有素材的下载权限。否则接口将返回 403 的 HTTP 状态码。参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)第五点了解如何分享素材的下载权限给应用。更多云文档接口权限问题，参考[云文档常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>本接口仅支持下载云文档而非云空间中的资源文件。如要下载云空间中的资源文件，需调用[下载文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download)接口。</para>
+    /// <para>## 使用限制</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
@@ -11976,6 +12137,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 [预上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare)接口返回的上传事务 ID 和分片策略上传对应的文件分片。上传完成后，你需调用[分片上传文件（完成上传）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish)触发完成上传。了解完整的上传文件流程，参考[分片上传文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:file</item>
@@ -11998,6 +12161,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>下载云空间中的文件，如 PDF 文件。不包含飞书文档、电子表格以及多维表格等在线文档。该接口支持通过在请求头添加 `Range` 参数分片下载部分文件。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口之前，你需确保应用已拥有文件的下载权限。否则接口将返回 403 的 HTTP 状态码。参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)第五点了解如何分享文件的下载权限给应用。更多云文档接口权限问题，参考[云文档常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>本接口仅支持下载云空间中的资源文件。要下载云文档中的素材（如图片、附件等），需调用[下载素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download)接口。</para>
+    /// <para>## 使用限制</para>
+    /// <para>该接口调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -12028,6 +12197,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 [预上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare)接口返回的上传事务 ID 和分片策略上传对应的素材分片。上传完成后，你可调用 [分片上传素材（完成上传）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish)触发完成上传。</para>
+    /// <para>## 使用限制</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>docs:doc</item>
@@ -12201,6 +12372,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/find</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>在指定范围内查找符合查找条件的单元格。</para>
+    /// <para>## 注意事项</para>
+    /// <para>请求参数 `range` 所指定的范围不可大于实际数据区域，否则将报错。例如，当工作表只有 200 行、而 `range` 参数的范围为 1 到 201 行时，接口将返回 1310202 错误码。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -12235,6 +12408,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/replace</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>在指定范围内，查找并替换符合查找条件的单元格。</para>
+    /// <para>## 使用限制</para>
+    /// <para>单次最多可替换 5,000 个单元格。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -12267,6 +12442,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/update</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口更新指定的自定义人员类型信息。</para>
+    /// <para>## 注意事项</para>
+    /// <para>仅支持更新自定义的人员类型。默认包含的正式、实习、外包、劳务、顾问五个选项不支持更新。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// </list></para>
@@ -12289,6 +12466,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/delete</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口删除指定的自定义人员类型。</para>
+    /// <para>## 注意事项</para>
+    /// <para>仅支持删除自定义的人员类型。默认包含的正式、实习、外包、劳务、顾问五个选项不支持删除。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// </list></para>
@@ -12338,6 +12517,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口新增一个自定义的人员类型。人员类型是用户属性之一，用于灵活标记用户的身份类型。</para>
+    /// <para>## 使用限制</para>
+    /// <para>自定义的人员类型数量上限为 255，其中创建后又删除的自定义人员类型也会计入数量限制内。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// </list></para>
@@ -12869,6 +13050,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/custom_attr/list</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口查询当前企业内自定义用户字段的配置信息。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 仅当企业管理员在[管理后台](https://feishu.cn/admin/index) &gt; **组织架构** &gt; **字段管理** 页面添加了自定义用户字段，并且在 **API 调用设置** 中开启了 **允许开放平台通讯录 API 调用** 开关，当前接口才会获取到自定义用户字段数据。</para>
+    /// <para>- 仅可获取字段来源为 **通用信息** 的自定义用户字段数据。如果字段来源为 **人事**，则无法通过该接口查询到对应的数据。</para>
+    /// <para>- 仅可获取字段归属为 **成员** 的自定义字段数据。如果字段归属为 **部门**，则无法通过该接口查询到对应的数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact:readonly_as_app</item>
     /// <item>contact:contact.base:readonly</item>
@@ -13090,6 +13275,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于创建导入文件的任务，并返回导入任务 ID。导入文件指将本地文件如 Word、TXT、Markdown、Excel 等格式的文件导入为某种格式的飞书在线云文档。该接口为异步接口，需要继续调用[查询导入任务结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/get)接口获取导入结果。了解完整的导入文件步骤，参考[导入文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)。</para>
+    /// <para>## 前提条件</para>
+    /// <para>创建导入任务前，你需先调用[上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)或[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all)接口获取源文件的 token。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:document:import</item>
     /// <item>drive:drive</item>
@@ -13291,6 +13478,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/transfer_stage</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>根据投递 ID 和投递阶段 ID 转移投递阶段。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 当目标转移阶段或当前投递阶段为「已入职」阶段时，无法转移。</para>
+    /// <para>- 候选人被锁定在其它投递时，无法转移。</para>
+    /// <para>- 若「飞书招聘」-「设置」-「Offer 设置」-「Offer 审批设置」开启了「所有职位都必须进行 Offer 审批」，且当前投递没有审批完成的 Offer，则无法转移到「待入职」阶段。</para>
+    /// <para>- 若「飞书招聘」-「设置」-「候选人流程管理」-「招聘流程管控规则设置」中设置了管控规则，则不满足管控规则的转移操作将无法转移。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:application</item>
     /// </list></para>
@@ -14333,6 +14525,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/list</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>获取招聘官网下的职位信息列表。</para>
+    /// <para>## 注意事项</para>
+    /// <para>该接口暂不支持获取自定义数据。你可使用「获取招聘官网下职位广告详情」接口获取。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:site_job_post:readonly</item>
     /// </list></para>
@@ -14432,6 +14626,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>获取地址列表，可查询到的信息包括地址与地点信息，可应用在职位地点、面试地点、人才意向工作城市等场景。</para>
+    /// <para>## 名词解释</para>
+    /// <para>在本接口中，地点和地址的描述如下：</para>
+    /// <para>- 地点：行政区域划分，如 「中国大陆」、「四川省」、「成都市」、「高新区」</para>
+    /// <para>- 地址：具体地理位置，包括职位地址、面试地址、门店地址，如：「中国四川省成都市成华区熊猫大道 1375 号」</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:location:readonly</item>
     /// </list></para>
@@ -14499,6 +14697,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-delivery/create_by_resume</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>新建招聘官网投递。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 请求参数中邮箱/电话等字段请在「飞书招聘」-「设置」-「招聘官网设置」-「申请表」中确认是否必填。</para>
+    /// <para>- 请求参数中的时间字段 (start_time/end_time 等)，时间格式为毫秒时间戳，类型均为 bigint。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:site_application</item>
     /// </list></para>
@@ -15551,6 +15752,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/patch</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口更新指定用户组的名称或描述。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 应用的通讯录权限范围需要符合以下任一设置，才可以成功调用本接口。了解应用通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>- 通讯录权限范围设置为 **全部员工**。</para>
+    /// <para>- 由企业管理员在管理后台设置应用可见范围内包含当前待更新的用户组，然后应用的通讯录权限范围设置为 **与应用的可用范围一致**。</para>
+    /// <para>- API 方式暂不支持更新动态用户组。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:group</item>
     /// </list></para>
@@ -15600,6 +15806,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/get</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口通过用户组 ID 查询指定用户组的基本信息，包括用户组名称、成员数量和类型等。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 应用的通讯录权限范围需要符合以下任一设置，才可以成功调用本接口。了解应用通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>- 通讯录权限范围设置为 **全部员工**。</para>
+    /// <para>- 由企业管理员在管理后台设置应用可见范围内包含当前待查询的用户组，然后应用的通讯录权限范围设置为 **与应用的可用范围一致**。</para>
+    /// <para>- 支持查询普通用户组和动态用户组。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:group:readonly</item>
     /// </list></para>
@@ -15647,6 +15858,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口查询当前租户下的用户组列表，列表内包含用户组的 ID、名字、成员数量和类型等信息。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 如果应用的通讯录权限范围设置为 **全部员工**，则通过本接口可查询到租户内所有用户组的信息，否则，仅会查询到应用通讯录权限范围内的用户组信息。了解应用通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>- 支持查询到普通用户组和动态用户组的信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:group:readonly</item>
     /// </list></para>
@@ -15685,6 +15899,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/add</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口向指定的普通用户组内添加成员。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 目前仅支持添加用户类型的成员，暂不支持添加部门类型的成员。</para>
+    /// <para>- 如果应用的通讯录权限范围是 **全部员工**，则可以将当前租户内的任何用户添加到任何用户组当中。如果应用的通讯录权限范围不是 **全部员工**，则所要添加的用户以及对应的用户组，均需要在应用的通讯录权限范围内。了解通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>单租户内单个普通用户组的成员数量上限为 100,000，但需要注意，单租户内所有普通用户组的成员数量总和不能超过当前租户成员数量的 10 倍。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:group</item>
     /// </list></para>
@@ -15708,6 +15927,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/simplelist</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口查询指定用户组内的成员列表，列表内主要包括成员 ID 信息。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 本接口支持查询普通用户组和动态用户组的成员信息。</para>
+    /// <para>- 本接口支持查询用户组内的用户类型成员或部门类型成员。一次请求中只能查询用户类型成员或者部门类型成员，不支持查询所有类型的用户组成员。</para>
+    /// <para>- 如果应用的通讯录权限范围是 **全部员工**，则可以查询当前租户下任何用户组成员列表。如果应用的通讯录权限范围不是 **全部员工**，则仅可查询通讯录权限范围内的用户组成员列表。了解通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:group:readonly</item>
     /// </list></para>
@@ -15769,6 +15992,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口创建一个用户组。用户组是飞书通讯录中基础实体之一，在用户组内可添加用户或部门资源。各类业务权限管控可以与用户组关联，从而实现高效便捷的成员权限管控。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 应用的通讯录权限范围必须为全部员工，否则会调用失败。了解应用通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>- 暂不支持通过该接口创建动态用户组。如需创建动态用户组参考[动态用户组](https://www.feishu.cn/hc/zh-CN/articles/360049067874)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>单租户内用户组总数上限为 500（包含普通用户组和动态用户组）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:group</item>
     /// </list></para>
@@ -15810,6 +16038,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/delete</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口删除指定用户组。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 应用的通讯录权限范围必须为全部员工，否则会调用失败。了解应用通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>- API 方式暂不支持删除动态用户组。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:group</item>
     /// </list></para>
@@ -15831,6 +16062,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/remove</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口移除指定普通用户组内的某一成员。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 目前仅支持移除用户类型的成员，暂不支持移除部门类型的成员。</para>
+    /// <para>- 如果应用的通讯录权限范围是 **全部员工**，则可以将当前租户内的任何用户移除任何用户组。如果应用的通讯录权限范围不是 **全部员工**，则所要移除的用户以及对应的用户组，均需要在应用的通讯录权限范围内。了解通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:group</item>
     /// </list></para>
@@ -15854,6 +16088,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/combined_create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>创建一个新的职位</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 调用此接口前，需先打开「飞书招聘」-「设置」-「职位管理」-「职位设置」-「通过API同步职位开关」开关。</para>
+    /// <para>- 字段是否必填，将以「飞书招聘」-「设置」-「职位管理」-「职位字段管理」中的设置为准。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:job</item>
     /// </list></para>
@@ -15917,6 +16154,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/combined_update</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>更新职位信息。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 调用此接口前，需先打开「飞书招聘」-「设置」-「职位管理」-「职位设置」-「通过API同步职位开关」开关。</para>
+    /// <para>- 该接口为全量更新，若字段没有填充值，则原有值将会被清空。</para>
+    /// <para>- 字段是否必填，将以「飞书招聘」-「设置」-「职位管理」-「职位字段管理」中的设置为准。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:job</item>
     /// </list></para>
@@ -17964,6 +18205,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>此接口用于获取有权限访问的知识空间列表。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 使用 tenant access token 调用时，请确认应用或机器人拥有部分知识空间的访问权限，否则返回列表为空。参阅[如何将应用添加为知识库管理员（成员）](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/wiki-qa#b5da330b)。</para>
+    /// <para>- 此接口为分页接口。由于权限过滤，可能返回列表为空，但当分页标记（has_more）为 true 时，可以继续分页请求。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>wiki:space:retrieve</item>
     /// <item>wiki:wiki</item>
@@ -18018,6 +18262,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>此接口用于根据知识空间 ID 查询知识空间的信息，包括空间的类型、可见性、分享状态等。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保应用或用户为知识空间的成员或管理员。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>wiki:space:read</item>
     /// <item>wiki:wiki</item>
@@ -18091,6 +18337,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-member/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>添加知识空间成员或管理员。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保调用身份对应的应用或用户为知识空间的管理员。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 使用 tenant access token 身份操作时，无法使用部门 ID (opendepartmentid) 添加知识空间成员。</para>
+    /// <para>- 公开知识空间（即 visibility [可见性](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)为 public 的空间）对租户所有用户可见，因此不支持再添加成员，但可以添加管理员。</para>
+    /// <para>- 个人知识空间 （即 type [类型](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)为 person 的空间）为个人管理的知识空间，不支持添加其他管理员（包括应用/机器人）。但可以添加成员。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>wiki:member:create</item>
     /// <item>wiki:wiki</item>
@@ -18163,6 +18415,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口创建一个单位。</para>
+    /// <para>## 前提条件</para>
+    /// <para>单位属于付费功能，企业需要开通对应的飞书版本才可以使用。了解更多，可参见[单位管理](https://www.feishu.cn/hc/zh-CN/articles/333548009177)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>单租户内单位总数上限为 1,000。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:unit</item>
     /// </list></para>
@@ -18201,6 +18457,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/delete</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口删除指定单位。</para>
+    /// <para>## 注意事项</para>
+    /// <para>如果单位类型被其他业务应用，则不允许直接删除单位。例如，在配置成员的组织架构可见范围时，通过单位类型设置了可见范围，那么该单位类型对应的单位就无法直接删除。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:unit</item>
     /// </list></para>
@@ -18270,6 +18528,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/bind_department</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口建立部门与单位的绑定关系。一个部门同时只能绑定一个单位。</para>
+    /// <para>## 注意事项</para>
+    /// <para>操作的部门需要在应用的通讯录权限范围内。了解通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 单个单位可关联的部门数量上限为 1,000。</para>
+    /// <para>- 同一个部门只能关联一个单位。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:unit</item>
     /// </list></para>
@@ -18285,6 +18548,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/unbind_department</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口解除部门与单位的绑定关系。</para>
+    /// <para>## 注意事项</para>
+    /// <para>操作的部门需要在应用的通讯录权限范围内。了解通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:unit</item>
     /// </list></para>
@@ -18403,6 +18668,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口通过手机号或邮箱获取一个或多个用户的 ID （包括 user_id、open_id、union_id）与状态信息。</para>
+    /// <para>## 注意事项</para>
+    /// <para>请求后不返回用户 ID 的可能原因：</para>
+    /// <para>- 请求头 Authorization 传入的 tenant_access_token 有误。例如，tenant_access_token 对应的应用与实际所需应用不一致。</para>
+    /// <para>- 输入的手机号或者邮箱不存在。</para>
+    /// <para>- 应用未开通 **获取用户 user ID** API 权限。</para>
+    /// <para>- 应用无权限查看用户信息。你需要在应用详情页为应用配置数据权限，具体说明参见[配置应用数据权限](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/configure-app-data-permissions)。</para>
+    /// <para>- 使用企业邮箱查询将无法返回用户 ID，必须使用用户的邮箱地址。</para>
+    /// <para>- 所查询的用户已离职，如果请求参数 include_resigned 取值为 false，则不会返回离职用户 ID。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:user.id:readonly</item>
     /// </list></para>
@@ -18437,6 +18710,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/scope/list</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口获取当前应用被授权可访问的通讯录范围，包括可访问的部门列表、用户列表和用户组列表。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 当应用通讯录权限范围为全部成员时，该接口将返回根部门下的一级部门列表和直属用户列表，以及租户下所有用户组列表。</para>
+    /// <para>- 当应用通讯录权限范围不为全部成员时，则只返回在通讯录权限范围内的部门列表（不包含部门内的子部门以及用户）、用户列表或用户组列表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact:access_as_app</item>
     /// <item>contact:contact:readonly_as_app</item>
@@ -18493,6 +18769,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>删除用户在云空间内的文件或者文件夹。文件或文件夹被删除后，会进入回收站中。</para>
+    /// <para>## 前提条件</para>
+    /// <para>要删除文件，需要确保应用或用户具有以下两种权限之一：</para>
+    /// <para>- 该应用或用户是文件所有者并且具有该文件所在父文件夹的编辑权限。</para>
+    /// <para>- 该应用或用户并非文件所有者，但是该文件所在父文件夹的所有者或者拥有该父文件夹的所有权限（full access）。</para>
+    /// <para>## 使用限制</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>space:document:delete</item>
@@ -18533,6 +18815,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口获取指定部门直属的用户信息列表。用户信息包括用户 ID、名称、邮箱、手机号以及状态等信息。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 使用用户身份（user_access_token）调用该接口时，接口将根据该用户的组织架构可见范围进行过滤，仅返回组织架构可见范围内的用户数据。</para>
+    /// <para>- 使用应用身份（tenant_access_token）调用该接口时，接口将根据应用的通讯录权限范围进行过滤。 如果请求的部门 ID 为 0（即根部门），则接口会校验应用是否具有全员的通讯录权限；如果请求的是非 0 的部门 ID，则会校验应用是否具有该部门的通讯录权限。无权限时，接口会返回无权限的报错信息；有权限则返回对应部门下的直属用户列表。</para>
+    /// <para>关于用户组织架构可见范围和通讯录权限范围的更多信息，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact:access_as_app</item>
     /// <item>contact:contact:readonly</item>
@@ -18614,6 +18900,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口查询指定部门下的子部门列表，列表内包含部门的名称、ID、父部门、负责人以及状态等信息。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 当你使用应用身份（tenant_access_token）调用本接口时，应用的通讯录权限范围内需要包含当前被查询的部门。如果需要查询根部门（部门 ID 为 0）下的子部门列表，则应用的通讯录权限范围需设置为 **全部成员**。了解权限范围参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>- 当你使用用户身份（user_access_token）调用本接口时需要注意：</para>
+    /// <para>- 确保该用户身份拥有待查询部门的可见性，用户的组织架构可见范围需要由企业管理员在[管理后台](https://feishu.cn/admin/index) &gt; **安全** &gt; **成员权限** &gt; **组织架构可见范围** 内调整。</para>
+    /// <para>- 请求时如果开启了递归获取子部门（fetch_child 取值为 true），则用户可查询到的部门数量上限为 1000 个。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact:access_as_app</item>
     /// <item>contact:contact:readonly</item>
@@ -18761,6 +19052,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>用于在企业内创建一个人才。支持自定义字段数据，可配合[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
     /// <para>接口获取自定义字段信息使用。</para>
+    /// <para>## 注意事项</para>
+    /// <para>请求参数中邮箱/电话字段请在「飞书招聘」-「设置」-「候选人信息管理」-「标准简历设置」中确认是否必填。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:talent</item>
     /// </list></para>
@@ -20996,6 +21289,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/unbind_department_chat</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口将指定部门的部门群转为普通群。</para>
+    /// <para>## 注意事项</para>
+    /// <para>应用的通讯录权限范围内需要包含当前操作的部门。了解权限范围，参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// </list></para>
@@ -22188,6 +22483,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>将文件或者文件夹移动到用户云空间的其他位置。</para>
+    /// <para>## 使用限制</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS 且 10000次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>space:document:move</item>
@@ -22249,6 +22546,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>根据 Offer 申请表 ID 获取 Offer 申请表信息，可获取到的信息包括申请表名称、申请表模块、申请表字段等。</para>
+    /// <para>## Offer 申请表产品示意图</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:offer_schema:readonly</item>
     /// </list></para>
@@ -22379,6 +22677,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>传入 Offer 基本信息，创建 Offer。</para>
+    /// <para>## 注意事项</para>
+    /// <para>创建 Offer 时，需传入本文档中标注为必传的参数，其余参数是否必传参考[获取 Offer 申请表模板信息](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/offer-settings/offer_application_form/get)的参数定义或在「飞书招聘-设置-offer设置-offer申请表设置」中进行查看。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:offer</item>
     /// </list></para>
@@ -22617,6 +22917,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于在用户云空间指定文件夹中创建一个空文件夹。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 该接口不支持并发创建，且调用频率上限为 5QPS 以及 10000次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>- 云空间中根目录或文件夹的单层节点上限为 1500 个。超过此限制时，接口将返回 1062507 错误码。可通过新建节点到其它节点中解决。</para>
+    /// <para>- 云空间中所有层级的节点总和的上限为 40 万个。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>space:folder:create</item>
@@ -22633,6 +22937,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于将用户云空间中的文件复制至其它文件夹下。不支持复制文件夹。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 云空间中根目录或文件夹的单层节点上限为 1500 个。超过此限制时，接口将返回 1062507 错误码。可通过将文件复制到不同文件夹中解决。</para>
+    /// <para>- 云空间中所有层级的节点总和的上限为 40 万个。</para>
+    /// <para>- 该接口不支持并发调用，且调用频率上限为 5QPS 且 10000次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:document:copy</item>
     /// <item>drive:drive</item>
@@ -22764,6 +23072,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据[创建导出任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create)返回的导出任务 ID（ticket）轮询导出任务结果，并返回导出文件的 token。你可使用该 token 继续调用[下载导出文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download)接口将导出的产物下载到本地。了解完整的导出文件步骤，参考[导出飞书云文档概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/export-user-guide)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>调用该接口的用户或应用需与调用创建导出任务接口的用户或应用保持一致。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:document:export</item>
     /// <item>drive:export:readonly</item>
@@ -22865,6 +23175,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据[查询导出任务结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get)返回的导出文件的 token，下载导出产物到本地。了解完整的导出文件步骤，参考[导出云文档概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/export-user-guide)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>你需及时下载导出的文件。在导出任务结束 10 分钟后，导出的文件将被删除，导致无法下载。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:document:export</item>
     /// <item>drive:export:readonly</item>
@@ -22887,6 +23199,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于订阅云文档的各类通知事件。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。了解云文档支持的事件类型，参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 文档管理者仅能接收到[文件编辑](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-edited)、[多维表格字段变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/bitable_field_changed)、[多维表格记录变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/bitable_record_changed)事件。</para>
+    /// <para>- 目前只支持订阅事件列表中所有文档事件，暂不支持只订阅某个或某些事件。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 文档的通知事件仅支持文档拥有者和文档管理者订阅。调用接口前请确保应用或用户具有相关权限。</para>
+    /// <para>- 调用该接口之前，请确保正确配置订阅方式并添加了事件。详情参考[配置订阅方式](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/request-url-configuration-case)和[添加事件](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/subscription-event-case)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>drive:drive</item>
@@ -24472,6 +24790,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/batch_add</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口向指定的普通用户组内添加一个或多个成员。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 目前仅支持添加用户类型的成员，暂不支持添加部门类型的成员。</para>
+    /// <para>- 如果应用的通讯录权限范围是 **全部员工**，则可以将当前租户内的任何用户添加到任何用户组当中。如果应用的通讯录权限范围不是 **全部员工**，则所要添加的用户以及对应的用户组，均需要在应用的通讯录权限范围内。了解通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>单租户内单个普通用户组的成员数量上限为 100,000，但需要注意，单租户内所有普通用户组的成员数量总和不能超过当前租户成员数量的 10 倍。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:group</item>
     /// </list></para>
@@ -24495,6 +24818,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/batch_remove</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口从指定普通用户组内移除一个或多个成员。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 目前仅支持移除用户类型的成员，暂不支持移除部门类型的成员。</para>
+    /// <para>- 如果应用的通讯录权限范围是 **全部员工**，则可以将任何用户移除任何用户组。如果应用的通讯录权限范围不是 **全部员工**，则所要移除的用户以及对应的用户组，均需要在应用的通讯录权限范围内。了解通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:group</item>
     /// </list></para>
@@ -24518,6 +24844,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/member_belong</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口查询指定用户所属的用户组列表。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 如果应用的通讯录权限范围设置为 **全部员工**，则通过本接口可查询到用户所属的全部用户组列表，否则，仅会查询到应用通讯录权限范围内该用户所属的用户组。了解应用通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>- 支持查询到普通用户组和动态用户组的信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:group:readonly</item>
     /// </list></para>
@@ -24574,6 +24903,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于获取用户云空间指定文件夹中文件信息清单。文件的信息包括名称、类型、token、创建时间、所有者 ID 等。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 本接口暂不支持返回快捷方式（shortcut）类型的文件。</para>
+    /// <para>- 本接口仅支持获取当前层级的文件信息，不支持递归获取子文件夹中的文件信息清单。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -24773,6 +25105,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_custom_field/update</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>本接口支持修改 Offer 申请表的自定义字段，Offer 申请表的定义可参考「飞书招聘」-「设置」-「Offer 设置」-「Offer 申请表设置」中的内容。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- Offer 申请表通过版本 (schema_id) 进行变更管理，自定义字段每次修改，全量申请表的 schema_id 会同步更新。</para>
+    /// <para>- 本接口不支持修改自定义字段类型。</para>
+    /// <para>- 本接口不支持修改字段类型为「公式」类型的字段值。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:offer_selection_object</item>
     /// </list></para>
@@ -25804,11 +26140,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7117964632137170947</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于获取三方审批的状态。用户传入查询条件，接口返回满足条件的审批实例的状态。该接口支持多种参数的组合，包括如下组合：</para>
-    /// <para>1.通过 instance_ids 获取指定实例的任务状态</para>
-    /// <para>2.通过 user_ids 获取指定用户的任务状态</para>
-    /// <para>3.通过 status 获取指定状态的所有任务</para>
-    /// <para>4.通过page_token获取下一批数据</para>
+    /// <para>该接口用于获取三方审批的状态。用户传入查询条件，接口返回满足条件的审批实例的状态。</para>
+    /// <para>## 提示</para>
+    /// <para>该接口支持多种参数的组合，具体请参考请求体示例：</para>
+    /// <para>- 通过 instance_ids 获取指定实例的任务状态</para>
+    /// <para>- 通过 user_ids 获取指定用户的任务状态</para>
+    /// <para>- 通过 status 获取指定状态的所有任务</para>
+    /// <para>- 通过page_token获取下一批数据</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
     /// <item>approval:approval:readonly</item>
@@ -26385,6 +26723,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于根据文件的 token 查询协作者。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用该接口前，你需确保当前应用或用户具有文档的分享权限。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:bitable</item>
@@ -26461,6 +26801,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/resurrect</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口用于恢复已删除用户（已离职的成员）。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 该接口仅适用于飞书商业专业版、商业旗舰版、企业标准版、企业专业版、企业旗舰版。版本信息参见[版本对比](https://www.feishu.cn/service)。</para>
+    /// <para>- 该接口仅适用于企业自建应用，商店应用无权限调用此接口。应用类型介绍参见[应用类型简介](https://open.feishu.cn/document/home/app-types-introduction/overview)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 调用该接口仅支持恢复离职 30 天内的成员。恢复后，部分用户数据仍不可恢复，请谨慎调用。</para>
+    /// <para>- 可恢复的数据：单聊记录、外部联系人、群聊、企业邮箱地址和邮件；未转移的文档、妙记、问卷。</para>
+    /// <para>- 不可恢复的数据：已转移的资源、成员所属部门、管理员角色等数据。</para>
+    /// <para>- 待恢复成员的用户 ID 不能被企业内其他成员使用。如有重复，请先离职重复 ID 的成员，否则接口会报错。</para>
+    /// <para>- 待恢复成员的手机号和邮箱不能被企业内其他成员使用。如有重复，请先修改重复成员的手机号或邮箱信息，否则接口会报错。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// </list></para>
@@ -29162,6 +29511,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于更新数据表的基本信息，包括数据表的名称等。</para>
+    /// <para>note</para>
+    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// </list></para>
@@ -29718,6 +30069,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口创建一个职级。职级是用户属性之一，用于标识用户的职位级别，例如 P1、P2、P3、P4。</para>
+    /// <para>## 使用限制</para>
+    /// <para>单租户内职级数量总数上限为 10,000，但需要注意，如果总数超过 4,000，则无法在[管理后台](https://feishu.cn/admin)打开职级列表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// <item>contact:job_level</item>
@@ -29883,6 +30236,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口创建一个序列。序列是用户属性之一，用来定义用户的工作类型，例如产品、研发、运营等。</para>
+    /// <para>## 使用限制</para>
+    /// <para>单租户内序列数量总数上限为 10,000，但需要注意，如果总数超过 4,000，则无法在[管理后台](https://feishu.cn/admin)打开序列列表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// <item>contact:job_family</item>
@@ -29899,6 +30254,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/delete</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口删除指定序列。</para>
+    /// <para>## 使用限制</para>
+    /// <para>仅支持删除没有子序列的序列。如果序列内存在子序列，则不能直接删除。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// <item>contact:job_family</item>
@@ -30410,6 +30767,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>在指定背调帐号下创建可用的背调套餐列表和附加调查项信息列表。该接口为增量创建，每次调用会在原有的套餐列表和附加调查项列表基础上新增。</para>
+    /// <para>## 注意事项</para>
+    /// <para>已经创建过的套餐 ID和附加调查项 ID无法重复创建，如需修改，请使用[更新背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_update)或</para>
+    /// <para>[删除背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_delete)接口进行操作。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// </list></para>
@@ -30439,7 +30799,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815976042545154</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/batch_delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除用户在服务商处的身份标示字段（如用户在服务商处的租户 ID）。删除后，不影响已添加帐号对应的自定义字段的值。但在添加新帐号时，将不能再使用此自定义字段。删除不支持撤销，对应的 key 将无法再次复用。</para>
+    /// <para>飞书招聘的背调或笔试服务商，可通过此接口删除账号自定义字段（如客户在服务商处的租户 ID、账号 ID等）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// <item>hire:exam</item>
@@ -30523,7 +30883,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815979079434241</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/batch_update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新用户在服务商处的身份标示字段（如用户在服务商处的租户 ID），此方法只会更新同一 scope 内 key 一致的自定义字段。</para>
+    /// <para>飞书招聘的背调或笔试服务商，可通过此接口更新账号自定义字段（比如客户在服务商处的租户 ID、账号 ID等）的名称和描述。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// <item>hire:exam</item>
@@ -30652,7 +31012,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815979079581697</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account_custom_field/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>定制用户在服务商处的身份标示字段（如用户在服务商处的租户 ID）。用户在飞书招聘后台添加帐号后，系统会推送「帐号绑定」事件给开发者，事件将携带用户填写的自定义字段信息，开发者可根据此信息识别飞书招聘用户在服务商处的身份信息，完成飞书招聘用户和服务商帐号的绑定，并以此来推送对应的套餐或试卷列表等。 可多次推送，多次推送为覆盖逻辑。</para>
+    /// <para>飞书招聘的背调或笔试服务商，可通过此接口创建账号自定义字段，用来标识飞书招聘客户在服务商处的身份（比如客户在服务商处的租户 ID、账号 ID等字段）。</para>
+    /// <para>## 使用流程</para>
+    /// <para>客户在「飞书招聘」-「设置」-「生态对接」-「笔试/背景调查」添加服务商账号时，需填写本接口创建的自定义字段，之后系统将通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件将客户填入的自定义字段值推送给服务商，服务商可据此识别和绑定飞书招聘客户，并以此来[创建背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create)或[创建试卷列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/create)等。</para>
+    /// <para>详细的接入步骤可参考 [背调/笔试生态接入概览文档](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/ecological-docking/summary)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:background_check_order</item>
     /// <item>hire:exam</item>
@@ -30747,6 +31110,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role/delete</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口删除指定角色。</para>
+    /// <para>## 注意事项</para>
+    /// <para>角色内如果有成员，则不支持直接删除。你可以调用[查询角色下的所有成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role-member/list)接口，查看角色内是否还有成员，如果有，可以调用[删除角色下的成员](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role-member/batch_delete)接口，将角色成员删除后，再删除角色。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:functional_role</item>
     /// </list></para>
@@ -30769,6 +31134,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role-member/batch_create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口在指定角色内添加一个或多个成员。</para>
+    /// <para>## 使用限制</para>
+    /// <para>单个角色内成员数量上限为 1000。</para>
+    /// <para>## 注意事项</para>
+    /// <para>待添加到角色的成员，需要包含在当前应用的通讯录权限范围内，否则将会操作失败。如何设置通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:functional_role</item>
     /// </list></para>
@@ -30888,6 +31257,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role-member/batch_delete</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口在指定角色内删除一个或多个成员。</para>
+    /// <para>## 注意事项</para>
+    /// <para>待删除的角色成员，需要包含在当前应用的通讯录权限范围内，否则将会操作失败。如何设置通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:functional_role</item>
     /// </list></para>
@@ -30927,6 +31298,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role-member/scopes</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口为指定角色内的一个或多个角色成员设置管理范围。管理范围是指角色成员可以管理的部门范围。</para>
+    /// <para>## 注意事项</para>
+    /// <para>当前应用的通讯录权限范围需要包含待操作的用户与部门，否则将会操作失败。如何设置通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:functional_role</item>
     /// </list></para>
@@ -30977,6 +31350,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role/create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口创建一个角色。</para>
+    /// <para>## 使用限制</para>
+    /// <para>同一租户下，角色数量上限为 500。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:functional_role</item>
     /// </list></para>
@@ -31177,6 +31552,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/forward</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口将一条指定的消息转发给用户、群聊或话题。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 向用户转发消息时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。</para>
+    /// <para>- 向群组转发消息时，机器人需要在该群组中，且拥有发言权限。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 不支持转发红包、投票、语音、日程转让、系统消息、加密消息类型。</para>
+    /// <para>- 不支持二次转发 **合并转发消息中的子消息**（即含有`upper_message_id`字段的消息）。</para>
+    /// <para>- 为避免消息发送频繁对用户造成打扰，向同一用户发送消息的限频为 ==5 QPS==、向同一群组发送消息的限频为群内机器人共享 ==5 QPS==。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -31224,6 +31607,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/merge_forward</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>将来自同一个会话内的多条消息，合并转发给指定的用户、群聊或话题。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)</para>
+    /// <para>- 向用户合并转发消息时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。</para>
+    /// <para>- 向群组合并转发消息，机器人需要在该群组中，且拥有发言权限。</para>
+    /// <para>- 合并转发生成的新消息的消息内容为固定值==Merged and Forwarded Message==，其中的子消息可以使用[获取指定消息的内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get)接口获取。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 不支持合并转发[系统消息（system）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json#e159cb73)。</para>
+    /// <para>- 不支持合并转发来自不同群聊的消息。</para>
+    /// <para>- 不支持同时合并转发来自多个话题中的消息。</para>
+    /// <para>- 不支持同时合并转发普通消息与话题中的消息。</para>
+    /// <para>- 不支持再次合并转发 **合并转发消息中的子消息**（含有==upper_message_id==字段的消息）。</para>
+    /// <para>- 为避免消息发送频繁对用户造成打扰，向同一用户发送消息的限频为 ==5 QPS==、向同一群组发送消息的限频为群内机器人共享 ==5 QPS==。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -31771,6 +32166,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_shortcut</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>创建指定文件的快捷方式到云空间的其它文件夹中。</para>
+    /// <para>## 使用限制</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>space:document:shortcut</item>
@@ -32100,6 +32497,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/offer_status</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>通过 Offer ID 更新候选人 Offer 的「Offer 审批状态」或 「Offer 发送和接受状态」。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 若当前 Offer 是通过飞书招聘发起的审批，则不可通过此接口更新「Offer 审批状态」。</para>
+    /// <para>- 若当前 Offer 通过飞书招聘发送过候选人，则不可通过此接口更新「Offer 发送和接受状态」。</para>
+    /// <para>- 若当前 Offer 所属投递阶段已进入「待入职」阶段，则不可通过此接口更新「Offer 审批状态」和「Offer 发送和接受状态」。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 更新 Offer 审批状态前，请前往「飞书招聘」-「设置」-「Offer 设置」-「Offer 规则设置」开启「通过 OA 系统创建和审批 Offer」。</para>
+    /// <para>- 更新 Offer 发送和接受状态前，请前往「飞书招聘」-「设置」-「Offer 设置」-「Offer 规则设置」开启「通过 OA 系统发送 Offer」。</para>
+    /// <para>## Offer 状态说明</para>
+    /// <para>### Offer 状态分类</para>
+    /// <para>- Offer 被创建后，状态为`「Offer 已创建」`</para>
+    /// <para>- Offer 审批状态：`「Offer 审批中」`、`「Offer 审批通过」`、`「Offer 审批不通过」`、`「Offer 审批已撤回」`</para>
+    /// <para>- Offer 发送和接受状态：`「Offer 已发送」`、`「Offer 已失效」`、`「Offer 被候选人接受」`、`「Offer 被候选人拒绝」`</para>
+    /// <para>### Offer 状态流转图</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:offer</item>
     /// </list></para>
@@ -32924,6 +33334,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/update</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口编辑已发送的消息内容，支持编辑文本、富文本消息。如需编辑卡片消息，请使用[更新应用发送的消息卡片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch)接口。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 编辑用户单聊内的消息时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。</para>
+    /// <para>- 编辑群组内的消息时，机器人需要在该群组中，且拥有发言权限。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 一条消息最多可编辑 20 次。</para>
+    /// <para>- 仅可编辑当前操作者自己发送的消息。</para>
+    /// <para>- 不可编辑已撤回，已删除，超出可编辑时间的消息。可编辑时间由企业管理员设定，详情了解[管理员设置撤回和编辑消息权限](https://www.feishu.cn/hc/zh-CN/articles/325339752183)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -33028,6 +33446,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口获取通讯录内一个或多个用户的信息，包括用户 ID、名称、邮箱、手机号、状态以及所属部门等信息。</para>
+    /// <para>## 注意事项</para>
+    /// <para>该查询接口目前不返回用户的席位（assign_info）和部门路径信息（department_path）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact.base:readonly</item>
     /// </list></para>
@@ -33094,6 +33514,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/batch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口获取一个或多个部门的信息，包括部门名称、ID、父部门、负责人、状态以及成员个数等。</para>
+    /// <para>## 注意事项</para>
+    /// <para>使用不同身份调用本接口时，需要注意不同身份所需的不同权限范围。具体说明如下：</para>
+    /// <para>- 当你使用应用身份（tenant_access_token）调用本接口时，应用的通讯录权限范围内需要包含当前被查询的部门。如果需要查询根部门信息，则应用的通讯录权限范围需设置为 **全部成员**。了解权限范围参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+    /// <para>- 当你使用用户身份（user_access_token）调用本接口时，需要确保该用户身份拥有待查询部门的可见性。如果需要查询根部门信息，则用户需要可见所有人。用户的组织架构可见范围需要由企业管理员在[管理后台](https://feishu.cn/admin/index) &gt; **安全** &gt; **成员权限** &gt; **组织架构可见范围** 内调整。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact.base:readonly</item>
     /// </list></para>
@@ -34038,6 +34462,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/withdraw</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>通过账号 ID 全额提取内推账号下的积分。全额提现后，内推人在飞书招聘系统中的积分余额会变为 0，对应的积分奖励状态也会变为「已发放」。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用前，请确认已完成[注册内推账户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create)并获取到账号 ID。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:referral_account</item>
     /// </list></para>
@@ -35474,6 +35900,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/update_user_id</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口更新用户的 user_id。</para>
+    /// <para>## 注意事项</para>
+    /// <para>更新后的用户 user_id 需要保证在当前租户内未被占用。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact:update_user_id</item>
     /// </list></para>
@@ -35511,6 +35939,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/update_department_id</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口可以更新部门的自定义 ID，即 department_id。</para>
+    /// <para>## 注意事项</para>
+    /// <para>本接口仅支持使用应用身份（tenant_access_token）调用。调用时，应用的通讯录权限范围内需要包含当前被操作的部门。了解权限范围参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact:update_department_id</item>
     /// </list></para>
@@ -35799,6 +36229,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete_subscribe</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于取消订阅云文档的通知事件。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。了解云文档支持的事件类型，参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>目前只支持取消订阅事件列表中所有文档事件，暂不支持指定取消的事件。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 调用接口前，请确保应用或用户为文档所有者或文档管理者。</para>
+    /// <para>- 调用接口前，请确保正确配置订阅方式并添加了事件。详情参考[配置订阅方式](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/request-url-configuration-case)和[添加事件](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/subscription-event-case)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>drive:drive</item>
@@ -35842,6 +36277,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/get_subscribe</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于查询云文档事件的订阅状态。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。了解云文档支持的事件类型，参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 调用接口前，请确保应用或用户为文档所有者或文档管理者。文档的通知事件仅支持文档拥有者和文档管理者订阅。</para>
+    /// <para>- 调用接口前，请确保正确配置订阅方式并添加了事件。详情参考[配置订阅方式](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/request-url-configuration-case)和[添加事件](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/subscription-event-case)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>drive:drive</item>
@@ -36351,6 +36789,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-meeting_minute/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口为指定的日程创建会议纪要。纪要以文档形式展示，成功创建后会返回纪要文档 URL。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 所操作的日历需要是当前身份（身份由 Header Authorization 的 Token 类型决定）的主日历，且当前身份具有日历的 writer 权限（即编辑权限）。</para>
+    /// <para>- 所操作的日程内至少需要有 1 个参与人，且参与人权限不能为 none（即无法查看参与人列表）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar.event:update</item>
@@ -37203,6 +37644,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-visibility/patch</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口更新指定应用的可用范围，支持更新当前企业内自建应用的可用范围，或者已安装的商店应用的可用范围，包括可用人员与禁用人员。更新可用范围后对线上立即生效。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 该接口仅支持被企业自建应用调用，但传入的路径参数 app_id 可以是企业自建应用的 app_id，也可以是商店应用的 app_id。</para>
+    /// <para>- 当通过接口新增用户或部门时，提前判断对应用户或部门是否已在禁用名单中，如果已在禁用名单中，则即便将用户或部门添加到可用名单，该用户或部门也无法看到该应用，即禁用名单优先级高于可用名单。</para>
+    /// <para>- 同一个成员(user_id) 在30s内不能重复添加到禁用名单，否则会导致调用失败。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>admin:app.visibility</item>
     /// </list></para>
@@ -38326,6 +38771,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>在投递上创建三方协议。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 在「飞书招聘」-「设置」-「候选人流程管理」-「三方协议设置」中勾选了「通过 API 维护三方协议」。</para>
+    /// <para>- 该投递为校招投递。</para>
+    /// <para>- 该投递的 Offer 办公地点在中国大陆。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:tripartite_agreement</item>
     /// </list></para>
@@ -38341,6 +38790,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/delete</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>删除投递的三方协议。</para>
+    /// <para>## 前提条件</para>
+    /// <para>在「飞书招聘」-「设置」-「候选人流程管理」-「三方协议设置」中勾选了「通过 API 维护三方协议」。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:tripartite_agreement</item>
     /// </list></para>
@@ -38419,6 +38870,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/update</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>更新三方协议的状态及修改时间信息。</para>
+    /// <para>## 前提条件</para>
+    /// <para>在「飞书招聘」-「设置」-「候选人流程管理」-「三方协议设置」中勾选了「通过 API 维护三方协议」。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:tripartite_agreement</item>
     /// </list></para>
@@ -39032,6 +39485,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/thread/forward</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口将话题转发至指定的用户、群聊或话题。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用接口的机器人必须在待转发话题所在的群中，且可见该话题。</para>
+    /// <para>- 向用户转发话题时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。</para>
+    /// <para>- 向群组中转发话题，需要机器人在该群组中，且拥有发言权限。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 为避免消息发送频繁对用户造成打扰，向同一用户发送消息的限频为 ==5 QPS==、向同一群组发送消息的限频为群内机器人共享 ==5 QPS==。</para>
+    /// <para>- 转发话题生成的新消息的消息内容为固定值==Merged and Forwarded Message==，其中的子消息可以使用[获取指定消息的内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get)接口获取。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -39727,6 +40188,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>获取面试评价表信息列表，评价表信息包括题目描述、题目选项等。可用于面试评价表展示等场景。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 面试评价表通过版本进行变更管理，每次修改评价表都会更新版本，同时变更评价表ID、模块ID、模块维度ID、选项ID、能力项ID。</para>
+    /// <para>## 面试评价表产品示意图</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:interview</item>
     /// <item>hire:interview:readonly</item>
@@ -39840,6 +40304,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_referral_reward/delete</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>根据外部内推奖励ID删除外部内推奖励。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 仅支持删除通过[导入外部内推奖励](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_referral_reward/create)导入的内推奖励，飞书招聘系统本身产生的内推奖励不支持删除。</para>
+    /// <para>- 删除指定外部奖励后，「飞书招聘」- 「设置」- 「内推」-「内推奖励管理」中对应的内推奖励明细将会被删除。</para>
+    /// <para>- 若删除「已确认」、「已发放」的奖励，内推人在「飞书招聘」-「设置」-「内推」-「我的奖励」中对应内推奖励明细将会被删除，请注意与内推人提前沟通。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:external_referral_reward</item>
     /// </list></para>
@@ -40452,6 +40920,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/push_follow_up</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口在最新一条消息下方添加气泡样式的内容，当消息接收者点击气泡或者新消息到达后，气泡消失。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 跟随气泡的效果在飞书客户端 v7.20 及以上版本生效。</para>
+    /// <para>- 仅支持在当前机器人与用户单聊的消息上添加跟随气泡，且消息需要符合：</para>
+    /// <para>- 消息是机器人发送的。</para>
+    /// <para>- 消息是会话内最新的消息。</para>
+    /// <para>- 消息发送后未超过 600 秒。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -40725,6 +41200,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>根据地点类型和地点码查询地点列表，获取地点名称信息。</para>
+    /// <para>## 名词解释</para>
+    /// <para>地点：行政区域划分，如 「中国大陆」、「四川省」、「成都市」、「高新区」</para>
+    /// <para>地址：分为职位地址与面试地址，如：「中国四川省成都市成华区熊猫大道1375号」</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:location:readonly</item>
     /// </list></para>
@@ -40754,6 +41232,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/recover</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>根据投递 ID 将「已终止」投递进行恢复。</para>
+    /// <para>## 注意事项</para>
+    /// <para>投递被终止，且人才未入职、未锁在其他投递才可执行此接口进行恢复。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:application</item>
     /// </list></para>
@@ -41039,6 +41519,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/batch_get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>通过多个记录 ID 查询记录信息。</para>
+    /// <para>## 使用限制</para>
+    /// <para>该接口最多支持查询 100 条记录。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>

@@ -15,6 +15,10 @@ namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取地址列表 响应体
 /// <para>获取地址列表，可查询到的信息包括地址与地点信息，可应用在职位地点、面试地点、人才意向工作城市等场景。</para>
+/// <para>## 名词解释</para>
+/// <para>在本接口中，地点和地址的描述如下：</para>
+/// <para>- 地点：行政区域划分，如 「中国大陆」、「四川省」、「成都市」、「高新区」</para>
+/// <para>- 地址：具体地理位置，包括职位地址、面试地址、门店地址，如：「中国四川省成都市成华区熊猫大道 1375 号」</para>
 /// <para>接口ID：6990661791098683395</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/location/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2flocation%2flist</para>

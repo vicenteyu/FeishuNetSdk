@@ -15,6 +15,12 @@ namespace FeishuNetSdk.Im;
 /// <summary>
 /// 查询消息已读信息 响应体
 /// <para>查询指定消息是否已读。接口只返回已读用户的信息，不返回未读用户的信息。</para>
+/// <para>## 前提条件</para>
+/// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability) 。</para>
+/// <para>- 查询消息已读信息时，机器人需要在待查询消息所在的会话内。</para>
+/// <para>## 使用限制</para>
+/// <para>- 只能查询由当前机器人自己发送的、发送时间不超过 7 天的消息已读信息。</para>
+/// <para>- 一次请求只能查询一条消息，不支持批量查询。</para>
 /// <para>接口ID：6946222929790386204</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message/read_users</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fread_users</para>

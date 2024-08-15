@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 解除部门与单位的绑定关系 请求体
 /// <para>调用该接口解除部门与单位的绑定关系。</para>
+/// <para>## 注意事项</para>
+/// <para>操作的部门需要在应用的通讯录权限范围内。了解通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
 /// <para>接口ID：7023995901275340803</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/unit/unbind_department</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2funit%2funbind_department</para>

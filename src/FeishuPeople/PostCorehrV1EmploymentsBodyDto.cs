@@ -96,10 +96,10 @@ public record PostCorehrV1EmploymentsBodyDto
 
     /// <summary>
     /// <para>雇员状态，可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)雇员状态（employment_status）枚举定义获得</para>
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("employment_status")]
-    public Enum? EmploymentStatus { get; set; }
+    public Enum EmploymentStatus { get; set; } = new();
 
     /// <summary>
     /// <para>自定义字段，不传时为空</para>

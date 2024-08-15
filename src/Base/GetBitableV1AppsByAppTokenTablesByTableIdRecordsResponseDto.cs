@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Base;
 /// <summary>
 /// 列出记录 响应体
 /// <para>该接口用于列出数据表中的现有记录，单次最多列出 500 行记录，支持分页获取。</para>
+/// <para>note</para>
+/// <para>该接口为历史接口，已不推荐使用。你可使用[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)替代。</para>
 /// <para>接口ID：6952707657162571778</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-record/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-record%2flist</para>
@@ -96,7 +98,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsResponseDto
             /// <summary>
             /// <para>用户的英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：XiaodouHuang</para>
+            /// <para>示例值：Xiaodou Huang</para>
             /// </summary>
             [JsonPropertyName("en_name")]
             public string? EnName { get; set; }

@@ -15,6 +15,12 @@ namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 删除文件或文件夹 响应体
 /// <para>删除用户在云空间内的文件或者文件夹。文件或文件夹被删除后，会进入回收站中。</para>
+/// <para>## 前提条件</para>
+/// <para>要删除文件，需要确保应用或用户具有以下两种权限之一：</para>
+/// <para>- 该应用或用户是文件所有者并且具有该文件所在父文件夹的编辑权限。</para>
+/// <para>- 该应用或用户并非文件所有者，但是该文件所在父文件夹的所有者或者拥有该父文件夹的所有权限（full access）。</para>
+/// <para>## 使用限制</para>
+/// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
 /// <para>接口ID：7029475705897828354</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/delete</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile%2fdelete</para>

@@ -15,6 +15,11 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 添加用户组成员 请求体
 /// <para>调用该接口向指定的普通用户组内添加成员。</para>
+/// <para>## 注意事项</para>
+/// <para>- 目前仅支持添加用户类型的成员，暂不支持添加部门类型的成员。</para>
+/// <para>- 如果应用的通讯录权限范围是 **全部员工**，则可以将当前租户内的任何用户添加到任何用户组当中。如果应用的通讯录权限范围不是 **全部员工**，则所要添加的用户以及对应的用户组，均需要在应用的通讯录权限范围内。了解通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+/// <para>## 使用限制</para>
+/// <para>单租户内单个普通用户组的成员数量上限为 100,000，但需要注意，单租户内所有普通用户组的成员数量总和不能超过当前租户成员数量的 10 倍。</para>
 /// <para>接口ID：7008085931593056259</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/group-member/add</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fgroup-member%2fadd</para>

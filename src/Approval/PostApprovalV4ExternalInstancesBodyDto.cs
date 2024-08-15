@@ -635,7 +635,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         public record I18nResourceText
         {
             /// <summary>
-            /// <para>文案key</para>
+            /// <para>文案 key</para>
             /// <para>必填：是</para>
             /// <para>示例值：@i18n@1</para>
             /// </summary>

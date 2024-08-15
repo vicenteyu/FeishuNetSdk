@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 创建角色 请求体
 /// <para>调用该接口创建一个角色。</para>
+/// <para>## 使用限制</para>
+/// <para>同一租户下，角色数量上限为 500。</para>
 /// <para>接口ID：7200215886841135132</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/functional_role/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2ffunctional_role%2fcreate</para>

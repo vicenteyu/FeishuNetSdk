@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Helpdesk;
 /// <summary>
 /// 更新客服工作日程 请求体
 /// <para>该接口用于更新客服的日程。</para>
+/// <para>注意事项：</para>
+/// <para>user_access_token 访问，需要操作者是当前服务台的管理员或所有者</para>
 /// <para>接口ID：6955768425688514563</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/helpdesk-v1/agent-function/agent-schedules/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fhelpdesk-v1%2fagent-schedules%2fpatch</para>

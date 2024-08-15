@@ -15,6 +15,10 @@ namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 获取单个部门信息 响应体
 /// <para>调用该接口获取单个部门信息，包括部门名称、ID、父部门、负责人、状态以及成员个数等。</para>
+/// <para>## 注意事项</para>
+/// <para>使用不同身份调用本接口时，需要注意不同身份所需的不同权限范围。具体说明如下：</para>
+/// <para>- 当你使用应用身份（tenant_access_token）调用本接口时，应用的通讯录权限范围内需要包含当前被查询的部门。如果需要查询根部门信息，则应用的通讯录权限范围需设置为 **全部成员**。了解权限范围参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
+/// <para>- 当你使用用户身份（user_access_token）调用本接口时，需要确保该用户身份拥有待查询部门的可见性。如果需要查询根部门信息，则用户需要可见所有人。用户的组织架构可见范围需要由企业管理员在[管理后台](https://feishu.cn/admin/index) &gt; **安全** &gt; **成员权限** &gt; **组织架构可见范围** 内调整。</para>
 /// <para>接口ID：6943913881476988955</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/department/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fdepartment%2fget</para>

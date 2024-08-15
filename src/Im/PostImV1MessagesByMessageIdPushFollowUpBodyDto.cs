@@ -15,6 +15,13 @@ namespace FeishuNetSdk.Im;
 /// <summary>
 /// 添加跟随气泡 请求体
 /// <para>调用该接口在最新一条消息下方添加气泡样式的内容，当消息接收者点击气泡或者新消息到达后，气泡消失。</para>
+/// <para>## 前提条件</para>
+/// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+/// <para>- 跟随气泡的效果在飞书客户端 v7.20 及以上版本生效。</para>
+/// <para>- 仅支持在当前机器人与用户单聊的消息上添加跟随气泡，且消息需要符合：</para>
+/// <para>- 消息是机器人发送的。</para>
+/// <para>- 消息是会话内最新的消息。</para>
+/// <para>- 消息发送后未超过 600 秒。</para>
 /// <para>接口ID：7377650885165268995</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/push_follow_up</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fpush_follow_up</para>

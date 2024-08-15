@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取知识空间信息 响应体
 /// <para>此接口用于根据知识空间 ID 查询知识空间的信息，包括空间的类型、可见性、分享状态等。</para>
+/// <para>## 前提条件</para>
+/// <para>调用此接口前，请确保应用或用户为知识空间的成员或管理员。</para>
 /// <para>接口ID：7023947709203857412</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/wiki-v2/space/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fwiki-v2%2fspace%2fget</para>

@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 替换单元格 请求体
 /// <para>在指定范围内，查找并替换符合查找条件的单元格。</para>
+/// <para>## 使用限制</para>
+/// <para>单次最多可替换 5,000 个单元格。</para>
 /// <para>接口ID：6982374372208607234</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/sheets-v3/data-operation/replace</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fsheets-v3%2fspreadsheet-sheet%2freplace</para>

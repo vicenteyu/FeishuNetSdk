@@ -15,6 +15,9 @@ namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建背调套餐和附加调查项 请求体
 /// <para>在指定背调帐号下创建可用的背调套餐列表和附加调查项信息列表。该接口为增量创建，每次调用会在原有的套餐列表和附加调查项列表基础上新增。</para>
+/// <para>## 注意事项</para>
+/// <para>已经创建过的套餐 ID和附加调查项 ID无法重复创建，如需修改，请使用[更新背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_update)或</para>
+/// <para>[删除背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/batch_delete)接口进行操作。</para>
 /// <para>接口ID：7195815976042512386</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/ecological-docking/eco_background_check_package/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2feco_background_check_package%2fcreate</para>
