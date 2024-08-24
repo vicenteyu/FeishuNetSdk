@@ -23,6 +23,9 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageMessagePushOverviewRes
 {
     /// <summary>
     /// <para>消息推送情况，指标值包括：send_msg_count：消息推送数、send_user_count：消息触达人数、read_in_1h_count：消息1h阅读量、read_in_12h_count：消息12h阅读量</para>
+    /// <para>**注意**：将一条消息推送至群聊，该消息的推送数等于群聊人数。例如群聊内有 5 个人：</para>
+    /// <para>- 如果将 1 条消息推送至群聊后，消息推送数（send_msg_count）为 5、消息触达人数（send_user_count）为 5。</para>
+    /// <para>- 如果将 2 条消息推送至群聊后，消息推送数（send_msg_count）为 10、消息触达人数（send_user_count）为 5。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：10</para>
     /// </summary>
@@ -31,6 +34,9 @@ public record PostApplicationV6ApplicationsByAppIdAppUsageMessagePushOverviewRes
 
     /// <summary>
     /// <para>消息推送情况，指标值包括：send_msg_count：消息推送数、send_user_count：消息触达人数、read_in_1h_count：消息1h阅读量、read_in_12h_count：消息12h阅读量</para>
+    /// <para>**注意**：将一条消息推送至群聊，该消息的推送数等于群聊人数。例如群聊内有 5 个人：</para>
+    /// <para>- 如果将 1 条消息推送至群聊后，消息推送数（send_msg_count）为 5、消息触达人数（send_user_count）为 5。</para>
+    /// <para>- 如果将 2 条消息推送至群聊后，消息推送数（send_msg_count）为 10、消息触达人数（send_user_count）为 5。</para>
     /// </summary>
     public record ApplicationAppUsage
     {

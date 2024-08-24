@@ -23,7 +23,7 @@ public record PostCorehrV2EmployeesBatchGetBodyDto
 {
     /// <summary>
     /// <para>需要查询的字段列表</para>
-    /// <para>- 可参考响应体的结构，选择需要查询的字段填入</para>
+    /// <para>- 参考[【字段下钻】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/query-employment-fields)</para>
     /// <para>- 为空时仅返回 employment_id</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>

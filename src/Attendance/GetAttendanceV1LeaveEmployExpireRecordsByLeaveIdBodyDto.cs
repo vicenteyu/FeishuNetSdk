@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Attendance;
 public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto
 {
     /// <summary>
-    /// <para>员工ID，对应employee_type</para>
+    /// <para>员工ID，与user_id_type保持一致</para>
     /// <para>必填：是</para>
     /// <para>示例值：6982509313466189342</para>
     /// </summary>

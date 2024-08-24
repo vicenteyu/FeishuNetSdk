@@ -39,7 +39,8 @@ public record PostPerformanceV2MetricLibsQueryBodyDto
     public string[]? TagIds { get; set; }
 
     /// <summary>
-    /// <para>指标类型 ID 列表，填写时根据指定的指标类型进行筛选</para>
+    /// <para>指标类型 ID 列表，可通过[获取指标模板列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_template/query)</para>
+    /// <para>接口返回结果中的 `data.items.metrics.type_id` 获取，填写时根据指定的指标类型进行筛选</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("type_ids")]

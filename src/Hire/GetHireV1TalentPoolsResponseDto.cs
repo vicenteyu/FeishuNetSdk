@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取人才库列表 响应体
-/// <para>获取人才库列表</para>
+/// <para>获取人才库列表，可获取的信息包括人才库ID、人才库名称等。</para>
 /// <para>接口ID：7218853190452428804</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent_pool/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent_pool%2fsearch</para>
@@ -54,17 +54,17 @@ public record GetHireV1TalentPoolsResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>人才库名称（中文）</para>
+            /// <para>中文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：测试</para>
+            /// <para>示例值：公共人才库</para>
             /// </summary>
             [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
 
             /// <summary>
-            /// <para>人才库名称（英文）</para>
+            /// <para>英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：test</para>
+            /// <para>示例值：Common Talent Pool</para>
             /// </summary>
             [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
@@ -86,19 +86,19 @@ public record GetHireV1TalentPoolsResponseDto
         public string? ParentId { get; set; }
 
         /// <summary>
-        /// <para>是否「仅部分用户可见」</para>
+        /// <para>是否「部分用户可见」</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>1：是</item>
-        /// <item>2：否</item>
+        /// <item>1：代表部分用户可见。具体而言，只有满足授权条件的用户，才能查看人才库。授权条件的维度包括：角色、部门、用户</item>
+        /// <item>2：代表全部用户可见。这里的全部用户指的是拥有「查看人才库」权限的用户</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("is_private")]
         public int? IsPrivate { get; set; }
 
         /// <summary>
-        /// <para>人才库创建时间（timestamp）</para>
+        /// <para>人才库创建时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1679300424000</para>
         /// </summary>
@@ -106,7 +106,7 @@ public record GetHireV1TalentPoolsResponseDto
         public string? CreateTime { get; set; }
 
         /// <summary>
-        /// <para>人才库修改时间（timestamp）</para>
+        /// <para>人才库修改时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1679300424000</para>
         /// </summary>

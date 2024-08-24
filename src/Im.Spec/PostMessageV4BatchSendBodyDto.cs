@@ -15,18 +15,6 @@ namespace FeishuNetSdk.Im.Spec;
 /// <summary>
 /// 批量发送消息 请求体
 /// <para>给多个用户或者多个部门中的成员发送消息。</para>
-/// <para>**注意事项：**</para>
-/// <para>- 应用需要启用[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)</para>
-/// <para>- 接口权限说明：</para>
-/// <para> - 必须拥有**获取与发送单聊、群组消息**权限，或者**以应用的身份发消息**权限</para>
-/// <para> - 至少拥有一个批量发送消息权限：</para>
-/// <para> - 给用户发送需要拥有 **给多个用户批量发消息** 权限</para>
-/// <para> - 给部门成员发送需要拥有 **给一个或多个部门的成员批量发消息** 权限</para>
-/// <para>- 应用需要拥有对所发送用户或部门的[可用性](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)</para>
-/// <para>- 通过该接口发送的消息 **不支持更新以及回复等操作**</para>
-/// <para>- 只能发送给用户，无法发送给群组</para>
-/// <para>- 异步接口，会有一定延迟，每个应用待发送的消息按顺序处理，请合理安排批量发送范围和顺序。发送消息给单个用户的场景请使用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口</para>
-/// <para>- 单个应用每天通过该接口发送的总消息条数不超过50万</para>
 /// <para>接口ID：6907569743419555842</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/batch_message/send-messages-in-batches</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fucDO1EjL3gTNx4yN4UTM</para>
@@ -34,55 +22,91 @@ namespace FeishuNetSdk.Im.Spec;
 public record PostMessageV4BatchSendBodyDto
 {
     /// <summary>
-    /// <para>消息类型，支持多种消息类型，详见本文“**消息类型及内容示例**”部分</para>
+    /// <para>消息类型。支持的消息类型有：</para>
+    /// <para>- text：文本</para>
+    /// <para>- image：图片</para>
+    /// <para>- post：富文本</para>
+    /// <para>- share_chat：分享群名片</para>
+    /// <para>- interactive：卡片</para>
+    /// <para>**注意**：</para>
+    /// <para>- 如果 `msg_type` 取值为 text、image、post 或者 share_chat，则消息内容需要传入 `content` 参数内。</para>
+    /// <para>- 如果 `msg_type` 取值为 interactive，则消息内容需要传入 `card` 参数内。</para>
+    /// <para>- 该接口仅支持以上五种消息类型，各类型的内容如何配置，参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。</para>
+    /// <para>**示例值**：text</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("msg_type")]
     public string MsgType { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>消息内容，支持除卡片消息外的多种消息内容，详见本文“**消息类型及内容示例**”部分</para>
+    /// <para>消息内容，JSON 结构。该参数的取值与 `msg_type` 对应，例如 `msg_type` 取值为 `text`，则该参数需要传入文本类型的内容。</para>
+    /// <para>**注意：**</para>
+    /// <para>- 该参数仅在 `msg_type` 取值为 text、image、post 或者 share_chat 时需要传入值。如果 `msg_type` 取值为 interactive，则消息内容需要传入到 `card` 参数。</para>
+    /// <para>- 文本消息请求体最大不能超过 150 KB。</para>
+    /// <para>- 富文本消息请求体最大不能超过 30 KB。</para>
+    /// <para>- 如果消息中包含样式标签，会使实际消息体长度大于您输入的请求体长度。</para>
+    /// <para>- 图片需要先[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)，然后使用图片的 Key 发消息。</para>
+    /// <para>- 该接口直接传入 JSON 结构的消息内容即可，无需进行转义。</para>
+    /// <para>了解各类型消息的内容格式、使用限制，可参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。</para>
+    /// <para>**示例值**：{ "text": "要发送的文本消息" }</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("content")]
     public object? Content { get; set; }
 
     /// <summary>
-    /// <para>卡片消息内容</para>
-    /// <para>**注意**：card和content字段必须二选一</para>
+    /// <para>卡片内容，JSON 结构。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 该参数的取值与 `msg_type` 对应，仅当 `msg_type` 取值为 interactive 时，需要将卡片内容传入当前参数。当 `msg_type` 取值不为 interactive 时，消息内容需要传入到 `content` 参数。</para>
+    /// <para>- 卡片消息请求体最大不能超过 30 KB。</para>
+    /// <para>- 如果使用卡片模板（template_id）发送消息，实际大小也包含模板对应的卡片数据大小。</para>
+    /// <para>- 该接口直接传入 JSON 结构的消息内容即可，无需进行转义。了解更多参见[发送卡片](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/send-feishu-card)。</para>
+    /// <para>**示例值**：{"elements":[{"tag":"div","text":{"content":"This is the plain text","tag":"plain_text"}}],"header":{"template":"blue","title":{"content":"This is the title","tag":"plain_text"}}}</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("card")]
     public object? Card { get; set; }
 
     /// <summary>
-    /// <para>支持[自定义部门ID](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology#3c3e6267)和open_department_id，列表长度小于等于 200</para>
-    /// <para>**注意**：部门下的所有子部门包含的成员也会收到消息</para>
-    /// <para>**示例值：**["3dceba33a33226","d502aaa9514059", "od-5b91c9affb665451a16b90b4be367efa"]</para>
+    /// <para>部门 ID 列表。列表内支持传入部门 department_id 和 open_department_id，部门 ID 介绍与获取方式，参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)的 **部门 ID** 章节。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 列表长度不能超过 200。</para>
+    /// <para>- 请求时，消息会发送给 ID 对应部门内的所有成员，包括部门下的所有子部门成员。</para>
+    /// <para>- `department_ids`、`open_ids`、`user_ids`、`union_ids` 四个字段至少需要填写其中一个。</para>
+    /// <para>**示例值**：["3dceba33a33226","d502aaa9514059", "od-5b91c9affb665451a16b90b4be367efa"]</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("department_ids")]
     public string[]? DepartmentIds { get; set; }
 
     /// <summary>
-    /// <para>用户 open_id 列表，长度小于等于 200；ID获取方式可参考文档：[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
-    /// <para>**示例值：**["ou_18eac85d35a26f989317ad4f02e8bbbb","ou_461cf042d9eedaa60d445f26dc747d5e"]</para>
+    /// <para>用户 open_id 列表。open_id 获取方式参见[如何获取自己的 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 列表长度不能超过 200。</para>
+    /// <para>- `department_ids`、`open_ids`、`user_ids`、`union_ids` 四个字段至少需要填写其中一个。</para>
+    /// <para>**示例值**：["ou_18eac85d35a26f989317ad4f02e8bbbb","ou_461cf042d9eedaa60d445f26dc747d5e"]</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("open_ids")]
     public string[]? OpenIds { get; set; }
 
     /// <summary>
-    /// <para>用户 user_id 列表，长度小于等于 200；ID获取方式可参考文档：[如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id) （对应 V3 接口的 employee_ids ）</para>
-    /// <para>**示例值：**["7cdcc7c2","ca51d83b"]</para>
+    /// <para>用户 user_id 列表。user_id 获取方式参见[如何获取自己的 User ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 列表长度不能超过 200。</para>
+    /// <para>- `department_ids`、`open_ids`、`user_ids`、`union_ids` 四个字段至少需要填写其中一个。</para>
+    /// <para>**示例值**：["7cdcc7c2","ca51d83b"]</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("user_ids")]
     public string[]? UserIds { get; set; }
 
     /// <summary>
-    /// <para>用户 union_ids 列表，长度小于等于 200；ID获取方式可参考文档：[如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
-    /// <para>**示例值：**["on_cad4860e7af114fb4ff6c5d496d1dd76","on_gdcq860e7af114fb4ff6c5d496dabcet"]</para>
+    /// <para>用户 union_id 列表。union_id 获取方式参见[如何获取自己的 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 列表长度不能超过 200。</para>
+    /// <para>- `department_ids`、`open_ids`、`user_ids`、`union_ids` 四个字段至少需要填写其中一个。</para>
+    /// <para>**示例值**：["on_cad4860e7af114fb4ff6c5d496d1dd76","on_gdcq860e7af114fb4ff6c5d496dabcet"]</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("union_ids")]

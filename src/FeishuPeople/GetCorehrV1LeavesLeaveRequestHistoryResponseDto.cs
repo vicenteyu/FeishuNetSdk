@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量查询员工请假记录 响应体
-/// <para>批量获取员工的请假记录数据。</para>
+/// <para>批量获取员工的请假记录数据。对应页面为假勤管理-休假管理-[请假记录](https://example.feishu.cn/people/workforce-management/manage/leave/leave_admin/leave_request)</para>
 /// <para>接口ID：7126729166647902211</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/leave/leave_request_history</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fleave%2fleave_request_history</para>
@@ -42,7 +42,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         public string LeaveRequestId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>雇佣信息ID</para>
+        /// <para>员工ID，ID 类型与 user_id_type 一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：4718803945687580505</para>
         /// </summary>
@@ -162,7 +162,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         public string GrantSource { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>返岗时间</para>
+        /// <para>返岗时间，格式为秒级时间戳</para>
         /// <para>必填：是</para>
         /// <para>示例值：1662134400</para>
         /// </summary>
@@ -170,7 +170,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         public string ReturnTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发起时间</para>
+        /// <para>发起时间，格式为秒级时间戳</para>
         /// <para>必填：是</para>
         /// <para>示例值：1659080476</para>
         /// </summary>
@@ -178,7 +178,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         public string SubmittedAt { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发起人</para>
+        /// <para>发起人，ID 类型与 user_id_type 一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：7109664941775241244</para>
         /// </summary>
@@ -194,7 +194,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         public string Notes { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>审批通过日期</para>
+        /// <para>审批通过日期，格式为yyyy-MM-dd</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022-09-09</para>
         /// </summary>
@@ -202,7 +202,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         public string? ApprovalDate { get; set; }
 
         /// <summary>
-        /// <para>是否带薪</para>
+        /// <para>（暂未开放）是否带薪</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
@@ -263,7 +263,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         }
 
         /// <summary>
-        /// <para>假期类型枚举</para>
+        /// <para>（暂未开放）假期类型枚举</para>
         /// <para>必填：否</para>
         /// <para>示例值：Annual Leave</para>
         /// </summary>
@@ -271,7 +271,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         public string? LeaveTypeCode { get; set; }
 
         /// <summary>
-        /// <para>实际结束日期</para>
+        /// <para>（暂未开放）实际结束日期，格式为yyyy-MM-dd</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022-08-02</para>
         /// </summary>
@@ -279,7 +279,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         public string? ActualEndDate { get; set; }
 
         /// <summary>
-        /// <para>预估结束日期</para>
+        /// <para>（暂未开放）预估结束日期，格式为yyyy-MM-dd</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022-08-02</para>
         /// </summary>
@@ -295,7 +295,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         public string? TimeZone { get; set; }
 
         /// <summary>
-        /// <para>请假记录数据来源</para>
+        /// <para>（暂未开放）请假记录数据来源</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
@@ -303,35 +303,35 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         public int? DataSource { get; set; }
 
         /// <summary>
-        /// <para>请假申请流程ID。注意：导入的请假不会返回leave_process_id</para>
+        /// <para>请假申请流程ID。注意：导入的请假不会返回leave_process_id。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("leave_process_id")]
         public string[]? LeaveProcessId { get; set; }
 
         /// <summary>
-        /// <para>请假更正流程ID</para>
+        /// <para>请假更正流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("leave_correct_process_id")]
         public string[]? LeaveCorrectProcessId { get; set; }
 
         /// <summary>
-        /// <para>请假取消流程ID</para>
+        /// <para>请假取消流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("leave_cancel_process_id")]
         public string[]? LeaveCancelProcessId { get; set; }
 
         /// <summary>
-        /// <para>请假返岗流程ID</para>
+        /// <para>请假返岗流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("leave_return_process_id")]
         public string[]? LeaveReturnProcessId { get; set; }
 
         /// <summary>
-        /// <para>workDay算薪类型</para>
+        /// <para>WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>

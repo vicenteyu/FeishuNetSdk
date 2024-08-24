@@ -42,7 +42,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdResponseDto
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>员工ID，对应employee_type</para>
+        /// <para>员工ID，类型对应user_id_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：6982509313466189342</para>
         /// </summary>
@@ -112,7 +112,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdResponseDto
             /// <summary>
             /// <para>语言码</para>
             /// <para>必填：是</para>
-            /// <para>示例值：zh-CN</para>
+            /// <para>示例值：zh_CN</para>
             /// </summary>
             [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
@@ -135,7 +135,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdResponseDto
         public string CreatedAt { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发放记录的创建人的ID，对应employee_type</para>
+        /// <para>发放记录的创建人的ID，类型对应user_id_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：6982509313466189342</para>
         /// </summary>
@@ -151,7 +151,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdResponseDto
         public string UpdatedAt { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发放记录的更新人的ID，对应employee_type</para>
+        /// <para>发放记录的更新人的ID，类型对应user_id_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：6982509313466189342</para>
         /// </summary>

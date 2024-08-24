@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 批量获取面试评价详细信息 响应体
-/// <para>批量获取面试评价详细信息。如面试结论、面试评价提交时间和面试官等信息。</para>
+/// <para>批量获取面试评价详细信息，如面试结论、面试得分和面试官等信息。</para>
 /// <para>接口ID：7287514613653831708</para>
 /// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_record/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2finterview_record%2flist</para>
@@ -34,7 +34,7 @@ public record GetHireV1InterviewRecordsResponseDto
     public record InterviewRecord
     {
         /// <summary>
-        /// <para>面评 ID</para>
+        /// <para>面试评价 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6949805467799537964</para>
         /// </summary>
@@ -50,9 +50,9 @@ public record GetHireV1InterviewRecordsResponseDto
         public string? UserId { get; set; }
 
         /// <summary>
-        /// <para>面试记录内容</para>
+        /// <para>系统预设「记录」题目内容，见「飞书招聘」-「设置」-「面试设置」-「面试评价表设置」中的「记录」模块</para>
         /// <para>必填：否</para>
-        /// <para>示例值：代码还行，只是不够聪明</para>
+        /// <para>示例值：代码能力强，思维逻辑清晰</para>
         /// </summary>
         [JsonPropertyName("content")]
         public string? Content { get; set; }
@@ -70,7 +70,7 @@ public record GetHireV1InterviewRecordsResponseDto
         public int? CommitStatus { get; set; }
 
         /// <summary>
-        /// <para>面试评价提交时间（单位：毫秒）</para>
+        /// <para>面试评价提交时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1582084402092</para>
         /// </summary>
@@ -113,7 +113,7 @@ public record GetHireV1InterviewRecordsResponseDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>分数级别</para>
+            /// <para>面试得分分数级别</para>
             /// <para>必填：否</para>
             /// <para>示例值：3</para>
             /// </summary>
@@ -418,7 +418,7 @@ public record GetHireV1InterviewRecordsResponseDto
             public string? Mime { get; set; }
 
             /// <summary>
-            /// <para>附件创建时间（单位：毫秒）</para>
+            /// <para>附件创建时间，毫秒时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1693884103327</para>
             /// </summary>
@@ -476,7 +476,7 @@ public record GetHireV1InterviewRecordsResponseDto
             }
 
             /// <summary>
-            /// <para>打分题总分，仅当题目类型为「打分题(单选)」、「打分题(填空)」时可用</para>
+            /// <para>打分题总分，仅当维度评价方式为「打分题(单选)」、「打分题(填空)」时可用</para>
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
@@ -492,7 +492,7 @@ public record GetHireV1InterviewRecordsResponseDto
             public string? Content { get; set; }
 
             /// <summary>
-            /// <para>维度 ID</para>
+            /// <para>维度 ID，详情可查看：[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)返回结果中 `data.items.modules.dimensions` 字段</para>
             /// <para>必填：否</para>
             /// <para>示例值：11111111</para>
             /// </summary>

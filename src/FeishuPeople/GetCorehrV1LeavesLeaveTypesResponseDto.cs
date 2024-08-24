@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取假期类型列表 响应体
-/// <para>获取休假设置后台配置的假期类型列表（比如年假、事假、婚假等）。</para>
+/// <para>获取休假设置后台配置的假期类型列表（比如年假、事假、婚假等）。对应页面功能为设置-假勤设置-[假期类型](https://example.feishu.cn/people/workforce-management/setting/leave/leave_admin/leave_type)</para>
 /// <para>接口ID：7126729166647885827</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/leave/leave_types</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fleave%2fleave_types</para>
@@ -34,7 +34,11 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
     public record LeaveType
     {
         /// <summary>
-        /// <para>假期类型ID</para>
+        /// <para>假期类型ID，可用于</para>
+        /// <para>* [创建假期发放记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave_granting_record/create)</para>
+        /// <para>* [批量查询员工请假记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_request_history)</para>
+        /// <para>* [通过过期时间获取发放记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/leave_employ_expire_record/get)</para>
+        /// <para>* [修改发放记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/leave_accrual_record/patch)</para>
         /// <para>必填：是</para>
         /// <para>示例值：4718803945687580505</para>
         /// </summary>
@@ -56,7 +60,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
             /// <summary>
             /// <para>名称信息的语言</para>
             /// <para>必填：是</para>
-            /// <para>示例值：zh-CN</para>
+            /// <para>示例值：zh_CN</para>
             /// </summary>
             [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
@@ -116,7 +120,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
                 /// <summary>
                 /// <para>名称信息的语言</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：zh-CN</para>
+                /// <para>示例值：zh_CN</para>
                 /// </summary>
                 [JsonPropertyName("lang")]
                 public string Lang { get; set; } = string.Empty;
@@ -132,7 +136,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
         }
 
         /// <summary>
-        /// <para>假期类型的创建时间</para>
+        /// <para>假期类型的创建时间，格式为秒级时间戳</para>
         /// <para>必填：是</para>
         /// <para>示例值：1658730384</para>
         /// </summary>
@@ -140,7 +144,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
         public string CreatedAt { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>假期类型的创建人，值为创建人的员工 ID</para>
+        /// <para>假期类型的创建人，值为创建人的员工 ID。与入参 user_id_type 类型一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：7104164629974646786</para>
         /// </summary>
@@ -148,7 +152,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
         public string CreatedBy { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>假期类型的更新时间</para>
+        /// <para>假期类型的更新时间，格式为秒级时间戳</para>
         /// <para>必填：是</para>
         /// <para>示例值：1658996995</para>
         /// </summary>
@@ -156,7 +160,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto
         public string UpdatedAt { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>假期类型的更新人，值为更新人的员工 ID</para>
+        /// <para>假期类型的更新人，值为更新人的员工 ID。与入参 user_id_type 类型一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：7112112899636854812</para>
         /// </summary>

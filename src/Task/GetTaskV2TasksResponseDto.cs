@@ -74,7 +74,9 @@ public record GetTaskV2TasksResponseDto
         public record TaskDue
         {
             /// <summary>
-            /// <para>截止时间/日期的时间戳，距1970-01-01 00:00:00 UTC的毫秒数。如果截止时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true</para>
+            /// <para>截止时间/日期的时间戳，距1970-01-01 00:00:00的毫秒数。</para>
+            /// <para>- 如果是截止日期（`is_all_day` 取值为 true），则该时间戳转换为具体时间后，只需精确到天。例如 `1724284800000` 转换为具体时间为 `2024-08-22`。</para>
+            /// <para>- 如果是截止时间（`is_all_day` 取值为 false），则该时间戳转换为具体时间后，精确到秒。例如 `1724284800000` 转换为具体时间为 `2024-08-22 08:00:00 UTC+8`。</para>
             /// <para>必填：否</para>
             /// <para>示例值：1675454764000</para>
             /// </summary>
@@ -82,7 +84,9 @@ public record GetTaskV2TasksResponseDto
             public string? Timestamp { get; set; }
 
             /// <summary>
-            /// <para>是否截止到一个日期。如果设为true，timestamp中只有日期的部分会被解析和存储。</para>
+            /// <para>是否截止到一个日期。可能值有：</para>
+            /// <para>- true：截止日期，`timestamp` 转换为具体时间后精确到天。</para>
+            /// <para>- false：截止时间，`timestamp` 转换为具体时间后精确到秒。</para>
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
@@ -113,6 +117,7 @@ public record GetTaskV2TasksResponseDto
 
             /// <summary>
             /// <para>相对于截止时间的提醒时间分钟数。例如30表示截止时间前30分钟提醒；0表示截止时提醒。</para>
+            /// <para>**注意**：该参数值可能为负值。例如，在客户端创建的任务未设置具体截止时间，则该任务的截止时间默认为当天 00:00，如果任务提醒时间为当天 18:00，则 `relative_fire_minute` 返回值为 -1080。</para>
             /// <para>必填：是</para>
             /// <para>示例值：30</para>
             /// </summary>
@@ -378,7 +383,7 @@ public record GetTaskV2TasksResponseDto
                 /// <summary>
                 /// <para>法语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Tabledetravail</para>
+                /// <para>示例值：Table de travail</para>
                 /// </summary>
                 [JsonPropertyName("fr_fr")]
                 public string? FrFr { get; set; }
@@ -386,7 +391,7 @@ public record GetTaskV2TasksResponseDto
                 /// <summary>
                 /// <para>意大利语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：bancodilavoro</para>
+                /// <para>示例值：banco di lavoro</para>
                 /// </summary>
                 [JsonPropertyName("it_it")]
                 public string? ItIt { get; set; }
@@ -418,7 +423,7 @@ public record GetTaskV2TasksResponseDto
                 /// <summary>
                 /// <para>西班牙语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：bancodetrabajo</para>
+                /// <para>示例值：banco de trabajo</para>
                 /// </summary>
                 [JsonPropertyName("es_es")]
                 public string? EsEs { get; set; }
@@ -449,6 +454,7 @@ public record GetTaskV2TasksResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// <para>最大长度：1024</para>
+                /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("url")]
                 public string? Url { get; set; }
@@ -524,6 +530,8 @@ public record GetTaskV2TasksResponseDto
         /// <para>任务的模式。1 - 会签任务；2 - 或签任务</para>
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
+        /// <para>最大值：2</para>
+        /// <para>最小值：1</para>
         /// </summary>
         [JsonPropertyName("mode")]
         public int? Mode { get; set; }
@@ -636,7 +644,7 @@ public record GetTaskV2TasksResponseDto
                     /// <summary>
                     /// <para>法语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：Tabledetravail</para>
+                    /// <para>示例值：Table de travail</para>
                     /// </summary>
                     [JsonPropertyName("fr_fr")]
                     public string? FrFr { get; set; }
@@ -644,7 +652,7 @@ public record GetTaskV2TasksResponseDto
                     /// <summary>
                     /// <para>意大利语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：bancodilavoro</para>
+                    /// <para>示例值：banco di lavoro</para>
                     /// </summary>
                     [JsonPropertyName("it_it")]
                     public string? ItIt { get; set; }
@@ -676,7 +684,7 @@ public record GetTaskV2TasksResponseDto
                     /// <summary>
                     /// <para>西班牙语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：bancodetrabajo</para>
+                    /// <para>示例值：banco de trabajo</para>
                     /// </summary>
                     [JsonPropertyName("es_es")]
                     public string? EsEs { get; set; }
@@ -842,6 +850,7 @@ public record GetTaskV2TasksResponseDto
             /// <para>人员类型的自定义字段值，可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当该字段的设置为“不能多选”时只能输入一个值。设为空数组表示设为空。</para>
             /// <para>必填：否</para>
             /// <para>最大长度：50</para>
+            /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("member_value")]
             public Member[]? MemberValues { get; set; }
@@ -891,6 +900,7 @@ public record GetTaskV2TasksResponseDto
             /// <para>多选类型字段值，可以填写一个或多个本字段的option_guid。设为空数组表示设为空。</para>
             /// <para>必填：否</para>
             /// <para>最大长度：50</para>
+            /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("multi_select_value")]
             public string[]? MultiSelectValue { get; set; }

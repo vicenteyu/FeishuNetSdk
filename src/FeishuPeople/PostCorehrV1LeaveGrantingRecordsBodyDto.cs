@@ -95,7 +95,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
         /// <summary>
         /// <para>名称信息的语言</para>
         /// <para>必填：是</para>
-        /// <para>示例值：zh-CN</para>
+        /// <para>示例值：zh_CN</para>
         /// </summary>
         [JsonPropertyName("lang")]
         public string Lang { get; set; } = string.Empty;
@@ -110,7 +110,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     }
 
     /// <summary>
-    /// <para>自定义外部 ID，可用于避免数据重复写入（不能超过 64 字符）</para>
+    /// <para>自定义外部 ID，可用于避免数据重复写入（不能超过 64 字符）。如果重复录入，不会创建新纪录、也不会更新原始记录</para>
     /// <para>必填：否</para>
     /// <para>示例值：111</para>
     /// </summary>

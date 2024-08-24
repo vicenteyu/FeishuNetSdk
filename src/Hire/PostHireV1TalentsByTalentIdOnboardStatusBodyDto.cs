@@ -14,7 +14,10 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新人才在职状态 请求体
-/// <para>更新人才的在职状态。仅适用于未通过招聘系统内的投递入职的候选人；通过该接口标记在职的候选人，仅可通过该接口标记离职</para>
+/// <para>更新人才的在职状态，可进行的操作包括入职与离职</para>
+/// <para>## 注意事项</para>
+/// <para>- 通过该接口对人才进行入职、离职操作后，人才详情与列表会对应展示已入职、已离职标签</para>
+/// <para>- 已入职的人才不能进行入职操作，已离职的人才不能进行入职操作</para>
 /// <para>接口ID：7236665938900877340</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent/onboard_status</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent%2fonboard_status</para>
@@ -22,8 +25,8 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1TalentsByTalentIdOnboardStatusBodyDto
 {
     /// <summary>
-    /// <para>操作类型 1:入职 2:离职</para>
-    /// <para>必填：否</para>
+    /// <para>操作类型</para>
+    /// <para>必填：是</para>
     /// <para>示例值：1</para>
     /// <para>可选值：<list type="bullet">
     /// <item>1：入职</item>
@@ -31,10 +34,10 @@ public record PostHireV1TalentsByTalentIdOnboardStatusBodyDto
     /// </list></para>
     /// </summary>
     [JsonPropertyName("operation")]
-    public int? Operation { get; set; }
+    public int Operation { get; set; }
 
     /// <summary>
-    /// <para>毫秒时间戳</para>
+    /// <para>入职时间，毫秒时间戳</para>
     /// <para>必填：否</para>
     /// <para>示例值：1676548784889</para>
     /// </summary>
@@ -42,7 +45,7 @@ public record PostHireV1TalentsByTalentIdOnboardStatusBodyDto
     public string? OnboardTime { get; set; }
 
     /// <summary>
-    /// <para>毫秒时间戳</para>
+    /// <para>离职时间，毫秒时间戳</para>
     /// <para>必填：否</para>
     /// <para>示例值：1676548784890</para>
     /// </summary>

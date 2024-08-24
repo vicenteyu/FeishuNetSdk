@@ -9,12 +9,12 @@
 // <copyright file="PostHireV1TalentOperationLogsSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>查询操作人对人才的操作记录 响应体</summary>
+// <summary>查询人才操作记录 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 查询操作人对人才的操作记录 响应体
-/// <para>查询操作人对人才的操作记录。</para>
+/// 查询人才操作记录 响应体
+/// <para>根据操作人和操作类型查询人才的操作记录。</para>
 /// <para>接口ID：7098526921012936706</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent%2ftalent_operation_log%2fsearch</para>
@@ -22,19 +22,19 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1TalentOperationLogsSearchResponseDto
 {
     /// <summary>
-    /// <para>列表</para>
+    /// <para>操作记录列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public TalentOperationLog[]? Items { get; set; }
 
     /// <summary>
-    /// <para>列表</para>
+    /// <para>操作记录列表</para>
     /// </summary>
     public record TalentOperationLog
     {
         /// <summary>
-        /// <para>投递 ID</para>
+        /// <para>投递 ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6949805467799537964</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record PostHireV1TalentOperationLogsSearchResponseDto
         public string? ApplicationId { get; set; }
 
         /// <summary>
-        /// <para>候选人 ID</para>
+        /// <para>人才 ID，详情可参考：[获取人才信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6843547872837273223</para>
         /// </summary>
@@ -62,37 +62,37 @@ public record PostHireV1TalentOperationLogsSearchResponseDto
         public record IdNameObject
         {
             /// <summary>
-            /// <para>ID</para>
+            /// <para>操作人 ID，与入参 `user_id_type` 类型一致</para>
             /// <para>必填：否</para>
-            /// <para>示例值：1213213123123</para>
+            /// <para>示例值：ou_016632190e242d8c9eed0a542b00756c</para>
             /// </summary>
             [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>操作人姓名</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>操作人姓名</para>
             /// </summary>
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>操作人中文名</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：测试</para>
+                /// <para>示例值：张三</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>操作人英文名</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：test</para>
+                /// <para>示例值：Tom</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -100,22 +100,16 @@ public record PostHireV1TalentOperationLogsSearchResponseDto
         }
 
         /// <summary>
-        /// <para>操作类型</para>
+        /// <para>操作类型，操作类型枚举可查看[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)</para>
+        /// <para>中 `操作类型枚举定义`</para>
         /// <para>必填：否</para>
         /// <para>示例值："3001"</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>3001：加入职位</item>
-        /// <item>1001：安排评估</item>
-        /// <item>3004：转移阶段</item>
-        /// <item>2001：安排面试</item>
-        /// <item>3008：转移职位</item>
-        /// </list></para>
         /// </summary>
         [JsonPropertyName("operation_type")]
         public int? OperationType { get; set; }
 
         /// <summary>
-        /// <para>操作时间</para>
+        /// <para>操作时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1618500278663</para>
         /// </summary>
@@ -124,16 +118,11 @@ public record PostHireV1TalentOperationLogsSearchResponseDto
 
         /// <summary>
         /// <para>操作人类型</para>
+        /// <para>**注意**：当前只会返回类型为 `1`：员工 的操作记录</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
         /// <item>1：员工</item>
-        /// <item>2：招聘官网</item>
-        /// <item>3：猎头</item>
-        /// <item>4：候选人</item>
-        /// <item>100：系统</item>
-        /// <item>101：EHR</item>
-        /// <item>102：薪酬系统</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("operator_type")]

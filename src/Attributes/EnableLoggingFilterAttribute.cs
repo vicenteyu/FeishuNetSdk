@@ -15,7 +15,9 @@ using FeishuNetSdk;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
+#pragma warning disable IDE0130
 namespace WebApiClientCore.Attributes
+#pragma warning restore IDE0130
 {
     /// <summary>
     /// 启用日志

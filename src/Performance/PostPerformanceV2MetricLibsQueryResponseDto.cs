@@ -246,7 +246,7 @@ public record PostPerformanceV2MetricLibsQueryResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：admins_and_reviewees</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>admins_and_reviewees：admins_and_reviewees</item>
+        /// <item>admins_and_reviewees：允许管理员下发和被评估人选用</item>
         /// <item>only_admins：仅允许管理员下发</item>
         /// </list></para>
         /// </summary>

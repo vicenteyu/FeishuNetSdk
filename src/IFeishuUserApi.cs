@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-14
+// Last Modified On : 2024-08-24
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -2727,14 +2727,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222931479543809</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>更新应用已发送的消息卡片内容。</para>
+    /// <para>调用该接口，通过消息 ID（message_id）更新指定的消息卡片内容。如果你需要在用户与卡片进行交互后延迟更新卡片，或者通过用户 ID 更新部分成员接收到的卡片内容，可调用[延时更新消息卡片](https://open.feishu.cn/document/ukTMukTMukTM/uMDO1YjLzgTN24yM4UjN)接口。</para>
     /// <para>## 前提条件</para>
     /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
     /// <para>## 注意事项</para>
     /// <para>- 若以 user_access_token 更新消息，该操作用户必须是卡片消息的发送者。</para>
     /// <para>- 仅支持更新未撤回的[共享卡片](ukTMukTMukTM/uAjNwUjLwYDM14CM2ATN)消息。你需在卡片的 config 属性中，显式声明 =="update_multi":true==。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 不支持更新批量消息。</para>
+    /// <para>- 不支持更新[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)。</para>
     /// <para>- 仅支持更新 14 天内发送的消息。</para>
     /// <para>- 更新的文本消息请求体不可超过 150 KB；卡片及富文本消息请求体不可超过 30 KB。</para>
     /// <para>- 单条消息更新频控为 5 QPS。</para>
@@ -2747,7 +2747,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待更新的消息的ID，仅支持更新消息卡片(`interactive`类型)，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+    /// <para>待更新的消息 ID，仅支持更新卡片（消息类型为 `interactive`）。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -8377,7 +8380,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6990603997012279298</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取指定消息的特定类型表情回复列表（reaction即表情回复，本文档统一用“reaction”代称）。</para>
+    /// <para>获取指定消息内的表情回复列表，支持仅获取特定类型的表情回复。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的机器人或者用户，需要在待查询的消息所属的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>已被撤回的消息无法获取表情回复列表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message:readonly</item>
     /// <item>im:message.reactions:read</item>
@@ -8389,13 +8397,16 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待获取reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+    /// <para>待查询的消息ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_8964d1b4*********2b31383276113</para>
     /// </param>
     /// <param name="reaction_type">
     /// <para>必填：否</para>
-    /// <para>待查询消息reaction的类型[emoji类型列举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)</para>
-    /// <para>**注意**：不传入该参数，表示拉取所有类型reaction</para>
+    /// <para>待查询的表情类型，支持的枚举值参考[表情文案说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)中的 emoji_type 值。</para>
+    /// <para>**注意**：该参数为可选参数，不传入该参数时将查询消息内所有的表情回复。</para>
     /// <para>示例值：LAUGH</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -8407,7 +8418,8 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求返回的数据条目数。</para>
+    /// <para>**默认值**：20</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -8437,7 +8449,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6990603997012295682</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除指定消息的表情回复（reaction即表情回复，本文档统一用“reaction”代称）。</para>
+    /// <para>删除指定消息的某一表情回复。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的机器人或者用户，需要在待删除表情回复的消息所属的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 已被撤回的消息无法添加表情回复。</para>
+    /// <para>- 调用当前接口的机器人或者用户，只能删除由自己添加的表情回复，且需要保证该表情回复真实存在于消息中。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message.reactions:write_only</item>
@@ -8446,13 +8464,18 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待删除reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+    /// <para>待删除表情回复的消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_8964d1b4*********2b31383276113</para>
     /// </param>
     /// <param name="reaction_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待删除reaction的资源id，可通过调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口或[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)获得</para>
+    /// <para>待删除的表情回复 ID，该 ID 获取方式：</para>
+    /// <para>- 调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口添加表情回复后，在返回结果中获取。</para>
+    /// <para>- 调用[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)接口，获取某一表情回复的 ID。</para>
     /// <para>示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -8467,7 +8490,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6990603997012312066</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>给指定消息添加指定类型的表情回复（reaction即表情回复，本文档统一用“reaction”代称）。</para>
+    /// <para>给指定消息添加指定类型的表情回复。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的机器人或者用户，需要在待添加表情回复的消息所属的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 已被撤回的消息无法添加表情回复。</para>
+    /// <para>- [系统消息（system）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json#e159cb73)无法添加表情回复。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message.reactions:write_only</item>
@@ -8476,7 +8505,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待添加reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+    /// <para>待添加表情回复的消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_a8f2294b************a1a38afaac9d</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -13030,7 +13062,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7138313270488858626</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>Pin 一条指定的消息。</para>
+    /// <para>Pin 一条指定的消息。Pin 消息的效果可参见[Pin 消息概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/pin-overview)。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- Pin 消息时，机器人必须在消息所属的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 当前操作者不可见的消息无法 Pin。</para>
+    /// <para>- 对同一条消息的 Pin 操作不能超过 5 QPS。</para>
+    /// <para>## 注意事项</para>
+    /// <para>如果消息已经被 Pin，则该接口会返回该 Pin 的操作信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -13050,6 +13090,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>移除一条指定消息的 Pin。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 移除 Pin 消息时，机器人必须在消息所属的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 当前操作者不可见的消息无法移除 Pin。</para>
+    /// <para>- 对同一条消息移除 Pin 的操作不能超过 5 QPS。</para>
+    /// <para>## 注意事项</para>
+    /// <para>如果消息未被 Pin 或已被撤回，则该接口返回成功信息 `"msg": "success"`。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -13059,7 +13107,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待移除Pin的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+    /// <para>待移除 Pin 的消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -13073,7 +13124,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7138313270488891394</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取所在群内指定时间范围内的所有 Pin 消息。</para>
+    /// <para>获取指定群、指定时间范围内的所有 Pin 消息。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 获取 Pin 消息时，机器人必须在消息所属的会话内。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 获取的 Pin 消息按 Pin 的创建时间降序排列。</para>
+    /// <para>- 接口默认限流为 50 QPS。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:readonly</item>
@@ -13082,25 +13139,30 @@ public interface IFeishuUserApi : IHttpApi
     /// </summary>
     /// <param name="chat_id">
     /// <para>必填：是</para>
-    /// <para>待获取Pin消息的Chat ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
+    /// <para>待获取 Pin 消息的群组 ID。获取方式参见[群 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)。</para>
     /// <para>示例值：oc_234jsi43d3ssi993d43545f</para>
     /// </param>
     /// <param name="start_time">
     /// <para>必填：否</para>
-    /// <para>Pin信息的起始时间（毫秒级时间戳）。若未填写默认获取到群聊内最早的Pin信息</para>
+    /// <para>获取 Pin 消息的起始时间，毫秒级时间戳。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 若未传值默认获取到群聊内最早的 Pin 消息。</para>
+    /// <para>- 传值时需小于 `end_time` 值。</para>
     /// <para>示例值：1658632251800</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：否</para>
-    /// <para>Pin信息的结束时间（毫秒级时间戳）。若未填写默认从群聊内最新的Pin信息开始获取</para>
-    /// <para>**注意**：`end_time`值应大于`start_time`值</para>
+    /// <para>获取 Pin 消息的结束时间，毫秒级时间戳。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 若未传值默认从群聊内最新的 Pin 消息开始获取。</para>
+    /// <para>- 传值时需大于 `start_time` 值。</para>
     /// <para>示例值：1658731646425</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的分页的大小</para>
+    /// <para>分页大小，用于限制一次请求返回的数据条目数。</para>
     /// <para>示例值：20</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -17755,6 +17817,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以people_corehr_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>

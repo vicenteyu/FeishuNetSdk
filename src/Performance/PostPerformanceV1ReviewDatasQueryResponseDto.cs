@@ -394,19 +394,19 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
     }
 
     /// <summary>
-    /// <para>填写项列表</para>
+    /// <para>评估字段列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("fields")]
     public Field[]? Fields { get; set; }
 
     /// <summary>
-    /// <para>填写项列表</para>
+    /// <para>评估字段列表</para>
     /// </summary>
     public record Field
     {
         /// <summary>
-        /// <para>填写项 ID</para>
+        /// <para>评估字段 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6982759010081818159</para>
         /// </summary>
@@ -414,19 +414,19 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>填写项名称</para>
+        /// <para>评估字段名称</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("name")]
         public I18n? Name { get; set; }
 
         /// <summary>
-        /// <para>填写项名称</para>
+        /// <para>评估字段名称</para>
         /// </summary>
         public record I18n
         {
             /// <summary>
-            /// <para>填写项中文名称</para>
+            /// <para>评估字段中文名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：客户流失率</para>
             /// </summary>
@@ -434,7 +434,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
             public string? ZhCN { get; set; }
 
             /// <summary>
-            /// <para>填写项英文名称</para>
+            /// <para>评估字段英文名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：Customer churn rate</para>
             /// </summary>
@@ -451,7 +451,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public string? IndicatorId { get; set; }
 
         /// <summary>
-        /// <para>父级填写项 ID</para>
+        /// <para>父级评估字段 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6982759010081818159</para>
         /// </summary>

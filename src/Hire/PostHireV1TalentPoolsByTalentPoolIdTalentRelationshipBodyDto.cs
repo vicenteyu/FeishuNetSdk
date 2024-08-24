@@ -22,16 +22,16 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1TalentPoolsByTalentPoolIdTalentRelationshipBodyDto
 {
     /// <summary>
-    /// <para>人才 ID</para>
-    /// <para>必填：否</para>
+    /// <para>人才 ID，可通过接口 [获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list) 获取</para>
+    /// <para>必填：是</para>
     /// <para>示例值：6930815272790114324</para>
     /// </summary>
     [JsonPropertyName("talent_id")]
-    public string? TalentId { get; set; }
+    public string TalentId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>加入类型，加入后是否从其他所有库移出</para>
-    /// <para>必填：否</para>
+    /// <para>加入类型，加入后是否从其他库移出</para>
+    /// <para>必填：是</para>
     /// <para>示例值：1</para>
     /// <para>可选值：<list type="bullet">
     /// <item>1：否</item>
@@ -39,5 +39,5 @@ public record PostHireV1TalentPoolsByTalentPoolIdTalentRelationshipBodyDto
     /// </list></para>
     /// </summary>
     [JsonPropertyName("add_type")]
-    public int? AddType { get; set; }
+    public int AddType { get; set; }
 }

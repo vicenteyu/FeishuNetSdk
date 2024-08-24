@@ -261,7 +261,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
             public record MetricFieldInTemplate
             {
                 /// <summary>
-                /// <para>指标字段 ID</para>
+                /// <para>指标字段 ID，详情可查看：[获取指标字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_field/query)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：7272581996315099155</para>
                 /// </summary>

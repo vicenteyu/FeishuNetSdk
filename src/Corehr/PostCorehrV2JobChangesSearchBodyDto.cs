@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-18
+// Last Modified On : 2024-08-24
 // ************************************************************************
 // <copyright file="PostCorehrV2JobChangesSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -64,7 +64,7 @@ public record PostCorehrV2JobChangesSearchBodyDto
     public string? EffectiveDateEnd { get; set; }
 
     /// <summary>
-    /// <para>异动更新时间 - 搜索范围开始，需要与搜索范围结束一同使用，格式："YYYY-MM-DD"</para>
+    /// <para>异动更新时间 - 搜索范围开始，需要与搜索范围结束一同使用，毫秒时间戳</para>
     /// <para>必填：否</para>
     /// <para>示例值：1704084635000</para>
     /// </summary>
@@ -72,10 +72,18 @@ public record PostCorehrV2JobChangesSearchBodyDto
     public string? UpdatedTimeStart { get; set; }
 
     /// <summary>
-    /// <para>异动更新时间 - 搜索范围结束，格式："YYYY-MM-DD"</para>
+    /// <para>异动更新时间 - 搜索范围结束，毫秒时间戳</para>
     /// <para>必填：否</para>
     /// <para>示例值：1704084635000</para>
     /// </summary>
     [JsonPropertyName("updated_time_end")]
     public string? UpdatedTimeEnd { get; set; }
+
+    /// <summary>
+    /// <para>新部门 ID 列表</para>
+    /// <para>必填：否</para>
+    /// <para>最大长度：30</para>
+    /// </summary>
+    [JsonPropertyName("target_department_ids")]
+    public string[]? TargetDepartmentIds { get; set; }
 }

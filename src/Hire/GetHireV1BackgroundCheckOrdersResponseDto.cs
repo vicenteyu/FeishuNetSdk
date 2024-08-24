@@ -137,7 +137,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto
             public string? AttachmentUrl { get; set; }
 
             /// <summary>
-            /// <para>背调预览链接（该字段与「attachment_url」同一供应商只能支持 1 种），有效期1小时</para>
+            /// <para>背调预览链接（该字段与「attachment_url」同一供应商只能支持 1 种），有效期由供应商控制</para>
             /// <para>必填：否</para>
             /// <para>示例值：https://feishucdn.com/preview/file/6930815272790114324/</para>
             /// </summary>

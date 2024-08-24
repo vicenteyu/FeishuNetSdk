@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取简历评估信息 响应体
-/// <para>获取简历评估信息。</para>
+/// <para>获取简历评估信息，包含评估人、评估结论、评估详情等信息。支持按照投递 ID、更新时间来进行筛选。</para>
 /// <para>接口ID：7062626037662892033</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/evaluation/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fevaluation%2flist</para>
@@ -58,7 +58,7 @@ public record GetHireV1EvaluationsResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>投递 ID</para>
+        /// <para>投递 ID，详情请查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6875569957036738823</para>
         /// </summary>
@@ -66,7 +66,7 @@ public record GetHireV1EvaluationsResponseDto
         public string? ApplicationId { get; set; }
 
         /// <summary>
-        /// <para>投递阶段</para>
+        /// <para>投递阶段 ID，详情请查看：[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)接口返回结果中 `data.items.stage_list` 字段</para>
         /// <para>必填：否</para>
         /// <para>示例值：6784315427607595268</para>
         /// </summary>
@@ -74,7 +74,7 @@ public record GetHireV1EvaluationsResponseDto
         public string? StageId { get; set; }
 
         /// <summary>
-        /// <para>创建人user_id</para>
+        /// <para>创建人 ID，与入参 `user_id_type` 类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_aaf83d1b2c856ead36aa9a38784b9a5c</para>
         /// </summary>
@@ -82,7 +82,7 @@ public record GetHireV1EvaluationsResponseDto
         public string? CreatorId { get; set; }
 
         /// <summary>
-        /// <para>评估人user_id</para>
+        /// <para>评估人 ID，与入参 `user_id_type` 类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_aaf83d1b2c856ead36aa9a38784b9a5c</para>
         /// </summary>
@@ -122,7 +122,7 @@ public record GetHireV1EvaluationsResponseDto
         public string? Content { get; set; }
 
         /// <summary>
-        /// <para>创建时间</para>
+        /// <para>面试评估创建时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1600843767338</para>
         /// </summary>
@@ -130,7 +130,7 @@ public record GetHireV1EvaluationsResponseDto
         public string? CreateTime { get; set; }
 
         /// <summary>
-        /// <para>最近更新时间</para>
+        /// <para>面试评估更新时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1600843937733</para>
         /// </summary>

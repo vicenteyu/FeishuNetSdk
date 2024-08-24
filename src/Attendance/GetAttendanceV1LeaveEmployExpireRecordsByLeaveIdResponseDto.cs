@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-24
 // ************************************************************************
 // <copyright file="GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -34,7 +34,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
     public record LeaveEmployExpireRecord
     {
         /// <summary>
-        /// <para>record id</para>
+        /// <para>发放记录ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>员工ID，对应employee_type</para>
+        /// <para>员工ID，与user_id_type保持一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：6982509313466189342</para>
         /// </summary>
@@ -58,7 +58,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         public string LeaveTypeId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发放余额数量</para>
+        /// <para>发放数量</para>
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>
@@ -66,7 +66,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         public string GrantingQuantity { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发放数量 扣减完后的发放数量</para>
+        /// <para>剩余数量</para>
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>
@@ -112,7 +112,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
             /// <summary>
             /// <para>语言码</para>
             /// <para>必填：是</para>
-            /// <para>示例值：zh-CN</para>
+            /// <para>示例值：zh_CN</para>
             /// </summary>
             [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
@@ -157,5 +157,13 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         /// </summary>
         [JsonPropertyName("leave_sub_type_id")]
         public string LeaveSubTypeId { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>是否参与折算（1不参与折算，2参与折算）。默认不折算</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("section_type")]
+        public int? SectionType { get; set; }
     }
 }

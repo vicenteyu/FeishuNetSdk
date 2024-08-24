@@ -119,7 +119,7 @@ public record PostCorehrV1LeaveGrantingRecordsResponseDto
             /// <summary>
             /// <para>名称信息的语言</para>
             /// <para>必填：是</para>
-            /// <para>示例值：zh-CN</para>
+            /// <para>示例值：zh_CN</para>
             /// </summary>
             [JsonPropertyName("lang")]
             public string Lang { get; set; } = string.Empty;
@@ -134,7 +134,7 @@ public record PostCorehrV1LeaveGrantingRecordsResponseDto
         }
 
         /// <summary>
-        /// <para>发放记录的创建时间，格式为时间戳</para>
+        /// <para>发放记录的创建时间，格式为毫秒级时间戳</para>
         /// <para>必填：是</para>
         /// <para>示例值：1608725989000</para>
         /// </summary>
@@ -150,7 +150,7 @@ public record PostCorehrV1LeaveGrantingRecordsResponseDto
         public string CreatedBy { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发放记录的更新时间，格式为时间戳</para>
+        /// <para>发放记录的更新时间，格式为毫秒级时间戳</para>
         /// <para>必填：是</para>
         /// <para>示例值：1608725989000</para>
         /// </summary>

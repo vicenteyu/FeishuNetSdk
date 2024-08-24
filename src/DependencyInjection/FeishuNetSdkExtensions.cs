@@ -15,7 +15,9 @@ using FeishuNetSdk;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
+#pragma warning disable IDE0130
 namespace Microsoft.Extensions.DependencyInjection
+#pragma warning restore IDE0130
 {
     /// <summary>
     /// 提供注册SDK的扩展

@@ -30,7 +30,10 @@ public record PostImV1MessagesBodyDto
 {
     /// <summary>
     /// <para>消息接收者的 ID，ID 类型与查询参数 `receive_id_type` 的取值一致。</para>
-    /// <para>**说明**：如果消息接收者为用户，则推荐使用用户的 `open_id`。</para>
+    /// <para>**注意事项**：</para>
+    /// <para>- 给用户发送消息时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。例如，你需要给企业全员发送消息，则需要将应用的可用范围设置为全体员工。</para>
+    /// <para>- 给群组发送消息时，机器人需要在该群组中，且在群组内拥有发言权限。</para>
+    /// <para>- 如果消息接收者为用户，推荐使用用户的 `open_id`。</para>
     /// <para>必填：是</para>
     /// <para>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs</para>
     /// </summary>
@@ -67,7 +70,7 @@ public record PostImV1MessagesBodyDto
     /// <para>- 如果使用卡片模板（template_id）发送消息，实际大小也包含模板对应的卡片数据大小。</para>
     /// <para>- 如果消息中包含样式标签，会使实际消息体长度大于您输入的请求体长度。</para>
     /// <para>- 图片需要先[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)，然后使用图片的 Key 发消息。</para>
-    /// <para>- 音频、视频、文件需要先[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)，然后使用文件的 Key 发消息。</para>
+    /// <para>- 音频、视频、文件需要先[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)，然后使用文件的 Key 发消息。注意不能使用云文档[上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)接口返回的 file_token。</para>
     /// <para>了解不同类型的消息内容格式、使用限制，可参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。</para>
     /// <para>必填：是</para>
     /// <para>示例值：{\"text\":\"test content\"}</para>

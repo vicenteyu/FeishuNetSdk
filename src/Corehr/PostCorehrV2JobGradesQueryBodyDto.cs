@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2JobGradesQueryBodyDto
 {
     /// <summary>
-    /// <para>职等ID列表，不填写则返回全部列表</para>
+    /// <para>职等 ID 列表，不填写则返回全部列表</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>
@@ -31,7 +31,7 @@ public record PostCorehrV2JobGradesQueryBodyDto
     public string[]? Ids { get; set; }
 
     /// <summary>
-    /// <para>职等code列表，不填写则返回全部列表</para>
+    /// <para>职等 code 列表，不填写则返回全部列表</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>
@@ -40,7 +40,7 @@ public record PostCorehrV2JobGradesQueryBodyDto
     public string[]? Codes { get; set; }
 
     /// <summary>
-    /// <para>是否启用，不填写则返回全部列表</para>
+    /// <para>是否启用，不填写则不作为过滤条件</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-14
+// Last Modified On : 2024-08-24
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -30,7 +30,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907568030018469890</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMDO1YjLzgTN24yM4UjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>用户对消息卡片完成交互操作后，对指定用户更新卡片内容，给与及时反馈。</para>
+    /// <para>用户点击卡片进行交互、你的服务端在收到并响应卡片的回调请求后，可调用该接口延时更新卡片。了解完整的卡片交互配置流程，可参考[配置卡片交互](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/configuring-card-interactions#1b37805e)。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:message</item>
+    /// <item>im:message:send_as_bot</item>
+    /// <item>im:message:update</item>
+    /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/interactive/v1/card/update")]
@@ -268,8 +273,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569523177078785</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uETOyYjLxkjM24SM5IjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>用于机器人在群会话中发送仅指定用户可见的消息卡片。卡片上将展示"仅对你可见"标识。</para>
+    /// <para>调用该接口，可以使应用机器人在指定群聊中发送仅指定用户可见的卡片消息。卡片上将展示 **仅对你可见** 标识，如下图所示。</para>
     /// <para>![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/b0ec0ce45942463381457edc7b62e144_RXYCFtfUtb.png?height=486&amp;lazyload=true&amp;maxWidth=592&amp;width=1592)</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:message</item>
+    /// <item>im:message:send_as_bot</item>
+    /// <item>im:message:update</item>
+    /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/ephemeral/v1/send")]
@@ -1106,9 +1116,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569742384316418</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uITOyYjLykjM24iM5IjN</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>在群会话中删除仅指定用户可见的临时消息卡片。</para>
-    /// <para>临时卡片消息可以通过该接口进行显式删除，临时卡片消息删除后将不会在该设备上留下任何痕迹。</para>
-    /// <para>**权限说明** ：需要启用[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)；需要机器人在会话群里。</para>
+    /// <para>当发送的仅特定人可见的卡片消息已交互完成，可调用本接口删除该卡片。删除后将不会在对应设备上留下任何痕迹。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:message</item>
+    /// <item>im:message:send_as_bot</item>
+    /// <item>im:message:update</item>
+    /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/ephemeral/v1/delete")]
@@ -1466,18 +1479,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>给多个用户或者多个部门中的成员发送消息。</para>
-    /// <para>**注意事项：**</para>
-    /// <para>- 应用需要启用[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)</para>
-    /// <para>- 接口权限说明：</para>
-    /// <para>- 必须拥有**获取与发送单聊、群组消息**权限，或者**以应用的身份发消息**权限</para>
-    /// <para>- 至少拥有一个批量发送消息权限：</para>
-    /// <para>- 给用户发送需要拥有 **给多个用户批量发消息** 权限</para>
-    /// <para>- 给部门成员发送需要拥有 **给一个或多个部门的成员批量发消息** 权限</para>
-    /// <para>- 应用需要拥有对所发送用户或部门的[可用性](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)</para>
-    /// <para>- 通过该接口发送的消息 **不支持更新以及回复等操作**</para>
-    /// <para>- 只能发送给用户，无法发送给群组</para>
-    /// <para>- 异步接口，会有一定延迟，每个应用待发送的消息按顺序处理，请合理安排批量发送范围和顺序。发送消息给单个用户的场景请使用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口</para>
-    /// <para>- 单个应用每天通过该接口发送的总消息条数不超过50万</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -4249,12 +4250,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222929790517276</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>下载文件接口，只能下载应用自己上传的文件。</para>
+    /// <para>通过已上传文件的 Key 下载文件。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 只能下载由当前机器人上传的文件。</para>
+    /// <para>- 下载的资源大小不能超过 100 MB。</para>
+    /// <para>- 该接口仅适用于通过文件的 Key 下载文件。如果你需要下载用户发送消息内的资源文件，可使用[获取消息中的资源文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)接口。</para>
+    /// <para>- 如果需要 Content-Disposition header，发起请求时需要在 header 中设置 Content-Type 为 application/json。</para>
     /// </summary>
     /// <param name="file_key">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的key，通过[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口上传图片后获得</para>
+    /// <para>文件的 Key，通过[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口上传文件后，从返回结果中获取。</para>
     /// <para>示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
@@ -4319,12 +4327,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222929790582812</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>下载图片资源，只能下载当前应用所上传且图片类型为message的图片。</para>
+    /// <para>通过已上传图片的 Key 值下载图片。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 只能下载由当前机器人上传的图片，且上传时图片类型为 **用于发送消息**。**用于设置头像** 的图片暂不支持下载。</para>
+    /// <para>- 该接口仅适用于通过图片的 Key 下载图片。如果你需要下载用户发送消息内的资源文件，可使用[获取消息中的资源文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)接口。</para>
     /// </summary>
     /// <param name="image_key">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>图片的key，通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后获得</para>
+    /// <para>图片的 Key，通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口上传图片后，在返回结果中获取。</para>
     /// <para>示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
@@ -4578,7 +4591,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222931479445505</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>上传图片接口，支持上传 JPEG、PNG、WEBP、GIF、TIFF、BMP、ICO格式图片。</para>
+    /// <para>调用本接口将图片上传至飞书开放平台，支持上传 JPG、JPEG、PNG、WEBP、GIF、BMP、ICO、TIFF、HEIC 格式的图片，但需要注意 TIFF、HEIC 上传后会被转为 JPG 格式。</para>
+    /// <para>## 使用场景</para>
+    /// <para>如果需要发送图片消息，或者将图片作为头像，则需要先调用本接口将图片上传至开放平台，平台会返回一个图片标识（image_key），后续使用该 Key 值调用其他 API。例如：</para>
+    /// <para>- [发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)时，如果需要发送图片，则需要先调用本接口上传图片（上传时图片类型需要选择 **用于发送消息**），并使用返回结果中的 image_key 发送图片消息。</para>
+    /// <para>- [创建用户](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)时，如果需要设置用户头像，则需要先调用本接口将头像上传（上传时图片类型需要选择 **用于设置头像**），并使用返回结果中的 image_key 设置头像。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 上传的图片大小不能超过 10 MB，且不支持上传大小为 0 的图片。</para>
+    /// <para>- 上传图片的分辨率限制：</para>
+    /// <para>- GIF 图片分辨率不能超过 2000 x 2000，其他图片分辨率不能超过 12000 x 12000。</para>
+    /// <para>- 用于设置头像的图片分辨率不能超过 4096 x 4096。</para>
+    /// <para>如需上传高分辨率图片，可使用[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口，将图片作为文件进行上传。注意该方式不支持将图片文件设置为头像。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:resource</item>
     /// <item>im:resource:upload</item>
@@ -4587,8 +4612,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     /// <param name="image">
     /// <para>必填：是</para>
-    /// <para>图片内容</para>
-    /// <para>**注意：** 上传的图片大小不能超过10MB</para>
+    /// <para>图片内容。传值方式可以参考请求体示例。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 上传的图片大小不能超过 10 MB，也不能上传大小为 0 的图片。</para>
+    /// <para>- 分辨率限制：</para>
+    /// <para>- GIF 图片分辨率不能超过 2000 x 2000，其他图片分辨率不能超过 12000 x 12000。</para>
+    /// <para>- 用于设置头像的图片分辨率不能超过 4096 x 4096。</para>
     /// </param>
     [HttpPost("/open-apis/im/v1/images")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ImagesResponseDto>> PostImV1ImagesAsync(
@@ -4600,7 +4629,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222931479461889</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>上传文件，可以上传视频，音频和常见的文件类型。</para>
+    /// <para>调用该接口将本地文件上传至开放平台，支持上传音频、视频、文档等文件类型。上传后接口会返回文件的 Key，使用该 Key 值可以调用其他 OpenAPI。例如，调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口，发送文件。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>文件大小不得超过 30 MB，且不允许上传空文件。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:resource</item>
     /// <item>im:resource:upload</item>
@@ -4609,7 +4642,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     /// <param name="file">
     /// <para>必填：是</para>
-    /// <para>文件内容</para>
+    /// <para>文件内容，具体的传值方式可参考请求体示例。</para>
+    /// <para>**注意**：文件大小不得超过 30 MB，且不允许上传空文件。</para>
     /// </param>
     [HttpPost("/open-apis/im/v1/files")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1FilesResponseDto>> PostImV1FilesAsync(
@@ -4722,14 +4756,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222931479543809</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>更新应用已发送的消息卡片内容。</para>
+    /// <para>调用该接口，通过消息 ID（message_id）更新指定的消息卡片内容。如果你需要在用户与卡片进行交互后延迟更新卡片，或者通过用户 ID 更新部分成员接收到的卡片内容，可调用[延时更新消息卡片](https://open.feishu.cn/document/ukTMukTMukTM/uMDO1YjLzgTN24yM4UjN)接口。</para>
     /// <para>## 前提条件</para>
     /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
     /// <para>## 注意事项</para>
     /// <para>- 若以 user_access_token 更新消息，该操作用户必须是卡片消息的发送者。</para>
     /// <para>- 仅支持更新未撤回的[共享卡片](ukTMukTMukTM/uAjNwUjLwYDM14CM2ATN)消息。你需在卡片的 config 属性中，显式声明 =="update_multi":true==。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 不支持更新批量消息。</para>
+    /// <para>- 不支持更新[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)。</para>
     /// <para>- 仅支持更新 14 天内发送的消息。</para>
     /// <para>- 更新的文本消息请求体不可超过 150 KB；卡片及富文本消息请求体不可超过 30 KB。</para>
     /// <para>- 单条消息更新频控为 5 QPS。</para>
@@ -4742,7 +4776,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待更新的消息的ID，仅支持更新消息卡片(`interactive`类型)，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+    /// <para>待更新的消息 ID，仅支持更新卡片（消息类型为 `interactive`）。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -4979,7 +5016,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6948245234036621340</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_app</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>对指定消息进行应用内加急。</para>
+    /// <para>调用该接口把指定消息加急给目标用户，加急仅在飞书客户端内通知。了解加急可参见[加急功能](https://www.feishu.cn/hc/zh-CN/articles/360024757913)。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability) 。</para>
+    /// <para>- 确保机器人在被加急消息所属会话中。如果是群组，还需要确保群管理中设置了 **所有群成员可以加急**，或者设置了 **仅群主或管理员可以加急** 且机器人是管理员。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 只能加急当前机器人自己发送的消息。</para>
+    /// <para>- 加急用户的未读加急总数不能超过 200 条。</para>
+    /// <para>- 不支持加急[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)。</para>
+    /// <para>- 加急[折叠会话](https://www.feishu.cn/hc/zh-CN/articles/360025267393)内的消息时，仅会在应用内推送提醒通知。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message.urgent</item>
     /// <item>im:message.urgent:app_send</item>
@@ -4991,8 +5036,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待加急的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
-    /// <para>**注意**：不支持批量消息ID（bm_xxx）</para>
+    /// <para>待加急的消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>**注意**：不支持加急[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)（对应的消息ID 格式为 `bm_xxx`）。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     /// <param name="user_id_type">
@@ -5018,7 +5066,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6948245234036637724</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_sms</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>对指定消息进行应用内加急与短信加急。</para>
+    /// <para>调用该接口把指定消息加急给目标用户，加急将通过飞书客户端和短信进行通知。了解加急可参见[加急功能](https://www.feishu.cn/hc/zh-CN/articles/360024757913)。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability) 。</para>
+    /// <para>- 确保机器人在被加急消息所属会话中。如果是群组，还需要确保群管理中设置了 **所有群成员可以加急**，或者设置了 **仅群主或管理员可以加急** 且机器人是管理员。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 只能加急当前机器人自己发送的消息。</para>
+    /// <para>- 加急用户的未读加急总数不能超过 200 条。</para>
+    /// <para>- 不支持加急[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)。</para>
+    /// <para>- 加急[折叠会话](https://www.feishu.cn/hc/zh-CN/articles/360025267393)内的消息时，仅会在应用内推送提醒通知。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message.urgent:sms</item>
     /// <item>im:message.urgent:sms_send</item>
@@ -5030,8 +5086,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待加急的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
-    /// <para>**注意**：不支持批量消息ID（bm_xxx）</para>
+    /// <para>待加急的消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>**注意**：不支持加急[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)（对应的消息ID 格式为 `bm_xxx`）。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     /// <param name="user_id_type">
@@ -5057,7 +5116,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6948245234036654108</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_phone</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>对指定消息进行应用内加急与电话加急。</para>
+    /// <para>调用该接口把指定消息加急给目标用户，加急将通过飞书客户端和电话进行通知。了解加急可参见[加急功能](https://www.feishu.cn/hc/zh-CN/articles/360024757913)。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability) 。</para>
+    /// <para>- 确保机器人在被加急消息所属会话中。如果是群组，还需要确保群管理中设置了 **所有群成员可以加急**，或者设置了 **仅群主或管理员可以加急** 且机器人是管理员。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 只能加急当前机器人自己发送的消息。</para>
+    /// <para>- 加急用户的未读加急总数不能超过 200 条。</para>
+    /// <para>- 不支持加急[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)。</para>
+    /// <para>- 加急[折叠会话](https://www.feishu.cn/hc/zh-CN/articles/360025267393)内的消息时，仅会在应用内推送提醒通知。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message.urgent:phone</item>
     /// <item>im:message.urgent:phone_send</item>
@@ -5069,8 +5136,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待加急的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
-    /// <para>**注意**：不支持批量消息ID（bm_xxx）</para>
+    /// <para>待加急的消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>**注意**：不支持加急[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)（对应的消息ID 格式为 `bm_xxx`）。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     /// <param name="user_id_type">
@@ -10533,6 +10603,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：7334134355464633</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="lock_status">
+    /// <para>必填：否</para>
+    /// <para>锁定状态</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
@@ -10565,6 +10640,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? talent_id = null,
         [PathQuery] string? active_status = null,
         [PathQuery] string? job_id = null,
+        [PathQuery] int[]? lock_status = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? update_start_time = null,
@@ -13585,7 +13661,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6989078472837185539</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取人才字段。</para>
+    /// <para>获取全部人才字段详细信息，包含字段名称、字段描述、字段类型、启用状态等信息。</para>
+    /// <para>## 概念说明</para>
+    /// <para>在「飞书招聘」-「设置」-「候选人字段管理」中，人才中的字段按照模块进行组织，一个模块下可以包含多个字段，对应人才字段类型中`模块`类型，如下图所示。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:talent</item>
     /// <item>hire:talent:readonly</item>
@@ -13963,7 +14041,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6989078472837316611</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_record/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取面试评价详细信息。</para>
+    /// <para>获取面试评价详细信息，如面试结论、面试得分和面试官等信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:interview</item>
     /// <item>hire:interview:readonly</item>
@@ -13975,7 +14053,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="interview_record_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>记录 ID</para>
+    /// <para>面试评价 ID，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口获取</para>
     /// <para>示例值：1618209327096</para>
     /// </param>
     /// <param name="user_id_type">
@@ -14329,7 +14407,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6990603997012279298</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取指定消息的特定类型表情回复列表（reaction即表情回复，本文档统一用“reaction”代称）。</para>
+    /// <para>获取指定消息内的表情回复列表，支持仅获取特定类型的表情回复。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的机器人或者用户，需要在待查询的消息所属的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>已被撤回的消息无法获取表情回复列表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message:readonly</item>
     /// <item>im:message.reactions:read</item>
@@ -14341,13 +14424,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待获取reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+    /// <para>待查询的消息ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_8964d1b4*********2b31383276113</para>
     /// </param>
     /// <param name="reaction_type">
     /// <para>必填：否</para>
-    /// <para>待查询消息reaction的类型[emoji类型列举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)</para>
-    /// <para>**注意**：不传入该参数，表示拉取所有类型reaction</para>
+    /// <para>待查询的表情类型，支持的枚举值参考[表情文案说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)中的 emoji_type 值。</para>
+    /// <para>**注意**：该参数为可选参数，不传入该参数时将查询消息内所有的表情回复。</para>
     /// <para>示例值：LAUGH</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -14359,7 +14445,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用于限制一次请求返回的数据条目数。</para>
+    /// <para>**默认值**：20</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -14387,7 +14474,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6990603997012295682</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除指定消息的表情回复（reaction即表情回复，本文档统一用“reaction”代称）。</para>
+    /// <para>删除指定消息的某一表情回复。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的机器人或者用户，需要在待删除表情回复的消息所属的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 已被撤回的消息无法添加表情回复。</para>
+    /// <para>- 调用当前接口的机器人或者用户，只能删除由自己添加的表情回复，且需要保证该表情回复真实存在于消息中。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message.reactions:write_only</item>
@@ -14396,13 +14489,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待删除reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+    /// <para>待删除表情回复的消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_8964d1b4*********2b31383276113</para>
     /// </param>
     /// <param name="reaction_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待删除reaction的资源id，可通过调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口或[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)获得</para>
+    /// <para>待删除的表情回复 ID，该 ID 获取方式：</para>
+    /// <para>- 调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口添加表情回复后，在返回结果中获取。</para>
+    /// <para>- 调用[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)接口，获取某一表情回复的 ID。</para>
     /// <para>示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_</para>
     /// </param>
     [HttpDelete("/open-apis/im/v1/messages/{message_id}/reactions/{reaction_id}")]
@@ -14415,7 +14513,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6990603997012312066</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>给指定消息添加指定类型的表情回复（reaction即表情回复，本文档统一用“reaction”代称）。</para>
+    /// <para>给指定消息添加指定类型的表情回复。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的机器人或者用户，需要在待添加表情回复的消息所属的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 已被撤回的消息无法添加表情回复。</para>
+    /// <para>- [系统消息（system）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json#e159cb73)无法添加表情回复。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message.reactions:write_only</item>
@@ -14424,7 +14528,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待添加reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+    /// <para>待添加表情回复的消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_a8f2294b************a1a38afaac9d</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -15614,7 +15721,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7001051759612936195</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据更新时间获取人才列表，仅支持获取摘要信息，获取详细信息可调用「获取人才详细」接口。</para>
+    /// <para>批量获取人才摘要信息，包括人才 ID、人才基信息、教育经历、工作经历等。若需要获取人才详细信息请使用[获取人才详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)接口。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:talent</item>
     /// <item>hire:talent:readonly</item>
@@ -15623,15 +15730,21 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>contact:user.employee_id:readonly</item>
     /// </list></para>
     /// </summary>
+    /// <param name="keyword">
+    /// <para>必填：否</para>
+    /// <para>搜索关键词，支持布尔语言（使用 and、or、not 连接关键词）</para>
+    /// <para>示例值：张三 and 产品经理</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="update_start_time">
     /// <para>必填：否</para>
-    /// <para>最早更新时间，毫秒级时间戳</para>
+    /// <para>最早更新时间，毫秒时间戳</para>
     /// <para>示例值：1618500278663</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_end_time">
     /// <para>必填：否</para>
-    /// <para>最晚更新时间，毫秒级时间戳</para>
+    /// <para>最晚更新时间，毫秒时间戳</para>
     /// <para>示例值：1618500278663</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -15640,6 +15753,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>分页大小</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="sort_by">
+    /// <para>必填：否</para>
+    /// <para>排序规则</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>1：按更新日期降序</item>
+    /// <item>2：按相关度降序</item>
+    /// <item>3：按投递时间降序</item>
+    /// <item>4：按入库时间降序</item>
+    /// </list>
+    /// <para>默认值：1</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
@@ -15670,9 +15795,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/hire/v1/talents")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1TalentsResponseDto>> GetHireV1TalentsAsync(
+        [PathQuery] string? keyword = null,
         [PathQuery] string? update_start_time = null,
         [PathQuery] string? update_end_time = null,
         [PathQuery] int? page_size = 10,
+        [PathQuery] int? sort_by = 1,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "people_admin_id",
         [PathQuery] string? query_option = null);
@@ -18072,7 +18199,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7021850211959275548</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/read_user</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>发送批量消息请求后，可以通过该接口查询批量消息推送的总人数和阅读人数。</para>
+    /// <para>[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)后，可通过该接口查询消息推送的总人数以及消息已读人数。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要启用[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 只能查询 30 天内，通过[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口发送的消息。</para>
+    /// <para>- 该接口返回的数据为查询时刻的快照数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message:send_multi_depts</item>
     /// <item>im:message:send_multi_users</item>
@@ -18081,7 +18213,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="batch_message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待查询的批量消息任务 ID，通过调用[批量发送消息接口](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值`message_id`中得到</para>
+    /// <para>待查询的批量消息任务 ID，该 ID 为[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口返回值中的 `message_id` 字段，用于标识一次批量发送消息请求。</para>
     /// <para>示例值：bm_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     [HttpGet("/open-apis/im/v1/batch_messages/{batch_message_id}/read_user")]
@@ -18093,7 +18225,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7021850211959291932</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>批量撤回通过[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口发送的消息。</para>
+    /// <para>该接口用于撤回通过[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口发送的消息。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要启用[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 仅支持撤回通过[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口发送的消息。如果你需要撤回单条消息，请使用[撤回消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/delete)接口。</para>
+    /// <para>- 不支持撤回时间较久的消息。撤回的消息需要符合由企业管理员设置的撤回时限。详情了解[管理员设置撤回和编辑消息权限](https://www.feishu.cn/hc/zh-CN/articles/325339752183)。</para>
+    /// <para>- 该接口为异步接口，会有一定延迟。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message:send_multi_depts</item>
     /// <item>im:message:send_multi_users</item>
@@ -18102,7 +18240,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="batch_message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待撤回的批量消息任务 ID，为[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口返回值中的`message_id`字段，用于标识一次批量发送消息请求。</para>
+    /// <para>待撤回的批量消息任务 ID，该 ID 为[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口返回值中的`message_id`字段，用于标识一次批量发送消息请求。</para>
     /// <para>示例值：bm-dc13264520392913993dd051dba21dcf</para>
     /// </param>
     [HttpDelete("/open-apis/im/v1/batch_messages/{batch_message_id}")]
@@ -19376,7 +19514,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7039583318606217220</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/get_progress</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口在[查询批量消息推送和阅读人数](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/read_user)查询结果的基础上，增加了批量请求中有效的user id数量以及消息撤回进度数据。</para>
+    /// <para>[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)或者[批量撤回消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/delete)后，可通过该接口查询消息的发送进度和撤回进度。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 只能查询 30 天内，通过[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口发送的消息。</para>
+    /// <para>- 该接口返回的数据为查询时刻的快照数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message:send_multi_depts</item>
     /// <item>im:message:send_multi_users</item>
@@ -19385,7 +19526,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="batch_message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待查询的批量消息任务ID，通过调用[批量发送消息接口](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值`message_id`中得到</para>
+    /// <para>待查询的批量消息任务 ID，该 ID 为[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口返回值中的 `message_id` 字段，用于标识一次批量发送消息请求。</para>
     /// <para>示例值：bm-0b3d5d1b2df7c6d5dbd1abe2c91e2217</para>
     /// </param>
     [HttpGet("/open-apis/im/v1/batch_messages/{batch_message_id}/get_progress")]
@@ -19397,7 +19538,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7039624673445920771</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/questionnaire/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取面试满意度问卷列表。</para>
+    /// <para>批量获取面试满意度问卷信息，包含问卷完成情况、问卷题目及问卷题目作答内容等信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:questionnaire</item>
     /// <item>hire:questionnaire:readonly</item>
@@ -19406,43 +19547,45 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="page_token">
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>示例值：1231231987</para>
+    /// <para>示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTcyMzU1OTE4OTg1NCwiaWQiOm51bGx9</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
     /// <para>分页大小</para>
     /// <para>示例值：100</para>
-    /// <para>默认值：1</para>
+    /// <para>默认值：20</para>
     /// </param>
     /// <param name="application_id">
     /// <para>必填：否</para>
-    /// <para>投递 ID，当飞书招聘-设置-面试满意度问卷设置中，问卷发送时机为「面试流程结束后」，仅支持通过application_id进行查询</para>
+    /// <para>投递 ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取</para>
+    /// <para>**注意**：当「飞书招聘」-「设置」-「面试设置」-「面试满意度问卷设置」中，通过邮件向候选人发送问卷时机选择为「面试流程结束后」时，仅可通过该参数进行筛选</para>
     /// <para>示例值：6985833807195212076</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="interview_id">
     /// <para>必填：否</para>
-    /// <para>面试 ID，当飞书招聘-设置-面试满意度问卷设置中，问卷发送时机为「每次面试结束后」或「第一次面试结束后」，仅支持通过interview_id进行查询</para>
+    /// <para>面试 ID，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口或[获取人才面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/get_by_talent)接口获取</para>
+    /// <para>**注意**：当「飞书招聘」-「设置」-「面试设置」-「面试满意度问卷设置」中，通过邮件向候选人发送问卷时机选择为「每次面试结束后」或者「第一次面试结束后」时，仅可通过该参数进行筛选</para>
     /// <para>示例值：7038435261598763308</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_start_time">
     /// <para>必填：否</para>
-    /// <para>最早更新时间</para>
+    /// <para>最早更新时间，毫秒时间戳</para>
     /// <para>示例值：1638848468868</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_end_time">
     /// <para>必填：否</para>
-    /// <para>最晚更新时间</para>
+    /// <para>最晚更新时间，毫秒时间戳</para>
     /// <para>示例值：1638848468869</para>
     /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/hire/v1/questionnaires")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1QuestionnairesResponseDto>> GetHireV1QuestionnairesAsync(
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 1,
+        [PathQuery] int? page_size = 20,
         [PathQuery] string? application_id = null,
         [PathQuery] string? interview_id = null,
         [PathQuery] string? update_start_time = null,
@@ -20834,7 +20977,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7062626037662892033</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/evaluation/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取简历评估信息。</para>
+    /// <para>获取简历评估信息，包含评估人、评估结论、评估详情等信息。支持按照投递 ID、更新时间来进行筛选。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:evaluation:readonly</item>
     /// </list></para>
@@ -20856,19 +20999,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="application_id">
     /// <para>必填：否</para>
-    /// <para>投递 ID</para>
+    /// <para>投递 ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取</para>
     /// <para>示例值：6875569957036738823</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_start_time">
     /// <para>必填：否</para>
-    /// <para>最早更新时间，毫秒级时间戳</para>
+    /// <para>最早更新时间，毫秒时间戳</para>
     /// <para>示例值：1600843767338</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_end_time">
     /// <para>必填：否</para>
-    /// <para>最晚更新时间，毫秒级时间戳</para>
+    /// <para>最晚更新时间，毫秒时间戳</para>
     /// <para>示例值：1600843938726</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -21550,7 +21693,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 仅在新增任职版本时生效，即当 version_id 有值时该字段不生效</para>
     /// <para>- 使用此功能时，试用期相关字段不支持</para>
     /// <para>- 当响应返回的任职数据无变化时，请检查人事系统-异动管理</para>
-    /// <para>- 功能灰度中，若需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+    /// <para>- 强烈建议使用此参数，保证数据正确性</para>
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -23812,11 +23955,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【招聘】查询操作人对人才的操作记录</para>
+    /// <para>【招聘】查询人才操作记录</para>
     /// <para>接口ID：7098526921012936706</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/talent_operation_log/search</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>查询操作人对人才的操作记录。</para>
+    /// <para>根据操作人和操作类型查询人才的操作记录。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:talent</item>
     /// <item>hire:talent:readonly</item>
@@ -27120,7 +27263,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7126729166647869443</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_balances</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>批量获取员工各个假期的余额数据。</para>
+    /// <para>批量获取员工各个假期的余额数据。对应页面为假勤管理-休假管理-[假期报表](https://example.feishu.cn/people/workforce-management/manage/leave/leave_admin/balance)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
@@ -27144,13 +27287,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="as_of_date">
     /// <para>必填：否</para>
-    /// <para>查询截止日期，即截止到某天余额数据的日期（不传则默认为当天）</para>
+    /// <para>查询截止日期，即截止到某天余额数据的日期（不传则默认为当天）。格式为yyyy-MM-dd</para>
     /// <para>示例值：2022-07-29</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="employment_id_list">
     /// <para>必填：否</para>
-    /// <para>员工 ID 列表，最大 100 个（不传则默认查询全部员工）</para>
+    /// <para>员工 ID 列表，最大 100 个（不传则默认查询全部员工），对应user_id_type</para>
     /// <para>示例值：["6919733291281024526"]</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -27186,7 +27329,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7126729166647885827</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取休假设置后台配置的假期类型列表（比如年假、事假、婚假等）。</para>
+    /// <para>获取休假设置后台配置的假期类型列表（比如年假、事假、婚假等）。对应页面功能为设置-假勤设置-[假期类型](https://example.feishu.cn/people/workforce-management/setting/leave/leave_admin/leave_type)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:common_data.preset_data:read</item>
     /// <item>corehr:corehr</item>
@@ -27242,7 +27385,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7126729166647902211</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_request_history</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>批量获取员工的请假记录数据。</para>
+    /// <para>批量获取员工的请假记录数据。对应页面为假勤管理-休假管理-[请假记录](https://example.feishu.cn/people/workforce-management/manage/leave/leave_admin/leave_request)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
@@ -27266,19 +27409,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="employment_id_list">
     /// <para>必填：否</para>
-    /// <para>员工 ID 列表，最大 100 个（不传则默认查询全部员工）</para>
+    /// <para>员工 ID 列表，最大 100 个（不传则默认查询全部员工），ID 类型与 user_id_type 一致</para>
     /// <para>示例值：["6919733291281024526"]</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="initiator_id_list">
     /// <para>必填：否</para>
-    /// <para>休假发起人 ID 列表，最大 100 个</para>
+    /// <para>休假发起人 ID 列表，最大 100 个，ID 类型与 user_id_type 一致</para>
     /// <para>示例值：["6919733291281024526"]</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_request_status">
     /// <para>必填：否</para>
-    /// <para>请假记录的状态</para>
+    /// <para>请假记录的状态，不填为不过滤状态</para>
     /// <para>可选值有：</para>
     /// <para>- 1：已通过</para>
     /// <para>- 2：审批中</para>
@@ -27294,43 +27437,43 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="leave_type_id_list">
     /// <para>必填：否</para>
-    /// <para>假期类型 ID 列表，枚举值可通过【获取假期类型列表】接口获取</para>
+    /// <para>假期类型 ID 列表，枚举值可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)接口获取</para>
     /// <para>示例值：["1"]</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_start_date_min">
     /// <para>必填：否</para>
-    /// <para>休假开始时间晚于等于的日期</para>
+    /// <para>休假开始时间晚于等于的日期，格式为yyyy-MM-dd</para>
     /// <para>示例值：2022-07-20</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_start_date_max">
     /// <para>必填：否</para>
-    /// <para>休假开始时间早于等于的日期</para>
+    /// <para>休假开始时间早于等于的日期，格式为yyyy-MM-dd</para>
     /// <para>示例值：2022-07-20</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_end_date_min">
     /// <para>必填：否</para>
-    /// <para>休假结束时间晚于等于的日期</para>
+    /// <para>休假结束时间晚于等于的日期，格式为yyyy-MM-dd</para>
     /// <para>示例值：2022-07-20</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_end_date_max">
     /// <para>必填：否</para>
-    /// <para>休假结束时间早于等于的日期</para>
+    /// <para>休假结束时间早于等于的日期，格式为yyyy-MM-dd</para>
     /// <para>示例值：2022-07-20</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_submit_date_min">
     /// <para>必填：否</para>
-    /// <para>休假发起时间晚于等于的日期</para>
+    /// <para>休假发起时间晚于等于的日期，格式为yyyy-MM-dd</para>
     /// <para>示例值：2022-07-20</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_submit_date_max">
     /// <para>必填：否</para>
-    /// <para>休假发起时间早于等于的日期</para>
+    /// <para>休假发起时间早于等于的日期，格式为yyyy-MM-dd</para>
     /// <para>示例值：2022-07-20</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -27348,19 +27491,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="leave_update_time_min">
     /// <para>必填：否</para>
-    /// <para>请假记录更新时间晚于等于的时间</para>
+    /// <para>请假记录更新时间晚于等于的时间，格式为yyyy-MM-dd HH:mm:ss</para>
     /// <para>示例值：2022-10-24 10:00:00</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_update_time_max">
     /// <para>必填：否</para>
-    /// <para>请假记录更新时间早于等于的时间</para>
+    /// <para>请假记录更新时间早于等于的时间，格式为yyyy-MM-dd HH:mm:ss</para>
     /// <para>示例值：2022-10-24 10:00:00</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="return_detail">
     /// <para>必填：否</para>
-    /// <para>是否返回请假详情，若为true，将在每条请假记录的details字段返回请假详情</para>
+    /// <para>（暂未开放）是否返回请假详情，若为true，将在每条请假记录的details字段返回请假详情</para>
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
     /// </param>
@@ -27378,19 +27521,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="data_source">
     /// <para>必填：否</para>
-    /// <para>请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤</para>
+    /// <para>（暂未开放）请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤</para>
     /// <para>示例值：1</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="db_update_time_min">
     /// <para>必填：否</para>
-    /// <para>请假记录DB更新时间晚于等于的时间</para>
+    /// <para>（暂未开放）请假记录DB更新时间晚于等于的时间，格式为yyyy-MM-dd HH:mm:ss</para>
     /// <para>示例值：2022-10-24 10:00:00</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="db_update_time_max">
     /// <para>必填：否</para>
-    /// <para>请假记录DB更新时间早于等于的时间</para>
+    /// <para>（暂未开放）请假记录DB更新时间早于等于的时间，格式为yyyy-MM-dd HH:mm:ss</para>
     /// <para>示例值：2022-10-24 10:00:00</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -27659,7 +27802,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7138313270488858626</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>Pin 一条指定的消息。</para>
+    /// <para>Pin 一条指定的消息。Pin 消息的效果可参见[Pin 消息概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/pin-overview)。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- Pin 消息时，机器人必须在消息所属的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 当前操作者不可见的消息无法 Pin。</para>
+    /// <para>- 对同一条消息的 Pin 操作不能超过 5 QPS。</para>
+    /// <para>## 注意事项</para>
+    /// <para>如果消息已经被 Pin，则该接口会返回该 Pin 的操作信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -27677,6 +27828,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>移除一条指定消息的 Pin。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 移除 Pin 消息时，机器人必须在消息所属的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 当前操作者不可见的消息无法移除 Pin。</para>
+    /// <para>- 对同一条消息移除 Pin 的操作不能超过 5 QPS。</para>
+    /// <para>## 注意事项</para>
+    /// <para>如果消息未被 Pin 或已被撤回，则该接口返回成功信息 `"msg": "success"`。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -27686,7 +27845,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待移除Pin的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+    /// <para>待移除 Pin 的消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     [HttpDelete("/open-apis/im/v1/pins/{message_id}")]
@@ -27698,7 +27860,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7138313270488891394</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取所在群内指定时间范围内的所有 Pin 消息。</para>
+    /// <para>获取指定群、指定时间范围内的所有 Pin 消息。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 获取 Pin 消息时，机器人必须在消息所属的会话内。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 获取的 Pin 消息按 Pin 的创建时间降序排列。</para>
+    /// <para>- 接口默认限流为 50 QPS。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:readonly</item>
@@ -27707,25 +27875,30 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="chat_id">
     /// <para>必填：是</para>
-    /// <para>待获取Pin消息的Chat ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
+    /// <para>待获取 Pin 消息的群组 ID。获取方式参见[群 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)。</para>
     /// <para>示例值：oc_234jsi43d3ssi993d43545f</para>
     /// </param>
     /// <param name="start_time">
     /// <para>必填：否</para>
-    /// <para>Pin信息的起始时间（毫秒级时间戳）。若未填写默认获取到群聊内最早的Pin信息</para>
+    /// <para>获取 Pin 消息的起始时间，毫秒级时间戳。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 若未传值默认获取到群聊内最早的 Pin 消息。</para>
+    /// <para>- 传值时需小于 `end_time` 值。</para>
     /// <para>示例值：1658632251800</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：否</para>
-    /// <para>Pin信息的结束时间（毫秒级时间戳）。若未填写默认从群聊内最新的Pin信息开始获取</para>
-    /// <para>**注意**：`end_time`值应大于`start_time`值</para>
+    /// <para>获取 Pin 消息的结束时间，毫秒级时间戳。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 若未传值默认从群聊内最新的 Pin 消息开始获取。</para>
+    /// <para>- 传值时需大于 `start_time` 值。</para>
     /// <para>示例值：1658731646425</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的分页的大小</para>
+    /// <para>分页大小，用于限制一次请求返回的数据条目数。</para>
     /// <para>示例值：20</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -29242,7 +29415,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7177216475677474820</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据人才 ID 获取人才详情，包含人才加入文件夹列表、标签、人才库、备注以及黑名单等信息。</para>
+    /// <para>根据人才 ID 获取人才详情，包含人才加入文件夹列表、标签、人才库、备注以及屏蔽名单等信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:talent</item>
     /// <item>hire:talent:readonly</item>
@@ -31670,6 +31843,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:employment.job_grade:write</item>
     /// <item>corehr:employment.job_level:read</item>
     /// <item>corehr:employment.job_level:write</item>
+    /// <item>corehr:employment.job:read</item>
     /// <item>corehr:job_change.employment_custom_field:read</item>
     /// <item>corehr:job_change.remark:read</item>
     /// <item>corehr:job_data.compensation_type:read</item>
@@ -32040,11 +32214,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【招聘】获取面试评价信息附件</para>
+    /// <para>【招聘】获取面试记录附件</para>
     /// <para>接口ID：7215583964449849372</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_record-attachment/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取面试评价信息附件，附件为 PDF 格式。</para>
+    /// <para>获取面试记录 PDF 附件，包含相关投递基本信息、面试评价信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:interview</item>
     /// <item>hire:interview:readonly</item>
@@ -32052,18 +32226,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="application_id">
     /// <para>必填：是</para>
-    /// <para>投递 ID</para>
+    /// <para>投递 ID，可通过[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)接口获取</para>
     /// <para>示例值：6949805467799537964</para>
     /// </param>
     /// <param name="interview_record_id">
     /// <para>必填：否</para>
-    /// <para>面试记录 ID</para>
+    /// <para>面试评价 ID，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口获取，若不填该参数，则会获取入参投递下所有的面试评价</para>
     /// <para>示例值：6969137186734393644</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="language">
     /// <para>必填：否</para>
-    /// <para>面试记录语言</para>
+    /// <para>面试评价语言，用于指定附件的语言</para>
     /// <para>示例值：1</para>
     /// <list type="bullet">
     /// <item>1：中文</item>
@@ -32365,7 +32539,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7218853190452428804</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_pool/search</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取人才库列表</para>
+    /// <para>获取人才库列表，可获取的信息包括人才库ID、人才库名称等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:talent_folder</item>
     /// <item>hire:talent_folder:readonly</item>
@@ -32385,7 +32559,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="id_list">
     /// <para>必填：否</para>
-    /// <para>人才库 ID List。如不填写，则返回所有人才库的信息。</para>
+    /// <para>人才库 ID 列表。用于过滤单页数据，即单页仅返回与该 ID 列表匹配的人才库数据。如不填写，则返回单页的全部数据。</para>
     /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/hire/v1/talent_pools/")]
@@ -32407,7 +32581,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="talent_pool_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>人才库 ID</para>
+    /// <para>人才库 ID，可通过接口 [获取人才库列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_pool/search) 获取</para>
     /// <para>示例值：6930815272790114325</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -33311,7 +33485,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7236665938900877340</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/onboard_status</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新人才的在职状态。仅适用于未通过招聘系统内的投递入职的候选人；通过该接口标记在职的候选人，仅可通过该接口标记离职</para>
+    /// <para>更新人才的在职状态，可进行的操作包括入职与离职</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 通过该接口对人才进行入职、离职操作后，人才详情与列表会对应展示已入职、已离职标签</para>
+    /// <para>- 已入职的人才不能进行入职操作，已离职的人才不能进行入职操作</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:talent</item>
     /// </list></para>
@@ -34578,7 +34755,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:person.national_id:write</item>
     /// <item>corehr:person.native_region:read</item>
     /// <item>corehr:person.native_region:write</item>
-    /// <item>corehr:person.passport_number:read</item>
     /// <item>corehr:person.personal_profile:read</item>
     /// <item>corehr:person.personal_profile:write</item>
     /// <item>corehr:person.phone:read</item>
@@ -37834,7 +38010,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7287514613653831708</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_record/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>批量获取面试评价详细信息。如面试结论、面试评价提交时间和面试官等信息。</para>
+    /// <para>批量获取面试评价详细信息，如面试结论、面试得分和面试官等信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:interview</item>
     /// <item>hire:interview:readonly</item>
@@ -37857,7 +38033,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="ids">
     /// <para>必填：否</para>
-    /// <para>面试评价 ID 列表，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)获取，使用该筛选项时不会分页</para>
+    /// <para>面试评价 ID 列表，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口获取，使用该筛选项时不会分页</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
@@ -39076,6 +39252,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
     /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以people_corehr_id来识别用户</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -39802,7 +39979,7 @@ public interface IFeishuTenantApi : IHttpApi
         [FormDataContent] FormDataFile file);
 
     /// <summary>
-    /// <para>【飞书应用引擎】拒绝人工任务</para>
+    /// <para>【飞书低代码平台】拒绝人工任务</para>
     /// <para>接口ID：7347562540447088641</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/approval_task/reject</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -39824,7 +40001,7 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] AppEngine.PostApaasV1ApprovalTasksByApprovalTaskIdRejectBodyDto dto);
 
     /// <summary>
-    /// <para>【飞书应用引擎】转交人工任务</para>
+    /// <para>【飞书低代码平台】转交人工任务</para>
     /// <para>接口ID：7347562540447105025</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/approval_task/transfer</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -39846,7 +40023,7 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] AppEngine.PostApaasV1ApprovalTasksByApprovalTaskIdTransferBodyDto dto);
 
     /// <summary>
-    /// <para>【飞书应用引擎】人工任务加签</para>
+    /// <para>【飞书低代码平台】人工任务加签</para>
     /// <para>接口ID：7347562540447121409</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/approval_task/add_assignee</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -39868,7 +40045,7 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] AppEngine.PostApaasV1ApprovalTasksByApprovalTaskIdAddAssigneeBodyDto dto);
 
     /// <summary>
-    /// <para>【飞书应用引擎】同意人工任务</para>
+    /// <para>【飞书低代码平台】同意人工任务</para>
     /// <para>接口ID：7347562540447137793</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/approval_task/agree</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -40288,7 +40465,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7358413940747862020</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/url_preview/batch_update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>主动更新 URL 预览，调用后会重新触发一次客户端拉取，需要回调服务返回更新后的数据。</para>
+    /// <para>该接口用于主动更新 [URL 预览](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/development-link-preview/link-preview-development-guide)，调用后会重新触发一次客户端拉取，需要回调服务返回更新后的数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:url_preview.update</item>
     /// </list></para>
@@ -41249,7 +41426,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string application_id);
 
     /// <summary>
-    /// <para>【飞书应用引擎】执行函数</para>
+    /// <para>【飞书低代码平台】执行函数</para>
     /// <para>接口ID：7385474062586281986</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-function/invoke</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -41278,7 +41455,7 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceFunctionsByFunctionApiNameInvokeBodyDto dto);
 
     /// <summary>
-    /// <para>【飞书应用引擎】查询环境变量列表</para>
+    /// <para>【飞书低代码平台】查询环境变量列表</para>
     /// <para>接口ID：7385474062586298370</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-environment_variable/query</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -41300,7 +41477,7 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceEnvironmentVariablesQueryBodyDto dto);
 
     /// <summary>
-    /// <para>【飞书应用引擎】查询环境变量详情</para>
+    /// <para>【飞书低代码平台】查询环境变量详情</para>
     /// <para>接口ID：7385474062586314754</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-environment_variable/get</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -41645,5 +41822,46 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/board/v1/whiteboards/{whiteboard_id}/download_as_image")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImageAsync(
         [PathQuery] string whiteboard_id);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询指定生效日期的部门架构树</para>
+    /// <para>接口ID：7405851978397581314</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/tree</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>支持传入部门ID（不传默认根部门），任意日期（不传默认当前日期）。从给定部门ID开始广度遍历，每页最多返回2000行数据</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:department.organize:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：people_corehr_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：people_corehr_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/departments/tree")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2DepartmentsTreeResponseDto>> PostCorehrV2DepartmentsTreeAsync(
+        [JsonContent] Corehr.PostCorehrV2DepartmentsTreeBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? department_id_type = "people_corehr_department_id");
 }
 

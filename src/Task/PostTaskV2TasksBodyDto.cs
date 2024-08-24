@@ -548,7 +548,7 @@ public record PostTaskV2TasksBodyDto
     public record Reminder
     {
         /// <summary>
-        /// <para>相对于截止时间的提醒时间分钟数。例如30表示截止时间前30分钟提醒；0表示截止时提醒。</para>
+        /// <para>相对于截止时间的提醒时间分钟数，取值必须大于等于0（调用本接口只能设置截止日期前的提醒时间）。例如30表示截止时间前30分钟提醒；0表示截止时提醒。</para>
         /// <para>必填：是</para>
         /// <para>示例值：30</para>
         /// </summary>

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量查询员工假期余额 响应体
-/// <para>批量获取员工各个假期的余额数据。</para>
+/// <para>批量获取员工各个假期的余额数据。对应页面为假勤管理-休假管理-[假期报表](https://example.feishu.cn/people/workforce-management/manage/leave/leave_admin/balance)</para>
 /// <para>接口ID：7126729166647869443</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/leave/leave_balances</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fleave%2fleave_balances</para>
@@ -35,7 +35,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
     public record EmploymentLeaveBalance
     {
         /// <summary>
-        /// <para>雇佣信息ID</para>
+        /// <para>雇佣信息ID，对应user_id_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：4718803945687580505</para>
         /// </summary>
@@ -72,7 +72,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
         }
 
         /// <summary>
-        /// <para>截止日期，即查询截止到某天余额数据的日期</para>
+        /// <para>截止日期，即查询截止到某天余额数据的日期。格式为yyyy-MM-dd</para>
         /// <para>必填：是</para>
         /// <para>示例值：2022-07-29</para>
         /// </summary>
@@ -92,7 +92,11 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
         public record LeaveBalance
         {
             /// <summary>
-            /// <para>假期类型ID</para>
+            /// <para>假期类型ID，可用于</para>
+            /// <para>* [创建假期发放记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave_granting_record/create)</para>
+            /// <para>* [批量查询员工请假记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_request_history)</para>
+            /// <para>* [通过过期时间获取发放记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/leave_employ_expire_record/get)</para>
+            /// <para>* [修改发放记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/leave_accrual_record/patch)</para>
             /// <para>必填：是</para>
             /// <para>示例值：4718803945687580505</para>
             /// </summary>
@@ -129,7 +133,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
             }
 
             /// <summary>
-            /// <para>结转的历史周期授予时长</para>
+            /// <para>历史结转余额</para>
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
@@ -137,7 +141,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
             public string? HistoricalCyclesLeft { get; set; }
 
             /// <summary>
-            /// <para>本周期授予时长</para>
+            /// <para>当前周期发放</para>
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// </summary>
@@ -145,7 +149,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
             public string? ThisCycleTotal { get; set; }
 
             /// <summary>
-            /// <para>本周期已休时长</para>
+            /// <para>已休（归属当前周期）</para>
             /// <para>必填：是</para>
             /// <para>示例值：0</para>
             /// </summary>

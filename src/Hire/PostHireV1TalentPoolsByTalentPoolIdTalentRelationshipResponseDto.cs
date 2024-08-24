@@ -30,7 +30,7 @@ public record PostHireV1TalentPoolsByTalentPoolIdTalentRelationshipResponseDto
     public string? TalentPoolId { get; set; }
 
     /// <summary>
-    /// <para>人才 ID</para>
+    /// <para>人才 ID，详情请查看接口：[获取人才详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)</para>
     /// <para>必填：否</para>
     /// <para>示例值：6930815272790114324</para>
     /// </summary>
