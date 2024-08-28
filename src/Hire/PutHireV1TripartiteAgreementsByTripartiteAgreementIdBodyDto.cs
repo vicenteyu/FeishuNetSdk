@@ -43,7 +43,8 @@ public record PutHireV1TripartiteAgreementsByTripartiteAgreementIdBodyDto
     public int State { get; set; }
 
     /// <summary>
-    /// <para>三方协议修改时间，毫秒时间戳，不可小于创建时间或者当前修改时间</para>
+    /// <para>三方协议修改时间，毫秒时间戳</para>
+    /// <para>**注意**：不可小于创建时间或者上次修改时间</para>
     /// <para>必填：是</para>
     /// <para>示例值：1698292282661</para>
     /// </summary>

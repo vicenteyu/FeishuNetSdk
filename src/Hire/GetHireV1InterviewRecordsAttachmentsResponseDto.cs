@@ -58,7 +58,8 @@ public record GetHireV1InterviewRecordsAttachmentsResponseDto
         public string? Name { get; set; }
 
         /// <summary>
-        /// <para>附件媒体类型/MIME</para>
+        /// <para>附件媒体类型/[MIME](https://baike.baidu.com/item/MIME/2900607?fr=ge_ala#2)</para>
+        /// <para>**说明**：该接口固定返回 `application/pdf`</para>
         /// <para>必填：否</para>
         /// <para>示例值：application/pdf</para>
         /// </summary>

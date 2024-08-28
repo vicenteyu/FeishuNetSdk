@@ -9,11 +9,11 @@
 // <copyright file="PostHireV1WebsitesByWebsiteIdJobPostsSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>搜索招聘官网下的职位列表 请求体</summary>
+// <summary>搜索招聘官网下的职位广告列表 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 搜索招聘官网下的职位列表 请求体
+/// 搜索招聘官网下的职位广告列表 请求体
 /// <para>搜索招聘官网下的职位列表。</para>
 /// <para>接口ID：7021042393814450179</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/website/search</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1WebsitesByWebsiteIdJobPostsSearchBodyDto
 {
     /// <summary>
-    /// <para>职位类型列表，详情请参考：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)</para>
+    /// <para>职位类别列表，详情请参考：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)</para>
     /// <para>必填：否</para>
     /// <para>示例值：6916472453069883661</para>
     /// <para>最大长度：100</para>

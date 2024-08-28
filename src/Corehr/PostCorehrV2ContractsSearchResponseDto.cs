@@ -132,7 +132,7 @@ public record PostCorehrV2ContractsSearchResponseDto
         public string? FirstPartyCompanyId { get; set; }
 
         /// <summary>
-        /// <para>合同签约人员ID，详细信息可通过[【查询个人信息接口】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/get)接口查询获得</para>
+        /// <para>合同签约员工ID，详细信息可通过接口文档[【批量查询员工信息接口】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：7088589447189022252</para>
         /// </summary>

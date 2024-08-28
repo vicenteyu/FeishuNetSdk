@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 搜索成本中心信息 请求体
-/// <para>查询成本中心信息</para>
+/// <para>搜索成本中心信息；支持通过成本中心ID，成本中心名称，成本中心编码，成本中心上级搜索成本中心的信息，有分页功能。</para>
 /// <para>接口ID：7225452763517075459</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/cost_center/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fcost_center%2fsearch</para>

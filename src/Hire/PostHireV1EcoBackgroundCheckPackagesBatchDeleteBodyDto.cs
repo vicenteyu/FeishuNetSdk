@@ -24,7 +24,7 @@ public record PostHireV1EcoBackgroundCheckPackagesBatchDeleteBodyDto
     /// <summary>
     /// <para>背调账号 ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取</para>
     /// <para>必填：是</para>
-    /// <para>示例值：xd_bc_001</para>
+    /// <para>示例值：6995842370159937061</para>
     /// </summary>
     [JsonPropertyName("account_id")]
     public string AccountId { get; set; } = string.Empty;

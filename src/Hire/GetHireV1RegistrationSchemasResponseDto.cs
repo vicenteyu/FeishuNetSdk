@@ -9,12 +9,12 @@
 // <copyright file="GetHireV1RegistrationSchemasResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取信息登记表模板列表 响应体</summary>
+// <summary>获取信息登记表列表 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 获取信息登记表模板列表 响应体
-/// <para>获取信息登记表模板列表</para>
+/// 获取信息登记表列表 响应体
+/// <para>根据适用场景获取信息登记表列表，可获取到的信息包括登记表名称、登记表模块、登记表字段等</para>
 /// <para>接口ID：7259225956346232860</para>
 /// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/registration_schema/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fregistration_schema%2flist</para>
@@ -34,7 +34,7 @@ public record GetHireV1RegistrationSchemasResponseDto
     public record RegistrationSchema
     {
         /// <summary>
-        /// <para>信息登记表模板 ID</para>
+        /// <para>信息登记表 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：7044739584859326764</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record GetHireV1RegistrationSchemasResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>信息登记表模板名称</para>
+        /// <para>信息登记表名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：默认信息登记表</para>
         /// </summary>
@@ -89,17 +89,17 @@ public record GetHireV1RegistrationSchemasResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：测试</para>
+                /// <para>示例值：简历</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：test</para>
+                /// <para>示例值：Resume</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -125,7 +125,7 @@ public record GetHireV1RegistrationSchemasResponseDto
             public record CommonSchemaSetting
             {
                 /// <summary>
-                /// <para>字段类型</para>
+                /// <para>字段类型，在模块信息中该字段将固定返回`11`</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// <para>可选值：<list type="bullet">
@@ -159,21 +159,21 @@ public record GetHireV1RegistrationSchemasResponseDto
                 public record CommonSchemaConfig
                 {
                     /// <summary>
-                    /// <para>选项信息</para>
+                    /// <para>选项信息，仅在类型`object_type`为单选、多选时有值</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("options")]
                     public CommonSchemaOption[]? Options { get; set; }
 
                     /// <summary>
-                    /// <para>选项信息</para>
+                    /// <para>选项信息，仅在类型`object_type`为单选、多选时有值</para>
                     /// </summary>
                     public record CommonSchemaOption
                     {
                         /// <summary>
                         /// <para>选项 ID</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：test</para>
+                        /// <para>示例值：1</para>
                         /// </summary>
                         [JsonPropertyName("key")]
                         public string? Key { get; set; }
@@ -191,17 +191,17 @@ public record GetHireV1RegistrationSchemasResponseDto
                         public record I18n
                         {
                             /// <summary>
-                            /// <para>中文</para>
+                            /// <para>中文名称</para>
                             /// <para>必填：否</para>
-                            /// <para>示例值：测试</para>
+                            /// <para>示例值：模块选项</para>
                             /// </summary>
                             [JsonPropertyName("zh_cn")]
                             public string? ZhCn { get; set; }
 
                             /// <summary>
-                            /// <para>英文</para>
+                            /// <para>英文名称</para>
                             /// <para>必填：否</para>
-                            /// <para>示例值：test</para>
+                            /// <para>示例值：module option</para>
                             /// </summary>
                             [JsonPropertyName("en_us")]
                             public string? EnUs { get; set; }
@@ -230,7 +230,9 @@ public record GetHireV1RegistrationSchemasResponseDto
             }
 
             /// <summary>
-            /// <para>是否是自定义模块</para>
+            /// <para>是否是自定义模块：</para>
+            /// <para>- `true`：自定义模块</para>
+            /// <para>- `false`：系统预置模块</para>
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
@@ -238,7 +240,9 @@ public record GetHireV1RegistrationSchemasResponseDto
             public bool? IsCustomized { get; set; }
 
             /// <summary>
-            /// <para>是否必填</para>
+            /// <para>是否必填：</para>
+            /// <para>- `true`：必填</para>
+            /// <para>- `false`：非必填</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
@@ -246,7 +250,9 @@ public record GetHireV1RegistrationSchemasResponseDto
             public bool? IsRequired { get; set; }
 
             /// <summary>
-            /// <para>是否可见</para>
+            /// <para>是否可见：</para>
+            /// <para>- `true`：可见</para>
+            /// <para>- `false`：不可见</para>
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
@@ -298,17 +304,17 @@ public record GetHireV1RegistrationSchemasResponseDto
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>中文</para>
+                    /// <para>中文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：测试</para>
+                    /// <para>示例值：简历自定义字段</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
-                    /// <para>英文</para>
+                    /// <para>英文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：test</para>
+                    /// <para>示例值：resume custom field</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -368,21 +374,21 @@ public record GetHireV1RegistrationSchemasResponseDto
                     public record CommonSchemaConfig
                     {
                         /// <summary>
-                        /// <para>选项信息</para>
+                        /// <para>选项信息，仅在字段类型object_type为单选、多选时有值</para>
                         /// <para>必填：否</para>
                         /// </summary>
                         [JsonPropertyName("options")]
                         public CommonSchemaOption[]? Options { get; set; }
 
                         /// <summary>
-                        /// <para>选项信息</para>
+                        /// <para>选项信息，仅在字段类型object_type为单选、多选时有值</para>
                         /// </summary>
                         public record CommonSchemaOption
                         {
                             /// <summary>
                             /// <para>选项 ID</para>
                             /// <para>必填：否</para>
-                            /// <para>示例值：test</para>
+                            /// <para>示例值：1</para>
                             /// </summary>
                             [JsonPropertyName("key")]
                             public string? Key { get; set; }
@@ -400,17 +406,17 @@ public record GetHireV1RegistrationSchemasResponseDto
                             public record I18n
                             {
                                 /// <summary>
-                                /// <para>中文</para>
+                                /// <para>中文名称</para>
                                 /// <para>必填：否</para>
-                                /// <para>示例值：测试</para>
+                                /// <para>示例值：字段选项</para>
                                 /// </summary>
                                 [JsonPropertyName("zh_cn")]
                                 public string? ZhCn { get; set; }
 
                                 /// <summary>
-                                /// <para>英文</para>
+                                /// <para>英文名称</para>
                                 /// <para>必填：否</para>
-                                /// <para>示例值：test</para>
+                                /// <para>示例值：option for field</para>
                                 /// </summary>
                                 [JsonPropertyName("en_us")]
                                 public string? EnUs { get; set; }
@@ -439,7 +445,7 @@ public record GetHireV1RegistrationSchemasResponseDto
                 }
 
                 /// <summary>
-                /// <para>所属模块 ID</para>
+                /// <para>所属模块 ID，即外层的object.id</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6949805467799537964</para>
                 /// </summary>
@@ -447,7 +453,9 @@ public record GetHireV1RegistrationSchemasResponseDto
                 public string? ParentId { get; set; }
 
                 /// <summary>
-                /// <para>是否是自定义字段</para>
+                /// <para>是否是自定义字段：</para>
+                /// <para>- `true`：自定义字段</para>
+                /// <para>- `false`：系统预置字段</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>
@@ -455,7 +463,9 @@ public record GetHireV1RegistrationSchemasResponseDto
                 public bool? IsCustomized { get; set; }
 
                 /// <summary>
-                /// <para>是否必填</para>
+                /// <para>是否必填：</para>
+                /// <para>- `true`：必填</para>
+                /// <para>- `false`：非必填</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
@@ -463,7 +473,9 @@ public record GetHireV1RegistrationSchemasResponseDto
                 public bool? IsRequired { get; set; }
 
                 /// <summary>
-                /// <para>是否可见</para>
+                /// <para>是否可见：</para>
+                /// <para>- `true`：可见</para>
+                /// <para>- `false`：不可见</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>

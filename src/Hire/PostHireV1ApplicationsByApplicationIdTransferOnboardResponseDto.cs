@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 操作候选人入职 响应体
-/// <para>根据投递 ID 操作候选人入职并创建员工。投递须处于「待入职」阶段，可通过「转移阶段」接口变更投递状态。</para>
+/// <para>根据投递 ID 操作候选人入职并创建员工。后续可通过接口进一步获取入职信息，详情参考：[通过员工 ID 获取入职信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get)</para>
 /// <para>接口ID：6964286393804800028</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/onboard/transfer_onboard</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fapplication%2ftransfer_onboard</para>

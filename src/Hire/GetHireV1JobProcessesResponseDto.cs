@@ -38,14 +38,14 @@ public record GetHireV1JobProcessesResponseDto
     public string? PageToken { get; set; }
 
     /// <summary>
-    /// <para>列表</para>
+    /// <para>流程列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public JobProcesses[]? Items { get; set; }
 
     /// <summary>
-    /// <para>列表</para>
+    /// <para>流程列表</para>
     /// </summary>
     public record JobProcesses
     {

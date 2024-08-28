@@ -160,7 +160,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
         public record JobDepartment
         {
             /// <summary>
-            /// <para>部门 ID，与入参中的`department_id_type`类型一致，详情请查看：[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/list)</para>
+            /// <para>部门 ID，与入参中的`department_id_type`类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：7281257045172308287</para>
             /// </summary>
@@ -758,7 +758,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
         public long? ExpiryTime { get; set; }
 
         /// <summary>
-        /// <para>最低薪资，单位：千</para>
+        /// <para>最低薪资，单位：K</para>
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// </summary>
@@ -766,7 +766,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
         public int? MinSalary { get; set; }
 
         /// <summary>
-        /// <para>最高薪资，单位：千</para>
+        /// <para>最高薪资，单位：K</para>
         /// <para>必填：否</para>
         /// <para>示例值：20</para>
         /// </summary>

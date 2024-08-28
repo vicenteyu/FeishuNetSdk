@@ -707,7 +707,7 @@
 <tr><td colspan="3">PostTaskV2CustomFieldsByCustomFieldGuidOptions</td></tr>
 <tr><td rowspan="2">354</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>任务</td><td>更新自定义字段选项</td></tr>
 <tr><td colspan="3">PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuid</td></tr>
-<tr><td rowspan="2">355</td><td rowspan="2">2024-08-15</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
+<tr><td rowspan="2">355</td><td rowspan="2">2024-08-28</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxes</td></tr>
 <tr><td rowspan="2">356</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>搜索</td><td>搜索消息</td></tr>
 <tr><td colspan="3">PostSearchV2Message</td></tr>
@@ -1015,7 +1015,7 @@
 <tr><td colspan="3">PostAilyV1Sessions</td></tr>
 <tr><td rowspan="2">508</td><td rowspan="2">2024-08-22</td><td>&#10003;</td><td>薪酬管理</td><td>批量查询员工薪资档案</td></tr>
 <tr><td colspan="3">PostCompensationV1ArchivesQuery</td></tr>
-<tr><td rowspan="2">509</td><td rowspan="2">2024-07-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
+<tr><td rowspan="2">509</td><td rowspan="2">2024-08-26</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
 <tr><td colspan="3">PostCorehrV2Employees</td></tr>
 <tr><td rowspan="2">510</td><td rowspan="2">2024-07-10</td><td><span style="color:red;">删除</span></td><td>绩效</td><td>获取指标库信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricLibsQuery</td></tr>

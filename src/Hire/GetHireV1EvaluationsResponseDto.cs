@@ -9,12 +9,12 @@
 // <copyright file="GetHireV1EvaluationsResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取简历评估信息 响应体</summary>
+// <summary>批量获取简历评估信息 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 获取简历评估信息 响应体
-/// <para>获取简历评估信息，包含评估人、评估结论、评估详情等信息。支持按照投递 ID、更新时间来进行筛选。</para>
+/// 批量获取简历评估信息 响应体
+/// <para>批量获取简历评估信息，包含评估人、评估结论、评估详情等信息。支持按照投递 ID、更新时间来进行筛选。</para>
 /// <para>接口ID：7062626037662892033</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/evaluation/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fevaluation%2flist</para>
@@ -122,7 +122,7 @@ public record GetHireV1EvaluationsResponseDto
         public string? Content { get; set; }
 
         /// <summary>
-        /// <para>面试评估创建时间，毫秒时间戳</para>
+        /// <para>简历评估创建时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1600843767338</para>
         /// </summary>
@@ -130,7 +130,7 @@ public record GetHireV1EvaluationsResponseDto
         public string? CreateTime { get; set; }
 
         /// <summary>
-        /// <para>面试评估更新时间，毫秒时间戳</para>
+        /// <para>简历评估更新时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1600843937733</para>
         /// </summary>

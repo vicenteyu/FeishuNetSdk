@@ -61,6 +61,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
 
     /// <summary>
     /// <para>自定义字段</para>
+    /// <para>- 注意：更新时会全量覆盖</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("customized_data_list")]
@@ -68,11 +69,12 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
 
     /// <summary>
     /// <para>自定义字段</para>
+    /// <para>- 注意：更新时会全量覆盖</para>
     /// </summary>
     public record CombinedJobObjectValueMap
     {
         /// <summary>
-        /// <para>自定义字段 ID，详情请查看：[获取职位模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_schema/list)</para>
+        /// <para>自定义字段 ID，可通过[获取职位模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_schema/list)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：6960663240925956549</para>
         /// </summary>
@@ -89,7 +91,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     }
 
     /// <summary>
-    /// <para>最低职级 ID，需与入参`job_level_id_type` 类型一致，可通过 [获取租户职级列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list) 接口获取</para>
+    /// <para>最低职级 ID，需与入参`job_level_id_type` 类型一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956547</para>
     /// </summary>
@@ -97,7 +99,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string? MinLevelId { get; set; }
 
     /// <summary>
-    /// <para>最低薪资，单位：千</para>
+    /// <para>最低薪资，单位：K</para>
     /// <para>必填：否</para>
     /// <para>示例值：1000</para>
     /// </summary>
@@ -182,7 +184,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string? JobFunctionId { get; set; }
 
     /// <summary>
-    /// <para>部门 ID，需与入参中的`department_id_type`类型一致，可通过[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/list)接口获取</para>
+    /// <para>部门 ID，需与入参中的`department_id_type`类型一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：od-b2fafdce6fc5800b574ba5b0e2798b36</para>
     /// </summary>
@@ -206,7 +208,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public bool IsNeverExpired { get; set; }
 
     /// <summary>
-    /// <para>最高薪资，单位：千</para>
+    /// <para>最高薪资，单位：K</para>
     /// <para>必填：否</para>
     /// <para>示例值：2000</para>
     /// </summary>
@@ -246,7 +248,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public string JobTypeId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>最高职级 ID，需与入参`job_level_id_type` 类型一致，可通过 [获取租户职级列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list) 接口获取</para>
+    /// <para>最高职级 ID，需与入参`job_level_id_type` 类型一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956548</para>
     /// </summary>
@@ -273,7 +275,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     public int? RequiredDegree { get; set; }
 
     /// <summary>
-    /// <para>序列 ID，需与入参`job_family_id_type` 类型一致，可通过 [获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list) 接口获取</para>
+    /// <para>序列 ID，需与入参`job_family_id_type` 类型一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956550</para>
     /// </summary>

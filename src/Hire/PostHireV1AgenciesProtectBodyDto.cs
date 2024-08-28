@@ -46,7 +46,7 @@ public record PostHireV1AgenciesProtectBodyDto
     public string ConsultantId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>保护期创建时间，毫秒时间戳</para>
+    /// <para>保护期创建时间（int64类型），毫秒时间戳</para>
     /// <para>必填：是</para>
     /// <para>示例值：1610695587000</para>
     /// </summary>
@@ -54,7 +54,7 @@ public record PostHireV1AgenciesProtectBodyDto
     public long ProtectCreateTime { get; set; }
 
     /// <summary>
-    /// <para>保护期过期时间，毫秒时间戳</para>
+    /// <para>保护期过期时间（int64类型），毫秒时间戳</para>
     /// <para>必填：是</para>
     /// <para>示例值：1626333987000</para>
     /// </summary>

@@ -42,7 +42,7 @@ public record PostAttendanceV1UserSettingsModifyResponseDto
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>人脸照片文件 ID，获取方式：[文件上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)</para>
+        /// <para>人脸照片文件 ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：xxxxxb306842b1c189bc5212eefxxxxx</para>
         /// </summary>

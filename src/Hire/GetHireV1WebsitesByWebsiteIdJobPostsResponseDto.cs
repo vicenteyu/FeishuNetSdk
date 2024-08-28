@@ -9,11 +9,11 @@
 // <copyright file="GetHireV1WebsitesByWebsiteIdJobPostsResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取招聘官网下的职位列表 响应体</summary>
+// <summary>获取招聘官网下的职位广告列表 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 获取招聘官网下的职位列表 响应体
+/// 获取招聘官网下的职位广告列表 响应体
 /// <para>获取招聘官网下的职位信息列表。</para>
 /// <para>## 注意事项</para>
 /// <para>该接口暂不支持获取自定义数据。你可使用「获取招聘官网下职位广告详情」接口获取。</para>

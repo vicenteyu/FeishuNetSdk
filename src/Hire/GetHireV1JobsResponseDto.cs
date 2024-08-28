@@ -151,7 +151,7 @@ public record GetHireV1JobsResponseDto
         public record JobDepartment
         {
             /// <summary>
-            /// <para>部门 ID，与入参中的`department_id_type`类型一致，详情请查看：[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/list)</para>
+            /// <para>部门 ID，与入参中的`department_id_type`类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：od-xxxx</para>
             /// </summary>
@@ -225,7 +225,7 @@ public record GetHireV1JobsResponseDto
         public record JobLevel
         {
             /// <summary>
-            /// <para>职级 ID，与入参`job_level_id_type` 类型一致，详情请查看：[获取租户职级列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list)</para>
+            /// <para>职级 ID，与入参`job_level_id_type` 类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：7379609334215919883</para>
             /// </summary>
@@ -318,7 +318,7 @@ public record GetHireV1JobsResponseDto
         public record JobJobCategory
         {
             /// <summary>
-            /// <para>职位序列 ID，与入参`job_family_id_type` 类型一致，详情请查看：[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)</para>
+            /// <para>职位序列 ID，与入参`job_family_id_type` 类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：7379609334215919883</para>
             /// </summary>
@@ -555,7 +555,7 @@ public record GetHireV1JobsResponseDto
         public long? ExpiryTime { get; set; }
 
         /// <summary>
-        /// <para>最低薪资，单位：千</para>
+        /// <para>最低薪资，单位：K</para>
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// </summary>
@@ -563,7 +563,7 @@ public record GetHireV1JobsResponseDto
         public int? MinSalary { get; set; }
 
         /// <summary>
-        /// <para>最高薪资，单位：千</para>
+        /// <para>最高薪资，单位：K</para>
         /// <para>必填：否</para>
         /// <para>示例值：20</para>
         /// </summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-24
+// Last Modified On : 2024-08-28
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -9492,11 +9492,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? employee_type_id_type = "people_admin_employee_type_id");
 
     /// <summary>
-    /// <para>【招聘】更新入职状态</para>
+    /// <para>【招聘】更新员工状态</para>
     /// <para>接口ID：6959374328975900674</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/patch</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据员工 ID 更新员工转正、离职状态。</para>
+    /// <para>根据员工 ID 更新员工招聘系统内的转正、离职状态。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:employee</item>
     /// </list></para>
@@ -9507,8 +9507,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="employee_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>员工ID</para>
-    /// <para>示例值：123</para>
+    /// <para>员工ID，请参考：[通过投递 ID 获取入职信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get_by_application)</para>
+    /// <para>示例值：6891613503971461384</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
@@ -9523,11 +9523,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
     /// <para>示例值：department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>open_department_id：以 open_department_id 来标识部门 由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
     /// <item>people_admin_department_id：以 people_admin_department_id 来标识部门</item>
     /// </list>
     /// <para>默认值：people_admin_department_id</para>
@@ -9538,7 +9538,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：6942778198054125570</para>
     /// <list type="bullet">
     /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
-    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过[「获取租户职级列表」](https://open.feishu.cn/document/server-docs/contact-v3/job_level/list)接口获取</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过 [获取租户职级列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list) 接口获取</item>
     /// </list>
     /// <para>默认值：people_admin_job_level_id</para>
     /// </param>
@@ -9548,7 +9548,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：6942778198054125571</para>
     /// <list type="bullet">
     /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
-    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过[「获取租户序列列表」](https://open.feishu.cn/document/server-docs/contact-v3/job_family/list)接口获取</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过 [获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list) 接口获取</item>
     /// </list>
     /// <para>默认值：people_admin_job_category_id</para>
     /// </param>
@@ -9558,7 +9558,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：1</para>
     /// <list type="bullet">
     /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
-    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过[「查询人员类型」](https://open.feishu.cn/document/server-docs/contact-v3/employee_type_enum/list)接口获取</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过 [查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)接口获取</item>
     /// </list>
     /// <para>默认值：people_admin_employee_type_id</para>
     /// </param>
@@ -10387,7 +10387,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6964286393804800028</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/transfer_onboard</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据投递 ID 操作候选人入职并创建员工。投递须处于「待入职」阶段，可通过「转移阶段」接口变更投递状态。</para>
+    /// <para>根据投递 ID 操作候选人入职并创建员工。后续可通过接口进一步获取入职信息，详情参考：[通过员工 ID 获取入职信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:application</item>
     /// </list></para>
@@ -10398,7 +10398,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="application_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>投递ID</para>
+    /// <para>投递ID，可通过接口 [获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list) 获取</para>
     /// <para>示例值：7073372582620416300</para>
     /// </param>
     /// <param name="user_id_type">
@@ -10680,7 +10680,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="attachment_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>附件 ID，可通过[获取人才信息 V1](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口获取人才的简历附件 ID/作品附件 ID/通用附件 ID。</para>
+    /// <para>附件 ID，获取方式如下：</para>
+    /// <para>- 简历附件 ID/作品附件 ID：通过[获取人才信息 V1](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口获取</para>
+    /// <para>- 通用附件 ID：通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment) 接口获取</para>
     /// <para>示例值：6960663240925956555</para>
     /// </param>
     /// <param name="type">
@@ -10690,7 +10692,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <list type="bullet">
     /// <item>1：简历附件，人才上的简历附件。</item>
     /// <item>2：作品附件，人才上的作品附件。</item>
-    /// <item>3：通用附件，通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment) 接口创建的附件，或者业务接口中返回的非`简历附件`和`作品附件`类型的附件，如「自定义字段附件」、「Offer 附件」等。</item>
+    /// <item>3：通用附件，通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment) 接口创建的附件。</item>
     /// </list>
     /// <para>默认值：1</para>
     /// </param>
@@ -13607,11 +13609,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
     /// <para>示例值：department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 od-，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -13761,11 +13763,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 类型。</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
     /// <para>示例值："open_department_id"</para>
     /// <list type="bullet">
-    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同</item>
-    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 od-，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -13819,7 +13821,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6989078472837234691</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取招聘需求模板列表，包含需求模板ID，以及模板里的字段定义等。</para>
+    /// <para>获取招聘需求模板列表，包含需求模板ID，以及模板里的字段定义等。招聘需求模板可参考「飞书招聘」-「设置」-「招聘需求字段管理」。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:job_requirement</item>
     /// <item>hire:job_requirement:readonly</item>
@@ -13847,7 +13849,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6989078472837251075</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_schema/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取社招、校招职位模板中的职位字段，包括系统默认字段和自定义字段。</para>
+    /// <para>获取社招、校招职位模板中的职位字段，返回结果包括系统默认字段和自定义字段。招聘管理员可在「飞书招聘」-「设置」-「职位管理」-「职位字段管理」中修改职位模板。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:job:readonly</item>
     /// </list></para>
@@ -13855,13 +13857,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="page_token">
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>示例值：1231231987</para>
+    /// <para>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE3MjQ2NTQ0OTc2OTd9</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
     /// <para>分页大小</para>
-    /// <para>示例值：100</para>
+    /// <para>**默认值**：10</para>
+    /// <para>**数据校验规则**：</para>
+    /// <para>* 最大值：100</para>
+    /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
     /// <param name="scenario">
@@ -13988,11 +13993,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 od-，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -14627,7 +14632,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? job_level_id_type = "people_admin_job_level_id");
 
     /// <summary>
-    /// <para>【招聘】获取招聘官网下的职位列表</para>
+    /// <para>【招聘】获取招聘官网下的职位广告列表</para>
     /// <para>接口ID：6990661791098667011</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/list</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -14672,11 +14677,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 类型。</para>
-    /// <para>示例值："department_id_type"</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
+    /// <para>示例值："department_id"</para>
     /// <list type="bullet">
-    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同</item>
-    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 od-，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -14843,7 +14848,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6992822583076339715</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_interview/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>导入来自其他系统的面试信息，创建为外部面试。</para>
+    /// <para>创建外部面试，可用于导入来自其他系统的面试信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:external_application</item>
     /// </list></para>
@@ -15677,11 +15682,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
     /// <para>示例值：department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 od-，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -16214,7 +16219,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7012986483075481601</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/combined_create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>创建一个新的职位</para>
+    /// <para>创建一个新的职位。</para>
     /// <para>## 注意事项</para>
     /// <para>- 调用此接口前，需先打开「飞书招聘」-「设置」-「职位管理」-「职位设置」-「通过API同步职位开关」开关。</para>
     /// <para>- 字段是否必填，将以「飞书招聘」-「设置」-「职位管理」-「职位字段管理」中的设置为准。</para>
@@ -16238,11 +16243,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID， ID前缀固定为 `od-`，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内，department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -16311,11 +16316,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID， ID前缀固定为 `od-`，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内，department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -16374,7 +16379,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7012986483075530753</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/open</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>支持开启职位。</para>
+    /// <para>对于已关闭的职位，可通过本接口重启职位。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:job</item>
     /// </list></para>
@@ -16382,7 +16387,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="job_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>职位 ID</para>
+    /// <para>职位 ID，可通过[获取职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/list)获取</para>
     /// <para>示例值：6960663240925956555</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -17152,7 +17157,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017694651622113284</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据 ID 查询单个地点。</para>
+    /// <para>该接口用于根据地点 ID查询地点信息，信息包含地点名称、描述、地点用途、工时制度、区域设置、时区以及关联的地址信息等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
@@ -17163,7 +17168,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="location_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>地点 ID</para>
+    /// <para>地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。</para>
     /// <para>示例值：1215</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/locations/{location_id}")]
@@ -17320,11 +17325,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string contract_id);
 
     /// <summary>
-    /// <para>【飞书人事】创建合同</para>
+    /// <para>【飞书人事】新建合同</para>
     /// <para>接口ID：7017707615190876163</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/contract/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过本接口可以为员工创建合同</para>
+    /// <para>通过本接口可以为员工创建一份新合同</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// </list></para>
@@ -17602,11 +17607,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? department_id_type = "people_corehr_department_id");
 
     /// <summary>
-    /// <para>【飞书人事】批量查询地点</para>
+    /// <para>【飞书人事】批量分页查询地点信息</para>
     /// <para>接口ID：7017707615190990851</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>批量查询地点。</para>
+    /// <para>该接口用于批量查询地点信息，信息包含地点名称、描述、地点用途、工时制度、区域设置、时区以及关联的地址信息等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
@@ -18063,7 +18068,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
-    /// <para>【招聘】搜索招聘官网下的职位列表</para>
+    /// <para>【招聘】搜索招聘官网下的职位广告列表</para>
     /// <para>接口ID：7021042393814450179</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/search</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -18106,11 +18111,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 类型。</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
     /// <para>示例值："department_id"</para>
     /// <list type="bullet">
-    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同</item>
-    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 od-，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -19153,11 +19158,14 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【招聘】更新人才信息</para>
+    /// <para>【招聘】更新人才</para>
     /// <para>接口ID：7034053347989487644</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/combined_update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>用于在企业内更新一个人才。姓名为系统预设的必填字段，邮箱/电话字段请在飞书招聘标准简历模板设置中确认是否必填。可配合「获取人才字段接口」获取自定义字段信息。</para>
+    /// <para>用于在企业内更新一个人才。支持自定义字段数据，可配合[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
+    /// <para>接口获取自定义字段信息使用。</para>
+    /// <para>## 注意事项</para>
+    /// <para>请求参数中邮箱/电话字段请在「飞书招聘」-「设置」-「候选人信息管理」-「标准简历设置」中确认是否必填。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:talent</item>
     /// </list></para>
@@ -19792,6 +19800,77 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
+    /// <para>【招聘】获取用户角色列表</para>
+    /// <para>接口ID：7044464966434390044</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/user_role/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>切到新版权限系统后，可通过该接口获取用户角色列表，基于用户ID、角色ID等条件进行筛选，并通过page_size与page_token进行分页。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:auth</item>
+    /// <item>hire:auth:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>每页获取记录数量</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="user_id">
+    /// <para>必填：否</para>
+    /// <para>用户 ID，与入参 `user_id_type` 类型一致</para>
+    /// <para>示例值：7326856229396906012</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="role_id">
+    /// <para>必填：否</para>
+    /// <para>角色 ID，可通过接口 [获取角色列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/list) 获取</para>
+    /// <para>示例值：101</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="update_start_time">
+    /// <para>必填：否</para>
+    /// <para>最早更新时间，毫秒时间戳</para>
+    /// <para>示例值：1618500278663</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="update_end_time">
+    /// <para>必填：否</para>
+    /// <para>最晚更新时间，毫秒时间戳</para>
+    /// <para>示例值：1618500278663</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/hire/v1/user_roles")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1UserRolesResponseDto>> GetHireV1UserRolesAsync(
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? user_id = null,
+        [PathQuery] string? role_id = null,
+        [PathQuery] string? update_start_time = null,
+        [PathQuery] string? update_end_time = null,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
     /// <para>【招聘】获取角色列表</para>
     /// <para>接口ID：7044465181343449090</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/list</para>
@@ -20337,7 +20416,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773699585</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过班次 ID 删除班次。对应设置-假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)操作列的删除功能</para>
+    /// <para>通过考勤组 ID 删除考勤组。对应设置-假勤设置-[考勤组](https://example.feishu.cn/people/workforce-management/setting/group/list)操作列的删除功能</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:rule</item>
     /// </list></para>
@@ -20973,11 +21052,11 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Mail.PostMailV1UsersQueryBodyDto dto);
 
     /// <summary>
-    /// <para>【招聘】获取简历评估信息</para>
+    /// <para>【招聘】批量获取简历评估信息</para>
     /// <para>接口ID：7062626037662892033</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/evaluation/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取简历评估信息，包含评估人、评估结论、评估详情等信息。支持按照投递 ID、更新时间来进行筛选。</para>
+    /// <para>批量获取简历评估信息，包含评估人、评估结论、评估详情等信息。支持按照投递 ID、更新时间来进行筛选。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:evaluation:readonly</item>
     /// </list></para>
@@ -21037,11 +21116,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【招聘】获取面试登记表模板列表</para>
+    /// <para>【招聘】获取面试登记表列表</para>
     /// <para>接口ID：7063273947417247745</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_registration_schema/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取面试登记表模板列表。</para>
+    /// <para>获取面试登记表列表，可获取到的信息包括登记表名称、登记表模块、登记表字段</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:interview</item>
     /// <item>hire:interview:readonly</item>
@@ -21881,7 +21960,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7072646788637556737</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除地点。</para>
+    /// <para>删除地点信息</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:locations:write</item>
@@ -27243,11 +27322,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【招聘】通过手机号或邮箱获取人才 ID</para>
+    /// <para>【招聘】批量获取人才简要信息</para>
     /// <para>接口ID：7125370772851458076</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过手机号或邮箱获取人才 ID。</para>
+    /// <para>批量获取人才简要信息，包括人才 ID、手机号、邮箱、证件号等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:talent</item>
     /// <item>hire:talent:readonly</item>
@@ -30984,11 +31063,11 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Hire.PostHireV1EcoAccountCustomFieldsBatchDeleteBodyDto dto);
 
     /// <summary>
-    /// <para>【招聘】推送试卷列表</para>
+    /// <para>【招聘】创建试卷列表</para>
     /// <para>接口ID：7195815976042561538</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>定制指定帐号可用的试卷列表</para>
+    /// <para>飞书招聘的笔试服务商，在完成[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)后，可通过本接口在客户的笔试帐号下创建试卷列表。若客户的笔试账号为「未激活」、「停用」状态，则试卷创建成功后，客户的账号将变为「正常」状态，可正常安排笔试。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:exam</item>
     /// </list></para>
@@ -30999,11 +31078,11 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Hire.PostHireV1EcoExamPapersBodyDto dto);
 
     /// <summary>
-    /// <para>【招聘】删除试卷</para>
+    /// <para>【招聘】删除试卷列表</para>
     /// <para>接口ID：7195815976042577922</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/batch_delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除指定帐号的指定试卷列表，删除不影响已创建的笔试，删除不存在的试卷时不会报错</para>
+    /// <para>飞书招聘的笔试服务商，可通过该接口删除客户笔试帐号下的试卷列表。删除操作不影响已安排的笔试，删除不存在的试卷时不会报错。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:exam</item>
     /// </list></para>
@@ -31033,7 +31112,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815979079401473</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam/login_info</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>回传笔试安排结果，如果安排成功需返回笔试链接和登录凭证</para>
+    /// <para>飞书招聘的笔试服务商，在收到[创建笔试](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam/events/created)事件并安排笔试后，应通过本接口</para>
+    /// <para>回传笔试安排结果。若安排成功，须返回笔试链接；若笔试链接需要登录鉴权，则须返回登录凭证（`username`，`password`)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:exam</item>
     /// <item>hire:exam:readonly</item>
@@ -31042,7 +31122,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="exam_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>exam id</para>
+    /// <para>笔试 ID。可通过[创建笔试](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam/events/created)事件获取</para>
     /// <para>示例值：7178536692385679677</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -31087,7 +31167,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7195815979079467009</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam/update_result</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>回传笔试结果。回传笔试结果后，若需更新笔试结果，可再次调用该接口更新笔试结果，更新后的数据将覆盖原数据。用户若已在飞书招聘完成阅卷，不再支持回传笔试结果。</para>
+    /// <para>飞书招聘的笔试服务商，可通过该接口回传候选人的笔试结果。回传笔试结果后，候选人在飞书招聘内的笔试状态将变为「已作答」。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:exam</item>
     /// <item>hire:exam:readonly</item>
@@ -31096,7 +31176,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="exam_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>exam id</para>
+    /// <para>笔试 ID，可通过[创建笔试](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam/events/created)事件获取</para>
     /// <para>示例值：7178536692385679677</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -31136,11 +31216,11 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Hire.PostHireV1EcoBackgroundChecksUpdateResultBodyDto dto);
 
     /// <summary>
-    /// <para>【招聘】更新试卷</para>
+    /// <para>【招聘】更新试卷列表</para>
     /// <para>接口ID：7195815979079532545</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/batch_update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新指定帐号可用的试卷列表</para>
+    /// <para>飞书招聘的笔试服务商，可通过该接口更新客户笔试账号下的试卷列表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:exam</item>
     /// </list></para>
@@ -31579,11 +31659,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 od-，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -31652,11 +31732,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 od-，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -32539,7 +32619,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7218853190452428804</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_pool/search</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取人才库列表，可获取的信息包括人才库ID、人才库名称等。</para>
+    /// <para>获取人才库列表，可获取的信息包括人才库 ID、人才库名称等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:talent_folder</item>
     /// <item>hire:talent_folder:readonly</item>
@@ -32573,7 +32653,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7218853190452445188</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_pool/move_talent</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>将人才加入人才库</para>
+    /// <para>将人才加入人才库。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:talent_folder</item>
     /// </list></para>
@@ -32617,11 +32697,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 类型。</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
     /// <para>示例值："open_department_id"</para>
     /// <list type="bullet">
-    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同</item>
-    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 od-，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -32963,7 +33043,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7225452763517075459</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>查询成本中心信息</para>
+    /// <para>搜索成本中心信息；支持通过成本中心ID，成本中心名称，成本中心编码，成本中心上级搜索成本中心的信息，有分页功能。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:cost_center:read</item>
     /// </list></para>
@@ -33171,11 +33251,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? client_token = null);
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】删除成本中心版本</para>
+    /// <para>【飞书人事（企业版）】撤销成本中心版本</para>
     /// <para>接口ID：7225452763517124611</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center-version/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>撤销成本中心版本</para>
+    /// <para>该接口支持通过成本中心的版本ID撤销成本中心版本信息</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:cost_center:write</item>
     /// </list></para>
@@ -33183,13 +33263,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="cost_center_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>成本中心ID</para>
+    /// <para>成本中心ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>
     /// <para>示例值：6862995757234914824</para>
     /// </param>
     /// <param name="version_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>版本ID</para>
+    /// <para>版本ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>
     /// <para>示例值：6862995757234914824</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -33204,7 +33284,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7225452763517140995</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>创建成本中心</para>
+    /// <para>单个创建成本中心；可定义成本中心的名称，父级成本中心，成本中心负责人，生效时间等</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:cost_center:write</item>
     /// </list></para>
@@ -33235,7 +33315,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7225452763517157379</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除成本中心</para>
+    /// <para>删除成本中心记录</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:cost_center:write</item>
     /// </list></para>
@@ -33243,7 +33323,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="cost_center_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>成本中心ID</para>
+    /// <para>成本中心ID；可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>
     /// <para>示例值：6862995757234914824</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -33291,11 +33371,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "people_corehr_id");
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】更新成本中心版本</para>
+    /// <para>【飞书人事（企业版）】更正成本中心版本</para>
     /// <para>接口ID：7225452763517190147</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center-version/patch</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更正成本中心版本</para>
+    /// <para>对成本中心的版本记录进行更正，可更正的字段包括：名称，上级成本中心，成本中心负责人列表，成本中心的描述，生效时间</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:cost_center:write</item>
     /// </list></para>
@@ -33306,13 +33386,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="cost_center_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>成本中心ID</para>
+    /// <para>成本中心ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>
     /// <para>示例值：6862995757234914824</para>
     /// </param>
     /// <param name="version_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>版本ID</para>
+    /// <para>版本ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>
     /// <para>示例值：6862995757234914824</para>
     /// </param>
     /// <param name="user_id_type">
@@ -33485,7 +33565,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7236665938900877340</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/onboard_status</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新人才的在职状态，可进行的操作包括入职与离职</para>
+    /// <para>更新人才的在职状态，可进行的操作包括入职与离职。</para>
     /// <para>## 注意事项</para>
     /// <para>- 通过该接口对人才进行入职、离职操作后，人才详情与列表会对应展示已入职、已离职标签</para>
     /// <para>- 已入职的人才不能进行入职操作，已离职的人才不能进行入职操作</para>
@@ -34554,7 +34634,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7252157701853167644</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过地点 ID 批量获取地点信息</para>
+    /// <para>该接口用于根据地点 ID批量查询地点信息，信息包含地点名称、描述、地点用途、工时制度、区域设置、时区以及关联的地址信息等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:locations:read</item>
     /// <item>corehr:locations:write</item>
@@ -36148,11 +36228,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
-    /// <para>【招聘】获取信息登记表模板列表</para>
+    /// <para>【招聘】获取信息登记表列表</para>
     /// <para>接口ID：7259225956346232860</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/registration_schema/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取信息登记表模板列表</para>
+    /// <para>根据适用场景获取信息登记表列表，可获取到的信息包括登记表名称、登记表模块、登记表字段等</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:talent</item>
     /// <item>hire:talent:readonly</item>
@@ -36172,7 +36252,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="scenario">
     /// <para>必填：否</para>
-    /// <para>登记表适用场景；请求不填，表示获取全部类型信息登记表</para>
+    /// <para>登记表适用场景；不填表示获取全部类型信息登记表</para>
     /// <para>示例值：5</para>
     /// <list type="bullet">
     /// <item>5：面试登记表</item>
@@ -37983,7 +38063,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7287407243900895234</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取职位类别列表，用于在操作职位/招聘需求时获取职位类别枚举，默认以创建时间升序排序，返回值中包含从属关系，可在获取全量数据后自行构建职位类别树，所有节点均可用于回填职位/招聘需求中的职位类别字段</para>
+    /// <para>获取招聘系统预置的职位类别列表，可用于操作职位（如[新建职位](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/combined_create)），操作招聘需求（如[创建招聘需求](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/create)）时回填职位类别字段。返回列表默认按创建时间升序排序，且包含节点的层级关系（节点的父节点 ID），可在获取全量数据后自行构建职位类别树。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:job:readonly</item>
     /// </list></para>
@@ -37991,6 +38071,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="page_size">
     /// <para>必填：否</para>
     /// <para>分页大小</para>
+    /// <para>**默认值**：10</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -38946,7 +39027,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7307160083569623043</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>在投递上创建三方协议。</para>
+    /// <para>在校招投递上创建三方协议。</para>
     /// <para>## 前提条件</para>
     /// <para>- 在「飞书招聘」-「设置」-「候选人流程管理」-「三方协议设置」中勾选了「通过 API 维护三方协议」。</para>
     /// <para>- 该投递为校招投递。</para>
@@ -38987,7 +39068,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7307160083569655811</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/protect_search</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>查询指定人才的猎头保护期列表，包含保护期起止时间，以及猎头供应商、猎头顾问信息等。若人才已经入职，还会返回入职时所在的保护期信息。</para>
+    /// <para>查询指定人才的猎头保护期信息列表，包含保护期起止时间、猎头供应商、猎头顾问信息等。若人才已经入职，还会返回入职时所在的保护期信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:agency</item>
     /// <item>hire:agency:readonly</item>
@@ -39069,7 +39150,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7307160083569704963</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral/search</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据人才查询内推信息列表，包含内推人信息、内推时间、投递ID等，按内推投递的`创建时间`从小到大排序返回。</para>
+    /// <para>根据人才查询内推信息列表，包含内推人信息、内推时间、投递 ID等，按内推投递的`创建时间`从小到大排序返回。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:referral</item>
     /// <item>hire:referral:readonly</item>
@@ -40100,7 +40181,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7350663854198161410</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>支持在单个接口中进行人员全信息添加，包括人员基本信息，雇佣信息，任职记录及其他分组信息</para>
+    /// <para>支持在单个接口中进行人员全信息添加，包括人员的基本信息，雇佣信息，入职任职记录及其他分组信息</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:employee.add:write</item>
     /// </list></para>
@@ -40136,6 +40217,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="ignore_working_hours_type_rule">
     /// <para>必填：否</para>
     /// <para>是否忽略工时制度自动生成规则</para>
+    /// <para>- 值为 false 时，以下字段必填：</para>
+    /// <para>- emp_contract_record.first_party</para>
+    /// <para>- employment_record.work_location</para>
+    /// <para>- employment_record.employee_type</para>
+    /// <para>- employment_record.job_family</para>
+    /// <para>- employment_record.job</para>
+    /// <para>- employment_record.job_level</para>
+    /// <para>- employment_record.department</para>
     /// <para>示例值：true</para>
     /// <para>默认值：false</para>
     /// </param>
@@ -40154,7 +40243,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7351241605105090564</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取角色详情信息，包括名称、描述、权限列表等（适用于新版权限，关于新旧权限主要差异：新权限体系中区分了校社招，并将权限点区分了功能权限、字段权限、数据权限）。</para>
+    /// <para>切到新版权限系统后，可通过此接口获取角色详情信息，包括名称、描述、权限列表等</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:auth</item>
     /// <item>hire:auth:readonly</item>
@@ -40492,7 +40581,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="external_referral_reward_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>外部内推奖励ID，同[导入外部内推奖励](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_referral_reward/create)接口的参数`external_id`</para>
+    /// <para>外部内推奖励ID，通过[导入外部内推奖励](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_referral_reward/create)生成</para>
     /// <para>示例值：6930815272790114324</para>
     /// </param>
     [HttpDelete("/open-apis/hire/v1/external_referral_rewards/{external_referral_reward_id}")]
@@ -40835,7 +40924,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7371009404255600644</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_informations-batch/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>可批量删除被评估人的补充信息。</para>
+    /// <para>批量删除被评估人的补充信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>performance:performance</item>
     /// <item>performance:semester_activity:write</item>
@@ -40851,7 +40940,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7371009404255617028</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/query</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>可批量查询被评估人的补充信息。</para>
+    /// <para>批量查询被评估人的补充信息，如补充信息的事项、时间以及具体描述等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>performance:performance</item>
     /// <item>performance:performance:readonly</item>
@@ -40882,7 +40971,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小 示例值：30 默认值：20 数据校验规则：最大值：50</para>
+    /// <para>分页大小</para>
     /// <para>示例值：30</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -40899,7 +40988,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7371009404255633412</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/import</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>可批量导入被评估人的补充信息作为评估参考（包括新增和更新场景）。</para>
+    /// <para>批量导入被评估人的补充信息作为绩效评估的参考，如补充信息的事项、时间以及具体描述等。该接口支持创建和更新补充信息。</para>
+    /// <para>## 注意事项</para>
+    /// <para>该接口执行创建或者更新的判断逻辑如下（按顺序判断）：</para>
+    /// <para>1. 若请求参数 `additional_informations` 中 `item_ids` 传入系统中已有的补充信息 ID 时，将更新对应的补充消息数据。</para>
+    /// <para>2. 若请求参数 `additional_informations` 中 `external_ids` 传入系统中已有的外部系统补充信息 ID 时，将更新对应的补充消息数据。</para>
+    /// <para>3. 若请求参数 `additional_informations` 中 `reviewee_user_id`、`item `、`time `、`detailed_description` 的参数组合在系统中已存在内容一致的补充消息时，将更新对应的补充消息数据。</para>
+    /// <para>4. 以上情况都不符合时，创建新的补充消息数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>performance:performance</item>
     /// <item>performance:semester_activity:write</item>
@@ -40910,7 +41005,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="client_token">
     /// <para>必填：是</para>
-    /// <para>根据 client_token 是否一致来判断是否为同一请求</para>
+    /// <para>根据 `client_token` 是否一致来判断是否为同一请求，同一请求多次调用将被拦截</para>
     /// <para>示例值：12454646</para>
     /// </param>
     /// <param name="user_id_type">
@@ -41090,6 +41185,117 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "people_corehr_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id");
+
+    /// <summary>
+    /// <para>【招聘】查询面试官信息列表</para>
+    /// <para>接口ID：7372229724359835649</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interviewer/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>分页查询面试官列表，接口只会返回执行过「更新面试官信息」用户的数据，通过接口查询不到的数据则默认为「未认证」面试官。接口默认按更新时间、user_id顺序进行顺序拉取。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:interviewer</item>
+    /// <item>hire:interviewer:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_ids">
+    /// <para>必填：否</para>
+    /// <para>面试官userID列表</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="verify_status">
+    /// <para>必填：否</para>
+    /// <para>认证状态</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>1：未认证</item>
+    /// <item>2：已认证</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="earliest_update_time">
+    /// <para>必填：否</para>
+    /// <para>最早更新时间，毫秒时间戳</para>
+    /// <para>示例值：1714374796615</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="latest_update_time">
+    /// <para>必填：否</para>
+    /// <para>最晚更新时间，毫秒时间戳</para>
+    /// <para>示例值：1714374796616</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/hire/v1/interviewers")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1InterviewersResponseDto>> GetHireV1InterviewersAsync(
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string[]? user_ids = null,
+        [PathQuery] int? verify_status = null,
+        [PathQuery] string? earliest_update_time = null,
+        [PathQuery] string? latest_update_time = null,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【招聘】更新面试官信息</para>
+    /// <para>接口ID：7372229724359852033</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interviewer/patch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>用于更新面试官认证信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:interviewer</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="interviewer_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>面试官userID</para>
+    /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/hire/v1/interviewers/{interviewer_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.PatchHireV1InterviewersByInterviewerIdResponseDto>> PatchHireV1InterviewersByInterviewerIdAsync(
+        [PathQuery] string interviewer_id,
+        [JsonContent] Hire.PatchHireV1InterviewersByInterviewerIdBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【消息与群组】添加跟随气泡</para>
@@ -41803,6 +42009,40 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string[]? tag_ids = null);
 
     /// <summary>
+    /// <para>【招聘】获取面试速记明细</para>
+    /// <para>接口ID：7397616200375304220</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/minutes/get</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取指定面试的面试速记明细记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:interview</item>
+    /// <item>hire:interview:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="interview_id">
+    /// <para>必填：是</para>
+    /// <para>面试ID，可根据接口[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)、[获取人才面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/get_by_talent)获取</para>
+    /// <para>示例值：7085989097067563300</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：NzM5MTgyNjQyNDY2MDc4OTU0OA==</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，表示本次请求获取的速记中的语句的最大数量</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：20</para>
+    /// </param>
+    [HttpGet("/open-apis/hire/v1/minutes")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1MinutesResponseDto>> GetHireV1MinutesAsync(
+        [PathQuery] string interview_id,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 20);
+
+    /// <summary>
     /// <para>【画板】获取画板缩略图片</para>
     /// <para>接口ID：7398376458043310083</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/board-v1/whiteboard/download_as_image</para>
@@ -41863,5 +42103,25 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? department_id_type = "people_corehr_department_id");
+
+    /// <summary>
+    /// <para>【应用信息】向管理员申请授权</para>
+    /// <para>接口ID：7406972061036429316</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/scope/apply</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>调用该接口以应用身份向租户管理员申请应用内需要审核的 API 权限。</para>
+    /// </summary>
+    [HttpPost("/open-apis/application/v6/scopes/apply")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApplicationV6ScopesApplyAsync();
+
+    /// <summary>
+    /// <para>【应用信息】查询租户授权状态</para>
+    /// <para>接口ID：7406972061036445700</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/scope/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>调用该接口查询当前应用向租户申请授权的状态。</para>
+    /// </summary>
+    [HttpGet("/open-apis/application/v6/scopes")]
+    System.Threading.Tasks.Task<FeishuResponse<Application.GetApplicationV6ScopesResponseDto>> GetApplicationV6ScopesAsync();
 }
 

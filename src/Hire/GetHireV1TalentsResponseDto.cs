@@ -284,7 +284,7 @@ public record GetHireV1TalentsResponseDto
             public long? Birthday { get; set; }
 
             /// <summary>
-            /// <para>创建人，与入参 `user_id_type` 类型一致</para>
+            /// <para>创建人 ID，与入参 `user_id_type` 类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_4c5ec7005d5e476175d5edfd3f1e5206</para>
             /// </summary>

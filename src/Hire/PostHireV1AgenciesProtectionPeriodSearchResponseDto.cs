@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 查询猎头保护期信息 响应体
-/// <para>查询指定人才的猎头保护期列表，包含保护期起止时间，以及猎头供应商、猎头顾问信息等。若人才已经入职，还会返回入职时所在的保护期信息。</para>
+/// <para>查询指定人才的猎头保护期信息列表，包含保护期起止时间、猎头供应商、猎头顾问信息等。若人才已经入职，还会返回入职时所在的保护期信息。</para>
 /// <para>接口ID：7307160083569655811</para>
 /// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/protect_search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fagency%2fprotect_search</para>
@@ -62,7 +62,7 @@ public record PostHireV1AgenciesProtectionPeriodSearchResponseDto
         public int? ProtectionType { get; set; }
 
         /// <summary>
-        /// <para>如保护期类型为 职位保护期（`2`）时，返回职位保护所在的投递id，详情请参考：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)</para>
+        /// <para>如保护期类型为 职位保护期（`2`）时，返回职位保护所在的投递 ID，详情请参考：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6930815272790114323</para>
         /// </summary>
@@ -86,7 +86,7 @@ public record PostHireV1AgenciesProtectionPeriodSearchResponseDto
         public string? ExpireTime { get; set; }
 
         /// <summary>
-        /// <para>猎头供应商 ID</para>
+        /// <para>猎头供应商 ID，详情请参考：[获取猎头供应商信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6930815272790114324</para>
         /// </summary>
@@ -123,8 +123,8 @@ public record PostHireV1AgenciesProtectionPeriodSearchResponseDto
         }
 
         /// <summary>
-        /// <para>猎头顾问ID，与`user_id_type`类型一致。</para>
-        /// <para>**注意**：由于猎头顾问位于猎头供应商租户里，不在该接口调用方租户里，无法直接通过此ID查询猎头顾问信息。</para>
+        /// <para>猎头顾问 ID，与`user_id_type`类型一致。</para>
+        /// <para>**注意**：由于猎头顾问位于猎头供应商租户，不在本接口调用方租户里，若需获取猎头信息，需切换租户至猎头供应商租户后通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)访问猎头顾问详情</para>
         /// <para>必填：否</para>
         /// <para>示例值：6930815272790114324</para>
         /// </summary>

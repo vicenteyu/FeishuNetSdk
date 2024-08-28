@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取招聘需求模板列表 响应体
-/// <para>获取招聘需求模板列表，包含需求模板ID，以及模板里的字段定义等。</para>
+/// <para>获取招聘需求模板列表，包含需求模板ID，以及模板里的字段定义等。招聘需求模板可参考「飞书招聘」-「设置」-「招聘需求字段管理」。</para>
 /// <para>接口ID：6989078472837234691</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/job_requirement/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fjob_requirement_schema%2flist</para>
@@ -245,6 +245,8 @@ public record GetHireV1JobRequirementSchemasResponseDto
 
             /// <summary>
             /// <para>是否是自定义模块</para>
+            /// <para>- true：自定义模块</para>
+            /// <para>- false：系统预制模块</para>
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
@@ -454,6 +456,8 @@ public record GetHireV1JobRequirementSchemasResponseDto
 
                 /// <summary>
                 /// <para>是否是自定义字段</para>
+                /// <para>- true：自定义字段</para>
+                /// <para>- false：系统预制字段</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
                 /// </summary>

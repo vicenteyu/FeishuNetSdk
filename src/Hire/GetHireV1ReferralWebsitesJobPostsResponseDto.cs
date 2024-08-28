@@ -42,7 +42,7 @@ public record GetHireV1ReferralWebsitesJobPostsResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>职位广告名称</para>
+        /// <para>职位名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：高级工程师招聘</para>
         /// </summary>
@@ -66,7 +66,7 @@ public record GetHireV1ReferralWebsitesJobPostsResponseDto
         public string? JobCode { get; set; }
 
         /// <summary>
-        /// <para>职位到期时间，毫秒时间戳，「null」代表「长期有效」</para>
+        /// <para>职位到期时间，毫秒时间戳，空代表「长期有效」</para>
         /// <para>必填：否</para>
         /// <para>示例值：1722837278000</para>
         /// </summary>
@@ -98,19 +98,19 @@ public record GetHireV1ReferralWebsitesJobPostsResponseDto
         public int? JobProcessType { get; set; }
 
         /// <summary>
-        /// <para>职位雇佣类型，请参考[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)</para>
+        /// <para>雇佣类型，请参考[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_recruitment_type")]
         public IdNameObject? JobRecruitmentType { get; set; }
 
         /// <summary>
-        /// <para>职位雇佣类型，请参考[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)</para>
+        /// <para>雇佣类型，请参考[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)</para>
         /// </summary>
         public record IdNameObject
         {
             /// <summary>
-            /// <para>职位雇佣类型ID</para>
+            /// <para>雇佣类型ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：101</para>
             /// </summary>
@@ -118,14 +118,14 @@ public record GetHireV1ReferralWebsitesJobPostsResponseDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>职位雇佣类型名称</para>
+            /// <para>雇佣类型名称</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
-            /// <para>职位雇佣类型名称</para>
+            /// <para>雇佣类型名称</para>
             /// </summary>
             public record I18n
             {
@@ -297,7 +297,7 @@ public record GetHireV1ReferralWebsitesJobPostsResponseDto
         }
 
         /// <summary>
-        /// <para>月薪范围-最低薪资，单位：K</para>
+        /// <para>月薪范围-最低薪资，单位：K，精度：整数</para>
         /// <para>必填：否</para>
         /// <para>示例值：5</para>
         /// </summary>
@@ -305,7 +305,7 @@ public record GetHireV1ReferralWebsitesJobPostsResponseDto
         public string? MinSalary { get; set; }
 
         /// <summary>
-        /// <para>月薪范围-最高薪资，单位：K</para>
+        /// <para>月薪范围-最高薪资，单位：K，精度：整数</para>
         /// <para>必填：否</para>
         /// <para>示例值：50</para>
         /// </summary>

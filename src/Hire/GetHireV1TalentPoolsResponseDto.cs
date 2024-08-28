@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取人才库列表 响应体
-/// <para>获取人才库列表，可获取的信息包括人才库ID、人才库名称等。</para>
+/// <para>获取人才库列表，可获取的信息包括人才库 ID、人才库名称等。</para>
 /// <para>接口ID：7218853190452428804</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent_pool/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent_pool%2fsearch</para>
@@ -54,7 +54,7 @@ public record GetHireV1TalentPoolsResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>中文名称</para>
+            /// <para>人才库中文名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：公共人才库</para>
             /// </summary>
@@ -62,7 +62,7 @@ public record GetHireV1TalentPoolsResponseDto
             public string? ZhCn { get; set; }
 
             /// <summary>
-            /// <para>英文名称</para>
+            /// <para>人才库英文名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：Common Talent Pool</para>
             /// </summary>

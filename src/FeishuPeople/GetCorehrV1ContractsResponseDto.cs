@@ -124,7 +124,7 @@ public record GetCorehrV1ContractsResponseDto
         public string FirstPartyCompanyId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>Person ID，详细信息可通过接口文档[【查询个人信息接口】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/get)接口查询获得</para>
+        /// <para>Person ID，详细信息可通过接口文档[【批量查询员工信息接口】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：151515151</para>
         /// </summary>

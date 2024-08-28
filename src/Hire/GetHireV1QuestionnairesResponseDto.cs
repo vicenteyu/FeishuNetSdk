@@ -269,12 +269,12 @@ public record GetHireV1QuestionnairesResponseDto
                 public string? LowestScoreEnDesc { get; set; }
 
                 /// <summary>
-                /// <para>评分分数</para>
+                /// <para>评分分数（整数）</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：4</para>
                 /// </summary>
                 [JsonPropertyName("score_result")]
-                public float? ScoreResult { get; set; }
+                public int? ScoreResult { get; set; }
             }
 
             /// <summary>
@@ -297,7 +297,7 @@ public record GetHireV1QuestionnairesResponseDto
         public bool? HasAnswers { get; set; }
 
         /// <summary>
-        /// <para>满意度问卷更新时间</para>
+        /// <para>满意度问卷更新时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1644412504000</para>
         /// </summary>

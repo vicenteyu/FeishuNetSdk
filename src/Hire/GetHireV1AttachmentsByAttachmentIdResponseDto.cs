@@ -58,7 +58,7 @@ public record GetHireV1AttachmentsByAttachmentIdResponseDto
         public string? Name { get; set; }
 
         /// <summary>
-        /// <para>附件媒体类型/MIME</para>
+        /// <para>附件媒体类型/MIME，遵守统一标准，请参考[百度百科-MIME](https://baike.baidu.com/item/MIME/2900607)</para>
         /// <para>必填：否</para>
         /// <para>示例值：application/pdf</para>
         /// </summary>
@@ -66,7 +66,7 @@ public record GetHireV1AttachmentsByAttachmentIdResponseDto
         public string? Mime { get; set; }
 
         /// <summary>
-        /// <para>附件创建时间戳（单位ms）</para>
+        /// <para>附件创建时间，毫秒时间戳（int64类型）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1618899376480</para>
         /// </summary>

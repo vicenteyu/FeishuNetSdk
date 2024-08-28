@@ -24,14 +24,14 @@ namespace FeishuNetSdk.Attendance;
 public record PostAttendanceV1GroupsResponseDto
 {
     /// <summary>
-    /// <para>6921319402260496386</para>
+    /// <para>考勤组信息</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("group")]
     public PostAttendanceV1GroupsResponseDtoGroup? Group { get; set; }
 
     /// <summary>
-    /// <para>6921319402260496386</para>
+    /// <para>考勤组信息</para>
     /// </summary>
     public record PostAttendanceV1GroupsResponseDtoGroup
     {

@@ -24,14 +24,14 @@ namespace FeishuNetSdk.Attendance;
 public record PostAttendanceV1GroupsBodyDto
 {
     /// <summary>
-    /// <para>6921319402260496386</para>
+    /// <para>考勤组信息</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("group")]
     public PostAttendanceV1GroupsBodyDtoGroup Group { get; set; } = new();
 
     /// <summary>
-    /// <para>6921319402260496386</para>
+    /// <para>考勤组信息</para>
     /// </summary>
     public record PostAttendanceV1GroupsBodyDtoGroup
     {
@@ -452,7 +452,7 @@ public record PostAttendanceV1GroupsBodyDto
         public int GroupType { get; set; }
 
         /// <summary>
-        /// <para>班次 ID 列表。当考勤类型参数（group_type）设置为固定班制时，必填该参数，且必须填够 7 个（从周一至周日）。班次 ID 可以通过[查询所有班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/list) 和[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 获取</para>
+        /// <para>班次 ID 列表。当考勤类型参数（group_type）设置为固定班制时，必填该参数，且必须填够 7 个（从周一至周日）。班次 ID 可以通过[查询所有班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/list) 和[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 获取。休息日填0</para>
         /// <para>必填：是</para>
         /// <para>示例值：6921319402260496386</para>
         /// </summary>

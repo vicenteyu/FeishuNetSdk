@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 新建职位 响应体
-/// <para>创建一个新的职位</para>
+/// <para>创建一个新的职位。</para>
 /// <para>## 注意事项</para>
 /// <para>- 调用此接口前，需先打开「飞书招聘」-「设置」-「职位管理」-「职位设置」-「通过API同步职位开关」开关。</para>
 /// <para>- 字段是否必填，将以「飞书招聘」-「设置」-「职位管理」-「职位字段管理」中的设置为准。</para>
@@ -159,7 +159,7 @@ public record PostHireV1JobsCombinedCreateResponseDto
         public record JobDepartment
         {
             /// <summary>
-            /// <para>部门 ID，与入参中的`department_id_type`类型一致，详情请查看[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/list)</para>
+            /// <para>部门 ID，与入参中的`department_id_type`类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：7281257045172308287</para>
             /// </summary>
@@ -233,7 +233,7 @@ public record PostHireV1JobsCombinedCreateResponseDto
         public record JobLevel
         {
             /// <summary>
-            /// <para>职级 ID，与入参`job_level_id_type` 类型一致，详情请查看[获取租户职级列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list)</para>
+            /// <para>职级 ID，与入参`job_level_id_type` 类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：7281257045172308287</para>
             /// </summary>
@@ -326,7 +326,7 @@ public record PostHireV1JobsCombinedCreateResponseDto
         public record PostHireV1JobsCombinedCreateResponseDtoJobJobCategory
         {
             /// <summary>
-            /// <para>职位序列 ID，与入参`job_family_id_type` 类型一致，详情请查看[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)</para>
+            /// <para>职位序列 ID，与入参`job_family_id_type` 类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：7281257045172308287</para>
             /// </summary>
@@ -757,7 +757,7 @@ public record PostHireV1JobsCombinedCreateResponseDto
         public long? ExpiryTime { get; set; }
 
         /// <summary>
-        /// <para>最低薪资，单位：千</para>
+        /// <para>最低月薪，单位：K</para>
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// </summary>
@@ -765,7 +765,7 @@ public record PostHireV1JobsCombinedCreateResponseDto
         public int? MinSalary { get; set; }
 
         /// <summary>
-        /// <para>最高薪资，单位：千</para>
+        /// <para>最高月薪，单位：K</para>
         /// <para>必填：否</para>
         /// <para>示例值：20</para>
         /// </summary>

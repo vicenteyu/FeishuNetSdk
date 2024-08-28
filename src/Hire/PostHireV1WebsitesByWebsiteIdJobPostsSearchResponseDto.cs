@@ -9,11 +9,11 @@
 // <copyright file="PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>搜索招聘官网下的职位列表 响应体</summary>
+// <summary>搜索招聘官网下的职位广告列表 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 搜索招聘官网下的职位列表 响应体
+/// 搜索招聘官网下的职位广告列表 响应体
 /// <para>搜索招聘官网下的职位列表。</para>
 /// <para>接口ID：7021042393814450179</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/website/search</para>
@@ -42,7 +42,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>标题</para>
+        /// <para>职位名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：职位1</para>
         /// </summary>
@@ -155,7 +155,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         public IdNameObject? JobDepartment { get; set; }
 
         /// <summary>
-        /// <para>职位类型，详情请参考：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)</para>
+        /// <para>职位类别，详情请参考：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_type")]

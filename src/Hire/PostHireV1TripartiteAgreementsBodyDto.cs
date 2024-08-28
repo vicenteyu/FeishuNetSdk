@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 创建三方协议 请求体
-/// <para>在投递上创建三方协议。</para>
+/// <para>在校招投递上创建三方协议。</para>
 /// <para>## 前提条件</para>
 /// <para>- 在「飞书招聘」-「设置」-「候选人流程管理」-「三方协议设置」中勾选了「通过 API 维护三方协议」。</para>
 /// <para>- 该投递为校招投递。</para>

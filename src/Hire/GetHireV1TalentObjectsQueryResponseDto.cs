@@ -198,7 +198,9 @@ public record GetHireV1TalentObjectsQueryResponseDto
         }
 
         /// <summary>
-        /// <para>是否是自定义模块，`true` 为自定义模块， `false` 为系统预置模块</para>
+        /// <para>是否是自定义模块</para>
+        /// <para>- `true` 为自定义模块</para>
+        /// <para>- `false` 为系统预置模块</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -408,7 +410,9 @@ public record GetHireV1TalentObjectsQueryResponseDto
             public string? ParentId { get; set; }
 
             /// <summary>
-            /// <para>是否是自定义字段，`true` 为自定义字段， `false` 为系统预置字段</para>
+            /// <para>是否是自定义字段</para>
+            /// <para>- `true` 为自定义字段</para>
+            /// <para>- `false` 为系统预置字段</para>
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>

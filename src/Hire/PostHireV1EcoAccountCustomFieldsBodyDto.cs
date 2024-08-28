@@ -69,7 +69,7 @@ public record PostHireV1EcoAccountCustomFieldsBodyDto
         public record I18n
         {
             /// <summary>
-            /// <para>中文名称</para>
+            /// <para>自定义字段中文名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：账号token</para>
             /// </summary>
@@ -77,7 +77,7 @@ public record PostHireV1EcoAccountCustomFieldsBodyDto
             public string? ZhCn { get; set; }
 
             /// <summary>
-            /// <para>英文名称</para>
+            /// <para>自定义字段英文名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：Account token</para>
             /// </summary>

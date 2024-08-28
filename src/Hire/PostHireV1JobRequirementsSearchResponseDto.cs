@@ -248,7 +248,7 @@ public record PostHireV1JobRequirementsSearchResponseDto
         public int? RequiredDegree { get; set; }
 
         /// <summary>
-        /// <para>最高薪资，单位：千</para>
+        /// <para>月薪范围-最高薪资，单位：K</para>
         /// <para>必填：否</para>
         /// <para>示例值：123</para>
         /// </summary>
@@ -256,7 +256,7 @@ public record PostHireV1JobRequirementsSearchResponseDto
         public string? MaxSalary { get; set; }
 
         /// <summary>
-        /// <para>最低薪资，单位：千</para>
+        /// <para>月薪范围-最低薪资，单位：K</para>
         /// <para>必填：否</para>
         /// <para>示例值：11</para>
         /// </summary>

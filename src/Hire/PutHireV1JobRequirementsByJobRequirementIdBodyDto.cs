@@ -186,7 +186,7 @@ public record PutHireV1JobRequirementsByJobRequirementIdBodyDto
     public int? RequiredDegree { get; set; }
 
     /// <summary>
-    /// <para>最高薪资，单位：K</para>
+    /// <para>月薪范围-最高薪资，单位：K</para>
     /// <para>必填：否</para>
     /// <para>示例值：10</para>
     /// </summary>
@@ -194,7 +194,7 @@ public record PutHireV1JobRequirementsByJobRequirementIdBodyDto
     public string? MaxSalary { get; set; }
 
     /// <summary>
-    /// <para>最低薪资，单位：K</para>
+    /// <para>月薪范围-最低薪资，单位：K</para>
     /// <para>必填：否</para>
     /// <para>示例值：5</para>
     /// </summary>
@@ -218,14 +218,16 @@ public record PutHireV1JobRequirementsByJobRequirementIdBodyDto
     public string? Description { get; set; }
 
     /// <summary>
-    /// <para>自定义字段，可通过[获取招聘需求模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)获取，自定义字段是否必填需依据需求模板中自定义字段的定义</para>
+    /// <para>自定义字段，可通过[获取招聘需求模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)获取，自定义字段是否必填需依据需求模板中自定义字段的定义。</para>
+    /// <para>- 注意： 更新时会全量覆盖</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("customized_data_list")]
     public JobRequirementCustomizedData[]? CustomizedDataLists { get; set; }
 
     /// <summary>
-    /// <para>自定义字段，可通过[获取招聘需求模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)获取，自定义字段是否必填需依据需求模板中自定义字段的定义</para>
+    /// <para>自定义字段，可通过[获取招聘需求模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)获取，自定义字段是否必填需依据需求模板中自定义字段的定义。</para>
+    /// <para>- 注意： 更新时会全量覆盖</para>
     /// </summary>
     public record JobRequirementCustomizedData
     {
@@ -239,15 +241,15 @@ public record PutHireV1JobRequirementsByJobRequirementIdBodyDto
 
         /// <summary>
         /// <para>自定义字段 value</para>
-        /// <para>1. 若字段类型为单行文本/多行文本，格式为"简单文本"；</para>
-        /// <para>2. 若字段类型为单选，传值内容为选项的 ID，格式为"6890840516938696974"；</para>
-        /// <para>3. 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\", \"6890840516938696975\" ]"；</para>
-        /// <para>4. 若字段类型为时间，格式为"1609430400000"</para>
-        /// <para>5. 若字段类型为时间段，格式为"["1609430400000", \"1612108800000\" ]"，单位是毫秒时间戳；</para>
-        /// <para>5. 若字段类型为年份选择，格式为"1609430400000"，单位是毫秒时间戳；</para>
-        /// <para>6. 若字段类型为月份选择，格式为"1625068800000"，单位是毫秒时间戳；</para>
-        /// <para>7. 若字段类型为数字，传值格式为"1";</para>
-        /// <para>8. 若字段类型为富文本，传值举例"富文本"</para>
+        /// <para>- 单选：`"1"`</para>
+        /// <para>- 多选：`"[\"1\", \"2\"]"`</para>
+        /// <para>- 单行：`"单行文本"`</para>
+        /// <para>- 多行：`"多行文本"`</para>
+        /// <para>- 数字：`"1"`</para>
+        /// <para>- 月份选择：`"1627379423000"`</para>
+        /// <para>- 年份选择：`"1627379423000"`</para>
+        /// <para>- 日期选择：`"1627379423000"`</para>
+        /// <para>- 时间段：`"[\"1577808000000\", \"1612108800000\"]"`</para>
         /// <para>必填：否</para>
         /// <para>示例值：简单文本</para>
         /// </summary>

@@ -410,7 +410,7 @@ public record GetHireV1InterviewRecordsByInterviewRecordIdResponseDto
             public string? Name { get; set; }
 
             /// <summary>
-            /// <para>图片附件类型（MIME）</para>
+            /// <para>图片附件类型（[MIME](https://baike.baidu.com/item/MIME/2900607?fr=ge_ala#2)）</para>
             /// <para>必填：否</para>
             /// <para>示例值：image/jpg</para>
             /// </summary>
@@ -476,7 +476,7 @@ public record GetHireV1InterviewRecordsByInterviewRecordIdResponseDto
             }
 
             /// <summary>
-            /// <para>打分题总分，仅当维度评价方式为「打分题(单选)」、「打分题(填空)」时可用</para>
+            /// <para>打分题总分，仅当维度评价方式为 `打分题(单选)`、`打分题(填空)` 时可用</para>
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
@@ -484,7 +484,7 @@ public record GetHireV1InterviewRecordsByInterviewRecordIdResponseDto
             public int? FullScore { get; set; }
 
             /// <summary>
-            /// <para>当维度评价方式为「描述题」时，从此取值</para>
+            /// <para>当维度评价方式为 `描述题` 时，从此取值</para>
             /// <para>必填：否</para>
             /// <para>示例值：这个候选人还不错</para>
             /// </summary>
@@ -500,14 +500,14 @@ public record GetHireV1InterviewRecordsByInterviewRecordIdResponseDto
             public string? DimensionId { get; set; }
 
             /// <summary>
-            /// <para>当维度评价方式为「单选题」「/打分题(单选)」时，从此取值</para>
+            /// <para>当维度评价方式为 `单选题`/`打分题(单选)` 时，从此取值</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("dimension_score")]
             public InterviewDimensionScore? DimensionScore { get; set; }
 
             /// <summary>
-            /// <para>当维度评价方式为「单选题」「/打分题(单选)」时，从此取值</para>
+            /// <para>当维度评价方式为 `单选题`/`打分题(单选)` 时，从此取值</para>
             /// </summary>
             public record InterviewDimensionScore
             {
@@ -549,7 +549,7 @@ public record GetHireV1InterviewRecordsByInterviewRecordIdResponseDto
                 }
 
                 /// <summary>
-                /// <para>选项对应的分数，维度评价为方式「打分题(单选)」时关注该字段</para>
+                /// <para>选项对应的分数，维度评价为方式 `打分题(单选)` 时关注该字段</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：10</para>
                 /// </summary>
@@ -558,14 +558,14 @@ public record GetHireV1InterviewRecordsByInterviewRecordIdResponseDto
             }
 
             /// <summary>
-            /// <para>当维度评价方式为「多选题」时，从此取值</para>
+            /// <para>当维度评价方式为 `多选题` 时，从此取值</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("dimension_score_list")]
             public InterviewDimensionScore[]? DimensionScoreLists { get; set; }
 
             /// <summary>
-            /// <para>当维度评价方式为「打分题(填空)时」，从此取值</para>
+            /// <para>当维度评价方式为 `打分题(填空)时`，从此取值</para>
             /// <para>必填：否</para>
             /// <para>示例值：10</para>
             /// </summary>

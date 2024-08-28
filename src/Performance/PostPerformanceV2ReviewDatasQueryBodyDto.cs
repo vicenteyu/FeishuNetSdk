@@ -40,7 +40,8 @@ public record PostPerformanceV2ReviewDatasQueryBodyDto
     public string[] RevieweeUserIds { get; set; } = Array.Empty<string>();
 
     /// <summary>
-    /// <para>环节类型，如果同时传了环节 ID 和环节类型，优先返回环节 ID 对应的绩效数据。不传默认不返回任何环节评估数据</para>
+    /// <para>环节类型，如果同时传了环节 ID 和环节类型，优先返回环节 ID 对应的绩效数据。</para>
+    /// <para>stage_types 和 stage_ids 至少要传一个，不传默认不返回任何环节评估数据。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("stage_types")]
@@ -54,7 +55,8 @@ public record PostPerformanceV2ReviewDatasQueryBodyDto
     public string[]? ReviewStageRoles { get; set; }
 
     /// <summary>
-    /// <para>环节 ID，如果同时传了环节 ID 和环节类型，优先返回环节 ID 对应的绩效数据。不传默认不返回任何环节评估数据。</para>
+    /// <para>环节 ID，如果同时传了环节 ID 和环节类型，优先返回环节 ID 对应的绩效数据。</para>
+    /// <para>stage_types 和 stage_ids 至少要传一个，不传默认不返回任何环节评估数据。</para>
     /// <para>可在事件[绩效结果开通](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/stage_task/events/open_result)、[绩效详情变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/review_data/events/changed)获得，用于接收事件后按环节查询评估数据场景</para>
     /// <para>必填：否</para>
     /// <para>最大长度：50</para>

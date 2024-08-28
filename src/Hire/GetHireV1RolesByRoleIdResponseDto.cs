@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取角色详情 响应体
-/// <para>获取角色详情信息，包括名称、描述、权限列表等（适用于新版权限，关于新旧权限主要差异：新权限体系中区分了校社招，并将权限点区分了功能权限、字段权限、数据权限）。</para>
+/// <para>切到新版权限系统后，可通过此接口获取角色详情信息，包括名称、描述、权限列表等</para>
 /// <para>接口ID：7351241605105090564</para>
 /// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2frole%2fget</para>
@@ -34,7 +34,7 @@ public record GetHireV1RolesByRoleIdResponseDto
     public record RoleDetail
     {
         /// <summary>
-        /// <para>角色ID</para>
+        /// <para>角色 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6930815272790114324</para>
         /// </summary>
@@ -56,7 +56,7 @@ public record GetHireV1RolesByRoleIdResponseDto
             /// <summary>
             /// <para>角色中文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：测试</para>
+            /// <para>示例值：招聘 HRBP</para>
             /// </summary>
             [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
@@ -64,7 +64,7 @@ public record GetHireV1RolesByRoleIdResponseDto
             /// <summary>
             /// <para>角色英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：test</para>
+            /// <para>示例值：Recruitment HRBP</para>
             /// </summary>
             [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
@@ -78,7 +78,7 @@ public record GetHireV1RolesByRoleIdResponseDto
         public I18n? Description { get; set; }
 
         /// <summary>
-        /// <para>更新时间</para>
+        /// <para>更新时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1716535727510</para>
         /// </summary>
@@ -86,7 +86,7 @@ public record GetHireV1RolesByRoleIdResponseDto
         public string? ModifyTime { get; set; }
 
         /// <summary>
-        /// <para>停启用状态</para>
+        /// <para>角色启用状态</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
@@ -111,7 +111,7 @@ public record GetHireV1RolesByRoleIdResponseDto
         public int? RoleType { get; set; }
 
         /// <summary>
-        /// <para>适用范围</para>
+        /// <para>角色适用范围</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
@@ -125,6 +125,8 @@ public record GetHireV1RolesByRoleIdResponseDto
 
         /// <summary>
         /// <para>是否在角色上配置业务管理范围</para>
+        /// <para>- `true`：配置了业务管理范围</para>
+        /// <para>- `false`：未配置业务管理范围</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -132,14 +134,14 @@ public record GetHireV1RolesByRoleIdResponseDto
         public bool? HasBusinessManagementScope { get; set; }
 
         /// <summary>
-        /// <para>社招权限配置</para>
+        /// <para>社招权限配置，仅当`scope_of_application`为“社招”或“都包含”时有值</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("socail_permission_collection")]
         public PermissionCollection? SocailPermissionCollection { get; set; }
 
         /// <summary>
-        /// <para>社招权限配置</para>
+        /// <para>社招权限配置，仅当`scope_of_application`为“社招”或“都包含”时有值</para>
         /// </summary>
         public record PermissionCollection
         {
@@ -156,9 +158,9 @@ public record GetHireV1RolesByRoleIdResponseDto
             public record IdNameObject
             {
                 /// <summary>
-                /// <para>权限点ID</para>
+                /// <para>权限点 ID</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：6930815272790114325</para>
+                /// <para>示例值：10101000</para>
                 /// </summary>
                 [JsonPropertyName("id")]
                 public string? Id { get; set; }
@@ -178,7 +180,7 @@ public record GetHireV1RolesByRoleIdResponseDto
                     /// <summary>
                     /// <para>权限点中文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：测试</para>
+                    /// <para>示例值：查看人才</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
@@ -186,7 +188,7 @@ public record GetHireV1RolesByRoleIdResponseDto
                     /// <summary>
                     /// <para>权限点英文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：test</para>
+                    /// <para>示例值：View talent</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -213,9 +215,9 @@ public record GetHireV1RolesByRoleIdResponseDto
             public record DataPermission
             {
                 /// <summary>
-                /// <para>权限点ID</para>
+                /// <para>权限点 ID</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：6930815272790114324</para>
+                /// <para>示例值：30203005</para>
                 /// </summary>
                 [JsonPropertyName("id")]
                 public string? Id { get; set; }
@@ -235,7 +237,7 @@ public record GetHireV1RolesByRoleIdResponseDto
                     /// <summary>
                     /// <para>权限点中文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：测试</para>
+                    /// <para>示例值：私密备注</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
@@ -243,7 +245,7 @@ public record GetHireV1RolesByRoleIdResponseDto
                     /// <summary>
                     /// <para>权限点英文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：test</para>
+                    /// <para>示例值：Private notes</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -288,7 +290,20 @@ public record GetHireV1RolesByRoleIdResponseDto
                 public record EntityInfo
                 {
                     /// <summary>
-                    /// <para>实体code</para>
+                    /// <para>实体code，枚举如下</para>
+                    /// <para>- `talent`：人才</para>
+                    /// <para>- `application`：投递</para>
+                    /// <para>- `interview`：面试</para>
+                    /// <para>- `interview_appointment_project`：预约面试</para>
+                    /// <para>- `jobfair`：集中面试</para>
+                    /// <para>- `exam_session`：集中笔试</para>
+                    /// <para>- `offer`：Offer</para>
+                    /// <para>- `job`：职位</para>
+                    /// <para>- `job_recruitment`：招聘需求</para>
+                    /// <para>- `reward`：内推奖励</para>
+                    /// <para>- `info_session`：宣讲会</para>
+                    /// <para>- `bi`：BI</para>
+                    /// <para>- `subject`：对应项目</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：application</para>
                     /// </summary>
@@ -310,7 +325,7 @@ public record GetHireV1RolesByRoleIdResponseDto
                         /// <summary>
                         /// <para>实体中文名称</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：测试</para>
+                        /// <para>示例值：投递</para>
                         /// </summary>
                         [JsonPropertyName("zh_cn")]
                         public string? ZhCn { get; set; }
@@ -318,7 +333,7 @@ public record GetHireV1RolesByRoleIdResponseDto
                         /// <summary>
                         /// <para>实体英文名称</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：test</para>
+                        /// <para>示例值：Application</para>
                         /// </summary>
                         [JsonPropertyName("en_us")]
                         public string? EnUs { get; set; }
@@ -338,32 +353,32 @@ public record GetHireV1RolesByRoleIdResponseDto
                 public record PermissionGroupInfo
                 {
                     /// <summary>
-                    /// <para>权限点ID列表</para>
+                    /// <para>权限点 ID列表</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("permission_ids")]
                     public string[]? PermissionIds { get; set; }
 
                     /// <summary>
-                    /// <para>管理范围</para>
+                    /// <para>管理范围规则</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("scope_rule")]
                     public PermissionScopeRule? ScopeRule { get; set; }
 
                     /// <summary>
-                    /// <para>管理范围</para>
+                    /// <para>管理范围规则</para>
                     /// </summary>
                     public record PermissionScopeRule
                     {
                         /// <summary>
-                        /// <para>管理范围</para>
+                        /// <para>规则类型</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：0</para>
+                        /// <para>示例值：1</para>
                         /// <para>可选值：<list type="bullet">
                         /// <item>0：无数据权限</item>
                         /// <item>1：全部数据权限</item>
-                        /// <item>2：按规则制定范围</item>
+                        /// <item>2：按规则指定范围，当前系统暂不支持返回详细规则</item>
                         /// </list></para>
                         /// </summary>
                         [JsonPropertyName("rule_type")]
@@ -374,7 +389,7 @@ public record GetHireV1RolesByRoleIdResponseDto
         }
 
         /// <summary>
-        /// <para>校招权限配置</para>
+        /// <para>校招权限配置，仅当`scope_of_application`为“校招”或“都包含”时有值</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("campus_permission_collection")]

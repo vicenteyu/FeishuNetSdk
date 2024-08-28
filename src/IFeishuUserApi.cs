@@ -18236,7 +18236,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7350663854198161410</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>支持在单个接口中进行人员全信息添加，包括人员基本信息，雇佣信息，任职记录及其他分组信息</para>
+    /// <para>支持在单个接口中进行人员全信息添加，包括人员的基本信息，雇佣信息，入职任职记录及其他分组信息</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:employee.add:write</item>
     /// </list></para>
@@ -18272,6 +18272,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="ignore_working_hours_type_rule">
     /// <para>必填：否</para>
     /// <para>是否忽略工时制度自动生成规则</para>
+    /// <para>- 值为 false 时，以下字段必填：</para>
+    /// <para>- emp_contract_record.first_party</para>
+    /// <para>- employment_record.work_location</para>
+    /// <para>- employment_record.employee_type</para>
+    /// <para>- employment_record.job_family</para>
+    /// <para>- employment_record.job</para>
+    /// <para>- employment_record.job_level</para>
+    /// <para>- employment_record.department</para>
     /// <para>示例值：true</para>
     /// <para>默认值：false</para>
     /// </param>

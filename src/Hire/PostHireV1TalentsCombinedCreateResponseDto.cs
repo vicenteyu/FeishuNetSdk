@@ -45,7 +45,7 @@ public record PostHireV1TalentsCombinedCreateResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// <para>可选值：<list type="bullet">
-    /// <item>1：员工体系</item>
+    /// <item>1：员工</item>
     /// <item>3：系统</item>
     /// </list></para>
     /// </summary>

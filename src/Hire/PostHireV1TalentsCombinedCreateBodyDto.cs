@@ -42,7 +42,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     public string? ResumeSourceId { get; set; }
 
     /// <summary>
-    /// <para>文件夹 ID 列表，获取文件夹 ID 请参考[获取人才文件夹列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_folder/list)</para>
+    /// <para>文件夹 ID 列表，可通过[获取人才文件夹列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_folder/list)接口获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：["7025517823176132908"]</para>
     /// <para>最大长度：100</para>
@@ -63,7 +63,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// <para>可选值：<list type="bullet">
-    /// <item>1：员工体系</item>
+    /// <item>1：员工</item>
     /// <item>3：系统</item>
     /// </list></para>
     /// </summary>
@@ -79,14 +79,14 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     public string? ResumeAttachmentId { get; set; }
 
     /// <summary>
-    /// <para>基础信息</para>
+    /// <para>基本信息</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("basic_info")]
     public TalentCombinedBasicInfo BasicInfo { get; set; } = new();
 
     /// <summary>
-    /// <para>基础信息</para>
+    /// <para>基本信息</para>
     /// </summary>
     public record TalentCombinedBasicInfo
     {
@@ -99,7 +99,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>手机号</para>
+        /// <para>手机</para>
         /// <para>必填：否</para>
         /// <para>示例值：182900291190</para>
         /// </summary>
@@ -214,14 +214,16 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? HometownCityCode { get; set; }
 
         /// <summary>
-        /// <para>自定义字段列表，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>自定义字段列表，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -370,14 +372,16 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public int? AcademicRanking { get; set; }
 
         /// <summary>
-        /// <para>教育经历自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>教育经历自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -496,14 +500,16 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public int? CareerType { get; set; }
 
         /// <summary>
-        /// <para>工作经历自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>工作经历自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -618,14 +624,16 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? EndTime { get; set; }
 
         /// <summary>
-        /// <para>项目自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>项目自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -716,14 +724,16 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? AttachmentId { get; set; }
 
         /// <summary>
-        /// <para>作品自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>作品自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -814,14 +824,16 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? Desc { get; set; }
 
         /// <summary>
-        /// <para>获奖自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>获奖自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -942,14 +954,16 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public int? Proficiency { get; set; }
 
         /// <summary>
-        /// <para>语言能力自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>语言能力自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -1016,7 +1030,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>社交账号名称</para>
+        /// <para>SNS 名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
@@ -1037,7 +1051,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public int? SnsType { get; set; }
 
         /// <summary>
-        /// <para>个人主页 URL</para>
+        /// <para>URL/ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：https://www.a.com</para>
         /// </summary>
@@ -1045,14 +1059,16 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? Link { get; set; }
 
         /// <summary>
-        /// <para>社交账号自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>社交账号自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -1098,7 +1114,7 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     }
 
     /// <summary>
-    /// <para>意向地点</para>
+    /// <para>意向地点，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)接口获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：["CT_2"]</para>
     /// <para>最大长度：100</para>
@@ -1135,14 +1151,16 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         public string? Content { get; set; }
 
         /// <summary>
-        /// <para>自我评价自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
         /// <summary>
-        /// <para>自我评价自定义字段，无效字段，请勿使用</para>
+        /// <para>自定义字段列表</para>
+        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
         /// </summary>
         public record TalentCustomizedDataObjectValue
         {
@@ -1188,14 +1206,16 @@ public record PostHireV1TalentsCombinedCreateBodyDto
     }
 
     /// <summary>
-    /// <para>自定义模块</para>
+    /// <para>自定义模块列表</para>
+    /// <para>**注意**：`children` 字段为二维数组，请参考请求体示例</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("customized_data")]
     public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
 
     /// <summary>
-    /// <para>自定义模块</para>
+    /// <para>自定义模块列表</para>
+    /// <para>**注意**：`children` 字段为二维数组，请参考请求体示例</para>
     /// </summary>
     public record TalentCustomizedDataObjectValue
     {

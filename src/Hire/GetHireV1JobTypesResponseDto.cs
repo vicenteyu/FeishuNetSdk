@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取职位类别列表 响应体
-/// <para>获取职位类别列表，用于在操作职位/招聘需求时获取职位类别枚举，默认以创建时间升序排序，返回值中包含从属关系，可在获取全量数据后自行构建职位类别树，所有节点均可用于回填职位/招聘需求中的职位类别字段</para>
+/// <para>获取招聘系统预置的职位类别列表，可用于操作职位（如[新建职位](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/combined_create)），操作招聘需求（如[创建招聘需求](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/create)）时回填职位类别字段。返回列表默认按创建时间升序排序，且包含节点的层级关系（节点的父节点 ID），可在获取全量数据后自行构建职位类别树。</para>
 /// <para>接口ID：7287407243900895234</para>
 /// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fjob_type%2flist</para>
@@ -25,6 +25,7 @@ public record GetHireV1JobTypesResponseDto
     /// <para>职位类别列表</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
+    /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("items")]
     public JobTypeInfo[]? Items { get; set; }
@@ -35,7 +36,7 @@ public record GetHireV1JobTypesResponseDto
     public record JobTypeInfo
     {
         /// <summary>
-        /// <para>职位类别ID</para>
+        /// <para>职位类别 ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：6930815272790114324</para>
         /// </summary>
@@ -72,7 +73,7 @@ public record GetHireV1JobTypesResponseDto
         }
 
         /// <summary>
-        /// <para>父级职位类别ID</para>
+        /// <para>父级职位类别 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6930815272790114323</para>
         /// </summary>

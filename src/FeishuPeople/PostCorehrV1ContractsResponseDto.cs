@@ -9,12 +9,12 @@
 // <copyright file="PostCorehrV1ContractsResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>创建合同 响应体</summary>
+// <summary>新建合同 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
-/// 创建合同 响应体
-/// <para>通过本接口可以为员工创建合同</para>
+/// 新建合同 响应体
+/// <para>通过本接口可以为员工创建一份新合同</para>
 /// <para>接口ID：7017707615190876163</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/contract/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fcontract%2fcreate</para>

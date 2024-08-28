@@ -115,7 +115,7 @@ public record PostHireV1JobRequirementsBodyDto
     public int? Category { get; set; }
 
     /// <summary>
-    /// <para>需求部门ID，需与`department_id_type`类型一致</para>
+    /// <para>需求部门 ID，需与`department_id_type`类型一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
     /// </summary>
@@ -194,7 +194,7 @@ public record PostHireV1JobRequirementsBodyDto
     public int? RequiredDegree { get; set; }
 
     /// <summary>
-    /// <para>最高薪资，单位：K</para>
+    /// <para>月薪范围-最高薪资，单位：K</para>
     /// <para>必填：否</para>
     /// <para>示例值：10</para>
     /// </summary>
@@ -202,7 +202,7 @@ public record PostHireV1JobRequirementsBodyDto
     public string? MaxSalary { get; set; }
 
     /// <summary>
-    /// <para>最低薪资，单位：K</para>
+    /// <para>月薪范围-最低薪资，单位：K</para>
     /// <para>必填：否</para>
     /// <para>示例值：5</para>
     /// </summary>
@@ -210,7 +210,7 @@ public record PostHireV1JobRequirementsBodyDto
     public string? MinSalary { get; set; }
 
     /// <summary>
-    /// <para>工作地址ID，可通过[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)获取</para>
+    /// <para>工作地址 ID，可通过[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：7265901641899311105</para>
     /// </summary>
@@ -247,15 +247,15 @@ public record PostHireV1JobRequirementsBodyDto
 
         /// <summary>
         /// <para>自定义字段 value</para>
-        /// <para>- 若字段类型为单行文本/多行文本，格式为"简单文本"；</para>
-        /// <para>- 若字段类型为单选，传值内容为选项的 ID，格式为"6890840516938696974"；</para>
-        /// <para>- 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\", \"6890840516938696975\" ]"；</para>
-        /// <para>- 若字段类型为时间，格式为"1609430400000"</para>
-        /// <para>- 若字段类型为时间段，格式为"["1609430400000", \"1612108800000\" ]"，单位是毫秒时间戳；</para>
-        /// <para>- 若字段类型为年份选择，格式为"1609430400000"，单位是毫秒时间戳；</para>
-        /// <para>- 若字段类型为月份选择，格式为"1625068800000"，单位是毫秒时间戳；</para>
-        /// <para>- 若字段类型为数字，传值格式为"1";</para>
-        /// <para>- 若字段类型为富文本，传值举例"富文本"</para>
+        /// <para>- 单选：`"1"`</para>
+        /// <para>- 多选：`"[\"1\", \"2\"]"`</para>
+        /// <para>- 单行：`"单行文本"`</para>
+        /// <para>- 多行：`"多行文本"`</para>
+        /// <para>- 数字：`"1"`</para>
+        /// <para>- 月份选择：`"1627379423000"`</para>
+        /// <para>- 年份选择：`"1627379423000"`</para>
+        /// <para>- 日期选择：`"1627379423000"`</para>
+        /// <para>- 时间段：`"[\"1577808000000\", \"1612108800000\"]"`</para>
         /// <para>必填：否</para>
         /// <para>示例值：简单文本</para>
         /// </summary>

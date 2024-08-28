@@ -94,7 +94,7 @@ public record PostHireV1JobRequirementsResponseDto
         public record IdNameObject
         {
             /// <summary>
-            /// <para>职位性质ID</para>
+            /// <para>职位性质 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：101</para>
             /// </summary>
@@ -132,28 +132,28 @@ public record PostHireV1JobRequirementsResponseDto
         }
 
         /// <summary>
-        /// <para>人员类型，与`employee_type_id_type`类型一致</para>
+        /// <para>人员类型</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("employee_type")]
         public IdNameObject? EmployeeType { get; set; }
 
         /// <summary>
-        /// <para>最高职级，与`job_level_id_type`类型一致</para>
+        /// <para>最高职级</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("max_level")]
         public IdNameObject? MaxLevel { get; set; }
 
         /// <summary>
-        /// <para>最低职级，与`job_level_id_type`类型一致</para>
+        /// <para>最低职级</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("min_level")]
         public IdNameObject? MinLevel { get; set; }
 
         /// <summary>
-        /// <para>职位序列，与`job_family_id_type`类型一致</para>
+        /// <para>职位序列</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("sequence")]
@@ -172,28 +172,28 @@ public record PostHireV1JobRequirementsResponseDto
         public int? Category { get; set; }
 
         /// <summary>
-        /// <para>需求部门，与`department_id_type`类型一致</para>
+        /// <para>需求部门</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("department")]
         public IdNameObject? Department { get; set; }
 
         /// <summary>
-        /// <para>需求负责人，与`user_id_type`类型一致</para>
+        /// <para>需求负责人</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("recruiter_list")]
         public IdNameObject[]? RecruiterLists { get; set; }
 
         /// <summary>
-        /// <para>需求用人经理，与`user_id_type`类型一致</para>
+        /// <para>需求用人经理</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("jr_hiring_managers")]
         public IdNameObject[]? JrHiringManagers { get; set; }
 
         /// <summary>
-        /// <para>直属上级，与`user_id_type`类型一致</para>
+        /// <para>直属上级</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("direct_leader_list")]
@@ -248,7 +248,7 @@ public record PostHireV1JobRequirementsResponseDto
         public int? RequiredDegree { get; set; }
 
         /// <summary>
-        /// <para>最高薪资，单位：K</para>
+        /// <para>最高月薪，单位：K</para>
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// </summary>
@@ -256,7 +256,7 @@ public record PostHireV1JobRequirementsResponseDto
         public string? MaxSalary { get; set; }
 
         /// <summary>
-        /// <para>最低薪资，单位：K</para>
+        /// <para>最低月薪，单位：K</para>
         /// <para>必填：否</para>
         /// <para>示例值：5</para>
         /// </summary>
@@ -291,7 +291,7 @@ public record PostHireV1JobRequirementsResponseDto
         public record JobRequirementCustomizedDataDto
         {
             /// <summary>
-            /// <para>自定义字段 ID</para>
+            /// <para>自定义字段 ID，详情请参考：[获取招聘需求模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：123123123</para>
             /// </summary>
@@ -497,7 +497,7 @@ public record PostHireV1JobRequirementsResponseDto
         public record JobTypeInfo
         {
             /// <summary>
-            /// <para>职位类别ID</para>
+            /// <para>职位类别 ID</para>
             /// <para>必填：是</para>
             /// <para>示例值：6930815272790114324</para>
             /// </summary>
@@ -534,7 +534,7 @@ public record PostHireV1JobRequirementsResponseDto
             }
 
             /// <summary>
-            /// <para>父级职位类别ID</para>
+            /// <para>父级职位类别 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：6930815272790114323</para>
             /// </summary>

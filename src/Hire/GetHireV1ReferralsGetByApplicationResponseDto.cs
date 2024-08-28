@@ -50,7 +50,7 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
         public string ApplicationId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>创建时间，毫秒时间戳</para>
+        /// <para>创建时间(int64类型)，毫秒时间戳</para>
         /// <para>必填：是</para>
         /// <para>示例值：1618899376474</para>
         /// </summary>
@@ -86,19 +86,19 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>内推人名称</para>
+            /// <para>内推人姓名</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
-            /// <para>内推人名称</para>
+            /// <para>内推人姓名</para>
             /// </summary>
             public record I18n
             {
                 /// <summary>
-                /// <para>中文名称</para>
+                /// <para>中文姓名</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：张三</para>
                 /// </summary>
@@ -106,7 +106,7 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文名称</para>
+                /// <para>英文姓名</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：zhangsan</para>
                 /// </summary>
