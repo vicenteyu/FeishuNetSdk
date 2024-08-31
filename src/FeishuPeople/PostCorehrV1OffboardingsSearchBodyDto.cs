@@ -88,7 +88,7 @@ public record PostCorehrV1OffboardingsSearchBodyDto
     /// <summary>
     /// <para>离职原因列表 , 可以通过[【查询员工离职原因列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)接口获取 ，查询时不返回下级原因相关的离职信息。为空时默认搜索所有离职数据。</para>
     /// <para>字段权限要求：</para>
-    /// <para>&lt;md-perm name="corehr:employment.offboarding_reason.search:read" desc="按照离职原因搜索" support_app_types="custom,isv" tags=""&gt;按照离职原因搜索&lt;/md-perm&gt;corehr:employment.offboarding_reason.search:read，确认已开通该权限。</para>
+    /// <para>- corehr:employment.offboarding_reason.search:read : 按照离职原因搜索</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("reasons")]
@@ -97,7 +97,7 @@ public record PostCorehrV1OffboardingsSearchBodyDto
     /// <summary>
     /// <para>离职原因（员工）列表 , 可以通过[【查询员工离职原因列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)接口获取，查询时不返回下级原因相关的离职信息。为空时默认搜索所有离职数据。</para>
     /// <para>字段权限要求：</para>
-    /// <para>&lt;md-perm name="corehr:employment.offboarding_reason.search:read" desc="按照离职原因搜索" support_app_types="custom,isv" tags=""&gt;按照离职原因搜索&lt;/md-perm&gt;</para>
+    /// <para>- corehr:employment.offboarding_reason.search:read : 按照离职原因搜索</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("employee_reasons")]

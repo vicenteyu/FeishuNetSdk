@@ -11,8 +11,6 @@
 // </copyright>
 // <summary>获取表格元数据 响应体</summary>
 // ************************************************************************
-using System;
-
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 获取表格元数据 响应体

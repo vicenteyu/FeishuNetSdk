@@ -32,7 +32,7 @@ public record PostMinaV2TokenLoginValidateResponseDto
     /// <summary>
     /// <para>用户的[User ID](https://open.feishu.cn/document/home/user-identity-introduction/user-id)，在职员工在企业内的唯一标识</para>
     /// <para>**仅当开通以下权限后 返回该字段**：</para>
-    /// <para>&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</para>
+    /// <para>- contact:user.employee_id:readonly : 获取用户 user ID</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("employee_id")]

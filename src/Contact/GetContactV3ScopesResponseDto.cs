@@ -35,7 +35,7 @@ public record GetContactV3ScopesResponseDto
     /// <summary>
     /// <para>已授权的用户列表。列表内的用户 ID 类型与查询参数 user_id_type 的取值一致。</para>
     /// <para>应用申请以下权限后才会返回该值。</para>
-    /// <para>&lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt;</para>
+    /// <para>- contact:user.employee_id:readonly : 获取用户 user ID</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_5f3e2df282bf5aaeeaa2ea71ab9f1229</para>
     /// </summary>
