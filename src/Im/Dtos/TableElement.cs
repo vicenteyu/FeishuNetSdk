@@ -100,8 +100,13 @@ namespace FeishuNetSdk.Im.Dtos
         /// <param name="Name">自定义列的标记。用于唯一指定行数据对象数组中，需要将数据填充至这一行的具体哪个单元格中。</param>
         /// <param name="DataType">列数据类型。可选值：
         /// <list type="bullet">
-        /// <item>true：加粗</item>
-        /// <item>false：不加粗</item>
+        /// <item>text：不带格式的普通文本。为 data_type 默认值。</item>
+        /// <item>lark_md：支持部分 markdown 格式的文本。飞书 v7.10 及之后版本支持。详情参考普通文本-lark_md 支持的 Markdown 语法</item>
+        /// <item>options：选项标签</item>
+        /// <item>number：数字。默认在单元格中右对齐展示。若选择该数据类型，你可继续在 column 中添加 format 字段，设置数字的格式属性</item>
+        /// <item>persons：人员列表。为用户名称+头像样式</item>
+        /// <item>date：日期时间。需输入 Unix 标准毫秒级时间戳，飞书客户端将按用户本地时区展示日期时间。飞书 v7.6 及之后版本支持</item>
+        /// <item>markdown：支持完整 Markdown 语法的文本内容。详情参考富文本（Markdown）组件。飞书 v7.14 及之后版本支持</item>
         /// </list>
         /// </param>
         /// <param name="DisplayName">在表头展示的列名称。不填或为空则不展示列名称。</param>

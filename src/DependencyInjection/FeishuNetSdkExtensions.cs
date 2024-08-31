@@ -13,6 +13,7 @@
 // ************************************************************************
 using FeishuNetSdk;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 
 #pragma warning disable IDE0130
@@ -70,6 +71,8 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 return new AppAccessTokenProvider(serviceProvider, options);
             });
+
+            services.TryAddSingleton<AesCipher>();
 
             return services;
         }

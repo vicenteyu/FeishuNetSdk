@@ -281,9 +281,15 @@ namespace FeishuNetSdk.Im.Dtos
         public UrlLink? CardLink { get; set; }
 
         /// <summary>
-        /// 元素集合
+        /// 卡片正文
         /// </summary>
-        [JsonPropertyName("elements")]
-        public object[]? Elements { get; set; }
+        [JsonPropertyName("body")]
+        public BodySuffix? Body { get; set; }
+
+        /// <summary>
+        /// 卡片正文
+        /// </summary>
+        /// <param name="Elements">元素集合</param>
+        public record BodySuffix([property: JsonPropertyName("elements")] object[] Elements);
     }
 }

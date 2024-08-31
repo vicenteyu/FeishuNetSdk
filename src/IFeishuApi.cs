@@ -87,5 +87,13 @@ public interface IFeishuApi : IHttpApi
     [HttpPost("/open-apis/auth/v3/app_access_token/internal")]
     System.Threading.Tasks.Task<Auth.Spec.PostAuthV3AppAccessTokenInternalResponseDto> PostAuthV3AppAccessTokenInternalAsync(
         [JsonContent] Auth.Spec.PostAuthV3AppAccessTokenInternalBodyDto dto);
+
+    /// <summary>
+    /// 获取长连接地址
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/callback/ws/endpoint")]
+    System.Threading.Tasks.Task<FeishuResponse<Auth.Spec.PostCallbackWsEndpointResponseDto>> PostCallbackWsEndpointAsync(
+        [JsonContent] Auth.Spec.PostCallbackWsEndpointBodyDto dto);
 }
 
