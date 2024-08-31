@@ -30,7 +30,7 @@ public record PostHireV1EcoExamPapersBatchDeleteBodyDto
     public string AccountId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>试卷 ID 列表。通过[创建试卷列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/create)传入的 ID</para>
+    /// <para>试卷 ID 列表。为通过[创建试卷列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/create)传入的 ID</para>
     /// <para>必填：是</para>
     /// <para>示例值：["7147998241542539512"]</para>
     /// </summary>

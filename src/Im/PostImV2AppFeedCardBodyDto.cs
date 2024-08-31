@@ -34,7 +34,7 @@ public record PostImV2AppFeedCardBodyDto
     public record OpenAppFeedCard
     {
         /// <summary>
-        /// <para>业务 ID</para>
+        /// <para>业务 ID（非必填字段，开发者可自定义业务 ID 以方便管理数据；若不传入，则 API 响应体中会返回系统自动分配的业务 ID）</para>
         /// <para>必填：否</para>
         /// <para>示例值：096e2927-40a6-41a3-9562-314d641d09ae</para>
         /// <para>最大长度：200</para>
@@ -44,7 +44,7 @@ public record PostImV2AppFeedCardBodyDto
         public string? BizId { get; set; }
 
         /// <summary>
-        /// <para>主标题</para>
+        /// <para>主标题（在用户界面中最多展示一行，自动省略超出部分的内容；不支持定义字号及颜色）</para>
         /// <para>必填：否</para>
         /// <para>示例值：主标题</para>
         /// <para>最大长度：60</para>
@@ -64,7 +64,7 @@ public record PostImV2AppFeedCardBodyDto
         public string? AvatarKey { get; set; }
 
         /// <summary>
-        /// <para>预览信息</para>
+        /// <para>预览信息（在用户界面中最多展示一行，自动省略超出部分的内容；支持多个字段拼接、特殊符号和 emoji；不支持定义字号及颜色）</para>
         /// <para>必填：否</para>
         /// <para>示例值：预览信息</para>
         /// <para>最大长度：120</para>
@@ -74,14 +74,14 @@ public record PostImV2AppFeedCardBodyDto
         public string? Preview { get; set; }
 
         /// <summary>
-        /// <para>状态标签</para>
+        /// <para>状态标签（非必填字段，如未选择该字段，则默认展示卡片触达时间）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("status_label")]
         public OpenFeedStatusLabel? StatusLabel { get; set; }
 
         /// <summary>
-        /// <para>状态标签</para>
+        /// <para>状态标签（非必填字段，如未选择该字段，则默认展示卡片触达时间）</para>
         /// </summary>
         public record OpenFeedStatusLabel
         {
@@ -112,14 +112,14 @@ public record PostImV2AppFeedCardBodyDto
         }
 
         /// <summary>
-        /// <para>交互按钮</para>
+        /// <para>交互按钮（非必填字段，如未传入该字段，则不展示按钮；最多展示 2 个按钮）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("buttons")]
         public OpenAppFeedCardButtons? Buttons { get; set; }
 
         /// <summary>
-        /// <para>交互按钮</para>
+        /// <para>交互按钮（非必填字段，如未传入该字段，则不展示按钮；最多展示 2 个按钮）</para>
         /// </summary>
         public record OpenAppFeedCardButtons
         {
@@ -187,7 +187,7 @@ public record PostImV2AppFeedCardBodyDto
                 }
 
                 /// <summary>
-                /// <para>交互类型</para>
+                /// <para>交互类型（按钮交互方式可配置跳转 URL 页面，也可配置 webhook 回调）</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：url_page</para>
                 /// <para>可选值：<list type="bullet">
@@ -246,14 +246,14 @@ public record PostImV2AppFeedCardBodyDto
         }
 
         /// <summary>
-        /// <para>跳转链接（创建时该参数为必填参数）</para>
+        /// <para>卡片整体跳转链接（创建时该参数为必填参数）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("link")]
         public OpenAppFeedLink? Link { get; set; }
 
         /// <summary>
-        /// <para>跳转链接（创建时该参数为必填参数）</para>
+        /// <para>卡片整体跳转链接（创建时该参数为必填参数）</para>
         /// </summary>
         public record OpenAppFeedLink
         {
@@ -271,7 +271,7 @@ public record PostImV2AppFeedCardBodyDto
         }
 
         /// <summary>
-        /// <para>即时提醒状态，true-打开，false-关闭</para>
+        /// <para>即时提醒状态（设置为 true 后，卡片在消息列表临时置顶；设置为 false，消息卡片不置顶）</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// <para>默认值：false</para>
@@ -310,7 +310,7 @@ public record PostImV2AppFeedCardBodyDto
             public string? CustomSoundText { get; set; }
 
             /// <summary>
-            /// <para>是否播报自定义语音（仅支持移动端）</para>
+            /// <para>是否播报自定义语音（仅支持移动端；播报语音包暂不支持切换，默认为女声）</para>
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// <para>默认值：false</para>
@@ -321,7 +321,8 @@ public record PostImV2AppFeedCardBodyDto
     }
 
     /// <summary>
-    /// <para>用户 ID</para>
+    /// <para>用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果</para>
+    /// <para>是商店应用，因不支持获取用户 userID 权限，所以无法值使用 user_id 类型的用户 ID）</para>
     /// <para>必填：否</para>
     /// <para>最大长度：20</para>
     /// <para>最小长度：1</para>

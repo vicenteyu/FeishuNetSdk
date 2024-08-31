@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 操作候选人入职 请求体
-/// <para>根据投递 ID 操作候选人入职并创建员工。后续可通过接口进一步获取入职信息，详情参考：[通过员工 ID 获取入职信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get)</para>
+/// <para>根据投递 ID 操作候选人入职并创建员工，后续可通过 [通过员工 ID 获取入职信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get) 接口获取入职信息。</para>
 /// <para>接口ID：6964286393804800028</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/onboard/transfer_onboard</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fapplication%2ftransfer_onboard</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
 {
     /// <summary>
-    /// <para>实际入职时间，毫秒时间戳</para>
+    /// <para>实际入职时间，毫秒时间戳（int64类型），不传则默认为当前时间</para>
     /// <para>必填：否</para>
     /// <para>示例值：1616428800000</para>
     /// </summary>
@@ -30,7 +30,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
     public long? ActualOnboardTime { get; set; }
 
     /// <summary>
-    /// <para>预期转正时间，毫秒时间戳</para>
+    /// <para>预期转正时间，毫秒时间戳（int64类型），不传则默认为0</para>
     /// <para>必填：否</para>
     /// <para>示例值：1616428800000</para>
     /// </summary>
@@ -97,7 +97,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
     /// <summary>
     /// <para>候选人入职人员类型 ID，将用于候选人内推奖规则判断，与入参 `employee_type_id_type ` 类型一致</para>
     /// <para>必填：否</para>
-    /// <para>示例值：1</para>
+    /// <para>示例值：cSbrHjS5Ogiwq0Zu-cKz1g==</para>
     /// </summary>
     [JsonPropertyName("employee_type")]
     public string? EmployeeType { get; set; }

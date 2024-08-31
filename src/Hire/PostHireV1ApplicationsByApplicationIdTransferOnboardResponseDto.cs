@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-11
+// Last Modified On : 2024-08-31
 // ************************************************************************
 // <copyright file="PostHireV1ApplicationsByApplicationIdTransferOnboardResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 操作候选人入职 响应体
-/// <para>根据投递 ID 操作候选人入职并创建员工。后续可通过接口进一步获取入职信息，详情参考：[通过员工 ID 获取入职信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get)</para>
+/// <para>根据投递 ID 操作候选人入职并创建员工，后续可通过 [通过员工 ID 获取入职信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get) 接口获取入职信息。</para>
 /// <para>接口ID：6964286393804800028</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/onboard/transfer_onboard</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fapplication%2ftransfer_onboard</para>
@@ -74,36 +74,36 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardResponseDto
         public int? ConversionStatus { get; set; }
 
         /// <summary>
-        /// <para>实际入职时间</para>
+        /// <para>实际入职时间，毫秒时间戳（int64类型）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1637596800000</para>
         /// </summary>
         [JsonPropertyName("onboard_time")]
-        public int? OnboardTime { get; set; }
+        public long? OnboardTime { get; set; }
 
         /// <summary>
-        /// <para>预期转正时间</para>
+        /// <para>预期转正时间，毫秒时间戳（int64类型）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1637596800000</para>
         /// </summary>
         [JsonPropertyName("expected_conversion_time")]
-        public int? ExpectedConversionTime { get; set; }
+        public long? ExpectedConversionTime { get; set; }
 
         /// <summary>
-        /// <para>实际转正时间</para>
+        /// <para>实际转正时间，毫秒时间戳（int64类型）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1637596800000</para>
         /// </summary>
         [JsonPropertyName("actual_conversion_time")]
-        public int? ActualConversionTime { get; set; }
+        public long? ActualConversionTime { get; set; }
 
         /// <summary>
-        /// <para>离职时间</para>
+        /// <para>离职时间，毫秒时间戳（int64类型）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1637596800000</para>
         /// </summary>
         [JsonPropertyName("overboard_time")]
-        public int? OverboardTime { get; set; }
+        public long? OverboardTime { get; set; }
 
         /// <summary>
         /// <para>离职原因</para>
@@ -114,7 +114,8 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardResponseDto
         public string? OverboardNote { get; set; }
 
         /// <summary>
-        /// <para>办公地点</para>
+        /// <para>候选人办公地点 ID，数据源可通过接口[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)</para>
+        /// <para>获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：CT_2</para>
         /// </summary>
@@ -122,7 +123,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardResponseDto
         public string? OnboardCityCode { get; set; }
 
         /// <summary>
-        /// <para>入职部门</para>
+        /// <para>候选人入职部门 ID ，与入参 `department_id_type ` 类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：6966123381141866028</para>
         /// </summary>
@@ -130,7 +131,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardResponseDto
         public string? Department { get; set; }
 
         /// <summary>
-        /// <para>直属上级</para>
+        /// <para>候选人直属上级 UserID ，与入参 `user_id_type` 类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou-xxx</para>
         /// </summary>
@@ -138,7 +139,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardResponseDto
         public string? Leader { get; set; }
 
         /// <summary>
-        /// <para>序列</para>
+        /// <para>候选人序列 ID ，与入参 `job_family_id_type ` 类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：6937934036379650311</para>
         /// </summary>
@@ -146,7 +147,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardResponseDto
         public string? Sequence { get; set; }
 
         /// <summary>
-        /// <para>职级</para>
+        /// <para>候选人职级 ID ，与入参 `job_level_id_type ` 类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：7006234385490345986</para>
         /// </summary>
@@ -154,7 +155,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardResponseDto
         public string? Level { get; set; }
 
         /// <summary>
-        /// <para>员工类型</para>
+        /// <para>候选人入职人员类型 ID，与入参 `employee_type_id_type ` 类型一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>

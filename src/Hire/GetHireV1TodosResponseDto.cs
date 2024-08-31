@@ -9,12 +9,12 @@
 // <copyright file="GetHireV1TodosResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取待办列表 响应体</summary>
+// <summary>批量获取待办事项 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 获取待办列表 响应体
-/// <para>获取待办列表。</para>
+/// 批量获取待办事项 响应体
+/// <para>批量获取当前用户的待办事项信息，包含评估待办事项、面试待办事项、笔试待办事项和 Offer 待办事项。</para>
 /// <para>接口ID：7096463887449325596</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/recruitment-process-follow-up/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftodo%2flist</para>
@@ -22,31 +22,31 @@ namespace FeishuNetSdk.Hire;
 public record GetHireV1TodosResponseDto
 {
     /// <summary>
-    /// <para>待办信息</para>
+    /// <para>待办事项列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public Todo[]? Items { get; set; }
 
     /// <summary>
-    /// <para>待办信息</para>
+    /// <para>待办事项列表</para>
     /// </summary>
     public record Todo
     {
         /// <summary>
-        /// <para>简历评估待办信息，仅当 type=evaluation 时返回</para>
+        /// <para>简历评估待办事项，仅当待办类型为 `evaluation` 时返回</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("evaluation")]
         public TodoCommon? Evaluation { get; set; }
 
         /// <summary>
-        /// <para>简历评估待办信息，仅当 type=evaluation 时返回</para>
+        /// <para>简历评估待办事项，仅当待办类型为 `evaluation` 时返回</para>
         /// </summary>
         public record TodoCommon
         {
             /// <summary>
-            /// <para>候选人 ID</para>
+            /// <para>人才 ID，详情可查看：[获取人才信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6891524011667228941</para>
             /// </summary>
@@ -54,7 +54,7 @@ public record GetHireV1TodosResponseDto
             public string? TalentId { get; set; }
 
             /// <summary>
-            /// <para>职位 ID</para>
+            /// <para>职位 ID，详情可查看：[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6891113155221522701</para>
             /// </summary>
@@ -62,7 +62,7 @@ public record GetHireV1TodosResponseDto
             public string? JobId { get; set; }
 
             /// <summary>
-            /// <para>投递 ID</para>
+            /// <para>投递 ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6945436033023625516</para>
             /// </summary>
@@ -70,7 +70,7 @@ public record GetHireV1TodosResponseDto
             public string? ApplicationId { get; set; }
 
             /// <summary>
-            /// <para>ID</para>
+            /// <para>评估 ID，详情可查看：[批量获取简历评估信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/evaluation/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6914542162822695181</para>
             /// </summary>
@@ -79,21 +79,21 @@ public record GetHireV1TodosResponseDto
         }
 
         /// <summary>
-        /// <para>Offer 待办信息，仅当 type=offer 时返回</para>
+        /// <para>Offer 待办事项，仅当待办类型为 `offer` 时返回</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("offer")]
         public TodoCommon? Offer { get; set; }
 
         /// <summary>
-        /// <para>笔试待办信息，仅当 type=exam 时返回</para>
+        /// <para>笔试待办事项，仅当类型为 `exam` 时返回</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("exam")]
         public TodoCommon? Exam { get; set; }
 
         /// <summary>
-        /// <para>面试待办信息，仅当 type=interview 时返回</para>
+        /// <para>面试待办事项，仅当类型为 `interview` 时返回</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("interview")]

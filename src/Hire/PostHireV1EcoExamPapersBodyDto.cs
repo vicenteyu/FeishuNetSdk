@@ -43,6 +43,7 @@ public record PostHireV1EcoExamPapersBodyDto
     {
         /// <summary>
         /// <para>试卷 ID。由调用方自定义</para>
+        /// <para>**注意**：试卷 ID 长度应不超过`255`字符，超出部分将被截断</para>
         /// <para>必填：是</para>
         /// <para>示例值：7147998241542539527</para>
         /// <para>最小长度：1</para>
@@ -52,6 +53,7 @@ public record PostHireV1EcoExamPapersBodyDto
 
         /// <summary>
         /// <para>试卷名称</para>
+        /// <para>**注意**：试卷名称长度应不超过`255`字符，超出部分将被截断</para>
         /// <para>必填：是</para>
         /// <para>示例值：春季测评</para>
         /// <para>最小长度：1</para>

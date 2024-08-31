@@ -44,7 +44,8 @@ public record DeleteImV2AppFeedCardBatchBodyDto
         public string BizId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>用户 ID</para>
+        /// <para>用户 ID（ID 类型与 user_id_type 的取值一致。如果</para>
+        /// <para>是商店应用，因不支持获取用户 userID 权限，所以无法值使用 user_id 类型的用户 ID）</para>
         /// <para>必填：是</para>
         /// <para>示例值：ou_88553eda9014c201e6969b478895c223</para>
         /// </summary>

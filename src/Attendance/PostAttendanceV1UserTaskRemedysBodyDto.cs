@@ -70,9 +70,9 @@ public record PostAttendanceV1UserTaskRemedysBodyDto
     public string Reason { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>补卡时间，精确到秒的时间戳，不填默认为0</para>
+    /// <para>字段已失效</para>
     /// <para>必填：否</para>
-    /// <para>示例值：1611476284</para>
+    /// <para>示例值：-</para>
     /// </summary>
     [JsonPropertyName("time")]
     public string? Time { get; set; }

@@ -763,9 +763,9 @@
 <tr><td colspan="3">PostLingoV1FilesUpload</td></tr>
 <tr><td rowspan="2">382</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>下载图片</td></tr>
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
-<tr><td rowspan="2">383</td><td rowspan="2">2024-08-15</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">383</td><td rowspan="2">2024-08-30</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">384</td><td rowspan="2">2024-08-15</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">384</td><td rowspan="2">2024-08-30</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">385</td><td rowspan="2">2023-04-07</td><td>&#10003;</td><td>应用信息</td><td>获取用户自定义常用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV5ApplicationsFavourite</td></tr>
@@ -807,7 +807,7 @@
 <tr><td colspan="3">GetContactV3Departments</td></tr>
 <tr><td rowspan="2">404</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 创建旧版文档</td></tr>
 <tr><td colspan="3">PostDocV2Create</td></tr>
-<tr><td rowspan="2">405</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档元信息</td></tr>
+<tr><td rowspan="2">405</td><td rowspan="2">2024-08-30</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档元信息</td></tr>
 <tr><td colspan="3">GetDocV2MetaByDocToken</td></tr>
 <tr><td rowspan="2">406</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档中的电子表格元数据</td></tr>
 <tr><td colspan="3">GetDocV2ByDocTokenSheetMeta</td></tr>
@@ -905,9 +905,9 @@
 <tr><td colspan="3">GetDriveV1FilesByFileTokenDownload</td></tr>
 <tr><td rowspan="2">453</td><td rowspan="2">2024-08-23</td><td>&#10003;</td><td>云文档</td><td>创建导入任务</td></tr>
 <tr><td colspan="3">PostDriveV1ImportTasks</td></tr>
-<tr><td rowspan="2">454</td><td rowspan="2">2024-08-23</td><td>&#10003;</td><td>云文档</td><td>查询导入任务结果</td></tr>
+<tr><td rowspan="2">454</td><td rowspan="2">2024-08-30</td><td>&#10003;</td><td>云文档</td><td>查询导入任务结果</td></tr>
 <tr><td colspan="3">GetDriveV1ImportTasksByTicket</td></tr>
-<tr><td rowspan="2">455</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建导出任务</td></tr>
+<tr><td rowspan="2">455</td><td rowspan="2">2024-08-30</td><td>&#10003;</td><td>云文档</td><td>创建导出任务</td></tr>
 <tr><td colspan="3">PostDriveV1ExportTasks</td></tr>
 <tr><td rowspan="2">456</td><td rowspan="2">2024-08-23</td><td>&#10003;</td><td>云文档</td><td>查询导出任务结果</td></tr>
 <tr><td colspan="3">GetDriveV1ExportTasksByTicket</td></tr>
@@ -1027,7 +1027,7 @@
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersBatchCreate</td></tr>
 <tr><td rowspan="2">514</td><td rowspan="2">2024-07-25</td><td>&#10003;</td><td>日历</td><td>创建会议纪要</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingMinute</td></tr>
-<tr><td rowspan="2">515</td><td rowspan="2">2024-07-26</td><td>&#10003;</td><td>招聘</td><td>获取待办列表</td></tr>
+<tr><td rowspan="2">515</td><td rowspan="2">2024-08-30</td><td>&#10003;</td><td>招聘</td><td>批量获取待办事项</td></tr>
 <tr><td colspan="3">GetHireV1Todos</td></tr>
 <tr><td rowspan="2">516</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>多维表格</td><td>批量获取记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGet</td></tr>
@@ -1043,4 +1043,8 @@
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
 <tr><td rowspan="2">522</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
+<tr><td rowspan="2">523</td><td rowspan="2">2024-08-30</td><td>新增</td><td>邮箱</td><td>发送邮件</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesSend</td></tr>
+<tr><td rowspan="2">524</td><td rowspan="2">2024-08-30</td><td>新增</td><td>公司圈</td><td>查询帖子信息</td></tr>
+<tr><td colspan="3">GetMomentsV1PostsByPostId</td></tr>
 </tbody></table>

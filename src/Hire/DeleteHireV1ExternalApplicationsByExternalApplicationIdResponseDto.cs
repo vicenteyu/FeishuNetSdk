@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 删除外部投递 响应体
-/// <para>将外部投递删除</para>
+/// <para>根据外部投递 ID 删除外部投递。</para>
 /// <para>接口ID：7215630682033979420</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/import-external-system-information/delete</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fexternal_application%2fdelete</para>
@@ -70,15 +70,15 @@ public record DeleteHireV1ExternalApplicationsByExternalApplicationIdResponseDto
         public string? ResumeSource { get; set; }
 
         /// <summary>
-        /// <para>阶段</para>
+        /// <para>阶段名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1</para>
+        /// <para>示例值：简历初筛</para>
         /// </summary>
         [JsonPropertyName("stage")]
         public string? Stage { get; set; }
 
         /// <summary>
-        /// <para>人才 ID</para>
+        /// <para>人才 ID，详情请查看：[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)</para>
         /// <para>必填：是</para>
         /// <para>示例值：6960663240925956459</para>
         /// </summary>
@@ -108,7 +108,7 @@ public record DeleteHireV1ExternalApplicationsByExternalApplicationIdResponseDto
         public int? DeliveryType { get; set; }
 
         /// <summary>
-        /// <para>更新时间</para>
+        /// <para>投递在外部系统终止时间，毫秒时间戳（字段类型为：int64）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1618500278645</para>
         /// </summary>
@@ -118,7 +118,7 @@ public record DeleteHireV1ExternalApplicationsByExternalApplicationIdResponseDto
         /// <summary>
         /// <para>终止类型</para>
         /// <para>必填：否</para>
-        /// <para>示例值：health</para>
+        /// <para>示例值：HR 主动终止</para>
         /// </summary>
         [JsonPropertyName("termination_type")]
         public string? TerminationType { get; set; }

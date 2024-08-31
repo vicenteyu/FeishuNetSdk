@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-31
 // ************************************************************************
 // <copyright file="GetDocV2MetaByDocTokenResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -92,6 +92,16 @@ public record GetDocV2MetaByDocTokenResponseDto
     public bool? IsStared { get; set; }
 
     /// <summary>
+    /// <para>文档是否被升级为新版文档</para>
+    /// <para>新旧文档的差异详见：[新旧版本说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)</para>
+    /// <para>如何接入新版文档详见：[文档概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)</para>
+    /// <para>**默认值:** false</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("is_upgraded")]
+    public bool? IsUpgraded { get; set; }
+
+    /// <summary>
     /// <para>文档类型，固定是doc</para>
     /// <para>必填：否</para>
     /// </summary>
@@ -139,6 +149,14 @@ public record GetDocV2MetaByDocTokenResponseDto
     /// </summary>
     [JsonPropertyName("type")]
     public long? Type { get; set; }
+
+    /// <summary>
+    /// <para>升级后的文档 token，对应新版文档接口中的 `document_id`</para>
+    /// <para>**示例值:** AcJ3d2QM1onnE4xjcZAcP7abcef</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("upgraded_token")]
+    public string? UpgradedToken { get; set; }
 
     /// <summary>
     /// <para>文档url</para>

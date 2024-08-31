@@ -42,7 +42,7 @@ public record PostHireV1ExternalInterviewsResponseDto
         public string ExternalApplicationId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>外部面试 ID</para>
+        /// <para>外部面试 ID（由飞书招聘系统生成）</para>
         /// <para>必填：否</para>
         /// <para>示例值：6960663240925956436</para>
         /// </summary>

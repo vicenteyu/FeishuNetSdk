@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 获取地址列表 响应体
 /// <para>获取地址列表，可查询到的信息包括地址与地点信息，可应用在职位地点、面试地点、人才意向工作城市等场景。</para>
 /// <para>## 名词解释</para>
-/// <para>在本接口中，地点和地址的描述如下：</para>
+/// <para>地点和地址的描述如下：</para>
 /// <para>- 地点：行政区域划分，如 「中国大陆」、「四川省」、「成都市」、「高新区」</para>
 /// <para>- 地址：具体地理位置，包括职位地址、面试地址、门店地址，如：「中国四川省成都市成华区熊猫大道 1375 号」</para>
 /// <para>接口ID：6990661791098683395</para>
@@ -60,7 +60,7 @@ public record GetHireV1LocationsResponseDto
             /// <summary>
             /// <para>地址中文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：成都抖音集团大厦</para>
+            /// <para>示例值：中国四川省成都市成华区熊猫大道 1375 号</para>
             /// </summary>
             [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
@@ -68,7 +68,7 @@ public record GetHireV1LocationsResponseDto
             /// <summary>
             /// <para>地址英文名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Chengdu Douyin Group Building</para>
+            /// <para>示例值：No. 1375, Panda Avenue, Chenghua District, Chengdu, Sichuan, China</para>
             /// </summary>
             [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }

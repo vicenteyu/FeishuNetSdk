@@ -9,12 +9,12 @@
 // <copyright file="PostHireV1TalentsBatchGetIdBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>批量获取人才简要信息 请求体</summary>
+// <summary>批量获取人才ID 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 批量获取人才简要信息 请求体
-/// <para>批量获取人才简要信息，包括人才 ID、手机号、邮箱、证件号等。</para>
+/// 批量获取人才ID 请求体
+/// <para>通过手机号、邮箱、证件号，批量查询人才ID</para>
 /// <para>接口ID：7125370772851458076</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent/batch_get_id</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent%2fbatch_get_id</para>

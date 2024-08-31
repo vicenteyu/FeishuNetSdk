@@ -42,7 +42,7 @@ public record PatchHireV1EcoExamPapersBatchUpdateBodyDto
     public record EcoExamPaperData
     {
         /// <summary>
-        /// <para>试卷 ID。账号下已有的试卷 ID</para>
+        /// <para>试卷 ID，为通过[创建试卷列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/create)传入的 ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：7147998241542539527</para>
         /// <para>最小长度：1</para>
@@ -52,6 +52,7 @@ public record PatchHireV1EcoExamPapersBatchUpdateBodyDto
 
         /// <summary>
         /// <para>试卷名称</para>
+        /// <para>**注意**：试卷名称长度应不超过`255`字符，超出部分将被截断</para>
         /// <para>必填：是</para>
         /// <para>示例值：春季测评</para>
         /// <para>最小长度：1</para>

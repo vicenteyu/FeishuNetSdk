@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Im;
 public record PutImV2ChatButtonBodyDto
 {
     /// <summary>
-    /// <para>用户 ID 列表</para>
+    /// <para>用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 user ID 权限，所以无法使用 user_id 类型的用户 ID）</para>
     /// <para>必填：否</para>
     /// <para>最大长度：20</para>
     /// <para>最小长度：1</para>
@@ -39,14 +39,14 @@ public record PutImV2ChatButtonBodyDto
     public string ChatId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>按钮</para>
+    /// <para>交互按钮（非必填字段，如未传入该字段，则不展示按钮；最多展示 2 个按钮）</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("buttons")]
     public OpenAppFeedCardButtons? Buttons { get; set; }
 
     /// <summary>
-    /// <para>按钮</para>
+    /// <para>交互按钮（非必填字段，如未传入该字段，则不展示按钮；最多展示 2 个按钮）</para>
     /// </summary>
     public record OpenAppFeedCardButtons
     {
@@ -120,7 +120,7 @@ public record PutImV2ChatButtonBodyDto
             }
 
             /// <summary>
-            /// <para>交互类型</para>
+            /// <para>交互类型（按钮交互方式可配置跳转 URL 页面，也可配置 webhook 回调）</para>
             /// <para>必填：是</para>
             /// <para>示例值：url_page</para>
             /// <para>可选值：<list type="bullet">

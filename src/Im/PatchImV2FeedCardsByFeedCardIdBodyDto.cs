@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Im;
 public record PatchImV2FeedCardsByFeedCardIdBodyDto
 {
     /// <summary>
-    /// <para>即时提醒状态，true-打开，false-关闭</para>
+    /// <para>即时提醒状态（设置为 true 后，卡片在消息列表临时置顶；设置为 false，消息卡片不置顶）</para>
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -30,7 +30,7 @@ public record PatchImV2FeedCardsByFeedCardIdBodyDto
     public bool TimeSensitive { get; set; }
 
     /// <summary>
-    /// <para>用户id 列表，支持OpenID，UnionID, UserID</para>
+    /// <para>用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 user ID 权限，所以无法使用 user_id 类型的用户 ID）</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("user_ids")]

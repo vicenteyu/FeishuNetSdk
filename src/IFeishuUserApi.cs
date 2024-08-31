@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-24
+// Last Modified On : 2024-08-31
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -11374,11 +11374,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string task_id);
 
     /// <summary>
-    /// <para>【招聘】获取待办列表</para>
+    /// <para>【招聘】批量获取待办事项</para>
     /// <para>接口ID：7096463887449325596</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/todo/list</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>获取待办列表。</para>
+    /// <para>批量获取当前用户的待办事项信息，包含评估待办事项、面试待办事项、笔试待办事项和 Offer 待办事项。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:todo:readonly</item>
     /// </list></para>
@@ -11394,14 +11394,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>每页获取记录数量，最大100</para>
-    /// <para>示例值：100</para>
+    /// <para>每页获取记录数量</para>
+    /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
     /// <param name="user_id">
     /// <para>必填：否</para>
-    /// <para>用户 ID，当 token 为租户 token 时，必须传入该字段，当 token 为用户 token 时，不传该字段</para>
-    /// <para>示例值：ou_xxx</para>
+    /// <para>用户 ID，该字段无效，请勿使用</para>
+    /// <para>示例值：6894116548131161608</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
@@ -14205,6 +14205,30 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
+    /// <para>【邮箱】发送邮件</para>
+    /// <para>接口ID：7205136193486356481</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/send</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>发送邮件</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:send</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/send")]
+    System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdMessagesSendAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto dto);
+
+    /// <summary>
     /// <para>【多维表格】复制多维表格</para>
     /// <para>接口ID：7205776220394160156</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/copy</para>
@@ -16768,6 +16792,44 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string calendar_id,
         [PathQuery] string event_id);
+
+    /// <summary>
+    /// <para>【公司圈】查询帖子信息</para>
+    /// <para>接口ID：7270433540692639747</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/moments-v1/post/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过 ID 查询帖子实体数据信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>moments:moments</item>
+    /// <item>moments:moments:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="post_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>帖子的ID，可从发布帖子接口返回数据或发布帖子事件中获取</para>
+    /// <para>示例值：6934510454161014804</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/moments/v1/posts/{post_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Moments.GetMomentsV1PostsByPostIdResponseDto>> GetMomentsV1PostsByPostIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string post_id,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【任务】将自定义字段加入资源</para>

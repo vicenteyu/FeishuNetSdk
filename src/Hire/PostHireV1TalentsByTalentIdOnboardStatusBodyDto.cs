@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 更新人才在职状态 请求体
 /// <para>更新人才的在职状态，可进行的操作包括入职与离职。</para>
 /// <para>## 注意事项</para>
-/// <para>- 通过该接口对人才进行入职、离职操作后，人才详情与列表会对应展示已入职、已离职标签</para>
+/// <para>- 进行入职、离职操作后，「飞书招聘」- 「人才库」-「人才详情页」等场景会相应展示已入职、已离职标签</para>
 /// <para>- 已入职的人才不能进行入职操作，已离职的人才不能进行入职操作</para>
 /// <para>接口ID：7236665938900877340</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent/onboard_status</para>

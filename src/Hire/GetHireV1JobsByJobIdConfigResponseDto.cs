@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取职位设置 响应体
-/// <para>获取职位设置。</para>
+/// <para>获取职位设置，包含 Offer 申请表、Offer 审批流程、建议评估人列表、面试评价表、建议面试官列表、招聘需求、面试登记表、入职登记表、面试轮次类型列表、关联职位列表等设置。</para>
 /// <para>接口ID：7172190705011212292</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/job/config</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fjob%2fconfig</para>
@@ -22,14 +22,14 @@ namespace FeishuNetSdk.Hire;
 public record GetHireV1JobsByJobIdConfigResponseDto
 {
     /// <summary>
-    /// <para>职位配置</para>
+    /// <para>职位设置</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("job_config")]
     public JobConfigResult? JobConfig { get; set; }
 
     /// <summary>
-    /// <para>职位配置</para>
+    /// <para>职位设置</para>
     /// </summary>
     public record JobConfigResult
     {
@@ -46,37 +46,37 @@ public record GetHireV1JobsByJobIdConfigResponseDto
         public record IdNameObject
         {
             /// <summary>
-            /// <para>ID</para>
+            /// <para>Offer 申请表 ID，详情请查看：[获取 Offer 申请表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/list)</para>
             /// <para>必填：否</para>
-            /// <para>示例值：1213213123123</para>
+            /// <para>示例值：7392444731470563625</para>
             /// </summary>
             [JsonPropertyName("id")]
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>Offer 申请表名称</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("name")]
             public I18n? Name { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>Offer 申请表名称</para>
             /// </summary>
             public record I18n
             {
                 /// <summary>
-                /// <para>中文</para>
+                /// <para>Offer 申请表中文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：测试</para>
+                /// <para>示例值：申请表1</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文</para>
+                /// <para>Offer 申请表英文名称</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：test</para>
+                /// <para>示例值：Offer Apply 1</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -84,7 +84,7 @@ public record GetHireV1JobsByJobIdConfigResponseDto
         }
 
         /// <summary>
-        /// <para>Offer 审批流</para>
+        /// <para>Offer 审批流程</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("offer_process_conf")]
@@ -105,7 +105,7 @@ public record GetHireV1JobsByJobIdConfigResponseDto
         public IdNameObject? AssessmentTemplate { get; set; }
 
         /// <summary>
-        /// <para>职位 ID</para>
+        /// <para>职位 ID，详情可查看：[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6960663240925956574</para>
         /// </summary>
@@ -137,37 +137,37 @@ public record GetHireV1JobsByJobIdConfigResponseDto
             public record IdNameObject
             {
                 /// <summary>
-                /// <para>ID</para>
+                /// <para>面试官 ID，与入参`user_id_type`类型一致</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：1213213123123</para>
+                /// <para>示例值：7392444731470563625</para>
                 /// </summary>
                 [JsonPropertyName("id")]
                 public string? Id { get; set; }
 
                 /// <summary>
-                /// <para>名称</para>
+                /// <para>面试官名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
-                /// <para>名称</para>
+                /// <para>面试官名称</para>
                 /// </summary>
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>中文</para>
+                    /// <para>面试官中文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：测试</para>
+                    /// <para>示例值：张三</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
-                    /// <para>英文</para>
+                    /// <para>面试官英文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：test</para>
+                    /// <para>示例值：ZhangSan</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -203,7 +203,7 @@ public record GetHireV1JobsByJobIdConfigResponseDto
         public record RegistrationInfo
         {
             /// <summary>
-            /// <para>面试登记表ID</para>
+            /// <para>面试登记表模版 ID，详情可查看：[获取面试登记表模板列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_registration_schema/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6930815272790114324</para>
             /// </summary>
@@ -251,37 +251,37 @@ public record GetHireV1JobsByJobIdConfigResponseDto
             public record IdNameObject
             {
                 /// <summary>
-                /// <para>ID</para>
+                /// <para>面试轮次类型 ID，详情请查看：[获取面试轮次类型列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_round_type/list)</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：1213213123123</para>
+                /// <para>示例值：7392444731470563625</para>
                 /// </summary>
                 [JsonPropertyName("id")]
                 public string? Id { get; set; }
 
                 /// <summary>
-                /// <para>名称</para>
+                /// <para>面试轮次类型名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
-                /// <para>名称</para>
+                /// <para>面试轮次类型名称</para>
                 /// </summary>
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>中文</para>
+                    /// <para>面试轮次类型中文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：测试</para>
+                    /// <para>示例值：测试类型</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
-                    /// <para>英文</para>
+                    /// <para>面试轮次类型英文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：test</para>
+                    /// <para>示例值：Test type</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -304,7 +304,10 @@ public record GetHireV1JobsByJobIdConfigResponseDto
         public IdNameObject[]? RelatedJobLists { get; set; }
 
         /// <summary>
-        /// <para>职位属性，1是实体职位，2是虚拟职位</para>
+        /// <para>职位属性</para>
+        /// <para>可选值：</para>
+        /// <para>- 1：实体职位</para>
+        /// <para>- 2：虚拟职位</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
@@ -324,7 +327,7 @@ public record GetHireV1JobsByJobIdConfigResponseDto
         public record JobConfigResultInterviewAppointmentConfig
         {
             /// <summary>
-            /// <para>是否开启面试官安排面试</para>
+            /// <para>是否允许面试官安排面试</para>
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
@@ -357,7 +360,7 @@ public record GetHireV1JobsByJobIdConfigResponseDto
                 public int? InterviewType { get; set; }
 
                 /// <summary>
-                /// <para>时区</para>
+                /// <para>候选人时区</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：Asia/Shanghai</para>
                 /// </summary>
@@ -365,7 +368,7 @@ public record GetHireV1JobsByJobIdConfigResponseDto
                 public string? TalentTimezoneCode { get; set; }
 
                 /// <summary>
-                /// <para>联系人id</para>
+                /// <para>面试联系人 ID，与入参`user_id_type`类型一致</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：ou_c99c5f35d542efc7ee492afe11af19ef</para>
                 /// </summary>
@@ -373,7 +376,7 @@ public record GetHireV1JobsByJobIdConfigResponseDto
                 public string? ContactUserId { get; set; }
 
                 /// <summary>
-                /// <para>联系人电话</para>
+                /// <para>面试联系人电话</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：177xxxx1773</para>
                 /// </summary>
@@ -381,7 +384,7 @@ public record GetHireV1JobsByJobIdConfigResponseDto
                 public string? ContactMobile { get; set; }
 
                 /// <summary>
-                /// <para>联系人邮箱</para>
+                /// <para>面试联系人邮箱</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：test@open.com</para>
                 /// </summary>
@@ -389,7 +392,7 @@ public record GetHireV1JobsByJobIdConfigResponseDto
                 public string? ContactEmail { get; set; }
 
                 /// <summary>
-                /// <para>地址id</para>
+                /// <para>面试地点 ID，详情请查看：[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956576</para>
                 /// </summary>
@@ -415,22 +418,22 @@ public record GetHireV1JobsByJobIdConfigResponseDto
                 public int? VideoType { get; set; }
 
                 /// <summary>
-                /// <para>抄送人id list</para>
+                /// <para>抄送人 ID 列表，与入参`user_id_type`类型一致</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("cc")]
                 public string[]? Cc { get; set; }
 
                 /// <summary>
-                /// <para>备注</para>
+                /// <para>面试配置备注</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：备注</para>
+                /// <para>示例值：这个职位最好选择现场牛客网面试</para>
                 /// </summary>
                 [JsonPropertyName("remark")]
                 public string? Remark { get; set; }
 
                 /// <summary>
-                /// <para>面试通知模板</para>
+                /// <para>面试通知模板 ID</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956573</para>
                 /// </summary>
@@ -438,7 +441,7 @@ public record GetHireV1JobsByJobIdConfigResponseDto
                 public string? InterviewNotificationTemplateId { get; set; }
 
                 /// <summary>
-                /// <para>预约通知模板</para>
+                /// <para>预约通知模板 ID</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956573</para>
                 /// </summary>
@@ -446,7 +449,7 @@ public record GetHireV1JobsByJobIdConfigResponseDto
                 public string? AppointmentNotificationTemplateId { get; set; }
 
                 /// <summary>
-                /// <para>取消面试通知</para>
+                /// <para>取消面试通知模版 ID</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6960663240925956573</para>
                 /// </summary>

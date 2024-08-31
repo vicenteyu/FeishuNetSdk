@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-02
+// Last Modified On : 2024-08-31
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -40,6 +40,15 @@ public record PostCorehrV2EmployeesSearchResponseDto
         /// </summary>
         [JsonPropertyName("employment_id")]
         public string? EmploymentId { get; set; }
+
+        /// <summary>
+        /// <para>雇佣 ID</para>
+        /// <para>- 类型与 user_id_type 一致，转换失败时返回空值</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6893014062142064135</para>
+        /// </summary>
+        [JsonPropertyName("employment_id_v2")]
+        public string? EmploymentIdV2 { get; set; }
 
         /// <summary>
         /// <para>招聘投递 ID ，详细信息可以通过[【获取投递信息】](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)接口查询</para>
@@ -81,6 +90,16 @@ public record PostCorehrV2EmployeesSearchResponseDto
         /// </summary>
         [JsonPropertyName("department_id")]
         public string? DepartmentId { get; set; }
+
+        /// <summary>
+        /// <para>部门 ID</para>
+        /// <para>- 可通过 [【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息</para>
+        /// <para>- 类型与 department_id_type 一致，转换失败时返回空值</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6893014062142064135</para>
+        /// </summary>
+        [JsonPropertyName("department_id_v2")]
+        public string? DepartmentIdV2 { get; set; }
 
         /// <summary>
         /// <para>职级 ID，详细信息可通过[【获取单个职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)接口查询</para>
@@ -502,179 +521,6 @@ public record PostCorehrV2EmployeesSearchResponseDto
             /// </summary>
             [JsonPropertyName("active")]
             public bool Active { get; set; }
-
-            /// <summary>
-            /// <para>序列</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("job_family_id_list")]
-            public string[]? JobFamilyIdList { get; set; }
-
-            /// <summary>
-            /// <para>成本中心</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：4719519211875096301</para>
-            /// </summary>
-            [JsonPropertyName("cost_center_id")]
-            public string? CostCenterId { get; set; }
-
-            /// <summary>
-            /// <para>职务</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：4719519211875096302</para>
-            /// </summary>
-            [JsonPropertyName("job_id")]
-            public string? JobId { get; set; }
-
-            /// <summary>
-            /// <para>职级</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("job_level_id_list")]
-            public string[]? JobLevelIdList { get; set; }
-
-            /// <summary>
-            /// <para>人员类型</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("employee_type_id_list")]
-            public string[]? EmployeeTypeIdList { get; set; }
-
-            /// <summary>
-            /// <para>职等</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("job_grade_id_list")]
-            public string[]? JobGradeIdList { get; set; }
-
-            /// <summary>
-            /// <para>工作地点</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("work_location_id_list")]
-            public string[]? WorkLocationIdList { get; set; }
-
-            /// <summary>
-            /// <para>工时制度</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：4719519211875096301</para>
-            /// </summary>
-            [JsonPropertyName("working_hours_type_id")]
-            public string? WorkingHoursTypeId { get; set; }
-
-            /// <summary>
-            /// <para>部门</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：4719519211875096301</para>
-            /// </summary>
-            [JsonPropertyName("department_id")]
-            public string DepartmentId { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>直属上级岗位</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：4719519211875096301</para>
-            /// </summary>
-            [JsonPropertyName("direct_leader_id")]
-            public string? DirectLeaderId { get; set; }
-
-            /// <summary>
-            /// <para>虚线上级岗位</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：4719519211875096301</para>
-            /// </summary>
-            [JsonPropertyName("dotted_line_leader_id")]
-            public string? DottedLineLeaderId { get; set; }
-
-            /// <summary>
-            /// <para>是否关键岗位</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：true</para>
-            /// </summary>
-            [JsonPropertyName("is_key_position")]
-            public bool? IsKeyPosition { get; set; }
-
-            /// <summary>
-            /// <para>生效日期</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：2020-05-01</para>
-            /// </summary>
-            [JsonPropertyName("effective_time")]
-            public string EffectiveTime { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>失效日期</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：2020-05-01</para>
-            /// </summary>
-            [JsonPropertyName("expiration_time")]
-            public string ExpirationTime { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>自定义字段</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("custom_fields")]
-            public CustomFieldData[]? CustomFields { get; set; }
-
-            /// <summary>
-            /// <para>自定义字段</para>
-            /// </summary>
-            public record CustomFieldData
-            {
-                /// <summary>
-                /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：name</para>
-                /// </summary>
-                [JsonPropertyName("custom_api_name")]
-                public string CustomApiName { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>自定义字段名称</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("name")]
-                public CustomName? Name { get; set; }
-
-                /// <summary>
-                /// <para>自定义字段名称</para>
-                /// </summary>
-                public record CustomName
-                {
-                    /// <summary>
-                    /// <para>中文</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：自定义姓名</para>
-                    /// </summary>
-                    [JsonPropertyName("zh_cn")]
-                    public string? ZhCn { get; set; }
-
-                    /// <summary>
-                    /// <para>英文</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：Custom Name</para>
-                    /// </summary>
-                    [JsonPropertyName("en_us")]
-                    public string? EnUs { get; set; }
-                }
-
-                /// <summary>
-                /// <para>自定义字段类型</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：1</para>
-                /// </summary>
-                [JsonPropertyName("type")]
-                public int? Type { get; set; }
-
-                /// <summary>
-                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：\"231\"</para>
-                /// </summary>
-                [JsonPropertyName("value")]
-                public string Value { get; set; } = string.Empty;
-            }
         }
 
         /// <summary>
@@ -906,6 +752,8 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
         /// <summary>
         /// <para>直接上级的雇佣 ID</para>
+        /// <para>- 类型与 user_id_type 一致</para>
+        /// <para>- 请使用 direct_manager_id_v2</para>
         /// <para>必填：否</para>
         /// <para>示例值：7027024823985411287</para>
         /// </summary>
@@ -914,11 +762,31 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
         /// <summary>
         /// <para>虚线上级的雇佣 ID</para>
+        /// <para>- 类型与 user_id_type 一致</para>
+        /// <para>- 请使用 dotted_line_manager_id_v2</para>
         /// <para>必填：否</para>
         /// <para>示例值：7027024823985411782</para>
         /// </summary>
         [JsonPropertyName("dotted_line_manager_id")]
         public string? DottedLineManagerId { get; set; }
+
+        /// <summary>
+        /// <para>直接上级的雇佣 ID</para>
+        /// <para>- 类型与 user_id_type 一致，转换失败返回空值</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7027024823985411287</para>
+        /// </summary>
+        [JsonPropertyName("direct_manager_id_v2")]
+        public string? DirectManagerIdV2 { get; set; }
+
+        /// <summary>
+        /// <para>虚线上级的雇佣 ID</para>
+        /// <para>- 类型与 user_id_type 一致，转换失败返回空值</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7027024823985411782</para>
+        /// </summary>
+        [JsonPropertyName("dotted_line_manager_id_v2")]
+        public string? DottedLineManagerIdV2 { get; set; }
 
         /// <summary>
         /// <para>雇佣类型，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)枚举定义获得</para>
@@ -1101,7 +969,10 @@ public record PostCorehrV2EmployeesSearchResponseDto
         }
 
         /// <summary>
-        /// <para>是否离职重聘</para>
+        /// <para>是否离职重聘，枚举如下：</para>
+        /// <para>- no：否</para>
+        /// <para>- yes：是</para>
+        /// <para>- to_be_confirmed：待确定</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("rehire")]
@@ -1478,6 +1349,14 @@ public record PostCorehrV2EmployeesSearchResponseDto
             /// </summary>
             [JsonPropertyName("date_of_birth")]
             public string? DateOfBirth { get; set; }
+
+            /// <summary>
+            /// <para>国籍 ID，可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)查询</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6862995757234914821</para>
+            /// </summary>
+            [JsonPropertyName("nationality_id_v2")]
+            public string? NationalityIdV2 { get; set; }
 
             /// <summary>
             /// <para>民族 / 种族，枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，按如下参数查询即可：</para>
@@ -5269,11 +5148,22 @@ public record PostCorehrV2EmployeesSearchResponseDto
         {
             /// <summary>
             /// <para>部门 ID</para>
+            /// <para>- 类型与 department_id_type 一致，转换失败时返回空值</para>
+            /// <para>- 请使用 id_v2</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719456877659520852</para>
             /// </summary>
             [JsonPropertyName("id")]
             public string? Id { get; set; }
+
+            /// <summary>
+            /// <para>部门 ID</para>
+            /// <para>- 类型与 department_id_type 一致，转换失败时返回空值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：4719456877659520852</para>
+            /// </summary>
+            [JsonPropertyName("id_v2")]
+            public string? IdV2 { get; set; }
 
             /// <summary>
             /// <para>部门名称</para>
@@ -5319,11 +5209,22 @@ public record PostCorehrV2EmployeesSearchResponseDto
         {
             /// <summary>
             /// <para>雇佣 ID</para>
+            /// <para>- 类型与 user_id_type 一致</para>
+            /// <para>- 请使用 employment_id_v2</para>
             /// <para>必填：否</para>
             /// <para>示例值：6893014062142064135</para>
             /// </summary>
             [JsonPropertyName("employment_id")]
             public string? EmploymentId { get; set; }
+
+            /// <summary>
+            /// <para>雇佣 ID</para>
+            /// <para>- 类型与 user_id_type 一致，转换失败时返回空值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6893014062142064135</para>
+            /// </summary>
+            [JsonPropertyName("employment_id_v2")]
+            public string? EmploymentIdV2 { get; set; }
 
             /// <summary>
             /// <para>工号</para>

@@ -23,6 +23,8 @@ public record PostHireV1ExternalInterviewsBodyDto
 {
     /// <summary>
     /// <para>外部系统面试主键 （仅用于幂等）</para>
+    /// <para>- 若不传此值，则不进行幂等校验</para>
+    /// <para>- 若传此值，则用于幂等校验，同一`external_id` 24小时内仅可创建一次</para>
     /// <para>必填：否</para>
     /// <para>示例值：7396034232747641132</para>
     /// </summary>
@@ -30,7 +32,7 @@ public record PostHireV1ExternalInterviewsBodyDto
     public string? ExternalId { get; set; }
 
     /// <summary>
-    /// <para>外部投递 ID，可通过[获取外部投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/list)接口获取</para>
+    /// <para>外部投递 ID，可通过[查询外部投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/list)接口获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：6960663240925956437</para>
     /// </summary>

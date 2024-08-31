@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-12
+// Last Modified On : 2024-08-31
 // ************************************************************************
 // <copyright file="PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,21 +14,15 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新外部投递 请求体
-/// <para>更新外部投递，对外部投递的字段进行覆盖更新。</para>
+/// <para>更新外部投递信息。</para>
+/// <para>## 注意事项</para>
+/// <para>该接口会对原投递内容进行全量覆盖更新。</para>
 /// <para>接口ID：7215630682033963036</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/import-external-system-information/update-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fexternal_application%2fupdate</para>
 /// </summary>
 public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
 {
-    /// <summary>
-    /// <para>外部系统背调主键 （仅用于幂等）</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：123</para>
-    /// </summary>
-    [JsonPropertyName("external_id")]
-    public string? ExternalId { get; set; }
-
     /// <summary>
     /// <para>职位招聘类型</para>
     /// <para>必填：否</para>
@@ -52,26 +46,18 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     /// <summary>
     /// <para>简历来源</para>
     /// <para>必填：否</para>
-    /// <para>示例值：lagou</para>
+    /// <para>示例值：内推</para>
     /// </summary>
     [JsonPropertyName("resume_source")]
     public string? ResumeSource { get; set; }
 
     /// <summary>
-    /// <para>阶段</para>
+    /// <para>阶段名称</para>
     /// <para>必填：否</para>
-    /// <para>示例值：1</para>
+    /// <para>示例值：简历初筛</para>
     /// </summary>
     [JsonPropertyName("stage")]
     public string? Stage { get; set; }
-
-    /// <summary>
-    /// <para>人才 ID</para>
-    /// <para>必填：是</para>
-    /// <para>示例值：6960663240925956459</para>
-    /// </summary>
-    [JsonPropertyName("talent_id")]
-    public string TalentId { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>终止原因</para>
@@ -96,7 +82,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     public int? DeliveryType { get; set; }
 
     /// <summary>
-    /// <para>更新时间，招聘系统内用作投递在外部系统终止时间</para>
+    /// <para>投递在外部系统终止时间，毫秒时间戳（字段类型为：int64）</para>
     /// <para>必填：否</para>
     /// <para>示例值：1618500278645</para>
     /// </summary>
@@ -104,7 +90,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     public long? ModifyTime { get; set; }
 
     /// <summary>
-    /// <para>投递在外部系统创建时间</para>
+    /// <para>投递在外部系统创建时间，毫秒时间戳（字段类型为：int64）</para>
     /// <para>必填：否</para>
     /// <para>示例值：1618500278644</para>
     /// </summary>
@@ -114,7 +100,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     /// <summary>
     /// <para>终止类型</para>
     /// <para>必填：否</para>
-    /// <para>示例值：health</para>
+    /// <para>示例值：HR 主动终止</para>
     /// </summary>
     [JsonPropertyName("termination_type")]
     public string? TerminationType { get; set; }

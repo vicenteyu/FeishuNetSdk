@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取用户角色列表 响应体
-/// <para>切到新版权限系统后，可通过该接口获取用户角色列表，基于用户ID、角色ID等条件进行筛选，并通过page_size与page_token进行分页。</para>
+/// <para>通过用户ID、角色ID等筛选条件获取用户角色列表，可获取的信息包括用户ID、角色ID、角色姓名、业务管理范围等</para>
 /// <para>接口ID：7044464966434390044</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/auth/list-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fuser_role%2flist</para>

@@ -143,7 +143,9 @@ public record PatchCorehrV1JobDatasByJobDataIdBodyDto
     public string? JobFamilyId { get; set; }
 
     /// <summary>
-    /// <para>任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant) 任职原因（assignment_start_reason）枚举定义部分获得。请注意，「任职原因」不允许填写为「onboarding、offboarding」，当上一个任职版本的「任职原因」为「onboarding」时，「任职原因」必填。</para>
+    /// <para>任职原因</para>
+    /// <para>- 枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant) 任职原因（assignment_start_reason）枚举定义部分获得。请注意，「任职原因」不允许填写为「onboarding、offboarding」，当上一个任职版本的「任职原因」为「onboarding」时，「任职原因」必填</para>
+    /// <para>- 支持 [【异动原因】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_reason/query)</para>
     /// <para>必填：否</para>
     /// <para>示例值：onboarding</para>
     /// </summary>
@@ -151,7 +153,9 @@ public record PatchCorehrV1JobDatasByJobDataIdBodyDto
     public Enum? AssignmentStartReason { get; set; }
 
     /// <summary>
-    /// <para>任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant) 任职原因（assignment_start_reason）枚举定义部分获得。请注意，「任职原因」不允许填写为「onboarding、offboarding」，当上一个任职版本的「任职原因」为「onboarding」时，「任职原因」必填。</para>
+    /// <para>任职原因</para>
+    /// <para>- 枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant) 任职原因（assignment_start_reason）枚举定义部分获得。请注意，「任职原因」不允许填写为「onboarding、offboarding」，当上一个任职版本的「任职原因」为「onboarding」时，「任职原因」必填</para>
+    /// <para>- 支持 [【异动原因】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_reason/query)</para>
     /// </summary>
     public record Enum
     {
@@ -200,7 +204,7 @@ public record PatchCorehrV1JobDatasByJobDataIdBodyDto
 
     /// <summary>
     /// <para>成本中心分摊信息</para>
-    /// <para>- 当 version_id 不为空时，暂不支持更新该字段值</para>
+    /// <para>- 当 version_id 有值时，不支持该字段</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("cost_center_rate")]
@@ -208,7 +212,7 @@ public record PatchCorehrV1JobDatasByJobDataIdBodyDto
 
     /// <summary>
     /// <para>成本中心分摊信息</para>
-    /// <para>- 当 version_id 不为空时，暂不支持更新该字段值</para>
+    /// <para>- 当 version_id 有值时，不支持该字段</para>
     /// </summary>
     public record SupportCostCenterItem
     {

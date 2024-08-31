@@ -9,12 +9,12 @@
 // <copyright file="GetHireV1ExternalApplicationsResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取外部投递信息 响应体</summary>
+// <summary>查询外部投递列表 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 获取外部投递信息 响应体
-/// <para>根据人才 ID 获取人才的外部投递信息。</para>
+/// 查询外部投递列表 响应体
+/// <para>可根据人才 ID 获取人才外部投递列表。</para>
 /// <para>接口ID：7215630682033946652</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/import-external-system-information/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fexternal_application%2flist</para>
@@ -70,15 +70,15 @@ public record GetHireV1ExternalApplicationsResponseDto
         public string? ResumeSource { get; set; }
 
         /// <summary>
-        /// <para>阶段</para>
+        /// <para>阶段名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1</para>
+        /// <para>示例值：简历初筛</para>
         /// </summary>
         [JsonPropertyName("stage")]
         public string? Stage { get; set; }
 
         /// <summary>
-        /// <para>人才 ID</para>
+        /// <para>人才 ID，详情请查看：[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)</para>
         /// <para>必填：是</para>
         /// <para>示例值：6960663240925956459</para>
         /// </summary>
@@ -108,7 +108,7 @@ public record GetHireV1ExternalApplicationsResponseDto
         public int? DeliveryType { get; set; }
 
         /// <summary>
-        /// <para>更新时间，招聘系统内用作投递在外部系统终止时间</para>
+        /// <para>投递在外部系统终止时间，毫秒时间戳（字段类型为：int64）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1618500278645</para>
         /// </summary>
@@ -116,7 +116,7 @@ public record GetHireV1ExternalApplicationsResponseDto
         public long? ModifyTime { get; set; }
 
         /// <summary>
-        /// <para>投递在外部系统创建时间</para>
+        /// <para>投递在外部系统创建时间，毫秒时间戳（字段类型为：int64）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1618500278644</para>
         /// </summary>
@@ -126,7 +126,7 @@ public record GetHireV1ExternalApplicationsResponseDto
         /// <summary>
         /// <para>终止类型</para>
         /// <para>必填：否</para>
-        /// <para>示例值：health</para>
+        /// <para>示例值：HR 主动终止</para>
         /// </summary>
         [JsonPropertyName("termination_type")]
         public string? TerminationType { get; set; }

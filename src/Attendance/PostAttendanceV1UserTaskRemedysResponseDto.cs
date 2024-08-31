@@ -82,7 +82,7 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         public string RemedyTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>补卡状态（默认为审批中）</para>
+        /// <para>无效字段，默认数据全部返回的类型为审批中，需要调用[通知审批状态更新](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/approval_info/process)</para>
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// <para>可选值：<list type="bullet">
@@ -105,33 +105,33 @@ public record PostAttendanceV1UserTaskRemedysResponseDto
         public string Reason { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>补卡时间，精确到秒的时间戳</para>
+        /// <para>无效字段</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1611476284</para>
+        /// <para>示例值：-</para>
         /// </summary>
         [JsonPropertyName("time")]
         public string? Time { get; set; }
 
         /// <summary>
-        /// <para>补卡时考勤组时区</para>
+        /// <para>无效字段</para>
         /// <para>必填：否</para>
-        /// <para>示例值：Asia/Shanghai</para>
+        /// <para>示例值：-</para>
         /// </summary>
         [JsonPropertyName("time_zone")]
         public string? TimeZone { get; set; }
 
         /// <summary>
-        /// <para>补卡发起时间，精确到秒的时间戳</para>
+        /// <para>无效字段</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1611476284</para>
+        /// <para>示例值：-</para>
         /// </summary>
         [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
 
         /// <summary>
-        /// <para>补卡状态更新时间，精确到秒的时间戳</para>
+        /// <para>无效字段</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1611476284</para>
+        /// <para>示例值：-</para>
         /// </summary>
         [JsonPropertyName("update_time")]
         public string? UpdateTime { get; set; }

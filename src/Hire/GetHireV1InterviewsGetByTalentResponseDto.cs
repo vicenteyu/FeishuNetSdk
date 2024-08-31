@@ -4,7 +4,7 @@
 // Created          : 2024-07-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-02
+// Last Modified On : 2024-08-31
 // ************************************************************************
 // <copyright file="GetHireV1InterviewsGetByTalentResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取人才面试信息 响应体
-/// <para>获取人才面试信息。</para>
+/// <para>获取人才下所有面试信息。</para>
 /// <para>接口ID：7055229817129811969</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/interview/get_by_talent</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2finterview%2fget_by_talent</para>
@@ -34,7 +34,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
     public record TalentInterview
     {
         /// <summary>
-        /// <para>投递 ID</para>
+        /// <para>投递 ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6949805467799537964</para>
         /// </summary>
@@ -62,7 +62,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>面试开始时间（ms）</para>
+            /// <para>面试开始时间，毫秒时间戳（字段类型为：int64）</para>
             /// <para>必填：否</para>
             /// <para>示例值：1618899376474</para>
             /// </summary>
@@ -70,7 +70,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
             public long? BeginTime { get; set; }
 
             /// <summary>
-            /// <para>面试结束时间（ms）</para>
+            /// <para>面试结束时间，毫秒时间戳（字段类型为：int64）</para>
             /// <para>必填：否</para>
             /// <para>示例值：1618999376474</para>
             /// </summary>
@@ -86,19 +86,19 @@ public record GetHireV1InterviewsGetByTalentResponseDto
             public int? Round { get; set; }
 
             /// <summary>
-            /// <para>面试记录信息</para>
+            /// <para>面试评价信息</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("interview_record_list")]
             public InterviewRecord[]? InterviewRecordLists { get; set; }
 
             /// <summary>
-            /// <para>面试记录信息</para>
+            /// <para>面试评价信息</para>
             /// </summary>
             public record InterviewRecord
             {
                 /// <summary>
-                /// <para>面试记录 ID</para>
+                /// <para>面试评价 ID</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6949805467799537964</para>
                 /// </summary>
@@ -106,7 +106,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
                 public string? Id { get; set; }
 
                 /// <summary>
-                /// <para>面试官用户 ID</para>
+                /// <para>面试官用户 ID，与入参`user_id_type`类型一致</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1618899376474</para>
                 /// </summary>
@@ -114,15 +114,15 @@ public record GetHireV1InterviewsGetByTalentResponseDto
                 public string? UserId { get; set; }
 
                 /// <summary>
-                /// <para>系统预设「记录」题目内容</para>
+                /// <para>系统预设题目内容，来自「飞书招聘」-「设置」-「面试设置」-「面试评价表设置」的面试评价表中预设字段「记录」，详情参考[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：代码还行，只是不够聪明</para>
+                /// <para>示例值：符合要求，推荐录用</para>
                 /// </summary>
                 [JsonPropertyName("content")]
                 public string? Content { get; set; }
 
                 /// <summary>
-                /// <para>提交状态</para>
+                /// <para>面试评价的提交状态</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// <para>可选值：<list type="bullet">
@@ -161,7 +161,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
                 public record InterviewRecordInterviewScore
                 {
                     /// <summary>
-                    /// <para>面试评分 ID</para>
+                    /// <para>面试评分 ID，对应[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)接口返回数据中的 `data.items.modules.dimensions.option_items.id` 字段</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：6949805467799537964</para>
                     /// </summary>
@@ -177,31 +177,31 @@ public record GetHireV1InterviewsGetByTalentResponseDto
                     public int? Level { get; set; }
 
                     /// <summary>
-                    /// <para>中文名称</para>
+                    /// <para>面试评分中文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：3</para>
+                    /// <para>示例值：第一轮面试</para>
                     /// </summary>
                     [JsonPropertyName("zh_name")]
                     public string? ZhName { get; set; }
 
                     /// <summary>
-                    /// <para>中文描述</para>
+                    /// <para>面试评分中文描述</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：通过, 能力达到要求, 建议录用</para>
+                    /// <para>示例值：通过，能力达到要求， 建议录用</para>
                     /// </summary>
                     [JsonPropertyName("zh_description")]
                     public string? ZhDescription { get; set; }
 
                     /// <summary>
-                    /// <para>英文名称</para>
+                    /// <para>面试评分英文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：three</para>
+                    /// <para>示例值：English name</para>
                     /// </summary>
                     [JsonPropertyName("en_name")]
                     public string? EnName { get; set; }
 
                     /// <summary>
-                    /// <para>英文描述</para>
+                    /// <para>面试评分英文描述</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：Pass, ability to meet the requirements, suggest to hire</para>
                     /// </summary>
@@ -222,7 +222,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
                 public record IdNameObject
                 {
                     /// <summary>
-                    /// <para>ID</para>
+                    /// <para>面试官 ID，与入参`user_id_type`类型一致</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：1213213123123</para>
                     /// </summary>
@@ -230,7 +230,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
                     public string? Id { get; set; }
 
                     /// <summary>
-                    /// <para>名称</para>
+                    /// <para>面试官姓名</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：10</para>
                     /// </summary>
@@ -238,22 +238,22 @@ public record GetHireV1InterviewsGetByTalentResponseDto
                     public I18n? Name { get; set; }
 
                     /// <summary>
-                    /// <para>名称</para>
+                    /// <para>面试官姓名</para>
                     /// </summary>
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>中文</para>
+                        /// <para>面试官中文姓名</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：测试</para>
+                        /// <para>示例值：周小二</para>
                         /// </summary>
                         [JsonPropertyName("zh_cn")]
                         public string? ZhCn { get; set; }
 
                         /// <summary>
-                        /// <para>英文</para>
+                        /// <para>面试官英文姓名</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：test</para>
+                        /// <para>示例值：Tony Ma</para>
                         /// </summary>
                         [JsonPropertyName("en_us")]
                         public string? EnUs { get; set; }
@@ -262,7 +262,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
             }
 
             /// <summary>
-            /// <para>面试评价提交时间</para>
+            /// <para>面试评价提交时间，毫秒时间戳（字段类型为：int64）</para>
             /// <para>必填：否</para>
             /// <para>示例值：1659318415000</para>
             /// </summary>
@@ -270,7 +270,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
             public long? FeedbackSubmitTime { get; set; }
 
             /// <summary>
-            /// <para>面试关联的投递阶段</para>
+            /// <para>面试关联的投递阶段，详情请查看：[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：634324253532232</para>
             /// </summary>
@@ -278,7 +278,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
             public string? StageId { get; set; }
 
             /// <summary>
-            /// <para>投递 ID</para>
+            /// <para>投递 ID，详情参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/create)</para>
             /// <para>必填：否</para>
             /// <para>示例值：634324253532232</para>
             /// </summary>
@@ -298,7 +298,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
             public record IdNameObject
             {
                 /// <summary>
-                /// <para>ID</para>
+                /// <para>投递阶段 ID，详情请查看：[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：1213213123123</para>
                 /// </summary>
@@ -306,29 +306,29 @@ public record GetHireV1InterviewsGetByTalentResponseDto
                 public string? Id { get; set; }
 
                 /// <summary>
-                /// <para>名称</para>
+                /// <para>阶段信息名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
-                /// <para>名称</para>
+                /// <para>阶段信息名称</para>
                 /// </summary>
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>中文</para>
+                    /// <para>阶段信息中文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：测试</para>
+                    /// <para>示例值：笔试</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
-                    /// <para>英文</para>
+                    /// <para>阶段信息英文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：test</para>
+                    /// <para>示例值：writing</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -336,32 +336,32 @@ public record GetHireV1InterviewsGetByTalentResponseDto
             }
 
             /// <summary>
-            /// <para>创建人</para>
+            /// <para>创建人信息</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("creator")]
             public IdNameObject? Creator { get; set; }
 
             /// <summary>
-            /// <para>创建时间（ms）</para>
+            /// <para>创建时间，毫秒时间戳（字段类型为：int64）</para>
             /// <para>必填：否</para>
             /// <para>示例值：1618999376474</para>
             /// </summary>
             [JsonPropertyName("biz_create_time")]
-            public int? BizCreateTime { get; set; }
+            public long? BizCreateTime { get; set; }
 
             /// <summary>
-            /// <para>最近更新时间（ms）</para>
+            /// <para>最近更新时间，毫秒时间戳（字段类型为：int64）</para>
             /// <para>必填：否</para>
             /// <para>示例值：1618999376474</para>
             /// </summary>
             [JsonPropertyName("biz_modify_time")]
-            public int? BizModifyTime { get; set; }
+            public long? BizModifyTime { get; set; }
 
             /// <summary>
             /// <para>面试状态</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2</para>
+            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>2：未开始</item>
             /// <item>3：全部未评价</item>
@@ -413,35 +413,35 @@ public record GetHireV1InterviewsGetByTalentResponseDto
                 /// <summary>
                 /// <para>编码</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：1111</para>
+                /// <para>示例值：UTC+08:00</para>
                 /// </summary>
                 [JsonPropertyName("code")]
                 public string? Code { get; set; }
 
                 /// <summary>
-                /// <para>名称</para>
+                /// <para>候选人时区名称</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("name")]
                 public I18n? Name { get; set; }
 
                 /// <summary>
-                /// <para>名称</para>
+                /// <para>候选人时区名称</para>
                 /// </summary>
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>中文</para>
+                    /// <para>候选人中文时区名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：测试</para>
+                    /// <para>示例值：亚洲/上海</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
-                    /// <para>英文</para>
+                    /// <para>候选人英文时区名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：test</para>
+                    /// <para>示例值：Asia/Shanghai</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -466,25 +466,25 @@ public record GetHireV1InterviewsGetByTalentResponseDto
             /// <summary>
             /// <para>备注</para>
             /// <para>必填：否</para>
-            /// <para>示例值：test</para>
+            /// <para>示例值：这是一个备注</para>
             /// </summary>
             [JsonPropertyName("remark")]
             public string? Remark { get; set; }
 
             /// <summary>
-            /// <para>面试地点</para>
+            /// <para>面试地址</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("address")]
             public InterviewAddress? Address { get; set; }
 
             /// <summary>
-            /// <para>面试地点</para>
+            /// <para>面试地址</para>
             /// </summary>
             public record InterviewAddress
             {
                 /// <summary>
-                /// <para>地址 ID</para>
+                /// <para>地址 ID，可通过[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6949805467799537964</para>
                 /// </summary>
@@ -504,17 +504,17 @@ public record GetHireV1InterviewsGetByTalentResponseDto
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>中文</para>
+                    /// <para>地址中文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：测试</para>
+                    /// <para>示例值：中国</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
-                    /// <para>英文</para>
+                    /// <para>地址英文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：test</para>
+                    /// <para>示例值：China</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -533,37 +533,37 @@ public record GetHireV1InterviewsGetByTalentResponseDto
                 public record CodeNameObject
                 {
                     /// <summary>
-                    /// <para>编码</para>
+                    /// <para>区域编码</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：1111</para>
+                    /// <para>示例值：DS_1</para>
                     /// </summary>
                     [JsonPropertyName("code")]
                     public string? Code { get; set; }
 
                     /// <summary>
-                    /// <para>名称</para>
+                    /// <para>区域名称</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("name")]
                     public I18n? Name { get; set; }
 
                     /// <summary>
-                    /// <para>名称</para>
+                    /// <para>区域名称</para>
                     /// </summary>
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>中文</para>
+                        /// <para>区域中文名称</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：测试</para>
+                        /// <para>示例值：武侯区</para>
                         /// </summary>
                         [JsonPropertyName("zh_cn")]
                         public string? ZhCn { get; set; }
 
                         /// <summary>
-                        /// <para>英文</para>
+                        /// <para>区域英文名称</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：test</para>
+                        /// <para>示例值：Wu Hou</para>
                         /// </summary>
                         [JsonPropertyName("en_us")]
                         public string? EnUs { get; set; }
@@ -611,7 +611,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
             public int? VideoType { get; set; }
 
             /// <summary>
-            /// <para>当安排类型为集中面试时，此值表示集中面试的安排状态</para>
+            /// <para>当安排类型为集中面试时，此值表示集中面试的安排状态。非集中面试该字段无含义。</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
@@ -660,7 +660,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
             public record InterviewMeetingRoom
             {
                 /// <summary>
-                /// <para>会议室 ID</para>
+                /// <para>会议室 ID，详情可查看：[查询会议室列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/list)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6949805467799537964</para>
                 /// </summary>
