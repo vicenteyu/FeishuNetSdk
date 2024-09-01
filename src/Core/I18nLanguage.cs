@@ -11,9 +11,7 @@
 // </copyright>
 // <summary>国际化内容节点</summary>
 // ************************************************************************
-#pragma warning disable IDE0130 // 命名空间与文件夹结构不匹配
-namespace FeishuNetSdk
-#pragma warning restore IDE0130 // 命名空间与文件夹结构不匹配
+namespace FeishuNetSdk.Core
 {
     /// <summary>
     /// 国际化内容接口

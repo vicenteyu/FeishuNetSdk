@@ -29,9 +29,14 @@ namespace FeishuNetSdk
         public string AppSecret { get; set; } = string.Empty;
 
         /// <summary>
-        /// 事件订阅 解密密钥
+        /// 事件订阅 解密的密钥
         /// </summary>
-        public string EncryptKey { get; set; } = string.Empty;
+        public string? EncryptKey { get; set; }
+
+        /// <summary>
+        /// 事件订阅 验证应用的密钥
+        /// </summary>
+        public string? VerificationToken { get; set; }
 
         /// <summary>
         /// 启用日志 （true = 启用， false = 关闭， 默认 = 启用）
