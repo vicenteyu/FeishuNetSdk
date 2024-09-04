@@ -27,6 +27,7 @@ public record PostDriveV1FilesCreateFolderBodyDto
 {
     /// <summary>
     /// <para>文件夹名称</para>
+    /// <para>**长度限制**： 1~256 个字节</para>
     /// <para>必填：是</para>
     /// <para>示例值：产品优化项目</para>
     /// </summary>

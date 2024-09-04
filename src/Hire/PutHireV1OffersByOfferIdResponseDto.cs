@@ -19,6 +19,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>- 更新 Offer 时，除了本文中标注为必填的参数外，其余参数是否必填请参考[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)的参数定义</para>
 /// <para>- 对系统中 Offer 进行更新时，若本次更新 Offer 字段中含有「修改需审批」的字段，更新后原 Offer 的审批会自动撤回，需要重新发起审批；修改需审批字段详情可查看：[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)接口中`need_approve`字段</para>
 /// <para>- 当 Offer 状态为以下 2 种时， 不可更新 Offer：`Offer 已发送`、`Offer 被候选人接受`，Offer 状态详情可查看：[获取 Offer 详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/get)</para>
+/// <para>- 该接口会对原 Offer 内容进行全量覆盖更新，若非必填参数未填写则会清空原有内容，必填参数未填写会拦截报错。</para>
 /// <para>接口ID：7085174522588348418</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/offer/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2foffer%2fupdate</para>
@@ -70,7 +71,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         public string? LeaderUserId { get; set; }
 
         /// <summary>
-        /// <para>职务 ID，详情请查看[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/list)</para>
+        /// <para>职务 ID，详情请查看[获取单个职务信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6807407987381831949</para>
         /// </summary>
@@ -193,7 +194,7 @@ public record PutHireV1OffersByOfferIdResponseDto
         public string? RecommendedWords { get; set; }
 
         /// <summary>
-        /// <para>招聘需求 ID，详情请查看：[获取招聘需求列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/list)</para>
+        /// <para>招聘需求 ID，详情请查看：[获取招聘需求信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/list_by_id)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6791698585114724616</para>
         /// </summary>

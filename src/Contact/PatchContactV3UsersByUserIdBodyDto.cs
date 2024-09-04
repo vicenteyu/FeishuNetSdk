@@ -289,6 +289,7 @@ public record PatchContactV3UsersByUserIdBodyDto
             /// <summary>
             /// <para>- 字段类型为 TEXT 时，该参数定义字段值，必填。</para>
             /// <para>- 字段类型为 HREF 时，该参数定义网页标题，必填。</para>
+            /// <para>长度不能超过 100 字符。</para>
             /// <para>必填：否</para>
             /// <para>示例值：DemoText</para>
             /// </summary>

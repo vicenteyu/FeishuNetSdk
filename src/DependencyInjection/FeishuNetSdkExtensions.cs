@@ -26,15 +26,44 @@ namespace Microsoft.Extensions.DependencyInjection
     public static class FeishuNetSdkExtensions
     {
         /// <summary>
+        /// 使用参数方式注册SDK
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="AppId">应用Id</param>
+        /// <param name="AppSecret">应用密钥</param>
+        /// <param name="EncryptKey">事件订阅 解密的密钥</param>
+        /// <param name="VerificationToken">事件订阅 验证应用的密钥</param>
+        /// <param name="EnableLogging">启用日志 （true = 启用， false = 关闭， 默认 = 启用）</param>
+        /// <param name="IgnoreStatusException">忽略状态异常错误（true = 忽略， false = 启用， 默认 = 忽略）</param>
+        /// <returns></returns>
+        public static IServiceCollection AddFeishuNetSdk(this IServiceCollection services,
+            string AppId,
+            string AppSecret,
+            string? EncryptKey = null,
+            string? VerificationToken = null,
+            bool EnableLogging = true,
+            bool IgnoreStatusException = true)
+        {
+            services.Configure((FeishuNetSdkOptions options) =>
+            {
+                options.AppId = AppId;
+                options.AppSecret = AppSecret;
+                options.EncryptKey = EncryptKey;
+                options.VerificationToken = VerificationToken;
+                options.EnableLogging = EnableLogging;
+                options.IgnoreStatusException = IgnoreStatusException;
+            });
+            return services.AddFeishuNetSdk();
+        }
+
+        /// <summary>
         /// 使用配置文件方式注册SDK
         /// </summary>
         public static IServiceCollection AddFeishuNetSdk(this IServiceCollection services,
-            IConfiguration config)
+            IConfigurationSection config)
         {
             services.Configure<FeishuNetSdkOptions>(config);
-            var provider = services.BuildServiceProvider()
-                .GetRequiredService<IOptionsMonitor<FeishuNetSdkOptions>>();
-            return services.AddFeishuNetSdk(provider.CurrentValue);
+            return services.AddFeishuNetSdk();
         }
 
         /// <summary>
@@ -43,16 +72,14 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddFeishuNetSdk(this IServiceCollection services,
             Action<FeishuNetSdkOptions> configureOptions)
         {
-            var options = new FeishuNetSdkOptions();
-            configureOptions(options);
-            return services.AddFeishuNetSdk(options).Configure(configureOptions);
+            services.Configure(configureOptions);
+            return services.AddFeishuNetSdk();
         }
 
         /// <summary>
         /// 注册SDK
         /// </summary>
-        private static IServiceCollection AddFeishuNetSdk(this IServiceCollection services,
-            FeishuNetSdkOptions options)
+        private static IServiceCollection AddFeishuNetSdk(this IServiceCollection services)
         {
             services.AddWebApiClient()
                 .UseJsonFirstApiActionDescriptor();
@@ -62,14 +89,17 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddHttpApi<IFeishuTenantApi>(option => option.KeyValueSerializeOptions.IgnoreNullValues = true);
             services.AddHttpApi<IFeishuUserApi>(option => option.KeyValueSerializeOptions.IgnoreNullValues = true);
 
+            using var serviceProvider = services.BuildServiceProvider();
+            var options = serviceProvider.GetRequiredService<IOptions<FeishuNetSdkOptions>>();
+
             services.AddTokenProvider<IFeishuTenantApi, TenantAccessTokenProvider>(serviceProvider =>
             {
-                return new TenantAccessTokenProvider(serviceProvider, options);
+                return new TenantAccessTokenProvider(serviceProvider, options.Value);
             });
 
             services.AddTokenProvider<IFeishuAppApi, AppAccessTokenProvider>(serviceProvider =>
             {
-                return new AppAccessTokenProvider(serviceProvider, options);
+                return new AppAccessTokenProvider(serviceProvider, options.Value);
             });
 
             services.TryAddSingleton<AesCipher>();

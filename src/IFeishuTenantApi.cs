@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-31
+// Last Modified On : 2024-09-04
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -22249,7 +22249,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7072723475538821122</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除部门</para>
+    /// <para>可以通过该接口通过部门ID删除一个部门记录</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:department:write</item>
@@ -22258,7 +22258,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="department_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>需要删除的部门 ID</para>
+    /// <para>需要删除的部门 ID，可通过[【搜索部门信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口查询获得</para>
     /// <para>示例值：341143141</para>
     /// </param>
     [HttpDelete("/open-apis/corehr/v1/departments/{department_id}")]
@@ -22825,6 +22825,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 更新 Offer 时，除了本文中标注为必填的参数外，其余参数是否必填请参考[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)的参数定义</para>
     /// <para>- 对系统中 Offer 进行更新时，若本次更新 Offer 字段中含有「修改需审批」的字段，更新后原 Offer 的审批会自动撤回，需要重新发起审批；修改需审批字段详情可查看：[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)接口中`need_approve`字段</para>
     /// <para>- 当 Offer 状态为以下 2 种时， 不可更新 Offer：`Offer 已发送`、`Offer 被候选人接受`，Offer 状态详情可查看：[获取 Offer 详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/get)</para>
+    /// <para>- 该接口会对原 Offer 内容进行全量覆盖更新，若非必填参数未填写则会清空原有内容，必填参数未填写会拦截报错。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:offer</item>
     /// </list></para>
@@ -32656,7 +32657,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="id_list">
     /// <para>必填：否</para>
-    /// <para>人才库 ID 列表。用于过滤单页数据，即单页仅返回与该 ID 列表匹配的人才库数据。如不填写，则返回单页的全部数据。</para>
+    /// <para>人才库 ID 列表。当传入该参数时，返回min(page_size, len(id_list))的人才库信息</para>
     /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/hire/v1/talent_pools/")]
@@ -33354,7 +33355,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7225452763517173763</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center-version/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>创建成本中心版本</para>
+    /// <para>创建成本中心版本；每次调用可创建一个成本中心版本，可定义成本中心的名称，描述，上级成本，成本中心负责人，版本生效时间等信息，接口内会做相关规则的校验</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:cost_center:write</item>
     /// </list></para>
@@ -33365,7 +33366,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="cost_center_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>成本中心ID</para>
+    /// <para>成本中心ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>
     /// <para>示例值：6862995757234914824</para>
     /// </param>
     /// <param name="user_id_type">
@@ -33437,7 +33438,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7225452763517206531</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/patch</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>启用或停用成本中心</para>
+    /// <para>对成本中心进行启用和停用操作，支持单个操作</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:cost_center:write</item>
     /// </list></para>
@@ -33448,7 +33449,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="cost_center_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>成本中心ID</para>
+    /// <para>成本中心ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>
     /// <para>示例值：6862995757234914824</para>
     /// </param>
     /// <param name="user_id_type">
@@ -34683,7 +34684,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7252157701853200412</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过职级 ID 批量获取职级信息</para>
+    /// <para>该接口支持通过职级id批量查询职级详情信息，包括职级包含的名称、描述、启用状态等。</para>
+    /// <para>- 延迟说明：数据库主从延迟 2s 以内，即：直接创建职级后2s内调用此接口可能查询不到数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:job_level:read</item>
     /// <item>corehr:job_level:write</item>
@@ -40856,6 +40858,39 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string process_id,
         [PathQuery] string? user_id_type = "people_corehr_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】删除部门 V2</para>
+    /// <para>接口ID：7362022982037323779</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>可以通过该接口通过部门ID删除一个部门记录，带数据行权限判权</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:corehr</item>
+    /// <item>corehr:department:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="department_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>需要删除的部门 ID，可通过[【搜索部门信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口查询获得</para>
+    /// <para>示例值：1616161616</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    [HttpDelete("/open-apis/corehr/v2/departments/{department_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteCorehrV2DepartmentsByDepartmentIdAsync(
+        [PathQuery] string department_id,
+        [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
     /// <para>【飞书人事（企业版）】删除待入职信息</para>

@@ -630,14 +630,20 @@ public record GetContactV3UsersByUserIdResponseDto
         }
 
         /// <summary>
-        /// <para>部门路径列表。该字段需要通过用户身份（user_access_token）调用接口才可以获取。</para>
+        /// <para>部门路径列表。</para>
+        /// <para>**注意**：</para>
+        /// <para>- 该字段需要通过用户身份（user_access_token）调用接口才可以获取。</para>
+        /// <para>- 仅当[管理后台](https://feishu.cn/admin) &gt; **组织架构** &gt; **字段管理** &gt; **展示字段** &gt; **名片页** 内的 **部门** 设置为 **展示完整部门路径** 时，该字段才可以获取到完整部门路径。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("department_path")]
         public DepartmentDetail[]? DepartmentPaths { get; set; }
 
         /// <summary>
-        /// <para>部门路径列表。该字段需要通过用户身份（user_access_token）调用接口才可以获取。</para>
+        /// <para>部门路径列表。</para>
+        /// <para>**注意**：</para>
+        /// <para>- 该字段需要通过用户身份（user_access_token）调用接口才可以获取。</para>
+        /// <para>- 仅当[管理后台](https://feishu.cn/admin) &gt; **组织架构** &gt; **字段管理** &gt; **展示字段** &gt; **名片页** 内的 **部门** 设置为 **展示完整部门路径** 时，该字段才可以获取到完整部门路径。</para>
         /// </summary>
         public record DepartmentDetail
         {

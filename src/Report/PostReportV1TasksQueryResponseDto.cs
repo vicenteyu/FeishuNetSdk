@@ -111,6 +111,7 @@ public record PostReportV1TasksQueryResponseDto
 
             /// <summary>
             /// <para>表单字段值</para>
+            /// <para>**注意**：附件或图片该值为空，只返回 ID 与名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：测试数据</para>
             /// </summary>

@@ -1,7 +1,7 @@
 <table><thead><tr><th>序号</th><th>更新日期</th><th>可用</th><th>类别</th><th>说明</th></tr></thead><tbody>
 <tr><td rowspan="2">1</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>身份验证</td><td>获取登录用户信息</td></tr>
 <tr><td colspan="3">GetAuthenV1UserInfo</td></tr>
-<tr><td rowspan="2">2</td><td rowspan="2">2024-08-06</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
+<tr><td rowspan="2">2</td><td rowspan="2">2024-09-04</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
 <tr><td colspan="3">PatchContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">3</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>搜索部门</td></tr>
 <tr><td colspan="3">PostContactV3DepartmentsSearch</td></tr>
@@ -223,7 +223,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreate</td></tr>
 <tr><td rowspan="2">112</td><td rowspan="2">2024-04-24</td><td>&#10003;</td><td>多维表格</td><td>更新多条记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdate</td></tr>
-<tr><td rowspan="2">113</td><td rowspan="2">2024-08-01</td><td>&#10003;</td><td>通讯录</td><td>获取单个用户信息</td></tr>
+<tr><td rowspan="2">113</td><td rowspan="2">2024-09-02</td><td>&#10003;</td><td>通讯录</td><td>获取单个用户信息</td></tr>
 <tr><td colspan="3">GetContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">114</td><td rowspan="2">2024-08-23</td><td>&#10003;</td><td>消息与群组</td><td>Pin 消息</td></tr>
 <tr><td colspan="3">PostImV1Pins</td></tr>
@@ -851,7 +851,7 @@
 <tr><td colspan="3">GetDriveExplorerV2FolderByFolderTokenMeta</td></tr>
 <tr><td rowspan="2">426</td><td rowspan="2">2024-07-09</td><td>&#10003;</td><td>通讯录</td><td>搜索用户</td></tr>
 <tr><td colspan="3">GetHttpsbyOpenLarkofficeComSearchV1User</td></tr>
-<tr><td rowspan="2">427</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>新建文件夹</td></tr>
+<tr><td rowspan="2">427</td><td rowspan="2">2024-09-03</td><td>&#10003;</td><td>云文档</td><td>新建文件夹</td></tr>
 <tr><td colspan="3">PostDriveV1FilesCreateFolder</td></tr>
 <tr><td rowspan="2">428</td><td rowspan="2">2024-05-29</td><td>&#10003;</td><td>云文档</td><td>获取文件元数据</td></tr>
 <tr><td colspan="3">PostDriveV1MetasBatchQuery</td></tr>
@@ -1043,8 +1043,8 @@
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
 <tr><td rowspan="2">522</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
-<tr><td rowspan="2">523</td><td rowspan="2">2024-08-30</td><td>新增</td><td>邮箱</td><td>发送邮件</td></tr>
+<tr><td rowspan="2">523</td><td rowspan="2">2024-09-02</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesSend</td></tr>
-<tr><td rowspan="2">524</td><td rowspan="2">2024-08-30</td><td>新增</td><td>公司圈</td><td>查询帖子信息</td></tr>
+<tr><td rowspan="2">524</td><td rowspan="2">2024-08-30</td><td>&#10003;</td><td>公司圈</td><td>查询帖子信息</td></tr>
 <tr><td colspan="3">GetMomentsV1PostsByPostId</td></tr>
 </tbody></table>

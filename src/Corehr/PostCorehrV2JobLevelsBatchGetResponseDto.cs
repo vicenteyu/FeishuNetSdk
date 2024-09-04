@@ -14,7 +14,8 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 通过职级 ID 批量获取职级信息 响应体
-/// <para>通过职级 ID 批量获取职级信息</para>
+/// <para>该接口支持通过职级id批量查询职级详情信息，包括职级包含的名称、描述、启用状态等。</para>
+/// <para>- 延迟说明：数据库主从延迟 2s 以内，即：直接创建职级后2s内调用此接口可能查询不到数据。</para>
 /// <para>接口ID：7252157701853200412</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob_level%2fbatch_get</para>
@@ -94,7 +95,7 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
         public I18n[]? Descriptions { get; set; }
 
         /// <summary>
-        /// <para>启用</para>
+        /// <para>停启用状态。停用为false，启用为true</para>
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -102,14 +103,14 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
         public bool Active { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（目前职级暂不支持该功能）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public CustomFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（目前职级暂不支持该功能）</para>
         /// </summary>
         public record CustomFieldData
         {
@@ -144,14 +145,14 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
                 /// <summary>
                 /// <para>英文</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：CustomName</para>
+                /// <para>示例值：Custom Name</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
             }
 
             /// <summary>
-            /// <para>自定义字段类型</para>
+            /// <para>自定义字段类型。自定义字段详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
@@ -159,7 +160,8 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
             public int? Type { get; set; }
 
             /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）</para>
+            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如"2334.00", "文本"，"{\"zh-CN\":\"部门3\"}")</para>
+            /// <para>- 自定义字段详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
