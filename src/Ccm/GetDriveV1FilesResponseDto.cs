@@ -16,8 +16,7 @@ namespace FeishuNetSdk.Ccm;
 /// 获取文件夹中的文件清单 响应体
 /// <para>该接口用于获取用户云空间指定文件夹中文件信息清单。文件的信息包括名称、类型、token、创建时间、所有者 ID 等。</para>
 /// <para>## 使用限制</para>
-/// <para>- 本接口暂不支持返回快捷方式（shortcut）类型的文件。</para>
-/// <para>- 本接口仅支持获取当前层级的文件信息，不支持递归获取子文件夹中的文件信息清单。</para>
+/// <para>本接口仅支持获取当前层级的文件信息，不支持递归获取子文件夹中的文件信息清单。</para>
 /// <para>接口ID：7108600920377016348</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/folder/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile%2flist</para>

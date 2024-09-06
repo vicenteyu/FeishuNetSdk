@@ -9,17 +9,17 @@
 // <copyright file="DriveFileTrashedV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>文件彻底删除 事件体</summary>
+// <summary>文件删除到回收站 事件体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Ccm.Events;
 /// <summary>
-/// 文件彻底删除 事件体
-/// <para>被订阅的文件被彻底删除时，将触发此事件。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。</para>
-/// <para>接口ID：7013346140632662044</para>
-/// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/event/list/file-deleted-completely</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fevent%2ffile-deleted-completely</para>
+/// 文件删除到回收站 事件体
+/// <para>被订阅的文件被删除到回收站时，将触发此事件。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。</para>
+/// <para>接口ID：7013346140632563740</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/event/list/delete-file-to-trash-can</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fevent%2fdelete-file-to-trash-can</para>
 /// </summary>
-public record DriveFileTrashedV1EventBodyDto() : EventBodyDto("drive.file.deleted_v1")
+public record DriveFileTrashedV1EventBodyDto() : EventBodyDto("drive.file.trashed_v1")
 {
     /// <summary>
     /// <para>云文档类型，支持以下枚举：</para>

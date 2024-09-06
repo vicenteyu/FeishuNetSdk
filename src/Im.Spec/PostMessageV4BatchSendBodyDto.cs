@@ -31,7 +31,8 @@ public record PostMessageV4BatchSendBodyDto
     /// <para>**注意**：</para>
     /// <para>- 如果 `msg_type` 取值为 text、image、post 或者 share_chat，则消息内容需要传入 `content` 参数内。</para>
     /// <para>- 如果 `msg_type` 取值为 interactive，则消息内容需要传入 `card` 参数内。</para>
-    /// <para>- 该接口仅支持以上五种消息类型，各类型的内容如何配置，参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。</para>
+    /// <para>- 富文本类型（post）的消息，不支持使用 `md` 标签。</para>
+    /// <para>各类型的内容如何配置，参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，但需要确保符合当前接口的要求。例如，仅支持以上 5 种消息类型、批量发送富文本消息时不支持 `md` 标签等。</para>
     /// <para>**示例值**：text</para>
     /// <para>必填：是</para>
     /// </summary>

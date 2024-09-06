@@ -36,6 +36,16 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsResponseDto
     public record AppTableRecord
     {
         /// <summary>
+        /// <para>数据表的字段，即数据表的列</para>
+        /// <para>当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c)</para>
+        /// <para>不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：\-</para>
+        /// </summary>
+        [JsonPropertyName("fields")]
+        public object Fields { get; set; } = new();
+
+        /// <summary>
         /// <para>一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)</para>
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
@@ -120,13 +130,11 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsResponseDto
         public long? LastModifiedTime { get; set; }
 
         /// <summary>
-        /// <para>数据表的字段，即数据表的列</para>
-        /// <para>当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c)</para>
-        /// <para>不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)</para>
-        /// <para>必填：是</para>
-        /// <para>示例值：\-</para>
+        /// <para>记录链接</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd</para>
         /// </summary>
-        [JsonPropertyName("fields")]
-        public object Fields { get; set; } = new();
+        [JsonPropertyName("record_url")]
+        public string? RecordUrl { get; set; }
     }
 }

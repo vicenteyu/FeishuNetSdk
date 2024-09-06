@@ -9,11 +9,11 @@
 // <copyright file="GetHireV1EvaluationsResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>批量获取简历评估信息 响应体</summary>
+// <summary>获取简历评估信息列表 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 批量获取简历评估信息 响应体
+/// 获取简历评估信息列表 响应体
 /// <para>批量获取简历评估信息，包含评估人、评估结论、评估详情等信息。支持按照投递 ID、更新时间来进行筛选。</para>
 /// <para>接口ID：7062626037662892033</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/evaluation/list</para>

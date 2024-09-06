@@ -1,0 +1,41 @@
+namespace FeishuNetSdk.Application.Events;
+/// <summary>
+/// 员工免审安装应用 事件体
+/// <para>当员工免审安装商店应用时会触发该事件，事件体内包含员工的 ID 信息。</para>
+/// <para>使用限制：</para>
+/// <para>应用必须是商店应用，且应用需要订阅该事件。了解事件订阅的使用场景和配置流程，请点击查看 [事件订阅概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。</para>
+/// <para>员工免审安装应用功能介绍参见[员工免审安装应用](https://open.feishu.cn/document/uAjLw4CM/uYjL24iN/platform-overveiw/develop-process/configuring-employee-review-free-installation)。</para>
+/// <para>接口ID：7013340088257511452</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/application-v6/event/app-availability-scope-extended</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fevent%2fapp-availability-scope-extended</para>
+/// </summary>
+public record ApplicationApplicationVisibilityAddedV6EventBodyDto() : EventBodyDto("application.application.visibility.added_v6")
+{
+    /// <summary>
+    /// <para>该字段暂无实际含义，可忽略</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("source")]
+    public int? Source { get; set; }
+
+    /// <summary>
+    /// <para>用户 ID</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("user_id")]
+    public object? UserId { get; set; }
+
+    /// <summary>
+    /// <para>用户的 open_id，了解不同用户 ID 类型参考[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("open_id")]
+    public string? OpenId { get; set; }
+
+    /// <summary>
+    /// <para>用户的 union_id，了解不同用户 ID 类型参考[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("union_id")]
+    public string? UnionId { get; set; }
+}

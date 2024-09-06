@@ -44,5 +44,13 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateBodyDt
         /// </summary>
         [JsonPropertyName("fields")]
         public object Fields { get; set; } = new();
+
+        /// <summary>
+        /// <para>记录链接</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd</para>
+        /// </summary>
+        [JsonPropertyName("record_url")]
+        public string? RecordUrl { get; set; }
     }
 }

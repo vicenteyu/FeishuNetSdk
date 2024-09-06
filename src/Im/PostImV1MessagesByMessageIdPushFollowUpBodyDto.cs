@@ -22,6 +22,8 @@ namespace FeishuNetSdk.Im;
 /// <para>- 消息是机器人发送的。</para>
 /// <para>- 消息是会话内最新的消息。</para>
 /// <para>- 消息发送后未超过 600 秒。</para>
+/// <para>## 注意事项</para>
+/// <para>添加跟随气泡后，会话内的用户点击气泡会自动转换为该用户发送的一条消息，你可以为应用订阅[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，接收用户发送的消息并判断是否为跟随气泡的内容。</para>
 /// <para>接口ID：7377650885165268995</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/push_follow_up</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fpush_follow_up</para>

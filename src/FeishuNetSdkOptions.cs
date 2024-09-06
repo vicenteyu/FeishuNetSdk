@@ -19,6 +19,11 @@ namespace FeishuNetSdk
     public class FeishuNetSdkOptions
     {
         /// <summary>
+        /// 事件内容序列化鉴别器
+        /// </summary>
+        public const string Discriminator = "event_type";
+
+        /// <summary>
         /// 应用Id
         /// </summary>
         public string AppId { get; set; } = string.Empty;

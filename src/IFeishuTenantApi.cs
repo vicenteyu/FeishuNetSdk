@@ -5629,6 +5629,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>note</para>
     /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:record:create</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
@@ -5976,6 +5977,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>note</para>
     /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:record:create</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
@@ -7190,7 +7192,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>**示例值**："01010111"</para>
     /// </param>
     [HttpGet("/open-apis/search/v2/data_sources/{data_source_id}/items/{item_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Search.Spec.GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto>> GetSearchV2DataSourcesByDataSourceIdItemsByItemIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Search.GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto>> GetSearchV2DataSourcesByDataSourceIdItemsByItemIdAsync(
         [PathQuery] string data_source_id,
         [PathQuery] string item_id);
 
@@ -21057,7 +21059,7 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Mail.PostMailV1UsersQueryBodyDto dto);
 
     /// <summary>
-    /// <para>【招聘】批量获取简历评估信息</para>
+    /// <para>【招聘】获取简历评估信息列表</para>
     /// <para>接口ID：7062626037662892033</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/evaluation/list</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -25137,8 +25139,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于获取用户云空间指定文件夹中文件信息清单。文件的信息包括名称、类型、token、创建时间、所有者 ID 等。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 本接口暂不支持返回快捷方式（shortcut）类型的文件。</para>
-    /// <para>- 本接口仅支持获取当前层级的文件信息，不支持递归获取子文件夹中的文件信息清单。</para>
+    /// <para>本接口仅支持获取当前层级的文件信息，不支持递归获取子文件夹中的文件信息清单。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -25150,7 +25151,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>指定每页显示的数据项的数量。若获取根目录下的清单，将返回全部数据，不支持分页</para>
+    /// <para>指定每页显示的数据项的数量。若获取根目录下的清单，将返回全部数据</para>
     /// <para>示例值：50</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -41431,6 +41432,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 消息是机器人发送的。</para>
     /// <para>- 消息是会话内最新的消息。</para>
     /// <para>- 消息发送后未超过 600 秒。</para>
+    /// <para>## 注意事项</para>
+    /// <para>添加跟随气泡后，会话内的用户点击气泡会自动转换为该用户发送的一条消息，你可以为应用订阅[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，接收用户发送的消息并判断是否为跟随气泡的内容。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
