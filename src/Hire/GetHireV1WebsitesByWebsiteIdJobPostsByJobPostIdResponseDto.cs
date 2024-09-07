@@ -297,7 +297,7 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsByJobPostIdResponseDto
         }
 
         /// <summary>
-        /// <para>月薪范围-最低薪资，单位：千</para>
+        /// <para>月薪范围-最低薪资，单位：K</para>
         /// <para>必填：否</para>
         /// <para>示例值：5</para>
         /// </summary>
@@ -305,7 +305,7 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsByJobPostIdResponseDto
         public string? MinSalary { get; set; }
 
         /// <summary>
-        /// <para>月薪范围-最高薪资，单位：千</para>
+        /// <para>月薪范围-最高薪资，单位：K</para>
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// </summary>

@@ -38,7 +38,8 @@ public record PostCorehrV2DepartmentsTreeBodyDto
     public bool? NeedInactive { get; set; }
 
     /// <summary>
-    /// <para>生效日期，格式yyyy-mm-dd，默认当前日期</para>
+    /// <para>日期，格式yyyy-mm-dd，默认当前日期</para>
+    /// <para>- 传2024-01-01，即为返回2024-01-01的组织架构</para>
     /// <para>必填：否</para>
     /// <para>示例值：2024-01-01</para>
     /// <para>最大长度：10</para>

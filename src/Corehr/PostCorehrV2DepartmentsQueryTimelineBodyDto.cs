@@ -22,7 +22,8 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2DepartmentsQueryTimelineBodyDto
 {
     /// <summary>
-    /// <para>部门 ID 列表，可请求[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)获取。</para>
+    /// <para>部门 ID 列表</para>
+    /// <para>- 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search) 获取详情</para>
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>
@@ -31,7 +32,11 @@ public record PostCorehrV2DepartmentsQueryTimelineBodyDto
     public string[] DepartmentIds { get; set; } = Array.Empty<string>();
 
     /// <summary>
-    /// <para>生效日期</para>
+    /// <para>版本生效日期</para>
+    /// <para>- 填写格式：YYYY-MM-DD</para>
+    /// <para>- 系统默认为填写日期当天的 00:00:00 生效</para>
+    /// <para>- 该接口只支持到最小单位为日</para>
+    /// <para>- 日期范围要求:1900-01-01～9999-12-31</para>
     /// <para>必填：是</para>
     /// <para>示例值：2020-01-01</para>
     /// <para>最大长度：10</para>

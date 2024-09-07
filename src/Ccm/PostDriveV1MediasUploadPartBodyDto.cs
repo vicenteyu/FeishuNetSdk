@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Ccm;
 /// 分片上传素材-上传分片 请求体
 /// <para>根据 [预上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare)接口返回的上传事务 ID 和分片策略上传对应的素材分片。上传完成后，你可调用 [分片上传素材（完成上传）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish)触发完成上传。</para>
 /// <para>## 使用限制</para>
-/// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
+/// <para>该接口调用频率上限为 5 QPS，10000 次/天。</para>
 /// <para>接口ID：6979562676003979292</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/media/multipart-upload-media/upload_part</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fmedia%2fupload_part</para>

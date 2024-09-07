@@ -7175,6 +7175,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>获取单个数据记录。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>search:data_item:readonly</item>
     /// <item>search:data_source</item>
     /// <item>search:data_source:readonly</item>
     /// </list></para>
@@ -7183,13 +7184,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>数据源的id</para>
-    /// <para>**示例值**："service_ticket"</para>
+    /// <para>示例值：service_ticket</para>
     /// </param>
     /// <param name="item_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>数据记录的唯一标识</para>
-    /// <para>**示例值**："01010111"</para>
+    /// <para>**注意**：</para>
+    /// <para>- 该字段大小写敏感。</para>
+    /// <para>- 如果调用成功但返回结果为空数据，请检查该字段传值是否正确。</para>
+    /// <para>示例值：01010111</para>
     /// </param>
     [HttpGet("/open-apis/search/v2/data_sources/{data_source_id}/items/{item_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Search.GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto>> GetSearchV2DataSourcesByDataSourceIdItemsByItemIdAsync(
@@ -9348,7 +9352,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="application_id">
     /// <para>必填：是</para>
-    /// <para>投递ID，详情请参考：[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)</para>
+    /// <para>投递ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取</para>
     /// <para>示例值：7379910335417927975</para>
     /// </param>
     /// <param name="user_id_type">
@@ -9364,11 +9368,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 类型。</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
     /// <para>示例值："department_id"</para>
     /// <list type="bullet">
-    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同</item>
-    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID， ID前缀固定为 `od-`，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内，department_id 具有唯一性。</item>
     /// <item>people_admin_department_id：以 people_admin_department_id 来标识部门，该 ID 类型即将下线，不推荐使用</item>
     /// </list>
     /// <para>默认值：people_admin_department_id</para>
@@ -9584,6 +9588,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>note</para>
     /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:field:create</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -12023,7 +12028,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>将文件、图片、视频等素材上传到指定云文档中。素材将显示在对应云文档中，在云空间中不会显示。</para>
     /// <para>## 使用限制</para>
     /// <para>- 素材大小不得超过 20 MB。要上传大于 20 MB 的文件，你需使用分片上传素材相关接口。详情参考[素材概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。</para>
-    /// <para>- 该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
+    /// <para>- 该接口调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>docs:doc</item>
@@ -12051,7 +12056,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 注意事项</para>
     /// <para>上传事务 ID 和上传进度在 24 小时内有效。请及时保存和恢复上传。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
+    /// <para>该接口调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>docs:doc</item>
@@ -12097,7 +12102,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用[上传分片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part)接口将分片全部上传完毕后，你需调用本接口触发完成上传。了解完整的分片上传素材流程，参考[素材概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
+    /// <para>该接口调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>docs:doc</item>
@@ -12118,11 +12123,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于获取云文档中素材的临时下载链接。链接的有效期为 24 小时，过期失效。</para>
     /// <para>## 前提条件</para>
-    /// <para>调用此接口之前，你需确保应用已拥有素材的下载权限。否则接口将返回 403 的 HTTP 状态码。参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)第五点了解如何分享素材的下载权限给应用。更多云文档接口权限问题，参考[云文档常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。</para>
+    /// <para>调用此接口之前，你需确保应用已拥有素材的下载权限。否则接口将返回 403 的 HTTP 状态码。参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)第 3 点了解如何分享素材的下载权限给应用。更多云文档接口权限问题，参考[云文档常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。</para>
     /// <para>## 注意事项</para>
     /// <para>本接口仅支持下载云文档而非云空间中的资源文件。如要下载云空间中的资源文件，需调用[下载文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download)接口。</para>
-    /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
@@ -12152,7 +12155,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="extra">
     /// <para>必填：否</para>
-    /// <para>拓展信息，如拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[extra 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。未填正确填写该参数的接口将返回 403 的 HTTP 状态码。</para>
+    /// <para>拓展信息，如拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[extra 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。未正确填写该参数的接口将返回 403 的 HTTP 状态码。</para>
     /// <para>示例值：请参考 [extra 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -12168,11 +12171,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>下载各类云文档中的素材，例如电子表格中的图片。该接口支持通过在请求头添加`Range` 参数分片下载素材。</para>
     /// <para>## 前提条件</para>
-    /// <para>调用此接口之前，你需确保应用已拥有素材的下载权限。否则接口将返回 403 的 HTTP 状态码。参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)第五点了解如何分享素材的下载权限给应用。更多云文档接口权限问题，参考[云文档常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。</para>
+    /// <para>调用此接口之前，你需确保应用已拥有素材的下载权限。否则接口将返回 403 的 HTTP 状态码。参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)第 3 点了解如何分享素材的下载权限给应用。更多云文档接口权限问题，参考[云文档常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。</para>
     /// <para>## 注意事项</para>
     /// <para>本接口仅支持下载云文档而非云空间中的资源文件。如要下载云空间中的资源文件，需调用[下载文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download)接口。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
+    /// <para>该接口调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
@@ -12201,7 +12204,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="extra">
     /// <para>必填：否</para>
-    /// <para>拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[素材概述-extra 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。未填正确填写该参数的接口将返回 403 的 HTTP 状态码。</para>
+    /// <para>拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[素材概述-extra 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。</para>
     /// <para>示例值：无</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -12279,7 +12282,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 [预上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare)接口返回的上传事务 ID 和分片策略上传对应的素材分片。上传完成后，你可调用 [分片上传素材（完成上传）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish)触发完成上传。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
+    /// <para>该接口调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>docs:doc</item>
@@ -14608,11 +14611,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
     /// <para>示例值：department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID， ID前缀固定为 `od-`，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内，department_id 具有唯一性。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -17213,11 +17216,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int page_size = 10);
 
     /// <summary>
-    /// <para>【飞书人事】批量查询职级</para>
+    /// <para>【飞书人事】查询租户的职级信息</para>
     /// <para>接口ID：7017694651622162436</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>批量查询职级。</para>
+    /// <para>该接口支持获取租户下的所有职级信息。职级数量过多时，可以通过多次循环调用该接口获取所有职级详情信息，包括职级数值、编码、名称等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
@@ -17233,7 +17236,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：是</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，最大支持传100</para>
     /// <para>示例值：100</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -17569,7 +17572,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017707615190974467</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据 ID 查询单个部门。</para>
+    /// <para>该接口支持通过部门id批量查询当天的部门详情信息，包括部门包含的名称、描述、启用状态等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
@@ -17581,7 +17584,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="department_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>部门 ID</para>
+    /// <para>部门ID。ID获取方式：</para>
+    /// <para>- 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)等接口可以返回部门ID</para>
+    /// <para>- 也可以通过[【事件】创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created)[【事件】更新部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated) 获取部门ID信息</para>
     /// <para>示例值：45456564</para>
     /// </param>
     /// <param name="user_id_type">
@@ -21916,7 +21921,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7072646559953797122</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>创建部门。</para>
+    /// <para>支持在单个接口中进行部门信息添加，包括部门基本信息、部门负责人、部门自定义字段信息等</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:department:write</item>
@@ -37784,7 +37789,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】查询单个职务（V2）</para>
+    /// <para>【飞书人事（企业版）】查询单个职务</para>
     /// <para>接口ID：7277403063272701954</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -37803,7 +37808,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="job_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>职务 ID</para>
+    /// <para>职务ID。ID获取方式：</para>
+    /// <para>- 调用[【创建职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/create)[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)等可以返回职务ID</para>
+    /// <para>- 也可以通过[【事件】创建职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/events/created) [【事件】更新职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated) 获取ID</para>
     /// <para>示例值：151515</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v2/jobs/{job_id}")]
@@ -37811,11 +37818,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string job_id);
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】批量查询职务（V2)</para>
+    /// <para>【飞书人事（企业版）】批量查询职务</para>
     /// <para>接口ID：7277403063272718338</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>批量查询职务。</para>
+    /// <para>可以通过该接口查询租户下全部职务ID列表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
@@ -37841,14 +37848,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="name">
     /// <para>必填：否</para>
-    /// <para>名称</para>
+    /// <para>职务名称</para>
     /// <para>示例值：keyword</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="query_language">
     /// <para>必填：否</para>
-    /// <para>语言</para>
-    /// <para>示例值：zh</para>
+    /// <para>语言信息，中文用zh-CN，英文用en-US</para>
+    /// <para>- 传空默认为中文</para>
+    /// <para>示例值：zh-CN</para>
     /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v2/jobs")]
@@ -38006,19 +38014,18 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】批量查询部门（ V2）</para>
+    /// <para>【飞书人事（企业版）】批量查询部门</para>
     /// <para>接口ID：7280432392631549953</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>批量查询部门信息。</para>
-    /// <para>对比历史版本[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/list)</para>
-    /// <para>接口，V2 版本增加了敏感字段权限要求，并使用了 POST HTTP 请求</para>
+    /// <para>批量查询部门信息，**该接口只返回部门当前内容**。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:department:read</item>
     /// <item>corehr:department:write</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:department.cost_center_id:read</item>
     /// <item>corehr:department.custom_fields:read</item>
     /// <item>corehr:department.manager:read</item>
     /// <item>corehr:department.organize:read</item>

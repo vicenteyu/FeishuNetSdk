@@ -9,14 +9,12 @@
 // <copyright file="PostCorehrV2DepartmentsBatchGetBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>批量查询部门（ V2） 请求体</summary>
+// <summary>批量查询部门 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 批量查询部门（ V2） 请求体
-/// <para>批量查询部门信息。</para>
-/// <para>对比历史版本[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/list)</para>
-/// <para>接口，V2 版本增加了敏感字段权限要求，并使用了 POST HTTP 请求</para>
+/// 批量查询部门 请求体
+/// <para>批量查询部门信息，**该接口只返回部门当前内容**。</para>
 /// <para>接口ID：7280432392631549953</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fdepartment%2fbatch_get</para>
@@ -24,7 +22,9 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2DepartmentsBatchGetBodyDto
 {
     /// <summary>
-    /// <para>部门 ID 列表</para>
+    /// <para>部门ID列表。ID获取方式：</para>
+    /// <para>- 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)等接口可以返回部门ID</para>
+    /// <para>- 也可以通过[【事件】创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created)[【事件】更新部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated) 获取部门ID信息</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>
@@ -33,7 +33,24 @@ public record PostCorehrV2DepartmentsBatchGetBodyDto
     public string[]? DepartmentIdList { get; set; }
 
     /// <summary>
-    /// <para>返回数据的字段列表</para>
+    /// <para>返回数据的字段列表，可选值：</para>
+    /// <para>- version_id：当前版本ID</para>
+    /// <para>- sub_type：部门子类型</para>
+    /// <para>- manager：负责人</para>
+    /// <para>- is_root：是否根部门</para>
+    /// <para>- is_confidential：是否保密</para>
+    /// <para>- effective_date：当前版本生效日期</para>
+    /// <para>- expiration_date：当前版本失效日期</para>
+    /// <para>- department_name：部门名称</para>
+    /// <para>- parent_department_id：上级部门ID</para>
+    /// <para>- tree_order：树形排序</para>
+    /// <para>- list_order：列表排序</para>
+    /// <para>- code：部门编码</para>
+    /// <para>- active：是否启用</para>
+    /// <para>- description：部门描述</para>
+    /// <para>- custom_fields：自定义字段</para>
+    /// <para>- staffing_model：岗职务模式</para>
+    /// <para>- cost_center_id：部门默认成本中心</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>
@@ -42,7 +59,8 @@ public record PostCorehrV2DepartmentsBatchGetBodyDto
     public string[]? Fields { get; set; }
 
     /// <summary>
-    /// <para>部门名称精确匹配，最多传100个</para>
+    /// <para>部门名称精确匹配，最多传100个。</para>
+    /// <para>- 和department_id_list至少传一种，两个字段都传会按照AND方式查询。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>

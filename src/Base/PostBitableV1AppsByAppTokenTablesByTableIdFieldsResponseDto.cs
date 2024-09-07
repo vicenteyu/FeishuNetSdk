@@ -404,7 +404,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto
         public string? FieldId { get; set; }
 
         /// <summary>
-        /// <para>字段在界面上的展示类型，例如进度字段是数字的一种展示形态</para>
+        /// <para>字段在界面上的展示类型，例如进度字段是数字的一种展示形态。了解更多，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
         /// <para>必填：否</para>
         /// <para>示例值：Progress</para>
         /// <para>可选值：<list type="bullet">

@@ -5296,6 +5296,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>note</para>
     /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:field:create</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -7153,7 +7154,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>将文件、图片、视频等素材上传到指定云文档中。素材将显示在对应云文档中，在云空间中不会显示。</para>
     /// <para>## 使用限制</para>
     /// <para>- 素材大小不得超过 20 MB。要上传大于 20 MB 的文件，你需使用分片上传素材相关接口。详情参考[素材概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。</para>
-    /// <para>- 该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
+    /// <para>- 该接口调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>docs:doc</item>
@@ -7183,7 +7184,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>## 注意事项</para>
     /// <para>上传事务 ID 和上传进度在 24 小时内有效。请及时保存和恢复上传。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
+    /// <para>该接口调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>docs:doc</item>
@@ -7233,7 +7234,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用[上传分片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part)接口将分片全部上传完毕后，你需调用本接口触发完成上传。了解完整的分片上传素材流程，参考[素材概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
+    /// <para>该接口调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>docs:doc</item>
@@ -7256,11 +7257,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于获取云文档中素材的临时下载链接。链接的有效期为 24 小时，过期失效。</para>
     /// <para>## 前提条件</para>
-    /// <para>调用此接口之前，你需确保应用已拥有素材的下载权限。否则接口将返回 403 的 HTTP 状态码。参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)第五点了解如何分享素材的下载权限给应用。更多云文档接口权限问题，参考[云文档常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。</para>
+    /// <para>调用此接口之前，你需确保应用已拥有素材的下载权限。否则接口将返回 403 的 HTTP 状态码。参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)第 3 点了解如何分享素材的下载权限给应用。更多云文档接口权限问题，参考[云文档常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。</para>
     /// <para>## 注意事项</para>
     /// <para>本接口仅支持下载云文档而非云空间中的资源文件。如要下载云空间中的资源文件，需调用[下载文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download)接口。</para>
-    /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
@@ -7290,7 +7289,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="extra">
     /// <para>必填：否</para>
-    /// <para>拓展信息，如拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[extra 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。未填正确填写该参数的接口将返回 403 的 HTTP 状态码。</para>
+    /// <para>拓展信息，如拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[extra 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。未正确填写该参数的接口将返回 403 的 HTTP 状态码。</para>
     /// <para>示例值：请参考 [extra 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -7308,11 +7307,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>下载各类云文档中的素材，例如电子表格中的图片。该接口支持通过在请求头添加`Range` 参数分片下载素材。</para>
     /// <para>## 前提条件</para>
-    /// <para>调用此接口之前，你需确保应用已拥有素材的下载权限。否则接口将返回 403 的 HTTP 状态码。参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)第五点了解如何分享素材的下载权限给应用。更多云文档接口权限问题，参考[云文档常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。</para>
+    /// <para>调用此接口之前，你需确保应用已拥有素材的下载权限。否则接口将返回 403 的 HTTP 状态码。参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)第 3 点了解如何分享素材的下载权限给应用。更多云文档接口权限问题，参考[云文档常见问题](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。</para>
     /// <para>## 注意事项</para>
     /// <para>本接口仅支持下载云文档而非云空间中的资源文件。如要下载云空间中的资源文件，需调用[下载文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download)接口。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
+    /// <para>该接口调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
@@ -7341,7 +7340,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="extra">
     /// <para>必填：否</para>
-    /// <para>拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[素材概述-extra 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。未填正确填写该参数的接口将返回 403 的 HTTP 状态码。</para>
+    /// <para>拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[素材概述-extra 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。</para>
     /// <para>示例值：无</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -7425,7 +7424,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 [预上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare)接口返回的上传事务 ID 和分片策略上传对应的素材分片。上传完成后，你可调用 [分片上传素材（完成上传）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish)触发完成上传。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。</para>
+    /// <para>该接口调用频率上限为 5 QPS，10000 次/天。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>docs:doc</item>

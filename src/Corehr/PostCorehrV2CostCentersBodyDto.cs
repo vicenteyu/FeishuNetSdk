@@ -53,7 +53,7 @@ public record PostCorehrV2CostCentersBodyDto
     }
 
     /// <summary>
-    /// <para>- 编码 (不能与其他记录的编码重复)；当开启自动编码时，该字段将无效</para>
+    /// <para>- 编码 (不能与其他记录的编码重复)；当开启自动编码时，若没传入编码则自动生成编码，若传入编码，则以传入的编码为准</para>
     /// <para>必填：否</para>
     /// <para>示例值：MDPD00000023</para>
     /// </summary>

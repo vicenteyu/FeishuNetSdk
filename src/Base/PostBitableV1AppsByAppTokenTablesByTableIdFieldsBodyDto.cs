@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-09-07
 // ************************************************************************
 // <copyright file="PostBitableV1AppsByAppTokenTablesByTableIdFieldsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -153,14 +153,6 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdFieldsBodyDto
         /// </summary>
         [JsonPropertyName("table_id")]
         public string? TableId { get; set; }
-
-        /// <summary>
-        /// <para>单向关联、双向关联字段中关联的数据表的名字</para>
-        /// <para>必填：否</para>
-        /// <para>示例值："table2"</para>
-        /// </summary>
-        [JsonPropertyName("table_name")]
-        public string? TableName { get; set; }
 
         /// <summary>
         /// <para>双向关联字段中关联的数据表中对应的双向关联字段的名字</para>

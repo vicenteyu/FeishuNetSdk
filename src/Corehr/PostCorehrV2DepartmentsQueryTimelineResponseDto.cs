@@ -64,7 +64,7 @@ public record PostCorehrV2DepartmentsQueryTimelineResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言，中文用zh-CN，英文用en-US</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -82,6 +82,7 @@ public record PostCorehrV2DepartmentsQueryTimelineResponseDto
 
         /// <summary>
         /// <para>上级部门 ID</para>
+        /// <para>- 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search) 获取详情</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719456877659520111</para>
         /// </summary>
@@ -89,7 +90,8 @@ public record PostCorehrV2DepartmentsQueryTimelineResponseDto
         public string? ParentDepartmentId { get; set; }
 
         /// <summary>
-        /// <para>部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得</para>
+        /// <para>部门负责人，填写员工的雇佣ID</para>
+        /// <para>- 详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search) 或 [【批量查询员工】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get) 接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893013238632416777</para>
         /// </summary>
@@ -105,7 +107,9 @@ public record PostCorehrV2DepartmentsQueryTimelineResponseDto
         public string? Code { get; set; }
 
         /// <summary>
-        /// <para>生效日期</para>
+        /// <para>当前版本生效日期</para>
+        /// <para>- 返回格式：YYYY-MM-DD（最小单位到日）</para>
+        /// <para>- 日期范围:1900-01-01～9999-12-31</para>
         /// <para>必填：否</para>
         /// <para>示例值：2020-05-01</para>
         /// </summary>
@@ -130,7 +134,7 @@ public record PostCorehrV2DepartmentsQueryTimelineResponseDto
         public I18n[]? Descriptions { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
         /// <para>必填：否</para>
         /// <para>最大长度：50</para>
         /// <para>最小长度：0</para>
@@ -139,7 +143,7 @@ public record PostCorehrV2DepartmentsQueryTimelineResponseDto
         public CustomFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
         /// </summary>
         public record CustomFieldData
         {
@@ -181,7 +185,7 @@ public record PostCorehrV2DepartmentsQueryTimelineResponseDto
             }
 
             /// <summary>
-            /// <para>自定义字段类型</para>
+            /// <para>自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
