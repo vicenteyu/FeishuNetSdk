@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量查询序列 响应体
-/// <para>批量查询序列。</para>
+/// <para>该接口支持获取租户下的所有序列信息。序列数量过多时，可以通过多次循环调用该接口获取所有序列详情信息，包括序列编码、名称等。</para>
 /// <para>接口ID：7017694651622146052</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_family/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_family%2flist</para>
@@ -54,7 +54,7 @@ public record GetCorehrV1JobFamiliesResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>名称信息的语言</para>
+            /// <para>名称信息的语言，中文zh-CN，英文en-US</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -64,7 +64,7 @@ public record GetCorehrV1JobFamiliesResponseDto
             /// <summary>
             /// <para>名称信息的内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：管理序列</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -79,7 +79,8 @@ public record GetCorehrV1JobFamiliesResponseDto
         public bool Active { get; set; }
 
         /// <summary>
-        /// <para>上级序列 ID，枚举值及详细信息可通过【批量查询序列】接口查询获得</para>
+        /// <para>上级序列ID</para>
+        /// <para>- 可通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)获取详情</para>
         /// <para>必填：否</para>
         /// <para>示例值：4698020757495316313</para>
         /// </summary>
@@ -87,23 +88,27 @@ public record GetCorehrV1JobFamiliesResponseDto
         public string? ParentId { get; set; }
 
         /// <summary>
-        /// <para>生效时间</para>
+        /// <para>当前版本生效时间</para>
+        /// <para>- 返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
+        /// <para>- 日期范围:1900-01-01 00:00:00～9999-12-31 00:00:00</para>
         /// <para>必填：是</para>
-        /// <para>示例值：2020-05-0100:00:00</para>
+        /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("effective_time")]
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>失效时间</para>
+        /// <para>当前版本失效时间</para>
+        /// <para>- 返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
+        /// <para>- 日期范围:1900-01-01 00:00:00～9999-12-31 00:00:00</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2020-05-0200:00:00</para>
+        /// <para>示例值：2020-05-02 00:00:00</para>
         /// </summary>
         [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }
 
         /// <summary>
-        /// <para>编码</para>
+        /// <para>序列编码</para>
         /// <para>必填：否</para>
         /// <para>示例值：123456</para>
         /// </summary>
@@ -111,19 +116,19 @@ public record GetCorehrV1JobFamiliesResponseDto
         public string? Code { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（暂时不支持该功能）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（暂时不支持该功能）</para>
         /// </summary>
         public record ObjectFieldData
         {
             /// <summary>
-            /// <para>字段名</para>
+            /// <para>自定义字段 API Name，即自定义字段的唯一标识</para>
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>

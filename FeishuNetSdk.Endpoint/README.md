@@ -2,7 +2,10 @@
 
 FeishuNetSdk 开发包的事件回调终结点扩展。
 
-[![.NET](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/dotnet.yml/badge.svg?branch=main&event=push)](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/dotnet.yml) [![FeishuNetSdk](https://buildstats.info/nuget/FeishuNetSdk "FeishuNetSdk")](https://www.nuget.org/packages/FeishuNetSdk/ "FeishuNetSdk")
+[![.NET](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/dotnet.yml/badge.svg?branch=main&event=push)](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/dotnet.yml)
+🔹[![FeishuNetSdk](https://img.shields.io/nuget/v/FeishuNetSdk?label=FeishuNetSdk "FeishuNetSdk")](https://www.nuget.org/packages/FeishuNetSdk/ "FeishuNetSdk")
+🔹[![FeishuNetSdk.Endpoint](https://img.shields.io/nuget/v/FeishuNetSdk.Endpoint?label=FeishuNetSdk.Endpoint "FeishuNetSdk.Endpoint")](https://www.nuget.org/packages/FeishuNetSdk.Endpoint/ "FeishuNetSdk.Endpoint")
+🔹[![FeishuNetSdk.WebSocket](https://img.shields.io/nuget/v/FeishuNetSdk.WebSocket?label=FeishuNetSdk.WebSocket "FeishuNetSdk.WebSocket")](https://www.nuget.org/packages/FeishuNetSdk.WebSocket/ "FeishuNetSdk.WebSocket")
 
 飞书开放平台网址：[https://open.feishu.cn/](https://open.feishu.cn/)
 

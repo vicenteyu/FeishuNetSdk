@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 查询单个职级 响应体
-/// <para>根据 ID 查询单个职级</para>
+/// <para>该接口支持通过职级id 查询单个职级详情信息，包括职级包含的名称、描述、启用状态等。</para>
 /// <para>接口ID：7017694651621916676</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_level/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_level%2fget</para>
@@ -70,7 +70,7 @@ public record GetCorehrV1JobLevelsByJobLevelIdResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>名称信息的语言</para>
+            /// <para>中文为zh-CN，英文为en-US</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -94,7 +94,7 @@ public record GetCorehrV1JobLevelsByJobLevelIdResponseDto
         public I18n[]? Descriptions { get; set; }
 
         /// <summary>
-        /// <para>是否启用</para>
+        /// <para>是否启用，true为启用，false为停用</para>
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -102,14 +102,14 @@ public record GetCorehrV1JobLevelsByJobLevelIdResponseDto
         public bool Active { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（职级暂时不支持）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（职级暂时不支持）</para>
         /// </summary>
         public record ObjectFieldData
         {

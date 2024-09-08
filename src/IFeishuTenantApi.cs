@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-04
+// Last Modified On : 2024-09-09
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -16889,7 +16889,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017694651621916676</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据 ID 查询单个职级</para>
+    /// <para>该接口支持通过职级id 查询单个职级详情信息，包括职级包含的名称、描述、启用状态等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
@@ -16900,7 +16900,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="job_level_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>职级 ID</para>
+    /// <para>职级ID。ID获取方式：</para>
+    /// <para>- 调用[【新建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/create)[【查询租户的职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID</para>
     /// <para>示例值：1515</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/job_levels/{job_level_id}")]
@@ -17190,7 +17191,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017694651622146052</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>批量查询序列。</para>
+    /// <para>该接口支持获取租户下的所有序列信息。序列数量过多时，可以通过多次循环调用该接口获取所有序列详情信息，包括序列编码、名称等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
@@ -17206,7 +17207,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：是</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，最大值支持传100</para>
     /// <para>示例值：100</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -17743,7 +17744,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017707615191056387</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>批量查询部门。</para>
+    /// <para>批量查询部门信息，包括部门基本信息、自定义字段信息等</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
@@ -27348,6 +27349,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>hire:talent</item>
     /// <item>hire:talent:readonly</item>
     /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>hire:talent_onboard_status:readonly</item>
+    /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/hire/v1/talents/batch_get_id")]
@@ -34707,7 +34711,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7252157701853216796</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过序列 ID 批量获取序列信息</para>
+    /// <para>通过序列 ID 批量查询序列的详情信息，包括序列名称、启用状态、上级序列等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:job_family:read</item>
     /// <item>corehr:job_family:write</item>
@@ -40864,6 +40868,64 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/corehr/v2/processes/{process_id}/form_variable_data")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto>> GetCorehrV2ProcessesByProcessIdFormVariableDataAsync(
         [PathQuery] string process_id,
+        [PathQuery] string? user_id_type = "people_corehr_id",
+        [PathQuery] string? department_id_type = "people_corehr_department_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】更新部门</para>
+    /// <para>接口ID：7362022982037307395</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/patch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新部门，支持数据行权限判权</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:corehr</item>
+    /// <item>corehr:department:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="department_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>需要更新的部门 ID</para>
+    /// <para>示例值：1616161616</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据client_token是否一致来判断是否为同一请求</para>
+    /// <para>示例值：12454646</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：people_corehr_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：people_corehr_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/corehr/v2/departments/{department_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchCorehrV2DepartmentsByDepartmentIdAsync(
+        [PathQuery] string department_id,
+        [JsonContent] Corehr.PatchCorehrV2DepartmentsByDepartmentIdBodyDto dto,
+        [PathQuery] string? client_token = null,
         [PathQuery] string? user_id_type = "people_corehr_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id");
 

@@ -14,6 +14,7 @@
 using FeishuNetSdk.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 #pragma warning disable IDE0130
 namespace Microsoft.Extensions.DependencyInjection
@@ -42,12 +43,17 @@ namespace Microsoft.Extensions.DependencyInjection
                     return Results.Problem(result?.Error);
 
                 if (result?.Dto != null)
-                    return Results.Json(result.Dto);
+                    return Results.Json(result.Dto, serializerOptions);
 
                 return Results.Ok();
             });
 
             return app;
         }
+
+        private static readonly JsonSerializerOptions serializerOptions = new()
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+        };
     }
 }

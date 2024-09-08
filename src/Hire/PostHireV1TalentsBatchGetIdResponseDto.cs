@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-09-09
 // ************************************************************************
 // <copyright file="PostHireV1TalentsBatchGetIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -81,5 +81,17 @@ public record PostHireV1TalentsBatchGetIdResponseDto
         /// </summary>
         [JsonPropertyName("identification_number")]
         public string? IdentificationNumber { get; set; }
+
+        /// <summary>
+        /// <para>是否已入职</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>false：未入职</item>
+        /// <item>true：已入职</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("is_onboarded")]
+        public bool? IsOnboarded { get; set; }
     }
 }

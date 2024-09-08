@@ -20,14 +20,8 @@ using WebApiClientCore.Extensions.OAuths.TokenProviders;
 namespace FeishuNetSdk
 #pragma warning restore IDE0130
 {
-    internal class TenantAccessTokenProvider : TokenProvider
+    internal class TenantAccessTokenProvider(IServiceProvider services, FeishuNetSdkOptions options) : TokenProvider(services)
     {
-        private readonly FeishuNetSdkOptions _options;
-        public TenantAccessTokenProvider(IServiceProvider services, FeishuNetSdkOptions options) : base(services)
-        {
-            _options = options;
-        }
-
         protected override Task<TokenResult?> RefreshTokenAsync(IServiceProvider serviceProvider, string refresh_token)
         {
             return RequestTokenAsync(serviceProvider);
@@ -40,8 +34,8 @@ namespace FeishuNetSdk
                              new Auth.Spec
                                  .PostAuthV3TenantAccessTokenInternalBodyDto
                              {
-                                 AppId = _options.AppId,
-                                 AppSecret = _options.AppSecret
+                                 AppId = options.AppId,
+                                 AppSecret = options.AppSecret
                              });
             //当返回码异常，抛出异常
             if (token.Code != 0)

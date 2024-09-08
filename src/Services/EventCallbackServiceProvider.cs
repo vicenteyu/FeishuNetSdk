@@ -27,6 +27,7 @@ namespace FeishuNetSdk.Services
     public class EventCallbackServiceProvider(ILogger<EventCallbackServiceProvider> logger, IOptionsMonitor<FeishuNetSdkOptions> options, IServiceScopeFactory scopeFactory) : IEventCallbackServiceProvider
     {
         private static EventHandlerDescriptor[]? _cache;
+        private static readonly (int millisecond, string message) timeout = (2700, "执行超时：未能在3秒内完成响应");
 
         /// <summary>
         /// 查找事件执行方法
@@ -35,6 +36,7 @@ namespace FeishuNetSdk.Services
         public IEnumerable<EventHandlerDescriptor> FindAllHandlers()
         {
             if (_cache is not null) return _cache;
+
             lock (this)
             {
                 if (_cache is not null) return _cache;
@@ -148,10 +150,8 @@ namespace FeishuNetSdk.Services
 
             logger.LogInformation("事件处理方法数量 ：{count}", handlers.Length);
 
-            (int millisecond, string message) = (2700, "执行超时：未能在3秒内完成响应");
-
             using var scope = scopeFactory.CreateScope();
-            if (eventDto.GetType().GetGenericTypeDefinition() == typeof(CallbackV2Dto<>))
+            if (eventDto.GetType().IsAssignableTo(typeof(IAmCallbackDto)))
             {
                 if (handlers.Length > 1)
                     return new HandleResult(Error: $"回调处理方法不能重复定义：{(string.Join("、", handlers.Select(k => k.EventHandlerName)))}");
@@ -160,7 +160,7 @@ namespace FeishuNetSdk.Services
                 var eventHandlerType = handlers[0].EventHandlerType;
                 var handlerInstance = scope.ServiceProvider.GetRequiredService(eventHandlerType);
                 dynamic? task = eventHandlerType.GetMethod("ExecuteAsync")?.Invoke(handlerInstance, [eventDto]);
-                await task?.WaitAsync(TimeSpan.FromMilliseconds(millisecond));
+                await task?.WaitAsync(TimeSpan.FromMilliseconds(timeout.millisecond));
                 return new HandleResult(true, Dto: task?.Result);
             }
             else
@@ -182,8 +182,8 @@ namespace FeishuNetSdk.Services
                     .ToArray();
 
                 //事件规则，所有任务执行完成才算完
-                var is_all_success = System.Threading.Tasks.Task.WaitAll(tasks, millisecond);
-                if (!is_all_success) return new HandleResult(Error: message);
+                var is_all_success = System.Threading.Tasks.Task.WaitAll(tasks, timeout.millisecond);
+                if (!is_all_success) return new HandleResult(Error: timeout.message);
 
                 return new HandleResult(true);
             }

@@ -297,7 +297,7 @@ namespace FeishuNetSdk
         /// <returns>富文本消息</returns>
         public static Im.Dtos.PostContent.PostLanguage AddContent(this Im.Dtos.PostContent.PostLanguage Dto, Im.Dtos.Element[] Elements)
         {
-            Dto.Content = Dto.Content.Append(Elements).ToArray();
+            Dto.Content = [.. Dto.Content, Elements];
 
             return Dto;
         }
@@ -318,7 +318,7 @@ namespace FeishuNetSdk
         /// <returns></returns>
         public static Im.Dtos.FormContainerElement AddElement(this Im.Dtos.FormContainerElement Dto, Im.Dtos.Element Element)
         {
-            Dto.Elements = Dto.Elements.Append(Element).ToArray();
+            Dto.Elements = [.. Dto.Elements, Element];
 
             return Dto;
         }
@@ -393,7 +393,7 @@ namespace FeishuNetSdk
         /// <returns></returns>
         public static Im.Dtos.NoteElement AddElement(this Im.Dtos.NoteElement Dto, Im.Dtos.IAmNoteElement Element)
         {
-            Dto.Elements = Dto.Elements.Append(Element).ToArray();
+            Dto.Elements = [.. Dto.Elements, Element];
 
             return Dto;
         }
@@ -406,7 +406,7 @@ namespace FeishuNetSdk
         /// <returns></returns>
         public static Im.Dtos.TableElement AddColumn(this Im.Dtos.TableElement Dto, Im.Dtos.TableElement.Column Column)
         {
-            Dto.Columns = Dto.Columns.Append(Column).ToArray();
+            Dto.Columns = [.. Dto.Columns, Column];
 
             return Dto;
         }

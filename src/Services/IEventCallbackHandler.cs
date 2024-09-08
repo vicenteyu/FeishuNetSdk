@@ -18,7 +18,9 @@ namespace FeishuNetSdk.Services
     /// </summary>
     /// <typeparam name="T1">消息体</typeparam>
     /// <typeparam name="T2">事件体</typeparam>
-    public interface IEventCallbackHandler<T1, T2> where T1 : EventDto<T2> where T2 : EventBodyDto
+    public interface IEventCallbackHandler<T1, T2>
+        where T1 : EventDto<T2>
+        where T2 : EventBodyDto
     {
     }
 
@@ -27,7 +29,9 @@ namespace FeishuNetSdk.Services
     /// </summary>
     /// <typeparam name="T1">消息体</typeparam>
     /// <typeparam name="T2">事件体</typeparam>
-    public interface IEventHandler<T1, T2> : IEventCallbackHandler<T1, T2> where T1 : EventDto<T2> where T2 : EventBodyDto
+    public interface IEventHandler<T1, T2> : IEventCallbackHandler<T1, T2>
+        where T1 : EventDto<T2>
+        where T2 : EventBodyDto
     {
         /// <summary>
         /// 事件执行方法
@@ -44,7 +48,7 @@ namespace FeishuNetSdk.Services
     /// <typeparam name="T2">事件体</typeparam>
     /// <typeparam name="T3">响应体</typeparam>
     public interface ICallbackHandler<T1, T2, T3> : IEventCallbackHandler<T1, T2>
-        where T1 : CallbackV2Dto<T2>
+        where T1 : EventDto<T2>, IAmCallbackDto
         where T2 : EventBodyDto
         where T3 : CallbackResponseDto
     {

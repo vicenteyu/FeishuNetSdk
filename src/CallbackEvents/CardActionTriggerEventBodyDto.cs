@@ -184,13 +184,13 @@ namespace FeishuNetSdk.CallbackEvents
         /// <summary>
         /// 客户端的 Toast 弹窗提示。
         /// </summary>
-        [JsonPropertyName("toast"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonPropertyName("toast")]
         public ToastSuffix? Toast { get; set; }
 
         /// <summary>
         /// 卡片数据。
         /// </summary>
-        [JsonPropertyName("card"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonPropertyName("card")]
         public CardSuffix? Card { get; set; }
 
         /// <summary>

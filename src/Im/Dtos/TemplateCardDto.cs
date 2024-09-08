@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Im.Dtos
         /// 如果使用卡片模板，请填写此项，固定值为：template
         /// </summary>
         [JsonPropertyName("type")]
-        public string Type { get; set; } = "template";
+        public string Type { get; private set; } = "template";
 
         /// <summary>
         /// 卡片模板内容
@@ -51,7 +51,7 @@ namespace FeishuNetSdk.Im.Dtos
             /// 模板变量集合，Key-Value
             /// </summary>
             [JsonPropertyName("template_variable")]
-            public Dictionary<string, string> TemplateVariable { get; set; } = new();
+            public Dictionary<string, string> TemplateVariable { get; set; } = [];
         }
 
         /// <summary>

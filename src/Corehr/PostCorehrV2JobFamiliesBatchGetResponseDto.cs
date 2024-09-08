@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 通过序列 ID 批量获取序列信息 响应体
-/// <para>通过序列 ID 批量获取序列信息</para>
+/// <para>通过序列 ID 批量查询序列的详情信息，包括序列名称、启用状态、上级序列等。</para>
 /// <para>接口ID：7252157701853216796</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob_family%2fbatch_get</para>
@@ -71,7 +71,7 @@ public record PostCorehrV2JobFamiliesBatchGetResponseDto
         }
 
         /// <summary>
-        /// <para>启用</para>
+        /// <para>启用状态，启用为true，停用为false</para>
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -87,23 +87,23 @@ public record PostCorehrV2JobFamiliesBatchGetResponseDto
         public string? ParentId { get; set; }
 
         /// <summary>
-        /// <para>生效时间</para>
+        /// <para>生效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
         /// <para>必填：是</para>
-        /// <para>示例值：2020-05-0100:00:00</para>
+        /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("effective_time")]
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>失效时间</para>
+        /// <para>失效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2020-05-0200:00:00</para>
+        /// <para>示例值：2020-05-02 00:00:00</para>
         /// </summary>
         [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }
 
         /// <summary>
-        /// <para>编码</para>
+        /// <para>编码 (不能与其他记录的编码重复)，当开启自动编码时，该字段会失效</para>
         /// <para>必填：否</para>
         /// <para>示例值：123456</para>
         /// </summary>
@@ -111,14 +111,14 @@ public record PostCorehrV2JobFamiliesBatchGetResponseDto
         public string? Code { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（该字段暂时不支持）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public CustomFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（该字段暂时不支持）</para>
         /// </summary>
         public record CustomFieldData
         {
@@ -153,7 +153,7 @@ public record PostCorehrV2JobFamiliesBatchGetResponseDto
                 /// <summary>
                 /// <para>英文</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：CustomName</para>
+                /// <para>示例值：Custom Name</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -161,6 +161,7 @@ public record PostCorehrV2JobFamiliesBatchGetResponseDto
 
             /// <summary>
             /// <para>自定义字段类型</para>
+            /// <para>- 自定义字段详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>

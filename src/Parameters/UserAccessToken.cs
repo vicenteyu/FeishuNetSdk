@@ -19,17 +19,9 @@ namespace FeishuNetSdk.Parameters
     /// <summary>
     /// 用户凭证
     /// </summary>
-    public class UserAccessToken : IApiParameter
+    public class UserAccessToken(string access_token) : IApiParameter
     {
-        private readonly AuthenticationHeaderValue authentication;
-
-        /// <summary>
-        /// 用户凭证
-        /// </summary>
-        public UserAccessToken(string access_token)
-        {
-            authentication = new AuthenticationHeaderValue("Bearer", access_token);
-        }
+        private readonly AuthenticationHeaderValue authentication = new("Bearer", access_token);
 
         /// <summary>
         /// 用户凭证

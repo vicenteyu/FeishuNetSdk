@@ -17,16 +17,10 @@ using WebApiClientCore;
 namespace FeishuNetSdk.Parameters
 {
     /// <summary></summary>
-    public class HeaderRanges : IApiParameter
+    public class HeaderRanges((long? from, long? to) ranges) : IApiParameter
     {
-        private readonly long? _from;
-        private readonly long? _to;
-        /// <summary></summary>
-        public HeaderRanges((long? from, long? to) ranges)
-        {
-            _from = ranges.from;
-            _to = ranges.to;
-        }
+        private readonly long? _from = ranges.from;
+        private readonly long? _to = ranges.to;
 
         /// <summary></summary>
         public System.Threading.Tasks.Task OnRequestAsync(ApiParameterContext context)

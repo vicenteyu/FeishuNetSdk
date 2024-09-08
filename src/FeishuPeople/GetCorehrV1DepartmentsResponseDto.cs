@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量查询部门 响应体
-/// <para>批量查询部门。</para>
+/// <para>批量查询部门信息，包括部门基本信息、自定义字段信息等</para>
 /// <para>接口ID：7017707615191056387</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/department/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fdepartment%2flist</para>
@@ -93,7 +93,7 @@ public record GetCorehrV1DepartmentsResponseDto
         }
 
         /// <summary>
-        /// <para>部门负责人 ID，枚举值及详细信息可通过【批量查询雇佣信息】接口查询获得</para>
+        /// <para>部门负责人 ID，枚举值及详细信息可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893013238632416776</para>
         /// </summary>
@@ -109,14 +109,14 @@ public record GetCorehrV1DepartmentsResponseDto
         public bool? IsConfidential { get; set; }
 
         /// <summary>
-        /// <para>层级关系，内层字段见实体</para>
+        /// <para>组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("hiberarchy_common")]
         public DepartmentHiberarchyCommon HiberarchyCommon { get; set; } = new();
 
         /// <summary>
-        /// <para>层级关系，内层字段见实体</para>
+        /// <para>组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息</para>
         /// </summary>
         public record DepartmentHiberarchyCommon
         {
@@ -267,19 +267,19 @@ public record GetCorehrV1DepartmentsResponseDto
             public string? ListOrder { get; set; }
 
             /// <summary>
-            /// <para>自定义字段</para>
+            /// <para>自定义字段，枚举值可通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)获取</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("custom_fields")]
             public ObjectFieldData[]? CustomFields { get; set; }
 
             /// <summary>
-            /// <para>自定义字段</para>
+            /// <para>自定义字段，枚举值可通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)获取</para>
             /// </summary>
             public record ObjectFieldData
             {
                 /// <summary>
-                /// <para>字段名</para>
+                /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：name</para>
                 /// </summary>
@@ -313,19 +313,19 @@ public record GetCorehrV1DepartmentsResponseDto
         public string? ExpirationTime { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段，枚举值可通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)获取</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段，枚举值可通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)获取</para>
         /// </summary>
         public record ObjectFieldData
         {
             /// <summary>
-            /// <para>字段名</para>
+            /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
             /// <para>必填：是</para>
             /// <para>示例值：name</para>
             /// </summary>
@@ -342,7 +342,7 @@ public record GetCorehrV1DepartmentsResponseDto
         }
 
         /// <summary>
-        /// <para>成本中心id</para>
+        /// <para>成本中心 ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/cost_center/search)接口获取对应的成本中心信息</para>
         /// <para>必填：否</para>
         /// <para>示例值：7142384817131652652</para>
         /// </summary>
@@ -350,7 +350,7 @@ public record GetCorehrV1DepartmentsResponseDto
         public string? CostCenterId { get; set; }
 
         /// <summary>
-        /// <para>是否使用职务</para>
+        /// <para>岗职务模式</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("staffing_model")]

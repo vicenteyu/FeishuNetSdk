@@ -23,8 +23,10 @@ public record PostCorehrV2DepartmentsParentsBodyDto
 {
     /// <summary>
     /// <para>部门 ID 列表，一次性最多传入 100 个部门 ID</para>
+    /// <para>- 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)等接口可以返回部门ID</para>
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("department_id_list")]
     public string[] DepartmentIdList { get; set; } = Array.Empty<string>();

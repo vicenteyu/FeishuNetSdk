@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Im.Dtos
     /// <summary>
     /// 图片消息
     /// </summary>
-    /// <param name="ImageKey">图片的唯一标识，可通过 上传图片 接口获取image_key。</param>
+    /// <param name="ImgKey">图片的唯一标识，可通过 上传图片 接口获取image_key。</param>
     /// <param name="Mode">
     /// 图片显示模式。取值：
     /// <para>注意：设置该参数后，会覆盖 custom_width 参数。更多信息参见消息卡片设计规范。</para>
@@ -70,7 +70,7 @@ namespace FeishuNetSdk.Im.Dtos
     /// </list>
     /// </param>
     /// <param name="CompactWidth">是否展示为紧凑型的图片。如果配置为 true，则展示最大宽度为 278px 的紧凑型图片。</param>
-    public record ImgElement([property: JsonPropertyName("image_key")] string ImageKey = "",
+    public record ImgElement([property: JsonPropertyName("img_key")] string ImgKey = "",
         [property: JsonPropertyName("mode")] string? Mode = null,
         [property: JsonPropertyName("alt")] PlainTextElement? Alt = null,
         [property: JsonPropertyName("title")] PlainTextElement? Title = null,
@@ -81,4 +81,10 @@ namespace FeishuNetSdk.Im.Dtos
         [property: JsonPropertyName("transparent")] bool? Transparent = null,
         [property: JsonPropertyName("preview")] bool? Preview = null,
         [property: JsonPropertyName("compact_width")] bool? CompactWidth = null) : Element("img"), IAmNoteElement;
+
+    /// <summary>
+    /// 图片消息（ PostContent 使用）
+    /// </summary>
+    /// <param name="ImageKey">图片的唯一标识，可通过 上传图片 接口获取image_key。</param>
+    public record ImageElement([property: JsonPropertyName("image_key")] string ImageKey = "") : Element("img"), IAmNoteElement;
 }

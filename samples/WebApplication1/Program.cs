@@ -1,5 +1,4 @@
 using FeishuNetSdk;
-using FeishuNetSdk.Approval.Events;
 using FeishuNetSdk.CallbackEvents;
 using FeishuNetSdk.Im.Dtos;
 using FeishuNetSdk.Im.Events;
@@ -54,33 +53,45 @@ app.Run();
 
 namespace WebApplication1
 {
-    public class EventHandler1(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
+    public class EventHandler1(ILogger<EventHandler> logger, IFeishuTenantApi tenantApi) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
     {
         public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input)
         {
             await Task.Delay(600);
             logger.LogInformation("ExecuteAsync1: {info}", System.Text.Json.JsonSerializer.Serialize(input));
+
+            await tenantApi.PostImV1MessagesAsync("open_id", new FeishuNetSdk.Im.PostImV1MessagesBodyDto()
+            {
+                ReceiveId = input.Event?.Sender?.SenderId?.OpenId ?? throw new Exception($"ReceiveId “Ï≥£")
+            }.SetContent(new ElementsCardV2Dto()
+            {
+                Header = new ElementsCardV2Dto.HeaderSuffix() { Title = new("Button-1") },
+                Body = new ElementsCardV2Dto.BodySuffix()
+                {
+                    Elements = [new FormButtonElement(Name: Guid.NewGuid().ToString(), Text: new($"xxx1{DateTime.Now}"), Behaviors: [new CallbackBehaviors(new { key = "CallbackBehaviors" })])]
+                }
+            }));
         }
     }
 
-    public class EventHandler3(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
-    {
-        public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input)
-        {
-            await Task.Delay(1500);
-            logger.LogInformation("ExecuteAsync3: {info}", System.Text.Json.JsonSerializer.Serialize(input));
-        }
-    }
+    //public class EventHandler3(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
+    //{
+    //    public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input)
+    //    {
+    //        await Task.Delay(1500);
+    //        logger.LogInformation("ExecuteAsync3: {info}", System.Text.Json.JsonSerializer.Serialize(input));
+    //    }
+    //}
 
 
-    public class MyClass1(ILogger<MyClass1> logger) : IEventHandler<EventV1Dto<ApprovalEventBodyDto>, ApprovalEventBodyDto>
-    {
-        public Task ExecuteAsync(EventV1Dto<ApprovalEventBodyDto> input)
-        {
-            logger.LogInformation("ExecuteAsync4: {info}", System.Text.Json.JsonSerializer.Serialize(input));
-            return Task.CompletedTask;
-        }
-    }
+    //public class MyClass1(ILogger<MyClass1> logger) : IEventHandler<EventV1Dto<ApprovalEventBodyDto>, ApprovalEventBodyDto>
+    //{
+    //    public Task ExecuteAsync(EventV1Dto<ApprovalEventBodyDto> input)
+    //    {
+    //        logger.LogInformation("ExecuteAsync4: {info}", System.Text.Json.JsonSerializer.Serialize(input));
+    //        return Task.CompletedTask;
+    //    }
+    //}
 
     /// <summary>
     /// 
@@ -98,7 +109,7 @@ namespace WebApplication1
                 Config = new() { EnableForward = true },
                 Body = new()
                 {
-                    Elements = [new DivElement().SetText(new PlainTextElement(Content: $"xxoo{DateTime.Now:yyyy-MM-dd HH:mm:ss}"))]
+                    Elements = [new FormButtonElement(Name: Guid.NewGuid().ToString(), Text: new($"xxx1{DateTime.Now}"), Behaviors: [new CallbackBehaviors(new { key = "CallbackBehaviors" })])]
                 }
             });
         }
@@ -118,12 +129,12 @@ namespace WebApplication1
     //    }
     //}
 
-    public class EventHandler2(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
-    {
-        public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input)
-        {
-            await Task.Delay(1200);
-            logger.LogInformation("ExecuteAsync2: {info}", System.Text.Json.JsonSerializer.Serialize(input));
-        }
-    }
+    //public class EventHandler2(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
+    //{
+    //    public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input)
+    //    {
+    //        await Task.Delay(1200);
+    //        logger.LogInformation("ExecuteAsync2: {info}", System.Text.Json.JsonSerializer.Serialize(input));
+    //    }
+    //}
 }

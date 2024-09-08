@@ -2,7 +2,10 @@
 
 内置自动缓存和过期重取Token机制。
 
-[![.NET](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/dotnet.yml/badge.svg?branch=main&event=push)](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/dotnet.yml) [![FeishuNetSdk](https://buildstats.info/nuget/FeishuNetSdk "FeishuNetSdk")](https://www.nuget.org/packages/FeishuNetSdk/ "FeishuNetSdk")
+[![.NET](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/dotnet.yml/badge.svg?branch=main&event=push)](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/dotnet.yml)
+🔹[![FeishuNetSdk](https://img.shields.io/nuget/v/FeishuNetSdk?label=FeishuNetSdk "FeishuNetSdk")](https://www.nuget.org/packages/FeishuNetSdk/ "FeishuNetSdk")
+🔹[![FeishuNetSdk.Endpoint](https://img.shields.io/nuget/v/FeishuNetSdk.Endpoint?label=FeishuNetSdk.Endpoint "FeishuNetSdk.Endpoint")](https://www.nuget.org/packages/FeishuNetSdk.Endpoint/ "FeishuNetSdk.Endpoint")
+🔹[![FeishuNetSdk.WebSocket](https://img.shields.io/nuget/v/FeishuNetSdk.WebSocket?label=FeishuNetSdk.WebSocket "FeishuNetSdk.WebSocket")](https://www.nuget.org/packages/FeishuNetSdk.WebSocket/ "FeishuNetSdk.WebSocket")
 
 飞书开放平台网址：[https://open.feishu.cn/](https://open.feishu.cn/)
 
@@ -26,7 +29,9 @@ PM> Install-Package FeishuNetSdk.WebSocket //长连接扩展包
 ```
 
 ### 2、服务注册
+
 **（1）输入`应用凭证`的方式**
+
 ```csharp
 builder.Services
     .AddFeishuNetSdk(options =>
@@ -40,11 +45,17 @@ builder.Services
     })
     .AddFeishuWebSocket(); //添加飞书长连接服务
 ```
+
 **（2）使用`配置文件`的方式**
+
 ```csharp
-builder.Services.AddFeishuNetSdk(builder.Configuration.GetSection("FeishuNetSdk"));
+builder.Services
+    .AddFeishuNetSdk(builder.Configuration.GetSection("FeishuNetSdk"))
+    .AddFeishuWebSocket(); //添加飞书长连接服务
 ```
+
 在`appsettings.json`根节点上增加配置：
+
 ```csharp
 "FeishuNetSdk": {
     "AppId": "cli_test",
@@ -57,12 +68,14 @@ builder.Services.AddFeishuNetSdk(builder.Configuration.GetSection("FeishuNetSdk"
 ```
 
 **（3）启用`事件与回调`终结点**
+
 ```csharp
 //启用飞书事件回调地址服务
 app.UseFeishuEndpoint("/a/b/c/d"); //示例：https://www.abc.com/a/b/c/d
 ```
 
 ### 3、注入和调用
+
 ```csharp
 public class TestController : ControllerBase
 {
@@ -93,19 +106,21 @@ public class TestController : ControllerBase
 
 ## 部分示例：
 
-### 事件回调（v3.0.0 新增）
+### 事件与回调（v3.0.0 新增）
 
 **（1）事件订阅示例**
 
-项目内任意位置创建继承类：
+项目内任意位置创建派生类：
 
-1. IEventHandler：事件方法接口
-1. EventV2Dto<>：完整消息体，V2 -> 2.0 
+1. IEventHandler<,>：事件方法接口，两个参数类型依次为：
+1. EventV2Dto<>：完整消息体，V2表示`2.0`版本数据格式
 1. xxxxEventBodyDto：事件体，从`EventBodyDto`继承
 
 事件体类型参照：[事件回调类型清单](https://github.com/vicenteyu/FeishuNetSdk/blob/main/EventCallbackList.md)
 
-**注意：需要3秒内响应**
+**注意：需要3秒内响应。**
+**规则上允许，但不建议：同一事件有多个继承类，可以同时执行不同内容，但任何一个超时或失败都会导致返回失败结果。**
+**相同的事件消息可能会推送多次，原因例如日志上没有显示超时，但服务端判断已经超时。可以使用`完整消息体`上的`EventId`属性进行重复判断。**
 
 ```csharp
 public class EventHandler1(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
@@ -120,16 +135,18 @@ public class EventHandler1(ILogger<EventHandler> logger) : IEventHandler<EventV2
 
 **（2）回调订阅示例**
 
-项目内任意位置创建继承类：
+项目内任意位置创建派生类：
 
-1. ICallbackHandler：回调方法接口
-1. CallbackV2Dto<>：完整消息体，V2 -> 2.0 
+1. ICallbackHandler<,,>：回调方法接口，三个参数类型依次为：
+1. CallbackV2Dto<>：完整消息体，V2表示`2.0`版本数据格式
 1. xxxxEventBodyDto：事件体，从`EventBodyDto`继承
 1. xxxxResponseDto：响应体，从`CallbackResponseDto`继承
 
 事件体类型参照：[事件回调类型清单](https://github.com/vicenteyu/FeishuNetSdk/blob/main/EventCallbackList.md)
 
-**注意：需要3秒内响应**
+**注意：需要3秒内响应。**
+**规则不允许同一回调有多个继承类。**
+**一条消息仅推送一次。**
 
 ```csharp
 public class MyCallbackHandler(ILogger<MyCallbackHandler> logger) : ICallbackHandler<CallbackV2Dto<CardActionTriggerEventBodyDto>, CardActionTriggerEventBodyDto, CardActionTriggerResponseDto>
