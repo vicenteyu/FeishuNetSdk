@@ -12,6 +12,8 @@
 // <summary>响应体</summary>
 // ************************************************************************
 global using System.Text.Json.Serialization;
+global using FeishuNetSdk.Services;
+global using FeishuNetSdk.Core;
 namespace FeishuNetSdk;
 /// <summary>
 /// 响应体

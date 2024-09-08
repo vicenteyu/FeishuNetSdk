@@ -1,4 +1,17 @@
-﻿namespace FeishuNetSdk.Approval.Events
+﻿// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-09-07
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-09-07
+// ************************************************************************
+// <copyright file="ApprovalInstanceRemedyGroupUpdateV4EventBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>补卡审批 事件体</summary>
+// ************************************************************************
+namespace FeishuNetSdk.Approval.Events
 {
     /// <summary>
     /// 补卡审批 事件体

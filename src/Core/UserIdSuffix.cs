@@ -11,7 +11,6 @@
 // </copyright>
 // <summary>用户 ID</summary>
 // ************************************************************************
-global using FeishuNetSdk.Core;
 namespace FeishuNetSdk.Core
 {
     /// <summary>

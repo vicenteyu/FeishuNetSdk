@@ -42,6 +42,12 @@ namespace FeishuNetSdk.Im.Dtos
             public string TemplateId { get; set; } = string.Empty;
 
             /// <summary>
+            /// 卡片模版的版本。在卡片搭建工具中获取。详情参考预览与发布卡片中的管理卡片版本一节。
+            /// </summary>
+            [JsonPropertyName("template_version_name")]
+            public string? TemplateVersionName { get; set; }
+
+            /// <summary>
             /// 模板变量集合，Key-Value
             /// </summary>
             [JsonPropertyName("template_variable")]

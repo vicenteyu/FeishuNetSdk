@@ -45,4 +45,9 @@ namespace FeishuNetSdk.Im.Dtos
     /// 
     /// </summary>
     public interface IAmMessageContent { }
+
+    /// <summary>
+    /// 卡片交互
+    /// </summary>
+    public interface IAmBehaviors { }
 }

@@ -22,8 +22,7 @@ namespace FeishuNetSdk.Im.Dtos
         /// <para>卡片 JSON 2.0 结构支持飞书客户端 7.20 及之后版本。支持更多字段和能力，如卡片流式更新能力、富文本组件（markdown）更多语法等。详情参考[卡片 JSON 2.0 不兼容变更&amp;更新说明](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-breaking-changes-release-notes)。</para>
         /// </summary>
         [JsonPropertyName("schema")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:将成员标记为 static", Justification = "<挂起>")]
-        public string Schema => "2.0";
+        public string Schema { get; private set; } = "2.0";
 
         /// <summary>
         /// 卡片标题
@@ -290,6 +289,6 @@ namespace FeishuNetSdk.Im.Dtos
         /// 卡片正文
         /// </summary>
         /// <param name="Elements">元素集合</param>
-        public record BodySuffix([property: JsonPropertyName("elements")] object[] Elements);
+        public record BodySuffix([property: JsonPropertyName("elements")] object[]? Elements = null);
     }
 }

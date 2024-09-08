@@ -4,7 +4,7 @@
 // Created          : 2024-08-31
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-31
+// Last Modified On : 2024-09-07
 // ************************************************************************
 // <copyright file="EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -18,4 +18,9 @@ namespace FeishuNetSdk.Services
     /// </summary>
     /// <param name="Discriminator">事件体类型鉴别器</param>
     public record EventBodyDto([property: JsonPropertyName("$type")] string Discriminator);
+
+    /// <summary>
+    /// 回调响应体
+    /// </summary>
+    public record CallbackResponseDto;
 }

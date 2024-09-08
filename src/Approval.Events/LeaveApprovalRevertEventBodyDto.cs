@@ -1,7 +1,20 @@
-﻿namespace FeishuNetSdk.Approval.Events
+﻿// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-09-07
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-09-07
+// ************************************************************************
+// <copyright file="LeaveApprovalRevertEventBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>请假撤销 事件体</summary>
+// ************************************************************************
+namespace FeishuNetSdk.Approval.Events
 {
     /// <summary>
-    /// 请假撤销消息 事件体
+    /// 请假撤销 事件体
     /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/event/special-event/leave</para>
     /// </summary>
     public record LeaveApprovalRevertEventBodyDto() : EventBodyDto("leave_approval_revert")
