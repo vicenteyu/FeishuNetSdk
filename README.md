@@ -12,6 +12,8 @@
 
 [UserAccessToken 适用接口清单](https://github.com/vicenteyu/FeishuNetSdk/blob/main/UserAccessList.md)
 
+[事件回调类型清单](https://github.com/vicenteyu/FeishuNetSdk/blob/main/EventCallbackList.md)
+
 <img src="https://github.com/vicenteyu/FeishuNetSdk/blob/main/business.png" alt="商业合作、定制开发" height="350px">
 
 ## 用法：
@@ -19,18 +21,24 @@
 ### 1、安装Nuget包
 ```csharp
 PM> Install-Package FeishuNetSdk
+PM> Install-Package FeishuNetSdk.Endpoint //事件回调请求地址扩展包
+PM> Install-Package FeishuNetSdk.WebSocket //长连接扩展包
 ```
 
 ### 2、服务注册
 **（1）输入`应用凭证`的方式**
 ```csharp
-builder.Services.AddFeishuNetSdk(options =>
-{
-    options.AppId = "cli_test";
-    options.AppSecret = "secret_test";
-    //options.EnableLogging = true; //启用日志 （true = 启用， false = 关闭， 默认 = 启用）
-    //options.IgnoreStatusException = true; //忽略状态异常错误（true = 忽略， false = 启用， 默认 = 忽略）
-});
+builder.Services
+    .AddFeishuNetSdk(options =>
+    {
+        options.AppId = "cli_test";
+        options.AppSecret = "secret_test";
+        options.EncryptKey: "75vyV*************Clrwpkjy"; //解密密钥
+        options.VerificationToken: "WVr*************MSJw"; //验证密钥
+        //options.EnableLogging = true; //启用日志 （true = 启用， false = 关闭， 默认 = 启用）
+        //options.IgnoreStatusException = true; //忽略状态异常错误（true = 忽略， false = 启用， 默认 = 忽略）
+    })
+    .AddFeishuWebSocket(); //添加飞书长连接服务
 ```
 **（2）使用`配置文件`的方式**
 ```csharp
@@ -41,9 +49,17 @@ builder.Services.AddFeishuNetSdk(builder.Configuration.GetSection("FeishuNetSdk"
 "FeishuNetSdk": {
     "AppId": "cli_test",
     "AppSecret": "secret_test",
+    "EncryptKey": "75vyV*************Clrwpkjy", //解密密钥
+    "VerificationToken": "WVr*************MSJw", //验证密钥
     "EnableLogging": true, //启用日志 （true = 启用， false = 关闭， 默认 = 启用）
     "IgnoreStatusException": true //忽略状态异常错误（true = 忽略， false = 启用， 默认 = 忽略）
 }
+```
+
+**（3）启用`事件与回调`终结点**
+```csharp
+//启用飞书事件回调地址服务
+app.UseFeishuEndpoint("/a/b/c/d"); //示例：https://www.abc.com/a/b/c/d
 ```
 
 ### 3、注入和调用
@@ -76,6 +92,66 @@ public class TestController : ControllerBase
 1. 详见完整示例：samples/WebApplication1
 
 ## 部分示例：
+
+### 事件回调（v3.0.0 新增）
+
+**（1）事件订阅示例**
+
+项目内任意位置创建继承类：
+
+1. IEventHandler：事件方法接口
+1. EventV2Dto<>：完整消息体，V2 -> 2.0 
+1. xxxxEventBodyDto：事件体，从`EventBodyDto`继承
+
+事件体类型参照：[事件回调类型清单](https://github.com/vicenteyu/FeishuNetSdk/blob/main/EventCallbackList.md)
+
+**注意：需要3秒内响应**
+
+```csharp
+public class EventHandler1(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
+{
+    public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input)
+    {
+        await Task.Delay(600);
+        logger.LogInformation("ExecuteAsync1: {info}", System.Text.Json.JsonSerializer.Serialize(input));
+    }
+}
+```
+
+**（2）回调订阅示例**
+
+项目内任意位置创建继承类：
+
+1. ICallbackHandler：回调方法接口
+1. CallbackV2Dto<>：完整消息体，V2 -> 2.0 
+1. xxxxEventBodyDto：事件体，从`EventBodyDto`继承
+1. xxxxResponseDto：响应体，从`CallbackResponseDto`继承
+
+事件体类型参照：[事件回调类型清单](https://github.com/vicenteyu/FeishuNetSdk/blob/main/EventCallbackList.md)
+
+**注意：需要3秒内响应**
+
+```csharp
+public class MyCallbackHandler(ILogger<MyCallbackHandler> logger) : ICallbackHandler<CallbackV2Dto<CardActionTriggerEventBodyDto>, CardActionTriggerEventBodyDto, CardActionTriggerResponseDto>
+{
+    public async Task<CardActionTriggerResponseDto> ExecuteAsync(CallbackV2Dto<CardActionTriggerEventBodyDto> input)
+    {
+        await Task.CompletedTask;
+        logger.LogWarning("{json}", JsonSerializer.Serialize(input));
+
+        return new CardActionTriggerResponseDto().SetCard(new ElementsCardV2Dto()
+        {
+            Header = new() { Title = new("Button-updated"), Template = "blue" },
+            Config = new() { EnableForward = true },
+            Body = new()
+            {
+                Elements = [new DivElement().SetText(new PlainTextElement(Content: $"xxoo{DateTime.Now:yyyy-MM-dd HH:mm:ss}"))]
+            }
+        });
+    }
+}
+```
+
 
 ### 扩展方法（v2.2.9 新增）
 

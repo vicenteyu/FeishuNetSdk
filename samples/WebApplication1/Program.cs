@@ -1,5 +1,7 @@
+using FeishuNetSdk;
 using FeishuNetSdk.Approval.Events;
 using FeishuNetSdk.CallbackEvents;
+using FeishuNetSdk.Im.Dtos;
 using FeishuNetSdk.Im.Events;
 using FeishuNetSdk.Services;
 using Serilog;
@@ -65,7 +67,7 @@ namespace WebApplication1
     {
         public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input)
         {
-            await Task.Delay(2500);
+            await Task.Delay(1500);
             logger.LogInformation("ExecuteAsync3: {info}", System.Text.Json.JsonSerializer.Serialize(input));
         }
     }
@@ -83,23 +85,31 @@ namespace WebApplication1
     /// <summary>
     /// 
     /// </summary>
-    public class MyCallbackHandler(ILogger<MyCallbackHandler> logger) : ICallbackHandler<CallbackDto<CardActionTriggerEventBodyDto>, CardActionTriggerEventBodyDto, CardActionTriggerResponseDto>
+    public class MyCallbackHandler(ILogger<MyCallbackHandler> logger) : ICallbackHandler<CallbackV2Dto<CardActionTriggerEventBodyDto>, CardActionTriggerEventBodyDto, CardActionTriggerResponseDto>
     {
-        public async Task<CardActionTriggerResponseDto> ExecuteAsync(CallbackDto<CardActionTriggerEventBodyDto> input)
+        public async Task<CardActionTriggerResponseDto> ExecuteAsync(CallbackV2Dto<CardActionTriggerEventBodyDto> input)
         {
-            await Task.Delay(2900);
+            await Task.CompletedTask;
             logger.LogWarning("{json}", JsonSerializer.Serialize(input));
 
-            return new();
+            return new CardActionTriggerResponseDto().SetCard(new ElementsCardV2Dto()
+            {
+                Header = new() { Title = new("Button-updated"), Template = "blue" },
+                Config = new() { EnableForward = true },
+                Body = new()
+                {
+                    Elements = [new DivElement().SetText(new PlainTextElement(Content: $"xxoo{DateTime.Now:yyyy-MM-dd HH:mm:ss}"))]
+                }
+            });
         }
     }
 
     /// <summary>
     /// 
     /// </summary>
-    //public class MyCallbackHandler2(ILogger<MyCallbackHandler> logger) : ICallbackHandler<CallbackDto<CardActionTriggerEventBodyDto>, CardActionTriggerEventBodyDto, CardActionTriggerResponseDto>
+    //public class MyCallbackHandler2(ILogger<MyCallbackHandler> logger) : ICallbackHandler<CallbackV2Dto<CardActionTriggerEventBodyDto>, CardActionTriggerEventBodyDto, CardActionTriggerResponseDto>
     //{
-    //    public async Task<CardActionTriggerResponseDto> ExecuteAsync(CallbackDto<CardActionTriggerEventBodyDto> input)
+    //    public async Task<CardActionTriggerResponseDto> ExecuteAsync(CallbackV2Dto<CardActionTriggerEventBodyDto> input)
     //    {
     //        await Task.Delay(1900);
     //        logger.LogWarning("{json}", JsonSerializer.Serialize(input));
@@ -107,13 +117,13 @@ namespace WebApplication1
     //        return new();
     //    }
     //}
+
     public class EventHandler2(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
     {
         public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input)
         {
             await Task.Delay(1200);
             logger.LogInformation("ExecuteAsync2: {info}", System.Text.Json.JsonSerializer.Serialize(input));
-            throw new NotImplementedException();
         }
     }
 }

@@ -89,6 +89,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddHttpApi<IFeishuTenantApi>(option => option.KeyValueSerializeOptions.IgnoreNullValues = true);
             services.AddHttpApi<IFeishuUserApi>(option => option.KeyValueSerializeOptions.IgnoreNullValues = true);
 
+            services.TryAddSingleton<IEventCallbackServiceProvider, EventCallbackServiceProvider>();
+
             using var serviceProvider = services.BuildServiceProvider();
             var options = serviceProvider.GetRequiredService<IOptions<FeishuNetSdkOptions>>();
 
@@ -102,7 +104,11 @@ namespace Microsoft.Extensions.DependencyInjection
                 return new AppAccessTokenProvider(serviceProvider, options.Value);
             });
 
-            services.TryAddSingleton<AesCipher>();
+            var eventServiceProvider = serviceProvider.GetRequiredService<IEventCallbackServiceProvider>();
+            var handlers = eventServiceProvider.FindAllHandlers();
+            foreach (var eventHandlerDescriptor in handlers)
+                services.Add(new ServiceDescriptor(eventHandlerDescriptor.EventHandlerType,
+                    eventHandlerDescriptor.EventHandlerType, ServiceLifetime.Transient));
 
             return services;
         }

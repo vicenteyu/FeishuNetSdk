@@ -435,5 +435,28 @@ namespace FeishuNetSdk
 
             return Dto;
         }
+
+        /// <summary>
+        /// 添加卡片信息
+        /// </summary>
+        /// <param name="Dto">卡片交互响应体</param>
+        /// <param name="Card">卡片内容</param>
+        /// <returns></returns>
+        public static CallbackEvents.CardActionTriggerResponseDto SetCard(this CallbackEvents.CardActionTriggerResponseDto Dto, Im.Dtos.MessageCard Card)
+        {
+            Dto.Card ??= new();
+            switch (Card)
+            {
+                case Im.Dtos.TemplateCardDto templateCardDto:
+                    Dto.Card.Data = templateCardDto.Data;
+                    Dto.Card.Type = templateCardDto.Type;
+                    break;
+                default:
+                    Dto.Card.Data = Card;
+                    Dto.Card.Type = "raw";
+                    break;
+            }
+            return Dto;
+        }
     }
 }

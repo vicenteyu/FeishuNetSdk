@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "samples\Cons
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "samples\WebApplication1\WebApplication1.csproj", "{4969EB46-D7B9-4A13-A732-8E826D1CF79F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeishuNetSdk.WebSocket", "FeishuNetSdk.WebSocket\FeishuNetSdk.WebSocket.csproj", "{2B0A530E-54E9-445F-977B-BC64165AB71E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeishuNetSdk.Endpoint", "FeishuNetSdk.Endpoint\FeishuNetSdk.Endpoint.csproj", "{E7A299FF-4B33-4DE2-A8CF-5149C27CEDB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{4969EB46-D7B9-4A13-A732-8E826D1CF79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4969EB46-D7B9-4A13-A732-8E826D1CF79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4969EB46-D7B9-4A13-A732-8E826D1CF79F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B0A530E-54E9-445F-977B-BC64165AB71E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B0A530E-54E9-445F-977B-BC64165AB71E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B0A530E-54E9-445F-977B-BC64165AB71E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B0A530E-54E9-445F-977B-BC64165AB71E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7A299FF-4B33-4DE2-A8CF-5149C27CEDB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7A299FF-4B33-4DE2-A8CF-5149C27CEDB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7A299FF-4B33-4DE2-A8CF-5149C27CEDB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7A299FF-4B33-4DE2-A8CF-5149C27CEDB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
