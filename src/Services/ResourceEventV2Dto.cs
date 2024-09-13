@@ -20,15 +20,39 @@ namespace FeishuNetSdk.Services
     public record ResourceEventV2Dto<T> : EventV2Dto<T> where T : EventBodyDto
     {
         /// <summary>
-        /// 订阅的云文档 token
+        /// 事件唯一Id
         /// </summary>
-        [JsonPropertyName("resource_id")]
-        public string? ResourceId { get; set; }
+        [JsonPropertyName("event_id")]
+        public override string EventId => Header.EventId;
 
         /// <summary>
-        /// 订阅的云文档 token
+        /// 事件 Token，即Verification Token。用于验证来自于同一个应用
         /// </summary>
-        [JsonPropertyName("user_list")]
-        public UserIdSuffix[]? UserList { get; set; }
+        [JsonPropertyName("token")]
+        public override string Token => Header.Token;
+
+        /// <summary>
+        /// 事件头
+        /// </summary>
+        [JsonPropertyName("header")]
+        public new HeaderV2Suffix Header { get; set; } = new();
+
+        /// <summary>
+        /// 事件头
+        /// </summary>
+        public record HeaderV2Suffix : HeaderSuffix
+        {
+            /// <summary>
+            /// 订阅的云文档 token
+            /// </summary>
+            [JsonPropertyName("resource_id")]
+            public string? ResourceId { get; set; }
+
+            /// <summary>
+            /// 订阅的云文档 token
+            /// </summary>
+            [JsonPropertyName("user_list")]
+            public UserIdSuffix[]? UserList { get; set; }
+        }
     }
 }
