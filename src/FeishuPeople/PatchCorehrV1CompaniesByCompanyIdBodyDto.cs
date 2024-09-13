@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 更新公司 请求体
-/// <para>更新公司信息。</para>
+/// <para>更新公司信息，包括基本信息、注册地址、办公地址等</para>
 /// <para>接口ID：7309323790810824705</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fcompany%2fpatch</para>
@@ -22,14 +22,14 @@ namespace FeishuNetSdk.FeishuPeople;
 public record PatchCorehrV1CompaniesByCompanyIdBodyDto
 {
     /// <summary>
-    /// <para>层级关系，内层字段见实体</para>
+    /// <para>组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("hiberarchy_common")]
     public PatchCorehrV1CompaniesByCompanyIdBodyDtoHiberarchyCommon? HiberarchyCommon { get; set; }
 
     /// <summary>
-    /// <para>层级关系，内层字段见实体</para>
+    /// <para>组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息</para>
     /// </summary>
     public record PatchCorehrV1CompaniesByCompanyIdBodyDtoHiberarchyCommon
     {
@@ -42,14 +42,18 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
         public string? ParentId { get; set; }
 
         /// <summary>
-        /// <para>名称</para>
+        /// <para>公司名称</para>
+        /// <para>- 名称不能包含「/」「；」「;」字符。</para>
+        /// <para>- 公司中英文名称会有全局唯一校验</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("name")]
         public I18n[]? Names { get; set; }
 
         /// <summary>
-        /// <para>名称</para>
+        /// <para>公司名称</para>
+        /// <para>- 名称不能包含「/」「；」「;」字符。</para>
+        /// <para>- 公司中英文名称会有全局唯一校验</para>
         /// </summary>
         public record I18n
         {
@@ -64,7 +68,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
             /// <summary>
             /// <para>内容，支持中文和英文</para>
             /// <para>必填：是</para>
-            /// <para>示例值：刘梓新</para>
+            /// <para>示例值：xx有限科技公司</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -79,7 +83,11 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
         public bool? Active { get; set; }
 
         /// <summary>
-        /// <para>生效时间</para>
+        /// <para>版本生效日期</para>
+        /// <para>- 填写格式：YYYY-MM-DD 00:00:00（系统会自动将时分秒改为00:00:00）</para>
+        /// <para>- 系统默认为填写日期当天的 00:00:00 生效</para>
+        /// <para>- 该接口只支持到最小单位为日</para>
+        /// <para>- 日期范围要求:1900-01-01 00:00:00～9999-12-31 23:59:59</para>
         /// <para>必填：是</para>
         /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>
@@ -87,7 +95,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>编码</para>
+        /// <para>公司编码 (不能与其他记录的编码重复)，如果不传值则不更新</para>
         /// <para>必填：否</para>
         /// <para>示例值：12456</para>
         /// </summary>
@@ -103,28 +111,28 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
     }
 
     /// <summary>
-    /// <para>性质，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)公司类型（company_type）枚举定义部分获得。该字段为通用字段，若为公司维度则为必填。</para>
+    /// <para>公司性质，通过[获取字段详情](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=company；custom_api_name=type。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("type")]
     public Enum? Type { get; set; }
 
     /// <summary>
-    /// <para>性质，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)公司类型（company_type）枚举定义部分获得。该字段为通用字段，若为公司维度则为必填。</para>
+    /// <para>公司性质，通过[获取字段详情](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=company；custom_api_name=type。</para>
     /// </summary>
     public record Enum
     {
         /// <summary>
         /// <para>枚举值</para>
         /// <para>必填：是</para>
-        /// <para>示例值：phone_type</para>
+        /// <para>示例值：private_owned</para>
         /// </summary>
         [JsonPropertyName("enum_name")]
         public string EnumName { get; set; } = string.Empty;
     }
 
     /// <summary>
-    /// <para>行业，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)行业（industry）枚举定义部分获得</para>
+    /// <para>所在行业，通过[获取字段详情](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=company；custom_api_name=industry。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("industry_list")]
@@ -155,7 +163,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
         /// <summary>
         /// <para>内容，支持中文和英文。</para>
         /// <para>必填：是</para>
-        /// <para>示例值：刘梓新</para>
+        /// <para>示例值：张三</para>
         /// </summary>
         [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
@@ -178,7 +186,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
     public string? TaxPayerId { get; set; }
 
     /// <summary>
-    /// <para>confidential</para>
+    /// <para>是否保密，该功能暂不支持，可以忽略</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -186,7 +194,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
     public bool? Confidential { get; set; }
 
     /// <summary>
-    /// <para>主体类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)主体类型（company_sub_type）枚举定义部分获得</para>
+    /// <para>公司主体类型，通过[获取字段详情](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=company；custom_api_name=subtype。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("sub_type_list")]
@@ -279,7 +287,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
     {
         /// <summary>
         /// <para>区号对应的数字，可通过</para>
-        /// <para>[请求接口](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=phone；custom_api_name=international_area_code。</para>
+        /// <para>[获取字段详情](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=phone；custom_api_name=international_area_code。</para>
         /// <para>必填：是</para>
         /// <para>示例值：123123</para>
         /// </summary>
@@ -288,14 +296,14 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
 
         /// <summary>
         /// <para>区号对应的数字，可通过</para>
-        /// <para>[请求接口](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=phone；custom_api_name=international_area_code。</para>
+        /// <para>[获取字段详情](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)查询获取。请求参数：object_api_name=phone；custom_api_name=international_area_code。</para>
         /// </summary>
         public record Enum
         {
             /// <summary>
             /// <para>区号对应名称</para>
             /// <para>必填：是</para>
-            /// <para>示例值：phone_type</para>
+            /// <para>示例值：86_china</para>
             /// </summary>
             [JsonPropertyName("enum_name")]
             public string EnumName { get; set; } = string.Empty;
@@ -331,7 +339,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
     {
         /// <summary>
         /// <para>国家 / 地区 ID。各国家/地区填写字段可参考[地址填写规则](https://bytedance.larkoffice.com/wiki/GoL4wAKAXis3OWku72YcEjTxnKe?sheet=0sMjoP)查询。可通过</para>
-        /// <para>[请求接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)查询获取。</para>
+        /// <para>[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)查询获取。</para>
         /// <para>必填：是</para>
         /// <para>示例值：6862995757234914824</para>
         /// </summary>
@@ -340,7 +348,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
 
         /// <summary>
         /// <para>主要行政区ID.可通过</para>
-        /// <para>[请求接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)查询获取。</para>
+        /// <para>[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)查询获取。</para>
         /// <para>必填：否</para>
         /// <para>示例值：6863326815667095047</para>
         /// </summary>
@@ -349,7 +357,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
 
         /// <summary>
         /// <para>城市ID.可通过</para>
-        /// <para>[请求接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)查询获取。</para>
+        /// <para>[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)查询获取。</para>
         /// <para>必填：否</para>
         /// <para>示例值：6863333254578046471</para>
         /// </summary>
@@ -358,7 +366,7 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
 
         /// <summary>
         /// <para>区/县ID.可通过</para>
-        /// <para>[请求接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)查询获取。</para>
+        /// <para>[查询区/县信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)查询获取。</para>
         /// <para>必填：否</para>
         /// <para>示例值：6863333516579440141</para>
         /// </summary>

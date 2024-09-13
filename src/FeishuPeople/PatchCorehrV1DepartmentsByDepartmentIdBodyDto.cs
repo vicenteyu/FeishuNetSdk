@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 更新部门 请求体
-/// <para>更新部门。</para>
+/// <para>更新部门信息，包括基础信息、自定义字段信息。</para>
 /// <para>接口ID：7025920930581921795</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/department/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fdepartment%2fpatch</para>
@@ -51,7 +51,7 @@ public record PatchCorehrV1DepartmentsByDepartmentIdBodyDto
     }
 
     /// <summary>
-    /// <para>部门负责人 ID，枚举值及详细信息可通过【批量查询雇佣信息】接口查询获得</para>
+    /// <para>部门负责人 ID，枚举值及详细信息可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)查询获得</para>
     /// <para>必填：否</para>
     /// <para>示例值：6893013238632416776</para>
     /// </summary>
@@ -67,14 +67,14 @@ public record PatchCorehrV1DepartmentsByDepartmentIdBodyDto
     public bool? IsConfidential { get; set; }
 
     /// <summary>
-    /// <para>层级关系，内层字段见实体</para>
+    /// <para>组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("hiberarchy_common")]
     public PatchCorehrV1DepartmentsByDepartmentIdBodyDtoHiberarchyCommon? HiberarchyCommon { get; set; }
 
     /// <summary>
-    /// <para>层级关系，内层字段见实体</para>
+    /// <para>组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息</para>
     /// </summary>
     public record PatchCorehrV1DepartmentsByDepartmentIdBodyDtoHiberarchyCommon
     {
@@ -148,19 +148,19 @@ public record PatchCorehrV1DepartmentsByDepartmentIdBodyDto
     public string EffectiveTime { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>自定义字段</para>
+    /// <para>自定义字段，枚举值可通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)获取</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("custom_fields")]
     public ObjectFieldData[]? CustomFields { get; set; }
 
     /// <summary>
-    /// <para>自定义字段</para>
+    /// <para>自定义字段，枚举值可通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)获取</para>
     /// </summary>
     public record ObjectFieldData
     {
         /// <summary>
-        /// <para>字段名</para>
+        /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
         /// <para>必填：是</para>
         /// <para>示例值：name</para>
         /// </summary>
@@ -177,7 +177,7 @@ public record PatchCorehrV1DepartmentsByDepartmentIdBodyDto
     }
 
     /// <summary>
-    /// <para>成本中心id</para>
+    /// <para>成本中心 ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/cost_center/search)接口获取对应的成本中心信息</para>
     /// <para>必填：否</para>
     /// <para>示例值：7142384817131652652</para>
     /// </summary>
@@ -185,7 +185,8 @@ public record PatchCorehrV1DepartmentsByDepartmentIdBodyDto
     public string? CostCenterId { get; set; }
 
     /// <summary>
-    /// <para>是否使用职务</para>
+    /// <para>岗职管理模式</para>
+    /// <para>- 详细枚举类型请查看[枚举场景](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)中关于staffing_model定义</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("staffing_model")]

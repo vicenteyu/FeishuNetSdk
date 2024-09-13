@@ -14,7 +14,9 @@
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 搜索日程 请求体
-/// <para>调用该接口以用户身份搜索指定日历下的相关日程。</para>
+/// <para>调用该接口搜索指定日历下的相关日程，支持关键词搜索、过滤条件搜索。</para>
+/// <para>## 注意事项</para>
+/// <para>适用于主日历和共享日历，且当前身份必须对日历有 reader、writer 或 owner 权限。你可以调用[查询日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，获取当前身份对日历的访问权限。</para>
 /// <para>接口ID：6952888507003109403</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/calendar-event/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2fcalendar-event%2fsearch</para>
@@ -22,7 +24,8 @@ namespace FeishuNetSdk.Calendar;
 public record PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto
 {
     /// <summary>
-    /// <para>搜索关键字。用于模糊查询日程名称。</para>
+    /// <para>搜索关键字，用于模糊查询日程名称。</para>
+    /// <para>**注意**：如果日程名称包含下划线（_），则必须精准查询。该场景模糊查询可能无法搜索到日程。</para>
     /// <para>必填：是</para>
     /// <para>示例值：query words</para>
     /// <para>最大长度：200</para>
@@ -44,14 +47,16 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto
     public record EventSearchFilter
     {
         /// <summary>
-        /// <para>搜索过滤项，日程搜索区间的开始时间。不传值则表示不设置该过滤项。</para>
+        /// <para>搜索过滤项，日程搜索区间的开始时间。</para>
+        /// <para>**注意**：start_time 和 end_time 不传值时，默认搜索近一个月内的日程。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("start_time")]
         public TimeInfo? StartTime { get; set; }
 
         /// <summary>
-        /// <para>搜索过滤项，日程搜索区间的开始时间。不传值则表示不设置该过滤项。</para>
+        /// <para>搜索过滤项，日程搜索区间的开始时间。</para>
+        /// <para>**注意**：start_time 和 end_time 不传值时，默认搜索近一个月内的日程。</para>
         /// </summary>
         public record TimeInfo
         {
@@ -85,7 +90,8 @@ public record PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto
         }
 
         /// <summary>
-        /// <para>搜索过滤项，日程搜索区间的结束时间。不传值则表示不设置该过滤项。</para>
+        /// <para>搜索过滤项，日程搜索区间的结束时间。</para>
+        /// <para>**注意**：start_time 和 end_time 不传值时，默认搜索近一个月内的日程。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("end_time")]

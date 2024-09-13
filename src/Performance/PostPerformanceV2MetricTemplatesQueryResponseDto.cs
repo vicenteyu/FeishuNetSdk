@@ -4,7 +4,7 @@
 // Created          : 2024-07-02
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-02
+// Last Modified On : 2024-09-12
 // ************************************************************************
 // <copyright file="PostPerformanceV2MetricTemplatesQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -198,6 +198,13 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
             /// </summary>
             [JsonPropertyName("dimension_weight")]
             public string? DimensionWeight { get; set; }
+
+            /// <summary>
+            /// <para>维度描述</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("description")]
+            public I18n? Description { get; set; }
         }
 
         /// <summary>

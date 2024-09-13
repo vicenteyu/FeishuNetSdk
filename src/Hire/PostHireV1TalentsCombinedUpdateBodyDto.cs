@@ -4,7 +4,7 @@
 // Created          : 2024-07-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-22
+// Last Modified On : 2024-09-12
 // ************************************************************************
 // <copyright file="PostHireV1TalentsCombinedUpdateBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -91,11 +91,11 @@ public record PostHireV1TalentsCombinedUpdateBodyDto
     {
         /// <summary>
         /// <para>名字</para>
-        /// <para>必填：是</para>
+        /// <para>必填：否</para>
         /// <para>示例值：张三</para>
         /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; set; } = string.Empty;
+        public string? Name { get; set; }
 
         /// <summary>
         /// <para>手机</para>

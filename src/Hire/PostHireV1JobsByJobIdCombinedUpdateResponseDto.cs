@@ -893,7 +893,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateResponseDto
             /// <summary>
             /// <para>目标专业 ID，详情请查看：[「根据主数据编码批量获取专业」](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v3/batch_major/get)</para>
             /// <para>必填：否</para>
-            /// <para>示例值：6930815272790114324</para>
+            /// <para>示例值：MDMJ00000067</para>
             /// </summary>
             [JsonPropertyName("id")]
             public string? Id { get; set; }

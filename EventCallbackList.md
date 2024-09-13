@@ -133,12 +133,12 @@
 <tr><td>drive.file.bitable_record_changed_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileBitableRecordChangedV1EventBodyDto&gt;</td><td>【云文档】多维表格记录变更</td></tr>
 <tr><td>drive.file.bitable_field_changed_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileBitableFieldChangedV1EventBodyDto&gt;</td><td>【云文档】多维表格字段变更</td></tr>
 <tr><td>drive.file.edit_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileEditV1EventBodyDto&gt;</td><td>【云文档】文件编辑</td></tr>
-<tr><td>drive.file.title_updated_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileTitleUpdatedV1EventBodyDto&gt;</td><td>【云文档】文件标题变更</td></tr>
-<tr><td>drive.file.deleted_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileDeletedV1EventBodyDto&gt;</td><td>【云文档】文件彻底删除</td></tr>
-<tr><td>drive.file.trashed_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileTrashedV1EventBodyDto&gt;</td><td>【云文档】文件删除到回收站</td></tr>
-<tr><td>drive.file.permission_member_added_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFilePermissionMemberAddedV1EventBodyDto&gt;</td><td>【云文档】文件协作者添加</td></tr>
-<tr><td>drive.file.permission_member_removed_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFilePermissionMemberRemovedV1EventBodyDto&gt;</td><td>【云文档】文件协作者移除</td></tr>
-<tr><td>drive.file.read_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileReadV1EventBodyDto&gt;</td><td>【云文档】文件已读</td></tr>
+<tr><td>drive.file.title_updated_v1</td><td>ResourceEventV2Dto&lt;Ccm.Events.DriveFileTitleUpdatedV1EventBodyDto&gt;</td><td>【云文档】文件标题变更</td></tr>
+<tr><td>drive.file.deleted_v1</td><td>ResourceEventV2Dto&lt;Ccm.Events.DriveFileDeletedV1EventBodyDto&gt;</td><td>【云文档】文件彻底删除</td></tr>
+<tr><td>drive.file.trashed_v1</td><td>ResourceEventV2Dto&lt;Ccm.Events.DriveFileTrashedV1EventBodyDto&gt;</td><td>【云文档】文件删除到回收站</td></tr>
+<tr><td>drive.file.permission_member_added_v1</td><td>ResourceEventV2Dto&lt;Ccm.Events.DriveFilePermissionMemberAddedV1EventBodyDto&gt;</td><td>【云文档】文件协作者添加</td></tr>
+<tr><td>drive.file.permission_member_removed_v1</td><td>ResourceEventV2Dto&lt;Ccm.Events.DriveFilePermissionMemberRemovedV1EventBodyDto&gt;</td><td>【云文档】文件协作者移除</td></tr>
+<tr><td>drive.file.read_v1</td><td>ResourceEventV2Dto&lt;Ccm.Events.DriveFileReadV1EventBodyDto&gt;</td><td>【云文档】文件已读</td></tr>
 <tr><td>hire.eco_background_check.created_v1</td><td>EventV2Dto&lt;Hire.Events.HireEcoBackgroundCheckCreatedV1EventBodyDto&gt;</td><td>【招聘】创建背调</td></tr>
 <tr><td>hire.eco_exam.created_v1</td><td>EventV2Dto&lt;Hire.Events.HireEcoExamCreatedV1EventBodyDto&gt;</td><td>【招聘】创建笔试</td></tr>
 <tr><td>hire.ehr_import_task.imported_v1</td><td>EventV2Dto&lt;Hire.Events.HireEhrImportTaskImportedV1EventBodyDto&gt;</td><td>【招聘】导入 e-HR</td></tr>

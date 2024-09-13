@@ -22,7 +22,8 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2DepartmentsBatchGetBodyDto
 {
     /// <summary>
-    /// <para>部门ID列表。ID获取方式：</para>
+    /// <para>部门ID列表，和 department_name_list 至少传一种，两个字段都传会按照 AND 方式查询，都不传则返回空。</para>
+    /// <para>ID获取方式：</para>
     /// <para>- 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)等接口可以返回部门ID</para>
     /// <para>- 也可以通过[【事件】创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created)[【事件】更新部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated) 获取部门ID信息</para>
     /// <para>必填：否</para>
@@ -33,7 +34,7 @@ public record PostCorehrV2DepartmentsBatchGetBodyDto
     public string[]? DepartmentIdList { get; set; }
 
     /// <summary>
-    /// <para>返回数据的字段列表，可选值：</para>
+    /// <para>返回数据的字段列表，都不传则只返回部门 ID，可选值：</para>
     /// <para>- version_id：当前版本ID</para>
     /// <para>- sub_type：部门子类型</para>
     /// <para>- manager：负责人</para>
@@ -59,8 +60,7 @@ public record PostCorehrV2DepartmentsBatchGetBodyDto
     public string[]? Fields { get; set; }
 
     /// <summary>
-    /// <para>部门名称精确匹配，最多传100个。</para>
-    /// <para>- 和department_id_list至少传一种，两个字段都传会按照AND方式查询。</para>
+    /// <para>部门名称精确匹配，最多传100个。和 department_id_list 至少传一种，两个字段都传会按照 AND 方式查询，都不传则返回空。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>

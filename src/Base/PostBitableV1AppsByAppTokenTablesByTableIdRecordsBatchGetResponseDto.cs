@@ -4,7 +4,7 @@
 // Created          : 2024-07-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-22
+// Last Modified On : 2024-09-12
 // ************************************************************************
 // <copyright file="PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -126,6 +126,14 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGetResponseD
         /// </summary>
         [JsonPropertyName("last_modified_time")]
         public long? LastModifiedTime { get; set; }
+
+        /// <summary>
+        /// <para>记录链接</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd</para>
+        /// </summary>
+        [JsonPropertyName("record_url")]
+        public string? RecordUrl { get; set; }
     }
 
     /// <summary>

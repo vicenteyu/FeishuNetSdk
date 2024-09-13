@@ -42,7 +42,7 @@ public record GetHireV1EmployeesByEmployeeIdResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>投递ID</para>
+        /// <para>投递 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：7073372582620416300</para>
         /// </summary>
@@ -114,7 +114,7 @@ public record GetHireV1EmployeesByEmployeeIdResponseDto
         public string? OverboardNote { get; set; }
 
         /// <summary>
-        /// <para>办公地点Code码，详情请查看[「查询地点列表」](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)接口</para>
+        /// <para>办公地点 Code 码，详情请查看[「查询地点列表」](https://open.larkoffice.com/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)接口</para>
         /// <para>必填：否</para>
         /// <para>示例值：CT_2</para>
         /// </summary>
@@ -162,7 +162,7 @@ public record GetHireV1EmployeesByEmployeeIdResponseDto
         public string? EmployeeType { get; set; }
 
         /// <summary>
-        /// <para>招聘需求ID，详情请查看：[获取招聘需求信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/list_by_id)</para>
+        /// <para>招聘需求 ID，详情请查看：[获取招聘需求信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/list_by_id)</para>
         /// <para>必填：否</para>
         /// <para>示例值：123123123213</para>
         /// </summary>

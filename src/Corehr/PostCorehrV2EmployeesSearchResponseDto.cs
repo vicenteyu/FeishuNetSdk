@@ -192,6 +192,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
             /// <summary>
             /// <para>自定义字段</para>
+            /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("custom_fields")]
@@ -199,6 +200,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
             /// <summary>
             /// <para>自定义字段</para>
+            /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
             /// </summary>
             public record CustomFieldData
             {
@@ -373,6 +375,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
             /// <summary>
             /// <para>自定义字段</para>
+            /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("custom_fields")]
@@ -380,6 +383,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
             /// <summary>
             /// <para>自定义字段</para>
+            /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
             /// </summary>
             public record CustomFieldData
             {
@@ -650,6 +654,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
             /// <summary>
             /// <para>自定义字段</para>
+            /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("custom_fields")]
@@ -657,6 +662,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
             /// <summary>
             /// <para>自定义字段</para>
+            /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
             /// </summary>
             public record ObjectFieldData
             {
@@ -789,14 +795,20 @@ public record PostCorehrV2EmployeesSearchResponseDto
         public string? DottedLineManagerIdV2 { get; set; }
 
         /// <summary>
-        /// <para>雇佣类型，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)枚举定义获得</para>
+        /// <para>雇佣类型</para>
+        /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+        /// <para>- object_api_name：employment</para>
+        /// <para>- custom_api_name：employment_type</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("employment_type")]
         public Enum EmploymentType { get; set; } = new();
 
         /// <summary>
-        /// <para>雇佣类型，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)枚举定义获得</para>
+        /// <para>雇佣类型</para>
+        /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+        /// <para>- object_api_name：employment</para>
+        /// <para>- custom_api_name：employment_type</para>
         /// </summary>
         public record Enum
         {
@@ -839,7 +851,10 @@ public record PostCorehrV2EmployeesSearchResponseDto
         }
 
         /// <summary>
-        /// <para>雇佣状态，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)枚举定义获得</para>
+        /// <para>雇佣状态</para>
+        /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+        /// <para>- object_api_name：employment</para>
+        /// <para>- custom_api_name：employment_status</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("employment_status")]
@@ -854,7 +869,10 @@ public record PostCorehrV2EmployeesSearchResponseDto
         public string? ExpirationDate { get; set; }
 
         /// <summary>
-        /// <para>离职原因，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)枚举定义获得</para>
+        /// <para>离职原因</para>
+        /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+        /// <para>- object_api_name：employment</para>
+        /// <para>- custom_api_name：reason_for_offboarding</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("reason_for_offboarding")]
@@ -889,14 +907,20 @@ public record PostCorehrV2EmployeesSearchResponseDto
             public string Email { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>邮箱用途，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)枚举定义获得</para>
+            /// <para>邮箱用途</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+            /// <para>- object_api_name: email</para>
+            /// <para>- custom_api_name：email_usage</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("email_usage")]
             public Enum? EmailUsage { get; set; }
 
             /// <summary>
-            /// <para>邮箱用途，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)枚举定义获得</para>
+            /// <para>邮箱用途</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+            /// <para>- object_api_name: email</para>
+            /// <para>- custom_api_name：email_usage</para>
             /// </summary>
             public record Enum
             {
@@ -1289,18 +1313,20 @@ public record PostCorehrV2EmployeesSearchResponseDto
             }
 
             /// <summary>
-            /// <para>性别，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，按如下参数查询即可：</para>
-            /// <para>- custom_api_name：gender</para>
+            /// <para>性别</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
             /// <para>- object_api_name：person</para>
+            /// <para>- custom_api_name：gender</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("gender")]
             public Enum? Gender { get; set; }
 
             /// <summary>
-            /// <para>性别，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，按如下参数查询即可：</para>
-            /// <para>- custom_api_name：gender</para>
+            /// <para>性别</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
             /// <para>- object_api_name：person</para>
+            /// <para>- custom_api_name：gender</para>
             /// </summary>
             public record Enum
             {
@@ -1359,18 +1385,20 @@ public record PostCorehrV2EmployeesSearchResponseDto
             public string? NationalityIdV2 { get; set; }
 
             /// <summary>
-            /// <para>民族 / 种族，枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，按如下参数查询即可：</para>
-            /// <para>- custom_api_name：ethnicity_race</para>
+            /// <para>民族 / 种族</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
             /// <para>- object_api_name：person</para>
+            /// <para>- custom_api_name：ethnicity_race</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("race")]
             public Enum? Race { get; set; }
 
             /// <summary>
-            /// <para>婚姻状况，枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，按如下参数查询即可：</para>
-            /// <para>- custom_api_name：marital_status</para>
+            /// <para>婚姻状况</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
             /// <para>- object_api_name：person</para>
+            /// <para>- custom_api_name：marital_status</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("marital_status")]
@@ -1757,6 +1785,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("custom_fields")]
@@ -1764,6 +1793,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// </summary>
                 public record CustomFieldData
                 {
@@ -1859,14 +1889,20 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 public bool? IsPublic { get; set; }
 
                 /// <summary>
-                /// <para>邮箱用途，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)枚举定义获得</para>
+                /// <para>邮箱用途</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+                /// <para>- object_api_name: email</para>
+                /// <para>- custom_api_name：email_usage</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("email_usage")]
                 public Enum? EmailUsage { get; set; }
 
                 /// <summary>
-                /// <para>邮箱用途，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)枚举定义获得</para>
+                /// <para>邮箱用途</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+                /// <para>- object_api_name: email</para>
+                /// <para>- custom_api_name：email_usage</para>
                 /// </summary>
                 public record Enum
                 {
@@ -1989,6 +2025,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("custom_fields")]
@@ -1996,6 +2033,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// </summary>
                 public record CustomFieldData
                 {
@@ -2183,9 +2221,9 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>学校名称</para>
-                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
-                /// <para>- custom_api_name：school_name</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
                 /// <para>- object_api_name：education</para>
+                /// <para>- custom_api_name：school_name</para>
                 /// <para>- 自定义名称时返回 school 字段</para>
                 /// <para>- 下拉框选择的返回该字段</para>
                 /// <para>必填：否</para>
@@ -2195,9 +2233,9 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>专业名称</para>
-                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
-                /// <para>- custom_api_name：field_of_study_name</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
                 /// <para>- object_api_name：education</para>
+                /// <para>- custom_api_name：field_of_study_name</para>
                 /// <para>- 自定义名称时返回 field_of_study 字段</para>
                 /// <para>- 下拉框选择的返回该字段</para>
                 /// <para>必填：否</para>
@@ -2223,6 +2261,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("custom_fields")]
@@ -2230,6 +2269,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// </summary>
                 public record CustomFieldData
                 {
@@ -2357,14 +2397,20 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 public string? CountryRegionId { get; set; }
 
                 /// <summary>
-                /// <para>银行卡用途，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)枚举定义获得</para>
+                /// <para>银行卡用途</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+                /// <para>- object_api_name: bank_account</para>
+                /// <para>- custom_api_name: bank_account_usage</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("bank_account_usage")]
                 public Enum[]? BankAccountUsages { get; set; }
 
                 /// <summary>
-                /// <para>银行卡用途，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)枚举定义获得</para>
+                /// <para>银行卡用途</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+                /// <para>- object_api_name: bank_account</para>
+                /// <para>- custom_api_name: bank_account_usage</para>
                 /// </summary>
                 public record Enum
                 {
@@ -2407,7 +2453,10 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 }
 
                 /// <summary>
-                /// <para>银行卡类型，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)枚举定义获得</para>
+                /// <para>银行卡类型</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+                /// <para>- object_api_name: bank_account</para>
+                /// <para>- custom_api_name: bank_account_type</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("bank_account_type")]
@@ -2431,6 +2480,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("custom_fields")]
@@ -2438,6 +2488,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// </summary>
                 public record CustomFieldData
                 {
@@ -2558,6 +2609,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("custom_fields")]
@@ -2565,6 +2617,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// </summary>
                 public record CustomFieldData
                 {
@@ -2924,9 +2977,10 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 }
 
                 /// <summary>
-                /// <para>性别，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，按如下参数查询即可：</para>
-                /// <para>- custom_api_name：gender</para>
+                /// <para>性别</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
                 /// <para>- object_api_name：person</para>
+                /// <para>- custom_api_name：gender</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("gender")]
@@ -3010,6 +3064,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                     /// <summary>
                     /// <para>自定义字段</para>
+                    /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("custom_fields")]
@@ -3017,6 +3072,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                     /// <summary>
                     /// <para>自定义字段</para>
+                    /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                     /// </summary>
                     public record CustomFieldData
                     {
@@ -3100,6 +3156,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("custom_fields")]
@@ -3107,6 +3164,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// </summary>
                 public record CustomFieldData
                 {
@@ -3569,6 +3627,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                     /// <summary>
                     /// <para>自定义字段</para>
+                    /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("custom_fields")]
@@ -3576,6 +3635,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                     /// <summary>
                     /// <para>自定义字段</para>
+                    /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                     /// </summary>
                     public record CustomFieldData
                     {
@@ -4090,6 +4150,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("custom_fields")]
@@ -4097,6 +4158,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// </summary>
                 public record CustomFieldData
                 {
@@ -4426,6 +4488,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                     /// <summary>
                     /// <para>自定义字段</para>
+                    /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("custom_fields")]
@@ -4433,6 +4496,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                     /// <summary>
                     /// <para>自定义字段</para>
+                    /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                     /// </summary>
                     public record CustomFieldData
                     {
@@ -4647,7 +4711,10 @@ public record PostCorehrV2EmployeesSearchResponseDto
             public string? NativeRegion { get; set; }
 
             /// <summary>
-            /// <para>户口类型，枚举值可通过文档[【枚举常量介绍】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)枚举定义获得</para>
+            /// <para>户口类型</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+            /// <para>- object_api_name: person_info_chn</para>
+            /// <para>- custom_api_name: hukou_type</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("hukou_type")]
@@ -4662,10 +4729,10 @@ public record PostCorehrV2EmployeesSearchResponseDto
             public string? HukouLocation { get; set; }
 
             /// <summary>
-            /// <para>政治面貌，枚举值可[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口查询</para>
-            /// <para>按如下参数查询即可：</para>
-            /// <para>- custom_api_name：political_affiliation</para>
+            /// <para>政治面貌</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
             /// <para>- object_api_name：person_info_chn</para>
+            /// <para>- custom_api_name：political_affiliation</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("political_affiliations")]
@@ -4681,6 +4748,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
             /// <summary>
             /// <para>自定义字段</para>
+            /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("custom_fields")]
@@ -4688,6 +4756,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
             /// <summary>
             /// <para>自定义字段</para>
+            /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
             /// </summary>
             public record CustomFieldData
             {
@@ -4831,8 +4900,8 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 public string YearResidentTax { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>居民身份，枚举值 api_name 可[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口查询</para>
-                /// <para>查询参数如下：</para>
+                /// <para>居民身份</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
                 /// <para>- object_api_name: resident_tax</para>
                 /// <para>- custom_api_name: resident_status</para>
                 /// <para>必填：否</para>
@@ -4841,8 +4910,8 @@ public record PostCorehrV2EmployeesSearchResponseDto
                 public Enum? ResidentStatus { get; set; }
 
                 /// <summary>
-                /// <para>居民身份，枚举值 api_name 可[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口查询</para>
-                /// <para>查询参数如下：</para>
+                /// <para>居民身份</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
                 /// <para>- object_api_name: resident_tax</para>
                 /// <para>- custom_api_name: resident_status</para>
                 /// </summary>
@@ -4896,6 +4965,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("custom_fields")]
@@ -4903,6 +4973,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>自定义字段</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// </summary>
                 public record ObjectFieldData
                 {
@@ -4941,7 +5012,8 @@ public record PostCorehrV2EmployeesSearchResponseDto
             public string? LeaveTime { get; set; }
 
             /// <summary>
-            /// <para>宗教信仰，枚举值可查询[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+            /// <para>宗教信仰</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
             /// <para>- object_api_name：person</para>
             /// <para>- custom_api_name：religion</para>
             /// <para>必填：否</para>
@@ -4960,6 +5032,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
         /// <summary>
         /// <para>自定义字段</para>
+        /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
@@ -4967,6 +5040,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
         /// <summary>
         /// <para>自定义字段</para>
+        /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
         /// </summary>
         public record CustomFieldData
         {
@@ -5064,7 +5138,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
         public int? TimesEmployed { get; set; }
 
         /// <summary>
-        /// <para>招聘来源，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口查询</para>
+        /// <para>招聘来源，枚举值 api_name 可通过[【查询招聘】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口查询</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("recruitment_type")]

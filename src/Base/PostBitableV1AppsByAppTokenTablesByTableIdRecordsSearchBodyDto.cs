@@ -22,9 +22,12 @@ namespace FeishuNetSdk.Base;
 public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchBodyDto
 {
     /// <summary>
-    /// <para>视图的唯一标识符，获取指定视图下的记录[view_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
-    /// <para>注意：</para>
-    /// <para>当 filter 参数 或 sort 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的view_id 会被忽略。</para>
+    /// <para>多维表格中视图的唯一标识。获取方式：</para>
+    /// <para>- 在多维表格的 URL 地址栏中，view_id 是下图中高亮部分：</para>
+    /// <para>![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&amp;lazyload=true&amp;width=2998)</para>
+    /// <para>- 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的 view_id。</para>
+    /// <para>**注意**：</para>
+    /// <para>当 filter 参数 或 sort 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 view_id 会被忽略。</para>
     /// <para>必填：否</para>
     /// <para>示例值：vewqhz51lk</para>
     /// <para>最大长度：50</para>
@@ -77,19 +80,19 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchBodyDto
     }
 
     /// <summary>
-    /// <para>筛选条件</para>
+    /// <para>包含条件筛选信息的对象</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("filter")]
     public FilterInfo? Filter { get; set; }
 
     /// <summary>
-    /// <para>筛选条件</para>
+    /// <para>包含条件筛选信息的对象</para>
     /// </summary>
     public record FilterInfo
     {
         /// <summary>
-        /// <para>条件逻辑连接词</para>
+        /// <para>表示条件之间的逻辑连接词</para>
         /// <para>必填：否</para>
         /// <para>示例值：and</para>
         /// <para>最大长度：10</para>
@@ -149,8 +152,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchBodyDto
             public string Operator { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>目标值</para>
-            /// <para>[目标值填写指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide)</para>
+            /// <para>条件的值，可以是单个值或多个值的数组。不同字段类型和不同的 operator 可填的值不同。详情参考[字段目标值（value）填写说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide#3e0fd644)。</para>
             /// <para>必填：否</para>
             /// <para>示例值：文本内容</para>
             /// <para>最大长度：10</para>
@@ -162,7 +164,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchBodyDto
     }
 
     /// <summary>
-    /// <para>控制是否返回自动计算的字段, true 表示返回</para>
+    /// <para>是否返回自动计算的字段。默认为 false，表示不返回。</para>
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>

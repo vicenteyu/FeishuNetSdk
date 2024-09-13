@@ -187,7 +187,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             public string? ApproveApplyTime { get; set; }
 
             /// <summary>
-            /// <para>外出记录的唯一幂等键，用于避免外出记录重复创建</para>
+            /// <para>外出记录的唯一幂等键，响应体中无需关注</para>
             /// <para>必填：否</para>
             /// <para>示例值：1233432312</para>
             /// </summary>
@@ -337,7 +337,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             public string? ApproveApplyTime { get; set; }
 
             /// <summary>
-            /// <para>请假记录的唯一幂等键，用于避免请假记录重复创建</para>
+            /// <para>请假记录的唯一幂等键，响应体中无需关注</para>
             /// <para>必填：否</para>
             /// <para>示例值：1233432312</para>
             /// </summary>
@@ -439,7 +439,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             public string? Reason { get; set; }
 
             /// <summary>
-            /// <para>加班记录的唯一幂等键，用于避免加班记录重复创建</para>
+            /// <para>加班记录的唯一幂等键，响应体中无需关注</para>
             /// <para>必填：否</para>
             /// <para>示例值：1233432312</para>
             /// </summary>
@@ -508,7 +508,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             public string ApproveApplyTime { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>出差记录的唯一幂等键，用于避免出差记录重复创建</para>
+            /// <para>出差记录的唯一幂等键，响应体中无需关注</para>
             /// <para>必填：否</para>
             /// <para>示例值：1233432312</para>
             /// </summary>

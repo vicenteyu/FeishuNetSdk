@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Services
 {
     /// <summary>
-    /// 事件 V2.0
+    /// 事件头 V2.0
     /// </summary>
     public record EventV2Dto<T> : EventDto<T> where T : EventBodyDto
     {

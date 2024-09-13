@@ -18,8 +18,6 @@ namespace FeishuNetSdk.Im;
 /// <para>## 前提条件</para>
 /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
 /// <para>- 获取消息时，机器人必须在被查询的群组中。</para>
-/// <para>## 注意事项</para>
-/// <para>应用开启本接口默认所需的权限只能获取单聊（p2p）消息。如果你需要获取群组（group）消息，应用还必须开启 **获取群组中所有消息**（im:message.group_msg） 权限。</para>
 /// <para>接口ID：6946222931479560193</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2flist</para>

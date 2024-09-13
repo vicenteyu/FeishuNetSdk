@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-06
+// Last Modified On : 2024-09-12
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -285,17 +285,17 @@ namespace FeishuNetSdk.Core;
 //【云文档】文件编辑
 [JsonDerivedType(typeof(EventV2Dto<Ccm.Events.DriveFileEditV1EventBodyDto>), typeDiscriminator: "drive.file.edit_v1")]
 //【云文档】文件标题变更
-[JsonDerivedType(typeof(EventV2Dto<Ccm.Events.DriveFileTitleUpdatedV1EventBodyDto>), typeDiscriminator: "drive.file.title_updated_v1")]
+[JsonDerivedType(typeof(ResourceEventV2Dto<Ccm.Events.DriveFileTitleUpdatedV1EventBodyDto>), typeDiscriminator: "drive.file.title_updated_v1")]
 //【云文档】文件彻底删除
-[JsonDerivedType(typeof(EventV2Dto<Ccm.Events.DriveFileDeletedV1EventBodyDto>), typeDiscriminator: "drive.file.deleted_v1")]
+[JsonDerivedType(typeof(ResourceEventV2Dto<Ccm.Events.DriveFileDeletedV1EventBodyDto>), typeDiscriminator: "drive.file.deleted_v1")]
 //【云文档】文件删除到回收站
-[JsonDerivedType(typeof(EventV2Dto<Ccm.Events.DriveFileTrashedV1EventBodyDto>), typeDiscriminator: "drive.file.trashed_v1")]
+[JsonDerivedType(typeof(ResourceEventV2Dto<Ccm.Events.DriveFileTrashedV1EventBodyDto>), typeDiscriminator: "drive.file.trashed_v1")]
 //【云文档】文件协作者添加
-[JsonDerivedType(typeof(EventV2Dto<Ccm.Events.DriveFilePermissionMemberAddedV1EventBodyDto>), typeDiscriminator: "drive.file.permission_member_added_v1")]
+[JsonDerivedType(typeof(ResourceEventV2Dto<Ccm.Events.DriveFilePermissionMemberAddedV1EventBodyDto>), typeDiscriminator: "drive.file.permission_member_added_v1")]
 //【云文档】文件协作者移除
-[JsonDerivedType(typeof(EventV2Dto<Ccm.Events.DriveFilePermissionMemberRemovedV1EventBodyDto>), typeDiscriminator: "drive.file.permission_member_removed_v1")]
+[JsonDerivedType(typeof(ResourceEventV2Dto<Ccm.Events.DriveFilePermissionMemberRemovedV1EventBodyDto>), typeDiscriminator: "drive.file.permission_member_removed_v1")]
 //【云文档】文件已读
-[JsonDerivedType(typeof(EventV2Dto<Ccm.Events.DriveFileReadV1EventBodyDto>), typeDiscriminator: "drive.file.read_v1")]
+[JsonDerivedType(typeof(ResourceEventV2Dto<Ccm.Events.DriveFileReadV1EventBodyDto>), typeDiscriminator: "drive.file.read_v1")]
 //【招聘】创建背调
 [JsonDerivedType(typeof(EventV2Dto<Hire.Events.HireEcoBackgroundCheckCreatedV1EventBodyDto>), typeDiscriminator: "hire.eco_background_check.created_v1")]
 //【招聘】创建笔试

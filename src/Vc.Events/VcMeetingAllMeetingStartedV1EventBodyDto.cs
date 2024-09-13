@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-01
+// Last Modified On : 2024-09-12
 // ************************************************************************
 // <copyright file="VcMeetingAllMeetingStartedV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -104,6 +104,111 @@ public record VcMeetingAllMeetingStartedV1EventBodyDto() : EventBodyDto("vc.meet
         /// </summary>
         [JsonPropertyName("calendar_event_id")]
         public string? CalendarEventId { get; set; }
+
+        /// <summary>
+        /// <para>会议子类型</para>
+        /// <para>**可选值有**：</para>
+        /// <para>1:会前投屏,2:有线共享,3:会前妙享,4:企业办公电话,5:IP Phone,6:网络研讨会</para>
+        /// <para>必填：否</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：会前投屏</item>
+        /// <item>2：有线共享</item>
+        /// <item>3：会前妙享</item>
+        /// <item>4：企业办公电话</item>
+        /// <item>5：IP Phone</item>
+        /// <item>6：网络研讨会</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("meeting_sub_type")]
+        public int? MeetingSubType { get; set; }
+
+        /// <summary>
+        /// <para>会议安全设置</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("security_setting")]
+        public MeetingSecuritySetting? SecuritySetting { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public record MeetingSecuritySetting
+        {
+            /// <summary>
+            /// <para>安全级别</para>
+            /// <para>**可选值有**：</para>
+            /// <para>1:所有人可加入,2:仅企业内用户可加入,3:仅指定联系人和群可加入,4:仅主持人可参会（锁定会议）</para>
+            /// <para>必填：否</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>1：所有人可加入</item>
+            /// <item>2：仅企业内用户可加入</item>
+            /// <item>3：仅指定联系人和群可加入</item>
+            /// <item>4：仅主持人可参会（锁定会议）</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("security_level")]
+            public int? SecurityLevel { get; set; }
+
+            /// <summary>
+            /// <para>允许入会的群组ID列表</para>
+            /// <para>**数据校验规则**：</para>
+            /// <para>- 长度范围：`0` ～ `200`</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("group_ids")]
+            public string[]? GroupIds { get; set; }
+
+            /// <summary>
+            /// <para>允许入会的用户ID列表</para>
+            /// <para>**数据校验规则**：</para>
+            /// <para>- 长度范围：`0` ～ `200`</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("user_ids")]
+            public UserIdSuffix[]? UserIds { get; set; }
+
+            /// <summary>
+            /// <para>允许入会的会议室ID列表</para>
+            /// <para>**数据校验规则**：</para>
+            /// <para>- 长度范围：`0` ～ `200`</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("room_ids")]
+            public string[]? RoomIds { get; set; }
+
+            /// <summary>
+            /// <para>是否设置了仅指定联系人和群组可参会</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("has_set_security_contacts_and_group")]
+            public bool? HasSetSecurityContactsAndGroup { get; set; }
+        }
+
+        /// <summary>
+        /// <para>研讨会相关设置</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("webinar_setting")]
+        public MeetingWebinarSetting? WebinarSetting { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public record MeetingWebinarSetting
+        {
+            /// <summary>
+            /// <para>网络研讨会类型</para>
+            /// <para>**可选值有**：</para>
+            /// <para>1:普通网络研讨会,2:直播网络研讨会</para>
+            /// <para>必填：否</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>1：普通网络研讨会</item>
+            /// <item>2：直播网络研讨会</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("webinar_type")]
+            public int? WebinarType { get; set; }
+        }
     }
 
     /// <summary>
@@ -142,7 +247,7 @@ public record VcMeetingAllMeetingStartedV1EventBodyDto() : EventBodyDto("vc.meet
         /// <summary>
         /// <para>用户类型</para>
         /// <para>**可选值有**：</para>
-        /// <para>1:飞书用户,2:rooms用户,3:文档用户,4:neo单品用户,5:neo单品游客用户,6:pstn用户,7:sip用户</para>
+        /// <para>1:飞书用户,2:rooms用户,3:文档用户,4:neo单品用户,5:neo单品游客用户,6:pstn用户,7:sip用户,8:sharebox用户,9:开放平台应用</para>
         /// <para>必填：否</para>
         /// <para>可选值：<list type="bullet">
         /// <item>1：飞书用户</item>
@@ -152,6 +257,8 @@ public record VcMeetingAllMeetingStartedV1EventBodyDto() : EventBodyDto("vc.meet
         /// <item>5：neo单品游客用户</item>
         /// <item>6：pstn用户</item>
         /// <item>7：sip用户</item>
+        /// <item>8：sharebox用户</item>
+        /// <item>9：开放平台应用</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("user_type")]

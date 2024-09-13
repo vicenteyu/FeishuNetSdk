@@ -14,7 +14,9 @@
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 搜索日程 响应体
-/// <para>调用该接口以用户身份搜索指定日历下的相关日程。</para>
+/// <para>调用该接口搜索指定日历下的相关日程，支持关键词搜索、过滤条件搜索。</para>
+/// <para>## 注意事项</para>
+/// <para>适用于主日历和共享日历，且当前身份必须对日历有 reader、writer 或 owner 权限。你可以调用[查询日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，获取当前身份对日历的访问权限。</para>
 /// <para>接口ID：6952888507003109403</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/calendar-event/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2fcalendar-event%2fsearch</para>

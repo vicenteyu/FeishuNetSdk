@@ -32,8 +32,11 @@ public record PostCorehrV2EmployeesBatchGetBodyDto
     public string[]? Fields { get; set; }
 
     /// <summary>
-    /// <para>雇佣 ID 列表，以下请求参数中「employment_ids」，「person_ids」，「work_emails」不得均为空；请根据需求选择一种模式进行查询，若单次请求中多个请求参数有值，按照【employment_ids &gt; person_ids &gt; work_emails】的顺序只识别第一个有值的请求参数；ID 类型需要与 user_id_type 保持一致。</para>
-    /// <para>在[【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create)时返回的 ID。</para>
+    /// <para>雇佣 ID 列表</para>
+    /// <para>- 以下请求参数中「employment_ids」，「person_ids」，「work_emails」不得均为空</para>
+    /// <para>- 请根据需求选择一种模式进行查询，若单次请求中多个请求参数有值，按照【employment_ids &gt; person_ids &gt; work_emails】的顺序只识别第一个有值的请求参数</para>
+    /// <para>- ID 类型需要与 user_id_type 保持一致。</para>
+    /// <para>- 在[【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create)时返回的 ID。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>
@@ -43,7 +46,7 @@ public record PostCorehrV2EmployeesBatchGetBodyDto
 
     /// <summary>
     /// <para>个人信息 ID 列表，employment_ids参数有值时该参数不生效。</para>
-    /// <para>在[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)时返回的 ID。</para>
+    /// <para>- 在[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)时返回的 ID。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>

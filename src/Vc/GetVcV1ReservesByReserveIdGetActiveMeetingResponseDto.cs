@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-09-12
 // ************************************************************************
 // <copyright file="GetVcV1ReservesByReserveIdGetActiveMeetingResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -134,6 +134,14 @@ public record GetVcV1ReservesByReserveIdGetActiveMeetingResponseDto
             [JsonPropertyName("user_type")]
             public int? UserType { get; set; }
         }
+
+        /// <summary>
+        /// <para>该会议是否支持互通（注：该字段内测中）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("meeting_connect")]
+        public bool? MeetingConnect { get; set; }
 
         /// <summary>
         /// <para>会议状态</para>

@@ -14,9 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople.Events;
 /// <summary>
 /// 【事件】更新部门 事件体
-/// <para>飞书人事中「部门信息被更新」时将触发此事件。</para>
-/// <para>注意事项：- 触发时间为部门更新实际生效时间，如在 2022-01-01 更新部门，部门更新生效时间设置为 2022-05-01，事件将在 2022-05-01 进行推送。</para>
-/// <para>- 删除部门不会触发「部门更新」事件。</para>
+/// <para>飞书人事中「部门信息被更新」时将触发此事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v1&amp;resource=department&amp;event=updated)</para>
 /// <para>接口ID：7125370197952053252</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/department/updated</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fdepartment%2fevents%2fupdated</para>

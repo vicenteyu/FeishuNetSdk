@@ -36,7 +36,7 @@ public record PostHireV1TalentsByTalentIdExternalInfoResponseDto
         /// <summary>
         /// <para>人才 ID，详情请查看：[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)</para>
         /// <para>必填：否</para>
-        /// <para>示例值：7043758982146345223</para>
+        /// <para>示例值：7043758982146345222</para>
         /// </summary>
         [JsonPropertyName("talent_id")]
         public string? TalentId { get; set; }

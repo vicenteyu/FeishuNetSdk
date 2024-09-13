@@ -26,7 +26,7 @@ public record PostHireV1ExternalApplicationsBodyDto
     /// <para>- 若不传此值，则不进行幂等校验</para>
     /// <para>- 若传此值，则用于幂等校验，同一 `external_id` 24小时内仅可创建一次</para>
     /// <para>必填：否</para>
-    /// <para>示例值：729557715719</para>
+    /// <para>示例值：729557715718</para>
     /// </summary>
     [JsonPropertyName("external_id")]
     public string? ExternalId { get; set; }

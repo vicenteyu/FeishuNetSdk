@@ -42,7 +42,7 @@ public record PostHireV1ExternalBackgroundChecksBodyDto
     /// <summary>
     /// <para>背调日期，毫秒时间戳（字段类型为：int64）</para>
     /// <para>必填：否</para>
-    /// <para>示例值：1626602069393</para>
+    /// <para>示例值：1626602069392</para>
     /// </summary>
     [JsonPropertyName("date")]
     public long? Date { get; set; }

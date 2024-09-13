@@ -79,7 +79,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
         public string? ObjectId { get; set; }
 
         /// <summary>
-        /// <para>自定义字段值</para>
+        /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」。</para>
         /// <para>必填：否</para>
         /// <para>示例值：职位特殊要求</para>
         /// </summary>
@@ -344,7 +344,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     public string? OnboardRegistrationSchemaId { get; set; }
 
     /// <summary>
-    /// <para>目标专业 ID 列表，可通过[「根据主数据编码批量获取专业」](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v3/batch_major/get)获取专业详情</para>
+    /// <para>目标专业 ID 列表，可通过[「分页批量查询专业」](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/mdm-v3/major/list)获取</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("target_major_id_list")]

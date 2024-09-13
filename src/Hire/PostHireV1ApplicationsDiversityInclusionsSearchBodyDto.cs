@@ -22,10 +22,11 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1ApplicationsDiversityInclusionsSearchBodyDto
 {
     /// <summary>
-    /// <para>人才 ID列表，如何获取人才 ID 请参考[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)</para>
+    /// <para>人才 ID 列表，如何获取人才 ID 请参考[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)</para>
     /// <para>**特殊说明：**</para>
-    /// <para>- 当通过人才 ID 查询时会返回该人才最新投递的申请表附加信息。</para>
-    /// <para>- 当人才 ID 或投递 ID 同时存在将以人才ID 为准。</para>
+    /// <para>- 当通过人才 ID 列表查询时会返回对应人才最新投递的申请表附加信息。</para>
+    /// <para>- 当人才 ID 列表或投递 ID 列表同时存在将以人才 ID 列表为准。</para>
+    /// <para>- 当人才 ID 列表和投递 ID 列表都没有填写时则返回空数据。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：10</para>
     /// </summary>

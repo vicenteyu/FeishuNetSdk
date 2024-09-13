@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-09
+// Last Modified On : 2024-09-12
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -4761,7 +4761,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
     /// <para>## 注意事项</para>
     /// <para>- 若以 user_access_token 更新消息，该操作用户必须是卡片消息的发送者。</para>
-    /// <para>- 仅支持更新未撤回的[共享卡片](ukTMukTMukTM/uAjNwUjLwYDM14CM2ATN)消息。你需在卡片的 config 属性中，显式声明 =="update_multi":true==。</para>
+    /// <para>- 仅支持更新未撤回的[共享卡片](ukTMukTMukTM/uAjNwUjLwYDM14CM2ATN)消息。你需在更新**前后**卡片的 config 属性中，均显式声明 =="update_multi":true==。如果更新**前后**的卡片存在非共享卡片，可能导致更新异常。</para>
     /// <para>## 使用限制</para>
     /// <para>- 不支持更新[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)。</para>
     /// <para>- 仅支持更新 14 天内发送的消息。</para>
@@ -4797,8 +4797,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 前提条件</para>
     /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
     /// <para>- 获取消息时，机器人必须在被查询的群组中。</para>
-    /// <para>## 注意事项</para>
-    /// <para>应用开启本接口默认所需的权限只能获取单聊（p2p）消息。如果你需要获取群组（group）消息，应用还必须开启 **获取群组中所有消息**（im:message.group_msg） 权限。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:readonly</item>
@@ -5685,6 +5683,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于更新数据表中的多条记录，单次调用最多更新 500 条记录。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:record:update</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
@@ -5733,6 +5732,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于删除数据表中的一条记录</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:record:delete</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -6033,6 +6033,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于删除数据表中现有的多条记录，单次调用中最多删除 500 条记录。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:record:delete</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -6064,6 +6065,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>note</para>
     /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:record:update</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
@@ -6878,7 +6880,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6952888507003109403</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>调用该接口以用户身份搜索指定日历下的相关日程。</para>
+    /// <para>调用该接口搜索指定日历下的相关日程，支持关键词搜索、过滤条件搜索。</para>
+    /// <para>## 注意事项</para>
+    /// <para>适用于主日历和共享日历，且当前身份必须对日历有 reader、writer 或 owner 权限。你可以调用[查询日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，获取当前身份对日历的访问权限。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar:readonly</item>
@@ -6913,7 +6917,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>一次调用所返回的最大日程数量。</para>
+    /// <para>一次调用所返回的最大日程数量。最小值为10，不足10取10。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -9433,7 +9437,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="employee_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>员工ID，详情请参考：[通过投递 ID 获取入职信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get_by_application)</para>
+    /// <para>员工ID，可通过[通过投递 ID 获取入职信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/get_by_application)接口获取</para>
     /// <para>示例值：7379910335417927975</para>
     /// </param>
     /// <param name="user_id_type">
@@ -9449,11 +9453,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门 ID 类型。</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
     /// <para>示例值："department_id"</para>
     /// <list type="bullet">
-    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同</item>
-    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID， ID前缀固定为 `od-`，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内，department_id 具有唯一性。</item>
     /// <item>people_admin_department_id：以 people_admin_department_id 来标识部门，该 ID 类型即将下线，不推荐使用</item>
     /// </list>
     /// <para>默认值：people_admin_department_id</para>
@@ -9627,6 +9631,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>note</para>
     /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:table:delete</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -9656,6 +9661,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>note</para>
     /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:table:delete</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -9713,6 +9719,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 app_token 和 table_id，获取数据表的所有字段</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:field:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -9769,6 +9776,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于在数据表中更新一个字段</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:field:update</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -9805,6 +9813,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于在数据表中删除一个字段</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:field:delete</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -11658,23 +11667,30 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6976178542817230851</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据传入的参数创建一张浮动图片。Float_image_token （[上传图片至表格后得到](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)）和range（只支持一个单元格） 必填。Float_image_id 可选，不填的话会默认生成，长度为10，由 0-9、a-z、A-Z 组合生成。表格内不重复的图片（浮动图片+单元格图片）总数不超过4000。width 和 height 为图片展示的宽高，可选，不填的话会使用图片的真实宽高。offset_x 和 offset_y 为图片左上角距离所在单元格左上角的偏移，可选，默认为 0。</para>
+    /// <para>在电子表格工作表的指定位置创建一张浮动图片。</para>
+    /// <para>## 前提条件</para>
+    /// <para>你已调用[上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)或[分片上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare)上传图片至表格并获取了图片的 `file_token`，作为本接口中图片的 `float_image_token`。</para>
+    /// <para>## 使用限制</para>
+    /// <para>单个电子表格最多支持放置 4,000 张不同 token 的图片，即表格内不重复的图片（包括浮动图片和单元格图片）总数不超过 4,000 张。将相同 token 的图片多次放置在表格的不同位置，数量上仅算一张图片。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:write_only</item>
     /// </list></para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>示例值：shtcnmBA*****yGehy8</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>示例值：0b**12</para>
+    /// <para>电子表格工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。</para>
+    /// <para>示例值：0beg12</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/float_images")]
@@ -11688,30 +11704,33 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6976178542817247235</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据 float_image_id 获取对应浮动图片的信息。</para>
+    /// <para>获取电子表格工作表内指定浮动图片的参数信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:read</item>
     /// <item>sheets:spreadsheet:readonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>示例值：shtcnmBA*****yGehy8</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>示例值：0b**12</para>
+    /// <para>电子表格工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。</para>
+    /// <para>示例值：0beg12</para>
     /// </param>
     /// <param name="float_image_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>浮动图片 id</para>
+    /// <para>工作表内浮动图片的唯一标识。通过[查询浮动图片](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query)接口获取。</para>
     /// <para>示例值：ye06SS14ph</para>
     /// </param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/float_images/{float_image_id}")]
@@ -11725,25 +11744,28 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6976178542817263619</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>返回子表内所有的浮动图片信息。</para>
+    /// <para>获取电子表格工作表内所有的浮动图片的参数信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:read</item>
     /// <item>sheets:spreadsheet:readonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>示例值：shtcnmBA*****yGehy8</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>示例值：0b**12</para>
+    /// <para>电子表格工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。</para>
+    /// <para>示例值：0beg12</para>
     /// </param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/float_images/query")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesQueryResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesQueryAsync(
@@ -11755,28 +11777,31 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6976178542817280003</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>更新已有的浮动图片位置和宽高，包括 range、width、height、offset_x 和 offset_y，不包括 float_image_id 和 float_image_token。</para>
+    /// <para>更新已有的浮动图片位置和宽高。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:write_only</item>
     /// </list></para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>示例值：shtcnmBA*****yGehy8</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>示例值：0b**12</para>
+    /// <para>电子表格工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。</para>
+    /// <para>示例值：0beg12</para>
     /// </param>
     /// <param name="float_image_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>浮动图片 id</para>
+    /// <para>工作表内浮动图片的唯一标识。通过[查询浮动图片](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query)接口获取。</para>
     /// <para>示例值：ye06SS14ph</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -11792,28 +11817,31 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6976178542817296387</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除 float_image_id 对应的浮动图片。</para>
+    /// <para>删除电子表格工作表内指定的浮动图片。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:write_only</item>
     /// </list></para>
     /// </summary>
     /// <param name="spreadsheet_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 token</para>
-    /// <para>示例值：shtcnmBA*****yGehy8</para>
+    /// <para>电子表格的 token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。</para>
+    /// <para>- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==</para>
+    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="sheet_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>子表 id</para>
-    /// <para>示例值：0b**12</para>
+    /// <para>电子表格工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。</para>
+    /// <para>示例值：0beg12</para>
     /// </param>
     /// <param name="float_image_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>浮动图片 id</para>
+    /// <para>工作表内浮动图片的唯一标识。通过[查询浮动图片](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query)接口获取。</para>
     /// <para>示例值：ye06SS14ph</para>
     /// </param>
     [HttpDelete("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/float_images/{float_image_id}")]
@@ -11829,6 +11857,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 app_token 和 table_id，获取数据表的所有视图</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:view:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -11886,6 +11915,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>在数据表中新增一个视图</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:view:write_only</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -11915,6 +11945,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>删除数据表中的视图</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:view:write_only</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -13842,6 +13873,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="page_size">
     /// <para>必填：否</para>
     /// <para>分页大小</para>
+    /// <para>**最大值**：`100`</para>
     /// <para>示例值：100</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -16835,7 +16867,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="company_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>公司 ID</para>
+    /// <para>需要查询的公司ID。ID获取方式：</para>
+    /// <para>- 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回部门ID</para>
     /// <para>示例值：151515</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/companies/{company_id}")]
@@ -17019,11 +17052,21 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要删除的任职信息 ID</para>
+    /// <para>- 通过[【批量查询员工任职】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)可以获得</para>
     /// <para>示例值：467642764726472</para>
+    /// </param>
+    /// <param name="version_id">
+    /// <para>必填：否</para>
+    /// <para>需要删除的任职记录版本 ID</para>
+    /// <para>- 通过[【批量查询员工任职】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)可以获得</para>
+    /// <para>- 不支持第一条版本：任职原因为 onboarding、add_additional_job 的任职（兼职）记录</para>
+    /// <para>示例值：1616161616</para>
+    /// <para>默认值：null</para>
     /// </param>
     [HttpDelete("/open-apis/corehr/v1/job_datas/{job_data_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteCorehrV1JobDatasByJobDataIdAsync(
-        [PathQuery] string job_data_id);
+        [PathQuery] string job_data_id,
+        [PathQuery] string? version_id = null);
 
     /// <summary>
     /// <para>【飞书人事】创建任职信息</para>
@@ -17654,7 +17697,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017707615191007235</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据 ID 查询单个序列。</para>
+    /// <para>该接口支持通过序列ID查询单个序列详情信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
@@ -17665,7 +17708,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="job_family_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>序列 ID</para>
+    /// <para>序列ID。ID获取方式：</para>
+    /// <para>- 调用[【新建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【查询租户的序列信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列ID</para>
     /// <para>示例值：1554548</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/job_families/{job_family_id}")]
@@ -17838,7 +17882,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017707615191105539</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>批量查询公司。</para>
+    /// <para>分页查询公司，可分页遍历全量公司数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:company:read</item>
     /// <item>corehr:corehr</item>
@@ -18765,7 +18809,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7025920930581921795</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/patch</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新部门。</para>
+    /// <para>更新部门信息，包括基础信息、自定义字段信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:department:write</item>
@@ -19579,15 +19623,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="application_id">
     /// <para>必填：否</para>
-    /// <para>投递 ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取</para>
-    /// <para>**注意**：当「飞书招聘」-「设置」-「面试设置」-「面试满意度问卷设置」中，通过邮件向候选人发送问卷时机选择为「面试流程结束后」时，仅可通过该参数进行筛选</para>
+    /// <para>投递 ID，用于筛选指定投递下的数据，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取</para>
+    /// <para>**注意**：</para>
+    /// <para>- 当「飞书招聘」-「设置」-「面试设置」-「面试满意度问卷设置」中，通过邮件向候选人发送问卷时机选择为「面试流程结束后」时，仅可通过该参数进行筛选</para>
+    /// <para>- 该参数不可以和 `interview_id` 参数同时填写</para>
     /// <para>示例值：6985833807195212076</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="interview_id">
     /// <para>必填：否</para>
-    /// <para>面试 ID，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口或[获取人才面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/get_by_talent)接口获取</para>
-    /// <para>**注意**：当「飞书招聘」-「设置」-「面试设置」-「面试满意度问卷设置」中，通过邮件向候选人发送问卷时机选择为「每次面试结束后」或者「第一次面试结束后」时，仅可通过该参数进行筛选</para>
+    /// <para>面试 ID，用于筛选指定面试下的数据，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口或[获取人才面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/get_by_talent)接口获取</para>
+    /// <para>**注意**：</para>
+    /// <para>- 当「飞书招聘」-「设置」-「面试设置」-「面试满意度问卷设置」中，通过邮件向候选人发送问卷时机选择为「每次面试结束后」或者「第一次面试结束后」时，仅可通过该参数进行筛选</para>
+    /// <para>- 该参数不可以和 `application_id` 参数同时填写</para>
     /// <para>示例值：7038435261598763308</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -20796,6 +20844,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>在指定目录下创建多维表格</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:app:create</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -22278,7 +22327,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7072977288456126492</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除公司。</para>
+    /// <para>删除公司</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// </list></para>
@@ -22286,7 +22335,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="company_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>需要删除的公司ID</para>
+    /// <para>需要删除的公司ID。ID获取方式：</para>
+    /// <para>- 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回部门ID</para>
     /// <para>示例值：341432424</para>
     /// </param>
     [HttpDelete("/open-apis/corehr/v1/companies/{company_id}")]
@@ -22298,15 +22348,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7072977358001389570</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>创建公司。</para>
+    /// <para>支持在单个接口中进行公司信息添加，包括公司基本信息、注册地址信息、工作地址信息等</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// </list></para>
     /// </summary>
     /// <param name="client_token">
     /// <para>必填：否</para>
-    /// <para>根据client_token是否一致来判断是否为同一请求</para>
-    /// <para>示例值：12454646</para>
+    /// <para>操作的唯一标识，用于幂等的进行更新操作，根据client_token是否一致来判断是否为同一请求。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。</para>
+    /// <para>示例值："22ff85f7-5938-4579-9b57-d52cfeb05d52"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -24102,7 +24152,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7098526921116745729</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_publish_record/search</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据招聘渠道 ID 批量获取职位广告发布记录。</para>
+    /// <para>根据招聘渠道 ID 获取当前渠道下曾发布过的职位广告信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:job</item>
     /// <item>hire:job:readonly</item>
@@ -29613,6 +29663,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于根据现有仪表盘复制出新的仪表盘</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:dashboard:copy</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -29642,6 +29693,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于增量修改视图信息</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:view:write_only</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -29678,6 +29730,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口根据 view_id 检索现有视图</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:view:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -32182,7 +32235,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7211423970042200068</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>搜索部门信息</para>
+    /// <para>该接口支持通过部门id、上级部门ID、部门负责人、名称、编码字段批量搜索当天的部门详情信息，包括部门包含的名称、描述、启用状态等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:department:read</item>
     /// <item>corehr:department:write</item>
@@ -34678,7 +34731,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7252157701853184028</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过公司 ID 批量获取公司信息</para>
+    /// <para>通过 ID 批量查询公司信息</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:company:read</item>
     /// <item>corehr:company:write</item>
@@ -39251,7 +39304,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7309323790810824705</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>更新公司信息。</para>
+    /// <para>更新公司信息，包括基本信息、注册地址、办公地址等</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// </list></para>
@@ -39259,13 +39312,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="company_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>需要更新的公司 ID</para>
-    /// <para>示例值：1616161616</para>
+    /// <para>需要更新的公司 ID。ID获取方式：</para>
+    /// <para>- 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回部门ID</para>
+    /// <para>示例值：6863333352603125255</para>
     /// </param>
     /// <param name="client_token">
     /// <para>必填：否</para>
     /// <para>根据client_token是否一致来判断是否为同一请求</para>
-    /// <para>示例值：12454646</para>
+    /// <para>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -39282,6 +39336,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于查询数据表中的现有记录，单次最多查询 500 行记录，支持分页获取。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:record:retrieve</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -39296,13 +39351,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格token</para>
+    /// <para>多维表格的唯一标识 token。获取方式：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 app_token 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 obj_type 的值为 bitable 时，obj_token 字段的值才是多维表格的 app_token。了解更多，参考[多维表格接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)。</para>
     /// <para>示例值：NQRxbRkBMa6OnZsjtERcxhNWnNh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表ID</para>
+    /// <para>多维表格的数据表 ID。获取方式：</para>
+    /// <para>- 在多维表格的 URL 地址栏中，table_id 是下图中高亮部分：</para>
+    /// <para>![table_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_JD4VlW56qA.png?height=746&amp;lazyload=true&amp;width=2976)</para>
+    /// <para>- 对于其它场景的多维表格，如在云文档中嵌入的多维表格，则需要通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取</para>
     /// <para>示例值：tbl0xe5g8PP3U3cS</para>
     /// </param>
     /// <param name="user_id_type">
@@ -42098,6 +42159,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 使用限制</para>
     /// <para>该接口最多支持查询 100 条记录。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:record:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -42316,5 +42378,107 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     [HttpGet("/open-apis/application/v6/scopes")]
     System.Threading.Tasks.Task<FeishuResponse<Application.GetApplicationV6ScopesResponseDto>> GetApplicationV6ScopesAsync();
+
+    /// <summary>
+    /// <para>【飞书人事】获取工作日历日期详情</para>
+    /// <para>接口ID：7408403062694084611</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar_date</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取工作日历每一天的日期详情，如日期、日期类型等</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:corehr</item>
+    /// <item>corehr:corehr:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v1/leaves/work_calendar_date")]
+    System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1LeavesWorkCalendarDateResponseDto>> PostCorehrV1LeavesWorkCalendarDateAsync(
+        [JsonContent] FeishuPeople.PostCorehrV1LeavesWorkCalendarDateBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事】获取工作日历</para>
+    /// <para>接口ID：7408403062694100995</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取工作日历信息，如名称，状态等</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:common_data.basic_data:read</item>
+    /// <item>corehr:corehr:readonly</item>
+    /// <item>corehr:employee:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v1/leaves/work_calendar")]
+    System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1LeavesWorkCalendarResponseDto>> PostCorehrV1LeavesWorkCalendarAsync(
+        [JsonContent] FeishuPeople.PostCorehrV1LeavesWorkCalendarBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事】根据适用条件获取工作日历 ID</para>
+    /// <para>接口ID：7412526256520724508</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/calendar_by_scope</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>根据日历的适用范围，获取工作日历 ID。适用范围包含工作地点，工时制度等。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:corehr:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="wk_department_id">
+    /// <para>必填：否</para>
+    /// <para>用户所属部门的ID列表。</para>
+    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取所属部门的 ID</para>
+    /// <para>示例值："6722331851580982798"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="wk_country_region_id">
+    /// <para>必填：否</para>
+    /// <para>国家/地区 ID。</para>
+    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取所属国家/地区 ID</para>
+    /// <para>示例值："6722331851580982798"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="wk_employee_type_id">
+    /// <para>必填：否</para>
+    /// <para>人员类型ID。</para>
+    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取所属人员类型ID</para>
+    /// <para>示例值："6722331851580982798"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="wk_work_location_id">
+    /// <para>必填：否</para>
+    /// <para>工作地点ID。</para>
+    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取工作地点ID</para>
+    /// <para>示例值："6722331851580982798"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="wk_working_hours_type_id">
+    /// <para>必填：否</para>
+    /// <para>工时制度ID。</para>
+    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取工时制度ID</para>
+    /// <para>示例值："6722331851124982728"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="wk_job_family_id">
+    /// <para>必填：否</para>
+    /// <para>职务序列ID。</para>
+    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取职务序列ID。</para>
+    /// <para>示例值："8234534456354534546"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="wk_company_id">
+    /// <para>必填：否</para>
+    /// <para>公司 ID。</para>
+    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取公司 ID</para>
+    /// <para>示例值："6235435355464465434"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v1/leaves/calendar_by_scope")]
+    System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1LeavesCalendarByScopeResponseDto>> GetCorehrV1LeavesCalendarByScopeAsync(
+        [PathQuery] string? wk_department_id = null,
+        [PathQuery] string? wk_country_region_id = null,
+        [PathQuery] string? wk_employee_type_id = null,
+        [PathQuery] string? wk_work_location_id = null,
+        [PathQuery] string? wk_working_hours_type_id = null,
+        [PathQuery] string? wk_job_family_id = null,
+        [PathQuery] string? wk_company_id = null);
 }
 

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取职位广告发布记录 请求体
-/// <para>根据招聘渠道 ID 批量获取职位广告发布记录。</para>
+/// <para>根据招聘渠道 ID 获取当前渠道下曾发布过的职位广告信息。</para>
 /// <para>接口ID：7098526921116745729</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/job/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fjob_publish_record%2fsearch</para>

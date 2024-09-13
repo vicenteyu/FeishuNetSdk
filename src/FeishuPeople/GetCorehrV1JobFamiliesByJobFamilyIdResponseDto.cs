@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 查询单个序列 响应体
-/// <para>根据 ID 查询单个序列。</para>
+/// <para>该接口支持通过序列ID查询单个序列详情信息。</para>
 /// <para>接口ID：7017707615191007235</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_family/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_family%2fget</para>
@@ -54,7 +54,7 @@ public record GetCorehrV1JobFamiliesByJobFamilyIdResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>名称信息的语言</para>
+            /// <para>语言信息，中文用zh-CN，英文用en-US</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -87,23 +87,27 @@ public record GetCorehrV1JobFamiliesByJobFamilyIdResponseDto
         public string? ParentId { get; set; }
 
         /// <summary>
-        /// <para>生效时间</para>
+        /// <para>当前版本生效日期</para>
+        /// <para>- 返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
+        /// <para>- 日期范围:1900-01-01 00:00:00～9999-12-31 00:00:00</para>
         /// <para>必填：是</para>
-        /// <para>示例值：2020-05-0100:00:00</para>
+        /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("effective_time")]
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>失效时间</para>
+        /// <para>当前版本失效日期</para>
+        /// <para>- 返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
+        /// <para>- 日期范围:1900-01-01 00:00:00～9999-12-31 00:00:00</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2020-05-0200:00:00</para>
+        /// <para>示例值：2020-05-02 00:00:00</para>
         /// </summary>
         [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }
 
         /// <summary>
-        /// <para>编码</para>
+        /// <para>编码 (不能与其他记录的编码重复)，当开启自动编码时，该字段会失效</para>
         /// <para>必填：否</para>
         /// <para>示例值：123456</para>
         /// </summary>
@@ -111,21 +115,21 @@ public record GetCorehrV1JobFamiliesByJobFamilyIdResponseDto
         public string? Code { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（该字段暂不支持，可忽略）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（该字段暂不支持，可忽略）</para>
         /// </summary>
         public record ObjectFieldData
         {
             /// <summary>
-            /// <para>字段名</para>
+            /// <para>自定义字段（该字段暂时不支持）</para>
             /// <para>必填：是</para>
-            /// <para>示例值：name</para>
+            /// <para>示例值：自定义字段 apiname，即自定义字段的唯一标识</para>
             /// </summary>
             [JsonPropertyName("field_name")]
             public string FieldName { get; set; } = string.Empty;

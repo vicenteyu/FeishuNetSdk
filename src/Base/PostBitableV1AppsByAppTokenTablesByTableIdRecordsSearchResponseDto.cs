@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-09-12
 // ************************************************************************
 // <copyright file="PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -22,27 +22,27 @@ namespace FeishuNetSdk.Base;
 public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchResponseDto
 {
     /// <summary>
-    /// <para>数组类型。record 结果。了解 record 数据结构，参考[数据结构](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)</para>
+    /// <para>数组类型。record 结果。了解 record 数据结构，参考[数据结构](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public AppTableRecord[]? Items { get; set; }
 
     /// <summary>
-    /// <para>数组类型。record 结果。了解 record 数据结构，参考[数据结构](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)</para>
+    /// <para>数组类型。record 结果。了解 record 数据结构，参考[数据结构](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)。</para>
     /// </summary>
     public record AppTableRecord
     {
         /// <summary>
-        /// <para>记录字段[记录数据结构](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/bitable-record-data-structure-overview)</para>
+        /// <para>记录字段</para>
         /// <para>必填：是</para>
-        /// <para>示例值：{}</para>
+        /// <para>示例值：/</para>
         /// </summary>
         [JsonPropertyName("fields")]
         public object Fields { get; set; } = new();
 
         /// <summary>
-        /// <para>记录Id</para>
+        /// <para>记录 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：recgcfdzKq</para>
         /// </summary>
@@ -62,7 +62,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchResponseDto
         public record Person
         {
             /// <summary>
-            /// <para>人员Id</para>
+            /// <para>人员 ID。与查询参数 user_id_type 指定的类型一致。</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_9a971ded01b4ca66f4798549878abcef</para>
             /// </summary>
@@ -124,6 +124,14 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchResponseDto
         /// </summary>
         [JsonPropertyName("last_modified_time")]
         public long? LastModifiedTime { get; set; }
+
+        /// <summary>
+        /// <para>记录链接</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd</para>
+        /// </summary>
+        [JsonPropertyName("record_url")]
+        public string? RecordUrl { get; set; }
     }
 
     /// <summary>
@@ -143,7 +151,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchResponseDto
     public string? PageToken { get; set; }
 
     /// <summary>
-    /// <para>总数</para>
+    /// <para>记录总数</para>
     /// <para>必填：否</para>
     /// <para>示例值：100</para>
     /// </summary>
