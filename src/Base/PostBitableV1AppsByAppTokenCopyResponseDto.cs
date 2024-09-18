@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-09-18
 // ************************************************************************
 // <copyright file="PostBitableV1AppsByAppTokenCopyResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 复制多维表格 响应体
-/// <para>复制一个多维表格，可以指定复制到某个有权限的文件夹下</para>
+/// <para>复制一个多维表格，可以指定复制到某个有权限的文件夹下。</para>
 /// <para>接口ID：7205776220394160156</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app/copy</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp%2fcopy</para>
@@ -66,17 +66,9 @@ public record PostBitableV1AppsByAppTokenCopyResponseDto
         public string? Url { get; set; }
 
         /// <summary>
-        /// <para>默认的表格id</para>
-        /// <para>必填：否</para>
-        /// <para>示例值："" //只有创建才返回默认表Id</para>
-        /// </summary>
-        [JsonPropertyName("default_table_id")]
-        public string? DefaultTableId { get; set; }
-
-        /// <summary>
         /// <para>文档时区</para>
         /// <para>必填：否</para>
-        /// <para>示例值：Asia/Shanghai</para>
+        /// <para>示例值："" //只有创建才返回默认表Id</para>
         /// </summary>
         [JsonPropertyName("time_zone")]
         public string? TimeZone { get; set; }

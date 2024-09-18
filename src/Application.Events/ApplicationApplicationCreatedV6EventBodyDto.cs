@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Application.Events;
 /// <summary>
 /// 应用创建 事件体
-/// <para>当企业内有新的应用被创建时推送此事件{使用示例}(url=/api/tools/api_explore/api_explore_config?project=application&amp;version=v6&amp;resource=application&amp;event=created)</para>
+/// <para>当企业内有新的自建应用被创建时推送此事件（创建就会产生此事件，不需要发版）{使用示例}(url=/api/tools/api_explore/api_explore_config?project=application&amp;version=v6&amp;resource=application&amp;event=created)</para>
 /// <para>接口ID：7050360820601405468</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/application-v6/event/created</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication%2fevents%2fcreated</para>

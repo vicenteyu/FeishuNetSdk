@@ -101,9 +101,9 @@ public record PostCorehrV2CostCentersResponseDto
         public I18n[]? Descriptions { get; set; }
 
         /// <summary>
-        /// <para>生效日期</para>
-        /// <para>- 返回格式：YYYY-MM-DD （最小单位到日）</para>
-        /// <para>- 日期范围:1900-01-01 ～9999-12-31</para>
+        /// <para>版本生效日期</para>
+        /// <para>- 返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
+        /// <para>- 日期范围:1900-01-01 00:00:00～9999-12-31 23:59:59</para>
         /// <para>必填：是</para>
         /// <para>示例值：2020-01-01</para>
         /// </summary>
@@ -111,7 +111,7 @@ public record PostCorehrV2CostCentersResponseDto
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>失效日期</para>
+        /// <para>版本失效日期</para>
         /// <para>- 返回格式：YYYY-MM-DD （最小单位到日）</para>
         /// <para>- 日期范围:1900-01-01 ～9999-12-31</para>
         /// <para>必填：否</para>
@@ -121,7 +121,7 @@ public record PostCorehrV2CostCentersResponseDto
         public string? ExpirationTime { get; set; }
 
         /// <summary>
-        /// <para>当前实体是否启用</para>
+        /// <para>成本中心启用状态，true为启用，fasle为停用</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>

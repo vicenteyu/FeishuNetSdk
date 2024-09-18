@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 查询单个职务 响应体
-/// <para>根据 ID 查询单个职务。</para>
+/// <para>该接口支持通过职务id批量查询当天的职务详情信息，包括职务包含的名称、描述、启用状态等。</para>
 /// <para>接口ID：7017694651621998596</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob%2fget</para>
@@ -62,7 +62,7 @@ public record GetCorehrV1JobsByJobIdResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>名称信息的语言</para>
+            /// <para>名称信息的语言，中文用zh-CN，英文用en-US</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -101,21 +101,21 @@ public record GetCorehrV1JobsByJobIdResponseDto
         public I18n[]? JobTitles { get; set; }
 
         /// <summary>
-        /// <para>职务序列 ID 列表，枚举值及详细信息可通过【批量查询职务序列】接口查询获得</para>
+        /// <para>职务序列 ID 列表，枚举值及详细信息可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口查询获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_family_id_list")]
         public string[]? JobFamilyIdList { get; set; }
 
         /// <summary>
-        /// <para>职务级别 ID 列表，枚举值及详细信息可通过【批量查询职务级别】接口查询获得</para>
+        /// <para>职务级别 ID 列表，枚举值及详细信息可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)接口查询获得</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_level_id_list")]
         public string[]? JobLevelIdList { get; set; }
 
         /// <summary>
-        /// <para>工时制度 ID，枚举值及详细信息可通过【批量查询工时制度】接口查询获得</para>
+        /// <para>工时制度 ID，枚举值及详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：6890452208593372679</para>
         /// </summary>
@@ -124,29 +124,33 @@ public record GetCorehrV1JobsByJobIdResponseDto
 
         /// <summary>
         /// <para>生效时间</para>
+        /// <para>- 返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
+        /// <para>- 日期范围:1900-01-01 00:00:00～9999-12-31 23:59:59</para>
         /// <para>必填：是</para>
-        /// <para>示例值：2020-01-0100:00:00</para>
+        /// <para>示例值：2020-01-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("effective_time")]
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>失效时间</para>
+        /// <para>- 返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
+        /// <para>- 日期范围:1900-01-01 00:00:00～9999-12-31 23:59:59</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2021-01-0100:00:00</para>
+        /// <para>示例值：2021-01-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（暂不支持）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（暂不支持）</para>
         /// </summary>
         public record ObjectFieldData
         {

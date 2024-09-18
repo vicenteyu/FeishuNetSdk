@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-09-18
 // ************************************************************************
 // <copyright file="PostWikiV1NodesSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -29,11 +29,13 @@ public record PostWikiV1NodesSearchResponseDto
     [JsonPropertyName("items")]
     public Item[]? Items { get; set; }
 
-    /// <summary></summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public record Item
     {
         /// <summary>
-        /// <para>wiki 节点 Id</para>
+        /// <para>wiki 节点的 token</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("node_id")]
@@ -52,6 +54,27 @@ public record PostWikiV1NodesSearchResponseDto
         /// </summary>
         [JsonPropertyName("obj_type")]
         public int? ObjType { get; set; }
+
+        /// <summary>
+        /// <para>节点的真实文档的 token，如果要获取或编辑节点内容，需要使用此 token 调用对应的接口</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("obj_token")]
+        public string? ObjToken { get; set; }
+
+        /// <summary>
+        /// <para>暂未生效，一律返回空</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("parent_id")]
+        public string? ParentId { get; set; }
+
+        /// <summary>
+        /// <para>该知识库文档的序号，从 1 开始计数</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("sort_id")]
+        public int? SortId { get; set; }
 
         /// <summary>
         /// <para>wiki 标题</para>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-09-18
 // ************************************************************************
 // <copyright file="PostApprovalV4InstancesBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -146,7 +146,7 @@ public record PostApprovalV4InstancesBodyDto
     public string? Uuid { get; set; }
 
     /// <summary>
-    /// <para>可配置是否可以重新提交，适用于审批人退回场景，提单人在同一实例重新提交单据</para>
+    /// <para>可配置“提交”按钮，该操作适用于审批人退回场景，提单人在同一实例提交单据</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -244,5 +244,60 @@ public record PostApprovalV4InstancesBodyDto
         /// </summary>
         [JsonPropertyName("is_default")]
         public bool IsDefault { get; set; }
+    }
+
+    /// <summary>
+    /// <para>审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：@i18n@1</para>
+    /// </summary>
+    [JsonPropertyName("title")]
+    public string? Title { get; set; }
+
+    /// <summary>
+    /// <para>详情页title展示模式</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：0</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>0：如果都有title，展示approval 和instance的title，竖线分割。</item>
+    /// <item>1：如果都有title，只展示instance的title</item>
+    /// </list></para>
+    /// <para>默认值：0</para>
+    /// </summary>
+    [JsonPropertyName("title_display_method")]
+    public int? TitleDisplayMethod { get; set; }
+
+    /// <summary>
+    /// <para>自动通过节点ID</para>
+    /// <para>必填：否</para>
+    /// <para>最大长度：10</para>
+    /// </summary>
+    [JsonPropertyName("node_auto_approval_list")]
+    public NodeAutoApproval[]? NodeAutoApprovalLists { get; set; }
+
+    /// <summary>
+    /// <para>自动通过节点ID</para>
+    /// </summary>
+    public record NodeAutoApproval
+    {
+        /// <summary>
+        /// <para>节点id的类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：NON_CUSTOM</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>CUSTOM：自定义节点ID</item>
+        /// <item>NON_CUSTOM：非自定义节点ID</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("node_id_type")]
+        public string? NodeIdType { get; set; }
+
+        /// <summary>
+        /// <para>节点id</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：manager_node_id</para>
+        /// </summary>
+        [JsonPropertyName("node_id")]
+        public string? NodeId { get; set; }
     }
 }

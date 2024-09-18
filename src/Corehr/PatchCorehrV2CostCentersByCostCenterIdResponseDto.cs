@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 启用 / 停用成本中心 响应体
-/// <para>对成本中心进行启用和停用操作，支持单个操作</para>
+/// <para>该接口支持对单个成本中心进行启用和停用操作。</para>
 /// <para>接口ID：7225452763517206531</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/cost_center/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fcost_center%2fpatch</para>
@@ -35,6 +35,7 @@ public record PatchCorehrV2CostCentersByCostCenterIdResponseDto
     {
         /// <summary>
         /// <para>成本中心ID</para>
+        /// <para>- 详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：6969828847121885087</para>
         /// </summary>
@@ -87,7 +88,8 @@ public record PatchCorehrV2CostCentersByCostCenterIdResponseDto
         public string? ParentCostCenterId { get; set; }
 
         /// <summary>
-        /// <para>成本中心负责人ID 列表，详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取</para>
+        /// <para>成本中心负责人ID 列表</para>
+        /// <para>- 详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search) 或 [【批量查询员工】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get) 接口获取</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("managers")]
@@ -101,9 +103,9 @@ public record PatchCorehrV2CostCentersByCostCenterIdResponseDto
         public I18n[]? Descriptions { get; set; }
 
         /// <summary>
-        /// <para>生效日期</para>
-        /// <para>- 返回格式：YYYY-MM-DD （最小单位到日）</para>
-        /// <para>- 日期范围:1900-01-01 ～9999-12-31</para>
+        /// <para>版本生效日期</para>
+        /// <para>- 返回格式：YYYY-MM-DD（最小单位到日）</para>
+        /// <para>- 日期范围:1900-01-01～9999-12-31</para>
         /// <para>必填：是</para>
         /// <para>示例值：2020-01-01</para>
         /// </summary>
@@ -111,9 +113,9 @@ public record PatchCorehrV2CostCentersByCostCenterIdResponseDto
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>失效日期</para>
-        /// <para>- 返回格式：YYYY-MM-DD （最小单位到日）</para>
-        /// <para>- 日期范围:1900-01-01 ～9999-12-31</para>
+        /// <para>版本失效日期</para>
+        /// <para>- 返回格式：YYYY-MM-DD（最小单位到日）</para>
+        /// <para>- 日期范围:1900-01-01～9999-12-31</para>
         /// <para>必填：否</para>
         /// <para>示例值：2020-01-01</para>
         /// </summary>
@@ -121,7 +123,7 @@ public record PatchCorehrV2CostCentersByCostCenterIdResponseDto
         public string? ExpirationTime { get; set; }
 
         /// <summary>
-        /// <para>当前实体是否启用</para>
+        /// <para>成本中心启用状态，true为启用，false为停用</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>

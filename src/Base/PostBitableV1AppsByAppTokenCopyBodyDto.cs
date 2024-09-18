@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 复制多维表格 请求体
-/// <para>复制一个多维表格，可以指定复制到某个有权限的文件夹下</para>
+/// <para>复制一个多维表格，可以指定复制到某个有权限的文件夹下。</para>
 /// <para>接口ID：7205776220394160156</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app/copy</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp%2fcopy</para>

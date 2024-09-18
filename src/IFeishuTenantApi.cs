@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-12
+// Last Modified On : 2024-09-18
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -9201,7 +9201,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="ticket_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>ticket id</para>
+    /// <para>工单 ID。可通过[查询全部工单详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list)获取</para>
     /// <para>示例值：123456</para>
     /// </param>
     [HttpGet("/open-apis/helpdesk/v1/tickets/{ticket_id}")]
@@ -16946,7 +16946,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017694651621965828</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除序列。</para>
+    /// <para>该接口支持通过序列ID删除单个序列信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:job_family:write</item>
@@ -16955,7 +16955,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="job_family_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>需要删除的序列 ID</para>
+    /// <para>需要删除的序列 ID。ID获取方式：</para>
+    /// <para>- 调用[【新建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【查询租户的序列信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列ID</para>
     /// <para>示例值：5425424525</para>
     /// </param>
     [HttpDelete("/open-apis/corehr/v1/job_families/{job_family_id}")]
@@ -16967,7 +16968,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017694651621998596</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据 ID 查询单个职务。</para>
+    /// <para>该接口支持通过职务id批量查询当天的职务详情信息，包括职务包含的名称、描述、启用状态等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
@@ -17451,7 +17452,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017707615190925315</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>创建序列。</para>
+    /// <para>可以通过该接口创建单个序列信息，同时该接口会针对该接口的内容做校验。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:job_family:write</item>
@@ -17765,7 +17766,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017707615191040003</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>创建职务。</para>
+    /// <para>可以通过该接口新建职务信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:job:write</item>
@@ -17939,7 +17940,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017707615191138307</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除职级</para>
+    /// <para>可以通过该接口通过职级ID删除一个职级对象。</para>
+    /// <para>- 删除对象时请确认有无在职员工、待入职单据、职务等关联此对象，如有会导致删除失败。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:job_level:write</item>
@@ -17948,7 +17950,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="job_level_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>需要删除的职级 ID</para>
+    /// <para>需要删除的职级 ID。ID获取方式：</para>
+    /// <para>- 调用[【新建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/create)[【查询租户的职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID</para>
     /// <para>示例值：5423452542</para>
     /// </param>
     [HttpDelete("/open-apis/corehr/v1/job_levels/{job_level_id}")]
@@ -17956,11 +17959,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string job_level_id);
 
     /// <summary>
-    /// <para>【飞书人事】创建职级</para>
+    /// <para>【飞书人事】新建职级</para>
     /// <para>接口ID：7017707615191154691</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>创建职级</para>
+    /// <para>使用指定信息创建职级信息，每次调用支持创建1个职级对象，接口内会做相关规则校验。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:job_level:write</item>
@@ -18034,7 +18037,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017707615191203843</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除职务。</para>
+    /// <para>你可以通过该接口删除一个职务信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:job:write</item>
@@ -18043,7 +18046,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="job_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>需要删除的职务 ID</para>
+    /// <para>需要删除的职务 ID。ID获取方式：</para>
+    /// <para>- 调用[【创建职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/create)[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)等可以返回职务ID</para>
+    /// <para>- 也可以通过[【事件】创建职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/events/created) [【事件】更新职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/events/updated) 获取ID</para>
     /// <para>示例值：67163716371</para>
     /// </param>
     [HttpDelete("/open-apis/corehr/v1/jobs/{job_id}")]
@@ -21691,7 +21696,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7072588575270944796</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/patch</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新职务。</para>
+    /// <para>你可以通过该接口更新一个职务信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:job:write</item>
@@ -21700,7 +21705,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="job_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>职务ID</para>
+    /// <para>职务ID。ID获取方式：</para>
+    /// <para>- 调用[【创建职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/create)[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)等可以返回职务ID</para>
+    /// <para>- 也可以通过[【事件】创建职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/events/created) [【事件】更新职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/events/updated) 获取ID</para>
     /// <para>示例值：1616161616</para>
     /// </param>
     /// <param name="client_token">
@@ -21941,7 +21948,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7072646533586927644</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/patch</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新序列。</para>
+    /// <para>可以通过序列ID更新单个序列详情信息，例如序列名称、上级序列ID等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:job_family:write</item>
@@ -21950,7 +21957,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="job_family_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>序列ID</para>
+    /// <para>序列ID。ID获取方式：</para>
+    /// <para>- 调用[【新建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【查询租户的序列信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列ID</para>
     /// <para>示例值：1616161616</para>
     /// </param>
     /// <param name="client_token">
@@ -22031,7 +22039,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="location_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>需要删除的地点 ID</para>
+    /// <para>需要删除的地点 ID。ID获取方式：</para>
+    /// <para>- 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID</para>
     /// <para>示例值：4312443243</para>
     /// </param>
     [HttpDelete("/open-apis/corehr/v1/locations/{location_id}")]
@@ -22272,11 +22281,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int? page_size = 100);
 
     /// <summary>
-    /// <para>【飞书人事】更新职级</para>
+    /// <para>【飞书人事】更新单个职级</para>
     /// <para>接口ID：7072714700206768130</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/patch</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新职级。</para>
+    /// <para>该接口可以通过职级ID更新单个职级信息，包括职级数值、名称等信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:job_level:write</item>
@@ -22285,7 +22294,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="job_level_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>级别ID</para>
+    /// <para>职级ID。ID获取方式：</para>
+    /// <para>- 调用[【新建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/create)[【查询租户的职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID</para>
     /// <para>示例值：1616161616</para>
     /// </param>
     /// <param name="client_token">
@@ -25676,6 +25686,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于更新表单中的问题项</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:form:update</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -25683,34 +25694,34 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格文档 Token</para>
-    /// <para>**示例值**："bascnCMII2ORej2RItqpZZUNMIe"</para>
+    /// <para>示例值：bascnCMII2ORej2RItqpZZUNMIe</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 ID</para>
-    /// <para>**示例值**："tblsRc9GRRXKqhvW"</para>
+    /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="form_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表单 ID</para>
-    /// <para>**示例值**："vewTpR1urY"</para>
+    /// <para>示例值：vewTpR1urY</para>
     /// </param>
     /// <param name="field_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表单问题 ID</para>
-    /// <para>**示例值**："fldjX7dUj5"</para>
+    /// <para>示例值：fldjX7dUj5</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPatch("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/forms/{form_id}/fields/{field_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Base.Spec.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdResponseDto>> PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Base.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdResponseDto>> PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdAsync(
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [PathQuery] string form_id,
         [PathQuery] string field_id,
-        [JsonContent] Base.Spec.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdBodyDto dto);
+        [JsonContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】列出表单问题</para>
@@ -25719,6 +25730,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>列出表单的所有问题项</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:form:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -26761,6 +26773,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于更新表单中的元数据项</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:form:update</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -26797,6 +26810,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取表单的所有元数据项</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:form:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -27792,6 +27806,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 app_token，获取多维表格下的所有仪表盘</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:dashboard:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -31856,8 +31871,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7205776220394160156</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/copy</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>复制一个多维表格，可以指定复制到某个有权限的文件夹下</para>
+    /// <para>复制一个多维表格，可以指定复制到某个有权限的文件夹下。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:app:copy</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -33404,7 +33420,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="cost_center_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>成本中心ID；可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>
+    /// <para>成本ID。ID获取方式：</para>
+    /// <para>- 调用[【创建成本中心】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/create)[【搜索成本中心】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)等接口可以返回成本中心ID</para>
     /// <para>示例值：6862995757234914824</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -33501,7 +33518,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7225452763517206531</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/patch</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>对成本中心进行启用和停用操作，支持单个操作</para>
+    /// <para>该接口支持对单个成本中心进行启用和停用操作。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:cost_center:write</item>
     /// </list></para>
@@ -39589,6 +39606,35 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】查询编制规划明细信息</para>
+    /// <para>接口ID：7314710843818524673</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/workforce_plan_detail/batch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询编制规划明细，包括维度信息、编制数和预估在职人数</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:workforce_detail:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：["123456"]</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：100</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/workforce_plan_details/batch")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2WorkforcePlanDetailsBatchResponseDto>> PostCorehrV2WorkforcePlanDetailsBatchAsync(
+        [JsonContent] Corehr.PostCorehrV2WorkforcePlanDetailsBatchBodyDto dto,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 100);
+
+    /// <summary>
     /// <para>【消息与群组】解绑标签与群</para>
     /// <para>接口ID：7315032956271263748</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/biz_entity_tag_relation/update</para>
@@ -42480,5 +42526,57 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? wk_working_hours_type_id = null,
         [PathQuery] string? wk_job_family_id = null,
         [PathQuery] string? wk_company_id = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询部门变更记录</para>
+    /// <para>接口ID：7414100499044646940</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/query_recent_change</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询指定时间范围内部门变更记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:department:read</item>
+    /// <item>corehr:department:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 2000</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="start_date">
+    /// <para>必填：是</para>
+    /// <para>查询的开始时间，格式 "YYYY-MM-DD"，不带时分秒. 系统会以查询的开始时间的 00:00:00 查询。</para>
+    /// <para>示例值：2024-06-01</para>
+    /// </param>
+    /// <param name="end_date">
+    /// <para>必填：是</para>
+    /// <para>查询的结束时间，格式 "YYYY-MM-DD"，不带时分秒，查询日期小于查询的结束时间 + 1 天的 00:00:00。</para>
+    /// <para>示例值：2024-08-01</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：people_corehr_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：people_corehr_department_id</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v2/departments/query_recent_change")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2DepartmentsQueryRecentChangeResponseDto>> GetCorehrV2DepartmentsQueryRecentChangeAsync(
+        [PathQuery] string start_date,
+        [PathQuery] string end_date,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? department_id_type = "people_corehr_department_id");
 }
 

@@ -12222,6 +12222,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于更新表单中的问题项</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:form:update</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -12229,36 +12230,36 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格文档 Token</para>
-    /// <para>**示例值**："bascnCMII2ORej2RItqpZZUNMIe"</para>
+    /// <para>示例值：bascnCMII2ORej2RItqpZZUNMIe</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表格 ID</para>
-    /// <para>**示例值**："tblsRc9GRRXKqhvW"</para>
+    /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="form_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表单 ID</para>
-    /// <para>**示例值**："vewTpR1urY"</para>
+    /// <para>示例值：vewTpR1urY</para>
     /// </param>
     /// <param name="field_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>表单问题 ID</para>
-    /// <para>**示例值**："fldjX7dUj5"</para>
+    /// <para>示例值：fldjX7dUj5</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/forms/{form_id}/fields/{field_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Base.Spec.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdResponseDto>> PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Base.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdResponseDto>> PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [PathQuery] string form_id,
         [PathQuery] string field_id,
-        [JsonContent] Base.Spec.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdBodyDto dto);
+        [JsonContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdBodyDto dto);
 
     /// <summary>
     /// <para>【多维表格】列出表单问题</para>
@@ -12267,6 +12268,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>列出表单的所有问题项</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:form:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -12396,6 +12398,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于更新表单中的元数据项</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:form:update</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -12434,6 +12437,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取表单的所有元数据项</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:form:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -12942,6 +12946,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 app_token，获取多维表格下的所有仪表盘</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:dashboard:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -14270,8 +14275,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7205776220394160156</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/copy</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>复制一个多维表格，可以指定复制到某个有权限的文件夹下</para>
+    /// <para>复制一个多维表格，可以指定复制到某个有权限的文件夹下。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:app:copy</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>

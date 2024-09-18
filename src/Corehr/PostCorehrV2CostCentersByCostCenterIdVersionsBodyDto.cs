@@ -73,11 +73,12 @@ public record PostCorehrV2CostCentersByCostCenterIdVersionsBodyDto
     public I18n[]? Descriptions { get; set; }
 
     /// <summary>
-    /// <para>生效时间</para>
+    /// <para>版本生效时间</para>
     /// <para>- 填写格式：YYYY-MM-DD</para>
     /// <para>- 系统默认为填写日期当天的 00:00:00 生效</para>
     /// <para>- 该接口只支持到最小单位为日</para>
     /// <para>- 日期范围要求:1900-01-01～9999-12-31</para>
+    /// <para>- 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version)</para>
     /// <para>必填：是</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>

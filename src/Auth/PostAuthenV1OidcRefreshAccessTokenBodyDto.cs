@@ -32,7 +32,7 @@ public record PostAuthenV1OidcRefreshAccessTokenBodyDto
     /// <summary>
     /// <para>刷新和获取user_access_token接口均返回 `refresh_token`，**每次请求，请注意使用最新获取到的`refresh_token`**</para>
     /// <para>必填：是</para>
-    /// <para>示例值：ur-oQ0mMq6MCcueAv0pwx2fQQhxqv__CbLu6G8ySFwafeKww2Def2BJdOkW3.9gCFM.LBQgFri901QaqeuL</para>
+    /// <para>示例值：ur-h4_5nUXdJ4O8rqfGe.YJCwM13Gjc557xUG20hkk00f7K</para>
     /// </summary>
     [JsonPropertyName("refresh_token")]
     public string RefreshToken { get; set; } = string.Empty;

@@ -9,12 +9,12 @@
 // <copyright file="PostCorehrV1JobLevelsResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>创建职级 响应体</summary>
+// <summary>新建职级 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
-/// 创建职级 响应体
-/// <para>创建职级</para>
+/// 新建职级 响应体
+/// <para>使用指定信息创建职级信息，每次调用支持创建1个职级对象，接口内会做相关规则校验。</para>
 /// <para>接口ID：7017707615191154691</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_level/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_level%2fcreate</para>
@@ -42,7 +42,7 @@ public record PostCorehrV1JobLevelsResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>职级数值</para>
+        /// <para>职级数值，该字段主要用来在职级大小排序，职级的数值越大，代表职级越高</para>
         /// <para>必填：是</para>
         /// <para>示例值：9999</para>
         /// </summary>
@@ -102,14 +102,14 @@ public record PostCorehrV1JobLevelsResponseDto
         public bool Active { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段(该功能暂不支持，可忽略)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段(该功能暂不支持，可忽略)</para>
         /// </summary>
         public record ObjectFieldData
         {
@@ -122,7 +122,7 @@ public record PostCorehrV1JobLevelsResponseDto
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
+            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同。如：```("\"123\"", "\"123.23\"", "\"true\"", [\"id1\",\"id2\"], \"2006-01-02 15:04:05\")```</para>
             /// <para>必填：是</para>
             /// <para>示例值：\"Sandy\"</para>
             /// </summary>

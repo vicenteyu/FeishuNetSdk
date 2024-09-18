@@ -119,7 +119,9 @@ public class TestController : ControllerBase
 事件体类型参照：[事件回调类型清单](https://github.com/vicenteyu/FeishuNetSdk/blob/main/EventCallbackList.md)
 
 **注意：需要3秒内响应。**
-**规则上允许，但不建议：同一事件有多个继承类，可以同时执行不同内容，但任何一个超时或失败都会导致返回失败结果。**
+
+**规则上允许，但不建议：同一事件有多个派生类，可以同时执行，但任何一个超时或失败都会导致返回失败结果。**
+
 **相同的事件消息可能会推送多次，原因例如日志上没有显示超时，但服务端判断已经超时。可以使用`完整消息体`上的`EventId`属性进行重复判断。**
 
 ```csharp
@@ -145,7 +147,9 @@ public class EventHandler1(ILogger<EventHandler> logger) : IEventHandler<EventV2
 事件体类型参照：[事件回调类型清单](https://github.com/vicenteyu/FeishuNetSdk/blob/main/EventCallbackList.md)
 
 **注意：需要3秒内响应。**
+
 **规则不允许同一回调有多个继承类。**
+
 **一条消息仅推送一次。**
 
 ```csharp

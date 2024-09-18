@@ -402,7 +402,7 @@ public record GetHelpdeskV1TicketsByTicketIdResponseDto
         public long? BotServiceDuration { get; set; }
 
         /// <summary>
-        /// <para>客服解决时长，关单时间距离客服进入时间的间隔，单位秒</para>
+        /// <para>客服解决时长，从首位客服接入服务到工单关闭的用时，单位秒</para>
         /// <para>必填：否</para>
         /// <para>示例值：66</para>
         /// </summary>
@@ -410,7 +410,7 @@ public record GetHelpdeskV1TicketsByTicketIdResponseDto
         public long? AgentResolutionTime { get; set; }
 
         /// <summary>
-        /// <para>工单实际处理时间：从客服进入到关单，单位秒</para>
+        /// <para>工单实际处理时长，处理时长=解决时长-工单待定时长（将工单状态修改为待定后的时间），单位秒</para>
         /// <para>必填：否</para>
         /// <para>示例值：68</para>
         /// </summary>

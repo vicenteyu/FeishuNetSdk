@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-12
+// Last Modified On : 2024-09-18
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -64,10 +64,22 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessApproverUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.process.approver.updated_v2")]
 //【飞书人事（企业版）】试用期状态变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProbationUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.probation.updated_v2")]
+//【飞书人事（企业版）】序列创建
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobFamilyCreatedV2EventBodyDto>), typeDiscriminator: "corehr.job_family.created_v2")]
+//【飞书人事（企业版）】序列更新
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobFamilyUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.job_family.updated_v2")]
+//【飞书人事（企业版）】序列删除
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobFamilyDeletedV2EventBodyDto>), typeDiscriminator: "corehr.job_family.deleted_v2")]
 //【飞书人事（企业版）】异动信息变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobChangeUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.job_change.updated_v2")]
 //【飞书人事（企业版）】异动状态变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobChangeStatusUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.job_change.status_updated_v2")]
+//【飞书人事（企业版）】职级创建
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobLevelCreatedV2EventBodyDto>), typeDiscriminator: "corehr.job_level.created_v2")]
+//【飞书人事（企业版）】职级更新
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobLevelUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.job_level.updated_v2")]
+//【飞书人事（企业版）】职级删除
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobLevelDeletedV2EventBodyDto>), typeDiscriminator: "corehr.job_level.deleted_v2")]
 //【飞书人事】【事件】创建部门
 [JsonDerivedType(typeof(EventV2Dto<FeishuPeople.Events.CorehrDepartmentCreatedV1EventBodyDto>), typeDiscriminator: "corehr.department.created_v1")]
 //【飞书人事】【事件】创建雇佣信息

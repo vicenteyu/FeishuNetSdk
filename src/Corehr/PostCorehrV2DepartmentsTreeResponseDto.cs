@@ -35,6 +35,7 @@ public record PostCorehrV2DepartmentsTreeResponseDto
     {
         /// <summary>
         /// <para>部门 ID</para>
+        /// <para>- 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search) 获取详情</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719456877659520852</para>
         /// </summary>
@@ -53,6 +54,7 @@ public record PostCorehrV2DepartmentsTreeResponseDto
 
         /// <summary>
         /// <para>下级部门 ID 列表</para>
+        /// <para>- 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search) 获取详情</para>
         /// <para>必填：否</para>
         /// <para>最大长度：10000</para>
         /// <para>最小长度：0</para>

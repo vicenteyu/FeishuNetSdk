@@ -57,7 +57,9 @@ public record PostHireV1JobsByJobIdUpdateConfigBodyDto
     public int[] UpdateOptionList { get; set; } = Array.Empty<int>();
 
     /// <summary>
-    /// <para>面试评价表 ID，可通过[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)接口获取，当`update_option_list`包含`更新面试评价表`时，该参数必填</para>
+    /// <para>面试评价表 ID，可通过[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)接口获取，当同时满足以下两个条件时，该参数必填：</para>
+    /// <para>- `update_option_list`包含`更新面试评价表`</para>
+    /// <para>- 「飞书招聘」-「设置」-「面试轮次类型设置」-「启用面试轮次类型」开关关闭</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956571</para>
     /// </summary>
@@ -124,14 +126,18 @@ public record PostHireV1JobsByJobIdUpdateConfigBodyDto
     public string? OnboardRegistrationSchemaId { get; set; }
 
     /// <summary>
-    /// <para>面试轮次类型 ID 列表，当`update_option_list`包含`更新面试评价表`时，该参数必填</para>
+    /// <para>面试轮次类型 ID 列表，当同时满足以下两个条件时，该参数必填：</para>
+    /// <para>- `update_option_list`包含`更新面试评价表`</para>
+    /// <para>- 「飞书招聘」-「设置」-「面试轮次类型设置」-「启用面试轮次类型」开关打开</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("interview_round_type_conf_list")]
     public JobConfigRoundType[]? InterviewRoundTypeConfLists { get; set; }
 
     /// <summary>
-    /// <para>面试轮次类型 ID 列表，当`update_option_list`包含`更新面试评价表`时，该参数必填</para>
+    /// <para>面试轮次类型 ID 列表，当同时满足以下两个条件时，该参数必填：</para>
+    /// <para>- `update_option_list`包含`更新面试评价表`</para>
+    /// <para>- 「飞书招聘」-「设置」-「面试轮次类型设置」-「启用面试轮次类型」开关打开</para>
     /// </summary>
     public record JobConfigRoundType
     {

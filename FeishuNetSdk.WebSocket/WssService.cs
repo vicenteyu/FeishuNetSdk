@@ -123,9 +123,11 @@ namespace FeishuNetSdk.WebSocket
             }
         }
 
-        private void ServerDisconnected(object? sender, EventArgs e)
+        private async void ServerDisconnected(object? sender, EventArgs e)
         {
             logger.LogInformation("长连接已断开");
+
+            await StartConnectAsync();
         }
 
         private void ServerConnected(object? sender, EventArgs e)

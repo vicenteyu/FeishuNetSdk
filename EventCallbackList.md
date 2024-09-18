@@ -1,4 +1,4 @@
-﻿## 事件回调类型清单
+## 事件回调类型清单
 <table><thead><tr><th>事件代码</th><th>事件类型</th><th>描述</th></tr></thead><tbody>
 <tr><td>approval.approval.updated_v4</td><td>EventV2Dto&lt;Approval.Events.ApprovalApprovalUpdatedV4EventBodyDto&gt;</td><td>【审批】审批定义更新</td></tr>
 <tr><td>approval.instance.trip_group_update_v4</td><td>EventV2Dto&lt;Approval.Events.ApprovalInstanceTripGroupUpdateV4EventBodyDto&gt;</td><td>【审批】出差审批</td></tr>
@@ -23,8 +23,14 @@
 <tr><td>corehr.employee.domain_event_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrEmployeeDomainEventV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】人员信息变更</td></tr>
 <tr><td>corehr.process.approver.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessApproverUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】审批任务状态变更</td></tr>
 <tr><td>corehr.probation.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProbationUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】试用期状态变更</td></tr>
+<tr><td>corehr.job_family.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobFamilyCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】序列创建</td></tr>
+<tr><td>corehr.job_family.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobFamilyUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】序列更新</td></tr>
+<tr><td>corehr.job_family.deleted_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobFamilyDeletedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】序列删除</td></tr>
 <tr><td>corehr.job_change.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobChangeUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】异动信息变更</td></tr>
 <tr><td>corehr.job_change.status_updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobChangeStatusUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】异动状态变更</td></tr>
+<tr><td>corehr.job_level.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobLevelCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】职级创建</td></tr>
+<tr><td>corehr.job_level.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobLevelUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】职级更新</td></tr>
+<tr><td>corehr.job_level.deleted_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobLevelDeletedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】职级删除</td></tr>
 <tr><td>corehr.department.created_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrDepartmentCreatedV1EventBodyDto&gt;</td><td>【飞书人事】【事件】创建部门</td></tr>
 <tr><td>corehr.employment.created_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrEmploymentCreatedV1EventBodyDto&gt;</td><td>【飞书人事】【事件】创建雇佣信息</td></tr>
 <tr><td>corehr.person.created_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrPersonCreatedV1EventBodyDto&gt;</td><td>【飞书人事】【事件】个人信息创建</td></tr>
