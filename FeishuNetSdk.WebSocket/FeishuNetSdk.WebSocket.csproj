@@ -16,10 +16,11 @@
         <Copyright>MIT</Copyright>
         <Description>适用于飞书开放平台的.Net开发包</Description>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <Version>3.0.2</Version>
+        <Version>3.0.3-beta1</Version>
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="FeishuNetSdk" Version="3.0.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
         <PackageReference Include="protobuf-net" Version="3.2.30" />
         <PackageReference Include="WatsonWebsocket" Version="4.1.2" />
@@ -34,10 +35,6 @@
             <Pack>True</Pack>
             <PackagePath>\</PackagePath>
         </None>
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\src\FeishuNetSdk.csproj" />
     </ItemGroup>
 
 </Project>
