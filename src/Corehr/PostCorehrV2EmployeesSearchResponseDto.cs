@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-31
+// Last Modified On : 2024-09-20
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -1850,6 +1850,38 @@ public record PostCorehrV2EmployeesSearchResponseDto
                     [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
                 }
+
+                /// <summary>
+                /// <para>城市往下细分 1 层的行政区</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：123</para>
+                /// </summary>
+                [JsonPropertyName("city_subdivision_1")]
+                public string? CitySubdivision1 { get; set; }
+
+                /// <summary>
+                /// <para>城市往下细分 2 层的行政区</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：123</para>
+                /// </summary>
+                [JsonPropertyName("city_subdivision_2")]
+                public string? CitySubdivision2 { get; set; }
+
+                /// <summary>
+                /// <para>主要行政区往下细分 1 层的行政区</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：123</para>
+                /// </summary>
+                [JsonPropertyName("region_subdivision_1")]
+                public string? RegionSubdivision1 { get; set; }
+
+                /// <summary>
+                /// <para>主要行政区往下细分 2 层的行政区</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：123</para>
+                /// </summary>
+                [JsonPropertyName("region_subdivision_2")]
+                public string? RegionSubdivision2 { get; set; }
             }
 
             /// <summary>
@@ -2688,6 +2720,14 @@ public record PostCorehrV2EmployeesSearchResponseDto
             /// </summary>
             public record Dependent
             {
+                /// <summary>
+                /// <para>ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：123</para>
+                /// </summary>
+                [JsonPropertyName("id")]
+                public string? Id { get; set; }
+
                 /// <summary>
                 /// <para>姓名</para>
                 /// <para>必填：否</para>
@@ -3736,6 +3776,14 @@ public record PostCorehrV2EmployeesSearchResponseDto
             /// </summary>
             public record EmergencyContact
             {
+                /// <summary>
+                /// <para>ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：123</para>
+                /// </summary>
+                [JsonPropertyName("id")]
+                public string? Id { get; set; }
+
                 /// <summary>
                 /// <para>姓名</para>
                 /// <para>必填：否</para>

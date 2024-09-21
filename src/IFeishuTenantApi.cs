@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-18
+// Last Modified On : 2024-09-20
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -1214,6 +1214,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- `sheetId` 为工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取</para>
     /// <para>- `&lt;开始位置&gt;:&lt;结束位置&gt;` 为工作表中单元格的范围，数字表示行索引，字母表示列索引。如 `A2:B2` 表示该工作表第 2 行的 A 列到 B 列。`range`支持四种写法，详情参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// <para>**注意**：若使用 `&lt;sheetId&gt;!&lt;开始单元格&gt;:&lt;结束列&gt;` 和 `&lt;sheetId&gt;!&lt;开始列&gt;:&lt;结束列&gt;` 的写法时，仅支持获取 100 列数据。</para>
+    /// <para>**示例值**："Q7PlXT!A1:B2"</para>
     /// </param>
     /// <param name="valueRenderOption">
     /// <para>必填：否</para>
@@ -9684,6 +9685,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据 app_token，获取多维表格下的所有数据表。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:table:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -9850,6 +9852,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>note</para>
     /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:table:create</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -9872,6 +9875,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>新增多个数据表。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:table:create</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
@@ -9911,6 +9915,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>note</para>
     /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:app:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -12039,7 +12044,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 注意事项</para>
     /// <para>上传事务 ID 和上传进度在 24 小时内有效。请及时保存和恢复上传。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>- 该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>- 上传文件的大小限制因飞书版本而异，详情参考[文件上传、在线预览的大小及格式要求](https://www.feishu.cn/hc/zh-CN/articles/360049067549-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0-%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%8F%8A%E6%A0%BC%E5%BC%8F%E8%A6%81%E6%B1%82)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:file</item>
@@ -12181,7 +12187,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>其中：</para>
     /// <para>- `file_tokens` 是参数名，可以多次传递</para>
     /// <para>- `token1` 和 `token2` 为素材的实际 token 值</para>
-    /// <para>- 你最多可一次获取五个素材的下载链接</para>
+    /// <para>- 一次最多可传递 5 个素材的 token，但在 API 调试台仅支持传一个 token</para>
     /// <para>示例值：boxcnrHpsg1QDqXAAAyachabcef</para>
     /// </param>
     /// <param name="extra">
@@ -13296,7 +13302,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>wiki：知识库节点</item>
     /// <item>bitable：多维表格</item>
     /// <item>docx：新版文档</item>
-    /// <item>folder：文件夹</item>
+    /// <item>folder：文件夹。使用 tenant_access_token 访问不支持该值</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
     /// <item>slides：幻灯片</item>
@@ -18588,14 +18594,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="token">
     /// <para>必填：是</para>
-    /// <para>知识库或文档的 token。了解如何获取 token，请参考[文档常见问题-如何获取云文档资源相关 token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。</para>
+    /// <para>知识库节点或对应云文档的实际 token。</para>
+    /// <para>- 知识库节点 token：如果 URL 链接中 token 前为 wiki，该 token 为知识库的节点 token。</para>
+    /// <para>- 云文档实际 token：如果 URL 链接中 token 前为 docx、base、sheets 等非 wiki 类型，则说明该 token 是当前云文档的实际 token。</para>
+    /// <para>了解更多，请参考[文档常见问题-如何获取云文档资源相关 token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。</para>
     /// <para>**注意**：</para>
-    /// <para>使用文档 token 查询时，需要对 obj_type 参数传入文档对应的类型。</para>
+    /// <para>使用云文档 token 查询时，需要对 obj_type 参数传入文档对应的类型。</para>
     /// <para>示例值：wikcnKQ1k3p******8Vabcef</para>
     /// </param>
     /// <param name="obj_type">
     /// <para>必填：否</para>
-    /// <para>文档类型。不传时默认以wiki类型查询。</para>
+    /// <para>文档类型。不传时默认以 wiki 类型查询。</para>
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>doc：旧版文档</item>
@@ -20320,10 +20329,21 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>attendance:rule</item>
     /// </list></para>
     /// </summary>
+    /// <param name="employee_type">
+    /// <para>必填：否</para>
+    /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
+    /// <para>示例值：employee_id</para>
+    /// <list type="bullet">
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/attendance/v1/shifts")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1ShiftsResponseDto>> PostAttendanceV1ShiftsAsync(
-        [JsonContent] Attendance.PostAttendanceV1ShiftsBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1ShiftsBodyDto dto,
+        [PathQuery] string? employee_type = null);
 
     /// <summary>
     /// <para>【考勤打卡】批量查询打卡流水</para>
@@ -21409,6 +21429,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取文档标题和最新版本 ID。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有云文档的阅读、编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docx:document</item>
     /// <item>docx:document:readonly</item>
@@ -21417,7 +21439,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="document_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的 `document_id`</para>
+    /// <para>文档的唯一标识。你可通过以下方式获取文档的 `document_id`。了解更多，参考[文档概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview#e18a49a1)。</para>
+    /// <para>- 若文档存储在云盘中，你可通过 URL 地址或通过[获取文件夹下文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list) 获取其中文档资源的 `document_id`。</para>
+    /// <para>- 若文档挂载在知识库中，你需通过知识库相关接口[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)获取该节点下挂载的云资源的 `obj_token` 和 `obj_type`。在该情况下，`obj_type` 为 `docx` 时，其对应的 `obj_token` 即为文档的 `document_id`。</para>
+    /// <para>**注意**：</para>
+    /// <para>对于知识库（wiki）中的文档，其 URL 地址中的 token 并不是该文档的 `document_id`。使用时请注意区分。</para>
     /// <para>示例值：doxcnePuYufKa49ISjhD8Iabcef</para>
     /// </param>
     [HttpGet("/open-apis/docx/v1/documents/{document_id}")]
@@ -22745,6 +22771,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/raw_content</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取文档的纯文本内容。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有云文档的阅读、编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docx:document</item>
     /// <item>docx:document:readonly</item>
@@ -24390,6 +24418,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>新增自定义角色的协作者</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:collaborator:create</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -24414,8 +24443,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>union_id：以union_id来识别协作者</item>
     /// <item>user_id：以user_id来识别协作者</item>
     /// <item>chat_id：以chat_id来识别协作者</item>
-    /// <item>department_id：以department_id来识别协作者</item>
-    /// <item>open_department_id：以open_department_id来识别协作者</item>
+    /// <item>department_id：以department_id来识别协作者。调用前，请确保应用有部门的可见性，参考[配置应用可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)</item>
+    /// <item>open_department_id：以open_department_id来识别协作者。调用前，请确保应用有部门的可见性，参考[配置应用可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>

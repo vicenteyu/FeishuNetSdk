@@ -27,7 +27,7 @@ public record PostDriveV1PermissionsByTokenMembersBodyDto
     /// <para>示例值：openid</para>
     /// <para>可选值：<list type="bullet">
     /// <item>email：飞书邮箱</item>
-    /// <item>openid：开放平台 ID</item>
+    /// <item>openid：应用或用户的 Open ID。 - 获取应用 OpenID，参考[如何获取应用 open_id](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#6dbaa8df) - 获取用户 OpenID，参考[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</item>
     /// <item>unionid：开放平台 UnionID</item>
     /// <item>openchat：开放平台群组 ID</item>
     /// <item>opendepartmentid：开放平台部门 ID</item>

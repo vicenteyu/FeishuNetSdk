@@ -21,6 +21,7 @@
 <tr><td>corehr.process.node.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessNodeUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】流程节点状态变更</td></tr>
 <tr><td>corehr.process.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】流程实例信息变更</td></tr>
 <tr><td>corehr.employee.domain_event_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrEmployeeDomainEventV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】人员信息变更</td></tr>
+<tr><td>corehr.pre_hire.onboarding_task_changed_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrPreHireOnboardingTaskChangedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】入职流程状态变更</td></tr>
 <tr><td>corehr.process.approver.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessApproverUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】审批任务状态变更</td></tr>
 <tr><td>corehr.probation.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProbationUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】试用期状态变更</td></tr>
 <tr><td>corehr.job_family.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobFamilyCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】序列创建</td></tr>

@@ -58,7 +58,7 @@ public record PostAttendanceV1ShiftsResponseDto
         public int PunchTimes { get; set; }
 
         /// <summary>
-        /// <para>无效字段，请勿使用</para>
+        /// <para>班次负责人，与employee_type类型对应</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("sub_shift_leader_ids")]

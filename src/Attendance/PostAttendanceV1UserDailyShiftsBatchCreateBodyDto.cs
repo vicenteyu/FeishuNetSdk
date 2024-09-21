@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-09-20
 // ************************************************************************
 // <copyright file="PostAttendanceV1UserDailyShiftsBatchCreateBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -72,6 +72,14 @@ public record PostAttendanceV1UserDailyShiftsBatchCreateBodyDto
         /// </summary>
         [JsonPropertyName("day_no")]
         public int DayNo { get; set; }
+
+        /// <summary>
+        /// <para>是否清空班次 (此字段优先于 shift_id，若为true ，shift_id 将失效)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_clear_schedule")]
+        public bool? IsClearSchedule { get; set; }
     }
 
     /// <summary>

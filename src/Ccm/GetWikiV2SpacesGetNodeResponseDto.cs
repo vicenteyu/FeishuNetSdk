@@ -34,8 +34,7 @@ public record GetWikiV2SpacesGetNodeResponseDto
     public record GetWikiV2SpacesGetNodeResponseDtoNode
     {
         /// <summary>
-        /// <para>知识空间id</para>
-        /// <para>[获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)</para>
+        /// <para>知识空间 ID。获取方式参考[知识库概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)。</para>
         /// <para>必填：否</para>
         /// <para>示例值：6946843325487912356</para>
         /// </summary>
@@ -43,7 +42,7 @@ public record GetWikiV2SpacesGetNodeResponseDto
         public string? SpaceId { get; set; }
 
         /// <summary>
-        /// <para>节点token</para>
+        /// <para>知识库节点 token，如果 URL 链接中 token 前为 wiki，该 token 为知识库的节点 token。</para>
         /// <para>必填：否</para>
         /// <para>示例值：wikcnKQ1k3p******8Vabcef</para>
         /// </summary>
@@ -51,7 +50,7 @@ public record GetWikiV2SpacesGetNodeResponseDto
         public string? NodeToken { get; set; }
 
         /// <summary>
-        /// <para>对应文档类型的token，可根据 obj_type 判断属于哪种文档类型。</para>
+        /// <para>节点的实际云文档的 token，如果 URL 链接中 token 前为 docx、base、sheets 等非 wiki 类型，则说明该 token 是当前云文档的实际 token。如果要获取或编辑节点内容，需要使用此 token 调用对应的接口。可根据 obj_type 判断属于哪种文档类型。</para>
         /// <para>必填：否</para>
         /// <para>示例值：doccnzAaOD******Wabcdef</para>
         /// </summary>

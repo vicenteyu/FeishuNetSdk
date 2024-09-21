@@ -38,7 +38,8 @@ public record PostCorehrV1OffboardingsSubmitResponseDto
     public string? EmploymentId { get; set; }
 
     /// <summary>
-    /// <para>离职原因</para>
+    /// <para>离职原因，可通过接口</para>
+    /// <para>[【查询员工离职原因列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)获取</para>
     /// <para>必填：否</para>
     /// <para>示例值：reason_for_offboarding_option8</para>
     /// </summary>

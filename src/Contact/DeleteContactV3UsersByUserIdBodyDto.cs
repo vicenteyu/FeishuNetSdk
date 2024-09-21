@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-09-20
 // ************************************************************************
 // <copyright file="DeleteContactV3UsersByUserIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -139,4 +139,15 @@ public record DeleteContactV3UsersByUserIdBodyDto
         [JsonPropertyName("acceptor_user_id")]
         public string? AcceptorUserId { get; set; }
     }
+
+    /// <summary>
+    /// <para>用户集成平台资源的接收者的用户 ID。</para>
+    /// <para>**注意：**</para>
+    /// <para>- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。</para>
+    /// <para>- 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则保留应用在该用户名下，但该用户无法登录飞书集成平台。企业管理员可以在管理后台手动转移应用给其他人。</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
+    /// </summary>
+    [JsonPropertyName("anycross_acceptor_user_id")]
+    public string? AnycrossAcceptorUserId { get; set; }
 }

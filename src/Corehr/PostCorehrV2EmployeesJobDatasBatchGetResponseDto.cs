@@ -96,7 +96,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? WorkLocationId { get; set; }
 
             /// <summary>
-            /// <para>部门 ID，可通过[【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息</para>
+            /// <para>部门 ID，可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询详细信息</para>
             /// <para>- 与 department_id_type 类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372679</para>
@@ -194,8 +194,10 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? ExpirationTime { get; set; }
 
             /// <summary>
-            /// <para>任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)</para>
-            /// <para>任职原因（assignment_start_reason）枚举定义部分获得</para>
+            /// <para>任职原因</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+            /// <para>- object_api_name：job_data</para>
+            /// <para>- custom_api_name：assignment_start_reason</para>
             /// <para>必填：否</para>
             /// <para>示例值：onboarding</para>
             /// </summary>
@@ -203,8 +205,10 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public Enum? AssignmentStartReason { get; set; }
 
             /// <summary>
-            /// <para>任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)</para>
-            /// <para>任职原因（assignment_start_reason）枚举定义部分获得</para>
+            /// <para>任职原因</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+            /// <para>- object_api_name：job_data</para>
+            /// <para>- custom_api_name：assignment_start_reason</para>
             /// </summary>
             public record Enum
             {
@@ -255,8 +259,10 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? ProbationExpectedEndDate { get; set; }
 
             /// <summary>
-            /// <para>试用期结果，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)</para>
-            /// <para>试用期结果（probation_outcome）枚举定义部分获得</para>
+            /// <para>试用期结果</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+            /// <para>- object_api_name：job_data</para>
+            /// <para>- custom_api_name：probation_outcome</para>
             /// <para>必填：否</para>
             /// <para>示例值：passed</para>
             /// </summary>

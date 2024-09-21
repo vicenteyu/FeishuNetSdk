@@ -99,7 +99,7 @@ public record PostContactV3DepartmentsBodyDto
     /// <para>自定义部门 ID。</para>
     /// <para>**注意**：</para>
     /// <para>- 不能以 `od-` 开头。</para>
-    /// <para>- 不能设置为 `0`。</para>
+    /// <para>- 不能设置为 `0`、`1`。</para>
     /// <para>**默认值**：空，表示由系统自动生成 ID。</para>
     /// <para>必填：否</para>
     /// <para>示例值：D096</para>

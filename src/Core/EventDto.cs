@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-18
+// Last Modified On : 2024-09-21
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -60,6 +60,8 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.process.updated_v2")]
 //【飞书人事（企业版）】人员信息变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrEmployeeDomainEventV2EventBodyDto>), typeDiscriminator: "corehr.employee.domain_event_v2")]
+//【飞书人事（企业版）】入职流程状态变更
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrPreHireOnboardingTaskChangedV2EventBodyDto>), typeDiscriminator: "corehr.pre_hire.onboarding_task_changed_v2")]
 //【飞书人事（企业版）】审批任务状态变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessApproverUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.process.approver.updated_v2")]
 //【飞书人事（企业版）】试用期状态变更

@@ -15,6 +15,8 @@ namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取文档基本信息 响应体
 /// <para>获取文档标题和最新版本 ID。</para>
+/// <para>## 前提条件</para>
+/// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有云文档的阅读、编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
 /// <para>接口ID：7068199542315302940</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/docs/docx-v1/document/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fdocument-docx%2fdocx-v1%2fdocument%2fget</para>

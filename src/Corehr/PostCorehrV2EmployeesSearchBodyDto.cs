@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-09-20
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -219,4 +219,13 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// </summary>
     [JsonPropertyName("department_id_list_include_sub")]
     public string[]? DepartmentIdListIncludeSub { get; set; }
+
+    /// <summary>
+    /// <para>成本中心ID</para>
+    /// <para>- 可通过 [【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search) 获取</para>
+    /// <para>必填：否</para>
+    /// <para>最大长度：100</para>
+    /// </summary>
+    [JsonPropertyName("cost_center_id_list")]
+    public string[]? CostCenterIdList { get; set; }
 }

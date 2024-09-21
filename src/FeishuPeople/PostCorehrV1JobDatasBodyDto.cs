@@ -136,7 +136,11 @@ public record PostCorehrV1JobDatasBodyDto
     public string? JobFamilyId { get; set; }
 
     /// <summary>
-    /// <para>任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)任职原因（assignment_start_reason）枚举定义部分获得，这里只支持填写"onboarding"</para>
+    /// <para>任职原因</para>
+    /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+    /// <para>- object_api_name：job_data</para>
+    /// <para>- custom_api_name：assignment_start_reason</para>
+    /// <para>- 这里只支持填写"onboarding"</para>
     /// <para>必填：是</para>
     /// <para>示例值：onboarding</para>
     /// </summary>
@@ -144,7 +148,11 @@ public record PostCorehrV1JobDatasBodyDto
     public Enum AssignmentStartReason { get; set; } = new();
 
     /// <summary>
-    /// <para>任职原因，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)任职原因（assignment_start_reason）枚举定义部分获得，这里只支持填写"onboarding"</para>
+    /// <para>任职原因</para>
+    /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+    /// <para>- object_api_name：job_data</para>
+    /// <para>- custom_api_name：assignment_start_reason</para>
+    /// <para>- 这里只支持填写"onboarding"</para>
     /// </summary>
     public record Enum
     {

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-31
+// Last Modified On : 2024-09-20
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -84,7 +84,8 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         public string? EmployeeTypeId { get; set; }
 
         /// <summary>
-        /// <para>部门 ID，详细信息可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得</para>
+        /// <para>部门 ID</para>
+        /// <para>- 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search) 获取详情</para>
         /// <para>- 类型与 department_id_type 一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
@@ -93,9 +94,9 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         public string? DepartmentId { get; set; }
 
         /// <summary>
-        /// <para>部门 ID</para>
-        /// <para>- 可通过 [【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)获取详细信息</para>
-        /// <para>- 类型与 department_id_type 一致，转换失败时返回空值</para>
+        /// <para>部门 ID，当按照department_id_type转换失败时返回为空值</para>
+        /// <para>- 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search) 获取详情</para>
+        /// <para>- 类型与 department_id_type 一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -1874,6 +1875,38 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
                 }
+
+                /// <summary>
+                /// <para>城市往下细分 1 层的行政区</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：123</para>
+                /// </summary>
+                [JsonPropertyName("city_subdivision_1")]
+                public string? CitySubdivision1 { get; set; }
+
+                /// <summary>
+                /// <para>城市往下细分 2 层的行政区</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：123</para>
+                /// </summary>
+                [JsonPropertyName("city_subdivision_2")]
+                public string? CitySubdivision2 { get; set; }
+
+                /// <summary>
+                /// <para>主要行政区往下细分 1 层的行政区</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：123</para>
+                /// </summary>
+                [JsonPropertyName("region_subdivision_1")]
+                public string? RegionSubdivision1 { get; set; }
+
+                /// <summary>
+                /// <para>主要行政区往下细分 2 层的行政区</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：123</para>
+                /// </summary>
+                [JsonPropertyName("region_subdivision_2")]
+                public string? RegionSubdivision2 { get; set; }
             }
 
             /// <summary>
@@ -2721,6 +2754,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             /// </summary>
             public record Dependent
             {
+                /// <summary>
+                /// <para>ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：123</para>
+                /// </summary>
+                [JsonPropertyName("id")]
+                public string? Id { get; set; }
+
                 /// <summary>
                 /// <para>姓名</para>
                 /// <para>必填：否</para>
@@ -3808,6 +3849,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             /// </summary>
             public record EmergencyContact
             {
+                /// <summary>
+                /// <para>ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：123</para>
+                /// </summary>
+                [JsonPropertyName("id")]
+                public string? Id { get; set; }
+
                 /// <summary>
                 /// <para>姓名</para>
                 /// <para>必填：否</para>
@@ -5329,7 +5378,8 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         public record BasicDepartment
         {
             /// <summary>
-            /// <para>部门 ID，详细信息可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得</para>
+            /// <para>部门 ID</para>
+            /// <para>- 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search) 获取详情</para>
             /// <para>- 类型与 department_id_type 一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719456877659520852</para>
@@ -5338,8 +5388,9 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>部门 ID</para>
-            /// <para>- 类型与 department_id_type 一致，转换失败时返回空值</para>
+            /// <para>部门 ID，当按照department_id_type转换失败时返回为空值</para>
+            /// <para>- 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search) 获取详情</para>
+            /// <para>- 类型与 department_id_type 一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719456877659520852</para>
             /// </summary>

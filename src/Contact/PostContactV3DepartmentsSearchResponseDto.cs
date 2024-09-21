@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-09-20
 // ************************************************************************
 // <copyright file="PostContactV3DepartmentsSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -170,17 +170,6 @@ public record PostContactV3DepartmentsSearchResponseDto
             [JsonPropertyName("is_deleted")]
             public bool? IsDeleted { get; set; }
         }
-
-        /// <summary>
-        /// <para>是否创建部门群。</para>
-        /// <para>**可能值有：**</para>
-        /// <para>- true：是</para>
-        /// <para>- false：否</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：false</para>
-        /// </summary>
-        [JsonPropertyName("create_group_chat")]
-        public bool? CreateGroupChat { get; set; }
 
         /// <summary>
         /// <para>部门负责人信息。</para>

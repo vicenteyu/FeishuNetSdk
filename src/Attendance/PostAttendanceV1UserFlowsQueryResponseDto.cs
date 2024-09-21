@@ -155,7 +155,7 @@ public record PostAttendanceV1UserFlowsQueryResponseDto
         public string? DeviceId { get; set; }
 
         /// <summary>
-        /// <para>打卡结果，目前仅支持PendingApproval待生效。如需获取打卡结果请使用[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)</para>
+        /// <para>无效字段。如需获取打卡结果请使用[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)</para>
         /// <para>必填：否</para>
         /// <para>示例值：PendingApproval</para>
         /// <para>可选值：<list type="bullet">
