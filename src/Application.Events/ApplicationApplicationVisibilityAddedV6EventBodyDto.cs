@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-01
+// Last Modified On : 2024-09-24
 // ************************************************************************
 // <copyright file="ApplicationApplicationVisibilityAddedV6EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -33,23 +33,20 @@ public record ApplicationApplicationVisibilityAddedV6EventBodyDto() : EventBodyD
     public int? Source { get; set; }
 
     /// <summary>
-    /// <para>用户 ID</para>
-    /// <para>必填：否</para>
+    /// 
     /// </summary>
-    [JsonPropertyName("user_id")]
-    public object? UserId { get; set; }
+    public User[]? Users { get; set; }
 
     /// <summary>
-    /// <para>用户的 open_id，了解不同用户 ID 类型参考[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
-    /// <para>必填：否</para>
+    /// 
     /// </summary>
-    [JsonPropertyName("open_id")]
-    public string? OpenId { get; set; }
-
-    /// <summary>
-    /// <para>用户的 union_id，了解不同用户 ID 类型参考[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("union_id")]
-    public string? UnionId { get; set; }
+    public record User
+    {
+        /// <summary>
+        /// <para>用户 ID</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("user_id")]
+        public UserIdSuffix? UserId { get; set; }
+    }
 }

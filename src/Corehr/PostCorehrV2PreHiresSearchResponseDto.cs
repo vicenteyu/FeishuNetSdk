@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-01
+// Last Modified On : 2024-09-24
 // ************************************************************************
 // <copyright file="PostCorehrV2PreHiresSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -164,7 +164,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>语言</para>
+                        /// <para>语言编码（IETF BCP 47）</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：zh-CN</para>
                         /// </summary>
@@ -172,9 +172,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public string Lang { get; set; } = string.Empty;
 
                         /// <summary>
-                        /// <para>内容</para>
+                        /// <para>文本内容</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
+                        /// <para>示例值：中文示例</para>
                         /// </summary>
                         [JsonPropertyName("value")]
                         public string Value { get; set; } = string.Empty;
@@ -372,7 +372,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>语言</para>
+                    /// <para>语言编码（IETF BCP 47）</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
@@ -380,9 +380,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public string Lang { get; set; } = string.Empty;
 
                     /// <summary>
-                    /// <para>内容</para>
+                    /// <para>文本内容</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
+                    /// <para>示例值：中文示例</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
@@ -396,6 +396,14 @@ public record PostCorehrV2PreHiresSearchResponseDto
             /// </summary>
             [JsonPropertyName("date_of_birth")]
             public string? DateOfBirth { get; set; }
+
+            /// <summary>
+            /// <para>国籍 ID，可通过【查询国籍信息】接口查询</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6862995757234914821</para>
+            /// </summary>
+            [JsonPropertyName("nationality_id_v2")]
+            public string? NationalityIdV2 { get; set; }
 
             /// <summary>
             /// <para>民族 / 种族，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：按如下参数查询即可：</para>
@@ -460,7 +468,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>语言</para>
+                        /// <para>语言编码（IETF BCP 47）</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：zh-CN</para>
                         /// </summary>
@@ -468,9 +476,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public string Lang { get; set; } = string.Empty;
 
                         /// <summary>
-                        /// <para>内容</para>
+                        /// <para>文本内容</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
+                        /// <para>示例值：中文示例</para>
                         /// </summary>
                         [JsonPropertyName("value")]
                         public string Value { get; set; } = string.Empty;
@@ -761,7 +769,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>语言</para>
+                        /// <para>语言编码（IETF BCP 47）</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：zh-CN</para>
                         /// </summary>
@@ -769,9 +777,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public string Lang { get; set; } = string.Empty;
 
                         /// <summary>
-                        /// <para>内容</para>
+                        /// <para>文本内容</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
+                        /// <para>示例值：中文示例</para>
                         /// </summary>
                         [JsonPropertyName("value")]
                         public string Value { get; set; } = string.Empty;
@@ -942,7 +950,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>语言</para>
+                        /// <para>语言编码（IETF BCP 47）</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：zh-CN</para>
                         /// </summary>
@@ -950,9 +958,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public string Lang { get; set; } = string.Empty;
 
                         /// <summary>
-                        /// <para>内容</para>
+                        /// <para>文本内容</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
+                        /// <para>示例值：中文示例</para>
                         /// </summary>
                         [JsonPropertyName("value")]
                         public string Value { get; set; } = string.Empty;
@@ -985,7 +993,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>语言</para>
+                    /// <para>语言编码（IETF BCP 47）</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
@@ -993,9 +1001,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public string Lang { get; set; } = string.Empty;
 
                     /// <summary>
-                    /// <para>内容</para>
+                    /// <para>文本内容</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
+                    /// <para>示例值：中文示例</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
@@ -1142,7 +1150,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>语言</para>
+                    /// <para>语言编码（IETF BCP 47）</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
@@ -1150,9 +1158,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public string Lang { get; set; } = string.Empty;
 
                     /// <summary>
-                    /// <para>内容</para>
+                    /// <para>文本内容</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
+                    /// <para>示例值：中文示例</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
@@ -1191,7 +1199,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>语言</para>
+                        /// <para>语言编码（IETF BCP 47）</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：zh-CN</para>
                         /// </summary>
@@ -1199,9 +1207,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public string Lang { get; set; } = string.Empty;
 
                         /// <summary>
-                        /// <para>内容</para>
+                        /// <para>文本内容</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
+                        /// <para>示例值：中文示例</para>
                         /// </summary>
                         [JsonPropertyName("value")]
                         public string Value { get; set; } = string.Empty;
@@ -1436,7 +1444,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>语言</para>
+                        /// <para>语言编码（IETF BCP 47）</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：zh-CN</para>
                         /// </summary>
@@ -1444,9 +1452,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public string Lang { get; set; } = string.Empty;
 
                         /// <summary>
-                        /// <para>内容</para>
+                        /// <para>文本内容</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
+                        /// <para>示例值：中文示例</para>
                         /// </summary>
                         [JsonPropertyName("value")]
                         public string Value { get; set; } = string.Empty;
@@ -1767,7 +1775,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public record I18n
                         {
                             /// <summary>
-                            /// <para>语言</para>
+                            /// <para>语言编码（IETF BCP 47）</para>
                             /// <para>必填：是</para>
                             /// <para>示例值：zh-CN</para>
                             /// </summary>
@@ -1775,9 +1783,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                             public string Lang { get; set; } = string.Empty;
 
                             /// <summary>
-                            /// <para>内容</para>
+                            /// <para>文本内容</para>
                             /// <para>必填：是</para>
-                            /// <para>示例值：张三</para>
+                            /// <para>示例值：中文示例</para>
                             /// </summary>
                             [JsonPropertyName("value")]
                             public string Value { get; set; } = string.Empty;
@@ -1976,7 +1984,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>语言</para>
+                        /// <para>语言编码（IETF BCP 47）</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：zh-CN</para>
                         /// </summary>
@@ -1984,9 +1992,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public string Lang { get; set; } = string.Empty;
 
                         /// <summary>
-                        /// <para>内容</para>
+                        /// <para>文本内容</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
+                        /// <para>示例值：中文示例</para>
                         /// </summary>
                         [JsonPropertyName("value")]
                         public string Value { get; set; } = string.Empty;
@@ -2319,7 +2327,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public record I18n
                         {
                             /// <summary>
-                            /// <para>语言</para>
+                            /// <para>语言编码（IETF BCP 47）</para>
                             /// <para>必填：是</para>
                             /// <para>示例值：zh-CN</para>
                             /// </summary>
@@ -2327,9 +2335,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                             public string Lang { get; set; } = string.Empty;
 
                             /// <summary>
-                            /// <para>内容</para>
+                            /// <para>文本内容</para>
                             /// <para>必填：是</para>
-                            /// <para>示例值：张三</para>
+                            /// <para>示例值：中文示例</para>
                             /// </summary>
                             [JsonPropertyName("value")]
                             public string Value { get; set; } = string.Empty;
@@ -2620,7 +2628,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public record I18n
                         {
                             /// <summary>
-                            /// <para>语言</para>
+                            /// <para>语言编码（IETF BCP 47）</para>
                             /// <para>必填：是</para>
                             /// <para>示例值：zh-CN</para>
                             /// </summary>
@@ -2628,9 +2636,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                             public string Lang { get; set; } = string.Empty;
 
                             /// <summary>
-                            /// <para>内容</para>
+                            /// <para>文本内容</para>
                             /// <para>必填：是</para>
-                            /// <para>示例值：张三</para>
+                            /// <para>示例值：中文示例</para>
                             /// </summary>
                             [JsonPropertyName("value")]
                             public string Value { get; set; } = string.Empty;
@@ -2843,7 +2851,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public record I18n
                         {
                             /// <summary>
-                            /// <para>语言</para>
+                            /// <para>语言编码（IETF BCP 47）</para>
                             /// <para>必填：是</para>
                             /// <para>示例值：zh-CN</para>
                             /// </summary>
@@ -2851,9 +2859,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                             public string Lang { get; set; } = string.Empty;
 
                             /// <summary>
-                            /// <para>内容</para>
+                            /// <para>文本内容</para>
                             /// <para>必填：是</para>
-                            /// <para>示例值：张三</para>
+                            /// <para>示例值：中文示例</para>
                             /// </summary>
                             [JsonPropertyName("value")]
                             public string Value { get; set; } = string.Empty;
@@ -3047,7 +3055,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>语言</para>
+                        /// <para>语言编码（IETF BCP 47）</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：zh-CN</para>
                         /// </summary>
@@ -3055,9 +3063,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public string Lang { get; set; } = string.Empty;
 
                         /// <summary>
-                        /// <para>内容</para>
+                        /// <para>文本内容</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
+                        /// <para>示例值：中文示例</para>
                         /// </summary>
                         [JsonPropertyName("value")]
                         public string Value { get; set; } = string.Empty;
@@ -3109,7 +3117,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public record I18n
                         {
                             /// <summary>
-                            /// <para>语言</para>
+                            /// <para>语言编码（IETF BCP 47）</para>
                             /// <para>必填：是</para>
                             /// <para>示例值：zh-CN</para>
                             /// </summary>
@@ -3117,9 +3125,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                             public string Lang { get; set; } = string.Empty;
 
                             /// <summary>
-                            /// <para>内容</para>
+                            /// <para>文本内容</para>
                             /// <para>必填：是</para>
-                            /// <para>示例值：张三</para>
+                            /// <para>示例值：中文示例</para>
                             /// </summary>
                             [JsonPropertyName("value")]
                             public string Value { get; set; } = string.Empty;
@@ -3366,7 +3374,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>语言</para>
+                        /// <para>语言编码（IETF BCP 47）</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：zh-CN</para>
                         /// </summary>
@@ -3374,9 +3382,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public string Lang { get; set; } = string.Empty;
 
                         /// <summary>
-                        /// <para>内容</para>
+                        /// <para>文本内容</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
+                        /// <para>示例值：中文示例</para>
                         /// </summary>
                         [JsonPropertyName("value")]
                         public string Value { get; set; } = string.Empty;
@@ -3573,7 +3581,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>语言</para>
+                        /// <para>语言编码（IETF BCP 47）</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：zh-CN</para>
                         /// </summary>
@@ -3581,9 +3589,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public string Lang { get; set; } = string.Empty;
 
                         /// <summary>
-                        /// <para>内容</para>
+                        /// <para>文本内容</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
+                        /// <para>示例值：中文示例</para>
                         /// </summary>
                         [JsonPropertyName("value")]
                         public string Value { get; set; } = string.Empty;
@@ -3712,7 +3720,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>语言</para>
+                        /// <para>语言编码（IETF BCP 47）</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：zh-CN</para>
                         /// </summary>
@@ -3720,9 +3728,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public string Lang { get; set; } = string.Empty;
 
                         /// <summary>
-                        /// <para>内容</para>
+                        /// <para>文本内容</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
+                        /// <para>示例值：中文示例</para>
                         /// </summary>
                         [JsonPropertyName("value")]
                         public string Value { get; set; } = string.Empty;
@@ -3845,7 +3853,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>语言</para>
+                /// <para>语言编码（IETF BCP 47）</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
@@ -3853,9 +3861,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>内容</para>
+                /// <para>文本内容</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：张三</para>
+                /// <para>示例值：中文示例</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
@@ -3980,7 +3988,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>语言</para>
+                    /// <para>语言编码（IETF BCP 47）</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
@@ -3988,9 +3996,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public string Lang { get; set; } = string.Empty;
 
                     /// <summary>
-                    /// <para>内容</para>
+                    /// <para>文本内容</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
+                    /// <para>示例值：中文示例</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
@@ -4380,7 +4388,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>语言</para>
+                        /// <para>语言编码（IETF BCP 47）</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：zh-CN</para>
                         /// </summary>
@@ -4388,9 +4396,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public string Lang { get; set; } = string.Empty;
 
                         /// <summary>
-                        /// <para>内容</para>
+                        /// <para>文本内容</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
+                        /// <para>示例值：中文示例</para>
                         /// </summary>
                         [JsonPropertyName("value")]
                         public string Value { get; set; } = string.Empty;
@@ -4635,7 +4643,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>语言</para>
+                    /// <para>语言编码（IETF BCP 47）</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
@@ -4643,9 +4651,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public string Lang { get; set; } = string.Empty;
 
                     /// <summary>
-                    /// <para>内容</para>
+                    /// <para>文本内容</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
+                    /// <para>示例值：中文示例</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
@@ -4695,7 +4703,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>语言</para>
+                    /// <para>语言编码（IETF BCP 47）</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
@@ -4703,9 +4711,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public string Lang { get; set; } = string.Empty;
 
                     /// <summary>
-                    /// <para>内容</para>
+                    /// <para>文本内容</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
+                    /// <para>示例值：中文示例</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
@@ -4760,6 +4768,14 @@ public record PostCorehrV2PreHiresSearchResponseDto
             /// </summary>
             [JsonPropertyName("updated_by")]
             public string? UpdatedBy { get; set; }
+
+            /// <summary>
+            /// <para>司龄起算日期</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2023-01-10</para>
+            /// </summary>
+            [JsonPropertyName("seniority_date")]
+            public string? SeniorityDate { get; set; }
         }
 
         /// <summary>
@@ -5152,7 +5168,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public record I18n
                     {
                         /// <summary>
-                        /// <para>语言</para>
+                        /// <para>语言编码（IETF BCP 47）</para>
                         /// <para>必填：是</para>
                         /// <para>示例值：zh-CN</para>
                         /// </summary>
@@ -5160,9 +5176,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                         public string Lang { get; set; } = string.Empty;
 
                         /// <summary>
-                        /// <para>内容</para>
+                        /// <para>文本内容</para>
                         /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
+                        /// <para>示例值：中文示例</para>
                         /// </summary>
                         [JsonPropertyName("value")]
                         public string Value { get; set; } = string.Empty;
@@ -5277,7 +5293,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
             public record I18n
             {
                 /// <summary>
-                /// <para>语言</para>
+                /// <para>语言编码（IETF BCP 47）</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
@@ -5285,9 +5301,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>内容</para>
+                /// <para>文本内容</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：张三</para>
+                /// <para>示例值：中文示例</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
@@ -5346,7 +5362,7 @@ public record PostCorehrV2PreHiresSearchResponseDto
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>语言</para>
+                    /// <para>语言编码（IETF BCP 47）</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
@@ -5354,9 +5370,9 @@ public record PostCorehrV2PreHiresSearchResponseDto
                     public string Lang { get; set; } = string.Empty;
 
                     /// <summary>
-                    /// <para>内容</para>
+                    /// <para>文本内容</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
+                    /// <para>示例值：中文示例</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;

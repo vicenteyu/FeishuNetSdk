@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-20
+// Last Modified On : 2024-09-24
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -21886,7 +21886,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7072646256338894849</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除国家证件类型。</para>
+    /// <para>删除国家证件类型，已删除的数据将无法通过查询接口获取。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:common_data.preset_data:write</item>
     /// <item>corehr:corehr</item>
@@ -36994,6 +36994,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:employment.position:read</item>
     /// <item>corehr:employment.position:write</item>
     /// <item>corehr:employment.recruitment_project_id:read</item>
+    /// <item>corehr:employment.seniority_date:write</item>
     /// <item>corehr:job_data.work_shift:read</item>
     /// <item>corehr:person.address:read</item>
     /// <item>corehr:person.address:write</item>
@@ -37031,6 +37032,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:person.martyr_family:write</item>
     /// <item>corehr:person.national_id:read</item>
     /// <item>corehr:person.national_id:write</item>
+    /// <item>corehr:person.nationality:read</item>
+    /// <item>corehr:person.nationality:write</item>
     /// <item>corehr:person.native_region:read</item>
     /// <item>corehr:person.native_region:write</item>
     /// <item>corehr:person.passport_number:read</item>
@@ -41907,6 +41910,302 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
+    /// <para>【飞书低代码平台】删除记录</para>
+    /// <para>接口ID：7384730094872936476</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object-record/delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除对象中的指定记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:object.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="object_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>对象唯一标识</para>
+    /// <para>示例值：user</para>
+    /// </param>
+    /// <param name="id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>记录ID</para>
+    /// <para>示例值：1764024447556775</para>
+    /// </param>
+    [HttpDelete("/open-apis/apaas/v1/applications/{namespace}/objects/{object_api_name}/records/{id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsByIdAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string object_api_name,
+        [PathQuery] string id);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】新建记录</para>
+    /// <para>接口ID：7384730094872952860</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object-record/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>在对象中新建记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:object.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="object_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>对象唯一标识</para>
+    /// <para>示例值：user</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/applications/{namespace}/objects/{object_api_name}/records")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsResponseDto>> PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string object_api_name,
+        [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】批量编辑记录</para>
+    /// <para>接口ID：7384730094872969244</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object-record/batch_update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>一次编辑多条对象中的记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:object.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="object_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>对象唯一标识</para>
+    /// <para>示例值：user</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/apaas/v1/applications/{namespace}/objects/{object_api_name}/records/batch_update")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PatchApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchUpdateResponseDto>> PatchApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchUpdateAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string object_api_name,
+        [JsonContent] AppEngine.PatchApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchUpdateBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】批量新建记录</para>
+    /// <para>接口ID：7384730094872985628</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object-record/batch_create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>一次新建多条对象中的记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:object.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="object_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>对象唯一标识</para>
+    /// <para>示例值：user</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/applications/{namespace}/objects/{object_api_name}/records/batch_create")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchCreateResponseDto>> PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchCreateAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string object_api_name,
+        [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchCreateBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】执行 OQL</para>
+    /// <para>接口ID：7384730094873002012</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object/oql_query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>在应用内执行 OQL 语句</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:object.record:read</item>
+    /// <item>app_engine:object.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/applications/{namespace}/objects/oql_query")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1ApplicationsByNamespaceObjectsOqlQueryResponseDto>> PostApaasV1ApplicationsByNamespaceObjectsOqlQueryAsync(
+        [PathQuery] string @namespace,
+        [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceObjectsOqlQueryBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】获取记录详情</para>
+    /// <para>接口ID：7384730094873018396</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object-record/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取对象中指定的记录详情</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:object.record:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="object_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>对象唯一标识</para>
+    /// <para>示例值：user</para>
+    /// </param>
+    /// <param name="id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>记录ID</para>
+    /// <para>示例值：1764024447556775</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/applications/{namespace}/objects/{object_api_name}/records/{id}/query")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsByIdQueryResponseDto>> PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsByIdQueryAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string object_api_name,
+        [PathQuery] string id,
+        [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsByIdQueryBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】编辑记录</para>
+    /// <para>接口ID：7384730094873034780</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object-record/patch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>编辑对象中的指定记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:object.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="object_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>对象唯一标识</para>
+    /// <para>示例值：user</para>
+    /// </param>
+    /// <param name="id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>记录ID</para>
+    /// <para>示例值：1764024447556775</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/apaas/v1/applications/{namespace}/objects/{object_api_name}/records/{id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsByIdAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string object_api_name,
+        [PathQuery] string id,
+        [JsonContent] AppEngine.PatchApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsByIdBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】搜索记录</para>
+    /// <para>接口ID：7384730094873051164</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object/search</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>在应用内搜索记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:object.record:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/applications/{namespace}/objects/search")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1ApplicationsByNamespaceObjectsSearchResponseDto>> PostApaasV1ApplicationsByNamespaceObjectsSearchAsync(
+        [PathQuery] string @namespace,
+        [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceObjectsSearchBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】查询记录列表</para>
+    /// <para>接口ID：7384730094873067548</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object-record/batch_query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取对象中符合指定条件的记录列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:object.record:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="object_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>目标对象的唯一标识符</para>
+    /// <para>示例值：_user</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/applications/{namespace}/objects/{object_api_name}/records/batch_query")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchQueryResponseDto>> PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchQueryAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string object_api_name,
+        [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchQueryBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】批量删除记录</para>
+    /// <para>接口ID：7384730094873083932</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object-record/batch_delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>一次删除多条对象中的记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:object.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="object_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>对象唯一标识</para>
+    /// <para>示例值：user</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpDelete("/open-apis/apaas/v1/applications/{namespace}/objects/{object_api_name}/records/batch_delete")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.DeleteApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchDeleteResponseDto>> DeleteApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchDeleteAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string object_api_name,
+        [JsonContent] AppEngine.DeleteApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchDeleteBodyDto dto);
+
+    /// <summary>
     /// <para>【招聘】查询地点列表</para>
     /// <para>接口ID：7385067676815949828</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query</para>
@@ -42607,5 +42906,162 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? department_id_type = "people_corehr_department_id");
+
+    /// <summary>
+    /// <para>【飞书低代码平台】查询角色成员信息</para>
+    /// <para>接口ID：7417675812785455107</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-role-member/get</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取角色成员详情</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:role:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="role_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>角色 API 名称</para>
+    /// <para>示例值：adminRole</para>
+    /// </param>
+    /// <param name="need_display_name">
+    /// <para>必填：否</para>
+    /// <para>是否需要公式的展示名称，便于前端展示</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="use_api_id">
+    /// <para>必填：否</para>
+    /// <para>是否使用 API ID字段作为出入参，默认值为 false</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：false</para>
+    /// </param>
+    [HttpGet("/open-apis/apaas/v1/applications/{namespace}/roles/{role_api_name}/member")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1ApplicationsByNamespaceRolesByRoleApiNameMemberResponseDto>> GetApaasV1ApplicationsByNamespaceRolesByRoleApiNameMemberAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string role_api_name,
+        [PathQuery] bool? need_display_name = null,
+        [PathQuery] bool? use_api_id = false);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】批量删除记录权限用户授权</para>
+    /// <para>接口ID：7417675812785471491</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-record_permission-member/batch_remove_authorization</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>批量删除记录权限授权</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:record_permission.member:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="record_permission_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>记录权限 API 名称</para>
+    /// <para>示例值：adminRecordPermission</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/applications/{namespace}/record_permissions/{record_permission_api_name}/member/batch_remove_authorization")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApaasV1ApplicationsByNamespaceRecordPermissionsByRecordPermissionApiNameMemberBatchRemoveAuthorizationAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string record_permission_api_name,
+        [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceRecordPermissionsByRecordPermissionApiNameMemberBatchRemoveAuthorizationBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】批量删除角色成员授权</para>
+    /// <para>接口ID：7417675812785487875</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-role-member/batch_remove_authorization</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>批量删除角色成员授权</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:role.member:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="role_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>角色 API 名称</para>
+    /// <para>示例值：adminRole</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/applications/{namespace}/roles/{role_api_name}/member/batch_remove_authorization")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApaasV1ApplicationsByNamespaceRolesByRoleApiNameMemberBatchRemoveAuthorizationAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string role_api_name,
+        [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceRolesByRoleApiNameMemberBatchRemoveAuthorizationBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】批量创建记录权限用户授权</para>
+    /// <para>接口ID：7417675812785504259</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-record_permission-member/batch_create_authorization</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>批量创建记录权限授权</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:record_permission.member:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="record_permission_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>记录权限 API 名称</para>
+    /// <para>示例值：adminRecordPermission</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/applications/{namespace}/record_permissions/{record_permission_api_name}/member/batch_create_authorization")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApaasV1ApplicationsByNamespaceRecordPermissionsByRecordPermissionApiNameMemberBatchCreateAuthorizationAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string record_permission_api_name,
+        [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceRecordPermissionsByRecordPermissionApiNameMemberBatchCreateAuthorizationBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】批量创建角色成员授权</para>
+    /// <para>接口ID：7417675812785520643</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-role-member/batch_create_authorization</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>批量创建角色成员授权</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:role.member:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_test__c</para>
+    /// </param>
+    /// <param name="role_api_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>角色 API 名称</para>
+    /// <para>示例值：adminRole</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/applications/{namespace}/roles/{role_api_name}/member/batch_create_authorization")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApaasV1ApplicationsByNamespaceRolesByRoleApiNameMemberBatchCreateAuthorizationAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string role_api_name,
+        [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceRolesByRoleApiNameMemberBatchCreateAuthorizationBodyDto dto);
 }
 

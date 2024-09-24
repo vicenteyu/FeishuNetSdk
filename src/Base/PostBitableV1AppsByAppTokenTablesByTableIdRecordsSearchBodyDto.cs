@@ -80,14 +80,14 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchBodyDto
     }
 
     /// <summary>
-    /// <para>包含条件筛选信息的对象</para>
+    /// <para>包含条件筛选信息的对象。了解如何填写 filter，参考[记录筛选参数填写指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide)。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("filter")]
     public FilterInfo? Filter { get; set; }
 
     /// <summary>
-    /// <para>包含条件筛选信息的对象</para>
+    /// <para>包含条件筛选信息的对象。了解如何填写 filter，参考[记录筛选参数填写指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide)。</para>
     /// </summary>
     public record FilterInfo
     {
@@ -135,15 +135,15 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchBodyDto
             /// <para>示例值：is</para>
             /// <para>可选值：<list type="bullet">
             /// <item>is：等于</item>
-            /// <item>isNot：不等于</item>
-            /// <item>contains：包含</item>
-            /// <item>doesNotContain：不包含</item>
+            /// <item>isNot：不等于（不支持日期字段，了解如何查询日期字段，参考[日期字段填写说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide#29d9dc89)）</item>
+            /// <item>contains：包含（不支持日期字段）</item>
+            /// <item>doesNotContain：不包含（不支持日期字段）</item>
             /// <item>isEmpty：为空</item>
             /// <item>isNotEmpty：不为空</item>
             /// <item>isGreater：大于</item>
-            /// <item>isGreaterEqual：大于等于</item>
+            /// <item>isGreaterEqual：大于等于（不支持日期字段）</item>
             /// <item>isLess：小于</item>
-            /// <item>isLessEqual：小于等于</item>
+            /// <item>isLessEqual：小于等于（不支持日期字段）</item>
             /// <item>like：LIKE 运算符。暂未支持</item>
             /// <item>in：IN 运算符。暂未支持</item>
             /// </list></para>

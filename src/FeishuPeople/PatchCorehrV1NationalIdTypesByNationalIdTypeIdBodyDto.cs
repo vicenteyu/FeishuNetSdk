@@ -67,7 +67,7 @@ public record PatchCorehrV1NationalIdTypesByNationalIdTypeIdBodyDto
     public bool? Active { get; set; }
 
     /// <summary>
-    /// <para>校验规则</para>
+    /// <para>校验规则（正则表达式），若不设置校验，可以传入".*"</para>
     /// <para>必填：否</para>
     /// <para>示例值：^\d{9}$</para>
     /// </summary>
@@ -111,14 +111,14 @@ public record PatchCorehrV1NationalIdTypesByNationalIdTypeIdBodyDto
     }
 
     /// <summary>
-    /// <para>自定义字段</para>
+    /// <para>自定义字段（暂不支持）</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("custom_fields")]
     public ObjectFieldData[]? CustomFields { get; set; }
 
     /// <summary>
-    /// <para>自定义字段</para>
+    /// <para>自定义字段（暂不支持）</para>
     /// </summary>
     public record ObjectFieldData
     {

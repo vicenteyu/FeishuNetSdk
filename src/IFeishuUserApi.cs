@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-12
+// Last Modified On : 2024-09-24
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -19022,5 +19022,131 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? wk_working_hours_type_id = null,
         [PathQuery] string? wk_job_family_id = null,
         [PathQuery] string? wk_company_id = null);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】查询审计日志列表</para>
+    /// <para>接口ID：7418119603744391171</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-audit_log/audit_log_list</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>根据搜索/筛选条件，查询审计日志列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:security.audit_log:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_aa_bb</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="offset">
+    /// <para>必填：是</para>
+    /// <para>翻页数量</para>
+    /// <para>示例值：0</para>
+    /// </param>
+    /// <param name="quick_query">
+    /// <para>必填：否</para>
+    /// <para>模糊查询</para>
+    /// <para>示例值：Intel Mac OS</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="from">
+    /// <para>必填：是</para>
+    /// <para>查询时间范围：开始时间（单位为毫秒级时间戳）</para>
+    /// <para>示例值：1723691857002</para>
+    /// </param>
+    /// <param name="to">
+    /// <para>必填：是</para>
+    /// <para>查询时间范围：结束时间（单位为毫秒级时间戳）</para>
+    /// <para>示例值：1724296657002</para>
+    /// </param>
+    /// <param name="log_type">
+    /// <para>必填：是</para>
+    /// <para>日志类型：</para>
+    /// <para>- 10000: 全部日志</para>
+    /// <para>- 10001: 企业管理日志</para>
+    /// <para>- 10002: 登录日志</para>
+    /// <para>- 10003: 应用管理日志</para>
+    /// <para>示例值：10000</para>
+    /// </param>
+    /// <param name="filter">
+    /// <para>必填：否</para>
+    /// <para>日志查询：筛选能力</para>
+    /// <para>示例值：{"items":[{"left":"eventName","operator":"=","right":[19001]}]}</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="columns">
+    /// <para>必填：否</para>
+    /// <para>日志列表：选择展示行信息，例如["opTime","appName","eventName","clientIP","operator","status"]</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="sort_by">
+    /// <para>必填：否</para>
+    /// <para>查询排序字段：可选项为操作时间（opTime）</para>
+    /// <para>示例值：opTime</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="sort_order">
+    /// <para>必填：否</para>
+    /// <para>查询排序：默认按时间从大到小；从小到大使用 asc</para>
+    /// <para>示例值：asc</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="app_type">
+    /// <para>必填：否</para>
+    /// <para>应用类型，0为apaas类型，1为aily类型</para>
+    /// <para>示例值：0</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/apaas/v1/applications/{namespace}/audit_log/audit_log_list")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1ApplicationsByNamespaceAuditLogAuditLogListResponseDto>> GetApaasV1ApplicationsByNamespaceAuditLogAuditLogListAsync(
+        UserAccessToken access_token,
+        [PathQuery] string @namespace,
+        [PathQuery] string offset,
+        [PathQuery] string from,
+        [PathQuery] string to,
+        [PathQuery] string log_type,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? quick_query = null,
+        [PathQuery] string? filter = null,
+        [PathQuery] string[]? columns = null,
+        [PathQuery] string? sort_by = null,
+        [PathQuery] string? sort_order = null,
+        [PathQuery] string? app_type = null);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】查询审计日志详情</para>
+    /// <para>接口ID：7418119603744407555</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-audit_log/get</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>根据日志 ID 查询审计日志详情</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:security.audit_log:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间</para>
+    /// <para>示例值：package_aaa</para>
+    /// </param>
+    /// <param name="log_id">
+    /// <para>必填：是</para>
+    /// <para>审计日志ID信息（通过[查询审计日志列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-audit_log/audit_log_list)获取单条日志ID）</para>
+    /// <para>示例值：7405456257290600492</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/apaas/v1/applications/{namespace}/audit_log")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1ApplicationsByNamespaceAuditLogResponseDto>> GetApaasV1ApplicationsByNamespaceAuditLogAsync(
+        UserAccessToken access_token,
+        [PathQuery] string @namespace,
+        [PathQuery] string log_id);
 }
 

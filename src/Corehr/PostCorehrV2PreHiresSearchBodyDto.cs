@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-01
+// Last Modified On : 2024-09-24
 // ************************************************************************
 // <copyright file="PostCorehrV2PreHiresSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -38,6 +38,14 @@ public record PostCorehrV2PreHiresSearchBodyDto
     /// </summary>
     [JsonPropertyName("pre_hire_ids")]
     public string[]? PreHireIds { get; set; }
+
+    /// <summary>
+    /// <para>个人信息 ID 列表，可以通过[【事件】更新个人信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/events/updated)获取</para>
+    /// <para>必填：否</para>
+    /// <para>最大长度：100</para>
+    /// </summary>
+    [JsonPropertyName("person_ids")]
+    public string[]? PersonIds { get; set; }
 
     /// <summary>
     /// <para>入职日期（搜索的起始时间），需要与入职日期（onboarding_date_end）一同使用，不填写则不根据入职日期过滤。</para>

@@ -42,7 +42,7 @@ public record GetCorehrV1NationalIdTypesResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>国家 / 地区</para>
+        /// <para>国家 / 地区ID，可通过[查询国家/地区信息]()获取对应的国家/地区信息</para>
         /// <para>必填：是</para>
         /// <para>示例值：6862995747139225096</para>
         /// </summary>
@@ -87,7 +87,7 @@ public record GetCorehrV1NationalIdTypesResponseDto
         public bool Active { get; set; }
 
         /// <summary>
-        /// <para>校验规则</para>
+        /// <para>校验规则（正则表达式）</para>
         /// <para>必填：是</para>
         /// <para>示例值：^\d{9}$</para>
         /// </summary>
@@ -160,14 +160,14 @@ public record GetCorehrV1NationalIdTypesResponseDto
         }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（暂不支持）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（暂不支持）</para>
         /// </summary>
         public record ObjectFieldData
         {
