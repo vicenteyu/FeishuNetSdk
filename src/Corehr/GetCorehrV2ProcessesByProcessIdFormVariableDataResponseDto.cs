@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-01
+// Last Modified On : 2024-09-27
 // ************************************************************************
 // <copyright file="GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -224,8 +224,8 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
-            [JsonPropertyName("record_value")]
-            public FieldVariableValueToRecord? RecordValue { get; set; }
+            [JsonPropertyName("record_values")]
+            public FieldVariableValueToRecord[]? RecordValues { get; set; }
 
             /// <summary>
             /// <para>记录类型字段值</para>
@@ -241,12 +241,12 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 public string? VariableApiName { get; set; }
 
                 /// <summary>
-                /// <para>变量值，对应 sub_values 中的 key</para>
+                /// <para>变量值，对应subValues中的key</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：key1</para>
                 /// </summary>
-                [JsonPropertyName("variable_value")]
-                public string? VariableValue { get; set; }
+                [JsonPropertyName("sub_value_key")]
+                public string? SubValueKey { get; set; }
             }
 
             /// <summary>
@@ -254,6 +254,8 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
             /// <para>可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search) 或 [批量查询员工信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询详情。</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_c57053dad6eea0aea4696c48433d8562</para>
+            /// <para>最大长度：10000</para>
+            /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("employment_value")]
             public string? EmploymentValue { get; set; }
@@ -483,8 +485,8 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：1</para>
                 /// </summary>
-                [JsonPropertyName("record_value")]
-                public FieldVariableValueToRecord? RecordValue { get; set; }
+                [JsonPropertyName("record_values")]
+                public FieldVariableValueToRecord[]? RecordValues { get; set; }
 
                 /// <summary>
                 /// <para>记录类型字段值</para>
@@ -500,12 +502,12 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                     public string? VariableApiName { get; set; }
 
                     /// <summary>
-                    /// <para>变量值，对应 sub_values 中的 key</para>
+                    /// <para>变量值，对应subValues中的key</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：key1</para>
                     /// </summary>
-                    [JsonPropertyName("variable_value")]
-                    public string? VariableValue { get; set; }
+                    [JsonPropertyName("sub_value_key")]
+                    public string? SubValueKey { get; set; }
                 }
 
                 /// <summary>
@@ -513,6 +515,8 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
                 /// <para>可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search) 或 [批量查询员工信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询详情。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：ou_c57053dad6eea0aea4696c48433d8562</para>
+                /// <para>最大长度：10000</para>
+                /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("employment_value")]
                 public string? EmploymentValue { get; set; }

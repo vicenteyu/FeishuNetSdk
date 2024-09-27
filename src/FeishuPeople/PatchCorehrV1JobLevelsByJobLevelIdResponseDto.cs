@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-09-27
 // ************************************************************************
 // <copyright file="PatchCorehrV1JobLevelsByJobLevelIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -129,5 +129,12 @@ public record PatchCorehrV1JobLevelsByJobLevelIdResponseDto
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
+
+        /// <summary>
+        /// <para>职等 ID 列表</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("job_grade")]
+        public string[]? JobGrade { get; set; }
     }
 }

@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-01
+// Last Modified On : 2024-09-27
 // ************************************************************************
 // <copyright file="ThirdPartyMeetingRoomEventCreatedEventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.MeetingRoom.Events;
 /// <summary>
 /// 第三方会议室日程变动 事件体
-/// <para>当添加了第三方会议室的日程发生变动时（创建/更新/删除）触发此事件。</para>
+/// <para>当添加了第三方会议室的日程发生变动时（创建/更新/删除）触发此事件，其中更新日程时，仅当更新日程时间后触发此事件。</para>
 /// <para>了解事件订阅的使用场景和配置流程，可参见[事件订阅概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。</para>
 /// <para>接口ID：7047356600295014404</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/meeting-room-event/event/third-room-event-changes</para>

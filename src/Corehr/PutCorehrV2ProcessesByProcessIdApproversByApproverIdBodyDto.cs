@@ -36,7 +36,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
     public int Status { get; set; }
 
     /// <summary>
-    /// <para>用户id，按user_id_type类型传递。如果system_approval为false，则必填；为true时非必填。</para>
+    /// <para>用户id，按user_id_type类型传递。如果system_approval为false，则必填审批任务“approver_id”对应的原审批人的user_id；为true时非必填。</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_91791271921729102012</para>
     /// </summary>
@@ -45,7 +45,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
 
     /// <summary>
     /// <para>是否为系统身份审批。</para>
-    /// <para>true - 使用系统身份审批；false - 按照所传的人员身份审批</para>
+    /// <para>true - 使用系统身份审批，若使用系统身份，将代替approver_id对应的原审批人进行审批，原审批人将失去审批任务的查看权限；false - 按照所传的人员身份审批</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// <para>默认值：false</para>

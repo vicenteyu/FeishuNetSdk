@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-24
+// Last Modified On : 2024-09-27
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -11153,7 +11153,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【汇报】查询任务</para>
     /// <para>接口ID：6969187588792369180</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/report/report-v1/task/query</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>查询任务。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>report:task:readonly</item>
@@ -13274,6 +13274,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于根据文件的 token 给用户增加文档的权限。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 目前不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限），如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到一个群内，再使用群内用户的 `user_access_token` 身份将开放平台群组 ID `openchat` 添加为文件夹协作者。</para>
+    /// <para>- 使用 `tenant access token` 身份操作时，无法使用部门 ID `opendepartmentid` 添加文档协作者。</para>
+    /// <para>- 使用 `tenant access token` 身份操作时，`need_notification` 参数不生效，默认不通知。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:bitable</item>
@@ -13310,8 +13314,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="need_notification">
     /// <para>必填：否</para>
-    /// <para>添加权限后是否通知对方</para>
-    /// <para>**注意：** 使用`tenant_access_token`访问不支持该参数</para>
+    /// <para>仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时有效，添加权限后是否通知对方</para>
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
     /// </param>
@@ -16907,7 +16910,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7017694651621900292</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除人员类型。</para>
+    /// <para>删除人员类型。删除之后查询接口不能获取到已删除的数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:common_data.preset_data:write</item>
     /// <item>corehr:corehr</item>
@@ -19978,9 +19981,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044465232156999708</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/add_to_folder</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>将人才加入指定文件夹。</para>
+    /// <para>根据人才 ID 列表将人才加入指定文件夹。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:talent</item>
+    /// <item>hire:talent_folder_association</item>
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -27486,7 +27490,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="employment_id_list">
     /// <para>必填：否</para>
-    /// <para>员工 ID 列表，最大 100 个（不传则默认查询全部员工），对应user_id_type</para>
+    /// <para>员工 ID 列表，最大 100 个（不传则默认查询全部员工），对应user_id_type。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如employment_id_list=6919733291281024522&amp;employment_id_list=6919733291281024523</para>
     /// <para>示例值：["6919733291281024526"]</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -27602,19 +27606,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="employment_id_list">
     /// <para>必填：否</para>
-    /// <para>员工 ID 列表，最大 100 个（不传则默认查询全部员工），ID 类型与 user_id_type 一致</para>
+    /// <para>员工 ID 列表，最大 100 个（不传则默认查询全部员工），ID 类型与 user_id_type 一致。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如employment_id_list=6919733291281024522&amp;employment_id_list=6919733291281024523</para>
     /// <para>示例值：["6919733291281024526"]</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="initiator_id_list">
     /// <para>必填：否</para>
-    /// <para>休假发起人 ID 列表，最大 100 个，ID 类型与 user_id_type 一致</para>
+    /// <para>休假发起人 ID 列表，最大 100 个，ID 类型与 user_id_type 一致。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如employment_id_list=6919733291281024522&amp;employment_id_list=6919733291281024523</para>
     /// <para>示例值：["6919733291281024526"]</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="leave_request_status">
     /// <para>必填：否</para>
-    /// <para>请假记录的状态，不填为不过滤状态</para>
+    /// <para>请假记录的状态，不填为不过滤状态。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如leave_request_status =1&amp;leave_request_status=2</para>
     /// <para>可选值有：</para>
     /// <para>- 1：已通过</para>
     /// <para>- 2：审批中</para>
@@ -27630,7 +27634,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="leave_type_id_list">
     /// <para>必填：否</para>
-    /// <para>假期类型 ID 列表，枚举值可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)接口获取</para>
+    /// <para>假期类型 ID 列表，枚举值可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)接口获取。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如leave_type_id_list =4718803945687580501&amp;leave_type_id_list=4718803945687580500</para>
     /// <para>示例值：["1"]</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -34826,7 +34830,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7252281835550867458</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/deactivate</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>停用后，对应的内推账号信息将无法通过接口[「内推账户余额变更事件」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/events/assets_update)、[「提取内推账号余额」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/withdraw)获取、修改</para>
+    /// <para>停用内推账户，停用后，将不再发送[「内推账户余额变更事件」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/events/assets_update)，也无法通过[「提取内推账号余额」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/withdraw)提取。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:referral_account</item>
     /// </list></para>
@@ -34846,9 +34850,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7252281835550883842</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/withdraw</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过账号 ID 全额提取内推账号下的积分。全额提现后，内推人在飞书招聘系统中的积分余额会变为 0，对应的积分奖励状态也会变为「已发放」。</para>
-    /// <para>## 前提条件</para>
-    /// <para>调用前，请确认已完成[注册内推账户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create)并获取到账号 ID。</para>
+    /// <para>通过账户 ID 全额提取内推账户下的积分/现金。全额提现后，内推人在飞书招聘系统中的积分/现金余额会变为 0，对应的积分/现金奖励状态也会变为「已发放」。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:referral_account</item>
     /// </list></para>
@@ -34885,7 +34887,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7252281835550932994</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过内推人的手机号或邮箱注册「内推奖励账号」。注册后，可获取对应内推人的账号 ID、积分。并查询、操作对应内推人的奖励余额，配合接口：[「内推账户余额变更事件」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/events/assets_update)、[「全额提取内推账号余额」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/withdraw)。如需停用账户，可调用[「停用内推账户」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/deactivate)。</para>
+    /// <para>通过内推人的手机号或邮箱注册「内推奖励账户」。注册后，可通过[查询内推账户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/get_account_assets)接口获取内推账户 ID、积分余额、现金余额等，可通过[「全额提取内推账号余额」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/withdraw)接口提取账户余额，可通过[启动内推账户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/enable)、[「停用内推账户」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/deactivate)接口启/停用账户。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:referral_account</item>
     /// </list></para>
@@ -37749,11 +37751,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7275544940596789251</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>批量获取周期的基本信息，如周期的名称、类型等信息。支持设置时间段、周期年分、周期类型等过滤条件进行筛选。</para>
+    /// <para>批量获取周期的基本信息，如周期的名称、类型等信息。支持根据时间段、周期年份、周期类型等过滤条件进行筛选。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>performance:performance</item>
     /// <item>performance:performance:readonly</item>
     /// <item>performance:semester:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="start_time">
@@ -37822,13 +37827,25 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
     [HttpGet("/open-apis/performance/v1/semesters")]
     System.Threading.Tasks.Task<FeishuResponse<Performance.GetPerformanceV1SemestersResponseDto>> GetPerformanceV1SemestersAsync(
         [PathQuery] string? start_time = null,
         [PathQuery] string? end_time = null,
         [PathQuery] int? year = null,
         [PathQuery] string? type_group = null,
-        [PathQuery] string? type = null);
+        [PathQuery] string? type = null,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【绩效】获取周期任务（指定用户）</para>
@@ -38173,6 +38190,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/batch_create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口可根据云文档 token 批量将用户添加为云文档的协作者。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 调用该接口需要调用身份有该云文档添加协作者的权限。</para>
+    /// <para>- 添加协作者的权限可通过云文档设置中的「谁可以查看、添加、移除协作者」等选项进行控制。</para>
+    /// <para>- 调用该接口时，需要调用身份与被授权对象满足 **可见性** ，例如：</para>
+    /// <para>- 添加用户协作者：需要调用身份与被授权对象为联系人或同组织内可搜索，且互相未屏蔽。</para>
+    /// <para>- 添加群协作者：需要调用身份在群内。如果使 `tenant_access_token` 添加群协作者，则需要将应用先添加到群机器人中使应用对群可见。</para>
+    /// <para>- 添加部门协作者：需要调用身份对部门可见。由于应用对企业内的组织架构都不可见，所以暂不支持通过 `tenant_access_token` 添加部门协作者。</para>
+    /// <para>- 使用 `tenant access token` 身份操作时，`need_notification` 参数不生效，默认不通知。</para>
+    /// <para>- 目前还不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限），如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到一个群内，再使用群内用户的 `user_access_token` 身份将开放平台群组 ID `openchat` 添加为文件夹协作者。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:permission.member</item>
     /// <item>docs:permission.member:create</item>
@@ -43063,5 +43089,54 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string @namespace,
         [PathQuery] string role_api_name,
         [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceRolesByRoleApiNameMemberBatchCreateAuthorizationBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】获取指定人员审批任务列表</para>
+    /// <para>接口ID：7419213540896423940</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process_approver/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>审批任务依赖于流程节点实例存在，每一个流程节点实例可能包含有一或多个审批任务，每一个任务表明当前节点的审批人是谁，该接口可获取指定人员的审批任务列表。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:process:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：20</para>
+    /// <para>默认值：20</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：1</para>
+    /// <para>默认值：1</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="user_id">
+    /// <para>必填：是</para>
+    /// <para>指定人员id，按user_id_type类型传递。</para>
+    /// <para>示例值：ou_91791271921729102012</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v2/approvers")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2ApproversResponseDto>> GetCorehrV2ApproversAsync(
+        [PathQuery] string user_id,
+        [PathQuery] int page_size = 20,
+        [PathQuery] string? page_token = "1",
+        [PathQuery] string? user_id_type = "open_id");
 }
 

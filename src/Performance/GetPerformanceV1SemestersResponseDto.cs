@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-09-27
 // ************************************************************************
 // <copyright file="GetPerformanceV1SemestersResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Performance;
 /// <summary>
 /// 获取周期列表 响应体
-/// <para>批量获取周期的基本信息，如周期的名称、类型等信息。支持设置时间段、周期年分、周期类型等过滤条件进行筛选。</para>
+/// <para>批量获取周期的基本信息，如周期的名称、类型等信息。支持根据时间段、周期年份、周期类型等过滤条件进行筛选。</para>
 /// <para>接口ID：7275544940596789251</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v1%2fsemester%2flist</para>
@@ -95,6 +95,18 @@ public record GetPerformanceV1SemestersResponseDto
         }
 
         /// <summary>
+        /// <para>周期状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：enabled</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>initiating：初始化</item>
+        /// <item>enabled：已启动</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("progress")]
+        public string? Progress { get; set; }
+
+        /// <summary>
         /// <para>周期开始时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1625068800000</para>
@@ -117,5 +129,29 @@ public record GetPerformanceV1SemestersResponseDto
         /// </summary>
         [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
+
+        /// <summary>
+        /// <para>周期更新时间，毫秒时间戳</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1625068800000</para>
+        /// </summary>
+        [JsonPropertyName("modify_time")]
+        public string? ModifyTime { get; set; }
+
+        /// <summary>
+        /// <para>周期创建人 ID，与入参 `user_id_type` 类型一致</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
+        /// </summary>
+        [JsonPropertyName("create_user_id")]
+        public string? CreateUserId { get; set; }
+
+        /// <summary>
+        /// <para>周期更新人 ID，与入参 `user_id_type` 类型一致</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
+        /// </summary>
+        [JsonPropertyName("modify_user_id")]
+        public string? ModifyUserId { get; set; }
     }
 }

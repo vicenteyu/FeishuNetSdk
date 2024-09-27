@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-09-27
 // ************************************************************************
 // <copyright file="PostReportV1TasksQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -118,6 +118,35 @@ public record PostReportV1TasksQueryResponseDto
             [JsonPropertyName("field_value")]
             public string? FieldValue { get; set; }
         }
+
+        /// <summary>
+        /// <para>汇报规则ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6968793659214921747</para>
+        /// </summary>
+        [JsonPropertyName("rule_id")]
+        public string? RuleId { get; set; }
+
+        /// <summary>
+        /// <para>汇报用户部门id</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("department_ids")]
+        public string[]? DepartmentIds { get; set; }
+
+        /// <summary>
+        /// <para>汇报给谁</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("to_user_ids")]
+        public string[]? ToUserIds { get; set; }
+
+        /// <summary>
+        /// <para>汇报给谁的名字</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("to_user_names")]
+        public string[]? ToUserNames { get; set; }
     }
 
     /// <summary>

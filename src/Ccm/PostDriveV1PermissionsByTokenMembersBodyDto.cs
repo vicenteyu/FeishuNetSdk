@@ -15,6 +15,10 @@ namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 增加协作者权限 请求体
 /// <para>该接口用于根据文件的 token 给用户增加文档的权限。</para>
+/// <para>## 注意事项</para>
+/// <para>- 目前不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限），如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到一个群内，再使用群内用户的 `user_access_token` 身份将开放平台群组 ID `openchat` 添加为文件夹协作者。</para>
+/// <para>- 使用 `tenant access token` 身份操作时，无法使用部门 ID `opendepartmentid` 添加文档协作者。</para>
+/// <para>- 使用 `tenant access token` 身份操作时，`need_notification` 参数不生效，默认不通知。</para>
 /// <para>接口ID：6987581166854635521</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-member%2fcreate</para>
@@ -30,7 +34,7 @@ public record PostDriveV1PermissionsByTokenMembersBodyDto
     /// <item>openid：应用或用户的 Open ID。 - 获取应用 OpenID，参考[如何获取应用 open_id](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#6dbaa8df) - 获取用户 OpenID，参考[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</item>
     /// <item>unionid：开放平台 UnionID</item>
     /// <item>openchat：开放平台群组 ID</item>
-    /// <item>opendepartmentid：开放平台部门 ID</item>
+    /// <item>opendepartmentid：开放平台部门 ID。仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时有效</item>
     /// <item>userid：用户自定义 ID</item>
     /// <item>groupid：自定义用户组 ID</item>
     /// <item>wikispaceid：知识空间 ID - **注意**：仅知识库文档支持该参数，当需要操作知识库文档里的「知识库成员」类型协作者时传该参数</item>

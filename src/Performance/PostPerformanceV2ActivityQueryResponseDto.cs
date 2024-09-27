@@ -4,7 +4,7 @@
 // Created          : 2024-07-02
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-02
+// Last Modified On : 2024-09-27
 // ************************************************************************
 // <copyright file="PostPerformanceV2ActivityQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -37,8 +37,6 @@ public record PostPerformanceV2ActivityQueryResponseDto
         /// <para>项目 ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：7343513161666707459</para>
-        /// <para>最大长度：999999999</para>
-        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;
@@ -59,8 +57,6 @@ public record PostPerformanceV2ActivityQueryResponseDto
             /// <para>项目中文名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：项目一</para>
-            /// <para>最大长度：999999999</para>
-            /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("zh_cn")]
             public string? ZhCn { get; set; }
@@ -69,19 +65,22 @@ public record PostPerformanceV2ActivityQueryResponseDto
             /// <para>项目英文名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：Activity 1</para>
-            /// <para>最大长度：999999999</para>
-            /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
         }
 
         /// <summary>
+        /// <para>项目描述</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("description")]
+        public I18n? Description { get; set; }
+
+        /// <summary>
         /// <para>周期 ID，详情可查看：[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)</para>
         /// <para>必填：否</para>
         /// <para>示例值：7343513161666707459</para>
-        /// <para>最大长度：999999999</para>
-        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("semester_id")]
         public string? SemesterId { get; set; }
@@ -90,8 +89,6 @@ public record PostPerformanceV2ActivityQueryResponseDto
         /// <para>项目模式</para>
         /// <para>必填：否</para>
         /// <para>示例值：performance_review</para>
-        /// <para>最大长度：999999999</para>
-        /// <para>最小长度：0</para>
         /// <para>可选值：<list type="bullet">
         /// <item>metric_development：指标制定</item>
         /// <item>performance_review：绩效评估</item>
@@ -100,5 +97,36 @@ public record PostPerformanceV2ActivityQueryResponseDto
         /// </summary>
         [JsonPropertyName("mode")]
         public string? Mode { get; set; }
+
+        /// <summary>
+        /// <para>项目状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：configurable</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>configurable：待完成配置</item>
+        /// <item>unable：未启动</item>
+        /// <item>initiating：启动中</item>
+        /// <item>enabled：已启动</item>
+        /// <item>finished：已结束</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("progress")]
+        public string? Progress { get; set; }
+
+        /// <summary>
+        /// <para>项目创建时间，毫秒时间戳</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1691951256000</para>
+        /// </summary>
+        [JsonPropertyName("create_time")]
+        public string? CreateTime { get; set; }
+
+        /// <summary>
+        /// <para>项目更新时间，毫秒时间戳</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1691951256000</para>
+        /// </summary>
+        [JsonPropertyName("modify_time")]
+        public string? ModifyTime { get; set; }
     }
 }

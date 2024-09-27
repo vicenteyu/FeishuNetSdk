@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-01
+// Last Modified On : 2024-09-27
 // ************************************************************************
 // <copyright file="GetCorehrV2ProcessesByProcessIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -610,6 +610,14 @@ public record GetCorehrV2ProcessesByProcessIdResponseDto
         /// </summary>
         [JsonPropertyName("node_definition_id")]
         public string? NodeDefinitionId { get; set; }
+
+        /// <summary>
+        /// <para>审批意见</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：审批意见</para>
+        /// </summary>
+        [JsonPropertyName("approval_opinion")]
+        public string? ApprovalOpinion { get; set; }
     }
 
     /// <summary>
@@ -619,6 +627,7 @@ public record GetCorehrV2ProcessesByProcessIdResponseDto
     /// <para>可选值：<list type="bullet">
     /// <item>1：普通流程</item>
     /// <item>2：撤销流程</item>
+    /// <item>3：更正流程</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("properties")]
@@ -888,5 +897,95 @@ public record GetCorehrV2ProcessesByProcessIdResponseDto
         /// </summary>
         [JsonPropertyName("node_definition_id")]
         public string? NodeDefinitionId { get; set; }
+
+        /// <summary>
+        /// <para>审批意见</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：审批意见</para>
+        /// </summary>
+        [JsonPropertyName("approval_opinion")]
+        public string? ApprovalOpinion { get; set; }
     }
+
+    /// <summary>
+    /// <para>评论列表</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("comment_infos")]
+    public ProcessCommentInfo[]? CommentInfos { get; set; }
+
+    /// <summary>
+    /// <para>评论列表</para>
+    /// </summary>
+    public record ProcessCommentInfo
+    {
+        /// <summary>
+        /// <para>评论人ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7355397217231831060</para>
+        /// </summary>
+        [JsonPropertyName("commentor_id")]
+        public string? CommentorId { get; set; }
+
+        /// <summary>
+        /// <para>评论人姓名</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("commentor_name")]
+        public DataengineI18n? CommentorName { get; set; }
+
+        /// <summary>
+        /// <para>评论人姓名</para>
+        /// </summary>
+        public record DataengineI18n
+        {
+            /// <summary>
+            /// <para>中文值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：中文</para>
+            /// </summary>
+            [JsonPropertyName("zh_cn")]
+            public string? ZhCn { get; set; }
+
+            /// <summary>
+            /// <para>英文值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：English</para>
+            /// </summary>
+            [JsonPropertyName("en_us")]
+            public string? EnUs { get; set; }
+        }
+
+        /// <summary>
+        /// <para>评论时间,Unix毫秒时间戳</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1694769814036</para>
+        /// </summary>
+        [JsonPropertyName("comment_time")]
+        public string? CommentTime { get; set; }
+
+        /// <summary>
+        /// <para>评论内容</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：评论内容</para>
+        /// </summary>
+        [JsonPropertyName("comment_msg")]
+        public string? CommentMsg { get; set; }
+    }
+
+    /// <summary>
+    /// <para>更正流程原流程ID</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：7278949005675988535</para>
+    /// </summary>
+    [JsonPropertyName("original_process_id")]
+    public string? OriginalProcessId { get; set; }
+
+    /// <summary>
+    /// <para>是否最新的「已完成」的更正流程</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：false</para>
+    /// </summary>
+    [JsonPropertyName("is_last_completed_correct_process")]
+    public bool? IsLastCompletedCorrectProcess { get; set; }
 }

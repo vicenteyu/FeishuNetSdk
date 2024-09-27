@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-01
+// Last Modified On : 2024-09-27
 // ************************************************************************
 // <copyright file="CorehrProcessUpdatedV2EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -63,4 +63,18 @@ public record CorehrProcessUpdatedV2EventBodyDto() : EventBodyDto("corehr.proces
     /// </summary>
     [JsonPropertyName("flow_definition_id")]
     public string? FlowDefinitionId { get; set; }
+
+    /// <summary>
+    /// <para>流程属性</para>
+    /// <para>**可选值有**：</para>
+    /// <para>1:普通流程,2:撤销流程,3:更正流程</para>
+    /// <para>必填：否</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>1：普通流程</item>
+    /// <item>2：撤销流程</item>
+    /// <item>3：更正流程</item>
+    /// </list></para>
+    /// </summary>
+    [JsonPropertyName("properties")]
+    public int? Properties { get; set; }
 }

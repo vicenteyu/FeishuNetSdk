@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 将人才加入指定文件夹 响应体
-/// <para>将人才加入指定文件夹。</para>
+/// <para>根据人才 ID 列表将人才加入指定文件夹。</para>
 /// <para>接口ID：7044465232156999708</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent/add_to_folder</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent%2fadd_to_folder</para>
@@ -22,9 +22,9 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1TalentsAddToFolderResponseDto
 {
     /// <summary>
-    /// <para>人才 ID 列表</para>
+    /// <para>人才 ID 列表，详情请查看：[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)</para>
     /// <para>必填：否</para>
-    /// <para>最大长度：50</para>
+    /// <para>最大长度：200</para>
     /// </summary>
     [JsonPropertyName("talent_id_list")]
     public string[]? TalentIdList { get; set; }
