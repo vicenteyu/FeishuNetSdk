@@ -46,14 +46,16 @@ public record PostCorehrV2EmployeesBodyDto
         public record ProfileSettingPersonalBasicInfo
         {
             /// <summary>
-            /// <para>法定姓名</para>
+            /// <para>法定姓名。</para>
+            /// <para>- [【飞书人事姓名填写规则】](https://bytedance.larkoffice.com/wiki/Am1Zwgjj0imm8OkfICucBqRDnbh)</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("legal_name")]
             public ProfileSettingName? LegalName { get; set; }
 
             /// <summary>
-            /// <para>法定姓名</para>
+            /// <para>法定姓名。</para>
+            /// <para>- [【飞书人事姓名填写规则】](https://bytedance.larkoffice.com/wiki/Am1Zwgjj0imm8OkfICucBqRDnbh)</para>
             /// </summary>
             public record ProfileSettingName
             {
@@ -229,7 +231,8 @@ public record PostCorehrV2EmployeesBodyDto
             }
 
             /// <summary>
-            /// <para>常用姓名</para>
+            /// <para>常用姓名。</para>
+            /// <para>- [【飞书人事姓名填写规则】](https://bytedance.larkoffice.com/wiki/Am1Zwgjj0imm8OkfICucBqRDnbh)</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("preferred_name")]
@@ -477,7 +480,7 @@ public record PostCorehrV2EmployeesBodyDto
             /// <summary>
             /// <para>关系</para>
             /// <para>枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-            /// <para>- object_api_name = "emergency_contract"</para>
+            /// <para>- object_api_name = "emergency_contact"</para>
             /// <para>- custom_api_name = "relationship"</para>
             /// <para>必填：否</para>
             /// <para>示例值：parent</para>
@@ -1204,7 +1207,8 @@ public record PostCorehrV2EmployeesBodyDto
             {
                 /// <summary>
                 /// <para>文件 ID</para>
-                /// <para>可通过[【上传文件】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/upload)接口获取</para>
+                /// <para>- 可通过[【上传文件】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/upload)接口获取</para>
+                /// <para>- 只传该字段即可，大小、类型等字段可以不传递</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200</para>
                 /// </summary>
@@ -2798,7 +2802,8 @@ public record PostCorehrV2EmployeesBodyDto
             {
                 /// <summary>
                 /// <para>文件 ID</para>
-                /// <para>可通过[【上传文件】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/upload)接口获取</para>
+                /// <para>- 可通过[【上传文件】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/upload)接口获取</para>
+                /// <para>- 只传该字段即可，大小、类型等字段可以不传递</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200</para>
                 /// </summary>

@@ -139,7 +139,7 @@ public record PatchCorehrV1JobDatasByJobDataIdResponseDto
         public string EmploymentId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>生效时间</para>
+        /// <para>任职记录版本的生效时间</para>
         /// <para>必填：是</para>
         /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>
@@ -147,7 +147,7 @@ public record PatchCorehrV1JobDatasByJobDataIdResponseDto
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>失效时间</para>
+        /// <para>任职记录版本的失效时间</para>
         /// <para>必填：否</para>
         /// <para>示例值：2020-05-02 00:00:00</para>
         /// </summary>

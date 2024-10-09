@@ -849,8 +849,8 @@
 <tr><td colspan="3">GetDriveV1Files</td></tr>
 <tr><td rowspan="2">425</td><td rowspan="2">2024-08-12</td><td>&#10003;</td><td>云文档</td><td>获取文件夹元数据</td></tr>
 <tr><td colspan="3">GetDriveExplorerV2FolderByFolderTokenMeta</td></tr>
-<tr><td rowspan="2">426</td><td rowspan="2">2024-07-09</td><td>&#10003;</td><td>通讯录</td><td>搜索用户</td></tr>
-<tr><td colspan="3">GetHttpsbyOpenLarkofficeComSearchV1User</td></tr>
+<tr><td rowspan="2">426</td><td rowspan="2">2024-10-08</td><td>&#10003;</td><td>通讯录</td><td>搜索用户</td></tr>
+<tr><td colspan="3">GetSearchV1User</td></tr>
 <tr><td rowspan="2">427</td><td rowspan="2">2024-09-03</td><td>&#10003;</td><td>云文档</td><td>新建文件夹</td></tr>
 <tr><td colspan="3">PostDriveV1FilesCreateFolder</td></tr>
 <tr><td rowspan="2">428</td><td rowspan="2">2024-05-29</td><td>&#10003;</td><td>云文档</td><td>获取文件元数据</td></tr>
@@ -1055,6 +1055,6 @@
 <tr><td colspan="3">GetApaasV1ApplicationsByNamespaceAuditLogAuditLogList</td></tr>
 <tr><td rowspan="2">528</td><td rowspan="2">2024-09-24</td><td>&#10003;</td><td>飞书低代码平台</td><td>查询审计日志详情</td></tr>
 <tr><td colspan="3">GetApaasV1ApplicationsByNamespaceAuditLog</td></tr>
-<tr><td rowspan="2">529</td><td rowspan="2">2024-09-26</td><td>新增</td><td>汇报</td><td>查询任务</td></tr>
+<tr><td rowspan="2">529</td><td rowspan="2">2024-09-26</td><td>&#10003;</td><td>汇报</td><td>查询任务</td></tr>
 <tr><td colspan="3">PostReportV1TasksQuery</td></tr>
 </tbody></table>

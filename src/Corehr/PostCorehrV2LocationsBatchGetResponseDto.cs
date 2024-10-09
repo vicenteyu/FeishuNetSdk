@@ -62,14 +62,14 @@ public record PostCorehrV2LocationsBatchGetResponseDto
             public string? ParentId { get; set; }
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>地点名称</para>
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("name")]
             public I18n[] Names { get; set; } = Array.Empty<I18n>();
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>地点名称</para>
             /// </summary>
             public record I18n
             {
@@ -104,7 +104,9 @@ public record PostCorehrV2LocationsBatchGetResponseDto
             public record Enum
             {
                 /// <summary>
-                /// <para>组织类型，默认值为 location， 枚举值及详细信息可通过[【批量查询枚举类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)接口查询获得</para>
+                /// <para>地点类型 ，枚举值及详细信息可通过[【批量查询枚举信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。</para>
+                /// <para>- 请求参数object_api_name=organization；custom_api_name=org_type</para>
+                /// <para>- 该接口返回固定值location</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：location</para>
                 /// </summary>
@@ -143,7 +145,7 @@ public record PostCorehrV2LocationsBatchGetResponseDto
             }
 
             /// <summary>
-            /// <para>启用</para>
+            /// <para>启用状态，true为启用，fasle为停用</para>
             /// <para>必填：是</para>
             /// <para>示例值：true</para>
             /// </summary>
@@ -151,9 +153,11 @@ public record PostCorehrV2LocationsBatchGetResponseDto
             public bool Active { get; set; }
 
             /// <summary>
-            /// <para>生效时间</para>
-            /// <para>- 填写格式： YY-MM-DD 00:00:00</para>
-            /// <para>- 生效时间， 系统默认为填写日期当天的 00:00:00 生效</para>
+            /// <para>当前版本生效日期</para>
+            /// <para>- 返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
+            /// <para>- 日期范围:1900-01-01 00:00:00～9999-12-31 00:00:00</para>
+            /// <para>- 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version)</para>
+            /// <para>- 该字段和data.effective_time值一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：2020-05-01 00:00:00</para>
             /// </summary>
@@ -161,10 +165,12 @@ public record PostCorehrV2LocationsBatchGetResponseDto
             public string? EffectiveTime { get; set; }
 
             /// <summary>
-            /// <para>失效时间</para>
-            /// <para>- 填写格式： YYYY-MM-DD 00:00:00</para>
-            /// <para>- 本次编辑的记录版本失效的时间， 如果用户在本次操作的生效日期之后修改了地点信息，则系统会将下一次操作的日期作为当前记录的失效时间。</para>
-            /// <para>- 系统默认为填写日期当天的 00:00:00 失效</para>
+            /// <para>当前版本失效日期</para>
+            /// <para>- 返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
+            /// <para>- 日期范围:1900-01-01 00:00:00～9999-12-31 00:00:00</para>
+            /// <para>- 系统默认为失效日期当天的 00:00:00 失效</para>
+            /// <para>- 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version)</para>
+            /// <para>- 该字段和data.expiration_time值一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：2020-05-02 00:00:00</para>
             /// </summary>
@@ -172,7 +178,7 @@ public record PostCorehrV2LocationsBatchGetResponseDto
             public string? ExpirationTime { get; set; }
 
             /// <summary>
-            /// <para>编码</para>
+            /// <para>地点编码</para>
             /// <para>必填：否</para>
             /// <para>示例值：12456</para>
             /// </summary>
@@ -187,7 +193,7 @@ public record PostCorehrV2LocationsBatchGetResponseDto
             public I18n[]? Descriptions { get; set; }
 
             /// <summary>
-            /// <para>树形排序(可忽略)，代表同层级的部门排序序号</para>
+            /// <para>树形排序(可忽略)，代表同层级的部门排序序号（该功能暂不支持，可忽略）</para>
             /// <para>必填：否</para>
             /// <para>示例值：123</para>
             /// </summary>
@@ -195,7 +201,7 @@ public record PostCorehrV2LocationsBatchGetResponseDto
             public string? TreeOrder { get; set; }
 
             /// <summary>
-            /// <para>列表排序(可忽略)，代表所有部门的混排序号</para>
+            /// <para>列表排序(可忽略)，代表所有部门的混排序号（该功能暂不支持，可忽略）</para>
             /// <para>必填：否</para>
             /// <para>示例值：123</para>
             /// </summary>
@@ -203,14 +209,14 @@ public record PostCorehrV2LocationsBatchGetResponseDto
             public string? ListOrder { get; set; }
 
             /// <summary>
-            /// <para>自定义字段</para>
+            /// <para>自定义字段（该功能暂不支持，可忽略）</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("custom_fields")]
             public ObjectFieldData[]? CustomFields { get; set; }
 
             /// <summary>
-            /// <para>自定义字段</para>
+            /// <para>自定义字段（该功能暂不支持，可忽略）</para>
             /// </summary>
             public record ObjectFieldData
             {
@@ -233,14 +239,16 @@ public record PostCorehrV2LocationsBatchGetResponseDto
         }
 
         /// <summary>
-        /// <para>地点用途 ID，枚举值及详细信息可通过[【批量查询地点用途】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)接口查询获得</para>
+        /// <para>地点用途 ID，枚举值及详细信息可通过[【批量查询地点用途】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。</para>
+        /// <para>- 请求参数object_api_name=；custom_api_name=locale</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("location_usage_list")]
         public Enum[]? LocationUsageLists { get; set; }
 
         /// <summary>
-        /// <para>地点用途 ID，枚举值及详细信息可通过[【批量查询地点用途】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)接口查询获得</para>
+        /// <para>地点用途 ID，枚举值及详细信息可通过[【批量查询地点用途】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。</para>
+        /// <para>- 请求参数object_api_name=；custom_api_name=locale</para>
         /// </summary>
         public record Enum
         {
@@ -563,14 +571,14 @@ public record PostCorehrV2LocationsBatchGetResponseDto
             public bool IsPublic { get; set; }
 
             /// <summary>
-            /// <para>自定义字段</para>
+            /// <para>自定义字段（该功能暂不支持，可忽略）</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("custom_fields")]
             public CustomFieldData[]? CustomFields { get; set; }
 
             /// <summary>
-            /// <para>自定义字段</para>
+            /// <para>自定义字段（该功能暂不支持，可忽略）</para>
             /// </summary>
             public record CustomFieldData
             {
@@ -638,9 +646,11 @@ public record PostCorehrV2LocationsBatchGetResponseDto
         public string? WorkingHoursTypeId { get; set; }
 
         /// <summary>
-        /// <para>生效时间</para>
-        /// <para>- 填写格式： YY-MM-DD 00:00:00</para>
+        /// <para>版本生效时间</para>
+        /// <para>- 填写格式：YY-MM-DD 00:00:00</para>
         /// <para>- 生效时间， 系统默认为填写日期当天的 00:00:00 生效</para>
+        /// <para>- 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version)</para>
+        /// <para>- 该字段和data.hiberarchy_common.effective_time值一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>
@@ -648,10 +658,12 @@ public record PostCorehrV2LocationsBatchGetResponseDto
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>失效时间</para>
+        /// <para>版本失效时间</para>
         /// <para>- 填写格式： YYYY-MM-DD 00:00:00</para>
         /// <para>- 本次编辑的记录版本失效的时间， 如果用户在本次操作的生效日期之后修改了地点信息，则系统会将下一次操作的日期作为当前记录的失效时间。</para>
         /// <para>- 系统默认为填写日期当天的 00:00:00 失效</para>
+        /// <para>- 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version)</para>
+        /// <para>- 该字段和data.hiberarchy_common.expiration_time值一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：2020-05-02 00:00:00</para>
         /// </summary>
@@ -659,14 +671,14 @@ public record PostCorehrV2LocationsBatchGetResponseDto
         public string? ExpirationTime { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（该功能暂不支持，可忽略）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public CustomFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（该功能暂不支持，可忽略）</para>
         /// </summary>
         public record CustomFieldData
         {

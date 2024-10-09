@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-10-08
 // ************************************************************************
 // <copyright file="PostCorehrV1LocationsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 创建地点 响应体
-/// <para>创建地点。</para>
+/// <para>在系统中第一次创建地点数据</para>
 /// <para>接口ID：7072646479949316098</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2flocation%2fcreate</para>
@@ -42,19 +42,19 @@ public record PostCorehrV1LocationsResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>层级关系，内层字段见实体</para>
+        /// <para>地点基本信息，该结构维护了地点的名称、编码、启用状态、上级地点 等基础信息。</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("hiberarchy_common")]
         public PostCorehrV1LocationsResponseDtoLocationHiberarchyCommon HiberarchyCommon { get; set; } = new();
 
         /// <summary>
-        /// <para>层级关系，内层字段见实体</para>
+        /// <para>地点基本信息，该结构维护了地点的名称、编码、启用状态、上级地点 等基础信息。</para>
         /// </summary>
         public record PostCorehrV1LocationsResponseDtoLocationHiberarchyCommon
         {
             /// <summary>
-            /// <para>上级组织</para>
+            /// <para>上级地点，在创建场景下， 该字段必填，枚举值及详细信息可通过[【查询地点列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口查询获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719168654814483759</para>
             /// </summary>
@@ -75,6 +75,7 @@ public record PostCorehrV1LocationsResponseDto
             {
                 /// <summary>
                 /// <para>语言</para>
+                /// <para>- 中文用zh-CN，英文用en-US。</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
@@ -92,10 +93,10 @@ public record PostCorehrV1LocationsResponseDto
 
             /// <summary>
             /// <para>组织类型</para>
-            /// <para>必填：是</para>
+            /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("type")]
-            public Enum Type { get; set; } = new();
+            public Enum? Type { get; set; }
 
             /// <summary>
             /// <para>组织类型</para>
@@ -103,9 +104,9 @@ public record PostCorehrV1LocationsResponseDto
             public record Enum
             {
                 /// <summary>
-                /// <para>枚举值</para>
+                /// <para>组织类型，默认值为 location， 枚举值及详细信息可通过[【批量查询枚举类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)接口查询获得</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：location</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -124,6 +125,7 @@ public record PostCorehrV1LocationsResponseDto
                 {
                     /// <summary>
                     /// <para>语言</para>
+                    /// <para>- 中文用zh-CN，英文用en-US。</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
@@ -133,7 +135,7 @@ public record PostCorehrV1LocationsResponseDto
                     /// <summary>
                     /// <para>内容</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：刘梓新</para>
+                    /// <para>示例值：地点</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
@@ -150,16 +152,21 @@ public record PostCorehrV1LocationsResponseDto
 
             /// <summary>
             /// <para>生效时间</para>
+            /// <para>- 填写格式： YY-MM-DD 00:00:00</para>
+            /// <para>- 生效时间， 系统默认为填写日期当天的 00:00:00 生效</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2020-05-0100:00:00</para>
+            /// <para>示例值：2020-05-01 00:00:00</para>
             /// </summary>
             [JsonPropertyName("effective_time")]
             public string? EffectiveTime { get; set; }
 
             /// <summary>
             /// <para>失效时间</para>
+            /// <para>- 填写格式： YYYY-MM-DD 00:00:00</para>
+            /// <para>- 本次编辑的记录版本失效的时间， 如果用户在本次操作的生效日期之后修改了地点信息，则系统会将下一次操作的日期作为当前记录的失效时间。</para>
+            /// <para>- 系统默认为填写日期当天的 00:00:00 失效</para>
             /// <para>必填：否</para>
-            /// <para>示例值：2020-05-0200:00:00</para>
+            /// <para>示例值：2020-05-02 00:00:00</para>
             /// </summary>
             [JsonPropertyName("expiration_time")]
             public string? ExpirationTime { get; set; }
@@ -178,22 +185,6 @@ public record PostCorehrV1LocationsResponseDto
             /// </summary>
             [JsonPropertyName("description")]
             public I18n[]? Descriptions { get; set; }
-
-            /// <summary>
-            /// <para>树形排序，代表同层级的部门排序序号</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：1</para>
-            /// </summary>
-            [JsonPropertyName("tree_order")]
-            public string? TreeOrder { get; set; }
-
-            /// <summary>
-            /// <para>列表排序，代表所有部门的混排序号</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：1</para>
-            /// </summary>
-            [JsonPropertyName("list_order")]
-            public string? ListOrder { get; set; }
 
             /// <summary>
             /// <para>自定义字段</para>
@@ -216,9 +207,9 @@ public record PostCorehrV1LocationsResponseDto
                 public string FieldName { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])</para>
+                /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同。如：```("\"123\"", "\"123.23\"", "\"true\"", [\"id1\",\"id2\"], \"2006-01-02 15:04:05\")```</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：Sandy</para>
+                /// <para>示例值：\"Sandy\"</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
@@ -238,7 +229,7 @@ public record PostCorehrV1LocationsResponseDto
         public record Enum
         {
             /// <summary>
-            /// <para>枚举值</para>
+            /// <para>枚举值，地点用途 ID，枚举值及详细信息可通过[【批量查询地点用途】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)接口查询获得</para>
             /// <para>必填：是</para>
             /// <para>示例值：phone_type</para>
             /// </summary>
@@ -259,6 +250,7 @@ public record PostCorehrV1LocationsResponseDto
             {
                 /// <summary>
                 /// <para>语言</para>
+                /// <para>- 中文用zh-CN，英文用en-US。</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
@@ -266,9 +258,9 @@ public record PostCorehrV1LocationsResponseDto
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>内容</para>
+                /// <para>工作地点</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：刘梓新</para>
+                /// <para>示例值：工作地点</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
@@ -298,7 +290,7 @@ public record PostCorehrV1LocationsResponseDto
             /// <summary>
             /// <para>完整地址（西方文字）</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Beijing,Beijing,China,</para>
+            /// <para>示例值：Beijing, Beijing, China,</para>
             /// </summary>
             [JsonPropertyName("full_address_western_script")]
             public string? FullAddressWesternScript { get; set; }
@@ -312,7 +304,8 @@ public record PostCorehrV1LocationsResponseDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>国家 / 地区</para>
+            /// <para>国家 / 地区 ID</para>
+            /// <para>可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取</para>
             /// <para>必填：是</para>
             /// <para>示例值：6862995757234914824</para>
             /// </summary>
@@ -320,7 +313,8 @@ public record PostCorehrV1LocationsResponseDto
             public string CountryRegionId { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>主要行政区</para>
+            /// <para>主要行政区 ID</para>
+            /// <para>可通过[【查询省份/行政区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6863326815667095047</para>
             /// </summary>
@@ -328,7 +322,7 @@ public record PostCorehrV1LocationsResponseDto
             public string? RegionId { get; set; }
 
             /// <summary>
-            /// <para>城市，该字段已作废，请使用 city_id_v2 字段</para>
+            /// <para>城市</para>
             /// <para>必填：否</para>
             /// <para>示例值：6863333254578046471</para>
             /// </summary>
@@ -336,12 +330,84 @@ public record PostCorehrV1LocationsResponseDto
             public string? CityId { get; set; }
 
             /// <summary>
-            /// <para>区/县，该字段已作废，请使用 district_id_v2 字段</para>
+            /// <para>区/县</para>
             /// <para>必填：否</para>
             /// <para>示例值：6863333516579440141</para>
             /// </summary>
             [JsonPropertyName("distinct_id")]
             public string? DistinctId { get; set; }
+
+            /// <summary>
+            /// <para>地址行 1</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：丹佛测试地址-纽埃时区</para>
+            /// </summary>
+            [JsonPropertyName("address_line1")]
+            public string? AddressLine1 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 2</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：PoewH</para>
+            /// </summary>
+            [JsonPropertyName("address_line2")]
+            public string? AddressLine2 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 3</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：PoewH</para>
+            /// </summary>
+            [JsonPropertyName("address_line3")]
+            public string? AddressLine3 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 4</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line4")]
+            public string? AddressLine4 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 5</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line5")]
+            public string? AddressLine5 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 6</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line6")]
+            public string? AddressLine6 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 7</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：jmwJc</para>
+            /// </summary>
+            [JsonPropertyName("address_line7")]
+            public string? AddressLine7 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 8</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：rafSu</para>
+            /// </summary>
+            [JsonPropertyName("address_line8")]
+            public string? AddressLine8 { get; set; }
+
+            /// <summary>
+            /// <para>地址行 9</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：McPRG</para>
+            /// </summary>
+            [JsonPropertyName("address_line9")]
+            public string? AddressLine9 { get; set; }
 
             /// <summary>
             /// <para>地址行 1（非拉丁语系的本地文字）</para>
@@ -425,6 +491,9 @@ public record PostCorehrV1LocationsResponseDto
 
             /// <summary>
             /// <para>地址类型</para>
+            /// <para>枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+            /// <para>- object_api_name = "address"</para>
+            /// <para>- custom_api_name = "address_type"</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("address_type_list")]
@@ -432,13 +501,16 @@ public record PostCorehrV1LocationsResponseDto
 
             /// <summary>
             /// <para>地址类型</para>
+            /// <para>枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+            /// <para>- object_api_name = "address"</para>
+            /// <para>- custom_api_name = "address_type"</para>
             /// </summary>
             public record Enum
             {
                 /// <summary>
                 /// <para>枚举值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：phone_type</para>
+                /// <para>示例值：onboarding_address</para>
                 /// </summary>
                 [JsonPropertyName("enum_name")]
                 public string EnumName { get; set; } = string.Empty;
@@ -457,6 +529,7 @@ public record PostCorehrV1LocationsResponseDto
                 {
                     /// <summary>
                     /// <para>语言</para>
+                    /// <para>- 中文用zh-CN，英文用en-US。</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
@@ -466,7 +539,7 @@ public record PostCorehrV1LocationsResponseDto
                     /// <summary>
                     /// <para>内容</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：刘梓新</para>
+                    /// <para>示例值：入职地址</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
@@ -510,9 +583,9 @@ public record PostCorehrV1LocationsResponseDto
                 public string FieldName { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])</para>
+                /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同。如：```("\"123\"", "\"123.23\"", "\"true\"", [\"id1\",\"id2\"], \"2006-01-02 15:04:05\")```</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：Sandy</para>
+                /// <para>示例值：\"Sandy\"</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
@@ -520,7 +593,7 @@ public record PostCorehrV1LocationsResponseDto
         }
 
         /// <summary>
-        /// <para>工时制度</para>
+        /// <para>工时制度 ID，枚举值及详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：4690238309151997779</para>
         /// </summary>
@@ -529,16 +602,21 @@ public record PostCorehrV1LocationsResponseDto
 
         /// <summary>
         /// <para>生效时间</para>
+        /// <para>- 填写格式： YY-MM-DD 00:00:00</para>
+        /// <para>- 生效时间， 系统默认为填写日期当天的 00:00:00 生效</para>
         /// <para>必填：是</para>
-        /// <para>示例值：2020-05-0100:00:00</para>
+        /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("effective_time")]
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
         /// <para>失效时间</para>
+        /// <para>- 填写格式： YYYY-MM-DD 00:00:00</para>
+        /// <para>- 本次编辑的记录版本失效的时间， 如果用户在本次操作的生效日期之后修改了地点信息，则系统会将下一次操作的日期作为当前记录的失效时间。</para>
+        /// <para>- 系统默认为填写日期当天的 00:00:00 失效</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2020-05-0200:00:00</para>
+        /// <para>示例值：2020-05-02 00:00:00</para>
         /// </summary>
         [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }
@@ -564,16 +642,16 @@ public record PostCorehrV1LocationsResponseDto
             public string FieldName { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])</para>
+            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同。如：```("\"123\"", "\"123.23\"", "\"true\"", [\"id1\",\"id2\"], \"2006-01-02 15:04:05\")```</para>
             /// <para>必填：是</para>
-            /// <para>示例值：Sandy</para>
+            /// <para>示例值：\"Sandy\"</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
         /// <summary>
-        /// <para>区域设置</para>
+        /// <para>区域设置ID ，枚举值及详细信息可通过[【批量查询枚举信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：zh_cn</para>
         /// </summary>

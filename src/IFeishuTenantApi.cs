@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-27
+// Last Modified On : 2024-10-08
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -17232,7 +17232,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="location_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。</para>
+    /// <para>地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。ID获取方式：</para>
+    /// <para>- 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID</para>
     /// <para>示例值：1215</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/locations/{location_id}")]
@@ -17693,7 +17694,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：是</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，最大支持100</para>
     /// <para>示例值：100</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -21871,7 +21872,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 仅在新增任职版本时生效，即当 version_id 有值时该字段不生效</para>
     /// <para>- 使用此功能时，试用期相关字段不支持</para>
     /// <para>- 当响应返回的任职数据无变化时，请检查人事系统-异动管理</para>
-    /// <para>- 强烈建议使用此参数，保证数据正确性</para>
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -21955,7 +21955,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7072646479949316098</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>创建地点。</para>
+    /// <para>在系统中第一次创建地点数据</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:locations:write</item>
@@ -21963,8 +21963,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="client_token">
     /// <para>必填：否</para>
-    /// <para>根据client_token是否一致来判断是否为同一请求</para>
-    /// <para>示例值：12454646</para>
+    /// <para>操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。</para>
+    /// <para>示例值："fe599b60-450f-46ff-b2ef-9f6675625b97"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -34798,7 +34798,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口支持通过职级id批量查询职级详情信息，包括职级包含的名称、描述、启用状态等。</para>
-    /// <para>- 延迟说明：数据库主从延迟 2s 以内，即：直接创建职级后2s内调用此接口可能查询不到数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:job_level:read</item>
     /// <item>corehr:job_level:write</item>
@@ -43138,5 +43137,78 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int page_size = 20,
         [PathQuery] string? page_token = "1",
         [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】删除职等</para>
+    /// <para>接口ID：7422326822924550146</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除职等</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:job_grade:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="job_grade_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>需要删除的职等ID。ID获取方式：</para>
+    /// <para>- 调用[【创建职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/create)[【查询租户的职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)等接口可以返回职等ID</para>
+    /// <para>示例值：1616161616</para>
+    /// </param>
+    [HttpDelete("/open-apis/corehr/v2/job_grades/{job_grade_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteCorehrV2JobGradesByJobGradeIdAsync(
+        [PathQuery] string job_grade_id);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】更新职等</para>
+    /// <para>接口ID：7422326822924566530</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/patch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新职等</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:job_grade:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="job_grade_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>职等ID。ID获取方式：</para>
+    /// <para>- 调用[【创建职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/create)[【查询租户的职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)等接口可以返回职等ID</para>
+    /// <para>示例值：6862995757234914824</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据client_token是否一致来判断是否为同一请求</para>
+    /// <para>示例值：1245464678</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/corehr/v2/job_grades/{job_grade_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchCorehrV2JobGradesByJobGradeIdAsync(
+        [PathQuery] string job_grade_id,
+        [JsonContent] Corehr.PatchCorehrV2JobGradesByJobGradeIdBodyDto dto,
+        [PathQuery] string? client_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】创建职等</para>
+    /// <para>接口ID：7422326822924582914</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>创建职等</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:job_grade:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据client_token是否一致来判断是否为同一请求</para>
+    /// <para>示例值：12454646</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/job_grades")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2JobGradesResponseDto>> PostCorehrV2JobGradesAsync(
+        [JsonContent] Corehr.PostCorehrV2JobGradesBodyDto dto,
+        [PathQuery] string? client_token = null);
 }
 

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-27
+// Last Modified On : 2024-10-08
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -305,8 +305,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
-    [HttpGet("https://open.larkoffice.com/open-apis/search/v1/user")]
-    System.Threading.Tasks.Task<FeishuResponse<Contact.Spec.GetHttpsbyOpenLarkofficeComSearchV1UserResponseDto>> GetHttpsbyOpenLarkofficeComSearchV1UserAsync(
+    [HttpGet("/open-apis/search/v1/user")]
+    System.Threading.Tasks.Task<FeishuResponse<Contact.Spec.GetSearchV1UserResponseDto>> GetSearchV1UserAsync(
         UserAccessToken access_token,
         [PathQuery] string query,
         [PathQuery] int? page_size = 10,

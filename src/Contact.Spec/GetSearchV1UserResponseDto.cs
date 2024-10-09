@@ -6,7 +6,7 @@
 // Last Modified By : yxr
 // Last Modified On : 2024-07-09
 // ************************************************************************
-// <copyright file="GetHttpsbyOpenLarkofficeComSearchV1UserResponseDto.cs" company="Vicente Yu">
+// <copyright file="GetSearchV1UserResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
 // <summary>搜索用户 响应体</summary>
@@ -15,11 +15,14 @@ namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 搜索用户 响应体
 /// <para>调用该接口通过用户名关键词搜索其他用户的信息，包括用户头像、用户名、用户所在部门、用户 user_id 以及 open_id。</para>
+/// <para>注意事项：</para>
+/// <para>- 仅支持通过用户身份（user_access_token）调用该接口。</para>
+/// <para>- 无法搜索到外部企业或已离职的用户。</para>
 /// <para>接口ID：6907569524100349953</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/user/search-users</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMTM4UjLzEDO14yMxgTN</para>
 /// </summary>
-public record GetHttpsbyOpenLarkofficeComSearchV1UserResponseDto
+public record GetSearchV1UserResponseDto
 {
     /// <summary>
     /// <para>是否还有更多数据，当返回值为 true 时，表示存在下一页，即 page_token 不为空。</para>

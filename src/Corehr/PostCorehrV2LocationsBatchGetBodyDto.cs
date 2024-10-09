@@ -22,7 +22,8 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2LocationsBatchGetBodyDto
 {
     /// <summary>
-    /// <para>地点 ID 列表， 地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。</para>
+    /// <para>地点 ID 列表， 地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。ID获取方式：</para>
+    /// <para>- 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID</para>
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：1</para>

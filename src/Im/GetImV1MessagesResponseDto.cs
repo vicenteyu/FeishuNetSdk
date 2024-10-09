@@ -161,7 +161,7 @@ public record GetImV1MessagesResponseDto
             /// <para>发送者的 ID 类型。</para>
             /// <para>**可能值有：**</para>
             /// <para>- `open_id`：表示发送者为用户，且返回的 ID 是用户的 open_id。</para>
-            /// <para>- `app_id`：表示发送者为应用，切返回的 ID 是应用的 app_id。</para>
+            /// <para>- `app_id`：表示发送者为应用，且返回的 ID 是应用的 app_id。</para>
             /// <para>必填：是</para>
             /// <para>示例值：app_id</para>
             /// </summary>
