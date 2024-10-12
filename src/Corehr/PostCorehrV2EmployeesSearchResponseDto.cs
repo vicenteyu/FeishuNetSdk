@@ -686,6 +686,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
         /// <summary>
         /// <para>所属公司 ID，详细信息可通过[【查询单个公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)接口查询</para>
+        /// <para>- 当前生效的合同中的公司</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -5186,7 +5187,10 @@ public record PostCorehrV2EmployeesSearchResponseDto
         public int? TimesEmployed { get; set; }
 
         /// <summary>
-        /// <para>招聘来源，枚举值 api_name 可通过[【查询招聘】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口查询</para>
+        /// <para>招聘来源</para>
+        /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+        /// <para>- object_api_name：employment</para>
+        /// <para>- custom_api_name：recruitment_type</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("recruitment_type")]
@@ -5250,6 +5254,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
         /// <summary>
         /// <para>工作日历 ID</para>
+        /// <para>- 可通过[【查询工作日历】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)查询</para>
         /// <para>必填：否</para>
         /// <para>示例值：7164286667866966659</para>
         /// </summary>

@@ -144,7 +144,7 @@ public record GetContactV3UsersFindByDepartmentResponseDto
         public int? Gender { get; set; }
 
         /// <summary>
-        /// <para>头像的文件 Key。</para>
+        /// <para>头像的文件 Key。该参数实际无返回值，请忽略，获取头像信息可使用 `avatar` 参数。</para>
         /// <para>必填：否</para>
         /// <para>示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g</para>
         /// </summary>

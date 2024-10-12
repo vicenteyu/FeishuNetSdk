@@ -72,7 +72,7 @@ public record GetDriveV1ImportTasksByTicketResponseDto
         /// <item>113：office格式不支持</item>
         /// <item>114：内部错误</item>
         /// <item>115：导入文件过大</item>
-        /// <item>116：目录无权限</item>
+        /// <item>116：当前身份无导入至该文件夹的权限。参考[开通文件夹权限](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-add-permissions-to-app#5ad9169a)解决</item>
         /// <item>117：目录已删除</item>
         /// <item>118：导入文件和任务指定后缀不匹配</item>
         /// <item>119：目录不存在</item>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-10-12
 // ************************************************************************
 // <copyright file="GetHireV1ApplicationsByApplicationIdOfferResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -702,5 +702,296 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
         /// </summary>
         [JsonPropertyName("job_requirement_id")]
         public string? JobRequirementId { get; set; }
+
+        /// <summary>
+        /// <para>offer 发送记录列表（灰度中，如需使用请联系客户经理申请灰度）</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("offer_send_record_list")]
+        public OfferSendRecord[]? OfferSendRecordLists { get; set; }
+
+        /// <summary>
+        /// <para>offer 发送记录列表（灰度中，如需使用请联系客户经理申请灰度）</para>
+        /// </summary>
+        public record OfferSendRecord
+        {
+            /// <summary>
+            /// <para>offer 发送记录 id</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1718959426734</para>
+            /// </summary>
+            [JsonPropertyName("offer_send_record_id")]
+            public string? OfferSendRecordId { get; set; }
+
+            /// <summary>
+            /// <para>操作人 ID，与入参`user_id_type`类型一致</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
+            /// </summary>
+            [JsonPropertyName("operator_user_id")]
+            public string? OperatorUserId { get; set; }
+
+            /// <summary>
+            /// <para>offer 发送时间，毫秒时间戳</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1718959426734</para>
+            /// </summary>
+            [JsonPropertyName("send_time")]
+            public string? SendTime { get; set; }
+
+            /// <summary>
+            /// <para>offer 状态</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>1：已创建</item>
+            /// <item>2：已接受</item>
+            /// <item>3：已拒绝</item>
+            /// <item>4：已过期</item>
+            /// <item>5：已作废</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("offer_letter_status")]
+            public int? OfferLetterStatus { get; set; }
+
+            /// <summary>
+            /// <para>offer 邮件信息</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("email_info")]
+            public OfferEmailInfo? EmailInfo { get; set; }
+
+            /// <summary>
+            /// <para>offer 邮件信息</para>
+            /// </summary>
+            public record OfferEmailInfo
+            {
+                /// <summary>
+                /// <para>抄送人邮件列表</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("cc_email_list")]
+                public string[]? CcEmailList { get; set; }
+
+                /// <summary>
+                /// <para>接收人邮件列表</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("receiver_email_list")]
+                public string[]? ReceiverEmailList { get; set; }
+
+                /// <summary>
+                /// <para>邮件内容</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：This is a test email.</para>
+                /// </summary>
+                [JsonPropertyName("content")]
+                public string? Content { get; set; }
+            }
+
+            /// <summary>
+            /// <para>Offer 跟进记录</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("acceptance_list")]
+            public Acceptance[]? AcceptanceLists { get; set; }
+
+            /// <summary>
+            /// <para>Offer 跟进记录</para>
+            /// </summary>
+            public record Acceptance
+            {
+                /// <summary>
+                /// <para>操作类型</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：HR 操作</item>
+                /// <item>2：候选人操作</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("operator_type")]
+                public int? OperatorType { get; set; }
+
+                /// <summary>
+                /// <para>offer 接受或拒绝的结果</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：接受</item>
+                /// <item>2：拒绝</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("conclusion")]
+                public int? Conclusion { get; set; }
+
+                /// <summary>
+                /// <para>备注，如果是拒绝，则展示拒绝原因</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：Abort</para>
+                /// </summary>
+                [JsonPropertyName("memo")]
+                public string? Memo { get; set; }
+
+                /// <summary>
+                /// <para>操作时间，毫秒时间戳</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1718959426734</para>
+                /// </summary>
+                [JsonPropertyName("operate_time")]
+                public string? OperateTime { get; set; }
+            }
+
+            /// <summary>
+            /// <para>offer 文件列表</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("offer_file_list")]
+            public OfferFile[]? OfferFileLists { get; set; }
+
+            /// <summary>
+            /// <para>offer 文件列表</para>
+            /// </summary>
+            public record OfferFile
+            {
+                /// <summary>
+                /// <para>文件 id，可通过[获取附件信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get)接口获取，查询参数 type 传枚举值 3，通用附件</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：12345678901</para>
+                /// </summary>
+                [JsonPropertyName("id")]
+                public string? Id { get; set; }
+
+                /// <summary>
+                /// <para>文件模板 id，暂无接口可通过该 ID 获取对应信息</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1718959426734</para>
+                /// </summary>
+                [JsonPropertyName("file_template_id")]
+                public string? FileTemplateId { get; set; }
+
+                /// <summary>
+                /// <para>文件模板名称</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：offer 文件</para>
+                /// </summary>
+                [JsonPropertyName("file_template_name")]
+                public string? FileTemplateName { get; set; }
+
+                /// <summary>
+                /// <para>文件模板类型 id，暂无接口可通过该 ID 获取对应信息</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1718959426734</para>
+                /// </summary>
+                [JsonPropertyName("file_template_type_id")]
+                public string? FileTemplateTypeId { get; set; }
+
+                /// <summary>
+                /// <para>文件模板类型名称</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：offer 文件</para>
+                /// </summary>
+                [JsonPropertyName("file_template_type_name")]
+                public string? FileTemplateTypeName { get; set; }
+            }
+
+            /// <summary>
+            /// <para>offer 签署信息</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("offer_signature_info")]
+            public OfferSendRecordOfferSignatureInfo? OfferSignatureInfo { get; set; }
+
+            /// <summary>
+            /// <para>offer 签署信息</para>
+            /// </summary>
+            public record OfferSendRecordOfferSignatureInfo
+            {
+                /// <summary>
+                /// <para>电子签信息 id，暂无接口可通过该 ID 获取对应信息</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1718959426734</para>
+                /// </summary>
+                [JsonPropertyName("id")]
+                public string? Id { get; set; }
+
+                /// <summary>
+                /// <para>电子签签署状态</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：未签署</item>
+                /// <item>2：所有签署人已签署</item>
+                /// <item>3：部分签署人已签署</item>
+                /// <item>4：已拒绝</item>
+                /// <item>5：已失效</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("signature_status")]
+                public int? SignatureStatus { get; set; }
+
+                /// <summary>
+                /// <para>电子签附件列表</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：xxx</para>
+                /// </summary>
+                [JsonPropertyName("attachment_list")]
+                public SignatureAttachment[]? AttachmentLists { get; set; }
+
+                /// <summary>
+                /// <para>电子签附件列表</para>
+                /// </summary>
+                public record SignatureAttachment
+                {
+                    /// <summary>
+                    /// <para>文件 id，可通过[获取附件信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get)接口获取，查询参数 type 传枚举值 3，通用附件</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：12345678901</para>
+                    /// </summary>
+                    [JsonPropertyName("id")]
+                    public string? Id { get; set; }
+
+                    /// <summary>
+                    /// <para>文件名称</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：offer 文件</para>
+                    /// </summary>
+                    [JsonPropertyName("file_name")]
+                    public string? FileName { get; set; }
+
+                    /// <summary>
+                    /// <para>文件模板 id，暂无接口可通过该 ID 获取对应信息</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1718959426734</para>
+                    /// </summary>
+                    [JsonPropertyName("file_template_id")]
+                    public string? FileTemplateId { get; set; }
+
+                    /// <summary>
+                    /// <para>文件模板名称</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：offer 文件</para>
+                    /// </summary>
+                    [JsonPropertyName("file_template_name")]
+                    public string? FileTemplateName { get; set; }
+
+                    /// <summary>
+                    /// <para>文件模板类型 id，暂无接口可通过该 ID 获取对应信息</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1718959426734</para>
+                    /// </summary>
+                    [JsonPropertyName("file_template_type_id")]
+                    public string? FileTemplateTypeId { get; set; }
+
+                    /// <summary>
+                    /// <para>文件模板类型名称</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：offer 文件</para>
+                    /// </summary>
+                    [JsonPropertyName("file_template_type_name")]
+                    public string? FileTemplateTypeName { get; set; }
+                }
+            }
+        }
     }
 }

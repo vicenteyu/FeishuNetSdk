@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建文档版本 请求体
-/// <para>创建文档版本。文档支持在线文档或电子表格。</para>
+/// <para>创建文档版本。文档支持在线文档或电子表格。该接口为异步接口。</para>
 /// <para>接口ID：7156062028485033988</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/file-version/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-version%2fcreate</para>

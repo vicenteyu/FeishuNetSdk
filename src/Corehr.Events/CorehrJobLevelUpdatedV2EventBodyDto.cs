@@ -9,11 +9,11 @@
 // <copyright file="CorehrJobLevelUpdatedV2EventBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>职级更新 事件体</summary>
+// <summary>更新职级 事件体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Corehr.Events;
 /// <summary>
-/// 职级更新 事件体
+/// 更新职级 事件体
 /// <para>飞书人事中「职级信息被更新」时将触发此事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=job_level&amp;event=updated)</para>
 /// <para>接口ID：7414100499044614172</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/events/updated</para>
@@ -22,7 +22,8 @@ namespace FeishuNetSdk.Corehr.Events;
 public record CorehrJobLevelUpdatedV2EventBodyDto() : EventBodyDto("corehr.job_level.updated_v2")
 {
     /// <summary>
-    /// <para>职级ID</para>
+    /// <para>职级ID。</para>
+    /// <para>- 调用[【查询单个职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)、[【通过职级 ID 批量获取职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)接口返回职级详细信息</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("job_level_id")]

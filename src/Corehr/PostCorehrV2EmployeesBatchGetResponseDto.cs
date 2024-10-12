@@ -352,7 +352,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public string? ParentId { get; set; }
 
             /// <summary>
-            /// <para>生效时间</para>
+            /// <para>当前序列版本的生效时间</para>
             /// <para>必填：是</para>
             /// <para>示例值：2020-05-01 00:00:00</para>
             /// </summary>
@@ -360,7 +360,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public string EffectiveTime { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>失效时间</para>
+            /// <para>当前序列版本的失效时间</para>
             /// <para>必填：否</para>
             /// <para>示例值：2020-05-02 00:00:00</para>
             /// </summary>
@@ -377,7 +377,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
 
             /// <summary>
             /// <para>自定义字段</para>
-            /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
+            /// <para>- 当前为预留字段，返回值为空。具体支持的对象请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("custom_fields")]
@@ -385,7 +385,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
 
             /// <summary>
             /// <para>自定义字段</para>
-            /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
+            /// <para>- 当前为预留字段，返回值为空。具体支持的对象请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
             /// </summary>
             public record CustomFieldData
             {
@@ -642,7 +642,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public string? WorkingHoursTypeId { get; set; }
 
             /// <summary>
-            /// <para>生效时间</para>
+            /// <para>职务当前版本的生效时间</para>
             /// <para>必填：是</para>
             /// <para>示例值：2020-01-01 00:00:00</para>
             /// </summary>
@@ -650,7 +650,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public string EffectiveTime { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>失效时间</para>
+            /// <para>职务当前版本的失效时间</para>
             /// <para>必填：否</para>
             /// <para>示例值：2021-01-01 00:00:00</para>
             /// </summary>
@@ -659,7 +659,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
 
             /// <summary>
             /// <para>自定义字段</para>
-            /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
+            /// <para>- 当前为预留字段，返回值为空。具体支持的对象请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("custom_fields")]
@@ -667,7 +667,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
 
             /// <summary>
             /// <para>自定义字段</para>
-            /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
+            /// <para>- 当前为预留字段，返回值为空。具体支持的对象请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
             /// </summary>
             public record ObjectFieldData
             {
@@ -691,6 +691,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
 
         /// <summary>
         /// <para>所属公司 ID，详细信息可通过[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)接口获得</para>
+        /// <para>- 当前生效的合同中的公司</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893014062142064135</para>
         /// </summary>
@@ -5295,14 +5296,17 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         public int? TimesEmployed { get; set; }
 
         /// <summary>
-        /// <para>招聘来源，枚举值可通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口查询</para>
+        /// <para>招聘来源</para>
+        /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+        /// <para>- object_api_name：employment</para>
+        /// <para>- custom_api_name：recruitment_type</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("recruitment_type")]
         public Enum? RecruitmentType { get; set; }
 
         /// <summary>
-        /// <para>员工头像</para>
+        /// <para>员工头像（即飞书头像）</para>
         /// <para>必填：否</para>
         /// <para>示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/v2_a550d36b-28ef-48ad-9e50-58004beb386j~?image_size=noop&amp;cut_type=&amp;quality=&amp;format=png&amp;sticker_format=.webp</para>
         /// </summary>
@@ -5359,6 +5363,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
 
         /// <summary>
         /// <para>工作日历 ID</para>
+        /// <para>- 可通过[【查询工作日历】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)查询</para>
         /// <para>必填：否</para>
         /// <para>示例值：7164286667866966659</para>
         /// </summary>

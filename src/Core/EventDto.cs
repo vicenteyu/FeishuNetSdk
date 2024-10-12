@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-21
+// Last Modified On : 2024-10-12
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -48,6 +48,30 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(CallbackV2Dto<CallbackEvents.CardActionTriggerEventBodyDto>), typeDiscriminator: "card.action.trigger")]
 //【飞书人事（企业版）】抄送单据状态变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessCcUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.process.cc.updated_v2")]
+//【飞书人事（企业版）】创建成本中心
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrCostCenterCreatedV2EventBodyDto>), typeDiscriminator: "corehr.cost_center.created_v2")]
+//【飞书人事（企业版）】创建地点
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrLocationCreatedV2EventBodyDto>), typeDiscriminator: "corehr.location.created_v2")]
+//【飞书人事（企业版）】创建公司
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrCompanyCreatedV2EventBodyDto>), typeDiscriminator: "corehr.company.created_v2")]
+//【飞书人事（企业版）】创建序列
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobFamilyCreatedV2EventBodyDto>), typeDiscriminator: "corehr.job_family.created_v2")]
+//【飞书人事（企业版）】创建职等
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobGradeCreatedV2EventBodyDto>), typeDiscriminator: "corehr.job_grade.created_v2")]
+//【飞书人事（企业版）】创建职级
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobLevelCreatedV2EventBodyDto>), typeDiscriminator: "corehr.job_level.created_v2")]
+//【飞书人事（企业版）】更新成本中心
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrCostCenterUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.cost_center.updated_v2")]
+//【飞书人事（企业版）】更新地点
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrLocationUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.location.updated_v2")]
+//【飞书人事（企业版）】更新公司
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrCompanyUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.company.updated_v2")]
+//【飞书人事（企业版）】更新序列
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobFamilyUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.job_family.updated_v2")]
+//【飞书人事（企业版）】更新职等
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobGradeUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.job_grade.updated_v2")]
+//【飞书人事（企业版）】更新职级
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobLevelUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.job_level.updated_v2")]
 //【飞书人事（企业版）】离职流转状态变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrOffboardingChecklistUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.offboarding.checklist_updated_v2")]
 //【飞书人事（企业版）】离职申请状态变更
@@ -58,30 +82,32 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessNodeUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.process.node.updated_v2")]
 //【飞书人事（企业版）】流程实例信息变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.process.updated_v2")]
+//【飞书人事（企业版）】流程实例状态变化
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessStatusUpdateV2EventBodyDto>), typeDiscriminator: "corehr.process.status.update_v2")]
 //【飞书人事（企业版）】人员信息变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrEmployeeDomainEventV2EventBodyDto>), typeDiscriminator: "corehr.employee.domain_event_v2")]
 //【飞书人事（企业版）】入职流程状态变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrPreHireOnboardingTaskChangedV2EventBodyDto>), typeDiscriminator: "corehr.pre_hire.onboarding_task_changed_v2")]
+//【飞书人事（企业版）】删除成本中心
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrCostCenterDeletedV2EventBodyDto>), typeDiscriminator: "corehr.cost_center.deleted_v2")]
+//【飞书人事（企业版）】删除地点
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrLocationDeletedV2EventBodyDto>), typeDiscriminator: "corehr.location.deleted_v2")]
+//【飞书人事（企业版）】删除公司
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrCompanyDeletedV2EventBodyDto>), typeDiscriminator: "corehr.company.deleted_v2")]
+//【飞书人事（企业版）】删除序列
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobFamilyDeletedV2EventBodyDto>), typeDiscriminator: "corehr.job_family.deleted_v2")]
+//【飞书人事（企业版）】删除职等
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobGradeDeletedV2EventBodyDto>), typeDiscriminator: "corehr.job_grade.deleted_v2")]
+//【飞书人事（企业版）】删除职级
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobLevelDeletedV2EventBodyDto>), typeDiscriminator: "corehr.job_level.deleted_v2")]
 //【飞书人事（企业版）】审批任务状态变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessApproverUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.process.approver.updated_v2")]
 //【飞书人事（企业版）】试用期状态变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProbationUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.probation.updated_v2")]
-//【飞书人事（企业版）】序列创建
-[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobFamilyCreatedV2EventBodyDto>), typeDiscriminator: "corehr.job_family.created_v2")]
-//【飞书人事（企业版）】序列更新
-[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobFamilyUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.job_family.updated_v2")]
-//【飞书人事（企业版）】序列删除
-[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobFamilyDeletedV2EventBodyDto>), typeDiscriminator: "corehr.job_family.deleted_v2")]
 //【飞书人事（企业版）】异动信息变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobChangeUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.job_change.updated_v2")]
 //【飞书人事（企业版）】异动状态变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobChangeStatusUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.job_change.status_updated_v2")]
-//【飞书人事（企业版）】职级创建
-[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobLevelCreatedV2EventBodyDto>), typeDiscriminator: "corehr.job_level.created_v2")]
-//【飞书人事（企业版）】职级更新
-[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobLevelUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.job_level.updated_v2")]
-//【飞书人事（企业版）】职级删除
-[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrJobLevelDeletedV2EventBodyDto>), typeDiscriminator: "corehr.job_level.deleted_v2")]
 //【飞书人事】【事件】创建部门
 [JsonDerivedType(typeof(EventV2Dto<FeishuPeople.Events.CorehrDepartmentCreatedV1EventBodyDto>), typeDiscriminator: "corehr.department.created_v1")]
 //【飞书人事】【事件】创建雇佣信息

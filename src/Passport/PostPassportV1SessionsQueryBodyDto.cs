@@ -11,7 +11,7 @@
 // </copyright>
 // <summary>批量获取脱敏的用户登录信息 请求体</summary>
 // ************************************************************************
-namespace FeishuNetSdk.Passport.Spec;
+namespace FeishuNetSdk.Passport;
 /// <summary>
 /// 批量获取脱敏的用户登录信息 请求体
 /// <para>该接口用于查询用户的登录信息。</para>
@@ -23,10 +23,9 @@ public record PostPassportV1SessionsQueryBodyDto
 {
     /// <summary>
     /// <para>用户 ID</para>
-    /// <para>**示例值**：["47f621ff"]</para>
-    /// <para>**数据校验规则**：</para>
-    /// <para>- 最大长度：`100`</para>
     /// <para>必填：否</para>
+    /// <para>示例值：["47f621ff"]</para>
+    /// <para>最大长度：100</para>
     /// </summary>
     [JsonPropertyName("user_ids")]
     public string[]? UserIds { get; set; }

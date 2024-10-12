@@ -70,10 +70,18 @@ public record GetCorehrV2ApproversResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
+        /// <item>-2：跳过</item>
+        /// <item>-1：发起</item>
+        /// <item>0：未开始</item>
         /// <item>1：进行中</item>
-        /// <item>2：拒绝</item>
-        /// <item>4：取消</item>
-        /// <item>9：已完成</item>
+        /// <item>2：已拒绝</item>
+        /// <item>3：已通过</item>
+        /// <item>4：被撤回</item>
+        /// <item>5：抄送</item>
+        /// <item>6：表单提交</item>
+        /// <item>12：失败</item>
+        /// <item>14：已回退</item>
+        /// <item>16：发起撤销</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("approver_status")]

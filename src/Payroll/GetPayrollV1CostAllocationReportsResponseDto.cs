@@ -129,6 +129,7 @@ public record GetPayrollV1CostAllocationReportsResponseDto
             /// <para>职级 - 10</para>
             /// <para>工时制度 - 11</para>
             /// <para>合同类型 - 12</para>
+            /// <para>算薪项 - 13</para>
             /// <para>自定义维度 - 100</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
@@ -144,7 +145,7 @@ public record GetPayrollV1CostAllocationReportsResponseDto
             /// <para>dimension_type = 1 [公司主体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get)</para>
             /// <para>dimension_type = 2 [成本中心](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)</para>
             /// <para>dimension_type = 3 [部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)</para>
-            /// <para>dimension_type = 4 薪资组</para>
+            /// <para>dimension_type = 4 [薪资组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list)</para>
             /// <para>dimension_type = 5 [人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)</para>
             /// <para>dimension_type = 8 [职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)</para>
             /// <para>dimension_type = 9 [序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)</para>
@@ -157,7 +158,7 @@ public record GetPayrollV1CostAllocationReportsResponseDto
             public string? DimensionValueId { get; set; }
 
             /// <summary>
-            /// <para>维度名称，自定义维度使用</para>
+            /// <para>维度名称，算薪项、自定义维度使用</para>
             /// <para>必填：否</para>
             /// <para>最大长度：200</para>
             /// <para>最小长度：0</para>
@@ -166,7 +167,7 @@ public record GetPayrollV1CostAllocationReportsResponseDto
             public I18nContent[]? DimensionNames { get; set; }
 
             /// <summary>
-            /// <para>维度名称，自定义维度使用</para>
+            /// <para>维度名称，算薪项、自定义维度使用</para>
             /// </summary>
             public record I18nContent
             {
@@ -189,7 +190,7 @@ public record GetPayrollV1CostAllocationReportsResponseDto
             }
 
             /// <summary>
-            /// <para>数据维度表头，自定义维度使用</para>
+            /// <para>数据维度表头，算薪项、自定义维度使用</para>
             /// <para>必填：否</para>
             /// <para>最大长度：200</para>
             /// <para>最小长度：0</para>

@@ -148,7 +148,7 @@ public class EventHandler1(ILogger<EventHandler> logger) : IEventHandler<EventV2
 
 **注意：需要3秒内响应。**
 
-**规则不允许同一回调有多个继承类。**
+**规则不允许同一回调有多个派生类。**
 
 **一条消息仅推送一次。**
 
