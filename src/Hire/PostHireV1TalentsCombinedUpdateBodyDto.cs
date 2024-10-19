@@ -70,7 +70,7 @@ public record PostHireV1TalentsCombinedUpdateBodyDto
     public int? OperatorAccountType { get; set; }
 
     /// <summary>
-    /// <para>简历附件 ID，如何创建附件请参考[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)</para>
+    /// <para>简历附件 ID，如何创建附件请参考[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)；请注意：本接口仅会给人才增加一个附件简历，不会解析附件简历中的内容并更新人才</para>
     /// <para>必填：否</para>
     /// <para>示例值：7383906146040678700</para>
     /// </summary>

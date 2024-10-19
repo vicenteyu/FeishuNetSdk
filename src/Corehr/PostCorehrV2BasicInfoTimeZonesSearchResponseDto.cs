@@ -81,7 +81,7 @@ public record PostCorehrV2BasicInfoTimeZonesSearchResponseDto
         public string? TimeZoneCode { get; set; }
 
         /// <summary>
-        /// <para>UTC 时区偏移量</para>
+        /// <para>UTC 时区偏移量（分钟）</para>
         /// <para>必填：否</para>
         /// <para>示例值：-660</para>
         /// </summary>

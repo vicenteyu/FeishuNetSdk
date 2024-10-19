@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-01
+// Last Modified On : 2024-10-18
 // ************************************************************************
 // <copyright file="ContactUserUpdatedV3EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Contact.Events;
 /// <summary>
 /// 员工信息被修改 事件体
-/// <para>当应用订阅该事件后，当员工信息被修改时将会触发该事件。你可以在事件的 old_object 字段中查看修改前的用户信息；在事件的 object 字段中可以查看修改后的用户信息。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=contact&amp;version=v3&amp;resource=user&amp;event=updated)</para>
+/// <para>应用订阅该事件后，当员工信息（包括：ID、用户名、英文名、别名、邮箱、企业邮箱、职务、手机号、性别、头像、状态、所属部门、直属主管、城市、国家、工位、入职时间、工号、类型、排序、自定义字段、职级、序列、虚线上级）被修改时将会触发该事件。你可以在事件的 old_object 字段中查看修改前的用户信息；在事件的 object 字段中可以查看修改后的用户信息。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=contact&amp;version=v3&amp;resource=user&amp;event=updated)</para>
 /// <para>接口ID：6954228303264055323</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/user/events/updated</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fuser%2fevents%2fupdated</para>
@@ -27,6 +27,13 @@ public record ContactUserUpdatedV3EventBodyDto() : EventBodyDto("contact.user.up
     /// </summary>
     [JsonPropertyName("object")]
     public UserEvent? Object { get; set; }
+
+    /// <summary>
+    /// <para>变更前的用户信息，只包含有变更的字段数据。</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("old_object")]
+    public UserEvent? OldObject { get; set; }
 
     /// <summary>
     /// 员工信息
@@ -102,18 +109,6 @@ public record ContactUserUpdatedV3EventBodyDto() : EventBodyDto("contact.user.up
         /// </summary>
         [JsonPropertyName("email")]
         public string? Email { get; set; }
-
-        /// <summary>
-        /// <para>企业邮箱。</para>
-        /// <para>**字段权限要求（满足任一）**：</para>
-        /// <para>- contact:contact:readonly_as_app : 以应用身份读取通讯录</para>
-        /// <para>- contact:user.base:readonly : 获取用户基本信息</para>
-        /// <para>- contact:contact:access_as_app : 以应用身份访问通讯录</para>
-        /// <para>- contact:contact:readonly : 读取通讯录</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("enterprise_email")]
-        public string? EnterpriseEmail { get; set; }
 
         /// <summary>
         /// <para>职务。</para>

@@ -46,7 +46,7 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
         public object Fields { get; set; } = new();
 
         /// <summary>
-        /// <para>一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)</para>
+        /// <para>数据表中一条记录的唯一标识</para>
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>

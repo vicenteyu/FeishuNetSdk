@@ -14,9 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增一个数据表 请求体
-/// <para>通过该接口，可以新增一个仅包含索引列的空数据表，也可以指定一部分初始字段。</para>
-/// <para>note</para>
-/// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
+/// <para>新增一个数据表，默认仅包含索引列，也可以指定一部分初始字段。</para>
 /// <para>接口ID：6960166873968541699</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table%2fcreate</para>
@@ -36,11 +34,9 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
     public record ReqTable
     {
         /// <summary>
-        /// <para>数据表名称</para>
-        /// <para>请注意：</para>
-        /// <para>1. 名称中的首尾空格将会被去除。</para>
+        /// <para>数据表名称。名称中的首尾空格将会被默认去除。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：table1</para>
+        /// <para>示例值：一个新的数据表</para>
         /// <para>最大长度：100</para>
         /// <para>最小长度：1</para>
         /// </summary>
@@ -48,21 +44,21 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
         public string? Name { get; set; }
 
         /// <summary>
-        /// <para>默认表格视图的名称，不填则默认为 表格。</para>
-        /// <para>请注意：</para>
-        /// <para>1. 名称中的首尾空格将会被去除。</para>
-        /// <para>2. 名称中不允许包含 [ ] 两个字符</para>
+        /// <para>默认表格视图的名称，不填则默认为“表格视图 1”。</para>
+        /// <para>注意：</para>
+        /// <para>- 名称中的首尾空格将会被去除。</para>
+        /// <para>- 名称中不允许包含 [ ] 两个字符</para>
         /// <para>必填：否</para>
-        /// <para>示例值：表格</para>
+        /// <para>示例值：表格视图</para>
         /// </summary>
         [JsonPropertyName("default_view_name")]
         public string? DefaultViewName { get; set; }
 
         /// <summary>
         /// <para>数据表的初始字段。</para>
-        /// <para>请注意：</para>
-        /// <para>1. 如果 default_view_name 字段和 fields 字段都不填写，将会创建一个仅包含索引列的空数据表。</para>
-        /// <para>2. 如果指定了 fields 字段，将会创建一个包含初始字段的数据表且默认第一个字段为索引列。</para>
+        /// <para>注意：</para>
+        /// <para>- 如果 default_view_name 字段和 fields 字段都不填写，将会创建一个仅包含索引列的空数据表。</para>
+        /// <para>- 如果指定了本字段，将会创建一个包含初始字段的数据表、且默认第一个字段为索引列。</para>
         /// <para>必填：否</para>
         /// <para>最大长度：300</para>
         /// <para>最小长度：1</para>
@@ -72,14 +68,14 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
 
         /// <summary>
         /// <para>数据表的初始字段。</para>
-        /// <para>请注意：</para>
-        /// <para>1. 如果 default_view_name 字段和 fields 字段都不填写，将会创建一个仅包含索引列的空数据表。</para>
-        /// <para>2. 如果指定了 fields 字段，将会创建一个包含初始字段的数据表且默认第一个字段为索引列。</para>
+        /// <para>注意：</para>
+        /// <para>- 如果 default_view_name 字段和 fields 字段都不填写，将会创建一个仅包含索引列的空数据表。</para>
+        /// <para>- 如果指定了本字段，将会创建一个包含初始字段的数据表、且默认第一个字段为索引列。</para>
         /// </summary>
         public record AppTableCreateHeader
         {
             /// <summary>
-            /// <para>字段名</para>
+            /// <para>字段名称</para>
             /// <para>必填：是</para>
             /// <para>示例值：文本</para>
             /// </summary>
@@ -91,7 +87,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
-            /// <item>1：多行文本</item>
+            /// <item>1：文本</item>
             /// <item>2：数字</item>
             /// <item>3：单选</item>
             /// <item>4：多选</item>

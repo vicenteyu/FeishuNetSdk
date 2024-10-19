@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 查询单个任职信息 响应体
-/// <para>根据 ID 查询单任职信息。</para>
+/// <para>根据 ID 查询当前生效的主任职记录。所有主任职记录中只有一条记录版本当前生效</para>
 /// <para>接口ID：7017694651622014980</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/employee/job_data/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_data%2fget</para>
@@ -132,7 +132,7 @@ public record GetCorehrV1JobDatasByJobDataIdResponseDto
         public string EmploymentId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>生效时间</para>
+        /// <para>任职记录版本的生效时间</para>
         /// <para>必填：是</para>
         /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>
@@ -140,7 +140,7 @@ public record GetCorehrV1JobDatasByJobDataIdResponseDto
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>失效时间</para>
+        /// <para>任职记录版本的失效时间</para>
         /// <para>必填：否</para>
         /// <para>示例值：2020-05-02 00:00:00</para>
         /// </summary>

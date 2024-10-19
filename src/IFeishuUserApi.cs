@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-10-12
+// Last Modified On : 2024-10-18
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -2959,8 +2959,6 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于在数据表中新增一条记录</para>
-    /// <para>note</para>
-    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:create</item>
     /// <item>bitable:app</item>
@@ -2976,13 +2974,24 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 app_token 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 obj_type 的值为 bitable 时，obj_token 字段的值才是多维表格的 app_token。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
+    /// <para>**数据校验规则**：</para>
+    /// <para>- 长度范围：`0` ～ `100` 字符</para>
     /// <para>示例值：bascng7vrxcxpig7geggXiCtadY</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`。</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`。</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
+    /// <para>**数据校验规则**：</para>
+    /// <para>- 长度范围：`0` ～ `50` 字符</para>
     /// <para>示例值：tblUa9vcYjWQYJCj</para>
     /// </param>
     /// <param name="user_id_type">
@@ -3336,13 +3345,20 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 app_token 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 obj_type 的值为 bitable 时，obj_token 字段的值才是多维表格的 app_token。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="user_id_type">
@@ -3428,19 +3444,26 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 app_token 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 obj_type 的值为 bitable 时，obj_token 字段的值才是多维表格的 app_token。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="record_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)</para>
+    /// <para>数据表中一条记录的唯一标识。通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取。</para>
     /// <para>示例值：recqwIwhc6</para>
     /// </param>
     /// <param name="user_id_type">
@@ -5353,13 +5376,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>目标多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)</para>
+    /// <para>多维表格数据表的唯一标识。你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`。你也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`。</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -5385,7 +5409,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>目标多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -5411,7 +5435,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>目标多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="page_token">
@@ -5574,9 +5598,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6960166873968541699</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>通过该接口，可以新增一个仅包含索引列的空数据表，也可以指定一部分初始字段。</para>
-    /// <para>note</para>
-    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
+    /// <para>新增一个数据表，默认仅包含索引列，也可以指定一部分初始字段。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:table:create</item>
     /// <item>bitable:app</item>
@@ -5585,7 +5607,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>目标多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -5613,7 +5635,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>目标多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="user_id_type">
@@ -5641,9 +5663,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6960166873968574467</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取指定多维表格的元数据信息，包括多维表格名称，多维表格版本号，多维表格是否开启高级权限等。</para>
-    /// <para>note</para>
-    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
+    /// <para>获取指定多维表格的元数据信息，包括多维表格名称、多维表格版本号、多维表格是否开启高级权限等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:app:read</item>
     /// <item>bitable:app</item>
@@ -5653,7 +5673,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>目标多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -10332,7 +10352,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7047048928294174722</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/image/upload</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>上传进展记录图片。</para>
+    /// <para>上传进展记录图片。成功调用该接口后，你可继续调用[创建 OKR 进展记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/progress_record/create)或[更新 OKR 进展记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/progress_record/update)，将返回的 `url`参数和`file_token` 参数传入 `imageList` 参数中。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>okr:okr</item>
     /// </list></para>
@@ -10485,7 +10505,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7047733935745007620</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>在指定目录下创建多维表格</para>
+    /// <para>在指定文件夹中创建一个多维表格，包含一个空白的数据表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:app:create</item>
     /// <item>bitable:app</item>
@@ -11010,15 +11030,20 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7073673019918811164</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>通过 app_token 更新多维表格元数据</para>
+    /// <para>更新多维表格元数据，包括多维表格的名称、是否开启高级权限。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 在线文档和电子表格中嵌入的多维表格、知识库中的多维表格不支持开启高级权限。</para>
+    /// <para>- 此接口非原子操作，先修改多维表格名称，后开关高级权限，可能存在部分成功的情况。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:app:update</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>Base app token</para>
+    /// <para>目标多维表格的 App token。该接口仅支持存储在云空间文件夹中的多维表格，即 URL 以 **feishu.cn/base** 开头的多维表格形态。该类多维表格的 app_token 为 URL 下图高亮部分：</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_sTn7sVvhOB.png?height=766&amp;lazyload=true&amp;maxWidth=700&amp;width=3004)</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -13803,19 +13828,21 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>note</para>
     /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:table:update</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>目标多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
     /// <para>示例值：XrgTb4y1haKYnasu0xXb1g7lcSg</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)</para>
+    /// <para>多维表格数据表的唯一标识。你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`。你也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`。</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tbl1TkhyTWDkSoZ3</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -14331,6 +14358,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/copy</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>复制一个多维表格，可以指定复制到某个有权限的文件夹下。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格和目标文件夹的阅读、编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通云文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:app:copy</item>
     /// <item>bitable:app</item>
@@ -14339,8 +14368,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>[多维表格 App token](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
-    /// <para>示例值：S404b*****e9PQsYDWYcNryFn0g</para>
+    /// <para>要复制的多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
+    /// <para>示例值：AW3Qbtr2cakCnesXzXVbbsrIcVT</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
@@ -17868,19 +17897,20 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识 token。获取方式：</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同：</para>
     /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 app_token 是下图高亮部分：</para>
     /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
-    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 obj_type 的值为 bitable 时，obj_token 字段的值才是多维表格的 app_token。了解更多，参考[多维表格接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)。</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 obj_type 的值为 bitable 时，obj_token 字段的值才是多维表格的 app_token。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：NQRxbRkBMa6OnZsjtERcxhNWnNh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的数据表 ID。获取方式：</para>
-    /// <para>- 在多维表格的 URL 地址栏中，table_id 是下图中高亮部分：</para>
-    /// <para>![table_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_JD4VlW56qA.png?height=746&amp;lazyload=true&amp;width=2976)</para>
-    /// <para>- 对于其它场景的多维表格，如在云文档中嵌入的多维表格，则需要通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tbl0xe5g8PP3U3cS</para>
     /// </param>
     /// <param name="user_id_type">
@@ -18497,8 +18527,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【智能伙伴创建平台】获取消息</para>
     /// <para>接口ID：7358047310868152324</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session-aily_message/get</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该 API 用于获取某个飞书智能伙伴应用的消息（Message）的详细信息；包括消息的内容、发送人等。</para>
+    /// <para>## 实体概念说明</para>
+    /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
+    /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
+    /// <para>- **运行**（Run）：Aily 助手基于会话内消息进行意图判定、调用匹配的技能，并返回技能执行后的结果消息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:message:read</item>
     /// </list></para>
@@ -18506,7 +18540,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="aily_session_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会话 ID</para>
+    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-session/create) 接口</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="aily_message_id">
@@ -18526,8 +18560,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【智能伙伴创建平台】列出消息</para>
     /// <para>接口ID：7358047310868168708</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session-aily_message/list</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该 API 用于列出某个飞书智能伙伴应用的某个会话（Session）下消息（Message）的详细信息；包括消息的内容、发送人等。</para>
+    /// <para>## 实体概念说明</para>
+    /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
+    /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
+    /// <para>- **运行**（Run）：Aily 助手基于会话内消息进行意图判定、调用匹配的技能，并返回技能执行后的结果消息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:message:read</item>
     /// </list></para>
@@ -18535,13 +18573,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="aily_session_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会话 ID</para>
+    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-session/create) 接口</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>页面大小</para>
-    /// <para>示例值：10</para>
+    /// <para>本次请求获取的消息记录条数，默认 20</para>
+    /// <para>示例值：20</para>
     /// <para>默认值：10</para>
     /// </param>
     /// <param name="page_token">
@@ -18552,8 +18590,16 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="run_id">
     /// <para>必填：否</para>
-    /// <para>运行 ID</para>
+    /// <para>过滤条件，按执行的唯一 ID 筛选</para>
     /// <para>示例值：run_4dfrxvctjqzzj</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="with_partial_message">
+    /// <para>必填：否</para>
+    /// <para>是否返回正在进行中（即流式输出中）的消息内容</para>
+    /// <para>- 当设置为 `true` 时，返回的消息记录中、每个消息将额外包含一个 `status `字段（`IN_PROGRESS` | `COMPLETED`），此时 `content` 字段为当前时刻的消息内容</para>
+    /// <para>- 当设置为 `false` 时，返回的消息记录仅包含已完成的消息</para>
+    /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -18563,14 +18609,19 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string aily_session_id,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? run_id = null);
+        [PathQuery] string? run_id = null,
+        [PathQuery] bool? with_partial_message = null);
 
     /// <summary>
     /// <para>【智能伙伴创建平台】创建运行</para>
     /// <para>接口ID：7358047310868185092</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session-run/create</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该 API 用于在某个飞书智能伙伴应用会话（Session）上创建一次运行（Run）。</para>
+    /// <para>## 实体概念说明</para>
+    /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
+    /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
+    /// <para>- **运行**（Run）：Aily 助手基于会话内消息进行意图判定、调用匹配的技能，并返回技能执行后的结果消息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:run:write</item>
     /// </list></para>
@@ -18578,7 +18629,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="aily_session_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会话 ID</para>
+    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-session/create) 接口</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -18593,8 +18644,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【智能伙伴创建平台】列出运行</para>
     /// <para>接口ID：7358047310868201476</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session-run/list</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该 API 用于列出某个飞书智能伙伴应用的运行（Run）的详细信息；包括状态、结束时间等。</para>
+    /// <para>## 实体概念说明</para>
+    /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
+    /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
+    /// <para>- **运行**（Run）：Aily 助手基于会话内消息进行意图判定、调用匹配的技能，并返回技能执行后的结果消息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:run:read</item>
     /// </list></para>
@@ -18602,13 +18657,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="aily_session_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会话 ID</para>
+    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-session/create) 接口</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>页面大小</para>
-    /// <para>示例值：10</para>
+    /// <para>本次请求获取的运行记录条数，默认 20</para>
+    /// <para>示例值：20</para>
     /// <para>默认值：10</para>
     /// </param>
     /// <param name="page_token">
@@ -18629,8 +18684,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【智能伙伴创建平台】取消运行</para>
     /// <para>接口ID：7358047310868217860</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session-run/cancel</para>
-    /// <para>Authorization：user_access_token</para>
-    /// <para>该 API 用于取消某个飞书智能伙伴应用的运行（Run）。</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该 API 用于中止某个飞书智能伙伴的一次运行。</para>
+    /// <para>## 实体概念说明</para>
+    /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
+    /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
+    /// <para>- **运行**（Run）：Aily 助手基于会话内消息进行意图判定、调用匹配的技能，并返回技能执行后的结果消息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:run:write</item>
     /// </list></para>
@@ -18638,13 +18697,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="aily_session_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会话 ID</para>
+    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-session/create) 接口</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="run_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>运行 ID</para>
+    /// <para>运行的唯一 ID</para>
     /// <para>示例值：run_4dfrxvctjqzzj</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -18658,7 +18717,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【智能伙伴创建平台】更新会话</para>
     /// <para>接口ID：7358047310868234244</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/update</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该 API 用于更新与某个飞书智能伙伴应用的一次会话（Session）的信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:session:write</item>
@@ -18682,7 +18741,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【智能伙伴创建平台】获取会话</para>
     /// <para>接口ID：7358047310868250628</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/get</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该 API 用于获取与某个飞书智能伙伴应用的一次会话（Session）的详细信息，包括会话的状态、渠道上下文、创建时间等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:session:read</item>
@@ -18704,7 +18763,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【智能伙伴创建平台】删除会话</para>
     /// <para>接口ID：7358047310868267012</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/delete</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该 API 用于删除与某个飞书智能伙伴应用的一次会话（Session）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:session:write</item>
@@ -18726,8 +18785,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【智能伙伴创建平台】发送消息</para>
     /// <para>接口ID：7358047310868283396</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session-aily_message/create</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该 API 用于向某个飞书智能伙伴应用发送一条消息（Message）；每个消息从属于一个活跃的会话（Session）。</para>
+    /// <para>## 实体概念说明</para>
+    /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
+    /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
+    /// <para>- **运行**（Run）：Aily 助手基于会话内消息进行意图判定、调用匹配的技能，并返回技能执行后的结果消息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:message:write</item>
     /// </list></para>
@@ -18735,7 +18798,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="aily_session_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会话 ID</para>
+    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-session/create) 接口</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -18750,8 +18813,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【智能伙伴创建平台】获取运行</para>
     /// <para>接口ID：7358047310868299780</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session-run/get</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该 API 用于获取某个飞书智能伙伴应用的运行（Run）的详细信息；包括运行的状态、结束时间等。</para>
+    /// <para>## 实体概念说明</para>
+    /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
+    /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
+    /// <para>- **运行**（Run）：Aily 助手基于会话内消息进行意图判定、调用匹配的技能，并返回技能执行后的结果消息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:run:read</item>
     /// </list></para>
@@ -18759,13 +18826,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="aily_session_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会话 ID</para>
+    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-session/create) 接口</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="run_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>运行 ID</para>
+    /// <para>运行的唯一 ID</para>
     /// <para>示例值：run_4dfrxvctjqzzj</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -18779,8 +18846,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【智能伙伴创建平台】创建会话</para>
     /// <para>接口ID：7358047310868316164</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create</para>
-    /// <para>Authorization：user_access_token</para>
-    /// <para>该 API 用于创建与某个飞书智能伙伴应用的一次会话（Session）；当创建会话成功后，可以发送消息、创建运行</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该 API 用于创建与某个飞书智能伙伴应用的一次会话（Session）；当创建会话成功后，可以发送消息、创建运行。</para>
+    /// <para>## 实体概念说明</para>
+    /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
+    /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
+    /// <para>- **运行**（Run）：Aily 助手基于会话内消息进行意图判定、调用匹配的技能，并返回技能执行后的结果消息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:session:write</item>
     /// </list></para>

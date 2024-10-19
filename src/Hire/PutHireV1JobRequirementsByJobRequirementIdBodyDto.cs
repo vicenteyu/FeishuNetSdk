@@ -278,7 +278,7 @@ public record PutHireV1JobRequirementsByJobRequirementIdBodyDto
     public string? JobTypeId { get; set; }
 
     /// <summary>
-    /// <para>关联的职位 ID 列表</para>
+    /// <para>关联的职位 ID 列表，该字段无效，请勿使用</para>
     /// <para>必填：否</para>
     /// <para>最大长度：200</para>
     /// </summary>

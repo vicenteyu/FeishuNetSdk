@@ -23,6 +23,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 {
     /// <summary>
     /// <para>姓名列表</para>
+    /// <para>- 覆盖式更新</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("name_list")]
@@ -30,6 +31,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>姓名列表</para>
+    /// <para>- 覆盖式更新</para>
     /// </summary>
     public record PersonName
     {
@@ -317,6 +319,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>地址列表</para>
+    /// <para>- 覆盖式更新</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("address_list")]
@@ -324,11 +327,12 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>地址列表</para>
+    /// <para>- 覆盖式更新</para>
     /// </summary>
     public record Address
     {
         /// <summary>
-        /// <para>地址 ID，在[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)时返回的的地址ID；不可与其他地址使用相同 ID；为空时返回新的ID</para>
+        /// <para>地址 ID，在[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)时返回的的地址ID；不可与其他地址使用相同 ID；为空时会返回新的ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：6989822217869624863</para>
         /// </summary>
@@ -596,6 +600,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     {
         /// <summary>
         /// <para>邮箱地址</para>
+        /// <para>- 覆盖式更新</para>
         /// <para>必填：是</para>
         /// <para>示例值：1234567@example.feishu.cn</para>
         /// </summary>
@@ -654,6 +659,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>工作经历列表</para>
+    /// <para>- 覆盖式更新</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("work_experience_list")]
@@ -661,6 +667,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>工作经历列表</para>
+    /// <para>- 覆盖式更新</para>
     /// </summary>
     public record WorkExperienceInfo
     {
@@ -764,6 +771,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>教育经历列表</para>
+    /// <para>- 覆盖式更新</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("education_list")]
@@ -771,6 +779,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>教育经历列表</para>
+    /// <para>- 覆盖式更新</para>
     /// </summary>
     public record Education
     {
@@ -931,6 +940,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>银行账户</para>
+    /// <para>- 覆盖式更新</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("bank_account_list")]
@@ -938,6 +948,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>银行账户</para>
+    /// <para>- 覆盖式更新</para>
     /// </summary>
     public record BankAccount
     {
@@ -1077,6 +1088,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>证件</para>
+    /// <para>- 覆盖式更新</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("national_id_list")]
@@ -1084,6 +1096,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>证件</para>
+    /// <para>- 覆盖式更新</para>
     /// </summary>
     public record NationalId
     {
@@ -1169,6 +1182,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>家庭成员列表</para>
+    /// <para>- 覆盖式更新</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("dependent_list")]
@@ -1176,6 +1190,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>家庭成员列表</para>
+    /// <para>- 覆盖式更新</para>
     /// </summary>
     public record Dependent
     {
@@ -1693,6 +1708,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>紧急联系人列表</para>
+    /// <para>- 覆盖式更新</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("emergency_contact_list")]
@@ -1700,6 +1716,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>紧急联系人列表</para>
+    /// <para>- 覆盖式更新</para>
     /// </summary>
     public record EmergencyContact
     {
@@ -2217,6 +2234,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>居民身份信息</para>
+    /// <para>- 覆盖式更新</para>
     /// <para>必填：否</para>
     /// <para>示例值：6863326262618752123</para>
     /// </summary>
@@ -2225,6 +2243,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
     /// <summary>
     /// <para>居民身份信息</para>
+    /// <para>- 覆盖式更新</para>
     /// </summary>
     public record ResidentTax
     {

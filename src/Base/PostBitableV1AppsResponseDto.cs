@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 创建多维表格 响应体
-/// <para>在指定目录下创建多维表格</para>
+/// <para>在指定文件夹中创建一个多维表格，包含一个空白的数据表。</para>
 /// <para>接口ID：7047733935745007620</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp%2fcreate</para>
@@ -34,7 +34,7 @@ public record PostBitableV1AppsResponseDto
     public record PostBitableV1AppsResponseDtoApp
     {
         /// <summary>
-        /// <para>多维表格的 app_token</para>
+        /// <para>多维表格的唯一标识 app_token</para>
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record PostBitableV1AppsResponseDto
         public string? AppToken { get; set; }
 
         /// <summary>
-        /// <para>多维表格的名字</para>
+        /// <para>多维表格的名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>
@@ -58,7 +58,7 @@ public record PostBitableV1AppsResponseDto
         public string? FolderToken { get; set; }
 
         /// <summary>
-        /// <para>多维表格 App URL</para>
+        /// <para>多维表格 App 的 URL 链接</para>
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>
@@ -66,9 +66,9 @@ public record PostBitableV1AppsResponseDto
         public string? Url { get; set; }
 
         /// <summary>
-        /// <para>默认的表格id</para>
+        /// <para>默认创建的数据表 ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：tblxxxxxxxxoumSQ</para>
+        /// <para>示例值：tblEtaUgtZIabcef</para>
         /// </summary>
         [JsonPropertyName("default_table_id")]
         public string? DefaultTableId { get; set; }

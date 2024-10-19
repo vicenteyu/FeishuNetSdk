@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-10-18
 // ************************************************************************
 // <copyright file="PostAilyV1SessionsByAilySessionIdMessagesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -15,6 +15,10 @@ namespace FeishuNetSdk.Aily;
 /// <summary>
 /// 发送消息 响应体
 /// <para>该 API 用于向某个飞书智能伙伴应用发送一条消息（Message）；每个消息从属于一个活跃的会话（Session）。</para>
+/// <para>## 实体概念说明</para>
+/// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
+/// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
+/// <para>- **运行**（Run）：Aily 助手基于会话内消息进行意图判定、调用匹配的技能，并返回技能执行后的结果消息。</para>
 /// <para>接口ID：7358047310868283396</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session-aily_message/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2faily_session-aily_message%2fcreate</para>
@@ -144,6 +148,39 @@ public record PostAilyV1SessionsByAilySessionIdMessagesResponseDto
             /// </summary>
             [JsonPropertyName("created_at")]
             public string? CreatedAt { get; set; }
+
+            /// <summary>
+            /// <para>文件预览链接</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("preview_url")]
+            public AilyMessageFilePreview? PreviewUrl { get; set; }
+
+            /// <summary>
+            /// <para>文件预览链接</para>
+            /// </summary>
+            public record AilyMessageFilePreview
+            {
+                /// <summary>
+                /// <para>文件的 URL</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：http://path_to_file</para>
+                /// <para>最大长度：512</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("url")]
+                public string Url { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>url 过期时间，秒时间戳</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1719413169</para>
+                /// <para>最大长度：20</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("expired_at")]
+                public string? ExpiredAt { get; set; }
+            }
         }
 
         /// <summary>
@@ -287,5 +324,13 @@ public record PostAilyV1SessionsByAilySessionIdMessagesResponseDto
         /// </summary>
         [JsonPropertyName("created_at")]
         public string? CreatedAt { get; set; }
+
+        /// <summary>
+        /// <para>状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：COMPLETED</para>
+        /// </summary>
+        [JsonPropertyName("status")]
+        public string? Status { get; set; }
     }
 }

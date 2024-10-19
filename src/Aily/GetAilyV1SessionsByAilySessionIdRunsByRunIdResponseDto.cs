@@ -15,6 +15,10 @@ namespace FeishuNetSdk.Aily;
 /// <summary>
 /// 获取运行 响应体
 /// <para>该 API 用于获取某个飞书智能伙伴应用的运行（Run）的详细信息；包括运行的状态、结束时间等。</para>
+/// <para>## 实体概念说明</para>
+/// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
+/// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
+/// <para>- **运行**（Run）：Aily 助手基于会话内消息进行意图判定、调用匹配的技能，并返回技能执行后的结果消息。</para>
 /// <para>接口ID：7358047310868299780</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session-run/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2faily_session-run%2fget</para>
@@ -74,7 +78,8 @@ public record GetAilyV1SessionsByAilySessionIdRunsByRunIdResponseDto
         public string SessionId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>状态</para>
+        /// <para>运行状态；详见 [Run 状态机说明](https://bytedance.larkoffice.com/wiki/UTU6wVTVGigefykjO1acAOOvnNc#part-LGZrdJTUFo5c8XxSpYXcm3oknEd)</para>
+        /// <para>- 对于 `COMPLETED` 状态的运行、可通过 `ListMessage` 接口获取 Bot 返回的消息内容。</para>
         /// <para>必填：是</para>
         /// <para>示例值：IN_PROGRESS</para>
         /// </summary>

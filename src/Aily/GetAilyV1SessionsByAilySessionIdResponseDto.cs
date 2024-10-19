@@ -64,7 +64,7 @@ public record GetAilyV1SessionsByAilySessionIdResponseDto
         public string ModifiedAt { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>会话的创建人</para>
+        /// <para>会话的创建人（Aily UserID）</para>
         /// <para>必填：是</para>
         /// <para>示例值：1794840334557292</para>
         /// <para>最大长度：20</para>
@@ -74,7 +74,7 @@ public record GetAilyV1SessionsByAilySessionIdResponseDto
         public string CreatedBy { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>渠道上下文</para>
+        /// <para>可自行构造的 Context [上下文变量](https://aily.feishu.cn/hc/1u7kleqg/en70bqqj#6a446d5e)；在 Workflow 技能中可消费这部分全局变量</para>
         /// <para>必填：否</para>
         /// <para>示例值：{}</para>
         /// <para>最大长度：255</para>
@@ -84,7 +84,7 @@ public record GetAilyV1SessionsByAilySessionIdResponseDto
         public string? ChannelContext { get; set; }
 
         /// <summary>
-        /// <para>其他透传信息</para>
+        /// <para>会话的自定义变量内容，变量数据保存在服务端 Session 中，可在 `GetSession` 时原样返回，无需在 API 调用侧存储</para>
         /// <para>必填：否</para>
         /// <para>示例值：{}</para>
         /// <para>最大长度：255</para>

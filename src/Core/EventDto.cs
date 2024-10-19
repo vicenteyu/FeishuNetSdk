@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-10-12
+// Last Modified On : 2024-10-19
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -346,6 +346,8 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Hire.Events.HireEhrImportTaskForInternshipOfferImportedV1EventBodyDto>), typeDiscriminator: "hire.ehr_import_task_for_internship_offer.imported_v1")]
 //【招聘】内推账户余额变更
 [JsonDerivedType(typeof(EventV2Dto<Hire.Events.HireReferralAccountAssetsUpdateV1EventBodyDto>), typeDiscriminator: "hire.referral_account.assets_update_v1")]
+//【招聘】人才进展变更事件
+[JsonDerivedType(typeof(EventV2Dto<Hire.Events.HireTalentTagSubscriptionV1EventBodyDto>), typeDiscriminator: "hire.talent.tag_subscription_v1")]
 //【招聘】删除人才
 [JsonDerivedType(typeof(EventV2Dto<Hire.Events.HireTalentDeletedV1EventBodyDto>), typeDiscriminator: "hire.talent.deleted_v1")]
 //【招聘】删除投递

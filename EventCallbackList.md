@@ -164,6 +164,7 @@
 <tr><td>hire.ehr_import_task.imported_v1</td><td>EventV2Dto&lt;Hire.Events.HireEhrImportTaskImportedV1EventBodyDto&gt;</td><td>【招聘】导入 e-HR</td></tr>
 <tr><td>hire.ehr_import_task_for_internship_offer.imported_v1</td><td>EventV2Dto&lt;Hire.Events.HireEhrImportTaskForInternshipOfferImportedV1EventBodyDto&gt;</td><td>【招聘】导入 e-HR（实习 Offer）</td></tr>
 <tr><td>hire.referral_account.assets_update_v1</td><td>EventV2Dto&lt;Hire.Events.HireReferralAccountAssetsUpdateV1EventBodyDto&gt;</td><td>【招聘】内推账户余额变更</td></tr>
+<tr><td>hire.talent.tag_subscription_v1</td><td>EventV2Dto&lt;Hire.Events.HireTalentTagSubscriptionV1EventBodyDto&gt;</td><td>【招聘】人才进展变更事件</td></tr>
 <tr><td>hire.talent.deleted_v1</td><td>EventV2Dto&lt;Hire.Events.HireTalentDeletedV1EventBodyDto&gt;</td><td>【招聘】删除人才</td></tr>
 <tr><td>hire.application.deleted_v1</td><td>EventV2Dto&lt;Hire.Events.HireApplicationDeletedV1EventBodyDto&gt;</td><td>【招聘】删除投递</td></tr>
 <tr><td>hire.application.stage_changed_v1</td><td>EventV2Dto&lt;Hire.Events.HireApplicationStageChangedV1EventBodyDto&gt;</td><td>【招聘】投递阶段变更</td></tr>
