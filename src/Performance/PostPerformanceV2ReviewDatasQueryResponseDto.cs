@@ -4,7 +4,7 @@
 // Created          : 2024-07-02
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-02
+// Last Modified On : 2024-10-23
 // ************************************************************************
 // <copyright file="PostPerformanceV2ReviewDatasQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -321,6 +321,14 @@ public record PostPerformanceV2ReviewDatasQueryResponseDto
                             /// </summary>
                             [JsonPropertyName("tag_text")]
                             public string? TagTextSuffix { get; set; }
+
+                            /// <summary>
+                            /// <para>富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}</para>
+                            /// </summary>
+                            [JsonPropertyName("tag_richtext")]
+                            public string? TagRichtext { get; set; }
                         }
 
                         /// <summary>
@@ -382,6 +390,14 @@ public record PostPerformanceV2ReviewDatasQueryResponseDto
                             /// </summary>
                             [JsonPropertyName("text")]
                             public string? Text { get; set; }
+
+                            /// <summary>
+                            /// <para>富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}</para>
+                            /// </summary>
+                            [JsonPropertyName("richtext")]
+                            public string? Richtext { get; set; }
                         }
 
                         /// <summary>
@@ -455,7 +471,23 @@ public record PostPerformanceV2ReviewDatasQueryResponseDto
                                 /// </summary>
                                 [JsonPropertyName("text")]
                                 public string? Text { get; set; }
+
+                                /// <summary>
+                                /// <para>富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}</para>
+                                /// </summary>
+                                [JsonPropertyName("richtext")]
+                                public string? Richtext { get; set; }
                             }
+
+                            /// <summary>
+                            /// <para>富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}</para>
+                            /// </summary>
+                            [JsonPropertyName("richtext")]
+                            public string? Richtext { get; set; }
                         }
 
                         /// <summary>
@@ -506,6 +538,23 @@ public record PostPerformanceV2ReviewDatasQueryResponseDto
                         /// </summary>
                         [JsonPropertyName("multi_texts")]
                         public string[]? MultiTexts { get; set; }
+
+                        /// <summary>
+                        /// <para>富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}</para>
+                        /// </summary>
+                        [JsonPropertyName("richtext")]
+                        public string? Richtext { get; set; }
+
+                        /// <summary>
+                        /// <para>富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)</para>
+                        /// <para>必填：否</para>
+                        /// <para>最大长度：100000</para>
+                        /// <para>最小长度：0</para>
+                        /// </summary>
+                        [JsonPropertyName("multi_richtexts")]
+                        public string[]? MultiRichtexts { get; set; }
                     }
                 }
 
@@ -802,6 +851,7 @@ public record PostPerformanceV2ReviewDatasQueryResponseDto
             /// <item>secondary_solid_line_leader：第二实线上级</item>
             /// <item>direct_project_leader：项目直属上级</item>
             /// <item>custom_review_role：自定义评估角色</item>
+            /// <item>metric_reviewer：指标评价人角色</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("review_stage_role")]

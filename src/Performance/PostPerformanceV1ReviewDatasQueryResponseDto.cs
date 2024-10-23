@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-10-23
 // ************************************************************************
 // <copyright file="PostPerformanceV1ReviewDatasQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -95,6 +95,18 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         }
 
         /// <summary>
+        /// <para>绩效评估周期 状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：enabled</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>initiating：初始化</item>
+        /// <item>enabled：已启动</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("progress")]
+        public string? Progress { get; set; }
+
+        /// <summary>
         /// <para>周期开始时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1625068800000</para>
@@ -117,6 +129,30 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         /// </summary>
         [JsonPropertyName("create_time")]
         public string? CreateTime { get; set; }
+
+        /// <summary>
+        /// <para>绩效评估周期 更新时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1625068800000</para>
+        /// </summary>
+        [JsonPropertyName("modify_time")]
+        public string? ModifyTime { get; set; }
+
+        /// <summary>
+        /// <para>绩效评估周期 创建人 ID，与入参 user_id_type 类型一致</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
+        /// </summary>
+        [JsonPropertyName("create_user_id")]
+        public string? CreateUserId { get; set; }
+
+        /// <summary>
+        /// <para>绩效评估周期 更新人 ID，与入参 user_id_type 类型一致</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
+        /// </summary>
+        [JsonPropertyName("modify_user_id")]
+        public string? ModifyUserId { get; set; }
     }
 
     /// <summary>
@@ -670,6 +706,14 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
                 /// </summary>
                 [JsonPropertyName("perf_coefficient_result")]
                 public string? PerfCoefficientResult { get; set; }
+
+                /// <summary>
+                /// <para>富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：{"ops":[{"name":"insert","text":"与公司共同发展","attributes":{"bold":true}}]}</para>
+                /// </summary>
+                [JsonPropertyName("richtext")]
+                public string? Richtext { get; set; }
             }
         }
     }

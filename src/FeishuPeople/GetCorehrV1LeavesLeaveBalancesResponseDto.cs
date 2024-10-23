@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-10-23
 // ************************************************************************
 // <copyright file="GetCorehrV1LeavesLeaveBalancesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -174,6 +174,62 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto
             /// </summary>
             [JsonPropertyName("leave_duration_unit")]
             public int LeaveDurationUnit { get; set; }
+
+            /// <summary>
+            /// <para>历史结转发放，当入参include_offboard为true时返回</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// </summary>
+            [JsonPropertyName("history_cycle_accrual")]
+            public string? HistoryCycleAccrual { get; set; }
+
+            /// <summary>
+            /// <para>当前周期余额</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// </summary>
+            [JsonPropertyName("balance_in_current_cycle")]
+            public string? BalanceInCurrentCycle { get; set; }
+
+            /// <summary>
+            /// <para>已休时长，当入参include_offboard为true时返回</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// </summary>
+            [JsonPropertyName("taken")]
+            public string? Taken { get; set; }
+
+            /// <summary>
+            /// <para>历史周期已休时长</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// </summary>
+            [JsonPropertyName("taken_history_cycle")]
+            public string? TakenHistoryCycle { get; set; }
+
+            /// <summary>
+            /// <para>余额（离职折算），当入参include_offboard为true时返回</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// </summary>
+            [JsonPropertyName("offboarding_balance")]
+            public string? OffboardingBalance { get; set; }
+
+            /// <summary>
+            /// <para>已休时长（截止当日），当入参include_offboard为true时返回</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// </summary>
+            [JsonPropertyName("taken_current_date")]
+            public string? TakenCurrentDate { get; set; }
+
+            /// <summary>
+            /// <para>本周期授予时长（离职折算），当入参include_offboard为true时返回</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// </summary>
+            [JsonPropertyName("offboarding_granted")]
+            public string? OffboardingGranted { get; set; }
         }
     }
 

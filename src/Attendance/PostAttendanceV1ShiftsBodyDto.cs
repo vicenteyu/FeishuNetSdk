@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-10-23
 // ************************************************************************
 // <copyright file="PostAttendanceV1ShiftsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 创建班次 请求体
-/// <para>班次是描述一次考勤任务时间规则的统称，比如一天打多少次卡，每次卡的上下班时间，晚到多长时间算迟到，晚到多长时间算缺卡等。在假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)中点击班次名称可以进行班次详情查看</para>
+/// <para>班次是描述一次考勤任务时间规则的统称，比如一天打多少次卡，每次卡的上下班时间，晚到多长时间算迟到，晚到多长时间算缺卡等。在假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)中点击班次名称可以进行班次详情查看。如果入参中传入了班次id，那么支持编辑班次的能力</para>
 /// <para>接口ID：7044467124773601281</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/shift/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fshift%2fcreate</para>
@@ -345,6 +345,52 @@ public record PostAttendanceV1ShiftsBodyDto
     }
 
     /// <summary>
+    /// <para>应出勤配置（灰度中，暂未开放）</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("shift_attendance_time_config")]
+    public PostAttendanceV1ShiftsBodyDtoShiftAttendanceTimeConfig? ShiftAttendanceTimeConfig { get; set; }
+
+    /// <summary>
+    /// <para>应出勤配置（灰度中，暂未开放）</para>
+    /// </summary>
+    public record PostAttendanceV1ShiftsBodyDtoShiftAttendanceTimeConfig
+    {
+        /// <summary>
+        /// <para>应出勤时长</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>最大值：3</para>
+        /// <para>最小值：0</para>
+        /// <para>默认值：1</para>
+        /// </summary>
+        [JsonPropertyName("attendance_time")]
+        public float? AttendanceTime { get; set; }
+
+        /// <summary>
+        /// <para>上半天应出勤时长</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>最大值：3</para>
+        /// <para>最小值：0</para>
+        /// <para>默认值：1</para>
+        /// </summary>
+        [JsonPropertyName("on_attendance_time")]
+        public float? OnAttendanceTime { get; set; }
+
+        /// <summary>
+        /// <para>下半天应出勤时长</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>最大值：3</para>
+        /// <para>最小值：0</para>
+        /// <para>默认值：1</para>
+        /// </summary>
+        [JsonPropertyName("off_attendance_time")]
+        public float? OffAttendanceTime { get; set; }
+    }
+
+    /// <summary>
     /// <para>晚走次日晚到配置规则</para>
     /// <para>必填：否</para>
     /// </summary>
@@ -382,4 +428,12 @@ public record PostAttendanceV1ShiftsBodyDto
         [JsonPropertyName("late_on_base_on_time_type")]
         public int? LateOnBaseOnTimeType { get; set; }
     }
+
+    /// <summary>
+    /// <para>班次id(更新班次时需要传递)，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：6919358778597097404</para>
+    /// </summary>
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 }

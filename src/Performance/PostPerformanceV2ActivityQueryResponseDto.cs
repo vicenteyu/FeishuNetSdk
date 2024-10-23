@@ -4,7 +4,7 @@
 // Created          : 2024-07-02
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-27
+// Last Modified On : 2024-10-23
 // ************************************************************************
 // <copyright file="PostPerformanceV2ActivityQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -128,5 +128,21 @@ public record PostPerformanceV2ActivityQueryResponseDto
         /// </summary>
         [JsonPropertyName("modify_time")]
         public string? ModifyTime { get; set; }
+
+        /// <summary>
+        /// <para>项目创建人 ID，与入参 `user_id_type` 类型一致</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6924187793321444877</para>
+        /// </summary>
+        [JsonPropertyName("create_user_id")]
+        public string? CreateUserId { get; set; }
+
+        /// <summary>
+        /// <para>项目更新人 ID，与入参 `user_id_type` 类型一致</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6924187793321444877</para>
+        /// </summary>
+        [JsonPropertyName("modify_user_id")]
+        public string? ModifyUserId { get; set; }
     }
 }

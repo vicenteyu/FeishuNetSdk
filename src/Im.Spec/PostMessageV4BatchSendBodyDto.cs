@@ -45,6 +45,7 @@ public record PostMessageV4BatchSendBodyDto
     /// <para>- 该参数仅在 `msg_type` 取值为 text、image、post 或者 share_chat 时需要传入值。如果 `msg_type` 取值为 interactive，则消息内容需要传入到 `card` 参数。</para>
     /// <para>- 文本消息请求体最大不能超过 150 KB。</para>
     /// <para>- 富文本消息请求体最大不能超过 30 KB。</para>
+    /// <para>- 文本消息（text）仅在该接口中不支持加粗、斜体、下划线、删除线样式。</para>
     /// <para>- 如果消息中包含样式标签，会使实际消息体长度大于您输入的请求体长度。</para>
     /// <para>- 图片需要先[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)，然后使用图片的 Key 发消息。</para>
     /// <para>- 该接口直接传入 JSON 结构的消息内容即可，无需进行转义。</para>

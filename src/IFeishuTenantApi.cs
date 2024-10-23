@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-10-18
+// Last Modified On : 2024-10-23
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -1548,6 +1548,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>指定新建文件所属的文件夹或云空间根目录的 token。了解如何获取文件夹 token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    [Obsolete("历史版本")]
     [HttpPost("/open-apis/drive/explorer/v2/file/{folderToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveExplorerV2FileByFolderTokenResponseDto>> PostDriveExplorerV2FileByFolderTokenAsync(
         [PathQuery] string folderToken,
@@ -19057,6 +19058,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 注意事项</para>
     /// <para>- 使用用户身份（user_access_token）调用该接口时，接口将根据该用户的组织架构可见范围进行过滤，仅返回组织架构可见范围内的用户数据。</para>
     /// <para>- 使用应用身份（tenant_access_token）调用该接口时，接口将根据应用的通讯录权限范围进行过滤。 如果请求的部门 ID 为 0（即根部门），则接口会校验应用是否具有全员的通讯录权限；如果请求的是非 0 的部门 ID，则会校验应用是否具有该部门的通讯录权限。无权限时，接口会返回无权限的报错信息；有权限则返回对应部门下的直属用户列表。</para>
+    /// <para>- 使用应用身份（tenant_access_token）调用本接口时，响应结果中不会返回部门路径字段（department_path）。如需获取部门路径字段值，请为应用申请 **获取成员所在部门路径（contact:user.department_path:readonly）** API 权限，并使用用户身份（user_access_token）调用接口。</para>
     /// <para>关于用户组织架构可见范围和通讯录权限范围的更多信息，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact:access_as_app</item>
@@ -20350,7 +20352,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773601281</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>班次是描述一次考勤任务时间规则的统称，比如一天打多少次卡，每次卡的上下班时间，晚到多长时间算迟到，晚到多长时间算缺卡等。在假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)中点击班次名称可以进行班次详情查看</para>
+    /// <para>班次是描述一次考勤任务时间规则的统称，比如一天打多少次卡，每次卡的上下班时间，晚到多长时间算迟到，晚到多长时间算缺卡等。在假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)中点击班次名称可以进行班次详情查看。如果入参中传入了班次id，那么支持编辑班次的能力</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:rule</item>
     /// </list></para>
@@ -21889,7 +21891,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="strict_verify">
     /// <para>必填：否</para>
     /// <para>是否强校验。值为 true 时，会对入参进行业务校验，并产生异动记录、发送异动事件。</para>
-    /// <para>- 默认值：false</para>
+    /// <para>- 默认值：true</para>
     /// <para>- 仅在新增任职版本时生效，即当 version_id 有值时该字段不生效</para>
     /// <para>- 使用此功能时，试用期相关字段不支持</para>
     /// <para>- 当响应返回的任职数据无变化时，请检查人事系统-异动管理</para>
@@ -26924,6 +26926,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据电子表格 token 获取电子表格的基础信息，包括电子表格的所有者、URL 链接等。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有电子表格的阅读、编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -26964,6 +26968,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据工作表 ID 查询工作表属性信息，包括工作表的标题、索引位置、是否被隐藏等。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有电子表格的阅读、编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -26996,6 +27002,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据电子表格 token 获取表格中所有工作表及其属性信息，包括工作表 ID、标题、索引位置、是否被隐藏等。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有电子表格的阅读、编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -27533,6 +27541,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：Asia/Shanghai</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="include_offboard">
+    /// <para>必填：否</para>
+    /// <para>是否获取离职折算字段，默认值为false</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
     [HttpGet("/open-apis/corehr/v1/leaves/leave_balances")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1LeavesLeaveBalancesResponseDto>> GetCorehrV1LeavesLeaveBalancesAsync(
         [PathQuery] string? page_token = null,
@@ -27540,7 +27554,8 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? as_of_date = null,
         [PathQuery] string[]? employment_id_list = null,
         [PathQuery] string? user_id_type = "people_corehr_id",
-        [PathQuery] string? time_zone = null);
+        [PathQuery] string? time_zone = null,
+        [PathQuery] bool? include_offboard = null);
 
     /// <summary>
     /// <para>【飞书人事】获取假期类型列表</para>
@@ -38634,13 +38649,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:process:read</item>
     /// </list></para>
     /// </summary>
-    /// <param name="modify_time_to">
-    /// <para>必填：是</para>
-    /// <para>任务查询结束时间，闭区间</para>
-    /// <para>单位：ms。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的毫秒数</para>
-    /// <para>注意：开始时间和结束时间跨度不能超过 31 天</para>
-    /// <para>示例值：1547654251506</para>
-    /// </param>
     /// <param name="statuses">
     /// <para>必填：否</para>
     /// <para>查询流程状态列表。如需一次查询多个状态值,可通过将同一参数名多次传递,并且每次传递不同的参数值。例如:https://{url}?statuses=1&amp;statuses=2</para>
@@ -38672,6 +38680,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>注意：开始时间和结束时间跨度不能超过 31 天</para>
     /// <para>示例值：1547654251506</para>
     /// </param>
+    /// <param name="modify_time_to">
+    /// <para>必填：是</para>
+    /// <para>任务查询结束时间，闭区间</para>
+    /// <para>单位：ms。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的毫秒数</para>
+    /// <para>注意：开始时间和结束时间跨度不能超过 31 天</para>
+    /// <para>示例值：1547654251506</para>
+    /// </param>
     /// <param name="flow_definition_id">
     /// <para>必填：否</para>
     /// <para>流程定义ID</para>
@@ -38681,8 +38696,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/corehr/v2/processes")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2ProcessesResponseDto>> GetCorehrV2ProcessesAsync(
-        [PathQuery] string modify_time_to,
         [PathQuery] string modify_time_from,
+        [PathQuery] string modify_time_to,
         [PathQuery] int[]? statuses = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int page_size = 10,
@@ -40617,11 +40632,26 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>performance:performance:readonly</item>
     /// <item>performance:semester_activity:read</item>
     /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
     /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/performance/v2/activity/query")]
     System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2ActivityQueryResponseDto>> PostPerformanceV2ActivityQueryAsync(
-        [JsonContent] Performance.PostPerformanceV2ActivityQueryBodyDto dto);
+        [JsonContent] Performance.PostPerformanceV2ActivityQueryBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【绩效】获取评估模板配置</para>
@@ -41685,11 +41715,26 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>performance:performance</item>
     /// <item>performance:semester_activity:write</item>
     /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
     /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     [HttpDelete("/open-apis/performance/v2/additional_informations/batch")]
     System.Threading.Tasks.Task<FeishuResponse<Performance.DeletePerformanceV2AdditionalInformationsBatchResponseDto>> DeletePerformanceV2AdditionalInformationsBatchAsync(
-        [JsonContent] Performance.DeletePerformanceV2AdditionalInformationsBatchBodyDto dto);
+        [JsonContent] Performance.DeletePerformanceV2AdditionalInformationsBatchBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【绩效】批量查询补充信息</para>
@@ -43400,11 +43445,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? wk_company_id = null);
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】查询部门变更记录</para>
+    /// <para>【飞书人事（企业版）】查询指定时间范围内当前生效信息发生变更的部门</para>
     /// <para>接口ID：7414100499044646940</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/query_recent_change</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>查询指定时间范围内部门变更记录</para>
+    /// <para>查询指定时间范围内当前生效信息发生变更的部门，即只有部门当前生效版本的生效时间在查询时间范围内，才返回该部门id</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:department:read</item>
     /// <item>corehr:department:write</item>
@@ -43412,7 +43457,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：是</para>
-    /// <para>分页大小，最大 2000</para>
+    /// <para>分页大小，最大支持单次 2000 条变更</para>
     /// <para>示例值：100</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -43424,13 +43469,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="start_date">
     /// <para>必填：是</para>
-    /// <para>查询的开始时间，格式 "YYYY-MM-DD"，不带时分秒. 系统会以查询的开始时间的 00:00:00 查询。</para>
-    /// <para>示例值：2024-06-01</para>
+    /// <para>查询的开始时间，格式 "YYYY-MM-DD HH:MM:SS", 以 UTC+8 时区查询变更。</para>
+    /// <para>示例值：2024-06-01 00:00:00</para>
     /// </param>
     /// <param name="end_date">
     /// <para>必填：是</para>
-    /// <para>查询的结束时间，格式 "YYYY-MM-DD"，不带时分秒，查询日期小于查询的结束时间 + 1 天的 00:00:00。</para>
-    /// <para>示例值：2024-08-01</para>
+    /// <para>查询的结束时间，格式 "YYYY-MM-DD HH:MM:SS", 以 UTC+8 时区查询变更。 查询结束时间应大于开始时间。</para>
+    /// <para>示例值：2024-08-01 02:10:10</para>
     /// </param>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
@@ -43740,6 +43785,142 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
+    /// <para>【智能伙伴创建平台】执行数据知识问答</para>
+    /// <para>接口ID：7424752773160779780</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-knowledge/ask</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>执行飞书智能伙伴的数据知识问答</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:knowledge:ask</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>飞书智能伙伴搭建平台的AppID</para>
+    /// <para>示例值：spring_5862e4fea8__c</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/aily/v1/apps/{app_id}/knowledges/ask")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AppsByAppIdKnowledgesAskResponseDto>> PostAilyV1AppsByAppIdKnowledgesAskAsync(
+        [PathQuery] string app_id,
+        [JsonContent] Aily.PostAilyV1AppsByAppIdKnowledgesAskBodyDto dto);
+
+    /// <summary>
+    /// <para>【智能伙伴创建平台】查询数据知识列表</para>
+    /// <para>接口ID：7424752773160796164</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-data_asset/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取智能伙伴搭建助手的数据知识列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:data_asset:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>AppID</para>
+    /// <para>示例值：spring_5862e4fea8__c</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页参数：分页大小，默认：20，最大：100</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="keyword">
+    /// <para>必填：否</para>
+    /// <para>模糊匹配关键词</para>
+    /// <para>示例值：电影</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="data_asset_ids">
+    /// <para>必填：否</para>
+    /// <para>根据数据知识 ID 进行过滤</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="data_asset_tag_ids">
+    /// <para>必填：否</para>
+    /// <para>根据数据知识分类 ID 进行过滤</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="with_data_asset_item">
+    /// <para>必填：否</para>
+    /// <para>结果是否包含数据与知识项目</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="with_connect_status">
+    /// <para>必填：否</para>
+    /// <para>结果是否包含数据连接状态</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/aily/v1/apps/{app_id}/data_assets")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AppsByAppIdDataAssetsResponseDto>> GetAilyV1AppsByAppIdDataAssetsAsync(
+        [PathQuery] string app_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? keyword = null,
+        [PathQuery] string[]? data_asset_ids = null,
+        [PathQuery] string[]? data_asset_tag_ids = null,
+        [PathQuery] bool? with_data_asset_item = null,
+        [PathQuery] bool? with_connect_status = null);
+
+    /// <summary>
+    /// <para>【智能伙伴创建平台】获取数据知识分类列表</para>
+    /// <para>接口ID：7424752773160812548</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-data_asset_tag/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取智能伙伴搭建助手的数据知识分类列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:data_asset:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>AppID</para>
+    /// <para>示例值：spring_5862e4fea8__c</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页参数：分页大小，默认：20，最大：100</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="keyword">
+    /// <para>必填：否</para>
+    /// <para>模糊匹配分类名称</para>
+    /// <para>示例值：电影</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="data_asset_tag_ids">
+    /// <para>必填：否</para>
+    /// <para>模糊匹配分类名称</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/aily/v1/apps/{app_id}/data_asset_tags")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AppsByAppIdDataAssetTagsResponseDto>> GetAilyV1AppsByAppIdDataAssetTagsAsync(
+        [PathQuery] string app_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? keyword = null,
+        [PathQuery] string[]? data_asset_tag_ids = null);
+
+    /// <summary>
     /// <para>【飞书人事（企业版）】获取指定人员审批任务列表</para>
     /// <para>接口ID：7426325309484040193</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approver/list</para>
@@ -43787,5 +43968,45 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int page_size = 20,
         [PathQuery] string? page_token = "1",
         [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询指定时间范围内当前生效信息发生变更的公司</para>
+    /// <para>接口ID：7428129573351817220</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_recent_change</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询指定时间范围内当前生效信息发生变更的公司，即只有公司当前生效版本的生效时间在查询时间范围内，才返回该公司id</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:company:read</item>
+    /// <item>corehr:company:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 2000</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="start_date">
+    /// <para>必填：是</para>
+    /// <para>查询的开始时间，格式 "YYYY-MM-DD HH:MM:SS", 以 UTC+8 时区查询变更。</para>
+    /// <para>示例值：2024-01-01 00:00:00</para>
+    /// </param>
+    /// <param name="end_date">
+    /// <para>必填：是</para>
+    /// <para>查询的结束时间，格式 "YYYY-MM-DD HH:MM:SS", 以 UTC+8 时区查询变更。 查询结束时间应大于开始时间。</para>
+    /// <para>示例值：2024-01-10 02:10:00</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v2/companies/query_recent_change")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2CompaniesQueryRecentChangeResponseDto>> GetCorehrV2CompaniesQueryRecentChangeAsync(
+        [PathQuery] string start_date,
+        [PathQuery] string end_date,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
 }
 

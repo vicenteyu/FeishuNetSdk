@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-10-18
+// Last Modified On : 2024-10-23
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -874,6 +874,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
+    [Obsolete("历史版本")]
     [HttpPost("/open-apis/drive/explorer/v2/file/{folderToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveExplorerV2FileByFolderTokenResponseDto>> PostDriveExplorerV2FileByFolderTokenAsync(
         UserAccessToken access_token,
@@ -9966,6 +9967,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>## 注意事项</para>
     /// <para>- 使用用户身份（user_access_token）调用该接口时，接口将根据该用户的组织架构可见范围进行过滤，仅返回组织架构可见范围内的用户数据。</para>
     /// <para>- 使用应用身份（tenant_access_token）调用该接口时，接口将根据应用的通讯录权限范围进行过滤。 如果请求的部门 ID 为 0（即根部门），则接口会校验应用是否具有全员的通讯录权限；如果请求的是非 0 的部门 ID，则会校验应用是否具有该部门的通讯录权限。无权限时，接口会返回无权限的报错信息；有权限则返回对应部门下的直属用户列表。</para>
+    /// <para>- 使用应用身份（tenant_access_token）调用本接口时，响应结果中不会返回部门路径字段（department_path）。如需获取部门路径字段值，请为应用申请 **获取成员所在部门路径（contact:user.department_path:readonly）** API 权限，并使用用户身份（user_access_token）调用接口。</para>
     /// <para>关于用户组织架构可见范围和通讯录权限范围的更多信息，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact:access_as_app</item>
@@ -12581,6 +12583,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据电子表格 token 获取电子表格的基础信息，包括电子表格的所有者、URL 链接等。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有电子表格的阅读、编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -12623,6 +12627,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据工作表 ID 查询工作表属性信息，包括工作表的标题、索引位置、是否被隐藏等。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有电子表格的阅读、编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -12657,6 +12663,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据电子表格 token 获取表格中所有工作表及其属性信息，包括工作表 ID、标题、索引位置、是否被隐藏等。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有电子表格的阅读、编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -19285,5 +19293,147 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string @namespace,
         [PathQuery] string log_id);
+
+    /// <summary>
+    /// <para>【智能伙伴创建平台】执行数据知识问答</para>
+    /// <para>接口ID：7424752773160779780</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-knowledge/ask</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>执行飞书智能伙伴的数据知识问答</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:knowledge:ask</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>飞书智能伙伴搭建平台的AppID</para>
+    /// <para>示例值：spring_5862e4fea8__c</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/aily/v1/apps/{app_id}/knowledges/ask")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AppsByAppIdKnowledgesAskResponseDto>> PostAilyV1AppsByAppIdKnowledgesAskAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [JsonContent] Aily.PostAilyV1AppsByAppIdKnowledgesAskBodyDto dto);
+
+    /// <summary>
+    /// <para>【智能伙伴创建平台】查询数据知识列表</para>
+    /// <para>接口ID：7424752773160796164</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-data_asset/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取智能伙伴搭建助手的数据知识列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:data_asset:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>AppID</para>
+    /// <para>示例值：spring_5862e4fea8__c</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页参数：分页大小，默认：20，最大：100</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="keyword">
+    /// <para>必填：否</para>
+    /// <para>模糊匹配关键词</para>
+    /// <para>示例值：电影</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="data_asset_ids">
+    /// <para>必填：否</para>
+    /// <para>根据数据知识 ID 进行过滤</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="data_asset_tag_ids">
+    /// <para>必填：否</para>
+    /// <para>根据数据知识分类 ID 进行过滤</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="with_data_asset_item">
+    /// <para>必填：否</para>
+    /// <para>结果是否包含数据与知识项目</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="with_connect_status">
+    /// <para>必填：否</para>
+    /// <para>结果是否包含数据连接状态</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/aily/v1/apps/{app_id}/data_assets")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AppsByAppIdDataAssetsResponseDto>> GetAilyV1AppsByAppIdDataAssetsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? keyword = null,
+        [PathQuery] string[]? data_asset_ids = null,
+        [PathQuery] string[]? data_asset_tag_ids = null,
+        [PathQuery] bool? with_data_asset_item = null,
+        [PathQuery] bool? with_connect_status = null);
+
+    /// <summary>
+    /// <para>【智能伙伴创建平台】获取数据知识分类列表</para>
+    /// <para>接口ID：7424752773160812548</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-data_asset_tag/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取智能伙伴搭建助手的数据知识分类列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:data_asset:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>AppID</para>
+    /// <para>示例值：spring_5862e4fea8__c</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页参数：分页大小，默认：20，最大：100</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="keyword">
+    /// <para>必填：否</para>
+    /// <para>模糊匹配分类名称</para>
+    /// <para>示例值：电影</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="data_asset_tag_ids">
+    /// <para>必填：否</para>
+    /// <para>模糊匹配分类名称</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/aily/v1/apps/{app_id}/data_asset_tags")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AppsByAppIdDataAssetTagsResponseDto>> GetAilyV1AppsByAppIdDataAssetTagsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? keyword = null,
+        [PathQuery] string[]? data_asset_tag_ids = null);
 }
 

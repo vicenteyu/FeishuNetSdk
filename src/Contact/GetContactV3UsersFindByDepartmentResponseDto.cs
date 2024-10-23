@@ -18,6 +18,7 @@ namespace FeishuNetSdk.Contact;
 /// <para>## 注意事项</para>
 /// <para>- 使用用户身份（user_access_token）调用该接口时，接口将根据该用户的组织架构可见范围进行过滤，仅返回组织架构可见范围内的用户数据。</para>
 /// <para>- 使用应用身份（tenant_access_token）调用该接口时，接口将根据应用的通讯录权限范围进行过滤。 如果请求的部门 ID 为 0（即根部门），则接口会校验应用是否具有全员的通讯录权限；如果请求的是非 0 的部门 ID，则会校验应用是否具有该部门的通讯录权限。无权限时，接口会返回无权限的报错信息；有权限则返回对应部门下的直属用户列表。</para>
+/// <para>- 使用应用身份（tenant_access_token）调用本接口时，响应结果中不会返回部门路径字段（department_path）。如需获取部门路径字段值，请为应用申请 **获取成员所在部门路径（contact:user.department_path:readonly）** API 权限，并使用用户身份（user_access_token）调用接口。</para>
 /// <para>关于用户组织架构可见范围和通讯录权限范围的更多信息，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
 /// <para>接口ID：7033365649318789148</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/user/find_by_department</para>
@@ -585,6 +586,7 @@ public record GetContactV3UsersFindByDepartmentResponseDto
 
         /// <summary>
         /// <para>部门路径。</para>
+        /// <para>**注意**：使用应用身份（tenant_access_token）调用本接口时，响应结果中不会返回部门路径字段（department_path）。如需获取部门路径字段值，请为应用申请 **获取成员所在部门路径（contact:user.department_path:readonly）** API 权限，并使用用户身份（user_access_token）调用接口。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("department_path")]
@@ -592,6 +594,7 @@ public record GetContactV3UsersFindByDepartmentResponseDto
 
         /// <summary>
         /// <para>部门路径。</para>
+        /// <para>**注意**：使用应用身份（tenant_access_token）调用本接口时，响应结果中不会返回部门路径字段（department_path）。如需获取部门路径字段值，请为应用申请 **获取成员所在部门路径（contact:user.department_path:readonly）** API 权限，并使用用户身份（user_access_token）调用接口。</para>
         /// </summary>
         public record DepartmentDetail
         {

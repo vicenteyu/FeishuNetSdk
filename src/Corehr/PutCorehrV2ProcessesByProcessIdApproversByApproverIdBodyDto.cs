@@ -25,8 +25,6 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
     /// <para>将审批任务修改为同意/拒绝</para>
     /// <para>必填：是</para>
     /// <para>示例值：2</para>
-    /// <para>最大值：100</para>
-    /// <para>最小值：0</para>
     /// <para>可选值：<list type="bullet">
     /// <item>2：拒绝</item>
     /// <item>3：通过</item>

@@ -31,6 +31,7 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
 
     /// <summary>
     /// <para>查询的起始日期。格式yyyyMMdd</para>
+    /// <para>**注意**：传入的日期不能超过当天 +1 天，例如当天 20241010，则传入 20241011 支持查询，但传入 20241012 会报错。</para>
     /// <para>必填：是</para>
     /// <para>示例值：20190817</para>
     /// </summary>
