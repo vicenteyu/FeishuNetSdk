@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-10-25
 // ************************************************************************
 // <copyright file="GetCorehrV1JobDatasByJobDataIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -40,6 +40,14 @@ public record GetCorehrV1JobDatasByJobDataIdResponseDto
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; set; }
+
+        /// <summary>
+        /// <para>任职记录版本 ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6890452208593372697</para>
+        /// </summary>
+        [JsonPropertyName("version_id")]
+        public string? VersionId { get; set; }
 
         /// <summary>
         /// <para>职务级别 ID，枚举值及详细信息可通过[【查询单个职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)接口查询获得</para>
@@ -116,6 +124,8 @@ public record GetCorehrV1JobDatasByJobDataIdResponseDto
 
         /// <summary>
         /// <para>是否为主任职</para>
+        /// <para>- true：主职</para>
+        /// <para>- false：兼职，建议使用兼职相关接口</para>
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -313,5 +323,23 @@ public record GetCorehrV1JobDatasByJobDataIdResponseDto
         /// </summary>
         [JsonPropertyName("service_company")]
         public string? ServiceCompany { get; set; }
+
+        /// <summary>
+        /// <para>人员子类型 ID</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6890452208593372680</para>
+        /// </summary>
+        [JsonPropertyName("employee_subtype_id")]
+        public string? EmployeeSubtypeId { get; set; }
+
+        /// <summary>
+        /// <para>岗位 ID</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6890452208593372679</para>
+        /// </summary>
+        [JsonPropertyName("position_id")]
+        public string? PositionId { get; set; }
     }
 }

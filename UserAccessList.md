@@ -145,7 +145,7 @@
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
 <tr><td rowspan="2">73</td><td rowspan="2">2024-08-09</td><td>&#10003;</td><td>云文档</td><td>批量获取条件格式</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormats</td></tr>
-<tr><td rowspan="2">74</td><td rowspan="2">2024-08-09</td><td>&#10003;</td><td>云文档</td><td>批量创建条件格式</td></tr>
+<tr><td rowspan="2">74</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>批量创建条件格式</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreate</td></tr>
 <tr><td rowspan="2">75</td><td rowspan="2">2024-08-09</td><td>&#10003;</td><td>云文档</td><td>批量更新条件格式</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdate</td></tr>
@@ -763,9 +763,9 @@
 <tr><td colspan="3">PostLingoV1FilesUpload</td></tr>
 <tr><td rowspan="2">382</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>下载图片</td></tr>
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
-<tr><td rowspan="2">383</td><td rowspan="2">2024-10-18</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">383</td><td rowspan="2">2024-10-24</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">384</td><td rowspan="2">2024-10-18</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">384</td><td rowspan="2">2024-10-24</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">385</td><td rowspan="2">2023-04-07</td><td>&#10003;</td><td>应用信息</td><td>获取用户自定义常用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV5ApplicationsFavourite</td></tr>
@@ -929,7 +929,7 @@
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersTransferOwner</td></tr>
 <tr><td rowspan="2">465</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>判断当前用户是否有某权限</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembersAuth</td></tr>
-<tr><td rowspan="2">466</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取协作者列表</td></tr>
+<tr><td rowspan="2">466</td><td rowspan="2">2024-10-24</td><td>&#10003;</td><td>云文档</td><td>获取协作者列表</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembers</td></tr>
 <tr><td rowspan="2">467</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 获取协作者列表</td></tr>
 <tr><td colspan="3">PostDrivePermissionMemberList</td></tr>
@@ -1057,12 +1057,18 @@
 <tr><td colspan="3">GetApaasV1ApplicationsByNamespaceAuditLog</td></tr>
 <tr><td rowspan="2">529</td><td rowspan="2">2024-09-26</td><td>&#10003;</td><td>汇报</td><td>查询任务</td></tr>
 <tr><td colspan="3">PostReportV1TasksQuery</td></tr>
-<tr><td rowspan="2">530</td><td rowspan="2">2024-10-15</td><td>&#10003;</td><td>云文档</td><td>创建嵌套块</td></tr>
+<tr><td rowspan="2">530</td><td rowspan="2">2024-10-25</td><td>&#10003;</td><td>云文档</td><td>创建嵌套块</td></tr>
 <tr><td colspan="3">PostDocxV1DocumentsByDocumentIdBlocksByBlockIdDescendant</td></tr>
-<tr><td rowspan="2">531</td><td rowspan="2">2024-10-22</td><td>新增</td><td>智能伙伴创建平台</td><td>执行数据知识问答</td></tr>
+<tr><td rowspan="2">531</td><td rowspan="2">2024-10-22</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>执行数据知识问答</td></tr>
 <tr><td colspan="3">PostAilyV1AppsByAppIdKnowledgesAsk</td></tr>
-<tr><td rowspan="2">532</td><td rowspan="2">2024-10-22</td><td>新增</td><td>智能伙伴创建平台</td><td>查询数据知识列表</td></tr>
+<tr><td rowspan="2">532</td><td rowspan="2">2024-10-22</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>查询数据知识列表</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdDataAssets</td></tr>
-<tr><td rowspan="2">533</td><td rowspan="2">2024-10-22</td><td>新增</td><td>智能伙伴创建平台</td><td>获取数据知识分类列表</td></tr>
+<tr><td rowspan="2">533</td><td rowspan="2">2024-10-22</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>获取数据知识分类列表</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdDataAssetTags</td></tr>
+<tr><td rowspan="2">534</td><td rowspan="2">2024-10-24</td><td>新增</td><td>智能伙伴创建平台</td><td>调用技能</td></tr>
+<tr><td colspan="3">PostAilyV1AppsByAppIdSkillsBySkillIdStart</td></tr>
+<tr><td rowspan="2">535</td><td rowspan="2">2024-10-24</td><td>新增</td><td>智能伙伴创建平台</td><td>获取技能信息</td></tr>
+<tr><td colspan="3">GetAilyV1AppsByAppIdSkillsBySkillId</td></tr>
+<tr><td rowspan="2">536</td><td rowspan="2">2024-10-24</td><td>新增</td><td>智能伙伴创建平台</td><td>查询技能列表</td></tr>
+<tr><td colspan="3">GetAilyV1AppsByAppIdSkills</td></tr>
 </tbody></table>

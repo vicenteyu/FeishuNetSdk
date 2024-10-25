@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-04
+// Last Modified On : 2024-10-25
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesJobDatasBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -105,7 +105,8 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? DepartmentId { get; set; }
 
             /// <summary>
-            /// <para>岗位 ID，功能灰度中，如有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>岗位 ID</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372679</para>
             /// </summary>
@@ -162,6 +163,8 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
 
             /// <summary>
             /// <para>是否为主任职</para>
+            /// <para>- true：主职</para>
+            /// <para>- false：兼职，建议使用兼职相关接口</para>
             /// <para>必填：是</para>
             /// <para>示例值：true</para>
             /// </summary>
@@ -379,6 +382,23 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             /// </summary>
             [JsonPropertyName("created_at")]
             public string? CreatedAt { get; set; }
+
+            /// <summary>
+            /// <para>周工作时长</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：10.1</para>
+            /// </summary>
+            [JsonPropertyName("weekly_working_hours_v2")]
+            public float? WeeklyWorkingHoursV2 { get; set; }
+
+            /// <summary>
+            /// <para>人员子类型 ID</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6890452208593372680</para>
+            /// </summary>
+            [JsonPropertyName("employee_subtype_id")]
+            public string? EmployeeSubtypeId { get; set; }
         }
     }
 }

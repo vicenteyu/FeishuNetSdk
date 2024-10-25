@@ -880,7 +880,10 @@ public record PostCorehrV2EmployeesSearchResponseDto
         public Enum? ReasonForOffboarding { get; set; }
 
         /// <summary>
-        /// <para>邮箱地址</para>
+        /// <para>工作邮箱地址</para>
+        /// <para>- 计算字段，取自work_email_list 中</para>
+        /// <para>- email_usage: work</para>
+        /// <para>- is_primary: true</para>
         /// <para>必填：否</para>
         /// <para>示例值：test@163.com</para>
         /// </summary>
@@ -889,6 +892,8 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
         /// <summary>
         /// <para>工作邮箱列表，只有当邮箱满足下面所有条件时，才在个人信息页面可见</para>
+        /// <para>- email_usage: work</para>
+        /// <para>- is_primary: true</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("work_email_list")]
@@ -896,6 +901,8 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
         /// <summary>
         /// <para>工作邮箱列表，只有当邮箱满足下面所有条件时，才在个人信息页面可见</para>
+        /// <para>- email_usage: work</para>
+        /// <para>- is_primary: true</para>
         /// </summary>
         public record WorkEmail
         {
@@ -1887,6 +1894,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
             /// <summary>
             /// <para>邮箱列表</para>
+            /// <para>- 请使用 work_email_list 获取工作邮箱</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("email_list")]
@@ -1894,6 +1902,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
             /// <summary>
             /// <para>邮箱列表</para>
+            /// <para>- 请使用 work_email_list 获取工作邮箱</para>
             /// </summary>
             public record Email
             {
@@ -4630,7 +4639,10 @@ public record PostCorehrV2EmployeesSearchResponseDto
             public string? ProfileImageId { get; set; }
 
             /// <summary>
-            /// <para>邮箱地址</para>
+            /// <para>个人邮箱地址</para>
+            /// <para>- 计算字段，取自 person_info.email_list 中</para>
+            /// <para>- email_usage: home</para>
+            /// <para>- is_primary: true</para>
             /// <para>必填：否</para>
             /// <para>示例值：test@163.com</para>
             /// </summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-10-23
+// Last Modified On : 2024-10-25
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -15938,7 +15938,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，**无效参数，请忽略**</para>
     /// <para>示例值：100</para>
     /// <para>默认值：1</para>
     /// </param>
@@ -17029,6 +17029,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:employment.position:read</item>
+    /// <item>corehr:employment.position:write</item>
     /// <item>corehr:job_data.compensation_type:read</item>
     /// <item>corehr:job_data.service_company:read</item>
     /// <item>corehr:job_data.work_shift:read</item>
@@ -17516,6 +17518,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:employment.position:read</item>
+    /// <item>corehr:employment.position:write</item>
     /// <item>corehr:job_data.compensation_type:read</item>
     /// <item>corehr:job_data.service_company:read</item>
     /// <item>corehr:job_data.work_shift:read</item>
@@ -27090,7 +27094,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于根据文件的 token 查询协作者。</para>
     /// <para>## 前提条件</para>
-    /// <para>调用该接口前，你需确保当前应用或用户具有文档的分享权限。</para>
+    /// <para>调用该接口前，你需确保当前应用或用户具有文档的分享权限。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:bitable</item>
@@ -44007,6 +44011,99 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string start_date,
         [PathQuery] string end_date,
         [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【智能伙伴创建平台】调用技能</para>
+    /// <para>接口ID：7429225800963031042</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-skill/start</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该 API 用于调用某个 Aily 应用的特定技能，支持指定技能入参；并同步返回技能执行的结果。</para>
+    /// <para>&gt; **技能 API** 能显著简化业务系统的集成工作（单轮 API 调用）。技能 API 提供更贴合系统间服务调用的参数传递模式（JSON 入参 / 出参），且无需通过文本消息对话的方式调用 AI 能力。</para>
+    /// <para>&lt;div style="text-align: center;"&gt;</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:skill:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>Aily 应用 ID（`spring_xxx__c`），可以在 Aily 应用开发页面的浏览器地址里获取</para>
+    /// <para>示例值：spring_e7004f87f1__c</para>
+    /// </param>
+    /// <param name="skill_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>技能 ID；可通过技能编辑页面的浏览器地址栏获取（`skill_xxx`）</para>
+    /// <para>示例值：skill_6cc6166178ca</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/aily/v1/apps/{app_id}/skills/{skill_id}/start")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AppsByAppIdSkillsBySkillIdStartResponseDto>> PostAilyV1AppsByAppIdSkillsBySkillIdStartAsync(
+        [PathQuery] string app_id,
+        [PathQuery] string skill_id,
+        [JsonContent] Aily.PostAilyV1AppsByAppIdSkillsBySkillIdStartBodyDto dto);
+
+    /// <summary>
+    /// <para>【智能伙伴创建平台】获取技能信息</para>
+    /// <para>接口ID：7429225800963047426</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-skill/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该 API 用于查询某个 Aily 应用的特定技能详情</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:skill:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>Aily 应用 ID（`spring_xxx__c`），可以在 Aily 应用开发页面的浏览器地址里获取</para>
+    /// <para>示例值：spring_e7004f87f1__c</para>
+    /// </param>
+    /// <param name="skill_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>技能 ID；可通过技能编辑页面的浏览器地址栏获取（`skill_xxx`）</para>
+    /// <para>示例值：skill_6cc6166178ca</para>
+    /// </param>
+    [HttpGet("/open-apis/aily/v1/apps/{app_id}/skills/{skill_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AppsByAppIdSkillsBySkillIdResponseDto>> GetAilyV1AppsByAppIdSkillsBySkillIdAsync(
+        [PathQuery] string app_id,
+        [PathQuery] string skill_id);
+
+    /// <summary>
+    /// <para>【智能伙伴创建平台】查询技能列表</para>
+    /// <para>接口ID：7429225800963063810</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-skill/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该 API 用于查询某个 Aily 应用的技能列表</para>
+    /// <para>&gt; 包括内置的数据分析与问答技能、以及未在对话开启的技能。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:skill:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>Aily 应用 ID（`spring_xxx__c`），可以在 Aily 应用开发页面的浏览器地址里获取</para>
+    /// <para>示例值：spring_e7004f87f1__c</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>本次请求获取的消息记录条数，默认 20</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/aily/v1/apps/{app_id}/skills")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AppsByAppIdSkillsResponseDto>> GetAilyV1AppsByAppIdSkillsAsync(
+        [PathQuery] string app_id,
+        [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null);
 }
 

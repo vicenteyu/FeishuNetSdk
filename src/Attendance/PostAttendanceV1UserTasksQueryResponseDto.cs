@@ -243,7 +243,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
                 public string? DeviceId { get; set; }
 
                 /// <summary>
-                /// <para>打卡结果</para>
+                /// <para>打卡结果。目前仅返回 `PendingApproval`，表示待生效。如需获取上班打卡结果，请使用 `check_in_result` 参数。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：Invalid</para>
                 /// <para>可选值：<list type="bullet">
@@ -305,6 +305,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
             /// <item>Early：早退</item>
             /// <item>Late：迟到</item>
             /// <item>Lack：缺卡</item>
+            /// <item>Todo：未打卡</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("check_in_result")]
@@ -321,6 +322,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
             /// <item>Early：早退</item>
             /// <item>Late：迟到</item>
             /// <item>Lack：缺卡</item>
+            /// <item>Todo：未打卡</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("check_out_result")]

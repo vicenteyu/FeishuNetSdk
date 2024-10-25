@@ -151,7 +151,7 @@
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersTransferOwner</td></tr>
 <tr><td rowspan="2">76</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>判断当前用户是否有某权限</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembersAuth</td></tr>
-<tr><td rowspan="2">77</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取协作者列表</td></tr>
+<tr><td rowspan="2">77</td><td rowspan="2">2024-10-24</td><td>&#10003;</td><td>云文档</td><td>获取协作者列表</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembers</td></tr>
 <tr><td rowspan="2">78</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 获取协作者列表</td></tr>
 <tr><td colspan="3">PostDrivePermissionMemberList</td></tr>
@@ -325,7 +325,7 @@
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
 <tr><td rowspan="2">163</td><td rowspan="2">2024-08-09</td><td>&#10003;</td><td>云文档</td><td>批量获取条件格式</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormats</td></tr>
-<tr><td rowspan="2">164</td><td rowspan="2">2024-08-09</td><td>&#10003;</td><td>云文档</td><td>批量创建条件格式</td></tr>
+<tr><td rowspan="2">164</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>批量创建条件格式</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreate</td></tr>
 <tr><td rowspan="2">165</td><td rowspan="2">2024-08-09</td><td>&#10003;</td><td>云文档</td><td>批量更新条件格式</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdate</td></tr>
@@ -689,7 +689,7 @@
 <tr><td colspan="3">GetAttendanceV1UserFlowsByUserFlowId</td></tr>
 <tr><td rowspan="2">345</td><td rowspan="2">2024-09-20</td><td>&#10003;</td><td>考勤打卡</td><td>批量查询打卡流水</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserFlowsQuery</td></tr>
-<tr><td rowspan="2">346</td><td rowspan="2">2024-08-13</td><td>&#10003;</td><td>考勤打卡</td><td>查询打卡结果</td></tr>
+<tr><td rowspan="2">346</td><td rowspan="2">2024-10-24</td><td>&#10003;</td><td>考勤打卡</td><td>查询打卡结果</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserTasksQuery</td></tr>
 <tr><td rowspan="2">347</td><td rowspan="2">2024-09-14</td><td>&#10003;</td><td>通讯录</td><td>添加用户组成员</td></tr>
 <tr><td colspan="3">PostContactV3GroupByGroupIdMemberAdd</td></tr>
@@ -1339,9 +1339,9 @@
 <tr><td colspan="3">PutImV1MessagesByMessageId</td></tr>
 <tr><td rowspan="2">670</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>批量查询货币信息</td></tr>
 <tr><td colspan="3">GetCorehrV1Currencies</td></tr>
-<tr><td rowspan="2">671</td><td rowspan="2">2024-10-12</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询员工信息</td></tr>
+<tr><td rowspan="2">671</td><td rowspan="2">2024-10-24</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询员工信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesBatchGet</td></tr>
-<tr><td rowspan="2">672</td><td rowspan="2">2024-10-12</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工信息</td></tr>
+<tr><td rowspan="2">672</td><td rowspan="2">2024-10-24</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesSearch</td></tr>
 <tr><td rowspan="2">673</td><td rowspan="2">2024-09-24</td><td>&#10003;</td><td>飞书人事</td><td>创建雇佣信息</td></tr>
 <tr><td colspan="3">PostCorehrV1Employments</td></tr>
@@ -1367,13 +1367,13 @@
 <tr><td colspan="3">DeleteCorehrV1JobDatasByJobDataId</td></tr>
 <tr><td rowspan="2">684</td><td rowspan="2">2024-10-21</td><td>&#10003;</td><td>飞书人事</td><td>更新任职信息</td></tr>
 <tr><td colspan="3">PatchCorehrV1JobDatasByJobDataId</td></tr>
-<tr><td rowspan="2">685</td><td rowspan="2">2024-10-17</td><td>&#10003;</td><td>飞书人事</td><td>查询单个任职信息</td></tr>
+<tr><td rowspan="2">685</td><td rowspan="2">2024-10-25</td><td>&#10003;</td><td>飞书人事</td><td>查询单个任职信息</td></tr>
 <tr><td colspan="3">GetCorehrV1JobDatasByJobDataId</td></tr>
-<tr><td rowspan="2">686</td><td rowspan="2">2024-09-19</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取任职信息列表</td></tr>
+<tr><td rowspan="2">686</td><td rowspan="2">2024-10-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取任职信息列表</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesJobDatasQuery</td></tr>
-<tr><td rowspan="2">687</td><td rowspan="2">2024-09-19</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询员工任职信息</td></tr>
+<tr><td rowspan="2">687</td><td rowspan="2">2024-10-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询员工任职信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesJobDatasBatchGet</td></tr>
-<tr><td rowspan="2">688</td><td rowspan="2">2024-09-19</td><td>&#10003;</td><td>飞书人事</td><td>批量查询任职信息</td></tr>
+<tr><td rowspan="2">688</td><td rowspan="2">2024-10-25</td><td>&#10003;</td><td>飞书人事</td><td>批量查询任职信息</td></tr>
 <tr><td colspan="3">GetCorehrV1JobDatas</td></tr>
 <tr><td rowspan="2">689</td><td rowspan="2">2024-09-06</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取父部门信息</td></tr>
 <tr><td colspan="3">PostCorehrV2DepartmentsParents</td></tr>
@@ -1501,7 +1501,7 @@
 <tr><td colspan="3">PostCorehrV2JobChangesSearch</td></tr>
 <tr><td rowspan="2">751</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>飞书人事</td><td>查询员工离职原因列表</td></tr>
 <tr><td colspan="3">PostCorehrV1OffboardingsQuery</td></tr>
-<tr><td rowspan="2">752</td><td rowspan="2">2024-09-19</td><td>&#10003;</td><td>飞书人事</td><td>操作员工离职</td></tr>
+<tr><td rowspan="2">752</td><td rowspan="2">2024-10-25</td><td>&#10003;</td><td>飞书人事</td><td>操作员工离职</td></tr>
 <tr><td colspan="3">PostCorehrV1OffboardingsSubmit</td></tr>
 <tr><td rowspan="2">753</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>飞书人事</td><td>搜索离职信息</td></tr>
 <tr><td colspan="3">PostCorehrV1OffboardingsSearch</td></tr>
@@ -1787,9 +1787,9 @@
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
 <tr><td rowspan="2">894</td><td rowspan="2">2024-04-26</td><td>&#10003;</td><td>安全合规</td><td>获取OpenAPI审计日志数据</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV1OpenapiLogsListData</td></tr>
-<tr><td rowspan="2">895</td><td rowspan="2">2024-10-18</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">895</td><td rowspan="2">2024-10-24</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">896</td><td rowspan="2">2024-10-18</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">896</td><td rowspan="2">2024-10-24</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">897</td><td rowspan="2">2023-06-29</td><td>&#10003;</td><td>工作台</td><td>获取工作台访问数据</td></tr>
 <tr><td colspan="3">PostWorkplaceV1WorkplaceAccessDataSearch</td></tr>
@@ -2263,7 +2263,7 @@
 <tr><td colspan="3">GetHireV1WebsitesByWebsiteIdJobPostsByJobPostId</td></tr>
 <tr><td rowspan="2">1132</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>招聘</td><td>新建招聘官网投递</td></tr>
 <tr><td colspan="3">PostHireV1WebsitesByWebsiteIdDeliveriesCreateByResume</td></tr>
-<tr><td rowspan="2">1133</td><td rowspan="2">2024-07-30</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 申请表列表</td></tr>
+<tr><td rowspan="2">1133</td><td rowspan="2">2024-10-25</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 申请表列表</td></tr>
 <tr><td colspan="3">GetHireV1OfferApplicationForms</td></tr>
 <tr><td rowspan="2">1134</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>招聘</td><td>关闭职位</td></tr>
 <tr><td colspan="3">PostHireV1JobsByJobIdClose</td></tr>
@@ -2429,7 +2429,7 @@
 <tr><td colspan="3">PatchCorehrV2JobGradesByJobGradeId</td></tr>
 <tr><td rowspan="2">1215</td><td rowspan="2">2024-10-09</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>创建职等</td></tr>
 <tr><td colspan="3">PostCorehrV2JobGrades</td></tr>
-<tr><td rowspan="2">1216</td><td rowspan="2">2024-10-15</td><td>&#10003;</td><td>云文档</td><td>创建嵌套块</td></tr>
+<tr><td rowspan="2">1216</td><td rowspan="2">2024-10-25</td><td>&#10003;</td><td>云文档</td><td>创建嵌套块</td></tr>
 <tr><td colspan="3">PostDocxV1DocumentsByDocumentIdBlocksByBlockIdDescendant</td></tr>
 <tr><td rowspan="2">1217</td><td rowspan="2">2024-10-10</td><td>&#10003;</td><td>绩效</td><td>更新人员组成员</td></tr>
 <tr><td colspan="3">PostPerformanceV2UserGroupUserRelsWrite</td></tr>
@@ -2465,12 +2465,18 @@
 <tr><td colspan="3">PostHireV1TalentsByTalentIdTag</td></tr>
 <tr><td rowspan="2">1233</td><td rowspan="2">2024-10-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取指定人员审批任务列表</td></tr>
 <tr><td colspan="3">GetCorehrV2Approvers</td></tr>
-<tr><td rowspan="2">1234</td><td rowspan="2">2024-10-22</td><td>新增</td><td>智能伙伴创建平台</td><td>执行数据知识问答</td></tr>
+<tr><td rowspan="2">1234</td><td rowspan="2">2024-10-22</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>执行数据知识问答</td></tr>
 <tr><td colspan="3">PostAilyV1AppsByAppIdKnowledgesAsk</td></tr>
-<tr><td rowspan="2">1235</td><td rowspan="2">2024-10-22</td><td>新增</td><td>智能伙伴创建平台</td><td>查询数据知识列表</td></tr>
+<tr><td rowspan="2">1235</td><td rowspan="2">2024-10-22</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>查询数据知识列表</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdDataAssets</td></tr>
-<tr><td rowspan="2">1236</td><td rowspan="2">2024-10-22</td><td>新增</td><td>智能伙伴创建平台</td><td>获取数据知识分类列表</td></tr>
+<tr><td rowspan="2">1236</td><td rowspan="2">2024-10-22</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>获取数据知识分类列表</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdDataAssetTags</td></tr>
-<tr><td rowspan="2">1237</td><td rowspan="2">2024-10-21</td><td>新增</td><td>飞书人事（企业版）</td><td>查询指定时间范围内当前生效信息发生变更的公司</td></tr>
+<tr><td rowspan="2">1237</td><td rowspan="2">2024-10-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询指定时间范围内当前生效信息发生变更的公司</td></tr>
 <tr><td colspan="3">GetCorehrV2CompaniesQueryRecentChange</td></tr>
+<tr><td rowspan="2">1238</td><td rowspan="2">2024-10-24</td><td>新增</td><td>智能伙伴创建平台</td><td>调用技能</td></tr>
+<tr><td colspan="3">PostAilyV1AppsByAppIdSkillsBySkillIdStart</td></tr>
+<tr><td rowspan="2">1239</td><td rowspan="2">2024-10-24</td><td>新增</td><td>智能伙伴创建平台</td><td>获取技能信息</td></tr>
+<tr><td colspan="3">GetAilyV1AppsByAppIdSkillsBySkillId</td></tr>
+<tr><td rowspan="2">1240</td><td rowspan="2">2024-10-24</td><td>新增</td><td>智能伙伴创建平台</td><td>查询技能列表</td></tr>
+<tr><td colspan="3">GetAilyV1AppsByAppIdSkills</td></tr>
 </tbody></table>

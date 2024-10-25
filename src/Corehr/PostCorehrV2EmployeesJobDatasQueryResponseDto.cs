@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-04
+// Last Modified On : 2024-10-25
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesJobDatasQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -105,7 +105,8 @@ public record PostCorehrV2EmployeesJobDatasQueryResponseDto
             public string? DepartmentId { get; set; }
 
             /// <summary>
-            /// <para>岗位 ID，功能灰度中，如有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>岗位 ID</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6890452208593372679</para>
             /// </summary>
@@ -162,6 +163,8 @@ public record PostCorehrV2EmployeesJobDatasQueryResponseDto
 
             /// <summary>
             /// <para>是否为主任职</para>
+            /// <para>- true：主职</para>
+            /// <para>- false：兼职，建议使用兼职相关接口</para>
             /// <para>必填：是</para>
             /// <para>示例值：true</para>
             /// </summary>
@@ -178,7 +181,7 @@ public record PostCorehrV2EmployeesJobDatasQueryResponseDto
             public string EmploymentId { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>生效时间</para>
+            /// <para>任职记录版本的生效时间</para>
             /// <para>必填：是</para>
             /// <para>示例值：2020-05-01 00:00:00</para>
             /// </summary>
@@ -186,7 +189,7 @@ public record PostCorehrV2EmployeesJobDatasQueryResponseDto
             public string EffectiveTime { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>失效时间</para>
+            /// <para>任职记录版本的失效时间</para>
             /// <para>必填：否</para>
             /// <para>示例值：2020-05-02 00:00:00</para>
             /// </summary>
@@ -368,6 +371,23 @@ public record PostCorehrV2EmployeesJobDatasQueryResponseDto
             /// </summary>
             [JsonPropertyName("service_company")]
             public string? ServiceCompany { get; set; }
+
+            /// <summary>
+            /// <para>周工作时长</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：10.1</para>
+            /// </summary>
+            [JsonPropertyName("weekly_working_hours_v2")]
+            public float? WeeklyWorkingHoursV2 { get; set; }
+
+            /// <summary>
+            /// <para>人员子类型 ID</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6890452208593372680</para>
+            /// </summary>
+            [JsonPropertyName("employee_subtype_id")]
+            public string? EmployeeSubtypeId { get; set; }
         }
     }
 

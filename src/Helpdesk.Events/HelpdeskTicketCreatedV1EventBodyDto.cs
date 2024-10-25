@@ -122,6 +122,7 @@ public record HelpdeskTicketCreatedV1EventBodyDto() : EventBodyDto("helpdesk.tic
 
     /// <summary>
     /// <para>自定义字段</para>
+    /// <para>**注意**：该事件不会返回该值，你可以获取 ticket_id 后调用[查询指定工单详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)接口查询自定义字段信息。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("customized_fields")]

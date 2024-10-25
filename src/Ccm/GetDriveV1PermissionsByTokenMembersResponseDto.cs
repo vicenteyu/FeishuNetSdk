@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Ccm;
 /// 获取协作者列表 响应体
 /// <para>该接口用于根据文件的 token 查询协作者。</para>
 /// <para>## 前提条件</para>
-/// <para>调用该接口前，你需确保当前应用或用户具有文档的分享权限。</para>
+/// <para>调用该接口前，你需确保当前应用或用户具有文档的分享权限。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
 /// <para>接口ID：7121656165336367106</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-member%2flist</para>
