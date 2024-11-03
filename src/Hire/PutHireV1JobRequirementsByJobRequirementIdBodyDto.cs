@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-27
+// Last Modified On : 2024-11-03
 // ************************************************************************
 // <copyright file="PutHireV1JobRequirementsByJobRequirementIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -284,4 +284,12 @@ public record PutHireV1JobRequirementsByJobRequirementIdBodyDto
     /// </summary>
     [JsonPropertyName("job_id_list")]
     public string[]? JobIdList { get; set; }
+
+    /// <summary>
+    /// <para>职务 ID，可通过[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：6807407987381831949</para>
+    /// </summary>
+    [JsonPropertyName("employment_job_id")]
+    public string? EmploymentJobId { get; set; }
 }

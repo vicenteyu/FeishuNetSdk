@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增视图 请求体
-/// <para>在数据表中新增一个视图</para>
+/// <para>在多维表格数据表中新增一个视图，可指定视图类型，包括表格视图、看板视图、画册视图、甘特视图和表单视图。</para>
 /// <para>接口ID：6978670625209614338</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-view/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-view%2fcreate</para>
@@ -22,9 +22,9 @@ namespace FeishuNetSdk.Base;
 public record PostBitableV1AppsByAppTokenTablesByTableIdViewsBodyDto
 {
     /// <summary>
-    /// <para>视图名字</para>
+    /// <para>视图名称</para>
     /// <para>必填：是</para>
-    /// <para>示例值：表格视图1</para>
+    /// <para>示例值：表格视图 1</para>
     /// </summary>
     [JsonPropertyName("view_name")]
     public string ViewName { get; set; } = string.Empty;

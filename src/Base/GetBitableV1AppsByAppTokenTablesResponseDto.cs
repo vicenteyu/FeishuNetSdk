@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 列出数据表 响应体
-/// <para>根据 app_token，获取多维表格下的所有数据表。</para>
+/// <para>列出多维表格中的所有数据表，包括其 ID、版本号和名称。</para>
 /// <para>接口ID：6960166873968476163</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table%2flist</para>
@@ -58,7 +58,7 @@ public record GetBitableV1AppsByAppTokenTablesResponseDto
     public record AppTable
     {
         /// <summary>
-        /// <para>数据表 id</para>
+        /// <para>数据表 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>
@@ -66,7 +66,7 @@ public record GetBitableV1AppsByAppTokenTablesResponseDto
         public string? TableId { get; set; }
 
         /// <summary>
-        /// <para>数据表的版本号</para>
+        /// <para>数据表的版本号。对数据表进行修改时更新，如新增、删除记录，修改数据表名称等，初始为 1，每次更新+1</para>
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>
@@ -74,7 +74,7 @@ public record GetBitableV1AppsByAppTokenTablesResponseDto
         public int? Revision { get; set; }
 
         /// <summary>
-        /// <para>数据表名字</para>
+        /// <para>数据表名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：\-</para>
         /// </summary>

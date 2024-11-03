@@ -14,7 +14,15 @@
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 获取群成员列表 响应体
-/// <para>获取用户/机器人所在群的群成员列表。</para>
+/// <para>获取指定群组的成员信息，包括成员名字与 ID。</para>
+/// <para>## 前提条件</para>
+/// <para>- 调用该接口的应用，需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+/// <para>- 当前接口的操作者（机器人或用户）必须在被查询的群组内。</para>
+/// <para>## 使用限制</para>
+/// <para>- 该接口不会返回群组内的机器人成员。</para>
+/// <para>- 由于返回的群成员列表会过滤掉机器人成员，因此返回的群成员个数可能会小于指定的 page_size。</para>
+/// <para>- 如果有同一时间加入群的群成员，会一次性返回，这会导致返回的群成员个数可能会大于指定的 page_size。</para>
+/// <para>- 获取内部群信息时，操作者须与群组在同一租户下。</para>
 /// <para>接口ID：6946222929790550044</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/group/chat-member/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fchat-members%2fget</para>
@@ -42,7 +50,7 @@ public record GetImV1ChatsByChatIdMembersResponseDto
         public string? MemberIdType { get; set; }
 
         /// <summary>
-        /// <para>成员的用户ID，ID值与查询参数中的 member_id_type 对应。</para>
+        /// <para>成员的用户ID，ID 值与查询参数中的 member_id_type 对应。</para>
         /// <para>不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
         /// <para>必填：否</para>
         /// <para>示例值：4d7a3c6g</para>

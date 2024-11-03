@@ -72,6 +72,7 @@ public record PostMessageV4BatchSendBodyDto
     /// <summary>
     /// <para>部门 ID 列表。列表内支持传入部门 department_id 和 open_department_id，部门 ID 介绍与获取方式，参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)的 **部门 ID** 章节。</para>
     /// <para>**注意**：</para>
+    /// <para>- 不支持传入根部门 ID（根部门 ID 为 `0`）。</para>
     /// <para>- 列表长度不能超过 200。</para>
     /// <para>- 请求时，消息会发送给 ID 对应部门内的所有成员，包括部门下的所有子部门成员。</para>
     /// <para>- `department_ids`、`open_ids`、`user_ids`、`union_ids` 四个字段至少需要填写其中一个。</para>

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新视图 请求体
-/// <para>该接口用于增量修改视图信息</para>
+/// <para>增量更新视图信息，包括视图名称、属性等，可设置视图的筛选条件等。</para>
 /// <para>接口ID：7177650713441828867</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-view/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-view%2fpatch</para>
@@ -24,7 +24,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto
     /// <summary>
     /// <para>视图名称</para>
     /// <para>必填：否</para>
-    /// <para>示例值：grid</para>
+    /// <para>示例值：表格视图 1</para>
     /// </summary>
     [JsonPropertyName("view_name")]
     public string? ViewName { get; set; }
@@ -54,7 +54,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto
         public record AppTableViewPropertyFilterInfo
         {
             /// <summary>
-            /// <para>多个筛选条件的关系</para>
+            /// <para>多个筛选条件的关系，表示条件之间的逻辑连接词</para>
             /// <para>必填：是</para>
             /// <para>示例值：and</para>
             /// <para>可选值：<list type="bullet">
@@ -67,7 +67,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto
             public string Conjunction { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>筛选条件</para>
+            /// <para>筛选条件集合</para>
             /// <para>必填：是</para>
             /// <para>最大长度：50</para>
             /// </summary>
@@ -75,20 +75,20 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto
             public AppTableViewPropertyFilterInfoCondition[] Conditions { get; set; } = Array.Empty<AppTableViewPropertyFilterInfoCondition>();
 
             /// <summary>
-            /// <para>筛选条件</para>
+            /// <para>筛选条件集合</para>
             /// </summary>
             public record AppTableViewPropertyFilterInfoCondition
             {
                 /// <summary>
-                /// <para>用于过滤的字段唯一ID</para>
+                /// <para>用于过滤的字段的 ID。可通过[列出字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/list)接口获取</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：fldVioU**1</para>
+                /// <para>示例值：fldmeqmpVA</para>
                 /// </summary>
                 [JsonPropertyName("field_id")]
                 public string FieldId { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>过滤操作的类型</para>
+                /// <para>过滤操作的类型，条件运算符</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：is</para>
                 /// <para>可选值：<list type="bullet">
@@ -109,9 +109,9 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto
                 public string Operator { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>筛选值</para>
+                /// <para>条件的值，可以是单个值或多个值的数组。不同字段类型和不同的 operator 可填的值不同。详情参考下文字段目标值（value）填写说明。</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：["optbdVH***","optrpd3***"]</para>
+                /// <para>示例值：`[\"text content\"]`</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string? Value { get; set; }
@@ -119,9 +119,9 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto
         }
 
         /// <summary>
-        /// <para>隐藏字段ID列表</para>
+        /// <para>隐藏字段 ID 列表</para>
         /// <para>必填：否</para>
-        /// <para>示例值：["fldCGzANXx","fldCGzANXx"]</para>
+        /// <para>示例值：["fldCGzANXx", "fldCGzANXx"]</para>
         /// <para>最大长度：300</para>
         /// </summary>
         [JsonPropertyName("hidden_fields")]
@@ -140,9 +140,9 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto
         public record AppTableViewPropertyHierarchyConfig
         {
             /// <summary>
-            /// <para>层级结构的关联列id</para>
+            /// <para>层级结构的关联列 ID</para>
             /// <para>必填：否</para>
-            /// <para>示例值：fldTca**hb</para>
+            /// <para>示例值：fldmeqmpVA</para>
             /// </summary>
             [JsonPropertyName("field_id")]
             public string? FieldId { get; set; }

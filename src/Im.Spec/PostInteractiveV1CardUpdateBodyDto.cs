@@ -30,7 +30,7 @@ public record PostInteractiveV1CardUpdateBodyDto
     public string Token { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>消息卡片的 JSON 结构内容。具体结构说明可参见[卡片 JSON 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)。</para>
+    /// <para>消息卡片的内容，可以是[卡片 JSON 数据](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)，也可以是卡片模板。详情参考以下请求体示例。</para>
     /// <para>**示例值**：{"open_ids":["ou_515fbe9d04838174e2035f8xxxx"],"elements":[{"tag":"div","text":{"tag":"plain_text","content":"overflow &amp; datePicker 功能测试"},"fields":[{"is_short":true,"text":{"tag":"lark_md","content":"已同意"}}]}]}</para>
     /// <para>必填：是</para>
     /// </summary>
@@ -38,7 +38,7 @@ public record PostInteractiveV1CardUpdateBodyDto
     public object Card { get; set; } = new();
 
     /// <summary>
-    /// <para>用户的 open_id 列表。在卡片 JSON 结构内，支持添加 open_ids 数组参数，通过该参数指定用户 open_id 来定义需要更新卡片的用户范围。用户 open_id 获取方式参考[如何获取自己的 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。</para>
+    /// <para>用户的 open_id 列表，用于定义接收更新卡片的用户范围。获取方式参考[如何获取自己的 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。</para>
     /// <para>**示例值**：["ou_5ad573a6411d72b8305fda3a9c15xxxx"]</para>
     /// <para>**注意**：</para>
     /// <para>- 如果卡片为共享卡片（卡片 JSON 结构 `config` 参数内 `"update_multi": true` 表示共享卡片），则无需传入该值，默认会更新所有用户接收到的卡片内容。若传入该值，会导致无法正常更新。</para>

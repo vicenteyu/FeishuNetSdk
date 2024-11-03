@@ -22,6 +22,7 @@ namespace FeishuNetSdk.Contact;
 /// <para>- 单租户内单个部门的直属成员数量上限为 10,000。</para>
 /// <para>- 单租户内单个部门的直属子部门数量上限为 1,000。</para>
 /// <para>- 部门层级上限为 25 层。</para>
+/// <para>- 该接口不支持设置自定义部门字段。如果必须在创建部门时设置自定义部门字段，请联系企业管理员在 [管理后台](https://feishu.cn/admin) &gt; **组织架构** &gt; **成员与部门** &gt; **部门** 功能页创建部门并设置自定义部门字段。</para>
 /// <para>接口ID：6943913881476857883</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/department/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fdepartment%2fcreate</para>

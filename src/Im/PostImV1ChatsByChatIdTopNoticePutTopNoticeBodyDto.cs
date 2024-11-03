@@ -14,7 +14,11 @@
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 更新群置顶 请求体
-/// <para>更新会话中的群置顶信息，可以将群中的某一条消息，或者群公告置顶显示。</para>
+/// <para>更新群组中的群置顶信息，可以将群中的某一条消息，或群公告置顶展示。</para>
+/// <para>## 前提条件</para>
+/// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+/// <para>## 使用限制</para>
+/// <para>调用接口的机器人或者用户必须要在群组内，且和该群组属于同一租户。</para>
 /// <para>接口ID：7043611687799816193</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/group/chat/put_top_notice</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fchat-top_notice%2fput_top_notice</para>
@@ -22,27 +26,24 @@ namespace FeishuNetSdk.Im;
 public record PostImV1ChatsByChatIdTopNoticePutTopNoticeBodyDto
 {
     /// <summary>
-    /// <para>要进行发布的群置顶</para>
+    /// <para>群置顶配置</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("chat_top_notice")]
     public ChatTopNotice[] ChatTopNotices { get; set; } = Array.Empty<ChatTopNotice>();
 
     /// <summary>
-    /// <para>要进行发布的群置顶</para>
+    /// <para>群置顶配置</para>
     /// </summary>
     public record ChatTopNotice
     {
         /// <summary>
-        /// <para>置顶的类型</para>
-        /// <para>**注意**：</para>
-        /// <para>- 选择 ==消息类型== 时必须填写`message_id`字段</para>
-        /// <para>- 选择 ==群公告类型== 时填写的`message_id`将被忽略</para>
+        /// <para>置顶类型</para>
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>1：消息类型</item>
-        /// <item>2：群公告类型</item>
+        /// <item>1：消息类型，必需填写 `message_id`</item>
+        /// <item>2：群公告类型，无需填写 `message_id`</item>
         /// </list></para>
         /// <para>默认值：2</para>
         /// </summary>
@@ -50,7 +51,10 @@ public record PostImV1ChatsByChatIdTopNoticePutTopNoticeBodyDto
         public string? ActionType { get; set; }
 
         /// <summary>
-        /// <para>消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)</para>
+        /// <para>消息 ID。ID 获取方式：</para>
+        /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+        /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+        /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
         /// <para>必填：否</para>
         /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
         /// </summary>

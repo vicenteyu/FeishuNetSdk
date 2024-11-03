@@ -310,7 +310,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
         public record UserOvertimeWork
         {
             /// <summary>
-            /// <para>加班时长</para>
+            /// <para>加班时长，如需使用此字段进行加班时长计算，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)开通。默认采用start_time和end_time计算</para>
             /// <para>必填：是</para>
             /// <para>示例值：1.5</para>
             /// </summary>

@@ -14,7 +14,14 @@
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 删除会话标签页 响应体
-/// <para>删除会话标签页。</para>
+/// <para>删除指定会话内的一个或多个会话标签页。</para>
+/// <para>## 前提条件</para>
+/// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+/// <para>- 调用当前接口的用户或者机器人必须在对应的会话内。</para>
+/// <para>## 使用限制</para>
+/// <para>- 只允许删除类型为`doc`和`url`的会话标签页。</para>
+/// <para>- 如果群组配置了 **仅群主和群管理员可以管理标签页**，则仅群主或者群管理员可以删除会话标签页。</para>
+/// <para>- 操作内部群时，操作者须与群组在同一租户下。</para>
 /// <para>接口ID：7111246605500579841</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/group/chat-tab/delete_tabs</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fchat-tab%2fdelete_tabs</para>
@@ -34,7 +41,7 @@ public record DeleteImV1ChatsByChatIdChatTabsDeleteTabsResponseDto
     public record ChatTab
     {
         /// <summary>
-        /// <para>Tab ID</para>
+        /// <para>会话标签页 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：7101214603622940671</para>
         /// </summary>
@@ -42,8 +49,7 @@ public record DeleteImV1ChatsByChatIdChatTabsDeleteTabsResponseDto
         public string? TabId { get; set; }
 
         /// <summary>
-        /// <para>Tab名称</para>
-        /// <para>**注意**：会话标签页的名称不能超过30个字符</para>
+        /// <para>会话标签页名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：文档</para>
         /// </summary>
@@ -51,7 +57,7 @@ public record DeleteImV1ChatsByChatIdChatTabsDeleteTabsResponseDto
         public string? TabName { get; set; }
 
         /// <summary>
-        /// <para>Tab类型</para>
+        /// <para>会话标签页类型</para>
         /// <para>必填：是</para>
         /// <para>示例值：doc</para>
         /// <para>可选值：<list type="bullet">
@@ -63,7 +69,7 @@ public record DeleteImV1ChatsByChatIdChatTabsDeleteTabsResponseDto
         /// <item>chat_announcement：群公告</item>
         /// <item>url：URL</item>
         /// <item>file：文件</item>
-        /// <item>files_resources：合并类型, 包含文件、Doc文档、URL链接</item>
+        /// <item>files_resources：合并类型，包含文件、Doc文档、URL链接</item>
         /// <item>images_videos：合并类型，包含图片、视频</item>
         /// </list></para>
         /// </summary>
@@ -71,19 +77,19 @@ public record DeleteImV1ChatsByChatIdChatTabsDeleteTabsResponseDto
         public string TabType { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>Tab内容</para>
+        /// <para>会话标签页内容</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("tab_content")]
         public ChatTabContent? TabContent { get; set; }
 
         /// <summary>
-        /// <para>Tab内容</para>
+        /// <para>会话标签页内容</para>
         /// </summary>
         public record ChatTabContent
         {
             /// <summary>
-            /// <para>URL类型</para>
+            /// <para>url 类型标签页对应的 URL 地址</para>
             /// <para>必填：否</para>
             /// <para>示例值：https://www.feishu.cn</para>
             /// </summary>
@@ -91,7 +97,7 @@ public record DeleteImV1ChatsByChatIdChatTabsDeleteTabsResponseDto
             public string? Url { get; set; }
 
             /// <summary>
-            /// <para>Doc链接</para>
+            /// <para>文档类型标签页对应的云文档链接</para>
             /// <para>必填：否</para>
             /// <para>示例值：https://example.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz</para>
             /// </summary>
@@ -99,7 +105,7 @@ public record DeleteImV1ChatsByChatIdChatTabsDeleteTabsResponseDto
             public string? Doc { get; set; }
 
             /// <summary>
-            /// <para>会议纪要</para>
+            /// <para>会议纪要类型标签页对应的会议纪要地址</para>
             /// <para>必填：否</para>
             /// <para>示例值：https://example.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx</para>
             /// </summary>
@@ -108,19 +114,19 @@ public record DeleteImV1ChatsByChatIdChatTabsDeleteTabsResponseDto
         }
 
         /// <summary>
-        /// <para>Tab的配置</para>
+        /// <para>会话标签页配置</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("tab_config")]
         public ChatTabConfig? TabConfig { get; set; }
 
         /// <summary>
-        /// <para>Tab的配置</para>
+        /// <para>会话标签页配置</para>
         /// </summary>
         public record ChatTabConfig
         {
             /// <summary>
-            /// <para>群Tab图标</para>
+            /// <para>会话标签页图标</para>
             /// <para>必填：否</para>
             /// <para>示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig</para>
             /// </summary>
@@ -128,7 +134,7 @@ public record DeleteImV1ChatsByChatIdChatTabsDeleteTabsResponseDto
             public string? IconKey { get; set; }
 
             /// <summary>
-            /// <para>群tab是否App内嵌打开</para>
+            /// <para>会话标签页是否在 App 内嵌打开</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>

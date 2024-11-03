@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 列出视图 响应体
-/// <para>根据 app_token 和 table_id，获取数据表的所有视图</para>
+/// <para>获取多维表格数据表中的所有视图。</para>
 /// <para>接口ID：6978670625209597954</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-view/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-view%2flist</para>
@@ -34,7 +34,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
     public record AppTableView
     {
         /// <summary>
-        /// <para>视图Id</para>
+        /// <para>视图 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：vewieWxfON</para>
         /// </summary>
@@ -42,15 +42,21 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
         public string? ViewId { get; set; }
 
         /// <summary>
-        /// <para>视图名字</para>
+        /// <para>视图名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值：表格1</para>
+        /// <para>示例值：表格 1</para>
         /// </summary>
         [JsonPropertyName("view_name")]
         public string? ViewName { get; set; }
 
         /// <summary>
-        /// <para>视图类型</para>
+        /// <para>视图类型。</para>
+        /// <para>**可选值有**：</para>
+        /// <para>- `grid`：表格视图</para>
+        /// <para>- `kanban`：看板视图</para>
+        /// <para>- `gallery`：画册视图</para>
+        /// <para>- `gantt`：甘特视图</para>
+        /// <para>- `form`：表单视图</para>
         /// <para>必填：否</para>
         /// <para>示例值：grid</para>
         /// </summary>
@@ -58,7 +64,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
         public string? ViewType { get; set; }
 
         /// <summary>
-        /// <para>视图公共等级 Public、Locked、Private</para>
+        /// <para>视图公共等级</para>
         /// <para>必填：否</para>
         /// <para>示例值：Public</para>
         /// <para>可选值：<list type="bullet">
@@ -71,7 +77,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
         public string? ViewPublicLevel { get; set; }
 
         /// <summary>
-        /// <para>个人视图的owner_id，id类型和 user_id_type 参数保持一致</para>
+        /// <para>个人视图的所有者的 ID，ID 类型和查询参数 user_id_type 保持一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_2910013f1e6456f16a0ce75ede950a0a</para>
         /// </summary>

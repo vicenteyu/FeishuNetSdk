@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增一个数据表 请求体
-/// <para>新增一个数据表，默认仅包含索引列，也可以指定一部分初始字段。</para>
+/// <para>新增一个数据表，默认仅包含索引字段，也可以指定一部分初始字段。</para>
 /// <para>接口ID：6960166873968541699</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table%2fcreate</para>
@@ -35,6 +35,8 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
     {
         /// <summary>
         /// <para>数据表名称。名称中的首尾空格将会被默认去除。</para>
+        /// <para>**注意**：</para>
+        /// <para>该字段必填。</para>
         /// <para>必填：否</para>
         /// <para>示例值：一个新的数据表</para>
         /// <para>最大长度：100</para>
@@ -55,10 +57,18 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
         public string? DefaultViewName { get; set; }
 
         /// <summary>
-        /// <para>数据表的初始字段。</para>
-        /// <para>注意：</para>
-        /// <para>- 如果 default_view_name 字段和 fields 字段都不填写，将会创建一个仅包含索引列的空数据表。</para>
-        /// <para>- 如果指定了本字段，将会创建一个包含初始字段的数据表、且默认第一个字段为索引列。</para>
+        /// <para>数据表的初始字段。了解如何填写字段，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
+        /// <para>**注意**：</para>
+        /// <para>- 如果 `default_view_name` 字段和 `fields` 字段都不填写，将会创建一个仅包含索引字段的空数据表。</para>
+        /// <para>- 如果指定了本字段，将会创建一个包含初始字段的数据表、且默认第一个字段为索引字段。</para>
+        /// <para>- 索引字段仅支持以下类型：</para>
+        /// <para>- 1：多行文本</para>
+        /// <para>- 2：数字</para>
+        /// <para>- 5：日期</para>
+        /// <para>- 13：电话号码</para>
+        /// <para>- 15：超链接</para>
+        /// <para>- 20：公式</para>
+        /// <para>- 22：地理位置</para>
         /// <para>必填：否</para>
         /// <para>最大长度：300</para>
         /// <para>最小长度：1</para>
@@ -67,17 +77,25 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
         public AppTableCreateHeader[]? Fields { get; set; }
 
         /// <summary>
-        /// <para>数据表的初始字段。</para>
-        /// <para>注意：</para>
-        /// <para>- 如果 default_view_name 字段和 fields 字段都不填写，将会创建一个仅包含索引列的空数据表。</para>
-        /// <para>- 如果指定了本字段，将会创建一个包含初始字段的数据表、且默认第一个字段为索引列。</para>
+        /// <para>数据表的初始字段。了解如何填写字段，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
+        /// <para>**注意**：</para>
+        /// <para>- 如果 `default_view_name` 字段和 `fields` 字段都不填写，将会创建一个仅包含索引字段的空数据表。</para>
+        /// <para>- 如果指定了本字段，将会创建一个包含初始字段的数据表、且默认第一个字段为索引字段。</para>
+        /// <para>- 索引字段仅支持以下类型：</para>
+        /// <para>- 1：多行文本</para>
+        /// <para>- 2：数字</para>
+        /// <para>- 5：日期</para>
+        /// <para>- 13：电话号码</para>
+        /// <para>- 15：超链接</para>
+        /// <para>- 20：公式</para>
+        /// <para>- 22：地理位置</para>
         /// </summary>
         public record AppTableCreateHeader
         {
             /// <summary>
             /// <para>字段名称</para>
             /// <para>必填：是</para>
-            /// <para>示例值：文本</para>
+            /// <para>示例值：问题描述</para>
             /// </summary>
             [JsonPropertyName("field_name")]
             public string FieldName { get; set; } = string.Empty;
@@ -113,11 +131,11 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
             public int Type { get; set; }
 
             /// <summary>
-            /// <para>字段在界面上的展示类型，例如进度字段是数字的一种展示形态</para>
+            /// <para>字段在界面上的展示类型，例如 Progress 进度字段是数字的一种展示形态</para>
             /// <para>必填：否</para>
             /// <para>示例值：Progress</para>
             /// <para>可选值：<list type="bullet">
-            /// <item>Text：多行文本</item>
+            /// <item>Text：文本</item>
             /// <item>Barcode：条码</item>
             /// <item>Number：数字</item>
             /// <item>Progress：进度</item>
@@ -179,7 +197,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                     public string? Name { get; set; }
 
                     /// <summary>
-                    /// <para>选项 ID，创建时不允许指定 ID</para>
+                    /// <para>选项 ID，创建时不可指定 ID</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：optKl35lnG</para>
                     /// </summary>
@@ -187,7 +205,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                     public string? Id { get; set; }
 
                     /// <summary>
-                    /// <para>选项颜色</para>
+                    /// <para>选项颜色，详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：0</para>
                     /// <para>最大值：54</para>
@@ -198,7 +216,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 }
 
                 /// <summary>
-                /// <para>数字、公式字段的显示格式</para>
+                /// <para>数字、公式字段的显示格式。详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：0</para>
                 /// </summary>
@@ -206,7 +224,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 public string? Formatter { get; set; }
 
                 /// <summary>
-                /// <para>日期、创建时间、最后更新时间字段的显示格式</para>
+                /// <para>日期、创建时间、最后更新时间字段的显示格式。详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：日期格式</para>
                 /// </summary>

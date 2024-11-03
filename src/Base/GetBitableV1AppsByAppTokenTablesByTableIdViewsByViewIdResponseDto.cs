@@ -9,12 +9,12 @@
 // <copyright file="GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>检索视图 响应体</summary>
+// <summary>获取视图 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Base;
 /// <summary>
-/// 检索视图 响应体
-/// <para>该接口根据 view_id 检索现有视图</para>
+/// 获取视图 响应体
+/// <para>根据视图 ID 获取现有视图信息，包括视图名称、类型、属性等。</para>
 /// <para>接口ID：7177650713441845251</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-view/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-view%2fget</para>
@@ -34,7 +34,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDto
     public record AppTableView
     {
         /// <summary>
-        /// <para>视图Id</para>
+        /// <para>视图 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：vewieWxfON</para>
         /// </summary>
@@ -42,7 +42,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDto
         public string? ViewId { get; set; }
 
         /// <summary>
-        /// <para>视图名字</para>
+        /// <para>视图名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：表格 1</para>
         /// </summary>
@@ -50,7 +50,13 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDto
         public string? ViewName { get; set; }
 
         /// <summary>
-        /// <para>视图类型</para>
+        /// <para>视图类型。</para>
+        /// <para>**可选值有**：</para>
+        /// <para>- `grid`：表格视图</para>
+        /// <para>- `kanban`：看板视图</para>
+        /// <para>- `gallery`：画册视图</para>
+        /// <para>- `gantt`：甘特视图</para>
+        /// <para>- `form`：表单视图</para>
         /// <para>必填：否</para>
         /// <para>示例值：grid</para>
         /// </summary>
@@ -145,7 +151,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDto
                     public string? Value { get; set; }
 
                     /// <summary>
-                    /// <para>过滤条件的唯一ID</para>
+                    /// <para>过滤条件的 ID</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：conNaOEK6O</para>
                     /// </summary>
@@ -192,7 +198,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDto
             }
 
             /// <summary>
-            /// <para>隐藏字段ID列表</para>
+            /// <para>隐藏字段 ID 列表</para>
             /// <para>必填：否</para>
             /// <para>示例值：["fldCGzANXx", "fldCGzANXx"]</para>
             /// <para>最大长度：300</para>
@@ -213,7 +219,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDto
             public record AppTableViewPropertyHierarchyConfig
             {
                 /// <summary>
-                /// <para>层级结构的关联列id</para>
+                /// <para>层级结构的关联列 ID</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：fldTca**hb</para>
                 /// </summary>

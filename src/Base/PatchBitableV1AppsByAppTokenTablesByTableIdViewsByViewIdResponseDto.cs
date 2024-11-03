@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新视图 响应体
-/// <para>该接口用于增量修改视图信息</para>
+/// <para>增量更新视图信息，包括视图名称、属性等，可设置视图的筛选条件等。</para>
 /// <para>接口ID：7177650713441828867</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-view/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-view%2fpatch</para>
@@ -34,7 +34,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDt
     public record AppTableView
     {
         /// <summary>
-        /// <para>视图Id</para>
+        /// <para>视图 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：vewieWxfON</para>
         /// </summary>
@@ -42,9 +42,9 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDt
         public string? ViewId { get; set; }
 
         /// <summary>
-        /// <para>视图名字</para>
+        /// <para>视图名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值：表格 1</para>
+        /// <para>示例值：表格视图 1</para>
         /// </summary>
         [JsonPropertyName("view_name")]
         public string? ViewName { get; set; }
@@ -108,9 +108,9 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDt
                 public record AppTableViewPropertyFilterInfoCondition
                 {
                     /// <summary>
-                    /// <para>用于过滤的字段唯一ID</para>
+                    /// <para>用于过滤的字段的 ID</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：fldVioU**1</para>
+                    /// <para>示例值：fldmeqmpVA</para>
                     /// </summary>
                     [JsonPropertyName("field_id")]
                     public string FieldId { get; set; } = string.Empty;
@@ -139,13 +139,13 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDt
                     /// <summary>
                     /// <para>筛选值</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：["optbdVH***", "optrpd3***"]</para>
+                    /// <para>示例值：[\"text content\"]</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string? Value { get; set; }
 
                     /// <summary>
-                    /// <para>过滤条件的唯一ID</para>
+                    /// <para>过滤条件的 ID</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：conNaOEK6O</para>
                     /// </summary>
@@ -213,7 +213,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDt
             public record AppTableViewPropertyHierarchyConfig
             {
                 /// <summary>
-                /// <para>层级结构的关联列id</para>
+                /// <para>层级结构的关联列 ID</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：fldTca**hb</para>
                 /// </summary>

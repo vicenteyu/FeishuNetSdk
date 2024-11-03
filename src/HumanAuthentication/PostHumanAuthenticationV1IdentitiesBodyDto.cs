@@ -11,7 +11,7 @@
 // </copyright>
 // <summary>录入身份信息 请求体</summary>
 // ************************************************************************
-namespace FeishuNetSdk.HumanAuthentication.Spec;
+namespace FeishuNetSdk.HumanAuthentication;
 /// <summary>
 /// 录入身份信息 请求体
 /// <para>该接口用于录入实名认证的身份信息，在唤起有源活体认证前，需要使用该接口进行实名认证。</para>
@@ -23,24 +23,24 @@ public record PostHumanAuthenticationV1IdentitiesBodyDto
 {
     /// <summary>
     /// <para>姓名</para>
-    /// <para>**示例值**："张三"</para>
     /// <para>必填：是</para>
+    /// <para>示例值：张三</para>
     /// </summary>
     [JsonPropertyName("identity_name")]
     public string IdentityName { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>身份证号</para>
-    /// <para>**示例值**："4xxxxxxxx"</para>
     /// <para>必填：是</para>
+    /// <para>示例值：4xxxxxxxx</para>
     /// </summary>
     [JsonPropertyName("identity_code")]
     public string IdentityCode { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>手机号</para>
-    /// <para>**示例值**："13xxxxxxx"</para>
     /// <para>必填：否</para>
+    /// <para>示例值：13xxxxxxx</para>
     /// </summary>
     [JsonPropertyName("mobile")]
     public string? Mobile { get; set; }

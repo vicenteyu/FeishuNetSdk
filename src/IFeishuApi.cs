@@ -42,9 +42,10 @@ public interface IFeishuApi : IHttpApi
     /// <para>接口ID：6995779366223724548</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/auth-v3/auth/tenant_access_token_internal</para>
     /// <para>自建应用通过此接口获取 `tenant_access_token`。</para>
-    /// <para>**说明：** `tenant_access_token` 的最大有效期是 2 小时。</para>
-    /// <para>- 如果在有效期小于 30 分钟的情况下，调用本接口，会返回一个新的 `tenant_access_token`，这会同时存在两个有效的 `tenant_access_token`。</para>
-    /// <para>- 如果有效期不小于 30 分钟，调用本接口，会返回原有的 `tenant_access_token`。</para>
+    /// <para>注意事项：</para>
+    /// <para>`tenant_access_token` 的最大有效期是 2 小时。</para>
+    /// <para>- 剩余有效期小于 30 分钟时，调用本接口会返回一个新的 `tenant_access_token`，这会同时存在两个有效的 `tenant_access_token`。</para>
+    /// <para>- 剩余有效期大于等于 30 分钟时，调用本接口会返回原有的 `tenant_access_token`。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/auth/v3/tenant_access_token/internal")]

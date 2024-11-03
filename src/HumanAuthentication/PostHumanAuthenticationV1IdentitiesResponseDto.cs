@@ -11,7 +11,7 @@
 // </copyright>
 // <summary>录入身份信息 响应体</summary>
 // ************************************************************************
-namespace FeishuNetSdk.HumanAuthentication.Spec;
+namespace FeishuNetSdk.HumanAuthentication;
 /// <summary>
 /// 录入身份信息 响应体
 /// <para>该接口用于录入实名认证的身份信息，在唤起有源活体认证前，需要使用该接口进行实名认证。</para>
@@ -23,8 +23,9 @@ public record PostHumanAuthenticationV1IdentitiesResponseDto
 {
     /// <summary>
     /// <para>用户绑定实名身份的uid</para>
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
+    /// <para>示例值：ou_2eb5483cb377daa5054bc6f86e2089a5</para>
     /// </summary>
     [JsonPropertyName("verify_uid")]
-    public string? VerifyUid { get; set; }
+    public string VerifyUid { get; set; } = string.Empty;
 }

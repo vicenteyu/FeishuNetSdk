@@ -14,7 +14,12 @@
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 获取群信息 响应体
-/// <para>获取群名称、群描述、群头像、群主 ID 等群基本信息。</para>
+/// <para>获取指定群的基本信息，包括群名称、群描述、群头像、群主 ID 以及群权限配置等。</para>
+/// <para>## 前提条件</para>
+/// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+/// <para>## 使用限制</para>
+/// <para>- 调用接口的机器人或者用户需要在群组内，才可以获取完整信息，否则只返回群名称、群头像、成员数量以及群状态信息。</para>
+/// <para>- 获取内部群信息时，调用接口的机器人或者用户需要与群组在同一租户下。</para>
 /// <para>接口ID：6946222931479478273</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/group/chat/get-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fchat%2fget</para>
@@ -83,7 +88,7 @@ public record GetImV1ChatsByChatIdResponseDto
     }
 
     /// <summary>
-    /// <para>群成员添加权限</para>
+    /// <para>谁可以添加群成员，群成员包括用户或机器人</para>
     /// <para>**可选值有**：</para>
     /// <para>- `only_owner`：仅群主和管理员</para>
     /// <para>- `all_members`：所有成员</para>
@@ -95,7 +100,7 @@ public record GetImV1ChatsByChatIdResponseDto
     public string? AddMemberPermission { get; set; }
 
     /// <summary>
-    /// <para>群分享权限</para>
+    /// <para>是否允许分享群</para>
     /// <para>**可选值有**：</para>
     /// <para>- `allowed`：允许</para>
     /// <para>- `not_allowed`：不允许</para>
@@ -107,7 +112,7 @@ public record GetImV1ChatsByChatIdResponseDto
     public string? ShareCardPermission { get; set; }
 
     /// <summary>
-    /// <para>at 所有人权限</para>
+    /// <para>谁可以 at 所有人</para>
     /// <para>**可选值有**：</para>
     /// <para>- `only_owner`：仅群主和管理员</para>
     /// <para>- `all_members`：所有成员</para>
@@ -119,7 +124,7 @@ public record GetImV1ChatsByChatIdResponseDto
     public string? AtAllPermission { get; set; }
 
     /// <summary>
-    /// <para>群编辑权限</para>
+    /// <para>谁可以编辑群</para>
     /// <para>**可选值有**：</para>
     /// <para>- `only_owner`：仅群主和管理员</para>
     /// <para>- `all_members`：所有成员</para>
@@ -130,7 +135,7 @@ public record GetImV1ChatsByChatIdResponseDto
     public string? EditPermission { get; set; }
 
     /// <summary>
-    /// <para>群主 ID 对应的ID类型，与查询参数中的 ==user_id_type== 相同。取值为：`open_id`、`user_id`、`union_id`其中之一</para>
+    /// <para>群主的用户 ID 类型，与查询参数中的 user_id_type 相同。取值为 `open_id`、`user_id`、`union_id` 其中之一，不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。</para>
     /// <para>**注意**：</para>
     /// <para>- 当群主是机器人时不返回该字段</para>
     /// <para>- 单聊不返回该字段</para>
@@ -141,7 +146,7 @@ public record GetImV1ChatsByChatIdResponseDto
     public string? OwnerIdType { get; set; }
 
     /// <summary>
-    /// <para>群主 ID，ID值与查询参数中的 ==user_id_type== 对应；不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
+    /// <para>群主的用户 ID，ID 类型与查询参数中的 user_id_type 对应。</para>
     /// <para>**注意**：</para>
     /// <para>- 当群主是机器人时不返回该字段</para>
     /// <para>- 单聊不返回该字段</para>
@@ -152,14 +157,14 @@ public record GetImV1ChatsByChatIdResponseDto
     public string? OwnerId { get; set; }
 
     /// <summary>
-    /// <para>用户管理员列表</para>
+    /// <para>用户管理员 ID 列表，ID 类型与查询参数 user_id_type 一致。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("user_manager_id_list")]
     public string[]? UserManagerIdList { get; set; }
 
     /// <summary>
-    /// <para>机器人管理员列表</para>
+    /// <para>机器人管理员 ID 列表，ID 类型为应用的 App ID。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("bot_manager_id_list")]
@@ -170,7 +175,7 @@ public record GetImV1ChatsByChatIdResponseDto
     /// <para>**可选值有**：</para>
     /// <para>- `chat`：会话消息</para>
     /// <para>- ` thread`：话题消息</para>
-    /// <para>**注意**：仅对话群返回该字段</para>
+    /// <para>**注意**：仅普通对话群组返回该字段，话题群和单聊不返回值。</para>
     /// <para>必填：否</para>
     /// <para>示例值：chat</para>
     /// </summary>
@@ -202,7 +207,7 @@ public record GetImV1ChatsByChatIdResponseDto
     public string? ChatType { get; set; }
 
     /// <summary>
-    /// <para>群标签，如有多个，则按照下列顺序返回第一个</para>
+    /// <para>群标签。如有多个，则按照下列顺序返回第一个标签。</para>
     /// <para>**可选值有**：</para>
     /// <para>- `inner`：内部群</para>
     /// <para>- `tenant`：公司群</para>
@@ -218,7 +223,7 @@ public record GetImV1ChatsByChatIdResponseDto
     public string? ChatTag { get; set; }
 
     /// <summary>
-    /// <para>入群消息可见性</para>
+    /// <para>入群提示消息的可见性</para>
     /// <para>**可选值有**：</para>
     /// <para>- `only_owner`：仅群主和管理员可见</para>
     /// <para>- `all_members`：所有成员可见</para>
@@ -231,7 +236,7 @@ public record GetImV1ChatsByChatIdResponseDto
     public string? JoinMessageVisibility { get; set; }
 
     /// <summary>
-    /// <para>出群消息可见性</para>
+    /// <para>出群提示消息的可见性</para>
     /// <para>**可选值有**：</para>
     /// <para>- `only_owner`：仅群主和管理员可见</para>
     /// <para>- `all_members`：所有成员可见</para>
@@ -244,7 +249,7 @@ public record GetImV1ChatsByChatIdResponseDto
     public string? LeaveMessageVisibility { get; set; }
 
     /// <summary>
-    /// <para>加群审批</para>
+    /// <para>加群是否需要审批</para>
     /// <para>**可选值有**：</para>
     /// <para>- `no_approval_required`：无需审批</para>
     /// <para>- `approval_required`：需要审批</para>
@@ -256,7 +261,7 @@ public record GetImV1ChatsByChatIdResponseDto
     public string? MembershipApproval { get; set; }
 
     /// <summary>
-    /// <para>发言权限</para>
+    /// <para>群发言权限</para>
     /// <para>**可选值有**：</para>
     /// <para>- `only_owner`：仅群主和管理员</para>
     /// <para>- `all_members`：所有成员</para>
@@ -276,7 +281,7 @@ public record GetImV1ChatsByChatIdResponseDto
     public bool? External { get; set; }
 
     /// <summary>
-    /// <para>租户Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识</para>
+    /// <para>租户 Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识。</para>
     /// <para>必填：否</para>
     /// <para>示例值：736588c9260f175e</para>
     /// </summary>
@@ -284,7 +289,7 @@ public record GetImV1ChatsByChatIdResponseDto
     public string? TenantKey { get; set; }
 
     /// <summary>
-    /// <para>群成员人数</para>
+    /// <para>群内用户的数量</para>
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
@@ -292,7 +297,7 @@ public record GetImV1ChatsByChatIdResponseDto
     public string? UserCount { get; set; }
 
     /// <summary>
-    /// <para>群机器人数</para>
+    /// <para>群内机器人的数量</para>
     /// <para>必填：否</para>
     /// <para>示例值：3</para>
     /// </summary>

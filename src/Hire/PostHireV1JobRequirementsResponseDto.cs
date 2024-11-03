@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-14
+// Last Modified On : 2024-11-03
 // ************************************************************************
 // <copyright file="PostHireV1JobRequirementsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -565,5 +565,13 @@ public record PostHireV1JobRequirementsResponseDto
         /// </summary>
         [JsonPropertyName("update_time")]
         public string? UpdateTime { get; set; }
+
+        /// <summary>
+        /// <para>职务ID，详情请查看：[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6807407987381831949</para>
+        /// </summary>
+        [JsonPropertyName("employment_job_id")]
+        public string? EmploymentJobId { get; set; }
     }
 }

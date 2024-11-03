@@ -58,11 +58,18 @@ public record ThirdPartyMeetingRoomEventCreatedEventBodyDto() : EventBodyDto("th
     public string? Uid { get; set; }
 
     /// <summary>
-    /// <para>重复日程的例外的唯一标识，如果不是重复的日程，此处为0。</para>
+    /// <para>重复日程的例外日程的唯一标识，时间戳格式。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("original_time")]
     public int? OriginalTime { get; set; }
+
+    /// <summary>
+    /// <para>日程 ID，格式为 `{Uid}_{Original time}`，`{Uid}` 是日程的唯一标识，`{Original time}` 是日程实例原始时间，非重复性日程和重复性日程取值为 0，重复性日程的例外日程取值为具体时间戳。</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("event_id")]
+    public string? EventId { get; set; }
 
     /// <summary>
     /// <para>日程开始时间</para>
@@ -96,20 +103,7 @@ public record ThirdPartyMeetingRoomEventCreatedEventBodyDto() : EventBodyDto("th
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("meeting_rooms")]
-    public MeetingRoom[]? MeetingRooms { get; set; }
-
-    /// <summary>
-    /// 会议室
-    /// </summary>
-    public record MeetingRoom
-    {
-        /// <summary>
-        /// <para>会议室唯一标识</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("open_id")]
-        public string? OpenId { get; set; }
-    }
+    public string[]? MeetingRooms { get; set; }
 
     /// <summary>
     /// <para>日程的组织者</para>

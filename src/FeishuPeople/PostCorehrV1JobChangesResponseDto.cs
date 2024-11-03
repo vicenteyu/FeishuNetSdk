@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-18
+// Last Modified On : 2024-11-03
 // ************************************************************************
 // <copyright file="PostCorehrV1JobChangesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -48,10 +48,11 @@ public record PostCorehrV1JobChangesResponseDto
     /// <item>2：Transformed 已异动</item>
     /// <item>3：Rejected 已拒绝</item>
     /// <item>4：Cancelled 已撤销</item>
+    /// <item>5：NoNeedApproval 无需审批</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("status")]
-    public string? Status { get; set; }
+    public int? Status { get; set; }
 
     /// <summary>
     /// <para>异动类型唯一标识，，可通过接口</para>
@@ -270,6 +271,22 @@ public record PostCorehrV1JobChangesResponseDto
         /// </summary>
         [JsonPropertyName("target_workforce_type")]
         public string? TargetWorkforceType { get; set; }
+
+        /// <summary>
+        /// <para>原人员子类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6968386026792289828</para>
+        /// </summary>
+        [JsonPropertyName("original_employee_subtype")]
+        public string? OriginalEmployeeSubtype { get; set; }
+
+        /// <summary>
+        /// <para>新人员子类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7036268995372303885</para>
+        /// </summary>
+        [JsonPropertyName("target_employee_subtype")]
+        public string? TargetEmployeeSubtype { get; set; }
 
         /// <summary>
         /// <para>原公司，详细信息可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口查询获得</para>
@@ -658,7 +675,7 @@ public record PostCorehrV1JobChangesResponseDto
         public string? TargetServiceCompany { get; set; }
 
         /// <summary>
-        /// <para>原岗位，可通过[【岗职务管理-岗位】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)相关API获取（目前仅灰度部分租户，如需要请联系管理员开灰）</para>
+        /// <para>原岗位</para>
         /// <para>必填：否</para>
         /// <para>示例值：7289005963599693367</para>
         /// </summary>
@@ -666,7 +683,7 @@ public record PostCorehrV1JobChangesResponseDto
         public string? OriginalPosition { get; set; }
 
         /// <summary>
-        /// <para>新岗位，可通过[【岗职务管理-岗位】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)相关API获取（目前仅灰度部分租户，如需要请联系管理员开灰）</para>
+        /// <para>新岗位</para>
         /// <para>必填：否</para>
         /// <para>示例值：7289005963599693367</para>
         /// </summary>

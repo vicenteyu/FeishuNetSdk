@@ -2299,7 +2299,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222929790418972</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/is_in_chat</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据使用的access_token判断对应的用户或者机器人是否在群里。</para>
+    /// <para>根据使用的 access_token 判断对应的用户或者机器人是否在指定的群里。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用该接口的应用，需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>获取内部群信息时，操作者须与群组在同一租户下。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat:readonly</item>
@@ -2310,7 +2314,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -2324,7 +2331,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222929790435356</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-announcement/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取会话中的群公告信息，公告信息格式与[旧版云文档](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同。</para>
+    /// <para>获取指定群组中的群公告信息，公告信息格式与[旧版云文档](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的用户或者机器人必须在对应的群组内。</para>
+    /// <para>- 获取内部群信息时，调用当前接口的用户或者机器人必须与对应群组在同一租户下。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat:readonly</item>
@@ -2337,8 +2348,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待获取公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>**注意**：不支持P2P单聊</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：单聊（群类型为 `p2p`）不支持获取群公告。</para>
     /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
     /// </param>
     /// <param name="user_id_type">
@@ -2364,7 +2378,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222929790468124</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>将用户或机器人移出群聊。</para>
+    /// <para>将指定的用户或机器人从群聊中移出。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用该接口的应用，需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 仅群主、群管理员，或者是创建群组且具有 **更新应用所创建群的群信息（im:chat:operate_as_owner）** 权限的机器人，可以将其他群成员移出群组。</para>
+    /// <para>- 用户或机器人在任何条件下均可将自己移出群组（即主动退群）。</para>
+    /// <para>- 每次请求，最多移除 50 个用户或者 5 个机器人。</para>
+    /// <para>- 操作内部群时，操作者须与群组在同一租户下。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.members:write_only</item>
@@ -2376,8 +2397,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>**注意**：仅支持群模式为`group`、`topic`的群组ID</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：仅支持群模式为 **群组（group）**、**话题（topic）** 的群组 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_mode` 参数取值是否为 `group`、`topic`。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="member_id_type">
@@ -2406,7 +2430,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222929790550044</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取用户/机器人所在群的群成员列表。</para>
+    /// <para>获取指定群组的成员信息，包括成员名字与 ID。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 调用该接口的应用，需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 当前接口的操作者（机器人或用户）必须在被查询的群组内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 该接口不会返回群组内的机器人成员。</para>
+    /// <para>- 由于返回的群成员列表会过滤掉机器人成员，因此返回的群成员个数可能会小于指定的 page_size。</para>
+    /// <para>- 如果有同一时间加入群的群成员，会一次性返回，这会导致返回的群成员个数可能会大于指定的 page_size。</para>
+    /// <para>- 获取内部群信息时，操作者须与群组在同一租户下。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat:readonly</item>
@@ -2420,7 +2452,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="member_id_type">
@@ -2428,15 +2463,17 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>用户 ID 类型</para>
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>open_id：以 open_id 来识别成员&lt;/md-enum-item&gt; **当值为 `user_id`，字段权限要求**： &lt;md-perm name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom" tags=""&gt;获取用户 user ID&lt;/md-perm&gt; &lt;/md-td&gt; &lt;/md-tr&gt;</item>
-    /// <item>union_id：以 union_id 来识别成员</item>
-    /// <item>user_id：以 user_id 来识别成员</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用来限制一次请求所返回的数据条目数。</para>
+    /// <para>- 由于返回的群成员列表会过滤掉机器人成员，因此返回的群成员个数可能会小于指定的 page_size。</para>
+    /// <para>- 如果有同一时间加入群的群成员，会一次性返回，这会导致返回的群成员个数可能会大于指定的 page_size。</para>
     /// <para>示例值：20 **默认值**：`20` **数据校验规则**： - 最大值：`100`</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -2460,7 +2497,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222929790631964</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/me_join</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>用户或机器人主动加入群聊。</para>
+    /// <para>将当前调用接口的操作者（用户或机器人）加入指定群聊。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 仅支持加入公开群。</para>
+    /// <para>- 操作内部群时，操作者必须与相应的群组在同一租户内。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.members:write_only</item>
@@ -2469,10 +2511,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
     /// <para>**注意**：</para>
-    /// <para>- 仅支持公开（Public）群类型</para>
-    /// <para>- 对于已认证企业的飞书的群人数默认上限：普通群5000人，会议群3000人，话题群5000人</para>
+    /// <para>- 仅支持公开群（public），你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_type ` 参数取值是否为 `public`。</para>
+    /// <para>- 群成员数量达到上限时无法进群。对于已认证企业的飞书的群人数默认上限：普通群 5000 人，会议群 3000 人，话题群 5000 人。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -2486,8 +2531,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222929790648348</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据使用的 access_token 搜索对用户或机器人可见的群列表，包括：用户或机器人所在的群、对用户或机器人公开的群。</para>
-    /// <para>搜索可获得的群信息包括：群ID（chat_id）、群名称、群描述等。</para>
+    /// <para>获取当前身份（用户或机器人）可见的群列表，包括当前身份所在的群、对当前身份公开的群。支持关键词搜索、分页搜索。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat:read</item>
@@ -2512,11 +2558,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="query">
     /// <para>必填：否</para>
     /// <para>关键词</para>
-    /// <para>**注意事项**：</para>
+    /// <para>**注意**：</para>
     /// <para>- 关键词支持匹配群国际化名称、群成员名称</para>
-    /// <para>- 支持使用多语种搜索</para>
+    /// <para>- 支持使用多语种搜索（飞书客户端内支持的多语种）</para>
     /// <para>- 支持拼音、前缀等模糊搜索</para>
-    /// <para>- 关键词为空值或长度超过`64`个字符时将返回空的结果</para>
+    /// <para>- 关键词为空值或长度超过 `64` 个字符时将返回空的结果</para>
     /// <para>示例值：abc</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -2528,7 +2574,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用来限制一次请求所返回的数据条目数。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -2584,7 +2630,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222931479396353</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>解散群组。</para>
+    /// <para>通过 chat_id 解散指定群组。通过 API 解散群组后，群聊天记录将不会保存。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 如果以应用身份（tenant_access_token）解散群，则应用机器人需要符合以下任一情况。</para>
+    /// <para>- 应用机器人是群主。</para>
+    /// <para>- 应用机器人是群的创建者，且应用已开通 **更新应用所创建群的群信息**（im:chat:operate_as_owner）权限。</para>
+    /// <para>- 如果以用户身份（user_access_token）解散群，需要该用户是群主。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat:delete</item>
@@ -2593,8 +2646,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>**注意**：仅支持群模式为`group`的群组ID</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：仅支持群模式为 `group` 的群组 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_mode` 参数取值是否为 `group`。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -2609,6 +2665,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取 [access_token](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-choose-which-type-of-token-to-use) 所代表的用户或者机器人所在的群列表。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 请注意区分本接口和[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)的请求 URL。</para>
+    /// <para>- 获取到的群列表中，不包含单聊（群模式为 `p2p`）。</para>
+    /// <para>- 查询参数 **user_id_type** 用于控制响应体中 owner_id 的类型，如果是获取机器人所在群列表该值可以不填。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat:read</item>
@@ -2636,7 +2698,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：ByCreateTimeAsc</para>
     /// <list type="bullet">
     /// <item>ByCreateTimeAsc：按群组创建时间升序排列</item>
-    /// <item>ByActiveTimeDesc：按群组活跃时间降序排列</item>
+    /// <item>ByActiveTimeDesc：按群组活跃时间降序排列。因群组活跃时间变动频繁，使用 `ByActiveTimeDesc` 排序方式可能会造成群组遗漏。例如，设置分页大小为 10，发起第一次请求获取到第一页数据后，原本排在第 11 位的群组中有群成员发送了一条消息，那么该群组将被排列到第 1 位，此时发起请求获取第二页数据时，该群组将不能被获取到，需要再从第一页开始获取。</item>
     /// </list>
     /// <para>默认值：ByCreateTimeAsc</para>
     /// </param>
@@ -2648,7 +2710,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用来限制一次请求返回的数据条目数。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -2666,7 +2728,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222931479478273</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取群名称、群描述、群头像、群主 ID 等群基本信息。</para>
+    /// <para>获取指定群的基本信息，包括群名称、群描述、群头像、群主 ID 以及群权限配置等。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 调用接口的机器人或者用户需要在群组内，才可以获取完整信息，否则只返回群名称、群头像、成员数量以及群状态信息。</para>
+    /// <para>- 获取内部群信息时，调用接口的机器人或者用户需要与群组在同一租户下。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat:read</item>
@@ -2679,7 +2746,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="user_id_type">
@@ -2705,7 +2775,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222931479511041</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-announcement/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>更新会话中的群公告信息，更新公告信息的格式和更新[旧版云文档](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同，不支持新版文档格式。</para>
+    /// <para>更新指定群组中的群公告信息。更新的公告内容格式和更新[旧版云文档](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)的格式相同，不支持新版云文档格式。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的用户或者机器人必须在对应的群组内，且需要拥有群公告文档的阅读权限。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 如果群组配置了 **仅群主和群管理员可编辑群信息**，则仅有群主、群管理员，或者是创建群组且具有 **更新应用所创建群的群信息（im:chat:operate_as_owner）** 权限的机器人，可以更新群公告信息。</para>
+    /// <para>- 如果群组没有配置 **仅群主和群管理员可编辑群信息**，则所有群成员可以更新群公告信息。</para>
+    /// <para>- 操作内部群时，操作者和被操作的群组必须在同一租户下。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.announcement:write_only</item>
@@ -2714,8 +2791,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待修改公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>**注意**：不支持P2P单聊</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：单聊（群类型为 `p2p`）不支持更新群公告。</para>
     /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -2770,7 +2850,16 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222931479592961</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>更新群头像、群名称、群描述、群配置、转让群主等。</para>
+    /// <para>更新指定群的信息，包括群头像、群名称、群描述、群配置以及群主等。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 对于群主和群管理员，或是创建群组且具备 ==更新应用所创建群的群信息（im:chat:operate_as_owner）== 权限的机器人，可调用本接口更新所有信息。</para>
+    /// <para>- 对于不满足上述权限条件的群成员或机器人：</para>
+    /// <para>- 如果群设置中配置了 **所有群成员可编辑群信息**，则仅可更新群头像、群名称、群描述、群国际化名称信息。</para>
+    /// <para>- 如果群设置中配置了 **仅群主和群管理员可编辑群信息**，则无法修改任何群信息。</para>
+    /// <para>## 注意事项</para>
+    /// <para>调用该接口时，未传值的请求参数默认不更新，保持原有群信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat:update</item>
@@ -2782,8 +2871,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>**注意**：仅支持群模式为`group`的群组ID</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：仅支持群模式为 `group` 的群组 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_mode` 参数取值是否为 `group`。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="user_id_type">
@@ -2811,7 +2903,17 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222931479609345</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>将用户或机器人拉入群聊。</para>
+    /// <para>把指定的用户或机器人拉入指定群聊内。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 调用该接口的应用，需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用该接口的应用或者用户，必须在相应的群组中。</para>
+    /// <para>- 如需拉机器人进群，则该机器人必须开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 如果以应用身份拉用户进群，则该用户需要在应用的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 外部租户不能被拉入内部群，但可以被拉入外部群。通过机器人拉外部租户的用户进群，需要先为机器人配置对外共享能力，详情参考[机器人支持外部群和外部用户单聊](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/develop-robots/add-bot-to-external-group)。</para>
+    /// <para>- 操作内部群时，当前操作者必须与群组在同一租户内。</para>
+    /// <para>- 如果群组配置了 **仅群主和群管理员可添加群成员**，则仅有群主、群管理员，或者是创建群组且具有 **更新应用所创建群的群信息（im:chat:operate_as_owner）** 权限的机器人，可以拉用户或机器人进群。</para>
+    /// <para>- 如果群组没有配置 **仅群主和群管理员可添加群成员**，则所有群成员都可以拉用户或机器人进群。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.members:write_only</item>
@@ -2823,8 +2925,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>**注意**：仅支持群模式为`group`、`topic`的群组ID</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：仅支持群模式为 **群组（group）**、**话题（topic）** 的群组 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_mode` 参数取值是否为 `group`、`topic`。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="member_id_type">
@@ -2845,7 +2950,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>**默认值**：`0`</para>
     /// <para>示例值：0</para>
     /// <list type="bullet">
-    /// <item>0：兼容之前的策略，不存在/不可见的 ID 会拉群失败，并返回错误响应。存在已离职 ID 时，会将其他可用 ID 拉入群聊，返回拉群成功的响应。</item>
+    /// <item>0：不存在/不可见的 ID 会拉群失败，并返回错误响应。存在已离职 ID 时，会将其他可用 ID 拉入群聊，返回拉群成功的响应。</item>
     /// <item>1：将参数中可用的 ID 全部拉入群聊，返回拉群成功的响应，并展示剩余不可用的 ID 及原因。</item>
     /// <item>2：参数中只要存在任一不可用的 ID ，就会拉群失败，返回错误响应，并展示出不可用的 ID。</item>
     /// </list>
@@ -2866,7 +2971,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6951292665602883586</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-moderation/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取群发言模式、可发言用户名单等。</para>
+    /// <para>获取指定群组的发言模式、可发言用户名单等信息。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>调用本接口的用户或机器人必须要在对应的群组内。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat:readonly</item>
@@ -2879,7 +2988,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="user_id_type">
@@ -2895,7 +3007,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，用来限制一次请求返回的数据条目数。</para>
     /// <para>示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -2919,7 +3031,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6951292665602899970</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-moderation/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>更新群组的发言权限设置，可设置为全员可发言、仅管理员可发言 或 指定用户可发言。</para>
+    /// <para>更新指定群组的发言权限，可设置为所有群成员可发言、仅群主或管理员可发言、指定群成员可发言。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 如果以用户身份（user_access_token）调用本接口，则该用户必须是群组的群主，才可以更新群发言权限。</para>
+    /// <para>- 如果以应用身份（tenant_access_token）调用本接口，则该应用机器人需要符合以下任一情况才可以更新群发言权限。</para>
+    /// <para>- 机器人是群组的群主。</para>
+    /// <para>- 机器人是群组的创建者、具备==更新应用所创建群的群信息（im:chat:operate_as_owner）== 权限，且仍在群组内。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat:moderation:write_only</item>
@@ -2931,7 +3050,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="user_id_type">
@@ -5366,9 +5488,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6960166873968443395</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除一个数据表，最后一张数据表不允许被删除。</para>
-    /// <para>note</para>
-    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
+    /// <para>删除一个数据表，如果多维表格中只剩最后一张数据表，则不允许被删除。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:table:delete</item>
     /// <item>bitable:app</item>
@@ -5377,13 +5497,19 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>目标多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格数据表的唯一标识。你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`。你也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`。</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
     /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
@@ -5399,9 +5525,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6960166873968459779</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/batch_delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除多个数据表。</para>
-    /// <para>note</para>
-    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
+    /// <para>删除多个数据表。如果多维表格中只剩最后一张数据表，则不允许被删除。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:table:delete</item>
     /// <item>bitable:app</item>
@@ -5410,7 +5534,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>目标多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -5426,7 +5554,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6960166873968476163</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据 app_token，获取多维表格下的所有数据表。</para>
+    /// <para>列出多维表格中的所有数据表，包括其 ID、版本号和名称。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:table:read</item>
     /// <item>bitable:app</item>
@@ -5436,7 +5564,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>目标多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="page_token">
@@ -5599,7 +5731,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6960166873968541699</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>新增一个数据表，默认仅包含索引列，也可以指定一部分初始字段。</para>
+    /// <para>新增一个数据表，默认仅包含索引字段，也可以指定一部分初始字段。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:table:create</item>
     /// <item>bitable:app</item>
@@ -5608,7 +5740,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>目标多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 app_token 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 obj_type 的值为 bitable 时，obj_token 字段的值才是多维表格的 app_token。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -5624,7 +5760,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6960166873968558083</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/batch_create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>新增多个数据表。</para>
+    /// <para>新增多个数据表，仅可指定数据表名称。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:table:create</item>
     /// <item>bitable:app</item>
@@ -5636,7 +5772,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>目标多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 app_token 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 obj_type 的值为 bitable 时，obj_token 字段的值才是多维表格的 app_token。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="user_id_type">
@@ -7029,7 +7169,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6978670625209597954</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据 app_token 和 table_id，获取数据表的所有视图</para>
+    /// <para>获取多维表格数据表中的所有视图。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:view:read</item>
     /// <item>bitable:app</item>
@@ -7042,13 +7182,20 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>base app token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>table id</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="page_size">
@@ -7089,7 +7236,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6978670625209614338</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>在数据表中新增一个视图</para>
+    /// <para>在多维表格数据表中新增一个视图，可指定视图类型，包括表格视图、看板视图、画册视图、甘特视图和表单视图。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:view:write_only</item>
     /// <item>bitable:app</item>
@@ -7098,13 +7245,20 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>base app token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>table id</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -7121,7 +7275,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6978670625209630722</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除数据表中的视图</para>
+    /// <para>删除多维表格数据表中的指定视图。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:view:write_only</item>
     /// <item>bitable:app</item>
@@ -7130,19 +7284,31 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>base app token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>table id</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="view_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>视图Id</para>
+    /// <para>多维表格中视图的唯一标识。获取方式：</para>
+    /// <para>- 在多维表格的 URL 地址栏中，`view_id` 是下图中高亮部分：</para>
+    /// <para>![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&amp;lazyload=true&amp;width=2998)</para>
+    /// <para>- 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的 `view_id`。</para>
+    /// <para>**注意**：</para>
+    /// <para>当 `filter` 参数 或 `sort` 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 `view_id` 会被忽略。</para>
     /// <para>示例值：vewTpR1urY</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -8622,7 +8788,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6995085510524698625</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-managers/add_managers</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>将用户或机器人指定为群管理员。</para>
+    /// <para>指定群组，将群内指定的用户或者机器人设置为群管理员。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>仅群组内的群主可以指定群管理员。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.managers:write_only</item>
@@ -8634,8 +8804,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>**注意**：仅支持群模式为`group`、`topic`的群组ID</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：仅支持群模式为 **群组（group）**、**话题（topic）** 的群组 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_mode` 参数取值是否为 `group`、`topic`。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="member_id_type">
@@ -8664,7 +8837,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6995085510524715009</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-managers/delete_managers</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除指定的群管理员（用户或机器人）。</para>
+    /// <para>指定群组，删除群组内指定的管理员，包括用户类型的管理员和机器人类型的管理员。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>仅群组内的群主可以删除群管理员。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.managers:write_only</item>
@@ -8676,8 +8853,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>**注意**：仅支持群模式为`group`、`topic`的群组ID</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：仅支持群模式为 **群组（group）**、**话题（topic）** 的群组 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_mode` 参数取值是否为 `group`、`topic`。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="member_id_type">
@@ -10240,7 +10420,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7043611687799816193</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-top_notice/put_top_notice</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>更新会话中的群置顶信息，可以将群中的某一条消息，或者群公告置顶显示。</para>
+    /// <para>更新群组中的群置顶信息，可以将群中的某一条消息，或群公告置顶展示。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>调用接口的机器人或者用户必须要在群组内，且和该群组属于同一租户。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.top_notice:write_only</item>
@@ -10249,7 +10433,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待修改置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
     /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -10265,7 +10452,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7043624153760759810</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-top_notice/delete_top_notice</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>撤销会话中的置顶。</para>
+    /// <para>撤销指定群组中的置顶消息或群公告。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>调用接口的机器人或者用户必须要在群组内，且和该群组属于同一租户。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.top_notice:write_only</item>
@@ -10274,7 +10465,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待撤销置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
     /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -12111,7 +12305,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7111246605500563457</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>添加自定义会话标签页。</para>
+    /// <para>在指定会话内添加自定义会话标签页，仅支持添加文档类型（doc）或 URL （url）类型的标签页。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的用户或者机器人必须在对应的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 调用该接口仅支持添加 doc、url 类型的标签页，即 tab_type 参数传值时，只能传入 doc 或 url，传入其他枚举值将会报错。如果你需要添加其他类型的会话标签页，需要在飞书客户端内操作，详情参见[会话内标签页](https://www.feishu.cn/hc/zh-CN/articles/536850681075)。</para>
+    /// <para>- 如果群组配置了 **仅群主和群管理员可以管理标签页**，则仅群主或者群管理员可以添加会话标签页。</para>
+    /// <para>- 操作内部群时，操作者须与群组在同一租户下。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.tabs:write_only</item>
@@ -12120,8 +12321,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>**注意**：支持群模式为`p2p`与`group`的群ID</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：仅支持群模式为 **群组（group）**、**单聊（p2p）** 的群组 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_mode` 参数取值是否为 `group`、`p2p`。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -12137,7 +12341,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7111246605500579841</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/delete_tabs</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除会话标签页。</para>
+    /// <para>删除指定会话内的一个或多个会话标签页。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的用户或者机器人必须在对应的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 只允许删除类型为`doc`和`url`的会话标签页。</para>
+    /// <para>- 如果群组配置了 **仅群主和群管理员可以管理标签页**，则仅群主或者群管理员可以删除会话标签页。</para>
+    /// <para>- 操作内部群时，操作者须与群组在同一租户下。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.tabs:write_only</item>
@@ -12146,8 +12357,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>**注意**：支持群模式为`p2p`与`group`的群ID</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：仅支持群模式为 **群组（group）**、**单聊（p2p）** 的群组 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_mode` 参数取值是否为 `group`、`p2p`。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -12163,7 +12377,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7111246605500596225</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/list_tabs</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>拉取会话标签页。</para>
+    /// <para>获取指定会话内的会话标签页信息，包括 ID、名称、类型以及内容等。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的用户或者机器人必须在对应的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>操作内部群时，操作者须与群组在同一租户下。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat:readonly</item>
@@ -12173,8 +12392,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>**注意**：支持群模式为`p2p`与`group`的群ID</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：仅支持群模式为 **群组（group）**、**单聊（p2p）** 的群组 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_mode` 参数取值是否为 `group`、`p2p`。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -12188,7 +12410,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7111246605500612609</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/update_tabs</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>更新会话标签页。</para>
+    /// <para>更新指定的会话标签页信息，包括名称、类型以及内容等。仅支持更新文档类型（doc）或 URL （url）类型的标签页。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的用户或者机器人必须在对应的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 调用该接口仅支持更新 doc、url 类型的标签页，即 tab_type 参数传值时，只能传入 doc 或 url，传入其他枚举值将会报错。如果你需要更新其他类型的会话标签页，需要在飞书客户端内操作，详情参见[会话内标签页](https://www.feishu.cn/hc/zh-CN/articles/536850681075)。</para>
+    /// <para>- 如果群组配置了 **仅群主和群管理员可以管理标签页**，则仅群主或者群管理员可以更新会话标签页。</para>
+    /// <para>- 操作内部群时，操作者须与群组在同一租户下。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.tabs:write_only</item>
@@ -12197,8 +12426,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>**注意**：支持群模式为`p2p`与`group`的群ID</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：仅支持群模式为 **群组（group）**、**单聊（p2p）** 的群组 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_mode` 参数取值是否为 `group`、`p2p`。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -12214,7 +12446,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7111246605500628993</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/sort_tabs</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>会话标签页排序。</para>
+    /// <para>调整指定会话内的多个会话标签页排列顺序。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的用户或者机器人必须在对应的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 会话内消息类型的标签页固定为第一顺位，不参与排序，但需要注意请求时 tab_ids 必须包含消息类型标签页的 ID。</para>
+    /// <para>- 如果群组配置了 **仅群主和群管理员可以管理标签页**，则仅群主或者群管理员可以调整会话标签页排序。</para>
+    /// <para>- 操作内部群时，操作者须与群组在同一租户下。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.tabs:write_only</item>
@@ -12223,8 +12462,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
-    /// <para>**注意**：支持群模式为`p2p`与`group`的群ID</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：仅支持群模式为 **群组（group）**、**单聊（p2p）** 的群组 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_mode` 参数取值是否为 `group`、`p2p`。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -13314,7 +13556,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7139929321426386972</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/link</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取指定群的分享链接。</para>
+    /// <para>获取指定群的分享链接，他人点击分享链接后可加入群组。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 调用该接口的用户或机器人必须在对应群组内。</para>
+    /// <para>- 单聊、密聊、团队群不支持生成分享链接。</para>
+    /// <para>- 当机器人被停用或者退出群组时，由该机器人获取的群分享链接也将失效。</para>
+    /// <para>- 当群组设置了 **仅群主和群管理员可添加群成员或分享群** 时，调用该接口的用户或机器人必须是群组的群主或管理员。</para>
+    /// <para>- 获取内部群分享链接时，调用该接口的用户或机器人必须和群组属于同一租户。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat:read</item>
@@ -13324,7 +13574,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="chat_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待获取分享链接的群ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
     /// <para>**注意**：单聊、密聊、团队群不支持分享群链接</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
@@ -13658,7 +13911,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7177650713441828867</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于增量修改视图信息</para>
+    /// <para>增量更新视图信息，包括视图名称、属性等，可设置视图的筛选条件等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:view:write_only</item>
     /// <item>bitable:app</item>
@@ -13667,19 +13920,31 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>base app token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：bascng7vrxcxpig7geggXiCtadY</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>table id</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="view_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>视图 ID</para>
+    /// <para>多维表格中视图的唯一标识。获取方式：</para>
+    /// <para>- 在多维表格的 URL 地址栏中，`view_id` 是下图中高亮部分：</para>
+    /// <para>![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&amp;lazyload=true&amp;width=2998)</para>
+    /// <para>- 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的 `view_id`。</para>
+    /// <para>**注意**：</para>
+    /// <para>当 `filter` 参数 或 `sort` 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 `view_id` 会被忽略。</para>
     /// <para>示例值：vewTpR1urY</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -13693,11 +13958,11 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto dto);
 
     /// <summary>
-    /// <para>【多维表格】检索视图</para>
+    /// <para>【多维表格】获取视图</para>
     /// <para>接口ID：7177650713441845251</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口根据 view_id 检索现有视图</para>
+    /// <para>根据视图 ID 获取现有视图信息，包括视图名称、类型、属性等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:view:read</item>
     /// <item>bitable:app</item>
@@ -13707,19 +13972,31 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>base app token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：bascnCMII2ORej2RItqpZZUNMIe</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>table id</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="view_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>视图 ID</para>
+    /// <para>多维表格中视图的唯一标识。获取方式：</para>
+    /// <para>- 在多维表格的 URL 地址栏中，`view_id` 是下图中高亮部分：</para>
+    /// <para>![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&amp;lazyload=true&amp;width=2998)</para>
+    /// <para>- 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的 `view_id`。</para>
+    /// <para>**注意**：</para>
+    /// <para>当 `filter` 参数 或 `sort` 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 `view_id` 会被忽略。</para>
     /// <para>示例值：vewTpR1urY</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -13832,9 +14109,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7182466310810402817</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于更新数据表的基本信息，包括数据表的名称等。</para>
-    /// <para>note</para>
-    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
+    /// <para>更新数据表的名称。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:table:update</item>
     /// <item>bitable:app</item>
@@ -13843,13 +14118,19 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>目标多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：XrgTb4y1haKYnasu0xXb1g7lcSg</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格数据表的唯一标识。你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`。你也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`。</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
     /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tbl1TkhyTWDkSoZ3</para>
     /// </param>
@@ -17889,6 +18170,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于查询数据表中的现有记录，单次最多查询 500 行记录，支持分页获取。</para>
+    /// <para>## 注意事项</para>
+    /// <para>若多维表格开启了高级权限，你需确保调用身份拥有多维表格的可管理权限，否则可能出现调用成功但返回数据为空的情况。了解具体步骤，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:retrieve</item>
     /// <item>bitable:app</item>
