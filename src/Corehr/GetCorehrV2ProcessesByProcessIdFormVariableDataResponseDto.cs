@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-27
+// Last Modified On : 2024-11-08
 // ************************************************************************
 // <copyright file="GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -577,4 +577,12 @@ public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto
             }
         }
     }
+
+    /// <summary>
+    /// <para>流程实例id</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：7368832822481536556</para>
+    /// </summary>
+    [JsonPropertyName("process_id")]
+    public string? ProcessId { get; set; }
 }

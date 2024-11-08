@@ -42,7 +42,7 @@ public record GetCorehrV1NationalIdTypesResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>国家 / 地区ID，可通过[查询国家/地区信息]()获取对应的国家/地区信息</para>
+        /// <para>国家 / 地区ID，可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获取对应的国家/地区信息</para>
         /// <para>必填：是</para>
         /// <para>示例值：6862995747139225096</para>
         /// </summary>

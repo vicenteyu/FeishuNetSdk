@@ -14,7 +14,9 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新多条记录 响应体
-/// <para>该接口用于更新数据表中的多条记录，单次调用最多更新 500 条记录。</para>
+/// <para>更新数据表中的多条记录，单次调用最多更新 1,000 条记录。</para>
+/// <para>## 前提条件</para>
+/// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
 /// <para>接口ID：6952707657162539010</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-record/batch_update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-record%2fbatch_update</para>
@@ -22,21 +24,19 @@ namespace FeishuNetSdk.Base;
 public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateResponseDto
 {
     /// <summary>
-    /// <para>记录</para>
+    /// <para>记录更新后的内容</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("records")]
     public AppTableRecord[]? Records { get; set; }
 
     /// <summary>
-    /// <para>记录</para>
+    /// <para>记录更新后的内容</para>
     /// </summary>
     public record AppTableRecord
     {
         /// <summary>
-        /// <para>数据表的字段，即数据表的列</para>
-        /// <para>当前接口支持的字段类型请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#31f78a3c)</para>
-        /// <para>不同类型字段的数据结构请参考[数据结构概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)</para>
+        /// <para>成功更新的记录的数据</para>
         /// <para>必填：是</para>
         /// <para>示例值：\-</para>
         /// </summary>
@@ -44,7 +44,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateRespon
         public object Fields { get; set; } = new();
 
         /// <summary>
-        /// <para>一条记录的唯一标识 id [record_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#15d8db94)</para>
+        /// <para>更新记录的 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：recqwIwhc6</para>
         /// </summary>
@@ -52,19 +52,19 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateRespon
         public string? RecordId { get; set; }
 
         /// <summary>
-        /// <para>该记录的创建人</para>
+        /// <para>该记录的创建人。本接口不返回该参数</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("created_by")]
         public Person? CreatedBy { get; set; }
 
         /// <summary>
-        /// <para>该记录的创建人</para>
+        /// <para>该记录的创建人。本接口不返回该参数</para>
         /// </summary>
         public record Person
         {
             /// <summary>
-            /// <para>用户id，id类型等于user_id_type所指定的类型。</para>
+            /// <para>用户 ID，ID 类型与 `user_id_type` 所指定的类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：testesttest</para>
             /// </summary>
@@ -105,7 +105,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateRespon
         }
 
         /// <summary>
-        /// <para>该记录的创建时间</para>
+        /// <para>该记录的创建时间。本接口不返回该参数</para>
         /// <para>必填：否</para>
         /// <para>示例值：1610281603</para>
         /// </summary>
@@ -113,14 +113,14 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateRespon
         public long? CreatedTime { get; set; }
 
         /// <summary>
-        /// <para>该记录最新一次更新的修改人</para>
+        /// <para>该记录最新一次更新的修改人。本接口不返回该参数</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("last_modified_by")]
         public Person? LastModifiedBy { get; set; }
 
         /// <summary>
-        /// <para>该记录最近一次的更新时间</para>
+        /// <para>该记录最近一次的更新时间。本接口不返回该参数</para>
         /// <para>必填：否</para>
         /// <para>示例值：1610281603</para>
         /// </summary>

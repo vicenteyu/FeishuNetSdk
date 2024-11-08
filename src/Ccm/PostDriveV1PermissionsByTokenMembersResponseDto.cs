@@ -14,11 +14,14 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 增加协作者权限 响应体
-/// <para>该接口用于根据文件的 token 给用户增加文档的权限。</para>
+/// <para>该接口用于根据云文档的 token 给用户增加文档的权限。</para>
 /// <para>## 注意事项</para>
-/// <para>- 目前不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限），如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到一个群内，再使用群内用户的 `user_access_token` 身份将开放平台群组 ID `openchat` 添加为文件夹协作者。</para>
-/// <para>- 使用 `tenant access token` 身份操作时，无法使用部门 ID `opendepartmentid` 添加文档协作者。</para>
-/// <para>- 使用 `tenant access token` 身份操作时，`need_notification` 参数不生效，默认不通知。</para>
+/// <para>- 调用该接口需要调用身份有该云文档添加协作者的权限。添加协作者的权限可通过云文档设置中的「谁可以查看、添加、移除协作者」等选项进行控制。</para>
+/// <para>- 调用该接口时，需要调用身份与被授权对象满足 **可见性** ，例如：</para>
+/// <para>- 添加用户协作者：需要调用身份与被授权对象为联系人或同组织内可搜索，且互相未屏蔽。</para>
+/// <para>- 添加群协作者：需要调用身份在群内。要使用 `tenant_access_token` 身份添加群协作者，则需要将该应用作为机器人添加至群组中，使应用对群可见。</para>
+/// <para>- 添加部门协作者：需要调用身份对部门可见。由于应用对企业内的组织架构都不可见，所以暂不支持通过 `tenant_access_token` 添加部门协作者。</para>
+/// <para>- 目前不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限）。如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到群组内，然后授予该群组可管理权限。</para>
 /// <para>接口ID：6987581166854635521</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-member%2fcreate</para>

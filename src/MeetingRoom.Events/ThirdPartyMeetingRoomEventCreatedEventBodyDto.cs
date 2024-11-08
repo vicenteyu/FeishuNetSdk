@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-27
+// Last Modified On : 2024-11-08
 // ************************************************************************
 // <copyright file="ThirdPartyMeetingRoomEventCreatedEventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -104,6 +104,13 @@ public record ThirdPartyMeetingRoomEventCreatedEventBodyDto() : EventBodyDto("th
     /// </summary>
     [JsonPropertyName("meeting_rooms")]
     public string[]? MeetingRooms { get; set; }
+
+    /// <summary>
+    /// <para>会议室 ID</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("open_id")]
+    public string? OpenId { get; set; }
 
     /// <summary>
     /// <para>日程的组织者</para>

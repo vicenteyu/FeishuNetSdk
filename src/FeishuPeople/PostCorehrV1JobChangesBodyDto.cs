@@ -44,8 +44,7 @@ public record PostCorehrV1JobChangesBodyDto
     public string EmploymentId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>异动类型唯一标识。不支持系统预置异动类型，包括组织架构调整、职责转交、试用期转正，可通过接口</para>
-    /// <para>[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取</para>
+    /// <para>异动类型唯一标识，不支持仅在特殊场景使用的异动类型，如组织架构调整、职责转交和试用期转正。可通过接口[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：internal_transfer</para>
     /// </summary>
@@ -53,8 +52,7 @@ public record PostCorehrV1JobChangesBodyDto
     public string TransferTypeUniqueIdentifier { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>关联流程唯一标识符，可通过接口</para>
-    /// <para>[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取</para>
+    /// <para>关联流程唯一标识符，可通过接口[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取</para>
     /// <para>注意：当异动方式为2时，该字段为必填</para>
     /// <para>必填：否</para>
     /// <para>示例值：people_6963913041981490725_6983885526583627531</para>

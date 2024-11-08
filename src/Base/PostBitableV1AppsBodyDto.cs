@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Base;
 public record PostBitableV1AppsBodyDto
 {
     /// <summary>
-    /// <para>多维表格 App 名称</para>
+    /// <para>多维表格 App 名称。最长为 255 个字符。</para>
     /// <para>必填：否</para>
     /// <para>示例值：一篇新的多维表格</para>
     /// </summary>

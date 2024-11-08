@@ -14,9 +14,9 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 批量获取记录 请求体
-/// <para>通过多个记录 ID 查询记录信息。</para>
-/// <para>## 使用限制</para>
-/// <para>该接口最多支持查询 100 条记录。</para>
+/// <para>通过多个记录 ID 查询记录信息。该接口最多支持查询 100 条记录。</para>
+/// <para>## 注意事项</para>
+/// <para>若多维表格开启了高级权限，你需确保调用身份拥有多维表格的可管理权限，否则可能出现调用成功但返回数据为空的情况。了解具体步骤，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
 /// <para>接口ID：7386702252390268956</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/batch_get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-record%2fbatch_get</para>

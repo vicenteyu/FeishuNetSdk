@@ -82,14 +82,14 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchBodyDto
     }
 
     /// <summary>
-    /// <para>包含条件筛选信息的对象。了解如何填写 filter，参考[记录筛选参数填写指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide)。</para>
+    /// <para>包含条件筛选信息的对象。了解 filter 填写指南和使用示例（如怎样同时使用 `and` 和 `or` 逻辑链接词），参考[记录筛选参数填写指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide)。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("filter")]
     public FilterInfo? Filter { get; set; }
 
     /// <summary>
-    /// <para>包含条件筛选信息的对象。了解如何填写 filter，参考[记录筛选参数填写指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide)。</para>
+    /// <para>包含条件筛选信息的对象。了解 filter 填写指南和使用示例（如怎样同时使用 `and` 和 `or` 逻辑链接词），参考[记录筛选参数填写指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide)。</para>
     /// </summary>
     public record FilterInfo
     {

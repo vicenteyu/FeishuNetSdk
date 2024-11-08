@@ -4,7 +4,7 @@
 // Created          : 2024-07-02
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-12
+// Last Modified On : 2024-11-08
 // ************************************************************************
 // <copyright file="PostPerformanceV2MetricTemplatesQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -205,6 +205,60 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
             /// </summary>
             [JsonPropertyName("description")]
             public I18n? Description { get; set; }
+
+            /// <summary>
+            /// <para>各指标的评估规则</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>0：使用相同规则</item>
+            /// <item>1：使用不同规则</item>
+            /// </list></para>
+            /// <para>默认值：0</para>
+            /// </summary>
+            [JsonPropertyName("review_rule_option")]
+            public int? ReviewRuleOption { get; set; }
+
+            /// <summary>
+            /// <para>被评估人添加指标的设置</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_metric_config")]
+            public MetricDimensionCustomMetricConfig? CustomMetricConfig { get; set; }
+
+            /// <summary>
+            /// <para>被评估人添加指标的设置</para>
+            /// </summary>
+            public record MetricDimensionCustomMetricConfig
+            {
+                /// <summary>
+                /// <para>非指标库指标的评分方式（手动评分是 0；评分公式是具体的公式 ID）</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：7296701873237786643</para>
+                /// </summary>
+                [JsonPropertyName("default_formula_id")]
+                public string? DefaultFormulaId { get; set; }
+
+                /// <summary>
+                /// <para>最少需添加的指标数量</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>最大值：10</para>
+                /// <para>最小值：0</para>
+                /// <para>默认值：1</para>
+                /// </summary>
+                [JsonPropertyName("least_metrics_size")]
+                public int? LeastMetricsSize { get; set; }
+
+                /// <summary>
+                /// <para>添加指标的方式</para>
+                /// <para>必填：否</para>
+                /// <para>最大长度：2</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("add_metric_options")]
+                public int[]? AddMetricOptions { get; set; }
+            }
         }
 
         /// <summary>
@@ -346,6 +400,49 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
                 /// </summary>
                 [JsonPropertyName("user_id")]
                 public string? UserId { get; set; }
+            }
+
+            /// <summary>
+            /// <para>指标维度 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7272581996315099155</para>
+            /// <para>最大长度：20</para>
+            /// <para>最小长度：1</para>
+            /// </summary>
+            [JsonPropertyName("metric_dimension_id")]
+            public string? MetricDimensionId { get; set; }
+
+            /// <summary>
+            /// <para>评估规则</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("review_rule_config")]
+            public MetricReviewRuleConfig? ReviewRuleConfig { get; set; }
+
+            /// <summary>
+            /// <para>评估规则</para>
+            /// </summary>
+            public record MetricReviewRuleConfig
+            {
+                /// <summary>
+                /// <para>最高分</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：10</para>
+                /// <para>最大长度：20</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("max")]
+                public string? Max { get; set; }
+
+                /// <summary>
+                /// <para>最低分</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：0</para>
+                /// <para>最大长度：20</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("min")]
+                public string? Min { get; set; }
             }
         }
 

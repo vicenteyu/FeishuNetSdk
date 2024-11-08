@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增一个数据表 请求体
-/// <para>新增一个数据表，默认仅包含索引字段，也可以指定一部分初始字段。</para>
+/// <para>新增一个数据表，默认仅包含索引字段，也可以指定一部分初始字段。最多支持新增 100 个数据表。</para>
 /// <para>接口ID：6960166873968541699</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table%2fcreate</para>
@@ -34,9 +34,10 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
     public record ReqTable
     {
         /// <summary>
-        /// <para>数据表名称。名称中的首尾空格将会被默认去除。</para>
+        /// <para>数据表名称。该字段必填。</para>
         /// <para>**注意**：</para>
-        /// <para>该字段必填。</para>
+        /// <para>- 名称中的首尾空格将会被默认去除。</para>
+        /// <para>- 数据表名称不可以包含 `/ \ ? * : [ ]` 等特殊字符。</para>
         /// <para>必填：否</para>
         /// <para>示例值：一个新的数据表</para>
         /// <para>最大长度：100</para>

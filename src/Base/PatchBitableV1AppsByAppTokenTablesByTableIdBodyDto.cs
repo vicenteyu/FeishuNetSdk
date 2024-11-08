@@ -25,6 +25,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdBodyDto
     /// <para>数据表的新名称。</para>
     /// <para>**注意**：</para>
     /// <para>- 名称中的首尾空格将会被去除。</para>
+    /// <para>- 数据表名称不可以包含 `/ \ ? * : [ ]` 等特殊字符。</para>
     /// <para>- 如果名称为空或和旧名称相同，接口仍然会返回成功，但是名称不会被更改。</para>
     /// <para>必填：否</para>
     /// <para>示例值：新的数据表名称</para>

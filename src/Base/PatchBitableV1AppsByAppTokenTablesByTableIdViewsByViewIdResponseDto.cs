@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新视图 响应体
-/// <para>增量更新视图信息，包括视图名称、属性等，可设置视图的筛选条件等。</para>
+/// <para>增量更新视图信息，包括视图名称、属性等，可设置视图的筛选条件。</para>
 /// <para>接口ID：7177650713441828867</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-view/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-view%2fpatch</para>
@@ -154,27 +154,27 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDt
 
                     /// <summary>
                     /// <para>用于过滤的字段类型</para>
-                    /// <para>1：多行文本</para>
-                    /// <para>2：数字</para>
-                    /// <para>3：单选</para>
-                    /// <para>4：多选</para>
-                    /// <para>5：日期</para>
-                    /// <para>7：复选框</para>
-                    /// <para>11：人员</para>
-                    /// <para>13：电话号码</para>
-                    /// <para>15：超链接</para>
-                    /// <para>17：附件</para>
-                    /// <para>18：单向关联</para>
-                    /// <para>19：查找引用</para>
-                    /// <para>20：公式</para>
-                    /// <para>21：双向关联</para>
-                    /// <para>22：地理位置</para>
-                    /// <para>23：群组</para>
-                    /// <para>1001：创建时间</para>
-                    /// <para>1002：最后更新时间</para>
-                    /// <para>1003：创建人</para>
-                    /// <para>1004：修改人</para>
-                    /// <para>1005：自动编号</para>
+                    /// <para>- 1：多行文本</para>
+                    /// <para>- 2：数字</para>
+                    /// <para>- 3：单选</para>
+                    /// <para>- 4：多选</para>
+                    /// <para>- 5：日期</para>
+                    /// <para>- 7：复选框</para>
+                    /// <para>- 11：人员</para>
+                    /// <para>- 13：电话号码</para>
+                    /// <para>- 15：超链接</para>
+                    /// <para>- 17：附件</para>
+                    /// <para>- 18：单向关联</para>
+                    /// <para>- 19：查找引用</para>
+                    /// <para>- 20：公式</para>
+                    /// <para>- 21：双向关联</para>
+                    /// <para>- 22：地理位置</para>
+                    /// <para>- 23：群组</para>
+                    /// <para>- 1001：创建时间</para>
+                    /// <para>- 1002：最后更新时间</para>
+                    /// <para>- 1003：创建人</para>
+                    /// <para>- 1004：修改人</para>
+                    /// <para>- 1005：自动编号</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：3</para>
                     /// </summary>

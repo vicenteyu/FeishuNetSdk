@@ -5751,7 +5751,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6952707657162522626</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于在数据表中新增一条记录</para>
+    /// <para>在多维表格数据表中新增一条记录。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:create</item>
     /// <item>bitable:app</item>
@@ -5767,21 +5769,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同：</para>
-    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 app_token 是下图高亮部分：</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
     /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
-    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 obj_type 的值为 bitable 时，obj_token 字段的值才是多维表格的 app_token。</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
     /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
-    /// <para>**数据校验规则**：</para>
-    /// <para>- 长度范围：`0` ～ `100` 字符</para>
     /// <para>示例值：bascng7vrxcxpig7geggXiCtadY</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>多维表格数据表的唯一标识。获取方式：</para>
-    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`。</para>
-    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`。</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
     /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>**数据校验规则**：</para>
     /// <para>- 长度范围：`0` ～ `50` 字符</para>
@@ -5818,7 +5818,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6952707657162539010</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/batch_update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于更新数据表中的多条记录，单次调用最多更新 500 条记录。</para>
+    /// <para>更新数据表中的多条记录，单次调用最多更新 1,000 条记录。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:update</item>
     /// <item>bitable:app</item>
@@ -5834,13 +5836,20 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>base app token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 app_token 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 obj_type 的值为 bitable 时，obj_token 字段的值才是多维表格的 app_token。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>table id</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="user_id_type">
@@ -5867,7 +5876,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6952707657162555394</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于删除数据表中的一条记录</para>
+    /// <para>删除多维表格数据表中的一条记录。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:delete</item>
     /// <item>bitable:app</item>
@@ -5876,19 +5887,26 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>base app token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>table id</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="record_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>单条记录的Id</para>
+    /// <para>数据表中一条记录的唯一标识。通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取。</para>
     /// <para>示例值：recpCsf4ME</para>
     /// </param>
     [HttpDelete("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}")]
@@ -6110,9 +6128,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6952707657162604546</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/batch_create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于在数据表中新增多条记录，单次调用最多新增 500 条记录。</para>
-    /// <para>note</para>
-    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
+    /// <para>在多维表格数据表中新增多条记录，单次调用最多新增 1,000 条记录。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:create</item>
     /// <item>bitable:app</item>
@@ -6175,7 +6193,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6952707657162620930</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/batch_delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于删除数据表中现有的多条记录，单次调用中最多删除 500 条记录。</para>
+    /// <para>删除多维表格数据表中现有的多条记录，单次调用中最多删除 500 条记录。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:delete</item>
     /// <item>bitable:app</item>
@@ -6184,13 +6204,20 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>base app token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>table id</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -6205,9 +6232,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6952707657162637314</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于更新数据表中的一条记录</para>
-    /// <para>note</para>
-    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
+    /// <para>更新多维表格数据表中的一条记录。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>更新记录为增量更新，仅更新传入的字段。如果想对记录中的某个字段值置空，可将字段设为 null，例如：</para>
+    /// <para>```json</para>
+    /// <para>{</para>
+    /// <para>"fields": {</para>
+    /// <para>"文本字段": null</para>
+    /// <para>}</para>
+    /// <para>}</para>
+    /// <para>```</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:update</item>
     /// <item>bitable:app</item>
@@ -10009,7 +10045,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6960166873968541699</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>新增一个数据表，默认仅包含索引字段，也可以指定一部分初始字段。</para>
+    /// <para>新增一个数据表，默认仅包含索引字段，也可以指定一部分初始字段。最多支持新增 100 个数据表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:table:create</item>
     /// <item>bitable:app</item>
@@ -10036,7 +10072,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6960166873968558083</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/batch_create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>新增多个数据表，仅可指定数据表名称。</para>
+    /// <para>新增多个数据表，仅可指定数据表名称。最多支持新增 100 个数据表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:table:create</item>
     /// <item>bitable:app</item>
@@ -12091,6 +12127,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>在多维表格数据表中新增一个视图，可指定视图类型，包括表格视图、看板视图、画册视图、甘特视图和表单视图。</para>
+    /// <para>## 使用限制</para>
+    /// <para>视图最大支持数量为 200，包括公共视图、锁定视图和个人视图。因此个人在多维表格中看到的视图数量可能仅是部分视图。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:view:write_only</item>
     /// <item>bitable:app</item>
@@ -12427,7 +12465,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>* 新版文档：通过[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)接口获取指定文件块（File Block）或图片块（Image Block）的 token，即为素材的 token。</para>
     /// <para>* 电子表格：通过[读取多个范围](https://open.feishu.cn/document/ukTMukTMukTM/ukTMzUjL5EzM14SOxMTN)接口获取指定附件的</para>
     /// <para>`fileToken` 参数，即为素材的 token。</para>
-    /// <para>* 多维表格：通过[列出记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/list)接口获取指定附件的 `file_token`，即为素材的 token。</para>
+    /// <para>* 多维表格：通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取指定附件的 `file_token`，即为素材的 token。</para>
     /// <para>示例值：boxcnrHpsg1QDqXAAAyachabcef</para>
     /// </param>
     /// <param name="extra">
@@ -13464,11 +13502,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6987581166854635521</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据文件的 token 给用户增加文档的权限。</para>
+    /// <para>该接口用于根据云文档的 token 给用户增加文档的权限。</para>
     /// <para>## 注意事项</para>
-    /// <para>- 目前不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限），如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到一个群内，再使用群内用户的 `user_access_token` 身份将开放平台群组 ID `openchat` 添加为文件夹协作者。</para>
-    /// <para>- 使用 `tenant access token` 身份操作时，无法使用部门 ID `opendepartmentid` 添加文档协作者。</para>
-    /// <para>- 使用 `tenant access token` 身份操作时，`need_notification` 参数不生效，默认不通知。</para>
+    /// <para>- 调用该接口需要调用身份有该云文档添加协作者的权限。添加协作者的权限可通过云文档设置中的「谁可以查看、添加、移除协作者」等选项进行控制。</para>
+    /// <para>- 调用该接口时，需要调用身份与被授权对象满足 **可见性** ，例如：</para>
+    /// <para>- 添加用户协作者：需要调用身份与被授权对象为联系人或同组织内可搜索，且互相未屏蔽。</para>
+    /// <para>- 添加群协作者：需要调用身份在群内。要使用 `tenant_access_token` 身份添加群协作者，则需要将该应用作为机器人添加至群组中，使应用对群可见。</para>
+    /// <para>- 添加部门协作者：需要调用身份对部门可见。由于应用对企业内的组织架构都不可见，所以暂不支持通过 `tenant_access_token` 添加部门协作者。</para>
+    /// <para>- 目前不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限）。如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到群组内，然后授予该群组可管理权限。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:bitable</item>
@@ -13483,12 +13524,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
+    /// <para>云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
     /// <para>示例值：doccnBKgoMyY5OMbUG6FioTXuBe</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>文件类型，需要与文件的 token 相匹配</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配</para>
     /// <para>示例值：doc</para>
     /// <list type="bullet">
     /// <item>doc：文档</item>
@@ -13497,7 +13538,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>wiki：知识库节点</item>
     /// <item>bitable：多维表格</item>
     /// <item>docx：新版文档</item>
-    /// <item>folder：文件夹。使用 tenant_access_token 访问不支持该值</item>
+    /// <item>folder：文件夹。使用 &lt;md-tag mode="inline" type="token-tenant"&gt;tenant_access_token&lt;/md-tag&gt; 调用时，需确保文件夹所有者为应用或应用拥有文件夹的可管理权限，你需要将应用作为群机器人添加至群内，然后授予该群组可管理权限。</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
     /// <item>slides：幻灯片</item>
@@ -13505,7 +13546,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="need_notification">
     /// <para>必填：否</para>
-    /// <para>仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时有效，添加权限后是否通知对方</para>
+    /// <para>添加权限后是否通知对方。仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时有效</para>
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
     /// </param>
@@ -23238,7 +23279,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>传入 Offer 基本信息，创建 Offer。</para>
     /// <para>## 注意事项</para>
-    /// <para>创建 Offer 时，需传入本文档中标注为必传的参数，其余参数是否必传参考[获取 Offer 申请表模板信息](https://open.larkoffice.com/document/server-docs/hire-v1/recruitment-related-configuration/offer-settings/offer_application_form/get)的参数定义或在「飞书招聘-设置-offer设置-offer申请表设置」中进行查看。</para>
+    /// <para>创建 Offer 时，需传入本文档中标注为必传的参数，其余参数是否必传参考[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)的参数定义或在「飞书招聘-设置-offer设置-offer申请表设置」中进行查看。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:offer</item>
     /// </list></para>
@@ -30081,7 +30122,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7177650713441828867</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>增量更新视图信息，包括视图名称、属性等，可设置视图的筛选条件等。</para>
+    /// <para>增量更新视图信息，包括视图名称、属性等，可设置视图的筛选条件。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:view:write_only</item>
     /// <item>bitable:app</item>
@@ -30113,8 +30154,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 在多维表格的 URL 地址栏中，`view_id` 是下图中高亮部分：</para>
     /// <para>![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&amp;lazyload=true&amp;width=2998)</para>
     /// <para>- 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的 `view_id`。</para>
-    /// <para>**注意**：</para>
-    /// <para>当 `filter` 参数 或 `sort` 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 `view_id` 会被忽略。</para>
     /// <para>示例值：vewTpR1urY</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -38564,14 +38603,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口可根据云文档 token 批量将用户添加为云文档的协作者。</para>
     /// <para>## 注意事项</para>
-    /// <para>- 调用该接口需要调用身份有该云文档添加协作者的权限。</para>
-    /// <para>- 添加协作者的权限可通过云文档设置中的「谁可以查看、添加、移除协作者」等选项进行控制。</para>
+    /// <para>- 调用该接口需要调用身份有该云文档添加协作者的权限。添加协作者的权限可通过云文档设置中的「谁可以查看、添加、移除协作者」等选项进行控制。</para>
     /// <para>- 调用该接口时，需要调用身份与被授权对象满足 **可见性** ，例如：</para>
     /// <para>- 添加用户协作者：需要调用身份与被授权对象为联系人或同组织内可搜索，且互相未屏蔽。</para>
-    /// <para>- 添加群协作者：需要调用身份在群内。如果使 `tenant_access_token` 添加群协作者，则需要将应用先添加到群机器人中使应用对群可见。</para>
+    /// <para>- 添加群协作者：需要调用身份在群内。要使用 `tenant_access_token` 身份添加群协作者，则需要将该应用作为机器人添加至群组中，使应用对群可见。</para>
     /// <para>- 添加部门协作者：需要调用身份对部门可见。由于应用对企业内的组织架构都不可见，所以暂不支持通过 `tenant_access_token` 添加部门协作者。</para>
-    /// <para>- 使用 `tenant access token` 身份操作时，`need_notification` 参数不生效，默认不通知。</para>
-    /// <para>- 目前还不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限），如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到一个群内，再使用群内用户的 `user_access_token` 身份将开放平台群组 ID `openchat` 添加为文件夹协作者。</para>
+    /// <para>- 目前不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限）。如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到群组内，然后授予该群组可管理权限。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:permission.member</item>
     /// <item>docs:permission.member:create</item>
@@ -38580,12 +38617,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>云文档的 token</para>
+    /// <para>云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考 [如何获取云文档相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
     /// <para>示例值：docxnBKgoMyY5OMbUG6FioTXuBe</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>云文档的类型</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
     /// <para>示例值：docx</para>
     /// <list type="bullet">
     /// <item>doc：旧版文档</item>
@@ -38594,15 +38631,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>wiki：知识库节点</item>
     /// <item>bitable：多维表格</item>
     /// <item>docx：新版文档</item>
-    /// <item>folder：文件夹 - **注意**：使用 &lt;md-tag mode="inline" type="token-tenant"&gt;tenant_access_token&lt;/md-tag&gt; 调用时，仅支持所有者为该应用的文件夹</item>
+    /// <item>folder：文件夹。使用 &lt;md-tag mode="inline" type="token-tenant"&gt;tenant_access_token&lt;/md-tag&gt; 调用时，需确保文件夹所有者为应用或应用拥有文件夹的可管理权限，你需要将应用作为群机器人添加至群内，然后授予该群组可管理权限。</item>
     /// <item>mindnote：思维笔记</item>
-    /// <item>minutes：妙记 - **注意**：目前妙记还不支持 `full_access` 权限角色</item>
+    /// <item>minutes：妙记。目前妙记还不支持 `full_access` 权限角色</item>
     /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="need_notification">
     /// <para>必填：否</para>
-    /// <para>仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时有效，添加权限后是否通知对方</para>
+    /// <para>添加权限后是否通知对方。仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时有效。</para>
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
     /// </param>
@@ -40972,7 +41009,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7351241605105090564</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>切到新版权限系统后，可通过此接口获取角色详情信息，包括名称、描述、权限列表等</para>
+    /// <para>可通过此接口获取角色详情信息，包括名称、描述、权限列表等</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:auth</item>
     /// <item>hire:auth:readonly</item>
@@ -43404,9 +43441,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7386702252390268956</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/batch_get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>通过多个记录 ID 查询记录信息。</para>
-    /// <para>## 使用限制</para>
-    /// <para>该接口最多支持查询 100 条记录。</para>
+    /// <para>通过多个记录 ID 查询记录信息。该接口最多支持查询 100 条记录。</para>
+    /// <para>## 注意事项</para>
+    /// <para>若多维表格开启了高级权限，你需确保调用身份拥有多维表格的可管理权限，否则可能出现调用成功但返回数据为空的情况。了解具体步骤，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:read</item>
     /// <item>bitable:app</item>
@@ -43422,15 +43459,20 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的 token。可通过以下两种方式获取。了解更多，参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)。</para>
-    /// <para>- 多维表格的 URL：https://sample.feishu.cn/base/==NQRxbRkBMa6OnZsjtERcxhabcef==</para>
-    /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：NQRxbRkBMa6OnZsjtERcxhabcef</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格中的数据表 ID。调用[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)获取 ID。</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tbl0xe5g8PPabcef</para>
     /// </param>
     /// <param name="dto">请求体</param>

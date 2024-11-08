@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-11-08
 // ************************************************************************
 // <copyright file="GetCorehrV1LeavesLeaveRequestHistoryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -337,6 +337,50 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
         /// </summary>
         [JsonPropertyName("wd_paid_type")]
         public int? WdPaidType { get; set; }
+
+        /// <summary>
+        /// <para>请假更正流程信息</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("leave_correct_process_info")]
+        public LeaveProcessInfo[]? LeaveCorrectProcessInfos { get; set; }
+
+        /// <summary>
+        /// <para>请假更正流程信息</para>
+        /// </summary>
+        public record LeaveProcessInfo
+        {
+            /// <summary>
+            /// <para>流程id。注意：导入的请假不会返回leave_process_id。详情可查看[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：4718803945687580505</para>
+            /// </summary>
+            [JsonPropertyName("process_id")]
+            public string ProcessId { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>流程状态</para>
+            /// <para>可选值有</para>
+            /// <para>- "inProgress"：审批中</para>
+            /// <para>- "rejected"：已拒绝</para>
+            /// <para>- "withdrawn"：已撤回</para>
+            /// <para>- "passed"：已通过</para>
+            /// <para>- "revoked"：已撤销</para>
+            /// <para>- "toStart"：待发起</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：passed</para>
+            /// </summary>
+            [JsonPropertyName("process_status")]
+            public string ProcessStatus { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>流程发起时间</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：2024-01-01 00:00:00</para>
+            /// </summary>
+            [JsonPropertyName("process_apply_time")]
+            public string ProcessApplyTime { get; set; } = string.Empty;
+        }
     }
 
     /// <summary>

@@ -32,7 +32,9 @@ namespace FeishuNetSdk.Im;
 public record PatchImV1MessagesByMessageIdBodyDto
 {
     /// <summary>
-    /// <para>卡片内容 JSON 格式，实际传值时需要对 JSON 格式进行压缩转义。卡片内容说明可参见[卡片 JSON 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)。</para>
+    /// <para>消息卡片的内容。支持卡片 JSON 或[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片。</para>
+    /// <para>- 要使用卡片 JSON，参考[卡片 JSON 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)。示例值可参考下文的请求体示例。</para>
+    /// <para>- 要使用[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片模板，你需传入 `type` 和 `data` 参数。参考 [发送卡片](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/send-feishu-card#461aa643-1)文档末尾的字段说明传值。</para>
     /// <para>**注意**：</para>
     /// <para>- 更新的文本消息最大不能超过 150 KB，卡片及富文本消息最大不能超过 30 KB。若消息中包含大量样式标签，会使实际消息体长度大于你输入的请求体长度。</para>
     /// <para>- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。</para>

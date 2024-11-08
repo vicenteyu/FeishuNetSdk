@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新视图 请求体
-/// <para>增量更新视图信息，包括视图名称、属性等，可设置视图的筛选条件等。</para>
+/// <para>增量更新视图信息，包括视图名称、属性等，可设置视图的筛选条件。</para>
 /// <para>接口ID：7177650713441828867</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-view/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-view%2fpatch</para>
@@ -42,14 +42,14 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto
     public record AppTableViewProperty
     {
         /// <summary>
-        /// <para>过滤条件</para>
+        /// <para>筛选条件</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("filter_info")]
         public AppTableViewPropertyFilterInfo? FilterInfo { get; set; }
 
         /// <summary>
-        /// <para>过滤条件</para>
+        /// <para>筛选条件</para>
         /// </summary>
         public record AppTableViewPropertyFilterInfo
         {
@@ -80,7 +80,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto
             public record AppTableViewPropertyFilterInfoCondition
             {
                 /// <summary>
-                /// <para>用于过滤的字段的 ID。可通过[列出字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/list)接口获取</para>
+                /// <para>用于筛选的字段的 ID。可通过[列出字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/list)接口获取</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：fldmeqmpVA</para>
                 /// </summary>
@@ -88,20 +88,20 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto
                 public string FieldId { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>过滤操作的类型，条件运算符</para>
+                /// <para>筛选操作的类型，条件运算符</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：is</para>
                 /// <para>可选值：<list type="bullet">
                 /// <item>is：等于</item>
-                /// <item>isNot：不等于</item>
-                /// <item>contains：包含</item>
-                /// <item>doesNotContain：不包含</item>
+                /// <item>isNot：不等于（不支持日期字段）</item>
+                /// <item>contains：包含（不支持日期字段）</item>
+                /// <item>doesNotContain：不包含（不支持日期字段）</item>
                 /// <item>isEmpty：为空</item>
                 /// <item>isNotEmpty：不为空</item>
                 /// <item>isGreater：大于</item>
-                /// <item>isGreaterEqual：大于等于</item>
+                /// <item>isGreaterEqual：大于等于（不支持日期字段）</item>
                 /// <item>isLess：小于</item>
-                /// <item>isLessEqual：小于等于</item>
+                /// <item>isLessEqual：小于等于（不支持日期字段）</item>
                 /// </list></para>
                 /// <para>默认值：is</para>
                 /// </summary>
@@ -109,7 +109,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto
                 public string Operator { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>条件的值，可以是单个值或多个值的数组。不同字段类型和不同的 operator 可填的值不同。详情参考下文字段目标值（value）填写说明。</para>
+                /// <para>条件的值，可以是单个值或多个值的数组。不同字段类型和不同的 operator 可填的值不同。详情参考[字段目标值（value）填写说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide#3e0fd644)。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：`[\"text content\"]`</para>
                 /// </summary>

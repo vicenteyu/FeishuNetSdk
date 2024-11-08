@@ -63,7 +63,7 @@ public record PutHireV1OffersByOfferIdBodyDto
         public string LeaderUserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>职务 ID，可通过[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/list)接口获取</para>
+        /// <para>职务 ID，可通过[批量查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取，**请注意**：仅支持开通飞书人事企业版的租户使用</para>
         /// <para>必填：否</para>
         /// <para>示例值：6807407987381831949</para>
         /// </summary>
