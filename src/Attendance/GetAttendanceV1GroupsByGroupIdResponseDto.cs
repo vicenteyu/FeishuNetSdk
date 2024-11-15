@@ -788,14 +788,14 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     public LeaveNeedPunchCfgSuffix? TravelNeedPunchCfg { get; set; }
 
     /// <summary>
-    /// <para>需要打卡的人员集合（仅当不传「bind_dept_ids」和「bind_user_ids」时，才会使用该字段）</para>
+    /// <para>需要打卡的人员集合（当「bind_dept_ids」和「bind_user_ids」不为空时，以「bind_dept_ids」和「bind_user_ids」为准）</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("need_punch_members")]
     public PunchMember[]? NeedPunchMembers { get; set; }
 
     /// <summary>
-    /// <para>需要打卡的人员集合（仅当不传「bind_dept_ids」和「bind_user_ids」时，才会使用该字段）</para>
+    /// <para>需要打卡的人员集合（当「bind_dept_ids」和「bind_user_ids」不为空时，以「bind_dept_ids」和「bind_user_ids」为准）</para>
     /// </summary>
     public record PunchMember
     {
@@ -813,14 +813,14 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         public int? RuleScopeType { get; set; }
 
         /// <summary>
-        /// <para>圈人规则列表</para>
+        /// <para>圈人规则列表，返回的规则之间为且关系，或关系的规则暂不支持返回</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("scope_group_list")]
         public ScopeGroup? ScopeGroupList { get; set; }
 
         /// <summary>
-        /// <para>圈人规则列表</para>
+        /// <para>圈人规则列表，返回的规则之间为且关系，或关系的规则暂不支持返回</para>
         /// </summary>
         public record ScopeGroup
         {
@@ -915,7 +915,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     }
 
     /// <summary>
-    /// <para>无需打卡的人员集合（仅当不传「bind_default_dept_ids」和「bind_default_user_ids」时，才会使用该字段）</para>
+    /// <para>无需打卡的人员集合（当「bind_default_dept_ids」和「bind_default_user_ids」不为空时，以「bind_default_dept_ids」和「bind_default_user_ids」为准）</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("no_need_punch_members")]

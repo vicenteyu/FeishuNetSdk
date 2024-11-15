@@ -31,7 +31,9 @@ public record PostApprovalV4ExternalApprovalsBodyDto
     public string ApprovalName { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>审批定义 code，用户自定义，定义的唯一标识，如果不存在该 code，则创建，否则更新</para>
+    /// <para>该值用于判断调用当前接口是创建审批定义还是更新审批定义。具体说明：</para>
+    /// <para>- 如果传入的值系统可以匹配到已存在的审批定义 approval_code，则调用该接口会更新相应的审批定义。</para>
+    /// <para>- 如果传入的值系统匹配不到任何审批定义 approval_code，则会新建一个审批定义，并返回新建的审批定义真实的 approval_code（并非你通过该参数传入的值）。</para>
     /// <para>必填：是</para>
     /// <para>示例值：permission_test</para>
     /// </summary>

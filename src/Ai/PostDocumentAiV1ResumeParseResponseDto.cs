@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 识别文件中的简历信息 响应体
-/// <para>简历信息解析接口，支持PDF/DOCX/PNG/JPG四种文件类型的一次性的识别。</para>
+/// <para>简历信息解析接口，支持PDF/DOCX/PNG/JPG四种文件类型的一次性的识别。文件大小需要小于30M。</para>
 /// <para>接口ID：7340987945434742812</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/resume/parse</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fai%2fdocument_ai-v1%2fresume%2fparse</para>

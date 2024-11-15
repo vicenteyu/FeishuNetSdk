@@ -50,7 +50,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
         public string? ViewName { get; set; }
 
         /// <summary>
-        /// <para>视图类型。</para>
+        /// <para>视图类型</para>
         /// <para>**可选值有**：</para>
         /// <para>- `grid`：表格视图</para>
         /// <para>- `kanban`：看板视图</para>

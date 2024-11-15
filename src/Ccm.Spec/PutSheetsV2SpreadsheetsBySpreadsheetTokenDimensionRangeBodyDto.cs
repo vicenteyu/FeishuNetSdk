@@ -56,7 +56,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
 
         /// <summary>
         /// <para>要更新的行或列结束的位置。从 1 开始计数。若 `endIndex` 为 7，则更新至第 7 行结束。包含第 7 行。</para>
-        /// <para>示例：当 `majorDimension`为 `ROWS`、 `startIndex` 为 3、`endIndex ` 为 7 时，则更新第 3、4、5、6、7 行的属性，共更新 5 行。</para>
+        /// <para>**示例**：当 `majorDimension`为 `ROWS`、 `startIndex` 为 3、`endIndex ` 为 7 时，则更新第 3、4、5、6、7 行的属性，共更新 5 行。</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("endIndex")]
@@ -74,7 +74,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto
     public record DimensionProperty
     {
         /// <summary>
-        /// <para>是否隐藏行或列。可选值：</para>
+        /// <para>是否显示行或列。可选值：</para>
         /// <para>- true：显示行或列</para>
         /// <para>- false：隐藏行或列</para>
         /// <para>必填：否</para>

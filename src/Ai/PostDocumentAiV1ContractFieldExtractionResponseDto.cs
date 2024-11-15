@@ -14,7 +14,8 @@
 namespace FeishuNetSdk.Ai;
 /// <summary>
 /// 提取文件中的合同字段 响应体
-/// <para>支持从doc、docx和pdf文件类型中提取合同字段</para>
+/// <para>支持从doc、docx和pdf文件类型中提取合同字段。</para>
+/// <para>文件大小需要小于10M。</para>
 /// <para>接口ID：7220312184105664515</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/ai/document_ai-v1/contract/field_extraction</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fai%2fdocument_ai-v1%2fcontract%2ffield_extraction</para>

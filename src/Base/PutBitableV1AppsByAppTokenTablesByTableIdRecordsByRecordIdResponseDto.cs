@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-12
+// Last Modified On : 2024-11-15
 // ************************************************************************
 // <copyright file="PutBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -135,6 +135,14 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponse
         /// </summary>
         [JsonPropertyName("last_modified_time")]
         public long? LastModifiedTime { get; set; }
+
+        /// <summary>
+        /// <para>记录分享链接。本接口不返回该参数，批量获取记录接口将返回该参数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd</para>
+        /// </summary>
+        [JsonPropertyName("shared_url")]
+        public string? SharedUrl { get; set; }
 
         /// <summary>
         /// <para>记录链接，本接口不返回该参数，查询记录接口将返回该参数</para>

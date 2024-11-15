@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 列出表单问题 响应体
-/// <para>列出表单的所有问题项</para>
+/// <para>列出表单中的所有问题项。</para>
 /// <para>接口ID：7112628058154909698</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/form/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-form-field%2flist</para>
@@ -44,7 +44,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
         /// <summary>
         /// <para>表单问题</para>
         /// <para>必填：否</para>
-        /// <para>示例值：多行文本</para>
+        /// <para>示例值：任务名称</para>
         /// </summary>
         [JsonPropertyName("title")]
         public string? Title { get; set; }
@@ -52,13 +52,15 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
         /// <summary>
         /// <para>问题描述</para>
         /// <para>必填：否</para>
-        /// <para>示例值：多行文本描述</para>
+        /// <para>示例值：请概述该任务</para>
         /// </summary>
         [JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// <para>是否必填</para>
+        /// <para>该问题是否必填。可选值：</para>
+        /// <para>- true：必填</para>
+        /// <para>- false：非必填</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -66,7 +68,9 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
         public bool? Required { get; set; }
 
         /// <summary>
-        /// <para>是否可见</para>
+        /// <para>该问题是否可见。可选值：</para>
+        /// <para>- true：可见</para>
+        /// <para>- false：不可见</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>

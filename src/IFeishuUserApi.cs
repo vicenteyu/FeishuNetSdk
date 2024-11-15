@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-10-25
+// Last Modified On : 2024-11-15
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -3134,6 +3134,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="ignore_consistency_check">
+    /// <para>必填：否</para>
+    /// <para>是否忽略一致性读写检查，默认为 false，即在进行读写操作时，系统将确保读取到的数据和写入的数据是一致的。可选值：</para>
+    /// <para>- true：忽略读写一致性检查，提高性能，但可能会导致某些节点的数据不同步，出现暂时不一致</para>
+    /// <para>- false：开启读写一致性检查，确保数据在读写过程中一致</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records")]
@@ -3143,7 +3151,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string table_id,
         [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? client_token = null);
+        [PathQuery] string? client_token = null,
+        [PathQuery] bool? ignore_consistency_check = null);
 
     /// <summary>
     /// <para>【多维表格】更新多条记录</para>
@@ -3195,6 +3204,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="ignore_consistency_check">
+    /// <para>必填：否</para>
+    /// <para>是否忽略一致性读写检查，默认为 false，即在进行读写操作时，系统将确保读取到的数据和写入的数据是一致的。可选值：</para>
+    /// <para>- true：忽略读写一致性检查，提高性能，但可能会导致某些节点的数据不同步，出现暂时不一致</para>
+    /// <para>- false：开启读写一致性检查，确保数据在读写过程中一致</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_update")]
@@ -3203,7 +3220,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] bool? ignore_consistency_check = null);
 
     /// <summary>
     /// <para>【多维表格】删除记录</para>
@@ -3519,6 +3537,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="ignore_consistency_check">
+    /// <para>必填：否</para>
+    /// <para>是否忽略一致性读写检查，默认为 false，即在进行读写操作时，系统将确保读取到的数据和写入的数据是一致的。可选值：</para>
+    /// <para>- true：忽略读写一致性检查，提高性能，但可能会导致某些节点的数据不同步，出现暂时不一致</para>
+    /// <para>- false：开启读写一致性检查，确保数据在读写过程中一致</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_create")]
@@ -3528,7 +3554,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string table_id,
         [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? client_token = null);
+        [PathQuery] string? client_token = null,
+        [PathQuery] bool? ignore_consistency_check = null);
 
     /// <summary>
     /// <para>【多维表格】删除多条记录</para>
@@ -3636,6 +3663,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="ignore_consistency_check">
+    /// <para>必填：否</para>
+    /// <para>是否忽略一致性读写检查，默认为 false，即在进行读写操作时，系统将确保读取到的数据和写入的数据是一致的。可选值：</para>
+    /// <para>- true：忽略读写一致性检查，提高性能，但可能会导致某些节点的数据不同步，出现暂时不一致</para>
+    /// <para>- false：开启读写一致性检查，确保数据在读写过程中一致</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}")]
@@ -3645,7 +3680,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string table_id,
         [PathQuery] string record_id,
         [JsonContent] Base.PutBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] bool? ignore_consistency_check = null);
 
     /// <summary>
     /// <para>【日历】获取日程</para>
@@ -12585,7 +12621,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7112628058154893314</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-form-field/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于更新表单中的问题项</para>
+    /// <para>更新表单中的问题项。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:form:update</item>
     /// <item>bitable:app</item>
@@ -12594,25 +12630,35 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格文档 Token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：bascnCMII2ORej2RItqpZZUNMIe</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 ID</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="form_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表单 ID</para>
+    /// <para>多维表格中表单的唯一标识。表单也是视图的一种，其获取方式与获取 `view_id` 相同：</para>
+    /// <para>- 在多维表格的 URL 地址栏中，`form_id` 是下图中高亮部分：</para>
+    /// <para>![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&amp;lazyload=true&amp;width=2998)</para>
+    /// <para>- 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的 `form_id`</para>
     /// <para>示例值：vewTpR1urY</para>
     /// </param>
     /// <param name="field_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表单问题 ID</para>
+    /// <para>表单问题的唯一标识。表单中的问题本质上是表单视图中的字段，因此你可通过[列出字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/list)接口获取表单问题的唯一标识。</para>
     /// <para>示例值：fldjX7dUj5</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -12631,7 +12677,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7112628058154909698</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-form-field/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>列出表单的所有问题项</para>
+    /// <para>列出表单中的所有问题项。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:form:read</item>
     /// <item>bitable:app</item>
@@ -12641,19 +12687,29 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格文档 Token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：bascnCMII2ORej2RItqpZZUNMIe</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 ID</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblxI2tWaxP5dG7p</para>
     /// </param>
     /// <param name="form_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表单 ID</para>
+    /// <para>多维表格中表单的唯一标识。表单也是视图的一种，其获取方式与获取 `view_id` 相同：</para>
+    /// <para>- 在多维表格的 URL 地址栏中，`form_id` 是下图中高亮部分：</para>
+    /// <para>![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&amp;lazyload=true&amp;width=2998)</para>
+    /// <para>- 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的 `form_id`</para>
     /// <para>示例值：vewTpR1urY</para>
     /// </param>
     /// <param name="page_size">
@@ -12761,7 +12817,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7119425455108669468</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-form/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于更新表单中的元数据项</para>
+    /// <para>更新表单视图中的元数据，包括表单名称、描述、是否共享等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:form:update</item>
     /// <item>bitable:app</item>
@@ -12770,19 +12826,29 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格文档 Token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：bascnv1jIEppJdTCn3jOosabcef</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 ID</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblz8nadEUdxNMt5</para>
     /// </param>
     /// <param name="form_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表单 ID</para>
+    /// <para>多维表格中表单的唯一标识。表单也是视图的一种，其获取方式与获取 `view_id` 相同：</para>
+    /// <para>- 在多维表格的 URL 地址栏中，`form_id` 是下图中高亮部分：</para>
+    /// <para>![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&amp;lazyload=true&amp;width=2998)</para>
+    /// <para>- 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的 `form_id`</para>
     /// <para>示例值：vew6oMbAa4</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -12800,7 +12866,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7119425455108685852</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-form/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取表单的所有元数据项</para>
+    /// <para>获取表单的所有元数据，包括表单名称、描述、是否共享等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:form:read</item>
     /// <item>bitable:app</item>
@@ -12810,19 +12876,29 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格文档 Token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：bascnv1jIEppJdTCn3jOosabcef</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表格 ID</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblz8nadEUdxNMt5</para>
     /// </param>
     /// <param name="form_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>表单 ID</para>
+    /// <para>多维表格中表单的唯一标识。表单也是视图的一种，其获取方式与获取 `view_id` 相同：</para>
+    /// <para>- 在多维表格的 URL 地址栏中，`form_id` 是下图中高亮部分：</para>
+    /// <para>![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&amp;lazyload=true&amp;width=2998)</para>
+    /// <para>- 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的 `form_id`</para>
     /// <para>示例值：vew6oMbAa4</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -13315,7 +13391,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7127206859065638914</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-dashboard/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据 app_token，获取多维表格下的所有仪表盘</para>
+    /// <para>获取多维表格中的所有仪表盘。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的阅读等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:dashboard:read</item>
     /// <item>bitable:app</item>
@@ -13325,7 +13403,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格文档 Token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：bascng7vrxcxpig7geggXiCtadY</para>
     /// </param>
     /// <param name="page_size">
@@ -13920,7 +14002,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7177650713441812483</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-dashboard/copy</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据现有仪表盘复制出新的仪表盘</para>
+    /// <para>基于现有仪表盘复制出新的仪表盘。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有原多维表格的阅读权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:dashboard:copy</item>
     /// <item>bitable:app</item>
@@ -13929,13 +14013,20 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格 token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：basbcldP5xZeskcHDFZQfeToydb</para>
     /// </param>
     /// <param name="block_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格 block_id</para>
+    /// <para>多维表格仪表盘的唯一标识，以 blk 开头。获取方式：</para>
+    /// <para>- 在多维表格的 URL 地址栏中，`block_id` 是下图中高亮部分：</para>
+    /// <para>![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a966d15323ee73c66b1e9a31d34ae6c7_x3ctncH2nO.png?height=575&amp;lazyload=true&amp;width=1397)</para>
+    /// <para>- 通过[列出仪表盘](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-dashboard/list)接口获取</para>
     /// <para>示例值：blkEsvEEaNllY2UV</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -18431,7 +18522,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7319756481343750148</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/vehicle_invoice/recognize</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>机动车发票识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// <para>机动车发票识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。文件大小需要小于10M。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>document_ai:vehicle_invoice:recognize</item>
     /// </list></para>
@@ -18451,7 +18542,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7319756481343766532</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/health_certificate/recognize</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>健康证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
+    /// <para>健康证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。文件大小需要小于10M。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>document_ai:health_certificate:recognize</item>
     /// </list></para>
@@ -19859,5 +19950,56 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string app_id,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【云文档】获取云文档内容</para>
+    /// <para>接口ID：7437110392792858625</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs-v1/content/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>可获取云文档内容，当前只支持获取新版文档 Markdown 格式的内容。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>docs:document.content:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="doc_token">
+    /// <para>必填：是</para>
+    /// <para>云文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的 `doc_token`</para>
+    /// <para>示例值：B4EPdAYx8oi8HRxgPQQbM15UcBf</para>
+    /// </param>
+    /// <param name="doc_type">
+    /// <para>必填：是</para>
+    /// <para>云文档类型</para>
+    /// <para>示例值：docx</para>
+    /// <list type="bullet">
+    /// <item>docx：新版文档</item>
+    /// </list>
+    /// </param>
+    /// <param name="content_type">
+    /// <para>必填：是</para>
+    /// <para>内容类型</para>
+    /// <para>示例值：markdown</para>
+    /// <list type="bullet">
+    /// <item>markdown：Markdown 格式</item>
+    /// </list>
+    /// </param>
+    /// <param name="lang">
+    /// <para>必填：否</para>
+    /// <para>云文档中存在 @用户 元素时，指定该用户名称的语言。默认 `zh`，即中文</para>
+    /// <para>示例值：zh</para>
+    /// <list type="bullet">
+    /// <item>zh：中文</item>
+    /// <item>en：英文</item>
+    /// <item>ja：日文</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/docs/v1/content")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocsV1ContentResponseDto>> GetDocsV1ContentAsync(
+        UserAccessToken access_token,
+        [PathQuery] string doc_token,
+        [PathQuery] string doc_type,
+        [PathQuery] string content_type,
+        [PathQuery] string? lang = null);
 }
 

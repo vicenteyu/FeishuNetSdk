@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新表单元数据 响应体
-/// <para>该接口用于更新表单中的元数据项</para>
+/// <para>更新表单视图中的元数据，包括表单名称、描述、是否共享等。</para>
 /// <para>接口ID：7119425455108669468</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/form/patch-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-form%2fpatch</para>
@@ -58,7 +58,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdResponseDt
         public bool? Shared { get; set; }
 
         /// <summary>
-        /// <para>分享 URL</para>
+        /// <para>填写表单的 URL 链接。若开启共享，将返回该值</para>
         /// <para>必填：否</para>
         /// <para>示例值：https://example.feishu.cn/share/base/shrcnCy1KAlpahNotmhRn1abcde</para>
         /// </summary>
@@ -79,7 +79,7 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdResponseDt
         public string? SharedLimit { get; set; }
 
         /// <summary>
-        /// <para>填写次数限制一次</para>
+        /// <para>填写次数是否限制为一次</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>

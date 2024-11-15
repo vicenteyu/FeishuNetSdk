@@ -22,6 +22,7 @@ namespace FeishuNetSdk.Im;
 /// <para>## 注意事项</para>
 /// <para>- 如果你需要在已创建的群聊内邀请用户或机器人入群，可调用[将用户或机器人拉入群聊](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create)接口。</para>
 /// <para>- 调用 API 只能创建普通消息群，消息形式可以选择对话消息或者话题消息。如果你需要直接创建话题群，请通过飞书客户端创建群组，创建时群模式选择 **话题**。</para>
+/// <para>- 已添加外部共享能力的机器人，允许在创建群时将外部企业用户和内部用户同时添加到群组中，这样创建的群为外部群。详情参见[机器人支持外部群和外部用户单聊](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/develop-robots/add-bot-to-external-group)。</para>
 /// <para>接口ID：6946222931479379969</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/group/chat/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fchat%2fcreate</para>
@@ -104,6 +105,7 @@ public record PostImV1ChatsBodyDto
 
     /// <summary>
     /// <para>创建群时指定的群主，不填时指定建群的机器人为群主。群主 ID 类型在查询参数 ==user_id_type== 中指定；推荐使用 OpenID，获取方式可参考文档[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
+    /// <para>**注意**：开启对外共享能力的机器人在创建外部群时，机器人不能为群主，必须指定某一用户作为群主。</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs</para>
     /// </summary>

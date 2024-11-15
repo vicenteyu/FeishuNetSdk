@@ -471,7 +471,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsBodyDto
     {
         /// <summary>
         /// <para>附件 Token。调用[上传素材](https://open.larkoffice.com/document/server-docs/docs/drive-v1/media/upload_all)接口，获取附件的 file_token。在调用上传素材接口时需要注意：</para>
-        /// <para>- `parent_type` 需传入固定值 `calender`。</para>
+        /// <para>- `parent_type` 需传入固定值 `calendar`。</para>
         /// <para>- `parent_node` 需传入与当前接口一致的日历 ID。</para>
         /// <para>**附件校验规则**：附件总大小不超过 25 MB。</para>
         /// <para>必填：否</para>

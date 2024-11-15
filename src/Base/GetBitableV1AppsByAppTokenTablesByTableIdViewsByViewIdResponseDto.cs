@@ -50,7 +50,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDto
         public string? ViewName { get; set; }
 
         /// <summary>
-        /// <para>视图类型。</para>
+        /// <para>视图类型</para>
         /// <para>**可选值有**：</para>
         /// <para>- `grid`：表格视图</para>
         /// <para>- `kanban`：看板视图</para>
@@ -114,7 +114,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDto
                 public record AppTableViewPropertyFilterInfoCondition
                 {
                     /// <summary>
-                    /// <para>用于过滤的字段唯一ID</para>
+                    /// <para>用于过滤的字段的唯一标识</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：单选</para>
                     /// </summary>
@@ -160,27 +160,27 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDto
 
                     /// <summary>
                     /// <para>用于过滤的字段类型</para>
-                    /// <para>1：多行文本</para>
-                    /// <para>2：数字</para>
-                    /// <para>3：单选</para>
-                    /// <para>4：多选</para>
-                    /// <para>5：日期</para>
-                    /// <para>7：复选框</para>
-                    /// <para>11：人员</para>
-                    /// <para>13：电话号码</para>
-                    /// <para>15：超链接</para>
-                    /// <para>17：附件</para>
-                    /// <para>18：单向关联</para>
-                    /// <para>19：查找引用</para>
-                    /// <para>20：公式</para>
-                    /// <para>21：双向关联</para>
-                    /// <para>22：地理位置</para>
-                    /// <para>23：群组</para>
-                    /// <para>1001：创建时间</para>
-                    /// <para>1002：最后更新时间</para>
-                    /// <para>1003：创建人</para>
-                    /// <para>1004：修改人</para>
-                    /// <para>1005：自动编号</para>
+                    /// <para>- 1：多行文本</para>
+                    /// <para>- 2：数字</para>
+                    /// <para>- 3：单选</para>
+                    /// <para>- 4：多选</para>
+                    /// <para>- 5：日期</para>
+                    /// <para>- 7：复选框</para>
+                    /// <para>- 11：人员</para>
+                    /// <para>- 13：电话号码</para>
+                    /// <para>- 15：超链接</para>
+                    /// <para>- 17：附件</para>
+                    /// <para>- 18：单向关联</para>
+                    /// <para>- 19：查找引用</para>
+                    /// <para>- 20：公式</para>
+                    /// <para>- 21：双向关联</para>
+                    /// <para>- 22：地理位置</para>
+                    /// <para>- 23：群组</para>
+                    /// <para>- 1001：创建时间</para>
+                    /// <para>- 1002：最后更新时间</para>
+                    /// <para>- 1003：创建人</para>
+                    /// <para>- 1004：修改人</para>
+                    /// <para>- 1005：自动编号</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：3</para>
                     /// </summary>

@@ -1129,6 +1129,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
         {
             /// <summary>
             /// <para>学校</para>
+            /// <para>- 如果学校有对应枚举，请使用 school_name</para>
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("school")]
@@ -1136,6 +1137,7 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
 
             /// <summary>
             /// <para>学校</para>
+            /// <para>- 如果学校有对应枚举，请使用 school_name</para>
             /// </summary>
             public record I18n
             {
@@ -1246,9 +1248,11 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
             public Enum? Degree { get; set; }
 
             /// <summary>
-            /// <para>学校名称，枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
+            /// <para>学校名称</para>
+            /// <para>- 枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
             /// <para>- custom_api_name：school_name</para>
             /// <para>- object_api_name：education</para>
+            /// <para>- 如果学校有对应枚举，请使用该字段，否则可使用 school 直接写入文本</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("school_name")]
