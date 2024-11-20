@@ -4,7 +4,7 @@
 // Created          : 2024-09-27
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-27
+// Last Modified On : 2024-11-20
 // ************************************************************************
 // <copyright file="GetCorehrV2ApproversResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -41,8 +41,8 @@ public record GetCorehrV2ApproversResponseDto
     /// <para>审批任务列表</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonPropertyName("approvers")]
-    public ApproverInfo[]? Approvers { get; set; }
+    [JsonPropertyName("approver_list")]
+    public ApproverInfo[]? ApproverLists { get; set; }
 
     /// <summary>
     /// <para>审批任务列表</para>

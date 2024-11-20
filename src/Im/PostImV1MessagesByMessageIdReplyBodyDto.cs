@@ -55,7 +55,7 @@ public record PostImV1MessagesByMessageIdReplyBodyDto
     /// <para>- media：视频</para>
     /// <para>- sticker：表情包</para>
     /// <para>- interactive：卡片</para>
-    /// <para>- share_card：分享群名片</para>
+    /// <para>- share_chat：分享群名片</para>
     /// <para>- share_user：分享个人名片</para>
     /// <para>不同消息类型的详细介绍，参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。</para>
     /// <para>必填：是</para>

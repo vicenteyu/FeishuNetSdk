@@ -436,7 +436,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     public int GroupType { get; set; }
 
     /// <summary>
-    /// <para>固定班制必须填</para>
+    /// <para>班次 ID 列表。仅当考勤类型为固定班制时，该参数有值。</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("punch_day_shift_ids")]

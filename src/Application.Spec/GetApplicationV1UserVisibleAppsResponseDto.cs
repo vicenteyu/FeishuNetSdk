@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-11-20
 // ************************************************************************
 // <copyright file="GetApplicationV1UserVisibleAppsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -128,5 +128,12 @@ public record GetApplicationV1UserVisibleAppsResponseDto
         /// </summary>
         [JsonPropertyName("pc_default_ability")]
         public int? PcDefaultAbility { get; set; }
+
+        /// <summary>
+        /// <para>应用创建来源：`developer_console`：开发者后台；`base`：多维表格自动化流程创建的应用；`app_engine`：飞书应用引擎；`bot_builder`：机器人助手；`aily`：aily(智能伙伴搭建平台)；`unknown`：未知来源</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("create_source")]
+        public string? CreateSource { get; set; }
     }
 }

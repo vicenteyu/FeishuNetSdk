@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-15
+// Last Modified On : 2024-11-22
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -3084,6 +3084,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>在多维表格数据表中新增一条记录。</para>
     /// <para>## 前提条件</para>
     /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>从其它数据源同步的数据表，不支持对记录进行增加、删除、和修改操作。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:create</item>
     /// <item>bitable:app</item>
@@ -3162,6 +3164,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>更新数据表中的多条记录，单次调用最多更新 1,000 条记录。</para>
     /// <para>## 前提条件</para>
     /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>从其它数据源同步的数据表，不支持对记录进行增加、删除、和修改操作。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:update</item>
     /// <item>bitable:app</item>
@@ -3231,6 +3235,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>删除多维表格数据表中的一条记录。</para>
     /// <para>## 前提条件</para>
     /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>从其它数据源同步的数据表，不支持对记录进行增加、删除、和修改操作。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:delete</item>
     /// <item>bitable:app</item>
@@ -3489,6 +3495,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>在多维表格数据表中新增多条记录，单次调用最多新增 1,000 条记录。</para>
     /// <para>## 前提条件</para>
     /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>从其它数据源同步的数据表，不支持对记录进行增加、删除、和修改操作。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:create</item>
     /// <item>bitable:app</item>
@@ -3565,6 +3573,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>删除多维表格数据表中现有的多条记录，单次调用中最多删除 500 条记录。</para>
     /// <para>## 前提条件</para>
     /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
+    /// <para>## 注意事项</para>
+    /// <para>从其它数据源同步的数据表，不支持开发者对记录进行增加、删除、和修改操作。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:delete</item>
     /// <item>bitable:app</item>
@@ -3607,7 +3617,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>## 前提条件</para>
     /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>## 注意事项</para>
-    /// <para>更新记录为增量更新，仅更新传入的字段。如果想对记录中的某个字段值置空，可将字段设为 null，例如：</para>
+    /// <para>- 从其它数据源同步的数据表，不支持对记录进行增加、删除、和修改操作。</para>
+    /// <para>- 更新记录为增量更新，仅更新传入的字段。如果想对记录中的某个字段值置空，可将字段设为 null，例如：</para>
     /// <para>```json</para>
     /// <para>{</para>
     /// <para>"fields": {</para>
@@ -5804,6 +5815,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>新增一个数据表，默认仅包含索引字段，也可以指定一部分初始字段。最多支持新增 100 个数据表。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:table:create</item>
     /// <item>bitable:app</item>
@@ -20001,5 +20014,71 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string doc_type,
         [PathQuery] string content_type,
         [PathQuery] string? lang = null);
+
+    /// <summary>
+    /// <para>【考勤打卡】查询考勤组下所有成员</para>
+    /// <para>接口ID：7439549206763372546</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/list_user</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>查询指定考勤组下的所有成员</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>attendance:rule</item>
+    /// <item>attendance:rule:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="group_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>考勤组 ID，获取方式：1）[创建或修改考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create) 2）[按名称查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search) 3）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)</para>
+    /// <para>示例值：6919358128597097404</para>
+    /// </param>
+    /// <param name="employee_type">
+    /// <para>必填：是</para>
+    /// <para>响应体中 user_id 的员工 ID 类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
+    /// <para>可选值有：</para>
+    /// <para>1. employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</para>
+    /// <para>2. employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</para>
+    /// <para>示例值：employee_id</para>
+    /// </param>
+    /// <param name="dept_type">
+    /// <para>必填：是</para>
+    /// <para>响应体中 department_ids 的部门 ID 的类型</para>
+    /// <para>可选值有：</para>
+    /// <para>1. open_id：暂时只支持部门的 openid。具体概念请参考[部门资源介绍](https://open.larkoffice.com/document/server-docs/contact-v3/department/field-overview)中的open_department_id</para>
+    /// <para>示例值：open_id</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：92xKiuWrBCSweSZJBSTpag%3D%3D</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="member_clock_type">
+    /// <para>必填：是</para>
+    /// <para>查询的考勤组成员的打卡类型</para>
+    /// <para>可选值有：</para>
+    /// <para>&lt;ul&gt;</para>
+    /// <para>&lt;li&gt;0：全部打卡类型&lt;/li&gt;</para>
+    /// <para>&lt;li&gt;1：需要打卡类型&lt;/li&gt;</para>
+    /// <para>&lt;li&gt;2：无需打卡类型&lt;/li&gt;</para>
+    /// <para>&lt;/ul&gt;</para>
+    /// <para>示例值：1</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/attendance/v1/groups/{group_id}/list_user")]
+    System.Threading.Tasks.Task<FeishuResponse<Attendance.GetAttendanceV1GroupsByGroupIdListUserResponseDto>> GetAttendanceV1GroupsByGroupIdListUserAsync(
+        UserAccessToken access_token,
+        [PathQuery] string group_id,
+        [PathQuery] string employee_type,
+        [PathQuery] string dept_type,
+        [PathQuery] int member_clock_type,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null);
 }
 

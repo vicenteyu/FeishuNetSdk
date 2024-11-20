@@ -27,8 +27,7 @@ namespace FeishuNetSdk.Im.Dtos
         /// 系统消息类型。仅支持取值 divider，表示分割线。目前该类型仅支持在机器人与用户的单聊（p2p）中生效。
         /// </summary>
         [JsonPropertyName("type")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:将成员标记为 static", Justification = "<挂起>")]
-        public string Type => "divider";
+        public string Type { get; } = "divider";
 
         /// <summary>
         /// 系统消息参数。

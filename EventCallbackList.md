@@ -45,6 +45,7 @@
 <tr><td>corehr.probation.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProbationUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】试用期状态变更</td></tr>
 <tr><td>corehr.job_change.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobChangeUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】异动信息变更</td></tr>
 <tr><td>corehr.job_change.status_updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobChangeStatusUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】异动状态变更</td></tr>
+<tr><td>corehr.approval_groups.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrApprovalGroupsUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】组织架构调整状态变更事件</td></tr>
 <tr><td>corehr.department.created_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrDepartmentCreatedV1EventBodyDto&gt;</td><td>【飞书人事】【事件】创建部门</td></tr>
 <tr><td>corehr.employment.created_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrEmploymentCreatedV1EventBodyDto&gt;</td><td>【飞书人事】【事件】创建雇佣信息</td></tr>
 <tr><td>corehr.person.created_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrPersonCreatedV1EventBodyDto&gt;</td><td>【飞书人事】【事件】个人信息创建</td></tr>

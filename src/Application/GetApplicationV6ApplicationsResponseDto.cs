@@ -1,35 +1,35 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2024-11-20
 //
 // Last Modified By : yxr
 // Last Modified On : 2024-11-20
 // ************************************************************************
-// <copyright file="GetApplicationV6ApplicationsUnderauditlistResponseDto.cs" company="Vicente Yu">
+// <copyright file="GetApplicationV6ApplicationsResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>查看待审核的应用列表 响应体</summary>
+// <summary>获取企业安装的应用 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Application;
 /// <summary>
-/// 查看待审核的应用列表 响应体
-/// <para>查看本企业下所有待审核的自建应用列表</para>
-/// <para>接口ID：6989432329400254465</para>
-/// <para>文档地址：https://open.feishu.cn/document/server-docs/application-v6/application/underauditlist</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication%2funderauditlist</para>
+/// 获取企业安装的应用 响应体
+/// <para>该接口用于查询企业安装的应用列表，只能被企业自建应用调用。</para>
+/// <para>接口ID：7438462855810138116</para>
+/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/list</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication%2flist</para>
 /// </summary>
-public record GetApplicationV6ApplicationsUnderauditlistResponseDto
+public record GetApplicationV6ApplicationsResponseDto
 {
     /// <summary>
-    /// <para>待审核应用列表</para>
-    /// <para>必填：是</para>
+    /// <para>应用列表</para>
+    /// <para>必填：否</para>
     /// </summary>
-    [JsonPropertyName("items")]
-    public Application[] Items { get; set; } = Array.Empty<Application>();
+    [JsonPropertyName("app_list")]
+    public Application[]? AppLists { get; set; }
 
     /// <summary>
-    /// <para>待审核应用列表</para>
+    /// <para>应用列表</para>
     /// </summary>
     public record Application
     {
@@ -394,18 +394,26 @@ public record GetApplicationV6ApplicationsUnderauditlistResponseDto
     }
 
     /// <summary>
-    /// <para>是否还有更多项</para>
-    /// <para>必填：是</para>
-    /// <para>示例值：true</para>
-    /// </summary>
-    [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
-
-    /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
-    /// <para>示例值：new-xxxxxxxxxxx</para>
+    /// <para>示例值：15</para>
     /// </summary>
     [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }
+
+    /// <summary>
+    /// <para>是否还有更多项</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：true</para>
+    /// </summary>
+    [JsonPropertyName("has_more")]
+    public bool? HasMore { get; set; }
+
+    /// <summary>
+    /// <para>应用状态=启用的应用总数</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：20</para>
+    /// </summary>
+    [JsonPropertyName("total_count")]
+    public int? TotalCount { get; set; }
 }

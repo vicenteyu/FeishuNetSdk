@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-20
+// Last Modified On : 2024-11-20
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -119,7 +119,6 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>虚线上级的雇佣 ID，根据员工主职的虚线上级查询</para>
     /// <para>- 可基于当前接口获取员工的虚线上级雇佣ID</para>
     /// <para>- 可基于[【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create)时返回的雇佣ID</para>
-    /// <para>- 可基于当前接口获取员工的虚线上级雇佣ID</para>
     /// <para>- ID 类型应与 user_id_type 一致</para>
     /// <para>必填：否</para>
     /// <para>示例值：7027024823985117820</para>
@@ -219,6 +218,22 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// </summary>
     [JsonPropertyName("department_id_list_include_sub")]
     public string[]? DepartmentIdListIncludeSub { get; set; }
+
+    /// <summary>
+    /// <para>其他国籍ID列表，精准匹配查询</para>
+    /// <para>必填：否</para>
+    /// <para>最大长度：100</para>
+    /// </summary>
+    [JsonPropertyName("additional_national_id_number_list")]
+    public string[]? AdditionalNationalIdNumberList { get; set; }
+
+    /// <summary>
+    /// <para>公民身份类型列表，精确匹配查询</para>
+    /// <para>必填：否</para>
+    /// <para>最大长度：100</para>
+    /// </summary>
+    [JsonPropertyName("citizenship_status_list")]
+    public string[]? CitizenshipStatusList { get; set; }
 
     /// <summary>
     /// <para>成本中心ID</para>

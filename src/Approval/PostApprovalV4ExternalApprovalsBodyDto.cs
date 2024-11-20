@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 创建三方审批定义 请求体
-/// <para>审批定义是审批的描述，包括审批名称、图标、描述等基础信息。创建好审批定义，用户就可以在审批应用的发起页中看到审批，如果用户点击发起，则会跳转到配置的发起三方系统地址去发起审批。</para>
+/// <para>审批定义是审批的描述，包括审批名称、描述等基础信息。创建好审批定义，用户就可以在审批应用的发起页中看到审批，如果用户点击发起，则会跳转到配置的发起三方系统地址去发起审批。</para>
 /// <para>另外，审批定义还配置了审批操作时的回调地址：审批人在待审批列表中进行【同意】【拒绝】操作时，审批中心会调用回调地址通知三方系统。</para>
 /// <para>接口ID：7114621541589794819</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/external_approval/create</para>
@@ -109,7 +109,7 @@ public record PostApprovalV4ExternalApprovalsBodyDto
         public string? CreateLinkPc { get; set; }
 
         /// <summary>
-        /// <para>审批实例、审批任务、审批抄送是否要在PC端展示，如果为 true，则PC端列表会展示该定义下的实例信息，否则，不展示</para>
+        /// <para>审批定义是否要在PC端的发起审批页面展示，如果为 true则展示，否则不展示</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -117,7 +117,7 @@ public record PostApprovalV4ExternalApprovalsBodyDto
         public bool? SupportPc { get; set; }
 
         /// <summary>
-        /// <para>审批实例、审批任务、审批抄送是否要在移动端展示，如果为 true，则移动端列表会展示该定义下的实例信息，否则，不展示； support_pc和support_mobile不可都为false，否则不展示</para>
+        /// <para>审批定义是否要在移动端的发起审批页面展示，如果为 true则展示，否则不展示；support_pc和support_mobile不可都为false；</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>

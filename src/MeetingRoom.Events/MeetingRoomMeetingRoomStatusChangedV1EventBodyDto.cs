@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.MeetingRoom.Events;
 /// <summary>
 /// 会议室状态信息变更 事件体
-/// <para>当会议室状态信息发生变更时，将会触发此事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=meeting_room&amp;version=v1&amp;resource=meeting_room&amp;event=status_changed)</para>
+/// <para>会议室被创建、更新、删除或者被预定时，将会触发此事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=meeting_room&amp;version=v1&amp;resource=meeting_room&amp;event=status_changed)</para>
 /// <para>接口ID：7056983069833019396</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/meeting-room-event/event/status_changed</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fmeeting_room-v1%2fmeeting_room%2fevents%2fstatus_changed</para>

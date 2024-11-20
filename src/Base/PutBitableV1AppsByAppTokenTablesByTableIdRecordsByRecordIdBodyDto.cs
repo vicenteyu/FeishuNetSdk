@@ -18,7 +18,8 @@ namespace FeishuNetSdk.Base;
 /// <para>## 前提条件</para>
 /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
 /// <para>## 注意事项</para>
-/// <para>更新记录为增量更新，仅更新传入的字段。如果想对记录中的某个字段值置空，可将字段设为 null，例如：</para>
+/// <para>- 从其它数据源同步的数据表，不支持对记录进行增加、删除、和修改操作。</para>
+/// <para>- 更新记录为增量更新，仅更新传入的字段。如果想对记录中的某个字段值置空，可将字段设为 null，例如：</para>
 /// <para>```json</para>
 /// <para>{</para>
 /// <para>"fields": {</para>

@@ -63,14 +63,12 @@ public record PostHireV1ExternalReferralRewardsBodyDto
     public string ExternalId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>内推的候选人投递 ID，建议传入招聘系统内的投递 ID</para>
-    /// <para>若无投递ID，可传入「内推的候选人人才 ID」，传入了「内推的候选人人才 ID」后，该参数可不填</para>
-    /// <para>若不传入投递 ID，当前内推奖励将无法关联到投递</para>
-    /// <para>系统内无法展示该内推对应的「职位」、「职位负责人」、「offer负责人」，对应字段将展示为「--」</para>
-    /// <para>内推人可看到该奖励记录，但职位负责人、offer负责人无法看到该奖励记录</para>
-    /// <para>投递 ID 查询方式为</para>
-    /// <para>1. [通过手机号或邮箱获取人才 ID](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id)</para>
-    /// <para>2. [获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)</para>
+    /// <para>内推的候选人投递 ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)获取</para>
+    /// <para>若未传入`talent_id`，该参数必填</para>
+    /// <para>若传入了`talent_id`，该参数选填</para>
+    /// <para>若同时传入了`application_id`和`talent_id`，以`application_id`为准</para>
+    /// <para>若不传入投递 ID（`application_id`），当前内推奖励将无法关联到投递</para>
+    /// <para>系统内无法展示该内推对应的「职位」、「职位负责人」、「offer负责人」，对应字段将展示为「--」。</para>
     /// <para>必填：否</para>
     /// <para>示例值：6930815272790114325</para>
     /// </summary>
@@ -79,8 +77,8 @@ public record PostHireV1ExternalReferralRewardsBodyDto
 
     /// <summary>
     /// <para>内推的候选人人才 ID</para>
-    /// <para>若未传入「内推的候选人投递 ID」，该参数必填</para>
-    /// <para>若传入了「内推的候选人投递 ID」，该参数可不填，将以「内推的候选人投递 ID」为准</para>
+    /// <para>若未传入`application_id`，该参数必填</para>
+    /// <para>若传入了`application_id`，该参数可不填，将以「内推的候选人投递 ID」为准</para>
     /// <para>必填：否</para>
     /// <para>示例值：6930815272790114326</para>
     /// </summary>

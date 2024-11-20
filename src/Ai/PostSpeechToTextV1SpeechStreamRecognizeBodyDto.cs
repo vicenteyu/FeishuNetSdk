@@ -71,7 +71,7 @@ public record PostSpeechToTextV1SpeechStreamRecognizeBodyDto
         public int SequenceId { get; set; }
 
         /// <summary>
-        /// <para>数据流标记：1 首包，2 正常结束，等待结果返回，3 中断数据流不返回最终结果</para>
+        /// <para>数据流标记：1 首包，2 正常结束，等待结果返回，3 中断数据流不返回最终结果，0 传输语音中间的数据包</para>
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
         /// </summary>

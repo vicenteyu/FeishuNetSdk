@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Hire;
 public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
 {
     /// <summary>
-    /// <para>实际入职时间，毫秒时间戳（int64类型），不传则默认为当前时间</para>
+    /// <para>实际入职时间，毫秒时间戳（int64类型），不能晚于当前时间，不传则默认为当前时间</para>
     /// <para>必填：否</para>
     /// <para>示例值：1616428800000</para>
     /// </summary>

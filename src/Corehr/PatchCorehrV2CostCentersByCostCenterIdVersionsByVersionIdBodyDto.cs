@@ -23,10 +23,10 @@ public record PatchCorehrV2CostCentersByCostCenterIdVersionsByVersionIdBodyDto
 {
     /// <summary>
     /// <para>成本中心名称</para>
-    /// <para>必填：是</para>
+    /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("name")]
-    public I18n[] Names { get; set; } = Array.Empty<I18n>();
+    public I18n[]? Names { get; set; }
 
     /// <summary>
     /// <para>成本中心名称</para>
@@ -42,7 +42,7 @@ public record PatchCorehrV2CostCentersByCostCenterIdVersionsByVersionIdBodyDto
         public string Lang { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>内容</para>
+        /// <para>文本内容</para>
         /// <para>必填：是</para>
         /// <para>示例值：基础架构</para>
         /// </summary>

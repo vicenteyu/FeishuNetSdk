@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-11-20
 // ************************************************************************
 // <copyright file="GetApplicationV3AppListResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -15,6 +15,7 @@ namespace FeishuNetSdk.Application.Spec;
 /// <summary>
 /// 获取企业安装的应用 响应体
 /// <para>该接口用于查询企业安装的应用列表，只能被企业自建应用调用。</para>
+/// <para>该接口为旧版获取企业安装应用接口。推荐使用新版接口[获取企业安装的应用](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/list)。</para>
 /// <para>接口ID：6907569744330555393</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/application-v6/admin/obtain-the-apps-installed-by-an-organization</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuYDN3UjL2QzN14iN0cTN</para>
@@ -128,5 +129,12 @@ public record GetApplicationV3AppListResponseDto
         /// </summary>
         [JsonPropertyName("pc_default_ability")]
         public int? PcDefaultAbility { get; set; }
+
+        /// <summary>
+        /// <para>应用创建来源：`developer_console`：开发者后台；`base`：多维表格自动化流程创建的应用；`app_engine`：飞书应用引擎；`bot_builder`：机器人助手；`aily`：aily(智能伙伴搭建平台)；`unknown`：未知来源</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("create_source")]
+        public string? CreateSource { get; set; }
     }
 }

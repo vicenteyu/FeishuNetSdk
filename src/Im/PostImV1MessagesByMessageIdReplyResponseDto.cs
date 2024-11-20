@@ -70,7 +70,7 @@ public record PostImV1MessagesByMessageIdReplyResponseDto
     /// <para>- media：视频</para>
     /// <para>- sticker：表情包</para>
     /// <para>- interactive：卡片</para>
-    /// <para>- share_card：分享群名片</para>
+    /// <para>- share_chat：分享群名片</para>
     /// <para>- share_user：分享个人名片</para>
     /// <para>必填：否</para>
     /// <para>示例值：interactive</para>

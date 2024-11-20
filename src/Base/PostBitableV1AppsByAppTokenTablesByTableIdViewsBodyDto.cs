@@ -24,7 +24,9 @@ namespace FeishuNetSdk.Base;
 public record PostBitableV1AppsByAppTokenTablesByTableIdViewsBodyDto
 {
     /// <summary>
-    /// <para>视图名称</para>
+    /// <para>视图名称。名称不能包含特殊字符，请确保其符合以下规则：</para>
+    /// <para>- 长度不超过 100 个字符</para>
+    /// <para>- 不为空且不包含这些特殊符号：[ ]</para>
     /// <para>必填：是</para>
     /// <para>示例值：表格视图 1</para>
     /// </summary>

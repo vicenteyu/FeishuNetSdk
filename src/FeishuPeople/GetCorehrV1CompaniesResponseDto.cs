@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-12
+// Last Modified On : 2024-11-22
 // ************************************************************************
 // <copyright file="GetCorehrV1CompaniesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -186,22 +186,6 @@ public record GetCorehrV1CompaniesResponseDto
             public I18n[]? Descriptions { get; set; }
 
             /// <summary>
-            /// <para>树形排序（该功能暂不支持，可忽略）</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：001000</para>
-            /// </summary>
-            [JsonPropertyName("tree_order")]
-            public string? TreeOrder { get; set; }
-
-            /// <summary>
-            /// <para>列表排序（该功能暂不支持，可忽略）</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：001000-001000</para>
-            /// </summary>
-            [JsonPropertyName("list_order")]
-            public string? ListOrder { get; set; }
-
-            /// <summary>
             /// <para>自定义字段（该功能暂不支持，可忽略）</para>
             /// <para>必填：否</para>
             /// </summary>
@@ -334,7 +318,7 @@ public record GetCorehrV1CompaniesResponseDto
         public string? TaxPayerId { get; set; }
 
         /// <summary>
-        /// <para>是否保密（该功能暂不支持，可忽略）</para>
+        /// <para>是否保密</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -574,6 +558,30 @@ public record GetCorehrV1CompaniesResponseDto
         public record Address
         {
             /// <summary>
+            /// <para>完整地址（本地文字）</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：中国北京北京</para>
+            /// </summary>
+            [JsonPropertyName("full_address_local_script")]
+            public string? FullAddressLocalScript { get; set; }
+
+            /// <summary>
+            /// <para>完整地址（西方文字）</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：Beijing, Beijing, China,</para>
+            /// </summary>
+            [JsonPropertyName("full_address_western_script")]
+            public string? FullAddressWesternScript { get; set; }
+
+            /// <summary>
+            /// <para>地址ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6989822217869624863</para>
+            /// </summary>
+            [JsonPropertyName("id")]
+            public string? Id { get; set; }
+
+            /// <summary>
             /// <para>国家 / 地区id。各国家/地区填写字段可参考[地址填写规则](https://bytedance.larkoffice.com/wiki/GoL4wAKAXis3OWku72YcEjTxnKe?sheet=0sMjoP)查询。</para>
             /// <para>国家/地区id可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)查询获取。</para>
             /// <para>必填：是</para>
@@ -761,6 +769,72 @@ public record GetCorehrV1CompaniesResponseDto
             /// </summary>
             [JsonPropertyName("postal_code")]
             public string? PostalCode { get; set; }
+
+            /// <summary>
+            /// <para>地址类型</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("address_type_list")]
+            public Enum[]? AddressTypeLists { get; set; }
+
+            /// <summary>
+            /// <para>地址类型</para>
+            /// </summary>
+            public record Enum
+            {
+                /// <summary>
+                /// <para>枚举值</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：phone_type</para>
+                /// </summary>
+                [JsonPropertyName("enum_name")]
+                public string EnumName { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>枚举多语展示</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("display")]
+                public I18n[]? Displies { get; set; }
+
+                /// <summary>
+                /// <para>枚举多语展示</para>
+                /// </summary>
+                public record I18n
+                {
+                    /// <summary>
+                    /// <para>语言</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：zh-CN</para>
+                    /// </summary>
+                    [JsonPropertyName("lang")]
+                    public string Lang { get; set; } = string.Empty;
+
+                    /// <summary>
+                    /// <para>内容</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：刘梓新</para>
+                    /// </summary>
+                    [JsonPropertyName("value")]
+                    public string Value { get; set; } = string.Empty;
+                }
+            }
+
+            /// <summary>
+            /// <para>主要地址</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("is_primary")]
+            public bool? IsPrimary { get; set; }
+
+            /// <summary>
+            /// <para>公开地址</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("is_public")]
+            public bool? IsPublic { get; set; }
         }
 
         /// <summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-12
+// Last Modified On : 2024-11-22
 // ************************************************************************
 // <copyright file="PostCorehrV2CompaniesBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -333,7 +333,7 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
         public string? TaxPayerId { get; set; }
 
         /// <summary>
-        /// <para>是否保密（该功能暂不支持，可忽略）</para>
+        /// <para>是否保密</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -375,7 +375,8 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
         public record CompanyCurrency
         {
             /// <summary>
-            /// <para>货币 ID</para>
+            /// <para>货币 ID。</para>
+            /// <para>- 调用[【查询货币信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)接口返回货币详细信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：6863329932261459464</para>
             /// </summary>
@@ -595,6 +596,24 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
             /// </summary>
             [JsonPropertyName("region_id")]
             public string? RegionId { get; set; }
+
+            /// <summary>
+            /// <para>城市。</para>
+            /// <para>- 调用[【查询城市信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口返回城市详细信息</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6863333254578046471</para>
+            /// </summary>
+            [JsonPropertyName("city_id")]
+            public string? CityId { get; set; }
+
+            /// <summary>
+            /// <para>区/县。</para>
+            /// <para>- 调用[【查询区县信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)接口返回区县详细信息</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6863333254578046471</para>
+            /// </summary>
+            [JsonPropertyName("distinct_id")]
+            public string? DistinctId { get; set; }
 
             /// <summary>
             /// <para>地址行 1</para>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-20
+// Last Modified On : 2024-11-20
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -82,6 +82,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         /// </summary>
         [JsonPropertyName("employee_type_id")]
         public string? EmployeeTypeId { get; set; }
+
+        /// <summary>
+        /// <para>人员子类型 ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6971090097697521317</para>
+        /// </summary>
+        [JsonPropertyName("employee_subtype_id")]
+        public string? EmployeeSubtypeId { get; set; }
 
         /// <summary>
         /// <para>部门 ID</para>
@@ -1109,7 +1117,8 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public string? LocalFirstName { get; set; }
 
                 /// <summary>
-                /// <para>国家/地区，可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获取</para>
+                /// <para>国家/地区</para>
+                /// <para>- 可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获取</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：6862995757234914824</para>
                 /// </summary>
@@ -1285,7 +1294,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 /// <para>头衔</para>
                 /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
                 /// <para>- object_api_name：person_name</para>
-                /// <para>- custom_api_name：social</para>
+                /// <para>- custom_api_name：title</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：王</para>
                 /// </summary>
@@ -1588,6 +1597,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
 
                 /// <summary>
                 /// <para>主要行政区</para>
+                /// <para>- 可通过[【查询省份/主要行政区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6863326815667095047</para>
                 /// </summary>
@@ -2535,9 +2545,47 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 public Enum? BankAccountType { get; set; }
 
                 /// <summary>
+                /// <para>分配方式</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+                /// <para>- object_api_name: bank_account</para>
+                /// <para>- custom_api_name: payment_type</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：balance</para>
+                /// </summary>
+                [JsonPropertyName("payment_type")]
+                public Enum? PaymentType { get; set; }
+
+                /// <summary>
+                /// <para>分配比例</para>
+                /// <para>- 数字类型，最多精确两位小数</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：70.21</para>
+                /// </summary>
+                [JsonPropertyName("payment_rate")]
+                public string? PaymentRate { get; set; }
+
+                /// <summary>
+                /// <para>分配金额</para>
+                /// <para>- 数字类型，最多精确两位小数</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：5000</para>
+                /// </summary>
+                [JsonPropertyName("payment_amount")]
+                public string? PaymentAmount { get; set; }
+
+                /// <summary>
+                /// <para>分配优先级</para>
+                /// <para>- 升序，即值越小，优先级越高</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// </summary>
+                [JsonPropertyName("priority")]
+                public int? Priority { get; set; }
+
+                /// <summary>
                 /// <para>货币id，可通过[【查询货币信息v2】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)查询</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：12QueryCountryRegionSubdivisionDataReq</para>
+                /// <para>示例值：12</para>
                 /// </summary>
                 [JsonPropertyName("currency_id")]
                 public string? CurrencyId { get; set; }
@@ -3514,6 +3562,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
 
                     /// <summary>
                     /// <para>主要行政区</para>
+                    /// <para>- 可通过[【查询省份/主要行政区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)获取</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：6863326815667095047</para>
                     /// </summary>
@@ -4422,6 +4471,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
 
                     /// <summary>
                     /// <para>主要行政区</para>
+                    /// <para>- 可通过[【查询省份/主要行政区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)获取</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：6863326815667095047</para>
                     /// </summary>
@@ -5265,7 +5315,10 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         }
 
         /// <summary>
-        /// <para>竞业状态，枚举值包括:1.竞业中；2.未竞业</para>
+        /// <para>竞业状态</para>
+        /// <para>- 可通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+        /// <para>- object_api_name：employment</para>
+        /// <para>- custom_api_name：noncompete_status</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("noncompete_status")]
@@ -5360,6 +5413,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         /// </summary>
         [JsonPropertyName("pay_group_id")]
         public string? PayGroupId { get; set; }
+
+        /// <summary>
+        /// <para>所属外派薪资组 ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7164286667866966659</para>
+        /// </summary>
+        [JsonPropertyName("assignment_pay_group_id")]
+        public string? AssignmentPayGroupId { get; set; }
 
         /// <summary>
         /// <para>是否外派</para>
@@ -5579,7 +5640,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：{\"custom_org_02\":[{\"id\":\"1\",\"rate\":\"99\"}]}</para>
         /// </summary>
-        [JsonPropertyName("custom_org_str")]
-        public string? CustomOrgStr { get; set; }
+        [JsonPropertyName("custom_org")]
+        public string? CustomOrg { get; set; }
     }
 }
