@@ -4,7 +4,7 @@
 // Created          : 2024-10-23
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-10-23
+// Last Modified On : 2024-11-27
 // ************************************************************************
 // <copyright file="GetAilyV1AppsByAppIdDataAssetsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -231,15 +231,58 @@ public record GetAilyV1AppsByAppIdDataAssetsResponseDto
                 /// <para>最大长度：255</para>
                 /// <para>最小长度：0</para>
                 /// <para>可选值：<list type="bullet">
-                /// <item>object：数据表</item>
                 /// <item>dataset：数据视图</item>
                 /// <item>vector：知识视图</item>
                 /// </list></para>
                 /// </summary>
-                [JsonPropertyName("resouce_type")]
-                public string? ResouceType { get; set; }
+                [JsonPropertyName("resource_type")]
+                public string? ResourceType { get; set; }
             }
         }
+
+        /// <summary>
+        /// <para>连接状态失败信息</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：连接超时</para>
+        /// <para>最大长度：65535</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("connect_failed_reason")]
+        public string? ConnectFailedReason { get; set; }
+
+        /// <summary>
+        /// <para>数据连接类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：direct</para>
+        /// <para>最大长度：255</para>
+        /// <para>最小长度：0</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>import：导入</item>
+        /// <item>direct：直连</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("connect_type")]
+        public string? ConnectType { get; set; }
+
+        /// <summary>
+        /// <para>创建时间，毫秒时间戳</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1711975665710</para>
+        /// <para>最大长度：20</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("created_time")]
+        public string? CreatedTime { get; set; }
+
+        /// <summary>
+        /// <para>更新时间，毫秒时间戳</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1711975665710</para>
+        /// <para>最大长度：20</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("updated_time")]
+        public string? UpdatedTime { get; set; }
     }
 
     /// <summary>

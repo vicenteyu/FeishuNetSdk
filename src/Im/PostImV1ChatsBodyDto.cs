@@ -105,7 +105,7 @@ public record PostImV1ChatsBodyDto
 
     /// <summary>
     /// <para>创建群时指定的群主，不填时指定建群的机器人为群主。群主 ID 类型在查询参数 ==user_id_type== 中指定；推荐使用 OpenID，获取方式可参考文档[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
-    /// <para>**注意**：开启对外共享能力的机器人在创建外部群时，机器人不能为群主，必须指定某一用户作为群主。</para>
+    /// <para>**注意**：开启对外共享能力的机器人在创建外部群时，机器人不能为群主，必须指定某一用户作为群主。此外，添加外部用户进群时，外部用户必须和群主已成为飞书好友。</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs</para>
     /// </summary>
@@ -117,6 +117,8 @@ public record PostImV1ChatsBodyDto
     /// <para>**注意**：</para>
     /// <para>- 最多同时邀请 50 个用户</para>
     /// <para>- 为便于在客户端查看效果，建议调试接口时加入开发者自身 ID</para>
+    /// <para>- 如果需要邀请外部用户，则外部用户必须和群主已成为飞书好友</para>
+    /// <para>- 如何获取外部用户的 open_id，参考[获取外部用户的 open_id](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/develop-robots/add-bot-to-external-group#c38b1d97)</para>
     /// <para>必填：否</para>
     /// <para>示例值：["ou_7d8a6e6df7621556ce0d21922b676706ccs"]</para>
     /// <para>最大长度：50</para>

@@ -9,11 +9,11 @@
 // <copyright file="GetAilyV1SessionsByAilySessionIdMessagesResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>列出消息 响应体</summary>
+// <summary>列出智能伙伴消息 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Aily;
 /// <summary>
-/// 列出消息 响应体
+/// 列出智能伙伴消息 响应体
 /// <para>该 API 用于列出某个飞书智能伙伴应用的某个会话（Session）下消息（Message）的详细信息；包括消息的内容、发送人等。</para>
 /// <para>## 实体概念说明</para>
 /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>

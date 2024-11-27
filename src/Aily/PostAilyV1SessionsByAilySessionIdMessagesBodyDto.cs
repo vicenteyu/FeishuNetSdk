@@ -9,11 +9,11 @@
 // <copyright file="PostAilyV1SessionsByAilySessionIdMessagesBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>发送消息 请求体</summary>
+// <summary>发送智能伙伴消息 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Aily;
 /// <summary>
-/// 发送消息 请求体
+/// 发送智能伙伴消息 请求体
 /// <para>该 API 用于向某个飞书智能伙伴应用发送一条消息（Message）；每个消息从属于一个活跃的会话（Session）。</para>
 /// <para>## 实体概念说明</para>
 /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>

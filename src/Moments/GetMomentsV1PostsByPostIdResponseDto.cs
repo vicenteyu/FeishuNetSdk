@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-11-27
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-11-27
+// ************************************************************************
+// <copyright file="GetMomentsV1PostsByPostIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>查询帖子信息 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Moments;
 /// <summary>
 /// 查询帖子信息 响应体
@@ -37,7 +50,7 @@ public record GetMomentsV1PostsByPostIdResponseDto
         public string Content { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>图片的 key列表</para>
+        /// <para>图片的 key列表（暂不支持下载）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("image_key_list")]

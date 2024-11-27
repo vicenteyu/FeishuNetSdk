@@ -633,14 +633,14 @@ public record GetCorehrV1LocationsResponseDto
         public string? ExpirationTime { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（该字段暂不支持，可忽略）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段（该字段暂不支持，可忽略）</para>
         /// </summary>
         public record ObjectFieldData
         {

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-03
+// Last Modified On : 2024-11-27
 // ************************************************************************
 // <copyright file="PutHireV1JobRequirementsByJobRequirementIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -278,7 +278,7 @@ public record PutHireV1JobRequirementsByJobRequirementIdBodyDto
     public string? JobTypeId { get; set; }
 
     /// <summary>
-    /// <para>关联的职位 ID 列表，该字段无效，请勿使用</para>
+    /// <para>关联的职位 ID 列表（与 update_option. need_update_related_job 配合使用）</para>
     /// <para>必填：否</para>
     /// <para>最大长度：200</para>
     /// </summary>
@@ -286,10 +286,40 @@ public record PutHireV1JobRequirementsByJobRequirementIdBodyDto
     public string[]? JobIdList { get; set; }
 
     /// <summary>
-    /// <para>职务 ID，可通过[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取</para>
+    /// <para>职务 ID，可通过[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取（仅限飞书人事租户使用）</para>
     /// <para>必填：否</para>
     /// <para>示例值：6807407987381831949</para>
     /// </summary>
     [JsonPropertyName("employment_job_id")]
     public string? EmploymentJobId { get; set; }
+
+    /// <summary>
+    /// <para>岗位 ID，可通过[查询岗位信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获取（仅限飞书人事租户使用，若链接无法打开，则说明飞书人事未启用岗位，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)开通）</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：7094136522860922111</para>
+    /// </summary>
+    [JsonPropertyName("position_id")]
+    public string? PositionId { get; set; }
+
+    /// <summary>
+    /// <para>招聘需求修改确认控制</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("update_option")]
+    public JobRequirementUpdateOption? UpdateOption { get; set; }
+
+    /// <summary>
+    /// <para>招聘需求修改确认控制</para>
+    /// </summary>
+    public record JobRequirementUpdateOption
+    {
+        /// <summary>
+        /// <para>是否需要修改关联的职位</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// <para>默认值：false</para>
+        /// </summary>
+        [JsonPropertyName("need_update_related_job")]
+        public bool? NeedUpdateRelatedJob { get; set; }
+    }
 }

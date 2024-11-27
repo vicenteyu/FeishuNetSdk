@@ -14151,11 +14151,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string view_id);
 
     /// <summary>
-    /// <para>【身份验证】获取登录用户信息</para>
+    /// <para>【身份验证】获取用户信息</para>
     /// <para>接口ID：7180265937329537028</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/user_info/get</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>通过 `user_access_token` 获取登录用户的信息。</para>
+    /// <para>通过 `user_access_token` 获取相关用户信息。</para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:contact:access_as_app</item>
     /// <item>contact:contact:readonly</item>
@@ -18956,7 +18956,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] bool? ignore_working_hours_type_rule = false);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】获取消息</para>
+    /// <para>【智能伙伴创建平台】获取智能伙伴消息</para>
     /// <para>接口ID：7358047310868152324</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session-aily_message/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -18972,7 +18972,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="aily_session_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-session/create) 接口</para>
+    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="aily_message_id">
@@ -18989,7 +18989,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string aily_message_id);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】列出消息</para>
+    /// <para>【智能伙伴创建平台】列出智能伙伴消息</para>
     /// <para>接口ID：7358047310868168708</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session-aily_message/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -19005,7 +19005,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="aily_session_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-session/create) 接口</para>
+    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="page_size">
@@ -19214,7 +19214,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string aily_session_id);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】发送消息</para>
+    /// <para>【智能伙伴创建平台】发送智能伙伴消息</para>
     /// <para>接口ID：7358047310868283396</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session-aily_message/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -19230,7 +19230,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="aily_session_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-session/create) 接口</para>
+    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -19760,7 +19760,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>AppID</para>
+    /// <para>智能伙伴创建平台的应用的APPID，可以直接从智能伙伴应用的URL中获取。获取示例：/ai/{APPID}</para>
     /// <para>示例值：spring_5862e4fea8__c</para>
     /// </param>
     /// <param name="page_size">

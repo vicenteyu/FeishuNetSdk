@@ -11,7 +11,7 @@
 // </copyright>
 // <summary>创建评论 响应体</summary>
 // ************************************************************************
-namespace FeishuNetSdk.Approval.Spec;
+namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 创建评论 响应体
 /// <para>在某审批实例下创建、修改评论或评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。</para>
@@ -23,8 +23,9 @@ public record PostApprovalV4InstancesByInstanceIdCommentsResponseDto
 {
     /// <summary>
     /// <para>保存成功的comment_id</para>
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
+    /// <para>示例值：7081516627711606803</para>
     /// </summary>
     [JsonPropertyName("comment_id")]
-    public string? CommentId { get; set; }
+    public string CommentId { get; set; } = string.Empty;
 }

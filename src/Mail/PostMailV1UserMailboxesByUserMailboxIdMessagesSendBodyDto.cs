@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-11-27
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-11-27
+// ************************************************************************
+// <copyright file="PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>发送邮件 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 发送邮件 请求体
@@ -112,4 +125,12 @@ public record PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto
         [JsonPropertyName("filename")]
         public string Filename { get; set; } = string.Empty;
     }
+
+    /// <summary>
+    /// <para>会话id</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：tfuh9N4WnzU6jdDw=</para>
+    /// </summary>
+    [JsonPropertyName("thread_id")]
+    public string? ThreadId { get; set; }
 }

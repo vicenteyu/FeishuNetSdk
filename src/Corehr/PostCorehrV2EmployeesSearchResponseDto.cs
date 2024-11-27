@@ -85,6 +85,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
         /// <summary>
         /// <para>人员子类型 ID</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6971090097697521317</para>
         /// </summary>
@@ -5623,6 +5624,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
         /// <summary>
         /// <para>自定义组织</para>
+        /// <para>- 功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
         /// <para>必填：否</para>
         /// <para>示例值：{\"custom_org_02\":[{\"id\":\"1\",\"rate\":\"99\"}]}</para>
         /// </summary>

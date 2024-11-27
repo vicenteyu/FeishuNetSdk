@@ -9,11 +9,11 @@
 // <copyright file="GetCorehrV1JobLevelsResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>查询租户的职级信息 响应体</summary>
+// <summary>批量查询职级 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
-/// 查询租户的职级信息 响应体
+/// 批量查询职级 响应体
 /// <para>该接口支持获取租户下的所有职级信息。职级数量过多时，可以通过多次循环调用该接口获取所有职级详情信息，包括职级数值、编码、名称等。</para>
 /// <para>接口ID：7017694651622162436</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_level/list</para>

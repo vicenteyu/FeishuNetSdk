@@ -86,7 +86,7 @@ public record PostCorehrV2DepartmentsSearchBodyDto
     /// <summary>
     /// <para>返回数据的字段列表，如果传空只返回部门id，可选值：</para>
     /// <para>- version_id：当前版本ID</para>
-    /// <para>- sub_type：部门子类型</para>
+    /// <para>- sub_type：部门类型</para>
     /// <para>- manager：负责人</para>
     /// <para>- is_root：是否根部门</para>
     /// <para>- is_confidential：是否保密</para>
