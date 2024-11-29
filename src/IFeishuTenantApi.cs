@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-27
+// Last Modified On : 2024-11-29
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -43704,6 +43704,37 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】编辑离职信息</para>
+    /// <para>接口ID：7386577676713328643</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/offboarding/edit</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口用于编辑飞书人事的[离职信息](https://people.feishu.cn/people/members/dimission/management)，支持的字段包括离职日期、离职原因、离职申请发起时间和离职申请审批通过时间等等，同时也支持编辑离职的自定义字段（附件字段除外）。当接口成功提交后，会产生对应的[离职信息变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/offboarding/events/updated)事件。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:offboarding.update:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/offboardings/edit")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2OffboardingsEditResponseDto>> PostCorehrV2OffboardingsEditAsync(
+        [JsonContent] Corehr.PostCorehrV2OffboardingsEditBodyDto dto,
+        [PathQuery] string? user_id_type = "people_corehr_id");
+
+    /// <summary>
     /// <para>【多维表格】批量获取记录</para>
     /// <para>接口ID：7386702252390268956</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/batch_get</para>
@@ -44163,6 +44194,34 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostHireV1TalentsByTalentIdTagAsync(
         [PathQuery] string talent_id,
         [JsonContent] Hire.PostHireV1TalentsByTalentIdTagBodyDto dto);
+
+    /// <summary>
+    /// <para>【Payroll】获取薪资组基本信息</para>
+    /// <para>接口ID：7405412186246627329</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>- 薪资组是按薪酬管理的纬度创建的组，组内的员工由相同的HR处理薪酬相关工作，通过薪资组可实现对薪资组人员的管理和在薪酬计算发放等环节的人员权限范围控制</para>
+    /// <para>- 本接口返回所有薪资组的基本信息，包括薪资组ID、薪资组名称、薪资组编码、薪资组状态等，不含薪资组下的员工信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>payroll:pay_groups:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，默认值100</para>
+    /// <para>示例值：50</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6862995757234914824</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/payroll/v1/paygroups")]
+    System.Threading.Tasks.Task<FeishuResponse<Payroll.GetPayrollV1PaygroupsResponseDto>> GetPayrollV1PaygroupsAsync(
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null);
 
     /// <summary>
     /// <para>【飞书人事（企业版）】查询指定生效日期的部门架构树</para>
@@ -45132,6 +45191,37 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "people_corehr_id");
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】撤销离职</para>
+    /// <para>接口ID：7428522865559273475</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/offboarding/revoke</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>通过离职ID撤销飞书人事的[离职信息](https://people.feishu.cn/people/members/dimission/management)。当接口成功提交后，会产生对应的[离职信息变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/offboarding/events/updated)事件。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:offboarding.revoke:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/offboardings/revoke")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2OffboardingsRevokeAsync(
+        [JsonContent] Corehr.PostCorehrV2OffboardingsRevokeBodyDto dto,
+        [PathQuery] string? user_id_type = "people_corehr_id");
+
+    /// <summary>
     /// <para>【智能伙伴创建平台】调用技能</para>
     /// <para>接口ID：7429225800963031042</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-skill/start</para>
@@ -45411,5 +45501,34 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int member_clock_type,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】发起流程</para>
+    /// <para>接口ID：7442599557486624772</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-flow/execute</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>执行相应流程</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:flow:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="namespace">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用命名空间(低代码平台-&gt;我的应用-&gt;应用管理-&gt;可查看到)</para>
+    /// <para>示例值：package_7344545d87__c</para>
+    /// </param>
+    /// <param name="flow_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>流程API名称（低代码平台-&gt;我的应用-&gt;开发-&gt;流程-&gt;展开为表格-&gt;可查看到）</para>
+    /// <para>示例值：deleteObject_99c656599f</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/applications/{namespace}/flows/{flow_id}/execute")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1ApplicationsByNamespaceFlowsByFlowIdExecuteResponseDto>> PostApaasV1ApplicationsByNamespaceFlowsByFlowIdExecuteAsync(
+        [PathQuery] string @namespace,
+        [PathQuery] string flow_id,
+        [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceFlowsByFlowIdExecuteBodyDto dto);
 }
 

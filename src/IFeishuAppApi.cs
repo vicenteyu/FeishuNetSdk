@@ -96,6 +96,7 @@ public interface IFeishuAppApi : IHttpApi
     /// <para>user_access_token 的最大有效期是 2小时左右。当 user_access_token 过期时，可以调用本接口获取新的 user_access_token。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    [Obsolete("历史版本")]
     [HttpPost("/open-apis/authen/v1/oidc/refresh_access_token")]
     System.Threading.Tasks.Task<FeishuResponse<Auth.PostAuthenV1OidcRefreshAccessTokenResponseDto>> PostAuthenV1OidcRefreshAccessTokenAsync(
         [JsonContent] Auth.PostAuthenV1OidcRefreshAccessTokenBodyDto dto);
@@ -110,6 +111,7 @@ public interface IFeishuAppApi : IHttpApi
     /// <para>根据[登录预授权码](https://open.feishu.cn/document/common-capabilities/sso/api/obtain-oauth-code) 返回 code 获取 `user_access_token`。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    [Obsolete("历史版本")]
     [HttpPost("/open-apis/authen/v1/oidc/access_token")]
     System.Threading.Tasks.Task<FeishuResponse<Auth.PostAuthenV1OidcAccessTokenResponseDto>> PostAuthenV1OidcAccessTokenAsync(
         [JsonContent] Auth.PostAuthenV1OidcAccessTokenBodyDto dto);

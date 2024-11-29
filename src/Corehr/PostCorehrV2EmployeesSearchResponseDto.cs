@@ -1069,6 +1069,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
             /// <summary>
             /// <para>常用名</para>
+            /// <para>- 基于 local_primary、local_first_name、name_primary、first_name 等字段计算获得</para>
             /// <para>必填：否</para>
             /// <para>示例值：刘梓新(Henry)</para>
             /// </summary>
@@ -5558,6 +5559,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
 
                 /// <summary>
                 /// <para>常用名</para>
+                /// <para>- 基于 local_primary、local_first_name、name_primary、first_name 等字段计算获得</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：刘梓新</para>
                 /// </summary>

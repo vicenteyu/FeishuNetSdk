@@ -4,7 +4,7 @@
 // Created          : 2024-07-02
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-08
+// Last Modified On : 2024-11-29
 // ************************************************************************
 // <copyright file="PostPerformanceV2MetricTemplatesQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -349,6 +349,35 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
                 /// </summary>
                 [JsonPropertyName("filed_value")]
                 public string? FiledValue { get; set; }
+
+                /// <summary>
+                /// <para>字段值，当字段为人员信息的时候有值</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("field_value_person")]
+                public User? FieldValuePerson { get; set; }
+
+                /// <summary>
+                /// <para>字段值，当字段为人员信息的时候有值</para>
+                /// </summary>
+                public record User
+                {
+                    /// <summary>
+                    /// <para>用户的 open_id</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：od-asd2dasdasd</para>
+                    /// </summary>
+                    [JsonPropertyName("open_id")]
+                    public string? OpenId { get; set; }
+
+                    /// <summary>
+                    /// <para>用户的 user_id，取值与user_id_type一致</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：ou-ux987dsf6x</para>
+                    /// </summary>
+                    [JsonPropertyName("user_id")]
+                    public string? UserId { get; set; }
+                }
             }
 
             /// <summary>

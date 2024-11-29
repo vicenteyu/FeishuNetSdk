@@ -212,7 +212,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>部门 ID 列表，查询属于该部门及下级部门的员工</para>
     /// <para>- 可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)</para>
     /// <para>获取</para>
-    /// <para>- ID 类型应与 open_department_id 一致</para>
+    /// <para>- ID 类型应与 department_id_type 一致</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -221,6 +221,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
 
     /// <summary>
     /// <para>其他国籍ID列表，精准匹配查询</para>
+    /// <para>- 预置项，暂不支持</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -229,6 +230,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
 
     /// <summary>
     /// <para>公民身份类型列表，精确匹配查询</para>
+    /// <para>- 预置项，暂不支持</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>

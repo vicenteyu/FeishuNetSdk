@@ -4,7 +4,7 @@
 // Created          : 2024-07-02
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-02
+// Last Modified On : 2024-11-29
 // ************************************************************************
 // <copyright file="PostPerformanceV2MetricDetailsQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -135,6 +135,35 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
                 /// </summary>
                 [JsonPropertyName("field_value")]
                 public string? FieldValue { get; set; }
+
+                /// <summary>
+                /// <para>字段值，当字段为人员信息时有值</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("field_value_person")]
+                public User? FieldValuePerson { get; set; }
+
+                /// <summary>
+                /// <para>字段值，当字段为人员信息时有值</para>
+                /// </summary>
+                public record User
+                {
+                    /// <summary>
+                    /// <para>用户的 open_id</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：od-asd2dasdasd</para>
+                    /// </summary>
+                    [JsonPropertyName("open_id")]
+                    public string? OpenId { get; set; }
+
+                    /// <summary>
+                    /// <para>用户的 user_id，取值与user_id_type一致</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：ou-ux987dsf6x</para>
+                    /// </summary>
+                    [JsonPropertyName("user_id")]
+                    public string? UserId { get; set; }
+                }
             }
 
             /// <summary>
@@ -161,8 +190,6 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
                 /// <para>指标维度中文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：维度一</para>
-                /// <para>最大长度：999999999</para>
-                /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("zh_cn")]
                 public string? ZhCn { get; set; }
@@ -171,8 +198,6 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
                 /// <para>指标维度英文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：Dimension 1</para>
-                /// <para>最大长度：999999999</para>
-                /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }

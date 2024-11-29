@@ -78,6 +78,7 @@ public record PostPerformanceV2MetricFieldsQueryResponseDto
         /// <item>text：文本</item>
         /// <item>number：数字</item>
         /// <item>pencentage：百分比</item>
+        /// <item>person：人员单选</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("type")]

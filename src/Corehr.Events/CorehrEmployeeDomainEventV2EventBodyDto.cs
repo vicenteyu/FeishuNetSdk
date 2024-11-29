@@ -41,7 +41,7 @@ public record CorehrEmployeeDomainEventV2EventBodyDto() : EventBodyDto("corehr.e
     /// <summary>
     /// <para>子事件类型</para>
     /// <para>**可选值有**：</para>
-    /// <para>1001:新入职,2001:更新人员信息,4001:创建兼职,4002:编缉兼职（更新兼职的任一字段就会触发该事件，包括更新【结束日期】）,4003:撤销兼职（弃用）,4004:结束兼职（目前含义为数据变更，即首次设置【结束日期】时会触发）,4005:删除兼职,5001:添动异动,5002:编辑异动信息,5003:撤销异动,7001:离职通过,7002:撤销离职,8001:新增第一条记录,8002:新增一条以上的自定义组织记录,8003:编辑自定义组织记录</para>
+    /// <para>1001:新入职,2001:更新人员信息,4001:创建兼职,4002:编缉兼职（更新兼职的任一字段就会触发该事件，包括更新【结束日期】）,4003:撤销兼职（弃用）,4004:结束兼职（目前含义为数据变更，即首次设置【结束日期】时会触发）,4005:删除兼职,5001:添加异动,5002:编辑异动信息,5003:撤销异动,7001:离职通过,7002:撤销离职,8001:新增第一条记录,8002:新增第一条之后的自定义组织记录,8003:编辑自定义组织记录</para>
     /// <para>必填：否</para>
     /// <para>可选值：<list type="bullet">
     /// <item>1001：新入职</item>
@@ -51,13 +51,13 @@ public record CorehrEmployeeDomainEventV2EventBodyDto() : EventBodyDto("corehr.e
     /// <item>4003：撤销兼职（弃用）</item>
     /// <item>4004：结束兼职（目前含义为数据变更，即首次设置【结束日期】时会触发）</item>
     /// <item>4005：删除兼职</item>
-    /// <item>5001：添动异动</item>
+    /// <item>5001：添加异动</item>
     /// <item>5002：编辑异动信息</item>
     /// <item>5003：撤销异动</item>
     /// <item>7001：离职通过</item>
     /// <item>7002：撤销离职</item>
     /// <item>8001：新增第一条记录</item>
-    /// <item>8002：新增一条以上的自定义组织记录</item>
+    /// <item>8002：新增第一条之后的自定义组织记录</item>
     /// <item>8003：编辑自定义组织记录</item>
     /// </list></para>
     /// </summary>
@@ -73,6 +73,7 @@ public record CorehrEmployeeDomainEventV2EventBodyDto() : EventBodyDto("corehr.e
 
     /// <summary>
     /// <para>业务场景</para>
+    /// <para>- 标识触发此事件操作场景：系统页面操作、开发平台接口操作等</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("opt_scene")]
@@ -122,7 +123,9 @@ public record CorehrEmployeeDomainEventV2EventBodyDto() : EventBodyDto("corehr.e
     {
         /// <summary>
         /// <para>变更实体的 ID</para>
-        /// <para>- 举例：雇佣ID，个人信息ID</para>
+        /// <para>- 雇佣ID，个人信息ID</para>
+        /// <para>- 特殊：</para>
+        /// <para>- 任职记录版本ID：请使用[批量查询员工任职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)获取任职记录，对照 version_id 字段查找对象</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("id")]
@@ -133,22 +136,27 @@ public record CorehrEmployeeDomainEventV2EventBodyDto() : EventBodyDto("corehr.e
         /// <para>- job_data: 任职信息</para>
         /// <para>- person：个人信息</para>
         /// <para>- employment：雇佣信息</para>
+        /// <para>- email: 邮箱</para>
+        /// <para>- person_name：姓名</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("entity")]
         public string? Entity { get; set; }
 
         /// <summary>
-        /// <para>聚合实体标识</para>
-        /// <para>- 监听事件时，暂时无需关注此字段</para>
+        /// <para>聚合实体标识，如：</para>
+        /// <para>- job_data: 任职信息</para>
+        /// <para>- person：个人信息</para>
+        /// <para>- employment：雇佣信息</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("agg_entity")]
         public string? AggEntity { get; set; }
 
         /// <summary>
-        /// <para>聚合实体 ID，父对象 ID</para>
-        /// <para>- 监听事件时，暂时无需关注此字段</para>
+        /// <para>聚合实体 ID，父对象 ID，如：</para>
+        /// <para>- person：个人信息 ID</para>
+        /// <para>- employment：雇佣 ID</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("agg_entity_id")]
