@@ -24,9 +24,9 @@ public record PostWikiV2SpacesBySpaceIdNodesBodyDto
     /// <summary>
     /// <para>文档类型，对于快捷方式，该字段是对应的实体的obj_type。</para>
     /// <para>必填：是</para>
-    /// <para>示例值：doc</para>
+    /// <para>示例值：docx</para>
     /// <para>可选值：<list type="bullet">
-    /// <item>doc：旧版文档</item>
+    /// <item>doc：已废弃，创建文档请使用`docx`。详情参考[旧版文档（Docs 1.0）创建能力下线说明](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/breaking-change/docs-create-ability-offline)。</item>
     /// <item>sheet：表格</item>
     /// <item>mindnote：思维导图</item>
     /// <item>bitable：多维表格</item>

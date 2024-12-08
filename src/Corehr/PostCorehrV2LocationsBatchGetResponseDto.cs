@@ -239,16 +239,16 @@ public record PostCorehrV2LocationsBatchGetResponseDto
         }
 
         /// <summary>
-        /// <para>地点用途 ID，枚举值及详细信息可通过[【批量查询地点用途】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。</para>
-        /// <para>- 请求参数object_api_name=；custom_api_name=locale</para>
+        /// <para>地点用途，枚举值及详细信息可通过[【批量查询地点用途】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。</para>
+        /// <para>- 请求参数object_api_name=location；custom_api_name=location_usage</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("location_usage_list")]
         public Enum[]? LocationUsageLists { get; set; }
 
         /// <summary>
-        /// <para>地点用途 ID，枚举值及详细信息可通过[【批量查询地点用途】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。</para>
-        /// <para>- 请求参数object_api_name=；custom_api_name=locale</para>
+        /// <para>地点用途，枚举值及详细信息可通过[【批量查询地点用途】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。</para>
+        /// <para>- 请求参数object_api_name=location；custom_api_name=location_usage</para>
         /// </summary>
         public record Enum
         {

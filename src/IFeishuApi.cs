@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-12-08
 // ************************************************************************
 // <copyright file="IFeishuApi.cs" company="Vicente Yu">
 //     MIT
@@ -88,6 +88,34 @@ public interface IFeishuApi : IHttpApi
     [HttpPost("/open-apis/auth/v3/app_access_token/internal")]
     System.Threading.Tasks.Task<Auth.Spec.PostAuthV3AppAccessTokenInternalResponseDto> PostAuthV3AppAccessTokenInternalAsync(
         [JsonContent] Auth.Spec.PostAuthV3AppAccessTokenInternalBodyDto dto);
+
+    /// <summary>
+    /// <para>【身份验证】刷新 user_access_token</para>
+    /// <para>接口ID：7435312925587898371</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token</para>
+    /// <para>OAuth 令牌接口，可用于刷新 &lt;code&gt;user_access_token&lt;/code&gt; 以及获取新的 &lt;code&gt;refresh_token&lt;/code&gt;。</para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>offline_access</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/authen/v2/oauth/token")]
+    System.Threading.Tasks.Task<Auth.Spec.PostAuthenV2OauthRefreshTokenResponseDto> PostAuthenV2OauthRefreshTokenAsync(
+        [JsonContent] Auth.Spec.PostAuthenV2OauthRefreshTokenBodyDto dto);
+
+    /// <summary>
+    /// <para>【身份验证】获取 user_access_token</para>
+    /// <para>接口ID：7435312925587914755</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token</para>
+    /// <para>OAuth 令牌接口，可用于获取 &lt;code&gt;user_access_token&lt;/code&gt; 以及 &lt;code&gt;refresh_token&lt;/code&gt;。&lt;code&gt;user_access_token&lt;/code&gt; 为用户访问凭证，使用该凭证可以以用户身份调用 OpenAPI。&lt;code&gt;refresh_token&lt;/code&gt; 为刷新凭证，可以用来获取新的 &lt;code&gt;user_access_token&lt;/code&gt;。</para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>offline_access</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/authen/v2/oauth/token")]
+    System.Threading.Tasks.Task<Auth.Spec.PostAuthenV2OauthTokenResponseDto> PostAuthenV2OauthTokenAsync(
+        [JsonContent] Auth.Spec.PostAuthenV2OauthTokenBodyDto dto);
 
     /// <summary>
     /// 获取长连接地址

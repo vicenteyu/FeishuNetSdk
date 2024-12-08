@@ -157,7 +157,9 @@
 <tr><td>drive.file.edit_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileEditV1EventBodyDto&gt;</td><td>【云文档】文件编辑</td></tr>
 <tr><td>drive.file.title_updated_v1</td><td>ResourceEventV2Dto&lt;Ccm.Events.DriveFileTitleUpdatedV1EventBodyDto&gt;</td><td>【云文档】文件标题变更</td></tr>
 <tr><td>drive.file.deleted_v1</td><td>ResourceEventV2Dto&lt;Ccm.Events.DriveFileDeletedV1EventBodyDto&gt;</td><td>【云文档】文件彻底删除</td></tr>
+<tr><td>drive.file.created_in_folder_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileCreatedInFolderV1EventBodyDto&gt;</td><td>【云文档】文件夹下文件创建</td></tr>
 <tr><td>drive.file.trashed_v1</td><td>ResourceEventV2Dto&lt;Ccm.Events.DriveFileTrashedV1EventBodyDto&gt;</td><td>【云文档】文件删除到回收站</td></tr>
+<tr><td>drive.file.permission_member_applied_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFilePermissionMemberAppliedV1EventBodyDto&gt;</td><td>【云文档】文件协作者权限申请</td></tr>
 <tr><td>drive.file.permission_member_added_v1</td><td>ResourceEventV2Dto&lt;Ccm.Events.DriveFilePermissionMemberAddedV1EventBodyDto&gt;</td><td>【云文档】文件协作者添加</td></tr>
 <tr><td>drive.file.permission_member_removed_v1</td><td>ResourceEventV2Dto&lt;Ccm.Events.DriveFilePermissionMemberRemovedV1EventBodyDto&gt;</td><td>【云文档】文件协作者移除</td></tr>
 <tr><td>drive.file.read_v1</td><td>ResourceEventV2Dto&lt;Ccm.Events.DriveFileReadV1EventBodyDto&gt;</td><td>【云文档】文件已读</td></tr>

@@ -32,7 +32,7 @@ public record PostContactV3UsersByUserIdResurrectBodyDto
 {
     /// <summary>
     /// <para>用户排序信息。用户可能存在多个部门中，且有不同的排序，该参数用于设置用户部门排序。</para>
-    /// <para>**说明**：如果请求时不传入 departments 参数，则用户将恢复至原部门。</para>
+    /// <para>**说明**：如果请求时不传入 departments 参数，则用户将恢复至根部门。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：50</para>
     /// </summary>
@@ -41,7 +41,7 @@ public record PostContactV3UsersByUserIdResurrectBodyDto
 
     /// <summary>
     /// <para>用户排序信息。用户可能存在多个部门中，且有不同的排序，该参数用于设置用户部门排序。</para>
-    /// <para>**说明**：如果请求时不传入 departments 参数，则用户将恢复至原部门。</para>
+    /// <para>**说明**：如果请求时不传入 departments 参数，则用户将恢复至根部门。</para>
     /// </summary>
     public record UserDepartmentInfo
     {

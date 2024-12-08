@@ -3358,18 +3358,22 @@ public record PatchCorehrV2PersonsByPersonIdResponseDto
         public record PersonalProfile
         {
             /// <summary>
-            /// <para>资料类型，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
+            /// <para>资料类型</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
             /// <para>- custom_api_name：profile_type</para>
             /// <para>- object_api_name：personal_profile</para>
+            /// <para>- 仅 【飞书人事-档案配置-资料附件】存在的字段编码可用</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("personal_profile_type")]
             public Enum? PersonalProfileType { get; set; }
 
             /// <summary>
-            /// <para>资料类型，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
+            /// <para>资料类型</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
             /// <para>- custom_api_name：profile_type</para>
             /// <para>- object_api_name：personal_profile</para>
+            /// <para>- 仅 【飞书人事-档案配置-资料附件】存在的字段编码可用</para>
             /// </summary>
             public record Enum
             {

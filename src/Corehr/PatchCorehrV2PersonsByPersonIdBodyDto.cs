@@ -961,6 +961,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     {
         /// <summary>
         /// <para>银行名称</para>
+        /// <para>- 如果有对应银行ID，请使用 bank_id_v2</para>
         /// <para>必填：否</para>
         /// <para>示例值：中国农业银行</para>
         /// </summary>
@@ -985,6 +986,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
 
         /// <summary>
         /// <para>支行名称</para>
+        /// <para>- 如果有对应支行 ID，请使用 branch_id_v2</para>
         /// <para>必填：否</para>
         /// <para>示例值：中国农业银行支行</para>
         /// </summary>
@@ -2069,18 +2071,22 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
     public record PersonalProfile
     {
         /// <summary>
-        /// <para>资料类型，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
+        /// <para>资料类型</para>
+        /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
         /// <para>- custom_api_name：profile_type</para>
         /// <para>- object_api_name：personal_profile</para>
+        /// <para>- 仅 【飞书人事-档案配置-资料附件】存在的字段编码可用</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("personal_profile_type")]
         public Enum? PersonalProfileType { get; set; }
 
         /// <summary>
-        /// <para>资料类型，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
+        /// <para>资料类型</para>
+        /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，查询参数：</para>
         /// <para>- custom_api_name：profile_type</para>
         /// <para>- object_api_name：personal_profile</para>
+        /// <para>- 仅 【飞书人事-档案配置-资料附件】存在的字段编码可用</para>
         /// </summary>
         public record Enum
         {

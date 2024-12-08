@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-22
+// Last Modified On : 2024-12-08
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -332,8 +332,12 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(ResourceEventV2Dto<Ccm.Events.DriveFileTitleUpdatedV1EventBodyDto>), typeDiscriminator: "drive.file.title_updated_v1")]
 //【云文档】文件彻底删除
 [JsonDerivedType(typeof(ResourceEventV2Dto<Ccm.Events.DriveFileDeletedV1EventBodyDto>), typeDiscriminator: "drive.file.deleted_v1")]
+//【云文档】文件夹下文件创建
+[JsonDerivedType(typeof(EventV2Dto<Ccm.Events.DriveFileCreatedInFolderV1EventBodyDto>), typeDiscriminator: "drive.file.created_in_folder_v1")]
 //【云文档】文件删除到回收站
 [JsonDerivedType(typeof(ResourceEventV2Dto<Ccm.Events.DriveFileTrashedV1EventBodyDto>), typeDiscriminator: "drive.file.trashed_v1")]
+//【云文档】文件协作者权限申请
+[JsonDerivedType(typeof(EventV2Dto<Ccm.Events.DriveFilePermissionMemberAppliedV1EventBodyDto>), typeDiscriminator: "drive.file.permission_member_applied_v1")]
 //【云文档】文件协作者添加
 [JsonDerivedType(typeof(ResourceEventV2Dto<Ccm.Events.DriveFilePermissionMemberAddedV1EventBodyDto>), typeDiscriminator: "drive.file.permission_member_added_v1")]
 //【云文档】文件协作者移除
