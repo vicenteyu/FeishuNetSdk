@@ -50,7 +50,7 @@ public record PostHireV1WebsitesByWebsiteIdJobPostsSearchResponseDto
         public string? Title { get; set; }
 
         /// <summary>
-        /// <para>职位 ID</para>
+        /// <para>职位 ID，详情可参考：[获取职位详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get_detail)</para>
         /// <para>必填：否</para>
         /// <para>示例值：7380246392272603428</para>
         /// </summary>

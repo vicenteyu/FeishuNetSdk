@@ -65,7 +65,7 @@ namespace FeishuNetSdk.Approval.Events
         /// 操作人 ID（当 task 为自动通过类型时，user_id 为空）
         /// </summary>
         [JsonPropertyName("user_id")]
-        public long UserId { get; set; }
+        public string? UserId { get; set; }
 
         /// <summary>
         /// 

@@ -42,7 +42,7 @@ public record GetHireV1ApplicationsByApplicationIdResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>投递的职位 ID</para>
+        /// <para>投递的职位 ID，详情可参考：[获取职位详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get_detail)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6843547872837273223</para>
         /// </summary>
@@ -50,7 +50,7 @@ public record GetHireV1ApplicationsByApplicationIdResponseDto
         public string? JobId { get; set; }
 
         /// <summary>
-        /// <para>候选人 ID</para>
+        /// <para>候选人 ID，详情可参考：[获取人才详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6843547872837273223</para>
         /// </summary>
@@ -78,7 +78,7 @@ public record GetHireV1ApplicationsByApplicationIdResponseDto
         public record ApplicationStageInfo
         {
             /// <summary>
-            /// <para>阶段 ID</para>
+            /// <para>阶段 ID，详情可参考：[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)返回参数中的投递阶段信息</para>
             /// <para>必填：否</para>
             /// <para>示例值：614218419274131</para>
             /// </summary>

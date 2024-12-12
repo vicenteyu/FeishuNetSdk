@@ -59,6 +59,12 @@ public record PostDocumentAiV1TrainInvoiceRecognizeResponseDto
             /// <item>ticket_num：车票编号</item>
             /// <item>total_amount：价格</item>
             /// <item>time：出发时间</item>
+            /// <item>price：金额</item>
+            /// <item>seat_num：座位号</item>
+            /// <item>seat_cls：座位类型</item>
+            /// <item>id_num：身份证号</item>
+            /// <item>sale_num：售卖号</item>
+            /// <item>sale_station：售卖车站</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("type")]

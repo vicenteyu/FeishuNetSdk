@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-12-12
 // ************************************************************************
 // <copyright file="PostCompensationV1ArchivesQueryBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -29,6 +29,15 @@ public record PostCompensationV1ArchivesQueryBodyDto
     /// </summary>
     [JsonPropertyName("user_id_list")]
     public string[] UserIdList { get; set; } = Array.Empty<string>();
+
+    /// <summary>
+    /// <para>档案Tid列表</para>
+    /// <para>必填：否</para>
+    /// <para>最大长度：100</para>
+    /// <para>最小长度：1</para>
+    /// </summary>
+    [JsonPropertyName("tid_list")]
+    public string[]? TidList { get; set; }
 
     /// <summary>
     /// <para>生效开始时间</para>

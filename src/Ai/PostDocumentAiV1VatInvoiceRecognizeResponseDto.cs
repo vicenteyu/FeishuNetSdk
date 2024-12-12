@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-12-12
 // ************************************************************************
 // <copyright file="PostDocumentAiV1VatInvoiceRecognizeResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -69,6 +69,16 @@ public record PostDocumentAiV1VatInvoiceRecognizeResponseDto
             /// <item>seller_address_phone：销售方地址&amp;电话</item>
             /// <item>seller_account：销售方开户行&amp;账号</item>
             /// <item>payee：收款人</item>
+            /// <item>invoice_date：开票日期</item>
+            /// <item>password_area：密码区</item>
+            /// <item>remarks：备注</item>
+            /// <item>reviewer：复核人</item>
+            /// <item>drawer：开票人</item>
+            /// <item>is_sealed：是否盖章</item>
+            /// <item>seller_name_in_seal：印章内销售方名称</item>
+            /// <item>seller_taxpayer_no_in_seal：印章内销售方纳税人识别号</item>
+            /// <item>invoice_special_seal：印章名称</item>
+            /// <item>machine_num：机器编号</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("type")]
@@ -81,6 +91,37 @@ public record PostDocumentAiV1VatInvoiceRecognizeResponseDto
             /// </summary>
             [JsonPropertyName("value")]
             public string? Value { get; set; }
+
+            /// <summary>
+            /// <para>识别出的票据详细信息</para>
+            /// <para>必填：否</para>
+            /// <para>最大长度：100000</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("items")]
+            public KvEntity[][]? Items { get; set; }
+
+            /// <summary>
+            /// <para>识别出的票据详细信息</para>
+            /// </summary>
+            public record KvEntity
+            {
+                /// <summary>
+                /// <para>识别的实体类型</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：entry_name</para>
+                /// </summary>
+                [JsonPropertyName("type")]
+                public string? Type { get; set; }
+
+                /// <summary>
+                /// <para>识别出字段的文本信息</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：餐饮服务</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public string? Value { get; set; }
+            }
         }
     }
 }

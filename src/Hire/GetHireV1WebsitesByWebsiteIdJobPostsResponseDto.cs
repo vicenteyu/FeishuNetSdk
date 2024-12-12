@@ -360,7 +360,7 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsResponseDto
         public int? Headcount { get; set; }
 
         /// <summary>
-        /// <para>职位亮点</para>
+        /// <para>职位亮点，详情请参考：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「职位亮枚举定义」</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("high_light_list")]
@@ -418,7 +418,7 @@ public record GetHireV1WebsitesByWebsiteIdJobPostsResponseDto
         public record WebsiteJobPostCustomizedData
         {
             /// <summary>
-            /// <para>自定义字段 ID</para>
+            /// <para>自定义字段 ID，详情请参考：[获取职位模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_schema/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：xxxx</para>
             /// </summary>

@@ -98,7 +98,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
             public record InterviewRecord
             {
                 /// <summary>
-                /// <para>面试评价 ID</para>
+                /// <para>面试评价 ID，详情可参考：[获取面试评价详细信息（新版）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/interview_record/get)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6949805467799537964</para>
                 /// </summary>

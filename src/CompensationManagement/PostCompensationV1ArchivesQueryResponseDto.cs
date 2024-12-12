@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-12-12
 // ************************************************************************
 // <copyright file="PostCompensationV1ArchivesQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -106,6 +106,14 @@ public record PostCompensationV1ArchivesQueryResponseDto
         public string EffectiveDate { get; set; } = string.Empty;
 
         /// <summary>
+        /// <para>失效时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2022-10-24</para>
+        /// </summary>
+        [JsonPropertyName("expiration_date")]
+        public string? ExpirationDate { get; set; }
+
+        /// <summary>
         /// <para>薪级薪等ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：12342313</para>
@@ -136,7 +144,7 @@ public record PostCompensationV1ArchivesQueryResponseDto
             public string ItemId { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>档案关联薪资项数值</para>
+            /// <para>档案关联薪酬项数值</para>
             /// <para>必填：是</para>
             /// <para>示例值：15000</para>
             /// </summary>
@@ -144,7 +152,7 @@ public record PostCompensationV1ArchivesQueryResponseDto
             public string ItemResult { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>档案关联薪资项转正后数值</para>
+            /// <para>档案关联薪酬项转正后数值</para>
             /// <para>必填：否</para>
             /// <para>示例值：18000</para>
             /// </summary>

@@ -62,7 +62,7 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
         public record ApplicationOfferBasicInfo
         {
             /// <summary>
-            /// <para>Offer 类型</para>
+            /// <para>Offer 类型，废弃字段</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
@@ -571,14 +571,14 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
             public string? TotalAnnualCash { get; set; }
 
             /// <summary>
-            /// <para>自定义字段的 value 信息</para>
+            /// <para>自定义字段的 value 信息，详情可参考：[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get) 中的自定义字段</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("customize_info_list")]
             public ApplicationOfferCustomValue[]? CustomizeInfoLists { get; set; }
 
             /// <summary>
-            /// <para>自定义字段的 value 信息</para>
+            /// <para>自定义字段的 value 信息，详情可参考：[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get) 中的自定义字段</para>
             /// </summary>
             public record ApplicationOfferCustomValue
             {
@@ -601,7 +601,7 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
         }
 
         /// <summary>
-        /// <para>当前 Offer 使用的 schema</para>
+        /// <para>当前 Offer 使用的 schema ID，详情可参考：[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6963562624677398823</para>
         /// </summary>

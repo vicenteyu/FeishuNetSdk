@@ -295,14 +295,14 @@ public record GetHireV1JobRequirementsResponseDto
         public string? Description { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段，请参考[获取招聘需求模板列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)中的自定义字段</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("customized_data_list")]
         public JobRequirementCustomizedDataDto[]? CustomizedDataLists { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段，请参考[获取招聘需求模板列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)中的自定义字段</para>
         /// </summary>
         public record JobRequirementCustomizedDataDto
         {

@@ -94,7 +94,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchBodyDto
     public record FilterInfo
     {
         /// <summary>
-        /// <para>表示条件之间的逻辑连接词</para>
+        /// <para>表示条件之间的逻辑连接词，该字段必填，请忽略左侧必填列的否</para>
         /// <para>必填：否</para>
         /// <para>示例值：and</para>
         /// <para>最大长度：10</para>

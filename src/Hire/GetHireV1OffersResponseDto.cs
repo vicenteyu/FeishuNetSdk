@@ -70,7 +70,7 @@ public record GetHireV1OffersResponseDto
         public record OfferJobInfo
         {
             /// <summary>
-            /// <para>Offer 职位 ID，获取职位详情请参考[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)</para>
+            /// <para>Offer 职位 ID，详情请参考[获取职位详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get_detail)</para>
             /// <para>必填：否</para>
             /// <para>示例值：7080891505426925854</para>
             /// </summary>

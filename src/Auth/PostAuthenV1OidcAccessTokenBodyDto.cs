@@ -29,7 +29,7 @@ public record PostAuthenV1OidcAccessTokenBodyDto
     /// <para>示例值：authorization_code</para>
     /// </summary>
     [JsonPropertyName("grant_type")]
-    public string GrantType { get; set; } = string.Empty;
+    public string GrantType { get; } = "authorization_code";
 
     /// <summary>
     /// <para>登录预授权码，调用[登录预授权码](https://open.feishu.cn/document/common-capabilities/sso/api/obtain-oauth-code) 获取code</para>

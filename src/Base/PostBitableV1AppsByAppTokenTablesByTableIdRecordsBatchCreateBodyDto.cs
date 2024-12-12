@@ -48,7 +48,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateBodyDt
         /// <para>- 日期：填写毫秒级时间戳</para>
         /// <para>- 复选框：填写 true 或 false</para>
         /// <para>- 条码</para>
-        /// <para>- 人员：填写用户的 open_id、union_id 或 user_id，类型需要与 user_id_type 指定的类型一致</para>
+        /// <para>- 人员：：填写用户的[open_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)、[union_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id) 或 [user_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)，类型需要与 user_id_type 指定的类型一致</para>
         /// <para>- 电话号码：填写文本内容</para>
         /// <para>- 超链接：参考以下示例，text 为文本值，link 为 URL 链接</para>
         /// <para>- 附件：填写附件 token，需要先调用[上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)或[分片上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare)接口将附件上传至该多维表格中</para>

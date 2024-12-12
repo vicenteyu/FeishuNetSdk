@@ -9,11 +9,11 @@
 // <copyright file="GetHireV1TalentsByTalentIdResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取人才信息 V1 响应体</summary>
+// <summary>获取人才信息 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 获取人才信息 V1 响应体
+/// 获取人才信息 响应体
 /// <para>根据人才 ID 获取人才信息。</para>
 /// <para>接口ID：6964264269274611714</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/talent/get</para>

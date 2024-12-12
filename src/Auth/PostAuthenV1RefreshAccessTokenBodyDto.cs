@@ -27,7 +27,7 @@ public record PostAuthenV1RefreshAccessTokenBodyDto
     /// <para>示例值：refresh_token</para>
     /// </summary>
     [JsonPropertyName("grant_type")]
-    public string GrantType { get; set; } = string.Empty;
+    public string GrantType { get; } = "refresh_token";
 
     /// <summary>
     /// <para>刷新和获取user_access_token接口均返回 `refresh_token`，**每次请求，请注意使用最新获取到的`refresh_token`**</para>

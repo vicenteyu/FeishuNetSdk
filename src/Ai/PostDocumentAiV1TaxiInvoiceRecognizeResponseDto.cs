@@ -57,6 +57,16 @@ public record PostDocumentAiV1TaxiInvoiceRecognizeResponseDto
             /// <item>distance：里程</item>
             /// <item>start_date：日期</item>
             /// <item>total_amount：出租车价格</item>
+            /// <item>invoice_code：发票代码</item>
+            /// <item>invoice_no：发票号码</item>
+            /// <item>price：单价</item>
+            /// <item>dispatch_fee：电召费</item>
+            /// <item>additional_fee：附加费</item>
+            /// <item>is_sealed：是否盖章</item>
+            /// <item>seller_name_in_seal：印章内销售方名称</item>
+            /// <item>seller_taxpayer_no_in_seal：印章内销售方税号</item>
+            /// <item>title_trial：发票名称</item>
+            /// <item>invoice_special_seal：印章名称</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("type")]

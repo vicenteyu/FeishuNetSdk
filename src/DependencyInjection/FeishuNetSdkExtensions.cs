@@ -86,8 +86,16 @@ namespace Microsoft.Extensions.DependencyInjection
 
             services.AddHttpApi<IFeishuApi>();
             services.AddHttpApi<IFeishuAppApi>();
-            services.AddHttpApi<IFeishuTenantApi>(option => option.KeyValueSerializeOptions.IgnoreNullValues = true);
-            services.AddHttpApi<IFeishuUserApi>(option => option.KeyValueSerializeOptions.IgnoreNullValues = true);
+            services.AddHttpApi<IFeishuTenantApi>(option =>
+            {
+                option.JsonSerializeOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+                option.KeyValueSerializeOptions.IgnoreNullValues = true;
+            });
+            services.AddHttpApi<IFeishuUserApi>(option =>
+            {
+                option.JsonSerializeOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+                option.KeyValueSerializeOptions.IgnoreNullValues = true;
+            });
 
             services.TryAddSingleton<IEventCallbackServiceProvider, EventCallbackServiceProvider>();
 

@@ -27,7 +27,7 @@ public record PostDriveV1FilesByFileTokenCopyBodyDto
 {
     /// <summary>
     /// <para>复制的新文件的名称</para>
-    /// <para>**数据校验规则**：最大长度为 `256` 字符</para>
+    /// <para>**数据校验规则**：最大长度为 `256` 字节</para>
     /// <para>必填：是</para>
     /// <para>示例值：Demo copy</para>
     /// </summary>

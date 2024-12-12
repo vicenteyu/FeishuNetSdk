@@ -17,6 +17,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>获取面试评价表信息列表，评价表信息包括题目描述、题目选项等。可用于面试评价表展示等场景。</para>
 /// <para>## 注意事项</para>
 /// <para>- 面试评价表通过版本进行变更管理，每次修改评价表都会更新版本，同时变更评价表ID、模块ID、模块维度ID、选项ID、能力项ID。</para>
+/// <para>- 当使用分页方式获取数据时，仅能获取到最新版本的面试评价表，当指定面试评价表 ID 列表时，可以获取到历史版本面评评价表。</para>
 /// <para>## 面试评价表产品示意图</para>
 /// <para>接口ID：7356428725080342530</para>
 /// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list</para>

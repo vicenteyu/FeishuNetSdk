@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-22
+// Last Modified On : 2024-12-12
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -18956,6 +18956,96 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] bool? ignore_working_hours_type_rule = false);
 
     /// <summary>
+    /// <para>【招聘】获取面试评价详细信息（新版）</para>
+    /// <para>接口ID：7356428725080358914</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/interview_record/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取面试评价详细信息，如面试结论、面试得分和面试官等信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:interview</item>
+    /// <item>hire:interview:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="interview_record_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>面试评价 ID，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口获取</para>
+    /// <para>示例值：7171693733661327361</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/hire/v2/interview_records/{interview_record_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV2InterviewRecordsByInterviewRecordIdResponseDto>> GetHireV2InterviewRecordsByInterviewRecordIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string interview_record_id,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【招聘】批量获取面试评价详细信息（新版）</para>
+    /// <para>接口ID：7356428725080375298</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/interview_record/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>批量获取面试评价详细信息，如面试结论、面试得分和面试官等信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:interview</item>
+    /// <item>hire:interview:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="ids">
+    /// <para>必填：否</para>
+    /// <para>面试评价 ID 列表，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口获取，使用该筛选项时不会分页</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>**注意**：若不传该参数，则默认根据 `ids` 参数获取数据</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/hire/v2/interview_records")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV2InterviewRecordsResponseDto>> GetHireV2InterviewRecordsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string[]? ids = null,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
     /// <para>【智能伙伴创建平台】获取智能伙伴消息</para>
     /// <para>接口ID：7358047310868152324</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session-aily_message/get</para>
@@ -20080,5 +20170,109 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int member_clock_type,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【考勤打卡】创建或修改临时排班</para>
+    /// <para>接口ID：7446612629576892419</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/batch_create_temp</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>可在排班表上创建或修改临时班次，并用于排班。目前支持按日期对一位或多位人员进行排临时班次。</para>
+    /// <para>临时排班为付费功能，如需使用请联系您的客户经理。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>attendance:rule</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_type">
+    /// <para>必填：是</para>
+    /// <para>请求体和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
+    /// <para>示例值：employee_id</para>
+    /// <list type="bullet">
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
+    /// </list>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/attendance/v1/user_daily_shifts/batch_create_temp")]
+    System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserDailyShiftsBatchCreateTempResponseDto>> PostAttendanceV1UserDailyShiftsBatchCreateTempAsync(
+        UserAccessToken access_token,
+        [PathQuery] string employee_type,
+        [JsonContent] Attendance.PostAttendanceV1UserDailyShiftsBatchCreateTempBodyDto dto);
+
+    /// <summary>
+    /// <para>【多维表格】列出自动化流程</para>
+    /// <para>接口ID：7447033368182571009</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-workflow/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于列出多维表格的自动化流程。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>bitable:app</item>
+    /// <item>bitable:app:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
+    /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：20</para>
+    /// </param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/bitable/v1/apps/{app_token}/workflows")]
+    System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenWorkflowsResponseDto>> GetBitableV1AppsByAppTokenWorkflowsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_token,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 20);
+
+    /// <summary>
+    /// <para>【多维表格】更新自动化流程状态</para>
+    /// <para>接口ID：7447033368182587393</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-workflow/update</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>开启或关闭自动化流程。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>bitable:app</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
+    /// <para>示例值：appbcbWCzen6D8dezh</para>
+    /// </param>
+    /// <param name="workflow_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>自动化工作流 ID，通过[列出自动化流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-workflow/list)接口获取。</para>
+    /// <para>示例值：730887xxxx552638996</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPut("/open-apis/bitable/v1/apps/{app_token}/workflows/{workflow_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PutBitableV1AppsByAppTokenWorkflowsByWorkflowIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_token,
+        [PathQuery] string workflow_id,
+        [JsonContent] Base.PutBitableV1AppsByAppTokenWorkflowsByWorkflowIdBodyDto dto);
 }
 
