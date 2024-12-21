@@ -82,7 +82,7 @@ public record CorehrProcessNodeUpdatedV2EventBodyDto() : EventBodyDto("corehr.pr
     public int? NodeStatus { get; set; }
 
     /// <summary>
-    /// <para>业务类型，详情请查看[业务类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-approver/events/biz-type)</para>
+    /// <para>业务类型，详情请查看[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/process-form_variable_data/access-guide)</para>
     /// <para>**数据校验规则**：</para>
     /// <para>- 长度范围：`1` ～ `200` 字符</para>
     /// <para>必填：否</para>

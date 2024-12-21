@@ -39,7 +39,7 @@ public record PostCorehrV1AuthorizationsAddRoleAssignBodyDto
     /// <para>- ==org_codes==：组织编码。组织 ID 和组织编码只需要填写一个</para>
     /// <para>必填：是</para>
     /// <para>示例值：67489937334909845</para>
-    /// <para>最大长度：100</para>
+    /// <para>最大长度：300</para>
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("assigned_organization_items")]

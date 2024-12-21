@@ -49,7 +49,9 @@ public record PatchImV1ChatsByChatIdMenuItemsByMenuItemIdBodyDto
     {
         /// <summary>
         /// <para>菜单类型</para>
-        /// <para>**注意**：如果一级菜单有二级菜单，则此一级菜单的值必须为 `NONE`。</para>
+        /// <para>**注意**：</para>
+        /// <para>- 如果一级菜单有二级菜单，则此一级菜单的值必须为 `NONE`。</para>
+        /// <para>- 菜单类型创建后不可更改。</para>
         /// <para>必填：否</para>
         /// <para>示例值：NONE</para>
         /// <para>可选值：<list type="bullet">

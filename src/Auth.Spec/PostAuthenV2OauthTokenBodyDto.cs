@@ -74,7 +74,7 @@ public record PostAuthenV2OauthTokenBodyDto
     public string? CodeVerifier { get; set; }
 
     /// <summary>
-    /// <para>用于缩减 `user_access_token` 的权限范围。如果未指定，生成的 `user_access_token` 将包含用户授权时的所有权限。请务必注意该列表中不得包含重复项以及未授权项。</para>
+    /// <para>用于缩减 `user_access_token` 的权限范围。如果未指定，生成的 `user_access_token` 将包含用户授权时的所有权限。请务必注意该列表中不得包含重复项（错误码 20067）以及未授权项（错误码 20068）。</para>
     /// <para>**格式要求：** 以空格分隔的 `scope` 列表</para>
     /// <para>**示例值：**`auth:user.id:read task:task:read`</para>
     /// <para>必填：否</para>

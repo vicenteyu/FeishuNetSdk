@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-27
+// Last Modified On : 2024-12-21
 // ************************************************************************
 // <copyright file="PostCorehrV2DepartmentsSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -311,6 +311,70 @@ public record PostCorehrV2DepartmentsSearchResponseDto
         /// </summary>
         [JsonPropertyName("cost_center_id")]
         public string? CostCenterId { get; set; }
+
+        /// <summary>
+        /// <para>创建时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2020-05-01 00:00:00</para>
+        /// </summary>
+        [JsonPropertyName("created_time")]
+        public string? CreatedTime { get; set; }
+
+        /// <summary>
+        /// <para>更新时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2020-05-02 00:00:00</para>
+        /// </summary>
+        [JsonPropertyName("updated_time")]
+        public string? UpdatedTime { get; set; }
+
+        /// <summary>
+        /// <para>创建人</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6893013238632416777</para>
+        /// </summary>
+        [JsonPropertyName("created_by")]
+        public string? CreatedBy { get; set; }
+
+        /// <summary>
+        /// <para>更新人</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6893013238632416777</para>
+        /// </summary>
+        [JsonPropertyName("updated_by")]
+        public string? UpdatedBy { get; set; }
+
+        /// <summary>
+        /// <para>记录创建时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2020-05-01 00:00:00</para>
+        /// </summary>
+        [JsonPropertyName("record_created_time")]
+        public string? RecordCreatedTime { get; set; }
+
+        /// <summary>
+        /// <para>记录更新时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2020-05-02 00:00:00</para>
+        /// </summary>
+        [JsonPropertyName("record_updated_time")]
+        public string? RecordUpdatedTime { get; set; }
+
+        /// <summary>
+        /// <para>记录创建人</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6893013238632416777</para>
+        /// </summary>
+        [JsonPropertyName("record_created_by")]
+        public string? RecordCreatedBy { get; set; }
+
+        /// <summary>
+        /// <para>记录更新人</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6893013238632416777</para>
+        /// </summary>
+        [JsonPropertyName("record_updated_by")]
+        public string? RecordUpdatedBy { get; set; }
     }
 
     /// <summary>

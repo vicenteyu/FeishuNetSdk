@@ -9,11 +9,11 @@
 // <copyright file="PostCorehrV1JobChangesResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>发起员工异动 响应体</summary>
+// <summary>发起员工异动(不推荐) 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
-/// 发起员工异动 响应体
+/// 发起员工异动(不推荐) 响应体
 /// <para>该接口用于发起员工异动（变更员工雇佣信息），若发起成功，会生成一条员工的异动数据，同时产生相应的事件：[异动状态变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_change/events/updated)</para>
 /// <para>接口ID：7088940762189545473</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job_change/create</para>
@@ -117,7 +117,7 @@ public record PostCorehrV1JobChangesResponseDto
         public string? Remark { get; set; }
 
         /// <summary>
-        /// <para>offer信息</para>
+        /// <para>offer信息（数据仅会存储到系统，不支持页面上显示）</para>
         /// <para>必填：否</para>
         /// <para>示例值：优质人才，加急处理</para>
         /// </summary>

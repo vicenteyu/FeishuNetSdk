@@ -4,7 +4,7 @@
 // Created          : 2024-11-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-22
+// Last Modified On : 2024-12-21
 // ************************************************************************
 // <copyright file="PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIdsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -73,6 +73,23 @@ public record PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIdsRespon
         /// </summary>
         [JsonPropertyName("department_change_type")]
         public string? DepartmentChangeType { get; set; }
+
+        /// <summary>
+        /// <para>调整状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：0</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>0：发起审批，流程成功发起，并等待审批人审批。</item>
+        /// <item>1：审批通过。</item>
+        /// <item>2：审批被拒绝，审批未通过。</item>
+        /// <item>3：审批被撤销，用户主动撤销审批，调整会进入已撤销状态。</item>
+        /// <item>4：执行成功，调整已经执行成功。</item>
+        /// <item>5：执行失败，调整已经执行失败。</item>
+        /// <item>6：待执行，调整依赖其他流程完成，等待执行。</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("department_change_status")]
+        public int? DepartmentChangeStatus { get; set; }
 
         /// <summary>
         /// <para>调整详细信息</para>

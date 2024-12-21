@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-12-21
 // ************************************************************************
 // <copyright file="PostCorehrV1SecurityGroupsQueryBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -62,4 +62,20 @@ public record PostCorehrV1SecurityGroupsQueryBodyDto
         [JsonPropertyName("work_location_id")]
         public string? WorkLocationId { get; set; }
     }
+
+    /// <summary>
+    /// <para>授权时间大于</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：1729773628</para>
+    /// </summary>
+    [JsonPropertyName("updated_at_gte")]
+    public string? UpdatedAtGte { get; set; }
+
+    /// <summary>
+    /// <para>授权时间小于</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：1729773628</para>
+    /// </summary>
+    [JsonPropertyName("updated_at_lte")]
+    public string? UpdatedAtLte { get; set; }
 }

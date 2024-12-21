@@ -49,10 +49,12 @@ public interface IFeishuAppApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Auth.Spec.PostJssdkTicketGetResponseDto>> PostJssdkTicketGetAsync();
 
     /// <summary>
-    /// <para>【身份验证】刷新 user_access_token</para>
+    /// <para>【身份验证】刷新 user_access_token（v1 版本）</para>
     /// <para>接口ID：7180265937329520644</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/refresh_access_token/create</para>
     /// <para>Authorization：app_access_token</para>
+    /// <para>本接口已成为历史版本，不再维护更新，不推荐使用。请使用最新版本：[刷新 user_access_token](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token)</para>
+    /// <para>。</para>
     /// <para>user_access_token 的最大有效期是 2小时左右。当 user_access_token 过期时，可以调用本接口获取新的 user_access_token。</para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.email:readonly</item>
@@ -68,10 +70,12 @@ public interface IFeishuAppApi : IHttpApi
         [JsonContent] Auth.PostAuthenV1RefreshAccessTokenBodyDto dto);
 
     /// <summary>
-    /// <para>【身份验证】获取 user_access_token</para>
+    /// <para>【身份验证】获取 user_access_token（v1 版本）</para>
     /// <para>接口ID：7180265937329553412</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/access_token/create</para>
     /// <para>Authorization：app_access_token</para>
+    /// <para>本接口已成为历史版本，不再维护更新，不推荐使用。请使用最新版本：[获取 user_access_token ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token)</para>
+    /// <para>。</para>
     /// <para>根据[登录预授权码](https://open.feishu.cn/document/ukTMukTMukTM/ukzN4UjL5cDO14SO3gTN) code 获取 `user_access_token`。</para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.email:readonly</item>

@@ -330,6 +330,7 @@ public record PostContactV3UsersBodyDto
 
             /// <summary>
             /// <para>自定义字段类型为 HREF 时，该参数必填，用于定义默认 URL。例如，手机端跳转小程序，PC端跳转网页。</para>
+            /// <para>**注意**：请以 http:// 或 https:// 开头。</para>
             /// <para>必填：否</para>
             /// <para>示例值：http://www.fs.cn</para>
             /// </summary>
@@ -338,6 +339,7 @@ public record PostContactV3UsersBodyDto
 
             /// <summary>
             /// <para>自定义字段类型为 HREF 时，该参数用于定义 PC 端 URL。</para>
+            /// <para>**注意**：请以 http:// 或 https:// 开头。</para>
             /// <para>必填：否</para>
             /// <para>示例值：http://www.fs.cn</para>
             /// </summary>

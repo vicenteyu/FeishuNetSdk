@@ -16,7 +16,8 @@ namespace FeishuNetSdk.Hire;
 /// 创建 Offer 响应体
 /// <para>传入 Offer 基本信息，创建 Offer。</para>
 /// <para>## 注意事项</para>
-/// <para>创建 Offer 时，需传入本文档中标注为必传的参数，其余参数是否必传参考[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)的参数定义或在「飞书招聘-设置-offer设置-offer申请表设置」中进行查看。</para>
+/// <para>- 创建 Offer 时，需传入本文档中标注为必传的参数，其余参数是否必传参考[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)的参数定义或在「飞书招聘」-「设置」-「Offer 设置」-「Offer 申请表设置」中进行查看。</para>
+/// <para>- 若客户购买了飞书人事，且「飞书招聘」-「设置」-「Offer 设置」-「Offer 审批设置」中「Offer 薪酬信息来源」配置为“飞书人事「企业版」基础薪酬设置”，该接口将无法创建薪酬信息。</para>
 /// <para>接口ID：7085174536488697857</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/offer/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2foffer%2fcreate</para>

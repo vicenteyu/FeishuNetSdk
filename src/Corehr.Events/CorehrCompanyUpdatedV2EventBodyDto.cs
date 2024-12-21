@@ -4,7 +4,7 @@
 // Created          : 2024-10-12
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-10-12
+// Last Modified On : 2024-12-21
 // ************************************************************************
 // <copyright file="CorehrCompanyUpdatedV2EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -43,7 +43,7 @@ public record CorehrCompanyUpdatedV2EventBodyDto() : EventBodyDto("corehr.compan
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("sub_events")]
-    public OrganizationDomainEventData? SubEvents { get; set; }
+    public OrganizationDomainEventData[]? SubEvents { get; set; }
 
     /// <summary>
     /// 

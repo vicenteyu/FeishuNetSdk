@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-01
+// Last Modified On : 2024-12-21
 // ************************************************************************
 // <copyright file="CorehrJobChangeUpdatedV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,8 @@
 namespace FeishuNetSdk.FeishuPeople.Events;
 /// <summary>
 /// 异动状态变更（不推荐） 事件体
-/// <para>在异动审批状态变更、异动生效时都会触发该事件，审批结果产生的场景包括撤销、审批通过、审批拒绝。本事件没有数据范围鉴权，不再推荐使用，请使用[异动状态变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/events/status_updated)。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v1&amp;resource=job_change&amp;event=updated)</para>
+/// <para>在异动审批状态变更、异动生效时都会触发该事件，审批结果产生的场景包括撤销、审批通过、审批拒绝。本事件没有数据范围鉴权。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v1&amp;resource=job_change&amp;event=updated)</para>
+/// <para>本事件不再推荐使用，请使用新版本[异动状态变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/events/status_updated)</para>
 /// <para>接口ID：7090883627596955650</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job_change/updated</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_change%2fevents%2fupdated</para>

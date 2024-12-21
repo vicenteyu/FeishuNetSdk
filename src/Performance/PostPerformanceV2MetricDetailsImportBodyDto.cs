@@ -61,7 +61,7 @@ public record PostPerformanceV2MetricDetailsImportBodyDto
         public string RevieweeUserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>指标 ID，可通过[获取被评估人关键指标结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_lib/query)接口获取</para>
+        /// <para>指标 ID，可通过[获取指标列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_lib/query)接口获取</para>
         /// <para>必填：是</para>
         /// <para>示例值：7272580325522276372</para>
         /// </summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-12-21
 // ************************************************************************
 // <copyright file="GetAdminV1AdminDeptStatsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -384,5 +384,13 @@ public record GetAdminV1AdminDeptStatsResponseDto
         /// </summary>
         [JsonPropertyName("tab_search_count")]
         public string? TabSearchCount { get; set; }
+
+        /// <summary>
+        /// <para>产品版本名称</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：全部产品版本</para>
+        /// </summary>
+        [JsonPropertyName("product_version")]
+        public string? ProductVersion { get; set; }
     }
 }

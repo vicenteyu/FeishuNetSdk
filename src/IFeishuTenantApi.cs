@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-12
+// Last Modified On : 2024-12-21
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -5310,13 +5310,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="start_time">
     /// <para>必填：否</para>
-    /// <para>查询开始时间（创建时间 &gt;= 此时间）</para>
+    /// <para>查询开始时间（入职时间 &gt;= 此时间）</para>
     /// <para>示例值：1608690517811</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：否</para>
-    /// <para>查询结束时间（创建时间 &lt;= 此时间）</para>
+    /// <para>查询结束时间（入职时间 &lt;= 此时间）</para>
     /// <para>示例值：1608690517811</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -7689,6 +7689,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：cn</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="with_product_version">
+    /// <para>必填：否</para>
+    /// <para>是否返回分产品版本数据（灰度功能，如需使用请联系 CMS 团队）</para>
+    /// <para>示例值：true(默认是false)</para>
+    /// <para>默认值：null</para>
+    /// </param>
     [HttpGet("/open-apis/admin/v1/admin_dept_stats")]
     System.Threading.Tasks.Task<FeishuResponse<Admin.GetAdminV1AdminDeptStatsResponseDto>> GetAdminV1AdminDeptStatsAsync(
         [PathQuery] string start_date,
@@ -7698,7 +7704,8 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string department_id_type = "open_department_id",
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? target_geo = null);
+        [PathQuery] string? target_geo = null,
+        [PathQuery] bool? with_product_version = null);
 
     /// <summary>
     /// <para>【邮箱】创建公共邮箱</para>
@@ -23328,7 +23335,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>传入 Offer 基本信息，创建 Offer。</para>
     /// <para>## 注意事项</para>
-    /// <para>创建 Offer 时，需传入本文档中标注为必传的参数，其余参数是否必传参考[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)的参数定义或在「飞书招聘-设置-offer设置-offer申请表设置」中进行查看。</para>
+    /// <para>- 创建 Offer 时，需传入本文档中标注为必传的参数，其余参数是否必传参考[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)的参数定义或在「飞书招聘」-「设置」-「Offer 设置」-「Offer 申请表设置」中进行查看。</para>
+    /// <para>- 若客户购买了飞书人事，且「飞书招聘」-「设置」-「Offer 设置」-「Offer 审批设置」中「Offer 薪酬信息来源」配置为“飞书人事「企业版」基础薪酬设置”，该接口将无法创建薪酬信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:offer</item>
     /// </list></para>
@@ -23653,7 +23661,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int page_size = 10);
 
     /// <summary>
-    /// <para>【飞书人事】发起员工异动</para>
+    /// <para>【飞书人事】发起员工异动(不推荐)</para>
     /// <para>接口ID：7088940762189545473</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_change/create</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -25663,6 +25671,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <list type="bullet">
     /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
     /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
+    /// <item>open_id：用户在某个应用中的身份，可以参考[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -32615,7 +32624,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7211423970042167300</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口会按照应用拥有的「员工数据」的权限范围返回数据，请确定在「开发者后台 - 权限管理 - 数据权限」中有申请「员工资源」权限范围</para>
+    /// <para>查询员工的工作信息、个人信息等数据</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:employee:read</item>
     /// <item>corehr:employee:write</item>
@@ -32624,9 +32633,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>contact:user.employee_id:readonly</item>
     /// <item>corehr:contract.period:read</item>
     /// <item>corehr:contract.period:write</item>
+    /// <item>corehr:employee.all_bp:read</item>
+    /// <item>corehr:employee.bp:read</item>
+    /// <item>corehr:employment.archive_cpst_plan:read</item>
     /// <item>corehr:employment.assignment_pay_group:read</item>
     /// <item>corehr:employment.assignment:read</item>
+    /// <item>corehr:employment.attendance_group:read</item>
+    /// <item>corehr:employment.contract_type:read</item>
     /// <item>corehr:employment.custom_field:read</item>
+    /// <item>corehr:employment.custom_org_field:read</item>
+    /// <item>corehr:employment.custom_org_field:write</item>
     /// <item>corehr:employment.job_grade:read</item>
     /// <item>corehr:employment.job_grade:write</item>
     /// <item>corehr:employment.job_level:read</item>
@@ -32636,6 +32652,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:employment.pay_group:read</item>
     /// <item>corehr:employment.position:read</item>
     /// <item>corehr:employment.position:write</item>
+    /// <item>corehr:employment.seniority_adjust_information:read</item>
+    /// <item>corehr:employment.seniority_adjust_information:write</item>
     /// <item>corehr:job_data.compensation_type:read</item>
     /// <item>corehr:job_data.service_company:read</item>
     /// <item>corehr:job_data.work_shift:read</item>
@@ -35425,7 +35443,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7252969409509490692</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过员工 ID 批量查询员工信息。</para>
+    /// <para>通过员工 ID 、个人信息 ID、工作邮箱等筛选项批量查询员工的工作信息、个人信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:employee:read</item>
     /// <item>corehr:employee:write</item>
@@ -35434,9 +35452,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>contact:user.employee_id:readonly</item>
     /// <item>corehr:contract.period:read</item>
     /// <item>corehr:contract.period:write</item>
+    /// <item>corehr:employee.all_bp:read</item>
+    /// <item>corehr:employee.bp:read</item>
+    /// <item>corehr:employment.archive_cpst_plan:read</item>
     /// <item>corehr:employment.assignment_pay_group:read</item>
     /// <item>corehr:employment.assignment:read</item>
+    /// <item>corehr:employment.attendance_group:read</item>
+    /// <item>corehr:employment.contract_type:read</item>
     /// <item>corehr:employment.custom_field:read</item>
+    /// <item>corehr:employment.custom_org_field:read</item>
+    /// <item>corehr:employment.custom_org_field:write</item>
     /// <item>corehr:employment.job_grade:read</item>
     /// <item>corehr:employment.job_grade:write</item>
     /// <item>corehr:employment.job_level:read</item>
@@ -35446,6 +35471,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:employment.pay_group:read</item>
     /// <item>corehr:employment.position:read</item>
     /// <item>corehr:employment.position:write</item>
+    /// <item>corehr:employment.seniority_adjust_information:read</item>
+    /// <item>corehr:employment.seniority_adjust_information:write</item>
     /// <item>corehr:job_data.compensation_type:read</item>
     /// <item>corehr:job_data.service_company:read</item>
     /// <item>corehr:job_data.work_shift:read</item>
@@ -38199,6 +38226,70 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
+    /// <para>【云文档】获取云文档的点赞者列表</para>
+    /// <para>接口ID：7270815553257619457</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uIzNzUjLyczM14iM3MTN/drive-v2/file-like/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定云文档的点赞者列表并按点赞时间由近到远分页返回。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>drive:file.like:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:contact:access_as_app</item>
+    /// <item>contact:contact:readonly</item>
+    /// <item>contact:contact:readonly_as_app</item>
+    /// <item>contact:user.base:readonly</item>
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="file_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>需要查询点赞者列表的云文档 token。[点击了解如何获取云文档 Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
+    /// <para>示例值：J6Lddz22AovnqkxWEXBcUJabcef</para>
+    /// </param>
+    /// <param name="file_type">
+    /// <para>必填：是</para>
+    /// <para>云文档类型，如果该值为空或者与云文档实际类型不匹配，接口会返回失败。</para>
+    /// <para>示例值：doc</para>
+    /// <list type="bullet">
+    /// <item>doc：旧版文档</item>
+    /// <item>docx：新版文档</item>
+    /// <item>file：文件</item>
+    /// </list>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/drive/v2/files/{file_token}/likes")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV2FilesByFileTokenLikesResponseDto>> GetDriveV2FilesByFileTokenLikesAsync(
+        [PathQuery] string file_token,
+        [PathQuery] string file_type,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
     /// <para>【AI 能力】识别文件中的台湾居民来往大陆通行证</para>
     /// <para>接口ID：7273083612789571587</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/tw_mainland_travel_permit/recognize</para>
@@ -39164,14 +39255,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>任务查询开始时间，闭区间</para>
     /// <para>单位：ms。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的毫秒数</para>
-    /// <para>注意：开始时间和结束时间跨度不能超过 31 天</para>
+    /// <para>注意：开始时间和结束时间跨度要小于 31 天</para>
     /// <para>示例值：1547654251506</para>
     /// </param>
     /// <param name="modify_time_to">
     /// <para>必填：是</para>
     /// <para>任务查询结束时间，闭区间</para>
     /// <para>单位：ms。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的毫秒数</para>
-    /// <para>注意：开始时间和结束时间跨度不能超过 31 天</para>
+    /// <para>注意：开始时间和结束时间跨度要小于 31 天</para>
     /// <para>示例值：1547654251506</para>
     /// </param>
     /// <param name="flow_definition_id">
@@ -42629,13 +42720,27 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：people_corehr_id</para>
     /// </param>
+    /// <param name="updated_at_gte">
+    /// <para>必填：否</para>
+    /// <para>授权时间大于</para>
+    /// <para>示例值：1729773628</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="updated_at_lte">
+    /// <para>必填：否</para>
+    /// <para>授权时间小于</para>
+    /// <para>示例值：1729773628</para>
+    /// <para>默认值：null</para>
+    /// </param>
     [HttpGet("/open-apis/corehr/v1/authorizations/query")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1AuthorizationsQueryResponseDto>> GetCorehrV1AuthorizationsQueryAsync(
         [PathQuery] string[]? employment_id_list = null,
         [PathQuery] string[]? role_id_list = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? user_id_type = "people_corehr_id");
+        [PathQuery] string? user_id_type = "people_corehr_id",
+        [PathQuery] string? updated_at_gte = null,
+        [PathQuery] string? updated_at_lte = null);
 
     /// <summary>
     /// <para>【飞书人事】查询单个用户授权</para>
@@ -43892,6 +43997,33 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetWikiV2SpacesBySpaceIdMembersResponseDto>> GetWikiV2SpacesBySpaceIdMembersAsync(
         [PathQuery] string space_id,
         [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【Payroll】批量查询算薪项</para>
+    /// <para>接口ID：7387360801748402177</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/acct_item/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>批量查询算薪项</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>payroll:payroll_calculation_item:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：50</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：7169773973790425132</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/payroll/v1/acct_items")]
+    System.Threading.Tasks.Task<FeishuResponse<Payroll.GetPayrollV1AcctItemsResponseDto>> GetPayrollV1AcctItemsAsync(
+        [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null);
 
     /// <summary>
@@ -46040,6 +46172,160 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】加签审批任务</para>
+    /// <para>接口ID：7431073872102866972</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-extra/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>给单个流程中的节点或审批任务加签，加签方式有前加签、并加签、后加签三种。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:process.instance:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="process_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>流程实例id，是一个流程的唯一标识。</para>
+    /// <para>可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口返回的 process_ids 字段获取</para>
+    /// <para>示例值：7410664363763172908</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPut("/open-apis/corehr/v2/processes/{process_id}/extra")]
+    System.Threading.Tasks.Task<FeishuResponse> PutCorehrV2ProcessesByProcessIdExtraAsync(
+        [PathQuery] string process_id,
+        [JsonContent] Corehr.PutCorehrV2ProcessesByProcessIdExtraBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】转交审批任务</para>
+    /// <para>接口ID：7431073872102883356</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-transfer/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>对于单个审批任务进行转交操作。转交后审批流程流转给被转交人。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:process.instance:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="process_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>流程实例id，是一个流程的唯一标识。</para>
+    /// <para>可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口返回的 process_ids 字段获取</para>
+    /// <para>示例值：7410664363763172908</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPut("/open-apis/corehr/v2/processes/{process_id}/transfer")]
+    System.Threading.Tasks.Task<FeishuResponse> PutCorehrV2ProcessesByProcessIdTransferAsync(
+        [PathQuery] string process_id,
+        [JsonContent] Corehr.PutCorehrV2ProcessesByProcessIdTransferBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】撤回流程</para>
+    /// <para>接口ID：7431231062508126209</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process_withdraw/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>对状态为“审批中”的单个审批实例进行撤回操作，撤回后审批流程结束</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:process.instance:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="process_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>流程实例ID。可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口获取</para>
+    /// <para>示例值：7328345170959681068</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：people corehr系统的用户id</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPut("/open-apis/corehr/v2/process_withdraw/{process_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PutCorehrV2ProcessWithdrawByProcessIdAsync(
+        [PathQuery] string process_id,
+        [JsonContent] Corehr.PutCorehrV2ProcessWithdrawByProcessIdBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】撤销流程</para>
+    /// <para>接口ID：7431231062508142593</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process_revoke/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>撤销单个流程，状态为已完成的流程能够进行撤销，使用时需指定操作人，目前支持流程管理员和审批单管理员。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:process.instance:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="process_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>流程实例 ID。可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口获取</para>
+    /// <para>示例值：7328345170959681068</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：people corehr系统的用户id</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPut("/open-apis/corehr/v2/process_revoke/{process_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PutCorehrV2ProcessRevokeByProcessIdAsync(
+        [PathQuery] string process_id,
+        [JsonContent] Corehr.PutCorehrV2ProcessRevokeByProcessIdBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
     /// <para>【云文档】获取云文档内容</para>
     /// <para>接口ID：7437110392792858625</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs-v1/content/get</para>
@@ -46317,6 +46603,153 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Corehr.PostCorehrV2WorkforcePlanDetailRowBatchSaveBodyDto dto);
 
     /// <summary>
+    /// <para>【飞书低代码平台】查询人工任务</para>
+    /// <para>接口ID：7446337145820315652</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询人工任务列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:approval:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/user_task/query")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1UserTaskQueryResponseDto>> PostApaasV1UserTaskQueryAsync(
+        [JsonContent] AppEngine.PostApaasV1UserTaskQueryBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】抄送人工任务</para>
+    /// <para>接口ID：7446337145820332036</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/cc</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>对当前的任务进行一次抄送</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:approval:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="task_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>任务ID，可以通过[查询人工任务](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query)获取</para>
+    /// <para>示例值：1234</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/user_tasks/{task_id}/cc")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApaasV1UserTasksByTaskIdCcAsync(
+        [PathQuery] string task_id,
+        [JsonContent] AppEngine.PostApaasV1UserTasksByTaskIdCcBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】催办人工任务</para>
+    /// <para>接口ID：7446337145820348420</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/expediting</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>对任务当前的处理人发起一次催办</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:approval:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="task_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>任务ID，可以通过[查询人工任务](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query)获取</para>
+    /// <para>示例值：1234</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/user_tasks/{task_id}/expediting")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApaasV1UserTasksByTaskIdExpeditingAsync(
+        [PathQuery] string task_id,
+        [JsonContent] AppEngine.PostApaasV1UserTasksByTaskIdExpeditingBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】撤销人工任务</para>
+    /// <para>接口ID：7446337145820364804</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/approval_instance/cancel</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>撤销一个人工任务（包括审批任务，填写任务）</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:approval:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="approval_instance_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>审批实例，可以通过[查询人工任务](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query)获取</para>
+    /// <para>示例值：1788173550023689</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/approval_instances/{approval_instance_id}/cancel")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApaasV1ApprovalInstancesByApprovalInstanceIdCancelAsync(
+        [PathQuery] string approval_instance_id,
+        [JsonContent] AppEngine.PostApaasV1ApprovalInstancesByApprovalInstanceIdCancelBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】查询人工任务可退回的位置</para>
+    /// <para>接口ID：7446337145820381188</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/rollback_points</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询当前任务可以退回的位置</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:approval:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="task_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>任务ID，可以通过[查询人工任务](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query)获取</para>
+    /// <para>示例值：1234</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/user_tasks/{task_id}/rollback_points")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1UserTasksByTaskIdRollbackPointsResponseDto>> PostApaasV1UserTasksByTaskIdRollbackPointsAsync(
+        [PathQuery] string task_id,
+        [JsonContent] AppEngine.PostApaasV1UserTasksByTaskIdRollbackPointsBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】退回人工任务</para>
+    /// <para>接口ID：7446337145820397572</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/rollback</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>对当前任务进行一次退回</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:approval:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="task_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>任务ID，可以通过[查询人工任务](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query)获取</para>
+    /// <para>示例值：1234</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/user_tasks/{task_id}/rollback")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApaasV1UserTasksByTaskIdRollbackAsync(
+        [PathQuery] string task_id,
+        [JsonContent] AppEngine.PostApaasV1UserTasksByTaskIdRollbackBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书低代码平台】基于人工任务发起群聊</para>
+    /// <para>接口ID：7446337145820413956</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/chat_group</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>基于任务，发起一个飞书群聊</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:approval:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="task_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>任务ID，可以通过[查询人工任务](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query)获取</para>
+    /// <para>示例值：1234</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/apaas/v1/user_tasks/{task_id}/chat_group")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1UserTasksByTaskIdChatGroupResponseDto>> PostApaasV1UserTasksByTaskIdChatGroupAsync(
+        [PathQuery] string task_id,
+        [JsonContent] AppEngine.PostApaasV1UserTasksByTaskIdChatGroupBodyDto dto);
+
+    /// <summary>
     /// <para>【考勤打卡】创建或修改临时排班</para>
     /// <para>接口ID：7446612629576892419</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/batch_create_temp</para>
@@ -46413,5 +46846,500 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string workflow_id,
         [JsonContent] Base.PutBitableV1AppsByAppTokenWorkflowsByWorkflowIdBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】撤销异动</para>
+    /// <para>接口ID：7449328616456585235</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/revoke</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口用于撤销员工异动，若发起成功，会撤销一条已发起、待生效或已生效的异动数据，同时产生相应的事件：[异动状态变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_change/events/updated)。该接口无法撤销批量发起的多人异动。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:corehr</item>
+    /// <item>corehr:job_change:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="job_change_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>异动id，[【搜索异动信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/search) 获取ID</para>
+    /// <para>示例值：7402156992338658860</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/job_changes/{job_change_id}/revoke")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2JobChangesByJobChangeIdRevokeAsync(
+        [PathQuery] string job_change_id,
+        [JsonContent] Corehr.PostCorehrV2JobChangesByJobChangeIdRevokeBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】发起员工异动</para>
+    /// <para>接口ID：7449328616456601619</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口用于发起员工异动（变更员工雇佣信息），若发起成功，会生成一条员工的异动数据</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:job_change:create</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:contract.company:read</item>
+    /// <item>corehr:contract.company:write</item>
+    /// <item>corehr:contract.period:read</item>
+    /// <item>corehr:contract.period:write</item>
+    /// <item>corehr:employment.job_grade:read</item>
+    /// <item>corehr:employment.job_grade:write</item>
+    /// <item>corehr:employment.job_level:read</item>
+    /// <item>corehr:employment.job_level:write</item>
+    /// <item>corehr:employment.job:read</item>
+    /// <item>corehr:job_change.custom_field:read</item>
+    /// <item>corehr:job_change.employment_custom_field:read</item>
+    /// <item>corehr:job_change.is_adjust_salary:read</item>
+    /// <item>corehr:job_change.remark:read</item>
+    /// <item>corehr:job_change.social_security_city:read</item>
+    /// <item>corehr:job_data.compensation_type:read</item>
+    /// <item>corehr:job_data.service_company:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：people_corehr_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：people_corehr_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/job_changes")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2JobChangesResponseDto>> PostCorehrV2JobChangesAsync(
+        [JsonContent] Corehr.PostCorehrV2JobChangesBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "people_corehr_department_id");
+
+    /// <summary>
+    /// <para>【云文档】在群公告中创建块</para>
+    /// <para>接口ID：7450053428095533084</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement-block-children/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:chat.announcement:write_only</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="chat_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>群公告对应的群 ID</para>
+    /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
+    /// </param>
+    /// <param name="block_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>Block 的唯一标识</para>
+    /// <para>示例值：doxcnO6UW6wAw2qIcYf4hZpFIth</para>
+    /// </param>
+    /// <param name="revision_id">
+    /// <para>必填：否</para>
+    /// <para>要操作的群公告版本。-1 表示群公告最新版本。群公告创建后，版本为 1。你需确保你已拥有群公告的编辑权限</para>
+    /// <para>示例值：-1</para>
+    /// <para>默认值：-1</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。</para>
+    /// <para>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的用户ID的类型</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/docx/v1/chats/{chat_id}/announcement/blocks/{block_id}/children")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenResponseDto>> PostDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenAsync(
+        [PathQuery] string chat_id,
+        [PathQuery] string block_id,
+        [JsonContent] Ccm.PostDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenBodyDto dto,
+        [PathQuery] int? revision_id = -1,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【云文档】批量更新群公告块的内容</para>
+    /// <para>接口ID：7450053428095549468</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement-block/batch_update</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:chat.announcement:write_only</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="chat_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>群公告对应的群 ID</para>
+    /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
+    /// </param>
+    /// <param name="revision_id">
+    /// <para>必填：否</para>
+    /// <para>要操作的群公告版本。-1 表示群公告最新版本。群公告创建后，版本为 1。你需确保你已拥有群公告的编辑权限。</para>
+    /// <para>示例值：-1</para>
+    /// <para>默认值：-1</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。</para>
+    /// <para>示例值：0e2633a3-aa1a-4171-af9e-0768ff863566</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的用户ID的类型</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/docx/v1/chats/{chat_id}/announcement/blocks/batch_update")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchDocxV1ChatsByChatIdAnnouncementBlocksBatchUpdateResponseDto>> PatchDocxV1ChatsByChatIdAnnouncementBlocksBatchUpdateAsync(
+        [PathQuery] string chat_id,
+        [JsonContent] Ccm.PatchDocxV1ChatsByChatIdAnnouncementBlocksBatchUpdateBodyDto dto,
+        [PathQuery] int? revision_id = -1,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【云文档】获取群公告块的内容</para>
+    /// <para>接口ID：7450053428095565852</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement-block/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:chat.announcement:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="chat_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>群公告对应的群 ID</para>
+    /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
+    /// </param>
+    /// <param name="block_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>Block 的唯一标识</para>
+    /// <para>示例值：doxcnO6UW6wAw2qIcYf4hZabcef</para>
+    /// </param>
+    /// <param name="revision_id">
+    /// <para>必填：否</para>
+    /// <para>查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限</para>
+    /// <para>示例值：-1</para>
+    /// <para>默认值：-1</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的用户ID的类型</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/docx/v1/chats/{chat_id}/announcement/blocks/{block_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdResponseDto>> GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdAsync(
+        [PathQuery] string chat_id,
+        [PathQuery] string block_id,
+        [PathQuery] int? revision_id = -1,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【云文档】获取所有子块</para>
+    /// <para>接口ID：7450053428095582236</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement-block-children/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:chat.announcement:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="chat_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>群公告对应的群 ID</para>
+    /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
+    /// </param>
+    /// <param name="block_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>Block 的唯一标识</para>
+    /// <para>示例值：doxcnO6UW6wAw2qIcYf4hZpFIth</para>
+    /// </param>
+    /// <param name="revision_id">
+    /// <para>必填：否</para>
+    /// <para>查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限。</para>
+    /// <para>示例值：-1</para>
+    /// <para>默认值：-1</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：500</para>
+    /// <para>默认值：500</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/docx/v1/chats/{chat_id}/announcement/blocks/{block_id}/children")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenResponseDto>> GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenAsync(
+        [PathQuery] string chat_id,
+        [PathQuery] string block_id,
+        [PathQuery] int? revision_id = -1,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 500,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【云文档】删除群公告中的块</para>
+    /// <para>接口ID：7450053428095598620</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement-block-children/batch_delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>指定需要操作的块，删除其指定范围的子块。如果操作成功，接口将返回应用删除操作后的群公告版本号。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的用户或者机器人必须在对应的群组内。</para>
+    /// <para>- 操作内部群的群公告时，请确保当前调用身份（tenant_access_token 或 user_access_token）与对应群组在同一租户下。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:chat.announcement:write_only</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="chat_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：单聊（群类型为 `p2p`）不支持获取群公告。</para>
+    /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
+    /// </param>
+    /// <param name="block_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>父 Block 的唯一标识。你可通过调用[获取群公告所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement-block/list)接口获取块的 block_id。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 此接口不支持删除表格（Table）的行列和删除分栏（Grid）的分栏列。你需通过[批量更新块的内容](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement-block/batch_update)接口完成相关操作。</para>
+    /// <para>- 此接口不支持删除表格单元格（Table Cell）、分栏列（Grid Column）和高亮块（Callout）的全部子块。</para>
+    /// <para>示例值：doxcnO6UW6wAw2qIcYf4hZpFIth</para>
+    /// </param>
+    /// <param name="revision_id">
+    /// <para>必填：否</para>
+    /// <para>要操作的群公告版本。-1 表示群公告最新版本。群公告创建后，版本为 1。你需确保你已拥有群公告的编辑权限。你可通过调用[获取群公告基本信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement/get)获取群公告的最新 revision_id</para>
+    /// <para>示例值：-1</para>
+    /// <para>默认值：-1</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。</para>
+    /// <para>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpDelete("/open-apis/docx/v1/chats/{chat_id}/announcement/blocks/{block_id}/children/batch_delete")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.DeleteDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenBatchDeleteResponseDto>> DeleteDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenBatchDeleteAsync(
+        [PathQuery] string chat_id,
+        [PathQuery] string block_id,
+        [JsonContent] Ccm.DeleteDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenBatchDeleteBodyDto dto,
+        [PathQuery] int? revision_id = -1,
+        [PathQuery] string? client_token = null);
+
+    /// <summary>
+    /// <para>【云文档】获取群公告基本信息</para>
+    /// <para>接口ID：7450053428095615004</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定群组中的群公告基本信息。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的用户或者机器人必须在对应的群组内。</para>
+    /// <para>- 获取内部群信息时，调用当前接口的用户或者机器人必须与对应群组在同一租户下。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:chat.announcement:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="chat_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>群 ID。获取方式：</para>
+    /// <para>- [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。</para>
+    /// <para>- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。</para>
+    /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
+    /// <para>**注意**：单聊（群类型为 `p2p`）不支持获取群公告。</para>
+    /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/docx/v1/chats/{chat_id}/announcement")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1ChatsByChatIdAnnouncementResponseDto>> GetDocxV1ChatsByChatIdAnnouncementAsync(
+        [PathQuery] string chat_id,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【云文档】获取群公告所有块</para>
+    /// <para>接口ID：7450053428095631388</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement-block/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:chat.announcement:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="chat_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>群公告对应的群 ID</para>
+    /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：500</para>
+    /// <para>默认值：500</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="revision_id">
+    /// <para>必填：否</para>
+    /// <para>查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的编辑权限。</para>
+    /// <para>示例值：-1</para>
+    /// <para>默认值：-1</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的用户ID的类型</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/docx/v1/chats/{chat_id}/announcement/blocks")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1ChatsByChatIdAnnouncementBlocksResponseDto>> GetDocxV1ChatsByChatIdAnnouncementBlocksAsync(
+        [PathQuery] string chat_id,
+        [PathQuery] int? page_size = 500,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? revision_id = -1,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】撤销入职</para>
+    /// <para>接口ID：7450056310967664642</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/withdraw_onboarding</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>通过本接口对指定待入职，入职准备就绪的员工执行撤销入职操作，对应入职管理页面撤销入职按钮</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:pre_hire:withdraw_onboarding</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/pre_hires/withdraw_onboarding")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2PreHiresWithdrawOnboardingResponseDto>> PostCorehrV2PreHiresWithdrawOnboardingAsync(
+        [JsonContent] Corehr.PostCorehrV2PreHiresWithdrawOnboardingBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】恢复入职</para>
+    /// <para>接口ID：7450056310967681026</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/restore_flow_instance</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>通过本接口对指定已撤销的待入职员工执行恢复入职操作，对应入职管理页面恢复入职按钮</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:pre_hire:restore_flow_instance</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/pre_hires/restore_flow_instance")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2PreHiresRestoreFlowInstanceResponseDto>> PostCorehrV2PreHiresRestoreFlowInstanceAsync(
+        [JsonContent] Corehr.PostCorehrV2PreHiresRestoreFlowInstanceBodyDto dto);
 }
 

@@ -291,7 +291,7 @@
 <tr><td colspan="3">PostWikiV1NodesSearch</td></tr>
 <tr><td rowspan="2">146</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>获取订阅状态</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenSubscriptionsBySubscriptionId</td></tr>
-<tr><td rowspan="2">147</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>消息与群组</td><td>解散群</td></tr>
+<tr><td rowspan="2">147</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>消息与群组</td><td>解散群</td></tr>
 <tr><td colspan="3">DeleteImV1ChatsByChatId</td></tr>
 <tr><td rowspan="2">148</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>创建订阅</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenSubscriptions</td></tr>
@@ -335,7 +335,7 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdAclsUnsubscription</td></tr>
 <tr><td rowspan="2">168</td><td rowspan="2">2024-11-13</td><td>&#10003;</td><td>日历</td><td>创建日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEvents</td></tr>
-<tr><td rowspan="2">169</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>消息与群组</td><td>更新群发言权限</td></tr>
+<tr><td rowspan="2">169</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>消息与群组</td><td>更新群发言权限</td></tr>
 <tr><td colspan="3">PutImV1ChatsByChatIdModeration</td></tr>
 <tr><td rowspan="2">170</td><td rowspan="2">2024-08-06</td><td>&#10003;</td><td>日历</td><td>删除日程</td></tr>
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
@@ -357,7 +357,7 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChat</td></tr>
 <tr><td rowspan="2">179</td><td rowspan="2">2024-05-24</td><td>&#10003;</td><td>会议室</td><td>查询会议室忙闲</td></tr>
 <tr><td colspan="3">GetMeetingRoomFreebusyBatchGet</td></tr>
-<tr><td rowspan="2">180</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>消息与群组</td><td>获取群信息</td></tr>
+<tr><td rowspan="2">180</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>消息与群组</td><td>获取群信息</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatId</td></tr>
 <tr><td rowspan="2">181</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>添加日程参与人</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendees</td></tr>
@@ -379,7 +379,7 @@
 <tr><td colspan="3">PostVcV1ReservesApply</td></tr>
 <tr><td rowspan="2">190</td><td rowspan="2">2024-09-09</td><td>&#10003;</td><td>视频会议</td><td>删除预约</td></tr>
 <tr><td colspan="3">DeleteVcV1ReservesByReserveId</td></tr>
-<tr><td rowspan="2">191</td><td rowspan="2">2024-11-27</td><td>&#10003;</td><td>消息与群组</td><td>更新群置顶</td></tr>
+<tr><td rowspan="2">191</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>消息与群组</td><td>更新群置顶</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdTopNoticePutTopNotice</td></tr>
 <tr><td rowspan="2">192</td><td rowspan="2">2024-09-09</td><td>&#10003;</td><td>视频会议</td><td>更新预约</td></tr>
 <tr><td colspan="3">PutVcV1ReservesByReserveId</td></tr>
@@ -401,7 +401,7 @@
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdRecordingStart</td></tr>
 <tr><td rowspan="2">201</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>视频会议</td><td>停止录制</td></tr>
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdRecordingStop</td></tr>
-<tr><td rowspan="2">202</td><td rowspan="2">2024-11-27</td><td>&#10003;</td><td>消息与群组</td><td>撤销群置顶</td></tr>
+<tr><td rowspan="2">202</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>消息与群组</td><td>撤销群置顶</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdTopNoticeDeleteTopNotice</td></tr>
 <tr><td rowspan="2">203</td><td rowspan="2">2024-08-07</td><td>&#10003;</td><td>视频会议</td><td>获取录制文件</td></tr>
 <tr><td colspan="3">GetVcV1MeetingsByMeetingIdRecording</td></tr>
@@ -469,7 +469,7 @@
 <tr><td colspan="3">GetVcV1ReserveConfigsByReserveConfigIdAdmin</td></tr>
 <tr><td rowspan="2">235</td><td rowspan="2">2023-08-29</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>更新会议室预定管理员</td></tr>
 <tr><td colspan="3">PatchVcV1ReserveConfigsByReserveConfigIdAdmin</td></tr>
-<tr><td rowspan="2">236</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>消息与群组</td><td>获取群成员发言权限</td></tr>
+<tr><td rowspan="2">236</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>消息与群组</td><td>获取群成员发言权限</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatIdModeration</td></tr>
 <tr><td rowspan="2">237</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>查询禁用状态变更通知</td></tr>
 <tr><td colspan="3">GetVcV1ReserveConfigsByReserveConfigIdDisableInform</td></tr>
@@ -491,7 +491,7 @@
 <tr><td colspan="3">PostHelpdeskV1AgentSchedules</td></tr>
 <tr><td rowspan="2">246</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>删除客服工作日程</td></tr>
 <tr><td colspan="3">DeleteHelpdeskV1AgentsByAgentIdSchedules</td></tr>
-<tr><td rowspan="2">247</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>消息与群组</td><td>获取群分享链接</td></tr>
+<tr><td rowspan="2">247</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>消息与群组</td><td>获取群分享链接</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdLink</td></tr>
 <tr><td rowspan="2">248</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>更新客服工作日程</td></tr>
 <tr><td colspan="3">PatchHelpdeskV1AgentsByAgentIdSchedules</td></tr>
@@ -513,7 +513,7 @@
 <tr><td colspan="3">PostHelpdeskV1Faqs</td></tr>
 <tr><td rowspan="2">257</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>删除知识库</td></tr>
 <tr><td colspan="3">DeleteHelpdeskV1FaqsById</td></tr>
-<tr><td rowspan="2">258</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>消息与群组</td><td>指定群管理员</td></tr>
+<tr><td rowspan="2">258</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>消息与群组</td><td>指定群管理员</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdManagersAddManagers</td></tr>
 <tr><td rowspan="2">259</td><td rowspan="2">2024-06-27</td><td>&#10003;</td><td>服务台</td><td>修改知识库</td></tr>
 <tr><td colspan="3">PatchHelpdeskV1FaqsById</td></tr>
@@ -707,13 +707,13 @@
 <tr><td colspan="3">PostTaskV2CustomFieldsByCustomFieldGuidOptions</td></tr>
 <tr><td rowspan="2">354</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>任务</td><td>更新自定义字段选项</td></tr>
 <tr><td colspan="3">PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuid</td></tr>
-<tr><td rowspan="2">355</td><td rowspan="2">2024-10-10</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
+<tr><td rowspan="2">355</td><td rowspan="2">2024-12-16</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxes</td></tr>
 <tr><td rowspan="2">356</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>搜索</td><td>搜索消息</td></tr>
 <tr><td colspan="3">PostSearchV2Message</td></tr>
 <tr><td rowspan="2">357</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>搜索</td><td>搜索应用</td></tr>
 <tr><td colspan="3">PostSearchV2App</td></tr>
-<tr><td rowspan="2">358</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>消息与群组</td><td>添加会话标签页</td></tr>
+<tr><td rowspan="2">358</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>消息与群组</td><td>添加会话标签页</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdChatTabs</td></tr>
 <tr><td rowspan="2">359</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>OKR</td><td>获取用户的 OKR 列表</td></tr>
 <tr><td colspan="3">GetOkrV1UsersByUserIdOkrs</td></tr>
@@ -735,7 +735,7 @@
 <tr><td colspan="3">PostPerformanceV1ReviewDatasQuery</td></tr>
 <tr><td rowspan="2">368</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>创建草稿</td></tr>
 <tr><td colspan="3">PostLingoV1Drafts</td></tr>
-<tr><td rowspan="2">369</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>消息与群组</td><td>删除会话标签页</td></tr>
+<tr><td rowspan="2">369</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>消息与群组</td><td>删除会话标签页</td></tr>
 <tr><td colspan="3">DeleteImV1ChatsByChatIdChatTabsDeleteTabs</td></tr>
 <tr><td rowspan="2">370</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>更新草稿</td></tr>
 <tr><td colspan="3">PutLingoV1DraftsByDraftId</td></tr>
@@ -757,15 +757,15 @@
 <tr><td colspan="3">GetLingoV1Classifications</td></tr>
 <tr><td rowspan="2">379</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>获取词库列表</td></tr>
 <tr><td colspan="3">GetLingoV1Repos</td></tr>
-<tr><td rowspan="2">380</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>消息与群组</td><td>更新会话标签页</td></tr>
+<tr><td rowspan="2">380</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>消息与群组</td><td>更新会话标签页</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdChatTabsUpdateTabs</td></tr>
 <tr><td rowspan="2">381</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>上传图片</td></tr>
 <tr><td colspan="3">PostLingoV1FilesUpload</td></tr>
 <tr><td rowspan="2">382</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>下载图片</td></tr>
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
-<tr><td rowspan="2">383</td><td rowspan="2">2024-12-03</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">383</td><td rowspan="2">2024-12-17</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">384</td><td rowspan="2">2024-12-03</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">384</td><td rowspan="2">2024-12-17</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">385</td><td rowspan="2">2023-04-07</td><td>&#10003;</td><td>应用信息</td><td>获取用户自定义常用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV5ApplicationsFavourite</td></tr>
@@ -779,7 +779,7 @@
 <tr><td colspan="3">PostBaikeV1Entities</td></tr>
 <tr><td rowspan="2">390</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 更新免审词条</td></tr>
 <tr><td colspan="3">PutBaikeV1EntitiesByEntityId</td></tr>
-<tr><td rowspan="2">391</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>消息与群组</td><td>会话标签页排序</td></tr>
+<tr><td rowspan="2">391</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>消息与群组</td><td>会话标签页排序</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdChatTabsSortTabs</td></tr>
 <tr><td rowspan="2">392</td><td rowspan="2">2023-10-13</td><td>&#10003;</td><td>词典</td><td><span style="color:red;">[不推荐]</span> 获取词条详情</td></tr>
 <tr><td colspan="3">GetBaikeV1EntitiesByEntityId</td></tr>
@@ -1043,7 +1043,7 @@
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
 <tr><td rowspan="2">522</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
-<tr><td rowspan="2">523</td><td rowspan="2">2024-12-09</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
+<tr><td rowspan="2">523</td><td rowspan="2">2024-12-16</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesSend</td></tr>
 <tr><td rowspan="2">524</td><td rowspan="2">2024-08-30</td><td><span style="color:red;">删除</span></td><td>公司圈</td><td>查询帖子信息</td></tr>
 <tr><td colspan="3">GetMomentsV1PostsByPostId</td></tr>
@@ -1075,14 +1075,32 @@
 <tr><td colspan="3">GetDocsV1Content</td></tr>
 <tr><td rowspan="2">538</td><td rowspan="2">2024-11-21</td><td>&#10003;</td><td>考勤打卡</td><td>查询考勤组下所有成员</td></tr>
 <tr><td colspan="3">GetAttendanceV1GroupsByGroupIdListUser</td></tr>
-<tr><td rowspan="2">539</td><td rowspan="2">2024-12-11</td><td>新增</td><td>招聘</td><td>获取面试评价详细信息（新版）</td></tr>
+<tr><td rowspan="2">539</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>招聘</td><td>获取面试评价详细信息（新版）</td></tr>
 <tr><td colspan="3">GetHireV2InterviewRecordsByInterviewRecordId</td></tr>
-<tr><td rowspan="2">540</td><td rowspan="2">2024-12-11</td><td>新增</td><td>招聘</td><td>批量获取面试评价详细信息（新版）</td></tr>
+<tr><td rowspan="2">540</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>招聘</td><td>批量获取面试评价详细信息（新版）</td></tr>
 <tr><td colspan="3">GetHireV2InterviewRecords</td></tr>
-<tr><td rowspan="2">541</td><td rowspan="2">2024-12-10</td><td>新增</td><td>考勤打卡</td><td>创建或修改临时排班</td></tr>
+<tr><td rowspan="2">541</td><td rowspan="2">2024-12-10</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改临时排班</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserDailyShiftsBatchCreateTemp</td></tr>
-<tr><td rowspan="2">542</td><td rowspan="2">2024-12-11</td><td>新增</td><td>多维表格</td><td>列出自动化流程</td></tr>
+<tr><td rowspan="2">542</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>多维表格</td><td>列出自动化流程</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenWorkflows</td></tr>
-<tr><td rowspan="2">543</td><td rowspan="2">2024-12-11</td><td>新增</td><td>多维表格</td><td>更新自动化流程状态</td></tr>
+<tr><td rowspan="2">543</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>多维表格</td><td>更新自动化流程状态</td></tr>
 <tr><td colspan="3">PutBitableV1AppsByAppTokenWorkflowsByWorkflowId</td></tr>
+<tr><td rowspan="2">544</td><td rowspan="2">2024-12-19</td><td>新增</td><td>Payroll</td><td>批量查询算薪项</td></tr>
+<tr><td colspan="3">GetPayrollV1AcctItems</td></tr>
+<tr><td rowspan="2">545</td><td rowspan="2">2024-12-20</td><td>新增</td><td>云文档</td><td>获取云文档的点赞者列表</td></tr>
+<tr><td colspan="3">GetDriveV2FilesByFileTokenLikes</td></tr>
+<tr><td rowspan="2">546</td><td rowspan="2">2024-12-19</td><td>新增</td><td>云文档</td><td>在群公告中创建块</td></tr>
+<tr><td colspan="3">PostDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildren</td></tr>
+<tr><td rowspan="2">547</td><td rowspan="2">2024-12-19</td><td>新增</td><td>云文档</td><td>批量更新群公告块的内容</td></tr>
+<tr><td colspan="3">PatchDocxV1ChatsByChatIdAnnouncementBlocksBatchUpdate</td></tr>
+<tr><td rowspan="2">548</td><td rowspan="2">2024-12-19</td><td>新增</td><td>云文档</td><td>获取群公告块的内容</td></tr>
+<tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockId</td></tr>
+<tr><td rowspan="2">549</td><td rowspan="2">2024-12-19</td><td>新增</td><td>云文档</td><td>获取所有子块</td></tr>
+<tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildren</td></tr>
+<tr><td rowspan="2">550</td><td rowspan="2">2024-12-19</td><td>新增</td><td>云文档</td><td>删除群公告中的块</td></tr>
+<tr><td colspan="3">DeleteDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenBatchDelete</td></tr>
+<tr><td rowspan="2">551</td><td rowspan="2">2024-12-19</td><td>新增</td><td>云文档</td><td>获取群公告基本信息</td></tr>
+<tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncement</td></tr>
+<tr><td rowspan="2">552</td><td rowspan="2">2024-12-19</td><td>新增</td><td>云文档</td><td>获取群公告所有块</td></tr>
+<tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncementBlocks</td></tr>
 </tbody></table>

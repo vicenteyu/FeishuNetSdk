@@ -32,7 +32,7 @@ public record PostImV1ChatsByChatIdManagersAddManagersBodyDto
     /// <para>**注意**：</para>
     /// <para>- 对于普通群，最多可指定 10 个管理员。</para>
     /// <para>- 对于超大群，最多可指定 20 个管理员。</para>
-    /// <para>- 每次请求最多可指定 50 个用户或者 5 个机器人。</para>
+    /// <para>- 单次请求指定机器人时，最多可指定 5 个机器人。</para>
     /// <para>超大群和普通群的区别，参见[超大群与普通群有什么区别](https://www.feishu.cn/hc/zh-CN/articles/374791927841)。</para>
     /// <para>必填：否</para>
     /// <para>示例值：["ou_9204a37300b3700d61effaa439f34295"]</para>
