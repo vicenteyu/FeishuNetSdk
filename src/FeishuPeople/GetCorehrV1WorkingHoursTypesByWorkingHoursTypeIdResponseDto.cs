@@ -80,6 +80,7 @@ public record GetCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDto
 
         /// <summary>
         /// <para>国家/地区 ID 列表</para>
+        /// <para>- 可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获取</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("country_region_id_list")]
@@ -103,6 +104,7 @@ public record GetCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDto
 
         /// <summary>
         /// <para>自定义字段</para>
+        /// <para>- 具体支持的对象请参考[自定义字段说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
@@ -110,6 +112,7 @@ public record GetCorehrV1WorkingHoursTypesByWorkingHoursTypeIdResponseDto
 
         /// <summary>
         /// <para>自定义字段</para>
+        /// <para>- 具体支持的对象请参考[自定义字段说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
         /// </summary>
         public record ObjectFieldData
         {

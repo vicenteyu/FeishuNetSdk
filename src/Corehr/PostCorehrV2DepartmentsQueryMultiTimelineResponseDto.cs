@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-12-27
 // ************************************************************************
 // <copyright file="PostCorehrV2DepartmentsQueryMultiTimelineResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 批量查询部门版本信息 响应体
-/// <para>批量查询部门版本信息</para>
+/// <para>根据部门ID列表，批量查询开始结束时间内的所有部门版本信息，含部门名称、部门类型、上级、编码、负责人、是否启用、描述等信息</para>
 /// <para>接口ID：7372158581884911618</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/query_multi_timeline</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fdepartment%2fquery_multi_timeline</para>
@@ -64,7 +64,7 @@ public record PostCorehrV2DepartmentsQueryMultiTimelineResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言，中文用zh-CN，英文用en-US</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -72,16 +72,68 @@ public record PostCorehrV2DepartmentsQueryMultiTimelineResponseDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>文本内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：中文示例</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
 
         /// <summary>
-        /// <para>上级部门 ID</para>
+        /// <para>部门类型</para>
+        /// <para>- 通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)查询获取。请求参数：object_api_name=department；custom_api_name=subtype。</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("sub_type")]
+        public Enum? SubType { get; set; }
+
+        /// <summary>
+        /// <para>部门类型</para>
+        /// <para>- 通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)查询获取。请求参数：object_api_name=department；custom_api_name=subtype。</para>
+        /// </summary>
+        public record Enum
+        {
+            /// <summary>
+            /// <para>枚举值</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：phone_type</para>
+            /// </summary>
+            [JsonPropertyName("enum_name")]
+            public string EnumName { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>枚举多语展示</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("display")]
+            public I18n[]? Displies { get; set; }
+
+            /// <summary>
+            /// <para>枚举多语展示</para>
+            /// </summary>
+            public record I18n
+            {
+                /// <summary>
+                /// <para>语言编码（IETF BCP 47）</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：zh-CN</para>
+                /// </summary>
+                [JsonPropertyName("lang")]
+                public string Lang { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>文本内容</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：中文示例</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public string Value { get; set; } = string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// <para>上级部门 ID ，详细信息可通过[【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719456877659520111</para>
         /// </summary>
@@ -89,7 +141,7 @@ public record PostCorehrV2DepartmentsQueryMultiTimelineResponseDto
         public string? ParentDepartmentId { get; set; }
 
         /// <summary>
-        /// <para>部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得</para>
+        /// <para>部门负责人雇佣 ID，枚举值及详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：6893013238632416777</para>
         /// </summary>
@@ -106,6 +158,8 @@ public record PostCorehrV2DepartmentsQueryMultiTimelineResponseDto
 
         /// <summary>
         /// <para>生效日期</para>
+        /// <para>- 返回格式：YYYY-MM-DD（最小单位到日）</para>
+        /// <para>- 日期范围:1900-01-01～9999-12-31</para>
         /// <para>必填：否</para>
         /// <para>示例值：2020-05-01</para>
         /// </summary>
@@ -130,7 +184,7 @@ public record PostCorehrV2DepartmentsQueryMultiTimelineResponseDto
         public I18n[]? Descriptions { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
         /// <para>必填：否</para>
         /// <para>最大长度：50</para>
         /// <para>最小长度：0</para>
@@ -139,7 +193,7 @@ public record PostCorehrV2DepartmentsQueryMultiTimelineResponseDto
         public CustomFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
         /// </summary>
         public record CustomFieldData
         {
@@ -181,7 +235,7 @@ public record PostCorehrV2DepartmentsQueryMultiTimelineResponseDto
             }
 
             /// <summary>
-            /// <para>自定义字段类型</para>
+            /// <para>自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 批量创建/更新填报行 请求体
-/// <para>批量创建/更新填报行后，可在【设置-编制规划设置-编制规划XXX-集中填报】进行查看。</para>
+/// <para>批量创建/更新填报行后，可在【设置-编制规划设置-编制规划XXX-集中填报-查看数据】进行查看。</para>
 /// <para>接口ID：7446337145820069892</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/report_detail_row/batchSave</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2freport_detail_row%2fbatchSave</para>
@@ -30,7 +30,7 @@ public record PostCorehrV2ReportDetailRowBatchSaveBodyDto
     public string WorkforcePlanId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>集中填报id，可在「设置-编制规划设置-编制规划XXX-集中填报XXX」中解析到。</para>
+    /// <para>集中填报id，可在「设置-编制规划设置-编制规划XXX-集中填报XXX-查看数据」中解析到。</para>
     /// <para>必填：是</para>
     /// <para>示例值：7430470688844023340</para>
     /// </summary>
@@ -54,7 +54,7 @@ public record PostCorehrV2ReportDetailRowBatchSaveBodyDto
         /// <summary>
         /// <para>集中填报的维度信息要和用户创建的维度匹配，即传入除自动匹配维度外的所有维度，不多不少。</para>
         /// <para>通过「设置-编制规划设置-编制规划XXX」查看该编制规划有哪些维度。</para>
-        /// <para>自定义组织维度是否为自动匹配的维度则通过「设置-组织配置-自定义组织XXX-查看为组织设置自动匹配规则」，“是”代表该维度为自动匹配维度。</para>
+        /// <para>自定义组织暂时不支持【为组织设置自动匹配规则】，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)了解如何判断该字段是否为自动匹配字段。</para>
         /// <para>必填：是</para>
         /// <para>最大长度：20</para>
         /// <para>最小长度：1</para>
@@ -65,7 +65,7 @@ public record PostCorehrV2ReportDetailRowBatchSaveBodyDto
         /// <summary>
         /// <para>集中填报的维度信息要和用户创建的维度匹配，即传入除自动匹配维度外的所有维度，不多不少。</para>
         /// <para>通过「设置-编制规划设置-编制规划XXX」查看该编制规划有哪些维度。</para>
-        /// <para>自定义组织维度是否为自动匹配的维度则通过「设置-组织配置-自定义组织XXX-查看为组织设置自动匹配规则」，“是”代表该维度为自动匹配维度。</para>
+        /// <para>自定义组织暂时不支持【为组织设置自动匹配规则】，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)了解如何判断该字段是否为自动匹配字段。</para>
         /// </summary>
         public record DimensionEntity
         {
@@ -93,19 +93,19 @@ public record PostCorehrV2ReportDetailRowBatchSaveBodyDto
 
             /// <summary>
             /// <para>维度value。</para>
-            /// <para>- department：可从[查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)获得。</para>
-            /// <para>- location：可从[查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获得。</para>
-            /// <para>- cost_center：可从[查询成本中心](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获得。</para>
-            /// <para>- job：可从[查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获得。</para>
-            /// <para>- job_level：可从[查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获得。</para>
-            /// <para>- job_family：可从[查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获得。</para>
-            /// <para>- employee_type：可从[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)获得。</para>
-            /// <para>- position：岗位，功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
-            /// <para>- custom_org_01：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
-            /// <para>- custom_org_02：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
-            /// <para>- custom_org_03：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
-            /// <para>- custom_org_04：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
-            /// <para>- custom_org_05：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>- department_id：可从[查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)获得。</para>
+            /// <para>- location_id：可从[查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获得。</para>
+            /// <para>- cost_center_id：可从[查询成本中心](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获得。</para>
+            /// <para>- job_id：可从[查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获得。</para>
+            /// <para>- job_level_id：可从[查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获得。</para>
+            /// <para>- job_family_id：可从[查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获得。</para>
+            /// <para>- employee_type_id：可从[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获得。</para>
+            /// <para>- position_id：岗位，功能灰度中，如有需求请联系技术支持</para>
+            /// <para>- custom_org_01_id：自定义组织，功能灰度中，有需要请联系技术支持</para>
+            /// <para>- custom_org_02_id：自定义组织，功能灰度中，有需要请联系技术支持</para>
+            /// <para>- custom_org_03_id：自定义组织，功能灰度中，有需要请联系技术支持</para>
+            /// <para>- custom_org_04_id：自定义组织，功能灰度中，有需要请联系技术支持</para>
+            /// <para>- custom_org_05_id：自定义组织，功能灰度中，有需要请联系技术支持</para>
             /// <para>必填：是</para>
             /// <para>示例值：7322790168290739756</para>
             /// </summary>

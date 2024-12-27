@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-12
+// Last Modified On : 2024-12-27
 // ************************************************************************
 // <copyright file="PostHireV1JobsCombinedCreateResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -1032,4 +1032,11 @@ public record PostHireV1JobsCombinedCreateResponseDto
         [JsonPropertyName("en_name")]
         public string? EnName { get; set; }
     }
+
+    /// <summary>
+    /// <para>官网申请表</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("portal_website_apply_form_schema_info")]
+    public RegistrationSchemaInfo? PortalWebsiteApplyFormSchemaInfo { get; set; }
 }

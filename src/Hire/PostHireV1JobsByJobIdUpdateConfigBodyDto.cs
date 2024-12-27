@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-12-27
 // ************************************************************************
 // <copyright file="PostHireV1JobsByJobIdUpdateConfigBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -310,4 +310,12 @@ public record PostHireV1JobsByJobIdUpdateConfigBodyDto
             public string? CancelInterviewNotificationTemplateId { get; set; }
         }
     }
+
+    /// <summary>
+    /// <para>官网申请表ID，可通过[获取招聘官网申请表模板列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/portal_apply_schema/list)接口获取</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：6930815272790114324</para>
+    /// </summary>
+    [JsonPropertyName("portal_website_apply_form_schema_id")]
+    public string? PortalWebsiteApplyFormSchemaId { get; set; }
 }

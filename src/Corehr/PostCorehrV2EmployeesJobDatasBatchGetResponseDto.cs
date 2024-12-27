@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-10-25
+// Last Modified On : 2024-12-27
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesJobDatasBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -197,7 +197,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? ExpirationTime { get; set; }
 
             /// <summary>
-            /// <para>任职原因</para>
+            /// <para>业务类型（原：任职原因）</para>
             /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
             /// <para>- object_api_name：job_data</para>
             /// <para>- custom_api_name：assignment_start_reason</para>
@@ -208,7 +208,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public Enum? AssignmentStartReason { get; set; }
 
             /// <summary>
-            /// <para>任职原因</para>
+            /// <para>业务类型（原：任职原因）</para>
             /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
             /// <para>- object_api_name：job_data</para>
             /// <para>- custom_api_name：assignment_start_reason</para>
@@ -384,12 +384,20 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             public string? CreatedAt { get; set; }
 
             /// <summary>
-            /// <para>周工作时长</para>
+            /// <para>周工作时长 V2</para>
             /// <para>必填：否</para>
             /// <para>示例值：10.1</para>
             /// </summary>
             [JsonPropertyName("weekly_working_hours_v2")]
             public float? WeeklyWorkingHoursV2 { get; set; }
+
+            /// <summary>
+            /// <para>周工作时长</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：10</para>
+            /// </summary>
+            [JsonPropertyName("weekly_working_hours")]
+            public int? WeeklyWorkingHours { get; set; }
 
             /// <summary>
             /// <para>人员子类型 ID</para>
@@ -399,6 +407,16 @@ public record PostCorehrV2EmployeesJobDatasBatchGetResponseDto
             /// </summary>
             [JsonPropertyName("employee_subtype_id")]
             public string? EmployeeSubtypeId { get; set; }
+
+            /// <summary>
+            /// <para>任职原因</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+            /// <para>- object_api_name = "job_data"</para>
+            /// <para>- custom_api_name = "job_data_reason"</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("job_data_reason")]
+            public Enum? JobDataReason { get; set; }
         }
     }
 }

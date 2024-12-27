@@ -4,7 +4,7 @@
 // Created          : 2024-07-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-22
+// Last Modified On : 2024-12-27
 // ************************************************************************
 // <copyright file="PostHireV1TestsSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -48,6 +48,22 @@ public record PostHireV1TestsSearchResponseDto
         /// </summary>
         [JsonPropertyName("application_id")]
         public string? ApplicationId { get; set; }
+
+        /// <summary>
+        /// <para>人才 ID，详情请参考[获取人才详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6830437484509675522</para>
+        /// </summary>
+        [JsonPropertyName("talent_id")]
+        public string? TalentId { get; set; }
+
+        /// <summary>
+        /// <para>职位 ID，详情请参考[获取职位详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get_detail)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6920544531948800269</para>
+        /// </summary>
+        [JsonPropertyName("job_id")]
+        public string? JobId { get; set; }
 
         /// <summary>
         /// <para>试卷 ID</para>
@@ -133,19 +149,19 @@ public record PostHireV1TestsSearchResponseDto
         public int? TestStatus { get; set; }
 
         /// <summary>
-        /// <para>笔试时间（单位：毫秒）</para>
+        /// <para>笔试时间（毫秒时间戳）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("test_schedule")]
         public TestTestSchedule? TestSchedule { get; set; }
 
         /// <summary>
-        /// <para>笔试时间（单位：毫秒）</para>
+        /// <para>笔试时间（毫秒时间戳）</para>
         /// </summary>
         public record TestTestSchedule
         {
             /// <summary>
-            /// <para>开始时间（单位：毫秒）</para>
+            /// <para>开始时间（毫秒时间戳）</para>
             /// <para>必填：否</para>
             /// <para>示例值：1621390695000</para>
             /// </summary>
@@ -153,7 +169,7 @@ public record PostHireV1TestsSearchResponseDto
             public string? StartTime { get; set; }
 
             /// <summary>
-            /// <para>结束时间（单位：毫秒）</para>
+            /// <para>结束时间（毫秒时间戳）</para>
             /// <para>必填：否</para>
             /// <para>示例值：1632839400000</para>
             /// </summary>
@@ -162,7 +178,7 @@ public record PostHireV1TestsSearchResponseDto
         }
 
         /// <summary>
-        /// <para>笔试作答完成时间（单位：毫秒）</para>
+        /// <para>笔试作答完成时间（毫秒时间戳）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1608725989000</para>
         /// </summary>
@@ -206,7 +222,7 @@ public record PostHireV1TestsSearchResponseDto
         }
 
         /// <summary>
-        /// <para>笔试结果上传时间（单位：毫秒）</para>
+        /// <para>笔试结果上传时间（毫秒时间戳）</para>
         /// <para>**注意**：</para>
         /// <para>只有手动录入的笔试成绩才有</para>
         /// <para>必填：否</para>
@@ -224,7 +240,7 @@ public record PostHireV1TestsSearchResponseDto
         public string? Score { get; set; }
 
         /// <summary>
-        /// <para>阅卷结果最新提交时间（单位：毫秒）</para>
+        /// <para>阅卷结果最新提交时间（毫秒时间戳）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1608725989000</para>
         /// </summary>
@@ -240,7 +256,15 @@ public record PostHireV1TestsSearchResponseDto
         public string? Reviewer { get; set; }
 
         /// <summary>
-        /// <para>笔试创建时间（单位：毫秒）</para>
+        /// <para>阅卷安排时间（毫秒时间戳）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1608725989000</para>
+        /// </summary>
+        [JsonPropertyName("review_created_at")]
+        public string? ReviewCreatedAt { get; set; }
+
+        /// <summary>
+        /// <para>笔试创建时间（毫秒时间戳）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1608725989000</para>
         /// </summary>

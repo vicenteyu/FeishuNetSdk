@@ -370,10 +370,10 @@ public record PostAttendanceV1UserApprovalsBodyDto
             /// <para>必填：是</para>
             /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
-            /// <item>0：不关联加班规则</item>
+            /// <item>0：仅记录</item>
             /// <item>1：调休</item>
             /// <item>2：加班费</item>
-            /// <item>3：关联加班规则，没有调休或加班费</item>
+            /// <item>3：【该可选值已废弃】</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("type")]

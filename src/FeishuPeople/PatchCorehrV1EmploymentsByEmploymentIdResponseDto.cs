@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 更新雇佣信息 响应体
-/// <para>更新雇佣信息，包括工号、任职原因等</para>
+/// <para>更新人事工作信息下的字段，如：工号、工作邮箱、雇佣类型、自定义字段等</para>
 /// <para>接口ID：7072588598729981980</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/employee/employment/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2femployment%2fpatch</para>

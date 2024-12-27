@@ -5096,8 +5096,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="file_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>云文档 Token</para>
-    /// <para>可以通过浏览器该文档的 URL 栏上直接获取云文档 Token 。</para>
+    /// <para>云文档的 token。获取方式参考 [如何获取云文档相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
     /// <para>示例值：XIHSdYSI7oMEU1xrsnxc8fabcef</para>
     /// </param>
     /// <param name="file_type">
@@ -18991,7 +18990,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="force_submit">
     /// <para>必填：否</para>
     /// <para>是否强制提交</para>
-    /// <para>超编等场景需要用户确认影响才能提交</para>
+    /// <para>- true：是，跳过超编等校验</para>
+    /// <para>- false：否，被拦截报错</para>
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
     /// </param>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-10-25
+// Last Modified On : 2024-12-27
 // ************************************************************************
 // <copyright file="GetCorehrV1JobDatasByJobDataIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -166,7 +166,7 @@ public record GetCorehrV1JobDatasByJobDataIdResponseDto
         public string? JobFamilyId { get; set; }
 
         /// <summary>
-        /// <para>任职原因</para>
+        /// <para>业务类型（原：任职原因）</para>
         /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
         /// <para>- object_api_name：job_data</para>
         /// <para>- custom_api_name：assignment_start_reason</para>
@@ -177,7 +177,7 @@ public record GetCorehrV1JobDatasByJobDataIdResponseDto
         public Enum? AssignmentStartReason { get; set; }
 
         /// <summary>
-        /// <para>任职原因</para>
+        /// <para>业务类型（原：任职原因）</para>
         /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
         /// <para>- object_api_name：job_data</para>
         /// <para>- custom_api_name：assignment_start_reason</para>
@@ -341,5 +341,15 @@ public record GetCorehrV1JobDatasByJobDataIdResponseDto
         /// </summary>
         [JsonPropertyName("position_id")]
         public string? PositionId { get; set; }
+
+        /// <summary>
+        /// <para>任职原因</para>
+        /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+        /// <para>- object_api_name = "job_data"</para>
+        /// <para>- custom_api_name = "job_data_reason"</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("job_data_reason")]
+        public Enum? JobDataReason { get; set; }
     }
 }

@@ -308,7 +308,7 @@ public record GetDriveV1FilesByFileTokenCommentsResponseDto
                 public record ReplyExtra
                 {
                     /// <summary>
-                    /// <para>评论中的图片 Token list</para>
+                    /// <para>评论中的图片 Token list。暂不支持通过接口下载图片。</para>
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("image_list")]

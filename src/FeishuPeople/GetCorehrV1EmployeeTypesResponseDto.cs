@@ -96,6 +96,7 @@ public record GetCorehrV1EmployeeTypesResponseDto
 
         /// <summary>
         /// <para>自定义字段</para>
+        /// <para>- 具体支持的对象请参考[自定义字段说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
@@ -103,6 +104,7 @@ public record GetCorehrV1EmployeeTypesResponseDto
 
         /// <summary>
         /// <para>自定义字段</para>
+        /// <para>- 具体支持的对象请参考[自定义字段说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
         /// </summary>
         public record ObjectFieldData
         {

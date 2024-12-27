@@ -2777,9 +2777,10 @@ public record PostCorehrV2EmployeesBodyDto
         {
             /// <summary>
             /// <para>资料类型</para>
-            /// <para>枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+            /// <para>- 枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
             /// <para>- object_api_name = "personal_profile"</para>
             /// <para>- custom_api_name = "profile_type"</para>
+            /// <para>- 仅 【飞书人事-档案配置-资料附件】存在的字段编码可用</para>
             /// <para>必填：否</para>
             /// <para>示例值：profile_type_1</para>
             /// </summary>

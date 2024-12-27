@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-12-27
 // ************************************************************************
 // <copyright file="PostCorehrV2DepartmentsQueryTimelineResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 查询指定生效日期的部门基本信息 响应体
-/// <para>查询指定生效的部门基本信息，含部门名称、上级、编码、负责人、是否启用、描述等信息</para>
+/// <para>查询指定生效的部门基本信息，含部门名称、部门类型、上级、编码、负责人、是否启用、描述等信息</para>
 /// <para>接口ID：7351676067814096900</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/query_timeline</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fdepartment%2fquery_timeline</para>
@@ -72,12 +72,64 @@ public record PostCorehrV2DepartmentsQueryTimelineResponseDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>文本内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：中文示例</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
+        }
+
+        /// <summary>
+        /// <para>部门类型</para>
+        /// <para>- 通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)查询获取。请求参数：object_api_name=department；custom_api_name=subtype。</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("sub_type")]
+        public Enum? SubType { get; set; }
+
+        /// <summary>
+        /// <para>部门类型</para>
+        /// <para>- 通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)查询获取。请求参数：object_api_name=department；custom_api_name=subtype。</para>
+        /// </summary>
+        public record Enum
+        {
+            /// <summary>
+            /// <para>枚举值</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：phone_type</para>
+            /// </summary>
+            [JsonPropertyName("enum_name")]
+            public string EnumName { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>枚举多语展示</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("display")]
+            public I18n[]? Displies { get; set; }
+
+            /// <summary>
+            /// <para>枚举多语展示</para>
+            /// </summary>
+            public record I18n
+            {
+                /// <summary>
+                /// <para>语言编码（IETF BCP 47）</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：zh-CN</para>
+                /// </summary>
+                [JsonPropertyName("lang")]
+                public string Lang { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>文本内容</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：中文示例</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public string Value { get; set; } = string.Empty;
+            }
         }
 
         /// <summary>

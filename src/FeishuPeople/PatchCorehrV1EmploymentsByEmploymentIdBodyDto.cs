@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 更新雇佣信息 请求体
-/// <para>更新雇佣信息，包括工号、任职原因等</para>
+/// <para>更新人事工作信息下的字段，如：工号、工作邮箱、雇佣类型、自定义字段等</para>
 /// <para>接口ID：7072588598729981980</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/employee/employment/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2femployment%2fpatch</para>
@@ -42,14 +42,20 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
     public string? EmployeeNumber { get; set; }
 
     /// <summary>
-    /// <para>雇佣类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)雇佣类型（employment_type）枚举定义获得</para>
+    /// <para>雇佣类型</para>
+    /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+    /// <para>- object_api_name：employment</para>
+    /// <para>- custom_api_name：employment_type</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("employment_type")]
     public Enum? EmploymentType { get; set; }
 
     /// <summary>
-    /// <para>雇佣类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)雇佣类型（employment_type）枚举定义获得</para>
+    /// <para>雇佣类型</para>
+    /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+    /// <para>- object_api_name：employment</para>
+    /// <para>- custom_api_name：employment_type</para>
     /// </summary>
     public record Enum
     {
@@ -184,7 +190,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
 
         /// <summary>
         /// <para>自定义字段</para>
-        /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
+        /// <para>- 当前为预留字段，返回值为空。具体支持的对象请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
@@ -192,7 +198,7 @@ public record PatchCorehrV1EmploymentsByEmploymentIdBodyDto
 
         /// <summary>
         /// <para>自定义字段</para>
-        /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
+        /// <para>- 当前为预留字段，返回值为空。具体支持的对象请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
         /// </summary>
         public record ObjectFieldData
         {

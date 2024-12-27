@@ -31,7 +31,7 @@ public record PostHireV1TestsSearchBodyDto
     public string[]? ApplicationIdList { get; set; }
 
     /// <summary>
-    /// <para>笔试最早开始时间（单位：毫秒）</para>
+    /// <para>笔试最早开始时间（毫秒时间戳）</para>
     /// <para>必填：否</para>
     /// <para>示例值：1608725989000</para>
     /// </summary>
@@ -39,7 +39,7 @@ public record PostHireV1TestsSearchBodyDto
     public string? TestStartTimeMin { get; set; }
 
     /// <summary>
-    /// <para>笔试最晚开始时间（单位：毫秒）</para>
+    /// <para>笔试最晚开始时间（毫秒时间戳）</para>
     /// <para>必填：否</para>
     /// <para>示例值：1608726999000</para>
     /// </summary>
