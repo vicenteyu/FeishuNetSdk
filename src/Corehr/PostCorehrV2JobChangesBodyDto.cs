@@ -4,7 +4,7 @@
 // Created          : 2024-12-21
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-21
+// Last Modified On : 2025-01-05
 // ************************************************************************
 // <copyright file="PostCorehrV2JobChangesBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -403,7 +403,7 @@ public record PostCorehrV2JobChangesBodyDto
         /// <summary>
         /// <para>新任职公司，详细信息可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口查询获得</para>
         /// <para>必填：否</para>
-        /// <para>示例值：7289005963599693367</para>
+        /// <para>示例值：7289005963599693368</para>
         /// </summary>
         [JsonPropertyName("target_service_company")]
         public string? TargetServiceCompany { get; set; }
@@ -423,6 +423,14 @@ public record PostCorehrV2JobChangesBodyDto
         /// </summary>
         [JsonPropertyName("target_social_security_city")]
         public string? TargetSocialSecurityCity { get; set; }
+
+        /// <summary>
+        /// <para>编制随人员一起调整</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("is_transfer_with_workforce")]
+        public bool? IsTransferWithWorkforce { get; set; }
     }
 
     /// <summary>
@@ -440,4 +448,12 @@ public record PostCorehrV2JobChangesBodyDto
     /// </summary>
     [JsonPropertyName("initiator_id")]
     public string? InitiatorId { get; set; }
+
+    /// <summary>
+    /// <para>异动原因唯一标识</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：involuntary_transfer</para>
+    /// </summary>
+    [JsonPropertyName("transfer_reason_unique_identifier")]
+    public string? TransferReasonUniqueIdentifier { get; set; }
 }

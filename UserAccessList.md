@@ -17,13 +17,13 @@
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyId</td></tr>
 <tr><td rowspan="2">9</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>解决/恢复评论</td></tr>
 <tr><td colspan="3">PatchDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
-<tr><td rowspan="2">10</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>云文档</td><td>获取文档基本信息</td></tr>
+<tr><td rowspan="2">10</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>获取文档基本信息</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentId</td></tr>
-<tr><td rowspan="2">11</td><td rowspan="2">2024-09-19</td><td>&#10003;</td><td>云文档</td><td>获取文档纯文本内容</td></tr>
+<tr><td rowspan="2">11</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>获取文档纯文本内容</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdRawContent</td></tr>
 <tr><td rowspan="2">12</td><td rowspan="2">2024-09-24</td><td>&#10003;</td><td>云文档</td><td>获取文档所有块</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocks</td></tr>
-<tr><td rowspan="2">13</td><td rowspan="2">2024-12-25</td><td>&#10003;</td><td>云文档</td><td>创建文档</td></tr>
+<tr><td rowspan="2">13</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>创建文档</td></tr>
 <tr><td colspan="3">PostDocxV1Documents</td></tr>
 <tr><td rowspan="2">14</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单个职务信息</td></tr>
 <tr><td colspan="3">GetContactV3JobTitlesByJobTitleId</td></tr>
@@ -45,7 +45,7 @@
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetToken</td></tr>
 <tr><td rowspan="2">23</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>创建电子表格</td></tr>
 <tr><td colspan="3">PostSheetsV3Spreadsheets</td></tr>
-<tr><td rowspan="2">24</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>查询工作表</td></tr>
+<tr><td rowspan="2">24</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>查询工作表</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetId</td></tr>
 <tr><td rowspan="2">25</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取租户职务列表</td></tr>
 <tr><td colspan="3">GetContactV3JobTitles</td></tr>
@@ -343,7 +343,7 @@
 <tr><td colspan="3">PatchCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
 <tr><td rowspan="2">172</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取日程</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
-<tr><td rowspan="2">173</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取日程列表</td></tr>
+<tr><td rowspan="2">173</td><td rowspan="2">2025-01-02</td><td>&#10003;</td><td>日历</td><td>获取日程列表</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEvents</td></tr>
 <tr><td rowspan="2">174</td><td rowspan="2">2024-09-12</td><td>&#10003;</td><td>日历</td><td>搜索日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsSearch</td></tr>
@@ -645,7 +645,7 @@
 <tr><td colspan="3">GetTaskV2Tasklists</td></tr>
 <tr><td rowspan="2">323</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>创建动态订阅</td></tr>
 <tr><td colspan="3">PostTaskV2TasklistsByTasklistGuidActivitySubscriptions</td></tr>
-<tr><td rowspan="2">324</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>消息与群组</td><td>判断用户或机器人是否在群里</td></tr>
+<tr><td rowspan="2">324</td><td rowspan="2">2025-01-02</td><td>&#10003;</td><td>消息与群组</td><td>判断用户或机器人是否在群里</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatIdMembersIsInChat</td></tr>
 <tr><td rowspan="2">325</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>获取动态订阅</td></tr>
 <tr><td colspan="3">GetTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuid</td></tr>
@@ -805,7 +805,7 @@
 <tr><td colspan="3">GetImV1ChatsByChatIdChatTabsListTabs</td></tr>
 <tr><td rowspan="2">403</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>通讯录</td><td><span style="color:red;">[不推荐]</span> 获取部门信息列表</td></tr>
 <tr><td colspan="3">GetContactV3Departments</td></tr>
-<tr><td rowspan="2">404</td><td rowspan="2">2024-11-05</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 创建旧版文档</td></tr>
+<tr><td rowspan="2">404</td><td rowspan="2">2024-12-30</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 创建旧版文档</td></tr>
 <tr><td colspan="3">PostDocV2Create</td></tr>
 <tr><td rowspan="2">405</td><td rowspan="2">2024-08-30</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档元信息</td></tr>
 <tr><td colspan="3">GetDocV2MetaByDocToken</td></tr>
@@ -873,7 +873,7 @@
 <tr><td colspan="3">PostDriveV1MediasUploadAll</td></tr>
 <tr><td rowspan="2">437</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单个部门信息</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsByDepartmentId</td></tr>
-<tr><td rowspan="2">438</td><td rowspan="2">2024-11-08</td><td>&#10003;</td><td>云文档</td><td>下载素材</td></tr>
+<tr><td rowspan="2">438</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>下载素材</td></tr>
 <tr><td colspan="3">GetDriveV1MediasByFileTokenDownload</td></tr>
 <tr><td rowspan="2">439</td><td rowspan="2">2024-09-20</td><td>&#10003;</td><td>云文档</td><td>获取素材临时下载链接</td></tr>
 <tr><td colspan="3">GetDriveV1MediasBatchGetTmpDownloadUrl</td></tr>
@@ -895,13 +895,13 @@
 <tr><td colspan="3">PostDriveV1FilesUploadAll</td></tr>
 <tr><td rowspan="2">448</td><td rowspan="2">2024-09-20</td><td>&#10003;</td><td>通讯录</td><td>批量获取部门信息</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsBatch</td></tr>
-<tr><td rowspan="2">449</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>分片上传文件-预上传</td></tr>
+<tr><td rowspan="2">449</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>分片上传文件-预上传</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadPrepare</td></tr>
-<tr><td rowspan="2">450</td><td rowspan="2">2024-05-29</td><td>&#10003;</td><td>云文档</td><td>分片上传文件-上传分片</td></tr>
+<tr><td rowspan="2">450</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>分片上传文件-上传分片</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadPart</td></tr>
-<tr><td rowspan="2">451</td><td rowspan="2">2024-12-10</td><td>&#10003;</td><td>云文档</td><td>分片上传文件-完成上传</td></tr>
+<tr><td rowspan="2">451</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>分片上传文件-完成上传</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadFinish</td></tr>
-<tr><td rowspan="2">452</td><td rowspan="2">2024-09-05</td><td>&#10003;</td><td>云文档</td><td>下载文件</td></tr>
+<tr><td rowspan="2">452</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>下载文件</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenDownload</td></tr>
 <tr><td rowspan="2">453</td><td rowspan="2">2024-10-11</td><td>&#10003;</td><td>云文档</td><td>创建导入任务</td></tr>
 <tr><td colspan="3">PostDriveV1ImportTasks</td></tr>
@@ -1071,7 +1071,7 @@
 <tr><td colspan="3">GetAilyV1AppsByAppIdSkillsBySkillId</td></tr>
 <tr><td rowspan="2">536</td><td rowspan="2">2024-10-24</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>查询技能列表</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdSkills</td></tr>
-<tr><td rowspan="2">537</td><td rowspan="2">2024-11-15</td><td>&#10003;</td><td>云文档</td><td>获取云文档内容</td></tr>
+<tr><td rowspan="2">537</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>获取云文档内容</td></tr>
 <tr><td colspan="3">GetDocsV1Content</td></tr>
 <tr><td rowspan="2">538</td><td rowspan="2">2024-11-21</td><td>&#10003;</td><td>考勤打卡</td><td>查询考勤组下所有成员</td></tr>
 <tr><td colspan="3">GetAttendanceV1GroupsByGroupIdListUser</td></tr>
@@ -1097,7 +1097,7 @@
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockId</td></tr>
 <tr><td rowspan="2">549</td><td rowspan="2">2024-12-19</td><td>&#10003;</td><td>云文档</td><td>获取所有子块</td></tr>
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildren</td></tr>
-<tr><td rowspan="2">550</td><td rowspan="2">2024-12-19</td><td>&#10003;</td><td>云文档</td><td>删除群公告中的块</td></tr>
+<tr><td rowspan="2">550</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>删除群公告中的块</td></tr>
 <tr><td colspan="3">DeleteDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenBatchDelete</td></tr>
 <tr><td rowspan="2">551</td><td rowspan="2">2024-12-19</td><td>&#10003;</td><td>云文档</td><td>获取群公告基本信息</td></tr>
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncement</td></tr>

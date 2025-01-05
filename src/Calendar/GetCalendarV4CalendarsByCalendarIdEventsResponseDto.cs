@@ -46,14 +46,14 @@ public record GetCalendarV4CalendarsByCalendarIdEventsResponseDto
     public string? SyncToken { get; set; }
 
     /// <summary>
-    /// <para>日程列表，结果为空时返回空数组。</para>
+    /// <para>日程列表，当返回为空时，请根据has_more的值判断是否还有更多数据。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("items")]
     public CalendarEvent[]? Items { get; set; }
 
     /// <summary>
-    /// <para>日程列表，结果为空时返回空数组。</para>
+    /// <para>日程列表，当返回为空时，请根据has_more的值判断是否还有更多数据。</para>
     /// </summary>
     public record CalendarEvent
     {

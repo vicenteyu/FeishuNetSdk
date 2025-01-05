@@ -4,7 +4,7 @@
 // Created          : 2024-12-21
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-21
+// Last Modified On : 2025-01-05
 // ************************************************************************
 // <copyright file="PostCorehrV2JobChangesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -750,6 +750,14 @@ public record PostCorehrV2JobChangesResponseDto
         /// </summary>
         [JsonPropertyName("target_social_security_city")]
         public string? TargetSocialSecurityCity { get; set; }
+
+        /// <summary>
+        /// <para>编制随人员一起调整</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("is_transfer_with_workforce")]
+        public bool? IsTransferWithWorkforce { get; set; }
     }
 
     /// <summary>

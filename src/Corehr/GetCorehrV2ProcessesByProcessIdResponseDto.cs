@@ -626,8 +626,8 @@ public record GetCorehrV2ProcessesByProcessIdResponseDto
     /// <para>示例值：1</para>
     /// <para>可选值：<list type="bullet">
     /// <item>1：普通流程</item>
-    /// <item>2：撤销流程</item>
-    /// <item>3：更正流程</item>
+    /// <item>2：撤销流程，返回这个属性的前提是在审批中心我发起的页面进行撤销操作</item>
+    /// <item>3：更正流程，返回这个属性的前提是在审批中心我发起的页面进行更正操作</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("properties")]

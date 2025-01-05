@@ -461,7 +461,7 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
             public record ApplicationOfferCustomValue
             {
                 /// <summary>
-                /// <para>自定义字段 ID</para>
+                /// <para>自定义字段 ID，详情请参考：[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：key</para>
                 /// </summary>
@@ -515,7 +515,10 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
             public string? Currency { get; set; }
 
             /// <summary>
-            /// <para>基本薪资，为JSON 格式，amount 代表基本薪资的金额，peroid 代表基本薪资的周期单位，如：`"{\"amount\":\"10000\","\period\":2}"`</para>
+            /// <para>基本薪资，为JSON 格式，amount 代表基本薪资的金额，peroid 代表基本薪资的周期单位，如：`{"amount":"10000","period":2}`。</para>
+            /// <para>**peroid 可选值有:**</para>
+            /// <para>- 1 : 日薪</para>
+            /// <para>- 2 : 月薪</para>
             /// <para>必填：否</para>
             /// <para>示例值：{\"amount\":\"10000\",\"period\":2}</para>
             /// </summary>

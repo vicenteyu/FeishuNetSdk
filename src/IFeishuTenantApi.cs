@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-27
+// Last Modified On : 2025-01-05
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -2171,7 +2171,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6908984614439829506</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugDM2YjL4AjN24COwYjN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>此接口已废弃，不允许新增的应用调用该接口，**2024年10月11日 23:59** 前未调用过该接口的应用，在调用时将返回错误。</para>
+    /// <para>此接口已废弃，不允许应用再调用该接口，若继续调用将返回 95054 的错误码。</para>
     /// <para>要创建文档，请使用[创建文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create)接口。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
@@ -6493,7 +6493,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>一次请求要求返回的最大日程数量。</para>
+    /// <para>一次请求要求返回的最大日程数量。实际返回的日程数量可能小于该值，也可能为空，可以根据响应体里的has_more字段来判断是否还有更多日程。</para>
     /// <para>示例值：50</para>
     /// <para>默认值：500</para>
     /// </param>
@@ -26711,18 +26711,22 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7117964632137105411</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>应用订阅 approval_code 后，该应用就可以收到该审批定义对应实例的事件通知。同一应用只需要订阅一次，无需重复订阅。</para>
-    /// <para>当应用不希望再收到审批事件时，可以使用取消订阅接口进行取消，取消后将不再给应用推送消息。</para>
-    /// <para>订阅和取消订阅都是应用维度的，多个应用可以同时订阅同一个 approval_code，每个应用都能收到审批事件。</para>
+    /// <para>当应用[订阅审批事件](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)后，需要调用该接口指定审批定义 Code（approval_code）开启订阅，开启后应用才可以接收该审批定义对应的事件。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 该接口仅用于开启应用接收审批事件，实际使用时应用还需要订阅所需的审批事件。例如订阅[审批实例状态变更](https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/common-event/approval-instance-event)事件。</para>
+    /// <para>- 同一应用只需要调用该接口一次即可，无需重复调用该接口。</para>
+    /// <para>- 当应用不再需要接收审批事件时，可以调用[取消订阅审批事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe)接口，进行取消，取消后该应用将不再会收到事件订阅消息。</para>
+    /// <para>- 订阅和取消订阅接口的实现都是面向应用的，多个应用可以同时订阅同一个审批定义 Code（approval_code），每个应用在都能收到审批事件。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
+    /// <item>approval:definition</item>
     /// </list></para>
     /// </summary>
     /// <param name="approval_code">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>审批定义唯一标识</para>
-    /// <para>**示例值**："7C468A54-8745-2245-9675-08B7C63E7A85"</para>
+    /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A85</para>
     /// </param>
     [HttpPost("/open-apis/approval/v4/approvals/{approval_code}/subscribe")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4ApprovalsByApprovalCodeSubscribeAsync(
@@ -32651,7 +32655,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:employment.archive_cpst_plan:read</item>
     /// <item>corehr:employment.assignment_pay_group:read</item>
     /// <item>corehr:employment.assignment:read</item>
-    /// <item>corehr:employment.attendance_group:read</item>
     /// <item>corehr:employment.contract_type:read</item>
     /// <item>corehr:employment.custom_field:read</item>
     /// <item>corehr:employment.custom_org_field:read</item>
@@ -35470,7 +35473,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:employment.archive_cpst_plan:read</item>
     /// <item>corehr:employment.assignment_pay_group:read</item>
     /// <item>corehr:employment.assignment:read</item>
-    /// <item>corehr:employment.attendance_group:read</item>
     /// <item>corehr:employment.contract_type:read</item>
     /// <item>corehr:employment.custom_field:read</item>
     /// <item>corehr:employment.custom_org_field:read</item>
@@ -44248,6 +44250,286 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【卡片】新增组件</para>
+    /// <para>接口ID：7397253002364551171</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card-element/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>为指定卡片实体新增组件。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
+    /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
+    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>cardkit:card:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="card_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>卡片实体 ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取</para>
+    /// <para>示例值：7355439197428236291</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/cardkit/v1/cards/{card_id}/elements")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCardkitV1CardsByCardIdElementsAsync(
+        [PathQuery] string card_id,
+        [JsonContent] Cardkit.PostCardkitV1CardsByCardIdElementsBodyDto dto);
+
+    /// <summary>
+    /// <para>【卡片】更新组件属性</para>
+    /// <para>接口ID：7397253002364567555</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card-element/patch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新卡片实体中指定组件的属性。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 本接口不支持修改组件的标签（tag）属性。</para>
+    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
+    /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
+    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>cardkit:card:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="card_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>卡片实体 ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取</para>
+    /// <para>示例值：7355439197428236291</para>
+    /// </param>
+    /// <param name="element_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>要更新的组件的 ID。对应 JSON 代码中的 `element_id` 属性，由开发者自定义。</para>
+    /// <para>示例值：elem_63529372</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/cardkit/v1/cards/{card_id}/elements/{element_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchCardkitV1CardsByCardIdElementsByElementIdAsync(
+        [PathQuery] string card_id,
+        [PathQuery] string element_id,
+        [JsonContent] Cardkit.PatchCardkitV1CardsByCardIdElementsByElementIdBodyDto dto);
+
+    /// <summary>
+    /// <para>【卡片】删除组件</para>
+    /// <para>接口ID：7397253002364600323</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card-element/delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除指定卡片实体中的组件。</para>
+    /// <para>## 注意事项</para>
+    /// <para>删除容器类组件时，容器中内嵌的组件将一并被删除。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
+    /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
+    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>cardkit:card:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="card_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>卡片实体 ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取</para>
+    /// <para>示例值：7355439197428236291</para>
+    /// </param>
+    /// <param name="element_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>要删除的组件 ID。对应卡片 JSON 中的 `element_id` 属性，由开发者自定义。</para>
+    /// <para>示例值：elem_63529372</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpDelete("/open-apis/cardkit/v1/cards/{card_id}/elements/{element_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteCardkitV1CardsByCardIdElementsByElementIdAsync(
+        [PathQuery] string card_id,
+        [PathQuery] string element_id,
+        [JsonContent] Cardkit.DeleteCardkitV1CardsByCardIdElementsByElementIdBodyDto dto);
+
+    /// <summary>
+    /// <para>【卡片】更新卡片配置</para>
+    /// <para>接口ID：7397253002364616707</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/settings</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新指定卡片实体的配置，支持更新 `config` 和 `card_link` 字段。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
+    /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
+    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>cardkit:card:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="card_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>卡片实体 ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取</para>
+    /// <para>示例值：7355372766134157313</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/cardkit/v1/cards/{card_id}/settings")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchCardkitV1CardsByCardIdSettingsAsync(
+        [PathQuery] string card_id,
+        [JsonContent] Cardkit.PatchCardkitV1CardsByCardIdSettingsBodyDto dto);
+
+    /// <summary>
+    /// <para>【卡片】批量更新卡片实体</para>
+    /// <para>接口ID：7397253002364633091</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/batch_update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新指定卡片实体局部，包括配置和组件等。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
+    /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
+    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>cardkit:card:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="card_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>卡片实体 ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取</para>
+    /// <para>示例值：7355439197428236291</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/cardkit/v1/cards/{card_id}/batch_update")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCardkitV1CardsByCardIdBatchUpdateAsync(
+        [PathQuery] string card_id,
+        [JsonContent] Cardkit.PostCardkitV1CardsByCardIdBatchUpdateBodyDto dto);
+
+    /// <summary>
+    /// <para>【卡片】流式更新文本</para>
+    /// <para>接口ID：7397253002364649475</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card-element/content</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>对卡片中的普通文本元素（tag 为 plain_text 的元素）或富文本组件（tag 为 markdown 的组件）传入全量文本内容，以实现“打字机”式的文字输出效果。</para>
+    /// <para>## 输出效果说明</para>
+    /// <para>若旧文本为传入的新文本的前缀子串，新增文本将在旧文本末尾继续以打字机效果输出；若新旧文本前缀不同，全量文本将直接上屏输出，无打字机效果。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
+    /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
+    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用该接口时，需确保已开启卡片的流式更新模式，即将 `streaming_mode` 设为 `true`。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>cardkit:card:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="card_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>卡片实体 ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取</para>
+    /// <para>示例值：7355439197428236291</para>
+    /// </param>
+    /// <param name="element_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>普通文本组件或富文本组件的 ID。对应卡片 JSON 中的 `element_id` 属性，由开发者自定义。</para>
+    /// <para>示例值：elem_63529372</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPut("/open-apis/cardkit/v1/cards/{card_id}/elements/{element_id}/content")]
+    System.Threading.Tasks.Task<FeishuResponse> PutCardkitV1CardsByCardIdElementsByElementIdContentAsync(
+        [PathQuery] string card_id,
+        [PathQuery] string element_id,
+        [JsonContent] Cardkit.PutCardkitV1CardsByCardIdElementsByElementIdContentBodyDto dto);
+
+    /// <summary>
+    /// <para>【卡片】全量更新卡片实体</para>
+    /// <para>接口ID：7397253002364682243</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>传入全新的卡片 JSON 数据，更新指定的卡片实体。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
+    /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
+    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>cardkit:card:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="card_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>卡片实体 ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取</para>
+    /// <para>示例值：7355372766134157313</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPut("/open-apis/cardkit/v1/cards/{card_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PutCardkitV1CardsByCardIdAsync(
+        [PathQuery] string card_id,
+        [JsonContent] Cardkit.PutCardkitV1CardsByCardIdBodyDto dto);
+
+    /// <summary>
+    /// <para>【卡片】转换 ID</para>
+    /// <para>接口ID：7397265677100957699</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/id_convert</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>将[消息 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#44c58e1c)（ `message_id` ）转换为卡片实体 ID（`card_id`）。</para>
+    /// <para>## 提示</para>
+    /// <para>- 卡片实体 ID 是卡片实体的唯一标识，由[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)接口返回。</para>
+    /// <para>- 该接口可用于将由[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)等接口返回的消息 ID 转换为卡片实体 ID，以进一步对卡片进行全量更新、局部更新、或文本流式更新操作。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>cardkit:card:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/cardkit/v1/cards/id_convert")]
+    System.Threading.Tasks.Task<FeishuResponse<Cardkit.PostCardkitV1CardsIdConvertResponseDto>> PostCardkitV1CardsIdConvertAsync(
+        [JsonContent] Cardkit.PostCardkitV1CardsIdConvertBodyDto dto);
+
+    /// <summary>
+    /// <para>【卡片】创建卡片实体</para>
+    /// <para>接口ID：7397265677100974083</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>基于卡片 JSON 代码，创建卡片实体。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
+    /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
+    /// <para>- 卡片实体的有效期为 14 天。即创建卡片实体超出 14 天后，你将无法调用相关接口操作卡片。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>cardkit:card:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/cardkit/v1/cards")]
+    System.Threading.Tasks.Task<FeishuResponse<Cardkit.PostCardkitV1CardsResponseDto>> PostCardkitV1CardsAsync(
+        [JsonContent] Cardkit.PostCardkitV1CardsBodyDto dto);
+
+    /// <summary>
+    /// <para>【卡片】更新组件</para>
+    /// <para>接口ID：7397265677100990467</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card-element/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新卡片实体中的指定组件为新组件。支持传入多个组件。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
+    /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
+    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>cardkit:card:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="card_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>卡片实体 ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取</para>
+    /// <para>示例值：7355439197428236291</para>
+    /// </param>
+    /// <param name="element_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>要更新的组件 ID。对应卡片 JSON 中的 `element_id` 属性，由开发者自定义。</para>
+    /// <para>示例值：elem_63529372</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPut("/open-apis/cardkit/v1/cards/{card_id}/elements/{element_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PutCardkitV1CardsByCardIdElementsByElementIdAsync(
+        [PathQuery] string card_id,
+        [PathQuery] string element_id,
+        [JsonContent] Cardkit.PutCardkitV1CardsByCardIdElementsByElementIdBodyDto dto);
 
     /// <summary>
     /// <para>【绩效】获取指标标签列表</para>

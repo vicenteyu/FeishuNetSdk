@@ -1210,7 +1210,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6908984614439829506</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/ugDM2YjL4AjN24COwYjN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>此接口已废弃，不允许新增的应用调用该接口，**2024年10月11日 23:59** 前未调用过该接口的应用，在调用时将返回错误。</para>
+    /// <para>此接口已废弃，不允许应用再调用该接口，若继续调用将返回 95054 的错误码。</para>
     /// <para>要创建文档，请使用[创建文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create)接口。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
@@ -3846,7 +3846,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>一次请求要求返回的最大日程数量。</para>
+    /// <para>一次请求要求返回的最大日程数量。实际返回的日程数量可能小于该值，也可能为空，可以根据响应体里的has_more字段来判断是否还有更多日程。</para>
     /// <para>示例值：50</para>
     /// <para>默认值：500</para>
     /// </param>

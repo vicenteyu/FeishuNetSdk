@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-21
+// Last Modified On : 2025-01-05
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -5912,16 +5912,6 @@ public record PostCorehrV2EmployeesSearchResponseDto
         /// </summary>
         [JsonPropertyName("archive_cpst_plan_id")]
         public string? ArchiveCpstPlanId { get; set; }
-
-        /// <summary>
-        /// <para>当前所在考勤组 ID</para>
-        /// <para>- 可通过[按 ID 查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/get)获取详情</para>
-        /// <para>- 预留字段，暂不支持</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：123456789</para>
-        /// </summary>
-        [JsonPropertyName("attendance_group_id")]
-        public string? AttendanceGroupId { get; set; }
     }
 
     /// <summary>

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 创建旧版文档 请求体
-/// <para>此接口已废弃，不允许新增的应用调用该接口，**2024年10月11日 23:59** 前未调用过该接口的应用，在调用时将返回错误。</para>
+/// <para>此接口已废弃，不允许应用再调用该接口，若继续调用将返回 95054 的错误码。</para>
 /// <para>要创建文档，请使用[创建文档](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create)接口。</para>
 /// <para>接口ID：6908984614439829506</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/docs/docs/apiRef/create-document</para>
