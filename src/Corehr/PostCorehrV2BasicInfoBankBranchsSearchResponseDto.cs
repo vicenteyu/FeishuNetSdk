@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 查询支行信息 响应体
-/// <para>根据银行 ID、支行 ID 、支行名称查询银行信息</para>
+/// <para>根据银行 ID、支行 ID 、支行名称、联行号，支行状态、更新时间 查询银行信息</para>
 /// <para>接口ID：7301516605753212931</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank_branch/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbasic_info-bank_branch%2fsearch</para>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-01-11
 // ************************************************************************
 // <copyright file="PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,9 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 更新字段 请求体
-/// <para>该接口用于在数据表中更新一个字段</para>
+/// <para>在多维表格数据表中更新一个字段。更新字段时为全量更新，property 等字段会被完全覆盖。</para>
+/// <para>## 前提条件</para>
+/// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
 /// <para>接口ID：6960166873968508931</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-field/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-field%2fupdate</para>
@@ -22,21 +24,19 @@ namespace FeishuNetSdk.Base;
 public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto
 {
     /// <summary>
-    /// <para>多维表格字段名</para>
-    /// <para>请注意：</para>
-    /// <para>1. 名称中的首尾空格将会被去除。</para>
+    /// <para>多维表格字段名称。名称中的首尾空格将会被去除。</para>
     /// <para>必填：是</para>
-    /// <para>示例值：多行文本</para>
+    /// <para>示例值：任务名称</para>
     /// </summary>
     [JsonPropertyName("field_name")]
     public string FieldName { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>多维表格字段类型</para>
+    /// <para>要更新的字段的类型。不支持更新 19 查找引用字段类型。</para>
     /// <para>必填：是</para>
     /// <para>示例值：1</para>
     /// <para>可选值：<list type="bullet">
-    /// <item>1：多行文本</item>
+    /// <item>1：文本</item>
     /// <item>2：数字</item>
     /// <item>3：单选</item>
     /// <item>4：多选</item>
@@ -46,8 +46,8 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto
     /// <item>13：电话号码</item>
     /// <item>15：超链接</item>
     /// <item>17：附件</item>
-    /// <item>18：关联</item>
-    /// <item>20：公式</item>
+    /// <item>18：单项关联</item>
+    /// <item>20：公式（不支持设置公式表达式）</item>
     /// <item>21：双向关联</item>
     /// <item>22：地理位置</item>
     /// <item>23：群组</item>
@@ -62,14 +62,14 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto
     public int Type { get; set; }
 
     /// <summary>
-    /// <para>字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)</para>
+    /// <para>字段属性，了解如何填写字段，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("property")]
     public AppTableFieldProperty? Property { get; set; }
 
     /// <summary>
-    /// <para>字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)</para>
+    /// <para>字段属性，了解如何填写字段，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
     /// </summary>
     public record AppTableFieldProperty
     {
@@ -86,7 +86,7 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto
         public record AppTableFieldPropertyOption
         {
             /// <summary>
-            /// <para>选项名</para>
+            /// <para>选项名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：红色</para>
             /// </summary>
@@ -94,7 +94,7 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto
             public string? Name { get; set; }
 
             /// <summary>
-            /// <para>选项 ID，创建时不允许指定 ID</para>
+            /// <para>选项 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：optKl35lnG</para>
             /// </summary>
@@ -102,7 +102,7 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>选项颜色</para>
+            /// <para>选项颜色，详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
             /// <para>必填：否</para>
             /// <para>示例值：0</para>
             /// <para>最大值：54</para>
@@ -113,7 +113,7 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto
         }
 
         /// <summary>
-        /// <para>数字、公式字段的显示格式</para>
+        /// <para>数字、公式字段的显示格式。详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -121,9 +121,9 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto
         public string? Formatter { get; set; }
 
         /// <summary>
-        /// <para>日期、创建时间、最后更新时间字段的显示格式</para>
+        /// <para>日期、创建时间、最后更新时间字段的显示格式。详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：日期格式</para>
+        /// <para>示例值：yyyy/MM/dd HH:mm</para>
         /// </summary>
         [JsonPropertyName("date_formatter")]
         public string? DateFormatter { get; set; }
@@ -145,7 +145,7 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto
         public bool? Multiple { get; set; }
 
         /// <summary>
-        /// <para>单向关联、双向关联字段中关联的数据表的id</para>
+        /// <para>单向关联、双向关联字段中关联的数据表的 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：tblsRc9GRRXKqhvW</para>
         /// </summary>
@@ -153,17 +153,17 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto
         public string? TableId { get; set; }
 
         /// <summary>
-        /// <para>单向关联、双向关联字段中关联的数据表的名字</para>
+        /// <para>单向关联、双向关联字段中关联的数据表的名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值："table2"</para>
+        /// <para>示例值：table2</para>
         /// </summary>
         [JsonPropertyName("table_name")]
         public string? TableName { get; set; }
 
         /// <summary>
-        /// <para>双向关联字段中关联的数据表中对应的双向关联字段的名字</para>
+        /// <para>双向关联字段中，关联的数据表中对应的双向关联字段名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值："table1-双向关联"</para>
+        /// <para>示例值：table1-双向关联</para>
         /// </summary>
         [JsonPropertyName("back_field_name")]
         public string? BackFieldName { get; set; }
@@ -209,7 +209,7 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto
                 /// <para>必填：是</para>
                 /// <para>示例值：created_time</para>
                 /// <para>可选值：<list type="bullet">
-                /// <item>system_number：自增数字位,value范围1-9</item>
+                /// <item>system_number：自增数字位，value 范围为 1-9</item>
                 /// <item>fixed_text：固定字符，最大长度：20</item>
                 /// <item>created_time：创建时间，支持格式 "yyyyMMdd"、"yyyyMM"、"yyyy"、"MMdd"、"MM"、"dd"</item>
                 /// </list></para>
@@ -341,6 +341,158 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto
             [JsonPropertyName("symbol")]
             public string? Symbol { get; set; }
         }
+
+        /// <summary>
+        /// <para>设置公式字段的数据类型</para>
+        /// <para>**注意**：非所有多维表格都支持该能力。请参考[获取多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/get)接口返回的formula_type 判断，当 `formula_type` 等于 2 时，表示需要设置该字段。</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("type")]
+        public AppTableFieldPropertyType? Type { get; set; }
+
+        /// <summary>
+        /// <para>设置公式字段的数据类型</para>
+        /// <para>**注意**：非所有多维表格都支持该能力。请参考[获取多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/get)接口返回的formula_type 判断，当 `formula_type` 等于 2 时，表示需要设置该字段。</para>
+        /// </summary>
+        public record AppTableFieldPropertyType
+        {
+            /// <summary>
+            /// <para>公式字段对应的数据类型</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：1</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>1：多行文本（默认值）、条码</item>
+            /// <item>2：数字（默认值）、进度、货币、评分</item>
+            /// <item>3：单选</item>
+            /// <item>4：多选</item>
+            /// <item>5：日期</item>
+            /// <item>7：复选框</item>
+            /// <item>11：人员</item>
+            /// <item>13：电话号码</item>
+            /// <item>15：超链接</item>
+            /// <item>17：附件</item>
+            /// <item>18：单向关联</item>
+            /// <item>20：公式</item>
+            /// <item>21：双向关联</item>
+            /// <item>22：地理位置</item>
+            /// <item>23：群组</item>
+            /// <item>1001：创建时间</item>
+            /// <item>1002：最后更新时间</item>
+            /// <item>1003：创建人</item>
+            /// <item>1004：修改人</item>
+            /// <item>1005：自动编号</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("data_type")]
+            public int DataType { get; set; }
+
+            /// <summary>
+            /// <para>公式数据属性</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("ui_property")]
+            public AppTableFieldPropertyTypeUiProperty? UiProperty { get; set; }
+
+            /// <summary>
+            /// <para>公式数据属性</para>
+            /// </summary>
+            public record AppTableFieldPropertyTypeUiProperty
+            {
+                /// <summary>
+                /// <para>货币币种</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：CNY</para>
+                /// <para>最大长度：20</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("currency_code")]
+                public string? CurrencyCode { get; set; }
+
+                /// <summary>
+                /// <para>数字、公式字段的显示格式</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：0</para>
+                /// <para>最大长度：50</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("formatter")]
+                public string? Formatter { get; set; }
+
+                /// <summary>
+                /// <para>进度等字段是否支持自定义范围</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：true</para>
+                /// </summary>
+                [JsonPropertyName("range_customize")]
+                public bool? RangeCustomize { get; set; }
+
+                /// <summary>
+                /// <para>进度、评分等字段的数据范围最小值</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>最大值：1</para>
+                /// <para>最小值：0</para>
+                /// </summary>
+                [JsonPropertyName("min")]
+                public float? Min { get; set; }
+
+                /// <summary>
+                /// <para>进度、评分等字段的数据范围最大值</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：100</para>
+                /// <para>最大值：100</para>
+                /// <para>最小值：1</para>
+                /// </summary>
+                [JsonPropertyName("max")]
+                public float? Max { get; set; }
+
+                /// <summary>
+                /// <para>日期、创建时间、最后更新时间字段的显示格式</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：yyyy/MM/dd</para>
+                /// <para>最大长度：50</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("date_formatter")]
+                public string? DateFormatter { get; set; }
+
+                /// <summary>
+                /// <para>评分字段的相关设置</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("rating")]
+                public AppTableFieldPropertyTypeUiPropertyRating? Rating { get; set; }
+
+                /// <summary>
+                /// <para>评分字段的相关设置</para>
+                /// </summary>
+                public record AppTableFieldPropertyTypeUiPropertyRating
+                {
+                    /// <summary>
+                    /// <para>评分字段的符号展示</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：star</para>
+                    /// </summary>
+                    [JsonPropertyName("symbol")]
+                    public string? Symbol { get; set; }
+                }
+            }
+
+            /// <summary>
+            /// <para>公式字段在界面上的展示类型，例如进度字段是数字的一种展示形态</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：Progress</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>Number：数字</item>
+            /// <item>Progress：进度</item>
+            /// <item>Currency：货币</item>
+            /// <item>Rating：评分</item>
+            /// <item>DateTime：日期</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("ui_type")]
+            public string? UiType { get; set; }
+        }
     }
 
     /// <summary>
@@ -356,7 +508,9 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto
     public record AppTableFieldDescription
     {
         /// <summary>
-        /// <para>是否禁止同步，如果为true，表示禁止同步该描述内容到表单的问题描述（只在新增、修改字段时生效）</para>
+        /// <para>是否禁止同步该描述，只在新增、修改字段时生效。枚举值：</para>
+        /// <para>- true：表示禁止同步该描述内容到表单的问题描述</para>
+        /// <para>- false：允许同步该描述</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// <para>默认值：true</para>
@@ -378,7 +532,7 @@ public record PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：Progress</para>
     /// <para>可选值：<list type="bullet">
-    /// <item>Text：多行文本</item>
+    /// <item>Text：文本</item>
     /// <item>Email：邮箱地址</item>
     /// <item>Barcode：条码</item>
     /// <item>Number：数字</item>

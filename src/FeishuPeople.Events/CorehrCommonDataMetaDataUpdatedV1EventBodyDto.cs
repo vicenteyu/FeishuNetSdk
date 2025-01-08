@@ -4,7 +4,7 @@
 // Created          : 2024-11-08
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-08
+// Last Modified On : 2025-01-11
 // ************************************************************************
 // <copyright file="CorehrCommonDataMetaDataUpdatedV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -28,4 +28,25 @@ public record CorehrCommonDataMetaDataUpdatedV1EventBodyDto() : EventBodyDto("co
     /// </summary>
     [JsonPropertyName("api_name")]
     public string? ApiName { get; set; }
+
+    /// <summary>
+    /// <para>变更的字段</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("field_changes")]
+    public string[]? FieldChanges { get; set; }
+
+    /// <summary>
+    /// <para>变更的元数据类型（包括对象和枚举）</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("metadata_type")]
+    public string? MetadataType { get; set; }
+
+    /// <summary>
+    /// <para>变更的枚举</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("enum_value_changes")]
+    public string[]? EnumValueChanges { get; set; }
 }

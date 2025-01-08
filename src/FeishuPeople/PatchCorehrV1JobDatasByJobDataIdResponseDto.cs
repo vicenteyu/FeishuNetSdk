@@ -163,7 +163,7 @@ public record PatchCorehrV1JobDatasByJobDataIdResponseDto
         public string? JobFamilyId { get; set; }
 
         /// <summary>
-        /// <para>任职原因</para>
+        /// <para>业务类型（原：任职原因）</para>
         /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
         /// <para>- object_api_name：job_data</para>
         /// <para>- custom_api_name：assignment_start_reason</para>
@@ -174,7 +174,7 @@ public record PatchCorehrV1JobDatasByJobDataIdResponseDto
         public Enum? AssignmentStartReason { get; set; }
 
         /// <summary>
-        /// <para>任职原因</para>
+        /// <para>业务类型（原：任职原因）</para>
         /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
         /// <para>- object_api_name：job_data</para>
         /// <para>- custom_api_name：assignment_start_reason</para>

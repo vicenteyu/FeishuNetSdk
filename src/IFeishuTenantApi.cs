@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-01-05
+// Last Modified On : 2025-01-11
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -4804,7 +4804,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口向指定用户或者群聊发送消息。支持发送的消息类型包括文本、富文本、卡片、群名片、个人名片、图片、视频、音频、文件以及表情包等。</para>
     /// <para>## 前提条件</para>
-    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。 开启能力后需要发布版本才能生效，参考 [发布应用](https://open.feishu.cn/document/home/introduction-to-custom-app-development/self-built-application-development-process#baf09c7d)。</para>
     /// <para>- 给用户发送消息时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。</para>
     /// <para>- 给群组发送消息时，机器人需要在该群组中，且在群组内拥有发言权限。</para>
     /// <para>## 使用限制</para>
@@ -9828,9 +9828,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6960166873968427011</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于在数据表中新增一个字段</para>
-    /// <para>note</para>
-    /// <para>首次调用请参考 [云文档接口快速入门](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)[多维表格接口接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)</para>
+    /// <para>在多维表格数据表中新增一个字段。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:field:create</item>
     /// <item>bitable:app</item>
@@ -9839,13 +9839,20 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格数据表的唯一标识符 [table_id 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#735fe883)</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="client_token">
@@ -9969,7 +9976,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6960166873968492547</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据 app_token 和 table_id，获取数据表的所有字段</para>
+    /// <para>获取多维表格数据表中的的所有字段。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:field:read</item>
     /// <item>bitable:app</item>
@@ -9979,24 +9986,46 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>Base app token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>table id</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="view_id">
     /// <para>必填：否</para>
-    /// <para>视图 ID</para>
+    /// <para>多维表格中视图的唯一标识。获取方式：</para>
+    /// <para>- 在多维表格的 URL 地址栏中，`view_id` 是下图中高亮部分：</para>
+    /// <para>![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&amp;lazyload=true&amp;width=2998)</para>
+    /// <para>- 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的 `view_id`。</para>
+    /// <para>**注意**：</para>
+    /// <para>当 `filter` 参数 或 `sort` 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 `view_id` 会被忽略。</para>
     /// <para>示例值：vewOVMEXPF</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="text_field_as_array">
     /// <para>必填：否</para>
-    /// <para>控制字段描述（多行文本格式）数据的返回格式, true 表示以数组富文本形式返回</para>
+    /// <para>控制字段描述 `description` 数据的返回格式，默认为 false。true 表示 `description` 将以数组形式返回，如：</para>
+    /// <para>```json</para>
+    /// <para>{</para>
+    /// <para>"description": [</para>
+    /// <para>{</para>
+    /// <para>"text": "字段的描述",</para>
+    /// <para>"type": "text"</para>
+    /// <para>}</para>
+    /// <para>]</para>
+    /// <para>}</para>
+    /// <para>```</para>
     /// <para>示例值：true</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -10026,7 +10055,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6960166873968508931</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于在数据表中更新一个字段</para>
+    /// <para>在多维表格数据表中更新一个字段。更新字段时为全量更新，property 等字段会被完全覆盖。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:field:update</item>
     /// <item>bitable:app</item>
@@ -10035,19 +10066,26 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>base app token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>table id</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="field_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>field id</para>
+    /// <para>数据表中一个字段的唯一标识。通过[列出字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/list)接口获取。</para>
     /// <para>示例值：fldPTb0U2y</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -10063,7 +10101,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6960166873968525315</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于在数据表中删除一个字段</para>
+    /// <para>删除多维表格数据表中的一个字段。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:field:delete</item>
     /// <item>bitable:app</item>
@@ -10072,19 +10110,26 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="table_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>table id</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="field_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>field id</para>
+    /// <para>数据表中一个字段的唯一标识。通过[列出字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/list)接口获取。</para>
     /// <para>示例值：fldPTb0U2y</para>
     /// </param>
     [HttpDelete("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/fields/{field_id}")]
@@ -10098,7 +10143,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6960166873968541699</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>新增一个数据表，默认仅包含索引字段，也可以指定一部分初始字段。最多支持新增 100 个数据表。</para>
+    /// <para>新增一个数据表，默认仅包含索引字段，也可以指定更多字段。最多支持新增 100 个数据表。</para>
     /// <para>## 前提条件</para>
     /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
@@ -10179,7 +10224,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>目标多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}")]
@@ -25646,7 +25695,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7108645368100257794</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取员工在某段时间内的请假、加班、外出和出差四种审批的通过数据。</para>
+    /// <para>获取员工在某段时间内的请假、加班、外出和出差四种审批数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:task:readonly</item>
     /// </list></para>
@@ -26074,7 +26123,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7112009113388138524</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取「飞书人事」对象下某字段的详细信息，支持系统预置字段和自定义字段。可通过该接口获取某个选项字段包含的选项列表，某个自定义分组中包含的字段列表等。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
+    /// <para>获取「飞书人事」对象下某字段的详细信息，支持系统预置字段和自定义字段。可通过该接口获取某个选项字段包含的选项列表，某个自定义分组中包含的字段列表等。使用方式可参考「[如何通过 OpenAPI 维护自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/how-to)」</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:common_data.meta_data:read</item>
     /// <item>corehr:corehr</item>
@@ -26083,12 +26132,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="object_api_name">
     /// <para>必填：是</para>
-    /// <para>所属对象 API name</para>
+    /// <para>所属对象 API name，可从[获取飞书人事对象列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/list_object_api_name)接口列举所有对象及其 API name</para>
     /// <para>示例值：offboarding_info</para>
     /// </param>
     /// <param name="custom_api_name">
     /// <para>必填：是</para>
-    /// <para>字段 API name</para>
+    /// <para>字段 API name，可通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口中返回的 `custom_api_name` 字段获取</para>
     /// <para>示例值：custom_field_33__c</para>
     /// </param>
     [HttpGet("/open-apis/corehr/v1/custom_fields/get_by_param")]
@@ -30631,6 +30680,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
     /// <item>slides：幻灯片</item>
+    /// <item>folder：文件夹</item>
     /// </list>
     /// </param>
     /// <param name="need_notification">
@@ -32793,6 +32843,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:offboarding.block_list:read</item>
     /// <item>corehr:offboarding.block_list:write</item>
     /// <item>corehr:offboarding.custom_field:read</item>
+    /// <item>corehr:offboarding.last_attendance_date:read</item>
+    /// <item>corehr:offboarding.noncompete_agreement:read</item>
+    /// <item>corehr:offboarding.retain_account:read</item>
+    /// <item>corehr:offboarding.retain_account:write</item>
+    /// <item>corehr:offboarding.signature:read</item>
+    /// <item>corehr:offboarding.social_insurance:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="page_size">
@@ -39652,7 +39708,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7301516605753212931</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank_branch/search</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据银行 ID、支行 ID 、支行名称查询银行信息</para>
+    /// <para>根据银行 ID、支行 ID 、支行名称、联行号，支行状态、更新时间 查询银行信息</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:common_data.basic_data:read</item>
     /// </list></para>
@@ -47187,6 +47243,86 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Base.PutBitableV1AppsByAppTokenWorkflowsByWorkflowIdBodyDto dto);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】查询当前生效信息发生变更的地点</para>
+    /// <para>接口ID：7447798339566419971</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/query_recent_change</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询指定时间范围内当前生效信息发生变更的地点，即只有地点当前生效版本的生效时间在查询时间范围内，才返回该地点id</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:locations:read</item>
+    /// <item>corehr:locations:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 2000</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="start_date">
+    /// <para>必填：是</para>
+    /// <para>查询的开始时间，支持"yyyy-MM-dd HH:MM:SS"</para>
+    /// <para>示例值：2024-01-01 00:00:00</para>
+    /// </param>
+    /// <param name="end_date">
+    /// <para>必填：是</para>
+    /// <para>查询的结束时间，格式 "yyyy-MM-dd HH:MM:SS"</para>
+    /// <para>示例值：2024-04-01 00:00:00</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v2/locations/query_recent_change")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2LocationsQueryRecentChangeResponseDto>> GetCorehrV2LocationsQueryRecentChangeAsync(
+        [PathQuery] string start_date,
+        [PathQuery] string end_date,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询当前生效信息发生变更的成本中心</para>
+    /// <para>接口ID：7447798339566436355</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/query_recent_change</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询指定时间范围内当前生效信息发生变更的成本中心，即只有部门当前生效版本的生效时间在查询时间范围内，才返回该成本中心id</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:cost_center:read</item>
+    /// <item>corehr:cost_center:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 2000</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="start_date">
+    /// <para>必填：是</para>
+    /// <para>查询的开始时间，支持"yyyy-MM-dd HH:MM:SS"</para>
+    /// <para>示例值：2024-01-01 00:00:00</para>
+    /// </param>
+    /// <param name="end_date">
+    /// <para>必填：是</para>
+    /// <para>查询的结束时间，格式 "yyyy-MM-dd HH:MM:SS"</para>
+    /// <para>示例值：2024-04-01 00:00:00</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v2/cost_centers/query_recent_change")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2CostCentersQueryRecentChangeResponseDto>> GetCorehrV2CostCentersQueryRecentChangeAsync(
+        [PathQuery] string start_date,
+        [PathQuery] string end_date,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
     /// <para>【飞书人事（企业版）】撤销异动</para>
     /// <para>接口ID：7449328616456585235</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/revoke</para>
@@ -47680,5 +47816,140 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/corehr/v2/pre_hires/restore_flow_instance")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2PreHiresRestoreFlowInstanceResponseDto>> PostCorehrV2PreHiresRestoreFlowInstanceAsync(
         [JsonContent] Corehr.PostCorehrV2PreHiresRestoreFlowInstanceBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询当前生效信息发生变更的序列</para>
+    /// <para>接口ID：7452973109948596226</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/query_recent_change</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询指定时间范围内当前生效信息发生变更的序列，即只有序列前生效版本的生效时间在查询时间范围内，才返回该序列id</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:job_family:read</item>
+    /// <item>corehr:job_family:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 2000</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="start_date">
+    /// <para>必填：是</para>
+    /// <para>查询的开始时间，支持"yyyy-MM-dd HH:MM:SS"</para>
+    /// <para>示例值：2024-01-01 00:00:00</para>
+    /// </param>
+    /// <param name="end_date">
+    /// <para>必填：是</para>
+    /// <para>查询的结束时间，格式 "yyyy-MM-dd HH:MM:SS"</para>
+    /// <para>示例值：2024-04-01 00:00:00</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v2/job_families/query_recent_change")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2JobFamiliesQueryRecentChangeResponseDto>> GetCorehrV2JobFamiliesQueryRecentChangeAsync(
+        [PathQuery] string start_date,
+        [PathQuery] string end_date,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询当前生效信息发生变更的职级</para>
+    /// <para>接口ID：7452973109948612610</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/query_recent_change</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询指定时间范围内当前生效信息发生变更的职级，即只有地点当前生效版本的生效时间在查询时间范围内，才返回该职级id</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:job_level:read</item>
+    /// <item>corehr:job_level:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 2000</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="start_date">
+    /// <para>必填：是</para>
+    /// <para>查询的开始时间，支持"yyyy-MM-dd HH:MM:SS"</para>
+    /// <para>示例值：2024-01-01 00:00:00</para>
+    /// </param>
+    /// <param name="end_date">
+    /// <para>必填：是</para>
+    /// <para>查询的结束时间，格式 "yyyy-MM-dd HH:MM:SS"</para>
+    /// <para>示例值：2024-04-01 00:00:00</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v2/job_levels/query_recent_change")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2JobLevelsQueryRecentChangeResponseDto>> GetCorehrV2JobLevelsQueryRecentChangeAsync(
+        [PathQuery] string start_date,
+        [PathQuery] string end_date,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询当前生效信息发生变更的职等</para>
+    /// <para>接口ID：7452973109948628994</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query_recent_change</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询指定时间范围内当前生效信息发生变更的职等，即只有职等当前生效版本的生效时间在查询时间范围内，才返回该地点id</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:job_grade:read</item>
+    /// <item>corehr:job_grade:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 2000</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="start_date">
+    /// <para>必填：是</para>
+    /// <para>查询的开始时间，支持"yyyy-MM-dd HH:MM:SS"</para>
+    /// <para>示例值：2024-01-01 00:00:00</para>
+    /// </param>
+    /// <param name="end_date">
+    /// <para>必填：是</para>
+    /// <para>查询的结束时间，格式 "yyyy-MM-dd HH:MM:SS"</para>
+    /// <para>示例值：2024-04-01 00:00:00</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v2/job_grades/query_recent_change")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2JobGradesQueryRecentChangeResponseDto>> GetCorehrV2JobGradesQueryRecentChangeAsync(
+        [PathQuery] string start_date,
+        [PathQuery] string end_date,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询枚举信息</para>
+    /// <para>接口ID：7457854043681603588</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/enum/search</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据枚举的APIName查询枚举详细信息，用于BPM等场景获取枚举选项。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:common_data.meta_data:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/enums/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2EnumsSearchResponseDto>> PostCorehrV2EnumsSearchAsync(
+        [JsonContent] Corehr.PostCorehrV2EnumsSearchBodyDto dto);
 }
 

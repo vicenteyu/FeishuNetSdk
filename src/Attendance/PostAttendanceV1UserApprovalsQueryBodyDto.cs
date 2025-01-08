@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 获取审批通过数据 请求体
-/// <para>获取员工在某段时间内的请假、加班、外出和出差四种审批的通过数据。</para>
+/// <para>获取员工在某段时间内的请假、加班、外出和出差四种审批数据。</para>
 /// <para>接口ID：7108645368100257794</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_approval/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_approval%2fquery</para>

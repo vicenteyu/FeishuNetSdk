@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-04
+// Last Modified On : 2025-01-08
 // ************************************************************************
 // <copyright file="PostCorehrV1OffboardingsSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -118,7 +118,11 @@ public record PostCorehrV1OffboardingsSearchResponseDto
         public record OffboardingOffboardingInfo
         {
             /// <summary>
-            /// <para>离职员工的雇佣 ID。ID 类型与查询参数 user_id_type 的取值一致。例如，当user_id_type为user_id时，该字段取员工的user_id，若user_id_type为people_corehr_id时，则取该员工的人事雇佣ID。</para>
+            /// <para>离职员工的雇佣 ID，ID类型与查询参数 user_id_type取值一致：</para>
+            /// <para>1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。</para>
+            /// <para>2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的 User ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。</para>
+            /// <para>3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。</para>
+            /// <para>4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的 User ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User ID。然后通过[ID 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。</para>
             /// <para>必填：否</para>
             /// <para>示例值：6893014062142064135</para>
             /// </summary>
@@ -126,7 +130,11 @@ public record PostCorehrV1OffboardingsSearchResponseDto
             public string? EmploymentId { get; set; }
 
             /// <summary>
-            /// <para>员工的 hrbp 列表，所有的 hrbp。ID 类型与查询参数 user_id_type 的取值一致。例如，当user_id_type为user_id时，该字段取员工的user_id，若user_id_type为people_corehr_id时，则取该员工的人事雇佣ID。</para>
+            /// <para>员工的 hrbp 列表，ID类型与查询参数 user_id_type取值一致：</para>
+            /// <para>1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。</para>
+            /// <para>2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的 User ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。</para>
+            /// <para>3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。</para>
+            /// <para>4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的 User ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User ID。然后通过[ID 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("hrbp_id")]
@@ -323,6 +331,106 @@ public record PostCorehrV1OffboardingsSearchResponseDto
                 [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
             }
+
+            /// <summary>
+            /// <para>离职是否保留飞书账号</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：false</para>
+            /// </summary>
+            [JsonPropertyName("retain_account")]
+            public bool? RetainAccount { get; set; }
+
+            /// <summary>
+            /// <para>社保停保年月，按YYYY-MM的日期格式返回</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2022-02</para>
+            /// </summary>
+            [JsonPropertyName("social_insurance_end_date")]
+            public string? SocialInsuranceEndDate { get; set; }
+
+            /// <summary>
+            /// <para>公积金截止年月，按YYYY-MM的日期格式返回</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2022-02</para>
+            /// </summary>
+            [JsonPropertyName("provident_fund_end_date")]
+            public string? ProvidentFundEndDate { get; set; }
+
+            /// <summary>
+            /// <para>是否启动竞业</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：false</para>
+            /// </summary>
+            [JsonPropertyName("enforce_noncompete_agreement")]
+            public bool? EnforceNoncompeteAgreement { get; set; }
+
+            /// <summary>
+            /// <para>竞业合同ID，可以通过[查询单个合同](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/contract/get)获取详细的合同信息</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：123</para>
+            /// </summary>
+            [JsonPropertyName("noncompete_agreement_id")]
+            public string? NoncompeteAgreementId { get; set; }
+
+            /// <summary>
+            /// <para>竞业公司ID，可以通过[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)获取详细的公司信息</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：123</para>
+            /// </summary>
+            [JsonPropertyName("noncompete_agreement_company")]
+            public string? NoncompeteAgreementCompany { get; set; }
+
+            /// <summary>
+            /// <para>竞业开始日期</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2022-02-08</para>
+            /// </summary>
+            [JsonPropertyName("noncompete_agreement_start_date")]
+            public string? NoncompeteAgreementStartDate { get; set; }
+
+            /// <summary>
+            /// <para>竞业结束日期</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2022-02-08</para>
+            /// </summary>
+            [JsonPropertyName("noncompete_agreement_end_date")]
+            public string? NoncompeteAgreementEndDate { get; set; }
+
+            /// <summary>
+            /// <para>签署方式，枚举值可查询</para>
+            /// <para>[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取,按如下参数查</para>
+            /// <para>询即可:</para>
+            /// <para>object_api_name= "offboarding_info"</para>
+            /// <para>custom_api_name= "sign_type"</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2022-02-08</para>
+            /// </summary>
+            [JsonPropertyName("sign_type")]
+            public Enum? SignType { get; set; }
+
+            /// <summary>
+            /// <para>签署文件ID列表</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：["123","456"]</para>
+            /// </summary>
+            [JsonPropertyName("signature_file")]
+            public string? SignatureFile { get; set; }
+
+            /// <summary>
+            /// <para>最后出勤日</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2022-02-08</para>
+            /// </summary>
+            [JsonPropertyName("last_attendance_date")]
+            public string? LastAttendanceDate { get; set; }
+
+            /// <summary>
+            /// <para>是否带编转移</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：false</para>
+            /// </summary>
+            [JsonPropertyName("is_transfer_with_workforce")]
+            public bool? IsTransferWithWorkforce { get; set; }
         }
 
         /// <summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-01-08
 // ************************************************************************
 // <copyright file="PostCorehrV1OffboardingsSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -22,8 +22,11 @@ namespace FeishuNetSdk.FeishuPeople;
 public record PostCorehrV1OffboardingsSearchBodyDto
 {
     /// <summary>
-    /// <para>雇佣 ID 列表，为空默认查询所有离职人员。ID 类型与查询参数 user_id_type 的取值一致。例如，当user_id_type为user_id时，该字段取员工的user_id，若user_id_type为people_corehr_id时，则取该员工的人事雇佣ID。</para>
-    /// <para>注意：user_id_type不为people_corehr_id时，离职重聘员工可能搜索前一条离职数据，推荐使用people_corehr_id。</para>
+    /// <para>雇佣 ID 列表，ID类型与查询参数 user_id_type取值一致：</para>
+    /// <para>- 当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。</para>
+    /// <para>- 当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的 User ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。</para>
+    /// <para>- 当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。</para>
+    /// <para>- 当user_id_type取值为people_corehr_id时，先参考[如何获取自己的 User ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User ID。然后通过[ID 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("employment_ids")]
@@ -44,6 +47,22 @@ public record PostCorehrV1OffboardingsSearchBodyDto
     /// </summary>
     [JsonPropertyName("apply_initiating_time_end")]
     public string? ApplyInitiatingTimeEnd { get; set; }
+
+    /// <summary>
+    /// <para>离职审批结束时间（搜索的起始范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批结束时间（搜索的结束范围）一同使用。</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：1641007353</para>
+    /// </summary>
+    [JsonPropertyName("apply_finished_time_start")]
+    public string? ApplyFinishedTimeStart { get; set; }
+
+    /// <summary>
+    /// <para>离职审批结束时间 （搜索的结束范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批结束时间（搜索的起始范围）一同使用。</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：1641007353</para>
+    /// </summary>
+    [JsonPropertyName("apply_finished_time_end")]
+    public string? ApplyFinishedTimeEnd { get; set; }
 
     /// <summary>
     /// <para>期望离职日期（搜索的起始范围），请按日期格式传入。该字段非必填，需要与期望离职日期（搜索的结束范围）一同使用</para>

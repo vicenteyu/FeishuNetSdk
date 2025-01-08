@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增一个数据表 响应体
-/// <para>新增一个数据表，默认仅包含索引字段，也可以指定一部分初始字段。最多支持新增 100 个数据表。</para>
+/// <para>新增一个数据表，默认仅包含索引字段，也可以指定更多字段。最多支持新增 100 个数据表。</para>
 /// <para>## 前提条件</para>
 /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
 /// <para>接口ID：6960166873968541699</para>

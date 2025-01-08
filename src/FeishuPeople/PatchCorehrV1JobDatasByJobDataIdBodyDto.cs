@@ -109,7 +109,7 @@ public record PatchCorehrV1JobDatasByJobDataIdBodyDto
 
     /// <summary>
     /// <para>是否为主任职</para>
-    /// <para>- 只允许传 true，故此字段即将废弃</para>
+    /// <para>- 该字段已废弃，默认为 true，不可更改</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -143,11 +143,11 @@ public record PatchCorehrV1JobDatasByJobDataIdBodyDto
     public string? JobFamilyId { get; set; }
 
     /// <summary>
-    /// <para>任职原因</para>
+    /// <para>业务类型（原：任职原因）</para>
     /// <para>- 枚举值[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)</para>
     /// <para>- object_api_name: job_data</para>
     /// <para>- custom_api_name: assignment_start_reason</para>
-    /// <para>- 请注意，「任职原因」不允许填写为「onboarding、offboarding」，当上一个任职版本的「任职原因」为「onboarding」时，「任职原因」必填</para>
+    /// <para>- 请注意，该枚举不允许填写为「onboarding、offboarding」，当上一个任职版本的值为「onboarding」时，该字段必填</para>
     /// <para>必填：否</para>
     /// <para>示例值：onboarding</para>
     /// </summary>
@@ -155,11 +155,11 @@ public record PatchCorehrV1JobDatasByJobDataIdBodyDto
     public Enum? AssignmentStartReason { get; set; }
 
     /// <summary>
-    /// <para>任职原因</para>
+    /// <para>业务类型（原：任职原因）</para>
     /// <para>- 枚举值[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)</para>
     /// <para>- object_api_name: job_data</para>
     /// <para>- custom_api_name: assignment_start_reason</para>
-    /// <para>- 请注意，「任职原因」不允许填写为「onboarding、offboarding」，当上一个任职版本的「任职原因」为「onboarding」时，「任职原因」必填</para>
+    /// <para>- 请注意，该枚举不允许填写为「onboarding、offboarding」，当上一个任职版本的值为「onboarding」时，该字段必填</para>
     /// </summary>
     public record Enum
     {

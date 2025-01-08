@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-01-11
 // ************************************************************************
 // <copyright file="GetBitableV1AppsByAppTokenResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -69,11 +69,35 @@ public record GetBitableV1AppsByAppTokenResponseDto
         public bool? IsAdvanced { get; set; }
 
         /// <summary>
-        /// <para>文档时区</para>
+        /// <para>多维表格的时区</para>
         /// <para>必填：否</para>
         /// <para>示例值：Asia/Beijing</para>
         /// </summary>
         [JsonPropertyName("time_zone")]
         public string? TimeZone { get; set; }
+
+        /// <summary>
+        /// <para>多维表格的公式字段类型。可结合[字段相关 API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/create)使用。</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：不支持指定公式字段类型</item>
+        /// <item>2：支持指定公式字段类型</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("formula_type")]
+        public int? FormulaType { get; set; }
+
+        /// <summary>
+        /// <para>文档高级权限版本。可结合[自定义角色 API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/create)使用。</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：v1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>v1：v1版本</item>
+        /// <item>v2：v2版本</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("advance_version")]
+        public string? AdvanceVersion { get; set; }
     }
 }

@@ -75,9 +75,9 @@ public record PatchCorehrV2CostCentersByCostCenterIdVersionsByVersionIdBodyDto
     public I18n[]? Descriptions { get; set; }
 
     /// <summary>
-    /// <para>版本失效日期</para>
+    /// <para>版本生效日期</para>
     /// <para>- 填写格式：YYYY-MM-DD（系统会自动将时分秒改为00:00:00）</para>
-    /// <para>- 本次编辑的记录版本失效的时间， 如果用户在本次操作的生效日期之后修改了对象信息，则系统会将下一次操作的日期作为当前记录的失效时间。</para>
+    /// <para>- 本次编辑的记录版本生效的时间， 如果用户在本次操作的生效日期之后修改了对象信息，则系统会将下一次操作的日期作为当前记录的失效时间。</para>
     /// <para>- 系统默认为填写日期当天的 失效</para>
     /// <para>- 日期范围要求:1900-01-01 ～9999-12-31</para>
     /// <para>- 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version)</para>

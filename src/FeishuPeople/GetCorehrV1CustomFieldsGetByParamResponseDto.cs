@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-01-11
 // ************************************************************************
 // <copyright file="GetCorehrV1CustomFieldsGetByParamResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取字段详情 响应体
-/// <para>获取「飞书人事」对象下某字段的详细信息，支持系统预置字段和自定义字段。可通过该接口获取某个选项字段包含的选项列表，某个自定义分组中包含的字段列表等。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
+/// <para>获取「飞书人事」对象下某字段的详细信息，支持系统预置字段和自定义字段。可通过该接口获取某个选项字段包含的选项列表，某个自定义分组中包含的字段列表等。使用方式可参考「[如何通过 OpenAPI 维护自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/how-to)」</para>
 /// <para>接口ID：7112009113388138524</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fcustom_field%2fget_by_param</para>
@@ -488,6 +488,29 @@ public record GetCorehrV1CustomFieldsGetByParamResponseDto
                 /// </summary>
                 [JsonPropertyName("display_style")]
                 public int? DisplayStyle { get; set; }
+            }
+
+            /// <summary>
+            /// <para>计算字段配置信息</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("calculated_field_setting")]
+            public CustomFieldCommonSchemaConfigCalculatedFieldSetting? CalculatedFieldSetting { get; set; }
+
+            /// <summary>
+            /// <para>计算字段配置信息</para>
+            /// </summary>
+            public record CustomFieldCommonSchemaConfigCalculatedFieldSetting
+            {
+                /// <summary>
+                /// <para>字段类型</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：1</para>
+                /// <para>最大值：255</para>
+                /// <para>最小值：0</para>
+                /// </summary>
+                [JsonPropertyName("type")]
+                public int Type { get; set; }
             }
         }
 

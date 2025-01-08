@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-01-11
 // ************************************************************************
 // <copyright file="PostCorehrV2BasicInfoBankBranchsSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 查询支行信息 请求体
-/// <para>根据银行 ID、支行 ID 、支行名称查询银行信息</para>
+/// <para>根据银行 ID、支行 ID 、支行名称、联行号，支行状态、更新时间 查询银行信息</para>
 /// <para>接口ID：7301516605753212931</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank_branch/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbasic_info-bank_branch%2fsearch</para>
@@ -44,6 +44,14 @@ public record PostCorehrV2BasicInfoBankBranchsSearchBodyDto
     /// </summary>
     [JsonPropertyName("bank_branch_name_list")]
     public string[]? BankBranchNameList { get; set; }
+
+    /// <summary>
+    /// <para>金融分支机构编码（联行号）列表，支持对金融分支机构编码精确搜索</para>
+    /// <para>必填：否</para>
+    /// <para>最大长度：100</para>
+    /// </summary>
+    [JsonPropertyName("code_list")]
+    public string[]? CodeList { get; set; }
 
     /// <summary>
     /// <para>状态列表</para>

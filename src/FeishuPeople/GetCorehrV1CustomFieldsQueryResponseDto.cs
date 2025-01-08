@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-01-11
 // ************************************************************************
 // <copyright file="GetCorehrV1CustomFieldsQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -488,6 +488,29 @@ public record GetCorehrV1CustomFieldsQueryResponseDto
                 /// </summary>
                 [JsonPropertyName("display_style")]
                 public int? DisplayStyle { get; set; }
+            }
+
+            /// <summary>
+            /// <para>计算字段配置信息</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("calculated_field_setting")]
+            public CustomFieldCommonSchemaConfigCalculatedFieldSetting? CalculatedFieldSetting { get; set; }
+
+            /// <summary>
+            /// <para>计算字段配置信息</para>
+            /// </summary>
+            public record CustomFieldCommonSchemaConfigCalculatedFieldSetting
+            {
+                /// <summary>
+                /// <para>字段类型</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：1</para>
+                /// <para>最大值：255</para>
+                /// <para>最小值：0</para>
+                /// </summary>
+                [JsonPropertyName("type")]
+                public int Type { get; set; }
             }
         }
 
