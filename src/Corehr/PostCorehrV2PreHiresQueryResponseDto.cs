@@ -4,7 +4,7 @@
 // Created          : 2024-07-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-18
+// Last Modified On : 2025-01-17
 // ************************************************************************
 // <copyright file="PostCorehrV2PreHiresQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -198,6 +198,14 @@ public record PostCorehrV2PreHiresQueryResponseDto
                 public string? LocalPrimary2 { get; set; }
 
                 /// <summary>
+                /// <para>别名</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：别名</para>
+                /// </summary>
+                [JsonPropertyName("additional_name")]
+                public string? AdditionalName { get; set; }
+
+                /// <summary>
                 /// <para>补充姓名类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
                 /// <para>- custom_api_name：additional_name_type</para>
                 /// <para>- object_api_name：person_name</para>
@@ -271,6 +279,14 @@ public record PostCorehrV2PreHiresQueryResponseDto
                 public string? Secondary { get; set; }
 
                 /// <summary>
+                /// <para>婚后姓氏</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：王</para>
+                /// </summary>
+                [JsonPropertyName("tertiary")]
+                public string? Tertiary { get; set; }
+
+                /// <summary>
                 /// <para>尊称，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
                 /// <para>- custom_api_name：social</para>
                 /// <para>- object_api_name：person_name</para>
@@ -279,14 +295,6 @@ public record PostCorehrV2PreHiresQueryResponseDto
                 /// </summary>
                 [JsonPropertyName("social")]
                 public Enum? Social { get; set; }
-
-                /// <summary>
-                /// <para>婚后姓氏</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：王</para>
-                /// </summary>
-                [JsonPropertyName("tertiary")]
-                public string? Tertiary { get; set; }
 
                 /// <summary>
                 /// <para>头衔，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
@@ -396,6 +404,14 @@ public record PostCorehrV2PreHiresQueryResponseDto
             /// </summary>
             [JsonPropertyName("date_of_birth")]
             public string? DateOfBirth { get; set; }
+
+            /// <summary>
+            /// <para>国籍，可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获取</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6862995757234914821</para>
+            /// </summary>
+            [JsonPropertyName("nationality_id_v2")]
+            public string? NationalityIdV2 { get; set; }
 
             /// <summary>
             /// <para>民族，枚举值可通过文档[枚举常量介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)民族（race）枚举定义获得</para>
@@ -571,6 +587,22 @@ public record PostCorehrV2PreHiresQueryResponseDto
                 /// </summary>
                 [JsonPropertyName("region_id")]
                 public string? RegionId { get; set; }
+
+                /// <summary>
+                /// <para>城市，可以通过接口[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)获取详情</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6863333254578046471</para>
+                /// </summary>
+                [JsonPropertyName("city_id_v2")]
+                public string? CityIdV2 { get; set; }
+
+                /// <summary>
+                /// <para>区/县，可以通过接口[查询区/县信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)获取详情</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6863333516579440141</para>
+                /// </summary>
+                [JsonPropertyName("district_id_v2")]
+                public string? DistrictIdV2 { get; set; }
 
                 /// <summary>
                 /// <para>地址行 1</para>
@@ -1453,9 +1485,41 @@ public record PostCorehrV2PreHiresQueryResponseDto
                 public Enum? BankAccountType { get; set; }
 
                 /// <summary>
+                /// <para>分配方式，枚举值可通过文档【飞书人事枚举常量】分配方式（Payment Type）枚举定义部分获得</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：balance</para>
+                /// </summary>
+                [JsonPropertyName("payment_type")]
+                public Enum? PaymentType { get; set; }
+
+                /// <summary>
+                /// <para>分配比例</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：70.21</para>
+                /// </summary>
+                [JsonPropertyName("payment_rate")]
+                public string? PaymentRate { get; set; }
+
+                /// <summary>
+                /// <para>分配金额</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：5000</para>
+                /// </summary>
+                [JsonPropertyName("payment_amount")]
+                public string? PaymentAmount { get; set; }
+
+                /// <summary>
+                /// <para>分配优先级</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// </summary>
+                [JsonPropertyName("priority")]
+                public int? Priority { get; set; }
+
+                /// <summary>
                 /// <para>货币id</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：12QueryCountryRegionSubdivisionDataReq</para>
+                /// <para>示例值：12</para>
                 /// </summary>
                 [JsonPropertyName("currency_id")]
                 public string? CurrencyId { get; set; }
@@ -1691,6 +1755,14 @@ public record PostCorehrV2PreHiresQueryResponseDto
             public record Dependent
             {
                 /// <summary>
+                /// <para>ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：123</para>
+                /// </summary>
+                [JsonPropertyName("id")]
+                public string? Id { get; set; }
+
+                /// <summary>
                 /// <para>姓名</para>
                 /// <para>必填：否</para>
                 /// </summary>
@@ -1793,6 +1865,14 @@ public record PostCorehrV2PreHiresQueryResponseDto
                     public string? LocalPrimary2 { get; set; }
 
                     /// <summary>
+                    /// <para>别名</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：别名</para>
+                    /// </summary>
+                    [JsonPropertyName("additional_name")]
+                    public string? AdditionalName { get; set; }
+
+                    /// <summary>
                     /// <para>补充姓名类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
                     /// <para>- custom_api_name：additional_name_type</para>
                     /// <para>- object_api_name：person_name</para>
@@ -1866,6 +1946,14 @@ public record PostCorehrV2PreHiresQueryResponseDto
                     public string? Secondary { get; set; }
 
                     /// <summary>
+                    /// <para>婚后姓氏</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：王</para>
+                    /// </summary>
+                    [JsonPropertyName("tertiary")]
+                    public string? Tertiary { get; set; }
+
+                    /// <summary>
                     /// <para>尊称，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
                     /// <para>- custom_api_name：social</para>
                     /// <para>- object_api_name：person_name</para>
@@ -1874,14 +1962,6 @@ public record PostCorehrV2PreHiresQueryResponseDto
                     /// </summary>
                     [JsonPropertyName("social")]
                     public Enum? Social { get; set; }
-
-                    /// <summary>
-                    /// <para>婚后姓氏</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：王</para>
-                    /// </summary>
-                    [JsonPropertyName("tertiary")]
-                    public string? Tertiary { get; set; }
 
                     /// <summary>
                     /// <para>头衔，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
@@ -2764,6 +2844,14 @@ public record PostCorehrV2PreHiresQueryResponseDto
             public record EmergencyContact
             {
                 /// <summary>
+                /// <para>ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：123</para>
+                /// </summary>
+                [JsonPropertyName("id")]
+                public string? Id { get; set; }
+
+                /// <summary>
                 /// <para>姓名</para>
                 /// <para>必填：否</para>
                 /// </summary>
@@ -2866,6 +2954,14 @@ public record PostCorehrV2PreHiresQueryResponseDto
                     public string? LocalPrimary2 { get; set; }
 
                     /// <summary>
+                    /// <para>别名</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：别名</para>
+                    /// </summary>
+                    [JsonPropertyName("additional_name")]
+                    public string? AdditionalName { get; set; }
+
+                    /// <summary>
                     /// <para>补充姓名类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
                     /// <para>- custom_api_name：additional_name_type</para>
                     /// <para>- object_api_name：person_name</para>
@@ -2939,6 +3035,14 @@ public record PostCorehrV2PreHiresQueryResponseDto
                     public string? Secondary { get; set; }
 
                     /// <summary>
+                    /// <para>婚后姓氏</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：王</para>
+                    /// </summary>
+                    [JsonPropertyName("tertiary")]
+                    public string? Tertiary { get; set; }
+
+                    /// <summary>
                     /// <para>尊称，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
                     /// <para>- custom_api_name：social</para>
                     /// <para>- object_api_name：person_name</para>
@@ -2947,14 +3051,6 @@ public record PostCorehrV2PreHiresQueryResponseDto
                     /// </summary>
                     [JsonPropertyName("social")]
                     public Enum? Social { get; set; }
-
-                    /// <summary>
-                    /// <para>婚后姓氏</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：王</para>
-                    /// </summary>
-                    [JsonPropertyName("tertiary")]
-                    public string? Tertiary { get; set; }
 
                     /// <summary>
                     /// <para>头衔，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
@@ -3258,6 +3354,14 @@ public record PostCorehrV2PreHiresQueryResponseDto
                     [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
                 }
+
+                /// <summary>
+                /// <para>主要联系人,若有多个联系人，只能有一个联系人的「is_primary」为true</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：true</para>
+                /// </summary>
+                [JsonPropertyName("is_primary")]
+                public bool? IsPrimary { get; set; }
             }
 
             /// <summary>
@@ -4001,6 +4105,15 @@ public record PostCorehrV2PreHiresQueryResponseDto
             public string? DirectLeaderId { get; set; }
 
             /// <summary>
+            /// <para>虚线上级雇佣 ID ， 可以通过【搜索员工信息】接口获取</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7032210902531327521</para>
+            /// </summary>
+            [JsonPropertyName("dotted_line_manager_id")]
+            public string? DottedLineManagerId { get; set; }
+
+            /// <summary>
             /// <para>职务 ID ,可以通过[查询职务](https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job/get)接口获取详情</para>
             /// <para>必填：否</para>
             /// <para>示例值：6977976735715378724</para>
@@ -4047,6 +4160,14 @@ public record PostCorehrV2PreHiresQueryResponseDto
             /// </summary>
             [JsonPropertyName("employee_type_id")]
             public string? EmployeeTypeId { get; set; }
+
+            /// <summary>
+            /// <para>人员子类型 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6977973225846343171</para>
+            /// </summary>
+            [JsonPropertyName("employee_subtype_id")]
+            public string? EmployeeSubtypeId { get; set; }
 
             /// <summary>
             /// <para>雇佣类型， 枚举值可查询[获取字段详情](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
@@ -4512,6 +4633,14 @@ public record PostCorehrV2PreHiresQueryResponseDto
             public bool? SuspectedRehiring { get; set; }
 
             /// <summary>
+            /// <para>是否外部人员</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：false</para>
+            /// </summary>
+            [JsonPropertyName("condition_worker")]
+            public bool? ConditionWorker { get; set; }
+
+            /// <summary>
             /// <para>自定义字段</para>
             /// <para>必填：否</para>
             /// </summary>
@@ -4755,6 +4884,404 @@ public record PostCorehrV2PreHiresQueryResponseDto
             /// </summary>
             [JsonPropertyName("updated_by")]
             public string? UpdatedBy { get; set; }
+
+            /// <summary>
+            /// <para>司龄起算日期</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2023-01-10</para>
+            /// </summary>
+            [JsonPropertyName("seniority_date")]
+            public string? SeniorityDate { get; set; }
+
+            /// <summary>
+            /// <para>背调订单ID</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：123</para>
+            /// </summary>
+            [JsonPropertyName("background_check_order_id")]
+            public string? BackgroundCheckOrderId { get; set; }
+
+            /// <summary>
+            /// <para>背调名称</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：xxx</para>
+            /// </summary>
+            [JsonPropertyName("background_check_order_name")]
+            public string? BackgroundCheckOrderName { get; set; }
+
+            /// <summary>
+            /// <para>背调套餐</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：xxx</para>
+            /// </summary>
+            [JsonPropertyName("background_check_order_package_name")]
+            public string? BackgroundCheckOrderPackageName { get; set; }
+
+            /// <summary>
+            /// <para>背调结果</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：通过</para>
+            /// </summary>
+            [JsonPropertyName("background_check_order_result")]
+            public string? BackgroundCheckOrderResult { get; set; }
+
+            /// <summary>
+            /// <para>背调供应商</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：xxx</para>
+            /// </summary>
+            [JsonPropertyName("background_check_order_supplier_name")]
+            public string? BackgroundCheckOrderSupplierName { get; set; }
+
+            /// <summary>
+            /// <para>背调账号名称</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：xxx</para>
+            /// </summary>
+            [JsonPropertyName("background_check_order_account_name")]
+            public string? BackgroundCheckOrderAccountName { get; set; }
+
+            /// <summary>
+            /// <para>背调开始时间</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2023-01-10 10:29</para>
+            /// </summary>
+            [JsonPropertyName("background_check_order_start_time")]
+            public string? BackgroundCheckOrderStartTime { get; set; }
+
+            /// <summary>
+            /// <para>背调完成时间</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2023-01-10 10:29</para>
+            /// </summary>
+            [JsonPropertyName("background_check_order_complete_time")]
+            public string? BackgroundCheckOrderCompleteTime { get; set; }
+
+            /// <summary>
+            /// <para>背调状态，枚举值可查询[获取字段详情](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+            /// <para>- object_api_name = pre_hire</para>
+            /// <para>- custom_api_name = background_check_order_status</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("background_check_order_status")]
+            public Enum? BackgroundCheckOrderStatus { get; set; }
+
+            /// <summary>
+            /// <para>司龄调整信息</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("seniority_adjust_information_list")]
+            public PrehireSeniorityAdjustInformationQuery[]? SeniorityAdjustInformationLists { get; set; }
+
+            /// <summary>
+            /// <para>司龄调整信息</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// </summary>
+            public record PrehireSeniorityAdjustInformationQuery
+            {
+                /// <summary>
+                /// <para>调整值</para>
+                /// <para>- 精确度：两位小数</para>
+                /// <para>- 单位：年</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：0.5</para>
+                /// <para>最大值：100</para>
+                /// <para>最小值：0</para>
+                /// </summary>
+                [JsonPropertyName("seniority_adjustment")]
+                public float? SeniorityAdjustment { get; set; }
+
+                /// <summary>
+                /// <para>调整类型</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+                /// <para>- object_api_name：seniority_adjust_information</para>
+                /// <para>- custom_api_name：seniority_adjustment_type</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：增加</para>
+                /// </summary>
+                [JsonPropertyName("seniority_adjustment_type")]
+                public Enum? SeniorityAdjustmentType { get; set; }
+
+                /// <summary>
+                /// <para>调整类型</para>
+                /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+                /// <para>- object_api_name：seniority_adjust_information</para>
+                /// <para>- custom_api_name：seniority_adjustment_type</para>
+                /// </summary>
+                public record Enum
+                {
+                    /// <summary>
+                    /// <para>枚举值</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：phone_type</para>
+                    /// </summary>
+                    [JsonPropertyName("enum_name")]
+                    public string EnumName { get; set; } = string.Empty;
+
+                    /// <summary>
+                    /// <para>枚举多语展示</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("display")]
+                    public I18n[]? Displies { get; set; }
+
+                    /// <summary>
+                    /// <para>枚举多语展示</para>
+                    /// </summary>
+                    public record I18n
+                    {
+                        /// <summary>
+                        /// <para>语言编码（IETF BCP 47）</para>
+                        /// <para>必填：是</para>
+                        /// <para>示例值：zh-CN</para>
+                        /// </summary>
+                        [JsonPropertyName("lang")]
+                        public string Lang { get; set; } = string.Empty;
+
+                        /// <summary>
+                        /// <para>文本内容</para>
+                        /// <para>必填：是</para>
+                        /// <para>示例值：中文示例</para>
+                        /// </summary>
+                        [JsonPropertyName("value")]
+                        public string Value { get; set; } = string.Empty;
+                    }
+                }
+
+                /// <summary>
+                /// <para>司龄调整原因</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：工厂停产需要减去半年工龄</para>
+                /// </summary>
+                [JsonPropertyName("reasons_for_seniority_adjustment")]
+                public string? ReasonsForSeniorityAdjustment { get; set; }
+
+                /// <summary>
+                /// <para>开始日期</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：2024-05-19</para>
+                /// </summary>
+                [JsonPropertyName("start_date")]
+                public string? StartDate { get; set; }
+
+                /// <summary>
+                /// <para>结束日期</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：2024-11-18</para>
+                /// </summary>
+                [JsonPropertyName("end_date")]
+                public string? EndDate { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("custom_fields")]
+                public CustomFieldData[]? CustomFields { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段</para>
+                /// </summary>
+                public record CustomFieldData
+                {
+                    /// <summary>
+                    /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：name</para>
+                    /// </summary>
+                    [JsonPropertyName("custom_api_name")]
+                    public string CustomApiName { get; set; } = string.Empty;
+
+                    /// <summary>
+                    /// <para>自定义字段名称</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("name")]
+                    public CustomName? Name { get; set; }
+
+                    /// <summary>
+                    /// <para>自定义字段名称</para>
+                    /// </summary>
+                    public record CustomName
+                    {
+                        /// <summary>
+                        /// <para>中文</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：自定义姓名</para>
+                        /// </summary>
+                        [JsonPropertyName("zh_cn")]
+                        public string? ZhCn { get; set; }
+
+                        /// <summary>
+                        /// <para>英文</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：Custom Name</para>
+                        /// </summary>
+                        [JsonPropertyName("en_us")]
+                        public string? EnUs { get; set; }
+                    }
+
+                    /// <summary>
+                    /// <para>自定义字段类型</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1</para>
+                    /// </summary>
+                    [JsonPropertyName("type")]
+                    public int? Type { get; set; }
+
+                    /// <summary>
+                    /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：\"231\"</para>
+                    /// </summary>
+                    [JsonPropertyName("value")]
+                    public string Value { get; set; } = string.Empty;
+                }
+            }
+
+            /// <summary>
+            /// <para>转正后通知期（主动离职）</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("notice_period_positive_voluntary")]
+            public NoticePeriodDetail? NoticePeriodPositiveVoluntary { get; set; }
+
+            /// <summary>
+            /// <para>转正后通知期（主动离职）</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// </summary>
+            public record NoticePeriodDetail
+            {
+                /// <summary>
+                /// <para>ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：4698019107896524633</para>
+                /// </summary>
+                [JsonPropertyName("wk_id")]
+                public string? WkId { get; set; }
+
+                /// <summary>
+                /// <para>数值</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>最大值：65535</para>
+                /// <para>最小值：1</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public int? Value { get; set; }
+
+                /// <summary>
+                /// <para>单位</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：月</para>
+                /// </summary>
+                [JsonPropertyName("value_unit")]
+                public string? ValueUnit { get; set; }
+
+                /// <summary>
+                /// <para>名称</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public I18n? Name { get; set; }
+
+                /// <summary>
+                /// <para>名称</para>
+                /// </summary>
+                public record I18n
+                {
+                    /// <summary>
+                    /// <para>语言编码（IETF BCP 47）</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：zh-CN</para>
+                    /// </summary>
+                    [JsonPropertyName("lang")]
+                    public string Lang { get; set; } = string.Empty;
+
+                    /// <summary>
+                    /// <para>文本内容</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：中文示例</para>
+                    /// </summary>
+                    [JsonPropertyName("value")]
+                    public string Value { get; set; } = string.Empty;
+                }
+            }
+
+            /// <summary>
+            /// <para>试用期内通知期（被动离职）</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("notice_period_probation_involuntary")]
+            public NoticePeriodDetail? NoticePeriodProbationInvoluntary { get; set; }
+
+            /// <summary>
+            /// <para>转正后通知期（被动离职）</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("notice_period_positive_involuntary")]
+            public NoticePeriodDetail? NoticePeriodPositiveInvoluntary { get; set; }
+
+            /// <summary>
+            /// <para>试用期内通知期（主动离职)</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("notice_period_probation_voluntary")]
+            public NoticePeriodDetail? NoticePeriodProbationVoluntary { get; set; }
+
+            /// <summary>
+            /// <para>工时制度是否被手动修改</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("working_hours_type_manual_updated")]
+            public bool? WorkingHoursTypeManualUpdated { get; set; }
+
+            /// <summary>
+            /// <para>入职任务是否逾期</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("is_over_due")]
+            public bool? IsOverDue { get; set; }
+
+            /// <summary>
+            /// <para>入职任务是否完成，暂不推荐使用</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("task_completed")]
+            public bool? TaskCompleted { get; set; }
+
+            /// <summary>
+            /// <para>预计毕业日期</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2023-01-10</para>
+            /// </summary>
+            [JsonPropertyName("expected_graduate_date")]
+            public string? ExpectedGraduateDate { get; set; }
+
+            /// <summary>
+            /// <para>任职公司 ID , 详细信息可通过[查询单个公司](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/company/get)接口获得</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6738317738688661772</para>
+            /// </summary>
+            [JsonPropertyName("service_company")]
+            public string? ServiceCompany { get; set; }
         }
 
         /// <summary>
@@ -4873,7 +5400,7 @@ public record PostCorehrV2PreHiresQueryResponseDto
                 public string? TaskName { get; set; }
 
                 /// <summary>
-                /// <para>任务名称</para>
+                /// <para>任务状态</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：task_1</para>
                 /// <para>可选值：<list type="bullet">

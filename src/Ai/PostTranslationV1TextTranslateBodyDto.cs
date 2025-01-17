@@ -46,7 +46,7 @@ public record PostTranslationV1TextTranslateBodyDto
     public string SourceLanguage { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>源文本</para>
+    /// <para>源文本，字符上限为 1,000。</para>
     /// <para>必填：是</para>
     /// <para>示例值：尝试使用一下飞书吧</para>
     /// </summary>

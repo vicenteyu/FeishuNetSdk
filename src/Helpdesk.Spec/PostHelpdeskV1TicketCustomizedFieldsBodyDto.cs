@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-01-17
 // ************************************************************************
 // <copyright file="PostHelpdeskV1TicketCustomizedFieldsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -15,8 +15,6 @@ namespace FeishuNetSdk.Helpdesk.Spec;
 /// <summary>
 /// 创建工单自定义字段 请求体
 /// <para>该接口用于创建自定义字段。</para>
-/// <para>注意事项：</para>
-/// <para>user_access_token 访问，需要操作者是当前服务台的管理员或所有者</para>
 /// <para>接口ID：6955768699895562242</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/helpdesk-v1/ticket-management/ticket_customized_field/create-ticket-customized-field</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fhelpdesk-v1%2fticket_customized_field%2fcreate-ticket-customized-field</para>
@@ -82,14 +80,6 @@ public record PostHelpdeskV1TicketCustomizedFieldsBodyDto
     /// </summary>
     [JsonPropertyName("visible")]
     public bool Visible { get; set; }
-
-    /// <summary>
-    /// <para>是否可以修改</para>
-    /// <para>**示例值**：true</para>
-    /// <para>必填：是</para>
-    /// </summary>
-    [JsonPropertyName("editable")]
-    public bool Editable { get; set; }
 
     /// <summary>
     /// <para>是否必填</para>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-24
+// Last Modified On : 2025-01-17
 // ************************************************************************
 // <copyright file="PostCorehrV2PreHiresSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -125,6 +125,14 @@ public record PostCorehrV2PreHiresSearchBodyDto
     /// </summary>
     [JsonPropertyName("employee_type_ids")]
     public string[]? EmployeeTypeIds { get; set; }
+
+    /// <summary>
+    /// <para>人员子类型 ID 列表</para>
+    /// <para>必填：否</para>
+    /// <para>最大长度：100</para>
+    /// </summary>
+    [JsonPropertyName("employee_subtype_ids")]
+    public string[]? EmployeeSubtypeIds { get; set; }
 
     /// <summary>
     /// <para>序列 ID 列表，可以通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口获取</para>

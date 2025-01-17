@@ -2501,8 +2501,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>## 前提条件</para>
     /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 仅支持加入公开群。</para>
+    /// <para>- 调用该接口仅支持加入公开群。</para>
+    /// <para>公开群是指的群类型，你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_type ` 参数取值是否为 `public`。</para>
     /// <para>- 操作内部群时，操作者必须与相应的群组在同一租户内。</para>
+    /// <para>内部群是指的群标签，你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_tag ` 参数取值是否为 `inner `。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.members:write_only</item>
@@ -4213,7 +4215,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>一次请求返回的最大日程参与人数量。</para>
+    /// <para>一次请求返回的最大日程参与人数量。最小值为 10，传入小于 10 的值默认按照 10 计算。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>

@@ -46,14 +46,18 @@ public record PostCorehrV1ContractsBodyDto
     public string EmploymentId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>合同类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)合同类型（contract_type）枚举定义部分获得</para>
+    /// <para>合同类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+    /// <para>- object_api_name：contract</para>
+    /// <para>- custom_api_name：contract_type</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("contract_type")]
     public Enum ContractType { get; set; } = new();
 
     /// <summary>
-    /// <para>合同类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)合同类型（contract_type）枚举定义部分获得</para>
+    /// <para>合同类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+    /// <para>- object_api_name：contract</para>
+    /// <para>- custom_api_name：contract_type</para>
     /// </summary>
     public record Enum
     {
@@ -83,14 +87,14 @@ public record PostCorehrV1ContractsBodyDto
     public string? PersonId { get; set; }
 
     /// <summary>
-    /// <para>自定义字段</para>
+    /// <para>自定义字段，预留字段，暂时不支持</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("custom_fields")]
     public ObjectFieldData[]? CustomFields { get; set; }
 
     /// <summary>
-    /// <para>自定义字段</para>
+    /// <para>自定义字段，预留字段，暂时不支持</para>
     /// </summary>
     public record ObjectFieldData
     {

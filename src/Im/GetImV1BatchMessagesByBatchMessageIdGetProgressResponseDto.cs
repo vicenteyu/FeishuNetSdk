@@ -39,7 +39,7 @@ public record GetImV1BatchMessagesByBatchMessageIdGetProgressResponseDto
         /// <summary>
         /// <para>批量发送消息请求中，有效的用户数量。</para>
         /// <para>**注意**：</para>
-        /// <para>- 包含当前机器人不可见但有效的用户。不可见是指用户不在机器人的通讯录权限范围内，详情了解[配置应用数据权限](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/configure-app-data-permissions)。</para>
+        /// <para>- 不在当前机器人的通讯录权限数据范围内但有效的用户，也会被统计在内。了解通讯录数据权限范围参见[配置应用数据权限](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/configure-app-data-permissions)。</para>
         /// <para>- `valid_user_ids_count` 值为 0 有两种情况：</para>
         /// <para>- 批量发送消息接口为异步调用，任务还没有开始被调度便查询当前接口则取值为 0。建议你等待片刻再调用该接口。</para>
         /// <para>- 批量发送消息时传入的所有 department_ids、open_ids、user_ids、union_ids 均未包含有效的用户。</para>

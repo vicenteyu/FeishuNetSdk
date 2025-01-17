@@ -4389,8 +4389,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 前提条件</para>
     /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 仅支持加入公开群。</para>
+    /// <para>- 调用该接口仅支持加入公开群。</para>
+    /// <para>公开群是指的群类型，你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_type ` 参数取值是否为 `public`。</para>
     /// <para>- 操作内部群时，操作者必须与相应的群组在同一租户内。</para>
+    /// <para>内部群是指的群标签，你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_tag ` 参数取值是否为 `inner `。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.members:write_only</item>
@@ -6848,7 +6850,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>一次请求返回的最大日程参与人数量。</para>
+    /// <para>一次请求返回的最大日程参与人数量。最小值为 10，传入小于 10 的值默认按照 10 计算。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -25691,7 +25693,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【考勤打卡】获取审批通过数据</para>
+    /// <para>【考勤打卡】获取审批数据</para>
     /// <para>接口ID：7108645368100257794</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -37620,7 +37622,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:employment.position:read</item>
     /// <item>corehr:employment.position:write</item>
     /// <item>corehr:employment.recruitment_project_id:read</item>
-    /// <item>corehr:employment.seniority_date:write</item>
     /// <item>corehr:job_data.work_shift:read</item>
     /// <item>corehr:person.address:read</item>
     /// <item>corehr:person.address:write</item>
@@ -37678,14 +37679,25 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:person.work_experience:read</item>
     /// <item>corehr:person.work_experience:write</item>
     /// <item>corehr:pre_hire.abnormal_reason_field:read</item>
+    /// <item>corehr:pre_hire.background_check_order_account_name:read</item>
+    /// <item>corehr:pre_hire.background_check_order_complete_time:read</item>
+    /// <item>corehr:pre_hire.background_check_order_id:read</item>
+    /// <item>corehr:pre_hire.background_check_order_name:read</item>
+    /// <item>corehr:pre_hire.background_check_order_package_name:read</item>
+    /// <item>corehr:pre_hire.background_check_order_result:read</item>
+    /// <item>corehr:pre_hire.background_check_order_start_time:read</item>
+    /// <item>corehr:pre_hire.background_check_order_status:read</item>
+    /// <item>corehr:pre_hire.background_check_order_supplier_name:read</item>
     /// <item>corehr:pre_hire.check_in_data:read</item>
     /// <item>corehr:pre_hire.company_manual_updated:read</item>
     /// <item>corehr:pre_hire.company_sponsored_visa:read</item>
     /// <item>corehr:pre_hire.cost_center:read</item>
     /// <item>corehr:pre_hire.cost_center:write</item>
+    /// <item>corehr:pre_hire.dotted_line_manager:read</item>
     /// <item>corehr:pre_hire.flow_id:read</item>
     /// <item>corehr:pre_hire.office_address:read</item>
     /// <item>corehr:pre_hire.onboarding_address:read</item>
+    /// <item>corehr:pre_hire.seniority_adjust_information:read</item>
     /// <item>corehr:pre_hire.suspected_rehiring:read</item>
     /// <item>corehr:pre_hire.working_calendar:read</item>
     /// </list></para>
@@ -43886,6 +43898,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:person.martyr_family:write</item>
     /// <item>corehr:person.national_id:read</item>
     /// <item>corehr:person.national_id:write</item>
+    /// <item>corehr:person.nationality:read</item>
+    /// <item>corehr:person.nationality:write</item>
     /// <item>corehr:person.native_region:read</item>
     /// <item>corehr:person.native_region:write</item>
     /// <item>corehr:person.passport_number:read</item>
@@ -43904,14 +43918,25 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:person.work_experience:read</item>
     /// <item>corehr:person.work_experience:write</item>
     /// <item>corehr:pre_hire.abnormal_reason_field:read</item>
+    /// <item>corehr:pre_hire.background_check_order_account_name:read</item>
+    /// <item>corehr:pre_hire.background_check_order_complete_time:read</item>
+    /// <item>corehr:pre_hire.background_check_order_id:read</item>
+    /// <item>corehr:pre_hire.background_check_order_name:read</item>
+    /// <item>corehr:pre_hire.background_check_order_package_name:read</item>
+    /// <item>corehr:pre_hire.background_check_order_result:read</item>
+    /// <item>corehr:pre_hire.background_check_order_start_time:read</item>
+    /// <item>corehr:pre_hire.background_check_order_status:read</item>
+    /// <item>corehr:pre_hire.background_check_order_supplier_name:read</item>
     /// <item>corehr:pre_hire.check_in_data:read</item>
     /// <item>corehr:pre_hire.company_manual_updated:read</item>
     /// <item>corehr:pre_hire.company_sponsored_visa:read</item>
     /// <item>corehr:pre_hire.cost_center:read</item>
     /// <item>corehr:pre_hire.cost_center:write</item>
+    /// <item>corehr:pre_hire.dotted_line_manager:read</item>
     /// <item>corehr:pre_hire.flow_id:read</item>
     /// <item>corehr:pre_hire.office_address:read</item>
     /// <item>corehr:pre_hire.onboarding_address:read</item>
+    /// <item>corehr:pre_hire.seniority_adjust_information:read</item>
     /// <item>corehr:pre_hire.suspected_rehiring:read</item>
     /// <item>corehr:pre_hire.working_calendar:read</item>
     /// </list></para>

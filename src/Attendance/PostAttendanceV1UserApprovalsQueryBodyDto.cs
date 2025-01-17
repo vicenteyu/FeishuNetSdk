@@ -9,11 +9,11 @@
 // <copyright file="PostAttendanceV1UserApprovalsQueryBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取审批通过数据 请求体</summary>
+// <summary>获取审批数据 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Attendance;
 /// <summary>
-/// 获取审批通过数据 请求体
+/// 获取审批数据 请求体
 /// <para>获取员工在某段时间内的请假、加班、外出和出差四种审批数据。</para>
 /// <para>接口ID：7108645368100257794</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_approval/query</para>
@@ -61,6 +61,8 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
 
     /// <summary>
     /// <para>查询状态（不填默认查询已通过状态）</para>
+    /// <para>请假、加班：仅支持已通过和已撤回状态</para>
+    /// <para>外出、出差：支持查询所有状态</para>
     /// <para>必填：否</para>
     /// <para>示例值：2</para>
     /// <para>可选值：<list type="bullet">

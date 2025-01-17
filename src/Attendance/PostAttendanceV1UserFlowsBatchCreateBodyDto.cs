@@ -114,7 +114,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
         public bool? IsWifi { get; set; }
 
         /// <summary>
-        /// <para>记录生成方式。在开放平台调用时，此参数无效，内部值始终是7</para>
+        /// <para>记录的生成方式。举例：type=0表示「开放平台导入」的「用户打卡」流水；type=1表示「开放平台导入」的「管理员修改」流水。若不设置type，则默认是0。</para>
         /// <para>必填：否</para>
         /// <para>示例值：7</para>
         /// <para>可选值：<list type="bullet">

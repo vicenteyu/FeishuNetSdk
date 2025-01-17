@@ -363,7 +363,7 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendees</td></tr>
 <tr><td rowspan="2">182</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>删除日程参与人</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDelete</td></tr>
-<tr><td rowspan="2">183</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取日程参与人列表</td></tr>
+<tr><td rowspan="2">183</td><td rowspan="2">2025-01-13</td><td>&#10003;</td><td>日历</td><td>获取日程参与人列表</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendees</td></tr>
 <tr><td rowspan="2">184</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取日程参与群成员列表</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttendeeIdChatMembers</td></tr>
@@ -503,7 +503,7 @@
 <tr><td colspan="3">PatchHelpdeskV1AgentSkillsByAgentSkillId</td></tr>
 <tr><td rowspan="2">252</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>更新工单详情</td></tr>
 <tr><td colspan="3">PutHelpdeskV1TicketsByTicketId</td></tr>
-<tr><td rowspan="2">253</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>创建工单自定义字段</td></tr>
+<tr><td rowspan="2">253</td><td rowspan="2">2025-01-14</td><td>&#10003;</td><td>服务台</td><td>创建工单自定义字段</td></tr>
 <tr><td colspan="3">PostHelpdeskV1TicketCustomizedFields</td></tr>
 <tr><td rowspan="2">254</td><td rowspan="2">2024-03-06</td><td>&#10003;</td><td>服务台</td><td>删除工单自定义字段</td></tr>
 <tr><td colspan="3">DeleteHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldId</td></tr>
@@ -579,7 +579,7 @@
 <tr><td colspan="3">DeleteTaskV1TasksByTaskIdFollowersByFollowerId</td></tr>
 <tr><td rowspan="2">290</td><td rowspan="2">2023-07-13</td><td>&#10003;</td><td>任务</td><td>批量删除关注人</td></tr>
 <tr><td colspan="3">PostTaskV1TasksByTaskIdBatchDeleteFollower</td></tr>
-<tr><td rowspan="2">291</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>消息与群组</td><td>用户或机器人主动加入群聊</td></tr>
+<tr><td rowspan="2">291</td><td rowspan="2">2025-01-17</td><td>&#10003;</td><td>消息与群组</td><td>用户或机器人主动加入群聊</td></tr>
 <tr><td colspan="3">PatchImV1ChatsByChatIdMembersMeJoin</td></tr>
 <tr><td rowspan="2">292</td><td rowspan="2">2022-12-23</td><td>&#10003;</td><td>任务</td><td>获取关注人列表</td></tr>
 <tr><td colspan="3">GetTaskV1TasksByTaskIdFollowers</td></tr>
@@ -1043,7 +1043,7 @@
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
 <tr><td rowspan="2">522</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
-<tr><td rowspan="2">523</td><td rowspan="2">2025-01-07</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
+<tr><td rowspan="2">523</td><td rowspan="2">2025-01-13</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesSend</td></tr>
 <tr><td rowspan="2">524</td><td rowspan="2">2024-08-30</td><td><span style="color:red;">删除</span></td><td>公司圈</td><td>查询帖子信息</td></tr>
 <tr><td colspan="3">GetMomentsV1PostsByPostId</td></tr>
@@ -1089,7 +1089,7 @@
 <tr><td colspan="3">GetPayrollV1AcctItems</td></tr>
 <tr><td rowspan="2">545</td><td rowspan="2">2024-12-20</td><td>&#10003;</td><td>云文档</td><td>获取云文档的点赞者列表</td></tr>
 <tr><td colspan="3">GetDriveV2FilesByFileTokenLikes</td></tr>
-<tr><td rowspan="2">546</td><td rowspan="2">2024-12-19</td><td>&#10003;</td><td>云文档</td><td>在群公告中创建块</td></tr>
+<tr><td rowspan="2">546</td><td rowspan="2">2025-01-16</td><td>&#10003;</td><td>云文档</td><td>在群公告中创建块</td></tr>
 <tr><td colspan="3">PostDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildren</td></tr>
 <tr><td rowspan="2">547</td><td rowspan="2">2024-12-19</td><td>&#10003;</td><td>云文档</td><td>批量更新群公告块的内容</td></tr>
 <tr><td colspan="3">PatchDocxV1ChatsByChatIdAnnouncementBlocksBatchUpdate</td></tr>
@@ -1103,8 +1103,8 @@
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncement</td></tr>
 <tr><td rowspan="2">552</td><td rowspan="2">2024-12-19</td><td>&#10003;</td><td>云文档</td><td>获取群公告所有块</td></tr>
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncementBlocks</td></tr>
-<tr><td rowspan="2">553</td><td rowspan="2">2025-01-10</td><td>新增</td><td>飞书低代码平台</td><td>查询席位活跃详情</td></tr>
+<tr><td rowspan="2">553</td><td rowspan="2">2025-01-10</td><td>&#10003;</td><td>飞书低代码平台</td><td>查询席位活跃详情</td></tr>
 <tr><td colspan="3">GetApaasV1SeatActivities</td></tr>
-<tr><td rowspan="2">554</td><td rowspan="2">2025-01-10</td><td>新增</td><td>飞书低代码平台</td><td>查询席位分配详情</td></tr>
+<tr><td rowspan="2">554</td><td rowspan="2">2025-01-10</td><td>&#10003;</td><td>飞书低代码平台</td><td>查询席位分配详情</td></tr>
 <tr><td colspan="3">GetApaasV1SeatAssignments</td></tr>
 </tbody></table>

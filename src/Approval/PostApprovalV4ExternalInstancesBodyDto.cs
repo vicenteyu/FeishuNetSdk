@@ -102,7 +102,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     public string? Title { get; set; }
 
     /// <summary>
-    /// <para>用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，但审批中心pc展示前2个,移动端展示前3个,长度不超过2048字符</para>
+    /// <para>用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，但审批中心仅展示前 3 个，长度不超过 2048 字符。</para>
     /// <para>必填：否</para>
     /// <para>示例值：[{ "name": "@i18n@2", "value": "@i18n@3" }]</para>
     /// </summary>
@@ -110,7 +110,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     public ExternalInstanceForm[]? Forms { get; set; }
 
     /// <summary>
-    /// <para>用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，但审批中心pc展示前2个,移动端展示前3个,长度不超过2048字符</para>
+    /// <para>用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，但审批中心仅展示前 3 个，长度不超过 2048 字符。</para>
     /// </summary>
     public record ExternalInstanceForm
     {
