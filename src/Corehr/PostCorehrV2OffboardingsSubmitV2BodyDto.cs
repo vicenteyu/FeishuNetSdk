@@ -72,7 +72,7 @@ public record PostCorehrV2OffboardingsSubmitV2BodyDto
     public string? OffboardingReasonExplanation { get; set; }
 
     /// <summary>
-    /// <para>发起人 ID。ID类型与查询参数 user_id_type取值一致：</para>
+    /// <para>发起人 ID。这个发起人需要有飞书账号，能够登录系统。ID类型与查询参数 user_id_type取值一致：</para>
     /// <para>1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。</para>
     /// <para>2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的 User ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。</para>
     /// <para>3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。</para>

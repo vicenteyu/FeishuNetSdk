@@ -29,7 +29,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBodyDto
     /// <para>要新增的记录的数据。你需先指定数据表中的字段（即指定列），再传入正确格式的数据作为一条记录。</para>
     /// <para>**注意**：</para>
     /// <para>该接口支持的字段类型及其描述如下所示：</para>
-    /// <para>- 文本：原值展示，不支持 markdown 语法</para>
+    /// <para>- 文本： 填写字符串格式的值</para>
     /// <para>- 数字：填写数字格式的值</para>
     /// <para>- 单选：填写选项值，对于新的选项值，将会创建一个新的选项</para>
     /// <para>- 多选：填写多个选项值，对于新的选项值，将会创建一个新的选项。如果填写多个相同的新选项值，将会创建多个相同的选项</para>

@@ -6768,7 +6768,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>一次请求返回的最大日历数量。</para>
+    /// <para>一次请求要求返回的最大日历数量。实际返回的日历数量可能小于该值，也可能为空，可以根据响应体里的has_more字段来判断是否还有更多日历。</para>
     /// <para>示例值：`50`</para>
     /// <para>默认值：500</para>
     /// </param>
@@ -24806,7 +24806,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7101134500528619523</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role-member/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>新增自定义角色的协作者</para>
+    /// <para>新增多维表格高级权限中自定义角色的协作者。</para>
+    /// <para>## 前提条件</para>
+    /// <para>要调用协作者相关接口，你需确保多维表格已开启高级权限并设置了自定义角色。你可通过[更新多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/update)接口开启高级权限，通过[新增自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/create)接口设置自定义角色。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:collaborator:create</item>
     /// <item>bitable:app</item>
@@ -24815,26 +24817,30 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="role_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>自定义角色的id</para>
+    /// <para>多维表格高级权限中自定义角色的唯一标识，以 rol 开头。获取方式：通过[列出自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/list)接口获取。</para>
     /// <para>示例值：roljRpwIUt</para>
     /// </param>
     /// <param name="member_id_type">
     /// <para>必填：否</para>
-    /// <para>协作者id类型，与请求体中的member_id要对应</para>
+    /// <para>协作者 ID 的类型</para>
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>open_id：以open_id来识别协作者</item>
-    /// <item>union_id：以union_id来识别协作者</item>
-    /// <item>user_id：以user_id来识别协作者</item>
-    /// <item>chat_id：以chat_id来识别协作者</item>
-    /// <item>department_id：以department_id来识别协作者。调用前，请确保应用有部门的可见性，参考[配置应用可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)</item>
-    /// <item>open_department_id：以open_department_id来识别协作者。调用前，请确保应用有部门的可见性，参考[配置应用可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)</item>
+    /// <item>open_id：以 open_id 来识别协作者。获取方式参考[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</item>
+    /// <item>union_id：以 union_id 来识别协作者。获取方式参考[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</item>
+    /// <item>user_id：以 user_id 来识别协作者。获取方式参考[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</item>
+    /// <item>chat_id：以 chat_id 来识别协作者。获取方式参考[群 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</item>
+    /// <item>department_id：以 department_id 来识别协作者。调用前，请确保应用有部门的可见性，参考[配置应用可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)。获取 department_id 方式参考[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)</item>
+    /// <item>open_department_id：以 open_department_id 来识别协作者。调用前，请确保应用有部门的可见性，参考[配置应用可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)。获取 open_department_id 方式参考[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -24851,21 +24857,28 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7101134500528635907</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除自定义角色</para>
+    /// <para>删除多维表格高级权限中自定义的角色。</para>
+    /// <para>## 前提条件</para>
+    /// <para>要调用自定义角色相关接口，你需确保多维表格已开启高级权限。你可通过[更新多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/update)接口开启高级权限。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:role:delete</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="role_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>自定义角色的id</para>
+    /// <para>多维表格高级权限中自定义角色的唯一标识，以 rol 开头。获取方式：通过[列出自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/list)接口获取。</para>
     /// <para>示例值：roljRpwIUt</para>
     /// </param>
     [HttpDelete("/open-apis/bitable/v1/apps/{app_token}/roles/{role_id}")]
@@ -24878,21 +24891,28 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7101134500528652291</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>更新自定义角色</para>
+    /// <para>更新多维表格高级权限中自定义的角色。</para>
+    /// <para>## 前提条件</para>
+    /// <para>要调用自定义角色相关接口，你需确保多维表格已开启高级权限。你可通过[更新多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/update)接口开启高级权限。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:role:update</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="role_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>自定义角色的id</para>
+    /// <para>多维表格高级权限中自定义角色的唯一标识，以 rol 开头。获取方式：通过[列出自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/list)接口获取。</para>
     /// <para>示例值：roljRpwIUt</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -24907,8 +24927,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7101134500528668675</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role-member/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>列出自定义角色的协作者</para>
+    /// <para>列出多维表格高级权限中自定义角色的协作者。</para>
+    /// <para>## 前提条件</para>
+    /// <para>要调用协作者相关接口，你需确保多维表格已开启高级权限并设置了自定义角色。你可通过[更新多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/update)接口开启高级权限，通过[新增自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/create)接口设置自定义角色。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:collaborator:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -24916,13 +24939,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="role_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>自定义角色的id</para>
+    /// <para>多维表格高级权限中自定义角色的唯一标识，以 rol 开头。获取方式：通过[列出自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/list)接口获取。</para>
     /// <para>示例值：roljRpwIUt</para>
     /// </param>
     /// <param name="page_size">
@@ -24934,7 +24961,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="page_token">
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>示例值：xxxxx</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0</para>
     /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/roles/{role_id}/members")]
@@ -24949,8 +24976,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7101134500528701443</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>列出自定义角色</para>
+    /// <para>列出多维表格高级权限中用户自定义的角色。</para>
+    /// <para>## 前提条件</para>
+    /// <para>要调用自定义角色相关接口，你需确保多维表格已开启高级权限。你可通过[更新多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/update)接口开启高级权限。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:role:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -24958,7 +24988,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="page_size">
@@ -24984,40 +25018,47 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7101134500528717827</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role-member/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除自定义角色的协作者</para>
+    /// <para>删除多维表格高级权限中自定义角色的协作者。</para>
+    /// <para>## 前提条件</para>
+    /// <para>要调用协作者相关接口，你需确保多维表格已开启高级权限并设置了自定义角色。你可通过[更新多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/update)接口开启高级权限，通过[新增自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/create)接口设置自定义角色。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:collaborator:delete</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="role_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>自定义角色的id</para>
+    /// <para>多维表格高级权限中自定义角色的唯一标识，以 rol 开头。获取方式：通过[列出自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/list)接口获取。</para>
     /// <para>示例值：roljRpwIUt</para>
     /// </param>
     /// <param name="member_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>协作者id</para>
+    /// <para>高级权限中自定义角色协作者的 ID，需与查询参数中 member_id_type 的类型需一致。获取 ID 方式参考 member_id_type 参数描述。</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad53uew2</para>
     /// </param>
     /// <param name="member_id_type">
     /// <para>必填：否</para>
-    /// <para>协作者id类型，与请求体中的member_id要对应</para>
+    /// <para>协作者 ID 的类型</para>
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>open_id：以open_id来识别协作者</item>
-    /// <item>union_id：以union_id来识别协作者</item>
-    /// <item>user_id：以user_id来识别协作者</item>
-    /// <item>chat_id：以chat_id来识别协作者</item>
-    /// <item>department_id：以department_id来识别协作者</item>
-    /// <item>open_department_id：以open_department_id来识别协作者</item>
+    /// <item>open_id：以 open_id 来识别协作者。获取方式参考[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</item>
+    /// <item>union_id：以 union_id 来识别协作者。获取方式参考[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</item>
+    /// <item>user_id：以 user_id 来识别协作者。获取方式参考[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</item>
+    /// <item>chat_id：以 chat_id 来识别协作者。获取方式参考[群 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</item>
+    /// <item>department_id：以 department_id 来识别协作者。调用前，请确保应用有部门的可见性，参考[配置应用可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)。获取 department_id 方式参考[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)</item>
+    /// <item>open_department_id：以 open_department_id 来识别协作者。调用前，请确保应用有部门的可见性，参考[配置应用可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)。获取 open_department_id 方式参考[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -25033,15 +25074,22 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7101134500528734211</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>新增自定义角色</para>
+    /// <para>新增多维表格高级权限中自定义的角色。</para>
+    /// <para>## 前提条件</para>
+    /// <para>要调用自定义角色相关接口，你需确保多维表格已开启高级权限。你可通过[更新多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/update)接口开启高级权限。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:role:create</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -26017,21 +26065,28 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7111246853309071363</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role-member/batch_delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>批量删除自定义角色的协作者</para>
+    /// <para>删除多维表格高级权限中自定义角色的协作者。</para>
+    /// <para>## 前提条件</para>
+    /// <para>要调用协作者相关接口，你需确保多维表格已开启高级权限并设置了自定义角色。你可通过[更新多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/update)接口开启高级权限，通过[新增自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/create)接口设置自定义角色。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:collaborator:delete</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格文档 Token</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：bascnnKKvcoUblgmmhZkYqabcef</para>
     /// </param>
     /// <param name="role_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>自定义角色 ID</para>
+    /// <para>多维表格高级权限中自定义角色的唯一标识，以 rol 开头。获取方式：通过[列出自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/list)接口获取。</para>
     /// <para>示例值：rolNGhPqks</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -26046,21 +26101,28 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7111246853309087747</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role-member/batch_create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>批量新增自定义角色的协作者</para>
+    /// <para>批量新增多维表格高级权限中自定义角色的协作者。</para>
+    /// <para>## 前提条件</para>
+    /// <para>要调用协作者相关接口，你需确保多维表格已开启高级权限并设置了自定义角色。你可通过[更新多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/update)接口开启高级权限，通过[新增自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/create)接口设置自定义角色。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:collaborator:create</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
     /// <param name="app_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>多维表格的唯一标识符 [app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：bascnnKKvcoUblgmmhZkYqabcef</para>
     /// </param>
     /// <param name="role_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>自定义角色 ID</para>
+    /// <para>多维表格高级权限中自定义角色的唯一标识，以 rol 开头。获取方式：通过[列出自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/list)接口获取。</para>
     /// <para>示例值：rolNGhPqks</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -47352,7 +47414,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7449328616456585235</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/revoke</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于撤销员工异动，若发起成功，会撤销一条已发起、待生效或已生效的异动数据，同时产生相应的事件：[异动状态变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_change/events/updated)。该接口无法撤销批量发起的多人异动。</para>
+    /// <para>该接口用于撤销员工异动，若发起成功，会撤销一条已发起、待生效或已生效的异动数据，同时产生相应的事件：[异动状态变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_change/events/updated)。该接口无法撤销批量发起的多人异动。使用时需指定操作人，关联了流程的异动需要流程管理员和审批单管理员权限。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:job_change:write</item>

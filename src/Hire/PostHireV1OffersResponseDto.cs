@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-08
+// Last Modified On : 2025-02-05
 // ************************************************************************
 // <copyright file="PostHireV1OffersResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -266,6 +266,14 @@ public record PostHireV1OffersResponseDto
         /// </summary>
         [JsonPropertyName("job_offered")]
         public string? JobOffered { get; set; }
+
+        /// <summary>
+        /// <para>职等 ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6897079709306259720</para>
+        /// </summary>
+        [JsonPropertyName("job_grade_id")]
+        public string? JobGradeId { get; set; }
     }
 
     /// <summary>

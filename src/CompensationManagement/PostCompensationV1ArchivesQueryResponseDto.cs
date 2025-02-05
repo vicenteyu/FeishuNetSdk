@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-12
+// Last Modified On : 2025-02-05
 // ************************************************************************
 // <copyright file="PostCompensationV1ArchivesQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -120,6 +120,22 @@ public record PostCompensationV1ArchivesQueryResponseDto
         /// </summary>
         [JsonPropertyName("salary_level_id")]
         public string? SalaryLevelId { get; set; }
+
+        /// <summary>
+        /// <para>创建时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2024-01-01 00:00:00</para>
+        /// </summary>
+        [JsonPropertyName("created_time")]
+        public string? CreatedTime { get; set; }
+
+        /// <summary>
+        /// <para>更新时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2024-01-01 00:00:00</para>
+        /// </summary>
+        [JsonPropertyName("updated_time")]
+        public string? UpdatedTime { get; set; }
 
         /// <summary>
         /// <para>档案关联的薪资项</para>

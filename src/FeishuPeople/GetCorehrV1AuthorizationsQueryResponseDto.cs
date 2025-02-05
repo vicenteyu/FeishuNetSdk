@@ -186,6 +186,10 @@ public record GetCorehrV1AuthorizationsQueryResponseDto
 
             /// <summary>
             /// <para>指定管理对象列表，如果该值为null，则使用设置数据权限(grantor_rule_list)</para>
+            /// <para>json结构见响应体示例，其中：</para>
+            /// <para>orgKey：组织key</para>
+            /// <para>org_name：组织名称</para>
+            /// <para>org_id_list：组织id</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("assigned_organization_list")]
@@ -193,6 +197,10 @@ public record GetCorehrV1AuthorizationsQueryResponseDto
 
             /// <summary>
             /// <para>指定管理对象列表，如果该值为null，则使用设置数据权限(grantor_rule_list)</para>
+            /// <para>json结构见响应体示例，其中：</para>
+            /// <para>orgKey：组织key</para>
+            /// <para>org_name：组织名称</para>
+            /// <para>org_id_list：组织id</para>
             /// </summary>
             public record AssignedOrganization
             {

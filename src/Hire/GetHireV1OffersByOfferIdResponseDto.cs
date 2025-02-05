@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-08
+// Last Modified On : 2025-02-05
 // ************************************************************************
 // <copyright file="GetHireV1OffersByOfferIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -549,6 +549,14 @@ public record GetHireV1OffersByOfferIdResponseDto
             /// </summary>
             [JsonPropertyName("job_offered")]
             public string? JobOffered { get; set; }
+
+            /// <summary>
+            /// <para>职等 ID，可通过[查询职等](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query) 获取（仅限飞书人事租户使用）</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6897079709306259720</para>
+            /// </summary>
+            [JsonPropertyName("job_grade_id")]
+            public string? JobGradeId { get; set; }
         }
 
         /// <summary>

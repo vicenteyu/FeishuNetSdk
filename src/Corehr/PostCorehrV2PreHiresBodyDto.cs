@@ -1907,11 +1907,11 @@ public record PostCorehrV2PreHiresBodyDto
         public string? EmployeeSubtypeId { get; set; }
 
         /// <summary>
-        /// <para>雇佣类型， 枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+        /// <para>雇佣类型，请注意该字段为必填，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
         /// <para>- object_api_name：pre_hire</para>
         /// <para>- custom_api_name：employment_type</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6977973225846343171</para>
+        /// <para>示例值：employee</para>
         /// </summary>
         [JsonPropertyName("employment_type_id")]
         public string? EmploymentTypeId { get; set; }

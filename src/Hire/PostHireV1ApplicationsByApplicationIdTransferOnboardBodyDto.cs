@@ -38,7 +38,7 @@ public record PostHireV1ApplicationsByApplicationIdTransferOnboardBodyDto
     public long? ExpectedConversionTime { get; set; }
 
     /// <summary>
-    /// <para>招聘需求 ID，可通过接口 [获取招聘需求列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/list) 获取。入职完成后招聘需求的「已入职」人数会加1</para>
+    /// <para>招聘需求 ID，可通过接口 [获取招聘需求列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/list) 获取。是否必须传入取决于管理员在系统后台「招聘需求关联设置」的配置。入职完成后招聘需求的「已入职」人数会加1</para>
     /// <para>必填：否</para>
     /// <para>示例值：6960663240925956402</para>
     /// </summary>
