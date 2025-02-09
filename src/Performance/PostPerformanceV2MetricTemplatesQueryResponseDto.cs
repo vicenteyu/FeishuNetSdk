@@ -107,6 +107,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto
         /// <item>review_manually：手动评估</item>
         /// <item>sum：加和计算</item>
         /// <item>weight：加权计算</item>
+        /// <item>formula：自定义公式</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("total_metric_score_method")]

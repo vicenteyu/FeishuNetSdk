@@ -2075,7 +2075,8 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>字段值</para>
-                /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考[【操作手册】如何通过 OpenAPI 维护自定义字段](https://feishu.feishu.cn/docx/QlUudBfCtosWMbxx3vxcOFDknn7)</para>
+                /// <para>是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式</para>
+                /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：123</para>
                 /// </summary>

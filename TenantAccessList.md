@@ -2135,7 +2135,7 @@
 <tr><td colspan="3">PostCorehrV2DepartmentsQueryMultiTimeline</td></tr>
 <tr><td rowspan="2">1068</td><td rowspan="2">2024-05-29</td><td><span style="color:red;">删除</span></td><td>云文档</td><td>搜索文件</td></tr>
 <tr><td colspan="3">PostSuiteDocsApiSearchObject</td></tr>
-<tr><td rowspan="2">1069</td><td rowspan="2">2024-12-27</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
+<tr><td rowspan="2">1069</td><td rowspan="2">2025-02-05</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
 <tr><td colspan="3">PostCorehrV2Employees</td></tr>
 <tr><td rowspan="2">1070</td><td rowspan="2">2024-11-06</td><td>&#10003;</td><td>招聘</td><td>获取角色详情</td></tr>
 <tr><td colspan="3">GetHireV1RolesByRoleId</td></tr>
@@ -2169,7 +2169,7 @@
 <tr><td colspan="3">PostPerformanceV2RevieweesQuery</td></tr>
 <tr><td rowspan="2">1085</td><td rowspan="2">2024-12-13</td><td>&#10003;</td><td>绩效</td><td>录入被评估人关键指标数据</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricDetailsImport</td></tr>
-<tr><td rowspan="2">1086</td><td rowspan="2">2024-11-29</td><td>&#10003;</td><td>绩效</td><td>获取指标模板列表</td></tr>
+<tr><td rowspan="2">1086</td><td rowspan="2">2025-02-05</td><td>&#10003;</td><td>绩效</td><td>获取指标模板列表</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricTemplatesQuery</td></tr>
 <tr><td rowspan="2">1087</td><td rowspan="2">2024-11-29</td><td>&#10003;</td><td>绩效</td><td>获取指标字段列表</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricFieldsQuery</td></tr>
@@ -2665,4 +2665,10 @@
 <tr><td colspan="3">GetCorehrV2JobGradesQueryRecentChange</td></tr>
 <tr><td rowspan="2">1333</td><td rowspan="2">2025-01-10</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询枚举信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EnumsSearch</td></tr>
+<tr><td rowspan="2">1334</td><td rowspan="2">2025-02-06</td><td>新增</td><td>应用信息</td><td>更新应用协作者</td></tr>
+<tr><td colspan="3">PutApplicationV6ApplicationsByAppIdCollaborators</td></tr>
+<tr><td rowspan="2">1335</td><td rowspan="2">2025-02-06</td><td>新增</td><td>应用信息</td><td>获取应用协作者列表</td></tr>
+<tr><td colspan="3">GetApplicationV6ApplicationsByAppIdCollaborators</td></tr>
+<tr><td rowspan="2">1336</td><td rowspan="2">2025-02-06</td><td>新增</td><td>应用信息</td><td>转移应用所有者</td></tr>
+<tr><td colspan="3">PutApplicationV6ApplicationsByAppIdOwner</td></tr>
 </tbody></table>

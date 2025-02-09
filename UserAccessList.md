@@ -1015,7 +1015,7 @@
 <tr><td colspan="3">PostAilyV1Sessions</td></tr>
 <tr><td rowspan="2">508</td><td rowspan="2">2025-01-23</td><td>&#10003;</td><td>薪酬管理</td><td>批量查询员工薪资档案</td></tr>
 <tr><td colspan="3">PostCompensationV1ArchivesQuery</td></tr>
-<tr><td rowspan="2">509</td><td rowspan="2">2024-12-27</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
+<tr><td rowspan="2">509</td><td rowspan="2">2025-02-05</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
 <tr><td colspan="3">PostCorehrV2Employees</td></tr>
 <tr><td rowspan="2">510</td><td rowspan="2">2024-07-10</td><td><span style="color:red;">删除</span></td><td>绩效</td><td>获取指标库信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricLibsQuery</td></tr>
@@ -1107,8 +1107,14 @@
 <tr><td colspan="3">GetApaasV1SeatActivities</td></tr>
 <tr><td rowspan="2">554</td><td rowspan="2">2025-01-10</td><td>&#10003;</td><td>飞书低代码平台</td><td>查询席位分配详情</td></tr>
 <tr><td colspan="3">GetApaasV1SeatAssignments</td></tr>
-<tr><td rowspan="2">555</td><td rowspan="2">2025-01-21</td><td>新增</td><td>飞书低代码平台</td><td>查询数据变更日志列表</td></tr>
+<tr><td rowspan="2">555</td><td rowspan="2">2025-01-21</td><td>&#10003;</td><td>飞书低代码平台</td><td>查询数据变更日志列表</td></tr>
 <tr><td colspan="3">GetApaasV1ApplicationsByNamespaceAuditLogDataChangeLogsList</td></tr>
-<tr><td rowspan="2">556</td><td rowspan="2">2025-01-21</td><td>新增</td><td>飞书低代码平台</td><td>查询数据变更日志详情</td></tr>
+<tr><td rowspan="2">556</td><td rowspan="2">2025-01-21</td><td>&#10003;</td><td>飞书低代码平台</td><td>查询数据变更日志详情</td></tr>
 <tr><td colspan="3">GetApaasV1ApplicationsByNamespaceAuditLogDataChangeLogDetail</td></tr>
+<tr><td rowspan="2">557</td><td rowspan="2">2025-02-06</td><td>新增</td><td>应用信息</td><td>更新应用协作者</td></tr>
+<tr><td colspan="3">PutApplicationV6ApplicationsByAppIdCollaborators</td></tr>
+<tr><td rowspan="2">558</td><td rowspan="2">2025-02-06</td><td>新增</td><td>应用信息</td><td>获取应用协作者列表</td></tr>
+<tr><td colspan="3">GetApplicationV6ApplicationsByAppIdCollaborators</td></tr>
+<tr><td rowspan="2">559</td><td rowspan="2">2025-02-06</td><td>新增</td><td>应用信息</td><td>转移应用所有者</td></tr>
+<tr><td colspan="3">PutApplicationV6ApplicationsByAppIdOwner</td></tr>
 </tbody></table>
