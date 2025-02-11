@@ -17,6 +17,7 @@ using Microsoft.Extensions.Options;
 using ProtoBuf;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using WatsonWebsocket;
 using WebApiClientCore.Extensions.OAuths.Exceptions;
 
@@ -31,7 +32,7 @@ namespace FeishuNetSdk.WebSocket
     /// <para>无需部署防火墙和配置白名单。</para>
     /// <para></para>
     /// <para>注意事项：</para>
-    /// <para>长连接模式仅支持企业自建应用，并且仅支持应用内的事件订阅，不支持回调订阅。</para>
+    /// <para>长连接模式仅支持企业自建应用。</para>
     /// <para>与 将事件发送至开发者服务器 方式的要求相同，长连接模式下接收到消息后，也需要在 3 秒内处理完成，否则会触发超时重推机制。</para>
     /// <para>每个应用最多建立 50 个连接（在配置长连接时，每初始化一个 client 就是一个连接）。</para>
     /// <para>长连接模式的消息推送为 集群模式，不支持广播，即如果同一应用部署了多个客户端（client），那么只有其中随机一个客户端会收到消息。</para>
@@ -42,6 +43,11 @@ namespace FeishuNetSdk.WebSocket
     public class WssService(IFeishuApi feishuApi, IOptionsMonitor<FeishuNetSdkOptions> options, ILogger<WssService> logger, Services.IEventCallbackServiceProvider eventCallback) : BackgroundService
     {
         private WatsonWsClient? _wsClient = null;
+
+        private static readonly JsonSerializerOptions serializerOptions = new()
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+        };
 
         /// <summary>
         /// 执行长连接
@@ -96,20 +102,30 @@ namespace FeishuNetSdk.WebSocket
             {
                 var frame = Serializer.Deserialize<Frame>(e.Data.AsSpan());
 
-                var json = frame?.PayloadToJson() ?? throw new Exception("无法序列化消息");
+                var inJson = frame?.PayloadToJson() ?? throw new Exception("无法序列化消息");
+                logger.LogDebug("入参：{json}", inJson);
 
-                logger.LogInformation("{json}", json);
                 try
                 {
-                    var result = await eventCallback.HandleAsync(json);
+                    var result = await eventCallback.HandleAsync(inJson);
                     if (result.Success != true)
                     {
                         logger.LogError("{error}", result?.Error);
                         return;
                     }
 
+                    var outJson = JsonSerializer.Serialize(new
+                    {
+                        code = 200,
+                        data = result.Dto is null
+                            ? null
+                            : Encoding.UTF8.GetBytes(JsonSerializer.Serialize(result.Dto, serializerOptions))
+                    }, serializerOptions);
+
+                    logger.LogDebug("出参：{json}", outJson);
+
                     using var messageStream = new MemoryStream();
-                    frame.Payload = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(new { code = 200 }));
+                    frame.Payload = Encoding.UTF8.GetBytes(outJson);
                     Serializer.Serialize(messageStream, frame);
                     if (messageStream.TryGetBuffer(out var arraySegment))
                     {
