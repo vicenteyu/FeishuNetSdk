@@ -51,7 +51,7 @@ namespace FeishuNetSdk.Im.Dtos
             /// 模板变量集合，Key-Value
             /// </summary>
             [JsonPropertyName("template_variable")]
-            public Dictionary<string, string> TemplateVariable { get; set; } = [];
+            public Dictionary<string, object> TemplateVariable { get; set; } = [];
         }
 
         /// <summary>
