@@ -19,13 +19,15 @@ builder.Services
         AppSecret: "H2wlkn*************UBfyVn",
         EncryptKey: "75vyV*************Clrwpkjy",
         VerificationToken: "WVr*************MSJw")
-    //添加飞书长连接
+    //添加 长连接 服务
     .AddFeishuWebSocket();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Host.UseSerilog(Log.Logger);
-//builder.Services.AddHostedService<Class1>();
+
+//每次启动应用会自动发送一条卡片消息用于测试卡片回调，如果不需要，则注释下面一行。
+builder.Services.AddHostedService<Class1>();
 
 var app = builder.Build();
 app.UsePathBase("/feishunetsdktest");
@@ -37,7 +39,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -53,12 +55,35 @@ app.Run();
 
 namespace WebApplication1
 {
+    /// <summary>
+    /// 测试发送卡片消息，ReceiveId = 接收人的 OpenId
+    /// 进入 https://open.feishu.cn/document/server-docs/contact-v3/user/patch，
+    /// 右侧 API调试台 -> 路径参数 -> user_id -> 点击获取 -> 复制 OpenId
+    /// </summary>
+    public class Class1(IFeishuTenantApi tenantApi) : BackgroundService
+    {
+        protected async override Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            await tenantApi.PostImV1MessagesAsync("open_id", new FeishuNetSdk.Im.PostImV1MessagesBodyDto()
+            {
+                ReceiveId = "ou_9ef1*************ede896"
+            }.SetContent(new ElementsCardV2Dto()
+            {
+                Header = new ElementsCardV2Dto.HeaderSuffix() { Title = new("Button-1") },
+                Body = new ElementsCardV2Dto.BodySuffix()
+                {
+                    Elements = [new FormButtonElement(Name: Guid.NewGuid().ToString(), Text: new($"xxx1{DateTime.Now}"), Behaviors: [new CallbackBehaviors(new { key = "CallbackBehaviors" })])]
+                }
+            }));
+        }
+    }
+
     public class EventHandler1(ILogger<EventHandler> logger, IFeishuTenantApi tenantApi) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
     {
         public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input)
         {
             await Task.Delay(600);
-            logger.LogInformation("ExecuteAsync1: {info}", System.Text.Json.JsonSerializer.Serialize(input));
+            logger.LogInformation("ExecuteAsync1: {info}", JsonSerializer.Serialize(input));
 
             await tenantApi.PostImV1MessagesAsync("open_id", new FeishuNetSdk.Im.PostImV1MessagesBodyDto()
             {
@@ -79,7 +104,7 @@ namespace WebApplication1
     //    public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input)
     //    {
     //        await Task.Delay(1500);
-    //        logger.LogInformation("ExecuteAsync3: {info}", System.Text.Json.JsonSerializer.Serialize(input));
+    //        logger.LogInformation("ExecuteAsync3: {info}", JsonSerializer.Serialize(input));
     //    }
     //}
 
@@ -88,7 +113,7 @@ namespace WebApplication1
     //{
     //    public Task ExecuteAsync(EventV1Dto<ApprovalEventBodyDto> input)
     //    {
-    //        logger.LogInformation("ExecuteAsync4: {info}", System.Text.Json.JsonSerializer.Serialize(input));
+    //        logger.LogInformation("ExecuteAsync4: {info}", JsonSerializer.Serialize(input));
     //        return Task.CompletedTask;
     //    }
     //}
@@ -103,7 +128,14 @@ namespace WebApplication1
             await Task.CompletedTask;
             logger.LogWarning("{json}", JsonSerializer.Serialize(input));
 
-            return new CardActionTriggerResponseDto().SetCard(new ElementsCardV2Dto()
+            return new CardActionTriggerResponseDto()
+            {
+                Toast = new()
+                {
+                    Content = "Toast Content",
+                },
+            }
+            .SetCard(new ElementsCardV2Dto()
             {
                 Header = new() { Title = new("Button-updated"), Template = "blue" },
                 Config = new() { EnableForward = true },
