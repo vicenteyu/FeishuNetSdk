@@ -342,7 +342,7 @@ public record PostCorehrV1LocationsBodyDto
         public string? PostalCode { get; set; }
 
         /// <summary>
-        /// <para>地址类型，枚举值及详细信息可通过[【查询地址类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。</para>
+        /// <para>地址类型，枚举值及详细信息可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。</para>
         /// <para>- 请求参数object_api_name=address；custom_api_name=address_type</para>
         /// <para>必填：否</para>
         /// </summary>
@@ -350,7 +350,7 @@ public record PostCorehrV1LocationsBodyDto
         public Enum[]? AddressTypeLists { get; set; }
 
         /// <summary>
-        /// <para>地址类型，枚举值及详细信息可通过[【查询地址类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。</para>
+        /// <para>地址类型，枚举值及详细信息可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。</para>
         /// <para>- 请求参数object_api_name=address；custom_api_name=address_type</para>
         /// </summary>
         public record Enum

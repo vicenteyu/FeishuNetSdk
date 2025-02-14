@@ -4853,7 +4853,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 使用限制</para>
     /// <para>- 不支持更新[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)。</para>
     /// <para>- 仅支持更新 14 天内发送的消息。</para>
-    /// <para>- 更新的文本消息请求体不可超过 150 KB；卡片及富文本消息请求体不可超过 30 KB。</para>
     /// <para>- 单条消息更新频控为 5 QPS。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
@@ -22425,9 +22424,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <para>示例值：people_corehr_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
-    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门。</item>
+    /// <item>people_corehr_department_id：【飞书人事】用来标识「飞书人事」中的部门。</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -32994,9 +32993,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
-    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门。</item>
+    /// <item>people_corehr_department_id：【飞书人事】用来标识「飞书人事」中的部门。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -34348,9 +34347,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
-    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门。</item>
+    /// <item>people_corehr_department_id：【飞书人事】用来标识「飞书人事」中的部门。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -38937,9 +38936,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
-    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门</item>
+    /// <item>people_corehr_department_id：【飞书人事】用来标识「飞书人事」中的部门。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -42607,9 +42606,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <para>示例值：people_corehr_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
-    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门。</item>
+    /// <item>people_corehr_department_id：飞书人事】用来标识「飞书人事」中的部门。</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -42644,9 +42643,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
-    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门。</item>
+    /// <item>people_corehr_department_id：【飞书人事】用来标识「飞书人事」中的部门。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -45212,9 +45211,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <para>示例值：people_corehr_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
-    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门。</item>
+    /// <item>people_corehr_department_id：【飞书人事】用来标识「飞书人事」中的部门。</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -47091,9 +47090,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <para>示例值：people_corehr_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
-    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门。</item>
+    /// <item>people_corehr_department_id：【飞书人事】用来标识「飞书人事」中的部门。</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>

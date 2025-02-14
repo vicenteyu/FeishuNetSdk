@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-02-09
+// Last Modified On : 2025-02-14
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -310,10 +310,6 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Moments.Events.MomentsCommentCreatedV1EventBodyDto>), typeDiscriminator: "moments.comment.created_v1")]
 //【公司圈】删除评论
 [JsonDerivedType(typeof(EventV2Dto<Moments.Events.MomentsCommentDeletedV1EventBodyDto>), typeDiscriminator: "moments.comment.deleted_v1")]
-//【公司圈】点踩
-[JsonDerivedType(typeof(EventV2Dto<Moments.Events.MomentsDislikeCreatedV1EventBodyDto>), typeDiscriminator: "moments.dislike.created_v1")]
-//【公司圈】取消点踩
-[JsonDerivedType(typeof(EventV2Dto<Moments.Events.MomentsDislikeDeletedV1EventBodyDto>), typeDiscriminator: "moments.dislike.deleted_v1")]
 //【公司圈】发布帖子
 [JsonDerivedType(typeof(EventV2Dto<Moments.Events.MomentsPostCreatedV1EventBodyDto>), typeDiscriminator: "moments.post.created_v1")]
 //【公司圈】删除帖子

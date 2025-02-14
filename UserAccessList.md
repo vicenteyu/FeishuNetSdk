@@ -135,7 +135,7 @@
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDel</td></tr>
 <tr><td rowspan="2">68</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>查询下拉列表设置</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
-<tr><td rowspan="2">69</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>消息与群组</td><td>更新应用发送的消息卡片</td></tr>
+<tr><td rowspan="2">69</td><td rowspan="2">2025-02-13</td><td>&#10003;</td><td>消息与群组</td><td>更新应用发送的消息卡片</td></tr>
 <tr><td colspan="3">PatchImV1MessagesByMessageId</td></tr>
 <tr><td rowspan="2">70</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>设置下拉列表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
@@ -763,9 +763,9 @@
 <tr><td colspan="3">PostLingoV1FilesUpload</td></tr>
 <tr><td rowspan="2">382</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>下载图片</td></tr>
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
-<tr><td rowspan="2">383</td><td rowspan="2">2024-12-24</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
+<tr><td rowspan="2">383</td><td rowspan="2">2025-02-12</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">384</td><td rowspan="2">2024-12-24</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">384</td><td rowspan="2">2025-02-12</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">385</td><td rowspan="2">2023-04-07</td><td>&#10003;</td><td>应用信息</td><td>获取用户自定义常用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV5ApplicationsFavourite</td></tr>
@@ -1043,7 +1043,7 @@
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
 <tr><td rowspan="2">522</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
-<tr><td rowspan="2">523</td><td rowspan="2">2025-01-20</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
+<tr><td rowspan="2">523</td><td rowspan="2">2025-02-10</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesSend</td></tr>
 <tr><td rowspan="2">524</td><td rowspan="2">2024-08-30</td><td><span style="color:red;">删除</span></td><td>公司圈</td><td>查询帖子信息</td></tr>
 <tr><td colspan="3">GetMomentsV1PostsByPostId</td></tr>
@@ -1099,7 +1099,7 @@
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildren</td></tr>
 <tr><td rowspan="2">550</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>删除群公告中的块</td></tr>
 <tr><td colspan="3">DeleteDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenBatchDelete</td></tr>
-<tr><td rowspan="2">551</td><td rowspan="2">2024-12-19</td><td>&#10003;</td><td>云文档</td><td>获取群公告基本信息</td></tr>
+<tr><td rowspan="2">551</td><td rowspan="2">2025-02-12</td><td>&#10003;</td><td>云文档</td><td>获取群公告基本信息</td></tr>
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncement</td></tr>
 <tr><td rowspan="2">552</td><td rowspan="2">2024-12-19</td><td>&#10003;</td><td>云文档</td><td>获取群公告所有块</td></tr>
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncementBlocks</td></tr>
@@ -1111,10 +1111,10 @@
 <tr><td colspan="3">GetApaasV1ApplicationsByNamespaceAuditLogDataChangeLogsList</td></tr>
 <tr><td rowspan="2">556</td><td rowspan="2">2025-01-21</td><td>&#10003;</td><td>飞书低代码平台</td><td>查询数据变更日志详情</td></tr>
 <tr><td colspan="3">GetApaasV1ApplicationsByNamespaceAuditLogDataChangeLogDetail</td></tr>
-<tr><td rowspan="2">557</td><td rowspan="2">2025-02-06</td><td>新增</td><td>应用信息</td><td>更新应用协作者</td></tr>
+<tr><td rowspan="2">557</td><td rowspan="2">2025-02-06</td><td>&#10003;</td><td>应用信息</td><td>更新应用协作者</td></tr>
 <tr><td colspan="3">PutApplicationV6ApplicationsByAppIdCollaborators</td></tr>
-<tr><td rowspan="2">558</td><td rowspan="2">2025-02-06</td><td>新增</td><td>应用信息</td><td>获取应用协作者列表</td></tr>
+<tr><td rowspan="2">558</td><td rowspan="2">2025-02-06</td><td>&#10003;</td><td>应用信息</td><td>获取应用协作者列表</td></tr>
 <tr><td colspan="3">GetApplicationV6ApplicationsByAppIdCollaborators</td></tr>
-<tr><td rowspan="2">559</td><td rowspan="2">2025-02-06</td><td>新增</td><td>应用信息</td><td>转移应用所有者</td></tr>
+<tr><td rowspan="2">559</td><td rowspan="2">2025-02-06</td><td>&#10003;</td><td>应用信息</td><td>转移应用所有者</td></tr>
 <tr><td colspan="3">PutApplicationV6ApplicationsByAppIdOwner</td></tr>
 </tbody></table>

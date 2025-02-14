@@ -2822,7 +2822,6 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>## 使用限制</para>
     /// <para>- 不支持更新[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)。</para>
     /// <para>- 仅支持更新 14 天内发送的消息。</para>
-    /// <para>- 更新的文本消息请求体不可超过 150 KB；卡片及富文本消息请求体不可超过 30 KB。</para>
     /// <para>- 单条消息更新频控为 5 QPS。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>

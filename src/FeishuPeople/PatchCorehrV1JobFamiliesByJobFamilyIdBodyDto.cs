@@ -83,7 +83,7 @@ public record PatchCorehrV1JobFamiliesByJobFamilyIdBodyDto
     public string? EffectiveTime { get; set; }
 
     /// <summary>
-    /// <para>版本生效日期</para>
+    /// <para>版本失效日期</para>
     /// <para>- 填写格式：YYYY-MM-DD</para>
     /// <para>- 系统默认为填写日期当天的 00:00:00 生效</para>
     /// <para>- 该接口只支持到最小单位为日</para>

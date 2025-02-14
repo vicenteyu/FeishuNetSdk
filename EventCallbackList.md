@@ -80,11 +80,9 @@
 <tr><td>helpdesk.ticket.updated_v1</td><td>EventV2Dto&lt;Helpdesk.Events.HelpdeskTicketUpdatedV1EventBodyDto&gt;</td><td>【服务台】工单状态变更</td></tr>
 <tr><td>helpdesk.notification.approve_v1</td><td>EventV2Dto&lt;Helpdesk.Events.HelpdeskNotificationApproveV1EventBodyDto&gt;</td><td>【服务台】推送审核通知</td></tr>
 <tr><td>moments.reaction.created_v1</td><td>EventV2Dto&lt;Moments.Events.MomentsReactionCreatedV1EventBodyDto&gt;</td><td>【公司圈】表情互动</td></tr>
-<tr><td>moments.dislike.created_v1</td><td>EventV2Dto&lt;Moments.Events.MomentsDislikeCreatedV1EventBodyDto&gt;</td><td>【公司圈】点踩</td></tr>
 <tr><td>moments.comment.created_v1</td><td>EventV2Dto&lt;Moments.Events.MomentsCommentCreatedV1EventBodyDto&gt;</td><td>【公司圈】发布评论</td></tr>
 <tr><td>moments.post.created_v1</td><td>EventV2Dto&lt;Moments.Events.MomentsPostCreatedV1EventBodyDto&gt;</td><td>【公司圈】发布帖子</td></tr>
 <tr><td>moments.reaction.deleted_v1</td><td>EventV2Dto&lt;Moments.Events.MomentsReactionDeletedV1EventBodyDto&gt;</td><td>【公司圈】取消表情互动</td></tr>
-<tr><td>moments.dislike.deleted_v1</td><td>EventV2Dto&lt;Moments.Events.MomentsDislikeDeletedV1EventBodyDto&gt;</td><td>【公司圈】取消点踩</td></tr>
 <tr><td>moments.comment.deleted_v1</td><td>EventV2Dto&lt;Moments.Events.MomentsCommentDeletedV1EventBodyDto&gt;</td><td>【公司圈】删除评论</td></tr>
 <tr><td>moments.post.deleted_v1</td><td>EventV2Dto&lt;Moments.Events.MomentsPostDeletedV1EventBodyDto&gt;</td><td>【公司圈】删除帖子</td></tr>
 <tr><td>moments.post_statistics.updated_v1</td><td>EventV2Dto&lt;Moments.Events.MomentsPostStatisticsUpdatedV1EventBodyDto&gt;</td><td>【公司圈】帖子统计数据变更</td></tr>

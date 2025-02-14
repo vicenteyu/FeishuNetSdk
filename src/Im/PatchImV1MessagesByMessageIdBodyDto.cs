@@ -23,7 +23,6 @@ namespace FeishuNetSdk.Im;
 /// <para>## 使用限制</para>
 /// <para>- 不支持更新[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)。</para>
 /// <para>- 仅支持更新 14 天内发送的消息。</para>
-/// <para>- 更新的文本消息请求体不可超过 150 KB；卡片及富文本消息请求体不可超过 30 KB。</para>
 /// <para>- 单条消息更新频控为 5 QPS。</para>
 /// <para>接口ID：6946222931479543809</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message-card/patch</para>
@@ -32,11 +31,11 @@ namespace FeishuNetSdk.Im;
 public record PatchImV1MessagesByMessageIdBodyDto
 {
     /// <summary>
-    /// <para>消息卡片的内容。支持卡片 JSON 或[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片。</para>
-    /// <para>- 要使用卡片 JSON，参考[卡片 JSON 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)。示例值可参考下文的请求体示例。</para>
+    /// <para>消息卡片的内容，支持卡片 JSON 或[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片，需为 JSON 结构序列化后的字符串。</para>
+    /// <para>- 要使用卡片 JSON，参考[卡片 JSON 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)。</para>
     /// <para>- 要使用[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片模板，你需传入 `type` 和 `data` 参数。参考 [发送卡片](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/send-feishu-card#461aa643-1)文档末尾的字段说明传值。</para>
     /// <para>**注意**：</para>
-    /// <para>- 更新的文本消息最大不能超过 150 KB，卡片及富文本消息最大不能超过 30 KB。若消息中包含大量样式标签，会使实际消息体长度大于你输入的请求体长度。</para>
+    /// <para>- 更新的卡片消息最大不能超过 30 KB。若消息中包含大量样式标签，会使实际消息体长度大于你输入的请求体长度。</para>
     /// <para>- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。</para>
     /// <para>必填：是</para>
     /// <para>示例值：{"elements":[{"tag":"div","text":{"content":"This is the plain text","tag":"plain_text"}}],"header":{"template":"blue","title":{"content":"This is the title","tag":"plain_text"}}}</para>

@@ -28,6 +28,7 @@ public record PatchHireV1EmployeesByEmployeeIdBodyDto
     /// <para>可选值：<list type="bullet">
     /// <item>1：转正</item>
     /// <item>2：离职</item>
+    /// <item>3：恢复至待入职</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("operation")]
