@@ -428,7 +428,7 @@ namespace FeishuNetSdk
             if (Dto.Columns.Length > 0)
             {
                 var columns = Dto.Columns.Select(p => p.Name);
-                data = data.Select(p => p.Where(k => columns.Contains(k.Key)).ToDictionary(k => k.Key, v => v.Value)).ToArray();
+                data = [.. data.Select(p => p.Where(k => columns.Contains(k.Key)).ToDictionary(k => k.Key, v => v.Value))];
             }
 
             Dto.Rows = data;

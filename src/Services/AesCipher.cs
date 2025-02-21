@@ -32,7 +32,7 @@ namespace FeishuNetSdk.Services
             var rijndaelManaged = Aes.Create();
             rijndaelManaged.Key = SHA256Hash(encryptKey);
             rijndaelManaged.Mode = CipherMode.CBC;
-            rijndaelManaged.IV = encBytes.Take(BlockSize).ToArray();
+            rijndaelManaged.IV = [.. encBytes.Take(BlockSize)];
             ICryptoTransform transform = rijndaelManaged.CreateDecryptor();
             byte[] blockBytes = transform.TransformFinalBlock(encBytes, BlockSize, encBytes.Length - BlockSize);
             return Encoding.UTF8.GetString(blockBytes);

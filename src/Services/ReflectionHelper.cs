@@ -89,8 +89,8 @@ namespace FeishuNetSdk.Services
         /// <returns></returns>
         public static List<TypeInfo> GetFinalSubTypes(Type baseType, Assembly assembly)
         {
-            return assembly.DefinedTypes.Where(r =>
-                !r.IsAbstract && r.IsClass && (r.IsSubTypeOrEqualsOf(baseType) || r.IsSubTypeOfGenericType(baseType))).ToList();
+            return [.. assembly.DefinedTypes.Where(r =>
+                !r.IsAbstract && r.IsClass && (r.IsSubTypeOrEqualsOf(baseType) || r.IsSubTypeOfGenericType(baseType)))];
         }
 
         /// <summary>
@@ -140,10 +140,9 @@ namespace FeishuNetSdk.Services
         /// <returns></returns>
         public static List<TypeInfo> GetSubTypes(Type baseType, Assembly assembly)
         {
-            return assembly
+            return [.. assembly
                 .DefinedTypes
-                .Where(r => r.IsSubTypeOrEqualsOf(baseType) || r.IsSubTypeOfGenericType(baseType))
-                .ToList();
+                .Where(r => r.IsSubTypeOrEqualsOf(baseType) || r.IsSubTypeOfGenericType(baseType))];
         }
 
         /// <summary>

@@ -44,7 +44,7 @@ namespace FeishuNetSdk.Services
                 var baseType = typeof(IEventCallbackHandler<,>);
                 var types = ReflectionHelper.GetFinalSubTypes(baseType);
 
-                _cache = types
+                _cache = [.. types
                     .Select(typeInfo =>
                     {
                         var firstArgumentType = GetArgumentTypes(typeInfo, baseType);
@@ -56,8 +56,7 @@ namespace FeishuNetSdk.Services
                             EventType = firstArgumentType,
                             NotAllowRepeat = firstArgumentType.IsAssignableTo(typeof(IAmCallbackDto))
                         };
-                    })
-                    .ToArray();
+                    })];
 
                 var check_repeated = _cache.Where(p => p.NotAllowRepeat)
                     .GroupBy(p => p.EventType)
