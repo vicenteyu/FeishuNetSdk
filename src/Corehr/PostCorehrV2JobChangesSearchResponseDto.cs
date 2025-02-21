@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-18
+// Last Modified On : 2025-02-21
 // ************************************************************************
 // <copyright file="PostCorehrV2JobChangesSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -335,6 +335,22 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// </summary>
             [JsonPropertyName("target_workforce_type")]
             public string? TargetWorkforceType { get; set; }
+
+            /// <summary>
+            /// <para>原人员子类型</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6968386026792289828</para>
+            /// </summary>
+            [JsonPropertyName("original_employee_subtype")]
+            public string? OriginalEmployeeSubtype { get; set; }
+
+            /// <summary>
+            /// <para>新人员子类型</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7036268995372303885</para>
+            /// </summary>
+            [JsonPropertyName("target_employee_subtype")]
+            public string? TargetEmployeeSubtype { get; set; }
 
             /// <summary>
             /// <para>原公司，详细信息可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口查询获得</para>
@@ -737,6 +753,114 @@ public record PostCorehrV2JobChangesSearchResponseDto
             /// </summary>
             [JsonPropertyName("target_position")]
             public string? TargetPosition { get; set; }
+
+            /// <summary>
+            /// <para>新岗位，新建岗位审批完成前会返回 td_xxx 的临时 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7289005963599693367</para>
+            /// </summary>
+            [JsonPropertyName("target_draft_position")]
+            public string? TargetDraftPosition { get; set; }
+
+            /// <summary>
+            /// <para>原社保城市</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7289005963599693367</para>
+            /// </summary>
+            [JsonPropertyName("original_social_security_city")]
+            public string? OriginalSocialSecurityCity { get; set; }
+
+            /// <summary>
+            /// <para>新社保城市</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7289005963599693367</para>
+            /// </summary>
+            [JsonPropertyName("target_social_security_city")]
+            public string? TargetSocialSecurityCity { get; set; }
+
+            /// <summary>
+            /// <para>编制随人员一起调整</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：false</para>
+            /// </summary>
+            [JsonPropertyName("is_transfer_with_workforce")]
+            public bool? IsTransferWithWorkforce { get; set; }
+        }
+
+        /// <summary>
+        /// <para>是否调整薪酬</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_adjust_salary")]
+        public bool? IsAdjustSalary { get; set; }
+
+        /// <summary>
+        /// <para>异动自定义字段</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：200</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("custom_fields")]
+        public CustomFieldData[]? CustomFields { get; set; }
+
+        /// <summary>
+        /// <para>异动自定义字段</para>
+        /// </summary>
+        public record CustomFieldData
+        {
+            /// <summary>
+            /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：name</para>
+            /// </summary>
+            [JsonPropertyName("custom_api_name")]
+            public string CustomApiName { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>自定义字段名称</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("name")]
+            public CustomName? Name { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段名称</para>
+            /// </summary>
+            public record CustomName
+            {
+                /// <summary>
+                /// <para>中文</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：自定义姓名</para>
+                /// </summary>
+                [JsonPropertyName("zh_cn")]
+                public string? ZhCn { get; set; }
+
+                /// <summary>
+                /// <para>英文</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：Custom Name</para>
+                /// </summary>
+                [JsonPropertyName("en_us")]
+                public string? EnUs { get; set; }
+            }
+
+            /// <summary>
+            /// <para>自定义字段类型</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1</para>
+            /// </summary>
+            [JsonPropertyName("type")]
+            public int? Type { get; set; }
+
+            /// <summary>
+            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：\"231\"</para>
+            /// </summary>
+            [JsonPropertyName("value")]
+            public string Value { get; set; } = string.Empty;
         }
     }
 

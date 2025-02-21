@@ -19948,54 +19948,56 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>根据日历的适用范围，获取工作日历 ID。适用范围包含工作地点，工时制度等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr:readonly</item>
+    /// <item>corehr:leave:read</item>
+    /// <item>corehr:work_calendar:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="wk_department_id">
     /// <para>必填：否</para>
     /// <para>用户所属部门的ID列表。</para>
-    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取所属部门的 ID</para>
+    /// <para>可以通过[批量查询任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list)获取所属部门的 ID</para>
     /// <para>示例值："6722331851580982798"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="wk_country_region_id">
     /// <para>必填：否</para>
     /// <para>国家/地区 ID。</para>
-    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取所属国家/地区 ID</para>
+    /// <para>可以通过[批量查询任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list) 获取所属国家/地区 ID</para>
     /// <para>示例值："6722331851580982798"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="wk_employee_type_id">
     /// <para>必填：否</para>
     /// <para>人员类型ID。</para>
-    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取所属人员类型ID</para>
+    /// <para>可以通过[批量查询任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list) 获取所属人员类型ID</para>
     /// <para>示例值："6722331851580982798"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="wk_work_location_id">
     /// <para>必填：否</para>
     /// <para>工作地点ID。</para>
-    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取工作地点ID</para>
+    /// <para>可以通过[批量查询任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list) 获取工作地点ID</para>
     /// <para>示例值："6722331851580982798"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="wk_working_hours_type_id">
     /// <para>必填：否</para>
     /// <para>工时制度ID。</para>
-    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取工时制度ID</para>
+    /// <para>可以通过[批量查询任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list) 获取工时制度ID</para>
     /// <para>示例值："6722331851124982728"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="wk_job_family_id">
     /// <para>必填：否</para>
     /// <para>职务序列ID。</para>
-    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取职务序列ID。</para>
+    /// <para>可以通过[批量查询任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list) 获取职务序列ID。</para>
     /// <para>示例值："8234534456354534546"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="wk_company_id">
     /// <para>必填：否</para>
     /// <para>公司 ID。</para>
-    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取公司 ID</para>
+    /// <para>可以通过[批量查询任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list)获取公司 ID</para>
     /// <para>示例值："6235435355464465434"</para>
     /// <para>默认值：null</para>
     /// </param>

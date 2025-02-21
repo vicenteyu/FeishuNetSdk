@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-02-21
 // ************************************************************************
 // <copyright file="PatchCorehrV1ContractsByContractIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -191,5 +191,27 @@ public record PatchCorehrV1ContractsByContractIdResponseDto
         /// </summary>
         [JsonPropertyName("signing_type")]
         public Enum? SigningType { get; set; }
+
+        /// <summary>
+        /// <para>合同协议状态，枚举值可通过文档【飞书人事枚举常量】合同协议状态（contract_status）枚举定义部分获得</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("contract_status")]
+        public Enum? ContractStatus { get; set; }
+
+        /// <summary>
+        /// <para>续签状态，枚举值可通过文档【飞书人事枚举常量】续签状态（renewal_status）枚举定义部分获得</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("renewal_status")]
+        public Enum? RenewalStatus { get; set; }
+
+        /// <summary>
+        /// <para>第几次签署</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("signing_times")]
+        public int? SigningTimes { get; set; }
     }
 }

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-02-21
 // ************************************************************************
 // <copyright file="GetApplicationV6ApplicationsByAppIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -90,6 +90,22 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         public int? PaymentType { get; set; }
 
         /// <summary>
+        /// <para>应用创建来源(目前仅Base应用返回)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：base</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>developer_console：开发者后台</item>
+        /// <item>base：多维表格自动化流程创建的应用</item>
+        /// <item>app_engine：飞书低代码平台</item>
+        /// <item>bot_builder：机器人助手</item>
+        /// <item>aily：aily(智能伙伴搭建平台)</item>
+        /// <item>unknown：未知来源</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("create_source")]
+        public string? CreateSource { get; set; }
+
+        /// <summary>
         /// <para>安全设置中的重定向 URL</para>
         /// <para>必填：否</para>
         /// </summary>
@@ -116,6 +132,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <para>应用名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：应用名称</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("app_name")]
         public string? AppName { get; set; }
@@ -132,6 +149,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <para>应用默认描述</para>
         /// <para>必填：否</para>
         /// <para>示例值：应用描述</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("description")]
         public string? Description { get; set; }
@@ -177,6 +195,15 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// </summary>
             [JsonPropertyName("level")]
             public int? Level { get; set; }
+
+            /// <summary>
+            /// <para>返回用户身份类型user、应用身份类型tenant。如果两种类型都支持，则同时返回两个。</para>
+            /// <para>必填：否</para>
+            /// <para>最大长度：200</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("token_types")]
+            public string[]? TokenTypes { get; set; }
         }
 
         /// <summary>
@@ -190,6 +217,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <summary>
         /// <para>应用的国际化信息列表</para>
         /// <para>必填：否</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("i18n")]
         public AppI18nInfo[]? I18ns { get; set; }
@@ -204,9 +232,22 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：zh_cn</para>
             /// <para>可选值：<list type="bullet">
-            /// <item>zh_cn：中文</item>
+            /// <item>zh_cn：简体中文</item>
             /// <item>en_us：英文</item>
             /// <item>ja_jp：日文</item>
+            /// <item>zh_hk：繁体中文(中国香港)</item>
+            /// <item>zh_tw：繁体中文(中国台湾)</item>
+            /// <item>id_id：印度尼西亚语</item>
+            /// <item>ms_my：马来语</item>
+            /// <item>de_de：德语</item>
+            /// <item>es_es：西班牙语</item>
+            /// <item>fr_fr：法语</item>
+            /// <item>it_it：意大利语</item>
+            /// <item>pt_br：葡萄牙语(巴西)</item>
+            /// <item>vi_vn：越南语</item>
+            /// <item>ru_ru：俄语</item>
+            /// <item>th_th：泰语</item>
+            /// <item>ko_kr：韩语</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("i18n_key")]
@@ -216,6 +257,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <para>应用国际化名称</para>
             /// <para>必填：否</para>
             /// <para>示例值：应用名称</para>
+            /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("name")]
             public string? Name { get; set; }
@@ -224,6 +266,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <para>应用国际化描述（副标题）</para>
             /// <para>必填：否</para>
             /// <para>示例值：应用描述</para>
+            /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("description")]
             public string? Description { get; set; }
@@ -294,7 +337,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// <summary>
             /// <para>应用开发商名称(仅商店应用返回)</para>
             /// <para>必填：否</para>
-            /// <para>示例值：testtenant</para>
+            /// <para>示例值：test tenant</para>
             /// </summary>
             [JsonPropertyName("name")]
             public string? Name { get; set; }
@@ -322,6 +365,40 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
             /// </summary>
             [JsonPropertyName("phone")]
             public string? Phone { get; set; }
+
+            /// <summary>
+            /// <para>客服账号，仅当商店应用配置了这种联系方式时才会返回</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：feishu@bytedance.com</para>
+            /// </summary>
+            [JsonPropertyName("customer_service_account")]
+            public string? CustomerServiceAccount { get; set; }
         }
+
+        /// <summary>
+        /// <para>移动端默认能力</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：gadget</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>gadget：小程序</item>
+        /// <item>web_app：网页应用</item>
+        /// <item>bot：机器人</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("mobile_default_ability")]
+        public string? MobileDefaultAbility { get; set; }
+
+        /// <summary>
+        /// <para>PC端默认能力</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：gadget</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>gadget：小程序</item>
+        /// <item>web_app：网页应用</item>
+        /// <item>bot：机器人</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("pc_default_ability")]
+        public string? PcDefaultAbility { get; set; }
     }
 }

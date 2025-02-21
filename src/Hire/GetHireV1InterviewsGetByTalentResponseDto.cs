@@ -54,7 +54,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
         public record InterviewExtend
         {
             /// <summary>
-            /// <para>面试 ID</para>
+            /// <para>面试 ID，详情请查看：[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6949805467799537964</para>
             /// </summary>
@@ -143,6 +143,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
                 /// <item>3：未开始</item>
                 /// <item>4：未提交</item>
                 /// <item>5：未到场</item>
+                /// <item>6：待定</item>
                 /// </list></para>
                 /// </summary>
                 [JsonPropertyName("conclusion")]
@@ -224,7 +225,7 @@ public record GetHireV1InterviewsGetByTalentResponseDto
                     /// <summary>
                     /// <para>面试官 ID，与入参`user_id_type`类型一致</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：1213213123123</para>
+                    /// <para>示例值：ou_bc6dd7d30630700f443193d602841086</para>
                     /// </summary>
                     [JsonPropertyName("id")]
                     public string? Id { get; set; }

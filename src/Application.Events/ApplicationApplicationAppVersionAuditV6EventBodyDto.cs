@@ -43,7 +43,7 @@ public record ApplicationApplicationAppVersionAuditV6EventBodyDto() : EventBodyD
     public UserIdSuffix? CreatorId { get; set; }
 
     /// <summary>
-    /// <para>撤回应用的 id</para>
+    /// <para>审核应用的 id</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("app_id")]

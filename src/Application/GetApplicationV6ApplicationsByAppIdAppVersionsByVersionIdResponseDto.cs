@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-02-21
 // ************************************************************************
 // <copyright file="GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -125,6 +125,15 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// </summary>
             [JsonPropertyName("level")]
             public int? Level { get; set; }
+
+            /// <summary>
+            /// <para>返回用户身份类型user、应用身份类型tenant。如果两种类型都支持，则同时返回两个。</para>
+            /// <para>必填：否</para>
+            /// <para>最大长度：200</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("token_types")]
+            public string[]? TokenTypes { get; set; }
         }
 
         /// <summary>
@@ -153,7 +162,7 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：是</para>
             /// <para>示例值：zh_cn</para>
             /// <para>可选值：<list type="bullet">
-            /// <item>zh_cn：中文</item>
+            /// <item>zh_cn：简体中文</item>
             /// <item>en_us：英文</item>
             /// <item>ja_jp：日文</item>
             /// <item>zh_hk：繁体中文(中国香港)</item>

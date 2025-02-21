@@ -46,7 +46,7 @@ public record GetHireV1JobsByJobIdConfigResponseDto
         public record IdNameObject
         {
             /// <summary>
-            /// <para>Offer 申请表 ID，详情请查看：[获取 Offer 申请表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/list)</para>
+            /// <para>Offer 申请表 ID，详情请查看：[获取 Offer 申请表信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/get)</para>
             /// <para>必填：否</para>
             /// <para>示例值：7392444731470563625</para>
             /// </summary>
@@ -203,7 +203,7 @@ public record GetHireV1JobsByJobIdConfigResponseDto
         public record RegistrationInfo
         {
             /// <summary>
-            /// <para>面试登记表模版 ID，详情可查看：[获取面试登记表模板列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_registration_schema/list)</para>
+            /// <para>面试登记表模版 ID，详情可查看：[获取信息登记表模板列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/registration_schema/list)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6930815272790114324</para>
             /// </summary>
@@ -360,7 +360,7 @@ public record GetHireV1JobsByJobIdConfigResponseDto
                 public int? InterviewType { get; set; }
 
                 /// <summary>
-                /// <para>候选人时区</para>
+                /// <para>候选人时区。基于IANA标准时区码，完整时区码列表请参考：[维基百科时区列表](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：Asia/Shanghai</para>
                 /// </summary>

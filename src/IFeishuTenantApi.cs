@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-02-09
+// Last Modified On : 2025-02-21
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -10916,7 +10916,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="active_status">
     /// <para>必填：否</para>
-    /// <para>投递活跃状态</para>
+    /// <para>投递活跃状态，不传该参数则默认为“全部”</para>
     /// <para>**可选值有**：</para>
     /// <para>- `1`：活跃投递</para>
     /// <para>- `2`：非活跃投递</para>
@@ -10932,7 +10932,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="lock_status">
     /// <para>必填：否</para>
-    /// <para>锁定状态</para>
+    /// <para>锁定状态，无默认值，不传该参数则不对锁定状态进行筛选</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
@@ -13961,6 +13961,32 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Hire.PostHireV1ApplicationsByApplicationIdTransferStageBodyDto dto);
 
     /// <summary>
+    /// <para>【招聘】取消候选人入职</para>
+    /// <para>接口ID：6989078472837152771</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/cancel_onboard</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>取消待入职状态的候选人入职。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 本接口适用于对待入职阶段的候选人取消入职。对于已入职的候选人，取消入职请使用[更新入职状态](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/employee/patch)</para>
+    /// <para>对候选人进行离职操作。</para>
+    /// <para>- 对于集成了飞书人事的租户，候选人在飞书人事创建待入职记录后，只能在飞书人事取消入职，不可使用本接口取消入职。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:application</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="application_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>投递 ID，如何获取投递 ID 请参考[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)</para>
+    /// <para>示例值：1111111111</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/hire/v1/applications/{application_id}/cancel_onboard")]
+    System.Threading.Tasks.Task<FeishuResponse> PostHireV1ApplicationsByApplicationIdCancelOnboardAsync(
+        [PathQuery] string application_id,
+        [JsonContent] Hire.PostHireV1ApplicationsByApplicationIdCancelOnboardBodyDto dto);
+
+    /// <summary>
     /// <para>【招聘】更新招聘需求</para>
     /// <para>接口ID：6989078472837169155</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/update</para>
@@ -14099,7 +14125,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，最大值100</para>
     /// <para>示例值：20</para>
     /// <para>默认值：1</para>
     /// </param>
@@ -32699,8 +32725,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:employment.job_level:read</item>
     /// <item>corehr:employment.job_level:write</item>
     /// <item>corehr:employment.job:read</item>
+    /// <item>corehr:job_change.custom_field:read</item>
     /// <item>corehr:job_change.employment_custom_field:read</item>
+    /// <item>corehr:job_change.is_adjust_salary:read</item>
     /// <item>corehr:job_change.remark:read</item>
+    /// <item>corehr:job_change.social_security_city:read</item>
     /// <item>corehr:job_data.compensation_type:read</item>
     /// <item>corehr:job_data.service_company:read</item>
     /// </list></para>
@@ -40461,7 +40490,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] bool? active = null);
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】查询编制规划明细信息</para>
+    /// <para>【飞书人事（企业版）】查询编制规划明细信息（不支持自定义组织）</para>
     /// <para>接口ID：7314710843818524673</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/workforce_plan_detail/batch</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -45559,54 +45588,56 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>根据日历的适用范围，获取工作日历 ID。适用范围包含工作地点，工时制度等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr:readonly</item>
+    /// <item>corehr:leave:read</item>
+    /// <item>corehr:work_calendar:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="wk_department_id">
     /// <para>必填：否</para>
     /// <para>用户所属部门的ID列表。</para>
-    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取所属部门的 ID</para>
+    /// <para>可以通过[批量查询任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list)获取所属部门的 ID</para>
     /// <para>示例值："6722331851580982798"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="wk_country_region_id">
     /// <para>必填：否</para>
     /// <para>国家/地区 ID。</para>
-    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取所属国家/地区 ID</para>
+    /// <para>可以通过[批量查询任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list) 获取所属国家/地区 ID</para>
     /// <para>示例值："6722331851580982798"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="wk_employee_type_id">
     /// <para>必填：否</para>
     /// <para>人员类型ID。</para>
-    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取所属人员类型ID</para>
+    /// <para>可以通过[批量查询任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list) 获取所属人员类型ID</para>
     /// <para>示例值："6722331851580982798"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="wk_work_location_id">
     /// <para>必填：否</para>
     /// <para>工作地点ID。</para>
-    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取工作地点ID</para>
+    /// <para>可以通过[批量查询任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list) 获取工作地点ID</para>
     /// <para>示例值："6722331851580982798"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="wk_working_hours_type_id">
     /// <para>必填：否</para>
     /// <para>工时制度ID。</para>
-    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取工时制度ID</para>
+    /// <para>可以通过[批量查询任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list) 获取工时制度ID</para>
     /// <para>示例值："6722331851124982728"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="wk_job_family_id">
     /// <para>必填：否</para>
     /// <para>职务序列ID。</para>
-    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取职务序列ID。</para>
+    /// <para>可以通过[批量查询任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list) 获取职务序列ID。</para>
     /// <para>示例值："8234534456354534546"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="wk_company_id">
     /// <para>必填：否</para>
     /// <para>公司 ID。</para>
-    /// <para>可以通过[批量查询任职信息](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fjob_data%2Flist) 获取公司 ID</para>
+    /// <para>可以通过[批量查询任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list)获取公司 ID</para>
     /// <para>示例值："6235435355464465434"</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -47553,7 +47584,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/corehr/v2/job_changes/{job_change_id}/revoke")]
-    System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2JobChangesByJobChangeIdRevokeAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2JobChangesByJobChangeIdRevokeResponseDto>> PostCorehrV2JobChangesByJobChangeIdRevokeAsync(
         [PathQuery] string job_change_id,
         [JsonContent] Corehr.PostCorehrV2JobChangesByJobChangeIdRevokeBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
@@ -48147,5 +48178,20 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/corehr/v2/enums/search")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2EnumsSearchResponseDto>> PostCorehrV2EnumsSearchAsync(
         [JsonContent] Corehr.PostCorehrV2EnumsSearchBodyDto dto);
+
+    /// <summary>
+    /// <para>【考勤打卡】删除打卡流水</para>
+    /// <para>接口ID：7473096091899805715</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_del</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除员工从开放平台导入的打卡记录。删除后会重新计算打卡记录对应考勤任务结果。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>attendance:task</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/attendance/v1/user_flows/batch_del")]
+    System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserFlowsBatchDelResponseDto>> PostAttendanceV1UserFlowsBatchDelAsync(
+        [JsonContent] Attendance.PostAttendanceV1UserFlowsBatchDelBodyDto dto);
 }
 

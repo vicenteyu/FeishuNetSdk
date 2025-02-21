@@ -35,7 +35,7 @@ public record GetImV1ChatsByChatIdResponseDto
     public string? Avatar { get; set; }
 
     /// <summary>
-    /// <para>群名称</para>
+    /// <para>群名称。没有设置群名称时，不会返回该参数。</para>
     /// <para>必填：否</para>
     /// <para>示例值：测试群名称</para>
     /// </summary>

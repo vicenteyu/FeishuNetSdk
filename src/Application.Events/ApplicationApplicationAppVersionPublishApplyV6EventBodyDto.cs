@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-01
+// Last Modified On : 2025-02-21
 // ************************************************************************
 // <copyright file="ApplicationApplicationAppVersionPublishApplyV6EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -33,17 +33,17 @@ public record ApplicationApplicationAppVersionPublishApplyV6EventBodyDto() : Eve
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("online_version")]
-    public AppVersionEvent? OnlineVersion { get; set; }
+    public ApplicationAppVersionEvent? OnlineVersion { get; set; }
 
     /// <summary>
     /// <para>当前在审核的版本信息</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("under_audit_version")]
-    public AppVersionEvent? UnderAuditVersion { get; set; }
+    public ApplicationAppVersionEvent? UnderAuditVersion { get; set; }
 
     /// <summary></summary>
-    public record AppVersionEvent
+    public record ApplicationAppVersionEvent
     {
         /// <summary>
         /// <para>应用 id</para>
@@ -131,6 +131,21 @@ public record ApplicationApplicationAppVersionPublishApplyV6EventBodyDto() : Eve
             /// </summary>
             [JsonPropertyName("level")]
             public int? Level { get; set; }
+
+            /// <summary>
+            /// <para>返回用户身份类型user、应用身份类型tenant。如果两种类型都支持，则同时返回两个。</para>
+            /// <para>**可选值有**：</para>
+            /// <para>tenant:应用身份类型,user:用户身份类型</para>
+            /// <para>**数据校验规则**：</para>
+            /// <para>- 长度范围：`0` ～ `200`</para>
+            /// <para>必填：否</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>tenant：应用身份类型</item>
+            /// <item>user：用户身份类型</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("token_types")]
+            public string[]? TokenTypes { get; set; }
         }
 
         /// <summary>
@@ -155,12 +170,25 @@ public record ApplicationApplicationAppVersionPublishApplyV6EventBodyDto() : Eve
             /// <summary>
             /// <para>国际化语言的 key</para>
             /// <para>**可选值有**：</para>
-            /// <para>zh_cn:中文,en_us:英文,ja_jp:日文</para>
+            /// <para>zh_cn:简体中文,en_us:英文,ja_jp:日文,zh_hk:繁体中文(中国香港),zh_tw:繁体中文(中国台湾),id_id:印度尼西亚语,ms_my:马来语,de_de:德语,es_es:西班牙语,fr_fr:法语,it_it:意大利语,pt_br:葡萄牙语(巴西),vi_vn:越南语,ru_ru:俄语,th_th:泰语,ko_kr:韩语</para>
             /// <para>必填：否</para>
             /// <para>可选值：<list type="bullet">
-            /// <item>zh_cn：中文</item>
+            /// <item>zh_cn：简体中文</item>
             /// <item>en_us：英文</item>
             /// <item>ja_jp：日文</item>
+            /// <item>zh_hk：繁体中文(中国香港)</item>
+            /// <item>zh_tw：繁体中文(中国台湾)</item>
+            /// <item>id_id：印度尼西亚语</item>
+            /// <item>ms_my：马来语</item>
+            /// <item>de_de：德语</item>
+            /// <item>es_es：西班牙语</item>
+            /// <item>fr_fr：法语</item>
+            /// <item>it_it：意大利语</item>
+            /// <item>pt_br：葡萄牙语(巴西)</item>
+            /// <item>vi_vn：越南语</item>
+            /// <item>ru_ru：俄语</item>
+            /// <item>th_th：泰语</item>
+            /// <item>ko_kr：韩语</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("i18n_key")]
@@ -407,33 +435,33 @@ public record ApplicationApplicationAppVersionPublishApplyV6EventBodyDto() : Eve
                 /// </summary>
                 [JsonPropertyName("mobile")]
                 public NavigateMeta? Mobile { get; set; }
-            }
 
-            /// <summary></summary>
-            public record NavigateMeta
-            {
-                /// <summary>
-                /// <para>主导航小程序版本号</para>
-                /// <para>**数据校验规则**：</para>
-                /// <para>- 最小长度：`1` 字符</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("version")]
-                public string? Version { get; set; }
+                /// <summary></summary>
+                public record NavigateMeta
+                {
+                    /// <summary>
+                    /// <para>主导航小程序版本号</para>
+                    /// <para>**数据校验规则**：</para>
+                    /// <para>- 最小长度：`1` 字符</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("version")]
+                    public string? Version { get; set; }
 
-                /// <summary>
-                /// <para>默认图片 url</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("image_url")]
-                public string? ImageUrl { get; set; }
+                    /// <summary>
+                    /// <para>默认图片 url</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("image_url")]
+                    public string? ImageUrl { get; set; }
 
-                /// <summary>
-                /// <para>选中态图片 url</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("hover_image_url")]
-                public string? HoverImageUrl { get; set; }
+                    /// <summary>
+                    /// <para>选中态图片 url</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("hover_image_url")]
+                    public string? HoverImageUrl { get; set; }
+                }
             }
 
             /// <summary>
@@ -468,10 +496,10 @@ public record ApplicationApplicationAppVersionPublishApplyV6EventBodyDto() : Eve
                     /// <summary>
                     /// <para>国际化语言的 key</para>
                     /// <para>**可选值有**：</para>
-                    /// <para>zh_cn:中文,en_us:英文,ja_jp:日文</para>
+                    /// <para>zh_cn:简体中文,en_us:英文,ja_jp:日文</para>
                     /// <para>必填：否</para>
                     /// <para>可选值：<list type="bullet">
-                    /// <item>zh_cn：中文</item>
+                    /// <item>zh_cn：简体中文</item>
                     /// <item>en_us：英文</item>
                     /// <item>ja_jp：日文</item>
                     /// </list></para>
@@ -554,10 +582,10 @@ public record ApplicationApplicationAppVersionPublishApplyV6EventBodyDto() : Eve
                     /// <summary>
                     /// <para>国际化语言的 key</para>
                     /// <para>**可选值有**：</para>
-                    /// <para>zh_cn:中文,en_us:英文,ja_jp:日文</para>
+                    /// <para>zh_cn:简体中文,en_us:英文,ja_jp:日文</para>
                     /// <para>必填：否</para>
                     /// <para>可选值：<list type="bullet">
-                    /// <item>zh_cn：中文</item>
+                    /// <item>zh_cn：简体中文</item>
                     /// <item>en_us：英文</item>
                     /// <item>ja_jp：日文</item>
                     /// </list></para>
@@ -629,10 +657,10 @@ public record ApplicationApplicationAppVersionPublishApplyV6EventBodyDto() : Eve
                     /// <summary>
                     /// <para>国际化语言的 key</para>
                     /// <para>**可选值有**：</para>
-                    /// <para>zh_cn:中文,en_us:英文,ja_jp:日文</para>
+                    /// <para>zh_cn:简体中文,en_us:英文,ja_jp:日文</para>
                     /// <para>必填：否</para>
                     /// <para>可选值：<list type="bullet">
-                    /// <item>zh_cn：中文</item>
+                    /// <item>zh_cn：简体中文</item>
                     /// <item>en_us：英文</item>
                     /// <item>ja_jp：日文</item>
                     /// </list></para>
@@ -731,24 +759,24 @@ public record ApplicationApplicationAppVersionPublishApplyV6EventBodyDto() : Eve
                 /// </summary>
                 [JsonPropertyName("invisible_list")]
                 public AppVisibleListEvent? InvisibleList { get; set; }
-            }
 
-            /// <summary></summary>
-            public record AppVisibleListEvent
-            {
-                /// <summary>
-                /// <para>可见性成员 id 列表</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("open_ids")]
-                public UserIdSuffix[]? OpenIds { get; set; }
+                /// <summary></summary>
+                public record AppVisibleListEvent
+                {
+                    /// <summary>
+                    /// <para>可见性成员 id 列表</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("open_ids")]
+                    public UserIdSuffix[]? OpenIds { get; set; }
 
-                /// <summary>
-                /// <para>可见性部门的 id 列表</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("department_ids")]
-                public string[]? DepartmentIds { get; set; }
+                    /// <summary>
+                    /// <para>可见性部门的 id 列表</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("department_ids")]
+                    public string[]? DepartmentIds { get; set; }
+                }
             }
         }
     }

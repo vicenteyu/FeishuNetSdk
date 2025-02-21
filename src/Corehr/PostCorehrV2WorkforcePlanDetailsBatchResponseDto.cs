@@ -13,7 +13,7 @@
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 查询编制规划明细信息 响应体
+/// 查询编制规划明细信息（不支持自定义组织） 响应体
 /// <para>查询编制规划明细，包括维度信息、编制数和预估在职人数</para>
 /// <para>接口ID：7314710843818524673</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/workforce_plan_detail/batch</para>
@@ -98,9 +98,9 @@ public record PostCorehrV2WorkforcePlanDetailsBatchResponseDto
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>内容</para>
+                /// <para>文本内容</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：张三</para>
+                /// <para>示例值：中文示例</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;

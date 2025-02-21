@@ -123,6 +123,7 @@ public record GetHireV1InterviewsResponseDto
             /// <item>3：未开始</item>
             /// <item>4：未提交</item>
             /// <item>5：未到场</item>
+            /// <item>6：待定</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("conclusion")]
@@ -210,7 +211,7 @@ public record GetHireV1InterviewsResponseDto
                 public string? Id { get; set; }
 
                 /// <summary>
-                /// <para>面试官名称</para>
+                /// <para>面试官姓名</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：10</para>
                 /// </summary>
@@ -218,12 +219,12 @@ public record GetHireV1InterviewsResponseDto
                 public I18n? Name { get; set; }
 
                 /// <summary>
-                /// <para>面试官名称</para>
+                /// <para>面试官姓名</para>
                 /// </summary>
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>面试官中文名称</para>
+                    /// <para>面试官中文姓名</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：周小二</para>
                     /// </summary>
@@ -231,7 +232,7 @@ public record GetHireV1InterviewsResponseDto
                     public string? ZhCn { get; set; }
 
                     /// <summary>
-                    /// <para>面试官英文名称</para>
+                    /// <para>面试官英文姓名</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：Tony Ma</para>
                     /// </summary>
@@ -686,7 +687,7 @@ public record GetHireV1InterviewsResponseDto
         }
 
         /// <summary>
-        /// <para>面试轮次类型</para>
+        /// <para>面试轮次类型，详情可查看：[获取面试轮次类型列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_round_type/list)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("interview_round_type")]

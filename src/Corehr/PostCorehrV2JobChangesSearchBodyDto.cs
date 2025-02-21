@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-24
+// Last Modified On : 2025-02-21
 // ************************************************************************
 // <copyright file="PostCorehrV2JobChangesSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -86,4 +86,33 @@ public record PostCorehrV2JobChangesSearchBodyDto
     /// </summary>
     [JsonPropertyName("target_department_ids")]
     public string[]? TargetDepartmentIds { get; set; }
+
+    /// <summary>
+    /// <para>异动类型，可通过接口</para>
+    /// <para>[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：internal_transfer</para>
+    /// <para>最大长度：30</para>
+    /// </summary>
+    [JsonPropertyName("transfer_type_unique_identifier")]
+    public string[]? TransferTypeUniqueIdentifier { get; set; }
+
+    /// <summary>
+    /// <para>异动原因，可通过接口</para>
+    /// <para>[获取异动原因列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_reason/query)获取详细信息</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：involuntary_transfer</para>
+    /// <para>最大长度：30</para>
+    /// </summary>
+    [JsonPropertyName("transfer_reason_unique_identifier")]
+    public string[]? TransferReasonUniqueIdentifier { get; set; }
+
+    /// <summary>
+    /// <para>异常处理状态，多个状态之间为「或」的关系</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：pending</para>
+    /// <para>最大长度：10</para>
+    /// </summary>
+    [JsonPropertyName("exception_statuses")]
+    public string[]? ExceptionStatuses { get; set; }
 }

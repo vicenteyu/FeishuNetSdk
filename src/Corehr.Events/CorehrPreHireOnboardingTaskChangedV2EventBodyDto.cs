@@ -73,7 +73,20 @@ public record CorehrPreHireOnboardingTaskChangedV2EventBodyDto() : EventBodyDto(
         public string? AfterStatus { get; set; }
 
         /// <summary>
-        /// <para>任务标识</para>
+        /// <para>任务标识码</para>
+        /// <para>如果是系统内置的任务，标识码与名称对应关系如下：</para>
+        /// <para>其中『创建账户SSO』为隐藏的任务节点，在『个人信息』前自动执行</para>
+        /// <para>| 名称 | task code |</para>
+        /// <para>| ---- | --- |</para>
+        /// <para>| 职位信息 | 1 |</para>
+        /// <para>| 个人信息 | 2 |</para>
+        /// <para>|创建账户SSO|3|</para>
+        /// <para>|签到| 4|</para>
+        /// <para>|签署入职文件|9|</para>
+        /// <para>如果标识码不在上面，说明是自定义任务节点，如：3095697a-065f-4627-a47c-46fe958a6754，名称的获取方式如下：</para>
+        /// <para>- 通过pre_hire_id调用[搜索待入职人员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口或[查询待入职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/query)</para>
+        /// <para>- 查询字段fields中添加onboarding_info.onboarding_task_list</para>
+        /// <para>- 查询后返回的onboarding_task_list结构体中则包含code和名字的对应关系。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("task_code")]

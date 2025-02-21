@@ -38,9 +38,9 @@ public record PatchCorehrV1ContractsByContractIdBodyDto
     public string? ExpirationTime { get; set; }
 
     /// <summary>
-    /// <para>雇员 ID，详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口查询获得</para>
+    /// <para>该接口不能传递该参数，否则会更新失败。</para>
     /// <para>必填：否</para>
-    /// <para>示例值：6893013238632416776</para>
+    /// <para>示例值：空</para>
     /// </summary>
     [JsonPropertyName("employment_id")]
     public string? EmploymentId { get; set; }
@@ -76,22 +76,22 @@ public record PatchCorehrV1ContractsByContractIdBodyDto
     public string? FirstPartyCompanyId { get; set; }
 
     /// <summary>
-    /// <para>Person ID，详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口查询获得</para>
+    /// <para>该接口不能传递该参数，否则会更新失败。</para>
     /// <para>必填：否</para>
-    /// <para>示例值：151515151</para>
+    /// <para>示例值：空</para>
     /// </summary>
     [JsonPropertyName("person_id")]
     public string? PersonId { get; set; }
 
     /// <summary>
-    /// <para>自定义字段</para>
+    /// <para>自定义字段，预留，暂时不支持</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("custom_fields")]
     public ObjectFieldData[]? CustomFields { get; set; }
 
     /// <summary>
-    /// <para>自定义字段</para>
+    /// <para>自定义字段，预留，暂时不支持</para>
     /// </summary>
     public record ObjectFieldData
     {
