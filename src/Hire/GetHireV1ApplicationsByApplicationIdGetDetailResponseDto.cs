@@ -829,7 +829,7 @@ public record GetHireV1ApplicationsByApplicationIdGetDetailResponseDto
                 public record InterviewRecordV2
                 {
                     /// <summary>
-                    /// <para>面试评价 ID，详情请查看：[获取面试评价详细信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/hire-v2/interview_record/get)</para>
+                    /// <para>面试评价 ID，详情请查看：[获取面试评价详细信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/interview_record/get)</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：7171693733661327361</para>
                     /// </summary>

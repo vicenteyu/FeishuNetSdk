@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-02-09
+// Last Modified On : 2025-02-28
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -151,31 +151,6 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string fileToken,
         [JsonContent] Ccm.Spec.PostDriveExplorerV2FileCopyFilesByFileTokenBodyDto dto);
-
-    /// <summary>
-    /// <para>【云文档】获取协作者列表</para>
-    /// <para>接口ID：6907569523177324545</para>
-    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATN3UjLwUzN14CM1cTN</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据文件的 token 查询协作者，目前包括人("user")和群("chat") 。</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>docs:doc</item>
-    /// <item>docs:doc:readonly</item>
-    /// <item>drive:drive</item>
-    /// <item>drive:drive:readonly</item>
-    /// <item>drive:file</item>
-    /// <item>drive:file:readonly</item>
-    /// <item>sheets:spreadsheet</item>
-    /// <item>sheets:spreadsheet:readonly</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="dto">请求体</param>
-    /// <param name="access_token">用户凭证</param>
-    [Obsolete("历史版本")]
-    [HttpPost("/open-apis/drive/permission/member/list")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionMemberListResponseDto>> PostDrivePermissionMemberListAsync(
-        UserAccessToken access_token,
-        [JsonContent] Ccm.Spec.PostDrivePermissionMemberListBodyDto dto);
 
     /// <summary>
     /// <para>【云文档】搜索云文档</para>
@@ -20513,7 +20488,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>请求体和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID，或者[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)获取的userid。</item>
     /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>

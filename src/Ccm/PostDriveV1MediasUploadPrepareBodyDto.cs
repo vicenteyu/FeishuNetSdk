@@ -73,9 +73,9 @@ public record PostDriveV1MediasUploadPrepareBodyDto
     public int Size { get; set; }
 
     /// <summary>
-    /// <para>其它扩展信息</para>
+    /// <para>以下场景的上传点需通过该参数传入素材所在云文档的 token。extra 参数的格式为`"{\"drive_route_token\":\"素材所在云文档的 token\"}"`。详情参考[素材概述-extra 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction#3b8635d3)。</para>
     /// <para>必填：否</para>
-    /// <para>示例值：{\"test\":\"test\"}</para>
+    /// <para>示例值：{\"drive_route_token\":\"doxcnXgNGAtaAraIRVeCfmabcef\"}</para>
     /// </summary>
     [JsonPropertyName("extra")]
     public string? Extra { get; set; }

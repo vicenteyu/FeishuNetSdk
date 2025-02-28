@@ -46,7 +46,7 @@ public record PostCorehrV2CostCentersBodyDto
         public string Lang { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>内容</para>
+        /// <para>文本内容</para>
         /// <para>必填：是</para>
         /// <para>示例值：基础架构相关</para>
         /// </summary>

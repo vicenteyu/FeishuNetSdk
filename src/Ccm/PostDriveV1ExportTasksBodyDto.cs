@@ -59,9 +59,9 @@ public record PostDriveV1ExportTasksBodyDto
     public string Type { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>导出飞书电子表格为 CSV 文件时，需传入电子表格中具体工作表的 ID。</para>
-    /// <para>你需调用</para>
-    /// <para>[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 接口获取返回的 `sheet_id` 的值作为该参数的值。</para>
+    /// <para>导出飞书电子表格或多维表格为 CSV 文件时，需传入电子表格工作表的 ID 或多维表格数据表的 ID：</para>
+    /// <para>- 电子表格可调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 接口获取返回的 `sheet_id` 的值作为该参数的值</para>
+    /// <para>- 多维表格可调用[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取返回的 `table_id` 的值作为该参数的值</para>
     /// <para>必填：否</para>
     /// <para>示例值：6e5ed3</para>
     /// </summary>

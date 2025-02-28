@@ -107,14 +107,14 @@ public record PostCorehrV2ProbationSubmitBodyDto
         public string CustomApiName { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>自定义字段名称</para>
+        /// <para>自定义字段名称（无需填写）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("name")]
         public CustomName? Name { get; set; }
 
         /// <summary>
-        /// <para>自定义字段名称</para>
+        /// <para>自定义字段名称（无需填写）</para>
         /// </summary>
         public record CustomName
         {
@@ -136,7 +136,7 @@ public record PostCorehrV2ProbationSubmitBodyDto
         }
 
         /// <summary>
-        /// <para>自定义字段类型</para>
+        /// <para>自定义字段类型（无需填写）</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
@@ -144,9 +144,18 @@ public record PostCorehrV2ProbationSubmitBodyDto
         public int? Type { get; set; }
 
         /// <summary>
-        /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）</para>
+        /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同，不同类型字段传值格式如下</para>
+        /// <para>- 文本，示例："你好"</para>
+        /// <para>- 超链接，示例："https://www.baidu.com/"</para>
+        /// <para>- 数字，示例："123"</para>
+        /// <para>- 布尔，示例："true"</para>
+        /// <para>- 单选，示例："option1"</para>
+        /// <para>- 多选，示例："[\"option1\", \"option2\"]"</para>
+        /// <para>- 人员（单选），示例："7140964208476371111"</para>
+        /// <para>- 人员（多选），示例："[\"7140964208476371111\", \"7140964208476371112\"]"</para>
+        /// <para>- 日期，示例："2025-01-01"</para>
         /// <para>必填：是</para>
-        /// <para>示例值：\"231\"</para>
+        /// <para>示例值：231</para>
         /// </summary>
         [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;

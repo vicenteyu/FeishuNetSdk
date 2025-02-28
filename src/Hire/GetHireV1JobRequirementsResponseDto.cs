@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-27
+// Last Modified On : 2025-02-28
 // ************************************************************************
 // <copyright file="GetHireV1JobRequirementsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -604,5 +604,28 @@ public record GetHireV1JobRequirementsResponseDto
         /// </summary>
         [JsonPropertyName("position_id")]
         public string? PositionId { get; set; }
+
+        /// <summary>
+        /// <para>完成时间，毫秒级时间戳，只有当「需求状态」字段为”已完成“的情况下返回（灰度范围内的租户可见该字段）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1736846689278</para>
+        /// </summary>
+        [JsonPropertyName("completion_time")]
+        public string? CompletionTime { get; set; }
+
+        /// <summary>
+        /// <para>审批状态（灰度范围内的租户可见该字段）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：未发起</item>
+        /// <item>2：审批中</item>
+        /// <item>3：审批通过</item>
+        /// <item>4：已撤回</item>
+        /// <item>5：未通过</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("approval_status")]
+        public int? ApprovalStatus { get; set; }
     }
 }

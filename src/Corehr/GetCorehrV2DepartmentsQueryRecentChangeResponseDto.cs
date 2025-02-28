@@ -9,11 +9,11 @@
 // <copyright file="GetCorehrV2DepartmentsQueryRecentChangeResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>查询指定时间范围内当前生效信息发生变更的部门 响应体</summary>
+// <summary>查询生效信息变更部门 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 查询指定时间范围内当前生效信息发生变更的部门 响应体
+/// 查询生效信息变更部门 响应体
 /// <para>查询指定时间范围内当前生效信息发生变更的部门，即只有部门当前生效版本的生效时间在查询时间范围内，才返回该部门id</para>
 /// <para>接口ID：7414100499044646940</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/query_recent_change</para>

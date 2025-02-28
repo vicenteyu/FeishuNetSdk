@@ -79,17 +79,9 @@ public record PostDriveV1MediasUploadAllBodyDto
     public string? Checksum { get; set; }
 
     /// <summary>
-    /// <para>以下场景的上传点需通过该参数传入素材所在云文档的 token。extra 参数的格式为`{"drive_route_token":"素材所在云文档的 token"}`。其中 `drive_route_token` 支持的值如下所示。详情参考[素材概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。</para>
-    /// <para>- docx_image：在线文档图片</para>
-    /// <para>- sheet_image：电子表格图片</para>
-    /// <para>- docx_file：在线文档文件</para>
-    /// <para>- sheet_file：电子表格文件</para>
-    /// <para>- bitable_image：多维表格图片</para>
-    /// <para>- bitable_file：多维表格文件</para>
-    /// <para>- doc_image：旧版文档图片</para>
-    /// <para>- doc_file：旧版文档文件</para>
+    /// <para>以下场景的上传点需通过该参数传入素材所在云文档的 token。extra 参数的格式为`"{\"drive_route_token\":\"素材所在云文档的 token\"}"`。详情参考[素材概述-extra 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction#3b8635d3)。</para>
     /// <para>必填：否</para>
-    /// <para>示例值：{"docx_image":"doxcnXgNGAtaAraIRVeCfmabcef"}</para>
+    /// <para>示例值：{\"drive_route_token\":\"doxcnXgNGAtaAraIRVeCfmabcef\"}</para>
     /// </summary>
     [JsonPropertyName("extra")]
     public string? Extra { get; set; }

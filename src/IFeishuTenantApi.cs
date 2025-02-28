@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-02-21
+// Last Modified On : 2025-02-28
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -342,29 +342,6 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string app_id,
         [PathQuery] string? user_page_token = null,
         [PathQuery] int? user_page_size = null);
-
-    /// <summary>
-    /// <para>【云文档】获取协作者列表</para>
-    /// <para>接口ID：6907569523177324545</para>
-    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uATN3UjLwUzN14CM1cTN</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据文件的 token 查询协作者，目前包括人("user")和群("chat") 。</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>docs:doc</item>
-    /// <item>docs:doc:readonly</item>
-    /// <item>drive:drive</item>
-    /// <item>drive:drive:readonly</item>
-    /// <item>drive:file</item>
-    /// <item>drive:file:readonly</item>
-    /// <item>sheets:spreadsheet</item>
-    /// <item>sheets:spreadsheet:readonly</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="dto">请求体</param>
-    [Obsolete("历史版本")]
-    [HttpPost("/open-apis/drive/permission/member/list")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionMemberListResponseDto>> PostDrivePermissionMemberListAsync(
-        [JsonContent] Ccm.Spec.PostDrivePermissionMemberListBodyDto dto);
 
     /// <summary>
     /// <para>【通讯录】查询应用管理员列表</para>
@@ -20456,7 +20433,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>请求体和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID，或者[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)获取的userid。</item>
     /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
@@ -20561,7 +20538,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>请求体和响应体中的 user_id 和 creator_id 的员工id类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID，或者[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)获取的userid。</item>
     /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
@@ -20671,7 +20648,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID，或者[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)获取的userid。</item>
     /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
@@ -20747,7 +20724,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID，或者[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)获取的userid。</item>
     /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// <para>默认值：null</para>
@@ -45773,7 +45750,7 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Hire.PostHireV1TalentBlocklistChangeTalentBlockBodyDto dto);
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】查询指定时间范围内当前生效信息发生变更的部门</para>
+    /// <para>【飞书人事（企业版）】查询生效信息变更部门</para>
     /// <para>接口ID：7414100499044646940</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/query_recent_change</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -45810,9 +45787,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>此次调用中使用的部门 ID 类型</para>
     /// <para>示例值：people_corehr_department_id</para>
     /// <list type="bullet">
-    /// <item>open_department_id：以 open_department_id 来标识部门</item>
-    /// <item>department_id：以 department_id 来标识部门</item>
-    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// <item>open_department_id：【飞书】用来在具体某个应用中标识一个部门，同一个department_id 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：【飞书】用来标识租户内一个唯一的部门。</item>
+    /// <item>people_corehr_department_id：【飞书人事】用来标识「飞书人事」中的部门。</item>
     /// </list>
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
@@ -46558,7 +46535,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int? approver_status = null);
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】查询指定时间范围内当前生效信息发生变更的公司</para>
+    /// <para>【飞书人事（企业版）】查询当前生效信息变更公司</para>
     /// <para>接口ID：7428129573351817220</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_recent_change</para>
     /// <para>Authorization：tenant_access_token</para>
@@ -47387,7 +47364,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>请求体和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID，或者[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)获取的userid。</item>
     /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
@@ -48193,5 +48170,34 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/attendance/v1/user_flows/batch_del")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserFlowsBatchDelResponseDto>> PostAttendanceV1UserFlowsBatchDelAsync(
         [JsonContent] Attendance.PostAttendanceV1UserFlowsBatchDelBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询编制规划明细信息（支持自定义组织）</para>
+    /// <para>接口ID：7473343327586435100</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/workforce_plan_detail/batch_v2</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询编制规划明细，包括维度信息、编制数、预估在职人数、在职人数和预增/预减人数。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:workforce_detail:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：["123456"]</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：100</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/workforce_plan_details/batch_v2")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2WorkforcePlanDetailsBatchV2ResponseDto>> PostCorehrV2WorkforcePlanDetailsBatchV2Async(
+        [JsonContent] Corehr.PostCorehrV2WorkforcePlanDetailsBatchV2BodyDto dto,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 100);
 }
 

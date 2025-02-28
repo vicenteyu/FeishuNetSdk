@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-02-28
 // ************************************************************************
 // <copyright file="PostCorehrV2CostCentersResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -35,11 +35,21 @@ public record PostCorehrV2CostCentersResponseDto
     {
         /// <summary>
         /// <para>成本中心ID</para>
+        /// <para>- 详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：6969828847121885087</para>
         /// </summary>
         [JsonPropertyName("cost_center_id")]
         public string? CostCenterId { get; set; }
+
+        /// <summary>
+        /// <para>成本中心版本ID</para>
+        /// <para>- 详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6969828847121885087</para>
+        /// </summary>
+        [JsonPropertyName("cost_center_version_id")]
+        public string? CostCenterVersionId { get; set; }
 
         /// <summary>
         /// <para>成本中心名称</para>
@@ -62,7 +72,7 @@ public record PostCorehrV2CostCentersResponseDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>文本内容</para>
             /// <para>必填：是</para>
             /// <para>示例值：基础架构</para>
             /// </summary>
