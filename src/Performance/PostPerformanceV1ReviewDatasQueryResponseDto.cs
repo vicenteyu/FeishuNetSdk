@@ -35,6 +35,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
     {
         /// <summary>
         /// <para>周期 ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)</para>
+        /// <para>&lt;!--</para>
         /// <para>必填：否</para>
         /// <para>示例值：6992035450862224940</para>
         /// </summary>
@@ -58,7 +59,7 @@ public record PostPerformanceV1ReviewDatasQueryResponseDto
         public string? TypeGroup { get; set; }
 
         /// <summary>
-        /// <para>周期类型</para>
+        /// <para>周期类型--&gt;</para>
         /// <para>必填：否</para>
         /// <para>示例值：June</para>
         /// </summary>

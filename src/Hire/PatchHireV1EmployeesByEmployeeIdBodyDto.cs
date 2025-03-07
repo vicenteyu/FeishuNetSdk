@@ -29,6 +29,8 @@ public record PatchHireV1EmployeesByEmployeeIdBodyDto
     /// <item>1：转正</item>
     /// <item>2：离职</item>
     /// <item>3：恢复至待入职</item>
+    /// <item>4：撤销离职（恢复至已入职）</item>
+    /// <item>5：撤销转正（恢复至待转正）</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("operation")]

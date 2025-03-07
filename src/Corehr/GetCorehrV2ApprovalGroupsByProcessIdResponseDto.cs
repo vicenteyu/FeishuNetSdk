@@ -70,7 +70,7 @@ public record GetCorehrV2ApprovalGroupsByProcessIdResponseDto
         public string? ApprovalGroupStatus { get; set; }
 
         /// <summary>
-        /// <para>组织架构调整流程状态V2，枚举类型， 描述该审批单据的状态。==【灰度中】==</para>
+        /// <para>组织架构调整流程状态，枚举类型， 描述该审批单据的状态。</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">

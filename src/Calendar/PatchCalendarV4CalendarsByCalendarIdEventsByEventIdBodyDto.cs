@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-03-08
 // ************************************************************************
 // <copyright file="PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -498,5 +498,83 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto
         /// </summary>
         [JsonPropertyName("is_deleted")]
         public bool? IsDeleted { get; set; }
+    }
+
+    /// <summary>
+    /// <para>日程签到设置，为空则不进行日程签到设置。</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("event_check_in")]
+    public PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDtoEventCheckIn? EventCheckIn { get; set; }
+
+    /// <summary>
+    /// <para>日程签到设置，为空则不进行日程签到设置。</para>
+    /// </summary>
+    public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDtoEventCheckIn
+    {
+        /// <summary>
+        /// <para>是否启用日程签到。</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("enable_check_in")]
+        public bool EnableCheckIn { get; set; }
+
+        /// <summary>
+        /// <para>日程签到开始时间。</para>
+        /// <para>**注意**：签到开始时间不能大于或者等于签到结束时间。</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("check_in_start_time")]
+        public CheckInTime? CheckInStartTime { get; set; }
+
+        /// <summary>
+        /// <para>日程签到开始时间。</para>
+        /// <para>**注意**：签到开始时间不能大于或者等于签到结束时间。</para>
+        /// </summary>
+        public record CheckInTime
+        {
+            /// <summary>
+            /// <para>偏移量(分钟)相对于的日程时间节点类型。</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：before_event_start</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>before_event_start：日程开始前</item>
+            /// <item>after_event_start：日程开始后</item>
+            /// <item>after_event_end：日程结束后</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("time_type")]
+            public string TimeType { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>相对于日程开始或者结束的偏移量(分钟)。</para>
+            /// <para>- 目前取值只能为列表[0, 5, 15, 30, 60]之一，0表示立即开始。</para>
+            /// <para>- 当time_type为before_event_start，duration不能取0。</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：15</para>
+            /// <para>最大值：60</para>
+            /// <para>最小值：0</para>
+            /// </summary>
+            [JsonPropertyName("duration")]
+            public int Duration { get; set; }
+        }
+
+        /// <summary>
+        /// <para>日程签到结束时间。</para>
+        /// <para>**注意**：签到开始时间不能大于或者等于签到结束时间。</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("check_in_end_time")]
+        public CheckInTime? CheckInEndTime { get; set; }
+
+        /// <summary>
+        /// <para>签到开始时是否自动发送签到通知给参与者</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// <para>默认值：false</para>
+        /// </summary>
+        [JsonPropertyName("need_notify_attendees")]
+        public bool? NeedNotifyAttendees { get; set; }
     }
 }

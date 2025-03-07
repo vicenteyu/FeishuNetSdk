@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-03-08
 // ************************************************************************
 // <copyright file="GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -692,65 +692,6 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// </summary>
             [JsonPropertyName("operate_id")]
             public string? OperateId { get; set; }
-
-            /// <summary>
-            /// <para>会议室的个性化配置。</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("resource_customization")]
-            public CalendarAttendeeResourceCustomization[]? ResourceCustomizations { get; set; }
-
-            /// <summary>
-            /// <para>会议室的个性化配置。</para>
-            /// </summary>
-            public record CalendarAttendeeResourceCustomization
-            {
-                /// <summary>
-                /// <para>每个配置的唯一 ID。</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：16281481596100</para>
-                /// </summary>
-                [JsonPropertyName("index_key")]
-                public string IndexKey { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>填空类型的取值。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：16281481596100</para>
-                /// </summary>
-                [JsonPropertyName("input_content")]
-                public string? InputContent { get; set; }
-
-                /// <summary>
-                /// <para>每个配置的选项。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：无</para>
-                /// </summary>
-                [JsonPropertyName("options")]
-                public CustomizationOption[]? Options { get; set; }
-
-                /// <summary>
-                /// <para>每个配置的选项。</para>
-                /// </summary>
-                public record CustomizationOption
-                {
-                    /// <summary>
-                    /// <para>每个选项的唯一 ID。</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：16281481596185xxx</para>
-                    /// </summary>
-                    [JsonPropertyName("option_key")]
-                    public string? OptionKey { get; set; }
-
-                    /// <summary>
-                    /// <para>其他选项类型的取值。</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：xxxx</para>
-                    /// </summary>
-                    [JsonPropertyName("others_content")]
-                    public string? OthersContent { get; set; }
-                }
-            }
         }
 
         /// <summary>
@@ -796,6 +737,79 @@ public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// </summary>
             [JsonPropertyName("name")]
             public string? Name { get; set; }
+        }
+
+        /// <summary>
+        /// <para>日程签到设置。</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("event_check_in")]
+        public CalendarEventEventCheckIn? EventCheckIn { get; set; }
+
+        /// <summary>
+        /// <para>日程签到设置。</para>
+        /// </summary>
+        public record CalendarEventEventCheckIn
+        {
+            /// <summary>
+            /// <para>是否启用日程签到。</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("enable_check_in")]
+            public bool EnableCheckIn { get; set; }
+
+            /// <summary>
+            /// <para>日程签到开始时间。</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("check_in_start_time")]
+            public CheckInTime? CheckInStartTime { get; set; }
+
+            /// <summary>
+            /// <para>日程签到开始时间。</para>
+            /// </summary>
+            public record CheckInTime
+            {
+                /// <summary>
+                /// <para>偏移量(分钟)相对于的日程时间节点类型。</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：before_event_start</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>before_event_start：日程开始前</item>
+                /// <item>after_event_start：日程开始后</item>
+                /// <item>after_event_end：日程结束后</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("time_type")]
+                public string TimeType { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>相对于日程开始或者结束的偏移量(分钟)。</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：15</para>
+                /// <para>最大值：60</para>
+                /// <para>最小值：0</para>
+                /// </summary>
+                [JsonPropertyName("duration")]
+                public int Duration { get; set; }
+            }
+
+            /// <summary>
+            /// <para>日程签到结束时间。</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("check_in_end_time")]
+            public CheckInTime? CheckInEndTime { get; set; }
+
+            /// <summary>
+            /// <para>签到开始时是否自动发送签到通知给参与者</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：false</para>
+            /// <para>默认值：false</para>
+            /// </summary>
+            [JsonPropertyName("need_notify_attendees")]
+            public bool? NeedNotifyAttendees { get; set; }
         }
     }
 }

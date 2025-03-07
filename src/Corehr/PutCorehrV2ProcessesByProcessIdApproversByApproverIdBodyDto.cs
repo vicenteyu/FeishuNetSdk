@@ -4,7 +4,7 @@
 // Created          : 2024-07-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-24
+// Last Modified On : 2025-03-08
 // ************************************************************************
 // <copyright file="PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -56,7 +56,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
     /// <para>**默认值**：""</para>
     /// <para>必填：否</para>
     /// <para>示例值：原因自定义字符串</para>
-    /// <para>最大长度：500</para>
+    /// <para>最大长度：1000</para>
     /// </summary>
     [JsonPropertyName("reason")]
     public string? Reason { get; set; }
@@ -235,6 +235,45 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
             /// </summary>
             [JsonPropertyName("list_values")]
             public string[]? ListValues { get; set; }
+
+            /// <summary>
+            /// <para>文件类型字段值</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("file_value")]
+            public FieldVariableValueToFileForWrite? FileValue { get; set; }
+
+            /// <summary>
+            /// <para>文件类型字段值</para>
+            /// </summary>
+            public record FieldVariableValueToFileForWrite
+            {
+                /// <summary>
+                /// <para>通过[上传文件接口](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/upload)获得的id</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53</para>
+                /// </summary>
+                [JsonPropertyName("open_file_id")]
+                public string? OpenFileId { get; set; }
+
+                /// <summary>
+                /// <para>文件名称</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：file_name</para>
+                /// </summary>
+                [JsonPropertyName("file_name")]
+                public string? FileName { get; set; }
+
+                /// <summary>
+                /// <para>文件大小，单位：Byte</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：65535</para>
+                /// <para>最大值：52428800</para>
+                /// <para>最小值：0</para>
+                /// </summary>
+                [JsonPropertyName("length")]
+                public int? Length { get; set; }
+            }
         }
 
         /// <summary>
@@ -411,6 +450,45 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
                 /// </summary>
                 [JsonPropertyName("list_values")]
                 public string[]? ListValues { get; set; }
+
+                /// <summary>
+                /// <para>文件类型字段值</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("file_value")]
+                public FieldVariableValueToFileForWrite? FileValue { get; set; }
+
+                /// <summary>
+                /// <para>文件类型字段值</para>
+                /// </summary>
+                public record FieldVariableValueToFileForWrite
+                {
+                    /// <summary>
+                    /// <para>通过[上传文件接口](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/upload)获得的id</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53</para>
+                    /// </summary>
+                    [JsonPropertyName("open_file_id")]
+                    public string? OpenFileId { get; set; }
+
+                    /// <summary>
+                    /// <para>文件名称</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：file_name</para>
+                    /// </summary>
+                    [JsonPropertyName("file_name")]
+                    public string? FileName { get; set; }
+
+                    /// <summary>
+                    /// <para>文件大小，单位：Byte</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：65535</para>
+                    /// <para>最大值：52428800</para>
+                    /// <para>最小值：0</para>
+                    /// </summary>
+                    [JsonPropertyName("length")]
+                    public int? Length { get; set; }
+                }
             }
         }
     }

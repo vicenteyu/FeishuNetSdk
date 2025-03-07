@@ -4,7 +4,7 @@
 // Created          : 2024-07-15
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-15
+// Last Modified On : 2025-03-08
 // ************************************************************************
 // <copyright file="GetPayrollV1CostAllocationReportsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -156,6 +156,112 @@ public record GetPayrollV1CostAllocationReportsResponseDto
             /// </summary>
             [JsonPropertyName("dimension_value_id")]
             public string? DimensionValueId { get; set; }
+
+            /// <summary>
+            /// <para>算薪项汇总维度时，当算薪项是特定枚举值，会使用该字段返回枚举值ID以及枚举值Key，业务需要获取枚举对象的详情信息，可根据ID去对应的对象中查找，其中枚举对象的映射如下：</para>
+            /// <para>workCalendar [工作日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)</para>
+            /// <para>location [地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get)</para>
+            /// <para>company [公司主体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get)</para>
+            /// <para>costCenter [成本中心](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)</para>
+            /// <para>department [部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)</para>
+            /// <para>employeeType [人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)</para>
+            /// <para>job [职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)</para>
+            /// <para>jobFamily [序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)</para>
+            /// <para>jobLevel [职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)</para>
+            /// <para>workingHoursType [工时制度](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/get)</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("enum_dimension")]
+            public EnumObject? EnumDimension { get; set; }
+
+            /// <summary>
+            /// <para>算薪项汇总维度时，当算薪项是特定枚举值，会使用该字段返回枚举值ID以及枚举值Key，业务需要获取枚举对象的详情信息，可根据ID去对应的对象中查找，其中枚举对象的映射如下：</para>
+            /// <para>workCalendar [工作日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)</para>
+            /// <para>location [地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get)</para>
+            /// <para>company [公司主体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get)</para>
+            /// <para>costCenter [成本中心](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)</para>
+            /// <para>department [部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)</para>
+            /// <para>employeeType [人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)</para>
+            /// <para>job [职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)</para>
+            /// <para>jobFamily [序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)</para>
+            /// <para>jobLevel [职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)</para>
+            /// <para>workingHoursType [工时制度](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/get)</para>
+            /// </summary>
+            public record EnumObject
+            {
+                /// <summary>
+                /// <para>枚举对象ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：7188920315914207276</para>
+                /// <para>最大长度：25</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("enum_value_id")]
+                public string? EnumValueId { get; set; }
+
+                /// <summary>
+                /// <para>枚举对象</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：company</para>
+                /// <para>最大长度：100</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("enum_key")]
+                public string? EnumKey { get; set; }
+            }
+
+            /// <summary>
+            /// <para>维度引用对象的基础信息，当维度为引用类型字段才会有值，目前支持的引用对象类型见type</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("dimension_value_lookup_info")]
+            public DataSummaryDimensionDimensionValueLookupInfo? DimensionValueLookupInfo { get; set; }
+
+            /// <summary>
+            /// <para>维度引用对象的基础信息，当维度为引用类型字段才会有值，目前支持的引用对象类型见type</para>
+            /// </summary>
+            public record DataSummaryDimensionDimensionValueLookupInfo
+            {
+                /// <summary>
+                /// <para>引用对象类型，类型对应的对象映射包括不仅限：</para>
+                /// <para>type = company [公司主体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get)</para>
+                /// <para>type = cost_center [成本中心](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)</para>
+                /// <para>type = department [部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)</para>
+                /// <para>type = pay_group [薪资组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list)</para>
+                /// <para>type = employee_type [人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)</para>
+                /// <para>type = job [职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)</para>
+                /// <para>type = job_family [序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)</para>
+                /// <para>type = job_level [职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)</para>
+                /// <para>type = working_hours_type [工时制度](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/get)</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：work_calendar</para>
+                /// </summary>
+                [JsonPropertyName("type")]
+                public string? Type { get; set; }
+
+                /// <summary>
+                /// <para>引用对象的id，可根据相关API查询到对象的完整信息</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6961286846093788621</para>
+                /// </summary>
+                [JsonPropertyName("id")]
+                public string? Id { get; set; }
+
+                /// <summary>
+                /// <para>引用对象的code，目前下面的对象会有code：</para>
+                /// <para>type = company [公司主体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get)</para>
+                /// <para>type = cost_center [成本中心](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)</para>
+                /// <para>type = department [部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)</para>
+                /// <para>type = job [职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)</para>
+                /// <para>type = job_family [序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)</para>
+                /// <para>type = job_level [职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)</para>
+                /// <para>type = location [地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get)</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：D1230011115</para>
+                /// </summary>
+                [JsonPropertyName("code")]
+                public string? Code { get; set; }
+            }
 
             /// <summary>
             /// <para>维度名称，算薪项、自定义维度使用</para>

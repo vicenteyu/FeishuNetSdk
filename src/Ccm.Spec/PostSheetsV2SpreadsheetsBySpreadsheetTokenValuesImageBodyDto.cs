@@ -38,7 +38,8 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageBodyDto
     public byte[] Image { get; set; } = Array.Empty<byte>();
 
     /// <summary>
-    /// <para>写入的图片名称，需加后缀名。</para>
+    /// <para>写入的图片名称。</para>
+    /// <para>**注意**：该参数需加后缀名，如 `test.png`。支持的后缀名有："PNG"、"JPEG"、"JPG"、"GIF"、"BMP"、"JFIF"、"EXIF"、 "TIFF"、"BPG"、"HEIC"。不区分大小写。</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("name")]
