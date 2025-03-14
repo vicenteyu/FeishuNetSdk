@@ -180,4 +180,6 @@
 <tr><td>elearning.course_registration.updated_v2</td><td>EventV2Dto&lt;Elearning.Events.ElearningCourseRegistrationUpdatedV2EventBodyDto&gt;</td><td>【eLearning】课程学习进度更新事件</td></tr>
 <tr><td>elearning.course_registration.deleted_v2</td><td>EventV2Dto&lt;Elearning.Events.ElearningCourseRegistrationDeletedV2EventBodyDto&gt;</td><td>【eLearning】课程学习进度删除事件</td></tr>
 <tr><td>elearning.course_registration.created_v2</td><td>EventV2Dto&lt;Elearning.Events.ElearningCourseRegistrationCreatedV2EventBodyDto&gt;</td><td>【eLearning】课程学习进度新增事件</td></tr>
+<tr><td>payroll.payment_activity.status_changed_v1</td><td>EventV2Dto&lt;Payroll.Events.PayrollPaymentActivityStatusChangedV1EventBodyDto&gt;</td><td>【Payroll】发薪活动变更</td></tr>
+<tr><td>payroll.payment_activity.approved_v1</td><td>EventV2Dto&lt;Payroll.Events.PayrollPaymentActivityApprovedV1EventBodyDto&gt;</td><td>【Payroll】发薪活动封存</td></tr>
 </tbody></table>

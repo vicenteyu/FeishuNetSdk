@@ -98,7 +98,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
 
     /// <summary>
     /// <para>部门 ID，根据员工主职的直接部门查询，可以通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) API 获取 部门 ID</para>
-    /// <para>- ID 类型应与 open_departemtn_id 一致</para>
+    /// <para>- ID 类型应与 department_id_type 一致</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("department_id_list")]

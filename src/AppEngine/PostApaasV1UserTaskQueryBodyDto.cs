@@ -23,21 +23,21 @@ public record PostApaasV1UserTaskQueryBodyDto
 {
     /// <summary>
     /// <para>类型</para>
-    /// <para>- fromMe:我发起的</para>
-    /// <para>- assignMe:分配给我的</para>
-    /// <para>- CCMe：抄送我的</para>
+    /// <para>- archived：已完成的</para>
+    /// <para>- pending：待处理的</para>
     /// <para>必填：否</para>
-    /// <para>示例值：fromMe</para>
+    /// <para>示例值：pending</para>
     /// </summary>
     [JsonPropertyName("type")]
     public string? Type { get; set; }
 
     /// <summary>
     /// <para>来源</para>
-    /// <para>- archived：已完成的</para>
-    /// <para>- pending：待处理的</para>
+    /// <para>- fromMe:我发起的</para>
+    /// <para>- assignMe:分配给我的</para>
+    /// <para>- CCMe：抄送我的</para>
     /// <para>必填：否</para>
-    /// <para>示例值：pending</para>
+    /// <para>示例值：assignMe</para>
     /// </summary>
     [JsonPropertyName("source")]
     public string? Source { get; set; }

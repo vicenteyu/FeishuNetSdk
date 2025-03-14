@@ -84,7 +84,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
         public string? EmployeeTypeId { get; set; }
 
         /// <summary>
-        /// <para>人员子类型 ID</para>
+        /// <para>人员子类型 ID，详细信息可通过[【查询单个人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)接口查询</para>
         /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6971090097697521317</para>
@@ -719,7 +719,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
         public string? Tenure { get; set; }
 
         /// <summary>
-        /// <para>资历起算日期</para>
+        /// <para>司龄起算日期</para>
         /// <para>必填：否</para>
         /// <para>示例值：2021-03-16</para>
         /// </summary>
@@ -1020,7 +1020,7 @@ public record PostCorehrV2EmployeesSearchResponseDto
         public Enum? Rehire { get; set; }
 
         /// <summary>
-        /// <para>历史雇佣信息 ID，可通过本使用该id重新查询</para>
+        /// <para>历史雇佣信息 ID，可通过此接口查询详情</para>
         /// <para>必填：否</para>
         /// <para>示例值：7164286667866966659</para>
         /// </summary>

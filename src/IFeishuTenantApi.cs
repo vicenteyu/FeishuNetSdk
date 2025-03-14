@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-02-28
+// Last Modified On : 2025-03-14
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -2307,7 +2307,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="user_type">
     /// <para>必填：否</para>
-    /// <para>用户类型</para>
+    /// <para>用户类型。此选项为空时，默认查询「组织内成员」。当填写此选项时，operator_type值必须为user。</para>
     /// <para>**示例值**：1</para>
     /// <para>**可选值有**：</para>
     /// <para>0:互联网上的任何人,1:组织内成员,2:组织外成员</para>
@@ -4174,6 +4174,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 用户或机器人在任何条件下均可将自己移出群组（即主动退群）。</para>
     /// <para>- 每次请求，最多移除 50 个用户或者 5 个机器人。</para>
     /// <para>- 操作内部群时，操作者须与群组在同一租户下。</para>
+    /// <para>- 操作同一个群组时，如果同时多次调用当前接口，可能会出现 232019 错误码，建议你串行调用，即等待当前调用完成后再进行下一次调用。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.members:write_only</item>
@@ -5048,6 +5049,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 操作内部群时，当前操作者必须与群组在同一租户内。</para>
     /// <para>- 如果群组配置了 **仅群主和群管理员可添加群成员**，则仅有群主、群管理员，或者是创建群组且具有 **更新应用所创建群的群信息（im:chat:operate_as_owner）** 权限的机器人，可以拉用户或机器人进群。</para>
     /// <para>- 如果群组没有配置 **仅群主和群管理员可添加群成员**，则所有群成员都可以拉用户或机器人进群。</para>
+    /// <para>- 操作同一个群组时，如果同时多次调用当前接口，可能会出现 232019 错误码，建议你串行调用，即等待当前调用完成后再进行下一次调用。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:chat</item>
     /// <item>im:chat.members:write_only</item>
@@ -15816,41 +15818,6 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] bool? need_notification = false);
 
     /// <summary>
-    /// <para>【服务台】查询推送</para>
-    /// <para>接口ID：6999529163292606466</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/notification/get</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>查询推送详情。</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>helpdesk:all:readonly</item>
-    /// </list></para>
-    /// <para>字段权限要求：<list type="bullet">
-    /// <item>contact:user.employee_id:readonly</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="notification_id">
-    /// <para>路径参数</para>
-    /// <para>必填：是</para>
-    /// <para>唯一ID</para>
-    /// <para>示例值：1624326025000</para>
-    /// </param>
-    /// <param name="user_id_type">
-    /// <para>必填：否</para>
-    /// <para>用户 ID 类型</para>
-    /// <para>示例值：open_id</para>
-    /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
-    /// </list>
-    /// <para>默认值：open_id</para>
-    /// </param>
-    [HttpGet("/open-apis/helpdesk/v1/notifications/{notification_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Helpdesk.GetHelpdeskV1NotificationsByNotificationIdResponseDto>> GetHelpdeskV1NotificationsByNotificationIdAsync(
-        [PathQuery] string notification_id,
-        [PathQuery] string? user_id_type = "open_id");
-
-    /// <summary>
     /// <para>【任务】更新评论</para>
     /// <para>接口ID：6999599891686227970</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/update</para>
@@ -21611,7 +21578,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>每页获取记录数量，最大100</para>
+    /// <para>每页获取记录数量，最大10</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -39304,6 +39271,70 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
+    /// <para>【妙记】导出妙记文字记录</para>
+    /// <para>接口ID：7289369210564329500</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/minutes-v1/minute-transcript/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取妙记的对话文本</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>minutes:minute:download</item>
+    /// <item>minutes:minutes.transcript:export</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="minute_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙记唯一标识</para>
+    /// <para>示例值：obcnq3b9jl72l83w4f149w9c</para>
+    /// </param>
+    /// <param name="need_speaker">
+    /// <para>必填：否</para>
+    /// <para>是否包含说话人</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="need_timestamp">
+    /// <para>必填：否</para>
+    /// <para>是否包含时间戳</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="file_format">
+    /// <para>必填：否</para>
+    /// <para>导出文件格式</para>
+    /// <para>示例值：txt；srt</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <returns>返回文件二进制流</returns>
+    [HttpGet("/open-apis/minutes/v1/minutes/{minute_token}/transcript")]
+    System.Threading.Tasks.Task<HttpResponseMessage> GetMinutesV1MinutesByMinuteTokenTranscriptAsync(
+        [PathQuery] string minute_token,
+        [PathQuery] bool? need_speaker = null,
+        [PathQuery] bool? need_timestamp = null,
+        [PathQuery] string? file_format = null);
+
+    /// <summary>
+    /// <para>【妙记】下载妙记音视频文件</para>
+    /// <para>接口ID：7289369210564345884</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/minutes-v1/minute-media/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取妙记的音视频文件</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>minutes:minute:download</item>
+    /// <item>minutes:minutes.media:export</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="minute_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙记唯一标识</para>
+    /// <para>示例值：obcnq3b9jl72l83w4f149w9c</para>
+    /// </param>
+    [HttpGet("/open-apis/minutes/v1/minutes/{minute_token}/media")]
+    System.Threading.Tasks.Task<FeishuResponse<Minutes.GetMinutesV1MinutesByMinuteTokenMediaResponseDto>> GetMinutesV1MinutesByMinuteTokenMediaAsync(
+        [PathQuery] string minute_token);
+
+    /// <summary>
     /// <para>【应用信息】更新应用红点</para>
     /// <para>接口ID：7291103260878356482</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/app_badge/set</para>
@@ -44731,6 +44762,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    [Obsolete("历史版本")]
     [HttpPost("/open-apis/cardkit/v1/cards/id_convert")]
     System.Threading.Tasks.Task<FeishuResponse<Cardkit.PostCardkitV1CardsIdConvertResponseDto>> PostCardkitV1CardsIdConvertAsync(
         [JsonContent] Cardkit.PostCardkitV1CardsIdConvertBodyDto dto);
@@ -45554,6 +45586,108 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/corehr/v1/leaves/work_calendar")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1LeavesWorkCalendarResponseDto>> PostCorehrV1LeavesWorkCalendarAsync(
         [JsonContent] FeishuPeople.PostCorehrV1LeavesWorkCalendarBodyDto dto);
+
+    /// <summary>
+    /// <para>【Payroll】查询发薪活动明细列表</para>
+    /// <para>接口ID：7411460155089502211</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity_detail/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>根据「发薪活动 ID 」和「分页参数」查询发薪活动明细列表和关联的算薪明细分段数据。</para>
+    /// <para>## 使用场景</para>
+    /// <para>&gt; 当前接口仅支持查询某个发薪活动下的所有发薪明细数据，若需要查询某些员工在特定范围内的发薪明细，请使用[批量查询发薪明细](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_detail/query)接口。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>payroll:payment_activity_details:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_index">
+    /// <para>必填：是</para>
+    /// <para>页码，第一页从 1 开始</para>
+    /// <para>示例值：100</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>每页大小，范围为：[1, 100]</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="activity_id">
+    /// <para>必填：是</para>
+    /// <para>发薪活动 ID，调用[查询发薪活动列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity/list)接口后，可以从返回结果中获取到发薪活动 ID。</para>
+    /// <para>示例值：7202076988667019308</para>
+    /// </param>
+    /// <param name="include_segment_data">
+    /// <para>必填：否</para>
+    /// <para>是否需要查询算薪明细的分段信息，如果不传该参数或传 false ，那么只返回发薪活动明细数据；如果该参数传了 true，那么同时返回发薪明细对应的算薪明细分段数据。</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="acct_item_ids">
+    /// <para>必填：否</para>
+    /// <para>算薪项 ID 列表，调用[批量查询算薪项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/acct_item/list)接口后，可以从返回结果中获取到算薪项 ID。</para>
+    /// <para>1. 当前参数传空时，接口会返回发薪明细中所有的算薪项；</para>
+    /// <para>2. 当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/payroll/v1/payment_activity_details")]
+    System.Threading.Tasks.Task<FeishuResponse<Payroll.GetPayrollV1PaymentActivityDetailsResponseDto>> GetPayrollV1PaymentActivityDetailsAsync(
+        [PathQuery] int page_index,
+        [PathQuery] string activity_id,
+        [PathQuery] int page_size = 10,
+        [PathQuery] bool? include_segment_data = null,
+        [PathQuery] string[]? acct_item_ids = null);
+
+    /// <summary>
+    /// <para>【Payroll】查询发薪活动列表</para>
+    /// <para>接口ID：7411460155089518595</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>根据「发薪日起止范围」、「发薪活动状态」和「分页参数」查询发薪活动列表。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>payroll:payment_activity:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="pay_period_start_date">
+    /// <para>必填：是</para>
+    /// <para>发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。</para>
+    /// <para>示例值：2024-01-01</para>
+    /// </param>
+    /// <param name="pay_period_end_date">
+    /// <para>必填：是</para>
+    /// <para>发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。</para>
+    /// <para>示例值：2024-01-31</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，传值范围为 [1, 100]</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="statuses">
+    /// <para>必填：否</para>
+    /// <para>发薪活动审批状态列表，其中：</para>
+    /// <para>1. 100 - 待确认名单</para>
+    /// <para>2. 150 - 待提交审批</para>
+    /// <para>3. 200 - 审批中</para>
+    /// <para>4. 300 - 审批被拒绝</para>
+    /// <para>5. 350 - 审批被撤回</para>
+    /// <para>6. 360 - 审批被撤销</para>
+    /// <para>7. 375 - 审批通过</para>
+    /// <para>8. 400 - 已封存</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/payroll/v1/payment_activitys")]
+    System.Threading.Tasks.Task<FeishuResponse<Payroll.GetPayrollV1PaymentActivitysResponseDto>> GetPayrollV1PaymentActivitysAsync(
+        [PathQuery] string pay_period_start_date,
+        [PathQuery] string pay_period_end_date,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int[]? statuses = null);
 
     /// <summary>
     /// <para>【飞书人事】根据适用条件获取工作日历 ID</para>
@@ -46882,6 +47016,25 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
+    /// <para>【Payroll】批量查询发薪明细</para>
+    /// <para>接口ID：7431973248228638722</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_detail/query</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>根据 __发薪活动 ID 列表__ 、__发薪日起止时间__ 和 __飞书人事雇佣 ID 列表__ 分页查询发薪明细列表和关联的算薪明细分段数据。</para>
+    /// <para>## 注意事项</para>
+    /// <para>1. 批量查询发薪明细接口提供的请求参数中，用户必须填写「__发薪日起止时间__（pay_period_start_date，pay_period_end_date）」或「__发薪活动 ID 列表__」，当传入的三个参数均为空时，开放接口将返回 2500006 错误码。</para>
+    /// <para>2. 每一次调用接口时，系统最多会扫描 __50__ 个发薪活动，当用户传入的查询条件命中的发薪活动个数大于 __50__ 时，开放接口将根据查询参数返回 2500003 或 2500008 错误码，请合理使用查询参数。</para>
+    /// <para>3. 开放接口中的「员工的飞书人事雇佣 ID 列表（employee_ids）」参数为必填。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>payroll:payment_details:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/payroll/v1/payment_detail/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Payroll.PostPayrollV1PaymentDetailQueryResponseDto>> PostPayrollV1PaymentDetailQueryAsync(
+        [JsonContent] Payroll.PostPayrollV1PaymentDetailQueryBodyDto dto);
+
+    /// <summary>
     /// <para>【云文档】获取云文档内容</para>
     /// <para>接口ID：7437110392792858625</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs-v1/content/get</para>
@@ -47109,6 +47262,21 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? department_id_type = "people_corehr_department_id");
+
+    /// <summary>
+    /// <para>【Payroll】封存发薪活动</para>
+    /// <para>接口ID：7441890276475142147</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity/archive</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>根据发薪活动ID对发薪活动进行封存。注意：仅当发薪活动状态为审批通过时，方可进行封存。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>payroll:payment_activity:archive</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/payroll/v1/payment_activitys/archive")]
+    System.Threading.Tasks.Task<FeishuResponse> PostPayrollV1PaymentActivitysArchiveAsync(
+        [JsonContent] Payroll.PostPayrollV1PaymentActivitysArchiveBodyDto dto);
 
     /// <summary>
     /// <para>【飞书低代码平台】发起流程</para>

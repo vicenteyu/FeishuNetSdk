@@ -22,6 +22,7 @@ namespace FeishuNetSdk.Im;
 /// <para>- 用户或机器人在任何条件下均可将自己移出群组（即主动退群）。</para>
 /// <para>- 每次请求，最多移除 50 个用户或者 5 个机器人。</para>
 /// <para>- 操作内部群时，操作者须与群组在同一租户下。</para>
+/// <para>- 操作同一个群组时，如果同时多次调用当前接口，可能会出现 232019 错误码，建议你串行调用，即等待当前调用完成后再进行下一次调用。</para>
 /// <para>接口ID：6946222929790468124</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/group/chat-member/delete</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fchat-members%2fdelete</para>

@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-02-14
+// Last Modified On : 2025-03-14
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -320,6 +320,10 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Moments.Events.MomentsReactionCreatedV1EventBodyDto>), typeDiscriminator: "moments.reaction.created_v1")]
 //【公司圈】取消表情互动
 [JsonDerivedType(typeof(EventV2Dto<Moments.Events.MomentsReactionDeletedV1EventBodyDto>), typeDiscriminator: "moments.reaction.deleted_v1")]
+//【Payroll】发薪活动封存
+[JsonDerivedType(typeof(EventV2Dto<Payroll.Events.PayrollPaymentActivityApprovedV1EventBodyDto>), typeDiscriminator: "payroll.payment_activity.approved_v1")]
+//【Payroll】发薪活动变更
+[JsonDerivedType(typeof(EventV2Dto<Payroll.Events.PayrollPaymentActivityStatusChangedV1EventBodyDto>), typeDiscriminator: "payroll.payment_activity.status_changed_v1")]
 //【绩效】绩效详情变更
 [JsonDerivedType(typeof(EventV2Dto<Performance.Events.PerformanceReviewDataChangedV2EventBodyDto>), typeDiscriminator: "performance.review_data.changed_v2")]
 //【绩效】绩效结果开通

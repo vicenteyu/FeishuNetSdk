@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-03-14
 // ************************************************************************
 // <copyright file="PostHelpdeskV1StartServiceResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -24,8 +24,16 @@ public record PostHelpdeskV1StartServiceResponseDto
     /// <summary>
     /// <para>客服群open ID</para>
     /// <para>必填：是</para>
-    /// <para>示例值：创建的chat-id</para>
+    /// <para>示例值：创建的 chat-id</para>
     /// </summary>
     [JsonPropertyName("chat_id")]
     public string ChatId { get; set; } = string.Empty;
+
+    /// <summary>
+    /// <para>创建的工单 ID（仅人工工单返回该参数）</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：7474857595946745884</para>
+    /// </summary>
+    [JsonPropertyName("ticket_id")]
+    public string? TicketId { get; set; }
 }

@@ -3974,7 +3974,8 @@ public record PostCorehrV2PreHiresQueryResponseDto
         public record PreHireEmploymentInfo
         {
             /// <summary>
-            /// <para>部门 ID ，可以通过[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口获取详情，department_id_type使用people_corehr_department_id类型</para>
+            /// <para>部门 ID ，可以通过[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口获取详情</para>
+            /// <para>ID转换：支持根据department_id_type进行ID转换，返回department_id_type对应的类型的ID。</para>
             /// <para>必填：否</para>
             /// <para>示例值：7147562782945478177</para>
             /// </summary>
@@ -4097,7 +4098,8 @@ public record PostCorehrV2PreHiresQueryResponseDto
             }
 
             /// <summary>
-            /// <para>直属上级雇佣 ID，可以通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口获取详情，user_id_type使用people_corehr_id类型</para>
+            /// <para>直属上级雇佣 ID，可以通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口获取详情</para>
+            /// <para>ID转换：支持根据user_id_type进行ID转换，返回user_id_type对应的类型的ID。</para>
             /// <para>必填：否</para>
             /// <para>示例值：7032210902531327521</para>
             /// </summary>
@@ -4107,6 +4109,7 @@ public record PostCorehrV2PreHiresQueryResponseDto
             /// <summary>
             /// <para>虚线上级雇佣 ID ， 可以通过【搜索员工信息】接口获取</para>
             /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>ID转换：支持根据user_id_type进行ID转换，返回user_id_type对应的类型的ID。</para>
             /// <para>必填：否</para>
             /// <para>示例值：7032210902531327521</para>
             /// </summary>
@@ -5306,6 +5309,7 @@ public record PostCorehrV2PreHiresQueryResponseDto
 
             /// <summary>
             /// <para>Offer HR 的 雇佣 ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取详情，user_id_type使用people_corehr_id类型</para>
+            /// <para>ID转换：不支持根据user_id_type进行ID转换，返回people_corehr_id 类型的ID。</para>
             /// <para>必填：否</para>
             /// <para>示例值：7032210902531327521</para>
             /// </summary>

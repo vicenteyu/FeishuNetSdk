@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-01-17
+// Last Modified On : 2025-03-14
 // ************************************************************************
 // <copyright file="PostHelpdeskV1TicketCustomizedFieldsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -22,12 +22,12 @@ namespace FeishuNetSdk.Helpdesk.Spec;
 public record PostHelpdeskV1TicketCustomizedFieldsBodyDto
 {
     /// <summary>
-    /// <para>服务台ID</para>
+    /// <para>服务台ID（需要和请求 Header 中的服务台 ID 保持一致，可以省略）。</para>
     /// <para>**示例值**："1542164574896126"</para>
-    /// <para>必填：是</para>
+    /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("helpdesk_id")]
-    public string HelpdeskId { get; set; } = string.Empty;
+    public string? HelpdeskId { get; set; }
 
     /// <summary>
     /// <para>键名</para>

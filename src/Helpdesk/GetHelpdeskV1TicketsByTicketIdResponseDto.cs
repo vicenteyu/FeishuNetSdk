@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-28
+// Last Modified On : 2025-03-14
 // ************************************************************************
 // <copyright file="GetHelpdeskV1TicketsByTicketIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -26,12 +26,12 @@ public record GetHelpdeskV1TicketsByTicketIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("ticket")]
-    public GetHelpdeskV1TicketsByTicketIdResponseDtoTicket? Ticket { get; set; }
+    public TicketV2? Ticket { get; set; }
 
     /// <summary>
     /// <para>工单详情</para>
     /// </summary>
-    public record GetHelpdeskV1TicketsByTicketIdResponseDtoTicket
+    public record TicketV2
     {
         /// <summary>
         /// <para>工单ID</para>
@@ -125,12 +125,12 @@ public record GetHelpdeskV1TicketsByTicketIdResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("comments")]
-        public GetHelpdeskV1TicketsByTicketIdResponseDtoTicketComments? Comments { get; set; }
+        public TicketV2Comments? Comments { get; set; }
 
         /// <summary>
         /// <para>备注</para>
         /// </summary>
-        public record GetHelpdeskV1TicketsByTicketIdResponseDtoTicketComments
+        public record TicketV2Comments
         {
             /// <summary>
             /// <para>备注</para>
@@ -269,6 +269,8 @@ public record GetHelpdeskV1TicketsByTicketIdResponseDto
         /// <summary>
         /// <para>工单客服</para>
         /// <para>必填：否</para>
+        /// <para>最大长度：10000</para>
+        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("agents")]
         public TicketUser[]? Agents { get; set; }
@@ -300,6 +302,8 @@ public record GetHelpdeskV1TicketsByTicketIdResponseDto
         /// <summary>
         /// <para>工单协作者</para>
         /// <para>必填：否</para>
+        /// <para>最大长度：10000</para>
+        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("collaborators")]
         public TicketUser[]? Collaborators { get; set; }
@@ -309,6 +313,8 @@ public record GetHelpdeskV1TicketsByTicketIdResponseDto
         /// <para>下拉菜单的value对应工单字段里面的children.display_name</para>
         /// <para>[获取全部工单自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/list-ticket-customized-fields)</para>
         /// <para>必填：否</para>
+        /// <para>最大长度：10000</para>
+        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("customized_fields")]
         public CustomizedFieldDisplayItem[]? CustomizedFields { get; set; }
@@ -391,7 +397,7 @@ public record GetHelpdeskV1TicketsByTicketIdResponseDto
         /// <para>示例值：123869</para>
         /// </summary>
         [JsonPropertyName("agent_first_response_duration")]
-        public long? AgentFirstResponseDuration { get; set; }
+        public int? AgentFirstResponseDuration { get; set; }
 
         /// <summary>
         /// <para>机器人服务时间：客服进入时间距离工单创建时间的间隔，单位秒</para>
@@ -399,7 +405,7 @@ public record GetHelpdeskV1TicketsByTicketIdResponseDto
         /// <para>示例值：1</para>
         /// </summary>
         [JsonPropertyName("bot_service_duration")]
-        public long? BotServiceDuration { get; set; }
+        public int? BotServiceDuration { get; set; }
 
         /// <summary>
         /// <para>客服解决时长，从首位客服接入服务到工单关闭的用时，单位秒</para>
@@ -407,7 +413,7 @@ public record GetHelpdeskV1TicketsByTicketIdResponseDto
         /// <para>示例值：66</para>
         /// </summary>
         [JsonPropertyName("agent_resolution_time")]
-        public long? AgentResolutionTime { get; set; }
+        public int? AgentResolutionTime { get; set; }
 
         /// <summary>
         /// <para>工单实际处理时长，处理时长=解决时长-工单待定时长（将工单状态修改为待定后的时间），单位秒</para>
@@ -415,7 +421,7 @@ public record GetHelpdeskV1TicketsByTicketIdResponseDto
         /// <para>示例值：68</para>
         /// </summary>
         [JsonPropertyName("actual_processing_time")]
-        public long? ActualProcessingTime { get; set; }
+        public int? ActualProcessingTime { get; set; }
 
         /// <summary>
         /// <para>客服进入时间，单位毫秒</para>
@@ -447,5 +453,36 @@ public record GetHelpdeskV1TicketsByTicketIdResponseDto
         /// </summary>
         [JsonPropertyName("agent_owner")]
         public TicketUser? AgentOwner { get; set; }
+
+        /// <summary>
+        /// <para>工单标签（仅工单含有工单标签会返回）</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：10000</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("tags")]
+        public TicketTag[]? Tags { get; set; }
+
+        /// <summary>
+        /// <para>工单标签（仅工单含有工单标签会返回）</para>
+        /// </summary>
+        public record TicketTag
+        {
+            /// <summary>
+            /// <para>标签 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值："7474857595946745884"</para>
+            /// </summary>
+            [JsonPropertyName("id")]
+            public string? Id { get; set; }
+
+            /// <summary>
+            /// <para>标签</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：标签名称</para>
+            /// </summary>
+            [JsonPropertyName("name")]
+            public string? Name { get; set; }
+        }
     }
 }

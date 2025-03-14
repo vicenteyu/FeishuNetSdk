@@ -104,6 +104,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
 
     /// <summary>
     /// <para>部门 ID 列表，ID类型与查询参数 department_id_type的取值保持一致，ID值可以通过[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口获取</para>
+    /// <para>ID转换：支持根据department_id_type进行ID转换，返回department_id_type对应的类型的ID。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -112,6 +113,7 @@ public record PostCorehrV2PreHiresSearchBodyDto
 
     /// <summary>
     /// <para>直接上级的雇佣 ID 列表，ID类型与查询参数user_id_type的取值保持一致，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取</para>
+    /// <para>ID转换：支持根据user_id_type进行ID转换，返回user_id_type对应的类型的ID。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
