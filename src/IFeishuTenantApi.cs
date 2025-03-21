@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-03-14
+// Last Modified On : 2025-03-21
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -1952,7 +1952,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569745298980866</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uAjMzUjLwIzM14CMyMTN</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>向电子表格某个工作表的单个指定范围中写入数据。若指定范围已内有数据，将被新写入的数据覆盖。</para>
+    /// <para>向电子表格某个工作表的单个指定范围中写入数据。若指定范围内已有数据，将被新写入的数据覆盖。</para>
     /// <para>使用限制：- 单次写入数据不得超过 5000 行、100列。</para>
     /// <para>- 每个单元格不超过 50,000 字符，由于服务端会增加控制字符，因此推荐每个单元格不超过 40,000 字符。</para>
     /// <para>权限要求：<list type="bullet">
@@ -23893,11 +23893,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 注意事项</para>
     /// <para>- 文档管理者仅能接收到[文件编辑](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-edited)、[多维表格字段变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/bitable_field_changed)、[多维表格记录变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/bitable_record_changed)事件。</para>
     /// <para>- 目前只支持订阅事件列表中所有文档事件，暂不支持只订阅某个或某些事件。</para>
+    /// <para>- 若应用是以 `tenant_access_token` 订阅的事件，在接收事件时需要同时申请应用和用户两个身份接收事件的权限。</para>
     /// <para>## 前提条件</para>
     /// <para>- 文档的通知事件仅支持文档拥有者和文档管理者订阅。调用接口前请确保应用或用户具有相关权限。</para>
     /// <para>- 调用该接口之前，请确保正确配置订阅方式并添加了事件。详情参考[配置订阅方式](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/request-url-configuration-case)和[添加事件](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/subscription-event-case)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
+    /// <item>docs:event:subscribe</item>
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
     /// </list></para>
@@ -37283,6 +37285,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 调用接口前，请确保正确配置订阅方式并添加了事件。详情参考[配置订阅方式](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/request-url-configuration-case)和[添加事件](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/subscription-event-case)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
+    /// <item>docs:event:subscribe</item>
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
     /// </list></para>
@@ -37329,6 +37332,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 调用接口前，请确保正确配置订阅方式并添加了事件。详情参考[配置订阅方式](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/request-url-configuration-case)和[添加事件](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/subscription-event-case)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
+    /// <item>docs:event:subscribe</item>
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
     /// </list></para>
@@ -45586,6 +45590,80 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/corehr/v1/leaves/work_calendar")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1LeavesWorkCalendarResponseDto>> PostCorehrV1LeavesWorkCalendarAsync(
         [JsonContent] FeishuPeople.PostCorehrV1LeavesWorkCalendarBodyDto dto);
+
+    /// <summary>
+    /// <para>【Payroll】创建 / 更新外部算薪数据</para>
+    /// <para>接口ID：7411366924142460930</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/datasource_record/save</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>参照数据源配置字段格式，批量保存（创建或更新）数据记录。</para>
+    /// <para>1. 记录的唯一标志通过业务主键判断（employment_id + payroll_period）</para>
+    /// <para>2. 若不存在数据记录，则本次保存会插入1条记录。</para>
+    /// <para>3. 若已存在数据记录，则本次保存会覆盖更新已有记录（只更新传入字段的值，未传入字段值不更新），如果传入的数据记录没有任何变化，则不更新。</para>
+    /// <para>4. 若更新或者插入成功，会返回产生数据变更的记录条数。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>payroll:external_datasource_record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/payroll/v1/datasource_records/save")]
+    System.Threading.Tasks.Task<FeishuResponse<Payroll.PostPayrollV1DatasourceRecordsSaveResponseDto>> PostPayrollV1DatasourceRecordsSaveAsync(
+        [JsonContent] Payroll.PostPayrollV1DatasourceRecordsSaveBodyDto dto);
+
+    /// <summary>
+    /// <para>【Payroll】批量查询外部算薪数据记录</para>
+    /// <para>接口ID：7411366924142477314</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/datasource_record/query</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>1. 支持通过payroll_period（必传）、employment_id（可选）这两个预置字段，批量查询指定数据源下的数据记录列表。</para>
+    /// <para>2. 数据源配置信息可从[获取外部数据源配置信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/datasource/list)或者 「飞书人事后台-设置-算薪数据设置-外部数据源配置」页面 获取</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>payroll:external_datasource_record:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/payroll/v1/datasource_records/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Payroll.PostPayrollV1DatasourceRecordsQueryResponseDto>> PostPayrollV1DatasourceRecordsQueryAsync(
+        [JsonContent] Payroll.PostPayrollV1DatasourceRecordsQueryBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【Payroll】获取外部数据源配置信息</para>
+    /// <para>接口ID：7411366924142493698</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/datasource/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>批量查询飞书人事后台：设置-&gt;算薪数据设置-&gt;外部数据源设置 中的数据源设置列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>payroll:external_datasource_configuration:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/payroll/v1/datasources")]
+    System.Threading.Tasks.Task<FeishuResponse<Payroll.GetPayrollV1DatasourcesResponseDto>> GetPayrollV1DatasourcesAsync(
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
 
     /// <summary>
     /// <para>【Payroll】查询发薪活动明细列表</para>

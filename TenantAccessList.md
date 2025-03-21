@@ -107,11 +107,11 @@
 <tr><td colspan="3">PostDriveV1MediasUploadPart</td></tr>
 <tr><td rowspan="2">54</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>分片上传素材-完成上传</td></tr>
 <tr><td colspan="3">PostDriveV1MediasUploadFinish</td></tr>
-<tr><td rowspan="2">55</td><td rowspan="2">2024-11-14</td><td>&#10003;</td><td>云文档</td><td>订阅云文档事件</td></tr>
+<tr><td rowspan="2">55</td><td rowspan="2">2025-03-20</td><td>&#10003;</td><td>云文档</td><td>订阅云文档事件</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenSubscribe</td></tr>
-<tr><td rowspan="2">56</td><td rowspan="2">2024-11-14</td><td>&#10003;</td><td>云文档</td><td>取消云文档事件订阅</td></tr>
+<tr><td rowspan="2">56</td><td rowspan="2">2025-03-20</td><td>&#10003;</td><td>云文档</td><td>取消云文档事件订阅</td></tr>
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenDeleteSubscribe</td></tr>
-<tr><td rowspan="2">57</td><td rowspan="2">2024-11-14</td><td>&#10003;</td><td>云文档</td><td>查询云文档事件订阅状态</td></tr>
+<tr><td rowspan="2">57</td><td rowspan="2">2025-03-20</td><td>&#10003;</td><td>云文档</td><td>查询云文档事件订阅状态</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenGetSubscribe</td></tr>
 <tr><td rowspan="2">58</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>查询指定用户组</td></tr>
 <tr><td colspan="3">GetContactV3GroupByGroupId</td></tr>
@@ -253,7 +253,7 @@
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppend</td></tr>
 <tr><td rowspan="2">127</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>读取单个范围</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRange</td></tr>
-<tr><td rowspan="2">128</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>向单个范围写入数据</td></tr>
+<tr><td rowspan="2">128</td><td rowspan="2">2025-03-20</td><td>&#10003;</td><td>云文档</td><td>向单个范围写入数据</td></tr>
 <tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenValues</td></tr>
 <tr><td rowspan="2">129</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>读取多个范围</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchGet</td></tr>
@@ -2135,7 +2135,7 @@
 <tr><td colspan="3">PostCorehrV2DepartmentsQueryMultiTimeline</td></tr>
 <tr><td rowspan="2">1068</td><td rowspan="2">2024-05-29</td><td><span style="color:red;">删除</span></td><td>云文档</td><td>搜索文件</td></tr>
 <tr><td colspan="3">PostSuiteDocsApiSearchObject</td></tr>
-<tr><td rowspan="2">1069</td><td rowspan="2">2025-02-05</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
+<tr><td rowspan="2">1069</td><td rowspan="2">2025-03-18</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
 <tr><td colspan="3">PostCorehrV2Employees</td></tr>
 <tr><td rowspan="2">1070</td><td rowspan="2">2024-11-06</td><td>&#10003;</td><td>招聘</td><td>获取角色详情</td></tr>
 <tr><td colspan="3">GetHireV1RolesByRoleId</td></tr>
@@ -2241,7 +2241,7 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingMinute</td></tr>
 <tr><td rowspan="2">1121</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>操作员工完成入职</td></tr>
 <tr><td colspan="3">PostCorehrV2PreHiresByPreHireIdComplete</td></tr>
-<tr><td rowspan="2">1122</td><td rowspan="2">2024-08-28</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>流转入职任务</td></tr>
+<tr><td rowspan="2">1122</td><td rowspan="2">2025-03-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>流转入职任务</td></tr>
 <tr><td colspan="3">PostCorehrV2PreHiresByPreHireIdTransitTask</td></tr>
 <tr><td rowspan="2">1123</td><td rowspan="2">2025-03-14</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询待入职信息</td></tr>
 <tr><td colspan="3">PostCorehrV2PreHiresQuery</td></tr>
@@ -2677,16 +2677,22 @@
 <tr><td colspan="3">PostAttendanceV1UserFlowsBatchDel</td></tr>
 <tr><td rowspan="2">1339</td><td rowspan="2">2025-02-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询编制规划明细信息（支持自定义组织）</td></tr>
 <tr><td colspan="3">PostCorehrV2WorkforcePlanDetailsBatchV2</td></tr>
-<tr><td rowspan="2">1340</td><td rowspan="2">2025-03-11</td><td>新增</td><td>妙记</td><td>导出妙记文字记录</td></tr>
+<tr><td rowspan="2">1340</td><td rowspan="2">2025-03-11</td><td>&#10003;</td><td>妙记</td><td>导出妙记文字记录</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenTranscript</td></tr>
-<tr><td rowspan="2">1341</td><td rowspan="2">2025-03-11</td><td>新增</td><td>妙记</td><td>下载妙记音视频文件</td></tr>
+<tr><td rowspan="2">1341</td><td rowspan="2">2025-03-11</td><td>&#10003;</td><td>妙记</td><td>下载妙记音视频文件</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenMedia</td></tr>
-<tr><td rowspan="2">1342</td><td rowspan="2">2025-03-10</td><td>新增</td><td>Payroll</td><td>查询发薪活动明细列表</td></tr>
+<tr><td rowspan="2">1342</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>Payroll</td><td>查询发薪活动明细列表</td></tr>
 <tr><td colspan="3">GetPayrollV1PaymentActivityDetails</td></tr>
-<tr><td rowspan="2">1343</td><td rowspan="2">2025-03-10</td><td>新增</td><td>Payroll</td><td>查询发薪活动列表</td></tr>
+<tr><td rowspan="2">1343</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>Payroll</td><td>查询发薪活动列表</td></tr>
 <tr><td colspan="3">GetPayrollV1PaymentActivitys</td></tr>
-<tr><td rowspan="2">1344</td><td rowspan="2">2025-03-10</td><td>新增</td><td>Payroll</td><td>批量查询发薪明细</td></tr>
+<tr><td rowspan="2">1344</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>Payroll</td><td>批量查询发薪明细</td></tr>
 <tr><td colspan="3">PostPayrollV1PaymentDetailQuery</td></tr>
-<tr><td rowspan="2">1345</td><td rowspan="2">2025-03-10</td><td>新增</td><td>Payroll</td><td>封存发薪活动</td></tr>
+<tr><td rowspan="2">1345</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>Payroll</td><td>封存发薪活动</td></tr>
 <tr><td colspan="3">PostPayrollV1PaymentActivitysArchive</td></tr>
+<tr><td rowspan="2">1346</td><td rowspan="2">2025-03-18</td><td>新增</td><td>Payroll</td><td>创建 / 更新外部算薪数据</td></tr>
+<tr><td colspan="3">PostPayrollV1DatasourceRecordsSave</td></tr>
+<tr><td rowspan="2">1347</td><td rowspan="2">2025-03-18</td><td>新增</td><td>Payroll</td><td>批量查询外部算薪数据记录</td></tr>
+<tr><td colspan="3">PostPayrollV1DatasourceRecordsQuery</td></tr>
+<tr><td rowspan="2">1348</td><td rowspan="2">2025-03-18</td><td>新增</td><td>Payroll</td><td>获取外部数据源配置信息</td></tr>
+<tr><td colspan="3">GetPayrollV1Datasources</td></tr>
 </tbody></table>

@@ -72,6 +72,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>国家 / 地区 ID</para>
+                /// <para>如果填写了法定姓名对象，则该字段必填</para>
                 /// <para>可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6862995757234914824</para>
@@ -207,6 +208,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>姓名类型</para>
+                /// <para>如果填写了法定姓名对象，则该字段必填</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：legal_name</para>
                 /// </summary>
@@ -294,6 +296,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>电话号码</para>
+                /// <para>如果填写了个人电话对象，则该字段必填</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：13000000000</para>
                 /// </summary>
@@ -521,6 +524,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>电话号码</para>
+                /// <para>如果填写了电话对象，则该字段必填</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：13000000000</para>
                 /// </summary>
@@ -561,6 +565,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>国家 / 地区 ID</para>
+                /// <para>如果填写了地址对象，则该字段必填</para>
                 /// <para>可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6862995757234914824</para>
@@ -653,6 +658,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>地址行 1</para>
+                /// <para>如果填写了地址对象，则该字段必填</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：丹佛测试地址 - 纽埃时区</para>
                 /// </summary>
@@ -870,6 +876,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>开户人姓名</para>
+            /// <para>如果填写了银行账号对象，则该字段必填</para>
             /// <para>必填：否</para>
             /// <para>示例值：孟十五</para>
             /// </summary>
@@ -878,6 +885,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>银行账号</para>
+            /// <para>如果填写了银行账号对象，则该字段必填</para>
             /// <para>必填：否</para>
             /// <para>示例值：6231200000001223</para>
             /// </summary>
@@ -943,6 +951,7 @@ public record PostCorehrV2EmployeesBodyDto
         {
             /// <summary>
             /// <para>国家 / 地区 ID</para>
+            /// <para>如果填写了证件对象，则该字段必填</para>
             /// <para>可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914824</para>
@@ -952,6 +961,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>国家证件类型 ID</para>
+            /// <para>如果填写了证件对象，则该字段必填</para>
             /// <para>可通过[【批量查询国家证件类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/list)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6863330041896371725</para>
@@ -961,6 +971,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>证件号码</para>
+            /// <para>如果填写了证件对象，则该字段必填</para>
             /// <para>必填：否</para>
             /// <para>示例值：1231131333</para>
             /// </summary>
@@ -1040,6 +1051,7 @@ public record PostCorehrV2EmployeesBodyDto
         {
             /// <summary>
             /// <para>年度</para>
+            /// <para>如果填写了居民身份信息对象，则该字段必填</para>
             /// <para>必填：否</para>
             /// <para>示例值：2006-01-02</para>
             /// </summary>
@@ -1048,6 +1060,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>国家 / 地区 ID</para>
+            /// <para>如果填写了居民身份信息对象，则该字段必填</para>
             /// <para>可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914824</para>
@@ -1131,6 +1144,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>关系</para>
+            /// <para>如果填写了家庭成员对象，则该字段必填</para>
             /// <para>枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
             /// <para>- object_api_name = "dependent"</para>
             /// <para>- custom_api_name ="relationship_with_dependent"</para>
@@ -1640,6 +1654,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>国家 / 地区 ID</para>
+            /// <para>如果填写了地址对象，则该字段必填</para>
             /// <para>可通过[【查询国家/地区信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取</para>
             /// <para>必填：否</para>
             /// <para>示例值：6862995757234914824</para>
@@ -1732,6 +1747,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>地址行 1</para>
+            /// <para>如果填写了地址对象，则该字段必填</para>
             /// <para>必填：否</para>
             /// <para>示例值：丹佛测试地址 - 纽埃时区</para>
             /// </summary>
@@ -2035,6 +2051,7 @@ public record PostCorehrV2EmployeesBodyDto
 
                 /// <summary>
                 /// <para>电话号码</para>
+                /// <para>如果填写了工作电话对象，则该字段必填</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：13000000000</para>
                 /// </summary>
@@ -2334,6 +2351,7 @@ public record PostCorehrV2EmployeesBodyDto
 
             /// <summary>
             /// <para>合同开始日期</para>
+            /// <para>如果填写了合同对象，则该字段必填</para>
             /// <para>必填：否</para>
             /// <para>示例值：2006-01-02</para>
             /// </summary>
