@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-03-29
 // ************************************************************************
 // <copyright file="GetTaskV2TasksByTaskGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -162,6 +162,14 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// </summary>
             [JsonPropertyName("role")]
             public string? Role { get; set; }
+
+            /// <summary>
+            /// <para>成员名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：张明德（明德）</para>
+            /// </summary>
+            [JsonPropertyName("name")]
+            public string? Name { get; set; }
         }
 
         /// <summary>
@@ -291,6 +299,14 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// </summary>
                 [JsonPropertyName("role")]
                 public string? Role { get; set; }
+
+                /// <summary>
+                /// <para>成员名称</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：张明德（明德）</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public string? Name { get; set; }
             }
 
             /// <summary>
@@ -885,6 +901,14 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// </summary>
                 [JsonPropertyName("role")]
                 public string? Role { get; set; }
+
+                /// <summary>
+                /// <para>成员名称</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：张明德（明德）</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public string? Name { get; set; }
             }
 
             /// <summary>
@@ -952,6 +976,37 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// </summary>
             [JsonPropertyName("task_guid")]
             public string TaskGuid { get; set; } = string.Empty;
+        }
+
+        /// <summary>
+        /// <para>任务执行者相关信息，如会签任务各执行者完成时间等</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("assignee_related")]
+        public TaskAssignee[]? AssigneeRelateds { get; set; }
+
+        /// <summary>
+        /// <para>任务执行者相关信息，如会签任务各执行者完成时间等</para>
+        /// </summary>
+        public record TaskAssignee
+        {
+            /// <summary>
+            /// <para>任务执行者的id</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
+            /// <para>最大长度：100</para>
+            /// </summary>
+            [JsonPropertyName("id")]
+            public string? Id { get; set; }
+
+            /// <summary>
+            /// <para>会签任务中执行者完成的时间戳(ms)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1675742789470</para>
+            /// <para>最大长度：20</para>
+            /// </summary>
+            [JsonPropertyName("completed_at")]
+            public string? CompletedAt { get; set; }
         }
     }
 }

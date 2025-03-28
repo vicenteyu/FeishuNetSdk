@@ -534,7 +534,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto
         }
 
         /// <summary>
-        /// <para>字段的描述</para>
+        /// <para>字段的描述。可能是数组或字符串类型。由请求参数 `text_field_as_array` 决定。</para>
         /// <para>必填：否</para>
         /// <para>示例值：字段描述示例：该字段为日期类型字段</para>
         /// </summary>

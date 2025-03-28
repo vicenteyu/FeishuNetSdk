@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-01-05
+// Last Modified On : 2025-03-29
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -212,6 +212,153 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             /// <summary>
             /// <para>自定义字段</para>
             /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
+            /// </summary>
+            public record CustomFieldData
+            {
+                /// <summary>
+                /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：name</para>
+                /// </summary>
+                [JsonPropertyName("custom_api_name")]
+                public string CustomApiName { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>自定义字段名称</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public CustomName? Name { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段名称</para>
+                /// </summary>
+                public record CustomName
+                {
+                    /// <summary>
+                    /// <para>中文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：自定义姓名</para>
+                    /// </summary>
+                    [JsonPropertyName("zh_cn")]
+                    public string? ZhCn { get; set; }
+
+                    /// <summary>
+                    /// <para>英文</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：Custom Name</para>
+                    /// </summary>
+                    [JsonPropertyName("en_us")]
+                    public string? EnUs { get; set; }
+                }
+
+                /// <summary>
+                /// <para>自定义字段类型</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// </summary>
+                [JsonPropertyName("type")]
+                public int? Type { get; set; }
+
+                /// <summary>
+                /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：\"231\"</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public string Value { get; set; } = string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// <para>通道 ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6893014062142064135</para>
+        /// </summary>
+        [JsonPropertyName("pathway_id")]
+        public string? PathwayId { get; set; }
+
+        /// <summary>
+        /// <para>通道</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("pathway")]
+        public EmployeePathway? Pathway { get; set; }
+
+        /// <summary>
+        /// <para>通道</para>
+        /// </summary>
+        public record EmployeePathway
+        {
+            /// <summary>
+            /// <para>通道 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：4692446793125560154</para>
+            /// </summary>
+            [JsonPropertyName("id")]
+            public string? Id { get; set; }
+
+            /// <summary>
+            /// <para>编码</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=</para>
+            /// </summary>
+            [JsonPropertyName("code")]
+            public string? Code { get; set; }
+
+            /// <summary>
+            /// <para>名称</para>
+            /// <para>必填：是</para>
+            /// </summary>
+            [JsonPropertyName("name")]
+            public I18n[] Names { get; set; } = Array.Empty<I18n>();
+
+            /// <summary>
+            /// <para>名称</para>
+            /// </summary>
+            public record I18n
+            {
+                /// <summary>
+                /// <para>语言编码（IETF BCP 47）</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：zh-CN</para>
+                /// </summary>
+                [JsonPropertyName("lang")]
+                public string Lang { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>文本内容</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：中文示例</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public string Value { get; set; } = string.Empty;
+            }
+
+            /// <summary>
+            /// <para>描述</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("description")]
+            public I18n[]? Descriptions { get; set; }
+
+            /// <summary>
+            /// <para>启用</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("active")]
+            public bool Active { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public CustomFieldData[]? CustomFields { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
             /// </summary>
             public record CustomFieldData
             {
@@ -629,6 +776,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public I18n[]? JobTitles { get; set; }
 
             /// <summary>
+            /// <para>通道ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：4719519211875096301</para>
+            /// </summary>
+            [JsonPropertyName("pathway_id")]
+            public string? PathwayId { get; set; }
+
+            /// <summary>
             /// <para>序列</para>
             /// <para>必填：否</para>
             /// </summary>
@@ -724,7 +879,7 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
         public string? Tenure { get; set; }
 
         /// <summary>
-        /// <para>资历起算日期</para>
+        /// <para>司龄起算日期</para>
         /// <para>必填：否</para>
         /// <para>示例值：2021-03-16</para>
         /// </summary>
@@ -998,12 +1153,20 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
             public string? CostCenterId { get; set; }
 
             /// <summary>
-            /// <para>分摊比例</para>
+            /// <para>分摊比例(整数)</para>
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
             [JsonPropertyName("rate")]
             public int? Rate { get; set; }
+
+            /// <summary>
+            /// <para>分摊比例</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：50.2</para>
+            /// </summary>
+            [JsonPropertyName("new_rate")]
+            public float? NewRate { get; set; }
         }
 
         /// <summary>
@@ -1198,6 +1361,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 /// </summary>
                 [JsonPropertyName("local_primary_2")]
                 public string? LocalPrimary2 { get; set; }
+
+                /// <summary>
+                /// <para>别名</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：别名</para>
+                /// </summary>
+                [JsonPropertyName("additional_name")]
+                public string? AdditionalName { get; set; }
 
                 /// <summary>
                 /// <para>补充姓名类型</para>
@@ -1605,6 +1776,22 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 /// </summary>
                 [JsonPropertyName("region_id")]
                 public string? RegionId { get; set; }
+
+                /// <summary>
+                /// <para>城市（该字段待作废，请勿使用）</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6863333254578046471</para>
+                /// </summary>
+                [JsonPropertyName("city_id")]
+                public string? CityId { get; set; }
+
+                /// <summary>
+                /// <para>区/县（该字段待作废，请勿使用）</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6863333516579440141</para>
+                /// </summary>
+                [JsonPropertyName("distinct_id")]
+                public string? DistinctId { get; set; }
 
                 /// <summary>
                 /// <para>城市</para>
@@ -2943,6 +3130,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? LocalPrimary2 { get; set; }
 
                     /// <summary>
+                    /// <para>别名</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：别名</para>
+                    /// </summary>
+                    [JsonPropertyName("additional_name")]
+                    public string? AdditionalName { get; set; }
+
+                    /// <summary>
                     /// <para>补充姓名类型</para>
                     /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
                     /// <para>- object_api_name：person_name</para>
@@ -3591,6 +3786,22 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? RegionId { get; set; }
 
                     /// <summary>
+                    /// <para>城市（该字段待作废，请勿使用）</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：6863333254578046471</para>
+                    /// </summary>
+                    [JsonPropertyName("city_id")]
+                    public string? CityId { get; set; }
+
+                    /// <summary>
+                    /// <para>区/县（该字段待作废，请勿使用）</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：6863333516579440141</para>
+                    /// </summary>
+                    [JsonPropertyName("distinct_id")]
+                    public string? DistinctId { get; set; }
+
+                    /// <summary>
                     /// <para>城市</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：6863333254578046471</para>
@@ -4058,6 +4269,14 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     public string? LocalPrimary2 { get; set; }
 
                     /// <summary>
+                    /// <para>别名</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：别名</para>
+                    /// </summary>
+                    [JsonPropertyName("additional_name")]
+                    public string? AdditionalName { get; set; }
+
+                    /// <summary>
                     /// <para>补充姓名类型</para>
                     /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
                     /// <para>- object_api_name：person_name</para>
@@ -4514,6 +4733,22 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                     /// </summary>
                     [JsonPropertyName("region_id")]
                     public string? RegionId { get; set; }
+
+                    /// <summary>
+                    /// <para>城市（该字段待作废，请勿使用）</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：6863333254578046471</para>
+                    /// </summary>
+                    [JsonPropertyName("city_id")]
+                    public string? CityId { get; set; }
+
+                    /// <summary>
+                    /// <para>区/县（该字段待作废，请勿使用）</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：6863333516579440141</para>
+                    /// </summary>
+                    [JsonPropertyName("distinct_id")]
+                    public string? DistinctId { get; set; }
 
                     /// <summary>
                     /// <para>城市</para>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-03-29
 // ************************************************************************
 // <copyright file="PostCorehrV2JobFamiliesBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -54,7 +54,7 @@ public record PostCorehrV2JobFamiliesBatchGetResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言编码（IETF BCP 47）</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -62,9 +62,9 @@ public record PostCorehrV2JobFamiliesBatchGetResponseDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>文本内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：中文示例</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -85,6 +85,13 @@ public record PostCorehrV2JobFamiliesBatchGetResponseDto
         /// </summary>
         [JsonPropertyName("parent_id")]
         public string? ParentId { get; set; }
+
+        /// <summary>
+        /// <para>通道ID</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("pathway_ids")]
+        public string[]? PathwayIds { get; set; }
 
         /// <summary>
         /// <para>生效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
@@ -109,6 +116,13 @@ public record PostCorehrV2JobFamiliesBatchGetResponseDto
         /// </summary>
         [JsonPropertyName("code")]
         public string? Code { get; set; }
+
+        /// <summary>
+        /// <para>描述</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("description")]
+        public I18n[]? Descriptions { get; set; }
 
         /// <summary>
         /// <para>自定义字段（该字段暂时不支持）</para>

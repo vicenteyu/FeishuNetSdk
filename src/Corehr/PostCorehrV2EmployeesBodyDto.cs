@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-04
+// Last Modified On : 2025-03-29
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -207,15 +207,6 @@ public record PostCorehrV2EmployeesBodyDto
                 public string? CustomWesternName { get; set; }
 
                 /// <summary>
-                /// <para>姓名类型</para>
-                /// <para>如果填写了法定姓名对象，则该字段必填</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：legal_name</para>
-                /// </summary>
-                [JsonPropertyName("name_type")]
-                public string? NameType { get; set; }
-
-                /// <summary>
                 /// <para>名</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：帅</para>
@@ -239,6 +230,14 @@ public record PostCorehrV2EmployeesBodyDto
             /// </summary>
             [JsonPropertyName("preferred_name")]
             public ProfileSettingName? PreferredName { get; set; }
+
+            /// <summary>
+            /// <para>别名</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：王帅</para>
+            /// </summary>
+            [JsonPropertyName("additional_name")]
+            public string? AdditionalName { get; set; }
 
             /// <summary>
             /// <para>性别</para>
@@ -456,6 +455,14 @@ public record PostCorehrV2EmployeesBodyDto
                 [JsonPropertyName("value")]
                 public string? Value { get; set; }
             }
+
+            /// <summary>
+            /// <para>其他国籍（地区）ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6862995757234914827</para>
+            /// </summary>
+            [JsonPropertyName("additional_nationalities")]
+            public string[]? AdditionalNationalities { get; set; }
         }
 
         /// <summary>
@@ -933,6 +940,43 @@ public record PostCorehrV2EmployeesBodyDto
             /// </summary>
             [JsonPropertyName("branch_id")]
             public string? BranchId { get; set; }
+
+            /// <summary>
+            /// <para>分配方式，枚举值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：percent,balance,amount</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>percent：按比例分配</item>
+            /// <item>amount：按金额分配</item>
+            /// <item>balance：默认卡</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("payment_type")]
+            public string? PaymentType { get; set; }
+
+            /// <summary>
+            /// <para>分配比例，0～100，保留两位小数</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：80.28</para>
+            /// </summary>
+            [JsonPropertyName("payment_rate")]
+            public string? PaymentRate { get; set; }
+
+            /// <summary>
+            /// <para>分配金额，保留两位小数</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：5000</para>
+            /// </summary>
+            [JsonPropertyName("payment_amount")]
+            public string? PaymentAmount { get; set; }
+
+            /// <summary>
+            /// <para>优先级，不能低于0</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1</para>
+            /// </summary>
+            [JsonPropertyName("priority")]
+            public string? Priority { get; set; }
         }
 
         /// <summary>
@@ -1960,6 +2004,35 @@ public record PostCorehrV2EmployeesBodyDto
                 }
             }
         }
+
+        /// <summary>
+        /// <para>公民身份列表</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("citizenship_statuses")]
+        public ProfileSettingCitizenshipStatus[]? CitizenshipStatuses { get; set; }
+
+        /// <summary>
+        /// <para>公民身份列表</para>
+        /// </summary>
+        public record ProfileSettingCitizenshipStatus
+        {
+            /// <summary>
+            /// <para>国家/地区ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7324333990030034476</para>
+            /// </summary>
+            [JsonPropertyName("country_region")]
+            public string? CountryRegion { get; set; }
+
+            /// <summary>
+            /// <para>公民身份类型</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：公民</para>
+            /// </summary>
+            [JsonPropertyName("citizenship_status")]
+            public string? CitizenshipStatus { get; set; }
+        }
     }
 
     /// <summary>
@@ -2307,6 +2380,14 @@ public record PostCorehrV2EmployeesBodyDto
             /// </summary>
             [JsonPropertyName("position")]
             public string? Position { get; set; }
+
+            /// <summary>
+            /// <para>通道ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6890452208593372684</para>
+            /// </summary>
+            [JsonPropertyName("pathway")]
+            public string? Pathway { get; set; }
         }
 
         /// <summary>
@@ -2445,6 +2526,296 @@ public record PostCorehrV2EmployeesBodyDto
                     [JsonPropertyName("value")]
                     public string? Value { get; set; }
                 }
+            }
+        }
+
+        /// <summary>
+        /// <para>自定义组织记录</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("custom_org_groups")]
+        public JobDataCustomOrg[]? CustomOrgGroups { get; set; }
+
+        /// <summary>
+        /// <para>自定义组织记录</para>
+        /// </summary>
+        public record JobDataCustomOrg
+        {
+            /// <summary>
+            /// <para>生效时间</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：2024-07-02</para>
+            /// </summary>
+            [JsonPropertyName("effective_time")]
+            public string EffectiveTime { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>原因</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：新增人员</para>
+            /// <para>最大长度：1000</para>
+            /// </summary>
+            [JsonPropertyName("start_reason")]
+            public string? StartReason { get; set; }
+
+            /// <summary>
+            /// <para>自定义组织列表</para>
+            /// <para>必填：是</para>
+            /// <para>最大长度：100</para>
+            /// <para>最小长度：1</para>
+            /// </summary>
+            [JsonPropertyName("custom_org_with_rates")]
+            public CreateEmpCustomOrg[] CustomOrgWithRates { get; set; } = Array.Empty<CreateEmpCustomOrg>();
+
+            /// <summary>
+            /// <para>自定义组织列表</para>
+            /// </summary>
+            public record CreateEmpCustomOrg
+            {
+                /// <summary>
+                /// <para>自定义组织ID</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：7260357352426782739</para>
+                /// </summary>
+                [JsonPropertyName("id")]
+                public string Id { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>比例 如果是非比例的可不填写</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：50.1</para>
+                /// <para>最大值：100</para>
+                /// <para>最小值：0</para>
+                /// </summary>
+                [JsonPropertyName("rate")]
+                public float? Rate { get; set; }
+            }
+
+            /// <summary>
+            /// <para>自定义组织类型</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：custom_org_01</para>
+            /// </summary>
+            [JsonPropertyName("object_api_name")]
+            public string ObjectApiName { get; set; } = string.Empty;
+        }
+
+        /// <summary>
+        /// <para>司龄调整信息</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：100</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("seniority_adjust_informations")]
+        public SeniorityAdjustInformationEdit[]? SeniorityAdjustInformations { get; set; }
+
+        /// <summary>
+        /// <para>司龄调整信息</para>
+        /// </summary>
+        public record SeniorityAdjustInformationEdit
+        {
+            /// <summary>
+            /// <para>调整类型</para>
+            /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+            /// <para>- object_api_name：seniority_adjust_information</para>
+            /// <para>- custom_api_name：seniority_adjustment_type</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：increase</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>increase：增加</item>
+            /// <item>decrease：减少</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("seniority_adjustment_type")]
+            public string SeniorityAdjustmentType { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>开始日期</para>
+            /// <para>- 格式： yyyy-mm-dd</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2024-01-01</para>
+            /// </summary>
+            [JsonPropertyName("start_date")]
+            public string? StartDate { get; set; }
+
+            /// <summary>
+            /// <para>结束日期</para>
+            /// <para>- 格式： yyyy-mm-dd</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2024-01-02</para>
+            /// </summary>
+            [JsonPropertyName("end_date")]
+            public string? EndDate { get; set; }
+
+            /// <summary>
+            /// <para>调整原因</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：工厂停产需要减去半年工龄</para>
+            /// </summary>
+            [JsonPropertyName("reasons_for_seniority_adjustment")]
+            public string? ReasonsForSeniorityAdjustment { get; set; }
+
+            /// <summary>
+            /// <para>调整值</para>
+            /// <para>- 精确度：两位小数</para>
+            /// <para>- 单位：年</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：1.01</para>
+            /// <para>最大值：100</para>
+            /// <para>最小值：0</para>
+            /// </summary>
+            [JsonPropertyName("seniority_adjustment")]
+            public float SeniorityAdjustment { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>- 具体支持的对象请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
+            /// <para>必填：否</para>
+            /// <para>最大长度：180</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ProfileSettingCustomField[]? CustomFields { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>- 具体支持的对象请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
+            /// </summary>
+            public record ProfileSettingCustomField
+            {
+                /// <summary>
+                /// <para>字段名</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：custom_field_1__c</para>
+                /// </summary>
+                [JsonPropertyName("field_name")]
+                public string FieldName { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>字段值, 是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考【操作手册】如何通过 OpenAPI 维护自定义字段</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：[\"custom_enum_0__c\"]</para>
+                /// </summary>
+                [JsonPropertyName("value")]
+                public string? Value { get; set; }
+            }
+        }
+
+        /// <summary>
+        /// <para>默认成本中心</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("default_cost_center")]
+        public DefaultCostCenterRecord? DefaultCostCenter { get; set; }
+
+        /// <summary>
+        /// <para>默认成本中心</para>
+        /// </summary>
+        public record DefaultCostCenterRecord
+        {
+            /// <summary>
+            /// <para>变更原因</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：默认成本中心变更</para>
+            /// </summary>
+            [JsonPropertyName("reason")]
+            public string? Reason { get; set; }
+
+            /// <summary>
+            /// <para>是否继承</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("is_inherit")]
+            public bool? IsInherit { get; set; }
+
+            /// <summary>
+            /// <para>默认成本中心</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("cost_center_id")]
+            public DefaultCostCenterRecordCostCenterId? CostCenterId { get; set; }
+
+            /// <summary>
+            /// <para>默认成本中心</para>
+            /// </summary>
+            public record DefaultCostCenterRecordCostCenterId
+            {
+                /// <summary>
+                /// <para>成本中心</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：7382048365313261588</para>
+                /// </summary>
+                [JsonPropertyName("wk_id")]
+                public string? WkId { get; set; }
+            }
+        }
+
+        /// <summary>
+        /// <para>成本分摊</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("cost_allocation")]
+        public ProfileSettingEmploymentInfoCostAllocation? CostAllocation { get; set; }
+
+        /// <summary>
+        /// <para>成本分摊</para>
+        /// </summary>
+        public record ProfileSettingEmploymentInfoCostAllocation
+        {
+            /// <summary>
+            /// <para>分摊生效日期</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2025-01-01</para>
+            /// </summary>
+            [JsonPropertyName("effective_time")]
+            public string? EffectiveTime { get; set; }
+
+            /// <summary>
+            /// <para>分摊失效日期</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2025-02-01</para>
+            /// </summary>
+            [JsonPropertyName("expiration_time")]
+            public string? ExpirationTime { get; set; }
+
+            /// <summary>
+            /// <para>成本分摊信息</para>
+            /// <para>必填：否</para>
+            /// <para>最大长度：50</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("cost_center_rates")]
+            public JobDataCostCenter[]? CostCenterRates { get; set; }
+
+            /// <summary>
+            /// <para>成本分摊信息</para>
+            /// </summary>
+            public record JobDataCostCenter
+            {
+                /// <summary>
+                /// <para>成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6950635856373745165</para>
+                /// </summary>
+                [JsonPropertyName("cost_center_id")]
+                public string? CostCenterId { get; set; }
+
+                /// <summary>
+                /// <para>分摊比例(整数)</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：100</para>
+                /// </summary>
+                [JsonPropertyName("rate")]
+                public int? Rate { get; set; }
+
+                /// <summary>
+                /// <para>分摊比例</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：50.2</para>
+                /// </summary>
+                [JsonPropertyName("new_rate")]
+                public float? NewRate { get; set; }
             }
         }
     }

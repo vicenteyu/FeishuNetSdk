@@ -74,7 +74,6 @@ public record PostContactV3UsersByUserIdResurrectBodyDto
     /// <summary>
     /// <para>如果用户正常状态时分配了席位，则可以通过该参数指定恢复后分配的席位 ID。</para>
     /// <para>**注意**：</para>
-    /// <para>- 当在[混合license模式](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)下，该字段为必填。</para>
     /// <para>- 该字段需开通 **分配用户席位** 权限。</para>
     /// <para>必填：否</para>
     /// <para>示例值：["7179609168571645971"]</para>

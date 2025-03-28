@@ -353,6 +353,14 @@ public record GetHireV1InterviewsResponseDto
         /// <item>8：部分评价且评价中有通过有淘汰的</item>
         /// <item>9：部分评价且均评价淘汰</item>
         /// <item>10：所有面试官都提交评价且评价中有通过有淘汰的</item>
+        /// <item>11：部分评价且评价中有通过和待定的</item>
+        /// <item>12：部分评价且评价中有淘汰和待定的</item>
+        /// <item>13：部分评级且评价均为待定</item>
+        /// <item>14：部分评价且评价中有通过、待定和淘汰的</item>
+        /// <item>15：所有面试官都提交评价且评价中有通过和待定的</item>
+        /// <item>16：所有面试官都提交评价且评价中有待定和淘汰的</item>
+        /// <item>17：所有面试官都提交评价且评价均为待定</item>
+        /// <item>18：所有面试官都提交评价且评价中有通过、待定、淘汰的</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("interview_round_summary")]

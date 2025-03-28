@@ -6,20 +6,20 @@
 // Last Modified By : yxr
 // Last Modified On : 2025-03-29
 // ************************************************************************
-// <copyright file="LeaveApprovalRevertEventBodyDto.cs" company="Vicente Yu">
+// <copyright file="WorkApprovalRevertEventBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>请假审批通过并撤销 事件体</summary>
+// <summary>加班审批通过并撤销 事件体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Approval.Events;
 /// <summary>
-/// 请假审批通过并撤销 事件体
-/// <para>审批定义的表单包含 **请假控件组** 时，该定义下的审批实例在 **通过** 或者 **通过并撤销** 时，会触发该事件。</para>
-/// <para>接口ID：7013340088257413148</para>
-/// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/event/special-event/leave</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuIDO24iM4YjLygjN%2fevent%2fleave</para>
+/// 加班审批通过并撤销 事件体
+/// <para>审批定义的表单包含 **加班控件组** 时，该定义下的审批实例在 **通过** 或者 **通过并撤销** 时，会触发该事件。</para>
+/// <para>接口ID：7013346140632629276</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/event/special-event/overtime</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuIDO24iM4YjLygjN%2fevent%2fovertime</para>
 /// </summary>
-public record LeaveApprovalRevertEventBodyDto() : EventBodyDto("leave_approval_revert")
+public record WorkApprovalRevertEventBodyDto() : EventBodyDto("work_approval_revert")
 {
     /// <summary>
     /// <para>应用的 App ID。可调用[获取应用信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/get)接口查询应用详细信息。</para>
@@ -57,7 +57,7 @@ public record LeaveApprovalRevertEventBodyDto() : EventBodyDto("leave_approval_r
     public string? TenantKey { get; set; }
 
     /// <summary>
-    /// <para>事件类型。固定值 `leave_approval_revert`</para>
+    /// <para>事件类型。固定值 `work_approval_revert`</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("type")]

@@ -1,172 +1,196 @@
-﻿// ************************************************************************
+// ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
 // Created          : 2024-09-07
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-07
+// Last Modified On : 2025-03-29
 // ************************************************************************
 // <copyright file="ApprovalInstanceTripGroupUpdateV4EventBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
 // <summary>出差审批 事件体</summary>
 // ************************************************************************
-namespace FeishuNetSdk.Approval.Events
+namespace FeishuNetSdk.Approval.Events;
+/// <summary>
+/// 出差审批 事件体
+/// <para>审批定义的表单包含 **出差控件组** 时，该定义下的审批实例通过时，触发该事件。</para>
+/// <para>接口ID：7013340088257462300</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/event/special-event/business-trip</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuIDO24iM4YjLygjN%2fevent%2fbusiness-trip</para>
+/// </summary>
+public record ApprovalInstanceTripGroupUpdateV4EventBodyDto() : EventBodyDto("approval.instance.trip_group_update_v4")
 {
     /// <summary>
-    /// 出差审批 事件体
-    /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/event/special-event/business-trip</para>
+    /// <para>事件详细信息。</para>
+    /// <para>必填：否</para>
     /// </summary>
-    public record ApprovalInstanceTripGroupUpdateV4EventBodyDto() : EventBodyDto("approval.instance.trip_group_update_v4")
+    [JsonPropertyName("object")]
+    public ObjectSuffix? Object { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public record ObjectSuffix
     {
         /// <summary>
-        /// 
+        /// <para>审批开始时间，秒级时间戳。</para>
+        /// <para>必填：否</para>
         /// </summary>
-        [JsonPropertyName("app_id")]
-        public ObjectSuffix Object { get; set; } = new();
+        [JsonPropertyName("start_time")]
+        public int? StartTime { get; set; }
+
+        /// <summary>
+        /// <para>审批结束时间，秒级时间戳。</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("end_time")]
+        public int? EndTime { get; set; }
+
+        /// <summary>
+        /// <para>出差详细信息。</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("schedules")]
+        public Schedule[]? Schedules { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonPropertyName("old_object")]
-        public object? OldObject { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public record ObjectSuffix
+        public record Schedule
         {
             /// <summary>
-            /// 事件类型
+            /// <para>出发地。</para>
+            /// <para>必填：否</para>
             /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
+            [JsonPropertyName("departure")]
+            public string? Departure { get; set; }
 
             /// <summary>
-            /// 审批实例code
+            /// <para>出发地 ID。</para>
+            /// <para>必填：否</para>
             /// </summary>
-            [JsonPropertyName("instance_code")]
-            public string? InstanceCode { get; set; }
+            [JsonPropertyName("departure_id")]
+            public string? DepartureId { get; set; }
 
             /// <summary>
-            /// 提交人id
+            /// <para>目的地。</para>
+            /// <para>必填：否</para>
             /// </summary>
-            [JsonPropertyName("start_user")]
-            public UserSuffix StartUser { get; set; } = new();
+            [JsonPropertyName("destination")]
+            public string? Destination { get; set; }
 
             /// <summary>
-            /// 审批实例开始时间
+            /// <para>目的地 ID。</para>
+            /// <para>必填：否</para>
             /// </summary>
-            [JsonPropertyName("start_time")]
-            public string? StartTime { get; set; }
+            [JsonPropertyName("destination_ids")]
+            public string[]? DestinationIds { get; set; }
 
             /// <summary>
-            /// 审批实例结束时间
+            /// <para>备注信息。</para>
+            /// <para>必填：否</para>
             /// </summary>
-            [JsonPropertyName("end_time")]
-            public string? EndTime { get; set; }
+            [JsonPropertyName("remark")]
+            public string? Remark { get; set; }
 
             /// <summary>
-            /// 出差计划
+            /// <para>交通工具。</para>
+            /// <para>必填：否</para>
             /// </summary>
-            [JsonPropertyName("schedules")]
-            public Schedule[]? Schedules { get; set; }
+            [JsonPropertyName("transportation")]
+            public string? Transportation { get; set; }
 
             /// <summary>
-            /// 出差时长
+            /// <para>出差开始时间。示例格式：2022-08-25 12:00:00</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("trip_start_time")]
+            public string? TripStartTime { get; set; }
+
+            /// <summary>
+            /// <para>出差结束时间。示例格式：2022-08-25 12:00:00</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("trip_end_time")]
+            public string? TripEndTime { get; set; }
+
+            /// <summary>
+            /// <para>出差时长。单位：秒</para>
+            /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("trip_interval")]
             public string? TripInterval { get; set; }
 
             /// <summary>
-            /// 出差原因
+            /// <para>出差类型。可能值：</para>
+            /// <para>- 单程</para>
+            /// <para>- 往返</para>
+            /// <para>必填：否</para>
             /// </summary>
-            [JsonPropertyName("trip_reason")]
-            public string? TripReason { get; set; }
+            [JsonPropertyName("trip_type")]
+            public string? TripType { get; set; }
+        }
 
+        /// <summary>
+        /// <para>审批提交人的信息。</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("start_user")]
+        public StartUserSuffix? StartUser { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public record StartUserSuffix
+        {
             /// <summary>
-            /// 同行人
+            /// <para>审批提交人的 ID。不同类型 ID 介绍参见[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction#9eb4f13c)。</para>
+            /// <para>必填：否</para>
             /// </summary>
-            [JsonPropertyName("trip_peers")]
-            public UserSuffix[]? TripPeers { get; set; }
+            [JsonPropertyName("id")]
+            public UserIdSuffix? Id { get; set; }
+        }
 
+        /// <summary>
+        /// <para>出差时长。单位：秒</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("trip_interval")]
+        public string? TripInterval { get; set; }
+
+        /// <summary>
+        /// <para>出差原因。</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("trip_reason")]
+        public string? TripReason { get; set; }
+
+        /// <summary>
+        /// <para>固定值 `APPROVED`</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
+
+        /// <summary>
+        /// <para>出差同行人信息。</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("trip_peers")]
+        public TripPeer[]? TripPeers { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public record TripPeer
+        {
             /// <summary>
-            /// 
+            /// <para>同行人 ID。不同类型 ID 介绍参见[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction#9eb4f13c)。</para>
+            /// <para>必填：否</para>
             /// </summary>
-            public record UserSuffix
-            {
-                /// <summary>
-                /// 
-                /// </summary>
-                [JsonPropertyName("id")]
-                public UserIdSuffix Id { get; set; } = new();
-            }
-
-            /// <summary>
-            /// 出差计划
-            /// </summary>
-            public record Schedule
-            {
-                /// <summary>
-                /// 出差开始时间
-                /// </summary>
-                [JsonPropertyName("trip_start_time")]
-                public string? TripStartTime { get; set; }
-
-                /// <summary>
-                /// 出差结束时间
-                /// </summary>
-                [JsonPropertyName("trip_end_time")]
-                public string? TripEndTime { get; set; }
-
-                /// <summary>
-                /// 出差时长
-                /// </summary>
-                [JsonPropertyName("trip_interval")]
-                public string? TripInterval { get; set; }
-
-                /// <summary>
-                /// 出发地
-                /// </summary>
-                [JsonPropertyName("departure")]
-                public string? Departure { get; set; }
-
-                /// <summary>
-                /// 出发地
-                /// </summary>
-                [JsonPropertyName("departure_id")]
-                public string? DepartureId { get; set; }
-
-                /// <summary>
-                /// 出差目的地
-                /// </summary>
-                [JsonPropertyName("destination")]
-                public string? Destination { get; set; }
-
-                /// <summary>
-                /// 出差目的地
-                /// </summary>
-                [JsonPropertyName("destination_ids")]
-                public string[]? DestinationIds { get; set; }
-
-                /// <summary>
-                /// 交通工具
-                /// </summary>
-                [JsonPropertyName("transportation")]
-                public string? Transportation { get; set; }
-
-                /// <summary>
-                /// 出差类型
-                /// </summary>
-                [JsonPropertyName("trip_type")]
-                public string? TripType { get; set; }
-
-                /// <summary>
-                /// 备注
-                /// </summary>
-                [JsonPropertyName("remark")]
-                public string? Remark { get; set; }
-            }
+            [JsonPropertyName("id")]
+            public UserIdSuffix? Id { get; set; }
         }
     }
 }

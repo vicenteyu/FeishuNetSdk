@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-03-14
+// Last Modified On : 2025-03-29
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -18,12 +18,6 @@ namespace FeishuNetSdk.Core;
     UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FallBackToNearestAncestor,
     IgnoreUnrecognizedTypeDiscriminators = true)]
 [JsonDerivedType(typeof(UrlVerificationDto), typeDiscriminator: "url_verification")]
-//【审批】审批定义更新
-[JsonDerivedType(typeof(EventV2Dto<Approval.Events.ApprovalApprovalUpdatedV4EventBodyDto>), typeDiscriminator: "approval.approval.updated_v4")]
-//【审批】出差审批
-[JsonDerivedType(typeof(EventV2Dto<Approval.Events.ApprovalInstanceTripGroupUpdateV4EventBodyDto>), typeDiscriminator: "approval.instance.trip_group_update_v4")]
-//【审批】补卡审批
-[JsonDerivedType(typeof(EventV2Dto<Approval.Events.ApprovalInstanceRemedyGroupUpdateV4EventBodyDto>), typeDiscriminator: "approval.instance.remedy_group_update_v4")]
 //【审批】审批抄送状态变更
 [JsonDerivedType(typeof(EventV1Dto<Approval.Events.ApprovalCcEventBodyDto>), typeDiscriminator: "approval_cc")]
 //【审批】审批任务状态变更
@@ -32,20 +26,28 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV1Dto<Approval.Events.ApprovalInstanceEventBodyDto>), typeDiscriminator: "approval_instance")]
 //【审批】审批通过通知
 [JsonDerivedType(typeof(EventV1Dto<Approval.Events.ApprovalEventBodyDto>), typeDiscriminator: "approval")]
+//【审批】请假撤销
+[JsonDerivedType(typeof(EventV1Dto<Approval.Events.LeaveApprovalRevertEventBodyDto>), typeDiscriminator: "leave_approval_revert")]
+//【审批】审批通过并撤销
+[JsonDerivedType(typeof(EventV1Dto<Approval.Events.OutApprovalRevertEventBodyDto>), typeDiscriminator: "out_approval_revert")]
+//【审批】加班审批通过并撤销
+[JsonDerivedType(typeof(EventV1Dto<Approval.Events.WorkApprovalRevertEventBodyDto>), typeDiscriminator: "work_approval_revert")]
+//【回调】拉取链接预览数据
+[JsonDerivedType(typeof(CallbackV2Dto<CallbackEvents.UrlPreviewGetEventBodyDto>), typeDiscriminator: "url.preview.get")]
+//【回调】卡片回传交互
+[JsonDerivedType(typeof(CallbackV2Dto<CallbackEvents.CardActionTriggerEventBodyDto>), typeDiscriminator: "card.action.trigger")]
+//【审批】补卡审批
+[JsonDerivedType(typeof(EventV1Dto<Approval.Events.ApprovalInstanceRemedyGroupUpdateV4EventBodyDto>), typeDiscriminator: "approval.instance.remedy_group_update_v4")]
+//【审批】出差审批
+[JsonDerivedType(typeof(EventV1Dto<Approval.Events.ApprovalInstanceTripGroupUpdateV4EventBodyDto>), typeDiscriminator: "approval.instance.trip_group_update_v4")]
+//【审批】请假审批
+[JsonDerivedType(typeof(EventV1Dto<Approval.Events.LeaveApprovalV2EventBodyDto>), typeDiscriminator: "leave_approvalV2")]
 //【审批】外出审批
 [JsonDerivedType(typeof(EventV1Dto<Approval.Events.OutApprovalEventBodyDto>), typeDiscriminator: "out_approval")]
 //【审批】换班审批
 [JsonDerivedType(typeof(EventV1Dto<Approval.Events.ShiftApprovalEventBodyDto>), typeDiscriminator: "shift_approval")]
 //【审批】加班审批
 [JsonDerivedType(typeof(EventV1Dto<Approval.Events.WorkApprovalEventBodyDto>), typeDiscriminator: "work_approval")]
-//【审批】请假审批
-[JsonDerivedType(typeof(EventV1Dto<Approval.Events.LeaveApprovalV2EventBodyDto>), typeDiscriminator: "leave_approvalV2")]
-//【审批】请假撤销
-[JsonDerivedType(typeof(EventV1Dto<Approval.Events.LeaveApprovalRevertEventBodyDto>), typeDiscriminator: "leave_approval_revert")]
-//【回调】拉取链接预览数据
-[JsonDerivedType(typeof(CallbackV2Dto<CallbackEvents.UrlPreviewGetEventBodyDto>), typeDiscriminator: "url.preview.get")]
-//【回调】卡片回传交互
-[JsonDerivedType(typeof(CallbackV2Dto<CallbackEvents.CardActionTriggerEventBodyDto>), typeDiscriminator: "card.action.trigger")]
 //【会议室】第三方会议室日程变动
 [JsonDerivedType(typeof(EventV1Dto<MeetingRoom.Events.ThirdPartyMeetingRoomEventCreatedEventBodyDto>), typeDiscriminator: "third_party_meeting_room_event_created")]
 //【智能门禁】新增门禁访问记录
@@ -68,6 +70,8 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Application.Events.ApplicationApplicationVisibilityAddedV6EventBodyDto>), typeDiscriminator: "application.application.visibility.added_v6")]
 //【应用信息】机器人自定义菜单事件
 [JsonDerivedType(typeof(EventV2Dto<Application.Events.ApplicationBotMenuV6EventBodyDto>), typeDiscriminator: "application.bot.menu_v6")]
+//【审批】审批定义更新
+[JsonDerivedType(typeof(EventV2Dto<Approval.Events.ApprovalApprovalUpdatedV4EventBodyDto>), typeDiscriminator: "approval.approval.updated_v4")]
 //【日历】创建 ACL
 [JsonDerivedType(typeof(EventV2Dto<Calendar.Events.CalendarCalendarAclCreatedV4EventBodyDto>), typeDiscriminator: "calendar.calendar.acl.created_v4")]
 //【日历】删除 ACL

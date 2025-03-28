@@ -4,7 +4,7 @@
 // Created          : 2024-12-12
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-12
+// Last Modified On : 2025-03-29
 // ************************************************************************
 // <copyright file="PostCorehrV2ReportDetailRowBatchSaveBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -145,11 +145,58 @@ public record PostCorehrV2ReportDetailRowBatchSaveBodyDto
         }
 
         /// <summary>
-        /// <para>编制规划值需与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看编制规划的小数位数。</para>
+        /// <para>编制规划值需与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看编制规划的小数位数。注意当编制规划方案是按自然周期选择时，该值必须为空，需要设置自然周期的编制规划信息multi_period_values。</para>
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
         [JsonPropertyName("plan_value")]
         public string? PlanValue { get; set; }
+
+        /// <summary>
+        /// <para>自然周期的编制规划信息。当编制规划方案是按自然周期选择时，设置该字段。功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：15</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("multi_period_values")]
+        public WorkforcePlanMultiPeriodValue[]? MultiPeriodValues { get; set; }
+
+        /// <summary>
+        /// <para>自然周期的编制规划信息。当编制规划方案是按自然周期选择时，设置该字段。功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// </summary>
+        public record WorkforcePlanMultiPeriodValue
+        {
+            /// <summary>
+            /// <para>周期的最后一天。注意需要在填报选择的周期范围内。</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2022-10-31</para>
+            /// </summary>
+            [JsonPropertyName("period_date")]
+            public string? PeriodDate { get; set; }
+
+            /// <summary>
+            /// <para>对应自然周期的编制规划值。编制规划值需与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看编制规划的小数位数。</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：12.00</para>
+            /// </summary>
+            [JsonPropertyName("workforce_plan")]
+            public string? WorkforcePlan { get; set; }
+
+            /// <summary>
+            /// <para>对应自然周期预增员数量。批量创建更新时，无需写入此字段。</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：10.00</para>
+            /// </summary>
+            [JsonPropertyName("individuals_to_be_added")]
+            public string? IndividualsToBeAdded { get; set; }
+
+            /// <summary>
+            /// <para>对应自然周期预减员数量。批量创建更新时，无需写入此字段。</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：10.00</para>
+            /// </summary>
+            [JsonPropertyName("individuals_to_be_removed")]
+            public string? IndividualsToBeRemoved { get; set; }
+        }
     }
 }

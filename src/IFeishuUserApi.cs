@@ -2541,6 +2541,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 支持使用多语种搜索（飞书客户端内支持的多语种）</para>
     /// <para>- 支持拼音、前缀等模糊搜索</para>
     /// <para>- 关键词为空值或长度超过 `64` 个字符时将返回空的结果</para>
+    /// <para>- 关键词中尽量不要包含 `-` 符号。如果必须包含该符号，请在传值时添加双引号，例如 `“Example-0”`。</para>
     /// <para>示例值：abc</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -4770,6 +4771,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>docs:doc:readonly</item>
+    /// <item>docs:document.comment:delete</item>
     /// <item>docs:document.comment:write_only</item>
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -4797,13 +4799,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：doc</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档，已不推荐使用</item>
+    /// <item>docx：新版文档</item>
     /// <item>sheet：表格</item>
     /// <item>file：文件</item>
-    /// <item>docx：新版文档</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -4824,6 +4827,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>docs:doc:readonly</item>
+    /// <item>docs:document.comment:update</item>
     /// <item>docs:document.comment:write_only</item>
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -4854,13 +4858,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：doc</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档，已不推荐使用</item>
+    /// <item>docx：新版文档</item>
     /// <item>sheet：表格</item>
     /// <item>file：文件</item>
-    /// <item>docx：新版文档</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="user_id_type">
@@ -4895,6 +4900,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>docs:doc:readonly</item>
+    /// <item>docs:document.comment:create</item>
     /// <item>docs:document.comment:write_only</item>
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -4914,10 +4920,10 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：doc</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档，已不推荐使用</item>
     /// <item>docx：新版文档</item>
     /// </list>
     /// </param>
@@ -4951,6 +4957,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>docs:doc:readonly</item>
+    /// <item>docs:document.comment:update</item>
     /// <item>docs:document.comment:write_only</item>
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -4972,13 +4979,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：doc</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档，已不推荐使用</item>
+    /// <item>docx：新版文档</item>
     /// <item>sheet：表格</item>
     /// <item>file：文件</item>
-    /// <item>docx：新版文档</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -5000,6 +5008,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>docs:doc:readonly</item>
+    /// <item>docs:document.comment:read</item>
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
     /// <item>sheets:spreadsheet</item>
@@ -5023,10 +5032,10 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：doc</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档，已不推荐使用</item>
     /// <item>sheet：表格</item>
     /// <item>file：文件</item>
     /// <item>docx：新版文档</item>
@@ -5079,13 +5088,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：doc</para>
     /// <list type="bullet">
-    /// <item>doc：文档类型</item>
+    /// <item>doc：旧版文档类型，已不推荐使用</item>
+    /// <item>docx：新版文档类型</item>
     /// <item>sheet：电子表格类型</item>
     /// <item>file：文件类型</item>
-    /// <item>docx：新版文档类型</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="is_whole">
@@ -11761,7 +11771,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>sheet：电子表格</item>
     /// <item>bitable：多维表格</item>
+    /// <item>file：文件</item>
     /// <item>folder：文件夹</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="event_type">
@@ -13251,13 +13263,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档类型</item>
+    /// <item>doc：旧版文档类型，已不推荐使用</item>
+    /// <item>docx：新版文档类型</item>
     /// <item>sheet：电子表格类型</item>
     /// <item>file：文件类型</item>
-    /// <item>docx：新版文档类型</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="user_id_type">
@@ -13322,13 +13335,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档类型</item>
+    /// <item>doc：旧版文档，已不推荐使用</item>
+    /// <item>docx：新版文档类型</item>
     /// <item>sheet：电子表格类型</item>
     /// <item>file：文件夹类型</item>
-    /// <item>docx：新版文档类型</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="user_id_type">
@@ -17278,6 +17292,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>bitable：多维表格</item>
     /// <item>file：文件</item>
     /// <item>folder：文件夹</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="event_type">
@@ -17327,6 +17342,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>bitable：多维表格</item>
     /// <item>file：文件</item>
     /// <item>folder：文件夹</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="event_type">

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-03-21
+// Last Modified On : 2025-03-29
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -4429,6 +4429,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 支持使用多语种搜索（飞书客户端内支持的多语种）</para>
     /// <para>- 支持拼音、前缀等模糊搜索</para>
     /// <para>- 关键词为空值或长度超过 `64` 个字符时将返回空的结果</para>
+    /// <para>- 关键词中尽量不要包含 `-` 符号。如果必须包含该符号，请在传值时添加双引号，例如 `“Example-0”`。</para>
     /// <para>示例值：abc</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -8521,6 +8522,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>docs:doc:readonly</item>
+    /// <item>docs:document.comment:delete</item>
     /// <item>docs:document.comment:write_only</item>
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -8548,13 +8550,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：doc</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档，已不推荐使用</item>
+    /// <item>docx：新版文档</item>
     /// <item>sheet：表格</item>
     /// <item>file：文件</item>
-    /// <item>docx：新版文档</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     [HttpDelete("/open-apis/drive/v1/files/{file_token}/comments/{comment_id}/replies/{reply_id}")]
@@ -8573,6 +8576,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>docs:doc:readonly</item>
+    /// <item>docs:document.comment:update</item>
     /// <item>docs:document.comment:write_only</item>
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -8603,13 +8607,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：doc</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档，已不推荐使用</item>
+    /// <item>docx：新版文档</item>
     /// <item>sheet：表格</item>
     /// <item>file：文件</item>
-    /// <item>docx：新版文档</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="user_id_type">
@@ -8642,6 +8647,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>docs:doc:readonly</item>
+    /// <item>docs:document.comment:create</item>
     /// <item>docs:document.comment:write_only</item>
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -8661,10 +8667,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：doc</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档，已不推荐使用</item>
     /// <item>docx：新版文档</item>
     /// </list>
     /// </param>
@@ -8696,6 +8702,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>docs:doc:readonly</item>
+    /// <item>docs:document.comment:update</item>
     /// <item>docs:document.comment:write_only</item>
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -8717,13 +8724,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：doc</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档，已不推荐使用</item>
+    /// <item>docx：新版文档</item>
     /// <item>sheet：表格</item>
     /// <item>file：文件</item>
-    /// <item>docx：新版文档</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -8743,6 +8751,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>docs:doc:readonly</item>
+    /// <item>docs:document.comment:read</item>
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
     /// <item>sheets:spreadsheet</item>
@@ -8766,10 +8775,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：doc</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档，已不推荐使用</item>
     /// <item>sheet：表格</item>
     /// <item>file：文件</item>
     /// <item>docx：新版文档</item>
@@ -8820,13 +8829,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：doc</para>
     /// <list type="bullet">
-    /// <item>doc：文档类型</item>
+    /// <item>doc：旧版文档类型，已不推荐使用</item>
+    /// <item>docx：新版文档类型</item>
     /// <item>sheet：电子表格类型</item>
     /// <item>file：文件类型</item>
-    /// <item>docx：新版文档类型</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="is_whole">
@@ -23919,7 +23929,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// <item>sheet：电子表格</item>
     /// <item>bitable：多维表格</item>
+    /// <item>file：文件</item>
     /// <item>folder：文件夹</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="event_type">
@@ -26809,7 +26821,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="approval_code">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>审批定义唯一标识</para>
+    /// <para>审批定义 Code。获取方式：</para>
+    /// <para>- 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数 approval_code 获取。</para>
+    /// <para>- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。</para>
     /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A85</para>
     /// </param>
     [HttpPost("/open-apis/approval/v4/approvals/{approval_code}/subscribe")]
@@ -27088,16 +27102,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7117964632137220099</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>取消订阅 approval_code 后，无法再收到该审批定义对应实例的事件通知</para>
+    /// <para>调用[订阅审批事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe)接口订阅审批定义 Code 后，如果不再需要接收该审批定义下的事件订阅通知，可以调用本接口取消订阅审批定义 Code，取消后应用无法再收到该审批定义对应实例的事件通知。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
+    /// <item>approval:definition</item>
     /// </list></para>
     /// </summary>
     /// <param name="approval_code">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>审批定义唯一标识</para>
-    /// <para>**示例值**："7C468A54-8745-2245-9675-08B7C63E7A85"</para>
+    /// <para>审批定义 Code。获取方式：</para>
+    /// <para>- 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数 approval_code 获取。</para>
+    /// <para>- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。</para>
+    /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A85</para>
     /// </param>
     [HttpPost("/open-apis/approval/v4/approvals/{approval_code}/unsubscribe")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4ApprovalsByApprovalCodeUnsubscribeAsync(
@@ -27726,13 +27743,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档类型</item>
+    /// <item>doc：旧版文档类型，已不推荐使用</item>
+    /// <item>docx：新版文档类型</item>
     /// <item>sheet：电子表格类型</item>
     /// <item>file：文件类型</item>
-    /// <item>docx：新版文档类型</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="user_id_type">
@@ -27795,13 +27813,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="file_type">
     /// <para>必填：是</para>
-    /// <para>文档类型</para>
+    /// <para>云文档类型</para>
     /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档类型</item>
+    /// <item>doc：旧版文档，已不推荐使用</item>
+    /// <item>docx：新版文档类型</item>
     /// <item>sheet：电子表格类型</item>
     /// <item>file：文件夹类型</item>
-    /// <item>docx：新版文档类型</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="user_id_type">
@@ -32753,6 +32772,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:employment.job_level:write</item>
     /// <item>corehr:employment.job:read</item>
     /// <item>corehr:employment.offboarding_reason:read</item>
+    /// <item>corehr:employment.pathway:read</item>
+    /// <item>corehr:employment.pathway:write</item>
     /// <item>corehr:employment.pay_group:read</item>
     /// <item>corehr:employment.position:read</item>
     /// <item>corehr:employment.position:write</item>
@@ -32762,6 +32783,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:job_data.service_company:read</item>
     /// <item>corehr:job_data.work_shift:read</item>
     /// <item>corehr:job.job_level:read</item>
+    /// <item>corehr:person.additional_name:read</item>
+    /// <item>corehr:person.additional_name:write</item>
     /// <item>corehr:person.address:read</item>
     /// <item>corehr:person.address:write</item>
     /// <item>corehr:person.bank_account:read</item>
@@ -35577,6 +35600,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:employment.job_level:write</item>
     /// <item>corehr:employment.job:read</item>
     /// <item>corehr:employment.offboarding_reason:read</item>
+    /// <item>corehr:employment.pathway:read</item>
+    /// <item>corehr:employment.pathway:write</item>
     /// <item>corehr:employment.pay_group:read</item>
     /// <item>corehr:employment.position:read</item>
     /// <item>corehr:employment.position:write</item>
@@ -37307,6 +37332,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>bitable：多维表格</item>
     /// <item>file：文件</item>
     /// <item>folder：文件夹</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="event_type">
@@ -37354,6 +37380,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>bitable：多维表格</item>
     /// <item>file：文件</item>
     /// <item>folder：文件夹</item>
+    /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="event_type">
@@ -48443,5 +48470,47 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Corehr.PostCorehrV2WorkforcePlanDetailsBatchV2BodyDto dto,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 100);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询当前生效信息发生变更的职务</para>
+    /// <para>接口ID：7473775676862119940</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/query_recent_change</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询指定时间范围内当前生效信息发生变更的职务，即只有职务当前生效版本的生效时间在查询时间范围内，才返回该职务id</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:job:read</item>
+    /// <item>corehr:job:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 2000</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="start_date">
+    /// <para>必填：是</para>
+    /// <para>查询的开始时间，支持"yyyy-MM-dd HH:MM:SS"。</para>
+    /// <para>- 限定查询范围在90天以内</para>
+    /// <para>示例值：2024-01-01 00:00:00</para>
+    /// </param>
+    /// <param name="end_date">
+    /// <para>必填：是</para>
+    /// <para>查询的结束时间，格式 "yyyy-MM-dd HH:MM:SS"。</para>
+    /// <para>- 限定查询范围在90天以内</para>
+    /// <para>示例值：2024-04-01 00:00:00</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v2/jobs/query_recent_change")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2JobsQueryRecentChangeResponseDto>> GetCorehrV2JobsQueryRecentChangeAsync(
+        [PathQuery] string start_date,
+        [PathQuery] string end_date,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
 }
 

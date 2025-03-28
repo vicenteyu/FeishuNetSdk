@@ -61,7 +61,7 @@ public record GetDriveV1FilesResponseDto
         /// <para>- `file`：文件</para>
         /// <para>- `docx`：新版文档</para>
         /// <para>- `folder`：文件夹</para>
-        /// <para>- `shortcut`: 快捷方式（暂不支持）</para>
+        /// <para>- `shortcut`: 快捷方式</para>
         /// <para>必填：是</para>
         /// <para>示例值：docx</para>
         /// </summary>
@@ -85,14 +85,14 @@ public record GetDriveV1FilesResponseDto
         public string? Url { get; set; }
 
         /// <summary>
-        /// <para>快捷方式类型文件的信息（暂不支持）</para>
+        /// <para>快捷方式类型文件的信息</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("shortcut_info")]
         public FileShortcutInfo? ShortcutInfo { get; set; }
 
         /// <summary>
-        /// <para>快捷方式类型文件的信息（暂不支持）</para>
+        /// <para>快捷方式类型文件的信息</para>
         /// </summary>
         public record FileShortcutInfo
         {

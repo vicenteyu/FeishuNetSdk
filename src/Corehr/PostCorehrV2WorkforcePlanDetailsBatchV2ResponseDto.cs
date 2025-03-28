@@ -4,7 +4,7 @@
 // Created          : 2025-02-28
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-02-28
+// Last Modified On : 2025-03-29
 // ************************************************************************
 // <copyright file="PostCorehrV2WorkforcePlanDetailsBatchV2ResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -218,6 +218,53 @@ public record PostCorehrV2WorkforcePlanDetailsBatchV2ResponseDto
             /// </summary>
             [JsonPropertyName("estimated_active_individuals")]
             public string? EstimatedActiveIndividuals { get; set; }
+        }
+
+        /// <summary>
+        /// <para>自然周期的编制规划信息。功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：15</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("multi_period_values")]
+        public WorkforcePlanMultiPeriodValue[]? MultiPeriodValues { get; set; }
+
+        /// <summary>
+        /// <para>自然周期的编制规划信息。功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// </summary>
+        public record WorkforcePlanMultiPeriodValue
+        {
+            /// <summary>
+            /// <para>自然周期的最后一天</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2022-10-31</para>
+            /// </summary>
+            [JsonPropertyName("period_date")]
+            public string? PeriodDate { get; set; }
+
+            /// <summary>
+            /// <para>对应自然周期的编制规划值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：12.00</para>
+            /// </summary>
+            [JsonPropertyName("workforce_plan")]
+            public string? WorkforcePlan { get; set; }
+
+            /// <summary>
+            /// <para>对应自然周期的预增员数量</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：10.00</para>
+            /// </summary>
+            [JsonPropertyName("individuals_to_be_added")]
+            public string? IndividualsToBeAdded { get; set; }
+
+            /// <summary>
+            /// <para>对应自然周期的预减员数量</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：10.00</para>
+            /// </summary>
+            [JsonPropertyName("individuals_to_be_removed")]
+            public string? IndividualsToBeRemoved { get; set; }
         }
     }
 

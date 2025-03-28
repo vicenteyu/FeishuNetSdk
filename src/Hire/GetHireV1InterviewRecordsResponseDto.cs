@@ -87,6 +87,7 @@ public record GetHireV1InterviewRecordsResponseDto
         /// <item>3：未开始</item>
         /// <item>4：未提交</item>
         /// <item>5：未到场</item>
+        /// <item>6：待定</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("conclusion")]
@@ -338,7 +339,7 @@ public record GetHireV1InterviewRecordsResponseDto
             /// <summary>
             /// <para>面试官用户 ID，与入参 `user_id_type` 类型一致</para>
             /// <para>必填：否</para>
-            /// <para>示例值：1213213123123</para>
+            /// <para>示例值：ou_bc6dd7d30630700f443193d602841086</para>
             /// </summary>
             [JsonPropertyName("id")]
             public string? Id { get; set; }

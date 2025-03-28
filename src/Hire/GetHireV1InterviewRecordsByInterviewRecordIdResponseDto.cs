@@ -87,6 +87,7 @@ public record GetHireV1InterviewRecordsByInterviewRecordIdResponseDto
         /// <item>3：未开始</item>
         /// <item>4：未提交</item>
         /// <item>5：未到场</item>
+        /// <item>6：待定</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("conclusion")]

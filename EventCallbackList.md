@@ -1,17 +1,12 @@
 ## 事件回调类型清单
 <table><thead><tr><th>事件代码</th><th>事件类型</th><th>描述</th></tr></thead><tbody>
-<tr><td>approval.approval.updated_v4</td><td>EventV2Dto&lt;Approval.Events.ApprovalApprovalUpdatedV4EventBodyDto&gt;</td><td>【审批】审批定义更新</td></tr>
-<tr><td>approval.instance.trip_group_update_v4</td><td>EventV2Dto&lt;Approval.Events.ApprovalInstanceTripGroupUpdateV4EventBodyDto&gt;</td><td>【审批】出差审批</td></tr>
-<tr><td>approval.instance.remedy_group_update_v4</td><td>EventV2Dto&lt;Approval.Events.ApprovalInstanceRemedyGroupUpdateV4EventBodyDto&gt;</td><td>【审批】补卡审批</td></tr>
 <tr><td>approval_cc</td><td>EventV1Dto&lt;Approval.Events.ApprovalCcEventBodyDto&gt;</td><td>【审批】审批抄送状态变更</td></tr>
 <tr><td>approval_task</td><td>EventV1Dto&lt;Approval.Events.ApprovalTaskEventBodyDto&gt;</td><td>【审批】审批任务状态变更</td></tr>
 <tr><td>approval_instance</td><td>EventV1Dto&lt;Approval.Events.ApprovalInstanceEventBodyDto&gt;</td><td>【审批】审批实例状态变更</td></tr>
 <tr><td>approval</td><td>EventV1Dto&lt;Approval.Events.ApprovalEventBodyDto&gt;</td><td>【审批】审批通过通知</td></tr>
-<tr><td>out_approval</td><td>EventV1Dto&lt;Approval.Events.OutApprovalEventBodyDto&gt;</td><td>【审批】外出审批</td></tr>
-<tr><td>shift_approval</td><td>EventV1Dto&lt;Approval.Events.ShiftApprovalEventBodyDto&gt;</td><td>【审批】换班审批</td></tr>
-<tr><td>work_approval</td><td>EventV1Dto&lt;Approval.Events.WorkApprovalEventBodyDto&gt;</td><td>【审批】加班审批</td></tr>
-<tr><td>leave_approvalV2</td><td>EventV1Dto&lt;Approval.Events.LeaveApprovalV2EventBodyDto&gt;</td><td>【审批】请假审批</td></tr>
 <tr><td>leave_approval_revert</td><td>EventV1Dto&lt;Approval.Events.LeaveApprovalRevertEventBodyDto&gt;</td><td>【审批】请假撤销</td></tr>
+<tr><td>out_approval_revert</td><td>EventV1Dto&lt;Approval.Events.OutApprovalRevertEventBodyDto&gt;</td><td>【审批】审批通过并撤销</td></tr>
+<tr><td>work_approval_revert</td><td>EventV1Dto&lt;Approval.Events.WorkApprovalRevertEventBodyDto&gt;</td><td>【审批】加班审批通过并撤销</td></tr>
 <tr><td>url.preview.get</td><td>CallbackV2Dto&lt;CallbackEvents.UrlPreviewGetEventBodyDto&gt;</td><td>【回调】拉取链接预览数据</td></tr>
 <tr><td>card.action.trigger</td><td>CallbackV2Dto&lt;CallbackEvents.CardActionTriggerEventBodyDto&gt;</td><td>【回调】卡片回传交互</td></tr>
 <tr><td>corehr.process.cc.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessCcUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】抄送单据状态变更</td></tr>
@@ -100,6 +95,13 @@
 <tr><td>calendar.calendar.event.changed_v4</td><td>EventV2Dto&lt;Calendar.Events.CalendarCalendarEventChangedV4EventBodyDto&gt;</td><td>【日历】日程变更</td></tr>
 <tr><td>calendar.calendar.changed_v4</td><td>EventV2Dto&lt;Calendar.Events.CalendarCalendarChangedV4EventBodyDto&gt;</td><td>【日历】日历变更</td></tr>
 <tr><td>calendar.calendar.acl.deleted_v4</td><td>EventV2Dto&lt;Calendar.Events.CalendarCalendarAclDeletedV4EventBodyDto&gt;</td><td>【日历】删除 ACL</td></tr>
+<tr><td>approval.instance.remedy_group_update_v4</td><td>EventV1Dto&lt;Approval.Events.ApprovalInstanceRemedyGroupUpdateV4EventBodyDto&gt;</td><td>【审批】补卡审批</td></tr>
+<tr><td>approval.instance.trip_group_update_v4</td><td>EventV1Dto&lt;Approval.Events.ApprovalInstanceTripGroupUpdateV4EventBodyDto&gt;</td><td>【审批】出差审批</td></tr>
+<tr><td>shift_approval</td><td>EventV1Dto&lt;Approval.Events.ShiftApprovalEventBodyDto&gt;</td><td>【审批】换班审批</td></tr>
+<tr><td>work_approval</td><td>EventV1Dto&lt;Approval.Events.WorkApprovalEventBodyDto&gt;</td><td>【审批】加班审批</td></tr>
+<tr><td>leave_approvalV2</td><td>EventV1Dto&lt;Approval.Events.LeaveApprovalV2EventBodyDto&gt;</td><td>【审批】请假审批</td></tr>
+<tr><td>approval.approval.updated_v4</td><td>EventV2Dto&lt;Approval.Events.ApprovalApprovalUpdatedV4EventBodyDto&gt;</td><td>【审批】审批定义更新</td></tr>
+<tr><td>out_approval</td><td>EventV1Dto&lt;Approval.Events.OutApprovalEventBodyDto&gt;</td><td>【审批】外出审批</td></tr>
 <tr><td>vc.room.created_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomCreatedV1EventBodyDto&gt;</td><td>【视频会议】创建会议室</td></tr>
 <tr><td>vc.room_level.created_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomLevelCreatedV1EventBodyDto&gt;</td><td>【视频会议】创建会议室层级</td></tr>
 <tr><td>vc.room.updated_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomUpdatedV1EventBodyDto&gt;</td><td>【视频会议】更新会议室</td></tr>

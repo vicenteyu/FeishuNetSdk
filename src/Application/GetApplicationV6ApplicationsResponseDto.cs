@@ -410,7 +410,7 @@ public record GetApplicationV6ApplicationsResponseDto
     public bool? HasMore { get; set; }
 
     /// <summary>
-    /// <para>应用状态=启用的应用总数</para>
+    /// <para>当前页面数据里，应用状态为“启用”的应用总数</para>
     /// <para>必填：否</para>
     /// <para>示例值：20</para>
     /// </summary>
