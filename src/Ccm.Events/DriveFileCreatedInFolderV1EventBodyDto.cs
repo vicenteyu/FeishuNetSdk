@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Ccm.Events;
 /// <summary>
 /// 文件夹下文件创建 事件体
-/// <para>当用户订阅的文件夹下有新建文件时将触发此事件。</para>
+/// <para>当用户订阅的文件夹下有新建文件时将触发此事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=drive&amp;version=v1&amp;resource=file&amp;event=created_in_folder)</para>
 /// <para>接口ID：7443780882928549892</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/created_in_folder</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile%2fevents%2fcreated_in_folder</para>

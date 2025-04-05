@@ -2135,7 +2135,7 @@
 <tr><td colspan="3">PostCorehrV2DepartmentsQueryMultiTimeline</td></tr>
 <tr><td rowspan="2">1068</td><td rowspan="2">2024-05-29</td><td><span style="color:red;">删除</span></td><td>云文档</td><td>搜索文件</td></tr>
 <tr><td colspan="3">PostSuiteDocsApiSearchObject</td></tr>
-<tr><td rowspan="2">1069</td><td rowspan="2">2025-03-26</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
+<tr><td rowspan="2">1069</td><td rowspan="2">2025-04-01</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
 <tr><td colspan="3">PostCorehrV2Employees</td></tr>
 <tr><td rowspan="2">1070</td><td rowspan="2">2024-11-06</td><td>&#10003;</td><td>招聘</td><td>获取角色详情</td></tr>
 <tr><td colspan="3">GetHireV1RolesByRoleId</td></tr>
@@ -2365,7 +2365,7 @@
 <tr><td colspan="3">GetHireV1UserRoles</td></tr>
 <tr><td rowspan="2">1183</td><td rowspan="2">2024-08-26</td><td>&#10003;</td><td>招聘</td><td>查询面试官信息列表</td></tr>
 <tr><td colspan="3">GetHireV1Interviewers</td></tr>
-<tr><td rowspan="2">1184</td><td rowspan="2">2025-03-13</td><td>&#10003;</td><td>招聘</td><td>更新面试官信息</td></tr>
+<tr><td rowspan="2">1184</td><td rowspan="2">2025-04-01</td><td>&#10003;</td><td>招聘</td><td>更新面试官信息</td></tr>
 <tr><td colspan="3">PatchHireV1InterviewersByInterviewerId</td></tr>
 <tr><td rowspan="2">1185</td><td rowspan="2">2024-08-26</td><td>&#10003;</td><td>招聘</td><td>获取面试速记明细</td></tr>
 <tr><td colspan="3">GetHireV1Minutes</td></tr>
@@ -2623,7 +2623,7 @@
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildren</td></tr>
 <tr><td rowspan="2">1312</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>删除群公告中的块</td></tr>
 <tr><td colspan="3">DeleteDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenBatchDelete</td></tr>
-<tr><td rowspan="2">1313</td><td rowspan="2">2025-02-12</td><td>&#10003;</td><td>云文档</td><td>获取群公告基本信息</td></tr>
+<tr><td rowspan="2">1313</td><td rowspan="2">2025-04-03</td><td>&#10003;</td><td>云文档</td><td>获取群公告基本信息</td></tr>
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncement</td></tr>
 <tr><td rowspan="2">1314</td><td rowspan="2">2024-12-19</td><td>&#10003;</td><td>云文档</td><td>获取群公告所有块</td></tr>
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncementBlocks</td></tr>
@@ -2695,6 +2695,6 @@
 <tr><td colspan="3">PostPayrollV1DatasourceRecordsQuery</td></tr>
 <tr><td rowspan="2">1348</td><td rowspan="2">2025-03-18</td><td>&#10003;</td><td>Payroll</td><td>获取外部数据源配置信息</td></tr>
 <tr><td colspan="3">GetPayrollV1Datasources</td></tr>
-<tr><td rowspan="2">1349</td><td rowspan="2">2025-03-27</td><td>新增</td><td>飞书人事（企业版）</td><td>查询当前生效信息发生变更的职务</td></tr>
+<tr><td rowspan="2">1349</td><td rowspan="2">2025-03-27</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询当前生效信息发生变更的职务</td></tr>
 <tr><td colspan="3">GetCorehrV2JobsQueryRecentChange</td></tr>
 </tbody></table>

@@ -4,7 +4,7 @@
 // Created          : 2024-12-21
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-21
+// Last Modified On : 2025-04-05
 // ************************************************************************
 // <copyright file="GetDocxV1ChatsByChatIdAnnouncementResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -39,7 +39,7 @@ public record GetDocxV1ChatsByChatIdAnnouncementResponseDto
     /// <para>示例值：1609296809</para>
     /// </summary>
     [JsonPropertyName("create_time")]
-    public string? CreateTime { get; set; }
+    public long? CreateTime { get; set; }
 
     /// <summary>
     /// <para>群公告更新的时间戳（秒）</para>
@@ -47,7 +47,7 @@ public record GetDocxV1ChatsByChatIdAnnouncementResponseDto
     /// <para>示例值：1609296809</para>
     /// </summary>
     [JsonPropertyName("update_time")]
-    public string? UpdateTime { get; set; }
+    public long? UpdateTime { get; set; }
 
     /// <summary>
     /// <para>群公告所有者 ID，ID 值与 owner_id_type 中的ID类型对应</para>
@@ -102,4 +102,20 @@ public record GetDocxV1ChatsByChatIdAnnouncementResponseDto
     /// </summary>
     [JsonPropertyName("announcement_type")]
     public string? AnnouncementType { get; set; }
+
+    /// <summary>
+    /// <para>群公告生成的时间戳（秒）（该字段暂未提供使用）</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：1609296809</para>
+    /// </summary>
+    [JsonPropertyName("create_time_v2")]
+    public string? CreateTimeV2 { get; set; }
+
+    /// <summary>
+    /// <para>群公告更新的时间戳（秒）（该字段暂未提供使用）</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：1609296809</para>
+    /// </summary>
+    [JsonPropertyName("update_time_v2")]
+    public string? UpdateTimeV2 { get; set; }
 }

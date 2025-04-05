@@ -52,7 +52,8 @@ public record PostAuthenV2OauthTokenResponseDto
     public string? RefreshToken { get; set; }
 
     /// <summary>
-    /// <para>即 `refresh_token` 的有效期，单位为秒，仅在返回 `refresh_token` 时返回</para>
+    /// <para>即 `refresh_token` 的有效期，单位为秒，仅在返回 `refresh_token` 时返回。</para>
+    /// <para>建议在到期前调用[刷新 user_access_token](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token) 接口获取新的 `refresh_token`。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("refresh_token_expires_in")]

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Ccm.Events;
 /// <summary>
 /// 文件标题变更 事件体
-/// <para>云文档标题变更事件。被订阅的云文档标题发生变更时，将会触发此事件。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。</para>
+/// <para>云文档标题变更事件。被订阅的云文档标题发生变更时，将会触发此事件。</para>
 /// <para>接口ID：7013346140632645660</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/event/list/file-title-update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fevent%2ffile-title-update</para>

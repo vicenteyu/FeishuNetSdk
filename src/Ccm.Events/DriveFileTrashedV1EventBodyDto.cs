@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Ccm.Events;
 /// <summary>
 /// 文件删除到回收站 事件体
-/// <para>被订阅的文件被删除到回收站时，将触发此事件。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。</para>
+/// <para>被订阅的文件被删除到回收站时，将触发此事件。</para>
 /// <para>接口ID：7013346140632563740</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/event/list/delete-file-to-trash-can</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fevent%2fdelete-file-to-trash-can</para>

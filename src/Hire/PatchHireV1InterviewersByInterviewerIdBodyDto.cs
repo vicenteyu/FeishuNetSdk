@@ -38,8 +38,8 @@ public record PatchHireV1InterviewersByInterviewerIdBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>1：已认证</item>
-        /// <item>2：未认证</item>
+        /// <item>1：未认证</item>
+        /// <item>2：已认证</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("verify_status")]

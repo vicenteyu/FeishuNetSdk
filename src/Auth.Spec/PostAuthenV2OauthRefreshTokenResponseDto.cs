@@ -53,7 +53,8 @@ public record PostAuthenV2OauthRefreshTokenResponseDto
     public string? RefreshToken { get; set; }
 
     /// <summary>
-    /// <para>即 `refresh_token` 的有效期，单位为秒，仅在返回 `refresh_token` 时返回</para>
+    /// <para>即 `refresh_token` 的有效期，单位为秒，仅在返回 `refresh_token` 时返回。</para>
+    /// <para>建议在到期前重新调用当前接口获取新的 `refresh_token`。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("refresh_token_expires_in")]

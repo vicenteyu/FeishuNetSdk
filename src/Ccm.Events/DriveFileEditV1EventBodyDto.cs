@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Ccm.Events;
 /// <summary>
 /// 文件编辑 事件体
-/// <para>文件编辑（包括多维表格字段和记录变更）时，将触发此事件。订阅的云文档被成功编辑后，将会触发此事件。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。</para>
+/// <para>文件编辑（包括多维表格字段和记录变更）时，将触发此事件。订阅的云文档被成功编辑后，将会触发此事件。</para>
 /// <para>接口ID：7013346140632580124</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/event/list/file-edited</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fevent%2ffile-edited</para>

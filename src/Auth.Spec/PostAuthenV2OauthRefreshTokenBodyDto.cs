@@ -56,6 +56,7 @@ public record PostAuthenV2OauthRefreshTokenBodyDto
 
     /// <summary>
     /// <para>用于缩减 `user_access_token` 的权限范围。如果未指定，生成的 `user_access_token` 将包含用户授权时的所有权限。请务必注意该列表中不得包含重复项以及未授权项。</para>
+    /// <para>**说明**：多次调用当前接口缩减不同的权限不会叠加。例如，第一调用该接口缩减了权限 A，则 `user_access_token` 不包含权限 A；第二次调用该接口缩减了权限 B，则 `user_access_token` 不包含权限 B。</para>
     /// <para>**格式要求：** 以空格分隔的 `scope` 列表</para>
     /// <para>**示例值：**`auth:user.id:read task:task:read`</para>
     /// <para>必填：否</para>
