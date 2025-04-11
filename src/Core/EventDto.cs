@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-03-29
+// Last Modified On : 2025-04-11
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -302,6 +302,8 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Im.Events.ImMessageRecalledV1EventBodyDto>), typeDiscriminator: "im.message.recalled_v1")]
 //【消息与群组】接收消息
 [JsonDerivedType(typeof(EventV2Dto<Im.Events.ImMessageReceiveV1EventBodyDto>), typeDiscriminator: "im.message.receive_v1")]
+//【邮箱】收信通知
+[JsonDerivedType(typeof(EventV2Dto<Mail.Events.MailUserMailboxEventMessageReceivedV1EventBodyDto>), typeDiscriminator: "mail.user_mailbox.event.message_received_v1")]
 //【会议室】会议室创建
 [JsonDerivedType(typeof(EventV2Dto<MeetingRoom.Events.MeetingRoomMeetingRoomCreatedV1EventBodyDto>), typeDiscriminator: "meeting_room.meeting_room.created_v1")]
 //【会议室】会议室删除

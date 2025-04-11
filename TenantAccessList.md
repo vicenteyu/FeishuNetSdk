@@ -107,11 +107,11 @@
 <tr><td colspan="3">PostDriveV1MediasUploadPart</td></tr>
 <tr><td rowspan="2">54</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>分片上传素材-完成上传</td></tr>
 <tr><td colspan="3">PostDriveV1MediasUploadFinish</td></tr>
-<tr><td rowspan="2">55</td><td rowspan="2">2025-03-28</td><td>&#10003;</td><td>云文档</td><td>订阅云文档事件</td></tr>
+<tr><td rowspan="2">55</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>订阅云文档事件</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenSubscribe</td></tr>
-<tr><td rowspan="2">56</td><td rowspan="2">2025-03-28</td><td>&#10003;</td><td>云文档</td><td>取消云文档事件订阅</td></tr>
+<tr><td rowspan="2">56</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>取消云文档事件订阅</td></tr>
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenDeleteSubscribe</td></tr>
-<tr><td rowspan="2">57</td><td rowspan="2">2025-03-28</td><td>&#10003;</td><td>云文档</td><td>查询云文档事件订阅状态</td></tr>
+<tr><td rowspan="2">57</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>查询云文档事件订阅状态</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenGetSubscribe</td></tr>
 <tr><td rowspan="2">58</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>查询指定用户组</td></tr>
 <tr><td colspan="3">GetContactV3GroupByGroupId</td></tr>
@@ -177,23 +177,23 @@
 <tr><td colspan="3">GetDriveV2PermissionsByTokenPublic</td></tr>
 <tr><td rowspan="2">89</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
 <tr><td colspan="3">PatchDriveV2PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">90</td><td rowspan="2">2025-03-28</td><td>&#10003;</td><td>云文档</td><td>获取云文档所有评论</td></tr>
+<tr><td rowspan="2">90</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>获取云文档所有评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenComments</td></tr>
 <tr><td rowspan="2">91</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取企业自定义用户字段</td></tr>
 <tr><td colspan="3">GetContactV3CustomAttrs</td></tr>
-<tr><td rowspan="2">92</td><td rowspan="2">2025-03-28</td><td>&#10003;</td><td>云文档</td><td>添加全文评论</td></tr>
+<tr><td rowspan="2">92</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>添加全文评论</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenComments</td></tr>
-<tr><td rowspan="2">93</td><td rowspan="2">2025-03-28</td><td>&#10003;</td><td>云文档</td><td>获取全文评论</td></tr>
+<tr><td rowspan="2">93</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>获取全文评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
-<tr><td rowspan="2">94</td><td rowspan="2">2025-03-28</td><td>&#10003;</td><td>云文档</td><td>批量获取评论</td></tr>
+<tr><td rowspan="2">94</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>批量获取评论</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenCommentsBatchQuery</td></tr>
-<tr><td rowspan="2">95</td><td rowspan="2">2025-03-28</td><td>&#10003;</td><td>云文档</td><td>获取回复信息</td></tr>
+<tr><td rowspan="2">95</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>获取回复信息</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenCommentsByCommentIdReplies</td></tr>
-<tr><td rowspan="2">96</td><td rowspan="2">2025-03-28</td><td>&#10003;</td><td>云文档</td><td>更新回复的内容</td></tr>
+<tr><td rowspan="2">96</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>更新回复的内容</td></tr>
 <tr><td colspan="3">PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyId</td></tr>
 <tr><td rowspan="2">97</td><td rowspan="2">2025-03-28</td><td>&#10003;</td><td>云文档</td><td>删除回复</td></tr>
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyId</td></tr>
-<tr><td rowspan="2">98</td><td rowspan="2">2025-03-28</td><td>&#10003;</td><td>云文档</td><td>解决/恢复评论</td></tr>
+<tr><td rowspan="2">98</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>解决/恢复评论</td></tr>
 <tr><td colspan="3">PatchDriveV1FilesByFileTokenCommentsByCommentId</td></tr>
 <tr><td rowspan="2">99</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>获取文档基本信息</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentId</td></tr>
@@ -495,7 +495,7 @@
 <tr><td colspan="3">PatchContactV3DepartmentsByDepartmentIdUpdateDepartmentId</td></tr>
 <tr><td rowspan="2">248</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>获取访问控制列表</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdAcls</td></tr>
-<tr><td rowspan="2">249</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>日历</td><td>创建日程</td></tr>
+<tr><td rowspan="2">249</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>日历</td><td>创建日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEvents</td></tr>
 <tr><td rowspan="2">250</td><td rowspan="2">2024-08-06</td><td>&#10003;</td><td>日历</td><td>删除日程</td></tr>
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
@@ -1111,7 +1111,7 @@
 <tr><td colspan="3">PatchApplicationV6ApplicationsByAppIdContactsRange</td></tr>
 <tr><td rowspan="2">556</td><td rowspan="2">2024-11-18</td><td>&#10003;</td><td>应用信息</td><td>获取用户可用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV1UserVisibleApps</td></tr>
-<tr><td rowspan="2">557</td><td rowspan="2">2025-01-22</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
+<tr><td rowspan="2">557</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
 <tr><td colspan="3">PatchContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">558</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>删除序列</td></tr>
 <tr><td colspan="3">DeleteContactV3JobFamiliesByJobFamilyId</td></tr>
@@ -2609,7 +2609,7 @@
 <tr><td colspan="3">PostApaasV1UserTasksByTaskIdChatGroup</td></tr>
 <tr><td rowspan="2">1305</td><td rowspan="2">2025-02-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>撤销异动</td></tr>
 <tr><td colspan="3">PostCorehrV2JobChangesByJobChangeIdRevoke</td></tr>
-<tr><td rowspan="2">1306</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>发起员工异动</td></tr>
+<tr><td rowspan="2">1306</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>发起员工异动</td></tr>
 <tr><td colspan="3">PostCorehrV2JobChanges</td></tr>
 <tr><td rowspan="2">1307</td><td rowspan="2">2024-12-20</td><td>&#10003;</td><td>云文档</td><td>获取云文档的点赞者列表</td></tr>
 <tr><td colspan="3">GetDriveV2FilesByFileTokenLikes</td></tr>
@@ -2697,4 +2697,38 @@
 <tr><td colspan="3">GetPayrollV1Datasources</td></tr>
 <tr><td rowspan="2">1349</td><td rowspan="2">2025-03-27</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询当前生效信息发生变更的职务</td></tr>
 <tr><td colspan="3">GetCorehrV2JobsQueryRecentChange</td></tr>
+<tr><td rowspan="2">1350</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>创建邮箱联系人</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMailContacts</td></tr>
+<tr><td rowspan="2">1351</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>删除邮箱联系人</td></tr>
+<tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactId</td></tr>
+<tr><td rowspan="2">1352</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>修改邮箱联系人信息</td></tr>
+<tr><td colspan="3">PatchMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactId</td></tr>
+<tr><td rowspan="2">1353</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>列出邮箱联系人</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMailContacts</td></tr>
+<tr><td rowspan="2">1354</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>删除收信规则</td></tr>
+<tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdRulesByRuleId</td></tr>
+<tr><td rowspan="2">1355</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>列出收信规则</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdRules</td></tr>
+<tr><td rowspan="2">1356</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>创建邮箱文件夹</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
+<tr><td rowspan="2">1357</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>删除邮箱文件夹</td></tr>
+<tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
+<tr><td rowspan="2">1358</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>列出邮箱文件夹</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
+<tr><td rowspan="2">1359</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>获取邮件详情</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageId</td></tr>
+<tr><td rowspan="2">1360</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>创建收信规则</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRules</td></tr>
+<tr><td rowspan="2">1361</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>对收信规则进行排序</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRulesReorder</td></tr>
+<tr><td rowspan="2">1362</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>修改邮箱文件夹</td></tr>
+<tr><td colspan="3">PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
+<tr><td rowspan="2">1363</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>列出邮件</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessages</td></tr>
+<tr><td rowspan="2">1364</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>更新收信规则</td></tr>
+<tr><td colspan="3">PutMailV1UserMailboxesByUserMailboxIdRulesByRuleId</td></tr>
+<tr><td rowspan="2">1365</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>获取附件下载链接</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAttachmentsDownloadUrl</td></tr>
+<tr><td rowspan="2">1366</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>获取邮件卡片的邮件列表</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCard</td></tr>
 </tbody></table>

@@ -154,6 +154,7 @@
 <tr><td>application.application.created_v6</td><td>EventV2Dto&lt;Application.Events.ApplicationApplicationCreatedV6EventBodyDto&gt;</td><td>【应用信息】应用创建</td></tr>
 <tr><td>application.application.app_version.audit_v6</td><td>EventV2Dto&lt;Application.Events.ApplicationApplicationAppVersionAuditV6EventBodyDto&gt;</td><td>【应用信息】应用审核</td></tr>
 <tr><td>application.application.visibility.added_v6</td><td>EventV2Dto&lt;Application.Events.ApplicationApplicationVisibilityAddedV6EventBodyDto&gt;</td><td>【应用信息】员工免审安装应用</td></tr>
+<tr><td>mail.user_mailbox.event.message_received_v1</td><td>EventV2Dto&lt;Mail.Events.MailUserMailboxEventMessageReceivedV1EventBodyDto&gt;</td><td>【邮箱】收信通知</td></tr>
 <tr><td>drive.file.bitable_record_changed_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileBitableRecordChangedV1EventBodyDto&gt;</td><td>【云文档】多维表格记录变更</td></tr>
 <tr><td>drive.file.bitable_field_changed_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileBitableFieldChangedV1EventBodyDto&gt;</td><td>【云文档】多维表格字段变更</td></tr>
 <tr><td>drive.file.edit_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileEditV1EventBodyDto&gt;</td><td>【云文档】文件编辑</td></tr>

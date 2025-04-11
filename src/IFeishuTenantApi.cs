@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-03-29
+// Last Modified On : 2025-04-11
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -37908,6 +37908,127 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string event_id);
 
     /// <summary>
+    /// <para>【邮箱】创建邮箱联系人</para>
+    /// <para>接口ID：7270360193791868929</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-mail_contact/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>创建一个邮箱联系人</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.mail_contact:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.mail_contact.mail_address:read</item>
+    /// <item>mail:user_mailbox.mail_contact.phone:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，使用 user_access_token 时可使用 me</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/mail_contacts")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdMailContactsResponseDto>> PostMailV1UserMailboxesByUserMailboxIdMailContactsAsync(
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdMailContactsBodyDto dto);
+
+    /// <summary>
+    /// <para>【邮箱】删除邮箱联系人</para>
+    /// <para>接口ID：7270360193791885313</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-mail_contact/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>删除一个邮箱联系人</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.mail_contact:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// </param>
+    /// <param name="mail_contact_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮箱联系人 id</para>
+    /// <para>示例值：123</para>
+    /// </param>
+    [HttpDelete("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/mail_contacts/{mail_contact_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string mail_contact_id);
+
+    /// <summary>
+    /// <para>【邮箱】修改邮箱联系人信息</para>
+    /// <para>接口ID：7270360193791901697</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-mail_contact/patch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>修改一个邮箱联系人的信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.mail_contact:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="mail_contact_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮箱联系人 id</para>
+    /// <para>示例值：123</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/mail_contacts/{mail_contact_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string mail_contact_id,
+        [JsonContent] Mail.PatchMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactIdBodyDto dto);
+
+    /// <summary>
+    /// <para>【邮箱】列出邮箱联系人</para>
+    /// <para>接口ID：7270360193791918081</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-mail_contact/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>列出邮箱联系人列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.mail_contact:read</item>
+    /// <item>mail:user_mailbox.mail_contact:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.mail_contact.mail_address:read</item>
+    /// <item>mail:user_mailbox.mail_contact.phone:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：20</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：xxx</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/mail_contacts")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdMailContactsResponseDto>> GetMailV1UserMailboxesByUserMailboxIdMailContactsAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
     /// <para>【公司圈】查询帖子信息</para>
     /// <para>接口ID：7270433540692639747</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/moments-v1/post/get</para>
@@ -38681,6 +38802,316 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
+    /// <para>【邮箱】删除收信规则</para>
+    /// <para>接口ID：7275929163676057603</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-rule/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>删除收信规则</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.rule:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="rule_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>规则 id</para>
+    /// <para>示例值：123123123</para>
+    /// </param>
+    [HttpDelete("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/rules/{rule_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1UserMailboxesByUserMailboxIdRulesByRuleIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string rule_id);
+
+    /// <summary>
+    /// <para>【邮箱】列出收信规则</para>
+    /// <para>接口ID：7275929163676073987</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-rule/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>列出收信规则</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.rule:read</item>
+    /// <item>mail:user_mailbox.rule:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/rules")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdRulesResponseDto>> GetMailV1UserMailboxesByUserMailboxIdRulesAsync(
+        [PathQuery] string user_mailbox_id);
+
+    /// <summary>
+    /// <para>【邮箱】创建邮箱文件夹</para>
+    /// <para>接口ID：7275929163676090371</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>创建邮箱文件夹</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.folder:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/folders")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdFoldersResponseDto>> PostMailV1UserMailboxesByUserMailboxIdFoldersAsync(
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdFoldersBodyDto dto);
+
+    /// <summary>
+    /// <para>【邮箱】删除邮箱文件夹</para>
+    /// <para>接口ID：7275929163676106755</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>删除邮箱文件夹</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.folder:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="folder_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>文件夹 id</para>
+    /// <para>示例值：111111</para>
+    /// </param>
+    [HttpDelete("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/folders/{folder_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1UserMailboxesByUserMailboxIdFoldersByFolderIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string folder_id);
+
+    /// <summary>
+    /// <para>【邮箱】列出邮箱文件夹</para>
+    /// <para>接口ID：7275929163676123139</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>列出邮箱文件夹</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.folder:read</item>
+    /// <item>mail:user_mailbox.folder:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="folder_type">
+    /// <para>必填：否</para>
+    /// <para>文件夹类型</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>1：系统文件夹</item>
+    /// <item>2：用户文件夹</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/folders")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdFoldersResponseDto>> GetMailV1UserMailboxesByUserMailboxIdFoldersAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] int? folder_type = null);
+
+    /// <summary>
+    /// <para>【邮箱】获取邮件详情</para>
+    /// <para>接口ID：7275929163676139523</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取邮件详情</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message.address:read</item>
+    /// <item>mail:user_mailbox.message.body:read</item>
+    /// <item>mail:user_mailbox.message.subject:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="message_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮件 id</para>
+    /// <para>示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==</para>
+    /// </param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/{message_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDto>> GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string message_id);
+
+    /// <summary>
+    /// <para>【邮箱】创建收信规则</para>
+    /// <para>接口ID：7275929163676172291</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-rule/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>创建收信规则</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.rule:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，使用 user_access_token 时可使用 me</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/rules")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdRulesResponseDto>> PostMailV1UserMailboxesByUserMailboxIdRulesAsync(
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdRulesBodyDto dto);
+
+    /// <summary>
+    /// <para>【邮箱】对收信规则进行排序</para>
+    /// <para>接口ID：7275929163676188675</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-rule/reorder</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>对收信规则进行排序</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.rule:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，使用 user_access_token 时可使用 me</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/rules/reorder")]
+    System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdRulesReorderAsync(
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdRulesReorderBodyDto dto);
+
+    /// <summary>
+    /// <para>【邮箱】修改邮箱文件夹</para>
+    /// <para>接口ID：7275929163676205059</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/patch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>修改邮箱文件夹</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.folder:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="folder_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>文件夹 id</para>
+    /// <para>示例值：111111</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/folders/{folder_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string folder_id,
+        [JsonContent] Mail.PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderIdBodyDto dto);
+
+    /// <summary>
+    /// <para>【邮箱】列出邮件</para>
+    /// <para>接口ID：7275929163676221443</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>列出邮件</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：1</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：xxx</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="folder_id">
+    /// <para>必填：是</para>
+    /// <para>文件夹 id</para>
+    /// <para>示例值：INBOX 或者用户文件夹 id</para>
+    /// </param>
+    /// <param name="only_unread">
+    /// <para>必填：否</para>
+    /// <para>是否只查询未读邮件</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdMessagesResponseDto>> GetMailV1UserMailboxesByUserMailboxIdMessagesAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string folder_id,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] bool? only_unread = null);
+
+    /// <summary>
+    /// <para>【邮箱】更新收信规则</para>
+    /// <para>接口ID：7275929163676270595</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-rule/update</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>更新收信规则</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.rule:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="rule_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>规则 id</para>
+    /// <para>示例值：123123123</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPut("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/rules/{rule_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PutMailV1UserMailboxesByUserMailboxIdRulesByRuleIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string rule_id,
+        [JsonContent] Mail.PutMailV1UserMailboxesByUserMailboxIdRulesByRuleIdBodyDto dto);
+
+    /// <summary>
     /// <para>【飞书人事（企业版）】查询单个职务</para>
     /// <para>接口ID：7277403063272701954</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get</para>
@@ -39428,6 +39859,38 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string feed_card_id,
         [JsonContent] Im.PatchImV2FeedCardsByFeedCardIdBodyDto dto,
         [PathQuery] string user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【邮箱】获取附件下载链接</para>
+    /// <para>接口ID：7296319822873657346</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message-attachment/download_url</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取附件下载链接</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message.body:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="message_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮件 id</para>
+    /// <para>示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==</para>
+    /// </param>
+    /// <param name="attachment_ids">
+    /// <para>必填：是</para>
+    /// <para>附件 id 列表</para>
+    /// </param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/{message_id}/attachments/download_url")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAttachmentsDownloadUrlResponseDto>> GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAttachmentsDownloadUrlAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string message_id,
+        [PathQuery] string[] attachment_ids);
 
     /// <summary>
     /// <para>【飞书人事（企业版）】查询流程实例列表</para>
@@ -47716,6 +48179,53 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string workflow_id,
         [JsonContent] Base.PutBitableV1AppsByAppTokenWorkflowsByWorkflowIdBodyDto dto);
+
+    /// <summary>
+    /// <para>【邮箱】获取邮件卡片的邮件列表</para>
+    /// <para>接口ID：7447350647756800004</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/get_by_card</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取邮件卡片下的邮件列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="card_id">
+    /// <para>必填：是</para>
+    /// <para>邮件卡片ID，可通过[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件的推送获取</para>
+    /// <para>示例值：512ca581-6059-4449-8150-5522e6641d32</para>
+    /// </param>
+    /// <param name="owner_id">
+    /// <para>必填：是</para>
+    /// <para>邮件卡片OwnerID，可通过[接收消息]( https://open.feishu.cn/document/server-docs/im-v1/message/events/receive)事件的推送获取（与`user_id_type`无关）</para>
+    /// <para>示例值：1234567890</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/get_by_card")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCardResponseDto>> GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCardAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string card_id,
+        [PathQuery] string owner_id,
+        [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
     /// <para>【飞书人事（企业版）】查询当前生效信息发生变更的地点</para>
