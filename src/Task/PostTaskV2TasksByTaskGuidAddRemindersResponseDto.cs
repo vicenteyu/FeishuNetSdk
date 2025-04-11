@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Task;
 /// <para>目前一个任务只能设置1个提醒。但接口的形式可以在未来扩充为一个任务支持多个提醒。</para>
 /// <para>如果当前任务已经有提醒了，要更新提醒的设置，需要先调用[移除任务提醒](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/remove_reminders)接口移除原有提醒。再调用本接口添加提醒。</para>
 /// <para>接口ID：7255580838154813468</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/add_reminders</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/task/add_reminders</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftask%2fadd_reminders</para>
 /// </summary>
 public record PostTaskV2TasksByTaskGuidAddRemindersResponseDto
@@ -379,7 +379,7 @@ public record PostTaskV2TasksByTaskGuidAddRemindersResponseDto
                 /// <summary>
                 /// <para>法语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Tabledetravail</para>
+                /// <para>示例值：Table de travail</para>
                 /// </summary>
                 [JsonPropertyName("fr_fr")]
                 public string? FrFr { get; set; }
@@ -387,7 +387,7 @@ public record PostTaskV2TasksByTaskGuidAddRemindersResponseDto
                 /// <summary>
                 /// <para>意大利语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：bancodilavoro</para>
+                /// <para>示例值：banco di lavoro</para>
                 /// </summary>
                 [JsonPropertyName("it_it")]
                 public string? ItIt { get; set; }
@@ -419,7 +419,7 @@ public record PostTaskV2TasksByTaskGuidAddRemindersResponseDto
                 /// <summary>
                 /// <para>西班牙语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：bancodetrabajo</para>
+                /// <para>示例值：banco de trabajo</para>
                 /// </summary>
                 [JsonPropertyName("es_es")]
                 public string? EsEs { get; set; }
@@ -450,6 +450,7 @@ public record PostTaskV2TasksByTaskGuidAddRemindersResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// <para>最大长度：1024</para>
+                /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("url")]
                 public string? Url { get; set; }
@@ -525,6 +526,8 @@ public record PostTaskV2TasksByTaskGuidAddRemindersResponseDto
         /// <para>任务的模式。1 - 会签任务；2 - 或签任务</para>
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
+        /// <para>最大值：2</para>
+        /// <para>最小值：1</para>
         /// </summary>
         [JsonPropertyName("mode")]
         public int? Mode { get; set; }
@@ -637,7 +640,7 @@ public record PostTaskV2TasksByTaskGuidAddRemindersResponseDto
                     /// <summary>
                     /// <para>法语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：Tabledetravail</para>
+                    /// <para>示例值：Table de travail</para>
                     /// </summary>
                     [JsonPropertyName("fr_fr")]
                     public string? FrFr { get; set; }
@@ -645,7 +648,7 @@ public record PostTaskV2TasksByTaskGuidAddRemindersResponseDto
                     /// <summary>
                     /// <para>意大利语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：bancodilavoro</para>
+                    /// <para>示例值：banco di lavoro</para>
                     /// </summary>
                     [JsonPropertyName("it_it")]
                     public string? ItIt { get; set; }
@@ -677,7 +680,7 @@ public record PostTaskV2TasksByTaskGuidAddRemindersResponseDto
                     /// <summary>
                     /// <para>西班牙语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：bancodetrabajo</para>
+                    /// <para>示例值：banco de trabajo</para>
                     /// </summary>
                     [JsonPropertyName("es_es")]
                     public string? EsEs { get; set; }

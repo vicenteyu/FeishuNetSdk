@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Payroll;
 /// <para>3. 若已存在数据记录，则本次保存会覆盖更新已有记录（只更新传入字段的值，未传入字段值不更新），如果传入的数据记录没有任何变化，则不更新。</para>
 /// <para>4. 若更新或者插入成功，会返回产生数据变更的记录条数。</para>
 /// <para>接口ID：7411366924142460930</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/datasource_record/save</para>
+/// <para>文档地址：https://open.feishu.cn/document/payroll-v1/datasource_record/save</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2fdatasource_record%2fsave</para>
 /// </summary>
 public record PostPayrollV1DatasourceRecordsSaveBodyDto

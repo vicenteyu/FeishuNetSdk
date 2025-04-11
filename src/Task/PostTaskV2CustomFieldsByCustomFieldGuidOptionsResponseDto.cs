@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Task;
 /// <para>为单选或多选字段添加一个自定义选项。一个单选/多选字段最大支持100个选项。</para>
 /// <para>新添加的选项如果不隐藏，其名字不能和已存在的不隐藏选项的名字重复。</para>
 /// <para>接口ID：7270765454292287490</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field-option/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/custom_field-option/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fcustom_field-option%2fcreate</para>
 /// </summary>
 public record PostTaskV2CustomFieldsByCustomFieldGuidOptionsResponseDto
@@ -54,6 +54,8 @@ public record PostTaskV2CustomFieldsByCustomFieldGuidOptionsResponseDto
         /// <para>选项的颜色索引值，可以是0～54中的一个数字。如果不填写则会随机选一个。</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
+        /// <para>最大值：54</para>
+        /// <para>最小值：0</para>
         /// </summary>
         [JsonPropertyName("color_index")]
         public int? ColorIndex { get; set; }

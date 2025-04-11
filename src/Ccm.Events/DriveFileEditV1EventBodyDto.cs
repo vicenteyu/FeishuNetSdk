@@ -31,9 +31,10 @@ public record DriveFileEditV1EventBodyDto() : EventBodyDto("drive.file.edit_v1")
     /// <summary>
     /// <para>云文档类型，支持以下枚举：</para>
     /// <para>- doc：旧版文档。已不推荐使用</para>
-    /// <para>- docx：文档</para>
+    /// <para>- docx：新版文档</para>
     /// <para>- sheet：电子表格</para>
     /// <para>- bitable：多维表格</para>
+    /// <para>- slides：幻灯片</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("file_type")]

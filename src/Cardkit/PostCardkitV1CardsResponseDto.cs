@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Cardkit;
 /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
 /// <para>- 卡片实体的有效期为 14 天。即创建卡片实体超出 14 天后，你将无法调用相关接口操作卡片。</para>
 /// <para>接口ID：7397265677100974083</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/cardkit-v1/card/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcardkit-v1%2fcard%2fcreate</para>
 /// </summary>
 public record PostCardkitV1CardsResponseDto

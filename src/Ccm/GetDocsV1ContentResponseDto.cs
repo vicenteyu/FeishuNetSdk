@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Ccm;
 /// 获取云文档内容 响应体
 /// <para>可获取云文档内容，当前只支持获取新版文档 Markdown 格式的内容。</para>
 /// <para>接口ID：7437110392792858625</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs-v1/content/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/docs/docs-v1/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fdocs-v1%2fcontent%2fget</para>
 /// </summary>
 public record GetDocsV1ContentResponseDto

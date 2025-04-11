@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Performance;
 /// 获取指标字段列表 响应体
 /// <para>批量获取指标的字段基础信息，如指标字段名称、指标字段类型等信息。</para>
 /// <para>接口ID：7380276358332727297</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_field/query</para>
+/// <para>文档地址：https://open.feishu.cn/document/performance-v1/review_config/metric_template/query-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2fmetric_field%2fquery</para>
 /// </summary>
 public record PostPerformanceV2MetricFieldsQueryResponseDto

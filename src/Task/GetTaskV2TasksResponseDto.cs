@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Task;
 /// <para>基于调用身份，列出特定类型的所有任务。支持分页。</para>
 /// <para>目前只支持列取任务界面上“我负责的”任务。返回的任务数据按照任务在”我负责的“界面中”自定义拖拽“的顺序排序。</para>
 /// <para>接口ID：7255580838154403868</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/task/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftask%2flist</para>
 /// </summary>
 public record GetTaskV2TasksResponseDto

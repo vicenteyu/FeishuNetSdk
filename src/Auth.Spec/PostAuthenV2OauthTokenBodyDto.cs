@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Auth.Spec;
 /// 获取 user_access_token 请求体
 /// <para>OAuth 令牌接口，可用于获取 &lt;code&gt;user_access_token&lt;/code&gt; 以及 &lt;code&gt;refresh_token&lt;/code&gt;。&lt;code&gt;user_access_token&lt;/code&gt; 为用户访问凭证，使用该凭证可以以用户身份调用 OpenAPI。&lt;code&gt;refresh_token&lt;/code&gt; 为刷新凭证，可以用来获取新的 &lt;code&gt;user_access_token&lt;/code&gt;。</para>
 /// <para>接口ID：7435312925587914755</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token</para>
+/// <para>文档地址：https://open.feishu.cn/document/authentication-management/access-token/get-user-access-token</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fauthentication-management%2faccess-token%2fget-user-access-token</para>
 /// </summary>
 public record PostAuthenV2OauthTokenBodyDto
@@ -30,7 +30,10 @@ public record PostAuthenV2OauthTokenBodyDto
     public string GrantType { get; } = "authorization_code";
 
     /// <summary>
-    /// <para>应用的 App ID，可以在开发者后台中的应用详情页面找到该值。</para>
+    /// <para>应用的 App ID。应用凭证 App ID 和 App Secret 获取方式：</para>
+    /// <para>1. 登录[飞书开发者后台](https://open.feishu.cn/app)。</para>
+    /// <para>2. 进入应用详情页，在左侧导航栏，单击 **凭证与基础信息**。</para>
+    /// <para>3. 在 **应用凭证** 区域，获取并保存 **App ID** 和 **App Secret**。</para>
     /// <para>**示例值：**`cli_a5ca35a685b0x26e`</para>
     /// <para>必填：是</para>
     /// </summary>
@@ -38,7 +41,10 @@ public record PostAuthenV2OauthTokenBodyDto
     public string ClientId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>应用的 App Secret，可以在开发者后台中的应用详情页面找到该值，详见：[如何获取应用的 App ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)。</para>
+    /// <para>应用的 App Secret。应用凭证 App ID 和 App Secret 获取方式：</para>
+    /// <para>1. 登录[飞书开发者后台](https://open.feishu.cn/app)。</para>
+    /// <para>2. 进入应用详情页，在左侧导航栏，单击 **凭证与基础信息**。</para>
+    /// <para>3. 在 **应用凭证** 区域，获取并保存 **App ID** 和 **App Secret**。</para>
     /// <para>**示例值：**`baBqE5um9LbFGDy3X7LcfxQX1sqpXlwy`</para>
     /// <para>必填：是</para>
     /// </summary>
@@ -75,7 +81,9 @@ public record PostAuthenV2OauthTokenBodyDto
 
     /// <summary>
     /// <para>用于缩减 `user_access_token` 的权限范围。如果未指定，生成的 `user_access_token` 将包含用户授权时的所有权限。请务必注意该列表中不得包含重复项（错误码 20067）以及未授权项（错误码 20068）。</para>
-    /// <para>**说明**：多次调用当前接口缩减不同的权限不会叠加。例如，第一调用该接口缩减了权限 A，则 `user_access_token` 不包含权限 A；第二次调用该接口缩减了权限 B，则 `user_access_token` 不包含权限 B。</para>
+    /// <para>**说明**：</para>
+    /// <para>- 多次调用当前接口缩减不同的权限不会叠加。例如，第一调用该接口缩减了权限 A，则 `user_access_token` 不包含权限 A；第二次调用该接口缩减了权限 B，则 `user_access_token` 不包含权限 B。</para>
+    /// <para>- 生效的权限列表可通过本接口返回值 scope 查看。</para>
     /// <para>**格式要求：** 以空格分隔的 `scope` 列表</para>
     /// <para>**示例值：**`auth:user.id:read task:task:read`</para>
     /// <para>必填：否</para>

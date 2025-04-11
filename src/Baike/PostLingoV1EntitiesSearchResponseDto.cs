@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Baike;
 /// 模糊搜索词条 响应体
 /// <para>传入关键词，与词条名、别名、释义等信息进行模糊匹配，返回搜到的词条信息。</para>
 /// <para>接口ID：7249689905697095708</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/search</para>
+/// <para>文档地址：https://open.feishu.cn/document/lingo-v1/entity/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2flingo-v1%2fentity%2fsearch</para>
 /// </summary>
 public record PostLingoV1EntitiesSearchResponseDto
@@ -337,6 +337,7 @@ public record PostLingoV1EntitiesSearchResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：星云</para>
             /// <para>最大长度：32</para>
+            /// <para>最小长度：2</para>
             /// </summary>
             [JsonPropertyName("provider")]
             public string Provider { get; set; } = string.Empty;
@@ -346,6 +347,7 @@ public record PostLingoV1EntitiesSearchResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：12345abc</para>
             /// <para>最大长度：64</para>
+            /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("outer_id")]
             public string OuterId { get; set; } = string.Empty;
@@ -354,7 +356,7 @@ public record PostLingoV1EntitiesSearchResponseDto
         /// <summary>
         /// <para>富文本格式（当填写富文本内容时，description字段将会失效可不填写），支持的格式参考[企业百科指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/overview)中的释义部分</para>
         /// <para>必填：否</para>
-        /// <para>示例值：加粗&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;ahref="https://feishu.cn"&gt;l链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;</para>
+        /// <para>示例值：加粗&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;a href="https://feishu.cn"&gt;l链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;</para>
         /// <para>最大长度：5000</para>
         /// </summary>
         [JsonPropertyName("rich_text")]
@@ -399,6 +401,7 @@ public record PostLingoV1EntitiesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通</para>
             /// <para>最大长度：5000</para>
+            /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("description")]
             public string? Description { get; set; }
@@ -408,6 +411,7 @@ public record PostLingoV1EntitiesSearchResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：&lt;p&gt;&lt;span&gt;词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;</para>
             /// <para>最大长度：5000</para>
+            /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("rich_text")]
             public string? RichText { get; set; }

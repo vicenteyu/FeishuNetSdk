@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 批量新建记录 请求体
 /// <para>一次新建多条对象中的记录</para>
 /// <para>接口ID：7384730094872985628</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object-record/batch_create</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/application-object-record/batch_create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapplication-object-record%2fbatch_create</para>
 /// </summary>
 public record PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchCreateBodyDto

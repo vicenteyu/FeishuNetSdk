@@ -16,7 +16,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// 查询单个用户授权 响应体
 /// <para>查询[飞书人事管理后台](https://people.feishu.cn/people/)里 -「设置」-「权限设置」中的单个用户授权信息。授权信息中包括员工ID、被授权的角色等信息。</para>
 /// <para>接口ID：7372022997609922562</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/authorization/get_by_param</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/authorization/get_by_param</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fauthorization%2fget_by_param</para>
 /// </summary>
 public record GetCorehrV1AuthorizationsGetByParamResponseDto

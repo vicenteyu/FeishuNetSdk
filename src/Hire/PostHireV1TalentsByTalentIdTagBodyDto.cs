@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 操作人才标签 请求体
 /// <para>可为人才新增、删除标签。</para>
 /// <para>接口ID：7404770953199730690</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/tag</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/candidate-management/talent/tag</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent%2ftag</para>
 /// </summary>
 public record PostHireV1TalentsByTalentIdTagBodyDto

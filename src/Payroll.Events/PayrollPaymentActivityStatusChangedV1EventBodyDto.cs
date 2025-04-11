@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Payroll.Events;
 /// 发薪活动变更 事件体
 /// <para>当发薪活动发生变更后，订阅这个事件的应用会收到事件。当前仅审批通过、审批撤销、跳过审批、封存、取消封存，会发送该事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=payroll&amp;version=v1&amp;resource=payment_activity&amp;event=status_changed)</para>
 /// <para>接口ID：7441890276475158531</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity/events/status_changed</para>
+/// <para>文档地址：https://open.feishu.cn/document/payroll-v1/payment_activity/events/status_changed</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2fpayment_activity%2fevents%2fstatus_changed</para>
 /// </summary>
 public record PayrollPaymentActivityStatusChangedV1EventBodyDto() : EventBodyDto("payroll.payment_activity.status_changed_v1")

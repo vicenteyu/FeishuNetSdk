@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 停用内推账户 响应体
 /// <para>停用内推账户，停用后，将不再发送[「内推账户余额变更事件」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/events/assets_update)，也无法通过[「提取内推账号余额」](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/withdraw)提取。</para>
 /// <para>接口ID：7252281835550867458</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/deactivate</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/referral_account/deactivate</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2freferral_account%2fdeactivate</para>
 /// </summary>
 public record PostHireV1ReferralAccountByReferralAccountIdDeactivateResponseDto

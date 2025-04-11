@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 更新地点地址 请求体
 /// <para>更新地点地址</para>
 /// <para>接口ID：7420421437192929283</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location-address/patch</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/organization-management/location/location-address/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2flocation-address%2fpatch</para>
 /// </summary>
 public record PatchCorehrV2LocationsByLocationIdAddressesByAddressIdBodyDto

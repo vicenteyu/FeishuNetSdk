@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Task;
 /// <para>从一个任务移除一个或者多个依赖。移除时只需要输入要移除的`task_guid`即可。</para>
 /// <para>注意，如果要移除的依赖非当前任务的依赖，会被自动忽略。接口会返回成功。</para>
 /// <para>接口ID：7277445986133442563</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/remove_dependencies</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/task/remove_dependencies</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftask%2fremove_dependencies</para>
 /// </summary>
 public record PostTaskV2TasksByTaskGuidRemoveDependenciesResponseDto

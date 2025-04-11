@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Attendance;
 /// 查询归档报表表头 请求体
 /// <para>查询归档报表表头，对应后台假勤管理-考勤统计-报表-[归档报表](https://example.feishu.cn/people/workforce-management/manage/statistics/report)中一个归档报表的表头信息。归档报表支持引用系统报表，可设置归档时间和数据归档周期，并且支持根据部门/人员、国家/地区、人员类型、工作地点、职级、序列、职务进行人员圈选。</para>
 /// <para>接口ID：7368679915980898306</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/user_stats_fields_query</para>
+/// <para>文档地址：https://open.feishu.cn/document/attendance-v1/archive_rule/user_stats_fields_query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2farchive_rule%2fuser_stats_fields_query</para>
 /// </summary>
 public record PostAttendanceV1ArchiveRuleUserStatsFieldsQueryBodyDto

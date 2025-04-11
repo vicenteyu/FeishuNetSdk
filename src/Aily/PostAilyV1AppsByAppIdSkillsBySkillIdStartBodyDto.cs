@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Aily;
 /// <para>&gt; **技能 API** 能显著简化业务系统的集成工作（单轮 API 调用）。技能 API 提供更贴合系统间服务调用的参数传递模式（JSON 入参 / 出参），且无需通过文本消息对话的方式调用 AI 能力。</para>
 /// <para>&lt;div style="text-align: center;"&gt;</para>
 /// <para>接口ID：7429225800963031042</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-skill/start</para>
+/// <para>文档地址：https://open.feishu.cn/document/aily-v1/app-skill/start</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2fapp-skill%2fstart</para>
 /// </summary>
 public record PostAilyV1AppsByAppIdSkillsBySkillIdStartBodyDto

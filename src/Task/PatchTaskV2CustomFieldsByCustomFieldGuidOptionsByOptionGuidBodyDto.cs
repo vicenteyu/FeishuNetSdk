@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Task;
 /// <para>* `insert_before`: 将当前option放到同字段某个option之前的那个option_guid。</para>
 /// <para>* `insert_after`: 将当前option放到同字段某个option之后的那个option_guid。</para>
 /// <para>接口ID：7270765454292221954</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field-option/patch</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/custom_field-option/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fcustom_field-option%2fpatch</para>
 /// </summary>
 public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidBodyDto
@@ -51,6 +51,8 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidBodyDto
         /// <para>颜色索引值，支持0～54中的一个数字。</para>
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
+        /// <para>最大值：54</para>
+        /// <para>最小值：0</para>
         /// </summary>
         [JsonPropertyName("color_index")]
         public int? ColorIndex { get; set; }
@@ -90,6 +92,7 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidBodyDto
     /// <para>* `insert_after`: 将当前option放到同字段某个option之后。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：20</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("update_fields")]
     public string[]? UpdateFields { get; set; }

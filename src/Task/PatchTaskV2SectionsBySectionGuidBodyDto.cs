@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Task;
 /// <para>* `insert_after` - 要让当前自定义分组放到某个自定义分组后面的secion_guid，用于改变当前自定义分组的位置。</para>
 /// <para>`insert_before`和`insert_after`如果填写，必须是同一个资源的合法section_guid。注意不能同时设置`insert_before`和`insert_after`。</para>
 /// <para>接口ID：7259330038033842204</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/section/patch</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/section/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fsection%2fpatch</para>
 /// </summary>
 public record PatchTaskV2SectionsBySectionGuidBodyDto
@@ -73,6 +73,7 @@ public record PatchTaskV2SectionsBySectionGuidBodyDto
     /// <para>* `insert_after` - 要让当前自定义分组放到某个自定义分组后面的secion_guid，用于改变当前自定义分组的位置。</para>
     /// <para>必填：是</para>
     /// <para>最大长度：10</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("update_fields")]
     public string[] UpdateFields { get; set; } = Array.Empty<string>();

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 转交审批任务 请求体
 /// <para>对于单个审批任务进行转交操作。转交后审批流程流转给被转交人。</para>
 /// <para>接口ID：7431073872102883356</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-transfer/update</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/approver-task/update-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess-transfer%2fupdate</para>
 /// </summary>
 public record PutCorehrV2ProcessesByProcessIdTransferBodyDto

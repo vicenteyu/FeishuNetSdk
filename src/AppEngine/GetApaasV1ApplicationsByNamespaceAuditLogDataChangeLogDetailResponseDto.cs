@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 查询数据变更日志详情 响应体
 /// <para>根据日志 ID 查询数据变更日志详情</para>
 /// <para>接口ID：7462214121168666627</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-audit_log/data_change_log_detail</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/application-audit_log/data_change_log_detail</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapplication-audit_log%2fdata_change_log_detail</para>
 /// </summary>
 public record GetApaasV1ApplicationsByNamespaceAuditLogDataChangeLogDetailResponseDto

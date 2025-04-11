@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Calendar;
 /// 查询日程视图 响应体
 /// <para>调用该接口以用户身份查询指定日历下的日程视图。与[获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)不同的是，当前接口会按照重复日程的重复性规则展开成多个日程实例（instance），并根据查询的时间区间返回相应的日程实例信息。</para>
 /// <para>接口ID：7322810271218647043</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/instance_view</para>
+/// <para>文档地址：https://open.feishu.cn/document/calendar-v4/calendar-event/instance_view</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2fcalendar-event%2finstance_view</para>
 /// </summary>
 public record GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 查询审计日志列表 响应体
 /// <para>根据搜索/筛选条件，查询审计日志列表</para>
 /// <para>接口ID：7418119603744391171</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-audit_log/audit_log_list</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/application-audit_log/audit_log_list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapplication-audit_log%2faudit_log_list</para>
 /// </summary>
 public record GetApaasV1ApplicationsByNamespaceAuditLogAuditLogListResponseDto

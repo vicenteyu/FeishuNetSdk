@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Im;
 /// 修改标签 请求体
 /// <para>修改标签在各个语言下的名称。</para>
 /// <para>接口ID：7315032956271296516</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/tag/patch</para>
+/// <para>文档地址：https://open.feishu.cn/document/tenant-tag/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fgroup%2fim-v2%2ftag%2fpatch</para>
 /// </summary>
 public record PatchImV2TagsByTagIdBodyDto

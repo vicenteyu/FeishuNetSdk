@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 更新兼职 请求体
 /// <para>更新员工的兼职</para>
 /// <para>接口ID：7387981900317556738</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-additional_job/patch</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/employee/job_data/employees-additional_job/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2femployees-additional_job%2fpatch</para>
 /// </summary>
 public record PatchCorehrV2EmployeesAdditionalJobsByAdditionalJobIdBodyDto

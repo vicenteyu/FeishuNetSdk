@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>- 延迟说明：数据库主从延迟 2s 以内，即：直接创建待入职后2s内调用此接口可能查询不到数据。</para>
 /// <para>- 性能说明：本接口返回数据量较多，查询时请控制每批次数量（&lt;10）和适当减少查询字段数(&lt;50)</para>
 /// <para>接口ID：7386487948991299587</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/query</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/pre_hire/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpre_hire%2fquery</para>
 /// </summary>
 public record PostCorehrV2PreHiresQueryBodyDto

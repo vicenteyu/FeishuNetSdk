@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire.Events;
 /// 投递阶段变更 事件体
 /// <para>当投递阶段发生变更时，会触发此事件。了解事件订阅的使用场景和配置流程，请点击查看 [事件订阅概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=hire&amp;version=v1&amp;resource=application&amp;event=stage_changed)</para>
 /// <para>接口ID：7385118058418896900</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/events/stage_changed</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/candidate-management/delivery-process-management/application/events/stage_changed</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fapplication%2fevents%2fstage_changed</para>
 /// </summary>
 public record HireApplicationStageChangedV1EventBodyDto() : EventBodyDto("hire.application.stage_changed_v1")

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 编辑记录 请求体
 /// <para>编辑对象中的指定记录</para>
 /// <para>接口ID：7384730094873034780</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object-record/patch</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/application-object-record/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapplication-object-record%2fpatch</para>
 /// </summary>
 public record PatchApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsByIdBodyDto

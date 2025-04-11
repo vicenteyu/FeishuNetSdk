@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Moments.Events;
 /// 帖子统计数据变更 事件体
 /// <para>公司圈帖子统计数据变更时触发此事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=moments&amp;version=v1&amp;resource=post_statistics&amp;event=updated)</para>
 /// <para>接口ID：7270433540692787203</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/moments-v1/post_statistics/events/updated</para>
+/// <para>文档地址：https://open.feishu.cn/document/moments-v1/post_statistics/events/updated</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fmoments-v1%2fpost_statistics%2fevents%2fupdated</para>
 /// </summary>
 public record MomentsPostStatisticsUpdatedV1EventBodyDto() : EventBodyDto("moments.post_statistics.updated_v1")

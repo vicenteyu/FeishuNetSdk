@@ -16,7 +16,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// 根据适用条件获取工作日历 ID 响应体
 /// <para>根据日历的适用范围，获取工作日历 ID。适用范围包含工作地点，工时制度等。</para>
 /// <para>接口ID：7412526256520724508</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/calendar_by_scope</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/leave/calendar_by_scope</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fleave%2fcalendar_by_scope</para>
 /// </summary>
 public record GetCorehrV1LeavesCalendarByScopeResponseDto

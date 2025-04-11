@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 执行函数 请求体
 /// <para>执行基于飞书应用引擎开发的应用的自定义函数</para>
 /// <para>接口ID：7385474062586281986</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-function/invoke</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/application-function/invoke</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapplication-function%2finvoke</para>
 /// </summary>
 public record PostApaasV1ApplicationsByNamespaceFunctionsByFunctionApiNameInvokeBodyDto

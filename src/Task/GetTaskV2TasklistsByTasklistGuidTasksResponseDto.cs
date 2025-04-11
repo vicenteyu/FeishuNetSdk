@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Task;
 /// <para>本接口支持分页。清单中的任务以“自定义拖拽”的顺序返回。</para>
 /// <para>本接口支持简单的按照任务的完成状态或者任务的创建时间范围过滤。</para>
 /// <para>接口ID：7255580838154698780</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/tasks</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/tasklist/tasks</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftasklist%2ftasks</para>
 /// </summary>
 public record GetTaskV2TasklistsByTasklistGuidTasksResponseDto

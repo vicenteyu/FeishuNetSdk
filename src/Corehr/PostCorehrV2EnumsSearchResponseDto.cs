@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 查询枚举信息 响应体
 /// <para>根据枚举的APIName查询枚举详细信息，用于BPM等场景获取枚举选项。</para>
 /// <para>接口ID：7457854043681603588</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/enum/search</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-infomation/enum/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fenum%2fsearch</para>
 /// </summary>
 public record PostCorehrV2EnumsSearchResponseDto

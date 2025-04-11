@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 获取信息登记表列表 响应体
 /// <para>根据适用场景获取信息登记表列表，可获取到的信息包括登记表名称、登记表模块、登记表字段等</para>
 /// <para>接口ID：7259225956346232860</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/registration_schema/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/recruitment-related-configuration/application/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fregistration_schema%2flist</para>
 /// </summary>
 public record GetHireV1RegistrationSchemasResponseDto

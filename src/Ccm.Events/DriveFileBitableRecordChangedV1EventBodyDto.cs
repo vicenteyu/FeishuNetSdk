@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Ccm.Events;
 /// 多维表格记录变更 事件体
 /// <para>多维表格记录变更事件。被订阅的多维表格记录发生变更时，将会触发此事件。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=drive&amp;version=v1&amp;resource=file&amp;event=bitable_record_changed)</para>
 /// <para>接口ID：7374619918313455620</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/bitable_record_changed</para>
+/// <para>文档地址：https://open.feishu.cn/document/docs/bitable-v1/events/bitable_record_changed</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile%2fevents%2fbitable_record_changed</para>
 /// </summary>
 public record DriveFileBitableRecordChangedV1EventBodyDto() : EventBodyDto("drive.file.bitable_record_changed_v1")

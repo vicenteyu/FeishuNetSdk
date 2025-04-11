@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 获取角色详情 响应体
 /// <para>可通过此接口获取角色详情信息，包括名称、描述、权限列表等</para>
 /// <para>接口ID：7351241605105090564</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/recruitment-related-configuration/auth/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2frole%2fget</para>
 /// </summary>
 public record GetHireV1RolesByRoleIdResponseDto

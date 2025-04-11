@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>- 当使用分页方式获取数据时，仅能获取到最新版本的面试评价表，当指定面试评价表 ID 列表时，可以获取到历史版本面评评价表。</para>
 /// <para>## 面试评价表产品示意图</para>
 /// <para>接口ID：7356428725080342530</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/recruitment-related-configuration/interview-settings/list-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2finterview_feedback_form%2flist</para>
 /// </summary>
 public record GetHireV1InterviewFeedbackFormsResponseDto

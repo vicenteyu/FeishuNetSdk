@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 更新面试官信息 请求体
 /// <para>用于更新面试官认证信息</para>
 /// <para>接口ID：7372229724359852033</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interviewer/patch</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/recruitment-related-configuration/interview-settings/interviewer/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2finterviewer%2fpatch</para>
 /// </summary>
 public record PatchHireV1InterviewersByInterviewerIdBodyDto

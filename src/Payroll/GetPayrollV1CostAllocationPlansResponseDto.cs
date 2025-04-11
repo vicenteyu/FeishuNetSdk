@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Payroll;
 /// 批量查询成本分摊方案 响应体
 /// <para>根据期间分页批量查询成本分摊方案，仅返回期间内生效的方案列表。</para>
 /// <para>接口ID：7319164056023269404</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/cost_allocation_plan/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/payroll-v1/cost_allocation_plan/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2fcost_allocation_plan%2flist</para>
 /// </summary>
 public record GetPayrollV1CostAllocationPlansResponseDto

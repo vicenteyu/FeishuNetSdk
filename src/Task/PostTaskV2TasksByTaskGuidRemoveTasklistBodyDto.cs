@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Task;
 /// <para>将任务从一个清单中移出。返回任务详情。</para>
 /// <para>如果任务不在清单中，接口将返回成功。</para>
 /// <para>接口ID：7255580838154780700</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/remove_tasklist</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/task/remove_tasklist</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftask%2fremove_tasklist</para>
 /// </summary>
 public record PostTaskV2TasksByTaskGuidRemoveTasklistBodyDto

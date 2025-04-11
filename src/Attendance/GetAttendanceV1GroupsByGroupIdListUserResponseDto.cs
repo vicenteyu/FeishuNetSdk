@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Attendance;
 /// 查询考勤组下所有成员 响应体
 /// <para>查询指定考勤组下的所有成员</para>
 /// <para>接口ID：7439549206763372546</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/list_user</para>
+/// <para>文档地址：https://open.feishu.cn/document/attendance-v1/group/list_user</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fgroup%2flist_user</para>
 /// </summary>
 public record GetAttendanceV1GroupsByGroupIdListUserResponseDto

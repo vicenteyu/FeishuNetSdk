@@ -15,7 +15,7 @@ namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 批量更新群公告块的内容 响应体
 /// <para>接口ID：7450053428095549468</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement-block/batch_update</para>
+/// <para>文档地址：https://open.feishu.cn/document/group/upgraded-group-announcement/chat-announcement-block/batch_update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fdocument-docx%2fdocx-v1%2fchat-announcement-block%2fbatch_update</para>
 /// </summary>
 public record PatchDocxV1ChatsByChatIdAnnouncementBlocksBatchUpdateResponseDto

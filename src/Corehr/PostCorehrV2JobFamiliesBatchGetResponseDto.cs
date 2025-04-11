@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 通过序列 ID 批量获取序列信息 响应体
 /// <para>通过序列 ID 批量查询序列的详情信息，包括序列名称、启用状态、上级序列等。</para>
 /// <para>接口ID：7252157701853216796</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/job-management/job_family/batch_get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob_family%2fbatch_get</para>
 /// </summary>
 public record PostCorehrV2JobFamiliesBatchGetResponseDto

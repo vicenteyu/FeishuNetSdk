@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Ccm;
 /// 获取知识空间成员列表 响应体
 /// <para>获取知识空间的成员与管理员列表。</para>
 /// <para>接口ID：7386702252390449180</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-member/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/docs/wiki-v2/space-member/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fwiki-v2%2fspace-member%2flist</para>
 /// </summary>
 public record GetWikiV2SpacesBySpaceIdMembersResponseDto

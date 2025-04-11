@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>- 执行加入操作：当传入不存在人才 ID 时，接口会报错返回不存在人才 ID 列表。 当人才已在人才库中时，接口静默处理。</para>
 /// <para>- 执行移除操作：当传入不存在人才 ID 时，接口会报错返回不存在人才 ID 列表。 当人才未在人才库中时，接口静默处理。</para>
 /// <para>接口ID：7397677441913028636</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_pool/batch_change_talent_pool</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/candidate-management/talent_pool/batch_change_talent_pool</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent_pool%2fbatch_change_talent_pool</para>
 /// </summary>
 public record PostHireV1TalentPoolsByTalentPoolIdBatchChangeTalentPoolBodyDto

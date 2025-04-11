@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Im;
 /// 解绑标签与群 请求体
 /// <para>从业务实体上解绑标签。</para>
 /// <para>接口ID：7315032956271263748</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/biz_entity_tag_relation/update</para>
+/// <para>文档地址：https://open.feishu.cn/document/tenant-tag/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fgroup%2fim-v2%2fbiz_entity_tag_relation%2fupdate</para>
 /// </summary>
 public record PutImV2BizEntityTagRelationBodyDto

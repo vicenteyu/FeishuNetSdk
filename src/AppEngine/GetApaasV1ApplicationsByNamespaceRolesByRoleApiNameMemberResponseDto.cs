@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 查询角色成员信息 响应体
 /// <para>获取角色成员详情</para>
 /// <para>接口ID：7417675812785455107</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-role-member/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/permission/application-role-member/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapplication-role-member%2fget</para>
 /// </summary>
 public record GetApaasV1ApplicationsByNamespaceRolesByRoleApiNameMemberResponseDto

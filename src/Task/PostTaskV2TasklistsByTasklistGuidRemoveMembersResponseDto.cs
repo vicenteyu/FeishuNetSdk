@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Task;
 /// <para>如果要移除的成员不在清单中，则被自动忽略，接口返回成功。</para>
 /// <para>该接口不能用于移除清单所有者。如果要移除的成员是清单所有者，则会被自动忽略。如要设置清单所有者，需要调用[更新清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/patch)接口。</para>
 /// <para>接口ID：7255580838154846236</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/remove_members</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/tasklist/remove_members</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftasklist%2fremove_members</para>
 /// </summary>
 public record PostTaskV2TasklistsByTasklistGuidRemoveMembersResponseDto

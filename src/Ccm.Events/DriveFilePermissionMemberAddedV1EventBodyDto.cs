@@ -22,13 +22,6 @@ namespace FeishuNetSdk.Ccm.Events;
 public record DriveFilePermissionMemberAddedV1EventBodyDto() : EventBodyDto("drive.file.permission_member_added_v1")
 {
     /// <summary>
-    /// <para>订阅的云文档 token</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("resource_id")]
-    public string? ResourceId { get; set; }
-
-    /// <summary>
     /// <para>添加的群 ID 列表</para>
     /// <para>必填：否</para>
     /// </summary>
@@ -41,6 +34,8 @@ public record DriveFilePermissionMemberAddedV1EventBodyDto() : EventBodyDto("dri
     /// <para>- docx：新版文档</para>
     /// <para>- sheet：电子表格</para>
     /// <para>- bitable：多维表格</para>
+    /// <para>- slides：幻灯片</para>
+    /// <para>- file：文件</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("file_type")]

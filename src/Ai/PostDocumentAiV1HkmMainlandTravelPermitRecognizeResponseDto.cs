@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Ai;
 /// <para>港澳居民来往内地通行证识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。</para>
 /// <para>文件大小需要小于10M。</para>
 /// <para>接口ID：7273083612789620739</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/hkm_mainland_travel_permit/recognize</para>
+/// <para>文档地址：https://open.feishu.cn/document/ai/document_ai-v1/hkm_mainland_travel_permit/recognize</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fai%2fdocument_ai-v1%2fhkm_mainland_travel_permit%2frecognize</para>
 /// </summary>
 public record PostDocumentAiV1HkmMainlandTravelPermitRecognizeResponseDto

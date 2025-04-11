@@ -16,7 +16,7 @@ namespace FeishuNetSdk.CompensationManagement;
 /// 批量查询薪资方案 响应体
 /// <para>- 此接口将返回全部薪资方案信息，包括薪资方案 ID、生效日期、薪资项/薪资统计指标等</para>
 /// <para>接口ID：7314129756769812484</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-compensation/plan/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcompensation-v1%2fplan%2flist</para>
 /// </summary>
 public record GetCompensationV1PlansResponseDto

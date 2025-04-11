@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Application;
 /// 获取企业安装的应用 响应体
 /// <para>该接口用于查询企业安装的应用列表，只能被企业自建应用调用。</para>
 /// <para>接口ID：7438462855810138116</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/application-v6/admin/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication%2flist</para>
 /// </summary>
 public record GetApplicationV6ApplicationsResponseDto

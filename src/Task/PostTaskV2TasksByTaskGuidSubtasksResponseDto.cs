@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Task;
 /// <para>给一个任务创建一个子任务。</para>
 /// <para>接口功能除了额外需要输入父任务的GUID之外，和[创建任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/create)接口功能完全一致。</para>
 /// <para>接口ID：7255580838154551324</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task-subtask/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/task-subtask/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftask-subtask%2fcreate</para>
 /// </summary>
 public record PostTaskV2TasksByTaskGuidSubtasksResponseDto
@@ -378,7 +378,7 @@ public record PostTaskV2TasksByTaskGuidSubtasksResponseDto
                 /// <summary>
                 /// <para>法语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Tabledetravail</para>
+                /// <para>示例值：Table de travail</para>
                 /// </summary>
                 [JsonPropertyName("fr_fr")]
                 public string? FrFr { get; set; }
@@ -386,7 +386,7 @@ public record PostTaskV2TasksByTaskGuidSubtasksResponseDto
                 /// <summary>
                 /// <para>意大利语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：bancodilavoro</para>
+                /// <para>示例值：banco di lavoro</para>
                 /// </summary>
                 [JsonPropertyName("it_it")]
                 public string? ItIt { get; set; }
@@ -418,7 +418,7 @@ public record PostTaskV2TasksByTaskGuidSubtasksResponseDto
                 /// <summary>
                 /// <para>西班牙语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：bancodetrabajo</para>
+                /// <para>示例值：banco de trabajo</para>
                 /// </summary>
                 [JsonPropertyName("es_es")]
                 public string? EsEs { get; set; }
@@ -449,6 +449,7 @@ public record PostTaskV2TasksByTaskGuidSubtasksResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// <para>最大长度：1024</para>
+                /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("url")]
                 public string? Url { get; set; }
@@ -524,6 +525,8 @@ public record PostTaskV2TasksByTaskGuidSubtasksResponseDto
         /// <para>任务的模式。1 - 会签任务；2 - 或签任务</para>
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
+        /// <para>最大值：2</para>
+        /// <para>最小值：1</para>
         /// </summary>
         [JsonPropertyName("mode")]
         public int? Mode { get; set; }
@@ -636,7 +639,7 @@ public record PostTaskV2TasksByTaskGuidSubtasksResponseDto
                     /// <summary>
                     /// <para>法语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：Tabledetravail</para>
+                    /// <para>示例值：Table de travail</para>
                     /// </summary>
                     [JsonPropertyName("fr_fr")]
                     public string? FrFr { get; set; }
@@ -644,7 +647,7 @@ public record PostTaskV2TasksByTaskGuidSubtasksResponseDto
                     /// <summary>
                     /// <para>意大利语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：bancodilavoro</para>
+                    /// <para>示例值：banco di lavoro</para>
                     /// </summary>
                     [JsonPropertyName("it_it")]
                     public string? ItIt { get; set; }
@@ -676,7 +679,7 @@ public record PostTaskV2TasksByTaskGuidSubtasksResponseDto
                     /// <summary>
                     /// <para>西班牙语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：bancodetrabajo</para>
+                    /// <para>示例值：banco de trabajo</para>
                     /// </summary>
                     [JsonPropertyName("es_es")]
                     public string? EsEs { get; set; }

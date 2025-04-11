@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Payroll;
 /// 查询发薪活动列表 响应体
 /// <para>根据「发薪日起止范围」、「发薪活动状态」和「分页参数」查询发薪活动列表。</para>
 /// <para>接口ID：7411460155089518595</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/payroll-v1/payment_activity/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2fpayment_activity%2flist</para>
 /// </summary>
 public record GetPayrollV1PaymentActivitysResponseDto

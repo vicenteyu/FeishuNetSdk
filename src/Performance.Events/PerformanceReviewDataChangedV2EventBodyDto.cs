@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Performance.Events;
 /// 绩效详情变更 事件体
 /// <para>当员工的绩效详情发生变更时，订阅这个事件的应用会收到该事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=performance&amp;version=v2&amp;resource=review_data&amp;event=changed)</para>
 /// <para>接口ID：7351374599659864068</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/review_data/events/changed</para>
+/// <para>文档地址：https://open.feishu.cn/document/performance-v1/review_data/events/changed</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2freview_data%2fevents%2fchanged</para>
 /// </summary>
 public record PerformanceReviewDataChangedV2EventBodyDto() : EventBodyDto("performance.review_data.changed_v2")

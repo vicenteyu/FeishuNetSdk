@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Task;
 /// <para>列取一个资源的所有附件。返回的附件列表支持分页，按照附件上传时间排序。</para>
 /// <para>每个附件会返回一个可供下载的临时url，有效期为3分钟，最多可以支持3次下载。如果超过使用限制，需要通过本接口获取新的临时url。</para>
 /// <para>接口ID：7297183031634477059</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/attachment/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fattachment%2flist</para>
 /// </summary>
 public record GetTaskV2AttachmentsResponseDto

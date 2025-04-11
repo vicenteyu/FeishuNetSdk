@@ -14,10 +14,9 @@
 namespace FeishuNetSdk.Ccm.Events;
 /// <summary>
 /// 文件协作者权限申请 事件体
-/// <para>当用户发起申请文件协作者权限时将触发此事件，协作者权限包括阅读、编辑和管理权限。</para>
-/// <para>{使用示例}(url=/api/tools/api_explore/api_explore_config?project=drive&amp;version=v1&amp;resource=file&amp;event=permission_member_applied)</para>
+/// <para>当用户发起申请文件协作者权限时将触发此事件，协作者权限包括阅读、编辑和管理权限。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=drive&amp;version=v1&amp;resource=file&amp;event=permission_member_applied)</para>
 /// <para>接口ID：7444011024166748164</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/permission_member_applied</para>
+/// <para>文档地址：https://open.feishu.cn/document/docs/drive-v1/event/list/permission_member_applied</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile%2fevents%2fpermission_member_applied</para>
 /// </summary>
 public record DriveFilePermissionMemberAppliedV1EventBodyDto() : EventBodyDto("drive.file.permission_member_applied_v1")
@@ -25,7 +24,7 @@ public record DriveFilePermissionMemberAppliedV1EventBodyDto() : EventBodyDto("d
     /// <summary>
     /// <para>文件对应的类型，与文件的 file_token 相匹配。</para>
     /// <para>**可选值有**：</para>
-    /// <para>doc:旧版文档,sheet:电子表格,bitable:多维表格,docx:新版文档</para>
+    /// <para>doc:旧版文档,sheet:电子表格,bitable:多维表格,docx:新版文档,slides:幻灯片,file:文件</para>
     /// <para>**数据校验规则**：</para>
     /// <para>- 长度范围：`1` ～ `50` 字符</para>
     /// <para>必填：否</para>
@@ -34,6 +33,8 @@ public record DriveFilePermissionMemberAppliedV1EventBodyDto() : EventBodyDto("d
     /// <item>sheet：电子表格</item>
     /// <item>bitable：多维表格</item>
     /// <item>docx：新版文档</item>
+    /// <item>slides：幻灯片</item>
+    /// <item>file：文件</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("file_type")]

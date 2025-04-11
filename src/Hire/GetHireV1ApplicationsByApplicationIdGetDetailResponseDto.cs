@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 获取投递详情 响应体
 /// <para>根据投递 ID 获取投递信息并通过参数按需获取该投递相关的实体信息，如「职位」、「人才」、「评估」、「面试」、「Offer」、「猎头」、「内推」、「官网」等实体的信息。</para>
 /// <para>接口ID：7397703144758165532</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get_detail</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/candidate-management/delivery-process-management/application/get_detail</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fapplication%2fget_detail</para>
 /// </summary>
 public record GetHireV1ApplicationsByApplicationIdGetDetailResponseDto

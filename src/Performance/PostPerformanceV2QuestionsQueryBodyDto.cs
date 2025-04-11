@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Performance;
 /// 获取标签填写题配置 请求体
 /// <para>获取标签填写题配置信息，包括标签填写题名称、标签列表等</para>
 /// <para>接口ID：7351374599659814916</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/question/query</para>
+/// <para>文档地址：https://open.feishu.cn/document/performance-v1/review_config/review_template/query-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2fquestion%2fquery</para>
 /// </summary>
 public record PostPerformanceV2QuestionsQueryBodyDto

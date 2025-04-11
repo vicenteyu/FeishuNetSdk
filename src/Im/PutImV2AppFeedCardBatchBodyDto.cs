@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Im;
 /// 更新应用消息流卡片 请求体
 /// <para>该接口用于更新消息流卡片的头像、标题、预览、标签状态、按钮等信息</para>
 /// <para>接口ID：7302258202712473628</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/app_feed_card-batch/update</para>
+/// <para>文档地址：https://open.feishu.cn/document/im-v2/app_feed_card/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fgroup%2fim-v2%2fapp_feed_card-batch%2fupdate</para>
 /// </summary>
 public record PutImV2AppFeedCardBatchBodyDto

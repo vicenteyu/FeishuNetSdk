@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Task;
 /// 获取自定义字段 响应体
 /// <para>根据一个自定义字段的GUID，获取其详细的设置信息。</para>
 /// <para>接口ID：7270765454292238338</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/custom_field/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fcustom_field%2fget</para>
 /// </summary>
 public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDto

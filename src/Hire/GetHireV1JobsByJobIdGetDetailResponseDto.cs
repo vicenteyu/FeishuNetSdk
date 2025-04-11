@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 获取职位详情 响应体
 /// <para>根据职位 ID 获取职位详情，包含职位基本信息、职位负责人、协助人、用人经理、职位地址列表、职位设置、关联招需、门店列表及标签列表等信息。</para>
 /// <para>接口ID：7397677441935884289</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get_detail</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/recruitment-related-configuration/job/get_detail</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fjob%2fget_detail</para>
 /// </summary>
 public record GetHireV1JobsByJobIdGetDetailResponseDto

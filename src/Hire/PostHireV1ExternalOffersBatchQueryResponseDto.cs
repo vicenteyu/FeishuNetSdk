@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 查询外部 Offer 列表 响应体
 /// <para>可根据外部投递 ID 或外部 Offer ID 列表查询外部 Offer 信息。</para>
 /// <para>接口ID：7407298680641060867</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_offer/batch_query</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/get-candidates/import-external-system-information/import-external-offer-info/batch_query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fexternal_offer%2fbatch_query</para>
 /// </summary>
 public record PostHireV1ExternalOffersBatchQueryResponseDto

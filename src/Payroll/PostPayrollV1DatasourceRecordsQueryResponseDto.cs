@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Payroll;
 /// <para>1. 支持通过payroll_period（必传）、employment_id（可选）这两个预置字段，批量查询指定数据源下的数据记录列表。</para>
 /// <para>2. 数据源配置信息可从[获取外部数据源配置信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/datasource/list)或者 「飞书人事后台-设置-算薪数据设置-外部数据源配置」页面 获取</para>
 /// <para>接口ID：7411366924142477314</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/datasource_record/query</para>
+/// <para>文档地址：https://open.feishu.cn/document/payroll-v1/datasource_record/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2fdatasource_record%2fquery</para>
 /// </summary>
 public record PostPayrollV1DatasourceRecordsQueryResponseDto

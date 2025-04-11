@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Im;
 /// 创建标签 请求体
 /// <para>创建标签并返回标签 ID。</para>
 /// <para>接口ID：7315032956271280132</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/tag/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/tenant-tag/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fgroup%2fim-v2%2ftag%2fcreate</para>
 /// </summary>
 public record PostImV2TagsBodyDto

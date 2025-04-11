@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Application;
 /// 更新应用通讯录权限范围配置 请求体
 /// <para>该接口用于更新当前企业内自建应用或已安装的商店应用的通讯录权限范围配置。更新后线上立即生效。</para>
 /// <para>接口ID：7278520881743724547</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-contacts_range/patch</para>
+/// <para>文档地址：https://open.feishu.cn/document/application-v6/admin/patch-4</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication-contacts_range%2fpatch</para>
 /// </summary>
 public record PatchApplicationV6ApplicationsByAppIdContactsRangeBodyDto

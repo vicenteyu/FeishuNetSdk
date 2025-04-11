@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Cardkit;
 /// <para>将[消息 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#44c58e1c)（ `message_id` ）转换为卡片实体 ID（`card_id`）。用于将由[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)等接口返回的消息 ID 转换为卡片实体 ID，以进一步对卡片进行全量更新、局部更新、或文本流式更新操作。</para>
 /// <para>## 提示</para>
 /// <para>接口ID：7397265677100957699</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/id_convert</para>
+/// <para>文档地址：https://open.feishu.cn/document/historic-version/id_convert</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcardkit-v1%2fcard%2fid_convert</para>
 /// </summary>
 public record PostCardkitV1CardsIdConvertResponseDto

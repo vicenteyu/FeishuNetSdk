@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Performance;
 /// 获取周期任务（全部用户） 请求体
 /// <para>批量获取周期下所有用户的任务信息。支持传入任务分类、任务截止时间参数删选周期内任务数据。</para>
 /// <para>接口ID：7275704938197237762</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/stage_task/find_by_page</para>
+/// <para>文档地址：https://open.feishu.cn/document/performance-v1/stage_task/find_by_page</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v1%2fstage_task%2ffind_by_page</para>
 /// </summary>
 public record PostPerformanceV1StageTasksFindByPageBodyDto

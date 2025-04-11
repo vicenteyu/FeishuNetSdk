@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Task;
 /// 获取自定义分组任务列表 响应体
 /// <para>列取一个自定义分组里的所有任务。支持分页。任务按照自定义排序的顺序返回。本接口支持简单的过滤。</para>
 /// <para>接口ID：7259330038033891356</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/section/tasks</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/section/tasks</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fsection%2ftasks</para>
 /// </summary>
 public record GetTaskV2SectionsBySectionGuidTasksResponseDto

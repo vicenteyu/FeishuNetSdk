@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Performance;
 /// 获取绩效详情数据 请求体
 /// <para>获取被评估人各环节的绩效评估详情（不包含校准环节），如环节评估数据、环节提交状态等</para>
 /// <para>接口ID：7351374599659847684</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/review_data/query</para>
+/// <para>文档地址：https://open.feishu.cn/document/performance-v1/review_data/query-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2freview_data%2fquery</para>
 /// </summary>
 public record PostPerformanceV2ReviewDatasQueryBodyDto

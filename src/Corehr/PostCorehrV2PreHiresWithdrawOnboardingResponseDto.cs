@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 撤销入职 响应体
 /// <para>通过本接口对指定待入职，入职准备就绪的员工执行撤销入职操作，对应入职管理页面撤销入职按钮</para>
 /// <para>接口ID：7450056310967664642</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/withdraw_onboarding</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/pre_hire/withdraw_onboarding</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpre_hire%2fwithdraw_onboarding</para>
 /// </summary>
 public record PostCorehrV2PreHiresWithdrawOnboardingResponseDto

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 发起流程 响应体
 /// <para>执行相应流程</para>
 /// <para>接口ID：7442599557486624772</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-flow/execute</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/flow/application-flow/execute</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapplication-flow%2fexecute</para>
 /// </summary>
 public record PostApaasV1ApplicationsByNamespaceFlowsByFlowIdExecuteResponseDto

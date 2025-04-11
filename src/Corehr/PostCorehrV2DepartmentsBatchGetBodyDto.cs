@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 批量查询部门 请求体
 /// <para>批量查询部门信息，**该接口只返回部门当前内容**。</para>
 /// <para>接口ID：7280432392631549953</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/organization-management/department/batch_get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fdepartment%2fbatch_get</para>
 /// </summary>
 public record PostCorehrV2DepartmentsBatchGetBodyDto

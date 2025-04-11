@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Approval;
 /// 查看指定三方审批定义 响应体
 /// <para>根据 Approval Code 获取之前同步的某个三方审批定义的详情数据</para>
 /// <para>接口ID：7255160068449828892</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/approval-v4/external_approval/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2fexternal_approval%2fget</para>
 /// </summary>
 public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto

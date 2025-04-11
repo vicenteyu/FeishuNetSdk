@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Performance;
 /// 获取周期列表 响应体
 /// <para>批量获取周期的基本信息，如周期的名称、类型等信息。支持根据时间段、周期年份、周期类型等过滤条件进行筛选。</para>
 /// <para>接口ID：7275544940596789251</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/performance-v1/review_config/semester_activity/semester/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v1%2fsemester%2flist</para>
 /// </summary>
 public record GetPerformanceV1SemestersResponseDto

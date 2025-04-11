@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Task;
 /// <para>如要创建一个任务的子任务，需要使用[创建子任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task-subtask/create)接口。</para>
 /// <para>创建任务时可以一并设置自定义字段值。但根据自定义字段的权限关系，任务只能添加`tasklists`字段设置的清单中关联的自定义字段的值。详见[自定义字段功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/custom-field-overview)中的介绍。</para>
 /// <para>接口ID：7255580838154371100</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/task/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftask%2fcreate</para>
 /// </summary>
 public record PostTaskV2TasksResponseDto
@@ -383,7 +383,7 @@ public record PostTaskV2TasksResponseDto
                 /// <summary>
                 /// <para>法语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Tabledetravail</para>
+                /// <para>示例值：Table de travail</para>
                 /// </summary>
                 [JsonPropertyName("fr_fr")]
                 public string? FrFr { get; set; }
@@ -391,7 +391,7 @@ public record PostTaskV2TasksResponseDto
                 /// <summary>
                 /// <para>意大利语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：bancodilavoro</para>
+                /// <para>示例值：banco di lavoro</para>
                 /// </summary>
                 [JsonPropertyName("it_it")]
                 public string? ItIt { get; set; }
@@ -423,7 +423,7 @@ public record PostTaskV2TasksResponseDto
                 /// <summary>
                 /// <para>西班牙语</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：bancodetrabajo</para>
+                /// <para>示例值：banco de trabajo</para>
                 /// </summary>
                 [JsonPropertyName("es_es")]
                 public string? EsEs { get; set; }
@@ -454,6 +454,7 @@ public record PostTaskV2TasksResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：https://www.example.com</para>
                 /// <para>最大长度：1024</para>
+                /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("url")]
                 public string? Url { get; set; }
@@ -529,6 +530,8 @@ public record PostTaskV2TasksResponseDto
         /// <para>任务的模式。1 - 会签任务；2 - 或签任务</para>
         /// <para>必填：否</para>
         /// <para>示例值：2</para>
+        /// <para>最大值：2</para>
+        /// <para>最小值：1</para>
         /// </summary>
         [JsonPropertyName("mode")]
         public int? Mode { get; set; }
@@ -641,7 +644,7 @@ public record PostTaskV2TasksResponseDto
                     /// <summary>
                     /// <para>法语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：Tabledetravail</para>
+                    /// <para>示例值：Table de travail</para>
                     /// </summary>
                     [JsonPropertyName("fr_fr")]
                     public string? FrFr { get; set; }
@@ -649,7 +652,7 @@ public record PostTaskV2TasksResponseDto
                     /// <summary>
                     /// <para>意大利语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：bancodilavoro</para>
+                    /// <para>示例值：banco di lavoro</para>
                     /// </summary>
                     [JsonPropertyName("it_it")]
                     public string? ItIt { get; set; }
@@ -681,7 +684,7 @@ public record PostTaskV2TasksResponseDto
                     /// <summary>
                     /// <para>西班牙语</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：bancodetrabajo</para>
+                    /// <para>示例值：banco de trabajo</para>
                     /// </summary>
                     [JsonPropertyName("es_es")]
                     public string? EsEs { get; set; }
@@ -847,6 +850,7 @@ public record PostTaskV2TasksResponseDto
             /// <para>人员类型的自定义字段值，可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当该字段的设置为“不能多选”时只能输入一个值。设为空数组表示设为空。</para>
             /// <para>必填：否</para>
             /// <para>最大长度：50</para>
+            /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("member_value")]
             public Member[]? MemberValues { get; set; }
@@ -896,6 +900,7 @@ public record PostTaskV2TasksResponseDto
             /// <para>多选类型字段值，可以填写一个或多个本字段的option_guid。设为空数组表示设为空。</para>
             /// <para>必填：否</para>
             /// <para>最大长度：50</para>
+            /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("multi_select_value")]
             public string[]? MultiSelectValue { get; set; }

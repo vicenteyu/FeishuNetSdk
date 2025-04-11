@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 查询猎头供应商下猎头列表 响应体
 /// <para>根据猎头供应商 ID 查询该猎头供应商下的猎头列表。</para>
 /// <para>接口ID：7413697955198058500</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/get_agency_account</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/get-candidates/agency/get_agency_account</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fagency%2fget_agency_account</para>
 /// </summary>
 public record PostHireV1AgenciesGetAgencyAccountResponseDto

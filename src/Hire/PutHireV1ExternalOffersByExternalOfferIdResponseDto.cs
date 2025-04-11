@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>## 注意事项</para>
 /// <para>该接口会对原 Offer 内容进行全量覆盖更新。</para>
 /// <para>接口ID：7407298680641093635</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_offer/update</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/get-candidates/import-external-system-information/import-external-offer-info/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fexternal_offer%2fupdate</para>
 /// </summary>
 public record PutHireV1ExternalOffersByExternalOfferIdResponseDto

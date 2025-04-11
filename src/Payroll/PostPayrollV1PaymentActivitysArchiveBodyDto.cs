@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Payroll;
 /// 封存发薪活动 请求体
 /// <para>根据发薪活动ID对发薪活动进行封存。注意：仅当发薪活动状态为审批通过时，方可进行封存。</para>
 /// <para>接口ID：7441890276475142147</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity/archive</para>
+/// <para>文档地址：https://open.feishu.cn/document/payroll-v1/payment_activity/archive</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2fpayment_activity%2farchive</para>
 /// </summary>
 public record PostPayrollV1PaymentActivitysArchiveBodyDto

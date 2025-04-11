@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Payroll;
 /// <para>- 薪资组是按薪酬管理的纬度创建的组，组内的员工由相同的HR处理薪酬相关工作，通过薪资组可实现对薪资组人员的管理和在薪酬计算发放等环节的人员权限范围控制</para>
 /// <para>- 本接口返回所有薪资组的基本信息，包括薪资组ID、薪资组名称、薪资组编码、薪资组状态等，不含薪资组下的员工信息</para>
 /// <para>接口ID：7405412186246627329</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/payroll-v1/paygroup/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2fpaygroup%2flist</para>
 /// </summary>
 public record GetPayrollV1PaygroupsResponseDto

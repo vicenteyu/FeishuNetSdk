@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 查询指定生效日期的部门架构树 响应体
 /// <para>支持传入部门ID（不传默认根部门），任意日期（不传默认当前日期）。从给定部门ID开始广度遍历，每页最多返回2000行数据</para>
 /// <para>接口ID：7405851978397581314</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/tree</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/organization-management/department/tree</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fdepartment%2ftree</para>
 /// </summary>
 public record PostCorehrV2DepartmentsTreeResponseDto

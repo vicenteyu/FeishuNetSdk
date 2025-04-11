@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Application;
 /// 转移应用所有者 请求体
 /// <para>将某个自建应用的所有者转移给另外一个人。</para>
 /// <para>接口ID：7320225176225185795</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-owner/update</para>
+/// <para>文档地址：https://open.feishu.cn/document/application-v6/application/update-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication-owner%2fupdate</para>
 /// </summary>
 public record PutApplicationV6ApplicationsByAppIdOwnerBodyDto

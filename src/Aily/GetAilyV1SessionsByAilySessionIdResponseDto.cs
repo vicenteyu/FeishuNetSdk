@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Aily;
 /// 获取会话 响应体
 /// <para>该 API 用于获取与某个飞书智能伙伴应用的一次会话（Session）的详细信息，包括会话的状态、渠道上下文、创建时间等。</para>
 /// <para>接口ID：7358047310868250628</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/aily-v1/aily_session/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2faily_session%2fget</para>
 /// </summary>
 public record GetAilyV1SessionsByAilySessionIdResponseDto

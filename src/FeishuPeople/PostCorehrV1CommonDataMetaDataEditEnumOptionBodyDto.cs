@@ -16,7 +16,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// 修改字段枚举值选项 请求体
 /// <para>对于当前已有的所有自定义枚举字段，以及部分系统预置枚举字段，通过本接口可修改字段中已有可选项的展示名称、停启用状态</para>
 /// <para>接口ID：7385867895124328452</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-meta_data/edit_enum_option</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-infomation/custom_field/edit_enum_option</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fcommon_data-meta_data%2fedit_enum_option</para>
 /// </summary>
 public record PostCorehrV1CommonDataMetaDataEditEnumOptionBodyDto

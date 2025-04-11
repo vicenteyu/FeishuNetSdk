@@ -555,7 +555,7 @@ public record PatchContactV3UsersByUserIdResponseDto
         /// <summary>
         /// <para>序列 ID。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：mga5oa8ayjlp9rb</para>
+        /// <para>示例值：mga5oa8ayjlpzjq</para>
         /// </summary>
         [JsonPropertyName("job_family_id")]
         public string? JobFamilyId { get; set; }

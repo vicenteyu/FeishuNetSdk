@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 查询编制规划方案 响应体
 /// <para>根据传入的筛选项获取编制规划的方案列表</para>
 /// <para>接口ID：7314710843818508289</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/workforce_plan/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/workforce_plan/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fworkforce_plan%2flist</para>
 /// </summary>
 public record GetCorehrV2WorkforcePlansResponseDto

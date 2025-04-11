@@ -1,9 +1,22 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-08-29
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-08-29
+// ************************************************************************
+// <copyright file="PatchImV2FeedCardsBotTimeSentiveBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>机器人单聊即时提醒 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 机器人单聊即时提醒 请求体
 /// <para>可将机器人对话在消息列表中置顶展示，打开飞书首页即可处理重要任务。</para>
 /// <para>接口ID：7350335258430799873</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/feed_card/bot_time_sentive</para>
+/// <para>文档地址：https://open.feishu.cn/document/im-v2/groups-bots/bot_time_sentive</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fgroup%2fim-v2%2ffeed_card%2fbot_time_sentive</para>
 /// </summary>
 public record PatchImV2FeedCardsBotTimeSentiveBodyDto

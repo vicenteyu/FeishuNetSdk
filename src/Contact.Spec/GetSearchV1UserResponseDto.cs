@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Contact.Spec;
 /// <summary>
 /// 搜索用户 响应体
-/// <para>调用该接口通过用户名关键词搜索其他用户的信息，包括用户头像、用户名、用户所在部门、用户 user_id 以及 open_id。</para>
+/// <para>通过用户名关键词搜索其他用户的信息，包括用户头像、用户名、用户所在部门、用户 user_id 以及 open_id。</para>
 /// <para>注意事项：</para>
 /// <para>- 仅支持通过用户身份（user_access_token）调用该接口。</para>
 /// <para>- 无法搜索到外部企业或已离职的用户。</para>

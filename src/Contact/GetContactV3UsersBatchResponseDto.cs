@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Contact;
 /// <para>## 注意事项</para>
 /// <para>该查询接口目前不返回用户的席位（assign_info）和部门路径信息（department_path）。</para>
 /// <para>接口ID：7243624444425502748</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch</para>
+/// <para>文档地址：https://open.feishu.cn/document/contact-v3/user/batch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fuser%2fbatch</para>
 /// </summary>
 public record GetContactV3UsersBatchResponseDto

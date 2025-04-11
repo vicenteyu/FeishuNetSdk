@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 操作员工完成入职 响应体
 /// <para>操作待入职员工完成入职，正式入职建立员工和公司/组织的雇佣关系</para>
 /// <para>接口ID：7357756972752699394</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/complete</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/pre_hire/complete</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpre_hire%2fcomplete</para>
 /// </summary>
 public record PostCorehrV2PreHiresByPreHireIdCompleteResponseDto

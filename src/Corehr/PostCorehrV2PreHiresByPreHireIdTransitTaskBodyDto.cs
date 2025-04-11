@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 流转入职任务 请求体
 /// <para>配置入职流程后，可通过本接口流转进行中的任务</para>
 /// <para>接口ID：7357756972752732162</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/transit_task</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/pre_hire/transit_task</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpre_hire%2ftransit_task</para>
 /// </summary>
 public record PostCorehrV2PreHiresByPreHireIdTransitTaskBodyDto

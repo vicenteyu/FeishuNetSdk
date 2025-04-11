@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 加签审批任务 请求体
 /// <para>给单个流程中的节点或审批任务加签，加签方式有前加签、并加签、后加签三种。</para>
 /// <para>接口ID：7431073872102866972</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-extra/update</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/approver-task/update-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess-extra%2fupdate</para>
 /// </summary>
 public record PutCorehrV2ProcessesByProcessIdExtraBodyDto

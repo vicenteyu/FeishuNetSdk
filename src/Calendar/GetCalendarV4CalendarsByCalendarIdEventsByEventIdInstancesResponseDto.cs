@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Calendar;
 /// 获取重复日程实例 响应体
 /// <para>调用该接口以当前身份（应用或用户）获取指定日历中的某一重复日程信息。</para>
 /// <para>接口ID：7317471576948850689</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/instances</para>
+/// <para>文档地址：https://open.feishu.cn/document/calendar-v4/calendar-event/instances</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2fcalendar-event%2finstances</para>
 /// </summary>
 public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstancesResponseDto

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Moments.Events;
 /// 发布评论 事件体
 /// <para>公司圈用户发布评论时触发此事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=moments&amp;version=v1&amp;resource=comment&amp;event=created)</para>
 /// <para>接口ID：7270433540692738051</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/moments-v1/comment/events/created</para>
+/// <para>文档地址：https://open.feishu.cn/document/moments-v1/comment/events/created</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fmoments-v1%2fcomment%2fevents%2fcreated</para>
 /// </summary>
 public record MomentsCommentCreatedV1EventBodyDto() : EventBodyDto("moments.comment.created_v1")

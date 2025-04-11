@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Payroll;
 /// 查询成本分摊报表汇总数据 响应体
 /// <para>根据算薪期间和成本分摊方案id获取成本分摊汇总数据。调用接口前，需在payroll 系统中打开「财务过账」开关，并且完成发布成本分摊报表。</para>
 /// <para>接口ID：7319164056023253020</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/cost_allocation_report/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/payroll-v1/cost_allocation_report/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2fcost_allocation_report%2flist</para>
 /// </summary>
 public record GetPayrollV1CostAllocationReportsResponseDto

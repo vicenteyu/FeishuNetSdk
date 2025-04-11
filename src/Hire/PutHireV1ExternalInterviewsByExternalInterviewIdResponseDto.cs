@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>## 注意事项</para>
 /// <para>该接口会对原面试以及面试评价内容进行全量覆盖更新。</para>
 /// <para>接口ID：7407298680641011715</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_interview/update</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/get-candidates/import-external-system-information/import-external-interview-info/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fexternal_interview%2fupdate</para>
 /// </summary>
 public record PutHireV1ExternalInterviewsByExternalInterviewIdResponseDto

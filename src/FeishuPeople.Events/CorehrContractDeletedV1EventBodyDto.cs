@@ -16,7 +16,7 @@ namespace FeishuNetSdk.FeishuPeople.Events;
 /// 合同删除 事件体
 /// <para>通过开放平台删除合同时，会触发该事件。注意：删除后，无法通过搜索接口查询到合同信息。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v1&amp;resource=contract&amp;event=deleted)</para>
 /// <para>接口ID：7287992767983812609</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/contract/events/deleted</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/contract/contract-events/deleted</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fcontract%2fevents%2fdeleted</para>
 /// </summary>
 public record CorehrContractDeletedV1EventBodyDto() : EventBodyDto("corehr.contract.deleted_v1")

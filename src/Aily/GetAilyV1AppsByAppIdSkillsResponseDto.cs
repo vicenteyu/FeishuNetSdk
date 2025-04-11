@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Aily;
 /// <para>该 API 用于查询某个 Aily 应用的技能列表</para>
 /// <para>&gt; 包括内置的数据分析与问答技能、以及未在对话开启的技能。</para>
 /// <para>接口ID：7429225800963063810</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-skill/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/aily-v1/app-skill/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2fapp-skill%2flist</para>
 /// </summary>
 public record GetAilyV1AppsByAppIdSkillsResponseDto

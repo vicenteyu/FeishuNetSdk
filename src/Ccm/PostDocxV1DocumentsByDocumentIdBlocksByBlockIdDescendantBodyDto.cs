@@ -15,7 +15,7 @@ namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 创建嵌套块 请求体
 /// <para>接口ID：7324523155900366876</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-descendant/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/docs/docs/document-block/create-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fdocument-docx%2fdocx-v1%2fdocument-block-descendant%2fcreate</para>
 /// </summary>
 public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdDescendantBodyDto

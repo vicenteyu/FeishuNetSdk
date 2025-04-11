@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Task;
 /// <para>当在清单中创建自定义分组时，需要设置`resourse_type`为"tasklist", `resource_id`设为清单的GUID。</para>
 /// <para>当为我负责任务列表中创建自定义分组时，需要设置`resource_type`为"my_tasks"，不需要设置`resource_id`。调用身份只能为自己的我负责的任务列表创建自定义分组。</para>
 /// <para>接口ID：7259330038033809436</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/section/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/section/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fsection%2fcreate</para>
 /// </summary>
 public record PostTaskV2SectionsResponseDto

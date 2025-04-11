@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 查询席位分配详情 响应体
 /// <para>获取租户下平台席位和应用访问席位分配详情，如用户 ID 、应用命名空间等，需要飞书低代码平台系统管理员作为授权人调用当前 API 。</para>
 /// <para>接口ID：7452929418211344412</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/seat_assignment/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/seat_assignment/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fseat_assignment%2flist</para>
 /// </summary>
 public record GetApaasV1SeatAssignmentsResponseDto

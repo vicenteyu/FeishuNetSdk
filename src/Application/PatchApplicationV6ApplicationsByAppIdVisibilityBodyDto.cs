@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Application;
 /// <para>- 当通过接口新增用户或部门时，提前判断对应用户或部门是否已在禁用名单中，如果已在禁用名单中，则即便将用户或部门添加到可用名单，该用户或部门也无法看到该应用，即禁用名单优先级高于可用名单。</para>
 /// <para>- 同一个成员(user_id) 在30s内不能重复添加到禁用名单，否则会导致调用失败。</para>
 /// <para>接口ID：7278520881743740931</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-visibility/patch</para>
+/// <para>文档地址：https://open.feishu.cn/document/application-v6/admin/patch-5</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication-visibility%2fpatch</para>
 /// </summary>
 public record PatchApplicationV6ApplicationsByAppIdVisibilityBodyDto

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Task;
 /// 获取附件 响应体
 /// <para>提供一个附件GUID，返回附件的详细信息，包括GUID，名称，大小，上传时间，临时可下载链接等。</para>
 /// <para>接口ID：7297183031634493443</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/attachment/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fattachment%2fget</para>
 /// </summary>
 public record GetTaskV2AttachmentsByAttachmentGuidResponseDto

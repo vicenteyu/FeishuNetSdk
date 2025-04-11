@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 撤销流程 请求体
 /// <para>撤销单个流程，状态为已完成的流程能够进行撤销，使用时需指定操作人，目前支持流程管理员和审批单管理员。</para>
 /// <para>接口ID：7431231062508142593</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process_revoke/update</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/process-instance/update-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess_revoke%2fupdate</para>
 /// </summary>
 public record PutCorehrV2ProcessRevokeByProcessIdBodyDto

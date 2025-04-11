@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 执行 OQL 响应体
 /// <para>在应用内执行 OQL 语句</para>
 /// <para>接口ID：7384730094873002012</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object/oql_query</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/application-object-record/oql_query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapplication-object%2foql_query</para>
 /// </summary>
 public record PostApaasV1ApplicationsByNamespaceObjectsOqlQueryResponseDto

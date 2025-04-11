@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Passport;
 /// 退出登录 请求体
 /// <para>该接口用于退出用户的登录态</para>
 /// <para>接口ID：7419242474898472963</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/passport-v1/session/logout</para>
+/// <para>文档地址：https://open.feishu.cn/document/authentication-management/login-state-management/logout</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpassport-v1%2fsession%2flogout</para>
 /// </summary>
 public record PostPassportV1SessionsLogoutBodyDto

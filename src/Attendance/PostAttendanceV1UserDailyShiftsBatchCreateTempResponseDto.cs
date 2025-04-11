@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Attendance;
 /// <para>可在排班表上创建或修改临时班次，并用于排班。目前支持按日期对一位或多位人员进行排临时班次。</para>
 /// <para>临时排班为付费功能，如需使用请联系您的客户经理。</para>
 /// <para>接口ID：7446612629576892419</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/batch_create_temp</para>
+/// <para>文档地址：https://open.feishu.cn/document/attendance-v1/user_daily_shift/batch_create_temp</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_daily_shift%2fbatch_create_temp</para>
 /// </summary>
 public record PostAttendanceV1UserDailyShiftsBatchCreateTempResponseDto

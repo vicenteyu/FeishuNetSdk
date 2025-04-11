@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire.Events;
 /// 人才进展变更事件 事件体
 /// <para>支持单独订阅有指定标签的人才进展，人才进展包括阶段变更、锁定、解锁，需要提前在「飞书招聘」-「设置」- 「候选人标签管理」里对指定标签勾选支持事件订阅{使用示例}(url=/api/tools/api_explore/api_explore_config?project=hire&amp;version=v1&amp;resource=talent&amp;event=tag_subscription)</para>
 /// <para>接口ID：7404770953199697922</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/events/tag_subscription</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/candidate-management/talent/events/tag_subscription</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent%2fevents%2ftag_subscription</para>
 /// </summary>
 public record HireTalentTagSubscriptionV1EventBodyDto() : EventBodyDto("hire.talent.tag_subscription_v1")

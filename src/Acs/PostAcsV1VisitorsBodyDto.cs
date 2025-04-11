@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Acs;
 /// 添加访客 请求体
 /// <para>添加访客</para>
 /// <para>接口ID：7321978105899057180</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/visitor/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/acs-v1/visitor/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2facs-v1%2fvisitor%2fcreate</para>
 /// </summary>
 public record PostAcsV1VisitorsBodyDto

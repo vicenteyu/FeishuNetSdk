@@ -16,7 +16,7 @@ namespace FeishuNetSdk.FeishuPeople.Events;
 /// 合同更新 事件体
 /// <para>通过开放平台更新合同或者在飞书人事系统进行变更和续约等业务操作时，会触发本事件{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v1&amp;resource=contract&amp;event=updated)</para>
 /// <para>接口ID：7287992767983796225</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/contract/events/updated</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/contract/contract-events/updated</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fcontract%2fevents%2fupdated</para>
 /// </summary>
 public record CorehrContractUpdatedV1EventBodyDto() : EventBodyDto("corehr.contract.updated_v1")

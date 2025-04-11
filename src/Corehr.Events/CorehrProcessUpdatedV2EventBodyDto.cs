@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Corehr.Events;
 /// <para>流程实例是指用户发起的具体流程(process_id是其唯一标识)，流程实例在以下时机会触发信息变更事件：流程中有审批人操作、流程数据更新、流程状态变化等。</para>
 /// <para>注意事项：若节点中有多个人时，可能会同时触发多个事件。例如流程运行到该节点，同时为多个人都生成了待办任务，就会导致触发多次事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=process&amp;event=updated)</para>
 /// <para>接口ID：7296819819722522652</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/events/updated</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/events/updated</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess%2fevents%2fupdated</para>
 /// </summary>
 public record CorehrProcessUpdatedV2EventBodyDto() : EventBodyDto("corehr.process.updated_v2")

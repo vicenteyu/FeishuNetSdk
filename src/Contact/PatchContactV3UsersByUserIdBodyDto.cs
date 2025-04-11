@@ -397,7 +397,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <summary>
     /// <para>序列 ID。你可以调用[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口查询相应的序列 ID。</para>
     /// <para>必填：否</para>
-    /// <para>示例值：mga5oa8ayjlp9rb</para>
+    /// <para>示例值：mga5oa8ayjlpzjq</para>
     /// </summary>
     [JsonPropertyName("job_family_id")]
     public string? JobFamilyId { get; set; }

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// 获取工作日历 请求体
 /// <para>获取工作日历信息，如名称，状态等</para>
 /// <para>接口ID：7408403062694100995</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/leave/work_calendar</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fleave%2fwork_calendar</para>
 /// </summary>
 public record PostCorehrV1LeavesWorkCalendarBodyDto

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 搜索试用期信息 请求体
 /// <para>搜索试用期信息，创建试用期后立刻搜索，可能会存在 5s 左右延迟</para>
 /// <para>接口ID：7254814386694553602</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/probation/search</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/probation/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprobation%2fsearch</para>
 /// </summary>
 public record PostCorehrV2ProbationSearchBodyDto

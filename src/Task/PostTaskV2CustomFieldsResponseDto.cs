@@ -60,7 +60,7 @@ namespace FeishuNetSdk.Task;
 /// <para>```</para>
 /// <para>表示创建一个叫“优先级”的单选，包含“高”，“中”，“低”三个选项，每个选项设置一个颜色值。</para>
 /// <para>接口ID：7270765454292320258</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/custom_field/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fcustom_field%2fcreate</para>
 /// </summary>
 public record PostTaskV2CustomFieldsResponseDto

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Ccm;
 /// 获取云文档的点赞者列表 响应体
 /// <para>获取指定云文档的点赞者列表并按点赞时间由近到远分页返回。</para>
 /// <para>接口ID：7270815553257619457</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uIzNzUjLyczM14iM3MTN/drive-v2/file-like/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/docs/drive-v1/like/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuIzNzUjLyczM14iM3MTN%2fdrive-v2%2ffile-like%2flist</para>
 /// </summary>
 public record GetDriveV2FilesByFileTokenLikesResponseDto

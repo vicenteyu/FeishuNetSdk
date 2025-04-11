@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Workplace;
 /// 获取定制工作台访问数据 响应体
 /// <para>获取定制工作台访问数据</para>
 /// <para>接口ID：7244463472595697666</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/workplace-v1/custom_workplace_access_data/search</para>
+/// <para>文档地址：https://open.feishu.cn/document/workplace-v1/workplace_access_data/search-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fworkplace-v1%2fcustom_workplace_access_data%2fsearch</para>
 /// </summary>
 public record PostWorkplaceV1CustomWorkplaceAccessDataSearchResponseDto

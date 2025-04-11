@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Baike;
 /// 模糊搜索词条 请求体
 /// <para>传入关键词，与词条名、别名、释义等信息进行模糊匹配，返回搜到的词条信息。</para>
 /// <para>接口ID：7249689905697095708</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/search</para>
+/// <para>文档地址：https://open.feishu.cn/document/lingo-v1/entity/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2flingo-v1%2fentity%2fsearch</para>
 /// </summary>
 public record PostLingoV1EntitiesSearchBodyDto
@@ -26,6 +26,7 @@ public record PostLingoV1EntitiesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：飞书词典</para>
     /// <para>最大长度：100</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("query")]
     public string? Query { get; set; }

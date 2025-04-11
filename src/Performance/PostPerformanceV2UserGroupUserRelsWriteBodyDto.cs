@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Performance;
 /// 更新人员组成员 请求体
 /// <para>更新指定人员组成员。</para>
 /// <para>接口ID：7381506957100875778</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/user_group_user_rel/write</para>
+/// <para>文档地址：https://open.feishu.cn/document/performance-v1/review_config/semester_activity/user_group_user_rel/write</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2fuser_group_user_rel%2fwrite</para>
 /// </summary>
 public record PostPerformanceV2UserGroupUserRelsWriteBodyDto

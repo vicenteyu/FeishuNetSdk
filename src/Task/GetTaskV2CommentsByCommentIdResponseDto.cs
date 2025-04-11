@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Task;
 /// 获取评论详情 响应体
 /// <para>给定一个评论的ID，返回评论的详情，包括内容，创建人，创建时间和更新时间等信息。</para>
 /// <para>接口ID：7255580838154387484</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/comment/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/comment/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fcomment%2fget</para>
 /// </summary>
 public record GetTaskV2CommentsByCommentIdResponseDto

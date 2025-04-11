@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Moments;
 /// 查询帖子信息 响应体
 /// <para>通过 ID 查询帖子实体数据信息</para>
 /// <para>接口ID：7270433540692639747</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/moments-v1/post/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/moments-v1/post/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fmoments-v1%2fpost%2fget</para>
 /// </summary>
 public record GetMomentsV1PostsByPostIdResponseDto

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 发起员工异动 响应体
 /// <para>该接口用于发起员工异动（变更员工雇佣信息），若发起成功，会生成一条员工的异动数据</para>
 /// <para>接口ID：7449328616456601619</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/job_change/create-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob_change%2fcreate</para>
 /// </summary>
 public record PostCorehrV2JobChangesResponseDto

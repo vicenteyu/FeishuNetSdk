@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 查询编制规划明细信息（支持自定义组织） 请求体
 /// <para>查询编制规划明细，包括维度信息、编制数、预估在职人数、在职人数和预增/预减人数。</para>
 /// <para>接口ID：7473343327586435100</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/workforce_plan_detail/batch_v2</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/workforce_plan/batch_v2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fworkforce_plan_detail%2fbatch_v2</para>
 /// </summary>
 public record PostCorehrV2WorkforcePlanDetailsBatchV2BodyDto

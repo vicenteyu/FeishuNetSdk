@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Task;
 /// 获取任务详情 响应体
 /// <para>该接口用于获取任务详情，包括任务标题、描述、时间、成员等信息。</para>
 /// <para>接口ID：7255580838154633244</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/task/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftask%2fget</para>
 /// </summary>
 public record GetTaskV2TasksByTaskGuidResponseDto

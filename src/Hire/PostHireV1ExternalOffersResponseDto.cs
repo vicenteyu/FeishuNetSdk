@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 创建外部 Offer 响应体
 /// <para>创建外部 Offer，可用于导入来自其他系统的 Offer 信息。</para>
 /// <para>接口ID：7407298680640946179</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_offer/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/get-candidates/import-external-system-information/import-external-offer-info/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fexternal_offer%2fcreate</para>
 /// </summary>
 public record PostHireV1ExternalOffersResponseDto

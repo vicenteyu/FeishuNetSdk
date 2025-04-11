@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 内推账户提现数据对账 请求体
 /// <para>对一段时间内的内推账户积分提现数据进行对账，调用方需传入调用方系统的内推账户积分变动信息。</para>
 /// <para>接口ID：7252281835550900226</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/reconciliation</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/referral_account/reconciliation</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2freferral_account%2freconciliation</para>
 /// </summary>
 public record PostHireV1ReferralAccountReconciliationBodyDto

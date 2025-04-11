@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Auth.Spec;
 /// 刷新 user_access_token 请求体
 /// <para>OAuth 令牌接口，可用于刷新 &lt;code&gt;user_access_token&lt;/code&gt; 以及获取新的 &lt;code&gt;refresh_token&lt;/code&gt;。</para>
 /// <para>接口ID：7435312925587898371</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token</para>
+/// <para>文档地址：https://open.feishu.cn/document/authentication-management/access-token/refresh-user-access-token</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fauthentication-management%2faccess-token%2frefresh-user-access-token</para>
 /// </summary>
 public record PostAuthenV2OauthRefreshTokenBodyDto

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Performance;
 /// 获取指标列表 请求体
 /// <para>获取指标库中的指标信息，如指标名称、指标类型、指标标签和指标字段等信息。可通过指标启用状态、指标类型、指标可用范围等筛选条件获取指定范围的指标信息。</para>
 /// <para>接口ID：7380276358332661761</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_lib/query</para>
+/// <para>文档地址：https://open.feishu.cn/document/performance-v1/review_config/metric_template/query-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2fmetric_lib%2fquery</para>
 /// </summary>
 public record PostPerformanceV2MetricLibsQueryBodyDto

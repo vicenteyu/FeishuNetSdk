@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 查询环境变量详情 响应体
 /// <para>查询基于飞书应用引擎开发的应用的环境变量详情，包括名称、描述、变量值等</para>
 /// <para>接口ID：7385474062586314754</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-environment_variable/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/application-environment_variable/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapplication-environment_variable%2fget</para>
 /// </summary>
 public record GetApaasV1ApplicationsByNamespaceEnvironmentVariablesByEnvironmentVariableApiNameResponseDto

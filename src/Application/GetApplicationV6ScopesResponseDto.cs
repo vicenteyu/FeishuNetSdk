@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Application;
 /// 查询租户授权状态 响应体
 /// <para>调用该接口查询当前应用向租户申请授权的状态。</para>
 /// <para>接口ID：7406972061036445700</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/scope/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/application-v6/scope/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fscope%2flist</para>
 /// </summary>
 public record GetApplicationV6ScopesResponseDto

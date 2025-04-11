@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 获取记录详情 请求体
 /// <para>获取对象中指定的记录详情</para>
 /// <para>接口ID：7384730094873018396</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object-record/query</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/application-object-record/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapplication-object-record%2fquery</para>
 /// </summary>
 public record PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsByIdQueryBodyDto

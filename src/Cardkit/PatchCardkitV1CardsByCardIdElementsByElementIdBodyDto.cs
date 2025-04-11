@@ -21,7 +21,7 @@ namespace FeishuNetSdk.Cardkit;
 /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
 /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
 /// <para>接口ID：7397253002364567555</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card-element/patch</para>
+/// <para>文档地址：https://open.feishu.cn/document/cardkit-v1/card-element/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcardkit-v1%2fcard-element%2fpatch</para>
 /// </summary>
 public record PatchCardkitV1CardsByCardIdElementsByElementIdBodyDto

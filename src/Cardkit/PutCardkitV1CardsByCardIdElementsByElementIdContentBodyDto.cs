@@ -24,7 +24,7 @@ namespace FeishuNetSdk.Cardkit;
 /// <para>## 前提条件</para>
 /// <para>调用该接口时，需确保已开启卡片的流式更新模式，即将 `streaming_mode` 设为 `true`。</para>
 /// <para>接口ID：7397253002364649475</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card-element/content</para>
+/// <para>文档地址：https://open.feishu.cn/document/cardkit-v1/card-element/content</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcardkit-v1%2fcard-element%2fcontent</para>
 /// </summary>
 public record PutCardkitV1CardsByCardIdElementsByElementIdContentBodyDto

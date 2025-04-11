@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 创建兼职 请求体
 /// <para>创建员工的兼职</para>
 /// <para>接口ID：7387981900317540354</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-additional_job/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/employee/job_data/employees-additional_job/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2femployees-additional_job%2fcreate</para>
 /// </summary>
 public record PostCorehrV2EmployeesAdditionalJobsBodyDto

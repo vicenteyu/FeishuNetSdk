@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 创建职等 响应体
 /// <para>创建职等</para>
 /// <para>接口ID：7422326822924582914</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/job-management/job_grade/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob_grade%2fcreate</para>
 /// </summary>
 public record PostCorehrV2JobGradesResponseDto

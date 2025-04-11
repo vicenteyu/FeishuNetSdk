@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 查询当前生效信息变更公司 响应体
 /// <para>查询指定时间范围内当前生效信息发生变更的公司，即只有公司当前生效版本的生效时间在查询时间范围内，才返回该公司id</para>
 /// <para>接口ID：7428129573351817220</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_recent_change</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/organization-management/company/query_recent_change</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fcompany%2fquery_recent_change</para>
 /// </summary>
 public record GetCorehrV2CompaniesQueryRecentChangeResponseDto

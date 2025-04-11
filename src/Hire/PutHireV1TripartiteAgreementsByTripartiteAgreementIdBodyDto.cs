@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>## 前提条件</para>
 /// <para>在「飞书招聘」-「设置」-「候选人流程管理」-「三方协议设置」中勾选了「通过 API 维护三方协议」。</para>
 /// <para>接口ID：7307160083569688579</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/update</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/candidate-management/delivery-process-management/tripartite_agreement/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftripartite_agreement%2fupdate</para>
 /// </summary>
 public record PutHireV1TripartiteAgreementsByTripartiteAgreementIdBodyDto

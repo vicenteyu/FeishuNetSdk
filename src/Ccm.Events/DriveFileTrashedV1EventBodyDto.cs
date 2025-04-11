@@ -27,6 +27,8 @@ public record DriveFileTrashedV1EventBodyDto() : EventBodyDto("drive.file.trashe
     /// <para>- docx：新版文档</para>
     /// <para>- sheet：电子表格</para>
     /// <para>- bitable：多维表格</para>
+    /// <para>- slides：幻灯片</para>
+    /// <para>- file：文件</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("file_type")]

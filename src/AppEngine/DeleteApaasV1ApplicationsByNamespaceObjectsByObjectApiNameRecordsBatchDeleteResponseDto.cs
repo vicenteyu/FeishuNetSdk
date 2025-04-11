@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 批量删除记录 响应体
 /// <para>一次删除多条对象中的记录</para>
 /// <para>接口ID：7384730094873083932</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-object-record/batch_delete</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/application-object-record/batch_delete</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapplication-object-record%2fbatch_delete</para>
 /// </summary>
 public record DeleteApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchDeleteResponseDto

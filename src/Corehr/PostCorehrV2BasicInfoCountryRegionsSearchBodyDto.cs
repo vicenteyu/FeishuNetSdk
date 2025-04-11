@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 查询国家/地区信息 请求体
 /// <para>根据国家/地区 ID、状态，批量查询国家/地区信息</para>
 /// <para>接口ID：7301516605753229315</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-infomation/location_data/search-4</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbasic_info-country_region%2fsearch</para>
 /// </summary>
 public record PostCorehrV2BasicInfoCountryRegionsSearchBodyDto

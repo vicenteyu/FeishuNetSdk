@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Application;
 /// 获取应用协作者列表 响应体
 /// <para>根据 app_id 获取应用（包括自建应用和商店应用）的协作者信息，包括应用的所有者、管理员、开发者、运营人员</para>
 /// <para>接口ID：7320225176225087491</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-collaborators/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/application-v6/application/get-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication-collaborators%2fget</para>
 /// </summary>
 public record GetApplicationV6ApplicationsByAppIdCollaboratorsResponseDto

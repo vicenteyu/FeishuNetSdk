@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Task;
 /// <para>如果要移除自定义字段本来就不存在于资源，本接口将正常返回。</para>
 /// <para>注意自定义字段是通过清单来实现授权的，如果将自定义字段从所有关联的清单中移除，就意味着任何调用身份都无法再访问改自定义字段。</para>
 /// <para>接口ID：7270765454292205570</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/remove</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/custom_field/remove</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fcustom_field%2fremove</para>
 /// </summary>
 public record PostTaskV2CustomFieldsByCustomFieldGuidRemoveBodyDto

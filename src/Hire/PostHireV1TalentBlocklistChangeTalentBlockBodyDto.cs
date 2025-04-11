@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 加入/移除屏蔽名单 请求体
 /// <para>根据人才 ID 将人才加入或移除屏蔽名单。</para>
 /// <para>接口ID：7413697955198091268</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_blocklist/change_talent_block</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/candidate-management/talent/change_talent_block</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent_blocklist%2fchange_talent_block</para>
 /// </summary>
 public record PostHireV1TalentBlocklistChangeTalentBlockBodyDto

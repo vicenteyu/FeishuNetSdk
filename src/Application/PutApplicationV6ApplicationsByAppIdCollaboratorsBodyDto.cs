@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Application;
 /// 更新应用协作者 请求体
 /// <para>某个应用（包括自建应用和商店应用）中添加/移除应用协作者，添加后协作者将会收到添加通知。</para>
 /// <para>接口ID：7320160200451686403</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-collaborators/update</para>
+/// <para>文档地址：https://open.feishu.cn/document/application-v6/application/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication-collaborators%2fupdate</para>
 /// </summary>
 public record PutApplicationV6ApplicationsByAppIdCollaboratorsBodyDto

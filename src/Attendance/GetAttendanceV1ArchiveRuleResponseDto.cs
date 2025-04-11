@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Attendance;
 /// 查询所有归档规则 响应体
 /// <para>查询所有归档规则，对应后台假勤管理-考勤统计-报表-[归档报表](https://example.feishu.cn/people/workforce-management/manage/statistics/report)功能</para>
 /// <para>接口ID：7368679915980947458</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/attendance-v1/archive_rule/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2farchive_rule%2flist</para>
 /// </summary>
 public record GetAttendanceV1ArchiveRuleResponseDto

@@ -21,7 +21,7 @@ namespace FeishuNetSdk.Performance;
 /// <para>3. 若请求参数 `additional_informations` 中 `reviewee_user_id`、`item `、`time `、`detailed_description` 的参数组合在系统中已存在内容一致的补充消息时，将更新对应的补充消息数据。</para>
 /// <para>4. 以上情况都不符合时，创建新的补充消息数据。</para>
 /// <para>接口ID：7371009404255633412</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/import</para>
+/// <para>文档地址：https://open.feishu.cn/document/performance-v1/review_config/semester_activity/additional_information/import</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2fadditional_information%2fimport</para>
 /// </summary>
 public record PostPerformanceV2AdditionalInformationsImportBodyDto

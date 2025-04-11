@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 查询语言信息 请求体
 /// <para>根据语言 ID、状态，批量查询语言信息</para>
 /// <para>接口ID：7424038983966425089</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-language/search</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-infomation/basic_info-language/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbasic_info-language%2fsearch</para>
 /// </summary>
 public record PostCorehrV2BasicInfoLanguagesSearchBodyDto

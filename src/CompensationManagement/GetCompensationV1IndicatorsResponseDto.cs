@@ -16,7 +16,7 @@ namespace FeishuNetSdk.CompensationManagement;
 /// 批量查询薪资统计指标 响应体
 /// <para>批量查询薪资统计指标</para>
 /// <para>接口ID：7314129756769796100</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-compensation/compensation-component-and-metric/list-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcompensation-v1%2findicator%2flist</para>
 /// </summary>
 public record GetCompensationV1IndicatorsResponseDto

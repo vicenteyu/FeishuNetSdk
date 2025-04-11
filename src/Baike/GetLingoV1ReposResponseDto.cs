@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Baike;
 /// <para>获取有权限访问的飞书词典词库列表。</para>
 /// <para>如以应用身份获取，需要在“词库设置”页面添加应用；若以用户身份获取，该用户需要拥有对应词库的可见权限。</para>
 /// <para>接口ID：7249689905697177628</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/repo/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/lingo-v1/repo/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2flingo-v1%2frepo%2flist</para>
 /// </summary>
 public record GetLingoV1ReposResponseDto

@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Task;
 /// <para>* 成员类型支持"user"和"app"。</para>
 /// <para>* 如果要添加的成员已经在任务中，则自动被忽略。</para>
 /// <para>接口ID：7255580838154584092</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/add_members</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/task/add_members</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftask%2fadd_members</para>
 /// </summary>
 public record PostTaskV2TasksByTaskGuidAddMembersBodyDto
@@ -70,6 +70,7 @@ public record PostTaskV2TasksByTaskGuidAddMembersBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：6d99f59c-4d7d-4452-98d6-3d0556393cf6</para>
     /// <para>最大长度：100</para>
+    /// <para>最小长度：10</para>
     /// </summary>
     [JsonPropertyName("client_token")]
     public string? ClientToken { get; set; }

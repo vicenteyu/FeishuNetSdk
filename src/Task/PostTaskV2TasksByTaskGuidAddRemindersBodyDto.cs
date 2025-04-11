@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Task;
 /// <para>目前一个任务只能设置1个提醒。但接口的形式可以在未来扩充为一个任务支持多个提醒。</para>
 /// <para>如果当前任务已经有提醒了，要更新提醒的设置，需要先调用[移除任务提醒](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/remove_reminders)接口移除原有提醒。再调用本接口添加提醒。</para>
 /// <para>接口ID：7255580838154813468</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/add_reminders</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/task/add_reminders</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftask%2fadd_reminders</para>
 /// </summary>
 public record PostTaskV2TasksByTaskGuidAddRemindersBodyDto
@@ -27,6 +27,7 @@ public record PostTaskV2TasksByTaskGuidAddRemindersBodyDto
     /// <para>要添加的reminder的列表，目前1个任务只支持一个提醒。</para>
     /// <para>必填：是</para>
     /// <para>最大长度：1</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("reminders")]
     public Reminder[] Reminders { get; set; } = Array.Empty<Reminder>();

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.SecurityAndCompliance;
 /// 获取OpenAPI审计日志数据 请求体
 /// <para>该接口用于获取OpenAPI审计日志数据</para>
 /// <para>接口ID：7283168587871223810</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/security_and_compliance-v1/openapi_log/list_data</para>
+/// <para>文档地址：https://open.feishu.cn/document/security_and_compliance-v1/openapi_log/list_data</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fsecurity_and_compliance-v1%2fopenapi_log%2flist_data</para>
 /// </summary>
 public record PostSecurityAndComplianceV1OpenapiLogsListDataBodyDto

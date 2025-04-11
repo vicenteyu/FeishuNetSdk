@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Elearning.Events;
 /// 课程学习进度删除事件 事件体
 /// <para>课程学习进度删除时触发{使用示例}(url=/api/tools/api_explore/api_explore_config?project=elearning&amp;version=v2&amp;resource=course_registration&amp;event=deleted)</para>
 /// <para>接口ID：7345679561005432835</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/course_registration/events/deleted</para>
+/// <para>文档地址：https://open.feishu.cn/document/elearning-v2/course_registration/events/deleted</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2felearning-v2%2fcourse_registration%2fevents%2fdeleted</para>
 /// </summary>
 public record ElearningCourseRegistrationDeletedV2EventBodyDto() : EventBodyDto("elearning.course_registration.deleted_v2")

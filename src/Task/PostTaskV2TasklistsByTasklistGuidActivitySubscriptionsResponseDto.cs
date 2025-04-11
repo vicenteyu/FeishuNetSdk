@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Task;
 /// <para>每个订阅可以通过设置`include_keys`可以针对哪些事件(event_key)做通知。如果`include_keys`为空，则不对任何事件进行通知。</para>
 /// <para>如有需要，创建时也可以直接将`disabled`设为true，创建一个禁止发送订阅通知的订阅。</para>
 /// <para>接口ID：7288897051647000578</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/tasklist-activity_subscription/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftasklist-activity_subscription%2fcreate</para>
 /// </summary>
 public record PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsResponseDto

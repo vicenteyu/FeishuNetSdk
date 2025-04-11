@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr.Events;
 /// 审批任务状态变更 事件体
 /// <para>单个审批任务的状态变化会触发该事件。例如，审批任务从待办变为已完成。审批任务（approver_id 是唯一标识），比如一个多人会签节点，会分别生成多人的审批任务。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=process.approver&amp;event=updated)</para>
 /// <para>接口ID：7296819819722555420</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-approver/events/updated</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/events/updated-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess-approver%2fevents%2fupdated</para>
 /// </summary>
 public record CorehrProcessApproverUpdatedV2EventBodyDto() : EventBodyDto("corehr.process.approver.updated_v2")

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Board;
 /// 获取所有节点 响应体
 /// <para>获取画板内所有的节点</para>
 /// <para>接口ID：7338460461824360449</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/board-v1/whiteboard-node/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/docs/board-v1/whiteboard-node/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fboard-v1%2fwhiteboard-node%2flist</para>
 /// </summary>
 public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto

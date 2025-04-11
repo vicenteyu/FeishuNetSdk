@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Corehr.Events;
 /// <para>在发起离职审批、产生审批结果以及离职生效时触发该事件推送对应消息。审批结果产生的场景包括撤销、通过、拒绝审批。</para>
 /// <para>- 与原事件[离职申请状态变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/events/updated)相比，该事件多了直接离职产生的事件，且支持「员工数据」范围控制{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=offboarding&amp;event=status_updated)</para>
 /// <para>接口ID：7372168594387845124</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/offboarding/events/status_updated</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/offboarding/resignation-events/status_updated</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2foffboarding%2fevents%2fstatus_updated</para>
 /// </summary>
 public record CorehrOffboardingStatusUpdatedV2EventBodyDto() : EventBodyDto("corehr.offboarding.status_updated_v2")

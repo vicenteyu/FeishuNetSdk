@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>批量查询兼职信息，包括开始日期、职务、序列、上级、薪资类型等信息。</para>
 /// <para>支持全量遍历和筛选查询。</para>
 /// <para>接口ID：7387981900317589506</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-additional_job/batch</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/employee/job_data/employees-additional_job/batch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2femployees-additional_job%2fbatch</para>
 /// </summary>
 public record PostCorehrV2EmployeesAdditionalJobsBatchBodyDto

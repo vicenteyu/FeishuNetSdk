@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Performance;
 /// 获取被评估人信息 响应体
 /// <para>获取绩效周期中被圈定到项目中的被评估人信息，包括未启动的项目。</para>
 /// <para>接口ID：7380276358332678145</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/reviewee/query</para>
+/// <para>文档地址：https://open.feishu.cn/document/performance-v1/review_config/semester_activity/reviewee/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2freviewee%2fquery</para>
 /// </summary>
 public record PostPerformanceV2RevieweesQueryResponseDto

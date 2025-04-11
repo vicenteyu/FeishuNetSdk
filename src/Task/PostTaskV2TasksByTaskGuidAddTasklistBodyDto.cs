@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Task;
 /// <para>将一个任务加入清单。返回任务的详细信息，包括任务所在的所有清单信息。</para>
 /// <para>如果任务已经在该清单，接口将返回成功。</para>
 /// <para>接口ID：7255580838154502172</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/add_tasklist</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/task/add_tasklist</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftask%2fadd_tasklist</para>
 /// </summary>
 public record PostTaskV2TasksByTaskGuidAddTasklistBodyDto

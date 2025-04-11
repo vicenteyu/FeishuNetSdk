@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 启用/停用试用期考核功能 请求体
 /// <para>启用/停用试用期考核功能，启用后系统功能中针对试用期考核相关的字段会自动启用，并可通过接口更新试用期考核结果</para>
 /// <para>接口ID：7254814386694569986</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/probation/enable_disable_assessment</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/probation/enable_disable_assessment</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprobation%2fenable_disable_assessment</para>
 /// </summary>
 public record PostCorehrV2ProbationEnableDisableAssessmentBodyDto

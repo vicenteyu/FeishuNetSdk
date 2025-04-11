@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 通过地点 ID 批量获取地点信息 响应体
 /// <para>该接口用于根据地点 ID批量查询地点信息，信息包含地点名称、描述、地点用途、工时制度、区域设置、时区以及关联的地址信息等。</para>
 /// <para>接口ID：7252157701853167644</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/organization-management/location/batch_get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2flocation%2fbatch_get</para>
 /// </summary>
 public record PostCorehrV2LocationsBatchGetResponseDto

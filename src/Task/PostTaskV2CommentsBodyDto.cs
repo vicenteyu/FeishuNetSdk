@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Task;
 /// <para>为一个任务创建评论，或者回复该任务的某个评论。</para>
 /// <para>若要创建一个回复评论，需要在创建时设置`reply_to_comment_id`字段。被回复的评论和新建的评论必须属于同一个任务。</para>
 /// <para>接口ID：7255580838154616860</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/comment/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/comment/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fcomment%2fcreate</para>
 /// </summary>
 public record PostTaskV2CommentsBodyDto

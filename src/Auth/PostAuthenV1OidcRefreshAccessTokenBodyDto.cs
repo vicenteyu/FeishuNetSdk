@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Auth;
 /// <para>。</para>
 /// <para>user_access_token 的最大有效期是 2小时左右。当 user_access_token 过期时，可以调用本接口获取新的 user_access_token。</para>
 /// <para>接口ID：7277403063290707996</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/oidc-refresh_access_token/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/historic-version/authen/create-4</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fauthen-v1%2foidc-refresh_access_token%2fcreate</para>
 /// </summary>
 public record PostAuthenV1OidcRefreshAccessTokenBodyDto

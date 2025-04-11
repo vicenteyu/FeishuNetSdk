@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 获取人才标签信息列表 响应体
 /// <para>可通过关键词、ID 列表、标签类型、停用状态等获取人才标签信息列表，结果按照创建时间倒序排序。</para>
 /// <para>接口ID：7404770953199714306</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_tag/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/recruitment-related-configuration/application/list-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent_tag%2flist</para>
 /// </summary>
 public record GetHireV1TalentTagsResponseDto

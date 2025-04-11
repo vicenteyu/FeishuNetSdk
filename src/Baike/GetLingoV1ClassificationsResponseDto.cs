@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Baike;
 /// <para>获取飞书词典当前分类。</para>
 /// <para>飞书词典目前为二级分类体系，每个词条可添加多个二级分类，但选择的二级分类必须从属于不同的一级分类。</para>
 /// <para>接口ID：7249689905697161244</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/classification/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/lingo-v1/classification/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2flingo-v1%2fclassification%2flist</para>
 /// </summary>
 public record GetLingoV1ClassificationsResponseDto
@@ -62,6 +62,7 @@ public record GetLingoV1ClassificationsResponseDto
         /// <para>国际化分类名</para>
         /// <para>必填：否</para>
         /// <para>最大长度：3</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("i18n_names")]
         public I18nClsName[]? I18nNames { get; set; }
@@ -89,6 +90,7 @@ public record GetLingoV1ClassificationsResponseDto
             /// <para>必填：是</para>
             /// <para>示例值：词典分类</para>
             /// <para>最大长度：20</para>
+            /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("name")]
             public string Name { get; set; } = string.Empty;

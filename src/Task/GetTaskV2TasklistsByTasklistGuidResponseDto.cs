@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Task;
 /// 获取清单详情 响应体
 /// <para>获取一个清单的详细信息，包括清单名，所有者，清单成员等。</para>
 /// <para>接口ID：7255580838154666012</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/tasklist/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftasklist%2fget</para>
 /// </summary>
 public record GetTaskV2TasklistsByTasklistGuidResponseDto

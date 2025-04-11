@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Aily;
 /// 获取技能信息 响应体
 /// <para>该 API 用于查询某个 Aily 应用的特定技能详情</para>
 /// <para>接口ID：7429225800963047426</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-skill/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/aily-v1/app-skill/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2fapp-skill%2fget</para>
 /// </summary>
 public record GetAilyV1AppsByAppIdSkillsBySkillIdResponseDto

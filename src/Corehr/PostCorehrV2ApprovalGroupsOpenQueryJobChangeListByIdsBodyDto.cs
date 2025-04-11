@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 批量查询人员调整内容 请求体
 /// <para>根据人员异动记录 ID 批量查询人员调整内容</para>
 /// <para>接口ID：7317581509003788292</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_job_change_list_by_ids</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/approval_groups/open_query_job_change_list_by_ids</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fapproval_groups%2fopen_query_job_change_list_by_ids</para>
 /// </summary>
 public record PostCorehrV2ApprovalGroupsOpenQueryJobChangeListByIdsBodyDto

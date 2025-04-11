@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 查询单个职务 响应体
 /// <para>根据 ID 查询单个职务。</para>
 /// <para>接口ID：7277403063272701954</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/job-management/job/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob%2fget</para>
 /// </summary>
 public record GetCorehrV2JobsByJobIdResponseDto

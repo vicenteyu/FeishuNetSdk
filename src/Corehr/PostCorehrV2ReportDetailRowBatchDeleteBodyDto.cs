@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 批量删除填报行 请求体
 /// <para>批量删除填报行后，可在【设置-编制规划设置-编制规划XXX-集中填报-查看数据】进行查看。</para>
 /// <para>接口ID：7446337145820053508</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/report_detail_row/batchDelete</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/workforce_plan/batchDelete</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2freport_detail_row%2fbatchDelete</para>
 /// </summary>
 public record PostCorehrV2ReportDetailRowBatchDeleteBodyDto

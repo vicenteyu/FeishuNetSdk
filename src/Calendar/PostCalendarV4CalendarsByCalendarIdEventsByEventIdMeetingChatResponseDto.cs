@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Calendar;
 /// 创建会议群 响应体
 /// <para>调用该接口以当前身份（应用或用户）为指定日程创建一个会议群。</para>
 /// <para>接口ID：7263360328350744580</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-meeting_chat/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/calendar-v4/calendar-event-meeting_chat/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2fcalendar-event-meeting_chat%2fcreate</para>
 /// </summary>
 public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChatResponseDto

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Task;
 /// 获取自定义分组详情 响应体
 /// <para>获取一个自定义分组详情，包括名称，创建人等信息。如果该自定义分组归属于一个清单，还会返回清单的摘要信息。</para>
 /// <para>接口ID：7259330038033825820</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/section/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/section/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fsection%2fget</para>
 /// </summary>
 public record GetTaskV2SectionsBySectionGuidResponseDto

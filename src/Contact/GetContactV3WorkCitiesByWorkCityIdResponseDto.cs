@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Contact;
 /// 获取单个工作城市信息 响应体
 /// <para>调用该接口获取指定工作城市的信息，包括工作城市的 ID、名称、多语言名称以及启用状态。</para>
 /// <para>接口ID：7256700963175022596</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/work_city/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/contact-v3/work_city/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fwork_city%2fget</para>
 /// </summary>
 public record GetContactV3WorkCitiesByWorkCityIdResponseDto

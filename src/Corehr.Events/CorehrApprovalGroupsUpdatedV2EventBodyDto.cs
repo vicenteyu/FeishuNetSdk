@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Corehr.Events;
 /// <para>- 当该审批单状态发生变更后， 用户会收到流程状态变更事件。</para>
 /// <para>- 延迟说明：数据库主从延迟2s以内，即：用户接收到流程状态变更消息后2s内调用查询状态接口可能查不到变更信息。</para>
 /// <para>接口ID：7317581509003804676</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/events/updated</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/approval_groups/events/updated</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fapproval_groups%2fevents%2fupdated</para>
 /// </summary>
 public record CorehrApprovalGroupsUpdatedV2EventBodyDto() : EventBodyDto("corehr.approval_groups.updated_v2")

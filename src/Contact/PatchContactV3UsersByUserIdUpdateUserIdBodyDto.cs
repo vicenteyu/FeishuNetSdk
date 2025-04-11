@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Contact;
 /// <para>## 注意事项</para>
 /// <para>更新后的用户 user_id 需要保证在当前租户内未被占用。</para>
 /// <para>接口ID：7257363132833300482</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/update_user_id</para>
+/// <para>文档地址：https://open.feishu.cn/document/contact-v3/user/update_user_id</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fuser%2fupdate_user_id</para>
 /// </summary>
 public record PatchContactV3UsersByUserIdUpdateUserIdBodyDto

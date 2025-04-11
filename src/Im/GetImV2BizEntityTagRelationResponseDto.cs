@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Im;
 /// 查询实体与标签的绑定关系 响应体
 /// <para>查询实体与标签的绑定关系</para>
 /// <para>接口ID：7350335258430816257</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/biz_entity_tag_relation/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/tenant-tag/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fgroup%2fim-v2%2fbiz_entity_tag_relation%2fget</para>
 /// </summary>
 public record GetImV2BizEntityTagRelationResponseDto

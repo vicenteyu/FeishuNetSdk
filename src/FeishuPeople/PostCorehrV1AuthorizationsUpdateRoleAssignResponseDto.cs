@@ -17,7 +17,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// <para>更新角色被授权的管理范围</para>
 /// <para>更新后的数据范围，以本次提交的数据范围为准，本次未提交的部分将被移除。</para>
 /// <para>接口ID：7361618338575810588</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/authorization/update_role_assign</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/authorization/update_role_assign</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fauthorization%2fupdate_role_assign</para>
 /// </summary>
 public record PostCorehrV1AuthorizationsUpdateRoleAssignResponseDto

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 撤销人工任务 请求体
 /// <para>撤销一个人工任务（包括审批任务，填写任务）</para>
 /// <para>接口ID：7446337145820364804</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/approval_instance/cancel</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/flow/user-task/cancel</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapproval_instance%2fcancel</para>
 /// </summary>
 public record PostApaasV1ApprovalInstancesByApprovalInstanceIdCancelBodyDto

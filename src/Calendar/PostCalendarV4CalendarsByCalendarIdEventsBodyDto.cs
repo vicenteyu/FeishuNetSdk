@@ -23,6 +23,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsBodyDto
 {
     /// <summary>
     /// <para>日程标题。</para>
+    /// <para>**注意**：为确保数据安全，系统会自动检测日程标题内容，当包含 **晋升、绩效、述职、调薪、调级、复议、申诉、校准、答辩** 中任一关键词时，该日程不会生成会议纪要。</para>
     /// <para>必填：否</para>
     /// <para>示例值：日程标题</para>
     /// <para>最大长度：1000</para>

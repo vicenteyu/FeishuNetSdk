@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 获取任职信息列表 响应体
 /// <para>获取任职信息列表。</para>
 /// <para>接口ID：7262387840977207297</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/query</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/employee/job_data/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2femployees-job_data%2fquery</para>
 /// </summary>
 public record PostCorehrV2EmployeesJobDatasQueryResponseDto

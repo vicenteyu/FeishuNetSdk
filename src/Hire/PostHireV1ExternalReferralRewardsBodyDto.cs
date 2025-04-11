@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 导入外部内推奖励 请求体
 /// <para>支持将外部的内推奖励（积分/现金）导入到招聘的「内推账号」中</para>
 /// <para>接口ID：7325271522314584065</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_referral_reward/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/get-candidates/import-external-system-information/import-external-referral-reward-info/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fexternal_referral_reward%2fcreate</para>
 /// </summary>
 public record PostHireV1ExternalReferralRewardsBodyDto

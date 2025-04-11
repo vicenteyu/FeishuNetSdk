@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 全额提取内推账户余额 请求体
 /// <para>通过账户 ID 全额提取内推账户下的积分/现金。全额提现后，内推人在飞书招聘系统中的积分/现金余额会变为 0，对应的积分/现金奖励状态也会变为「已发放」。</para>
 /// <para>接口ID：7252281835550883842</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/withdraw</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/referral_account/withdraw</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2freferral_account%2fwithdraw</para>
 /// </summary>
 public record PostHireV1ReferralAccountByReferralAccountIdWithdrawBodyDto

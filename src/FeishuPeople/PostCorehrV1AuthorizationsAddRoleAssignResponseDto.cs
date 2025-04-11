@@ -17,7 +17,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// <para>为用户授权角色及管理范围</para>
 /// <para>对已被授权某个角色的用户继续授权，将在原授权的数据范围基础上追加数据范围。</para>
 /// <para>接口ID：7361618338575794204</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/authorization/add_role_assign</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/authorization/add_role_assign</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fauthorization%2fadd_role_assign</para>
 /// </summary>
 public record PostCorehrV1AuthorizationsAddRoleAssignResponseDto

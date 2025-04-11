@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 搜索合同 响应体
 /// <para>该接口可用于搜索合同信息，包括合同开始时间、合同预计结束时间、合同实际结束时间、合同公司主体等信息</para>
 /// <para>接口ID：7248868628551303172</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/contract/search</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/contract/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fcontract%2fsearch</para>
 /// </summary>
 public record PostCorehrV2ContractsSearchResponseDto

@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Corehr.Events;
 /// <para>飞书人事中「成本中心被删除」时将触发此事件。</para>
 /// <para>{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=cost_center&amp;event=deleted)</para>
 /// <para>接口ID：7423693709786103811</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/events/deleted</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/organization-management/cost_center/events/deleted</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fcost_center%2fevents%2fdeleted</para>
 /// </summary>
 public record CorehrCostCenterDeletedV2EventBodyDto() : EventBodyDto("corehr.cost_center.deleted_v2")

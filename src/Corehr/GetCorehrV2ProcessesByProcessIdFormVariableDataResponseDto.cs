@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>根据流程实例 id（process_id）获取流程表单字段数据，包括表单里的业务字段和自定义字段。仅支持飞书人事、假勤相关业务流程。</para>
 /// <para>注：[旧版 API](https://open.larkoffice.com/document/server-docs/corehr-v1/process-form_variable_data/get) 文档已移动到【历史版本】目录。</para>
 /// <para>接口ID：7362022982036717571</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-form_variable_data/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/process-instance/get-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess-form_variable_data%2fget</para>
 /// </summary>
 public record GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto

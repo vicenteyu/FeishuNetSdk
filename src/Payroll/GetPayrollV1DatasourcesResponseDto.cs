@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Payroll;
 /// 获取外部数据源配置信息 响应体
 /// <para>批量查询飞书人事后台：设置-&gt;算薪数据设置-&gt;外部数据源设置 中的数据源设置列表</para>
 /// <para>接口ID：7411366924142493698</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/datasource/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/payroll-v1/datasource/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2fdatasource%2flist</para>
 /// </summary>
 public record GetPayrollV1DatasourcesResponseDto

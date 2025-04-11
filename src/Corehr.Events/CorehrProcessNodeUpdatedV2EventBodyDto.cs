@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr.Events;
 /// 流程节点状态变更 事件体
 /// <para>流程中节点状态发生变化会触发该事件。配置的节点为节点定义（node_definition_id 是唯一标识）。在流程实例中，每个流程实例生成的节点实例会不同。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=process.node&amp;event=updated)</para>
 /// <para>接口ID：7340625370520780803</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-node/events/updated</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/events/updated-4</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess-node%2fevents%2fupdated</para>
 /// </summary>
 public record CorehrProcessNodeUpdatedV2EventBodyDto() : EventBodyDto("corehr.process.node.updated_v2")

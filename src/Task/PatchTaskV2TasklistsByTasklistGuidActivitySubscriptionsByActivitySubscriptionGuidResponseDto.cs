@@ -21,7 +21,7 @@ namespace FeishuNetSdk.Task;
 /// <para>* include_keys ：订阅需要发送通知的key。如更新，会将旧的列表完全替换为新的include_keys列表。只能设置支持的event key (见字段描述）。</para>
 /// <para>* disabled：修改订阅的开启/禁用状态。</para>
 /// <para>接口ID：7288897051646967810</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/patch</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/tasklist-activity_subscription/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftasklist-activity_subscription%2fpatch</para>
 /// </summary>
 public record PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuidResponseDto

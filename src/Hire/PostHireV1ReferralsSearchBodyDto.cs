@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 查询人才内推信息 请求体
 /// <para>根据人才查询内推信息列表，包含内推人信息、内推时间、投递 ID等，按内推投递的`创建时间`从小到大排序返回。</para>
 /// <para>接口ID：7307160083569704963</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral/search</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/get-candidates/referral/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2freferral%2fsearch</para>
 /// </summary>
 public record PostHireV1ReferralsSearchBodyDto

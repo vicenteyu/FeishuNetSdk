@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Aily;
 /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
 /// <para>- **运行**（Run）：Aily 助手基于会话内消息进行意图判定、调用匹配的技能，并返回技能执行后的结果消息。</para>
 /// <para>接口ID：7358047310868217860</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session-run/cancel</para>
+/// <para>文档地址：https://open.feishu.cn/document/aily-v1/aily_session-run/cancel</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2faily_session-run%2fcancel</para>
 /// </summary>
 public record PostAilyV1SessionsByAilySessionIdRunsByRunIdCancelResponseDto

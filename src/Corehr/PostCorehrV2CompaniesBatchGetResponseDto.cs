@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 通过公司 ID 批量获取公司信息 响应体
 /// <para>通过 ID 批量查询公司信息</para>
 /// <para>接口ID：7252157701853184028</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/organization-management/company/batch_get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fcompany%2fbatch_get</para>
 /// </summary>
 public record PostCorehrV2CompaniesBatchGetResponseDto

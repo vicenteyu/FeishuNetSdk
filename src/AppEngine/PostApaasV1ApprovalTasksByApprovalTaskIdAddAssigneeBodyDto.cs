@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 人工任务加签 请求体
 /// <para>对于人工任务进行加签操作</para>
 /// <para>接口ID：7347562540447121409</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/approval_task/add_assignee</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/flow/user-task/add_assignee</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapproval_task%2fadd_assignee</para>
 /// </summary>
 public record PostApaasV1ApprovalTasksByApprovalTaskIdAddAssigneeBodyDto

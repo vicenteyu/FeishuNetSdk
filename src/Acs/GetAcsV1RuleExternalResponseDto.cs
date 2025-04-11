@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Acs;
 /// 获取权限组信息 响应体
 /// <para>获取权限组信息</para>
 /// <para>接口ID：7321978105899089948</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/rule_external/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/acs-v1/rule_external/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2facs-v1%2frule_external%2fget</para>
 /// </summary>
 public record GetAcsV1RuleExternalResponseDto

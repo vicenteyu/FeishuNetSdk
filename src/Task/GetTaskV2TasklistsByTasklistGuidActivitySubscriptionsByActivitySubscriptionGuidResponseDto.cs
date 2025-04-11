@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Task;
 /// 获取动态订阅 响应体
 /// <para>提供一个清单的GUID和一个订阅的GUID，获取该订阅的详细信息，包括名称，订阅者，可通知的event key列表等。</para>
 /// <para>接口ID：7288897051647016962</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/tasklist-activity_subscription/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftasklist-activity_subscription%2fget</para>
 /// </summary>
 public record GetTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuidResponseDto

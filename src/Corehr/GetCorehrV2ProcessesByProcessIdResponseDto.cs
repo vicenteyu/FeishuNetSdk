@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 获取单个流程详情 响应体
 /// <para>根据流程实例 id（process_id）获取单个流程详情。比如流程状态、流程发起人、流程发起时间、流程摘要、流程里的所有待办、已办、抄送任务等。</para>
 /// <para>接口ID：7296819819722588188</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/process-instance/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess%2fget</para>
 /// </summary>
 public record GetCorehrV2ProcessesByProcessIdResponseDto

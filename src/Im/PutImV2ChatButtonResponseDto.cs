@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Im;
 /// 更新消息流卡片按钮 响应体
 /// <para>为群组消息、机器人消息的消息流卡片添加、更新、删除快捷操作按钮。</para>
 /// <para>接口ID：7302258202712506396</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/chat_button/update</para>
+/// <para>文档地址：https://open.feishu.cn/document/im-v2/groups-bots/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fgroup%2fim-v2%2fchat_button%2fupdate</para>
 /// </summary>
 public record PutImV2ChatButtonResponseDto

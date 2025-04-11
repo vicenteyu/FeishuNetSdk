@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Task;
 /// <para>列取一个任务所在的所有清单的信息，包括清单的GUID和所在自定义分组的GUID。</para>
 /// <para>只有调用身份有权限访问的清单信息会被返回。</para>
 /// <para>接口ID：7255580838154453020</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/tasklists</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/task/tasklists</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftask%2ftasklists</para>
 /// </summary>
 public record GetTaskV2TasksByTaskGuidTasklistsResponseDto

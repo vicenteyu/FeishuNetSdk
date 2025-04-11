@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Attendance;
 /// 删除归档报表行数据 请求体
 /// <para>按月份、用户和归档规则ID直接删除归档报表行数据</para>
 /// <para>接口ID：7368679915980931074</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/del_report</para>
+/// <para>文档地址：https://open.feishu.cn/document/attendance-v1/archive_rule/del_report</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2farchive_rule%2fdel_report</para>
 /// </summary>
 public record PostAttendanceV1ArchiveRuleDelReportBodyDto

@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 编辑离职信息 请求体
 /// <para>该接口用于编辑飞书人事的[离职信息](https://people.feishu.cn/people/members/dimission/management)，支持的字段包括离职日期、离职原因、离职申请发起时间和离职申请审批通过时间等等，同时也支持编辑离职的自定义字段（附件字段除外）。当接口成功提交后，会产生对应的[离职信息变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/offboarding/events/updated)事件。</para>
 /// <para>接口ID：7386577676713328643</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/offboarding/edit</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/offboarding/edit</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2foffboarding%2fedit</para>
 /// </summary>
 public record PostCorehrV2OffboardingsEditBodyDto

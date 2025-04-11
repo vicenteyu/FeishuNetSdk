@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Hire;
 /// 查询内推账户 响应体
 /// <para>根据账户 ID 查询内推账户信息。</para>
 /// <para>接口ID：7418831232862601217</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/get_account_assets</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/referral_account/get_account_assets</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2freferral_account%2fget_account_assets</para>
 /// </summary>
 public record GetHireV1ReferralAccountGetAccountAssetsResponseDto

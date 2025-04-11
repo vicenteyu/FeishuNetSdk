@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Ccm;
 /// <para>- 调用当前接口的用户或者机器人必须在对应的群组内。</para>
 /// <para>- 获取内部群信息时，调用当前接口的用户或者机器人必须与对应群组在同一租户下。</para>
 /// <para>接口ID：7450053428095615004</para>
-/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement/get</para>
+/// <para>文档地址：https://open.feishu.cn/document/group/upgraded-group-announcement/chat-announcement/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fdocument-docx%2fdocx-v1%2fchat-announcement%2fget</para>
 /// </summary>
 public record GetDocxV1ChatsByChatIdAnnouncementResponseDto

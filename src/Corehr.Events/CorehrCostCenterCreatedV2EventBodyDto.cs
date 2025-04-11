@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr.Events;
 /// 创建成本中心 事件体
 /// <para>飞书人事中「成本中心被创建」时将触发此事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=cost_center&amp;event=created)</para>
 /// <para>接口ID：7423693709785956355</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/events/created</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/organization-management/cost_center/events/created</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fcost_center%2fevents%2fcreated</para>
 /// </summary>
 public record CorehrCostCenterCreatedV2EventBodyDto() : EventBodyDto("corehr.cost_center.created_v2")

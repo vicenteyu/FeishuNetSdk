@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Payroll;
 /// <para>## 使用场景</para>
 /// <para>&gt; 当前接口仅支持查询某个发薪活动下的所有发薪明细数据，若需要查询某些员工在特定范围内的发薪明细，请使用[批量查询发薪明细](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_detail/query)接口。</para>
 /// <para>接口ID：7411460155089502211</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity_detail/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/payroll-v1/payment_detail/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2fpayment_activity_detail%2flist</para>
 /// </summary>
 public record GetPayrollV1PaymentActivityDetailsResponseDto

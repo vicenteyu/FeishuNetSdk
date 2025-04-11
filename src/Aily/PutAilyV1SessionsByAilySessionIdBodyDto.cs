@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Aily;
 /// 更新会话 请求体
 /// <para>该 API 用于更新与某个飞书智能伙伴应用的一次会话（Session）的信息。</para>
 /// <para>接口ID：7358047310868234244</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/update</para>
+/// <para>文档地址：https://open.feishu.cn/document/aily-v1/aily_session/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2faily_session%2fupdate</para>
 /// </summary>
 public record PutAilyV1SessionsByAilySessionIdBodyDto

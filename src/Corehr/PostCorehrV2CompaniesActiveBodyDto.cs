@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 启用/停用公司 请求体
 /// <para>对公司进行启用或停用操作</para>
 /// <para>接口ID：7408127338960781340</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/active</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/organization-management/company/active</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fcompany%2factive</para>
 /// </summary>
 public record PostCorehrV2CompaniesActiveBodyDto

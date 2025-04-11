@@ -16,7 +16,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// 批量查询用户授权 响应体
 /// <para>批量查询[飞书人事管理后台](https://people.feishu.cn/people/) -「设置」-「权限设置」中的用户授权信息。授权列表信息中包括员工ID、被授权的角色等信息。</para>
 /// <para>接口ID：7372022997609906178</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/authorization/query</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/authorization/query-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fauthorization%2fquery</para>
 /// </summary>
 public record GetCorehrV1AuthorizationsQueryResponseDto

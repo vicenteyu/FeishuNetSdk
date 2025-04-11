@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr.Events;
 /// 入职流程状态变更 事件体
 /// <para>待入职员工的入职流程流转时，例如调用[流转入职任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/transit_task)接口会触发本事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=pre_hire&amp;event=onboarding_task_changed)</para>
 /// <para>接口ID：7394722460207382556</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/events/onboarding_task_changed</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/pre_hire/pre-hire-events/onboarding_task_changed</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpre_hire%2fevents%2fonboarding_task_changed</para>
 /// </summary>
 public record CorehrPreHireOnboardingTaskChangedV2EventBodyDto() : EventBodyDto("corehr.pre_hire.onboarding_task_changed_v2")

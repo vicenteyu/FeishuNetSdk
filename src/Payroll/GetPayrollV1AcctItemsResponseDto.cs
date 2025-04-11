@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Payroll;
 /// 批量查询算薪项 响应体
 /// <para>批量查询算薪项</para>
 /// <para>接口ID：7387360801748402177</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/acct_item/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/payroll-v1/acct_item/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2facct_item%2flist</para>
 /// </summary>
 public record GetPayrollV1AcctItemsResponseDto

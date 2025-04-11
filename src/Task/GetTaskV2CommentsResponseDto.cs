@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Task;
 /// <para>给定一个资源，返回该资源的评论列表。</para>
 /// <para>支持分页。评论可以按照创建时间的正序（asc, 从最老到最新），或者逆序（desc，从最老到最新），返回数据。</para>
 /// <para>接口ID：7255580838154747932</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/comment/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/comment/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fcomment%2flist</para>
 /// </summary>
 public record GetTaskV2CommentsResponseDto

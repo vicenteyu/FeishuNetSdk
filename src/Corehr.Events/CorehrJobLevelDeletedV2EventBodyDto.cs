@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Corehr.Events;
 /// <para>飞书人事中「职级被删除」时将触发此事件。</para>
 /// <para>{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=job_level&amp;event=deleted)</para>
 /// <para>接口ID：7414100499044712476</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/events/deleted</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/job-management/job_level/events/deleted</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob_level%2fevents%2fdeleted</para>
 /// </summary>
 public record CorehrJobLevelDeletedV2EventBodyDto() : EventBodyDto("corehr.job_level.deleted_v2")

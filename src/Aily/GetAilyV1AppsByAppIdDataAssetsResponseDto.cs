@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Aily;
 /// 查询数据知识列表 响应体
 /// <para>获取智能伙伴搭建助手的数据知识列表</para>
 /// <para>接口ID：7424752773160796164</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-data_asset/list</para>
+/// <para>文档地址：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2fapp-data_asset%2flist</para>
 /// </summary>
 public record GetAilyV1AppsByAppIdDataAssetsResponseDto

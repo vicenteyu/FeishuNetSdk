@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Ai;
 /// 识别文件中的机动车发票 响应体
 /// <para>机动车发票识别接口，支持JPG/JPEG/PNG/BMP四种文件类型的一次性的识别。文件大小需要小于10M。</para>
 /// <para>接口ID：7319756481343750148</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/document_ai-v1/vehicle_invoice/recognize</para>
+/// <para>文档地址：https://open.feishu.cn/document/ai/document_ai-v1/vehicle_invoice/recognize</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fai%2fdocument_ai-v1%2fvehicle_invoice%2frecognize</para>
 /// </summary>
 public record PostDocumentAiV1VehicleInvoiceRecognizeResponseDto

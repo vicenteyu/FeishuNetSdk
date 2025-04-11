@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Performance.Events;
 /// 绩效结果开通 事件体
 /// <para>当员工的绩效结果开通时，订阅这个事件的应用会收到该事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=performance&amp;version=v2&amp;resource=stage_task&amp;event=open_result)</para>
 /// <para>接口ID：7351374599659831300</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/stage_task/events/open_result</para>
+/// <para>文档地址：https://open.feishu.cn/document/performance-v1/stage_task/events/open_result</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2fstage_task%2fevents%2fopen_result</para>
 /// </summary>
 public record PerformanceStageTaskOpenResultV2EventBodyDto() : EventBodyDto("performance.stage_task.open_result_v2")

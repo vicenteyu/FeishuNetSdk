@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Task;
 /// <para>更新时，将`update_fields`字段中填写所有要修改的评论的字段名，同时在`comment`字段中填写要修改的字段的新值即可。更新接口规范详情见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 关于资源的更新”章节。</para>
 /// <para>目前只支持更新评论的"conent"字段。</para>
 /// <para>接口ID：7255580838154420252</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/comment/patch</para>
+/// <para>文档地址：https://open.feishu.cn/document/task-v2/comment/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fcomment%2fpatch</para>
 /// </summary>
 public record PatchTaskV2CommentsByCommentIdBodyDto

@@ -14,9 +14,10 @@
 namespace FeishuNetSdk.Corehr.Events;
 /// <summary>
 /// 异动状态变更 事件体
-/// <para>在异动审批状态变更、异动生效时都会触发该事件，审批结果产生的场景包括撤销、审批通过、审批拒绝{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=job_change&amp;event=status_updated)</para>
+/// <para>在异动审批状态变更、异动生效时都会触发该事件，审批结果产生的场景包括撤销、审批通过、审批拒绝</para>
+/// <para>{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=job_change&amp;event=status_updated)</para>
 /// <para>接口ID：7407271999612436508</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/events/status_updated</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/job_change/job-change-events/status_updated</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob_change%2fevents%2fstatus_updated</para>
 /// </summary>
 public record CorehrJobChangeStatusUpdatedV2EventBodyDto() : EventBodyDto("corehr.job_change.status_updated_v2")

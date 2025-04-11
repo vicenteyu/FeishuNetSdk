@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr.Events;
 /// 人员信息变更 事件体
 /// <para>人员领域事件变更，通过业务界面、开放平台接口对个人信息、工作信息（雇佣信息）、任职信息、兼职信息等进行操作时会触发相应事件{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=employee&amp;event=domain_event)</para>
 /// <para>接口ID：7350263010596438044</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/events/domain_event</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/employee/events/domain_event</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2femployee%2fevents%2fdomain_event</para>
 /// </summary>
 public record CorehrEmployeeDomainEventV2EventBodyDto() : EventBodyDto("corehr.employee.domain_event_v2")

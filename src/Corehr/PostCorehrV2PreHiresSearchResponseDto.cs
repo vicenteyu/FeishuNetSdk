@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>- 查询的待入职数量及字段越多，耗时越久，使用时建议细化指定需要的字段。</para>
 /// <para>- 创建待入职后，会有5秒内的数据延迟导致搜索不到数据</para>
 /// <para>接口ID：7263303427627270148</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/pre_hire/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpre_hire%2fsearch</para>
 /// </summary>
 public record PostCorehrV2PreHiresSearchResponseDto

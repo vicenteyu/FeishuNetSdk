@@ -16,7 +16,7 @@ namespace FeishuNetSdk.AppEngine;
 /// 基于人工任务发起群聊 请求体
 /// <para>基于任务，发起一个飞书群聊</para>
 /// <para>接口ID：7446337145820413956</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/chat_group</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/flow/user-task/chat_group</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fuser_task%2fchat_group</para>
 /// </summary>
 public record PostApaasV1UserTasksByTaskIdChatGroupBodyDto

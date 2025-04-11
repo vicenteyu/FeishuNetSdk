@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Baike;
 /// 创建免审词条 请求体
 /// <para>通过此接口创建的词条，无需经过词典管理员审核，直接写入词库。因此，调用此接口时，应当慎重操作。</para>
 /// <para>接口ID：7249689905697194012</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/create</para>
+/// <para>文档地址：https://open.feishu.cn/document/lingo-v1/entity/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2flingo-v1%2fentity%2fcreate</para>
 /// </summary>
 public record PostLingoV1EntitiesBodyDto

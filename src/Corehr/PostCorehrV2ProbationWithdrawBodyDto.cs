@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Corehr;
 /// 撤销转正 请求体
 /// <para>可通过本接口撤销对员工之前发起的转正</para>
 /// <para>接口ID：7254814386694651906</para>
-/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/probation/withdraw</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/probation/withdraw</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprobation%2fwithdraw</para>
 /// </summary>
 public record PostCorehrV2ProbationWithdrawBodyDto
