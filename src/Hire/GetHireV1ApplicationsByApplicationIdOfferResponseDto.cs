@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-02-05
+// Last Modified On : 2025-04-18
 // ************************************************************************
 // <copyright file="GetHireV1ApplicationsByApplicationIdOfferResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -500,6 +500,13 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
             /// </summary>
             [JsonPropertyName("job_grade_id")]
             public string? JobGradeId { get; set; }
+
+            /// <summary>
+            /// <para>通用附件 ID 列表，可通过[获取附件信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get)接口获取附件的详细信息</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("common_attachment_id_list")]
+            public string[]? CommonAttachmentIdList { get; set; }
         }
 
         /// <summary>

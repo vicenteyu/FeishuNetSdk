@@ -37,7 +37,7 @@
 <tr><td colspan="3">PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdate</td></tr>
 <tr><td rowspan="2">19</td><td rowspan="2">2024-10-18</td><td>&#10003;</td><td>云文档</td><td>删除块</td></tr>
 <tr><td colspan="3">DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDelete</td></tr>
-<tr><td rowspan="2">20</td><td rowspan="2">2024-09-24</td><td>&#10003;</td><td>云文档</td><td>获取所有子块</td></tr>
+<tr><td rowspan="2">20</td><td rowspan="2">2025-04-14</td><td>&#10003;</td><td>云文档</td><td>获取所有子块</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocksByBlockIdChildren</td></tr>
 <tr><td rowspan="2">21</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>修改电子表格属性</td></tr>
 <tr><td colspan="3">PatchSheetsV3SpreadsheetsBySpreadsheetToken</td></tr>
@@ -155,7 +155,7 @@
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageId</td></tr>
 <tr><td rowspan="2">78</td><td rowspan="2">2024-09-09</td><td>&#10003;</td><td>云文档</td><td>查询浮动图片</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesQuery</td></tr>
-<tr><td rowspan="2">79</td><td rowspan="2">2024-09-09</td><td>&#10003;</td><td>云文档</td><td>创建浮动图片</td></tr>
+<tr><td rowspan="2">79</td><td rowspan="2">2025-04-14</td><td>&#10003;</td><td>云文档</td><td>创建浮动图片</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImages</td></tr>
 <tr><td rowspan="2">80</td><td rowspan="2">2024-11-27</td><td>&#10003;</td><td>消息与群组</td><td>添加消息表情回复</td></tr>
 <tr><td colspan="3">PostImV1MessagesByMessageIdReactions</td></tr>
@@ -237,13 +237,13 @@
 <tr><td colspan="3">PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldId</td></tr>
 <tr><td rowspan="2">119</td><td rowspan="2">2025-01-08</td><td>&#10003;</td><td>多维表格</td><td>删除字段</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldId</td></tr>
-<tr><td rowspan="2">120</td><td rowspan="2">2025-01-20</td><td>&#10003;</td><td>多维表格</td><td>列出自定义角色</td></tr>
+<tr><td rowspan="2">120</td><td rowspan="2">2025-04-14</td><td>&#10003;</td><td>多维表格</td><td>列出自定义角色</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenRoles</td></tr>
-<tr><td rowspan="2">121</td><td rowspan="2">2025-01-20</td><td>&#10003;</td><td>多维表格</td><td>新增自定义角色</td></tr>
+<tr><td rowspan="2">121</td><td rowspan="2">2025-04-14</td><td>&#10003;</td><td>多维表格</td><td>新增自定义角色</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenRoles</td></tr>
 <tr><td rowspan="2">122</td><td rowspan="2">2025-01-20</td><td>&#10003;</td><td>多维表格</td><td>删除自定义角色</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenRolesByRoleId</td></tr>
-<tr><td rowspan="2">123</td><td rowspan="2">2025-01-20</td><td>&#10003;</td><td>多维表格</td><td>更新自定义角色</td></tr>
+<tr><td rowspan="2">123</td><td rowspan="2">2025-04-14</td><td>&#10003;</td><td>多维表格</td><td>更新自定义角色</td></tr>
 <tr><td colspan="3">PutBitableV1AppsByAppTokenRolesByRoleId</td></tr>
 <tr><td rowspan="2">124</td><td rowspan="2">2025-01-21</td><td>&#10003;</td><td>多维表格</td><td>批量删除协作者</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchDelete</td></tr>
@@ -849,7 +849,7 @@
 <tr><td colspan="3">GetDriveV1Files</td></tr>
 <tr><td rowspan="2">425</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>云文档</td><td>获取文件夹元数据</td></tr>
 <tr><td colspan="3">GetDriveExplorerV2FolderByFolderTokenMeta</td></tr>
-<tr><td rowspan="2">426</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>通讯录</td><td>搜索用户</td></tr>
+<tr><td rowspan="2">426</td><td rowspan="2">2025-04-17</td><td>&#10003;</td><td>通讯录</td><td>搜索用户</td></tr>
 <tr><td colspan="3">GetSearchV1User</td></tr>
 <tr><td rowspan="2">427</td><td rowspan="2">2024-09-03</td><td>&#10003;</td><td>云文档</td><td>新建文件夹</td></tr>
 <tr><td colspan="3">PostDriveV1FilesCreateFolder</td></tr>
@@ -901,7 +901,7 @@
 <tr><td colspan="3">PostDriveV1FilesUploadPart</td></tr>
 <tr><td rowspan="2">451</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>分片上传文件-完成上传</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadFinish</td></tr>
-<tr><td rowspan="2">452</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>下载文件</td></tr>
+<tr><td rowspan="2">452</td><td rowspan="2">2025-04-16</td><td>&#10003;</td><td>云文档</td><td>下载文件</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenDownload</td></tr>
 <tr><td rowspan="2">453</td><td rowspan="2">2024-10-11</td><td>&#10003;</td><td>云文档</td><td>创建导入任务</td></tr>
 <tr><td colspan="3">PostDriveV1ImportTasks</td></tr>
@@ -1117,9 +1117,9 @@
 <tr><td colspan="3">GetApplicationV6ApplicationsByAppIdCollaborators</td></tr>
 <tr><td rowspan="2">559</td><td rowspan="2">2025-02-06</td><td>&#10003;</td><td>应用信息</td><td>转移应用所有者</td></tr>
 <tr><td colspan="3">PutApplicationV6ApplicationsByAppIdOwner</td></tr>
-<tr><td rowspan="2">560</td><td rowspan="2">2025-03-11</td><td>&#10003;</td><td>妙记</td><td>导出妙记文字记录</td></tr>
+<tr><td rowspan="2">560</td><td rowspan="2">2025-04-18</td><td>&#10003;</td><td>妙记</td><td>导出妙记文字记录</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenTranscript</td></tr>
-<tr><td rowspan="2">561</td><td rowspan="2">2025-03-11</td><td>&#10003;</td><td>妙记</td><td>下载妙记音视频文件</td></tr>
+<tr><td rowspan="2">561</td><td rowspan="2">2025-04-18</td><td>&#10003;</td><td>妙记</td><td>下载妙记音视频文件</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenMedia</td></tr>
 <tr><td rowspan="2">562</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>Payroll</td><td>查询发薪活动明细列表</td></tr>
 <tr><td colspan="3">GetPayrollV1PaymentActivityDetails</td></tr>
@@ -1135,44 +1135,50 @@
 <tr><td colspan="3">PostPayrollV1DatasourceRecordsQuery</td></tr>
 <tr><td rowspan="2">568</td><td rowspan="2">2025-03-18</td><td>&#10003;</td><td>Payroll</td><td>获取外部数据源配置信息</td></tr>
 <tr><td colspan="3">GetPayrollV1Datasources</td></tr>
-<tr><td rowspan="2">569</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>创建邮箱联系人</td></tr>
+<tr><td rowspan="2">569</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱联系人</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMailContacts</td></tr>
-<tr><td rowspan="2">570</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>删除邮箱联系人</td></tr>
+<tr><td rowspan="2">570</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>删除邮箱联系人</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactId</td></tr>
-<tr><td rowspan="2">571</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>修改邮箱联系人信息</td></tr>
+<tr><td rowspan="2">571</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱联系人信息</td></tr>
 <tr><td colspan="3">PatchMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactId</td></tr>
-<tr><td rowspan="2">572</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>列出邮箱联系人</td></tr>
+<tr><td rowspan="2">572</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱联系人</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMailContacts</td></tr>
-<tr><td rowspan="2">573</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>删除收信规则</td></tr>
+<tr><td rowspan="2">573</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>删除收信规则</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdRulesByRuleId</td></tr>
-<tr><td rowspan="2">574</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>列出收信规则</td></tr>
+<tr><td rowspan="2">574</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>列出收信规则</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdRules</td></tr>
-<tr><td rowspan="2">575</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>创建邮箱文件夹</td></tr>
+<tr><td rowspan="2">575</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱文件夹</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
-<tr><td rowspan="2">576</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>删除邮箱文件夹</td></tr>
+<tr><td rowspan="2">576</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>删除邮箱文件夹</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
-<tr><td rowspan="2">577</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>列出邮箱文件夹</td></tr>
+<tr><td rowspan="2">577</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱文件夹</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
-<tr><td rowspan="2">578</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>获取邮件详情</td></tr>
+<tr><td rowspan="2">578</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageId</td></tr>
-<tr><td rowspan="2">579</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>订阅事件</td></tr>
+<tr><td rowspan="2">579</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>订阅事件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdEventSubscribe</td></tr>
-<tr><td rowspan="2">580</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>创建收信规则</td></tr>
+<tr><td rowspan="2">580</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>创建收信规则</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRules</td></tr>
-<tr><td rowspan="2">581</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>对收信规则进行排序</td></tr>
+<tr><td rowspan="2">581</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>对收信规则进行排序</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRulesReorder</td></tr>
-<tr><td rowspan="2">582</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>修改邮箱文件夹</td></tr>
+<tr><td rowspan="2">582</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱文件夹</td></tr>
 <tr><td colspan="3">PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
-<tr><td rowspan="2">583</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>列出邮件</td></tr>
+<tr><td rowspan="2">583</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>列出邮件</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessages</td></tr>
-<tr><td rowspan="2">584</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>获取订阅状态</td></tr>
+<tr><td rowspan="2">584</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>获取订阅状态</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdEventSubscription</td></tr>
-<tr><td rowspan="2">585</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>取消订阅</td></tr>
+<tr><td rowspan="2">585</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>取消订阅</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdEventUnsubscribe</td></tr>
-<tr><td rowspan="2">586</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>更新收信规则</td></tr>
+<tr><td rowspan="2">586</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>更新收信规则</td></tr>
 <tr><td colspan="3">PutMailV1UserMailboxesByUserMailboxIdRulesByRuleId</td></tr>
-<tr><td rowspan="2">587</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>获取附件下载链接</td></tr>
+<tr><td rowspan="2">587</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>获取附件下载链接</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAttachmentsDownloadUrl</td></tr>
-<tr><td rowspan="2">588</td><td rowspan="2">2025-04-09</td><td>新增</td><td>邮箱</td><td>获取邮件卡片的邮件列表</td></tr>
+<tr><td rowspan="2">588</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>获取邮件卡片的邮件列表</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCard</td></tr>
+<tr><td rowspan="2">589</td><td rowspan="2">2025-04-14</td><td>新增</td><td>多维表格</td><td>列出自定义角色</td></tr>
+<tr><td colspan="3">GetBaseV2AppsByAppTokenRoles</td></tr>
+<tr><td rowspan="2">590</td><td rowspan="2">2025-04-14</td><td>新增</td><td>多维表格</td><td>新增自定义角色</td></tr>
+<tr><td colspan="3">PostBaseV2AppsByAppTokenRoles</td></tr>
+<tr><td rowspan="2">591</td><td rowspan="2">2025-04-14</td><td>新增</td><td>多维表格</td><td>更新自定义角色</td></tr>
+<tr><td colspan="3">PutBaseV2AppsByAppTokenRolesByRoleId</td></tr>
 </tbody></table>

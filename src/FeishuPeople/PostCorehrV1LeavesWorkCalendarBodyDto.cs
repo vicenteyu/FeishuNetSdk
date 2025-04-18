@@ -37,19 +37,19 @@ public record PostCorehrV1LeavesWorkCalendarBodyDto
     public string? WkCalendarIdGt { get; set; }
 
     /// <summary>
-    /// <para>分页、排序等选项，注意需要填写limit参数，默认为0</para>
+    /// <para>分页、排序等选项，如未填写将赋默认值</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("wk_option")]
     public PostCorehrV1LeavesWorkCalendarBodyDtoWkOption? WkOption { get; set; }
 
     /// <summary>
-    /// <para>分页、排序等选项，注意需要填写limit参数，默认为0</para>
+    /// <para>分页、排序等选项，如未填写将赋默认值</para>
     /// </summary>
     public record PostCorehrV1LeavesWorkCalendarBodyDtoWkOption
     {
         /// <summary>
-        /// <para>是否返回符合条件的工作日历总数</para>
+        /// <para>是否返回符合条件的工作日历总数，默认值为true</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
@@ -57,7 +57,7 @@ public record PostCorehrV1LeavesWorkCalendarBodyDto
         public bool? Count { get; set; }
 
         /// <summary>
-        /// <para>分页查询的位移，从0开始</para>
+        /// <para>分页查询的位移，从0开始，默认值为0</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -65,7 +65,7 @@ public record PostCorehrV1LeavesWorkCalendarBodyDto
         public int? Offset { get; set; }
 
         /// <summary>
-        /// <para>分页查询 单次查询数量</para>
+        /// <para>分页查询单次查询数量，默认值为2000</para>
         /// <para>必填：是</para>
         /// <para>示例值：20</para>
         /// <para>最大值：2000</para>

@@ -52,6 +52,7 @@ public record GetSearchV1UserResponseDto
     {
         /// <summary>
         /// <para>用户的头像信息。</para>
+        /// <para>**注意**：为避免 URL 更新，头像 URL 不建议保存下来长期使用，推荐你在需要使用头像 URL 时再调用本接口进行获取。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("avatar")]

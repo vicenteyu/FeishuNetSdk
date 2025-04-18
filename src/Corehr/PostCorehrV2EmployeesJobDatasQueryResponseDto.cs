@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-27
+// Last Modified On : 2025-04-18
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesJobDatasQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -338,12 +338,20 @@ public record PostCorehrV2EmployeesJobDatasQueryResponseDto
                 public string? CostCenterId { get; set; }
 
                 /// <summary>
-                /// <para>分摊比例</para>
+                /// <para>分摊比例(整数)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：100</para>
                 /// </summary>
                 [JsonPropertyName("rate")]
                 public int? Rate { get; set; }
+
+                /// <summary>
+                /// <para>分摊比例</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：50.2</para>
+                /// </summary>
+                [JsonPropertyName("new_rate")]
+                public float? NewRate { get; set; }
             }
 
             /// <summary>
@@ -406,6 +414,14 @@ public record PostCorehrV2EmployeesJobDatasQueryResponseDto
             /// </summary>
             [JsonPropertyName("job_data_reason")]
             public Enum? JobDataReason { get; set; }
+
+            /// <summary>
+            /// <para>通道 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6890452208593372679</para>
+            /// </summary>
+            [JsonPropertyName("pathway_id")]
+            public string? PathwayId { get; set; }
         }
     }
 

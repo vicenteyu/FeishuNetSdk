@@ -14,9 +14,11 @@
 namespace FeishuNetSdk.FeishuPeople.Events;
 /// <summary>
 /// 员工完成入职 事件体
-/// <para>两种场景触发此事件：</para>
+/// <para>以下业务场景会触发此事件：</para>
 /// <para>- 开放平台[操作员工完成入职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/complete)接口</para>
-/// <para>- 「飞书人事-人员管理-入职」将待入职员工操作“完成入职”{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v1&amp;resource=job_data&amp;event=employed)</para>
+/// <para>- 开放平台[添加人员](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/create)接口</para>
+/// <para>- 「飞书人事-人员管理-入职」将待入职员工操作“完成入职”</para>
+/// <para>- 「飞书人事-人员管理-花名册」操作”添加人员”或”导入人员”{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v1&amp;resource=job_data&amp;event=employed)</para>
 /// <para>接口ID：7084239806838013955</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/pre_hire/employed</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_data%2fevents%2femployed</para>

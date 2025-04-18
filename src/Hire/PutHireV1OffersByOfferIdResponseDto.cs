@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-02-05
+// Last Modified On : 2025-04-18
 // ************************************************************************
 // <copyright file="PutHireV1OffersByOfferIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -213,11 +213,18 @@ public record PutHireV1OffersByOfferIdResponseDto
         public int? JobProcessTypeId { get; set; }
 
         /// <summary>
-        /// <para>附件 ID 列表，详情请查看：[获取附件信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get)</para>
+        /// <para>附件 ID 列表（废弃）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("attachment_id_list")]
         public string[]? AttachmentIdList { get; set; }
+
+        /// <summary>
+        /// <para>通用附件 ID 列表，可通过[获取附件信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get)接口获取附件的详细信息</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("common_attachment_id_list")]
+        public string[]? CommonAttachmentIdList { get; set; }
 
         /// <summary>
         /// <para>附件描述</para>

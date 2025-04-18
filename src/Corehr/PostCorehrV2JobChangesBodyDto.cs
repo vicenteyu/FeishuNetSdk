@@ -44,7 +44,7 @@ public record PostCorehrV2JobChangesBodyDto
     public string EmploymentId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>异动类型唯一标识，不支持仅在特殊场景使用的异动类型，如组织架构调整、职责转交和试用期转正。</para>
+    /// <para>异动类型唯一标识，不支持仅在特殊场景使用的异动类型，如组织架构调整、职责转交和试用期转正，不会校验是否停用。</para>
     /// <para>可通过接口[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：internal_transfer</para>

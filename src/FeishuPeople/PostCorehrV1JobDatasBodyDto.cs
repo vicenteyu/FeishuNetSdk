@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-04-18
 // ************************************************************************
 // <copyright file="PostCorehrV1JobDatasBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -96,6 +96,7 @@ public record PostCorehrV1JobDatasBodyDto
 
     /// <summary>
     /// <para>是否为主任职</para>
+    /// <para>- 该字段已废弃，默认为 true，不可更改</para>
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -136,7 +137,7 @@ public record PostCorehrV1JobDatasBodyDto
     public string? JobFamilyId { get; set; }
 
     /// <summary>
-    /// <para>任职原因</para>
+    /// <para>业务类型（原：任职原因）</para>
     /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
     /// <para>- object_api_name：job_data</para>
     /// <para>- custom_api_name：assignment_start_reason</para>
@@ -148,7 +149,7 @@ public record PostCorehrV1JobDatasBodyDto
     public Enum AssignmentStartReason { get; set; } = new();
 
     /// <summary>
-    /// <para>任职原因</para>
+    /// <para>业务类型（原：任职原因）</para>
     /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
     /// <para>- object_api_name：job_data</para>
     /// <para>- custom_api_name：assignment_start_reason</para>
@@ -251,4 +252,20 @@ public record PostCorehrV1JobDatasBodyDto
     /// </summary>
     [JsonPropertyName("service_company")]
     public string? ServiceCompany { get; set; }
+
+    /// <summary>
+    /// <para>岗位 ID，枚举值及详细信息可通过【查询单个岗位】接口查询获得</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：6890452208593372679</para>
+    /// </summary>
+    [JsonPropertyName("position_id")]
+    public string? PositionId { get; set; }
+
+    /// <summary>
+    /// <para>通道 ID</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：6890452208593372671</para>
+    /// </summary>
+    [JsonPropertyName("pathway_id")]
+    public string? PathwayId { get; set; }
 }

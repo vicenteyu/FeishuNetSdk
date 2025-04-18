@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-04-11
+// Last Modified On : 2025-04-18
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -11971,7 +11971,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 前提条件</para>
     /// <para>你已调用[上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)或[分片上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare)上传图片至表格并获取了图片的 `file_token`，作为本接口中图片的 `float_image_token`。</para>
     /// <para>## 使用限制</para>
-    /// <para>单个电子表格最多支持放置 4,000 张不同 token 的图片，即表格内不重复的图片（包括浮动图片和单元格图片）总数不超过 4,000 张。将相同 token 的图片多次放置在表格的不同位置，数量上仅算一张图片。</para>
+    /// <para>- 图片大小不得超过 20 MB。</para>
+    /// <para>- 单个电子表格最多支持放置 4,000 张不同 token 的图片，即表格内不重复的图片（包括浮动图片和单元格图片）总数不超过 4,000 张。将相同 token 的图片多次放置在表格的不同位置，数量上仅算一张图片。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
@@ -17428,6 +17429,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:employment.pathway:read</item>
+    /// <item>corehr:employment.pathway:write</item>
     /// <item>corehr:job_data.compensation_type:read</item>
     /// <item>corehr:job_data.service_company:read</item>
     /// <item>corehr:job_data.work_shift:read</item>
@@ -22187,6 +22190,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:employment.pathway:read</item>
+    /// <item>corehr:employment.pathway:write</item>
     /// <item>corehr:job_data.compensation_type:read</item>
     /// <item>corehr:job_data.service_company:read</item>
     /// <item>corehr:job_data.work_shift:read</item>
@@ -24987,7 +24992,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="page_token">
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>示例值：roljRpwIUt</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0</para>
     /// <para>默认值：null</para>
     /// </param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/roles")]
@@ -37543,6 +37548,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:employment.job_level:read</item>
     /// <item>corehr:employment.job_level:write</item>
     /// <item>corehr:employment.job:read</item>
+    /// <item>corehr:employment.pathway:read</item>
+    /// <item>corehr:employment.pathway:write</item>
     /// <item>corehr:employment.position:read</item>
     /// <item>corehr:employment.position:write</item>
     /// <item>corehr:job_data.assignment_start_reason:read</item>
@@ -37614,6 +37621,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:employment.job_level:read</item>
     /// <item>corehr:employment.job_level:write</item>
     /// <item>corehr:employment.job:read</item>
+    /// <item>corehr:employment.pathway:read</item>
+    /// <item>corehr:employment.pathway:write</item>
     /// <item>corehr:employment.position:read</item>
     /// <item>corehr:employment.position:write</item>
     /// <item>corehr:job_data.assignment_start_reason:read</item>
@@ -46074,6 +46083,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:common_data.basic_data:read</item>
     /// <item>corehr:corehr:readonly</item>
     /// <item>corehr:employee:read</item>
+    /// <item>corehr:work_calendar:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -48936,6 +48946,109 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/corehr/v2/enums/search")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2EnumsSearchResponseDto>> PostCorehrV2EnumsSearchAsync(
         [JsonContent] Corehr.PostCorehrV2EnumsSearchBodyDto dto);
+
+    /// <summary>
+    /// <para>【多维表格】列出自定义角色</para>
+    /// <para>接口ID：7473089245106290692</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/advanced-permission/base-v2/app-role/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>列出多维表格高级权限中用户自定义的角色。</para>
+    /// <para>## 前提条件</para>
+    /// <para>要调用自定义角色相关接口，你需确保多维表格已开启高级权限。你可通过[更新多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/update)接口开启高级权限。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>base:role:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
+    /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：roljRpwIUt</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/base/v2/apps/{app_token}/roles")]
+    System.Threading.Tasks.Task<FeishuResponse<Base.GetBaseV2AppsByAppTokenRolesResponseDto>> GetBaseV2AppsByAppTokenRolesAsync(
+        [PathQuery] string app_token,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【多维表格】新增自定义角色</para>
+    /// <para>接口ID：7473089245106307076</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/advanced-permission/base-v2/app-role/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>新增多维表格高级权限中自定义的角色。</para>
+    /// <para>## 前提条件</para>
+    /// <para>要调用自定义角色相关接口，你需确保多维表格已开启高级权限。你可通过[更新多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/update)接口开启高级权限。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>base:role:create</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
+    /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/base/v2/apps/{app_token}/roles")]
+    System.Threading.Tasks.Task<FeishuResponse<Base.PostBaseV2AppsByAppTokenRolesResponseDto>> PostBaseV2AppsByAppTokenRolesAsync(
+        [PathQuery] string app_token,
+        [JsonContent] Base.PostBaseV2AppsByAppTokenRolesBodyDto dto);
+
+    /// <summary>
+    /// <para>【多维表格】更新自定义角色</para>
+    /// <para>接口ID：7473089245106323460</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/advanced-permission/base-v2/app-role/update</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>更新多维表格高级权限中自定义的角色。</para>
+    /// <para>## 前提条件</para>
+    /// <para>要调用自定义角色相关接口，你需确保多维表格已开启高级权限。你可通过[更新多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/update)接口开启高级权限。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>base:role:update</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
+    /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
+    /// </param>
+    /// <param name="role_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>多维表格高级权限中自定义角色的唯一标识，以 rol 开头。获取方式：通过[列出自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/list)接口获取。</para>
+    /// <para>示例值：roljRpwIUt</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPut("/open-apis/base/v2/apps/{app_token}/roles/{role_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Base.PutBaseV2AppsByAppTokenRolesByRoleIdResponseDto>> PutBaseV2AppsByAppTokenRolesByRoleIdAsync(
+        [PathQuery] string app_token,
+        [PathQuery] string role_id,
+        [JsonContent] Base.PutBaseV2AppsByAppTokenRolesByRoleIdBodyDto dto);
 
     /// <summary>
     /// <para>【考勤打卡】删除打卡流水</para>

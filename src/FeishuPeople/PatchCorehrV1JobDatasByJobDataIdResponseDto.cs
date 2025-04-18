@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-04-18
 // ************************************************************************
 // <copyright file="PatchCorehrV1JobDatasByJobDataIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -322,5 +322,13 @@ public record PatchCorehrV1JobDatasByJobDataIdResponseDto
         /// </summary>
         [JsonPropertyName("service_company")]
         public string? ServiceCompany { get; set; }
+
+        /// <summary>
+        /// <para>通道 ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6890452208593372671</para>
+        /// </summary>
+        [JsonPropertyName("pathway_id")]
+        public string? PathwayId { get; set; }
     }
 }
