@@ -28,7 +28,7 @@ public interface IFeishuAppApi : IHttpApi
     /// <summary>
     /// <para>【身份验证】获取 user_access_token（小程序）</para>
     /// <para>接口ID：6907569745298817026</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uYjL24iN/ukjM04SOyQjL5IDN</para>
+    /// <para>接口文档：https://open.feishu.cn/document/client-docs/gadget/-web-app-api/open-ability/login/code2session</para>
     /// <para>Authorization：app_access_token</para>
     /// <para>通过 [login](https://open.feishu.cn/document/uYjL24iN/uYzMuYzMuYzM)接口获取到登录凭证`code`后，开发者可以通过服务器发送请求的方式获取 session_key 和 用户凭证信息。</para>
     /// <para>本接口适用于 [小程序登录](https://open.feishu.cn/document/uYjL24iN/uETO5QjLxkTO04SM5kDN) 及[小组件登录](https://open.feishu.cn/document/uAjLw4CM/uYjL24iN/block/guide/open-ability/block-login)。</para>
@@ -41,7 +41,7 @@ public interface IFeishuAppApi : IHttpApi
     /// <summary>
     /// <para>【身份验证】JSAPI 临时授权凭证</para>
     /// <para>接口ID：6911312738021720065</para>
-    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/h5_js_sdk/authorization</para>
+    /// <para>接口文档：https://open.feishu.cn/document/authentication-management/access-token/authorization</para>
     /// <para>Authorization：app_access_token、tenant_access_token、user_access_token</para>
     /// <para>该接口用于返回调用 JSAPI 临时调用凭证，使用该凭证调用 JSAPI 时，请求不会被拦截。</para>
     /// </summary>
@@ -51,7 +51,7 @@ public interface IFeishuAppApi : IHttpApi
     /// <summary>
     /// <para>【身份验证】刷新 user_access_token（v1 版本）</para>
     /// <para>接口ID：7180265937329520644</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/refresh_access_token/create</para>
+    /// <para>接口文档：https://open.feishu.cn/document/server-docs/authentication-management/access-token/create</para>
     /// <para>Authorization：app_access_token</para>
     /// <para>本接口已成为历史版本，不再维护更新，不推荐使用。请使用最新版本：[刷新 user_access_token](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token)</para>
     /// <para>。</para>
@@ -72,7 +72,7 @@ public interface IFeishuAppApi : IHttpApi
     /// <summary>
     /// <para>【身份验证】获取 user_access_token（v1 版本）</para>
     /// <para>接口ID：7180265937329553412</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/access_token/create</para>
+    /// <para>接口文档：https://open.feishu.cn/document/server-docs/authentication-management/access-token/create-2</para>
     /// <para>Authorization：app_access_token</para>
     /// <para>本接口已成为历史版本，不再维护更新，不推荐使用。请使用最新版本：[获取 user_access_token ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token)</para>
     /// <para>。</para>
@@ -93,7 +93,7 @@ public interface IFeishuAppApi : IHttpApi
     /// <summary>
     /// <para>【身份验证】刷新 user_access_token</para>
     /// <para>接口ID：7277403063290707996</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/oidc-refresh_access_token/create</para>
+    /// <para>接口文档：https://open.feishu.cn/document/historic-version/authen/create-4</para>
     /// <para>Authorization：app_access_token</para>
     /// <para>本接口已成为历史版本，不再维护更新，不推荐使用。请使用最新版本：[刷新 user_access_token ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token)</para>
     /// <para>。</para>
@@ -108,7 +108,7 @@ public interface IFeishuAppApi : IHttpApi
     /// <summary>
     /// <para>【身份验证】获取 user_access_token</para>
     /// <para>接口ID：7277403063290724380</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/authen-v1/oidc-access_token/create</para>
+    /// <para>接口文档：https://open.feishu.cn/document/historic-version/authen/create-3</para>
     /// <para>Authorization：app_access_token</para>
     /// <para>本接口已成为历史版本，不再维护更新，不推荐使用。请使用最新版本：[获取 user_access_token ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token)</para>
     /// <para>。</para>
