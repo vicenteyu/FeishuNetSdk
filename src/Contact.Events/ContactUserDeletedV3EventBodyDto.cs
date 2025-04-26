@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2024-09-01
-//
-// Last Modified By : yxr
-// Last Modified On : 2024-09-01
-// ************************************************************************
-// <copyright file="ContactUserDeletedV3EventBodyDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>员工离职 事件体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Contact.Events;
 /// <summary>
 /// 员工离职 事件体
@@ -267,7 +254,8 @@ public record ContactUserDeletedV3EventBodyDto() : EventBodyDto("contact.user.de
         }
 
         /// <summary>
-        /// <para>用户所属部门的 ID 列表。部门 ID 类型为open_department_id，了解部门 ID 可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
+        /// <para>用户所属部门的 ID 列表。</para>
+        /// <para>**注意**：该参数实际无返回值。该事件返回的用户所属部门 ID 请通过 old_object.department_ids 参数获取。</para>
         /// <para>**字段权限要求（满足任一）**：</para>
         /// <para>- contact:contact:readonly_as_app : 以应用身份读取通讯录</para>
         /// <para>- contact:user.department:readonly : 获取用户组织架构信息</para>
@@ -590,7 +578,7 @@ public record ContactUserDeletedV3EventBodyDto() : EventBodyDto("contact.user.de
     public record OldUserObject
     {
         /// <summary>
-        /// <para>用户所属部门的ID列表</para>
+        /// <para>用户所属部门的 ID 列表。部门 ID 类型为open_department_id，了解部门 ID 可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
         /// <para>**字段权限要求（满足任一）**：</para>
         /// <para>- contact:contact:readonly_as_app : 以应用身份读取通讯录</para>
         /// <para>- contact:user.department:readonly : 获取用户组织架构信息</para>
@@ -602,7 +590,7 @@ public record ContactUserDeletedV3EventBodyDto() : EventBodyDto("contact.user.de
         public string[]? DepartmentIds { get; set; }
 
         /// <summary>
-        /// <para>用户open_id</para>
+        /// <para>用户的 open_id，应用内用户的唯一标识。不同用户 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("open_id")]

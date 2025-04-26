@@ -6,23 +6,20 @@
 // Last Modified By : yxr
 // Last Modified On : 2024-06-24
 // ************************************************************************
-// <copyright file="PostApprovalV4InstancesCancelBodyDto.cs" company="Vicente Yu">
+// <copyright file="PostApprovalV4InstancesCcBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>撤回审批实例 请求体</summary>
+// <summary>抄送审批实例 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Approval;
 /// <summary>
-/// 撤回审批实例 请求体
-/// <para>如果企业管理员在审批后台的某一审批定义的 **更多设置** 中，勾选了 **允许撤销审批中的申请** 或者 **允许撤销 x 天内通过的审批**，则在符合撤销规则的情况下，你可以调用本接口将指定提交人的审批实例撤回。</para>
-/// <para>## 注意事项</para>
-/// <para>- 如果撤回的是审批中的实例，则撤回后审批流程结束。</para>
-/// <para>- 如果撤回的是已通过的实例，则审批实例会变更为 **审批中** 的状态。</para>
-/// <para>接口ID：7114621541589843971</para>
-/// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/instance/cancel</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2finstance%2fcancel</para>
+/// 抄送审批实例 请求体
+/// <para>调用该接口将当前审批实例抄送给指定用户。被抄送的用户可以查看审批实例详情。例如，在飞书客户端的 **工作台 &gt; 审批 &gt; 审批中心 &gt; 抄送我** 列表中查看到审批实例。</para>
+/// <para>接口ID：7114621541589745667</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/instance/cc</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2finstance%2fcc</para>
 /// </summary>
-public record PostApprovalV4InstancesCancelBodyDto
+public record PostApprovalV4InstancesCcBodyDto
 {
     /// <summary>
     /// <para>审批定义 Code。获取方式：</para>
@@ -40,16 +37,32 @@ public record PostApprovalV4InstancesCancelBodyDto
     /// <para>- 调用[批量获取审批实例 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例 Code。</para>
     /// <para>- 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例 Code。</para>
     /// <para>必填：是</para>
-    /// <para>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71</para>
+    /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A85</para>
     /// </summary>
     [JsonPropertyName("instance_code")]
     public string InstanceCode { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>审批提交人的用户 ID，ID 类型与查询参数 user_id_type 的取值一致。</para>
+    /// <para>发起当前操作的用户 ID，ID 类型与查询参数 user_id_type 取值一致。</para>
     /// <para>必填：是</para>
     /// <para>示例值：f7cb567e</para>
     /// </summary>
     [JsonPropertyName("user_id")]
     public string UserId { get; set; } = string.Empty;
+
+    /// <summary>
+    /// <para>抄送人的用户 ID 列表，ID 类型与查询参数 user_id_type 取值一致。</para>
+    /// <para>必填：是</para>
+    /// <para>示例值：f7cb567e</para>
+    /// </summary>
+    [JsonPropertyName("cc_user_ids")]
+    public string[] CcUserIds { get; set; } = Array.Empty<string>();
+
+    /// <summary>
+    /// <para>抄送留言</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：ok</para>
+    /// </summary>
+    [JsonPropertyName("comment")]
+    public string? Comment { get; set; }
 }

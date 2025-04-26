@@ -22,9 +22,7 @@ namespace FeishuNetSdk.FeishuPeople;
 public record PostCorehrV1JobsBodyDto
 {
     /// <summary>
-    /// <para>职务编码 (不能与其他记录的编码重复)</para>
-    /// <para>- 开启自动编码时，如果不传值会自动生成编码，否则以传入值为准</para>
-    /// <para>- 未开启自动编码时，不传值不会自动生成编码</para>
+    /// <para>职务编码 (不能与其他记录的编码重复)，当开启自动编码时，该字段会失效</para>
     /// <para>必填：否</para>
     /// <para>示例值：JP422119</para>
     /// </summary>
@@ -34,7 +32,7 @@ public record PostCorehrV1JobsBodyDto
     /// <summary>
     /// <para>职务名称</para>
     /// <para>- 名称不能包含「/」「；」「;」字符</para>
-    /// <para>- 职务中英文名称会有全局唯一校验</para>
+    /// <para>- 职务中英文名称会有全局唯一校验（已停用职务也会校验）</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("name")]
@@ -43,7 +41,7 @@ public record PostCorehrV1JobsBodyDto
     /// <summary>
     /// <para>职务名称</para>
     /// <para>- 名称不能包含「/」「；」「;」字符</para>
-    /// <para>- 职务中英文名称会有全局唯一校验</para>
+    /// <para>- 职务中英文名称会有全局唯一校验（已停用职务也会校验）</para>
     /// </summary>
     public record I18n
     {
@@ -97,7 +95,7 @@ public record PostCorehrV1JobsBodyDto
 
     /// <summary>
     /// <para>职务级别 ID 列表</para>
-    /// <para>- 可通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)获取详情</para>
+    /// <para>- 可通过[批量查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)获取详情</para>
     /// <para>必填：否</para>
     /// <para>示例值：316316317</para>
     /// </summary>
@@ -128,7 +126,7 @@ public record PostCorehrV1JobsBodyDto
     /// <summary>
     /// <para>版本失效日期</para>
     /// <para>- 填写格式：YYYY-MM-DD 00:00:00（系统会自动将时分秒改为00:00:00）</para>
-    /// <para>- 系统默认为填写日期当天的 00:00:00 失效</para>
+    /// <para>- 系统默认为9999-12-31 23:59:59 失效</para>
     /// <para>- 日期范围要求:1900-01-01 00:00:00～9999-12-31 23:59:59</para>
     /// <para>- 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version)</para>
     /// <para>必填：否</para>
@@ -138,14 +136,14 @@ public record PostCorehrV1JobsBodyDto
     public string? ExpirationTime { get; set; }
 
     /// <summary>
-    /// <para>自定义字段（该功能暂不支持，可忽略）</para>
+    /// <para>自定义字段，格式参考：[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)岗位、职务、自定义组织模块</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("custom_fields")]
     public ObjectFieldData[]? CustomFields { get; set; }
 
     /// <summary>
-    /// <para>自定义字段（该功能暂不支持，可忽略）</para>
+    /// <para>自定义字段，格式参考：[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)岗位、职务、自定义组织模块</para>
     /// </summary>
     public record ObjectFieldData
     {
@@ -160,7 +158,7 @@ public record PostCorehrV1JobsBodyDto
         /// <summary>
         /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
         /// <para>必填：是</para>
-        /// <para>示例值：\"Sandy\"</para>
+        /// <para>示例值：Sandy</para>
         /// </summary>
         [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;

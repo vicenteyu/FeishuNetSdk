@@ -171,21 +171,21 @@ public record PostAttendanceV1UserApprovalsBodyDto
             public string? IdempotentId { get; set; }
 
             /// <summary>
-            /// <para>更正流程实例 ID</para>
+            /// <para>更正流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("correct_process_id")]
             public string[]? CorrectProcessId { get; set; }
 
             /// <summary>
-            /// <para>撤销流程实例 ID</para>
+            /// <para>撤销流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("cancel_process_id")]
             public string[]? CancelProcessId { get; set; }
 
             /// <summary>
-            /// <para>发起流程实例 ID</para>
+            /// <para>发起流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("process_id")]
@@ -205,8 +205,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
         public record UserLeave
         {
             /// <summary>
-            /// <para>假期类型唯一 ID，代表一种假期类型，长度小于 14</para>
-            /// <para>* 此ID对应假期类型(即: i18n_names)，因此需要保证唯一。可通过获取[获取假期类型](https://open.larkoffice.com/document/server-docs/corehr-v1/leave/leave_types)</para>
+            /// <para>审批实例id</para>
             /// <para>必填：否</para>
             /// <para>示例值：6852582717813440527</para>
             /// </summary>
@@ -412,21 +411,21 @@ public record PostAttendanceV1UserApprovalsBodyDto
             public string? IdempotentId { get; set; }
 
             /// <summary>
-            /// <para>更正流程实例 ID</para>
+            /// <para>更正流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("correct_process_id")]
             public string[]? CorrectProcessId { get; set; }
 
             /// <summary>
-            /// <para>撤销流程实例 ID</para>
+            /// <para>撤销流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("cancel_process_id")]
             public string[]? CancelProcessId { get; set; }
 
             /// <summary>
-            /// <para>发起流程实例 ID</para>
+            /// <para>发起流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("process_id")]
@@ -496,21 +495,21 @@ public record PostAttendanceV1UserApprovalsBodyDto
             public string? IdempotentId { get; set; }
 
             /// <summary>
-            /// <para>更正流程实例 ID</para>
+            /// <para>更正流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("correct_process_id")]
             public string[]? CorrectProcessId { get; set; }
 
             /// <summary>
-            /// <para>撤销流程实例 ID</para>
+            /// <para>撤销流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("cancel_process_id")]
             public string[]? CancelProcessId { get; set; }
 
             /// <summary>
-            /// <para>发起流程实例 ID</para>
+            /// <para>发起流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("process_id")]
@@ -530,14 +529,18 @@ public record PostAttendanceV1UserApprovalsBodyDto
             {
                 /// <summary>
                 /// <para>地理等级（国家｜省｜市｜区）</para>
+                /// <para>l1：国家级；</para>
+                /// <para>l2：省级；</para>
+                /// <para>l3：市级</para>
+                /// <para>l4：区/县级</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：l1|l2|l3|l4（一级地址｜二级地址｜三级地址｜四级地址）</para>
+                /// <para>示例值：l1</para>
                 /// </summary>
                 [JsonPropertyName("region_level")]
                 public string? RegionLevel { get; set; }
 
                 /// <summary>
-                /// <para>地理id</para>
+                /// <para>地理id可以通过[查询区/县信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)或[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)获取（仅支持飞书人事企业版使用）</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6863333418483058189</para>
                 /// </summary>

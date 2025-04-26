@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Mail;
 public record PostMailV1UserMailboxesByUserMailboxIdRulesReorderBodyDto
 {
     /// <summary>
-    /// <para>规则 id 列表</para>
+    /// <para>规则 id 列表，获取方式见 [列出收信规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-rule/list)</para>
     /// <para>必填：是</para>
     /// <para>示例值：111111111</para>
     /// <para>最小长度：1</para>

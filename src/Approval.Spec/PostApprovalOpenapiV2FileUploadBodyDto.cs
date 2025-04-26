@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Approval.Spec;
 /// <summary>
 /// 上传文件 请求体
-/// <para>当审批表单中有图片或附件控件时，开发者需在创建审批实例前通过审批上传文件接口将文件上传到审批系统，并获取本接口返回的 code，后续在[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)时，将 code 传入图片控件或者附件控件的 value 字段内。</para>
+/// <para>当审批表单中有图片或者附件控件时，开发者需要在调用[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)前，将传入图片或附件控件的文件通过本接口上传到审批系统，接口会返回文件的 code，该 code 用于创建审批实例时为图片或附件控件赋值。</para>
 /// <para>例如，以下是创建审批实例时，图片控件值示例，其中的 value 为本接口返回的图片 code。</para>
 /// <para>{</para>
 /// <para>"id":"widget1",</para>
@@ -28,14 +28,14 @@ namespace FeishuNetSdk.Approval.Spec;
 public record PostApprovalOpenapiV2FileUploadBodyDto
 {
     /// <summary>
-    /// <para>文件名（需包含文件扩展名，如“文件.doc”</para>
+    /// <para>文件名，需包含文件扩展名。例如 `文件.doc</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>文件类型（image 或 attachment）</para>
+    /// <para>文件类型。取值 **image**（图片）或 **attachment**（附件）</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("type")]

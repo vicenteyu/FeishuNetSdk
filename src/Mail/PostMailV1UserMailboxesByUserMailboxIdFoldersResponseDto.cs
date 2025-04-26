@@ -4,7 +4,7 @@
 // Created          : 2025-04-11
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-04-11
+// Last Modified On : 2025-04-27
 // ************************************************************************
 // <copyright file="PostMailV1UserMailboxesByUserMailboxIdFoldersResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -72,5 +72,21 @@ public record PostMailV1UserMailboxesByUserMailboxIdFoldersResponseDto
         /// </summary>
         [JsonPropertyName("folder_type")]
         public int? FolderType { get; set; }
+
+        /// <summary>
+        /// <para>未读邮件数量</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：3</para>
+        /// </summary>
+        [JsonPropertyName("unread_message_count")]
+        public int? UnreadMessageCount { get; set; }
+
+        /// <summary>
+        /// <para>未读会话数量</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：4</para>
+        /// </summary>
+        [JsonPropertyName("unread_thread_count")]
+        public int? UnreadThreadCount { get; set; }
     }
 }

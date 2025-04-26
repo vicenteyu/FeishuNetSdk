@@ -53,7 +53,8 @@ public record PostImV1MessagesBodyDto
     /// <para>- interactive：卡片</para>
     /// <para>- share_chat：分享群名片</para>
     /// <para>- share_user：分享个人名片</para>
-    /// <para>- system：系统消息</para>
+    /// <para>- system：系统消息。该类型仅支持在机器人单聊内推送系统消息，不支持在群聊内使用，例如下图所示突出新会话。</para>
+    /// <para>![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/e7ed7bb87180295d347fa58d76b077f5_lw9oqM4Cot.png)</para>
     /// <para>不同消息类型的详细介绍，参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。</para>
     /// <para>必填：是</para>
     /// <para>示例值：text</para>

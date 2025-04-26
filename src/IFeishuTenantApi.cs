@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-04-18
+// Last Modified On : 2025-04-27
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -65,7 +65,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907568031544737794</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/approval-search/search-approval-id-(dedicated)</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>用于灰度租户内的 userID 相互转换。</para>
+    /// <para>用于灰度企业内的 userID、larkID 相互转换。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("https://www.feishu.cn/approval/openapi/v1/id/get")]
@@ -1290,7 +1290,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569742384906242</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/message/send-bot-messages</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>此接口可以用来通过飞书审批的Bot推送消息给用户，当有新的审批待办，或者审批待办的状态有更新时，可以通过飞书审批的Bot告知用户。当然开发者也可以利用开放平台的能力自建一个全新的Bot，用来推送审批相关信息。如果出现推送成功，但是没有收到消息，可能是因为开通了审批机器人的聚合推送。</para>
+    /// <para>此接口可以用来通过飞书审批的 Bot 推送消息给用户，当有新的审批待办，或者审批待办的状态有更新时，可以通过飞书审批的 Bot 告知用户。如果出现推送成功，但是没有收到消息，可能是因为开通了审批机器人的聚合推送。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval:readonly</item>
     /// </list></para>
@@ -1488,8 +1488,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569743419752450</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/message/update-bot-messages</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>此接口可以根据审批bot消息id及相应状态，更新相应的审批bot消息，只能更新审批状态，以及审批同意/拒绝后的标题或者查看详情的文案。例如，给用户推送了审批待办消息，当用户处理该消息后，可以将之前推送的Bot消息更新为已审批。</para>
-    /// <para>**注意：该接口只能更新模板为 1008「收到审批待办」的卡片。**</para>
+    /// <para>调用[发送审批 Bot 消息](https://open.feishu.cn/document/ukTMukTMukTM/ugDNyYjL4QjM24CO0IjN)接口后，可根据审批 Bot 消息 ID 及审批相应的状态，更新审批 Bot 消息。例如，给审批人推送了审批待办消息，当审批人通过审批后，可以将之前推送的 Bot 消息更新为已审批。</para>
+    /// <para>使用限制：</para>
+    /// <para>- 只能更新审批状态，以及审批同意或拒绝后的标题或者查看详情的文案。</para>
+    /// <para>- 只能更新模板为 1008「收到审批待办」的卡片。</para>
+    /// <para>- 只支持更新 30 天以内的审批 bot 消息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval:readonly</item>
     /// </list></para>
@@ -1910,7 +1913,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907569745298767874</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/file/upload-files</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>当审批表单中有图片或附件控件时，开发者需在创建审批实例前通过审批上传文件接口将文件上传到审批系统，并获取本接口返回的 code，后续在[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)时，将 code 传入图片控件或者附件控件的 value 字段内。</para>
+    /// <para>当审批表单中有图片或者附件控件时，开发者需要在调用[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)前，将传入图片或附件控件的文件通过本接口上传到审批系统，接口会返回文件的 code，该 code 用于创建审批实例时为图片或附件控件赋值。</para>
     /// <para>例如，以下是创建审批实例时，图片控件值示例，其中的 value 为本接口返回的图片 code。</para>
     /// <para>{</para>
     /// <para>"id":"widget1",</para>
@@ -6480,8 +6483,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="anchor_time">
     /// <para>必填：否</para>
-    /// <para>时间锚点，Unix 时间戳（秒）。anchor_time用于设置一个时间点，以便直接拉取该时间点之后的日程数据，从而避免拉取全量日程数据。你可以使用page_token或sync_token进行分页或增量拉取anchor_time之后的所有日程数据。</para>
-    /// <para>**注意**：该参数不可与start_time和end_time一起使用。</para>
+    /// <para>时间锚点，Unix 时间戳（秒）。anchor_time 用于设置一个时间点，以便直接拉取该时间点之后的日程数据，从而避免拉取全量日程数据。可使用 page_token 或 sync_token 进行分页或增量拉取 anchor_time 之后的所有日程数据。</para>
+    /// <para>**使用说明**：</para>
+    /// <para>- 对于单次日程，会获取到 **日程结束时间 &gt;= anchor_time** 的日程信息。</para>
+    /// <para>- 对于重复性日程，目前设置 anchor_time 后均会获取到，包括在 anchor_time 之前的已结束的历史重复性日程。</para>
+    /// <para>- 对于例外日程，会获取到 **original_time &gt;= anchor_time** 以及 **日程结束时间 &gt;= anchor_time** 的日程信息，其中 original_time 从例外日程 ID 中获取，ID 结构为 `{uid}_{original_time}`。</para>
+    /// <para>**注意**：该参数不可与 start_time 和 end_time 一起使用。</para>
     /// <para>**默认值**：空</para>
     /// <para>示例值：1609430400</para>
     /// <para>默认值：null</para>
@@ -15636,7 +15643,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6995509710095695876</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/instance/approval-preview</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>提交审批前，预览审批流程。或者发起审批后，在某一审批节点预览后续流程。</para>
+    /// <para>在[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)之前，可调用本接口预览审批流程数据。在[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)之后，可调用本接口预览某一审批节点的后续流程数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval:readonly</item>
     /// </list></para>
@@ -15644,14 +15651,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
-    /// <para>**示例值**："open_id"</para>
+    /// <para>**示例值**：open_id</para>
     /// <para>**可选值有**：</para>
-    /// <para>- `open_id`：用户的 open id</para>
-    /// <para>- `union_id`：用户的 union id</para>
-    /// <para>- `user_id`：用户的 user id</para>
+    /// <para>open_id:标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid),union_id:标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id),user_id:标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</para>
     /// <para>**默认值**：`open_id`</para>
     /// <para>**当值为 `user_id`，字段权限要求**：</para>
     /// <para>- contact:user.employee_id:readonly : 获取用户 user ID</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](/ssl</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](/ssl</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](/ssl</item>
+    /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -26316,7 +26326,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7114621541589712899</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/approval/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>用于通过接口创建简单的审批定义，可以灵活指定定义的基础信息、表单和流程等。创建成功后，不支持从审批管理后台删除该定义。不推荐企业自建应用使用，如有需要尽量联系管理员在审批管理后台创建定义。</para>
+    /// <para>该接口用于创建审批定义，可以灵活指定审批定义的基础信息、表单和流程等。</para>
+    /// <para>## 使用限制</para>
+    /// <para>通过该 API 创建的审批定义，无法从审批管理后台或以 API 方式停用、删除，请谨慎调用。不推荐企业自建应用使用该 API 创建审批定义，如有需要，尽量联系企业管理员[在审批管理后台创建定义](https://www.feishu.cn/hc/zh-CN/articles/360040241113-%E7%AE%A1%E7%90%86%E5%91%98%E5%88%9B%E5%BB%BA%E5%AE%A1%E6%89%B9)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
     /// <item>approval:definition</item>
@@ -26327,11 +26339,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>此次调用中使用的部门 ID 的类型。关于部门 ID 详细介绍参见[部门 ID 介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#9c02ed7a)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：以自定义department_id来标识部门</item>
-    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -26358,7 +26370,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7114621541589729283</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/instance/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过审批实例 Instance Code 获取审批实例详情。Instance Code 由 [批量获取审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list) 接口获取。</para>
+    /// <para>通过审批实例 Code 获取指定审批实例的详细信息，包括审批实例的名称、创建时间、发起审批的用户、状态以及任务列表等信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
     /// <item>approval:approval:readonly</item>
@@ -26371,12 +26383,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="instance_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>审批实例 Code，若在创建的时候传了 uuid，也可以通过传 uuid 获取。</para>
+    /// <para>审批实例 Code。获取方式：</para>
+    /// <para>- [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create) 后，从返回结果中获取审批实例 Code。如果在创建的时候传了 uuid 参数，则本参数也可以通过传 uuid 获取指定审批实例详情。</para>
+    /// <para>- 调用[批量获取审批实例 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例 Code。</para>
+    /// <para>- 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例 Code。</para>
     /// <para>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71</para>
     /// </param>
     /// <param name="locale">
     /// <para>必填：否</para>
-    /// <para>语言。默认值为[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)时在 i18n_resources 字段中配置的语言。</para>
+    /// <para>语言。默认值为[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)时在 i18n_resources 参数中配置的 is_default 取值为 true 的语言。</para>
     /// <para>示例值：zh-CN</para>
     /// <list type="bullet">
     /// <item>zh-CN：中文</item>
@@ -26387,7 +26402,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="user_id">
     /// <para>必填：否</para>
-    /// <para>发起审批用户 id，仅自建应用可返回。</para>
+    /// <para>发起审批的用户 ID，ID 类型由 user_id_type 参数指定。</para>
     /// <para>示例值：f7cb567e</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -26414,9 +26429,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7114621541589745667</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/instance/cc</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过接口可以将当前审批实例抄送给其他人。</para>
+    /// <para>调用该接口将当前审批实例抄送给指定用户。被抄送的用户可以查看审批实例详情。例如，在飞书客户端的 **工作台 &gt; 审批 &gt; 审批中心 &gt; 抄送我** 列表中查看到审批实例。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>approval:approval</item>
     /// <item>approval:approval:readonly</item>
+    /// <item>approval:instance</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -26425,23 +26442,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
-    /// <para>**示例值**："open_id"</para>
-    /// <para>**可选值有**：</para>
-    /// <para>open_id:标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid),union_id:标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id),user_id:标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</para>
-    /// <para>**默认值**：`open_id`</para>
-    /// <para>**当值为 `user_id`，字段权限要求**：</para>
-    /// <para>- contact:user.employee_id:readonly : 获取用户 user ID</para>
+    /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](/ssl</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](/ssl</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](/ssl</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/instances/cc")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4InstancesCcAsync(
-        [JsonContent] Approval.Spec.PostApprovalV4InstancesCcBodyDto dto,
+        [JsonContent] Approval.PostApprovalV4InstancesCcBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -26451,7 +26463,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>对于单个审批任务进行拒绝操作。拒绝后审批流程结束。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>approval:approval</item>
     /// <item>approval:approval:readonly</item>
+    /// <item>approval:task</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -26460,23 +26474,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
-    /// <para>**示例值**："open_id"</para>
-    /// <para>**可选值有**：</para>
-    /// <para>open_id:标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid),union_id:标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id),user_id:标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</para>
-    /// <para>**默认值**：`open_id`</para>
-    /// <para>**当值为 `user_id`，字段权限要求**：</para>
-    /// <para>- contact:user.employee_id:readonly : 获取用户 user ID</para>
+    /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](/ssl</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](/ssl</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](/ssl</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/tasks/reject")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4TasksRejectAsync(
-        [JsonContent] Approval.Spec.PostApprovalV4TasksRejectBodyDto dto,
+        [JsonContent] Approval.PostApprovalV4TasksRejectBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -26486,7 +26495,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>对于单个审批任务进行转交操作。转交后审批流程流转给被转交人。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>approval:approval</item>
     /// <item>approval:approval:readonly</item>
+    /// <item>approval:task</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -26495,23 +26506,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
-    /// <para>**示例值**："open_id"</para>
-    /// <para>**可选值有**：</para>
-    /// <para>open_id:标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid),union_id:标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id),user_id:标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</para>
-    /// <para>**默认值**：`open_id`</para>
-    /// <para>**当值为 `user_id`，字段权限要求**：</para>
-    /// <para>- contact:user.employee_id:readonly : 获取用户 user ID</para>
+    /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](/ssl</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](/ssl</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](/ssl</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/tasks/transfer")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4TasksTransferAsync(
-        [JsonContent] Approval.Spec.PostApprovalV4TasksTransferBodyDto dto,
+        [JsonContent] Approval.PostApprovalV4TasksTransferBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -26519,8 +26525,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7114621541589794819</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/external_approval/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>审批定义是审批的描述，包括审批名称、描述等基础信息。创建好审批定义，用户就可以在审批应用的发起页中看到审批，如果用户点击发起，则会跳转到配置的发起三方系统地址去发起审批。</para>
-    /// <para>另外，审批定义还配置了审批操作时的回调地址：审批人在待审批列表中进行【同意】【拒绝】操作时，审批中心会调用回调地址通知三方系统。</para>
+    /// <para>三方审批定义用于设置审批的名称、描述等基本信息，同时还需要设置三方审批系统的审批发起页、数据回调 URL 等信息，将飞书审批与三方审批系统关联起来，使企业员工在飞书审批内即可直接发起三方审批，且审批中心可以将审批数据回传给三方审批系统。</para>
+    /// <para>## 注意事项</para>
+    /// <para>飞书审批中心不负责审批流程的流转，只负责审批的展示、状态操作、消息通知。因此，创建三方审批定义时，没有审批流程的参数配置项。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
     /// <item>approval:external_approval</item>
@@ -26531,11 +26538,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="department_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
     /// <para>示例值：open_department_id</para>
     /// <list type="bullet">
-    /// <item>department_id：以自定义department_id来标识部门</item>
-    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。</item>
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
@@ -26562,9 +26569,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7114621541589811203</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/external_instance/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>审批中心不负责审批的流转，审批的流转在三方系统，三方系统在审批流转后生成的审批实例、审批任务、审批抄送数据同步到审批中心。</para>
-    /// <para>用户可以在审批中心中浏览三方系统同步过来的实例、任务、抄送信息，并且可以跳转回三方系统进行更详细的查看和操作，其中实例信息在【已发起】列表，任务信息在【待审批】和【已审批】列表，抄送信息在【抄送我】列表。</para>
-    /// <para>对于审批任务，三方系统也可以配置审批任务的回调接口，这样审批人可以在审批中心中直接进行审批操作，审批中心会回调三方系统，三方系统收到回调后更新任务信息，并将新的任务信息同步回审批中心，形成闭环。</para>
+    /// <para>审批中心不负责审批的流转，审批的流转在三方系统。本接口用于把三方系统在审批流转后生成的审批实例、审批任务、审批抄送数据同步到审批中心。</para>
+    /// <para>## 实现效果</para>
+    /// <para>调用本接口同步三方审批实例后，企业员工可以在审批中心浏览同步过来的审批实例、任务、抄送信息，并可以跳转回三方系统查看和操作审批，其中，实例信息在审批中心的 **已发起** 列表、任务信息在 **待办** 和 **已办** 列表、抄送信息在 **抄送我** 列表。</para>
+    /// <para>[创建三方审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create)时如果设置了三方审批回调 URL，对于审批任务，可以配置[三方快捷审批回调](https://open.feishu.cn/document/ukTMukTMukTM/ukjNyYjL5YjM24SO2IjN/quick-approval-callback)，这样审批人可以在审批中心直接进行审批操作，审批中心会将审批结果回调至三方系统，三方系统收到回调后更新任务信息，并将新的任务信息同步回审批中心，形成闭环。</para>
+    /// <para>## 注意事项</para>
+    /// <para>需确保审批实例内各类实体（实例、任务、抄送） ID 在审批实例内的唯一性，不属于同一实体之间的 ID 也要确保唯一性。如果实例 ID、任务 ID、抄送 ID 重复，则会导致在审批中心任务看不到对应的审批数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
     /// <item>approval:external_instance</item>
@@ -26580,7 +26590,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7114621541589827587</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/instance/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>创建一个审批实例，调用方需对审批定义的表单有详细了解，将按照定义的表单结构，将表单 Value 通过接口传入。</para>
+    /// <para>调用本接口使用指定审批定义 Code 创建一个审批实例，接口调用者需对审批定义的表单有详细了解，按照定义的表单结构，将表单 Value 通过本接口传入。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
     /// <item>approval:instance</item>
@@ -26596,7 +26606,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7114621541589843971</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/instance/cancel</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>如果管理员在后台设置了 **允许撤销审批中的申请** 或者 **允许撤销 x 天内通过的审批**，则在符合规则时，提交人可以调用该接口撤回审批实例。</para>
+    /// <para>如果企业管理员在审批后台的某一审批定义的 **更多设置** 中，勾选了 **允许撤销审批中的申请** 或者 **允许撤销 x 天内通过的审批**，则在符合撤销规则的情况下，你可以调用本接口将指定提交人的审批实例撤回。</para>
+    /// <para>## 注意事项</para>
+    /// <para>- 如果撤回的是审批中的实例，则撤回后审批流程结束。</para>
+    /// <para>- 如果撤回的是已通过的实例，则审批实例会变更为 **审批中** 的状态。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
     /// <item>approval:approval:readonly</item>
@@ -26628,7 +26641,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7114621541589860355</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/approval/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据 Approval Code 获取某个审批定义的详情，用于构造创建审批实例的请求。</para>
+    /// <para>根据审批定义 Code 以及语言、用户 ID 等筛选条件获取指定审批定义的信息，包括审批定义名称、状态、表单控件以及节点等信息。获取审批定义信息后，可根据信息构造[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)的请求。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
     /// <item>approval:approval:readonly</item>
@@ -26641,12 +26654,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="approval_code">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>审批定义 Code</para>
+    /// <para>审批定义 Code。获取方式：</para>
+    /// <para>- 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数 approval_code 获取。</para>
+    /// <para>- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。</para>
     /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A85</para>
     /// </param>
     /// <param name="locale">
     /// <para>必填：否</para>
-    /// <para>语言可选值</para>
+    /// <para>语言可选值，默认为审批定义配置的默认语言。</para>
     /// <para>示例值：zh-CN</para>
     /// <list type="bullet">
     /// <item>zh-CN：中文</item>
@@ -26657,7 +26672,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="with_admin_id">
     /// <para>必填：否</para>
-    /// <para>可选是否返回有数据权限审批流程管理员ID列表</para>
+    /// <para>是否返回有数据管理权限的审批流程管理员 ID 列表（即响应参数 approval_admin_ids）。</para>
+    /// <para>**默认值**：false</para>
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -26684,47 +26700,50 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7114621541589876739</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/instance/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据 approval_code 批量获取审批实例的 instance_code，用于拉取租户下某个审批定义的全部审批实例。默认以审批创建时间先后顺序排列。</para>
+    /// <para>根据审批定义的 approval_code 批量获取审批实例的 instance_code，用于拉取企业下某个审批定义的全部审批实例。默认以审批创建时间先后顺序排列。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>approval:approval</item>
     /// <item>approval:approval:readonly</item>
+    /// <item>approval:instance</item>
     /// </list></para>
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
-    /// <para>**示例值**：100</para>
-    /// <para>**默认值**：`100`</para>
-    /// <para>**数据校验规则**：</para>
-    /// <para>- 最大值：`100`</para>
-    /// <para>默认值：10</para>
+    /// <para>分页大小，用于指定一次请求所返回的数据量上限。</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：100</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>**示例值**："nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU"</para>
+    /// <para>示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="approval_code">
     /// <para>必填：是</para>
-    /// <para>审批定义唯一标识</para>
-    /// <para>**示例值**："7C468A54-8745-2245-9675-08B7C63E7A85"</para>
+    /// <para>审批定义 Code。获取方式：</para>
+    /// <para>- 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数 approval_code 获取。</para>
+    /// <para>- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。</para>
+    /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A85</para>
     /// </param>
     /// <param name="start_time">
     /// <para>必填：是</para>
-    /// <para>审批实例创建时间区间（毫秒）</para>
-    /// <para>**示例值**："1567690398020"</para>
+    /// <para>审批实例创建时间的开始区间，毫秒时间戳。</para>
+    /// <para>**说明**：start_time 与 end_time 组成时间区间查询条件，接口会返回在该时间区间内创建的审批实例数据。</para>
+    /// <para>示例值：1567690398020</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：是</para>
-    /// <para>审批实例创建时间区间（毫秒）</para>
-    /// <para>**示例值**："1567690398020"</para>
+    /// <para>审批实例创建时间的结束区间，毫秒时间戳。</para>
+    /// <para>**说明**：start_time 与 end_time 组成时间区间查询条件，接口会返回在该时间区间内创建的审批实例的 Code。</para>
+    /// <para>示例值：1567690398020</para>
     /// </param>
     [HttpGet("/open-apis/approval/v4/instances")]
-    System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.GetApprovalV4InstancesResponseDto>> GetApprovalV4InstancesAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Approval.GetApprovalV4InstancesResponseDto>> GetApprovalV4InstancesAsync(
         [PathQuery] string approval_code,
         [PathQuery] string start_time,
         [PathQuery] string end_time,
-        [PathQuery] int? page_size = 10,
+        [PathQuery] int? page_size = 100,
         [PathQuery] string? page_token = null);
 
     /// <summary>
@@ -26764,16 +26783,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7114621541589909507</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/external_instance/check</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>校验三方审批实例数据，用于判断服务端数据是否为最新的。用户提交实例最新更新时间，如果服务端不存在该实例，或者服务端实例更新时间不是最新的，则返回对应实例 id。</para>
-    /// <para>例如，用户可以每隔5分钟，将最近5分钟产生的实例使用该接口进行对比。</para>
+    /// <para>调用该接口校验三方审批实例数据，用于判断服务端数据是否为最新的。请求时提交实例最新更新时间，如果服务端不存在该实例，或者服务端实例更新时间不是最新的，则返回对应实例 ID。</para>
+    /// <para>例如，设置定时任务每隔 5 分钟，将最近 5 分钟产生的实例使用该接口进行对比。如果数据在服务端不存在或者不是最新，则可以根据本接口返回的实例 ID、任务 ID，前往[同步三方审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>approval:approval</item>
     /// <item>approval:approval:readonly</item>
+    /// <item>approval:external_instance</item>
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/external_instances/check")]
-    System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalV4ExternalInstancesCheckResponseDto>> PostApprovalV4ExternalInstancesCheckAsync(
-        [JsonContent] Approval.Spec.PostApprovalV4ExternalInstancesCheckBodyDto dto);
+    System.Threading.Tasks.Task<FeishuResponse<Approval.PostApprovalV4ExternalInstancesCheckResponseDto>> PostApprovalV4ExternalInstancesCheckAsync(
+        [JsonContent] Approval.PostApprovalV4ExternalInstancesCheckBodyDto dto);
 
     /// <summary>
     /// <para>【审批】退回审批任务</para>
@@ -26840,9 +26861,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7117964632137121795</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/instance-comment/delete</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>逻辑删除某审批实例下的一条评论或评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。</para>
+    /// <para>删除某审批实例下的一条评论或评论回复（不包含审批同意、拒绝、转交等附加的理由或意见），删除后在审批中心的审批实例内不再显示评论内容，而是显示 **评论已删除**。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
+    /// <item>approval:instance.comment</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -26851,38 +26873,39 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="instance_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>审批实例code（或者租户自定义审批实例ID）</para>
-    /// <para>**示例值**："6A123516-FB88-470D-A428-9AF58B71B3C0"</para>
+    /// <para>审批实例 Code。获取方式：</para>
+    /// <para>- [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create) 后，从返回结果中获取审批实例 Code。</para>
+    /// <para>- 调用[批量获取审批实例 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例 Code。</para>
+    /// <para>- 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例 Code。</para>
+    /// <para>说明：支持传入自定义审批实例 ID。</para>
+    /// <para>示例值：6A123516-FB88-470D-A428-9AF58B71B3C0</para>
     /// </param>
     /// <param name="comment_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>评论ID</para>
-    /// <para>**示例值**："7081516627711606803"</para>
+    /// <para>评论 ID。获取方式：</para>
+    /// <para>- 调用[创建评论](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/create)成功会返回评论 ID。</para>
+    /// <para>- 调用[获取评论](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/list)接口，获取评论 ID。</para>
+    /// <para>示例值：7081516627711606803</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
-    /// <para>**示例值**："open_id"</para>
-    /// <para>**可选值有**：</para>
-    /// <para>open_id:标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid),union_id:标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id),user_id:标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</para>
-    /// <para>**默认值**：`open_id`</para>
-    /// <para>**当值为 `user_id`，字段权限要求**：</para>
-    /// <para>- contact:user.employee_id:readonly : 获取用户 user ID</para>
+    /// <para>示例值：user_id</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](/ssl</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](/ssl</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](/ssl</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="user_id">
     /// <para>必填：是</para>
-    /// <para>根据user_id_type填写用户ID</para>
-    /// <para>**示例值**："ou_806a18fb5bdf525e38ba219733bdbd73"</para>
+    /// <para>用户 ID，ID 类型与 user_id_type 取值一致。</para>
+    /// <para>示例值：ou_806a18fb5bdf525e38ba219733bdbd73</para>
     /// </param>
     [HttpDelete("/open-apis/approval/v4/instances/{instance_id}/comments/{comment_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.DeleteApprovalV4InstancesByInstanceIdCommentsByCommentIdResponseDto>> DeleteApprovalV4InstancesByInstanceIdCommentsByCommentIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Approval.DeleteApprovalV4InstancesByInstanceIdCommentsByCommentIdResponseDto>> DeleteApprovalV4InstancesByInstanceIdCommentsByCommentIdAsync(
         [PathQuery] string instance_id,
         [PathQuery] string comment_id,
         [PathQuery] string user_id,
@@ -26894,6 +26917,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/approval-search/search</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口通过不同条件查询审批系统中符合条件的审批任务列表。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 该接口会过滤被撤销的审批实例，实例内的任务也会被过滤掉，因此会有任务存在却不返回数据的情况。</para>
+    /// <para>该情况的具体表现：返回结果中每页的数据条目数可能小于 page_size 值。例如，page_size 取值为 10，实际查询结果中当前页只显示 6 条数据，则表示有 4 条数据是被撤销实例内的任务。</para>
+    /// <para>- 该接口查询结果可能存在延迟，无法保证实时性。如需实时查询，建议使用[查询用户的任务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/query)。</para>
+    /// <para>- 查询时：</para>
+    /// <para>- user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。</para>
+    /// <para>- approval_code 和 group_external_id 查询结果取并集；instance_code 和 instance_external_id 查询结果取并集；其他查询条件之间均取交集。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval:readonly</item>
     /// <item>approval:approval.list:readonly</item>
@@ -26904,7 +26934,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小。如果当前页包含被撤销实例内的任务，则查询结果中每页的数据条目数可能小于 page_size 值。例如，page_size 取值为 10，实际查询结果中当前页只显示 6 条数据，则表示有 4 条数据是被撤销实例内的任务。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -26938,7 +26968,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7117964632137154563</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/instance-comment/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>在某审批实例下创建、修改评论或评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。</para>
+    /// <para>在指定审批实例下创建、修改评论或回复评论（不包含审批同意、拒绝、转交等附加的理由或意见）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
     /// <item>approval:instance.comment</item>
@@ -26950,7 +26980,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="instance_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>审批实例code（或租户自定义审批实例ID）</para>
+    /// <para>审批实例 Code。获取方式：</para>
+    /// <para>- [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create) 后，从返回结果中获取审批实例 Code。</para>
+    /// <para>- 调用[批量获取审批实例 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例 Code。</para>
+    /// <para>- 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例 Code。</para>
+    /// <para>说明：支持传入自定义审批实例 ID。</para>
     /// <para>示例值：6A123516-FB88-470D-A428-9AF58B71B3C0</para>
     /// </param>
     /// <param name="user_id_type">
@@ -26966,7 +27000,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="user_id">
     /// <para>必填：是</para>
-    /// <para>用户ID</para>
+    /// <para>用户 ID，ID 类型与 user_id_type 取值一致。</para>
     /// <para>示例值：e5286g26</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -27020,6 +27054,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/approval-search/search_cc</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口通过不同条件查询审批系统中符合条件的审批抄送列表。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 该接口查询结果可能存在延迟，无法保证实时性。</para>
+    /// <para>- 查询时：</para>
+    /// <para>- user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。</para>
+    /// <para>- approval_code 和 group_external_id 查询结果取并集；instance_code 和 instance_external_id 查询结果取并集；其他查询条件之间均取交集。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval.list:readonly</item>
     /// </list></para>
@@ -27064,6 +27103,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/approval-search/query-2</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>该接口通过不同条件查询审批系统中符合条件的审批实例列表。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 该接口会过滤被撤销的审批实例，因此会有实例存在却不返回数据的情况。</para>
+    /// <para>该情况的具体表现：返回结果中每页的数据条目数可能小于 page_size 值。例如，page_size 取值为 10，实际查询结果中当前页只显示 6 条数据，则表示有 4 条数据是被撤销的审批实例。</para>
+    /// <para>- 该接口查询结果可能存在延迟，无法保证实时性。如需实时查询，建议使用[批量获取审批实例 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)（该接口只能查询某一审批定义下的审批实例 ID）。</para>
+    /// <para>- 查询时：</para>
+    /// <para>- user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。</para>
+    /// <para>- approval_code 和 group_external_id 查询结果取并集；instance_code 和 instance_external_id 查询结果取并集；其他查询条件之间均取交集。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval.list:readonly</item>
     /// </list></para>
@@ -27073,7 +27119,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小。如果当前页包含被撤销的审批实例，则查询结果中每页的数据条目数可能小于 page_size 值。例如，page_size 取值为 10，实际查询结果中当前页只显示 6 条数据，则表示有 4 条数据是被撤销的审批实例。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -27130,10 +27176,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7117964632137236483</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/instance-comment/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据 Instance Code 获取某个审批实例下的全部评论与评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。</para>
+    /// <para>根据审批实例 Code 获取某个审批实例下，全部评论与评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
     /// <item>approval:approval:readonly</item>
+    /// <item>approval:instance.comment</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -27142,46 +27189,43 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="instance_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>审批实例code（或者租户自定义审批实例ID）</para>
-    /// <para>**示例值**："6A123516-FB88-470D-A428-9AF58B71B3C0"</para>
+    /// <para>审批实例 Code。获取方式：</para>
+    /// <para>- [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create) 后，从返回结果中获取审批实例 Code。</para>
+    /// <para>- 调用[批量获取审批实例 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例 Code。</para>
+    /// <para>- 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例 Code。</para>
+    /// <para>**说明**：支持传入自定义审批实例 ID。</para>
+    /// <para>示例值：6A123516-FB88-470D-A428-9AF58B71B3C0</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
-    /// <para>**示例值**："open_id"</para>
-    /// <para>**可选值有**：</para>
-    /// <para>open_id:标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid),union_id:标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id),user_id:标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</para>
-    /// <para>**默认值**：`open_id`</para>
-    /// <para>**当值为 `user_id`，字段权限要求**：</para>
-    /// <para>- contact:user.employee_id:readonly : 获取用户 user ID</para>
+    /// <para>示例值：user_id</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](/ssl</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](/ssl</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](/ssl</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="user_id">
     /// <para>必填：是</para>
-    /// <para>用户ID</para>
-    /// <para>**示例值**："e5286g26"</para>
+    /// <para>用户 ID，ID 类型与 user_id_type 取值一致。</para>
+    /// <para>示例值：e5286g26</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>**示例值**："nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU"</para>
+    /// <para>示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
-    /// <para>**示例值**：10</para>
-    /// <para>**数据校验规则**：</para>
-    /// <para>- 最大值：`1000`</para>
+    /// <para>分页大小，用于限制一次请求返回的数据量上限。</para>
+    /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
     [HttpGet("/open-apis/approval/v4/instances/{instance_id}/comments")]
-    System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.GetApprovalV4InstancesByInstanceIdCommentsResponseDto>> GetApprovalV4InstancesByInstanceIdCommentsAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Approval.GetApprovalV4InstancesByInstanceIdCommentsResponseDto>> GetApprovalV4InstancesByInstanceIdCommentsAsync(
         [PathQuery] string instance_id,
         [PathQuery] string user_id,
         [PathQuery] string? user_id_type = "open_id",
@@ -27193,9 +27237,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7117964632137252867</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/instance-comment/remove</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>删除某审批实例下的全部评论与评论回复。</para>
+    /// <para>清空某审批实例下的全部评论与评论回复，包括显示为已删除的评论。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
+    /// <item>approval:instance.comment</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -27204,33 +27249,32 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="instance_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>审批实例code（或者租户自定义审批实例ID）</para>
-    /// <para>**示例值**："6A123516-FB88-470D-A428-9AF58B71B3C0"</para>
+    /// <para>审批实例 Code。获取方式：</para>
+    /// <para>- [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create) 后，从返回结果中获取审批实例 Code。</para>
+    /// <para>- 调用[批量获取审批实例 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例 Code。</para>
+    /// <para>- 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例 Code。</para>
+    /// <para>**说明**：支持传入自定义审批实例 ID。</para>
+    /// <para>示例值：6A123516-FB88-470D-A428-9AF58B71B3C0</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
-    /// <para>**示例值**："open_id"</para>
-    /// <para>**可选值有**：</para>
-    /// <para>open_id:标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid),union_id:标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id),user_id:标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</para>
-    /// <para>**默认值**：`open_id`</para>
-    /// <para>**当值为 `user_id`，字段权限要求**：</para>
-    /// <para>- contact:user.employee_id:readonly : 获取用户 user ID</para>
+    /// <para>示例值：user_id</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](/ssl</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](/ssl</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](/ssl</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="user_id">
     /// <para>必填：否</para>
-    /// <para>根据user_id_type填写用户ID</para>
-    /// <para>**示例值**："ou_806a18fb5bdf525e38ba219733bdbd73"</para>
+    /// <para>用户 ID，ID 类型与 user_id_type 取值一致。</para>
+    /// <para>示例值：ou_806a18fb5bdf525e38ba219733bdbd73</para>
     /// <para>默认值：null</para>
     /// </param>
     [HttpPost("/open-apis/approval/v4/instances/{instance_id}/comments/remove")]
-    System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.PostApprovalV4InstancesByInstanceIdCommentsRemoveResponseDto>> PostApprovalV4InstancesByInstanceIdCommentsRemoveAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Approval.PostApprovalV4InstancesByInstanceIdCommentsRemoveResponseDto>> PostApprovalV4InstancesByInstanceIdCommentsRemoveAsync(
         [PathQuery] string instance_id,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? user_id = null);
@@ -28469,10 +28513,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7127897901158842396</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/task/resubmit</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>对于单个退回到发起人的审批任务进行重新发起操作。发起后审批流程会流转到下一个审批人。</para>
+    /// <para>对于退回到发起人的审批任务进行重新发起操作。发起后审批流程会流转到下一个审批人。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
     /// <item>approval:approval:readonly</item>
+    /// <item>approval:task</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -28481,23 +28526,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
-    /// <para>**示例值**："open_id"</para>
-    /// <para>**可选值有**：</para>
-    /// <para>open_id:标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid),union_id:标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id),user_id:标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</para>
-    /// <para>**默认值**：`open_id`</para>
-    /// <para>**当值为 `user_id`，字段权限要求**：</para>
-    /// <para>- contact:user.employee_id:readonly : 获取用户 user ID</para>
+    /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](/ssl</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](/ssl</item>
-    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](/ssl</item>
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPost("/open-apis/approval/v4/tasks/resubmit")]
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4TasksResubmitAsync(
-        [JsonContent] Approval.Spec.PostApprovalV4TasksResubmitBodyDto dto,
+        [JsonContent] Approval.PostApprovalV4TasksResubmitBodyDto dto,
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
@@ -35997,7 +36037,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7255160068449828892</para>
     /// <para>接口文档：https://open.feishu.cn/document/approval-v4/external_approval/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据 Approval Code 获取之前同步的某个三方审批定义的详情数据</para>
+    /// <para>调用该接口通过三方审批定义 Code 获取审批定义的详细数据，包括三方审批定义的名称、说明、三方审批发起链接、回调 URL 以及审批定义可见人列表等信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval</item>
     /// <item>approval:external_approval</item>
@@ -36009,7 +36049,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="approval_code">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>调用[创建三方审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create)时返回的审批定义code</para>
+    /// <para>三方审批定义 Code。获取方式：</para>
+    /// <para>- 调用[创建三方审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create)时，会返回审批定义 Code。</para>
+    /// <para>- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。</para>
     /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A85</para>
     /// </param>
     /// <param name="user_id_type">
@@ -37961,7 +38003,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="mail_contact_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>邮箱联系人 id</para>
+    /// <para>邮箱联系人 id，获取方式见 [列出邮箱联系人](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-mail_contact/list)</para>
     /// <para>示例值：123</para>
     /// </param>
     [HttpDelete("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/mail_contacts/{mail_contact_id}")]
@@ -37988,7 +38030,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="mail_contact_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>邮箱联系人 id</para>
+    /// <para>邮箱联系人 id，获取方式见 [列出邮箱联系人](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-mail_contact/list)</para>
     /// <para>示例值：123</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -38829,7 +38871,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="rule_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>规则 id</para>
+    /// <para>规则 id，获取方式见 [列出收信规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-rule/list)</para>
     /// <para>示例值：123123123</para>
     /// </param>
     [HttpDelete("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/rules/{rule_id}")]
@@ -38899,7 +38941,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="folder_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件夹 id</para>
+    /// <para>文件夹 id，id 获取方式见 [列出文邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
     /// <para>示例值：111111</para>
     /// </param>
     [HttpDelete("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/folders/{folder_id}")]
@@ -38963,7 +39005,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮件 id</para>
+    /// <para>用户邮件 id，获取方式见 [列出邮件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list)</para>
     /// <para>示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==</para>
     /// </param>
     [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/{message_id}")]
@@ -39034,7 +39076,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="folder_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件夹 id</para>
+    /// <para>文件夹 id，id 获取方式见 [列出文邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
     /// <para>示例值：111111</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -39074,7 +39116,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="folder_id">
     /// <para>必填：是</para>
-    /// <para>文件夹 id</para>
+    /// <para>文件夹 id， 获取方式见 [列出文邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
     /// <para>示例值：INBOX 或者用户文件夹 id</para>
     /// </param>
     /// <param name="only_unread">
@@ -39110,7 +39152,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="rule_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>规则 id</para>
+    /// <para>规则 id，获取方式见 [列出收信规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-rule/list)</para>
     /// <para>示例值：123123123</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -39187,7 +39229,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="query_language">
     /// <para>必填：否</para>
     /// <para>语言信息，中文用zh-CN，英文用en-US</para>
-    /// <para>- 传空默认为中文</para>
+    /// <para>- 传空默认都返回</para>
     /// <para>示例值：zh-CN</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -39888,7 +39930,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮件 id</para>
+    /// <para>用户邮件 id，获取方式见 [列出邮件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list)</para>
     /// <para>示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==</para>
     /// </param>
     /// <param name="attachment_ids">
@@ -40642,7 +40684,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPut("/open-apis/hire/v1/tripartite_agreements/{tripartite_agreement_id}")]
-    System.Threading.Tasks.Task<FeishuResponse<Hire.PutHireV1TripartiteAgreementsByTripartiteAgreementIdResponseDto>> PutHireV1TripartiteAgreementsByTripartiteAgreementIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse> PutHireV1TripartiteAgreementsByTripartiteAgreementIdAsync(
         [PathQuery] string tripartite_agreement_id,
         [JsonContent] Hire.PutHireV1TripartiteAgreementsByTripartiteAgreementIdBodyDto dto);
 
@@ -49135,5 +49177,297 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string end_date,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】更新默认成本中心</para>
+    /// <para>接口ID：7486406573931642883</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/default_cost_center/update_version</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新默认成本中心</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:default_cost_center:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>幂等标识，服务端会忽略client_token重复的请求</para>
+    /// <para>示例值：12454646</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/default_cost_centers/update_version")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2DefaultCostCentersUpdateVersionAsync(
+        [JsonContent] Corehr.PostCorehrV2DefaultCostCentersUpdateVersionBodyDto dto,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】删除默认成本中心</para>
+    /// <para>接口ID：7486406573931659267</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/default_cost_center/remove_version</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除默认成本中心</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:default_cost_center:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>幂等标识，服务端会忽略client_token重复的请求</para>
+    /// <para>示例值：12454646</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/default_cost_centers/remove_version")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2DefaultCostCentersRemoveVersionAsync(
+        [JsonContent] Corehr.PostCorehrV2DefaultCostCentersRemoveVersionBodyDto dto,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】添加默认成本中心</para>
+    /// <para>接口ID：7486406573931675651</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/default_cost_center/create_version</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>添加默认成本中心</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:default_cost_center:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>幂等标识，服务端会忽略client_token重复的请求</para>
+    /// <para>示例值：12454646</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/default_cost_centers/create_version")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2DefaultCostCentersCreateVersionResponseDto>> PostCorehrV2DefaultCostCentersCreateVersionAsync(
+        [JsonContent] Corehr.PostCorehrV2DefaultCostCentersCreateVersionBodyDto dto,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询默认成本中心</para>
+    /// <para>接口ID：7486406573931692035</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/default_cost_center/batch_query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询默认成本中心</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:default_cost_center:read</item>
+    /// <item>corehr:default_cost_center:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/default_cost_centers/batch_query")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2DefaultCostCentersBatchQueryResponseDto>> PostCorehrV2DefaultCostCentersBatchQueryAsync(
+        [JsonContent] Corehr.PostCorehrV2DefaultCostCentersBatchQueryBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】更新成本分摊</para>
+    /// <para>接口ID：7486406573931708419</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/cost_allocation/update_version</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新成本分摊</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:cost_allocation:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据client_token是否一致来判断是否为同一请求</para>
+    /// <para>示例值：1245464678</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/cost_allocations/update_version")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2CostAllocationsUpdateVersionAsync(
+        [JsonContent] Corehr.PostCorehrV2CostAllocationsUpdateVersionBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? client_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】删除成本分摊</para>
+    /// <para>接口ID：7486406573931724803</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/cost_allocation/remove_version</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除成本分摊</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:cost_allocation:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据client_token是否一致来判断是否为同一请求</para>
+    /// <para>示例值：1245464678</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/cost_allocations/remove_version")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2CostAllocationsRemoveVersionAsync(
+        [JsonContent] Corehr.PostCorehrV2CostAllocationsRemoveVersionBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? client_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】创建成本分摊</para>
+    /// <para>接口ID：7486406573931741187</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/cost_allocation/create_version</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>创建成本分摊</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:cost_allocation:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据client_token是否一致来判断是否为同一请求</para>
+    /// <para>示例值：12454646</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/cost_allocations/create_version")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CostAllocationsCreateVersionResponseDto>> PostCorehrV2CostAllocationsCreateVersionAsync(
+        [JsonContent] Corehr.PostCorehrV2CostAllocationsCreateVersionBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? client_token = null);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询成本分摊</para>
+    /// <para>接口ID：7486406573931757571</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/cost_allocation/batch_query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询成本分摊</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:cost_allocation:read</item>
+    /// <item>corehr:cost_allocation:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/cost_allocations/batch_query")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CostAllocationsBatchQueryResponseDto>> PostCorehrV2CostAllocationsBatchQueryAsync(
+        [JsonContent] Corehr.PostCorehrV2CostAllocationsBatchQueryBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
 }
 

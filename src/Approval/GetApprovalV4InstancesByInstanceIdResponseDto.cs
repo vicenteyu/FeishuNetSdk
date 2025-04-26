@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 获取单个审批实例详情 响应体
-/// <para>通过审批实例 Instance Code 获取审批实例详情。Instance Code 由 [批量获取审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list) 接口获取。</para>
+/// <para>通过审批实例 Code 获取指定审批实例的详细信息，包括审批实例的名称、创建时间、发起审批的用户、状态以及任务列表等信息。</para>
 /// <para>接口ID：7114621541589729283</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/instance/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2finstance%2fget</para>
@@ -30,7 +30,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     public string ApprovalName { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>审批创建时间</para>
+    /// <para>审批创建时间，毫秒级时间戳。</para>
     /// <para>必填：否</para>
     /// <para>示例值：1564590532967</para>
     /// </summary>
@@ -38,7 +38,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     public string? StartTime { get; set; }
 
     /// <summary>
-    /// <para>审批完成时间，未完成为 0</para>
+    /// <para>审批完成时间，毫秒级时间戳。审批未完成时该参数值为 0。</para>
     /// <para>必填：是</para>
     /// <para>示例值：1564590532967</para>
     /// </summary>
@@ -46,7 +46,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     public string EndTime { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>发起审批用户</para>
+    /// <para>发起审批的用户 user_id</para>
     /// <para>必填：是</para>
     /// <para>示例值：f3ta757q</para>
     /// </summary>
@@ -54,7 +54,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     public string UserId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>发起审批用户 open id</para>
+    /// <para>发起审批的用户 open_id</para>
     /// <para>必填：是</para>
     /// <para>示例值：ou_3cda9c969f737aaa05e6915dce306cb9</para>
     /// </summary>
@@ -70,7 +70,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     public string SerialNumber { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>发起审批用户所在部门</para>
+    /// <para>发起审批用户所在部门的 ID</para>
     /// <para>必填：是</para>
     /// <para>示例值：od-8ec33ffec336c3a39a278bc25e931676</para>
     /// </summary>
@@ -101,9 +101,9 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     public string Uuid { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>json 字符串，控件值详情见下方</para>
+    /// <para>审批表单控件 JSON 字符串，控件值详细说明参见本文下方 **控件值说明** 章节。</para>
     /// <para>必填：是</para>
-    /// <para>示例值：[{\"id\":\"widget1\",\"custom_id\":\"user_info\",\"name\":\"Itemapplication\",\"type\":\"textarea\"}]</para>
+    /// <para>示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item application\",\"type\": \"textarea\"}]</para>
     /// </summary>
     [JsonPropertyName("form")]
     public string Form { get; set; } = string.Empty;
@@ -121,7 +121,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     public record InstanceTask
     {
         /// <summary>
-        /// <para>task id</para>
+        /// <para>审批任务 ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：1234</para>
         /// </summary>
@@ -129,7 +129,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>审批人的用户 id，自动通过、自动拒绝 时为空</para>
+        /// <para>审批人的 user_id，自动通过、自动拒绝时该参数返回值为空。</para>
         /// <para>必填：是</para>
         /// <para>示例值：f7cb567e</para>
         /// </summary>
@@ -137,7 +137,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>审批人 open id</para>
+        /// <para>审批人的 open_id，自动通过、自动拒绝时该参数返回值为空。</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_123457</para>
         /// </summary>
@@ -145,7 +145,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string? OpenId { get; set; }
 
         /// <summary>
-        /// <para>任务状态</para>
+        /// <para>审批任务状态</para>
         /// <para>必填：是</para>
         /// <para>示例值：PENDING</para>
         /// <para>可选值：<list type="bullet">
@@ -160,7 +160,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string Status { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>task 所属节点 id</para>
+        /// <para>审批任务所属的审批节点 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：46e6d96cfa756980907209209ec03b64</para>
         /// </summary>
@@ -168,7 +168,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string? NodeId { get; set; }
 
         /// <summary>
-        /// <para>task 所属节点名称</para>
+        /// <para>审批任务所属的审批节点名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：开始</para>
         /// </summary>
@@ -176,7 +176,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string? NodeName { get; set; }
 
         /// <summary>
-        /// <para>task 所属节点自定义 id, 如果没设置自定义 id, 则不返回该字段</para>
+        /// <para>审批任务所属的审批节点的自定义 ID。如果没设置自定义 ID，则不返回该参数值。</para>
         /// <para>必填：否</para>
         /// <para>示例值：manager</para>
         /// </summary>
@@ -199,7 +199,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string? Type { get; set; }
 
         /// <summary>
-        /// <para>task 开始时间</para>
+        /// <para>审批任务的开始时间，毫秒级时间戳。</para>
         /// <para>必填：是</para>
         /// <para>示例值：1564590532967</para>
         /// </summary>
@@ -207,7 +207,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string StartTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>task 完成时间, 未完成为 0</para>
+        /// <para>审批任务的完成时间，毫秒级时间戳。未完成时返回 0。</para>
         /// <para>必填：否</para>
         /// <para>示例值：0</para>
         /// </summary>
@@ -228,7 +228,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     public record InstanceComment
     {
         /// <summary>
-        /// <para>评论 id</para>
+        /// <para>评论 ID</para>
         /// <para>必填：是</para>
         /// <para>示例值：1234</para>
         /// </summary>
@@ -236,7 +236,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发表评论用户</para>
+        /// <para>发表评论的用户 user_id</para>
         /// <para>必填：是</para>
         /// <para>示例值：f7cb567e</para>
         /// </summary>
@@ -244,7 +244,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string UserId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发表评论用户 open id</para>
+        /// <para>发表评论的用户 open_id</para>
         /// <para>必填：是</para>
         /// <para>示例值：ou_123456</para>
         /// </summary>
@@ -260,9 +260,9 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string Comment { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>1564590532967</para>
+        /// <para>评论时间，毫秒级时间戳。</para>
         /// <para>必填：是</para>
-        /// <para>示例值：评论时间</para>
+        /// <para>示例值：1564590532967</para>
         /// </summary>
         [JsonPropertyName("create_time")]
         public string CreateTime { get; set; } = string.Empty;
@@ -288,7 +288,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             public string? Url { get; set; }
 
             /// <summary>
-            /// <para>附件大小</para>
+            /// <para>附件大小。单位：字节</para>
             /// <para>必填：否</para>
             /// <para>示例值：186823</para>
             /// </summary>
@@ -305,6 +305,8 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
 
             /// <summary>
             /// <para>附件类别</para>
+            /// <para>- image：图片</para>
+            /// <para>- attachment：附件，与上传时选择的类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：image</para>
             /// </summary>
@@ -326,33 +328,33 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     public record InstanceTimeline
     {
         /// <summary>
-        /// <para>动态类型，不同类型 ext 内的 user_id_list 含义不一样</para>
+        /// <para>动态类型。不同的动态类型，对应 ext 返回值也不同，具体参考以下各枚举值描述。</para>
         /// <para>必填：是</para>
         /// <para>示例值：PASS</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>START：审批开始</item>
-        /// <item>PASS：通过</item>
-        /// <item>REJECT：拒绝</item>
-        /// <item>AUTO_PASS：自动通过</item>
-        /// <item>AUTO_REJECT：自动拒绝</item>
-        /// <item>REMOVE_REPEAT：去重</item>
-        /// <item>TRANSFER：转交</item>
-        /// <item>ADD_APPROVER_BEFORE：前加签</item>
-        /// <item>ADD_APPROVER：并加签</item>
-        /// <item>ADD_APPROVER_AFTER：后加签</item>
-        /// <item>DELETE_APPROVER：减签</item>
-        /// <item>ROLLBACK_SELECTED：指定回退</item>
-        /// <item>ROLLBACK：全部回退</item>
-        /// <item>CANCEL：撤回</item>
-        /// <item>DELETE：删除</item>
-        /// <item>CC：抄送</item>
+        /// <item>START：审批开始。对应的 ext 参数不会返回值。</item>
+        /// <item>PASS：通过。对应的 ext 参数不会返回值。</item>
+        /// <item>REJECT：拒绝。对应的 ext 参数不会返回值。</item>
+        /// <item>AUTO_PASS：自动通过。对应的 ext 参数不会返回值。</item>
+        /// <item>AUTO_REJECT：自动拒绝。对应的 ext 参数不会返回值。</item>
+        /// <item>REMOVE_REPEAT：去重。对应的 ext 参数不会返回值。</item>
+        /// <item>TRANSFER：转交。对应的 ext 参数返回的 user_id_list 包含被转交人的用户 ID。</item>
+        /// <item>ADD_APPROVER_BEFORE：前加签。对应的 ext 参数返回的 user_id_list 包含被加签人的用户 ID。</item>
+        /// <item>ADD_APPROVER：并加签。对应的 ext 参数返回的 user_id_list 包含被加签人的用户 ID。</item>
+        /// <item>ADD_APPROVER_AFTER：后加签。对应的 ext 参数返回的 user_id_list 包含被加签人的用户 ID。</item>
+        /// <item>DELETE_APPROVER：减签。对应的 ext 参数返回的 user_id_list 包含被加签人的用户 ID。</item>
+        /// <item>ROLLBACK_SELECTED：指定回退。对应的 ext 参数不会返回值。</item>
+        /// <item>ROLLBACK：全部回退。对应的 ext 参数不会返回值。</item>
+        /// <item>CANCEL：撤回。对应的 ext 参数不会返回值。</item>
+        /// <item>DELETE：删除。对应的 ext 参数不会返回值。</item>
+        /// <item>CC：抄送。对应的 ext 参数返回的 user_id 包含抄送人的用户 ID。</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>发生时间</para>
+        /// <para>发生时间，毫秒级时间戳。</para>
         /// <para>必填：是</para>
         /// <para>示例值：1564590532967</para>
         /// </summary>
@@ -360,7 +362,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string CreateTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>动态产生用户</para>
+        /// <para>产生该动态的用户 user_id</para>
         /// <para>必填：否</para>
         /// <para>示例值：f7cb567e</para>
         /// </summary>
@@ -368,7 +370,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string? UserId { get; set; }
 
         /// <summary>
-        /// <para>动态产生用户 open id</para>
+        /// <para>产生该动态的用户 open_id</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_123456</para>
         /// </summary>
@@ -376,21 +378,21 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string? OpenId { get; set; }
 
         /// <summary>
-        /// <para>被抄送人列表</para>
+        /// <para>被抄送人列表，列表内包含的是用户 user_id。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("user_id_list")]
         public string[]? UserIdList { get; set; }
 
         /// <summary>
-        /// <para>被抄送人列表</para>
+        /// <para>被抄送人列表，列表内包含的是用户 open_id。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("open_id_list")]
         public string[]? OpenIdList { get; set; }
 
         /// <summary>
-        /// <para>产生动态关联的task_id</para>
+        /// <para>产生动态关联的任务 ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：1234</para>
         /// </summary>
@@ -418,7 +420,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public record InstanceCcUser
         {
             /// <summary>
-            /// <para>抄送人 user id</para>
+            /// <para>抄送人的 user_id</para>
             /// <para>必填：否</para>
             /// <para>示例值：eea5gefe</para>
             /// </summary>
@@ -434,7 +436,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             public string? CcId { get; set; }
 
             /// <summary>
-            /// <para>抄送人 open id</para>
+            /// <para>抄送人的 open_id</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_12345</para>
             /// </summary>
@@ -443,7 +445,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         }
 
         /// <summary>
-        /// <para>动态其他信息，json格式，目前包括 user_id_list, user_id，open_id_list，open_id</para>
+        /// <para>其他信息，JSON 格式，目前包括 user_id_list, user_id，open_id_list，open_id</para>
         /// <para>必填：是</para>
         /// <para>示例值：{\"user_id\":\"62d4a44c\",\"open_id\":\"ou_123456\"}</para>
         /// </summary>
@@ -451,7 +453,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
         public string Ext { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>产生 task 的节点 key</para>
+        /// <para>产生审批任务的节点 key</para>
         /// <para>必填：否</para>
         /// <para>示例值：APPROVAL_240330_4058663</para>
         /// </summary>
@@ -479,7 +481,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
             public string? Url { get; set; }
 
             /// <summary>
-            /// <para>附件大小</para>
+            /// <para>附件大小。单位：字节</para>
             /// <para>必填：否</para>
             /// <para>示例值：186823</para>
             /// </summary>
@@ -496,6 +498,8 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
 
             /// <summary>
             /// <para>附件类别</para>
+            /// <para>- image：图片</para>
+            /// <para>- attachment：附件，与上传时选择的类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：image</para>
             /// </summary>
@@ -505,7 +509,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     }
 
     /// <summary>
-    /// <para>修改的原实例 code,仅在查询修改实例时显示该字段</para>
+    /// <para>修改的原实例 Code，仅在查询修改实例时显示该字段</para>
     /// <para>必填：否</para>
     /// <para>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71</para>
     /// </summary>
@@ -513,7 +517,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     public string? ModifiedInstanceCode { get; set; }
 
     /// <summary>
-    /// <para>撤销的原实例 code,仅在查询撤销实例时显示该字段</para>
+    /// <para>撤销的原实例 Code，仅在查询撤销实例时显示该字段</para>
     /// <para>必填：否</para>
     /// <para>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71</para>
     /// </summary>

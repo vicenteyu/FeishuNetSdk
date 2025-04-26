@@ -14,7 +14,6 @@
 namespace FeishuNetSdk.Mail.Events;
 /// <summary>
 /// 收信通知 事件体
-/// <para>收信通知{使用示例}(url=/api/tools/api_explore/api_explore_config?project=mail&amp;version=v1&amp;resource=user_mailbox.event&amp;event=message_received)</para>
 /// <para>接口ID：7275929163676041219</para>
 /// <para>文档地址：https://open.feishu.cn/document/mail-v1/user_mailbox-event/events/message_received</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fmail-v1%2fuser_mailbox-event%2fevents%2fmessage_received</para>

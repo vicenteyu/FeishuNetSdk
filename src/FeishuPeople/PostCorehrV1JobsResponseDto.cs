@@ -62,7 +62,7 @@ public record PostCorehrV1JobsResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>名称信息的语言</para>
+            /// <para>语言信息，中文用zh-CN，英文用en-US</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -149,14 +149,14 @@ public record PostCorehrV1JobsResponseDto
         public string? ExpirationTime { get; set; }
 
         /// <summary>
-        /// <para>自定义字段（该功能暂不支持，可忽略）</para>
+        /// <para>自定义字段，格式参考：[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)岗位、职务、自定义组织模块</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
 
         /// <summary>
-        /// <para>自定义字段（该功能暂不支持，可忽略）</para>
+        /// <para>自定义字段，格式参考：[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)岗位、职务、自定义组织模块</para>
         /// </summary>
         public record ObjectFieldData
         {

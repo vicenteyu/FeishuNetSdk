@@ -14,9 +14,12 @@
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 同步三方审批实例 响应体
-/// <para>审批中心不负责审批的流转，审批的流转在三方系统，三方系统在审批流转后生成的审批实例、审批任务、审批抄送数据同步到审批中心。</para>
-/// <para>用户可以在审批中心中浏览三方系统同步过来的实例、任务、抄送信息，并且可以跳转回三方系统进行更详细的查看和操作，其中实例信息在【已发起】列表，任务信息在【待审批】和【已审批】列表，抄送信息在【抄送我】列表。</para>
-/// <para>对于审批任务，三方系统也可以配置审批任务的回调接口，这样审批人可以在审批中心中直接进行审批操作，审批中心会回调三方系统，三方系统收到回调后更新任务信息，并将新的任务信息同步回审批中心，形成闭环。</para>
+/// <para>审批中心不负责审批的流转，审批的流转在三方系统。本接口用于把三方系统在审批流转后生成的审批实例、审批任务、审批抄送数据同步到审批中心。</para>
+/// <para>## 实现效果</para>
+/// <para>调用本接口同步三方审批实例后，企业员工可以在审批中心浏览同步过来的审批实例、任务、抄送信息，并可以跳转回三方系统查看和操作审批，其中，实例信息在审批中心的 **已发起** 列表、任务信息在 **待办** 和 **已办** 列表、抄送信息在 **抄送我** 列表。</para>
+/// <para>[创建三方审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create)时如果设置了三方审批回调 URL，对于审批任务，可以配置[三方快捷审批回调](https://open.feishu.cn/document/ukTMukTMukTM/ukjNyYjL5YjM24SO2IjN/quick-approval-callback)，这样审批人可以在审批中心直接进行审批操作，审批中心会将审批结果回调至三方系统，三方系统收到回调后更新任务信息，并将新的任务信息同步回审批中心，形成闭环。</para>
+/// <para>## 注意事项</para>
+/// <para>需确保审批实例内各类实体（实例、任务、抄送） ID 在审批实例内的唯一性，不属于同一实体之间的 ID 也要确保唯一性。如果实例 ID、任务 ID、抄送 ID 重复，则会导致在审批中心任务看不到对应的审批数据。</para>
 /// <para>接口ID：7114621541589811203</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/external_instance/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2fexternal_instance%2fcreate</para>
@@ -36,7 +39,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
     public record ExternalInstance
     {
         /// <summary>
-        /// <para>审批定义 code， 创建审批定义返回的值，表示该实例属于哪个流程；该字段会影响到列表中该实例的标题，标题取自对应定义的 name 字段</para>
+        /// <para>审批定义 Code</para>
         /// <para>必填：是</para>
         /// <para>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71</para>
         /// </summary>
@@ -53,7 +56,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         /// <item>REJECTED：审批流程结束，结果为拒绝</item>
         /// <item>CANCELED：审批发起人撤回</item>
         /// <item>DELETED：审批被删除</item>
-        /// <item>HIDDEN：状态隐藏(不显示状态)</item>
+        /// <item>HIDDEN：状态隐藏（不显示状态）</item>
         /// <item>TERMINATED：审批终止</item>
         /// </list></para>
         /// </summary>
@@ -61,7 +64,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string Status { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>审批实例扩展 JSON。单据编号通过传business_key字段来实现</para>
+        /// <para>审批实例扩展 JSON。单据编号通过传 business_key 字段来实现。</para>
         /// <para>必填：否</para>
         /// <para>示例值：{\"xxx\":\"xxx\",\"business_key\":\"xxx\"}</para>
         /// </summary>
@@ -69,7 +72,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string? Extra { get; set; }
 
         /// <summary>
-        /// <para>审批实例唯一标识，用户自定义，需确保证租户下唯一</para>
+        /// <para>审批实例唯一标识，与请求时传入的 instance_id 一致。</para>
         /// <para>必填：是</para>
         /// <para>示例值：24492654</para>
         /// </summary>
@@ -77,19 +80,19 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string InstanceId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>审批实例链接集合 ，用于【已发起】列表的跳转，跳转回三方系统； pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响</para>
+        /// <para>审批实例链接信息。设置的链接用于在审批中心 **已发起** 列表内点击跳转，跳回三方审批系统查看审批详情。</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("links")]
         public ExternalInstanceLink Links { get; set; } = new();
 
         /// <summary>
-        /// <para>审批实例链接集合 ，用于【已发起】列表的跳转，跳转回三方系统； pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响</para>
+        /// <para>审批实例链接信息。设置的链接用于在审批中心 **已发起** 列表内点击跳转，跳回三方审批系统查看审批详情。</para>
         /// </summary>
         public record ExternalInstanceLink
         {
             /// <summary>
-            /// <para>pc 端的跳转链接，当用户使用飞书 pc 端时，使用该字段进行跳转</para>
+            /// <para>PC 端的三方审批实例跳转链接。当用户使用飞书 PC 端查看实例详情时，通过该链接进行跳转。</para>
             /// <para>必填：是</para>
             /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&amp;appId=cli_9c90fc38e07a9101&amp;path=pc/pages/detail?id=1234</para>
             /// </summary>
@@ -97,7 +100,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string PcLink { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>移动端 跳转链接，当用户使用飞书 移动端时，使用该字段进行跳转</para>
+            /// <para>移动端的三方审批实例跳转链接。当用户使用飞书移动端查看实例详情时，通过该链接进行跳转。</para>
             /// <para>必填：否</para>
             /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&amp;path=pages/detail?id=1234</para>
             /// </summary>
@@ -106,7 +109,10 @@ public record PostApprovalV4ExternalInstancesResponseDto
         }
 
         /// <summary>
-        /// <para>审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称</para>
+        /// <para>审批展示名称。</para>
+        /// <para>**说明**：</para>
+        /// <para>- 如果请求时传入了 title 参数，则审批列表中的审批名称使用该参数值。如果请求时未传入 title 参数，则审批名称使用审批定义的名称。</para>
+        /// <para>- 这里返回的是 i18n_resources.texts 参数的 key，对应的取值需要参见返回的 i18n_resources.texts.value。</para>
         /// <para>必填：否</para>
         /// <para>示例值：@i18n@1</para>
         /// </summary>
@@ -114,7 +120,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string? Title { get; set; }
 
         /// <summary>
-        /// <para>用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，但审批中心pc展示前2个,移动端展示前3个,长度不超过2048字符</para>
+        /// <para>用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，最多展示前 3 个。</para>
         /// <para>必填：否</para>
         /// <para>示例值：[{ "name": "@i18n@2", "value": "@i18n@3" }]</para>
         /// </summary>
@@ -122,12 +128,12 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public ExternalInstanceForm[]? Forms { get; set; }
 
         /// <summary>
-        /// <para>用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，但审批中心pc展示前2个,移动端展示前3个,长度不超过2048字符</para>
+        /// <para>用户提交审批时填写的表单数据，用于所有审批列表中展示。可传多个值，最多展示前 3 个。</para>
         /// </summary>
         public record ExternalInstanceForm
         {
             /// <summary>
-            /// <para>表单字段名称</para>
+            /// <para>表单字段名称。这里返回的是 i18n_resources.texts 参数的 key，对应的取值需要参见返回的 i18n_resources.texts.value。</para>
             /// <para>必填：否</para>
             /// <para>示例值：@i18n@2</para>
             /// </summary>
@@ -135,7 +141,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? Name { get; set; }
 
             /// <summary>
-            /// <para>表单值</para>
+            /// <para>表单值。这里返回的是 i18n_resources.texts 参数的 key，对应的取值需要参见返回的 i18n_resources.texts.value。</para>
             /// <para>必填：否</para>
             /// <para>示例值：@i18n@3</para>
             /// </summary>
@@ -144,7 +150,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         }
 
         /// <summary>
-        /// <para>审批发起人 user_id，发起人可在【已发起】列表中看到所有已发起的审批; 在【待审批】，【已审批】【抄送我】列表中，该字段展示审批是谁发起的。审批发起人 open id。</para>
+        /// <para>审批发起人 user_id。发起人可在审批中心的 **已发起** 列表中看到所有已发起的审批。在 **待办**、**已办**、**抄送我** 列表中，该字段用来展示审批的发起人。</para>
         /// <para>必填：否</para>
         /// <para>示例值：a987sf9s</para>
         /// </summary>
@@ -152,7 +158,8 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string? UserId { get; set; }
 
         /// <summary>
-        /// <para>审批发起人 用户名，如果发起人不是真实的用户（例如是某个部门），没有 user_id，则可以使用该字段传名称</para>
+        /// <para>审批发起人的用户名。如果发起人不是真实的用户（例如是某个部门），没有 user_id，则可以使用该参数传入一个名称。</para>
+        /// <para>**说明**：这里返回的是 i18n_resources.texts 参数的 key，对应的取值需要参见返回的 i18n_resources.texts.value。</para>
         /// <para>必填：否</para>
         /// <para>示例值：@i18n@9</para>
         /// </summary>
@@ -160,7 +167,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string? UserName { get; set; }
 
         /// <summary>
-        /// <para>审批发起人 open id。</para>
+        /// <para>审批发起人 open_id。发起人可在审批中心的 **已发起** 列表中看到所有已发起的审批。在 **待办**、**已办**、**抄送我** 列表中，该字段用来展示审批的发起人。</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1</para>
         /// </summary>
@@ -168,7 +175,8 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string? OpenId { get; set; }
 
         /// <summary>
-        /// <para>发起人部门，用于列表中展示发起人所属部门。不传则不展示。如果用户没加入任何部门，传 ""，将展示租户名称传 department_name 展示部门名称</para>
+        /// <para>发起人的部门 ID，用于在审批中心列表中展示发起人的所属部门，不传值则不展示。</para>
+        /// <para>**说明**：如果用户没加入任何部门，请求时传 `""` 默认展示企业名称。如果请求时传入 department_name 参数，则展示对应的部门名称。</para>
         /// <para>必填：否</para>
         /// <para>示例值：od-8ec33278bc2</para>
         /// </summary>
@@ -176,7 +184,8 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string? DepartmentId { get; set; }
 
         /// <summary>
-        /// <para>审批发起人 部门，如果发起人不是真实的用户（例如是某个部门），没有 department_id，则可以使用该字段传名称</para>
+        /// <para>审批发起人的部门名称。如果发起人不是真实的用户或没有部门，则可以使用该参数传入部门名称。</para>
+        /// <para>**说明**：这里返回的是 i18n_resources.texts 参数的 key，对应的取值需要参见返回的 i18n_resources.texts.value。</para>
         /// <para>必填：否</para>
         /// <para>示例值：@i18n@10</para>
         /// </summary>
@@ -184,7 +193,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string? DepartmentName { get; set; }
 
         /// <summary>
-        /// <para>审批发起时间，Unix毫秒时间戳</para>
+        /// <para>审批发起时间，Unix 毫秒时间戳。</para>
         /// <para>必填：是</para>
         /// <para>示例值：1556468012678</para>
         /// </summary>
@@ -192,7 +201,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string StartTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>审批实例结束时间：未结束的审批为 0，Unix毫秒时间戳</para>
+        /// <para>审批实例结束时间。未结束的审批为 0，Unix 毫秒时间戳。</para>
         /// <para>必填：是</para>
         /// <para>示例值：1556468012678</para>
         /// </summary>
@@ -200,7 +209,8 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string EndTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>审批实例最近更新时间；用于推送数据版本控制如果 update_mode 值为 UPDATE，则只有传过来的 update_time 有变化时（变大），才会更新审批中心中的审批实例信息。使用该字段主要用来避免并发时老的数据更新了新的数据</para>
+        /// <para>审批实例最近更新时间，用于推送数据版本控制。如果 update_mode 值为 UPDATE，则仅当传过来的 update_time 有变化时（变大），才会更新审批中心中的审批实例信息。</para>
+        /// <para>**说明**：使用该参数主要用来避免并发时，旧数据更新了新数据。</para>
         /// <para>必填：是</para>
         /// <para>示例值：1556468012678</para>
         /// </summary>
@@ -222,11 +232,13 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string? DisplayMethod { get; set; }
 
         /// <summary>
-        /// <para>更新方式， 当 update_mode=REPLACE时，每次都以当前推送的数据为最终数据，会删掉审批中心中多余的任务、抄送数据（不在这次推送的数据中）; 当 update_mode=UPDATE时，则不会删除审批中心的数据，而只是进行新增和更新实例、任务数据</para>
+        /// <para>更新方式。</para>
+        /// <para>- 当 update_mode 取值为 REPLACE 时，每次都以当前推送的数据为最终数据，会删掉审批中心中，不在本次推送数据中的多余的任务、抄送数据。</para>
+        /// <para>- 当 update_mode 取值为 UPDATE 时，不会删除审批中心的数据，而只进行新增、更新实例与任务数据。</para>
         /// <para>必填：否</para>
         /// <para>示例值：UPDATE</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>REPLACE：全量替换，默认值</item>
+        /// <item>REPLACE：全量替换</item>
         /// <item>UPDATE：增量更新</item>
         /// </list></para>
         /// </summary>
@@ -247,7 +259,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public record ExternalInstanceTaskNode
         {
             /// <summary>
-            /// <para>审批实例内的唯一标识，用于更新审批任务时定位数据</para>
+            /// <para>审批实例内，审批任务的唯一标识，用于更新审批任务时定位数据。</para>
             /// <para>必填：是</para>
             /// <para>示例值：112534</para>
             /// </summary>
@@ -255,7 +267,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string TaskId { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>审批人 user_id。该任务会出现在审批人的【待审批】或【已审批】列表中</para>
+            /// <para>审批人 user_id，该任务会出现在审批人的飞书审批中心 **待办** 或 **已办** 的列表中。</para>
             /// <para>必填：否</para>
             /// <para>示例值：a987sf9s</para>
             /// </summary>
@@ -263,7 +275,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? UserId { get; set; }
 
             /// <summary>
-            /// <para>审批人 open_id</para>
+            /// <para>审批人 open_id，该任务会出现在审批人的飞书审批中心 **待办** 或 **已办** 的列表中。</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1</para>
             /// </summary>
@@ -271,7 +283,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? OpenId { get; set; }
 
             /// <summary>
-            /// <para>审批任务名称</para>
+            /// <para>审批任务名称。这里返回的是 i18n_resources.texts 参数的 key，对应的取值需要参见返回的 i18n_resources.texts.value。</para>
             /// <para>必填：否</para>
             /// <para>示例值：i18n1</para>
             /// </summary>
@@ -279,19 +291,19 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? Title { get; set; }
 
             /// <summary>
-            /// <para>【待审批】或【已审批】中使用的跳转链接，用于跳转回三方系统pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响</para>
+            /// <para>在审批中心 **待办**、**已办** 中使用的三方审批跳转链接，用于跳转回三方审批系统查看任务详情。</para>
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("links")]
             public ExternalInstanceLink Links { get; set; } = new();
 
             /// <summary>
-            /// <para>【待审批】或【已审批】中使用的跳转链接，用于跳转回三方系统pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响</para>
+            /// <para>在审批中心 **待办**、**已办** 中使用的三方审批跳转链接，用于跳转回三方审批系统查看任务详情。</para>
             /// </summary>
             public record ExternalInstanceLink
             {
                 /// <summary>
-                /// <para>pc 端的跳转链接，当用户使用飞书 pc 端时，使用该字段进行跳转</para>
+                /// <para>PC 端的跳转链接。当用户使用飞书 PC 端查看任务详情时，通过该链接进行跳转。</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&amp;appId=cli_9c90fc38e07a9101&amp;path=pc/pages/detail?id=1234</para>
                 /// </summary>
@@ -299,7 +311,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
                 public string PcLink { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>移动端 跳转链接，当用户使用飞书 移动端时，使用该字段进行跳转</para>
+                /// <para>移动端的跳转链接。当用户使用飞书移动端查看任务详情时，通过该链接进行跳转。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&amp;path=pages/detail?id=1234</para>
                 /// </summary>
@@ -316,23 +328,25 @@ public record PostApprovalV4ExternalInstancesResponseDto
             /// <item>APPROVED：任务同意</item>
             /// <item>REJECTED：任务拒绝</item>
             /// <item>TRANSFERRED：任务转交</item>
-            /// <item>DONE：任务通过但审批人未操作；审批人看不到这个任务, 若想要看到, 可以通过抄送该人.</item>
+            /// <item>DONE：任务通过但审批人未操作。审批人看不到该任务时，如需查看可抄送至该审批人。</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("status")]
             public string Status { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>扩展 json，任务结束原因需传complete_reason字段。枚举值与对应说明：</para>
+            /// <para>扩展字段。JSON 格式，传值时需要压缩转义为字符串。</para>
+            /// <para>任务结束原因需传 complete_reason 参数，枚举值说明：</para>
             /// <para>- approved：同意</para>
             /// <para>- rejected：拒绝</para>
-            /// <para>- node_auto_reject：（因逻辑判断产生的）自动拒绝</para>
+            /// <para>- node_auto_reject：因逻辑判断产生的自动拒绝</para>
             /// <para>- specific_rollback：退回（包括退回到发起人、退回到中间任一审批人）</para>
-            /// <para>- add：并加签（添加新审批人，和我一起审批）</para>
+            /// <para>- add：并加签（添加新审批人，与我一起审批）</para>
             /// <para>- add_pre：前加签（添加新审批人，在我之前审批）</para>
             /// <para>- add_post：后加签（添加新审批人，在我之后审批）</para>
             /// <para>- delete_assignee：减签</para>
-            /// <para>- forward_resign：转交（转给其他人审批）</para>
+            /// <para>- forward: 手动转交</para>
+            /// <para>- forward_resign：离职自动转交</para>
             /// <para>- recall：撤销（撤回单据，单据失效）</para>
             /// <para>- delete ：删除审批单</para>
             /// <para>- admin_forward：管理员在后台操作转交</para>
@@ -341,7 +355,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             /// <para>- manual_skip：手动跳过</para>
             /// <para>- submit_again：重新提交任务</para>
             /// <para>- restart：重新启动流程</para>
-            /// <para>- others：其他（作为兜底）</para>
+            /// <para>- others：其他</para>
             /// <para>必填：否</para>
             /// <para>示例值：{\"xxx\":\"xxx\",\"complete_reason\":\"approved\"}</para>
             /// </summary>
@@ -349,7 +363,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? Extra { get; set; }
 
             /// <summary>
-            /// <para>任务创建时间，Unix 毫秒时间戳</para>
+            /// <para>任务创建时间，Unix 毫秒时间戳。</para>
             /// <para>必填：是</para>
             /// <para>示例值：1556468012678</para>
             /// </summary>
@@ -357,7 +371,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string CreateTime { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>任务完成时间：未结束的审批为 0，Unix 毫秒时间戳</para>
+            /// <para>任务完成时间。未结束的审批为 0，Unix 毫秒时间戳。</para>
             /// <para>必填：是</para>
             /// <para>示例值：1556468012678</para>
             /// </summary>
@@ -365,7 +379,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string EndTime { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>task最近更新时间，用于推送数据版本控制； 更新策略同 instance 中的 update_time</para>
+            /// <para>任务最近更新时间，用于推送数据版本控制。如果 update_mode 值为 UPDATE，则仅当传过来的 update_time 有变化时（变大），才会更新审批中心中的审批任务信息。</para>
             /// <para>必填：否</para>
             /// <para>示例值：1556468012678</para>
             /// </summary>
@@ -373,7 +387,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? UpdateTime { get; set; }
 
             /// <summary>
-            /// <para>操作上下文，当用户操作时，回调请求中带上该参数，用于传递该任务的上下文数据</para>
+            /// <para>操作上下文。当用户操作审批时，回调请求中会包含该参数，用于传递该任务的上下文数据。</para>
             /// <para>必填：否</para>
             /// <para>示例值：123456</para>
             /// </summary>
@@ -381,32 +395,36 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? ActionContext { get; set; }
 
             /// <summary>
-            /// <para>任务级别操作配置,快捷审批目前支持移动端操作</para>
+            /// <para>任务级别的快捷审批操作配置。</para>
+            /// <para>**注意**：快捷审批目前仅支持在飞书移动端操作。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("action_configs")]
             public ActionConfig[]? ActionConfigs { get; set; }
 
             /// <summary>
-            /// <para>任务级别操作配置,快捷审批目前支持移动端操作</para>
+            /// <para>任务级别的快捷审批操作配置。</para>
+            /// <para>**注意**：快捷审批目前仅支持在飞书移动端操作。</para>
             /// </summary>
             public record ActionConfig
             {
                 /// <summary>
-                /// <para>操作类型，每个任务都可以配置2个操作，会展示审批列表中，当用户操作时，回调请求会带上该字段，表示用户进行了同意操作还是拒绝操作</para>
+                /// <para>操作类型。每个任务都可以配置两个操作（同意、拒绝或任意中的两个），操作会展示审批列表中。当用户操作时，回调请求会包含该字段，三方审批可接受到审批人的操作数据。</para>
+                /// <para>**可能值有**：</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：APPROVE</para>
                 /// <para>可选值：<list type="bullet">
                 /// <item>APPROVE：同意</item>
                 /// <item>REJECT：拒绝</item>
-                /// <item>{KEY}：任意字符串，如果使用任意字符串，则需要提供 action_name</item>
+                /// <item>{KEY}：任意字符串。如果使用任意字符串，则需要提供 action_name</item>
                 /// </list></para>
                 /// </summary>
                 [JsonPropertyName("action_type")]
                 public string ActionType { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>操作名称，i18n key 用于前台展示，如果 action_type 不是 APPROVAL和REJECT，则必须提供该字段，用于展示特定的操作名称</para>
+                /// <para>操作名称。如果 action_type 不等于 APPROVAL 或 REJECT，则必须提供该字段，用于展示特定的操作名称。</para>
+                /// <para>**说明**：这里返回的是 i18n_resources.texts 参数的 key，对应的取值需要参见返回的 i18n_resources.texts.value。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：@i18n@5</para>
                 /// </summary>
@@ -414,7 +432,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
                 public string? ActionName { get; set; }
 
                 /// <summary>
-                /// <para>是否需要意见, 如果为true,则用户操作时，会跳转到 意见填写页面</para>
+                /// <para>是否需要审批意见。取值为 true 时，审批人在审批中心操作任务后，还需要跳转填写审批意见。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
@@ -453,9 +471,9 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? DisplayMethod { get; set; }
 
             /// <summary>
-            /// <para>三方任务支持不纳入效率统计。</para>
-            /// <para>false：纳入效率统计。</para>
-            /// <para>true：不纳入效率统计</para>
+            /// <para>三方审批任务是否不纳入效率统计。可能值有：</para>
+            /// <para>- true：不纳入效率统计</para>
+            /// <para>- false：纳入效率统计</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// <para>默认值：false</para>
@@ -464,9 +482,9 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public bool? ExcludeStatistics { get; set; }
 
             /// <summary>
-            /// <para>节点id：必须同时满足</para>
-            /// <para>- 一个流程内，每个节点id唯一。如一个流程下「直属上级」、「隔级上级」等每个节点的Node_id均不一样</para>
-            /// <para>- 同一个流程定义内，不同审批实例中的相同节点，Node_id要保持不变。例如张三和李四分别发起了请假申请，这2个审批实例中的「直属上级」节点的node_id应该保持一致</para>
+            /// <para>审批节点 ID。必须同时满足：</para>
+            /// <para>- 一个审批流程内，每个节点 ID 唯一。例如，一个流程下直属上级、隔级上级等节点的 node_id 均不一样。</para>
+            /// <para>- 同一个三方审批定义内，不同审批实例中的相同节点，node_id 要保持不变。例如，用户 A 和用户 B 分别发起了请假申请，这两个审批实例中的直属上级节点的 node_id 应该保持一致。</para>
             /// <para>必填：否</para>
             /// <para>示例值：node</para>
             /// </summary>
@@ -474,7 +492,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? NodeId { get; set; }
 
             /// <summary>
-            /// <para>节点名称，如「财务审批」「法务审批」，支持中英日三种语言。示例：i18n@name。需要在i18n_resources中传该名称对应的国际化文案</para>
+            /// <para>节点名称，这里返回的是 i18n_resources.texts 参数的 key，对应的取值需要参见返回的 i18n_resources.texts.value。</para>
             /// <para>必填：否</para>
             /// <para>示例值：i18n@name</para>
             /// </summary>
@@ -496,7 +514,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public record CcNode
         {
             /// <summary>
-            /// <para>审批实例内唯一标识</para>
+            /// <para>审批实例内抄送唯一标识</para>
             /// <para>必填：是</para>
             /// <para>示例值：123456</para>
             /// </summary>
@@ -504,7 +522,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string CcId { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>抄送人 employee id</para>
+            /// <para>抄送人的 user_id</para>
             /// <para>必填：否</para>
             /// <para>示例值：12345</para>
             /// </summary>
@@ -512,7 +530,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? UserId { get; set; }
 
             /// <summary>
-            /// <para>抄送人 open id</para>
+            /// <para>抄送人的 open_id</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_be73cbc0ee35eb6ca54e9e7cc14998c1</para>
             /// </summary>
@@ -520,19 +538,19 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? OpenId { get; set; }
 
             /// <summary>
-            /// <para>跳转链接，用于【抄送我的】列表中的跳转pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响</para>
+            /// <para>审批抄送跳转链接。设置的链接用于在审批中心 **抄送我** 列表内点击跳转，跳回三方审批系统查看审批抄送详情。</para>
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("links")]
             public ExternalInstanceLink Links { get; set; } = new();
 
             /// <summary>
-            /// <para>跳转链接，用于【抄送我的】列表中的跳转pc_link 和 mobile_link 必须填一个，填写的是哪一端的链接，即会跳转到该链接，不受平台影响</para>
+            /// <para>审批抄送跳转链接。设置的链接用于在审批中心 **抄送我** 列表内点击跳转，跳回三方审批系统查看审批抄送详情。</para>
             /// </summary>
             public record ExternalInstanceLink
             {
                 /// <summary>
-                /// <para>pc 端的跳转链接，当用户使用飞书 pc 端时，使用该字段进行跳转</para>
+                /// <para>PC 端的三方审批实例跳转链接。当用户使用飞书 PC 端查看审批抄送时，通过该字段进行跳转。</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&amp;appId=cli_9c90fc38e07a9101&amp;path=pc/pages/detail?id=1234</para>
                 /// </summary>
@@ -540,7 +558,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
                 public string PcLink { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>移动端 跳转链接，当用户使用飞书 移动端时，使用该字段进行跳转</para>
+                /// <para>移动端的三方审批实例跳转链接。当用户使用飞书移动端查看审批抄送时，通过该字段进行跳转。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&amp;path=pages/detail?id=1234</para>
                 /// </summary>
@@ -549,7 +567,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             }
 
             /// <summary>
-            /// <para>阅读状态，空值表示不支持已读未读：</para>
+            /// <para>抄送人的阅读状态，空值表示不支持已读未读。</para>
             /// <para>必填：是</para>
             /// <para>示例值：READ</para>
             /// <para>可选值：<list type="bullet">
@@ -561,7 +579,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string ReadStatus { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>扩展 json</para>
+            /// <para>扩展字段 JSON</para>
             /// <para>必填：否</para>
             /// <para>示例值：{\"xxx\":\"xxx\"}</para>
             /// </summary>
@@ -577,7 +595,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? Title { get; set; }
 
             /// <summary>
-            /// <para>抄送发起时间，Unix 毫秒时间戳</para>
+            /// <para>抄送发起时间，Unix 毫秒时间戳。</para>
             /// <para>必填：是</para>
             /// <para>示例值：1556468012678</para>
             /// </summary>
@@ -585,7 +603,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string CreateTime { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>抄送最近更新时间，用于推送数据版本控制更新策略同 instance 的update_time</para>
+            /// <para>抄送最近更新时间，用于推送数据版本。如果 update_mode 值为 UPDATE，则仅当传过来的 update_time 有变化时（变大），才会更新审批中心中的审批实例信息。</para>
             /// <para>必填：是</para>
             /// <para>示例值：1556468012678</para>
             /// </summary>
@@ -620,7 +638,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public record I18nResource
         {
             /// <summary>
-            /// <para>语言可选值有： zh-CN：中文 en-US：英文 ja-JP：日文</para>
+            /// <para>语言</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// <para>可选值：<list type="bullet">
@@ -633,7 +651,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string Locale { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>文案 key, value, i18n key 以 @i18n@ 开头； 该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语音环境使用对应的文案，如果没有传用户当前的语音环境文案，则会使用默认的语言文案。</para>
+            /// <para>文案的 Key:Value。Key 需要以 @i18n@ 开头，并按照各个参数的要求传入 Value。该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语音环境使用对应的文案，如果没有传用户当前的语音环境文案，则会使用默认的语言文案。</para>
             /// <para>必填：是</para>
             /// <para>示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }</para>
             /// </summary>
@@ -641,12 +659,12 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public I18nResourceText[] Texts { get; set; } = Array.Empty<I18nResourceText>();
 
             /// <summary>
-            /// <para>文案 key, value, i18n key 以 @i18n@ 开头； 该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语音环境使用对应的文案，如果没有传用户当前的语音环境文案，则会使用默认的语言文案。</para>
+            /// <para>文案的 Key:Value。Key 需要以 @i18n@ 开头，并按照各个参数的要求传入 Value。该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语音环境使用对应的文案，如果没有传用户当前的语音环境文案，则会使用默认的语言文案。</para>
             /// </summary>
             public record I18nResourceText
             {
                 /// <summary>
-                /// <para>文案key</para>
+                /// <para>文案 Key，和各个参数 Key 相匹配。</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：@i18n@1</para>
                 /// </summary>
@@ -654,7 +672,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
                 public string Key { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>文案</para>
+                /// <para>文案 Value，即文案 Key 对应的参数值。</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：people</para>
                 /// </summary>
@@ -663,7 +681,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             }
 
             /// <summary>
-            /// <para>是否默认语言，默认语言需要包含所有key，非默认语言如果key不存在会使用默认语言代替</para>
+            /// <para>是否为默认语言。默认语言需要包含所有所需的文案 Key，非默认语言如果 Key 不存在，则会使用默认语言代替。</para>
             /// <para>必填：是</para>
             /// <para>示例值：true</para>
             /// </summary>
@@ -672,7 +690,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         }
 
         /// <summary>
-        /// <para>单据托管认证token，托管回调会附带此token，帮助业务方认证</para>
+        /// <para>单据托管认证 token，托管回调会附带此 token，帮助业务认证。</para>
         /// <para>必填：否</para>
         /// <para>示例值：788981c886b1c28ac29d1e68efd60683d6d90dfce80938ee9453e2a5f3e9e306</para>
         /// </summary>
@@ -680,7 +698,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string? TrusteeshipUrlToken { get; set; }
 
         /// <summary>
-        /// <para>用户的类型，会影响请求参数用户标识域的选择，包括加签操作回传的目标用户， 目前仅支持 "user_id"</para>
+        /// <para>用户的类型，会影响请求参数用户标识域的选择，包括加签操作回传的目标用户， 目前仅支持 user_id。</para>
         /// <para>必填：否</para>
         /// <para>示例值：user_id</para>
         /// </summary>
@@ -688,19 +706,19 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string? TrusteeshipUserIdType { get; set; }
 
         /// <summary>
-        /// <para>单据托管回调接入方的接口的URL地址</para>
+        /// <para>单据托管回调接入方的接口 URL 地址</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("trusteeship_urls")]
         public ExternalInstanceTrusteeshipUrls? TrusteeshipUrls { get; set; }
 
         /// <summary>
-        /// <para>单据托管回调接入方的接口的URL地址</para>
+        /// <para>单据托管回调接入方的接口 URL 地址</para>
         /// </summary>
         public record ExternalInstanceTrusteeshipUrls
         {
             /// <summary>
-            /// <para>获取表单schema相关数据的url地址</para>
+            /// <para>获取表单 schema 相关数据的 URL 地址</para>
             /// <para>必填：否</para>
             /// <para>示例值：https://#{your_domain}/api/form_detail</para>
             /// </summary>
@@ -708,7 +726,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? FormDetailUrl { get; set; }
 
             /// <summary>
-            /// <para>表示获取审批操作区数据的url地址</para>
+            /// <para>表示获取审批操作区数据的 URL 地址</para>
             /// <para>必填：否</para>
             /// <para>示例值：https://#{your_domain}/api/action_definition</para>
             /// </summary>
@@ -716,7 +734,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? ActionDefinitionUrl { get; set; }
 
             /// <summary>
-            /// <para>获取审批记录相关数据的url地址</para>
+            /// <para>获取审批记录相关数据的 URL 地址</para>
             /// <para>必填：否</para>
             /// <para>示例值：https://#{your_domain}/api/approval_node</para>
             /// </summary>
@@ -724,7 +742,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? ApprovalNodeUrl { get; set; }
 
             /// <summary>
-            /// <para>进行审批操作时回调的url地址</para>
+            /// <para>进行审批操作时回调的 URL 地址</para>
             /// <para>必填：否</para>
             /// <para>示例值：https://#{your_domain}/api/action_callback</para>
             /// </summary>
@@ -732,7 +750,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string? ActionCallbackUrl { get; set; }
 
             /// <summary>
-            /// <para>获取托管动态数据url 地址，使用该接口时必须要保证历史托管单据的数据中都同步了该接口地址，如果历史单据中没有该接口需要重新同步历史托管单据的数据来更新该URL。该接口用于飞书审批前端和业务线进行交互使用,只有使用审批前端的特定组件(由飞书审批前端提供的组件，并且需要和业务线进行接口交互的组件)才会需要</para>
+            /// <para>获取托管动态数据 URL 地址。使用该接口时，必须要保证历史托管单据的数据中都同步了该接口地址。如果历史单据中没有该接口，需要重新同步历史托管单据的数据来更新该 URL。该接口用于飞书审批前端和业务进行交互使用，只有使用审批前端的特定组件（由飞书审批前端提供的组件，并且需要和业务进行接口交互的组件）才会需要。</para>
             /// <para>必填：否</para>
             /// <para>示例值：https://#{your_domain}/api/pull_business_data</para>
             /// </summary>
@@ -775,7 +793,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public bool? FormVaryWithLocale { get; set; }
 
             /// <summary>
-            /// <para>当前使用的表单版本号，保证表单改变后，版本号增加，实际值为int64整数</para>
+            /// <para>当前使用的表单版本号，保证表单改变后，版本号增加，实际值为 int64 整数。</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>

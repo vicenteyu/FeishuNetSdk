@@ -32,7 +32,7 @@ public record PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderIdBodyDto
     public string? Name { get; set; }
 
     /// <summary>
-    /// <para>父文件夹 id，该值为 0 表示根文件夹</para>
+    /// <para>父文件夹 id，该值为 0 表示根文件夹，id 获取方式见 [列出文邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
     /// <para>必填：否</para>
     /// <para>示例值：725627422334644</para>
     /// </summary>

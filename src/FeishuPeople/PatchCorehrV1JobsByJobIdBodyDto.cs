@@ -22,9 +22,7 @@ namespace FeishuNetSdk.FeishuPeople;
 public record PatchCorehrV1JobsByJobIdBodyDto
 {
     /// <summary>
-    /// <para>职务编码 (不能与其他记录的编码重复)</para>
-    /// <para>- 开启自动编码时，如果不传值会自动生成编码，否则以传入值为准</para>
-    /// <para>- 未开启自动编码时，不传值不会自动生成编码</para>
+    /// <para>职务编码 (不能与其他记录的编码重复)，当开启自动编码时，该字段会失效</para>
     /// <para>必填：否</para>
     /// <para>示例值：JP422119</para>
     /// </summary>
@@ -34,7 +32,7 @@ public record PatchCorehrV1JobsByJobIdBodyDto
     /// <summary>
     /// <para>职务名称</para>
     /// <para>- 名称不能包含「/」「；」「;」字符</para>
-    /// <para>- xx中英文名称会有全局唯一校验</para>
+    /// <para>- xx中英文名称会有全局唯一校验（已停用职务也会校验）</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("name")]
@@ -43,7 +41,7 @@ public record PatchCorehrV1JobsByJobIdBodyDto
     /// <summary>
     /// <para>职务名称</para>
     /// <para>- 名称不能包含「/」「；」「;」字符</para>
-    /// <para>- xx中英文名称会有全局唯一校验</para>
+    /// <para>- xx中英文名称会有全局唯一校验（已停用职务也会校验）</para>
     /// </summary>
     public record I18n
     {
@@ -137,14 +135,14 @@ public record PatchCorehrV1JobsByJobIdBodyDto
     public string? ExpirationTime { get; set; }
 
     /// <summary>
-    /// <para>自定义字段（暂不支持该功能，可忽略）</para>
+    /// <para>自定义字段，格式参考：[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)岗位、职务、自定义组织模块</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("custom_fields")]
     public ObjectFieldData[]? CustomFields { get; set; }
 
     /// <summary>
-    /// <para>自定义字段（暂不支持该功能，可忽略）</para>
+    /// <para>自定义字段，格式参考：[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)岗位、职务、自定义组织模块</para>
     /// </summary>
     public record ObjectFieldData
     {

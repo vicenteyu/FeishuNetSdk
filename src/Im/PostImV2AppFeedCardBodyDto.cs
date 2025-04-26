@@ -259,9 +259,7 @@ public record PostImV2AppFeedCardBodyDto
         {
             /// <summary>
             /// <para>链接</para>
-            /// <para>**注意**：</para>
-            /// <para>- 仅支持 HTTPS 协议</para>
-            /// <para>- 暂不支持 Applink</para>
+            /// <para>**注意**：仅支持 HTTPS 协议，以及网页应用或小程序的 Applink（会校验 appid 是否正确）。</para>
             /// <para>必填：否</para>
             /// <para>示例值：https://www.feishu.cn/</para>
             /// <para>最大长度：700</para>

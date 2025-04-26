@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 查看指定审批定义 响应体
-/// <para>根据 Approval Code 获取某个审批定义的详情，用于构造创建审批实例的请求。</para>
+/// <para>根据审批定义 Code 以及语言、用户 ID 等筛选条件获取指定审批定义的信息，包括审批定义名称、状态、表单控件以及节点等信息。获取审批定义信息后，可根据信息构造[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)的请求。</para>
 /// <para>接口ID：7114621541589860355</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/approval/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2fapproval%2fget</para>
@@ -44,7 +44,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
     public string Status { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>控件信息，见下方form字段说明</para>
+    /// <para>控件参数信息，见下方 **form 字段说明** 章节。</para>
     /// <para>必填：是</para>
     /// <para>示例值：[{\"id\": \"widget1\", \"custom_id\": \"user_name\",\"name\": \"Item application\",\"type\": \"textarea\",\"printable\": true,\"required\": true}]</para>
     /// </summary>
@@ -72,7 +72,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>是否发起人自选节点 true - 发起审批时需要提交审批人</para>
+        /// <para>是否为发起人自选节点。取值为 true 表示发起审批时需要提交人自选审批人。</para>
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -110,7 +110,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         public string NodeType { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>是否支持多选：true-支持，发起、结束节点该值无意义</para>
+        /// <para>选择方式是否支持多选。流程的开始、结束节点该值无意义。</para>
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -118,19 +118,19 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         public bool ApproverChosenMulti { get; set; }
 
         /// <summary>
-        /// <para>自选范围</para>
+        /// <para>提交人自选审批人的范围</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("approver_chosen_range")]
         public ApproverChosenRange[]? ApproverChosenRanges { get; set; }
 
         /// <summary>
-        /// <para>自选范围</para>
+        /// <para>提交人自选审批人的范围</para>
         /// </summary>
         public record ApproverChosenRange
         {
             /// <summary>
-            /// <para>指定范围：0-all，1-指定角色，2-指定人员</para>
+            /// <para>指定范围</para>
             /// <para>必填：否</para>
             /// <para>示例值：2</para>
             /// <para>可选值：<list type="bullet">
@@ -143,7 +143,10 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
             public int? ApproverRangeType { get; set; }
 
             /// <summary>
-            /// <para>根据上面的type，分别存放角色id与人员open_id，type为0时本字段为空列表</para>
+            /// <para>资源 ID。</para>
+            /// <para>- approver_range_type 取值为 0 时，该参数为空。</para>
+            /// <para>- approver_range_type 取值为 1 时，该参数取值为角色 ID。</para>
+            /// <para>- approver_range_type 取值为 2 时，该参数取值为用户 open_id。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("approver_range_ids")]
@@ -151,7 +154,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         }
 
         /// <summary>
-        /// <para>是否签名</para>
+        /// <para>审批同意时是否需要手写签名。</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
@@ -160,14 +163,14 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
     }
 
     /// <summary>
-    /// <para>可见人列表</para>
+    /// <para>审批定义的可见人列表</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("viewers")]
     public ApprovalViewerInfo[] Viewers { get; set; } = Array.Empty<ApprovalViewerInfo>();
 
     /// <summary>
-    /// <para>可见人列表</para>
+    /// <para>审批定义的可见人列表</para>
     /// </summary>
     public record ApprovalViewerInfo
     {
@@ -176,7 +179,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：TENANT</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>TENANT：租户内可见</item>
+        /// <item>TENANT：企业内可见</item>
         /// <item>DEPARTMENT：指定部门</item>
         /// <item>USER：指定用户</item>
         /// <item>ROLE：指定角色</item>
@@ -188,7 +191,11 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>在可见人类型为DEPARTMENT时，id为部门的id ；在可见人类型为USER时，id为用户的id ；在可见人类型为ROLE时，id为角色的id ；在可见人类型为USER_GROUP时，id为用户组的id</para>
+        /// <para>资源 ID。</para>
+        /// <para>- 在可见人类型为 DEPARTMENT 时，ID 为部门 ID。</para>
+        /// <para>- 在可见人类型为 USER 时，ID 为用户 open_id。</para>
+        /// <para>- 在可见人类型为 ROLE 时，ID 为角色 ID。</para>
+        /// <para>- 在可见人类型为 USER_GROUP 时，ID 为用户组 ID。</para>
         /// <para>必填：否</para>
         /// <para>示例值：ou_e03053f0541cecc3269d7a9dc34a0b21</para>
         /// </summary>
@@ -196,7 +203,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>在可见人类型为USER时，表示可见人用户id</para>
+        /// <para>在可见人类型为 USER 时，表示可见人用户 open_id。</para>
         /// <para>必填：否</para>
         /// <para>示例值：f7cb567e</para>
         /// </summary>
@@ -205,7 +212,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
     }
 
     /// <summary>
-    /// <para>有数据管理权限的审批流程管理员ID，由参数“with_admin_id”控制是否返回</para>
+    /// <para>有数据管理权限的审批流程管理员的 open_id，由参数 with_admin_id 控制是否返回。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("approval_admin_ids")]

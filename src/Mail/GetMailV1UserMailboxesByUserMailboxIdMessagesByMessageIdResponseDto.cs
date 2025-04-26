@@ -110,7 +110,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDt
         /// <summary>
         /// <para>邮件状态</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1（收信）2（发信）3（草稿）</para>
+        /// <para>示例值：1</para>
         /// </summary>
         [JsonPropertyName("message_state")]
         public int? MessageState { get; set; }

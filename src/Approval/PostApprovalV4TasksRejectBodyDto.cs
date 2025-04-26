@@ -4,22 +4,22 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-04-27
 // ************************************************************************
-// <copyright file="PostApprovalV4TasksApproveBodyDto.cs" company="Vicente Yu">
+// <copyright file="PostApprovalV4TasksRejectBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>同意审批任务 请求体</summary>
+// <summary>拒绝审批任务 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Approval;
 /// <summary>
-/// 同意审批任务 请求体
-/// <para>对于单个审批任务进行同意操作。同意后审批流程会流转到下一个审批人。</para>
-/// <para>接口ID：7114621541589893123</para>
-/// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/task/approve</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2ftask%2fapprove</para>
+/// 拒绝审批任务 请求体
+/// <para>对于单个审批任务进行拒绝操作。拒绝后审批流程结束。</para>
+/// <para>接口ID：7114621541589762051</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/task/reject</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2ftask%2freject</para>
 /// </summary>
-public record PostApprovalV4TasksApproveBodyDto
+public record PostApprovalV4TasksRejectBodyDto
 {
     /// <summary>
     /// <para>审批定义 Code。获取方式：</para>
@@ -70,7 +70,7 @@ public record PostApprovalV4TasksApproveBodyDto
     /// <para>如果审批定义的流程设计中添加了条件分支，则需要传入条件分支所需的控件数据（JSON 数组），否则会影响后续的分支条件流转。</para>
     /// <para>**说明**：传值时需要将 JSON 序列化为字符串。参数示例值未进行转义，正确的传值示例可参见下文 **请求体示例**。</para>
     /// <para>必填：否</para>
-    /// <para>示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]</para>
+    /// <para>示例值：[{\"id\":\"user_name\", \"type\": \"input\", \"value\":\"test\"}]</para>
     /// </summary>
     [JsonPropertyName("form")]
     public string? Form { get; set; }

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 创建审批实例 响应体
-/// <para>创建一个审批实例，调用方需对审批定义的表单有详细了解，将按照定义的表单结构，将表单 Value 通过接口传入。</para>
+/// <para>调用本接口使用指定审批定义 Code 创建一个审批实例，接口调用者需对审批定义的表单有详细了解，按照定义的表单结构，将表单 Value 通过本接口传入。</para>
 /// <para>接口ID：7114621541589827587</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/instance/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2finstance%2fcreate</para>

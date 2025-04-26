@@ -3831,8 +3831,12 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="anchor_time">
     /// <para>必填：否</para>
-    /// <para>时间锚点，Unix 时间戳（秒）。anchor_time用于设置一个时间点，以便直接拉取该时间点之后的日程数据，从而避免拉取全量日程数据。你可以使用page_token或sync_token进行分页或增量拉取anchor_time之后的所有日程数据。</para>
-    /// <para>**注意**：该参数不可与start_time和end_time一起使用。</para>
+    /// <para>时间锚点，Unix 时间戳（秒）。anchor_time 用于设置一个时间点，以便直接拉取该时间点之后的日程数据，从而避免拉取全量日程数据。可使用 page_token 或 sync_token 进行分页或增量拉取 anchor_time 之后的所有日程数据。</para>
+    /// <para>**使用说明**：</para>
+    /// <para>- 对于单次日程，会获取到 **日程结束时间 &gt;= anchor_time** 的日程信息。</para>
+    /// <para>- 对于重复性日程，目前设置 anchor_time 后均会获取到，包括在 anchor_time 之前的已结束的历史重复性日程。</para>
+    /// <para>- 对于例外日程，会获取到 **original_time &gt;= anchor_time** 以及 **日程结束时间 &gt;= anchor_time** 的日程信息，其中 original_time 从例外日程 ID 中获取，ID 结构为 `{uid}_{original_time}`。</para>
+    /// <para>**注意**：该参数不可与 start_time 和 end_time 一起使用。</para>
     /// <para>**默认值**：空</para>
     /// <para>示例值：1609430400</para>
     /// <para>默认值：null</para>
@@ -17509,7 +17513,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="mail_contact_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>邮箱联系人 id</para>
+    /// <para>邮箱联系人 id，获取方式见 [列出邮箱联系人](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-mail_contact/list)</para>
     /// <para>示例值：123</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -17538,7 +17542,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="mail_contact_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>邮箱联系人 id</para>
+    /// <para>邮箱联系人 id，获取方式见 [列出邮箱联系人](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-mail_contact/list)</para>
     /// <para>示例值：123</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -18136,7 +18140,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="rule_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>规则 id</para>
+    /// <para>规则 id，获取方式见 [列出收信规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-rule/list)</para>
     /// <para>示例值：123123123</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -18212,7 +18216,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="folder_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件夹 id</para>
+    /// <para>文件夹 id，id 获取方式见 [列出文邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
     /// <para>示例值：111111</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -18280,7 +18284,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮件 id</para>
+    /// <para>用户邮件 id，获取方式见 [列出邮件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list)</para>
     /// <para>示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -18381,7 +18385,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="folder_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件夹 id</para>
+    /// <para>文件夹 id，id 获取方式见 [列出文邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
     /// <para>示例值：111111</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -18423,7 +18427,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="folder_id">
     /// <para>必填：是</para>
-    /// <para>文件夹 id</para>
+    /// <para>文件夹 id， 获取方式见 [列出文邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
     /// <para>示例值：INBOX 或者用户文件夹 id</para>
     /// </param>
     /// <param name="only_unread">
@@ -18507,7 +18511,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="rule_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>规则 id</para>
+    /// <para>规则 id，获取方式见 [列出收信规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-rule/list)</para>
     /// <para>示例值：123123123</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -18925,7 +18929,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="message_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮件 id</para>
+    /// <para>用户邮件 id，获取方式见 [列出邮件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list)</para>
     /// <para>示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==</para>
     /// </param>
     /// <param name="attachment_ids">
